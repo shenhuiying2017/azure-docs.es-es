@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: cf5cd03bd9147ac81b07dc453a919a3c74de44fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Actualización y escalado de una instancia de API Management 
 
@@ -23,10 +23,10 @@ Los clientes pueden escalar una instancia de API Management (APIM) agregando o q
 
 La capacidad y el precio de cada unidad varían en función del **nivel** en que se encuentra la unidad. Puede elegir entre tres niveles: **Desarrollador**, **Estándar**, **Premium**. Si necesita más capacidad para un servicio de un nivel, debe agregar una unidad. Si el nivel que está seleccionado actualmente en la instancia de APIM no permite agregar más unidades, deberá actualizar a un nivel superior. 
 
-El precio de cada unidad, la capacidad para agregar y quitar unidades, la presencia o ausencia de ciertas características (por ejemplo, las implementaciones para varias regiones) dependen del nivel elegido para la instancia de APIM. En este artículo sobre los [precios](https://azure.microsoft.com/pricing/details/api-management/), se explica en detalle el precio de cada unidad y las características disponibles en cada nivel. 
+El precio de cada unidad, la capacidad para agregar y quitar unidades, la presencia o ausencia de ciertas características (por ejemplo, las implementaciones para varias regiones) dependen del nivel elegido para la instancia de APIM. En este artículo sobre los [precios](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), se explica en detalle el precio de cada unidad y las características disponibles en cada nivel. 
 
 >[!NOTE]
->En este artículo sobre los [precios](https://azure.microsoft.com/pricing/details/api-management/), se indica el número aproximado de unidades que puede tener cada nivel. Para obtener unos datos más exactos, deberá consultar un escenario que se ajuste a la realidad de sus API. Consulte a continuación la sección "Planeación de la capacidad".
+>En este artículo sobre los [precios](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), se indica el número aproximado de unidades que puede tener cada nivel. Para obtener unos datos más exactos, deberá consultar un escenario que se ajuste a la realidad de sus API. Consulte a continuación la sección "Planeación de la capacidad".
 
 ## <a name="prerequisites"></a>Requisitos previos
 

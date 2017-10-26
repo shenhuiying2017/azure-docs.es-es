@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 379640bcec85b79b3b3d8339f76d41d54f4609db
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-machine-learning-workbench-execution-configuration-files"></a>Archivos de configuración de ejecución de Azure Machine Learning Workbench
 
@@ -116,7 +116,7 @@ Para especificar una configuración de ejecución determinada, se necesita un pa
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
 # create a compute context pointing to an HDI cluster head-node via SSH
-$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> -type cluster
+$ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of HDI cluster> -u <username> -w <password> --type cluster
 ```
 
 Este comando crea un par de archivos según el destino de proceso especificado. Supongamos que dio el nombre _foo_ al destino de proceso. Este comando genera _foo.compute_ y _foo.runconfig_ en la carpeta **aml_config**.

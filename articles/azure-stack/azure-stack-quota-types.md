@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.openlocfilehash: 33906514955b76a3d6587b19899a0c76a09018a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
@@ -29,10 +29,10 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 ## <a name="compute-quota-types"></a>Tipos de cuota de proceso
 | **Tipo** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
-| Número máximo de máquinas virtuales |50 | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
-| Número máximo de núcleos de máquinas virtuales |100 | El número máximo de núcleos que puede crear una suscripción en esta ubicación (por ejemplo, una máquina virtual A3 tiene cuatro núcleos). |
-| Número máximo de conjuntos de disponibilidad |10 | El número máximo de conjuntos de disponibilidad que se pueden crear en esta ubicación. |
-| Número máximo de conjuntos de escalado de máquinas virtuales |100 | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
+| Número máximo de máquinas virtuales | 20 | | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
+| Número máximo de núcleos de máquinas virtuales | 50 | El número máximo de núcleos que puede crear una suscripción en esta ubicación (por ejemplo, una máquina virtual A3 tiene cuatro núcleos). |
+| Número máximo de conjuntos de disponibilidad | 10 | El número máximo de conjuntos de disponibilidad que se pueden crear en esta ubicación. |
+| Número máximo de conjuntos de escalado de máquinas virtuales | 20 | | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
 
 > [!NOTE]
 > Las cuotas de proceso no se aplican a esta versión preliminar técnica.

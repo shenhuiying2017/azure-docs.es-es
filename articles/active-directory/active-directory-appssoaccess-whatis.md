@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f5d3f7fce863f6b868a03eff481ae0dda5a7a812
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
 Inicio de sesión único significa poder tener acceso a todas las aplicaciones y los recursos que necesita para hacer negocios, iniciando iniciar sesión una sola vez usando una única cuenta de usuario. Una vez que ha iniciado sesión, puede tener acceso a todas las aplicaciones que necesite sin tener que autenticarse (por ejemplo, escribiendo una contraseña) una segunda vez.
@@ -75,12 +75,10 @@ En ambos casos, las credenciales se almacenan en estado cifrado en el directorio
 El SSO con contraseña depende de la extensión del navegador para recuperar información específica de la aplicación y el usuario desde Azure AD de manera segura y aplicarla al servicio. La mayoría de las aplicaciones de SaaS de terceros que son compatibles con Azure AD admite esta característica.
 
 Para el SSO basado en contraseña, los exploradores del usuario final pueden ser:
-
-* Internet Explorer 8, 9, 10 y 11, en Windows 7 o posterior (consulte también la [Guía de implementación de la extensión de IE](active-directory-saas-ie-group-policy.md))
+* Internet Explorer 8, 9, 10, 11 (en Windows 7 o posterior)
+* Edge en Windows 10 Anniversary Edition o posterior 
 * Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 * Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
-
-**Nota:** la extensión del SSO con contraseña estará disponible para Edge en Windows 10 cuando Edge admita las extensiones del explorador.
 
 ### <a name="existing-single-sign-on"></a>Inicio de sesión único existente
 Al configurar un inicio de sesión único para una aplicación, el portal de administración de Azure proporciona una tercera opción, el "Inicio de sesión único existente". Esta opción permite al administrador crear un vínculo a una aplicación y colocarlo en el panel de acceso de los usuarios seleccionados.

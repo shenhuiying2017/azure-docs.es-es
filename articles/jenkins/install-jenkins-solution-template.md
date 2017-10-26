@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Creación de un servidor de Jenkins en una máquina virtual Linux de Azure desde Azure Portal
 
@@ -41,7 +41,7 @@ En la pestaña **Configurar opciones básicas**, rellene los campos siguientes:
 * Escriba un **nombre de usuario**. El nombre de usuario debe cumplir [requisitos específicos](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
 * Seleccione **Contraseña** como **tipo de autenticación** y escriba una contraseña. La contraseña debe contener un carácter en mayúscula, un número y un carácter especial.
 * Use **myJenkinsResourceGroup** en **Grupo de recursos**.
-* Elija **Este de EE. UU.** como [región de Azure](https://azure.microsoft.com/regions/) en la lista desplegable **Ubicación**.
+* Elija **Este de EE. UU.** como [región de Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) en la lista desplegable **Ubicación**.
 
 Seleccione **Aceptar** para pasar a la pestaña **Configurar opciones adicionales**. Escriba un nombre de dominio único para identificar el servidor Jenkins y seleccione **Aceptar**.
 

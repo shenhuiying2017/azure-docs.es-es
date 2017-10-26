@@ -15,12 +15,11 @@ ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: a63e2d583e1203708e49c0fcef99876d2055343a
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: bd9066c251188c0f18fe1a9403baa2beaeeb987c
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="what-is-the-access-panel"></a>¿Qué es el panel de acceso?
 
@@ -193,4 +192,3 @@ Por ejemplo, si hay una aplicación configurada para autenticar usuarios mediant
 [3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png
-

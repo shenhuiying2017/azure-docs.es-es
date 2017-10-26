@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: c6cfca299dabba253757d959411c0cac8f90fa2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Escalado de las implementaciones de Jenkins para satisfacer la demanda con agentes de máquina virtual de Azure
 
@@ -108,7 +108,7 @@ Configure una plantilla para utilizarla para definir un agente de máquina virtu
 1. Seleccione **Add** (Agregar) junto a **Add Azure Virtual Machine Template** (Agregar plantilla de máquina virtual de Azure).
 2. Escriba `defaulttemplate` en **Name** (Nombre).
 3. Escriba `ubuntu` en **Label** (Etiqueta).
-4. Seleccione la [región de Azure](https://azure.microsoft.com/regions/) deseada en el cuadro combinado.
+4. Seleccione la [región de Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) deseada en el cuadro combinado.
 5. Seleccione un [tamaño de máquina virtual](/azure/virtual-machines/linux/sizes) en la lista desplegable de **Virtual Machine Size** (Tamaño de máquina virtual). Un tamaño `Standard_DS1_v2` de uso general es válido para este tutorial.   
 6. Deje el campo **Retention time** (Tiempo de retención) en `60`. Esta opción define el número de minutos que Jenkins debe esperar antes de desasignar agentes inactivos. Especifique 0 si no desea que los agentes inactivos se eliminen automáticamente.
 

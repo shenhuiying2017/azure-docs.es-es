@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
 ms.custom: mvc
+ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.contentlocale: es-es
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Visualización o análisis de los datos recopilados con la búsqueda de registros de Log Analytics
 
 En Log Analytics, puede aprovechar las búsquedas de registros mediante la creación de consultas para analizar los datos recopilados y usar los paneles preexistentes que puede personalizar mediante vistas gráficas de las búsquedas más valiosas.  Ahora que ha definido la recopilación de datos operativos de los registros de actividad y máquinas virtuales de Azure, en este tutorial aprenderá a cómo realizar las siguientes tareas:

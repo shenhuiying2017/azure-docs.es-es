@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ed42af90a9c467042ff2537a38646f59147fb5ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para Acceso condicional de Azure Active Directory
 
@@ -48,7 +48,7 @@ En concreto, los escenarios siguientes requieren código para controlar los "des
 * Aplicaciones de una sola página que usan ADAL.js
 * Aplicaciones web que llaman a un recurso
 
-Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Para más información sobre cómo configurar una directiva de acceso condicional, consulte [Introducción al acceso condicional de Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules).
+Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Para más información sobre cómo configurar una directiva de acceso condicional, consulte [Introducción al acceso condicional de Azure Active Directory](../active-directory-conditional-access-azuread-connected-apps.md).
 
 Según el escenario, un cliente empresarial puede aplicar y quitar directivas de acceso condicional en cualquier momento.  Con el fin de que la aplicación siga funcionando cuando se aplica una directiva nueva, es necesario implementar el control de "desafíos". En los ejemplos siguientes se ilustra el control de desafíos. 
 

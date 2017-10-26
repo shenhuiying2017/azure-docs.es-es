@@ -12,24 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
-## <a name="overview"></a>Información general
 IoT Hub ofrece la posibilidad de invocar métodos directos en dispositivos desde la nube. Los métodos directos representan una interacción solicitud-respuesta con un dispositivo similar a una llamada HTTP en la cual se completan correctamente o generan un error de inmediato (tras un tiempo de espera que especifica el usuario). Este enfoque es útil para escenarios en los que la línea de acción inmediata difiere en función de si el dispositivo respondió, por ejemplo, enviando una reactivación por SMS a un dispositivo si este está sin conexión (enviar un SMS cuesta más que una llamada de método).
 
 Cada método de dispositivo se dirige a un único dispositivo. Los [trabajos][lnk-devguide-jobs] proporcionan una manera de invocar métodos directos en varios dispositivos y de programar la invocación de métodos para los dispositivos desconectados.
 
 Cualquier persona con permisos de **conexión de servicio** en IoT Hub pueden invocar un método en un dispositivo.
 
-### <a name="when-to-use"></a>Cuándo se deben usar
 Los métodos directos siguen un patrón de solicitud-respuesta y se usan para las comunicaciones que necesitan confirmación inmediata de su resultado, normalmente control interactivo del dispositivo, por ejemplo, encender un ventilador.
 
 Si duda entre el uso de las propiedades deseadas, los métodos directos o los mensajes de nube a dispositivo, consulte [Cloud-to-device communication guidance][lnk-c2d-guidance] (Guía de comunicaciones de nube a dispositivo).
@@ -48,9 +46,6 @@ Los métodos directos son solo HTTP desde el lado de la nube y MQTT o AMQP desde
 
 La carga útil de solicitudes y respuestas del método es un documento JSON de hasta 8 KB.
 
-## <a name="reference-topics"></a>Temas de referencia:
-Los siguientes temas de referencia proporcionan más información sobre el uso de métodos directos.
-
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Invocación de un método directo desde una aplicación de back-end
 ### <a name="method-invocation"></a>Invocación de método
 Las invocaciones de método directo en un dispositivo son llamadas HTTP compuestas por:
@@ -60,32 +55,32 @@ Las invocaciones de método directo en un dispositivo son llamadas HTTP compuest
 * *Encabezados* que contienen la autorización, el id. de solicitud, el tipo de contenido y la codificación del contenido
 * Un *cuerpo* JSON transparente en el formato siguiente:
 
-```
-{
-    "methodName": "reboot",
-    "responseTimeoutInSeconds": 200,
-    "payload": {
-        "input1": "someInput",
-        "input2": "anotherInput"
-    }
-}
-```
+   ```
+   {
+       "methodName": "reboot",
+       "responseTimeoutInSeconds": 200,
+       "payload": {
+           "input1": "someInput",
+           "input2": "anotherInput"
+       }
+   }
+   ```
 
 El tiempo de espera se expresa en segundos. Si no se establece el tiempo de espera, el valor predeterminado es 30 segundos.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 La aplicación de back-end recibe una respuesta que consta de lo siguiente:
 
 * *Código de estado HTTP*, que se usa para errores procedentes de IoT Hub, incluido el error 404 para los dispositivos que no estén conectados
 * *Encabezados* que contienen la etiqueta de identidad, el id. de solicitud, el tipo de contenido y la codificación del contenido
 * Un *cuerpo* JSON en el formato siguiente:
 
-```
-{
-    "status" : 201,
-    "payload" : {...}
-}
-```
+   ```
+   {
+       "status" : 201,
+       "payload" : {...}
+   }
+   ```
 
    El dispositivo proporciona tanto `status` como `body`, que se utilizan para responder con el código de estado o la descripción propios del dispositivo.
 

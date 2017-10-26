@@ -10,7 +10,7 @@
 | Direcciones IP reservadas por suscripción |20 |100 |
 | Certificados de servicio hospedados por suscripción |400 |400 |
 | [Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción |256 |256 |
-| Reglas de alerta por suscripción |250 |250 |
+
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
 

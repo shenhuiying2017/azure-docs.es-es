@@ -3,29 +3,29 @@ title: "Elección entre la nube o el servidor Azure MFA | Microsoft Docs"
 description: "Para elegir la solución de seguridad para la autenticación multifactor que sea más adecuada para su situación, conteste a dos preguntas: qué estoy tratando de asegurar y dónde están ubicados mis usuarios.  A continuación, elija la nube, Servidor MFA o AD FS."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
 ms.assetid: ec2270ea-13d7-4ebc-8a00-fa75ce6c746d
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2017
-ms.author: kgremban
-ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/02/2017
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 266985c5602b835c710a74f1736fb51eade5c707
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Elección de la solución de Azure Multi-Factor Authentication más adecuada
 Puesto que existen varios modelos de Azure Multi-Factor Authentication (MFA), se debe responder primero a algunas preguntas para descubrir cuál es el más adecuado para usar.  Estas preguntas son:
 
 * [Qué es lo que quiero proteger](#what-am-i-trying-to-secure)
 * [Dónde se encuentran los usuarios](#where-are-the-users-located)
-* [¿Qué características necesito?](#what-featured-do-i-need)
+* [¿Qué características necesito?](#what-features-do-i-need)
 
 Las siguientes secciones proporcionan instrucciones para determinar cada una de estas respuestas.
 

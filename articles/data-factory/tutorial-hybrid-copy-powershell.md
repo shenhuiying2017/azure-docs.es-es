@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Copia de datos entre el entorno local y la nube
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
+Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
 
-En este tutorial, usará Azure PowerShell para crear una canalización de Data Factory que copia los datos de una base de datos de SQL Server local a Azure Blob Storage. Deberá crear y usar una instancia de Integration Runtime (IR) autohospedada de Azure Data Factory, que permite la integración de almacenes de datos locales y almacenes de datos en la nube.  Para obtener información sobre el uso de otras herramientas o SDK para crear una factoría de datos, consulte la sección [Inicios rápidos](quickstart-create-data-factory-dot-net.md). 
+En este tutorial, usará Azure PowerShell para crear una canalización de Data Factory que copia los datos de una base de datos de SQL Server local a Azure Blob Storage. Deberá crear y usar una instancia de Integration Runtime (IR) autohospedada de Azure Data Factory, que permite la integración de almacenes de datos locales y almacenes de datos en la nube.  Para obtener información sobre el uso de otras herramientas o SDK para crear una factoría de datos, consulte la sección [Inicios rápidos](quickstart-create-data-factory-dot-net.md).
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este tutorial. 
+* **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este tutorial.
 * **Cuenta de Almacenamiento de Azure**. Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -115,13 +115,13 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Este es la salida de ejemplo: 
+   Este es la salida de ejemplo:
 
    ```json
    {
@@ -144,19 +144,19 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
    }
    ```
 
-4. [Descargue](https://www.microsoft.com/download/details.aspx?id=39717) la instancia de Integration Runtime autohospedada en una máquina Windows local y use la clave de autenticación que obtuvo en el paso anterior para registrar manualmente la instancia de Integration Runtime autohospedada. 
+4. [Descargue](https://www.microsoft.com/download/details.aspx?id=39717) la instancia de Integration Runtime autohospedada en una máquina Windows local y use la clave de autenticación que obtuvo en el paso anterior para registrar manualmente la instancia de Integration Runtime autohospedada.
 
    ![Registro de Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   Verá el siguiente mensaje cuando la instancia de Integration Runtime autohospedada se haya registrado correctamente: 
+   Verá el siguiente mensaje cuando la instancia de Integration Runtime autohospedada se haya registrado correctamente:
 
    ![Se registró correctamente](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   Verá la siguiente página cuando el nodo esté conectado al servicio en la nube: 
-    
+   Verá la siguiente página cuando el nodo esté conectado al servicio en la nube:
+
    ![El nodo está conectado](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>Crear servicios vinculados 
+## <a name="create-linked-services"></a>Crear servicios vinculados
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Creación de un servicio vinculado a Azure Storage (destino/receptor)
 
@@ -167,7 +167,7 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Creación y cifrado de un servicio vinculado de SQL Server (origen)
 
-1. Cree un archivo JSON denominado **SqlServerLinkedService.json** en la carpeta **C:\ADFv2Tutorial** con el siguiente contenido: reemplace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** y **&lt;password>** por valores de su instancia de SQL Server antes de guardar el archivo. Reemplace **&lt;integration** **runtime** **name>** por el nombre de su instancia de Integration Runtime. 
+1. Cree un archivo JSON denominado **SqlServerLinkedService.json** en la carpeta **C:\ADFv2Tutorial** con el siguiente contenido: reemplace **&lt;servername>**, **&lt;databasename>**, **&lt;username>**, **&lt;servername>** y **&lt;password>** por valores de su instancia de SQL Server antes de guardar el archivo. Reemplace **&lt;integration** **runtime** **name>** por el nombre de su instancia de Integration Runtime.
 
     ```json
     {
@@ -216,7 +216,7 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
         "name": "SqlServerLinkedService"
     }
    ```
-2. Para cifrar los datos confidenciales de la carga de JSON en la instancia de Integration Runtime autohospedada local, podemos ejecutar **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** y pasar la carga. Este cifrado garantiza que las credenciales se cifren mediante la interfaz de programación de aplicaciones (API) de protección de datos y se almacenen en el nodo de Integration Runtime autohospedado localmente. La carga de salida se puede redirigir a otro archivo JSON (en este caso, "encryptedLinkedService.json"), que contiene las credenciales cifradas. 
+2. Para cifrar los datos confidenciales de la carga de JSON en la instancia de Integration Runtime autohospedada local, podemos ejecutar **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** y pasar la carga. Este cifrado garantiza que las credenciales se cifren mediante la interfaz de programación de aplicaciones (API) de protección de datos y se almacenen en el nodo de Integration Runtime autohospedado localmente. La carga de salida se puede redirigir a otro archivo JSON (en este caso, "encryptedLinkedService.json"), que contiene las credenciales cifradas.
 
     Reemplace **&lt;integration runtime name&gt;** por el nombre de su instancia de Integration Runtime antes de ejecutar el comando.
 
@@ -227,7 +227,7 @@ En esta sección, puede crear una instancia de Integration Runtime autohospedada
 3. Ejecute el siguiente comando con JSON en el paso anterior para crear **SqlServerLinkedService**:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>Creación de un conjunto de datos para la instancia de Azure Blob Storage receptora
 
-1. Cree un archivo JSON denominado **AzureBlobDataset.json** en la carpeta **C:\ADFv2Tutorial** con el siguiente contenido: 
+1. Cree un archivo JSON denominado **AzureBlobDataset.json** en la carpeta **C:\ADFv2Tutorial** con el siguiente contenido:
 
     > [!IMPORTANT]
     > Con este código de ejemplo se da por supuesto que tiene un contenedor denominado **adftutorial** en Azure Blob Storage.
@@ -436,7 +436,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
             $result
             break
         }
-    } 
+    }
     ```
 
     Este es el resultado de la ejecución de ejemplo:
@@ -449,7 +449,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 4. Conéctese a su instancia de Azure Blob Storage receptora y confirme que los datos se han copiado correctamente desde Azure SQL Database.
 
 ## <a name="next-steps"></a>Pasos siguientes
-La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Ha aprendido a: 
+La canalización de este ejemplo copia los datos de una ubicación a otra en una instancia de Azure Blob Storage. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.

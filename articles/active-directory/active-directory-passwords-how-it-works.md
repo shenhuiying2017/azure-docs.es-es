@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cbb33988f5db47e35db406c037caa9133616d191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -77,7 +77,7 @@ De forma predeterminada, solo los atributos de la nube Teléfono de la oficina y
 
 Los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado y requiera.
 
-Si los usuarios no desea que su número de teléfono móvil esté visible en el directorio, pero desean usarlo para el restablecimiento de la contraseña, los administradores no deben rellenarlo en el directorio y el usuario debe rellenar su atributo **Teléfono de autenticación** a través del [portal de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar. Si una cuenta de administrador de Azure registra su número de teléfono de autenticación, este se rellena en el campo de teléfono móvil y está visible.
+Si los usuarios no desea que su número de teléfono móvil esté visible en el directorio, pero desean usarlo para el restablecimiento de la contraseña, los administradores no deben rellenarlo en el directorio y el usuario debe rellenar su atributo **Teléfono de autenticación** a través del [portal de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar.
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 

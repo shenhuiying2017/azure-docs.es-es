@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/23/2017
 ms.author: larryfr
+ms.openlocfilehash: 511d47a8a73c42e5983150ba23ee4fcc7a9e3151
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4de55f5f6c5605e9c6c8dd7ccac902b811d1b062
-ms.contentlocale: es-es
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>Uso de DataFu con Pig en HDInsight
 
@@ -123,4 +122,3 @@ Para obtener más información sobre DataFu o Pig, consulte los documentos sigui
 
 * [Guía de Pig de Apache DataFu](http://datafu.incubator.apache.org/docs/datafu/guide.html).
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
-

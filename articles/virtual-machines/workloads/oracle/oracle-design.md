@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: 1af7e1d40a0eb129875dd6a30ac899f2025bee13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -115,7 +115,7 @@ El siguiente diagrama muestra el total de E/S de lectura y escritura. Hubo 59 GB
 
 #### <a name="2-choose-a-vm"></a>2. Elegir una máquina virtual
 
-En función de la información recopilada en el informe de AWR, el paso siguiente consiste en elegir una máquina virtual de un tamaño similar que cumpla los requisitos. Puede encontrar una lista de máquinas virtuales disponibles en el artículo [Optimización de memoria](https://docs.microsoft.com/azure/virtual-machinFine tune es/virtual-machines-windows-sizes-memory).
+En función de la información recopilada en el informe de AWR, el paso siguiente consiste en elegir una máquina virtual de un tamaño similar que cumpla los requisitos. Puede encontrar una lista de máquinas virtuales disponibles en el artículo [Optimización de memoria](../../linux/sizes-memory.md).
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Ajustar el tamaño de la máquina virtual con una serie de máquina virtual similar en función del valor de ACU
 

@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ Si va a actualizar desde la versión 6.x o anterior a la 7.x o una más reciente
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Instalación de la versión más reciente del Servidor Azure MFA
 
-1. Siga las instrucciones [Descarga de Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) para obtener la versión más reciente del Servidor Azure MFA.
+1. Siga las instrucciones [Descarga de Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server.md#download-the-mfa-server) para obtener la versión más reciente del Servidor Azure MFA.
 2. Realice una copia de seguridad del archivo de datos de Servidor MFA ubicado en C:\Archivos de programa\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (se da por hecho que es la ubicación de instalación predeterminada) en la instancia principal de Servidor MFA.
 3. Si ejecuta varios servidores para lograr alta disponibilidad, cambie los sistemas cliente que se autentican en el Servidor MFA para que se deje de enviar tráfico a los servidores que va a actualizar. Si usa un equilibrador de carga, quite un Servidor MFA del equilibrador de carga, realice la actualización y vuelva a agregarlo a la granja de servidores.
 4. Ejecute el programa de instalación nuevo en cada Servidor MFA. Actualice primero los servidores subordinados porque pueden leer el archivo de datos antiguo que está replicando la instancia principal. 

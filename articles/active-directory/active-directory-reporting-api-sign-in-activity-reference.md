@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: 5c407727fbc3adf7a089a13bfe09af959be9d2b9
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
 Este tema forma parte de una serie de temas sobre la API de informes de Azure Active Directory.  
@@ -190,5 +189,4 @@ Hay dos opciones para loginStatus: 0: success; 1: failure
 ## <a name="next-steps"></a>Pasos siguientes
 * ¿Quiere ver ejemplos de actividades de inicio de sesión filtradas? Consulte [Azure Active Directory sign-in activity report API samples](active-directory-reporting-api-sign-in-activity-samples.md)(Ejemplos de API de informes de actividad de inicio de sesión de Azure Active Directory).
 * ¿Quiere obtener más información sobre la API de generación de informes de Azure AD? Consulte [Introducción a la API de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
-
 
