@@ -1,6 +1,8 @@
-# Información general
-## [¿Qué es Azure Search?](search-what-is-azure-search.md)
+# [Información general](search-what-is-azure-search.md)
+## [¿Qué es Búsqueda de Azure?](search-what-is-azure-search.md)
+
 # Introducción
+
 ## [Elección de una SKU](search-sku-tier.md)
 ## [Creación de un servicio](search-create-service-portal.md)
 ## [Creación de un índice](search-what-is-an-index.md)
@@ -15,18 +17,22 @@
 ### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
+
 # Tutoriales
+
 ## [.NET](search-howto-dotnet-sdk.md)
 ## [Vista previa de sinónimos de .NET](search-synonyms-tutorial-sdk.md)
 ## [Portal](search-get-started-portal.md)
+## [Búsqueda de datos semiestructurados](search-semi-structured-data.md)
 ## [Node.js](search-get-started-nodejs.md)
 ## [Java](search-get-started-java.md)
+
 # Procedimientos
+
 ## Planeamiento y diseño
 ### [Límites de servicio](search-limits-quotas-capacity.md)
 ### [Escalabilidad del servicio](search-capacity-planning.md)
 ### [Patrones de diseño para varios inquilinos](search-modeling-multitenant-saas-applications.md)
-
 ## Desarrollo
 ### [Versiones de API](search-api-versions.md)
 ### [Actualización del SDK](search-dotnet-sdk-migration.md)
@@ -34,7 +40,6 @@
 ### [Tipos de datos complejos de modelo](search-howto-complex-data-types.md)
 ### [Manejo de actualizaciones simultáneas](search-howto-concurrency.md)
 ### [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=search)
-
 ## Administrar
 ### Administración de Azure Search
 #### [Portal de Azure](search-manage.md)
@@ -57,18 +62,23 @@
 ### Construcción de consultas
 #### [Sintaxis de consulta simplificada](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Sintaxis de consulta de Lucene ](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-#### [Ejemplos de consulta de sintaxis de Lucene](search-query-lucene-examples.md)
-#### [Sintaxis de expresión de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+#### [Ejemplos de consultas de Lucene](search-query-lucene-examples.md)
 ### Analizadores de Azure Search
 #### [Información general](search-analyzers.md)
 #### [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
+### Filtros de Azure Search
+#### [Información general](search-filters.md)
+#### [Filtros de faceta](search-filters-facets.md)
+#### [Filtros de lenguaje](search-filters-language.md)
+#### [Recorte de seguridad](search-security-trimming-for-azure-search.md)
+#### [Referencia sobre sintaxis de expresión](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Paginación de resultados](search-pagination-page-layout.md)
 ### [Puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 ### [Sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navegación por facetas](search-faceted-navigation.md)
 ### [Vista previa de sinónimos](search-synonyms.md)
-### [Filtros de seguridad](search-security-trimming-for-azure-search.md)
+
 # Referencia
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
@@ -80,7 +90,6 @@
 
 # Recursos
 
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=web-mobile)
 ## [P+F: Preguntas más frecuentes](search-faq-frequently-asked-questions.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/search/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
@@ -97,7 +106,7 @@
 ### [Foro de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Blog: Modelado de datos relacionales](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [[Blog: Aplicación de facetas de varios niveles](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+### [Blog: Aplicación de facetas de varios niveles](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 
 
 

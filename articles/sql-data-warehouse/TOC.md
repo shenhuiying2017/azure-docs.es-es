@@ -2,8 +2,6 @@
 
 ## [¿Qué es SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
 ## [Carga de trabajo del almacenamiento de datos](sql-data-warehouse-overview-workload.md)
-## [Datos distribuidos](sql-data-warehouse-distributed-data.md)
-## [Preguntas más frecuentes](sql-data-warehouse-overview-faq.md)
 
 # Introducción
 
@@ -12,9 +10,13 @@
 ## [procedimientos recomendados](sql-data-warehouse-best-practices.md)
 ## [Administración](sql-data-warehouse-overview-manage.md)
 
-
-
 # Procedimientos
+
+## Características de servicio
+### [Arquitectura de MPP](massively-parallel-processing-mpp-architecture.md)
+### [Niveles de rendimiento](performance-tiers.md)
+### [Unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Preguntas más frecuentes](sql-data-warehouse-overview-faq.md)
 
 ## Copia de seguridad y restauración
 
@@ -118,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API de REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### Clases de recursos
+#### [Directrices](resource-classes-for-workload-management.md)
+#### [Análisis de la carga de trabajo](analyze-your-workload.md)
 
 ## Rendimiento
 
 ### [Información general](sql-data-warehouse-overview-manage-user-queries.md)
 ### [Compresión de almacén de columnas](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Supervisión](sql-data-warehouse-manage-monitor.md)
-### [Carga de trabajo](sql-data-warehouse-develop-concurrency.md)
 
 ## Seguridad
 

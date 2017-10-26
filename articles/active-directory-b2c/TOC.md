@@ -80,16 +80,15 @@
 #### [Personalización de la interfaz de usuario de forma dinámica](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [Personalización de tokens](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [Complejidad de la contraseña](active-directory-b2c-reference-password-complexity-custom.md).
-
 #### [Cambio de contraseña](active-directory-b2c-reference-password-change-custom.md)
-
 #### [Habilitación de Mantener la sesión iniciada](active-directory-b2c-reference-kmsi-custom.md)
-
 ### Solución de problemas
 #### [Recopilación de registros con Application Insights](active-directory-b2c-troubleshoot-custom.md)
 ## Referencia
 ### [Notas de la versión](active-directory-b2c-developer-notes-custom.md)
+### [Proveedores de sesión SSO](active-directory-b2c-reference-sso-custom.md)
 ### [Definición de marco de confianza](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## Glosario

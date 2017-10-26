@@ -14,7 +14,7 @@
 # Guías de procedimientos
 ## Uso de máquinas virtuales en un laboratorio
 ### [Creación de máquinas virtuales](devtest-lab-add-vm.md)
-### [Creación de máquinas virtuales reclamables](devtest-lab-add-claimable-vm.md)
+### [Creación y administración de máquinas virtuales reclamables](devtest-lab-add-claimable-vm.md)
 ### [Creación y administración de máquinas virtuales con la CLI de Azure](devtest-lab-vmcli.md)
 ### [Reinicio de una máquina virtual](devtest-lab-restart-vm.md)
 
