@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 814825cce61909167a1247a96c17a3ee9c5f2af4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Creación de una máquina virtual Linux con varias NIC mediante la CLI de Azure 1.0
-Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se proporcionan comandos rápidos para crear una máquina virtual que tiene conectadas varias NIC. Para más información, lo que incluye cómo crear varias NIC dentro de sus propios scripts de Bash, lea más sobre la [implementación de máquinas virtuales con varias NIC](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
+Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se proporcionan comandos rápidos para crear una máquina virtual que tiene conectadas varias NIC. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
 
 > [!WARNING]
 > Cuando crea una máquina virtual, debe asociar varias NIC; no es posible agregar NIC a una máquina virtual existente. con la CLI de Azure 1.0. Puede [agregar varias NIC a una máquina virtual existente con la versión 2.0 de la CLI de Azure](multiple-nics.md). También puede [crear una máquina virtual en función de los discos virtuales originales](copy-vm.md) y crear varias NIC mientras implementa la máquina virtual.
@@ -85,7 +85,7 @@ azure network vnet subnet create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Creación y configuración de varias NIC
-Puede leer información más detallada sobre la [implementación de varias NIC con la CLI de Azure](../../virtual-network/virtual-network-deploy-multinic-arm-cli.md), como los scripts del proceso de paso de bucle para crear todas las NIC.
+Puede leer información más detallada sobre la [implementación de varias NIC con la CLI de Azure](../../virtual-machines/linux/multiple-nics.md), como los scripts del proceso de paso de bucle para crear todas las NIC.
 
 En el ejemplo siguiente se crean dos NIC, denominadas *myNic1* y *myNic2*, una de las cuales se conecta con cada subred:
 
