@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
+ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>¿Necesita ayuda con el portal Mis aplicaciones?
 
@@ -109,5 +108,4 @@ Después de la instalación, intente los pasos siguientes, si se están producie
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información relacionada con la solución de problemas, consulte [Problemas con el sitio web del panel de acceso de la aplicación o con aplicaciones móviles](active-directory-application-access-panel-content-map.md).
-
 

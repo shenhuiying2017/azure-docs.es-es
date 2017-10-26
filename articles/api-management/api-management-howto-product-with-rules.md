@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
+ms.openlocfilehash: c13d08c2f5ea6cfb5bed19b94c09f3d7dd37c21f
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.contentlocale: es-es
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Protección de su API con límites de frecuencia mediante Azure API Management
 Esta guía muestra lo fácil que es agregar protección para la API de back-end mediante la configuración de directivas de cuota y límite de frecuencia con Azure API Management.
@@ -28,7 +27,7 @@ En este tutorial, creará un producto de API de "evaluación gratuita" que permi
 
 Para más información sobre escenarios de limitación avanzados mediante las directivas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) y [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consulte [Limitación avanzada de solicitudes con Azure API Management](api-management-sample-flexible-throttling.md).
 
-## <a name="create-product"> </a>Para crear un producto
+## <a name="create-product"></a>Para crear un producto
 En este paso, creará un producto de evaluación gratuita que no requiere aprobación de suscripción.
 
 > [!NOTE]
@@ -76,7 +75,7 @@ De forma predeterminada, los usuarios pueden ver los nuevos productos en el grup
 
 Seleccione la casilla **Desarrolladores** y, a continuación, haga clic en **Guardar**.
 
-## <a name="add-api"> </a>Para agregar una API al producto
+## <a name="add-api"></a>Para agregar una API al producto
 En este paso del tutorial, agregaremos la API Eco al nuevo producto Prueba gratuita.
 
 > Cada instancia del servicio API Management viene previamente configurada con una API Eco que se puede usar para experimentar con API Management y aprender de esta. Para más información, consulte [Administración de su primera API en Azure API Management][Manage your first API in Azure API Management].
@@ -95,7 +94,7 @@ Seleccione **Echo API** (API Eco ) y luego haga clic en **Guardar**.
 
 ![Add Echo API][api-management-add-echo-api]
 
-## <a name="policies"> </a>Para configurar las directivas de límite de frecuencia de llamadas y de cuota
+## <a name="policies"></a>Para configurar las directivas de límite de frecuencia de llamadas y de cuota
 Los límites de tasa y las cuotas se configuran en el editor de directivas. Las dos directivas que se van a agregar en este tutorial son [Limitar la frecuencia de llamadas por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) y [Establecer la cuota de uso por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). Estas directivas deben aplicarse en el ámbito del producto.
 
 Haga clic en **Directivas** en el menú **API Management** de la izquierda. En la lista **Producto**, haga clic en **Evaluación gratuita**.
@@ -197,7 +196,7 @@ Una vez configuradas las directivas deseadas, haga clic en **Guardar**.
 
 ![Save policy][api-management-policy-save]
 
-## <a name="publish-product"> </a> Para publicar el producto
+## <a name="publish-product"></a> Para publicar el producto
 Ahora que se agregaron las API y se configuraron las directivas, el producto debe publicarse para que los desarrolladores puedan usarlo. Haga clic en **Productos** en el menú **API Management** a la izquierda y luego haga clic en **Evaluación gratuita** para configurar el producto.
 
 ![Configure product][api-management-configure-product]
@@ -206,7 +205,7 @@ Haga clic en **Publicar** y luego en **Sí, publicarlo** para confirmar la opera
 
 ![Publish product][api-management-publish-product]
 
-## <a name="subscribe-account"> </a>Suscripción de una cuenta de desarrollador al producto
+## <a name="subscribe-account"></a>Suscripción de una cuenta de desarrollador al producto
 Ahora que el producto se ha publicado, estará disponible para suscribirse a él y que los desarrolladores lo usen.
 
 > Los administradores de una instancia de API Management se suscriben automáticamente a cada producto. En este paso del tutorial suscribiremos una de las cuentas de desarrollador que no es de administrador al producto Prueba gratuita. Si la cuenta de desarrollador es parte del rol Administradores, puede seguir con este paso aunque esté suscrito.
@@ -236,7 +235,7 @@ Después de hacer clic **Suscribirse**, el producto aparece en la lista **Suscri
 
 ![Subscription added][api-management-subscription-added]
 
-## <a name="test-rate-limit"> </a>Para llamar a una operación y prueba del límite de frecuencia
+## <a name="test-rate-limit"></a>Para llamar a una operación y prueba del límite de frecuencia
 Ahora que el producto Prueba gratuita está configurado y publicado, podemos llamar a algunas operaciones y probar la directiva de límite de tasa.
 Haga clic en **Portal para desarrolladores** en el menú superior derecho para cambiar al portal para desarrolladores.
 
@@ -271,7 +270,7 @@ El valor de **Contenido de respuesta** indica el intervalo restante antes de que
 
 Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las llamadas posteriores no se podrán realizar hasta que transcurran 60 segundos desde la primera de las 10 llamadas correctas al producto antes de que se superara el límite de tasa. En este ejemplo, el intervalo restante es 54 segundos.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Vea una demostración de la configuración de cuotas y límites de frecuencia en el siguiente vídeo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
@@ -326,4 +325,3 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
-

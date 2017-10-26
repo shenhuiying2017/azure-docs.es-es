@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
+ms.openlocfilehash: e454c783242bd46f70f6dbe2e0768d61a9d2d504
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
-ms.contentlocale: es-es
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -185,6 +184,5 @@ Puede filtrar aún más esta vista hasta simplemente **grupos** o simplemente **
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información general sobre los informes, consulte la [Informes de Azure Active Directory](active-directory-reporting-azure-portal.md).
-
+Para obtener información general sobre los informes, consulte [Informes de Azure Active Directory](active-directory-reporting-azure-portal.md).
 

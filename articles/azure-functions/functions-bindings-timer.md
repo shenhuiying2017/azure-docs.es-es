@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: ed4afa2b946fe11d5802a95f8a490f3419dc0f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-functions-timer-trigger"></a>Desencadenador de temporizador de funciones de Azure
 
@@ -54,7 +54,7 @@ El valor de `schedule` es una [expresión CRON](http://en.wikipedia.org/wiki/Cro
 >[!NOTE]   
 >En muchas de las expresiones CRON que se encuentran en Internet se omite el campo `{second}`. Si copia alguna de ellas, deberá ajustarla para el campo `{second}` adicional. Para obtener ejemplos específicos, vea [Programación de ejemplos](#examples) a continuación.
 
-La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una nueva configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx) (Índice de zona horaria de Microsoft). 
+La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una nueva configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx) (Índice de zona horaria de Microsoft). 
 
 Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desencadenador de temporizador se dispare a las 10 a.m. (Hora estándar), use la siguiente expresión CRON que representa la zona horaria UTC:
 

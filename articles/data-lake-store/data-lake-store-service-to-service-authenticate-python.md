@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: d884e3ab71ae1967d1676bc0591ef86f64da6c5b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f23a5e24067dab29a21a44404a912588b46d3b0
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Autenticación entre servicios con Data Lake Store usando Python
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ En este artículo, obtendrá información sobre cómo usar el SDK de Python para
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Cree una aplicación "web" de Azure Active Directory**. Debe completar los pasos descritos en [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Store mediante Azure Active Directory).
+* **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Store mediante Azure Active Directory).
 
 ## <a name="install-the-modules"></a>Instalación de los módulos
 
@@ -59,7 +59,7 @@ pip install azure-datalake-store
 
 1. En el IDE que prefiera, cree una nueva aplicación de Python, por ejemplo, **mysample.py**.
 
-2. Agregue el fragmento de código siguiente para importar los módulos necesarios.
+2. Agregue el fragmento de código siguiente para importar los módulos necesarios
 
     ```
     ## Use this for Azure AD authentication
@@ -90,23 +90,23 @@ Use este fragmento de código para autenticarse en Azure AD para operaciones de 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
     authority_uri = authority_host_uri + '/' + tenant
-    resource_uri = 'https://management.core.windows.net/'
+    RESOURCE = 'https://management.core.windows.net/'
     client_id = '<CLIENT_ID>'
     client_secret = '<CLIENT_SECRET>'
-
+    
     context = adal.AuthenticationContext(authority_uri, api_version=None)
-    mgmt_token = context.acquire_token_with_client_credentials(resource_uri, client_id, client_secret)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Autenticación de servicio a servicio con el secreto de cliente para las operaciones del sistema de archivos
 
 Use el siguiente fragmento de código para autenticarse en Azure AD para las operaciones de sistema de archivos en Data Lake Store, como crear carpeta, cargar archivo, etc. El siguiente fragmento de código se puede utilizar para autenticar la aplicación de forma no interactiva, para lo que se usa el secreto del cliente para una entidad de servicio o aplicación. Utilícelo con una aplicación de "aplicación web" de Azure AD.
 
-    token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
+    adlCreds = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
-## <a name="service-to-service-authentication-with-certificate-for-account-management"></a>Autenticación entre servicios con certificado para la administración de cuentas
+<!-- ## Service-to-service authentication with certificate for account management
 
-Use este fragmento de código para autenticarse en Azure AD para operaciones de administración de cuentas en Data Lake Store, entre otras, crear o eliminar una cuenta de Data Lake Store. El siguiente fragmento de código puede utilizarse para autenticar la aplicación de forma no interactiva, para lo que se usa el certificado de una aplicación de "aplicación web" de Azure AD existente. Para obtener instrucciones sobre cómo crear una aplicación de Azure AD, vea [Creación de una entidad de servicio con un certificado autofirmado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Use this snippet to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -118,12 +118,12 @@ Use este fragmento de código para autenticarse en Azure AD para operaciones de 
 
     context = adal.AuthenticationContext(authority_uri, api_version=None)
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
-    credentials = AADTokenCredentials(mgmt_token, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido cómo usar la autenticación entre servicios para autenticarse en Azure Data Lake Store con Python. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar Python con Azure Data Lake Store.
 
-* [Operaciones de administración de cuentas en Azure Data Lake Store con Python](data-lake-store-get-started-python.md)
-* [Operaciones de datos en Azure Data Lake Store con Python](data-lake-store-data-operations-python.md)
+* [Operaciones de administración de cuentas en Data Lake Store con Python](data-lake-store-get-started-python.md)
+* [Operaciones de datos en Data Lake Store con Python](data-lake-store-data-operations-python.md)
 
 

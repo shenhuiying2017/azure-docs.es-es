@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: ec73646f7b49669da82d9cda2a1348d447942619
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: f894191baced710fc0f5a8c8692df98033341a48
-ms.contentlocale: es-es
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>Supervisión de un clúster de Kubernetes de Azure Container Service con CoScale
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
@@ -91,5 +89,4 @@ El agente de CoScale se implementa automáticamente en las máquinas nuevas del 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte la [documentación de CoScale](http://docs.coscale.com/) y [blog](https://www.coscale.com/blog) para más información sobre las soluciones de supervisión de CoScale. 
-
 

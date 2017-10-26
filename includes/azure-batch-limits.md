@@ -2,7 +2,7 @@
 | --- | --- | --- |
 | Cuentas de Lote por región y suscripción | 3 |50 |
 | Núcleos dedicados por cuenta de Batch | 20 | | N/A<sup>1</sup> |
-| Núcleos de baja prioridad por cuenta de Batch | 50 | N/A<sup>2</sup> |
+| Núcleos de baja prioridad por cuenta de Batch | 20 | | N/A<sup>2</sup> |
 | Trabajos activos y programaciones de trabajos<sup>3</sup> por cuenta de Batch | 20 | | 5000<sup>4</sup> |
 | Grupos por cuenta de Lote | 20 | 2.500 |
 

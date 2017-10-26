@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga
-ms.openlocfilehash: 5517581f929ffce9e9184848049ce9832013277e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -43,7 +43,7 @@ En la tabla siguiente se describen las diferencias entre los WebJobs *continuo* 
 | Admite la depuración remota. | No admite la depuración remota.|
 
 > [!NOTE]
-> Una aplicación web puede agotar el tiempo de espera después de 20 minutos de inactividad. Solo las solicitudes al sitio de scm (implementación) o a las páginas de la aplicación web en el portal restablecen el temporizador. Las solicitudes al sitio real no restablecen el temporizador. Si la aplicación ejecuta WebJobs continuos o programados, habilite **AlwaysOn** para asegurarse de que los WebJobs se ejecuten de manera confiable. Esta característica solo está disponible en los [planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/) Básico, Estándar y Premium.
+> Una aplicación web puede agotar el tiempo de espera después de 20 minutos de inactividad. Solo las solicitudes al sitio de scm (implementación) o a las páginas de la aplicación web en el portal restablecen el temporizador. Las solicitudes al sitio real no restablecen el temporizador. Si la aplicación ejecuta WebJobs continuos o programados, habilite **AlwaysOn** para asegurarse de que los WebJobs se ejecuten de manera confiable. Esta característica solo está disponible en los [planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Básico, Estándar y Premium.
 
 ## <a name="acceptablefiles"></a>Tipos de archivo admitidos para scripts o programas
 
@@ -83,7 +83,7 @@ when making changes in one don't forget the other two.
    | **Name** | myContinuousWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_". |
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
    | **Tipo** | Continuo | Los [tipos de WebJob](#webjob-types) aparecen descritos anteriormente en este artículo. |
-   | **Escala** | Instancias múltiples | Solo disponible para WebJobs continuos. Determina si el programa o el script se ejecuta en todas las instancias o solo en una. La opción para que se ejecute en varias instancias no se aplica a los [planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/) Gratis o Compartido. |
+   | **Escala** | Instancias múltiples | Solo disponible para WebJobs continuos. Determina si el programa o el script se ejecuta en todas las instancias o solo en una. La opción para que se ejecute en varias instancias no se aplica a los [planes de tarifa](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratis o Compartido. | 
 
 4. Haga clic en **Aceptar**.
 

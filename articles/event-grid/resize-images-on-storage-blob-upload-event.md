@@ -9,14 +9,14 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 10/11/2017
 Este tutorial es la segunda parte de una serie de tutoriales sobre almacenamiento. Amplía el [tutorial anterior sobre almacenamiento][previous-tutorial] para agregar la generación de vistas en miniatura automática sin servidor con Azure Event Grid y Azure Functions. Event Grid permite que [Azure Functions](..\azure-functions\functions-overview.md) responda a eventos de [Azure Blob Storage](..\storage\blobs\storage-blobs-introduction.md) y genere vistas en miniatura de imágenes cargadas. Se crea una suscripción de eventos en el evento de creación de Blob Storage. Cuando se agrega un blob a un contenedor de Blob Storage determinado, se llama a un punto de conexión de función. Los datos pasados al enlace de función desde Event Grid se usan para acceder al blob y generar la imagen en miniatura. 
 
 Use la CLI de Azure y Azure Portal para agregar la funcionalidad de cambio de tamaño a una aplicación existente de carga de imágenes.
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Aplicación web publicada en el explorador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -42,7 +40,6 @@ En este tutorial, aprenderá a:
 Para completar este tutorial:
 
 + Debe haber realizado el tutorial anterior de Blob Storage: [Upload image data in the cloud with Azure Storage (Cargar datos de imagen en la nube con Azure Storage)][previous-tutorial]. 
-+ Debe solicitar acceso a la funcionalidad de eventos de Blob Storage (y se le debe haber concedido). [Solicite acceso a los eventos de Blob Storage](#request-storage-access) antes de continuar con los demás pasos del tema.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,32 +48,6 @@ Para completar este tutorial:
 Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0.14 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
-
-## <a name="enable-blob-storage-events"></a>Habilitación de eventos de Blob Storage
-
-En este punto debe solicitar acceso a la característica de eventos de Blob Storage.  
-
-### <a name="request-storage-access"></a>Solicitud de acceso a eventos de Blob Storage
-
-Solicite acceso con el comando `az feature register`.
-
-> [!IMPORTANT]  
-> Los participantes de versión preliminar de eventos de Blob Storage se aceptan en el orden en que han solicitado unirse. Podría experimentar un retraso de entre uno y dos días laborables en la concesión de acceso a esta característica. 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>Comprobación del estado de aprobación
-
-Recibirá un correo electrónico de Microsoft con la notificación de que se le ha concedido acceso a los eventos de Blob Storage. Puede comprobar el estado de la solicitud de acceso en cualquier momento con el comando `az feature show`.
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-Cuando se le ha concedido acceso a la característica de eventos de Blob Storage, este comando devuelve un valor `"Registered"`. 
- 
-Una vez registrado, puede continuar con este tutorial.
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de almacenamiento de Azure
 

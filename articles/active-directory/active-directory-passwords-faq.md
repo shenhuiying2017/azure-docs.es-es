@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fda60c9dfde64c526ad4cbf7fc4ccc5b56becafb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -56,10 +56,6 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * **P: ¿Mis usuarios pueden registrar datos de manera tal que otros usuarios no puedan verlos?**
 
   > **R:** Sí, cuando los usuarios registran datos a través del portal de Registro de restablecimiento de contraseña, se guardan en campos de autenticación privados que solo son visibles para los administradores globales y para el propio usuario.
-    >
-    > [!NOTE]
-    > Si una **cuenta de administrador de Azure** registra su número de teléfono de autenticación, este también se rellena en el campo de teléfono móvil y está visible.
-    >
   >
   >
 * **P: ¿Mis usuarios necesitan registrarse antes de poder usar el restablecimiento de contraseña?**

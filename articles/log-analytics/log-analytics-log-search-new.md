@@ -11,20 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Descripción de las búsquedas de registros en Log Analytics
-
-> [!NOTE]
-> Este artículo describe las búsquedas de registros de Azure Log Analytics mediante el nuevo lenguaje de consulta.  Puede obtener más información sobre el nuevo lenguaje y conocer el procedimiento para actualizar el área de trabajo en [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md) (Actualización del área de trabajo de Azure Log Analytics al nuevo registro de búsquedas)///.  
->
-> Si todavía no se ha actualizado el área de trabajo al nuevo lenguaje de consulta, vaya a [Búsqueda de datos mediante búsquedas de registros en Log Analytics](log-analytics-log-searches.md).
 
 Se requiere una búsqueda de registros para recuperar los datos de Log Analytics.  Si está analizando los datos en el portal, configurando una regla de alertas para recibir una notificación sobre una condición determinada o recuperando datos mediante la API de Log Analytics, usará una búsqueda de registros para especificar los datos que desea.  Este artículo describe cómo se usan las búsquedas de registros en Log Analytics y proporciona los conceptos que debe comprender antes de crear una. Consulte la sección [Pasos siguientes](#next-steps) para más información sobre cómo crear y editar búsquedas de registros y para consultar referencias sobre el lenguaje de consulta.
 

@@ -1,5 +1,5 @@
 ---
-title: "Introducción al proceso de ciencia de datos en equipo de Azure | Microsoft Docs"
+title: "¿Qué es el Proceso de ciencia de datos en equipo (TDSP)? | Microsoft Docs"
 description: "Se proporciona una metodología de ciencia de datos que ofrece soluciones de análisis predictivo y aplicaciones inteligentes."
 services: machine-learning
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2017
+ms.date: 10/20/2017
 ms.author: bradsev;
-ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
-# <a name="team-data-science-process-overview"></a>Introducción al proceso de ciencia de datos en equipo
+# <a name="what-is-the-team-data-science-process"></a>¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 
 El proceso de ciencia de datos en equipo (TDSP) es una metodología de ciencia de datos ágil e iterativa para proporcionar soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración en equipo y el aprendizaje. Contiene una extracción de los mejores procedimientos y estructuras de Microsoft y otros fabricantes del sector que facilitan la correcta implementación de iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que se den cuenta de las ventajas de su programa de análisis.
 

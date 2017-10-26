@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/17/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d2681e629d478208301091571d77a3c283a8e774
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b0af784ad8f18e7dba49a32320dd6a6a7c5ad99
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Tanto si usa herramientas como API, realice los pasos siguientes para crear una 
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para obtener un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan para copiar datos desde un almacén de datos de Amazon S3, consulte la sección [Ejemplo de JSON: Copia de datos de Amazon S3 a un blob de Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para obtener un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan para copiar datos desde un almacén de datos de Amazon S3, consulte la sección [Ejemplo de JSON: Copia de datos de Amazon S3 a un blob de Azure](#json-example-copy-data-from-amazon-s3-to-azure-blob-storage) de este artículo.
 
 > [!NOTE]
 > Para información sobre los formatos de compresión y de archivo compatibles para una actividad de copia, consulte [Formatos de archivo y de compresión admitidos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md).

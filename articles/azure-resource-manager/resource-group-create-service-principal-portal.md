@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 56b73ff30e7fdaa3c21bc1e5528e2f6118597ef1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -187,7 +187,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 La aplicación está ahora configurada en Azure Active Directory. Tiene un id. y una clave para usar en el inicio de sesión con la aplicación. A la aplicación se le asigna un rol que le proporciona determinadas acciones que puede realizar. Para información sobre el inicio de sesión como en la aplicación a través de distintas plataformas, consulte:
 
 * [PowerShell](resource-group-authenticate-service-principal.md#provide-credentials-through-powershell)
-* [CLI de Azure](resource-group-authenticate-service-principal-cli.md#provide-credentials-through-azure-cli)
+* [CLI de Azure](resource-group-authenticate-service-principal-cli.md)
 * [REST](/rest/api/#create-the-request)
 * [.NET](/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 * [Java](/java/azure/java-sdk-azure-authenticate)

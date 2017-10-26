@@ -15,14 +15,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
+ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
 Los paneles de Log Analytics todas permiten visualizar todas las búsquedas de registro guardadas, lo que le proporciona la posibilidad de buscar, correlacionar y compartir datos operativos de TI en la organización.  Este tutorial trata la creación de una búsqueda de registros que se usará para admitir un panel compartido al que accederá su equipo de soporte técnico de operaciones de TI.  Aprenderá a:
