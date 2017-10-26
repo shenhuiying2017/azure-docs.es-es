@@ -24,10 +24,16 @@
     - name: Directiva de mantenimiento
       href: azure-stack-servicing-policy.md
     - name: Notas de la versión
-      href: azure-stack-asdk-release-notes.md
+      items:
+        - name: Notas de la versión de Development Kit
+          href: azure-stack-asdk-release-notes.md
+        - name: Notas de la versión de los sistemas integrados
+          items:
+            - name: Actualización 1710
+              href: azure-stack-update-1710.md
     - name: Características y conceptos principales
       href: azure-stack-key-features.md
-    - name: Arquitectura de Azure Stack Development Kit
+    - name: Arquitectura de Development Kit
       href: azure-stack-architecture.md
     - name: Conceptos básicos de administración
       href: azure-stack-manage-basics.md
@@ -51,10 +57,14 @@
           href: azure-stack-provision-vm.md
     - name: Integración del centro de datos
       items:
-        - name: Integración de DNS
+        - name: DNS
           href: azure-stack-integrate-dns.md
+        - name: Identidad
+          href: azure-stack-integrate-identity.md
         - name: Publicación de puntos de conexión
           href: azure-stack-integrate-endpoints.md
+        - name: Seguridad
+          href: azure-stack-integrate-security.md
     - name: Administrar
       items:
         - name: Administración de regiones
@@ -83,6 +93,8 @@
               href: azure-stack-updates.md
             - name: Aplicar actualizaciones
               href: azure-stack-apply-updates.md
+            - name: Supervisión del estado de actualización
+              href: azure-stack-monitor-update.md
         - name: Supervisión de estado y alertas
           href: azure-stack-monitor-health.md
         - name: Administración de recursos de red
@@ -95,8 +107,12 @@
           items:
             - name: Acciones de nodo
               href: azure-stack-node-actions.md
+            - name: Sustitución de nodo
+              href: azure-stack-replace-node.md
             - name: Reemplace de disco
               href: azure-stack-replace-disk.md
+            - name: Sustitución de componente
+              href: azure-stack-replace-component.md
     - name: 'Seguridad, cumplimiento e identidad'
       items:
         - name: Introducción a la seguridad
@@ -139,7 +155,7 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Implementación de un proveedor de recursos de SQL
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Creación de bases de datos de SQL Database
+            - name: Creación de bases de datos SQL
               href: azure-stack-sql-resource-provider-databases.md
             - name: Adición de servidores de hospedaje
               href: azure-stack-sql-resource-provider-hosting-servers.md
