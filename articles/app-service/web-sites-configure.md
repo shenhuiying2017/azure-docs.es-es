@@ -3,7 +3,7 @@ title: "Configuración de aplicaciones web en el Servicio de aplicaciones de Azu
 description: "Cómo configurar una aplicación web en servicios de aplicaciones de Azure"
 services: app-service\web
 documentationcenter: 
-author: rmcmurray
+author: cephalin
 manager: erikre
 editor: 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
-ms.author: robmcm
-ms.openlocfilehash: bb1144519db84e5685fbae1a2f55854e1102120a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en el Servicio de aplicaciones de Azure
 En este tema se explica cómo configurar una aplicación web con el [Portal de Azure].
@@ -27,7 +27,6 @@ En este tema se explica cómo configurar una aplicación web con el [Portal de A
 
 ## <a name="application-settings"></a>Configuración de la aplicación
 1. En el [Portal de Azure], abra la hoja de la aplicación web.
-2. Haga clic en **Toda la configuración**.
 3. Haga clic en **Configuración de la aplicación**.
 
 ![Configuración de la aplicación][configure01]

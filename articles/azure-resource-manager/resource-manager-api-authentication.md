@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Uso de la API de autenticación de Resource Manager para acceder a suscripciones
 ## <a name="introduction"></a>Introducción
@@ -87,7 +87,7 @@ Los resultados incluyen AppId, que necesita para autenticarse como la aplicació
 ### <a name="optional-configuration---certificate-credential"></a>Configuración opcional: credencial de certificado
 Azure AD también admite credenciales de certificado para las aplicaciones: cree un certificado autofirmado, mantenga la clave privada y agregue la clave pública al registro de la aplicación Azure AD. Para la autenticación, la aplicación envía una carga pequeña a Azure AD firmada con su clave privada y Azure AD valida la firma mediante la clave pública que se ha registrado.
 
-Para obtener más información sobre cómo crear una aplicación de AD con un certificado, consulte [Uso de Azure PowerShell para crear una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) o [Uso de la CLI de Azure para crear una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate).
+Para obtener más información sobre cómo crear una aplicación de AD con un certificado, consulte [Uso de Azure PowerShell para crear una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) o [Uso de la CLI de Azure para crear una entidad de servicio para acceder a recursos](resource-group-authenticate-service-principal-cli.md).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Obtención de un identificador de inquilino a partir del identificador de suscripción
 Para solicitar un token que se pueda utilizar para llamar a Resource Manager, la aplicación necesita conocer el identificador del inquilino de Azure AD que hospeda la suscripción de Azure. Es muy probable que los usuarios conozcan sus identificadores de suscripción, pero quizá no sus identificadores de inquilino para Azure Active Directory. Para obtener el identificador de inquilino del usuario, solicítele el identificador de suscripción. Proporcione ese identificador de suscripción al enviar una solicitud acerca de la suscripción:
