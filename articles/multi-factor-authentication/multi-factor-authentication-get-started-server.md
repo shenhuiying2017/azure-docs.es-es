@@ -105,7 +105,7 @@ Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal,
 
 ## <a name="download-the-mfa-server"></a>Descarga del servidor MFA
 
-Para descargar el Servidor Azure Multi-Factor Authentication desde el portal web, siga estos pasos:
+Para descargar el Servidor Azure Multi-Factor Authentication desde el portal de pfweb, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
 2. En la parte izquierda, seleccione **Active Directory**.
