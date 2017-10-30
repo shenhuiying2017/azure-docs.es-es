@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 01357ceca1d78c80c901c9fbec08ce85f02fb958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 715076ee1ce33370ca2b2399549b7c907ac48f3e
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-docker-ce-cluster"></a>Implementación del clúster de Docker CE
 
@@ -48,7 +48,7 @@ Salida:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westcentralus",
+  "location": "ukwest",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -70,7 +70,7 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#create). 
 
-Después de varios minutos, el comando se completa y devuelve información en formato json sobre el clúster.
+Unos minutos después, el comando se completa y devuelve información en formato JSON acerca del clúster.
 
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 
@@ -176,7 +176,7 @@ En este tutorial de inicio rápido, se han usado imágenes de un contenedor crea
 
 En este tutorial de inicio rápido, implementará un clúster de Docker Swarm y, en él, una aplicación de varios contenedores.
 
-Para aprender sobre la integración de Docker Swarm con Visual Studio Team Services, consulte el artículo sobre CI/CD con Docker Swarm y VSTS.
+Para obtener información acerca de la integración de Docker Swarm con Visual Studio Team Services, consulte el artículo sobre CI/CD con Docker Swarm y VSTS.
 
 > [!div class="nextstepaction"]
 > [Integración y entrega continuas con Docker Swarm y VSTS](./container-service-docker-swarm-setup-ci-cd.md)

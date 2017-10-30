@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b211c2076840b6eff7c21cb481da569ca6bc49a4
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introducción a Azure CDN
-Este tema le guía a través de la habilitación de la red CDN de Azure mediante la creación de un perfil de red CDN y un punto de conexión nuevo.
+En este artículo se describe cómo habilitar la red CDN de Azure creando un perfil de red CDN y un punto de conexión nuevo.
 
 > [!IMPORTANT]
-> Para una introducción al funcionamiento de la red CDN, así como una lista de las características, consulte la [información general de la red CDN](cdn-overview.md).
+> Para obtener una introducción a la red CDN y una lista de características, vea [Introducción a la red CDN](cdn-overview.md).
 > 
 > 
 
@@ -64,7 +64,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 4. En la lista desplegable **Tipo de origen** , seleccione su tipo de origen.  Seleccione **Almacenamiento** para una cuenta de Azure Storage, **Servicio en la nube** para un servicio en la nube de Azure, **Aplic. web** para una aplic. web de Azure, o bien **Origen personalizado** para cualquier otro origen del servidor web públicamente accesible (hospedado en Azure o en otro lugar).
    
     ![Tipo de origen de la red CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-5. En la lista desplegable **Nombre de host de origen** , seleccione o escriba su dominio de origen.  En la lista desplegable se muestran todos los orígenes disponibles del tipo especificado en el paso 4.  Si seleccionó *Origen personalizado* como su **Tipo de origen**, tendrá que escribir el dominio de su origen personalizado.
+5. En la lista desplegable **Nombre de host de origen** , seleccione o escriba su dominio de origen.  En la lista desplegable se muestran todos los orígenes disponibles del tipo especificado en el paso 4.  Si seleccionó *Origen personalizado* como su **Tipo de origen**, escriba el dominio de su origen personalizado.
 6. En el cuadro de texto **Ruta de acceso de origen** , escriba la ruta de acceso a los recursos que quiera almacenar en caché o déjela en blanco para permitir almacenar en caché cualquier recurso en el dominio especificado en el paso 5.
 7. En el **Encabezado del host de origen**, escriba el encabezado de host que quiera que la red CDN envíe con cada solicitud o deje el valor predeterminado.
    
@@ -72,7 +72,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
    > Algunos tipos de orígenes, como Almacenamiento de Azure y Aplicaciones web, requieren que el encabezado del host coincida con el dominio del origen. A menos que tenga un origen que requiera un encabezado de host diferente de su dominio, debe dejar el valor predeterminado.
    > 
    > 
-8. Para **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para tener acceso a sus recursos en el origen.  Se debe seleccionar al menos un protocolo (HTTP o HTTPS).
+8. Para **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para tener acceso a sus recursos en el origen. Se debe seleccionar al menos un protocolo (HTTP o HTTPS). Para acceder al contenido HTTPS, use el dominio proporcionado por la red CDN (`<endpointname>.azureedge.net`). 
    
    > [!NOTE]
    > El valor de **Puerto de origen** solo afecta al puerto que utiliza el punto de conexión para recuperar información del origen.  El propio punto de conexión solo está disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), con independencia de cuál sea el **puerto de origen**.  
@@ -82,20 +82,18 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
    > El acceso al contenido de la red CDN usando HTTPS tiene la siguiente restricciones:
    > 
    > * Debe utilizar el certificado SSL proporcionado por la red CDN. No se admiten certificados de terceros.
-   > * La compatibilidad con HTTPS para dominios personalizados de red CDN de Azure solo está disponible con los productos **Azure CDN de Verizon** (ediciones Standard y Premium). No lo estará en **CDN de Azure de Akamai**. Para más información, consulte [Habilitación de HTTPS en un dominio personalizado de la red CDN de Azure](cdn-custom-ssl.md).
-
-Para acceder al contenido HTTPS, use el dominio proporcionado por la red CDN (`<endpointname>.azureedge.net`). La compatibilidad con HTTPS no está disponible para nombres de dominio personalizados (CNAME) dado que la red CDN no admite certificados personalizados en este momento.
-   > 
-   > 
+   > * La compatibilidad con HTTPS para dominios personalizados de red CDN de Azure solo está disponible con los productos **Azure CDN de Verizon** (ediciones Standard y Premium). No lo estará en productos **CDN de Azure de Akamai**. Para más información, consulte [Habilitación o deshabilitación de HTTPS en un dominio personalizado de la red CDN de Azure](cdn-custom-ssl.md).
+  
 9. Haga clic en el botón **Agregar** para crear el nuevo punto de conexión.
-10. Una vez creado el punto de conexión, aparecerá en la lista de puntos de conexión del perfil. La visualización de la lista muestra la URL que se debe utilizar para tener acceso al contenido en caché, así como al dominio de origen.
+   
+   Una vez creado el punto de conexión, aparece en la lista de puntos de conexión del perfil.
     
-    ![Punto de conexión de CDN][cdn-endpoint-success]
+   ![Punto de conexión de CDN][cdn-endpoint-success]
     
-    > [!IMPORTANT]
-    > El punto de conexión no estará disponible para su uso de forma inmediata; el registro puede tardar en propagarse a través de la red CDN.  Para <b>red CDN de Azure de Akamai</b> , la propagación normalmente se completará en un minuto.  Para los perfiles de la <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completará en 90 minutos, pero en algunos casos puede tardar más tiempo.
+   > [!IMPORTANT]
+   > Dado que se tarda un tiempo en que el registro se propague a través de la red CDN, el punto de conexión no estará disponible para su uso de forma inmediata.  Para los perfiles de la <b>red CDN de Azure de Akamai</b> , la propagación normalmente se completa en un minuto. Para los perfiles de la <b>red CDN de Azure de Verizon</b>, la propagación normalmente se completa en 90 minutos, pero en algunos casos puede tardar más tiempo.
     > 
-    > Los usuarios que intenten usar el nombre de dominio de la red CDN antes de que la configuración del punto de conexión se haya propagado a los POP recibirán los códigos de respuesta HTTP 404.  Si han pasado varias horas desde que creó el punto de conexión y aún recibe errores 404, consulte [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md)(Solución de problemas de puntos de conexión de redes CDN que devuelven errores 404).
+    > Los usuarios que intenten usar el nombre de dominio de la red CDN antes de que la configuración del punto de conexión se haya propagado a los POP, pueden recibir códigos de respuesta HTTP 404.  Si han pasado varias horas desde que creó el punto de conexión y aún recibe errores 404, consulte [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md) (Solución de problemas de puntos de conexión de redes CDN que devuelven errores 404).
     > 
     > 
 

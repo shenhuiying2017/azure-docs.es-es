@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Implementación de una aplicación contenedora Linux de Azure Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -29,7 +29,7 @@ Esta guía de inicio rápido muestra cómo implementar contenedores Linux en un 
 
 En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 > [!div class="checklist"]
-> * Implementar contenedores Linux en Service Fabric
+> * Implementar contenedores en un clúster de Service Fabric Linux de Azure
 > * Escalar y realizar una conmutación por error de contenedores en Service Fabric
 
 ## <a name="prerequisite"></a>Requisito previo
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Implementación de los contenedores en un clúster de Service Fabric en Azure
 Para implementar la aplicación en un clúster de Azure, use su propio clúster o use un Party Cluster.
+
+> [!Note]
+> La aplicación debe implementarse en un clúster de Azure y no en uno de Service Fabric en la máquina de desarrollo local. 
+>
 
 Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure. Los mantiene el equipo de Service Fabric y aquí cualquier usuario puede implementar aplicaciones y conocer más información sobre la plataforma. Para obtener acceso a un Party Cluster, [siga estas instrucciones](http://aka.ms/tryservicefabric). 
 

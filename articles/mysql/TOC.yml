@@ -105,6 +105,8 @@
       items:
         - name: Portal de Azure
           href: howto-restore-server-portal.md
+        - name: CLI de Azure
+          href: howto-restore-server-cli.md
     - name: Conexión de aplicaciones
       items:
         - name: Cadenas de conexión

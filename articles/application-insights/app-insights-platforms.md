@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.openlocfilehash: d49ad2ff584f42c0e4732a5cff60d23cdf631512
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 485687ec1358a2a3d309b64c6825ce235f87127b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análisis del desarrollador: lenguajes y plataformas e integraciones
 Estos elementos son implementaciones de [Application Insights](app-insights-overview.md) sobre las que tenemos noticias, que incluyen también algunas de terceros.
@@ -39,20 +39,20 @@ Estos elementos son implementaciones de [Application Insights](app-insights-over
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET: para aplicaciones que ya están activas](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (Mobile Center, HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;incluidos los roles web y de trabajo
 * [Funciones de Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (Mobile Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE: para aplicaciones que ya están activas](app-insights-java-live.md)
-* [Aplicación Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
+* [Aplicación de macOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
-* [Aplicación universal de Windows](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
+* [Aplicación universal de Windows](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (Mobile Center, HockeyApp)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Aplicación para Windows Phone 8 y 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
 * [Aplicación para Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)

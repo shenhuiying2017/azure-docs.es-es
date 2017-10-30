@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
-ms.date: 01/23/2017
+ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: cdca35f8ae339d02b44490cd61e2684d81d88365
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Acerca de las cuentas de almacenamiento de Azure
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -32,6 +33,7 @@ Una cuenta de almacenamiento de Azure proporciona un espacio de nombres único p
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## <a name="storage-account-billing"></a>Facturación de la cuenta de almacenamiento
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -61,7 +63,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En el menú central, seleccione **Nuevo** -> **Almacenamiento** -> **Cuenta de almacenamiento**.
+2. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija **Más servicios**. A continuación, desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 3. Escriba un nombre para la cuenta de almacenamiento. Consulte [Puntos de conexión de cuenta de almacenamiento](#storage-account-endpoints) para más información sobre la forma en que se usará el nombre de la cuenta de almacenamiento para dirigir los objetos en Almacenamiento de Azure.
    
    > [!NOTE]

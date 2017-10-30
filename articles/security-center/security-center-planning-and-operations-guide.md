@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 52e421a62fa24a56a077bc030e03c0fed34305fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e243189bc26566f9ca0850e95f98731ba4d97b6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube cuyas organizaciones estén planeando utilizar Azure Security Center.
@@ -121,7 +121,7 @@ Cuando planee el control de acceso mediante RBAC para Security Center, asegúres
 > 
 
 ## <a name="security-policies-and-recommendations"></a>Directivas de seguridad y recomendaciones
-Una directiva de seguridad define la configuración deseada de las cargas de trabajo y ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Security Center, puede definir directivas para las suscripciones de Azure, que se pueden adaptar al tipo de carga de trabajo o la confidencialidad de los datos.
+Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Security Center, puede definir directivas para las suscripciones de Azure, que se pueden adaptar al tipo de carga de trabajo o la confidencialidad de los datos.
 
 Las directivas de Security Center contienen los componentes siguientes:
 - [Recopilación de datos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): configuración de colección de datos y aprovisionamiento de agente.
@@ -130,7 +130,7 @@ Las directivas de Security Center contienen los componentes siguientes:
 - [Nivel de precios](https://docs.microsoft.com/azure/security-center/security-center-pricing): selección de precios de nivel gratuito o estándar, que determina qué características de Security Center están disponibles para los recursos en el ámbito (se puede especificar para suscripciones, grupos de recursos y áreas de trabajo).
 
 > [!NOTE]
-> Al especificar un contrato de seguridad se garantiza que Azure puede llegar a la persona adecuada de su organización si se produce un incidente de seguridad. Consulte [Proporcionar detalles de contacto de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) para más información sobre cómo habilitar esta recomendación.
+> Al especificar un contacto de seguridad se garantiza que Azure puede llegar a la persona adecuada de su organización si se produce un incidente de seguridad. Consulte [Proporcionar detalles de contacto de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) para más información sobre cómo habilitar esta recomendación.
 
 ### <a name="security-policies-definitions-and-recommendations"></a>Definiciones y recomendaciones de directivas de seguridad
 Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. Puede modificar la directiva en Security Center o usar Azure Policy para crear nuevas definiciones, definir directivas adicionales y asignar directivas en grupos de administración (que pueden representar toda la organización, una unidad de negocio de ella, etc.) y supervisar el cumplimiento de estas directivas en estos ámbitos.

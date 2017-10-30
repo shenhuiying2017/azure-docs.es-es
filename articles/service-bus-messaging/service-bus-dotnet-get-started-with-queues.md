@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introducción a las colas de Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Agregar el paquete NuGet de Service Bus
 1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
-2. Haga clic en la pestaña **Examinar**, busque **Microsoft Azure Service Bus** y seleccione el elemento **WindowsAzure.ServiceBus**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
+2. Haga clic en la pestaña **Examinar**, busque **WindowsAzure.ServiceBus** y seleccione el elemento **WindowsAzure.ServiceBus**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
    
     ![Seleccionar un paquete NuGet][nuget-pkg]
 
@@ -115,7 +115,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
         }
     }
     ```
-3. Ejecute el programa y compruebe Azure Portal: haga clic en el nombre de la cola en la hoja **Introducción** del espacio de nombres. Se muestra la hoja **Essentials** de la cola. Tenga en cuenta que el valor de **Recuento de mensajes activos** debe ser ahora 1. Cada vez que se ejecuta la aplicación de remitente sin recuperar los mensajes, este valor aumenta en 1. Tenga también en cuenta que el tamaño actual de la cola aumenta cada vez que la aplicación agrega un mensaje a la misma.
+3. Ejecute el programa y compruebe Azure Portal: haga clic en el nombre de la cola en la hoja **Información general** del espacio de nombres. Se muestra la hoja **Información esencial** de la cola. Tenga en cuenta que el valor de **Recuento de mensajes activos** debe ser ahora 1. Cada vez que se ejecuta la aplicación de remitente sin recuperar los mensajes, este valor aumenta en 1. Tenga también en cuenta que el tamaño actual de la cola aumenta cada vez que la aplicación agrega un mensaje a la misma.
    
       ![Tamaño del mensaje][queue-message]
 
@@ -178,7 +178,7 @@ Inicie Visual Studio y cree un nuevo proyecto **Console app (.NET Framework)**.
    
     ![Longitud de la cola][queue-message-receive]
 
-¡Enhorabuena! Ha creado una cola, ha enviado un mensaje y ha recibido un mensaje.
+¡Enhorabuena! Ahora ha creado una cola, ha enviado un mensaje a dicha cola y ha recibido un mensaje de la misma cola.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -189,4 +189,4 @@ Consulte nuestro [repositorio de GitHub con ejemplos](https://github.com/Azure/a
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

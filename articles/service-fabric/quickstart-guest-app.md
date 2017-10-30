@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f63cf0baf7636d0294ced7c2dc6b3112fa9900ee
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedaje de una aplicación de Node.js en Azure Service Fabric
 
@@ -43,7 +43,7 @@ En el cuadro de diálogo **Nuevo proyecto**, elija **Nube > Aplicación de Servi
 Asigne el nombre **MyGuestApp** a la aplicación y presione **Aceptar**.
 
 >[!IMPORTANT]
->Node.js puede superar fácilmente el límite de 260 caracteres en las rutas de acceso que tiene Windows. Use una ruta de acceso corta para el propio proyecto como **c:\code\svc1**.
+>Node.js puede superar fácilmente el límite de 260 caracteres en las rutas de acceso que tiene Windows. Use una ruta de acceso corta para el propio proyecto como **c:\code\svc1**. Si lo desea, puede seguir [estas instrucciones](https://stackoverflow.com/a/41687101/1664231) para habilitar las rutas de acceso de archivo largas en Windows 10.
    
 ![Cuadro de diálogo de proyecto nuevo en Visual Studio.][new-project]
 

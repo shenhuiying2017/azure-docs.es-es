@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Conexión del Explorador de Storage a una suscripción de Azure Stack
 
@@ -42,7 +42,7 @@ Para Azure Stack Development Kit, debe exportar el certificado raíz de la entid
 
 1. Abra `mmc.exe` en una máquina host de Azure Stack o una máquina local con una conexión VPN a Azure Stack. 
 
-2. En **Archivo**, seleccione **Agregar o quitar complemento** y luego agregue **certificados** para administrar la **cuenta de equipo** del **equipo local**.
+2. En **Archivo**, seleccione **Agregar o quitar complemento** y luego agregue **certificados** para administrar la **Mi cuenta de usuario**.
 
 
 

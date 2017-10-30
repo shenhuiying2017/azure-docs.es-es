@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/04/2017
+ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 2a175aed40b9775d9a4de6877eb3467b43819568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2c5fbb574f0388af62186047afedfb45f0881a0
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-media-services-overview"></a>Introducción a Azure Media Services 
 
@@ -57,7 +57,11 @@ Para compilar soluciones de Media Services, puede usar:
     * [Azure Media Services para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS).
 * Herramientas existentes:
     * [Azure Portal](https://portal.azure.com/)
-    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de Azure Media Services (AMSE) es una aplicación Winforms/C# para Windows)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de servicios multimedia de Azure (AMSE) es una aplicación Winforms/C# para Windows)
+
+## <a name="code-samples"></a>Ejemplos de código
+
+Busque varios ejemplos de código en la galería de **ejemplos de código de Azure**: [Ejemplos de código de Azure Media Services](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts-and-overview"></a>Introducción y conceptos
 Para conocer los conceptos de Azure Media Services, consulte [Conceptos](media-services-concepts.md).

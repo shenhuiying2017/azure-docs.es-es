@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Bus de servicio
 
@@ -58,15 +58,15 @@ El proceso es sencillo: un usuario A envía un mensaje a la cola del Bus de serv
 
 Cada mensaje tiene dos partes: un conjunto de propiedades, cada una de ellas, un par clave/valor, y una carga de mensaje. La carga de mensaje puede ser binaria, texto o incluso XML. El modo en que se usan depende de lo que una aplicación esté tratando de hacer. Por ejemplo, una aplicación que envía un mensaje sobre una venta reciente podría incluir las propiedades **Seller="Ava"** y **Amount=10000**. El cuerpo del mensaje puede contener una imagen escaneada del contrato firmado de la venta o, si no la hubiera, puede aparecer vacío.
 
-El receptor puede leer los mensajes de la cola del bus de servicio de dos formas distintas. La primera opción, denominada *[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, quita un mensaje de la cola y lo elimina de inmediato. Esta opción es sencilla, pero si se produce un error por parte del receptor antes de que finalice el procesamiento del mensaje, este se perderá. Puesto que se quita de la cola, ningún otro receptor podrá obtener acceso a él. 
+El receptor puede leer los mensajes de la cola del bus de servicio de dos formas distintas. La primera opción, denominada *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, recibe un mensaje de la cola y lo elimina de inmediato. Esta opción es sencilla, pero si se produce un error por parte del receptor antes de que finalice el procesamiento del mensaje, este se perderá. Puesto que se quita de la cola, ningún otro receptor podrá obtener acceso a él. 
 
-La segunda opción, *[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode)*, se ha creado para solucionar este problema. Como ocurre con **ReceiveAndDelete**, una lectura de **PeekLock** quita un mensaje de la cola. Sin embargo, no elimina el mensaje. En este caso, bloquea el mensaje, por lo que se oculta a los demás receptores. A continuación, espera a que se produzca uno de los tres eventos:
+La segunda opción, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)*, se ha creado para solucionar este problema. Como ocurre con **ReceiveAndDelete**, una lectura de **PeekLock** quita un mensaje de la cola. Sin embargo, no elimina el mensaje. En este caso, bloquea el mensaje, por lo que se oculta a los demás receptores. A continuación, espera a que se produzca uno de los tres eventos:
 
-* Si el receptor procesa el mensaje correctamente, invoca [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete) y la cola elimina el mensaje. 
-* Si el receptor decide que no puede procesar el mensaje correctamente, invoca [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon). La cola quita el bloqueo del mensaje y se pone a disposición de otros receptores.
+* Si el receptor procesa el mensaje correctamente, invoca [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) y la cola elimina el mensaje. 
+* Si el receptor decide que no puede procesar el mensaje correctamente, invoca [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync). La cola quita el bloqueo del mensaje y se pone a disposición de otros receptores.
 * Si el receptor no invoca ninguno de estos métodos en un período configurable (60 segundos de forma predeterminada), la cola presupone que se ha producido un error con el receptor. En ese caso, se comporta como si el receptor hubiera llamado a **Abandon**, lo que hace que el mensaje esté disponible para otros receptores.
 
-Observe lo que ocurre aquí: el mismo mensaje puede enviarse dos veces, quizás a dos receptores distintos. Las aplicaciones que usan colas de Service Bus deben estar preparadas para este evento. Para facilitar la detección de duplicados, cada mensaje dispone de una propiedad [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) única que no se modifica de forma predeterminada, independientemente del número de veces que se lea un mensaje en una cola. 
+Observe lo que ocurre aquí: el mismo mensaje puede enviarse dos veces, quizás a dos receptores distintos. Las aplicaciones que usan colas de Service Bus deben estar preparadas para este evento. Para facilitar la detección de duplicados, cada mensaje dispone de una propiedad [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) única que no se modifica de forma predeterminada, independientemente del número de veces que se lea un mensaje en una cola. 
 
 Las colas son útiles en determinadas situaciones. Permiten a las aplicaciones comunicarse incluso si no se están ejecutando a la vez. Esto es especialmente útil con aplicaciones móviles y por lotes. Una cola con varios receptores también proporciona un equilibrio de carga automático, ya que los mensajes enviados se difunden a través de esos receptores.
 
@@ -84,7 +84,7 @@ Un *tema* se parece en muchos aspectos a una cola. Los remitentes envían mensaj
 * El suscriptor 2 recibe mensajes que contienen la propiedad *Seller="Ruby"* o la propiedad *Amount* cuyo valor es superior a 100.000. Quizás Ruby es la directora de ventas, y por eso quiere ver sus propias ventas y todas las ventas importantes con independencia de quién las haga.
 * El suscriptor 3 ha establecido su filtro en *True*, lo que significa que recibe todos los mensajes. Por ejemplo, esta aplicación puede ser responsable de mantener una traza de auditoría y, por tanto, necesita ver todos los mensajes.
 
-Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode). Sin embargo, a diferencia de las colas, varias suscripciones pueden recibir un mensaje individual enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir* (o *pub/sub*), es útil cuando hay varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
+Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). Sin embargo, a diferencia de las colas, varias suscripciones pueden recibir un mensaje individual enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir* (o *pub/sub*), es útil cuando hay varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
 
 ## <a name="relays"></a>Retransmisiones
 

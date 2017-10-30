@@ -12,16 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: nisoneji
-ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
 En este artículo se describe cómo excluir discos de la replicación. Esta exclusión puede optimizar el ancho de banda consumido con la replicación u optimizar los recursos del lado del destino que utilizan estos discos. La característica es compatible con escenarios de VMware a Azure y de Hyper-V a Azure.
+
+## <a name="supported-scenarios"></a>Escenarios admitidos
+**Característica** | **VMware a Azure** | **Hyper-V en Azure** | **De Azure a Azure**| **De Hyper-V a Hyper-V** 
+--|--|--|--|--
+Excluir el disco | Sí | Sí | No | No
 
 ## <a name="prerequisites"></a>Requisitos previos
 

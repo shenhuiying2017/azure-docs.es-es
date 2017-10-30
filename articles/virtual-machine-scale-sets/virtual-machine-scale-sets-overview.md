@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
 Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado están diseñados para admitir el escalado automático verdadero y no es necesario aprovisionar las máquinas virtuales antes. Esto facilita la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
@@ -33,12 +33,12 @@ Para más información acerca de los conjuntos de escalado, vea estos vídeos:
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>Creación y administración de conjuntos de escalado
-Para crear un conjunto de escalado en [Azure Portal](https://portal.azure.com), seleccione **nuevo** y escriba **escalado** en la barra de búsqueda. El **conjunto de escalado de máquinas virtuales** se enumera en los resultados. Aquí podrá rellenar los campos obligatorios para personalizar e implementar el conjunto de escalado. También hay opciones para configurar reglas básicas de escalado automático en función del uso de la CPU. 
+Para crear un conjunto de escalado en [Azure Portal](https://portal.azure.com), seleccione **nuevo** y escriba **escalado** en la barra de búsqueda. El **conjunto de escalado de máquinas virtuales** se enumera en los resultados. Aquí podrá rellenar los campos obligatorios para personalizar e implementar el conjunto de escalado. También hay opciones para configurar reglas básicas de escalado automático en función del uso de la CPU. Para administrar el conjunto de escalado, puede usar Azure Portal, [cmdlets de Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o la CLI de Azure 2.0.
 
 Los conjuntos de escalado se pueden implementar en una [zona de disponibilidad](../availability-zones/az-overview.md).
 
 > [!NOTE]
-> En la actualidad, Conjuntos de escalado de máquinas virtuales solo admite la implementación en una sola zona de disponibilidad. Sin embargo, en el futuro se admitirá la implementación en varias zonas.
+> En la actualidad, los conjuntos de escalado de máquinas virtuales solo admiten la implementación en una zona de disponibilidad. Sin embargo, en el futuro se admitirá la implementación en varias zonas.
 
 Los conjuntos de escalado de máquinas virtuales se pueden definir e implementar mediante plantillas JSON y [API de REST](https://msdn.microsoft.com/library/mt589023.aspx), igual que las máquinas virtuales individuales de Azure Resource Manager. Por tanto, puede utilizar cualquier método de implementación estándar de Azure Resource Manager. Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -46,8 +46,23 @@ Puede encontrar un conjunto de plantillas de ejemplo para los conjuntos de escal
 
 Para los ejemplos de plantilla de inicio rápido, hay un botón "Implementar en Azure" en el archivo Léame de cada plantilla vinculado a la característica de implementación del portal. Para implementar el conjunto de escalado, haga clic en el botón y rellene los parámetros obligatorios en el portal. 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>Escalado y reducción verticales de un conjunto de escalado
-Para cambiar la capacidad de conjunto de escalado en Azure Portal, haga clic en la sección **Escalado** de **Configuración**. 
+
+## <a name="autoscale"></a>Autoscale
+Para mantener el rendimiento de la aplicación coherente, puede aumentar o reducir automáticamente el número de instancias de máquina virtual del conjunto de escalado. Esta capacidad de escalado automático reduce la sobrecarga de administración para supervisar y ajustar el escalado automático como cambios a demanda del cliente a lo largo del tiempo. El usuario define las reglas en función de las métricas de rendimiento, la respuesta de la aplicación o una programación fija y el conjunto de escalado se escala automáticamente según sea necesario.
+
+Como reglas básicas de escalado automático, puede usar las métricas de rendimiento basadas en el host, como el uso de CPU o las E/S del disco. Estas métricas basadas en el host están disponibles desde el principio, sin agentes o extensiones adicionales que instalar y configurar. Las reglas de escalado automático que usan métricas basadas en el host se crean con una de las herramientas siguientes:
+
+- [Portal de Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+Para usar las métricas de rendimiento más granulares, puede instalar y configurar la extensión de Azure Diagnostics en instancias de máquina virtual del conjunto de escalado. La extensión de Azure Diagnostics permite recopilar métricas de rendimiento adicionales, como el consumo de memoria, del interior de cada instancia de máquina virtual. Estas métricas de rendimiento se transmiten a una cuenta de Azure Storage y el usuario crea reglas de escalado automático para consumir los datos. Para más información, consulte los artículos sobre cómo habilitar la extensión de Azure Diagnostics en una [máquina virtual Linux](../virtual-machines/linux/diagnostic-extension.md) o una [máquina virtual Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
+
+Para supervisar el rendimiento de la aplicación, puede instalar y configurar un pequeño paquete de instrumentación en a la aplicación para Application Insights. Entonces se podrán transmitir desde esta las métricas de rendimiento detalladas sobre el tiempo de respuesta o el número de sesiones de la aplicación. A continuación, puede crear reglas de escalado automático con los umbrales definidos para el propio rendimiento de nivel de aplicación. Para más información sobre Application Insights, consulte [¿Qué es Application Insights?](../application-insights/app-insights-overview.md)
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>Escalado y reducción verticales automáticos de un conjunto de escalado
+Puede cambiar manualmente la capacidad de un conjunto de escalado en Azure Portal; para ello, haga clic en la sección **Escalado** de **Configuración**. 
 
 Para cambiar la capacidad del conjunto de escalado en la línea de comandos, use el comando **scale** de la [CLI de Azure](https://github.com/Azure/azure-cli). Por ejemplo, este comando se puede usar para establecer que un conjunto de escalado tenga una capacidad de 10 máquinas virtuales:
 
@@ -67,26 +82,6 @@ Para aumentar o disminuir el número de máquinas virtuales de un conjunto de es
 
 Si va a volver a implementar una plantilla de Azure Resource Manager para modificar la capacidad, puede definir una plantilla mucho menor que solo incluya el paquete de la propiedad **SKU** con la capacidad actualizada. [Este es un ejemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing).
 
-## <a name="autoscale"></a>Autoscale
-
-Cuando un conjunto de escalado se cree en Azure Portal, opcionalmente se puede configurar con valores de escalado automático. En ese caso, el número de máquinas virtuales se puede aumentar o disminuir en función del promedio de uso de la CPU. 
-
-Muchas de las plantillas de conjunto de escalado que se encuentran en las [plantillas de Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) definen la configuración del escalado automático. También puede agregar la configuración de escalado automático a un conjunto de escalado existente. Por ejemplo, este script de Azure PowerShell agrega escalado automático basado en CPU a un conjunto de escalado:
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-En [Métricas compatibles con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md), bajo el encabezado "Microsoft.Compute/virtualMachineScaleSets", puede encontrar una lista de métricas válidas de escalado. Las opciones más avanzadas de escalado automático también están disponibles, entre las que se incluyen el escalado automático basado en programación y el uso de webhooks para la integración con sistemas de alertas.
 
 ## <a name="monitoring-your-scale-set"></a>Supervisión del conjunto de escalado
 En [Azure Portal](https://portal.azure.com) se enumeran los conjuntos de escalado y se muestran sus propiedades. El portal también admite operaciones de administración. Se pueden realizar operaciones de administración tanto en conjuntos de escalado como en máquinas virtuales individuales de un conjunto de escalado. El portal también proporciona un gráfico de uso de los recursos personalizado. 

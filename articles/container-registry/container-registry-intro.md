@@ -5,7 +5,7 @@ services: container-registry
 documentationcenter: 
 author: stevelas
 manager: balans
-editor: dlepow
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: ee2b652b-fb7c-455b-8275-b8d4d08ffeb3
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/13/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 664696d2f355609c76477765c2238c6d62253482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d54caa45078221cdbe091649cb3fe3b65eaa47e8
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introducción a los registros de contenedores privados de Docker en Azure
 
@@ -38,11 +37,9 @@ Extraiga imágenes desde un registro de contenedor de Azure a varios destinos de
 Los desarrolladores también pueden insertar en un registro de contenedor como parte de un flujo de trabajo de desarrollo de contenedor. Por ejemplo, puede dirigir un registro de contenedor desde una herramienta de desarrollo e integración continua como [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 
 ## <a name="key-concepts"></a>Conceptos clave
-* **Registro**: cree un registro de contenedor o varios en la suscripción de Azure. Cada registro está respaldado por una [cuenta de almacenamiento](../storage/common/storage-introduction.md) estándar de Azure en la misma ubicación. Aproveche las ventajas del almacenamiento local, cercano a la red, de las imágenes de contenedor mediante la creación de un registro en la misma ubicación de Azure que las implementaciones. Un nombre completo de registro tiene el formato `myregistry.azurecr.io`.
+* **Registro**: cree un registro de contenedor o varios en la suscripción de Azure. Los registros están disponibles en tres SKU: [Basic, Standard y Premium](container-registry-skus.md), cada una de las cuales admite la integración de webhook, la autenticación del repositorio con Azure Active Directory y la funcionalidad de eliminación. Aproveche las ventajas del almacenamiento local, cercano a la red, de las imágenes de contenedor mediante la creación de un registro en la misma ubicación de Azure que las implementaciones. Use la característica de [replicación geográfica](container-registry-geo-replication.md) de los registros Premium en escenarios avanzados de replicación y de distribución de imágenes de contenedor. Un nombre completo de registro tiene el formato `myregistry.azurecr.io`.
 
   Puede [controlar el acceso](container-registry-authentication.md) a un registro de contenedor mediante una [entidad de servicio](../active-directory/active-directory-application-objects.md) respaldada por Azure Active Directory o una cuenta de administrador proporcionada. Ejecute el comando estándar `docker login` para autenticarse con un registro.
-
-* **Registro administrado**: puede elegir crear un registro administrado o uno respaldado por su propia cuenta de almacenamiento. Los registros administrados ofrecen funcionalidades adicionales en tres SKU: Basic, Standard y Premium. Las imágenes de estas SKU se almacenan en cuentas de Azure Storage administradas mediante el servicio Azure Container Registry, que mejora la confiabilidad y permite nuevas características. Entre las nuevas funcionalidades se incluyen la integración de webhooks, la autenticación del repositorio con Azure Active Directory y la compatibilidad con la funcionalidad de eliminación.
 
 * **Repositorio**: un registro contiene uno o varios repositorios, que son grupos de imágenes de contenedor. Azure Container Registry es compatible con los espacios de nombres del repositorio de varios niveles. Con espacios de nombres de varios niveles puede agrupar colecciones de imágenes relacionadas con una aplicación específica o una colección de aplicaciones con equipos operativos o de desarrollo específicos. Por ejemplo:
 
@@ -58,4 +55,3 @@ Los desarrolladores también pueden insertar en un registro de contenedor como p
 * [Creación de un registro de contenedor mediante Azure Portal](container-registry-get-started-portal.md)
 * [Creación de un registro de contenedor con la CLI de Azure](container-registry-get-started-azure-cli.md)
 * [Insertar la primera imagen mediante la CLI de Docker](container-registry-get-started-docker-cli.md)
-* Para crear una integración continua y un flujo de trabajo de implementación mediante Visual Studio Team Services, Azure Container Service y Azure Container Registry, consulte el artículo sobre [CI/CD con Socker Swarm y VSTS](../container-service/dcos-swarm/container-service-docker-swarm-setup-ci-cd.md).

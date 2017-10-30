@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 861f6b54130f9954c5e565346afd9a8f8e034b3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-Con este artículo aprenderá a realizar operaciones de administración de cuentas en Data Lake Store con el SDK de .NET. Las operaciones de administración de cuentas incluyen, por ejemplo, la creación o eliminación de cuentas de Data Lake Store, o su enumeración en una suscripción de Azure.
+En este artículo se aprende a realizar operaciones de administración de cuentas en Data Lake Store con el SDK de .NET. Las operaciones de administración de cuentas incluyen, por ejemplo, la creación o eliminación de cuentas de Data Lake Store, o su enumeración en una suscripción de Azure.
 
 Para instrucciones sobre cómo realizar operaciones de administración de datos en Data Lake Store con el SDK de .NET, consulte [Operaciones de sistema de archivos en Azure Data Lake Store con el SDK de .NET](data-lake-store-data-operations-net-sdk.md).
 
@@ -63,13 +63,17 @@ Para instrucciones sobre cómo realizar operaciones de administración de datos 
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. Declare las variables y proporcione los valores de los marcadores de posición. Además, asegúrese de que la ruta de acceso local y el nombre de archivo que proporcione existen en el equipo.
 
@@ -105,7 +109,7 @@ En las restantes secciones de este artículo, se puede ver cómo se utilizan los
 El fragmento de código siguiente crea el objeto de cliente de la cuenta de Data Lake Store, que se usa para emitir solicitudes de administración de cuentas para el servicio, como, por ejemplo, crear o eliminar una cuenta.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
+    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
 ## <a name="create-a-data-lake-store-account"></a>Crear una cuenta de Almacén de Data Lake
 El fragmento de código siguiente crea una cuenta de Data Lake Store en la suscripción de Azure que proporcionó al crear el objeto de cliente de la cuenta de Data Lake Store.
