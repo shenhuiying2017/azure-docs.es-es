@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Diferencias y consideraciones
 
@@ -40,6 +40,7 @@ En este artículo se resumen las diferencias entre Azure Stack Storage y Azure S
 |Discos administrados|Premium y estándar admitidos|Todavía no se admite
 |Nombre de blob|1 024 caracteres (2 048 bytes)|880 caracteres (1 760 bytes)
 |Tamaño máximo de blob en bloque|4,75 TB (100 MB x 50 000 bloques)|50 000 x 4 MB (195 GB aproximadamente)
+|Copia de instantánea de blob en páginas|Copia de seguridad de discos de máquina virtual no administrados conectados a una máquina virtual en ejecución compatible|Todavía no se admite
 |Copia de instantáneas incrementales del blob de página|Blobs en páginas de Azure estándar y premium admitidos|Todavía no se admite
 |Tamaño máximo de blob en página|8 TB|1 TB
 |Tamaño de página de blob en página|512 bytes|4 KB

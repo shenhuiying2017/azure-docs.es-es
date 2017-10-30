@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
-ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -39,29 +39,41 @@ Para establecer la configuración entre pares se pueden usar direcciones IP priv
 * Debe reservar una subred /29 o dos subredes /30 para las interfaces de enrutamiento.
 * Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
 * Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
-* Si se usa una subred /29, se dividirá en dos /30 subredes. 
+* Si se usa una subred /29, se divide en dos subredes /30. 
   * La primera subred /30 se usa para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
   * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /30.
   * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.  
 
 #### <a name="example-for-private-peering"></a>Ejemplo de configuración entre pares privados
-Si elige usar a.b.c.d/29 para establecer el emparejamiento, se dividirá en dos subredes /30. En el siguiente ejemplo, veremos cómo se usa la subred a.b.c.d/29. 
+Si elige usar a.b.c.d/29 para establecer el emparejamiento, se divide en dos subredes /30. En el siguiente ejemplo, veremos cómo se usa la subred a.b.c.d/29. 
 
-a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30 y se pasa a Microsoft a través de las API de aprovisionamiento. Usará a.b.c.d+1 como IP VRF para el PE principal y Microsoft consumirá a.b.c.d+2 como IP VRF para el MSEE principal. Usará a.b.c.d+5 como IP VRF para el PE secundario y Microsoft usará a.b.c.d+6 como IP VRF para el MSEE secundario.
+a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30, y se pasa a Microsoft a través de las API de aprovisionamiento. Se usa a.b.c.d+1 como IP VRF para el PE principal y Microsoft empleará a.b.c.d+2 como IP VRF para el MSEE principal. Se usa a.b.c.d+5 como IP VRF para el PE secundario y Microsoft usará a.b.c.d+6 como IP VRF para el MSEE secundario.
 
 Suponga que se selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
 
 * 192.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
 * 192.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
 
-### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>Direcciones IP usadas para la configuración de pares públicos de Azure y de Microsoft
+### <a name="ip-addresses-used-for-azure-public-peering"></a>Direcciones IP usadas para el emparejamiento público de Azure
 Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet  y los registros de enrutamiento de Internet. 
 
 * Debe usar una única subred /29 o dos subredes /30 para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno). 
-* Si se usa una subred /29, se dividirá en dos /30 subredes. 
-  * La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usa para el vínculo secundario.
+* Si se usa una subred /29, se divide en dos subredes /30. 
+  * La primera subred /30 se usa para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
   * Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /30.
   * Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
+
+### <a name="ip-addresses-used-for-microsoft-peering"></a>Direcciones IP usadas para el emparejamiento de Microsoft
+Para configurar las sesiones BGP, debe usar las direcciones IP públicas que posee. Microsoft debe poder comprobar la propiedad de las direcciones IP a través de los registros regionales de Internet  y los registros de enrutamiento de Internet.
+
+* Debe usar una única subred /29 (IPv4) o /125 (IPv6) o dos o dos subredes /30 (IPv4) o /126 (IPv6) para configurar el emparejamiento BGP para cada emparejamiento por circuito ExpressRoute (si tiene más de uno).
+* Si se usa una subred /29, se divide en dos subredes /30.
+* La primera subred /30 se usa para el vínculo principal, mientras que la segunda se usa para el secundario.
+* Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /30.
+* Si se usa una subred /125, se divide en dos subredes /126.
+* La primera subred /126 se usa para el vínculo principal, mientras que la segunda se usa para el secundario.
+* Para cada una de las subredes /126, debe usar la primera dirección IP de la subred /126 en el enrutador. Para configurar sesiones BGP, Microsoft usa la segunda dirección IP de la subred /126.
+* Para que el [Acuerdo de Nivel de Servicio de disponibilidad](https://azure.microsoft.com/support/legal/sla/) sea válido, es necesario configurar ambas sesiones BGP.
 
 ## <a name="public-ip-address-requirement"></a>Requisitos de las direcciones IP públicas
 
@@ -80,7 +92,7 @@ La ruta de acceso de emparejamiento público de Azure le permite conectarse a to
 Con el emparejamiento público se permite un número de sistema autónomo privado.
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
-La ruta de acceso de emparejamiento de Microsoft le permite conectarse a todos los servicios en la nube de Microsoft hospedados en direcciones IP públicas. La lista de servicios incluye Office 365, Dynamics 365 y los servicios de PaaS de Microsoft Azure. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4/IPv6 públicas válidas para entrar en la red de Microsoft.
+El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online, Skype Empresarial y Dynamics 365. Microsoft admite la conectividad bidireccional en el emparejamiento de Microsoft. El tráfico destinado a los servicios en la nube de Microsoft debe usar direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
 
@@ -93,9 +105,9 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
 
-Si no se le asignaron los prefijos y el número de sistema autónomo en los registros anteriores, deberá abrir un caso de soporte técnico para su validación manual. El equipo de soporte técnico necesitará documentación como una carta de autorización que certifique que puede utilizar los recursos.
+Si no se le asignaron los prefijos y el número de sistema autónomo en los registros anteriores, debe abrir una incidencia de soporte técnico para validar manualmente sus prefijos y ASN. El equipo de soporte técnico requiere documentación, por ejemplo, una carta de autorización, que certifique que puede utilizar los recursos.
 
-Con el emparejamiento de Microsoft se permite un número de sistema autónomo, pero debe validarse manualmente.
+Con el emparejamiento de Microsoft se permite un número de sistema autónomo privado, pero debe validarse manualmente.
 
 > [!IMPORTANT]
 > Las direcciones IP públicas anunciadas a Microsoft a través de ExpressRoute no deben ser anunciadas en Internet. Esto puede interrumpir la conectividad con otros servicios de Microsoft. Sin embargo, las direcciones IP públicas utilizadas por los servidores de la red que se comunican con los puntos de conexión de Office 365 dentro de Microsoft pueden anunciarse en ExpressRoute. 
@@ -106,14 +118,14 @@ Con el emparejamiento de Microsoft se permite un número de sistema autónomo, p
 El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen sesiones EBGP entre los MSEE y los enrutadores. La autenticación de sesiones de BGP no es un requisito. Si es necesario, se puede configurar un hash MD5. Consulte las secciones [Configuración del enrutamiento](expressroute-howto-routing-classic.md) y [Flujos de trabajo de aprovisionamiento de circuitos y estados de circuito](expressroute-workflows.md) para más información sobre la configuración de las sesiones BGP.
 
 ## <a name="autonomous-system-numbers"></a>Números de sistema autónomo
-Microsoft usará AS 12076 para la configuración entre pares públicos de Azure, privados de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits.
+Microsoft usa AS 12076 para el emparejamiento público de Azure, privado de Azure y de Microsoft. Se han reservado los ASN desde el 65515 al 65520 para uso interno. Se admiten números AS de 16 y 32 bits.
 
 No hay requisitos con respecto a la simetría de la transferencia de datos. Las rutas de reenvío y de retorno pueden atravesar pares de enrutadores diferentes. Las rutas idénticas deben anunciarse desde cualquiera de los lados en los distintos pares de circuito que le pertenezcan. No se requiere que las métricas de las rutas sean idénticas.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Límites de agregación y prefijo de ruta
 Se admiten hasta 4000 prefijos cuyo anuncio se ha recibido a través de la configuración de pares privados de Azure. Esta cifra puede aumentar hasta los 10.000 prefijos si está habilitado el complemento Premium de ExpressRoute. Se aceptan hasta 200 prefijos por sesión BGP para la configuración de pares públicos de Azure y de Microsoft. 
 
-Si el número de prefijos supera el límite, se eliminará la sesión BGP. Aceptaremos las rutas predeterminadas solo en el vínculo de la configuración de pares privados. El proveedor debe eliminar la ruta predeterminada y las direcciones IP privadas (RFC 1918) de las rutas de acceso de la configuración de pares públicos de Azure y de Microsoft. 
+Si el número de prefijos supera el límite, se elimina la sesión BGP. Aceptaremos las rutas predeterminadas solo en el vínculo de la configuración de pares privados. El proveedor debe eliminar la ruta predeterminada y las direcciones IP privadas (RFC 1918) de las rutas de acceso de la configuración de pares públicos de Azure y de Microsoft. 
 
 ## <a name="transit-routing-and-cross-region-routing"></a>Enrutamiento de tránsito y enrutamiento entre regiones
 ExpressRoute no puede configurarse como los enrutadores de tránsito. Tendrá que confiar en su proveedor de conectividad para los servicios de enrutamiento de tránsito.
@@ -140,7 +152,7 @@ Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute,
 
 Consulte la página [Partners de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md) para obtener una lista detallada de las regiones geopolíticas, regiones de Azure asociadas y las ubicaciones de emparejamiento de ExpressRoute correspondientes.
 
-Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener varias conexiones ofrece importantes ventajas para la alta disponibilidad debido a la redundancia geográfica. En los casos en que tenga varios circuitos de ExpressRoute, recibirá el mismo conjunto de prefijos anunciados de Microsoft en las rutas de acceso de la configuración de pares públicos y de la configuración de pares de Microsoft. Esto significa que tendrá varias rutas de acceso desde su red a Microsoft. Potencialmente, esto puede provocar que se tomen decisiones de enrutamiento en la red que no sean óptimas. Como consecuencia, puede sufrir una conectividad con los diferentes servicios que no sea óptima. Puede confiar en los valores de la comunidad para tomar decisiones de enrutamiento adecuadas para ofrecer un [enrutamiento óptimo a los usuarios](expressroute-optimize-routing.md).
+Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener varias conexiones ofrece importantes ventajas para la alta disponibilidad debido a la redundancia geográfica. En los casos en que tenga varios circuitos de ExpressRoute, recibirá el mismo conjunto de prefijos anunciados de Microsoft en las rutas de acceso de la configuración de pares públicos y de la configuración de pares de Microsoft. Esto significa que tendrá varias rutas de acceso desde su red a Microsoft. Puede provocar que se tomen decisiones de enrutamiento en la red que no sean óptimas. Como consecuencia, puede sufrir una conectividad con los diferentes servicios que tampoco sea óptima. Puede confiar en los valores de la comunidad para tomar decisiones de enrutamiento adecuadas para ofrecer un [enrutamiento óptimo a los usuarios](expressroute-optimize-routing.md).
 
 | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
 | --- | --- |
@@ -183,7 +195,7 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 Todas las rutas anunciadas de Microsoft se etiquetarán con el valor de la comunidad adecuado. 
 
 > [!IMPORTANT]
-> Los prefijos globales se etiquetarán con un valor adecuado de comunidad y se anunciarán solo cuando esté habilitado el complemento premium de ExpressRoute.
+> Los prefijos globales se etiquetan con un valor adecuado de comunidad y se anunciarán solo cuando esté habilitado el complemento premium de ExpressRoute.
 > 
 > 
 
@@ -227,7 +239,6 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 ## <a name="next-steps"></a>Pasos siguientes
 * Configure su conexión ExpressRoute.
   
-  * [Cree un circuito ExpressRoute según el modelo clásico de implementación](expressroute-howto-circuit-classic.md) o [Cree y modifique un circuito ExpressRoute mediante Azure Resource Manager](expressroute-howto-circuit-arm.md).
-  * [Configure el enrutamiento según el modelo clásico de implementación](expressroute-howto-routing-classic.md) o [Configure el enrutamiento según el modelo de implementación de Resource Manager](expressroute-howto-routing-arm.md).
-  * [Vincule una red virtual clásica a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) o [Vincule una red virtual de Resource Manager a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
-
+  * [Creación y modificación de un circuito](expressroute-howto-circuit-arm.md)
+  * [Creación y modificación de la configuración de emparejamiento](expressroute-howto-routing-arm.md)
+  * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)

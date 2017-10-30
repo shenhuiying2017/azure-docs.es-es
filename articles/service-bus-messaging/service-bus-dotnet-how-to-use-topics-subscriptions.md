@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 43064ddbdfec3e2ddae8de8c69f6c03dc7f8f45e
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 
@@ -48,7 +48,7 @@ Si ya ha creado un espacio de nombres de mensajería de Service Bus, vaya a la s
 ## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Creación de un tema mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal][azure-portal].
-2. En el panel de navegación izquierdo del portal, haga clic en **Service Bus** (si no ve **Service Bus**, haga clic en **Más servicios**).
+2. En el panel de navegación izquierdo del portal, haga clic en **Service Bus** (si no ve **Service Bus**, haga clic en **Más servicios**) o en **Todos los recursos**.
 3. Haga clic en el espacio de nombres en el que desea crear el tema. Aparece la hoja de información general del espacio de nombres:
    
     ![Creación de un tema][createtopic1]

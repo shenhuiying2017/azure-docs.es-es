@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
-ms.openlocfilehash: b8497f0331e9b7d19eed2e1c254849a1619f496a
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: b67cabf0ecdb48f137bfcfbce95eee568a1c298d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implementación de Azure Stack Development Kit
 
@@ -31,7 +31,7 @@ Para implementar [Azure Stack Development Kit](azure-stack-poc.md), debe complet
 3. [Implemente el kit de desarrollo](#deploy-the-development-kit) en el host de este.
 
 > [!NOTE]
-> Para obtener mejores resultados, incluso si desea usar un entorno desconectado de Azure Stack, es mejor implementar mientras está conectado a Internet. De este modo, se puede activar la versión de evaluación de Windows Server 2016 durante la implementación. Si no se activa la versión de evaluación de Windows Server 2016 en un plazo de 10 días, se cerrará.
+> Para obtener mejores resultados, incluso si desea usar un entorno desconectado de Azure Stack, es mejor implementar mientras está conectado a Internet. De este modo, se puede activar la versión de evaluación de Windows Server 2016 durante la implementación.
 > 
 > 
 
@@ -98,7 +98,7 @@ Para implementar [Azure Stack Development Kit](azure-stack-poc.md), debe complet
     
 2. Abra una consola de PowerShell con privilegios elevados > ejecute el script \AzureStack_Installer\asdk-installer.ps1 (que puede estar en una unidad diferente en Cloudbuilder.vhdx) > haga clic en **Instalar**.
 3. En el cuadro de diálogo **Tipo**, seleccione **Azure Cloud** o **ADFS**.
-    - **Azure Cloud**: Azure Active Directory es el proveedor de identidades. Utilice este parámetro para especificar un directorio concreto en el que la cuenta de AAD tiene permisos de administración globales. Nombre completo de un inquilino de Azure Active Directory con el formato .onmicrosoft.com. 
+    - **Azure Cloud**: Azure Active Directory es el proveedor de identidades. Utilice este parámetro para especificar un directorio concreto en el que la cuenta de AAD tiene permisos de administración globales. Nombre completo de un inquilino de AAD Directory. Por ejemplo, .onmicrosoft.com. 
     - **ADFS**: el servicio de directorio con la marca predeterminada es el proveedor de identidades, la cuenta predeterminada con la que iniciar sesión es azurestackadmin@azurestack.local y la contraseña que debe utilizar es la que proporcionó como parte de la configuración.
 4. En **Contraseña del administrador local**, en el cuadro **Contraseña**, escriba la contraseña del administrador local (que debe coincidir con la configurada en la actualidad) y, a continuación, haga clic en **Siguiente**.
 5. Seleccione un adaptador de red para usarlo para el kit de desarrollo y, a continuación, haga clic en **Siguiente**.
@@ -140,6 +140,10 @@ O bien, puede [volver a implementar](azure-stack-redeploy.md) desde el principio
 
 Para asegurarse de que la contraseña del host del kit de desarrollo no expire demasiado pronto, siga estos pasos después de realizar la implementación:
 
+Para cambiar la directiva de caducidad de contraseña desde Powershell:
+1. En la ventana de Powershell, ejecute el comando; Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
+
+Para cambiar la directiva de caducidad de contraseña manualmente:
 1. En el host del kit de desarrollo, abra **Administración de directivas de grupo** y vaya a **Administración de directivas de grupo** – **Bosque: azurestack.local** – **Dominios**: **azurestack.local**.
 2. Haga clic con el botón derecho en **Directiva predeterminada de dominio**  y, a continuación, haga clic en **Editar**.
 3. En el Editor de administración de directivas de grupo, vaya a **Configuración del equipo** – **Directivas** – **Configuración de Windows** – **Configuración de seguridad** – **Directivas de cuenta** – **Directiva de contraseñas**.

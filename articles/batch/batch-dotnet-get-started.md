@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf2b506c6d12e6337161aba889b23ad5eca83d96
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Introducción a la creación de soluciones con la biblioteca de cliente de Batch para .NET
 
@@ -55,8 +55,8 @@ El ejemplo [DotNetTutorial][github_dotnettutorial] es uno de los muchos ejemplos
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### <a name="azure-batch-explorer-optional"></a>Explorador de Azure Batch (opcional)
-El [Explorador de Azure Batch][github_batchexplorer] es una utilidad gratuita que se incluye en el repositorio [azure-batch-samples][github_samples] de GitHub. Aunque esta utilidad no es necesaria para completar este tutorial, puede resultar útil para desarrollar y depurar las soluciones de Batch.
+### <a name="batchlabs-optional"></a>BatchLabs (opcional)
+[BatchLabs][github_batchlabs] es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar aplicaciones de Azure Batch. Aunque esta utilidad no es necesaria para completar este tutorial, puede resultar útil para desarrollar y depurar las soluciones de Batch.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>Información general del proyecto de ejemplo DotNetTutorial
 El código de ejemplo *DotNetTutorial* es una solución de Visual Studio que consta de dos proyectos: **DotNetTutorial** y **TaskApplication**.
@@ -750,7 +750,7 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[github_batchlabs]: https://azure.github.io/BatchLabs/
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common

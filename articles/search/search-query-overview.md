@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Consultas en el índice de Búsqueda de Azure
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ La mejor manera de comprender las diferencias de sintaxis es enviar consultas y 
 
 + Use el [Explorador de búsqueda](search-explorer.md) de Azure Portal. Mediante la implementación del [índice de ejemplo](search-get-started-portal.md), puede consultar el índice en minutos gracias a las herramientas en el portal.
 
-+ Use [Fiddler](search-fiddler.md) o Chrome Postman para enviar consultas a un índice que se haya cargado en el servicio de búsqueda. Ambas herramientas admiten llamadas REST para un punto de conexión HTTP. 
++ Use Telerik Fiddler o Chrome Postman para enviar las consultas a un índice que haya cargado en su servicio de búsqueda. Ambas herramientas admiten llamadas REST para un punto de conexión HTTP. 

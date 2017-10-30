@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicación adaptables en Azure Security Center (versión preliminar)
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
@@ -37,7 +37,7 @@ Los controles de aplicación adaptables ayudan a controlar qué aplicaciones se 
 > Los controles de aplicación adaptables están disponibles para los clientes de Azure Security Center Estándar como una versión preliminar pública limitada. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_appcontrol@microsoft.com) para unirse a la versión preliminar.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>¿Cómo habilitar los controles de aplicación adaptables?
-Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaciones que se pueden ejecutar en los grupos de recursos configurados. Esta característica solo está disponible para equipos Windows (todas las versiones, clásica o Azure Resource Manager). Siga los pasos siguientes para configurar la inclusión en listas de aplicaciones permitidas en Security Center:
+Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaciones que se pueden ejecutar en los grupos de recursos configurados. Esta característica solo está disponible para máquinas de Windows (todas las versiones, clásica o Azure Resource Manager). Los pasos siguientes se pueden usar para configurar la inclusión de aplicaciones en las listas de permitidos de Security Center:
 
 1.  Abra el panel **Security Center** y haga clic en **Información general**.
 2.  En **Protección en la nube avanzada**, el icono **Controles de aplicación adaptables** muestra cuántas máquinas virtuales tienen actualmente el control en comparación con todas las máquinas virtuales. También muestra el número de problemas que se encontraron en la última semana: 
@@ -52,8 +52,6 @@ Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaci
     * **Recomendados**: lista de grupos de recursos para los que se recomienda el control de aplicación. Security Center utiliza el aprendizaje automático para identificar las máquinas virtuales que son buenas candidatas para el control de aplicación en función de si las máquinas virtuales ejecutan de forma coherente las mismas aplicaciones.
     * **Configurados**: lista de grupos de recursos con máquinas virtuales configuradas con control de aplicación. 
     * **Ninguna recomendación**: lista de grupos de recursos que contienen máquinas virtuales sin ninguna recomendación sobre el control de aplicación. Por ejemplo, máquinas virtuales en las que las aplicaciones cambian constantemente y no han alcanzado un estado estable.
-
-Las secciones siguientes abordarán más detalles sobre cada opción y su utilización.
 
 ### <a name="configure-a-new-application-control-policy"></a>Configuración de una nueva directiva de control de aplicación
 Haga clic en la pestaña **Recomendados** para obtener una lista de grupos de recursos con las recomendaciones de control de aplicación:
@@ -70,14 +68,16 @@ Seleccione un grupo de recursos para abrir la opción **Crear reglas de control 
 
 ![Reglas de control de aplicación](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-En **Seleccionar máquinas virtuales**, revise la lista de máquinas virtuales recomendadas y desactive cualquiera a la que no desee aplicar el control de aplicación. En **Seleccionar procesos para reglas de inclusión en lista blanca**, revise la lista de aplicaciones recomendadas y desactive aquellas a las que no desea que se aplique. La lista incluye:
+En **Seleccionar máquinas virtuales**, revise la lista de máquinas virtuales recomendadas y desactive cualquiera a la que no desee aplicar el control de aplicación. En **Seleccionar procesos para reglas de inclusión en lista blanca**, revise la lista de aplicaciones recomendadas y desactive aquellas a las que no desea que se apliquen. La lista incluye:
 
 - **NOMBRE**: la ruta de acceso completa de la aplicación
 - **PROCESOS**: el número de aplicaciones que residen dentro de cada ruta de acceso
 - **COMÚN**: true indica que estos procesos se han ejecutado en la mayoría de las máquinas virtuales de este grupo de recursos.
-- **INFRINGIBLE**: un icono de advertencia indicará si las aplicaciones podrían ser usadas por un atacante para evitar las listas de aplicaciones permitidas. Se recomienda encarecidamente que se revisen estas aplicaciones antes de su aprobación. 
+- **INFRINGIBLE**: un icono de advertencia indica si un atacante podría usar las aplicaciones para evitar las listas de aplicaciones permitidas. Se recomienda revisar estas aplicaciones antes de su aprobación. 
 
 Cuando haya terminado las selecciones, haga clic en el botón **Crear**. De forma predeterminada, Security Center siempre habilita el control de aplicación en modo *Auditoría*. Después de comprobar que la lista de permitidos no tenga efectos negativos en la carga de trabajo, puede cambiar al modo *Forzar*.
+
+Security Center necesita al menos dos semanas de datos para crear una línea de base y rellenar las recomendaciones únicas por grupo de máquinas virtuales. Los clientes nuevos del nivel estándar de Security Center experimentarán un comportamiento en el que, al principio, sus grupos de máquinas virtuales aparecerán en la pestaña *Ninguna recomendación*.
 
 > [!NOTE]
 > Como procedimiento recomendado de seguridad, Security Center siempre intenta crear una regla de publicador para las aplicaciones que deben estar en la lista de permitidos y solo si una aplicación no tiene información del publicador (también conocido como no firmada), se creará una regla de ruta de acceso para la ruta de acceso completa del archivo EXE específico.
@@ -147,7 +147,7 @@ La lista contiene:
 - **NOMBRE**: nombre de la suscripción y del grupo de recursos.
 - **MÁQUINAS VIRTUALES**: número de máquinas virtuales en el grupo de recursos.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="next-steps"></a>Pasos siguientes
 En este documento ha aprendido a usar el control de aplicación adaptable en Azure Security Center para incluir en la lista de permitidos las aplicaciones que se ejecutan en máquinas virtuales de Azure. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Aprenda a administrar las alertas y responder a incidentes de seguridad en Security Center.

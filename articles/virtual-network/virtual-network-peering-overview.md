@@ -14,42 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
-# <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
+# <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales
 
-[La red virtual de Azure (VNet)](virtual-networks-overview.md) es su propio espacio de red privada en Azure que permite conectar de forma segura los recursos de Azure entre sí.
-
-El emparejamiento de redes virtuales le permite conectar sin problemas redes virtuales. Una vez emparejadas, las redes virtuales aparecen como una sola a efectos de conectividad. Las máquinas virtuales de las redes virtuales emparejadas pueden comunicarse directamente entre sí.
-El tráfico entre máquinas virtuales en las redes virtuales emparejadas se enruta a través de la infraestructura de red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*.
-
->[!IMPORTANT]
-> Puede emparejar redes virtuales de diferentes regiones de Azure. Esta funcionalidad actualmente está en su versión preliminar. Puede [registrar la suscripción para la versión preliminar](virtual-network-create-peering.md). Está generalmente disponible el emparejamiento de redes virtuales en las mismas regiones.
->
+El emparejamiento de redes virtuales permite conectar sin problemas dos [redes virtuales](virtual-networks-overview.md) de Azure. Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. 
 
 Las ventajas del uso del emparejamiento de redes virtuales son las siguientes:
 
-* El tráfico que se dirige por los emparejamientos de redes virtuales es completamente privado. Atraviesa la red troncal de Microsoft y no hay ni Internet pública ni puertas de enlace implicadas.
+* El tráfico de red entre redes virtuales emparejadas es privado. El tráfico entre las redes virtuales se mantiene en la red troncal de Microsoft. No se requieren ninguna red pública de Internet, puertas de enlace o cifrado en la comunicación entre las redes virtuales.
 * Baja latencia, conexión de gran ancho de banda entre los recursos de redes virtuales diferentes.
-* Capacidad de usar recursos en una red virtual desde otra red virtual una vez emparejados.
-* El emparejamiento de redes virtuales le ayuda a transferir datos a través de las suscripciones de Azure, modelos de implementación y a través de regiones de Azure (versión preliminar).
-* Posibilidad de emparejar redes virtuales creadas mediante Azure Resource Manager o de emparejar una red virtual creada mediante Resource Manager con una red virtual creada mediante el modelo de implementación clásica. Consulte el artículo donde se [describen los modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para tener más información sobre las diferencias entre los dos modelos de implementación.
+* La capacidad para que los recursos de una red virtual se comunique con los recursos de otra red virtual diferente, una vez que las redes virtuales estén emparejadas.
+* La capacidad para transferir datos a través de las suscripciones de Azure, los modelos de implementación y entre las distintas regiones de Azure (versión preliminar).
+* Posibilidad de emparejar redes virtuales creadas mediante Azure Resource Manager o de emparejar una red virtual creada mediante Resource Manager con una red virtual creada mediante el modelo de implementación clásica. Para más información sobre los modelos de implementación de Azure, consulte [Descripción de los modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* No tienen tiempo de inactividad ni los recursos de la red virtual al crear el emparejamiento, o después.
 
 ## <a name="requirements-constraints"></a>Requisitos y restricciones
 
-* El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales en diferentes regiones está actualmente en versión preliminar en Centro-oeste de EE. UU., Canadá Central y Oeste de EE. UU. 2. Puede [registrar la suscripción para la versión preliminar.](virtual-network-create-peering.md)
+* El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales en diferentes regiones está actualmente en versión preliminar en Centro-oeste de EE. UU., Canadá Central y Oeste de EE. UU. 2. Puede [registrar una suscripción](virtual-network-create-peering.md) para la versión preliminar.
     > [!WARNING]
-    > Los emparejamientos de redes virtuales que se crean en este escenario no pueden tener el mismo nivel de disponibilidad y confiabilidad que los escenarios de la versión de disponibilidad general. Es posible que los emparejamientos de redes virtuales tengan funcionalidades limitadas y no estén disponibles en todas las regiones de Azure. Para las notificaciones más al día sobre disponibilidad y estado de esta característica, consulte la página de [actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) .
+    > Es posible que los emparejamientos de redes virtuales que se crean en entre regiones no tengan el mismo nivel de disponibilidad y confiabilidad que los emparejamientos de una versión de disponibilidad general. Es posible que los emparejamientos de redes virtuales tengan funcionalidades limitadas y no estén disponibles en todas las regiones de Azure. Para las notificaciones más al día sobre disponibilidad y estado de esta característica, consulte la página de [actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) .
 
 * Deben tener además espacios de direcciones IP que no se solapen.
-* No se pueden agregar espacios de direcciones a una red virtual ni eliminarse de esta una vez que una red virtual se empareja con otra red virtual.
+* Una vez que una red virtual se empareja con otra red virtual, no es posible agregar n eliminar rangos de direcciones de una red virtual . Si es necesario agregar rangos de direcciones al espacio de direcciones de una red virtual emparejada, es preciso quitar el emparejamiento, agregar el espacio de direcciones y, solo después, volver a agregar el emparejamiento.
 * El emparejamiento de red virtual se realiza entre dos redes virtuales. No hay ninguna relación transitiva derivada entre emparejamientos. Por ejemplo, si la red virtual A está emparejada con la red virtual B y la red virtual B está emparejada con la red virtual C, la red virtual A *no* está emparejada con la red virtual C.
 * Puede emparejar redes virtuales que existan en dos suscripciones distintas, siempre y cuando un usuario con privilegios (consulte los [permisos específicos](create-peering-different-deployment-models-subscriptions.md#permissions)) de ambas suscripciones lo autorice y las suscripciones estén asociadas al mismo inquilino de Azure Active Directory. Puede usar una instancia de [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar redes virtuales en suscripciones asociadas a diferentes inquilinos de Active Directory.
-* Se pueden emparejar redes virtuales si ambas se crean mediante el modelo de implementación de Resource Manager o si una se crea mediante el modelo de implementación de Resource Manager y la otra se crea mediante el modelo de implementación clásica. No obstante, las redes virtuales creadas mediante el modelo de implementación clásica no se pueden emparejar entre sí. Puede usar [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar redes virtuales creadas mediante el modelo de implementación clásica.
+* Se pueden emparejar redes virtuales si ambas se crean mediante el modelo de implementación de Resource Manager o si una se crea mediante el modelo de implementación de Resource Manager y la otra se crea mediante el modelo de implementación clásica. Sin embargo, las redes virtuales creadas a través del modelo de implementación clásica no se pueden emparejar entre ellas. Puede usar [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar redes virtuales creadas mediante el modelo de implementación clásica.
 * Aunque la comunicación entre las máquinas virtuales en redes virtuales emparejadas no tiene restricciones de ancho de banda adicionales, hay un ancho de banda de red máximo en función del tamaño de máquina virtual que se aplica. Para más información sobre el ancho de banda de red máximo para los diferentes tamaños de máquina virtual, consulte los artículos sobre los tamaños de máquina virtual [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
      ![Emparejamiento básico de red virtual](./media/virtual-networks-peering-overview/figure03.png)
@@ -58,20 +52,20 @@ Las ventajas del uso del emparejamiento de redes virtuales son las siguientes:
 
 Después de que se hayan emparejado las redes virtuales, los recursos de cualquiera de las máquinas virtuales se pueden conectar directamente con los recursos de la otra red virtual emparejada.
 
-La latencia de red entre las máquinas virtuales de redes virtuales emparejadas en la misma región es la misma que en una única red virtual. El rendimiento de la red se basa en el ancho de banda que se permite para la máquina virtual, en proporción a su tamaño. No hay restricciones adicionales con respecto al ancho de banda en el emparejamiento.
+La latencia de red entre las máquinas virtuales de redes virtuales emparejadas en la misma región es la misma que la de una única red virtual. El rendimiento de la red se basa en el ancho de banda que se permite para la máquina virtual, en proporción a su tamaño. No hay restricciones adicionales con respecto al ancho de banda en el emparejamiento.
 
-El tráfico entre las máquinas virtuales de redes virtuales emparejadas se enruta directamente a través de la infraestructura de red troncal de Microsoft, y no a través de una puerta de enlace o de una red Internet pública.
+El tráfico entre las máquinas virtuales en las redes virtuales emparejadas se enruta directamente a través de la infraestructura de red troncal de Microsoft, no de una puerta de enlace ni de una red Internet pública.
 
-Las máquinas virtuales de una red virtual pueden acceder al equilibrador de carga interna de la red virtual emparejada de la misma región. La compatibilidad con el equilibrador de carga interno no se extiende por las redes virtuales emparejadas globalmente en la versión preliminar. La versión de disponibilidad general del emparejamiento de las redes virtuales globales será compatible con el equilibrador de carga interno.
+Las máquinas virtuales de una red virtual pueden acceder al equilibrador de carga interna de la red virtual emparejada de la misma región. La compatibilidad con el equilibrador de carga interno no se extiende por las redes virtuales emparejadas globalmente (versión preliminar). La versión de disponibilidad general del emparejamiento de las redes virtuales globales será compatible con el equilibrador de carga interno.
 
 Si se desea, se pueden aplicar grupos de seguridad de red en cualquier red virtual para bloquear el acceso a otras redes o subredes virtuales.
-Al configurar el emparejamiento de red virtual, puede abrir o cerrar las reglas del grupo de seguridad de red entre las redes virtuales. Si abre la conectividad completa entre las redes virtuales emparejadas (que es la opción predeterminada), puede aplicar grupos de seguridad de red a subredes o máquinas virtuales concretas para bloquear o denegar acceso específico. Para más información sobre los grupos de seguridad de red, lea el artículo de [introducción a los grupos de seguridad de red](virtual-networks-nsg.md).
+Al configurar el emparejamiento de red virtual, puede abrir o cerrar las reglas del grupo de seguridad de red entre las redes virtuales. Si abre la conectividad completa entre las redes virtuales emparejadas (que es la opción predeterminada), puede aplicar grupos de seguridad de red a subredes o máquinas virtuales concretas para bloquear o denegar acceso específico. Para más información acerca de los grupos de seguridad de red, consulte [Filtrado del tráfico de red con grupos de seguridad de red](virtual-networks-nsg.md).
 
 ## <a name="service-chaining"></a>Encadenamiento de servicios
 
 Puede configurar las rutas definidas por el usuario que apuntan a máquinas virtuales de redes virtuales emparejadas como la dirección IP del "próximo salto" para permitir el encadenamiento de servicios. El encadenamiento de servicios permite dirigir el tráfico desde una red virtual hasta una aplicación virtual de una red virtual emparejada mediante rutas definidas por el usuario.
 
-También puede crear eficazmente entornos del tipo de concentrador y radio, en los que el concentrador puede hospedar componentes de la infraestructura, como una aplicación virtual de red. Todas las redes virtuales de radio se pueden emparejar con la red virtual de concentrador. El tráfico puede fluir por las aplicaciones virtuales de red que se ejecutan en la red virtual de concentrador. En resumen, el emparejamiento de red virtual permite que la dirección IP de próximo salto de la ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada. Para aprender más sobre las rutas definidas por el usuario, lea el artículo de [introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md). Para aprender a crear una [topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+También puede crear eficazmente entornos del tipo de concentrador y radio, en los que el concentrador puede hospedar componentes de la infraestructura, como una aplicación virtual de red. Todas las redes virtuales de radio se pueden emparejar con la red virtual de concentrador. El tráfico puede fluir por las aplicaciones virtuales de red que se ejecutan en la red virtual de concentrador. En resumen, el emparejamiento de red virtual permite que la dirección IP de próximo salto de la ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada. Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md). Para aprender a crear una topología de red de concentrador y radio, consulte [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implementación de una topología de concentrador y radio en Azure)
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Puertas de enlace y conectividad local
 
@@ -93,19 +87,19 @@ El emparejamiento de red virtual es una operación que requiere privilegios. Es 
 
 Los usuarios que ya sean administradores o tengan privilegios para emparejar pueden iniciar operaciones de emparejamiento en otra red virtual. El nivel mínimo de permiso necesario es el de colaborador de red. Si hay una solicitud coincidente de emparejamiento en el otro lado y se cumplen el resto de requisitos, se establecerá el emparejamiento.
 
-Por ejemplo, si está emparejando redes virtuales denominadas myvirtual networkA y myvirtual networkB, su cuenta debe tener asignado el rol o los permisos mínimos siguientes para cada red virtual:
+Por ejemplo, si fuera a emparejar las redes virtuales denominadas myvirtual networkA y myvirtual networkB, a su cuenta debería asignársele el rol o los permisos mínimos siguientes para cada red virtual:
 
 |Red virtual|Modelo de implementación|Rol|Permisos|
 |---|---|---|---|
-|myvirtual networkA|Resource Manager|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|myVirtualNetworkA|Resource Manager|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Clásico|[Colaborador de la red clásica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
-|myvirtual networkB|Resource Manager|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|myVirtualNetworkB|Resource Manager|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Clásico|[Colaborador de la red clásica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 ## <a name="monitor"></a>Supervisión
 
 Cuando se emparejan dos redes virtuales creadas mediante el Administrador de recursos, debe configurarse un emparejamiento para cada red virtual en el emparejamiento.
-Puede supervisar el estado de la conexión de emparejamiento. El estado de emparejamiento puede ser uno de los siguientes:
+Puede supervisar el estado de la conexión de emparejamiento. El estado de emparejamiento es uno de los siguientes:
 
 * **Iniciado**: cuando se crea el emparejamiento a la segunda red virtual desde la primera red virtual, el estado de emparejamiento es Iniciado.
 
@@ -121,7 +115,7 @@ También puede solucionar problemas con la conectividad de una máquina virtual 
 
 ## <a name="limits"></a>límites
 
-Hay límites en el número de emparejamientos de que se permiten en una red virtual individual. El número predeterminado de emparejamientos es 50. Puede aumentar el número de emparejamientos. Para más información, revise los [límites de red de Azure](../azure-subscription-service-limits.md#networking-limits).
+Hay límites en el número de emparejamientos de que se permiten en una red virtual individual. Para más información, consulte [Límites de red de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="pricing"></a>Precios
 

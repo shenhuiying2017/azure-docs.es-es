@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 601d756e0d6554d8a4db9cc83f6919fc36d1e844
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e84687815ca6f4b031e5f7143ba0079fb053db
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Operaciones de administración de cuentas en Azure Data Lake Store con Python
 > [!div class="op_single_selector"]
@@ -35,6 +35,8 @@ Aprenda a usar el SDK de Python para Azure Data Lake Store para realizar operaci
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+* **Un grupo de recursos de Azure**. Para obtener instrucciones, vea [Creación de un grupo de recursos de Azure](../azure-resource-manager/resource-group-portal.md).
 
 ## <a name="install-the-modules"></a>Instalación de los módulos
 
@@ -56,7 +58,7 @@ pip install azure-datalake-store
 
 1. En el IDE que prefiera, cree una nueva aplicación de Python, por ejemplo, **mysample.py**.
 
-2. Agregue el fragmento de código siguiente para importar los módulos necesarios.
+2. Agregue el fragmento de código siguiente para importar los módulos necesarios
 
     ```
     ## Use this only for Azure AD service-to-service authentication
@@ -92,29 +94,6 @@ En esta sección, se explican las distintas maneras de autenticarse con Azure AD
 * Para la autenticación del usuario final para la aplicación, consulte [End-user authentication with Data Lake Store using Python](data-lake-store-end-user-authenticate-python.md) (Autenticación del usuario final con Data Lake Store mediante Python).
 * Para la autenticación entre servicios para la aplicación, consulte [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md) (Autenticación entre servicios con Data Lake Store mediante Python).
 
-## <a name="create-an-azure-resource-group"></a>Crear un grupo de recursos de Azure
-
-Utilice el siguiente fragmento de código para crear un grupo de recursos de Azure:
-
-    ## Declare variables
-    subscriptionId= 'FILL-IN-HERE'
-    resourceGroup = 'FILL-IN-HERE'
-    location = 'eastus2'
-    
-    ## Create resource management client object
-    resourceClient = ResourceManagementClient(
-        credentials,
-        subscriptionId
-    )
-    
-    ## Create an Azure Resource Group
-    resourceClient.resource_groups.create_or_update(
-        resourceGroup,
-        ResourceGroup(
-            location=location
-        )
-    )
-
 ## <a name="create-client-and-data-lake-store-account"></a>Creación de un cliente y una cuenta de Data Lake Store
 
 El siguiente fragmento de código crea primero el cliente de la cuenta de Data Lake Store. Usa el objeto de cliente para crear una cuenta de Data Lake Store. Por último, el fragmento de código crea un objeto de cliente del sistema de archivos.
@@ -122,9 +101,11 @@ El siguiente fragmento de código crea primero el cliente de la cuenta de Data L
     ## Declare variables
     subscriptionId = 'FILL-IN-HERE'
     adlsAccountName = 'FILL-IN-HERE'
+    resourceGroup = 'FILL-IN-HERE'
+    location = 'eastus2'
 
     ## Create data lake store account management client object
-    adlsAcctClient = DataLakeStoreAccountManagementClient(credentials, subscriptionId)
+    adlsAcctClient = DataLakeStoreAccountManagementClient(armCreds, subscriptionId)
 
     ## Create a Data Lake Store account
     adlsAcctResult = adlsAcctClient.account.create(

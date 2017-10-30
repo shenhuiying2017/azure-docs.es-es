@@ -139,6 +139,7 @@
     - name: Desarrollo
       items:
         - name: DocumentDB API
+          href: documentdb-index.md
           items:
             - name: Recursos
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 'Retirada de S1, S2, S3'
                   href: performance-levels.md
         - name: MongoDB API
+          href: mongodb-index.md
           items:
             - name: Conexión a una cuenta de MongoDB
               href: connect-mongodb-account.md

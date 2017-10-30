@@ -1,5 +1,5 @@
 ---
-title: Uso del servicio Azure Batch Rendering para representar en la nube | Microsoft Docs
+title: "Servicio Azure Batch Rendering: representación a escala de nube | Microsoft Docs"
 description: "Represente trabajos en máquinas virtuales de Azure directamente desde Maya y según la modalidad de pago por uso."
 services: batch
 author: v-dotren
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 47ccbd89d5abf04034196ab735c6740d57099023
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Introducción al servicio Batch Rendering
 
@@ -39,6 +39,7 @@ Para usar el servicio Batch Rendering, necesita:
 - Una [cuenta de Azure](https://azure.microsoft.com/free/).
 - **Una cuenta de Azure Batch** Para obtener instrucciones sobre cómo crear una cuenta de Batch en Azure Portal, consulte [Creación de una cuenta de Batch con Azure Portal](batch-account-create-portal.md).
 - **Una cuenta de Azure Storage.** Los recursos usados para el trabajo de representación se almacenan en Azure Storage. Puede crear una cuenta de almacenamiento automáticamente al configurar su cuenta de Batch. También puede usar una cuenta de almacenamiento existente. Para aprender más sobre las cuentas de Storage, consulte [Creación, administración o eliminación de una cuenta de almacenamiento en Azure Portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+- **BatchLabs** (opcional). [BatchLabs](https://azure.github.io/BatchLabs) es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar aplicaciones de Azure Batch. Aunque no es necesario utilizar el servicio Rendering, es una opción útil para desarrollar y depurar las soluciones de Batch.
 
 Para usar el complemento de Batch para Maya, necesita:
 
@@ -59,7 +60,7 @@ Para más información sobre los grupos de Batch y los nodos de proceso, consult
 
 Un **trabajo** de Batch es una colección de tareas que se ejecutan en los nodos de proceso de un grupo. Cuando se envía un trabajo de representación, Batch lo divide en tareas y las distribuye a los nodos de proceso del grupo para ejecutarlas.
 
-Puede usar [Azure Portal](https://ms.portal.azure.com/) para supervisar los trabajos y diagnosticar las tareas con error; para ello, descargue los registros de aplicación y conéctese de forma remota a máquinas virtuales individuales mediante RDP o SSH. También puede administrar, supervisar y depurar mediante el [cliente de BatchLabs](https://github.com/Azure/BatchLabs).
+Puede usar [Azure Portal](https://ms.portal.azure.com/) para supervisar los trabajos y diagnosticar las tareas con error; para ello, descargue los registros de aplicación y conéctese de forma remota a máquinas virtuales individuales mediante RDP o SSH. También puede administrar, supervisar y depurar mediante la [herramienta BatchLabs](https://azure.github.io/BatchLabs).
 
 Para más información sobre los trabajos de Batch, consulte la sección [Trabajo](batch-api-basics.md#job) de [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
 
@@ -69,9 +70,9 @@ Para representar un trabajo se pueden necesitar varias aplicaciones, por ejemplo
 
 ### <a name="pre-configured-vm-images"></a>Imágenes de máquina virtual preconfiguradas
 
-Azure proporciona imágenes de Windows y Linux con las versiones sencillas de Maya, 3ds Máx, Arnold y V-Ray previamente instaladas y listas para su uso. Puede seleccionar estas imágenes en [Azure Portal](https://portal.azure.com), el complemento de Maya o [BatchLabs](https://github.com/Azure/BatchLabs) al crear un grupo.
+Azure proporciona imágenes de Windows y Linux con las versiones sencillas de Maya, 3ds Máx, Arnold y V-Ray previamente instaladas y listas para su uso. Puede seleccionar estas imágenes en [Azure Portal](https://portal.azure.com), el complemento de Maya o [BatchLabs](https://azure.github.io/BatchLabs) al crear un grupo.
 
-En Azure Portal y BatchLabs puede instalar una de las imágenes de máquina virtual con las aplicaciones preinstaladas como sigue: en la sección Grupos de la cuenta de Batch, seleccione **Nuevo**; en **Agregar grupo**, seleccione **Gráficos y representación (Linux/Windows)** de la lista desplegable **Tipo de imagen**:
+En Azure Portal y BatchLabs puede instalar una de las imágenes de máquina virtual con las aplicaciones preinstaladas de la manera siguiente: en la sección Grupos de la cuenta de Batch, seleccione **Nuevo**; en **Agregar grupo**, seleccione **Gráficos y representación (Linux/Windows)** de la lista desplegable **Tipo de imagen**:
 
 ![Selección del tipo de imagen para la cuenta de Batch](./media/batch-rendering-service/add-pool.png)
 
@@ -101,14 +102,14 @@ En función de la aplicación 3D, existen varias opciones para el envío de trab
 Con Maya, puede usar:
 
 - [Complemento de Batch para Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- Aplicación de escritorio [BatchLabs](https://github.com/Azure/BatchLabs)
+- Aplicación de escritorio [BatchLabs](https://azure.github.io/BatchLabs)
 - [Plantillas de la CLI de Batch](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3ds Max
 
 Con 3ds Max, puede usar:
 
-- La aplicación de escritorio [BatchLabs](https://github.com/Azure/BatchLabs) (consulte el artículo sobre los [datos de BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) como guía de uso de las plantillas de BatchLabs para 3ds Max)
+- La aplicación de escritorio [BatchLabs](https://azure.github.io/BatchLabs) (consulte el artículo sobre los [datos de BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) como guía de uso de las plantillas de BatchLabs para 3ds Max)
 - [Plantillas de la CLI de Batch](batch-cli-templates.md)
 
 Las plantillas de BatchLabs para 3ds Max permiten presentar escenas de VRay y Arnold con el servicio Azure Batch Rendering. Hay dos variaciones de la plantilla para VRay y Arnold, una para escenas estándar y otra para escenas más complejas que requieren un archivo de ruta de acceso a los recursos y las texturas de 3ds Max (archivo .mxp). Para más información sobre las plantillas de BatchLabs para 3ds Max, consulte el repositorio de [datos de BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) de GitHub.

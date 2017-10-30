@@ -14,16 +14,10 @@
 ## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # Introducción
 ## Creación de una instancia de Application Gateway
-### Acceso público
-#### [Portal de Azure](application-gateway-create-gateway-portal.md)
-#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-#### [Plantilla de Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [CLI de Azure 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [CLI de Azure](application-gateway-create-gateway-cli.md)
-#### [Azure PowerShell (modelo clásico)](application-gateway-create-gateway.md)
-### Acceso interno
-#### [Azure PowerShell](application-gateway-ilb-arm.md)
-#### [Azure PowerShell (modelo clásico)](application-gateway-ilb.md)
+### [Portal de Azure](application-gateway-create-gateway-portal.md)
+### [Azure PowerShell](application-gateway-create-gateway-arm.md)
+### [Plantilla de Resource Manager](application-gateway-create-gateway-arm-template.md)
+### [CLI de Azure](application-gateway-create-gateway-cli.md)
 # Cómo
 ## Configuración de firewall de aplicación web
 ### [Portal de Azure](application-gateway-web-application-firewall-portal.md)
@@ -35,9 +29,7 @@
 ## Configuración de SSL
 ### [Portal de Azure](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure PowerShell (modelo clásico)](application-gateway-ssl.md)
-### [CLI de Azure](application-gateway-ssl.md)
-### [De un extremo a otro](application-gateway-end-to-end-ssl-powershell.md)
+### [CLI de Azure](application-gateway-ssl-cli.md)
 ### [Directiva SSL](application-gateway-configure-ssl-policy-powershell.md)
 ## Configuración de enrutamiento basado en ruta de acceso de URL
 ### [Portal de Azure](application-gateway-create-url-route-portal.md)
@@ -53,7 +45,6 @@
 ## Configuración de sondeos de mantenimiento
 ### [Portal de Azure](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
-### [Azure PowerShell (modelo clásico)](application-gateway-create-probe-classic-ps.md)
 ## [Integración en Azure Security Center](application-gateway-integration-security-center.md)
 ## [Combinación de servicios de equilibrio de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Solución de problemas
@@ -69,7 +60,6 @@
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (clásico)](https://msdn.microsoft.com/library/azure/mt299393)
 # Temas relacionados
 ## [ExpressRoute](/azure/expressroute/)
 ## [Red virtual](/azure/virtual-network/)

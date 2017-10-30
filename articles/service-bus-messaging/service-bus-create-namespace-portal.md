@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: c8654ed547a9001e2e968d2a45d990a73ef27d3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38c79495683f0aa619247d486bfb8d843dfdfdc0
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres de Service Bus mediante Azure Portal
 
-Un espacio de nombres es un contenedor con un ámbito para todos los componentes de la mensajería. Varias colas y temas pueden residir en un único espacio de nombres, y los espacios de nombres suelen servir de contenedores de aplicación. Existen dos formas diferentes de crear espacios de nombres de Service Bus:
+Un espacio de nombres es un contenedor con un ámbito para todos los componentes de la mensajería. Varias colas y temas pueden residir en un único espacio de nombres, y los espacios de nombres suelen servir de contenedores de aplicación. Existen dos formas de crear espacios de nombres de Service Bus:
 
 1. Azure Portal (este artículo)
 2. [Plantillas de Resource Manager][create-namespace-using-arm]
@@ -35,7 +35,7 @@ Un espacio de nombres es un contenedor con un ámbito para todos los componentes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte nuestros [ejemplos de GitHub][github-samples], que muestran algunas de las características más avanzadas de la mensajería de Azure Service Bus.
+Consulte nuestros [ejemplos de GitHub][github-samples], que muestran algunas de las características más avanzadas de la mensajería de Service Bus.
 
 [create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples

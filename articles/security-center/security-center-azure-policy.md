@@ -1,12 +1,12 @@
 ---
-title: Establecimiento de directivas de seguridad en Azure Security Center | Microsoft Docs
-description: Este documento le ha ayudado a configurar directivas de seguridad en el Centro de seguridad de Azure.
+title: "Integración de las directivas de seguridad de Azure Security Center con Azure Policy | Microsoft Docs"
+description: "Este documento le ayuda a configurar la integración de directivas de seguridad en Azure Security Center con Azure Policy."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Establecimiento de directivas de seguridad en Security Center
-Este documento le ayuda a configurar las directivas de seguridad en Security Center guiándole por los pasos necesarios para realizar esta tarea. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Establecimiento de directivas de seguridad en Security Center con Azure Policy
+Este documento le ayuda a configurar las directivas de seguridad en Security Center, gracias a Azure Policy, guiándole por los pasos necesarios para realizar esta tarea. 
 
 
 ## <a name="how-security-policies-work"></a>¿Cómo funcionan las directivas de seguridad?
-Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. Puede editar la directiva en Security Center y supervisar el cumplimiento de directivas. 
+Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. Puede modificar la directiva en Security Center o usar [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) para crear nuevas definiciones de directiva, asignar directivas entre grupos de administración (que pueden representar una organización entera, una unidad de negocio de ella, etc.) y supervisar el cumplimiento de directivas.
 
 > [!NOTE]
-> Ahora puede ampliar las directivas de Security Center con Azure Policy, que está en la versión preliminar ilimitada. Haga clic [aquí](http://aka.ms/getpolicy) para unirse a la versión preliminar o consulte la documentación [aquí](security-center-azure-policy.md).
-
-Por ejemplo, es posible que los recursos usados para el desarrollo o las pruebas tengan requisitos de seguridad diferentes a los de los recursos que se emplean para aplicaciones de producción. Del mismo modo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad. Las directivas de seguridad habilitadas en Azure Security Center controlan las recomendaciones de seguridad y la supervisión para ayudarle a identificar posibles vulnerabilidades y mitigar las amenazas. Consulte [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md) para más información sobre cómo determinar la opción más adecuada para usted.
+> Azure Policy se encuentra en versión preliminar limitada. Haga clic [aquí](https://aka.ms/getpolicy) para unirse. Para más información sobre las directivas de Azure, lea [Create and manage policies to enforce compliance](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy). (Creación y administración de directivas para exigir cumplimiento).
 
 ## <a name="edit-security-policies"></a>Edición de directivas de seguridad
-Puede editar la directiva de seguridad predeterminada de cada una de las suscripciones de Azure en Security Center. Para modificar una directiva de seguridad, debe ser propietario, colaborador o administrador de seguridad de esa suscripción. Inicie sesión en Azure Portal y siga estos pasos para configurar directivas de seguridad en Security Center: 
+Puede editar la directiva de seguridad predeterminada de cada una de las suscripciones de Azure en Security Center. Para modificar una directiva de seguridad, debe ser propietario, colaborador o administrador de seguridad de esa suscripción o del grupo de administración que la contiene. Inicie sesión en Azure Portal y siga estos pasos para ver las directivas de seguridad en Security Center:
 
-1.  En el panel **Security Center**, en **General**, haga clic en **Directiva de seguridad**.
-2.  Seleccione la suscripción en la que desea habilitar la directiva de seguridad.
-3.  En la sección **COMPONENTES DE LA DIRECTIVA**, haga clic en **Directiva de seguridad**.
-4.  Esta es la directiva predeterminada asignada a Security Center. Puede activar o desactivar las recomendaciones de seguridad disponibles.
-5.  Cuando termine de realizar las modificaciones, haga clic en **Guardar**.
+1. En el panel **Security Center**, en **General**, haga clic en **Directiva de seguridad**.
+2. Seleccione la suscripción en la que desea habilitar la directiva de seguridad.
 
-## <a name="available-security-policy-options"></a>Opciones de directivas de seguridad disponibles
+    ![Administración de directivas](./media/security-center-policies/security-center-policies-fig10.png)
 
-Utilice la tabla siguiente como referencia para entender cada opción:
+3. En la sección **COMPONENTES DE LA DIRECTIVA**, haga clic en **Directiva de seguridad**.
+
+    ![Componentes de la directiva](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Esta es la directiva predeterminada asignada a Security Center mediante Azure Policy. Puede eliminar elementos de la sección **POLICIES AND PARAMETERS** (DIRECTIVAS Y PARÁMETROS) o puede agregar otras definiciones de directiva que se encuentren en **AVAILABLE OPTIONS** (OPCIONES DISPONIBLES). Para ello, simplemente haga clic en el signo más junto al nombre de la definición.
+
+    ![Definiciones de directiva](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. Para una explicación más detallada sobre la directiva, haga clic en ella y se abrirá otra página con los detalles y el código JSON que tiene la estructura de [definición de directivas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure):
+
+    ![Json](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. Cuando termine de realizar las modificaciones, haga clic en **Guardar**.
+
+
+## <a name="available-security-policy-definitions"></a>Definiciones de directivas de seguridad disponibles
+
+Utilice la tabla siguiente como referencia para comprender las definiciones de directivas disponibles en la directiva de seguridad predeterminada: 
 
 | Directiva | Cuando el estado es Activado |
 | --- | --- |

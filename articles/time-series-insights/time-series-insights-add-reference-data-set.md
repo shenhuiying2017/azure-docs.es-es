@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 574f3c5b3a889733f47d729c795ec39009f2ef4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94ca172dba71b407ee5e9a40c283a97602efd17
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante el portal Ibiza
 
@@ -27,8 +27,8 @@ Un conjunto de datos de referencia es una colección de elementos que aumentan c
 
 ## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Pasos para agregar un conjunto de datos de referencia a un entorno
 
-1. Inicie sesión en el [portal Ibiza](https://portal.azure.com).
-2. Haga clic en "Todos los recursos" en el menú izquierdo del portal Ibiza.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. Haga clic en "Todos los recursos" en el menú izquierdo de Azure Portal.
 3. Seleccione el entorno de Time Series Insights.
 
     ![Crear el conjunto de datos de referencia de Time Series Insights](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
@@ -38,7 +38,7 @@ Un conjunto de datos de referencia es una colección de elementos que aumentan c
     ![Crear el conjunto de datos de referencia de Time Series Insights (detalles)](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
 5. Especifique el nombre del conjunto de datos de referencia.
-6. Especifique tanto el nombre de la clave como su tipo. Dichos nombre y el tipo se utilizan para elegir la propiedad correcta en el evento del origen de eventos. Por ejemplo, si especifica el nombre de clave "DeviceId" y el tipo "Cadena", el motor de entrada de Time Series Insights busca una propiedad llamada "DeviceId" del tipo "Cadena" en el evento de entrada. Puede proporcionar más de una clave para realizar la combinación con el evento. La coincidencia del nombre de la propiedad distingue mayúsculas de minúsculas.
+6. Especifique tanto el nombre de la clave como su tipo. Dichos nombre y el tipo se utilizan para elegir la propiedad correcta en el evento del origen de eventos. Por ejemplo, si especifica el nombre de clave "DeviceId" y el tipo "Cadena", el motor de entrada de Time Series Insights busca una propiedad llamada "DeviceId" del tipo "Cadena" en el evento de entrada. Puede proporcionar más de una clave para realizar la combinación con el evento. La coincidencia del nombre de la clave distingue mayúsculas de minúsculas.
 
      ![Crear el conjunto de datos de referencia de Time Series Insights (detalles)](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 

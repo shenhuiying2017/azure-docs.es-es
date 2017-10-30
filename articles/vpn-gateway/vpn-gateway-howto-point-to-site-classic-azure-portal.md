@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
+ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7805e7c91c49fe1ef2d92b64c62bbfd15ab492b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado (clásica): Azure Portal
 
@@ -33,9 +33,9 @@ En este artículo se muestra cómo se crea una red virtual con una conexión de 
 > * [Portal de Azure clásico](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-Una puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Las conexiones VPN de punto a sitio son útiles cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia. Una VPN P2S también es una solución útil en lugar de una VPN de sitio a sitio cuando hay solo unos pocos clientes que necesitan conectarse a una red virtual. 
+Una puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Las conexiones VPN de punto a sitio son útiles cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia. Una VPN P2S también es una solución útil en lugar de una VPN de sitio a sitio cuando hay solo unos pocos clientes que necesitan conectarse a una red virtual. Se establece una conexión VPN P2S al iniciar la conexión desde el equipo cliente.
 
-P2S utiliza el protocolo de túnel de socket seguro (SSTP), que es un protocolo VPN basado en SSL. Se establece una conexión VPN P2S al iniciar la conexión desde el equipo cliente.
+El modelo de implementación clásica admite solo clientes de VPN de Windows y usa el Protocolo de túnel de sockets seguros (SSTP), un protocolo de VPN basado en SSL. Para admitir clientes de VPN que no sean de Windows, la red privada virtual se debe crear mediante el modelo de implementación de Resource Manager. El modelo de implementación de Resource Manager admite IKEv2 VPN, además de SSTP. Para más información, consulte [Acerca de las conexiones P25](point-to-site-about.md).
 
 
 ![Diagrama de punto a sitio](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
@@ -96,7 +96,7 @@ Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a
 9. Después de hacer clic en Crear, aparece un icono en el panel que reflejará el progreso de la red virtual. El icono cambiará a medida que se vaya creando la red virtual.
 
   ![Icono de Crear red virtual](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
-10. Una vez que se haya creado la red virtual, verá **Creado** en **Estado** en la página Redes del Portal de Azure clásico.
+10. Una vez creada la red virtual, verá que aparece con el estado **Creado**.
 11. Agregue un servidor DNS (opcional). Después de crear una red virtual, puede agregar la dirección IP de un servidor DNS para la resolución de nombres. La dirección IP del servidor DNS que especifique debe ser la dirección de un servidor DNS que pueda resolver los nombres de los recursos de la red virtual.<br>Para agregar un servidor DNS, abra la configuración de la red virtual, haga clic en los servidores DNS y agregue la dirección IP del servidor DNS que desea utilizar.
 
 ### <a name="gateway"></a>Parte 2: Creación de una subred de puerta de enlace y una puerta de enlace de enrutamiento dinámico

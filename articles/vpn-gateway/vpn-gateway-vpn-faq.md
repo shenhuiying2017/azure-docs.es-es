@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
-ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -70,6 +70,15 @@ Las puertas de enlace basadas en directivas implementan VPN basadas en directiva
 
 Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutamiento. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o el selector de tráfico para las VPN basadas en enrutamiento se configura como conectividad de tipo cualquiera a cualquier (o caracteres comodín).
 
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>¿Puedo actualizar mi puerta de enlace VPN basada en directivas a una basada en el enrutamiento?
+No. No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
+1. Elimine también las conexiones asociadas a la puerta de enlace que se va a eliminar.
+2. Elimine la puerta de enlace:
+* [Portal de Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### <a name="do-i-need-a-gatewaysubnet"></a>¿Necesito una "GatewaySubnet"?
 
 Sí. La subred de puerta de enlace contiene las direcciones IP que usan los servicios de puerta de enlace de la red virtual. Necesitará crear una subred de puerta de enlace de red virtual para configurar la puerta de enlace de la red virtual. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben llamar "GatewaySubnet". No denomine de ninguna otra forma la subred de puerta de enlace. Y no implemente máquinas virtuales ni nada más en la subred de puerta de enlace.
@@ -110,7 +119,6 @@ Las opciones están limitadas al uso de claves precompartidas (PSK) para la aute
 #### <a name="classic-deployment-model"></a>Modelo de implementación clásica
 
 * Azure Portal: navegue a la red virtual clásica > Conexiones VPN > Conexiones VPN de sitio a sitio > Nombre del sitio local > Sitio local > Espacio de direcciones del cliente. 
-* Portal clásico: agregue todos los intervalos que desea que se envíen a través de la puerta de enlace para la red virtual en la página Redes de Redes locales. 
 
 ### <a name="can-i-configure-force-tunneling"></a>¿Puedo configurar una tunelización forzada?
 
@@ -160,9 +168,13 @@ Otras soluciones VPN de software deben funcionar con nuestra puerta de enlace si
 
 ## <a name="P2S"></a>Punto a sitio: autenticación de certificados de Azure nativa
 
+Esta sección se aplica al modelo de implementación de Resource Manager.
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="P2SRADIUS"></a>Punto a sitio: autenticación RADIUS
+
+Esta sección se aplica al modelo de implementación de Resource Manager.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

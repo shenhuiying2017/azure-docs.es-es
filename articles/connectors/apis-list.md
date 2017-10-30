@@ -1,6 +1,6 @@
 ---
 title: Conectores de Azure Logic Apps | Microsoft Docs
-description: "Elija entre todos los conectores disponibles administrados por Microsoft para compilar y crear aplicaciones lógicas"
+description: "Elija entre todos los conectores de Microsoft disponibles para compilar y crear aplicaciones lógicas"
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -15,19 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36d3474c2b8dde0355a265c149fe6ba1920a9f22
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="connectors-list"></a>Lista de conectores
-> [!TIP]
-> La [lista completa de la A a la Z](#az) (en este tema) enumera todos los conectores disponibles que puede usar con Logic Apps. En [Detalles del conector](/connectors/) se enumeran no solo los desencadenadores y las acciones definidos en Swagger, sino también los límites de cada conector.
+Para obtener los desencadenadores y las acciones definidas por la descripción de Swagger de cada conector, así como los límites de cada uno, consulte los [detalles del conector](/connectors/).
 
-Los conectores son una parte integral de la creación de aplicaciones lógicas. Mediante el uso de conectores, puede expandir las aplicaciones locales y en la nube para realizar diferentes operaciones con los datos que cree, y con los que ya tiene. Los conectores están disponibles en las siguientes categorías: 
+Los conectores son una parte integral de la creación de aplicaciones lógicas. Mediante el uso de conectores, puede expandir las aplicaciones locales y de nube para realizar diversas operaciones con los datos que cree, y con los que ya tiene. Los conectores están disponibles como acciones integradas o conectores administrados.
 
-* **Conectores estándar**: automáticamente disponibles e incluidos al usar aplicaciones lógicas. Algunos ejemplos son Service Bus, Power BI, Oracle Database o OneDrive, entre otros muchos.
+**Acciones integradas**: el propio motor el Logic Apps proporciona acciones integradas para comunicarse con los puntos de conexión y realizar tareas. Por ejemplo, puede usar estas acciones para llamar a los puntos de conexión HTTP, a Azure Functions y a operaciones de API Management, así como para manipular los mensajes con variables y operaciones de datos.
+
+**Conectores administrados**: proporcionan acceso a las API de diversos servicios mediante la creación de conexiones de API que el servicio Logic Apps hospeda y administra. Los conectores administrados pertenecen a estas categorías:
+
+* **Conectores estándar**: automáticamente disponibles e incluidos al usar aplicaciones lógicas. Algunos ejemplos son Service Bus, Power BI, OneDrive y muchos más.
+
+* **Conectores locales**: conéctese a las aplicaciones de servidor locales mediante la [puerta de enlace de datos local][gatewaydoc]. Los conectores locales incluyen conectividad a aplicaciones de servidor, como SharePoint Server, SQL Server, Oracle DB, recursos compartidos de archivos y otras.
 
 * **Conectores de cuenta de integración**: disponibles al adquirir una cuenta de integración. Mediante estos conectores, puede transformar y validar código XML, procesar mensajes de negocio a negocio con AS2, X12 o EDIFACT, y codificar y descodificar archivos sin formato. Si trabaja con BizTalk Server, estos conectores son adecuados para expandir los flujos de trabajo de BizTalk en Azure.  
 
@@ -35,22 +40,41 @@ Los conectores son una parte integral de la creación de aplicaciones lógicas. 
 
 * **Conectores de empresa**: incluye MQ y SAP. Disponible con un costo adicional. 
 
-[Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) y [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md) proporcionan más detalles sobre los costos. 
+Para más información sobre los costos, consulte los [detalles de precios](https://azure.microsoft.com/pricing/details/logic-apps/) y el [modelo de precios](../logic-apps/logic-apps-pricing.md) de Logic Apps. 
 
 ## <a name="popular-connectors"></a>Conectores populares
-Hay miles de aplicaciones y millones de ejecuciones que están procesando correctamente datos e información mediante estos conectores. La tabla siguiente enumera los más populares y algunos favoritos de nuestros usuarios:
+Hay miles de aplicaciones y millones de ejecuciones que están procesando correctamente datos e información mediante estos conectores. 
+
+### <a name="built-in-actions"></a>Acciones integradas
+El motor de Logic Apps proporciona acciones que pueden manipular datos, comunicarse a través de HTTP y controlar el flujo de la definición de aplicación lógica. Algunas de estas acciones incluyen:
 
 | |  |  |  |
 | --- | --- | --- | --- |
-| [![Icono de la API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Si desea automatizar algunas tareas con la cuenta de almacenamiento, debe mirar este conector. Admite operaciones CRUD (crear, leer, actualizar y eliminar). | [![Icono de la API][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Cree funciones que ejecutan fragmentos de código personalizados de C# o node.js y, a continuación, use estas funciones en las aplicaciones lógicas.  |
-| [![Icono de la API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Uno de los conectores más solicitados. Dispone de desencadenadores y acciones para ayudar a automatizar los flujos de trabajo con clientes potenciales, y mucho más. | [![Icono de la API][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Consuma y publique eventos en un centro de eventos. Por ejemplo, puede obtener una salida de su aplicación lógica con Event Hubs y enviarla luego a un proveedor de análisis en tiempo real. |
-| [![Icono de la API][FTPicon]<br/>**FTP**][FTPdoc] | Si el servidor FTP es accesible desde Internet, puede automatizar los flujos de trabajo para trabajar con archivos y carpetas. <br/><br/>SFTP también está disponible con el conector SFTP. | [![Icono de la API][HTTPicon]<br/>**HTTP**][httpdoc] | Utilice aplicaciones lógicas que se comuniquen con cualquier punto de conexión mediante HTTP. |
-| [![Icono de la API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Gran número de desencadenadores y muchas más acciones para utilizar el correo electrónico y los eventos de Office 365 en los flujos de trabajo. <br/><br/>Este conector incluye una acción de *correo electrónico de aprobación* para aprobar solicitudes de vacaciones, informes de gastos y otros. <br/><br/>Los usuarios de Office 365 también están disponibles con el conector Usuarios de Office 365.| [![Icono de la API][HTTP-Requesticon]<br/>**Solicitud / Respuesta**][HTTP-Requestdoc] | Este conector proporciona una dirección URL HTTPS. Cuando la aplicación lógica recibe una solicitud para esta dirección URL, se inicia la aplicación lógica. |
-| [![Icono de la API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Inicie sesión fácilmente en su cuenta de Salesforce para obtener acceso a objetos, como clientes potenciales y mucho más. |  [![Icono de la API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | El conector más popular entre las aplicaciones lógicas; incluye desencadenadores y acciones para mensajería asincrónica y publicación y suscripción con colas, suscripciones y temas. |
-|  [![Icono de la API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Si utiliza SharePoint y puede beneficiarse de la automatización, se recomienda revisar este conector. Puede utilizarse con una instancia local de SharePoint y con SharePoint Online. | [![Icono de la API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Uno de los conectores más usados; puede conectarse a una instancia local de SQL Server y a una instancia de Azure SQL Database. | 
-| [![Icono de la API][Twittericon]<br/>**Twitter**][Twitterdoc] | Inicie sesión fácilmente con una cuenta de Twitter e inicie un flujo de trabajo cuando se publique un nuevo tweet. Después, guarde estos tweets en una base de datos SQL o en una lista de SharePoint. | | | 
+| [![Icono de la API][HTTPicon]<br/>**HTTP**][httpdoc] | Utilice aplicaciones lógicas que se comuniquen con cualquier punto de conexión mediante HTTP.| [![Icono de la API][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | Cree funciones que ejecutan fragmentos de código personalizados de C# o node.js y, a continuación, use estas funciones en las aplicaciones lógicas.  |
+| [![Icono de API][HTTP-Requesticon]<br/>**Solicitud**][HTTP-Requestdoc] | Proporciona una dirección URL HTTPS invocable que se usa normalmente como webhook en otras aplicaciones. Cuando la aplicación lógica recibe una solicitud para esta dirección URL, se inicia la aplicación lógica. | [![Icono de API][Recurrenceicon]<br/>**Programación**][recurrencedoc] | Inicia aplicaciones lógicas según programaciones de periodicidad sencillas o complejas. Por ejemplo, cree programaciones tan sencillas como repetir cada día a repetir cada hora el último viernes de cada mes entre las 9 de la mañana y las 5 de la tarde. |
+| [![Icono de API][CallLogicApp-icon]<br/>**Llamada<br/>Logic App**][nested-logic-appdoc] | Llama a una aplicación de lógica anidada. Se puede llamar a cualquier aplicación lógica con un desencadenador de solicitud como una aplicación lógica anidada.| [![Icono de API][API/Web-Appicon]<br/>**Aplicación de API**][api/web-appdoc] | Llama a una aplicación de API de App Service. El servicio API Apps con Swagger se representa igual que cualquier otra acción de primera clase.|
 
-## <a name="integration-account-connectors"></a>Conectores de la cuenta de integración 
+### <a name="standard-connectors"></a>Conectores estándar
+La tabla siguiente enumera los más populares y algunos favoritos de nuestros usuarios:
+
+| |  |  |  |
+| --- | --- | --- | --- |
+| [![Icono de la API][AzureBlobStorageicon]<br/>**Azure Blob<br/>Storage**][AzureBlobStoragedoc] | Si desea automatizar algunas tareas con la cuenta de almacenamiento, debe mirar este conector. Admite operaciones CRUD (crear, leer, actualizar y eliminar). | [![Icono de la API][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | Uno de los conectores más solicitados. Dispone de desencadenadores y acciones para ayudar a automatizar los flujos de trabajo con clientes potenciales, y mucho más. |
+| [![Icono de la API][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Consuma y publique eventos en un centro de eventos. Por ejemplo, puede obtener una salida de su aplicación lógica con Event Hubs y enviarla luego a un proveedor de análisis en tiempo real. | [![Icono de la API][FTPicon]<br/>**FTP**][FTPdoc] | Si el servidor FTP es accesible desde Internet, puede automatizar los flujos de trabajo para trabajar con archivos y carpetas. <br/><br/>SFTP también está disponible con el conector SFTP. |
+| [![Icono de la API][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | Gran número de desencadenadores y muchas más acciones para utilizar el correo electrónico y los eventos de Office 365 en los flujos de trabajo. <br/><br/>Este conector incluye una acción de *correo electrónico de aprobación* para aprobar solicitudes de vacaciones, informes de gastos y otros. <br/><br/>Los usuarios de Office 365 también están disponibles con el conector Usuarios de Office 365.| [![Icono de la API][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Inicie sesión fácilmente en su cuenta de Salesforce para obtener acceso a objetos, como clientes potenciales y mucho más. | 
+| [![Icono de la API][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | El conector más popular entre las aplicaciones lógicas; incluye desencadenadores y acciones para mensajería asincrónica y publicación y suscripción con colas, suscripciones y temas. |  [![Icono de la API][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | Si utiliza SharePoint y puede beneficiarse de la automatización, se recomienda revisar este conector. Puede utilizarse con una instancia local de SharePoint y con SharePoint Online. |
+| [![Icono de la API][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | Uno de los conectores más usados; puede conectarse a una instancia local de SQL Server y a una instancia de Azure SQL Database. | [![Icono de la API][Twittericon]<br/>**Twitter**][Twitterdoc] | Inicie sesión fácilmente con una cuenta de Twitter e inicie un flujo de trabajo cuando se publique un nuevo tweet. Después, guarde estos tweets en una base de datos SQL o en una lista de SharePoint. | 
+
+### <a name="on-premises-connectors"></a>Conectores locales 
+
+Los conectores locales proporcionan acceso a datos de servidores locales.  La creación de una conexión a un servidor local requiere una [puerta de enlace de datos local][gatewaydoc] que proporcione un canal de comunicación seguro sin necesidad de configurar la infraestructura de red.  Algunos de los conectores son:
+
+|  |  |  |  |
+| --- | --- | --- | --- |
+| [![Icono de API][db2icon]<br/>**DB2**][db2doc] | [![Icono de API][oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc] | [![Icono de API][sharepointicon]<br/>**SharePoint</br> Server**][sharepointserver] | [![Icono de API][filesystem-icon]<br/>**File</br> System**][filesystemdoc] |
+[![Icono de API][sql-servericon]<br/>**SQL Server</br>**][sql-serverdoc] | ![Icono de API][Biztalk-Servericon]<br/>**BizTalk</br> Server**| |
+
+### <a name="integration-account-connectors"></a>Conectores de la cuenta de integración 
 
 Enterprise Integration Pack (EIP) incluye conectores bien conocidos en la comunidad de BizTalk Server. Cuando compre una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), también obtendrá los conectores siguientes: 
 
@@ -60,27 +84,13 @@ Enterprise Integration Pack (EIP) incluye conectores bien conocidos en la comuni
 [![Icono de la API][flatfileicon]<br/>**Codificación de</br> archivos planos**][flatfiledoc] | [![Icono de la API][flatfiledecodeicon]<br/>**Descodificación de</br> archivos planos**][flatfiledecodedoc] | [![Icono de la API][integrationaccounticon]<br/>**Cuenta de<br/>integración**][integrationaccountdoc] | [![Icono de la API][xmltransformicon]<br/>**Transformación<br/>XML**][xmltransformdoc] |
 | [![Icono de la API][x12icon]<br/>**Descodificación de</br> X12**][x12decode] | [![Icono de la API][x12icon]<br/>**Codificación de</br> X12**][x12encode] | [![Icono de la API][xmlvalidateicon]<br/>**Validación de <br/>XML**][xmlvalidatedoc] | |
 
-## <a name="enterprise-connectors"></a>Conectores de empresa
+### <a name="enterprise-connectors"></a>Conectores de empresa
 
 Conecte con sus aplicaciones empresariales desde sus aplicaciones lógicas.
 
 |  |  |
 | --- | --- |
 |[![Icono de la API][MQicon]<br/>**MQ**][mqdoc]|[![Icono de la API][SAPicon]<br/>**SAP**][sapconnector]|
-
-
-## <a name="az"></a>Lista completa A-Z
-
-En [Detalles del conector](/connectors/) se enumeran no solo los desencadenadores y las acciones definidos en Swagger, sino también los límites de cada conector.
-
-| | | | | | | | | | | | | |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| [**1**](#1) | [**A**](#a) | [**B**](#b) | [**C**](#c) | [**D**](#d) | [**E**](#e) | [**F**](#f) | [**G**](#g) | [**H**](#h) | [**I**](#i) | [**J**](#j) | [**L**](#l) | [**M**](#m) |
-| [**N**](#n) | [**O**](#o) | [**P**](#p) | [**R**](#r) | [**S**](#s) | [**T**](#t) | [**U**](#u) | [**V**](#v) | [**W**](#w) | [**X**](#x) | [**Y**](#y) | [**Z**](#z) | | 
-
-| | |
-|---|---|
-|<a name="1"></a>10to8 Appointment Scheduling<br/><br/><a name="a"></a>Act!<br/>Adobe Creative Cloud<br/>appFigures<br/>[AS2][as2doc]<br/>Asana<br/>Azure Active Directory (AD)<br/>Azure API Management<br/>Azure App Services<br/>Aplicación de Azure<br/>Azure Automation<br/>[Azure Blob Storage][azureblobstoragedoc]<br/>Azure Data Lake<br/>Azure DocumentDB (Cosmos DB)<br/>[Azure Functions][azure-functionsdoc]<br/>[Azure Logic Apps][nested-logic-appdoc]<br/>AzureML<br/>Colas de Azure<br/>Administrador de recursos de Azure<br/>[Azure SQL Database][sql-serverdoc]<br/><br/><a name="b"></a>Basecamp 2<br/>Basecamp 3<br/>Batch<br/>Benchmark Email<br/>Bing Search<br/>Bitbucket<br/>Bitly<br/>BizTalk Server<br/>Blogger<br/>Box<br/>Buffer<br/><br/><a name="c"></a>Calendly<br/>Campfire<br/>Capsule CRM<br/>Chatter<br/>Formularios de Cognito<br/>Cognitive Services Computer Vision API<br/>Cognitive Services Face API<br/>Cognitive Services LUIS<br/>Cognitive Services Text Analytics<br/>Common Data Service<br/>Conversión de contenido<br/>Control-Terminate<br/>[API y aplicaciones web personalizadas][api/web-appdoc]<br/><br/><a name="d"></a>Data Operations<br/>[DB2][db2doc]<br/>Disqus<br/>DocuSign<br/>Do Until<br/>Dropbox<br/>[Dynamics 365 CRM Online][Dynamics-365doc]<br/>Dynamics 365 for Financials<br/>Dynamics 365 for Operations<br/>Dynamics NAV<br/><br/><a name="e"></a>Easy Redmine<br/>EDIFACT<br/>[Event Hubs][event-hubs-doc]<br/>Eventbrite<br/><br/><a name="f"></a>Facebook<br/>[File System][filesystemdoc]<br/>[Flat File][flatfiledoc]<br/>FreshBooks<br/>Freshdesk<br/>FreshService<br/>[FTP][ftpdoc]<br/><br/><a name="g"></a>GitHub<br/>Gmail<br/>Google Calendar<br/>Google Contacts<br/>Google Drive<br/>Google Sheets<br/>Google Tasks<br/>GoToMeeting<br/>GoToTraining<br/>GoToWebinar<br/><br/><a name="h"></a>Harvest<br/>HelloSign<br/>HipChat<br/>[HTTP][httpdoc]<br/>[HTTP + Swagger][http-swaggerdoc]<br/>[HTTP Webhook][webhookdoc]<br/><br/><a name="i"></a>[Informix][informixdoc]<br/>Infusionsoft<br/>Inoreader<br/>Insightly<br/>Instagram<br/>Instapaper<br/>Integration Account<br/>Intercom | <a name="j"></a>JotForm<br/>JIRA<br/><br/><a name="l"></a>LeanKit<br/>LiveChat<br/><br/><a name="m"></a>MailChimp<br/>Mandrill<br/>Mediano<br/>Microsoft Forms<br/>Equipos de Microsoft<br/>Microsoft Translator<br/>[MQ][mqdoc]<br/>MSN Weather<br/>Muhimbi PDF<br/>MySQL<br/><br/><a name="n"></a>Nexmo<br/><br/><a name="o"></a>[Office 365 Outlook][office365-outlookdoc]<br/>Usuarios de Office 365<br/>Office 365 Video<br/>OneDrive<br/>OneDrive para la Empresa<br/>OneNote (Business)<br/>[Oracle Database][oracle-db-doc]<br/>Administrador de clientes de Outlook<br/>Outlook Tasks<br/>Outlook.com<br/><br/><a name="p"></a>PagerDuty<br/>Parserr<br/>Paylocity<br/>Pinterest<br/>Pipedrive<br/>Pivotal Tracker<br/>Planner<br/>PostgreSQL<br/>Power BI<br/>Project Online<br/><br/><a name="r"></a>Redmine<br/>[Request / Response][http-requestdoc]<br/>RSS<br/><br/><a name="s"></a>[Salesforce][salesforcedoc]<br/>[SAP Application Server][sapconnector]<br/>[SAP Message Server][sapconnector]<br/>[Schedule][recurrencedoc]<br/>Scope<br/>SendGrid<br/>Envío de mensajes a Batch<br/>[Service Bus][service-busdoc]<br/>SFTP<br/>[SharePoint Online][sharepointdoc]<br/>[SharePoint Server][sharepointserver]<br/>Slack<br/>Smartsheet<br/>SMTP<br/>SparkPost<br/>[SQL Server][sql-serverdoc]<br/>Stripe<br/>SurveyMonkey<br/>Switch Case<br/><br/><a name="t"></a>Proyectos de trabajo en equipo<br/>Teradata<br/>Todoist<br/>Toodledo<br/>[Transformar XML][xmltransformdoc]<br/>Trello<br/>Twilio<br/>[Twitter][twitterdoc]<br/>Typeform<br/><br/><a name="u"></a>UserVoice<br/><br/><a name="v"></a>Variables<br/>Vimeo<br/>Visual Studio Team Services<br/><br/><a name="w"></a>WebMerge<br/>WordPress<br/>Wunderlist<br/><br/><a name="x"></a>[X12][x12doc]<br/>[Validación XML][xmlvalidatedoc]<br/><br/><a name="y"></a>Yammer<br/>YouTube<br/><br/><a name="z"></a>Zendesk |
 
 > [!TIP]
 > Para empezar a usar Azure Logic Apps antes de suscribirse para obtener una cuenta de Azure, vaya a [Probar Logic Apps](https://tryappservice.azure.com/?appservice=logic). Podrá crear inmediatamente una aplicación lógica de inicio de corta duración. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
@@ -114,15 +124,15 @@ Las aplicaciones lógicas incluyen acciones integradas que pueden cambiar o mani
 | **Compose** | Generar valores u objetos para su uso posterior o en el momento de creación del flujo de trabajo. Por ejemplo, puede crear un objeto JSON con valores de varios pasos, o calcular una constante para hacer referencia a ella más adelante en la ejecución de una aplicación lógica. |
 | **Crear tabla CSV**<br/>**Crear tabla HTML** | Convertir una matriz de conjunto de resultados en una tabla HTML o CSV. Por ejemplo, agregar la acción "Enumerar registros" de CRM y agregar un filtro para los registros incorporados hoy. A continuación, enviar los resultados como una tabla HTML en un correo electrónico. |
 | **Filtrar matriz** (consulta) | Filtrar las entradas que le interesen de un conjunto de resultados. Por ejemplo, buscar todos los tweets que contengan `#Azure` y, después, "filtrar" los tweets devueltos para devolver únicamente aquellos que cumplan la condición `Tweeted_by_followers > 50`. |
-| **Join** | Unir una matriz con algún delimitador. Por ejemplo, la operación Detectar frases clave devuelve una matriz de frases clave. Las puede "unir" con un carácter `,`, o algo similar. Por lo que en lugar de `["Some", "Phrase"]`, tendrá `"Some, Phrase"`. |
+| **Join** | Une una matriz por algún delimitador. Por ejemplo, la operación Detectar frases clave devuelve una matriz de frases clave. Las puede "unir" con un carácter `,`, o algo similar. Por lo que en lugar de `["Some", "Phrase"]`, tendrá `"Some, Phrase"`. |
 | **Análisis del archivo JSON** | Analizar y acceder a los valores de un objeto JSON en el diseñador. Por ejemplo, si Azure Functions devuelve una carga útil JSON, puede analizarla para acceder a las propiedades JSON en un paso posterior. La acción también valida que el código JSON coincide con el esquema especificado en tiempo de ejecución. | 
 | **Select** | Seleccione algunas propiedades de una matriz para su posterior procesamiento. Si usa la acción "Enumerar registros" y SQL devuelve 15 columnas, seleccione algunas para su procesamiento posterior. La salida es una matriz que solo contiene las propiedades que ha seleccionado. |
 
 ## <a name="custom-connectors-and-azure-certification"></a>Conectores personalizados y certificación de Azure 
 
-Para llamar a las API que ejecutan código personalizado o no están disponibles como conectores, puede extender la plataforma de Logic Apps mediante la [creación de aplicaciones de API basadas en REST como conectores personalizados](../logic-apps/logic-apps-create-api-app.md). 
+Para llamar a las API que ejecutan código personalizado o que no están disponibles como conectores, puede extender la plataforma de Logic Apps mediante la [creación de aplicaciones de API basadas en REST](../logic-apps/logic-apps-create-api-app.md). También puede crear sus propios [conectores personalizada](../logic-apps/custom-connector-overview.md) que pueden estar disponibles para cualquier aplicación lógica de su suscripción.
 
-Si desea que las aplicaciones de API personalizadas se conviertan en públicas y estén disponibles para usarlas en Azure, envíe las nominaciones al [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/).
+Si quiere que las aplicaciones de API sean públicas y estén disponibles para usarlas en Azure, también puede [enviar sus conectores para que Microsoft los certifique](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="get-help"></a>Obtener ayuda
 
@@ -139,6 +149,7 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 
 <!--Connectors Documentation-->
 
+[gatewaydoc]: ../logic-apps/logic-apps-gateway-connection.md "Conexión a orígenes de datos locales desde aplicaciones lógicas con una puerta de enlace de datos local"
 [api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrar aplicaciones lógicas con App Service API Apps"
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Administrar archivos del contenedor de blobs con el conector de Azure Blob Storage"
 [azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Integración de aplicaciones lógicas con Azure Functions"
@@ -160,7 +171,7 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 [sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Conectar con un servidor SAP local"
 [service-busdoc]: ./connectors-create-api-servicebus.md "Envío de mensajes desde los temas y las colas de Service Bus y recepción de mensajes desde suscripciones y colas de Service Bus"
 [sharepointdoc]: ./connectors-create-api-sharepointonline.md "Conectar con SharePoint Online. Administrar documentos, elementos de lista, etc."
-[sharepointserver]: ./connectors-create-api-sharepointserver.md "Conectarse a SharePoint en el servidor local. Administrar documentos, elementos de lista, etc."
+[sharepointserver]: ./connectors-create-api-sharepointserver.md "Conectarse al servidor local de SharePoint. Administrar documentos, elementos de lista, etc."
 [sql-serverdoc]: ./connectors-create-api-sqlazure.md "Conectar con Azure SQL Database o SQL Server. Crear, actualizar, obtener y eliminar entradas en una tabla de base de datos SQL."
 [twitterdoc]: ./connectors-create-api-twitter.md "Conectar con Twitter. Obtener líneas de tiempo, publicar twits, etc."
 [webhookdoc]: ./connectors-native-webhook.md "Agregar desencadenadores y acciones de Webhook para las aplicaciones lógicas"
@@ -216,6 +227,7 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
+[AppServices-icon]: ./media/apis-list/AppServices.png
 [Asanaicon]: ./media/apis-list/asana.png
 [Azure-Automation-icon]: ./media/apis-list/azure-automation.png
 [AzureBlobStorageicon]: ./media/apis-list/azureblob.png
@@ -240,6 +252,8 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 [Easy-Redmineicon]: ./media/apis-list/easyredmine.png
 [Event-Hubs-icon]: ./media/apis-list/eventhubs.png
 [Facebookicon]: ./media/apis-list/facebook.png
+[FileSystem-icon]: ./media/apis-list/filesystem.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 [FTPicon]: ./media/apis-list/ftp.png
 [GitHubicon]: ./media/apis-list/github.png
 [Google-Calendaricon]: ./media/apis-list/googlecalendar.png
@@ -293,10 +307,10 @@ Para ayudar a mejorar Azure Logic Apps y los conectores, vote las ideas que enco
 [YouTubeicon]: ./media/apis-list/youtube.png
 
 <!-- Primitive Icons -->
-[API/Web-Appicon]: ./media/apis-list/api.png
+[API/Web-Appicon]: ./media/apis-list/appservices.png
 [Azure-Functionsicon]: ./media/apis-list/function.png
+[CallLogicApp-icon]: ./media/apis-list/calllogicapp.png
 [Delayicon]: ./media/apis-list/delay.png
-[FileSystemIcon]: ./media/apis-list/filesystem.png
 [HTTPicon]: ./media/apis-list/http.png
 [HTTP-Requesticon]: ./media/apis-list/request.png
 [HTTP-Responseicon]: ./media/apis-list/response.png

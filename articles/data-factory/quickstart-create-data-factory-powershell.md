@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 1e9109581a1943a77e91e7fa034873dc2a15a5e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efcdcac0edcdc3e3bd87dae89609e04985a3579e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Creación de una factoría de datos y una canalización con PowerShell
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
@@ -78,7 +78,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
         ```
 
     * Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
-    * Actualmente, Data Factory V2 solo le permite crear una factoría de datos en la región Este de EE. UU. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+    * Actualmente, Data Factory V2 le permite crear una factoría de datos solo en la región **Este de EE. UU.** y **Este de EE. UU. 2**. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 
@@ -165,7 +165,7 @@ Se define un conjunto de datos que representa los datos que se copian de un orig
     ```
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
-
+  
 En este ejemplo, esta canalización contiene una actividad y se usan dos parámetros: ruta de acceso de blob de entrada y de salida. Los valores para estos parámetros se establecen cuando se desencadena/ejecuta la canalización. La actividad de copia hace referencia al mismo conjunto de datos de blob creado en el paso anterior como entrada y salida. Cuando se usa el conjunto de datos como conjunto de datos de entrada, se especifica una ruta de acceso de entrada. Cuando se usa el conjunto de datos como conjunto de datos de salida, se especifica una ruta de acceso de salida. 
 
 1. Cree un archivo JSON llamado **Adfv2QuickStartPipeline.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
@@ -184,7 +184,7 @@ En este ejemplo, esta canalización contiene una actividad y se usan dos paráme
                             "parameters": {
                                 "path": "@pipeline().parameters.inputPath"
                             },
-                        "type": "DatasetReference"
+                            "type": "DatasetReference"
                         }
                     ],
                     "outputs": [

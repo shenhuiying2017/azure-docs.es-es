@@ -42,7 +42,7 @@ sections:
       - type: paragraph
         text: 'Aprenda a implementar, administrar y supervisar aplicaciones web seguras en Azure'
       - type: list
-        style: ordered
+        style: unordered
         items:
           - html: <a href="service-fabric-tutorial-create-dotnet-app">Implementación de una aplicación .NET</a>
           - html: <a href="service-fabric-tutorial-create-cluster-azure-ps">Inclusión de una aplicación .NET existente en un contenedor</a>
@@ -96,7 +96,7 @@ sections:
         className: cardsD
         items:
           - title: Línea de comandos
-            html: <p><a href="/cli/azure/sf">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+            html: '<p><a href="/cli/azure/sf">CLI de Azure</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">CLI de Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
           - title: Idiomas
             html: <p><a href="/java/api/overview/azure/servicefabric">API de Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p>
           - title: REST
