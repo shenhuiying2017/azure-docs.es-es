@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06967315dfa43e791e662a689ceb993c4af1c1e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Creación de un registro de contenedor con la CLI de Azure
 
@@ -43,21 +43,26 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
 
-Azure Container Registry está disponible actualmente en varias SKU: `Basic`, `Managed_Basic`, `Managed_Standard` y `Managed_Premium`. Si bien las SKU `Managed_*` proporcionan funcionalidades avanzadas, como almacenamiento administrado y webhooks, actualmente se encuentran en versión preliminar y no están disponibles en algunas regiones de Azure. En esta guía de inicio rápido, seleccionaremos la SKU `Basic` por su disponibilidad en todas las regiones.
+En esta guía de inicio rápido, creamos un registro *Básico*. Azure Container Registry está disponible en varias SKU diferentes, que se describen brevemente en la tabla siguiente. Para obtener detalles ampliados de cada una, consulte [SKU del registro de contenedor](container-registry-skus.md).
+
+Azure Container Registry está disponible actualmente en varias SKU: `Basic`, `Managed_Basic`, `Managed_Standard` y `Managed_Premium`. Si bien las SKU `Managed_*` proporcionan funcionalidades avanzadas, como almacenamiento administrado y webhooks, actualmente no están disponibles en algunas regiones de Azure cuando se usa la CLI de Azure. En esta guía de inicio rápido, seleccionaremos la SKU `Basic` por su disponibilidad en todas las regiones.
+
+>[!NOTE]
+> Registros administrados que están disponibles actualmente en todas las regiones. Sin embargo, la versión actual de la CLI de Azure no admite aún la creación de un registro administrado en todas las regiones. Se dispondrá de soporte técnico en la próxima versión de la CLI de Azure. Antes de su lanzamiento, utilice [Azure Portal](container-registry-get-started-portal.md) para crear registros administrados.
 
 Creación de una instancia de ACR mediante el comando [az acr create](/cli/azure/acr#create).
 
 El nombre del registro **debe ser único**. En el ejemplo siguiente, se usa *myContainerRegistry007*. Actualice este valor a uno único.
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
 ```
 
 Cuando se crea el registro, el resultado es similar al siguiente:
 
-```azurecli
+```json
 {
-  "adminUserEnabled": true,
+  "adminUserEnabled": false,
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
@@ -83,7 +88,7 @@ En el resto de esta guía de inicio rápido, se usa `<acrname>` como marcador de
 
 Antes de insertar y extraer imágenes de contenedor, debe iniciar sesión en la instancia de ACR. Para ello, utilice el comando [az acr login](/cli/azure/acr#login).
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrname>
 ```
 
@@ -99,19 +104,19 @@ docker pull microsoft/aci-helloworld
 
 La imagen debe estar etiquetada con el nombre del servidor de inicio de sesión de ACR. Ejecute el siguiente comando para devolver el nombre del servidor de inicio de sesión de la instancia de ACR.
 
-```bash
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 Etiquete la imagen mediante el comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Reemplace *<acrLoginServer>* por el nombre del servidor de inicio de sesión de la instancia de ACR.
 
-```
+```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
 Por último, use el comando [docker push](https://docs.docker.com/engine/reference/commandline/push/) para insertar la imagen en la instancia de ACR. Reemplace *<acrLoginServer>* por el nombre del servidor de inicio de sesión de la instancia de ACR.
 
-```
+```bash
 docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
@@ -125,7 +130,7 @@ az acr repository list -n <acrname> -o table
 
 Salida:
 
-```json
+```bash
 Result
 ----------------
 aci-helloworld
@@ -139,7 +144,8 @@ az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 
 Salida:
 
-```Result
+```bash
+Result
 --------
 v1
 ```
