@@ -12,22 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/17
+ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: a7650104eda58923558892f6f0f6666d16dbce28
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd047b8618f6e6814e0656ac2ab19e30016016fa
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Referencia: Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes
+# <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes
 
 IoT Hub proporciona un lenguaje eficaz de tipo SQL para recuperar información sobre [dispositivos gemelos][lnk-twins], [trabajos][lnk-jobs] y [enrutamiento de mensajes][lnk-devguide-messaging-routes]. Este artículo presenta:
 
 * una introducción a las características principales del lenguaje de consulta de IoT Hub y
 * una descripción más detallada del lenguaje.
 
-## <a name="get-started-with-device-twin-queries"></a>Introducción a las consultas de dispositivos gemelos
+## <a name="device-twin-queries"></a>Consultas de dispositivos gemelos
 Los [dispositivos gemelos][lnk-twins] pueden contener objetos JSON arbitrarios como etiquetas y propiedades. IoT Hub permite consultar los dispositivos gemelos como un solo documento JSON que contiene toda la información de los dispositivos gemelos.
 Por ejemplo, supongamos que los dispositivos gemelos de IoT Hub tienen la siguiente estructura:
 
@@ -80,15 +80,14 @@ SELECT * FROM devices
 > [!NOTE]
 > Los [SDK IoT de Azure][lnk-hub-sdks] admiten la paginación de resultados de gran tamaño.
 
-IoT Hub permite recuperar dispositivos gemelos filtrando por condiciones arbitrarias. Por ejemplo,
+IoT Hub permite recuperar dispositivos gemelos filtrando por condiciones arbitrarias. Por ejemplo, para recibir los dispositivos gemelos allí donde la etiqueta **location.region** se estableció en **US**, use la siguiente consulta:
 
 ```sql
 SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-recupera los dispositivos gemelos con la etiqueta **location.region** establecida en **US**.
-También se admiten operadores booleanos y comparaciones aritméticas, por ejemplo,
+También se admiten operadores booleanos y comparaciones aritméticas. Por ejemplo, para recuperar los dispositivos gemelos ubicados en la región denominada "US" y que hayan sido configurados para enviar datos de telemetría en intervalos inferiores a un minuto, use la siguiente consulta:
 
 ```sql
 SELECT * FROM devices
@@ -96,23 +95,23 @@ WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-recupera todos los dispositivos gemelos ubicados en Estados Unidos configurados para enviar datos de telemetría con una frecuencia inferior a un minuto. Por comodidad, también es posible usar constantes de matriz con los operadores **IN** (En) y **NIN** (No en). Por ejemplo,
+Por comodidad, también es posible usar constantes de matriz con los operadores **IN** (En) y **NIN** (No en). Por ejemplo, para recuperar los dispositivos gemelos que notifiquen conectividad WiFi o con cable, use la siguiente consulta:
 
 ```sql
 SELECT * FROM devices
 WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-recupera todos los dispositivos gemelos que notificaron conectividad WiFi o con cable. A menudo, es necesario identificar a todos los dispositivos gemelos que contienen una propiedad concreta. IoT Hub admite la función `is_defined()` para esta finalidad. Por ejemplo,
+A menudo, es necesario identificar a todos los dispositivos gemelos que contienen una propiedad concreta. IoT Hub admite la función `is_defined()` para esta finalidad. Por ejemplo, para recuperar los dispositivos gemelos que definan la propiedad `connectivity`, use la siguiente consulta:
 
 ```SQL
 SELECT * FROM devices
 WHERE is_defined(properties.reported.connectivity)
 ```
 
-recupera todos los dispositivos gemelos que definen la propiedad notificada `connectivity`. Consulte la sección [Cláusula WHERE][lnk-query-where] para obtener la referencia completa de las funcionalidades de filtrado.
+Consulte la sección [Cláusula WHERE][lnk-query-where] para obtener la referencia completa de las funcionalidades de filtrado.
 
-También se admiten la agrupación y las agregaciones. Por ejemplo,
+También se admiten la agrupación y las agregaciones. Por ejemplo, para buscar el número de dispositivos en cada estado de configuración de telemetría, use la siguiente consulta:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
@@ -121,7 +120,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-devuelve el recuento de los dispositivos en cada estado de configuración de telemetría.
+Esta consulta de agrupación devolverá un resultado similar al ejemplo siguiente. Aquí puede ver que tres dispositivos notificaron una configuración correcta, dos de ellos todavía están aplicándola y uno de ellos ha notificado un error. 
 
 ```json
 [
@@ -140,8 +139,6 @@ devuelve el recuento de los dispositivos en cada estado de configuración de tel
 ]
 ```
 
-En el ejemplo anterior, se demuestra una situación en la que tres dispositivos notificaron una configuración correcta, dos aún están aplicándola y uno notificó un error.
-
 ### <a name="c-example"></a>Ejemplo de C#
 El [SDK del servicio C#][lnk-hub-sdks] expone la funcionalidad de consulta en la clase **RegistryManager**.
 Este ejemplo corresponde a una consulta simple:
@@ -158,8 +155,8 @@ while (query.HasMoreResults)
 }
 ```
 
-Observe cómo se crea una instancia del objeto **query** con un tamaño de página (hasta 1000) y después se pueden recuperar varias páginas llamando a los métodos **GetNextAsTwinAsync** varias veces.
-Tenga en cuenta que el objeto query expone varios elementos **next\***, según la opción de deserialización que requiera la consulta, como objetos de trabajo o dispositivo gemelo, o JSON sin formato que se usará cuando se utilicen proyecciones.
+Observe cómo se crea una instancia del objeto **query** con un tamaño de página (de hasta 100); a continuación, se pueden recuperar varias páginas llamando a los métodos **GetNextAsTwinAsync** varias veces.
+Tenga en cuenta que el objeto "query" expone varios elementos **Next***, según la opción de deserialización que requiera la consulta, como objetos de trabajo, dispositivos gemelos o elementos JSON sin formato que se usarán cuando se utilicen las proyecciones.
 
 ### <a name="nodejs-example"></a>Ejemplo de Node.js
 El [SDK de servicios IoT de Azure para Node.js][lnk-hub-sdks] expone la funcionalidad de consulta en el objeto **Registry**.
@@ -184,8 +181,8 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Observe cómo se crea una instancia del objeto **query** con un tamaño de página (hasta 1000) y después se pueden recuperar varias páginas llamando a los métodos **nextAsTwin** varias veces.
-Tenga en cuenta que el objeto query expone varios elementos **next\***, según la opción de deserialización que requiera la consulta, como objetos de trabajo o dispositivo gemelo, o JSON sin formato que se usará cuando se utilicen proyecciones.
+Observe cómo se crea una instancia del objeto **query** con un tamaño de página (de hasta 100); a continuación, se pueden recuperar varias páginas llamando a los métodos **nextAsTwin** varias veces.
+Tenga en cuenta que el objeto "query" expone varios elementos **next***, según la opción de deserialización que requiera la consulta, como objetos de trabajo, dispositivos gemelos o elementos JSON sin formato que se usarán cuando se utilicen las proyecciones.
 
 ### <a name="limitations"></a>Limitaciones
 > [!IMPORTANT]
@@ -242,7 +239,7 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 Observe cómo esta consulta proporciona el estado específico del dispositivo (y posiblemente la respuesta del método directo) para cada trabajo devuelto.
 También es posible filtrar por condiciones booleanas arbitrarias en todas las propiedades de objeto de la colección **devices.jobs**.
-Por ejemplo, la siguiente consulta:
+Por ejemplo, para recuperar todos los trabajos de actualización de dispositivo gemelo que se crearon después de septiembre de 2016 para un dispositivo específico, use la siguiente consulta:
 
 ```sql
 SELECT * FROM devices.jobs
@@ -252,9 +249,7 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
 ```
 
-recupera todos los trabajos de actualización de dispositivos gemelos completados para el dispositivo **myDeviceId** que se crearon después de septiembre de 2016.
-
-También es posible recuperar los resultados por dispositivo de un único trabajo.
+Asimismo, también es posible recuperar los resultados por dispositivo de un único trabajo.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -268,11 +263,11 @@ Actualmente, las consultas en **devices.jobs** no admiten:
 * condiciones que hagan referencia al dispositivo gemelo, además de a las propiedades de trabajo (vea la sección anterior).
 * realizar agregaciones, como count, avg, group by.
 
-## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>Introducción a expresiones de consulta de rutas de mensajes de dispositivo a la nube
+## <a name="device-to-cloud-message-routes-query-expressions"></a>Expresiones de consulta de rutas de mensajes de dispositivo a la nube
 
 Con las [rutas de dispositivo a la nube][lnk-devguide-messaging-routes], puede configurar IoT Hub para enviar mensajes de dispositivo a la nube en diferentes puntos de conexión en función de expresiones evaluadas frente a mensajes individuales.
 
-La ruta [condición][lnk-query-expressions] utiliza el mismo lenguaje de consultas de IoT Hub como condiciones en consultas gemelas y de trabajo. Las condiciones de enrutamiento se evalúan en el cuerpo y los encabezados del mensaje. La expresión de consulta de enrutamiento puede implicar solo los encabezados del mensaje, solo el cuerpo del mensaje o tanto los encabezados como el cuerpo del mensaje. IoT Hub da por supuesto un esquema específico para los encabezados y el cuerpo del mensaje con el fin de enrutar mensajes, y las secciones siguientes describen los elementos que se necesitan para que IoT Hub realice correctamente el enrutamiento:
+La ruta [condición][lnk-query-expressions] utiliza el mismo lenguaje de consultas de IoT Hub como condiciones en consultas gemelas y de trabajo. Las condiciones de enrutamiento se evalúan en el cuerpo y los encabezados del mensaje. La expresión de consulta de enrutamiento puede implicar solo los encabezados del mensaje, solo el cuerpo del mensaje o tanto los encabezados como el cuerpo del mensaje. IoT Hub da por supuesto un esquema específico de los encabezados y el cuerpo del mensaje para poder llevar a cabo el enrutamiento de los mensajes. En las siguientes secciones se describe qué necesita IoT Hub para enrutar elementos correctamente.
 
 ### <a name="routing-on-message-headers"></a>Enrutamiento en los encabezados del mensaje
 
@@ -330,7 +325,7 @@ Consulte la sección [Expresiones y condiciones][lnk-query-expressions] para obt
 
 ### <a name="routing-on-message-bodies"></a>Enrutamiento en los cuerpos del mensaje
 
-IoT Hub solo puede realizar el enrutamiento según el contenido del cuerpo del mensaje si este tiene un formato JSON correcto codificado en UTF-8, UTF-16 o UTF-32. Debe establecer el tipo de contenido del mensaje en `application/json` y la codificación de contenido en una de las codificaciones UTF compatibles en los encabezados del mensaje para permitir que IoT Hub enrute el mensaje según el contenido del cuerpo. Si no se especifica cualquiera de los encabezados, IoT Hub no intentará evaluar ninguna expresión de consulta que implique el cuerpo con respecto al mensaje. Si el mensaje no es un mensaje JSON o si no especifica el tipo de contenido ni la codificación de contenido, se puede seguir usando el enrutamiento de mensaje para enrutar el mensaje según los encabezados del mensaje.
+IoT Hub solo puede realizar el enrutamiento según el contenido del cuerpo del mensaje si este tiene un formato JSON correcto codificado en UTF-8, UTF-16 o UTF-32. Establezca el tipo de contenido del mensaje en `application/json` y la codificación del contenido en una de las codificaciones UTF compatibles en los encabezados del mensaje. Si no se especifica cualquiera de los encabezados, IoT Hub no intentará evaluar ninguna expresión de consulta que implique el cuerpo con respecto al mensaje. Si el mensaje no es un mensaje JSON o si no especifica el tipo de contenido ni la codificación de contenido, se puede seguir usando el enrutamiento de mensaje para enrutar el mensaje según los encabezados del mensaje.
 
 Puede usar `$body` en la expresión de consulta para enrutar el mensaje. Puede usar una referencia al cuerpo simple, una referencia a la matriz del cuerpo o varias referencias al cuerpo en la expresión de consulta. La expresión de consulta también puede combinar una referencia al cuerpo con una referencia al encabezado del mensaje. Por ejemplo, todas las expresiones siguientes son expresiones de consulta válidas:
 
@@ -343,7 +338,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Conceptos básicos de una consulta de IoT Hub
-Cada consulta de IoT Hub consta de cláusulas SELECT y FROM, y de cláusulas WHERE y GROUP BY opcionales. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FROM indica la colección de documentos en la que se va a iterar (**devices** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. Con las agregaciones, se agrupan los resultados de este paso como se especifica en la cláusula GROUP BY y, para cada grupo, se genera una fila como se especifica en la cláusula SELECT.
+Cada consulta de IoT Hub consta de las cláusulas SELECT y FROM, además de las cláusulas opcionales WHERE y GROUP BY. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FROM indica la colección de documentos en la que se va a iterar (**devices** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. Con las agregaciones, se agrupan los resultados de este paso como se especifica en la cláusula GROUP BY y, para cada grupo, se genera una fila como se especifica en la cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -353,7 +348,7 @@ FROM <from_specification>
 ```
 
 ## <a name="from-clause"></a>Cláusula FROM
-La cláusula **FROM <from_specification>** solo puede suponer dos valores: **FROM devices**, para consultar dispositivos gemelos, o **FROM devices.jobs**, para consultar detalles por dispositivo del trabajo.
+La cláusula **FROM <from_specification>** solo puede asumir dos valores: **FROM devices**, para consultar dispositivos gemelos o **FROM devices.jobs**, para consultar detalles por dispositivo del trabajo.
 
 ## <a name="where-clause"></a>Cláusula WHERE
 La cláusula **WHERE <filter_condition>** es opcional. Especifica una o varias condiciones que los documentos JSON en la colección FROM deben satisfacer para incluirse como parte del resultado. Cualquier documento JSON debe evaluar las condiciones especificadas como "true" para que se incluya en el resultado.
@@ -361,7 +356,7 @@ La cláusula **WHERE <filter_condition>** es opcional. Especifica una o varias c
 Las condiciones permitidas se describen en la sección [Expresiones y condiciones][lnk-query-expressions].
 
 ## <a name="select-clause"></a>Cláusula SELECT
-La cláusula SELECT (**SELECT <select_list>**) es obligatoria y especifica qué valores se recuperan de la consulta. Especifica los valores JSON que se usarán para generar nuevos objetos JSON.
+La cláusula **SELECT <select_list>** es obligatoria y especifica qué valores se recuperan de la consulta. Especifica los valores JSON que se usarán para generar nuevos objetos JSON.
 Para cada elemento del subconjunto filtrado (y, opcionalmente, agrupado) de la colección FROM, la fase de proyección genera un nuevo objeto JSON, construido con los valores especificados en la cláusula SELECT.
 
 Esta es la gramática de la cláusula SELECT:
@@ -386,9 +381,9 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-donde **attribute_name** hace referencia a cualquier propiedad del documento JSON en la colección FROM. Puede ver algunos ejemplos de las cláusulas SELECT en la sección [Introducción a las consultas de gemelos][lnk-query-getstarted].
+**Attribute_name** hace referencia a cualquier propiedad del documento JSON en la colección FROM. Puede ver algunos ejemplos de las cláusulas SELECT en la sección [Introducción a las consultas de gemelos][lnk-query-getstarted].
 
-Actualmente, las cláusulas de selección distintas a **SELECT \*** solo se admiten en las consultas agregadas de dispositivos gemelos.
+Actualmente, las cláusulas de selección distintas a **SELECT** * solo se admiten en las consultas agregadas de dispositivos gemelos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
 La cláusula **GROUP BY <group_specification>** es un paso opcional que se puede ejecutar después del filtro especificado en la cláusula WHERE y antes de la proyección especificada en la cláusula SELECT. Agrupa los documentos según el valor de un atributo. Estos grupos se usan para generar valores agregados, como se especifica en la cláusula SELECT.
@@ -411,14 +406,14 @@ GROUP BY <group_by_element>
     | < group_by_element > '.' attribute_name
 ```
 
-donde **attribute_name** hace referencia a cualquier propiedad del documento JSON en la colección FROM.
+**Attribute_name** hace referencia a cualquier propiedad del documento JSON en la colección FROM.
 
 Actualmente, solo se admite la cláusula GROUP BY al consultar dispositivos gemelos.
 
 ## <a name="expressions-and-conditions"></a>Expresiones y condiciones
 Brevemente, una *expresión*:
 
-* Se evalúa como una instancia de tipo JSON (como booleano, número, cadena, matriz u objeto), y
+* Se evalúa como una instancia de tipo JSON (como booleano, número, cadena, matriz u objeto).
 * Se define manipulando datos procedentes del documento JSON del dispositivo y constantes mediante funciones y operadores integrados.
 
 Las *condiciones* son expresiones que se evalúan como un valor booleano. Cualquier constante diferente del booleano **true** se considera **false** (incluidos **null**, **undefined**, cualquier instancia de objeto o matriz, cualquier cadena y, obviamente, el booleano **false**).
@@ -451,7 +446,7 @@ La sintaxis de las expresiones es:
 <array_constant> ::= '[' <constant> [, <constant>]+ ']'
 ```
 
-donde:
+Para comprender lo que significa cada símbolo en la sintaxis de expresiones, consulte la tabla siguiente:
 
 | Símbolo | Definición |
 | --- | --- |
@@ -460,14 +455,14 @@ donde:
 | function_name| Cualquier función que figure en la sección [Funciones](#functions). |
 | decimal_literal |Un valor float expresado en notación decimal. |
 | hexadecimal_literal |Un número expresado por la cadena "0x" seguida de una cadena de dígitos hexadecimales. |
-| string_literal |Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se encierran entre comillas simples (apóstrofo: ') o comillas dobles (comillas: "). Caracteres de escape permitidos: `\'`, `\"`, `\\`, `\uXXXX` para los caracteres Unicode definidos con 4 dígitos hexadecimales. |
+| string_literal |Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se cierran entre comillas simples o dobles. Caracteres de escape permitidos: `\'`, `\"`, `\\`, `\uXXXX` para los caracteres Unicode definidos con 4 dígitos hexadecimales. |
 
 ### <a name="operators"></a>Operadores
 Se admiten los siguientes operadores:
 
 | Familia | Operadores |
 | --- | --- |
-| Aritméticos |+,-,*,/,% |
+| Aritméticos |+, -, *, /, % |
 | Lógicos |AND, OR, NOT |
 | De comparación |=, !=, <, >, <=, >=, <> |
 
@@ -489,7 +484,7 @@ En condiciones de rutas, se admiten las siguientes funciones matemáticas:
 | CEILING(x) | Devuelve el valor entero más pequeño mayor o igual que la expresión numérica especificada. |
 | FLOOR(x) | Devuelve el valor entero más grande menor o igual que la expresión numérica especificada. |
 | SIGN(x) | Devuelve el signo positivo (+1), cero (0) o negativo (-1) de la expresión numérica especificada.|
-| SQRT(x) | Devuelve el cuadrado del valor numérico especificado. |
+| SQRT(x) | Devuelve la raíz cuadrada del valor numérico especificado. |
 
 En condiciones de rutas, se admiten las funciones de conversión y comprobación de tipos siguientes:
 
@@ -509,7 +504,7 @@ En condiciones de rutas, se admiten las siguientes funciones de cadena:
 
 | Función | Descripción |
 | -------- | ----------- |
-| CONCAT(x, …) | Devuelve una cadena que es el resultado de concatenar dos o más valores de cadena. |
+| CONCAT(x, y, …) | Devuelve una cadena que es el resultado de concatenar dos o más valores de cadena. |
 | LENGTH(x) | Devuelve el número de caracteres de la expresión de cadena especificada.|
 | LOWER(x) | Devuelve una expresión de cadena después de convertir los datos de caracteres en mayúsculas a minúsculas. |
 | UPPER(x) | Devuelve una expresión de cadena después de convertir datos de caracteres en minúsculas a mayúsculas. |
