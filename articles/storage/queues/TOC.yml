@@ -2,7 +2,7 @@
   items:
     - name: Introducción a las colas
       href: storage-queues-introduction.md
-- name: Primeros pasos
+- name: Introducción
   items:
     - name: Crear una cuenta de almacenamiento
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -54,8 +54,12 @@
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Administrar
       items:
-        - name: PowerShell
+        - name: PowerShell para Azure Queues
+          href: storage-powershell-how-to-use-queues.md
+        - name: PowerShell para Azure Storage
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: 'PowerShell para nubes de China, Alemania y de la administración pública'
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Azure Automation
           href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Protección
