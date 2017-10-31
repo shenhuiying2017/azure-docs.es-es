@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: dobett
-ms.openlocfilehash: 86ffacae9265b68e8adfeb8f7d8c72626f872dba
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: fd823194f6e51600b9d4ca1daa053db837871fef
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="opc-publisher-for-azure-iot-edge"></a>OPC Publisher para Azure IoT Edge
 
@@ -382,7 +382,14 @@ docker run -h publisher microsoft/iot-edge-opc-publisher <applicationname> [<IoT
 
 #### <a name="using-bind-mounts-shared-filesystem"></a>Mediante montajes de enlaces (sistema de archivos compartido)
 
-En algunos escenarios, puede que desee leer la información de configuración desde ubicaciones del host, o escribir archivos de registro en estas ubicaciones, en lugar de usar el sistema de archivos del contenedor. Para configurar este comportamiento, use la opción `-v` de `docker run` en el modo de montaje de enlaces.
+En algunos escenarios, puede que desee leer la información de configuración desde ubicaciones del host, o escribir archivos de registro en estas ubicaciones, en lugar de usar el sistema de archivos del contenedor. Para configurar este comportamiento, use la opción `-v` de `docker run` en el modo de montaje de enlaces. Por ejemplo:
+
+```cmd/sh
+-v //D/docker:/build/out/Logs
+-v //D/docker:/build/out/CertificateStores
+-v //D/docker:/shared
+-v //D/docker:/root/.dotnet/corefx/cryptography/x509stores
+```
 
 #### <a name="store-for-x509-certificates"></a>Almacenamiento de certificados X509
 
