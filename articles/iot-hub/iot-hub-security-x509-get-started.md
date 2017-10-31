@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 6557046f43c33c0184f8345d9a63d8f7970ba650
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99fb80d5cafc8fd20f5048de305fef99bf49c286
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
@@ -37,7 +37,7 @@ La seguridad basada en certificados X.509 de IoT Hub requiere que comience con u
 Puede elegir cualquiera de los siguientes métodos para obtener los certificados:
 - Comprar certificados X.509 a una *entidad de certificación (CA) raíz*. Se recomienda para entornos de producción.
 O bien,
-- Crear sus propios certificados X.509 mediante una herramienta de terceros como [OpenSSL](https://www.openssl.org/). Es apropiado tanto para pruebas como para desarrollo. Las secciones [Create your X.509 certificates](iot-hub-security-x509-create-certificates.md#createcerts) (Crear certificados X.509) y [Create X.509 certificate chain](iot-hub-security-x509-create-certificates.md#createcertchain) (Crear cadena de certificados X.509) le guían a través de un script de PowerShell de ejemplo para crear los certificados mediante OpenSSL. En el resto de este tutorial se utilizará el entorno de OpenSSL configurado en esta guía de *procedimientos* para examinar la seguridad X.509 de un extremo a otro en Azure IoT Hub.
+- Crear sus propios certificados X.509 mediante una herramienta de terceros como [OpenSSL](https://www.openssl.org/). Es apropiado tanto para pruebas como para desarrollo. Las secciones *Creación de certificados X.509* y *Creación de una cadena de certificados X.509* del artículo [Uso de PowerShell para crear certificados X.509](iot-hub-security-x509-create-certificates.md) le guían a través de un script de PowerShell de ejemplo para crear los certificados mediante OpenSSL y PowerShell. Si prefiere usar el shell de **Bash** en lugar de PowerShell, consulte las secciones relacionadas de [Managing CA Certificates Sample](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración del ejemplo de certificados de CA). En el resto de este tutorial se usará el entorno de OpenSSL configurado en esta guía de *procedimientos* para examinar la seguridad X.509 de un extremo a otro en Azure IoT Hub.
 
 
 <a id="registercerts"></a>

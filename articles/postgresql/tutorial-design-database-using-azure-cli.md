@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.openlocfilehash: cf536fce8925f9173b541b845af25a8d8c38eabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d753772adeb9064f391f1e3846de654bdb60facf
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Diseño de la primera base de datos de Azure Database for PostgreSQL con la CLI de Azure 
 En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para aprender a hacer lo siguiente:
 > [!div class="checklist"]
-> * Creación de una base de datos de Azure Database for PostgreSQL
+> * Creación de un servidor de Azure Database for PostgreSQL
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
 > * Carga de datos de ejemplo
@@ -28,7 +28,7 @@ En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otra
 > * Actualización de datos
 > * Restauración de datos
 
-Puede usar Azure Cloud Shell en el explorador, o bien [instalar la CLI de Azure 2.0]( /cli/azure/install-azure-cli) en su propio equipo para ejecutar los bloques de código de este tutorial.
+Puede usar Azure Cloud Shell en el explorador, o bien [instalar la CLI de Azure 2.0]( /cli/azure/install-azure-cli) en su propio equipo para ejecutar los comandos de este tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -63,7 +63,10 @@ De forma predeterminada, la base de datos de **postgres** se crea en el servidor
 
 Cree una regla de firewall de nivel de servidor de Azure PostgreSQL con el comando [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create). Una regla de firewall de nivel de servidor permite que una aplicación externa, como [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) o [PgAdmin](https://www.pgadmin.org/), se conecte al servidor a través del firewall del servicio Azure PostgreSQL. 
 
-Puede establecer una regla de firewall que abarque un intervalo de IP para poder conectarse desde la red. En el ejemplo siguiente se usa [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) para crear una regla de firewall `AllowAllIps` para un intervalo de direcciones IP. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
+Puede establecer una regla de firewall que abarque un intervalo de IP para poder conectarse desde la red. En el ejemplo siguiente se usa [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) para crear una regla de firewall `AllowAllIps` que permita la conexión desde cualquier dirección IP. Para abrir todas las direcciones IP, utilice 0.0.0.0 como la dirección IP inicial y 255.255.255.255 como la dirección final.
+
+Para restringir el acceso a su servidor de Azure PostgreSQL solamente a su red, puede establecer la regla de firewall para que solo cubra el intervalo de direcciones IP de su red corporativa.
+
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
@@ -107,7 +110,7 @@ El resultado está en formato JSON. Tome nota de los valores de **administratorL
 ## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Conexión a la base de datos de Azure Database for PostgreSQL mediante psql
 Si el equipo cliente tiene PostgreSQL instalado, puede usar una instancia local de [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) o usar la consola de Azure Cloud para conectarse a un servidor Azure PostgreSQL. Ahora vamos a usar la utilidad de línea de comandos psql para conectarnos al servidor de Azure Database for PostgreSQL.
 
-1. Ejecute el comando psql siguiente para conectarse a un servidor de Azure Database for PostgreSQL
+1. Ejecute el comando psql siguiente para conectarse a una base de datos Azure Database for PostgreSQL:
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
@@ -118,7 +121,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
 ```
 
-2.  Una vez conectado al servidor, cree una base de datos vacía en el símbolo del sistema.
+2.  Una vez conectado al servidor, cree una base de datos vacía en el símbolo del sistema:
 ```sql
 CREATE DATABASE mypgsqldb;
 ```
@@ -131,7 +134,7 @@ CREATE DATABASE mypgsqldb;
 ## <a name="create-tables-in-the-database"></a>Creación de tablas en la base de datos
 Ahora que sabe cómo conectarse a Azure Database for PostgreSQL, podemos ver cómo completar algunas tareas básicas.
 
-En primer lugar, podemos crear una tabla y cargarla con algunos datos. Vamos a crear una tabla que hace el seguimiento de información del inventario.
+En primer lugar, podemos crear una tabla y cargarla con algunos datos. Vamos a crear una tabla que haga un seguimiento de la información del inventario:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -145,34 +148,35 @@ Puede ver la tabla recién creada ahora en la lista de tablas si escribe lo sigu
 \dt
 ```
 
-## <a name="load-data-into-the-tables"></a>Carga de datos en las tablas
-Ahora que tenemos una tabla, podemos insertar algunos datos en ella. En la ventana de símbolo del sistema abierta, ejecute la consulta siguiente para insertar algunas filas de datos
+## <a name="load-data-into-the-table"></a>Carga de datos en la tabla
+Ahora que tenemos una tabla, podemos insertar algunos datos en ella. En la ventana de símbolo del sistema abierta, ejecute la consulta siguiente para insertar algunas filas de datos:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Ahora tiene dos filas de datos de ejemplo en la tabla que creó anteriormente.
+Ahora ha agregado dos filas de datos de ejemplo en la tabla que creó anteriormente.
 
 ## <a name="query-and-update-the-data-in-the-tables"></a>Consulta y actualización de los datos en las tablas
-Ejecute la consulta siguiente para recuperar información de la tabla de base de datos. 
+Ejecute la siguiente consulta para recuperar información de la tabla del inventario: 
 ```sql
 SELECT * FROM inventory;
 ```
 
-También puede actualizar los datos en las tablas
+También puede actualizar los datos en la tabla del inventario:
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-La fila se actualiza en consecuencia cuando se recuperan los datos.
+Puede ver los valores actualizados cuando recupera los datos:
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restauración de una base de datos a un momento anterior en el tiempo
-Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con facilidad. Azure Database for PostgreSQL permite volver a cualquier momento dado en el período de los últimos 7 días (Básico) y los últimos 35 días (Estándar) y restaurar este momento dado en un servidor nuevo. Puede usar este servidor nuevo para recuperar los datos eliminados. Los pasos siguientes restauran el servidor de ejemplo a un punto antes de que se agregara la tabla.
+Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con facilidad. Azure Database for PostgreSQL permite volver a cualquier momento dado (hasta 7 días en el nivel Básico y 35 días en el nivel Estándar) y restaurar este momento dado en un servidor nuevo. Puede usar este servidor nuevo para recuperar los datos eliminados. 
 
+El comando siguiente restaura el servidor de ejemplo a un punto antes de que se agregara la tabla:
 ```azurecli-interactive
 az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
@@ -185,7 +189,7 @@ El comando `az postgres server restore` necesita los parámetros siguientes:
 | restore-point-in-time | 2017-04-13T13:59:00Z | Seleccione un momento dado en el que quiere restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria local, como `2017-04-13T05:59:00-08:00`, o usar el formato de hora Zulú UTC `2017-04-13T13:59:00Z`. |
 | --source-server | mypgserver-20170401 | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
 
-Al restaurar un servidor a un momento dado, se crea un servidor y se copia el servidor original a un momento dado que especifique. Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen.
+Al restaurar un servidor a un momento dado, se crea un servidor que se copia como servidor original a un momento dado que especifique. Los valores de ubicación y plan de tarifa del servidor restaurado son los mismos que los del servidor de origen.
 
 El comando es sincrónico y se devolverá después de que se haya restaurado el servidor. Una vez finalizada la restauración, busque el servidor que ha creado. Compruebe que los datos se han restaurado del modo esperado.
 
@@ -193,7 +197,7 @@ El comando es sincrónico y se devolverá después de que se haya restaurado el 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a usar la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para hacer lo siguiente:
 > [!div class="checklist"]
-> * Creación de una base de datos de Azure Database for PostgreSQL
+> * Creación de un servidor de Azure Database for PostgreSQL
 > * Configuración del firewall del servidor
 > * Uso de la utilidad [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para crear una base de datos
 > * Carga de datos de ejemplo

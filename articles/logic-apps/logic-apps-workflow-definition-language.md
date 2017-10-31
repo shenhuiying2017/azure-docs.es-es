@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf078a0cebf3c36d5916035fb5fd7e47d231abe
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Esquema del lenguaje de definición de flujo de trabajo - Azure Logic Apps
 
@@ -167,7 +167,7 @@ También puede llamar a funciones dentro de expresiones. En la tabla siguiente m
 |Expression|Evaluación|  
 |----------------|----------------|  
 |"@function("Hello")"|Llama al miembro de la función de la definición con la cadena literal Hello como primer parámetro.|  
-|"@function("It"s Cool!")"|Llama al miembro de la función de la definición con la cadena literal "It"s Cool!" como primer parámetro.|  
+|"@function('It''s Cool!')"|Llama al miembro de la función de la definición con la cadena literal "It"s Cool!" como primer parámetro.|  
 |"@function().prop1"|Devuelve el valor de la propiedad prop1 del miembro `myfunction` de la definición.|  
 |"@function("Hello").prop1"|Llama al miembro de la función de la definición con la cadena literal "Hello" como primer parámetro y devuelve la propiedad prop1 del objeto.|  
 |"@function(parameters("Hello"))"|Evalúa el parámetro Hello y pasa el valor a la función.|  
