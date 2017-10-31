@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/31/2017
-ms.openlocfilehash: 59ac187e50527517c402a5cc2aa871717dde5650
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ebdced6ac748245faed90949fd0e76c0eacb2d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>Opciones y rendimiento de Azure Database for PostgreSQL: información sobre lo que está disponible en cada plan de tarifa
 Al crear un servidor de Azure Database for PostgreSQL, tiene que elegir entre tres opciones principales para configurar los recursos asignados a dicho servidor. Estas opciones afectan al rendimiento y la escala del servidor.
@@ -27,7 +27,7 @@ Cada plan de tarifa permite elegir entre diferentes niveles de rendimiento (unid
 > [!IMPORTANT]
 > Mientras el servicio se encuentre en versión preliminar pública, no se garantiza que haya ningún Acuerdo de Nivel de Servicio (SLA) en vigor.
 
-Dentro del servidor de Azure Database for PostgreSQL, puede tener una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que se usen todos los recursos, o bien crear varias bases de datos para compartir los recursos. 
+Dentro del servidor de Azure Database for PostgreSQL, puede tener una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que use todos los recursos de servidor, o bien crear varias bases de datos para compartir los recursos de servidor. 
 
 ## <a name="choose-a-pricing-tier"></a>Elija un plan de tarifa.
 Mientras se encuentre en versión preliminar, el servicio Azure Database for PostgreSQL ofrece dos planes de tarifa: Básico y Estándar. El plan Premium no está disponible todavía, pero lo estará pronto. 
@@ -58,7 +58,7 @@ Cuando cree una nueva Azure Database for PostgreSQL dentro de [Azure Portal](htt
 ## <a name="choose-a-performance-level-compute-units"></a>Selección de un nivel de rendimiento (unidades de proceso)
 Cuando haya determinado el plan de tarifa para su servidor Azure Database for PostgreSQL, ya podrá determinar el nivel de rendimiento correspondiente, es decir, el número de unidades de proceso necesarias. Un buen punto de partida son 200 o 400 unidades de proceso para aplicaciones que necesiten más simultaneidad de usuarios para las cargas de trabajo web o analíticas. Esta cantidad se puede incrementar en función de las necesidades correspondientes. 
 
-Las unidades de proceso son una medida de la capacidad de proceso de la CPU que se garantiza que está disponible para un único servidor de Azure Database for PostgreSQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria.  Para más información, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
+Las unidades de proceso son una medida de la capacidad de proceso de la CPU que se garantiza que está disponible para un único servidor de Azure Database for PostgreSQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria.  Para obtener más información, consulte [Explicación de las unidades de proceso](concepts-compute-unit-and-storage.md).
 
 ### <a name="basic-pricing-tier-performance-levels"></a>Niveles de rendimiento del plan de tarifa Básico:
 
@@ -87,7 +87,7 @@ Se incluye cierta capacidad de almacenamiento mínima con cada plan de tarifa, d
 
 La configuración de E/S por segundo de cada nivel de rendimiento está relacionada con el plan de tarifa y el tamaño de almacenamiento que se seleccionen. El plan Básico no garantiza ningún valor de E/S por segundo. En el plan de tarifa Estándar, las E/S por segundo escalan de forma proporcional al tamaño de almacenamiento máximo en una proporción fija de 3:1. El almacenamiento incluido de 125 GB garantiza 375 IOPS aprovisionadas, cada una de ellas con un tamaño de IOPS de hasta 256 KB. Puede seleccionar almacenamiento adicional hasta un valor máximo de 1 TB para garantizar una provisión de 3000 E/S por segundo.
 
-Supervise el grafo de métricas de Azure Portal o escriba comandos de CLI de Azure para medir el consumo de almacenamiento y E/S por segundo. Las métricas pertinentes que se deben supervisar son el límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S por segundo.
+Supervise el grafo de métricas de Azure Portal o escriba comandos de CLI de Azure para medir el consumo de almacenamiento y E/S por segundo. Las métricas pertinentes que se deben supervisar son el límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S.
 
 >[!IMPORTANT]
 > Mientras use la versión preliminar, seleccione la cantidad de almacenamiento en el momento de crear el servidor. Todavía no es posible cambiar el tamaño del almacenamiento en un servidor existente. 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-ms.openlocfilehash: 6643dad5ea3ba703e26f5708cdd2e925f702847f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 33b64e1ad3fd5a2a6954a02da0fb303acca54c40
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="work-with-azure-file-share-snapshots-preview"></a>Trabajar con instantáneas del recurso compartido de Azure Files (versión preliminar)
 Las instantáneas del recurso compartido de Azure Files (versión preliminar) son una versión de solo lectura de un recurso compartido de Azure Files que se usa en un momento dado. Una vez se crea la instantánea del recurso compartido, puede leerla, copiarla o eliminarla, pero no modificarla. Las instantáneas del recurso compartido le ofrecen una oportunidad de realizar una copia de seguridad del recurso compartido en el momento en que este aparezca. En este artículo, obtendremos información sobre cómo crear, administrar y eliminar instantáneas del recurso compartido de Azure Files. Para obtener más información sobre la instantánea del recurso compartido, consulte [share snapshot overview](storage-snapshots-files.md) (información general de la instantánea del recurso compartido) o [Preguntas más frecuentes sobre la instantánea](storage-files-faq.md)
@@ -72,9 +72,10 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## <a name="list-share-snapshots-browse-share-snapshot-contents-and-restore-from-snapshots"></a>Enumerar instantáneas del recurso compartido, examinar su contenido y restaurar desde estas
 
-Puede enumerar las instantáneas del recurso compartido asociadas a su recurso compartido de archivos mediante la integración de “Versiones anteriores” en Windows, a través de REST, la biblioteca cliente, PowerShell y el portal. Una vez montado el recurso compartido de Azure Files, puede ver todas las versiones anteriores del archivo mediante la integración de “Versiones anteriores” de SMB. Una vez montado el recurso compartido de Azure Files, puede ver todas las versiones anteriores del directorio mediante la integración de “Versiones anteriores” de SMB. En las siguientes secciones, obtendrá información sobre cómo usar Azure Portal, Windows y la CLI de Azure 2.0 para enumerar, examinar y restaurar instantáneas del recurso compartido.
+## <a name="common-share-snapshot-operations"></a>Operaciones comunes de instantánea de recurso compartido
+
+Puede enumerar las instantáneas de recurso compartido asociadas al recurso compartido de archivos mediante la pestaña "Versiones anteriores" en Windows, a través de REST, la biblioteca cliente, PowerShell y el portal. Una vez montado el recurso compartido de archivos de Azure Files, puede ver todas las versiones anteriores del archivo mediante la pestaña "Versiones anteriores" en Windows. En las siguientes secciones, obtendrá información sobre cómo usar Azure Portal, Windows y la CLI de Azure 2.0 para enumerar, examinar y restaurar instantáneas de recurso compartido.
 
 ### <a name="share-snapshot-operations-in-portal"></a>Operaciones de la instantánea del recurso compartido en el portal
 
