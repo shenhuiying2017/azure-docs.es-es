@@ -86,6 +86,7 @@
 ### Carga de archivos desde dispositivos
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Introducción a los dispositivos gemelos
 #### [Back-end de Node.js/Dispositivo de Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-twin-getstarted.md)
