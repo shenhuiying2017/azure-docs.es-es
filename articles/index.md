@@ -3,11 +3,12 @@ layout: HubPage
 hide_bc: True
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
-ms.openlocfilehash: 5ca26e7fc6230140ee424e35a8d174613a4a93f4
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+featureFlags: clicktale
+ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/01/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -151,7 +152,7 @@ ms.lasthandoff: 10/27/2017
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+                                                        <a class="barLink" href="/nodejs/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -491,7 +492,7 @@ ms.lasthandoff: 10/27/2017
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Nubes independientes</h3>
+                                    <h3>Nubes soberanas</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-government/">
@@ -772,12 +773,6 @@ ms.lasthandoff: 10/27/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/video/home">
-                                                <img src="media/index/API_Video.svg" alt="" />
-                                                <p>API de vídeo</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
                                                 <img src="media/index/API_VideoIndexer.svg" alt="" />
                                                 <p>Indexador de vídeo</p>
@@ -874,7 +869,7 @@ ms.lasthandoff: 10/27/2017
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Centros de eventos</p>
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -982,7 +977,7 @@ ms.lasthandoff: 10/27/2017
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Centros de eventos</p>
+                                                <p>Event Hubs</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1630,7 +1625,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Protección contra DDOS</h3>
-                                                    <p>Proteja sus aplicaciones frente a ataques por denegación de servicio distribuido (DDoS).</p>
+                                                    <p>Protección de las aplicaciones frente a ataques por denegación de servicio distribuido (DDoS)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2376,7 +2371,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Centros de eventos</h3>
+                                                    <h3>Event Hubs</h3>
                                                     <p>Reciba datos de telemetría de millones de dispositivos</p>
                                                 </div>
                                             </div>
@@ -2589,9 +2584,6 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                                 <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/video/home"><img src="media/index/API_Video.svg" alt="" /><span>API de vídeo&nbsp;<sup style="font-size:70%">VERSIÓN PRELIMINAR</sup></span></a>
-                                                            </li>
-                                                            <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">VERSIÓN PRELIMINAR</sup></span></a>
                                                             </li>
                                                         </ul>
@@ -2703,7 +2695,8 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search</a>
                                                             </li>
-                                                            <li>                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Bing Custom Search</a>
@@ -3703,7 +3696,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">Nubes independientes</a>
+                        <a href="#other">Nubes soberanas</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -3839,7 +3832,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     <a href="/nodejs/azure/node-sdk-azure-install">Obtención de bibliotecas de Azure para Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Introducción</a>
+                                                    <a href="/nodejs/azure/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">Referencia de API</a>
@@ -3996,7 +3989,7 @@ CLI de Azure 2.0 </h3>
                                                 <h3>
 CLI de Azure </h3>
                                                 <p>
-                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Primeros pasos</a>
+                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Descargar la CLI de Azure para Linux</a>
