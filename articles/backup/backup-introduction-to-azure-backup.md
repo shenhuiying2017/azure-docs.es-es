@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 120810b2b112649e21ec4bfe0c0f58b1fe3d80ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -93,10 +93,10 @@ En la siguiente tabla se muestran los componentes de Azure Backup que son compat
 | Copia de seguridad de máquina virtual de IaaS de Azure |Copia de seguridad coherente con la aplicación mediante un [marco de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/> [Recuperación de archivos pormenorizada](backup-azure-restore-files-from-vm.md)<br/> [Restauración de todos los discos de máquina virtual](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauración de máquina virtual](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso de máquinas virtuales de Premium Storage con Azure Backup
-Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/common/storage-premium-storage.md).
+Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Copia de seguridad de máquinas virtuales de Premium Storage
-Durante la copia de seguridad de máquinas virtuales de Premium Storage, el servicio Backup crea una ubicación de ensayo temporal, llamada "AzureBackup-" en la cuenta de Premium Storage. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación. Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de ensayo temporal. Para más información, consulte las [limitaciones de Premium Storage](../storage/common/storage-premium-storage.md#scalability-and-performance-targets). Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de Premium Storage](../storage/common/storage-premium-storage.md#pricing-and-billing).
+Durante la copia de seguridad de máquinas virtuales de Premium Storage, el servicio Backup crea una ubicación de ensayo temporal, llamada "AzureBackup-" en la cuenta de Premium Storage. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación. Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de ensayo temporal. Para más información, consulte las [limitaciones de Premium Storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
 
 > [!NOTE]
 > No modifique ni edite la ubicación de ensayo.

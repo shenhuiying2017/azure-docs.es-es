@@ -3,7 +3,7 @@ title: "Información general conceptual de los nombres de dominio personalizados
 description: "Explica la plataforma conceptual para el uso de nombres de dominio personalizado en Azure Active Directory, incluida la federación para el inicio de sesión único."
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: b0ba411dd40bbd063a328d61be899c1e70a96eda
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: baaf1829705c46322158c229a8ecccd0164cd4a6
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Información general conceptual de nombres de dominio personalizado en Azure Active Directory
 Un nombre de dominio puede ser un identificador importante para muchos recursos de directorio, como parte de:

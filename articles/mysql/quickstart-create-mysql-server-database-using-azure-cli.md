@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: hero-article
 ms.date: 06/13/2017
 ms.custom: mvc
-ms.openlocfilehash: 3d66efa6935150c665a3f568e60c35ddbd70e8be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0da8e52ae568e1e471cb5556cfde063bdd94911c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Creación de una Base de datos de Azure para el servidor MySQL con la CLI de Azure
 En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear una Base de datos de Azure para el servidor MySQL en un grupo de recursos de Azure en unos cinco minutos. La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts.
@@ -63,7 +63,7 @@ De manera predeterminada, se exigen conexiones SSL entre su servidor y las aplic
 En el ejemplo siguiente se deshabilita la aplicación de SSL en su servidor MySQL.
  
  ```azurecli-interactive
- az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
+ az mysql server update --resource-group myresourcegroup --name myserver4demo --ssl-enforcement Disabled
  ```
 
 ## <a name="get-the-connection-information"></a>Obtención de la información de conexión

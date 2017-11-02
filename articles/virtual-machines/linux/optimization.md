@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: eb79d574fd4dddfb986660cc338bc8748f2082c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e63b50e06ae280819aea88f61bf9f25b6e44eac7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -32,7 +32,7 @@ En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([
 Al crear la VM Linux en Azure, tiene dos discos asociados a ella. **/dev/sda** es el disco del SO y **/dev/sdb** es el disco temporal.  No utilice el disco del SO principal (**/dev/sda**) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adición de discos para objetivos de rendimiento y tamaño
-En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para el Almacenamiento estándar y de hasta 5000 IOPS por disco para el Almacenamiento Premium.  Para más información sobre los discos de Premium Storage, consulte [Discos de máquina virtual de Azure administrados y no administrados, y Premium Storage de alto rendimiento](../../storage/common/storage-premium-storage.md).
+En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para el Almacenamiento estándar y de hasta 5000 IOPS por disco para el Almacenamiento Premium.  Para más información sobre los discos de Premium Storage, consulte [Discos de máquina virtual de Azure administrados y no administrados, y Premium Storage de alto rendimiento](../windows/premium-storage.md).
 
 Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como **ReadOnly** o **None**, debe deshabilitar las **barreras** al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Almacenamiento premium de copia de seguridad son duraderas para esta configuración de caché.
 
@@ -131,7 +131,7 @@ Recuerde que, como en todos los debates sobre optimización, debe realizar prueb
 
 Algunos vínculos útiles a recursos adicionales: 
 
-* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/common/storage-premium-storage.md)
+* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../windows/premium-storage.md)
 * [Guía de usuario del Agente de Linux de Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Configuración del software RAID en Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

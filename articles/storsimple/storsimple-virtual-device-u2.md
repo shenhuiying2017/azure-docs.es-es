@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Implementar y administrar un dispositivo virtual StorSimple en Azure
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria) |Standard_DS3 (4 núcleos, 14 GB de memoria) |
 | **Compatibilidad de versión** |Ejecuta las versiones previas a la actualización 2 o posterior |Ejecuta las versiones de la actualización 2 o posterior |
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Todas las regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br> Use [esta lista](https://azure.microsoft.com/en-us/regions/services) para ver si las dos opciones *Virtual Machines > Serie DS* y *Storage > Almacenamiento en disco* están disponibles en su región. |
-| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/common/storage-premium-storage.md) |
+| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../virtual-machines/windows/premium-storage.md) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento  <br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup>*Anteriormente conocido como 1100*.
@@ -82,7 +82,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 Realice las siguientes actualizaciones en su servicio StorSimple de Azure antes de crear un dispositivo virtual:
 
 * Agregue [registros de control de acceso](storsimple-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores de host para el dispositivo virtual.
-* Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento estándar o premium con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../storage/common/storage-premium-storage.md).
+* Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento estándar o premium con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../virtual-machines/windows/premium-storage.md).
 * Para crear el dispositivo virtual use una cuenta diferente de la que usa para los datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
 Asegúrese de que tiene la siguiente información antes de empezar:

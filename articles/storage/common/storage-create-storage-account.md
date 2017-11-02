@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Acerca de las cuentas de almacenamiento de Azure
 
@@ -79,7 +79,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 5. Seleccione el tipo de cuenta de almacenamiento: **Uso general** o **Blob Storage**. **Uso general** es el tipo predeterminado.
    
-    Si se ha seleccionado **Uso general**, especifique el nivel de rendimiento: **Estándar** o **Premium**. El valor predeterminado es **Estándar**. Para más información sobre las cuentas de almacenamiento estándar y Premium Storage, consulte [Introducción a Microsoft Azure Storage](storage-introduction.md) y [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md).
+    Si se ha seleccionado **Uso general**, especifique el nivel de rendimiento: **Estándar** o **Premium**. El valor predeterminado es **Estándar**. Para más información sobre las cuentas de almacenamiento estándar y Premium Storage, consulte [Introducción a Microsoft Azure Storage](storage-introduction.md) y [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../virtual-machines/windows/premium-storage.md).
    
     Si se ha seleccionado **Blob Storage**, especifique el nivel de acceso: **Frecuente** o **Esporádico**. El valor predeterminado es **Frecuente**. Consulte [Almacenamiento de blobs de Azure: niveles de acceso Esporádico y Frecuente](../blobs/storage-blob-storage-tiers.md) para más información.
 6. Seleccione la opción de replicación de la cuenta de almacenamiento: **LRS**, **GRS**, **RA-GRS** o **ZRS**. El valor predeterminado es **RA-GRS**. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de Almacenamiento de Azure](storage-redundancy.md).

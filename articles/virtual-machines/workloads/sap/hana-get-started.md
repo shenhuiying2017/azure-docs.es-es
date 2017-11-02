@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 05fb31007e1e4c2243f93169129ec5b2c93099e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Inicio rápido: instalación manual de una única instancia de SAP HANA en máquinas virtuales de Azure
 ## <a name="introduction"></a>Introducción
@@ -200,7 +200,7 @@ Para más información sobre cómo conectar discos a máquinas virtuales de Azur
 
 Azure Premium Storage permite definir modos de almacenamiento en caché de disco. El almacenamiento en caché de disco debe estar deshabilitado para los conjuntos seccionados que contienen /hana/data y /hana/log. Para los otros volúmenes (discos), el modo de almacenamiento en caché debe establecerse en **ReadOnly**.
 
-Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../../storage/common/storage-premium-storage.md).
+Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../windows/premium-storage.md).
 
 Para buscar plantillas de JSON de ejemplo para crear máquinas virtuales, vaya a [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 La plantilla vm-simple-sles es una plantilla básica. Incluye una sección de almacenamiento, con un disco de datos adicional de 100 GB. Esta plantilla se puede usar como base. La plantilla se puede adaptar a su configuración específica.

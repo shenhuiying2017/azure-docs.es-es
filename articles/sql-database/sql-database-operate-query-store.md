@@ -13,14 +13,14 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: sqldb-performance
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 11/08/2016
 ms.author: bonova
-ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e57f1c51ef5c551f3b2e5d0f0a51a1f462b6c1af
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Funcionamiento del almacén de consultas de Base de datos SQL de Azure
 El Almacén de consultas en Azure es una característica de base de datos completamente administrada que recopila y presenta constantemente información histórica detallada sobre todas las consultas. Es parecido a la caja negra de un avión y simplifica considerablemente la solución de problemas de rendimiento de las consultas tanto para los clientes locales como de nube. En este artículo se explican los aspectos específicos del funcionamiento del Almacén de consultas de Azure. Con estos datos de consulta previamente recopilados, puede diagnosticar y resolver rápidamente los problemas de rendimiento y así dedicar más tiempo a centrarse en sus negocios. 
