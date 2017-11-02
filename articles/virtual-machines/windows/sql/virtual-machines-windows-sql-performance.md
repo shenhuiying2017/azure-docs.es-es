@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 5595ea016ab01d20cee82b75f56623bb0727a1b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedimientos recomendados para mejorar el rendimiento de SQL Server en Máquinas virtuales de Azure
 
@@ -40,8 +40,8 @@ La siguiente es una lista de comprobación rápida para un rendimiento óptimo d
 | Ámbito | Optimizaciones |
 | --- | --- |
 | [Tamaño de VM](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) o superior para la edición SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) o superior para las ediciones SQL Standard y Web. |
-| [Almacenamiento](#storage-guidance) |Use [Almacenamiento premium](../../../storage/common/storage-premium-storage.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/>Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la VM con SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
-| [Discos](#disks-guidance) |Use un mínimo de 2 [discos P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) (1 para archivos de registro; 1 para archivos de datos y TempDB).<br/><br/>Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br/><br/>Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y TempDB.<br/><br/>No habilite el almacenamiento en caché en discos que hospedan el archivo de registro.<br/><br/>Importante: Detenga el servicio de SQL Server cuando se cambie la configuración de caché para un disco de VM de Azure.<br/><br/>Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/>Formato con tamaños de asignación documentados. |
+| [Almacenamiento](#storage-guidance) |Use [Almacenamiento premium](../premium-storage.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/>Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la VM con SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
+| [Discos](#disks-guidance) |Use un mínimo de 2 [discos P30](../premium-storage.md#scalability-and-performance-targets) (1 para archivos de registro; 1 para archivos de datos y TempDB).<br/><br/>Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br/><br/>Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y TempDB.<br/><br/>No habilite el almacenamiento en caché en discos que hospedan el archivo de registro.<br/><br/>Importante: Detenga el servicio de SQL Server cuando se cambie la configuración de caché para un disco de VM de Azure.<br/><br/>Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/>Formato con tamaños de asignación documentados. |
 | [E/S](#io-guidance) |Habilite la compresión de páginas de bases de datos.<br/><br/>Habilite la inicialización instantánea de archivos para archivos de datos.<br/><br/>Limite o deshabilite el crecimiento automático de la base de datos.<br/><br/>Deshabilite la reducción automática de la base de datos.<br/><br/>Mueva todas las bases de datos a discos de datos, incluidas bases de datos del sistema.<br/><br/>Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.<br/><br/>Configure ubicaciones predeterminadas para los archivos de base de datos y de copia de seguridad.<br/><br/>Habilite páginas bloqueadas.<br/><br/>Aplique correcciones de rendimiento de SQL Server. |
 | [Características específicas](#feature-specific-guidance) |Realice una copia de seguridad directamente en el almacenamiento de blobs. |
 
@@ -56,7 +56,7 @@ En aplicaciones sensibles al rendimiento, se recomienda usar los siguientes [tam
 
 ## <a name="storage-guidance"></a>Orientación sobre el almacenamiento
 
-Las máquinas virtuales de la serie DS (además de las series DSv2 y GS) admiten [Premium Storage](../../../storage/common/storage-premium-storage.md). Almacenamiento premium es aconsejable para cargas de trabajo de producción.
+Las máquinas virtuales de la serie DS (además de las series DSv2 y GS) admiten [Premium Storage](../premium-storage.md). Almacenamiento premium es aconsejable para cargas de trabajo de producción.
 
 > [!WARNING]
 > El almacenamiento estándar presenta un ancho de banda y unas latencias variables, de modo que solo se recomienda para cargas de trabajo de desarrollo o de prueba. En las cargas de trabajo de producción conviene usar Almacenamiento premium.
@@ -89,7 +89,7 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 
 ### <a name="data-disks"></a>Discos de datos
 
-* **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB. Cada disco de almacenamiento Premium proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el siguiente artículo: [Uso de Almacenamiento Premium para discos](../../../storage/common/storage-premium-storage.md).
+* **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB. Cada disco de almacenamiento Premium proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el siguiente artículo: [Uso de Almacenamiento Premium para discos](../premium-storage.md).
 
 * **Seccionamiento de discos**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Observe que diferentes tamaños de máquinas virtuales tienen distintos límites en el número de IOPS y ancho de banda admitidos. Vea las tablas de IOPS por [tamaño de máquina virtual](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use estas directrices:
 

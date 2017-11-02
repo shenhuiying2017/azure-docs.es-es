@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: ca893f87b155a92c457e3bf6d9d39aaf86bf5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb46c3f2809fa86fea7a8370d4c417f04040b74c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migración al almacenamiento premium de Azure (discos no gestionados)
 
@@ -37,7 +37,7 @@ La finalidad de esta guía es ayudar a los nuevos usuarios de Azure Premium Stor
 Puede migrar máquinas virtuales de otras plataformas a Azure Premium Storage o migrar máquinas virtuales de Azure existentes de almacenamiento Estándar a Premium Storage. En esta guía se describen los pasos para ambos escenarios. Siga los pasos especificados en la sección correspondiente en función de su escenario.
 
 > [!NOTE]
-> Encontrará una introducción a las características y los precios de Premium Storage en [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage.md). Se recomienda migrar cualquier disco de máquina virtual que requiera un número elevado de operaciones de entrada/salida por segundo al Almacenamiento premium de Azure para mejorar el rendimiento de la aplicación. Si el disco no requiere un número elevado de operaciones de entrada/salida por segundo, puede limitar los costos mediante el mantenimiento del almacenamiento estándar, que almacena los datos de disco de máquina virtual en unidades de disco duro (HDD) en lugar de SSD.
+> Encontrará una introducción a las características y los precios de Premium Storage en [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../../virtual-machines/windows/premium-storage.md). Se recomienda migrar cualquier disco de máquina virtual que requiera un número elevado de operaciones de entrada/salida por segundo al Almacenamiento premium de Azure para mejorar el rendimiento de la aplicación. Si el disco no requiere un número elevado de operaciones de entrada/salida por segundo, puede limitar los costos mediante el mantenimiento del almacenamiento estándar, que almacena los datos de disco de máquina virtual en unidades de disco duro (HDD) en lugar de SSD.
 >
 
 Para completar el proceso de migración en su totalidad puede ser necesario realizar acciones adicionales antes y después de los pasos proporcionados en esta guía, Por ejemplo, configurar redes virtuales o puntos de conexión o realizar cambios en el código dentro de la propia aplicación que pueden requerir algún tiempo de inactividad de la aplicación. Estas acciones son únicas para cada aplicación y deben completarse junto con los pasos proporcionados en esta guía para realizar la transición completa a Premium Storage lo más fácilmente posible.
@@ -65,7 +65,7 @@ Hay tres tipos de discos que se pueden usar con las máquinas virtuales y cada u
 | IOPS por disco       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Rendimiento de disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
-Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. (Consulte qué es el seccionamiento de discos [aquí](storage-premium-storage-performance.md#disk-striping)). Si secciona discos de datos de Premium Storage mediante [Espacios de almacenamiento][4], tendrá que configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm* . Vea el artículo [Configuración del software RAID en Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
+Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. (Consulte qué es el seccionamiento de discos [aquí](../../virtual-machines/windows/premium-storage-performance.md#disk-striping)). Si secciona discos de datos de Premium Storage mediante [Espacios de almacenamiento][4], tendrá que configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm* . Vea el artículo [Configuración del software RAID en Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
 
 #### <a name="storage-account-scalability-targets"></a>Objetivos de escalabilidad de la cuenta de almacenamiento
 Aparte de los [objetivos de escalabilidad y rendimiento de Azure Storage](storage-scalability-targets.md), las cuentas de Premium Storage tienen estos otros objetivos de escalabilidad. Si los requisitos de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento.
@@ -74,7 +74,7 @@ Aparte de los [objetivos de escalabilidad y rendimiento de Azure Storage](storag
 |:--- |:--- |
 | Capacidad de disco: 35 TB<br />Capacidad de instantánea: 10 TB |Hasta 50 gigabits por segundo de entrada y salida |
 
-Para más información sobre las especificaciones del Almacenamiento premium, consulte [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](storage-premium-storage.md#scalability-and-performance-targets).
+Para más información sobre las especificaciones del Almacenamiento premium, consulte [Objetivos de escalabilidad y rendimiento al usar el Almacenamiento premium](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets).
 
 #### <a name="disk-caching-policy"></a>Directiva de almacenamiento en caché de disco
 De forma predeterminada, la directiva de almacenamiento en caché de los discos es *Solo lectura* para todos los discos de datos Premium y *Lectura y Escritura* para el disco de sistema operativo Premium conectado a la máquina virtual. Se recomienda esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. Para discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación. La configuración de caché de los discos de datos existentes se puede actualizar con el [Azure Portal](https://portal.azure.com) o con el parámetro *-HostCaching* del cmdlet *Set-AzureDataDisk*.
@@ -86,7 +86,7 @@ Elija una ubicación donde el Almacenamiento premium de Azure esté disponible. 
 Al crear una máquina virtual de Azure, hay que establecer ciertas configuraciones de máquina virtual. Recuerde que hay algunas configuraciones que son fijas durante la vigencia de la máquina virtual, además de que puede modificar o agregar otras más adelante. Revise estos valores de configuración de máquina virtual de Azure y asegúrese de que están configurados correctamente para que coincidan con sus requisitos de carga de trabajo.
 
 ### <a name="optimization"></a>Optimización
-En [Azure Premium Storage: diseño de alto rendimiento](storage-premium-storage-performance.md) se proporcionan instrucciones para crear aplicaciones de alto rendimiento con Azure Premium Storage. Puede seguir las instrucciones junto con los procedimientos recomendados de rendimiento aplicables a las tecnologías usadas en la aplicación.
+En [Azure Premium Storage: diseño de alto rendimiento](../../virtual-machines/windows/premium-storage-performance.md) se proporcionan instrucciones para crear aplicaciones de alto rendimiento con Azure Premium Storage. Puede seguir las instrucciones junto con los procedimientos recomendados de rendimiento aplicables a las tecnologías usadas en la aplicación.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Preparación y copia de discos duros virtuales (VHD) en Premium Storage
 En la siguiente sección se proporcionan instrucciones para preparar discos duros virtuales de la máquina virtual y copiarlos en Azure Storage.
@@ -750,7 +750,7 @@ La configuración actual de la máquina virtual se puede personalizar específic
 2. Inicie sesión en la máquina virtual y copie los datos del volumen actual en el nuevo disco asignado a ese volumen. Haga esto para todos los volúmenes actuales que se deben asignar a un nuevo disco.
 3. A continuación, cambie la configuración de la aplicación para cambiar a los nuevos discos, y desasocie los volúmenes antiguos.
 
-Para ajustar la aplicación para mejorar el rendimiento de disco, consulte [Optimización del rendimiento de las aplicaciones](storage-premium-storage-performance.md#optimizing-application-performance).
+Para ajustar la aplicación para mejorar el rendimiento de disco, consulte [Optimización del rendimiento de las aplicaciones](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance).
 
 ### <a name="application-migrations"></a>Migraciones de aplicaciones
 Las bases de datos y otras aplicaciones complejas pueden requerir pasos especiales tal y como defina el proveedor de la aplicación para la migración. Consulte la documentación de la aplicación correspondiente. Por ejemplo, las bases de datos normalmente se pueden migrar mediante copia de seguridad y restauración.
@@ -767,7 +767,7 @@ Consulte también los siguientes recursos para más información sobre Azure Sto
 
 * [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 * [Máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage.md)
+* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

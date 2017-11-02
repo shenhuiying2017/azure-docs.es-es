@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -167,31 +167,6 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |/service/reports/byTime/read|Obtiene un informe agregado por períodos de tiempo|
 |/service/reports/byApi/read|Obtiene un informe agregado por las API|
 |/service/reports/byProduct/read|Obtiene un informe agregado por productos.|
-
-## <a name="microsoftappservice"></a>Microsoft.AppService
-
-| Operación | Descripción |
-|---|---|
-|/appidentities/Read|Devuelve el recurso (sitio web) registrado con la puerta de enlace.|
-|/appidentities/Write|Crea una nueva identidad de aplicación.|
-|/appidentities/Delete|Elimina una identidad de aplicación ya existente.|
-|/deploymenttemplates/listMetadata/Action|Enumera los metadatos de la interfaz de usuario asociados al paquete de aplicación de API.|
-|/deploymenttemplates/generate/Action|Devuelve una plantilla de implementación para aprovisionar las instancias de la aplicación de API.|
-|/gateways/Read|Devuelve la instancia de la puerta de enlace.|
-|/gateways/Write|Crea una nueva puerta de enlace o actualiza una ya existente.|
-|/gateways/Delete|Elimina una instancia existente de la puerta de enlace.|
-|/gateways/listLoginUris/Action|Rellena un almacén de tokens y devuelve los identificadores URI de inicio de sesión de OAuth.|
-|/gateways/listKeys/Action|Devuelve los secretos de la puerta de enlace.|
-|/gateways/tokens/Write|Crea un nuevo token de Zumo con el nombre especificado.|
-|/gateways/registrations/Read|Devuelve el recurso (sitio web) registrado con la puerta de enlace.|
-|/gateways/registrations/Write|Registra un recurso (sitio web) con la puerta de enlace.|
-|/gateways/registrations/Delete|Anula el registro de un recurso (sitio web) de la puerta de enlace.|
-|/apiapps/Read|Devuelve la instancia de la aplicación de API.|
-|/apiapps/Write|Crea una nueva aplicación de API o actualiza una ya existente.|
-|/apiapps/Delete|Elimina una instancia existente de la aplicación de API.|
-|/apiapps/listStatus/Action|Devuelve el estado de la aplicación de API.|
-|/apiapps/listKeys/Action|Devuelve los secretos de la aplicación de API.|
-|/apiapps/apidefinitions/Read|Devuelve la definición de API de la aplicación de API.|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
-ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -44,7 +44,7 @@ StorSimple Cloud Appliance está disponible en dos modelos, el 8010 estándar (a
 | **Capacidad máxima** |30 TB |64 TB |
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria)| Standard_DS3 (4 núcleos, 14 GB de memoria)|
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br>Use [esta lista](https://azure.microsoft.com/regions/services/) para ver si las dos opciones **Virtual Machines > Serie DS** y **Storage > Almacenamiento en disco** están disponibles en su región. |
-| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/common/storage-premium-storage.md) |
+| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../virtual-machines/windows/premium-storage.md) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas de la nube <br></br>Baja latencia y cargas de trabajo de rendimiento más elevado<br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup>*Anteriormente conocido como 1100*.
@@ -93,7 +93,7 @@ Antes de aprovisionar el dispositivo de nube, debe realizar los siguientes prepa
 Realice las siguientes actualizaciones de su servicio StorSimple Device Manager antes de crear un dispositivo de nube:
 
 * Agregue [registros de control de acceso](storsimple-8000-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores host para el dispositivo de nube.
-* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento Estándar o Premium con el dispositivo de nube. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../storage/common/storage-premium-storage.md).
+* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento Estándar o Premium con el dispositivo de nube. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../virtual-machines/windows/premium-storage.md).
 * Use una cuenta de almacenamiento diferente para la creación del dispositivo de nube a partir de la que ha usado para sus datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
 Asegúrese de que tiene la siguiente información antes de empezar:

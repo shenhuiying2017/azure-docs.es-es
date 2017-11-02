@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 934580f6fcfdbff6e61626ed685459478559717d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux-vm-storage"></a>Almacenamiento de máquinas virtuales con Linux y Azure
 Almacenamiento de Azure es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes.  Además de permitir a los desarrolladores compilar aplicaciones a gran escala para sustentar nuevos escenarios, Azure Storage proporciona también la base de almacenamiento para Azure Virtual Machines.
@@ -91,7 +91,7 @@ Características de Premium Storage:
 * Discos de Premium Storage: Azure Premium Storage admite discos de máquina virtual que se pueden conectar a las máquinas virtuales de Azure de la serie DS, DSv2 o GS.
 * Blob en páginas premium: Premium Storage admite blobs en páginas de Azure, que se usan para contener discos persistentes para máquinas virtuales de Azure (VM).
 * Almacenamiento con redundancia local premium: una cuenta de Premium Storage solo admite almacenamiento con redundancia local (LRS) como opción de replicación y mantiene tres copias de los datos en una única región.
-* [Premium Storage](../../storage/common/storage-premium-storage.md)
+* [Premium Storage](../windows/premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>Máquinas virtuales compatibles con Premium Storage
 Premium Storage es compatible con las máquinas virtuales de Azure de las series DS, DSv2, GS y Fs. Puede usar discos de Standard Storage y Premium Storage con las máquinas virtuales compatibles con Premium Storage. Sin embargo, no puede utilizar discos de Premium Storage con series de máquinas virtuales que no son compatibles con este tipo de almacenamiento.

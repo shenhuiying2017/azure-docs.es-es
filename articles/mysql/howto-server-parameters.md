@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: a18f163cbea0dac0d8272eaa24d0d2e03542c6ca
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Cómo configurar parámetros del servidor en Azure Database for MySQL mediante Azure Portal
 
@@ -41,10 +41,10 @@ Los siguientes parámetros no son configurables ni están asociados a su [plan d
 | 100 unidades de proceso básicas  | 2560 | 100 | 
 | 100 unidades de proceso estándar | 2560 | 200 | 
 | 200 unidades de proceso estándar | 5120 | 400 | 
-| 400 unidades de proceso estándar | 10240 | 400 | 
+| 400 unidades de proceso estándar | 10240 | 800 | 
 | 800 unidades de proceso estándar | 20480 | 1600 |
 
 Otros valores predeterminados del parámetro del servidor para la versión [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) y [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Bibliotecas de conexiones de Azure Database for MySQL](concepts-connection-libraries.md).
+- [Bibliotecas de conexiones de Azure Database for MySQL](concepts-connection-libraries.md)

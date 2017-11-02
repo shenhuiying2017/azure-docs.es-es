@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d0c047c17608635b0d5fb0fb1353c6f8515d7a71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80281a520159965066c6cd166f47ecac66e552b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Uso de plantillas para crear entidades de Azure Data Factory
+> [!NOTE]
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. 
+
 ## <a name="overview"></a>Información general
 Cuando utiliza Azure Data Factory para sus necesidades de integración de datos, es posible que tenga que reutilizar el mismo patrón en distintos entornos o implementar la misma tarea repetidamente dentro de la misma solución. Las plantillas le permiten implementar y administrar estos escenarios de una forma sencilla. Las plantillas de Azure Data Factory son ideales para los escenarios que implican la reutilización y la repetición.
 

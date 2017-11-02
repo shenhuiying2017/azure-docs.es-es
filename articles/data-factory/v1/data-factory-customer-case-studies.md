@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1868e4b96f3d062de1efb7c56c86aae3b0de9097
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47889c42160c8d4a8dce042497388827369b0a08
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - Casos prácticos de clientes
 Factoría de datos es un servicio de administración de información basado en la nube que automatiza el movimiento y la transformación de datos. Los clientes de numerosos sectoress usan la Factoría de datos y otros servicios de Azure para crear su canalizaciones de análisis y solucionar sus problemas empresariales.  Aprenda directamente de nuestros clientes cómo y por qué usan la Factoría de datos.

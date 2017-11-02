@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 Al configurar una imagen de máquina virtual de SQL Server en Azure, el Portal le ayuda a automatizar la configuración del almacenamiento. Esto incluye asociar el almacenamiento a la máquina virtual, hacer que el almacenamiento esté accesible para SQL Server y configurarlo para optimizarlo para sus requisitos de rendimiento específicos.
@@ -32,7 +32,7 @@ Para usar la configuración del almacenamiento automática, la máquina virtual 
 
 * Aprovisionada con una [imagen de la galería de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
 * Usa el [modelo de implementación de Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
-* Usa [Almacenamiento premium](../../../storage/common/storage-premium-storage.md).
+* Usa [Almacenamiento premium](../premium-storage.md).
 
 ## <a name="new-vms"></a>Nuevas máquinas virtuales
 En las secciones siguientes se describe cómo configurar el almacenamiento para nuevas máquinas virtuales de SQL Server.
@@ -104,7 +104,7 @@ Esta sección proporciona una referencia para los cambios en la configuración d
 
 * Si ha seleccionado menos de dos TB de almacenamiento para la máquina virtual, Azure no crea ningún grupo de almacenamiento.
 * Si ha seleccionado al menos dos TB de almacenamiento para la máquina virtual, Azure configura un grupo de almacenamiento. La siguiente sección de este tema proporciona los detalles de la configuración del grupo de almacenamiento.
-* La configuración automática del almacenamiento siempre utiliza discos de datos de [almacenamiento premium](../../../storage/common/storage-premium-storage.md) P30. En consecuencia, hay una asignación 1:1 entre el número de terabytes seleccionado y el número de discos de datos asociados a la máquina virtual.
+* La configuración automática del almacenamiento siempre utiliza discos de datos de [almacenamiento premium](../premium-storage.md) P30. En consecuencia, hay una asignación 1:1 entre el número de terabytes seleccionado y el número de discos de datos asociados a la máquina virtual.
 
 Para más información, consulte la página [Storage pricing](https://azure.microsoft.com/pricing/details/storage) (Precios de almacenamiento) en la pestaña **Almacenamiento en disco** .
 

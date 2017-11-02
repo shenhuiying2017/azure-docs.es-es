@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 5eea1baed550d5231c54f2ebc7b48169f58e64c5
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
 Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web, ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
@@ -59,7 +59,7 @@ Estas son algunas directrices básicas para seleccionar un tamaño de máquina v
 
 Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Premium Storage, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Premium Storage está disponible en determinadas regiones. Para obtener información, consulte:
 
-* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../storage/common/storage-premium-storage.md)
+* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../windows/premium-storage.md)
 
 ## <a name="automation"></a>Automatización
 Para instaurar una cultura de DevOps adecuada, la infraestructura al completa debe ser código.  Cuando toda la infraestructura reside en el código, puede volver a crearse con facilidad (servidores de Phoenix).  Azure funciona con todas las principales herramientas de automatización, como Ansible, Chef, SaltStack y Puppet.  Asimismo, tiene sus propias herramientas de automatización:
