@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: db3be8068ef9e560614daa0e7f0dcf62467fd338
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Compilación de una aplicación ASP.NET en Azure con SQL Database
 
@@ -378,7 +378,7 @@ En la lista desplegable **Registro de la aplicación (sistema de archivos)**, se
 
 En el explorador, vaya a la aplicación web de nuevo en *http://&lt;nombre de la aplicación>.azurewebsites.net* e intente hacer clic en torno a la aplicación de la lista de tareas pendientes en Azure. Los mensajes de seguimiento se insertan ahora en la ventana **Salida** de Visual Studio.
 
-```
+```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
 Application: 2017-04-06T23:30:43  PID[8132] Verbose     GET /Todos/Create
 Application: 2017-04-06T23:30:53  PID[8132] Verbose     POST /Todos/Create

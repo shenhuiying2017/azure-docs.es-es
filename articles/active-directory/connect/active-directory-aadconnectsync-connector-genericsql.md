@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2017
 ms.author: billmath
-ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referencia técnica del conector de SQL genérico
 En este artículo se describe el conector de SQL genérico. El artículo se aplica a los siguientes productos:
@@ -291,7 +291,7 @@ Si elige la opción Procedimiento almacenado, la exportación requiere tres proc
 * **Add SP Name**(Agregar nombre de PA): este procedimiento almacenado se ejecuta si se trata de cualquier objeto que llega al conector para su inserción en la tabla correspondiente.
 * **Update SP Name**(Actualizar nombre de PA): este procedimiento almacenado se ejecuta si se trata de cualquier objeto que llega al conector para su actualización en la tabla correspondiente.
 * **Delete SP Name**(Eliminar nombre de PA): este procedimiento almacenado se ejecuta si se trata de cualquier objeto que llega al conector para su eliminación en la tabla correspondiente.
-* Atributo seleccionado en el esquema usado como valor de parámetro para el procedimiento almacenado. Por ejemplo, `EmployeeName: INPUT: @EmployeeName` (EmployeeName está seleccionado en el esquema del conector y el conector reemplaza el valor correspondiente al realizar la exportación)
+* Atributo seleccionado en el esquema usado como valor de parámetro para el procedimiento almacenado. Por ejemplo, `@EmployeeName: INPUT: EmployeeName` (EmployeeName está seleccionado en el esquema del conector y el conector reemplaza el valor correspondiente al realizar la exportación)
 * Para ejecutar el procedimiento almacenado con parámetros, proporcione estos en el formato `[Name]:[Direction]:[Value]` . Escriba cada parámetro en una línea independiente (use Ctrl + Entrar para obtener una nueva línea).
 
 **SQL query**  

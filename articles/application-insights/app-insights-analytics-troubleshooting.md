@@ -3,7 +3,7 @@ title: "Diagnóstico de problemas de Analytics de Azure Application Insights | M
 description: "¿Problemas con Analytics de Application Insights? Comience aquí. "
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9bbd5859-3584-4d80-9b6d-d5910fa48baa
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
-ms.author: bwren
-ms.openlocfilehash: 02df117908fc1790e8cfb9ec0a7218c1b8be856c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Solución de problemas de Analytics en Application Insights
 ¿Problemas con [Analytics de Application Insights](app-insights-analytics.md)? Comience aquí. Analytics es la herramienta eficaz de búsqueda de Application Insights.
