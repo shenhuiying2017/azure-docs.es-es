@@ -3,7 +3,7 @@ title: "Analytics: la eficaz herramienta de búsqueda y consulta de Azure Applic
 description: "Información general de Analytics, la eficaz herramienta de búsqueda de Application Insights. "
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
-ms.author: bwren
-ms.openlocfilehash: 7f7ea8e019a1466e5e4fceb484fce17ec140def4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 80a9e248ca50c11ef61a5c50c4986c4f8f4ead9d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="analytics-in-application-insights"></a>Analytics de Application Insights
 Analytics es la herramienta eficaz de búsqueda y consulta de [Application Insights](app-insights-overview.md). Analytics es una herramienta web por lo que no requiere ninguna configuración. Si ya ha configurado Application Insights para una de las aplicaciones, puede analizar los datos de la aplicación abriendo Analytics desde la [hoja de información general](app-insights-dashboards.md) de la aplicación.

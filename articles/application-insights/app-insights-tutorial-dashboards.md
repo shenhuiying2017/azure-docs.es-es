@@ -3,18 +3,18 @@ title: "Creación de paneles personalizados en Azure Application Insights | Micr
 description: Tutorial para crear paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights.
 keywords: 
 services: application-insights
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 3ad1bfe2c45fd087f094aad5b2028ab488dbb2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d2f98ca2fb39289b2916ddd24590924856507d6
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -52,7 +52,7 @@ Un solo panel puede contener recursos de varias aplicaciones, grupos de recursos
     
     ![Edición del mosaico de Markdown](media/app-insights-tutorial-dashboards/edit-markdown.png)
 
-6. Haga clic en **Personalización finalizada** en la parte superior de la pantalla para salir del modo de personalización del icono y, a continuación, en **Publicar cambios** para guardar los cambios.
+6. Haga clic en **Personalización finalizada	** en la parte superior de la pantalla para salir del modo de personalización del icono y, a continuación, en **Publicar cambios** para guardar los cambios.
 
     ![Panel con icono de Markdown](media/app-insights-tutorial-dashboards/dashboard-01.png)
 

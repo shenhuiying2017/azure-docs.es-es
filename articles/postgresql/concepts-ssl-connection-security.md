@@ -9,12 +9,12 @@ manager: jhubbard
 ms.service: postgresql
 ms.custom: 
 ms.topic: article
-ms.date: 05/15/2017
-ms.openlocfilehash: fa14d4d0115ecc5cf416918f6bdb0d29345e4f83
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/01/2017
+ms.openlocfilehash: 3173964f0315559b0839fd7e659f8f3bd2c30b2a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configuración de la conectividad SSL en Azure Database for PostgreSQL
 Azure Database for PostgreSQL prefiere conectar las aplicaciones cliente al servicio de PostgreSQL mediante la Capa de sockets seguros (SSL). El establecimiento de conexiones SSL entre el servidor de bases de datos y las aplicaciones cliente ofrece protección frente a ataques de tipo "Man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
@@ -105,7 +105,7 @@ La instalación de OpenSSL en un PC Windows puede realizarse de las siguientes f
 El archivo descargado de la entidad de certificación raíz está en formato cifrado. Utilice OpenSSL para descodificar el archivo de certificado. Para ello, ejecute este comando de OpenSSL:
 
 ```dos
-OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
+openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>Conexión a Azure Database for PostgreSQL con la autenticación de certificados SSL

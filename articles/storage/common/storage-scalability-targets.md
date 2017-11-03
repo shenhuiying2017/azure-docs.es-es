@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: abaad01bbf7a11ad078c79d7c192ef3f84812178
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 805b0eee46846345ee1f33faf0c28393c3e8ebb1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
 ## <a name="overview"></a>Información general
@@ -76,7 +76,7 @@ Consulte el artículo sobre [tamaños de VM de Windows](../../virtual-machines/w
 ## <a name="see-also"></a>Otras referencias
 * [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/)
 * [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-subscription-service-limits.md)
-* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage-premium-storage.md)
+* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../virtual-machines/windows/premium-storage.md)
 * [Replicación de almacenamiento de Azure](../storage-redundancy.md)
 * [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage-performance-checklist.md)
 * [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
