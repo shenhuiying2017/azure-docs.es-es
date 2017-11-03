@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: a5bbf899fd13de4c5a7d3379e2231828c102b372
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory
 En este tema se muestra cómo mover datos desde una base de datos local de SQL Server hasta una base de datos de SQL Azure a través de Azure Blob Storage mediante Azure Data Factory (ADF).
@@ -53,7 +53,7 @@ En este tutorial se asume que dispone de:
 
 * Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Administración de las claves de acceso de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
-* Acceso a una **base de datos SQL de Azure**. Si debe configurar una instancia de Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) (Introducción a Microsoft Azure SQL Database) proporciona información sobre cómo aprovisionar una nueva instancia de Azure SQL Database.
+* Acceso a una **base de datos SQL de Azure**. Si debe configurar una instancia de Azure SQL Database, la [introducción a Azure SQL Database](../../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva instancia de Azure SQL Database.
 * **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]

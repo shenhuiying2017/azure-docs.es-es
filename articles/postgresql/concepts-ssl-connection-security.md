@@ -10,18 +10,18 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
-ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa14d4d0115ecc5cf416918f6bdb0d29345e4f83
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configuración de la conectividad SSL en Azure Database for PostgreSQL
 Azure Database for PostgreSQL prefiere conectar las aplicaciones cliente al servicio de PostgreSQL mediante la Capa de sockets seguros (SSL). El establecimiento de conexiones SSL entre el servidor de bases de datos y las aplicaciones cliente ofrece protección frente a ataques de tipo "Man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
 
-De forma predeterminada, el servicio de base de datos de PostgreSQL está configurado para requerir la conexión SSL. Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL. 
+De forma predeterminada, el servicio de base de datos de PostgreSQL está configurado para requerir la conexión SSL. Si lo desea, puede deshabilitar el requisito de SSL para conectarse al servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL. 
 
-## <a name="enforcing-ssl-connections"></a>Establecimiento de conexiones SSL
+## <a name="enforcing-ssl-connections"></a>Aplicación de conexiones SSL
 Para todos los servidores de Azure Database for PostgreSQL aprovisionados en Azure Portal o con la CLI de Azure, el establecimiento de conexiones SSL está habilitado de forma predeterminada. 
 
 Del mismo modo, las cadenas de conexión que están predefinidas en la configuración de "Cadenas de conexión" del servidor en Azure Portal incluyen los parámetros necesarios para que los lenguajes comunes se conecten al servidor de base de datos mediante SSL. El parámetro SSL varía según el conector, por ejemplo, "ssl = true" o "sslmode = require" o "sslmode = required" y otras variaciones.
@@ -30,7 +30,7 @@ Del mismo modo, las cadenas de conexión que están predefinidas en la configura
 Si lo desea, puede deshabilitar el establecimiento de la conectividad SSL. Microsoft Azure recomienda habilitar siempre la opción de configuración **Enforce SSL connection** (Establecer conexión SSL) para mayor seguridad.
 
 ### <a name="using-the-azure-portal"></a>Uso del portal de Azure
-Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción de configuración **Enforce SSL connection** (Establecer conexión SSL). A continuación, haga clic en **Guardar**. 
+Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL**. A continuación, haga clic en **Guardar**. 
 
 ![Seguridad de conexión - Deshabilitar el establecimiento de SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
 
@@ -43,8 +43,8 @@ Puede habilitar o deshabilitar el parámetro **ssl-enforcement** con los valores
 az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
 ```
 
-## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Verificación de que la aplicación o el marco admiten conexiones SSL
-Muchos marcos de aplicaciones comunes que usan PostgreSQL para servicios de bases de datos, como Drupal y Django, no habilitan SSL de forma predeterminada durante la instalación. La conectividad SSL debe habilitarse después de la instalación o mediante comandos de la CLI específicos de la aplicación. Si el servidor PostgreSQL establece conexiones SSL y la aplicación asociada no está configurada correctamente, es posible que esta última no pueda conectarse al servidor de bases de datos. Consulte la documentación de la aplicación para obtener información sobre cómo habilitar las conexiones SSL.
+## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>Comprobación de que la aplicación o el entorno admiten conexiones SSL
+Muchos marcos de aplicaciones comunes que usan PostgreSQL en los servicios de bases de datos (como Drupal y Django), no habilitan SSL de forma predeterminada durante la instalación. La conectividad SSL se debe habilitar después de la instalación, o bien mediante comandos de la CLI específicos de la aplicación. Si el servidor PostgreSQL establece conexiones SSL y la aplicación asociada no está configurada correctamente, es posible que esta última no pueda conectarse al servidor de bases de datos. Consulte la documentación de la aplicación para obtener información sobre cómo habilitar las conexiones SSL.
 
 
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>Aplicaciones que requieren la verificación de certificados para la conectividad SSL
@@ -59,7 +59,7 @@ Para descodificar el archivo de certificado necesario para que la aplicación se
 #### <a name="for-linux-os-x-or-unix"></a>Para Linux, OS X o Unix
 Las bibliotecas OpenSSL se proporcionan en el código fuente directamente desde [OpenSSL Software Foundation](http://www.openssl.org). Las instrucciones siguientes lo guían a través de los pasos necesarios para instalar OpenSSL en un equipo Linux. En este artículo se usan comandos conocidos para trabajar en Ubuntu 12.04 y versiones posteriores.
 
-Abra una sesión de terminal e instale OpenSSL.
+Abra una sesión de terminal y descargue OpenSSL.
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ``` 
@@ -82,11 +82,11 @@ Ahora que OpenSSL está configurado correctamente, debe compilarlo para converti
 ```bash
 make
 ```
-Una vez completada la compilación, está listo para instalar OpenSSL como un ejecutable con el comando siguiente:
+Una vez completada la compilación, está listo para instalar OpenSSL como un ejecutable mediante el comando siguiente:
 ```bash
 make install
 ```
-Para confirmar que se ha instalado correctamente OpenSSL en el sistema, ejecute el siguiente comando y compruébelo para asegurarse de que obtendrá la misma salida.
+Para confirmar que OpenSSL se ha instalado correctamente en el sistema, ejecute el siguiente comando y compruebe que obtiene la misma salida.
 
 ```bash
 /usr/local/openssl/bin/openssl version
@@ -99,7 +99,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 #### <a name="for-windows"></a>Para Windows
 La instalación de OpenSSL en un PC Windows puede realizarse de las siguientes formas:
 1. **(Recomendado)**  OpenSSL se instala de forma predeterminada con la funcionalidad de Bash para Windows integrada en Windows 10 y versiones posteriores. Encontrará instrucciones sobre cómo habilitar la funcionalidad de Bash para Windows en Windows 10 [aquí](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
-2. Mediante la descarga de una aplicación de Win32/64 proporcionada por la comunidad. Aunque OpenSSL Software Foundation no proporciona ni respalda ningún instalador específico de Windows, sí se proporciona una lista de los instaladores disponibles [aquí](https://wiki.openssl.org/index.php/Binaries).
+2. Mediante la descarga de una aplicación de Win32/64 proporcionada por la comunidad. Aunque OpenSSL Software Foundation no proporciona ni se responsabiliza de ningún instalador de Windows específico, ofrece una lista de instaladores disponibles [aquí](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Descodificación del archivo de certificado
 El archivo descargado de la entidad de certificación raíz está en formato cifrado. Utilice OpenSSL para descodificar el archivo de certificado. Para ello, ejecute este comando de OpenSSL:
@@ -113,7 +113,7 @@ Ahora que ha descodificado correctamente el certificado, ya puede conectarse al 
 
 > [!NOTE]
 > Actualmente, hay un problema conocido si usa "sslmode=verify-full" en la conexión al servicio, ya que se producirá un error de la conexión con el siguiente error: _El certificado de servidor para "&lt;region&gt;.control.database.windows.net" (y otros 7 nombres) no coincide con el nombre de host "&lt;NombreDelServidor&gt;.postgres.database.azure.com"._
-> Si se requiere "sslmode=verify-full", use la convención de nomenclatura de servidor  **&lt;NombreDelServidor&gt;.database.windows.net** como el nombre de host de la cadena de conexión. Tenemos previsto quitar esta limitación en el futuro. Las conexiones que usan otros [modos SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) deben seguir utilizando la convención de nomenclatura de host preferida **&lt;NombreDelServidor&gt;.postgres.database.azure.com**.
+> Si se requiere "sslmode=verify-full", use la convención de nomenclatura de servidor **&lt;servername&gt;.database.windows.net** como el nombre de host de la cadena de conexión. Tenemos previsto quitar esta limitación en el futuro. Las conexiones que usan otros [modos SSL](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) deben seguir utilizando la convención de nomenclatura de host preferida **&lt;NombreDelServidor&gt;.postgres.database.azure.com**.
 
 #### <a name="using-psql-command-line-utility"></a>Con la utilidad de línea de comandos psql
 En el ejemplo siguiente se muestra cómo conectarse correctamente a su servidor de PostgreSQL mediante la utilidad de línea de comandos psql. Use el archivo `root.crt` creado y las opciones `sslmode=verify-ca` o `sslmode=verify-full`.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/23/2017
 ms.author: terrylan
-ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abbcb0a8e0206d78ca94520dfa81ab92506c47af
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
 Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la hoja de problemas de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
@@ -33,6 +33,11 @@ Security Center notifica los siguientes problemas de Endpoint Protection:
    - Sin protección en tiempo real: Hay una solución antimalware instalada en estos equipos y máquinas virtuales, pero no está configurada para la protección en tiempo real.   El servicio podría deshabilitarse o es posible que Security Center no pueda obtener el estado, ya que la solución no es compatible. Vea [Integración de soluciones de asociados](security-center-partner-integration.md) para ver una lista de las soluciones compatibles.
    - Sin generación de informes: Hay una solución antimalware instalada, pero no notifica datos.
    - Desconocido: Hay una solución antimalware instalada, pero su estado es desconocido o informa de un error desconocido.
+
+   > [!NOTE]
+   > Vea [Integración de soluciones de seguridad en Azure Security Center](security-center-partner-integration.md#integrated-azure-security-solutions) para obtener una lista de soluciones de seguridad de protección de punto de conexión integradas con Security Center.
+   >
+   >
 
 ## <a name="implement-the-recommendation"></a>Implementación de la recomendación
 Los problemas de Endpoint Protection se presentan como una recomendación en Security Center.  Si su entorno es vulnerable a las amenazas antimalware, esta recomendación se mostrará en **Recomendaciones** y en **Proceso**. Para ver el panel de **problemas de Endpoint Protection**, debe seguir el flujo de trabajo de Proceso.

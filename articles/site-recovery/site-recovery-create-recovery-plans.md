@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: raynew
-ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 202e0ac8be36e9156ec16fadc1b722f4eb3d1432
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="create-recovery-plans"></a>Creación de planes de recuperación
 
@@ -76,7 +76,7 @@ Si utiliza VMM en la implementación:
 * Asegúrese de que tiene al menos un servidor de biblioteca en la implementación de VMM. De forma predeterminada, la ruta de acceso del recurso compartido de biblioteca para un servidor VMM se encuentra localmente en el servidor VMM, con el nombre de carpeta MSCVMMLibrary.
     * Si la ruta de acceso del recurso compartido de biblioteca es remota (o local pero no se comparte con MSCVMMLibrary), configure el recurso compartido como se indica a continuación (por ejemplo, con \\\libserver2.contoso.com\share\):
       * Abra el Editor del Registro y vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edite el valor **ScriptLibraryPath** y colóquelo como \\libserver2.contoso.com\share\.. Especifique el nombre de dominio completo. Proporcione permisos a la ubicación del recurso compartido. Tenga en cuenta que es el nodo raíz del recurso compartido. **Para comprobarlo, puede abrir para examinar la biblioteca en el nodo raíz en VMM. La ruta de acceso que se abre será la raíz de la ruta de acceso, la que tendrá que usar en la variable**.
+      * Edite el valor **ScriptLibraryPath** y colóquelo como \\libserver2.contoso.com\share\.. Especifique el nombre de dominio completo. Proporcione permisos a la ubicación del recurso compartido. Tenga en cuenta que es el nodo raíz del recurso compartido. **Para comprobarlo, puede examinar la biblioteca en el nodo raíz en VMM. La ruta de acceso que se abre será la raíz de la ruta de acceso, la que tendrá que usar en la variable**.
       * Asegúrese de probar el script con una cuenta de usuario que tenga los mismos permisos que la cuenta del servicio VMM. Esto comprueba que los scripts probados de forma independiente se ejecuten de la misma manera que lo harán en planes de recuperación. En el servidor VMM, establezca que se omita la directiva de ejecución como se indica a continuación:
         * Abra la consola de **Windows PowerShell de 64 bits** con privilegios elevados.
         * Escriba: **Set-executionpolicy bypass**. [Más información](https://technet.microsoft.com/library/ee176961.aspx).

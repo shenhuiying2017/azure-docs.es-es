@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/05/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 72e9e2e10992d928dcfd85538497ba12c6e1c6f5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Autenticación entre servicios con Data Lake Store mediante SDK de .NET
 > [!div class="op_single_selector"]
@@ -66,13 +66,17 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-        
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>Autenticación entre servicios con el secreto de cliente
 Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación web de Azure AD (se enumera como un requisito previo).  Este fragmento de código le permite autenticar la aplicación de **forma no interactiva** con Data Lake Store mediante la clave/secreto de cliente para la aplicación web de Azure AD. 
@@ -81,14 +85,16 @@ Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los v
     {    
         // Service principal / appplication authentication with client secret / key
         // Use the client ID of an existing AAD "Web App" application.
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
-        var domain = "<AAD-directory-domain>";
-        var webApp_clientId = "<AAD-application-clientid>";
-        var clientSecret = "<AAD-application-client-secret>";
-        var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
-        var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
+        string TENANT = "<AAD-directory-domain>";
+        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+        string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
+        var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
+        var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
     }
+
+El fragmento de código anterior utiliza una función auxiliar `GetCreds_SPI_SecretKey`. El código de esta función auxiliar está disponible [aquí en Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey).
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Autenticación entre servicios con un certificado
 
@@ -99,15 +105,16 @@ Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los v
     {
         // Service principal / application authentication with certificate
         // Use the client ID and certificate of an existing AAD "Web App" application.
-        SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
-    
-        var domain = "<AAD-directory-domain>";
-        var webApp_clientId = "<AAD-application-clientid>";
-        var clientCert = <AAD-application-client-certificate>
-        var clientAssertionCertificate = new ClientAssertionCertificate(webApp_clientId, clientCert);
-        var creds = ApplicationTokenProvider.LoginSilentWithCertificateAsync(domain, clientAssertionCertificate).Result;
+        string TENANT = "<AAD-directory-domain>";
+        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+        var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
+        var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
+        var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
     }
 
+El fragmento de código anterior utiliza una función auxiliar `GetCreds_SPI_Cert`. El código de esta función auxiliar está disponible [aquí en Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar la autenticación entre servicios para autenticarse en Azure Data Lake Store con SDK de .NET. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar el SDK de .NET con Azure Data Lake Store.

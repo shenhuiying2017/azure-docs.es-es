@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?
 Ha recibido un correo electrónico de alguien en el departamento de TI o su jefe, que le informa de que se ha agregado una comprobación de seguridad adicional a su cuenta.  ¿Qué quiere decir esto?
@@ -33,7 +33,7 @@ Lo primero que debe hacer es completar el proceso de registro.  Pero antes de co
 * **Aplicación móvil con una notificación o un código de comprobación** : si va a usar la aplicación móvil, elija entre recibir una notificación a la que tendrá que responder o un código de comprobación.
 
 > [!NOTE]
-> Su departamento de TI puede deshabilitar una o varias de estas opciones.  Si es así, esas opciones no estarán disponibles durante el proceso de registro.  
+> El soporte técnico de la compañía puede deshabilitar una o varias de estas opciones.  Si es así, esas opciones no estarán disponibles durante el proceso de registro.  
 
 Una vez que haya decidido su método de comprobación, es el momento de registrarse. Use el vínculo [Experiencia de configuración](multi-factor-authentication-end-user-first-time.md) para empezar con un recorrido del proceso de inscripción.
 

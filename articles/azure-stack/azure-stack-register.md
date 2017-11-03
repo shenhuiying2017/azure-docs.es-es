@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: erikje
-ms.openlocfilehash: b5f112f2d5b96843e7863aa664eec4847c58e950
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3282b9d4cdf67035d966cf934a7d8574eae6ae34
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registro de Azure Stack con una suscripción de Azure
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
-En las implementaciones de Azure Active Directory, puede registrar [Azure Stack](azure-stack-poc.md) con Azure para descargar los elementos de marketplace de Azure y configurar informes de datos comerciales para Microsoft. 
+Puede registrar [Azure Stack](azure-stack-poc.md) con Azure para descargar los elementos de marketplace de Azure y configurar informes de datos comerciales para Microsoft. 
 
 > [!NOTE]
 >El registro se recomienda porque le permite probar cierta funcionalidad importante de Azure Stack, como son los informes de uso y distribución de marketplace. Después de registrar Azure Stack, se informa del uso para el comercio de Azure. Puede verlo en la suscripción que usó para el registro. No se cobra a los usuarios de Azure Stack Development Kit por ningún uso que comuniquen.
@@ -56,7 +56,7 @@ Si no tiene una suscripción de Azure que cumpla estos requisitos, puede [crear 
 Ejemplo: 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
 
@@ -73,22 +73,21 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
     - *YourCloudAdminCredential* es un objeto de PowerShell que contiene las credenciales de dominio local para domain\cloudadmin (para el kit de desarrollo, es azurestack\cloudadmin).
     - *YourAzureSubscriptionID* es el identificador de la suscripción de Azure que desea usar para registrar Azure Stack.
     - *YourAzureDirectoryTenantName* es el nombre del directorio del inquilino de Azure en el que desea crear el recurso de registro.
-    - *YourPrivilegedEndpoint* es el nombre del equipo que tiene justo el tipo de acceso suficiente, conocido también como máquina virtual de la consola de emergencia.
+    - *YourPrivilegedEndpoint* es el nombre del [punto final con privilegios](azure-stack-privileged-endpoint.md).
 
     ```powershell
     Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
- 
-5. En los dos mensajes, presione ENTRAR.
-6. En la ventana emergente de inicio de sesión, escriba sus credenciales de suscripción de Azure.
-
-
+5. En la ventana emergente de inicio de sesión, escriba sus credenciales de suscripción de Azure.
 
 ## <a name="verify-the-registration"></a>Comprobación del registro
 
 1. Inicie sesión el portal del administrador (https://adminportal.local.azurestack.external).
 2. Haga clic en **Más servicios** > **Marketplace Management** (Administración de Marketplace)  > **Add from Azure** (Agregar desde Azure).
 3. Si aparece una lista de elementos disponibles de Azure (como WordPress), la activación fue correcta.
+
+> [!NOTE]
+> Una vez completado el registro, ya no aparecerá la advertencia activa para no registrar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: "Diagnóstico de Reliable Services con estado | Microsoft Docs"
-description: "Funcionalidad de diagnóstico para Reliable Services con estado"
+title: "Diagnóstico de Reliable Services con estado en Azure Service Fabric | Microsoft Docs"
+description: "Funcionalidad de diagnóstico para Reliable Services con estado en Azure Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 63a7707f16bbf037c0c91da1d02093e2314dc06e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7dfb16407aa6e89a6bbf4db303bd5332cf31432
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidad de diagnóstico para Reliable Services con estado
 La clase StatefulServiceBase de Reliable Services con estado emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que pueden usarse para depurar el servicio, ofrecer información acerca de cómo funciona el tiempo de ejecución y ayudar a solucionar problemas.

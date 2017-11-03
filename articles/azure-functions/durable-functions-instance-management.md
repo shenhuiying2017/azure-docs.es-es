@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 8c9085042496fef4c499f57e874e0b8ba059fd65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 734853dbee7a6f216763cd82d424c9e639b1f8c9
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Administración de instancias con Durable Functions (Azure Functions)
 
@@ -64,7 +64,7 @@ module.exports = function (context, input) {
 ```
 
 > [!NOTE]
-> Por lo general, se recomienda que use un identificador aleatorio para el identificador de instancia. Esto ayudará a garantizar una distribución equitativa de la carga al escalar las funciones de orquestador entre varias máquinas virtuales. El momento adecuado para usar identificadores de instancia no aleatorios es cuando el identificador debe proceder de un origen externo o cuando se implementa el patrón de [orquestador singleton](durable-functions-counter.md).
+> Se recomienda que use un identificador aleatorio para el identificador de la instancia. Esto ayudará a garantizar una distribución equitativa de la carga al escalar las funciones de orquestador entre varias máquinas virtuales. El momento adecuado para usar identificadores de instancia no aleatorios es cuando el identificador debe proceder de un origen externo o cuando se implementa el patrón de [orquestador singleton](durable-functions-singletons.md).
 
 ## <a name="querying-instances"></a>Consulta de instancias
 

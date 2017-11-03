@@ -1,5 +1,5 @@
 ---
-title: "Diseño de una infraestructura de red para la recuperación ante desastres | Microsoft Docs"
+title: "Diseño de una infraestructura de red para la recuperación ante desastres con Azure Site Recovery | Microsoft Docs"
 description: "En este artículo se describen las consideraciones de diseño de red para Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
@@ -12,30 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/20/2017
+ms.date: 10/19/2017
 ms.author: pratshar
-ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b6fb7bac852b29663866e99758241bd5a7ab59e
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>Diseñe su red para la recuperación ante desastres.
 
-Este artículo va dirigido a los profesionales de TI responsables de la elaboración, implementación y soporte técnico de la infraestructura de continuidad empresarial y recuperación ante desastres (BCDR), y que desean sacar provecho de Microsoft Azure Site Recovery (ASR) para dar soporte técnico a sus servicios de BCDR y mejorarlos. En este artículo se tratan consideraciones prácticas para estructurar la red del sitio de recuperación ante desastres, ya sea en Azure o en otro sitio local. 
+En este artículo se describen las opciones de red cuando se usa [Azure Site Recovery](site-recovery-overview.md) para la recuperación ante desastres desde una ubicación local a Azure o a un sitio secundario local. Se centra en definir los intervalos de las direcciones IP y las subredes después de una conmutación por error en una ubicación secundaria.
 
 ## <a name="overview"></a>Información general
-[Azure Site Recovery (ASR)](https://azure.microsoft.com/services/site-recovery/) es un servicio de Microsoft Azure que organiza la protección y recuperación de las aplicaciones virtualizadas con fines de continuidad empresarial y recuperación ante desastres (BCDR). El fin de este documento es guiar al lector a través del proceso de diseño de las redes, y se centra en la elaboración de intervalos IP y subredes en el sitio de recuperación ante desastres, al replicar máquinas virtuales (VM) mediante Site Recovery.
 
-Además, este artículo muestra la forma en que Site Recovery permite elaborar e implementar un centro de datos virtual multisitio para admitir los servicios BCDR en pruebas o ante un desastre.
+Site Recovery es un servicio de Microsoft Azure que organiza la protección y recuperación de las aplicaciones virtualizadas con fines de continuidad empresarial y recuperación ante desastres (BCDR).
 
-En un mundo en el que todos esperan conectividad ininterrumpida, es más importante que nunca mantener la infraestructura y las aplicaciones en funcionamiento. El propósito de continuidad del negocio y recuperación ante desastres (BCDR) es restaurar componentes con errores para que la organización puede reanudar rápidamente las operaciones normales. El desarrollo de estrategias de recuperación ante desastres para tratar los eventos improbables y devastadores es muy complicado. Esto se debe a la dificultad inherente de predecir el futuro, especialmente en lo referente a eventos improbable, y al alto costo de proporcionar las medidas adecuadas de protección contra catástrofes de largo alcance.
+En un mundo en el que todos están conectados las 24 horas del día los 7 días de la semana, es importante mantener su infraestructura de negocio y las aplicaciones completamente actualizadas. El propósito del BCDR es restaurar componentes con errores para que la organización pueda reanudar rápidamente sus operaciones cotidianas. El desarrollo de estrategias de recuperación ante desastres para tratar eventos improbables es muy complicado. Esto es debido a la dificultad inherente de predecir el futuro, especialmente si nos referimos a eventos improbables. Asimismo, también es debido al alto costo de mantenimiento de las medidas de protección adecuadas frente a catástrofes de largo alcance.
 
-Es crucial para la planeamiento de BCDR que Objetivo de tiempo de recuperación (RTO) y Objetivo de punto de recuperación (RPO) se definan como parte de un plan de recuperación ante desastres. Cuando se produzca un desastre en el centro de datos del cliente, con Azure Site Recovery, los clientes pueden poner en línea rápidamente (RTO bajo) sus máquinas virtuales replicadas ubicados en el centro de datos secundario o en Microsoft Azure con pérdida mínima de datos (RPO bajo).
+Es crucial para la planificación de BCDR que se definan un Objetivo de tiempo de recuperación (RTO) y un Objetivo de punto de recuperación (RPO) como parte de un plan de BCDR. Cuando se produce un desastre en el centro de datos, puede poner en línea (RTO bajo) las máquinas virtuales replicadas ubicadas en el centro de datos secundario o en Microsoft Azure, lo que le supondrá una pérdida mínima de datos (RPO bajo).
 
-La conmutación por error se realiza gracias a ASR, que inicialmente copia las máquinas virtuales designadas del centro de datos principal al centro de datos secundario o a Azure (según el escenario) y luego actualiza periódicamente las réplicas. Durante el planeamiento de la infraestructura, el diseño de red debe considerarse un potencial cuello de botella que puede evitar que cumpla los objetivos de RTO y RPO de la compañía.  
+La conmutación por error se realiza gracias a Site Recovery, que inicialmente copia las máquinas virtuales designadas del centro de datos principal al centro de datos secundario o a Azure (según el escenario) y, luego, actualiza periódicamente las réplicas. Durante el planeamiento de la infraestructura, el diseño de red debe considerarse un potencial cuello de botella que puede evitar que cumpla los objetivos de RTO y RPO de la compañía.  
 
-Cuando los administradores planean implementar una solución de recuperación ante desastres, una de las preguntas claves que se plantean es cómo se podrá acceder a la máquina virtual una vez que se complete la conmutación por error. ASR permite al administrador elegir la red a la que se conectará una máquina virtual después de la conmutación por error. Si el sitio principal es Azure o se encuentra en un sitio local administrado por un servidor VMM, esto se realiza mediante la asignación de red. Más información sobre [asignación de red en Azure a Azure DR](site-recovery-network-mapping-azure-to-azure.md) y [asignación de red de VMM](site-recovery-network-mapping.md)
+Cuando los administradores planean implementar una solución de recuperación ante desastres, una de las preguntas claves que se plantean es cómo se podrá acceder a la máquina virtual una vez que se complete la conmutación por error. Site Recovery permite al administrador elegir la red a la que se conectará una máquina virtual después de la conmutación por error. Si el sitio principal es Azure o se encuentra en un sitio local administrado por un servidor VMM, esto se realiza mediante la asignación de red. Más información sobre [asignación de red en Azure a Azure DR](site-recovery-network-mapping-azure-to-azure.md) y [asignación de red de VMM](site-recovery-network-mapping.md)
 
 
 Al diseñar la red del sitio de recuperación, el administrador tiene dos opciones:
@@ -53,18 +52,18 @@ Desde la perspectiva del proceso de recuperación ante desastres, el uso de una 
 ### <a name="stretched-subnet"></a>Subred estirada
 Aquí la subred está disponible simultáneamente en la ubicación principal y en la de recuperación ante desastres. En términos simples, esto significa que puede mover un servidor y su configuración de IP (nivel 3) al segundo sitio, y la red enrutará el tráfico automáticamente a la nueva ubicación. Esto es muy fácil de tratar desde la perspectiva del servidor, pero presenta una serie de retos:
 
-* Desde una perspectiva del nivel 2 (nivel de vínculo de datos) requerirá equipamiento de redes que pueda administrar una VLAN estirada, pero esto es cada vez menos problemático ya que en la actualidad está ampliamente disponible. El segundo problema, y el más difícil de resolver, es que mediante la ampliación de la VLAN el dominio de error potencial se extiende a ambos sitios, con lo que se convierte en un único punto de error. Aunque es improbable que suceda, lo que ha ocurrido es que se ha iniciado una tormenta de difusión que se ha podido aislar. Hay distintas opiniones sobre este problema y unos han realizado muchas implementaciones correctas, mientras que otros han indicado que nunca implementarán esta tecnología.
+* Desde una perspectiva de nivel 2 (capa de vínculo de datos), es necesario tener un equipamiento de redes que pueda administrar una VLAN extendida, sin embargo, como en la actualidad esta opción está ampliamente disponible, llevarla a cabo no supone mayor problema. El segundo problema, y el más difícil de resolver, es que mediante la ampliación de la VLAN el dominio de error potencial se extiende a ambos sitios, con lo que se convierte en un único punto de error. Aunque es improbable que suceda, lo que ha ocurrido es que se ha iniciado una tormenta de difusión que se ha podido aislar. Hay diversas opiniones sobre este problema. Hay usuarios que han realizado muchas implementaciones correctas, mientras que otros han indicado que nunca implementarán esta tecnología.
 * La subred ampliada no es posible si se usa Microsoft Azure como sitio de recuperación ante desastres.
 
 ### <a name="subnet-failover"></a>Conmutación por error de subred
-Es posible implementar la conmutación por error de subred para obtener los beneficios de la solución de subred ampliada descritos anteriormente sin ampliar la subred entre varios sitios. Aquí, cualquier subred determinada estaría presente en el sitio 1 o en el sitio 2, pero nunca en ambos sitios simultáneamente. Para mantener el espacio de direcciones IP en caso de una conmutación por error, es posible organizar mediante programación la infraestructura del enrutador para mover las subredes de un sitio al otro. En un escenario de conmutación por error, las subredes se moverían con las máquinas virtuales protegidas asociadas. La principal desventaja de este opción es que en caso de error es preciso mover toda la subred, lo que puede ser razonable, pero puede afectar a las consideraciones de granularidad de la conmutación por error.
+Es posible implementar la conmutación por error de subred para obtener los beneficios de la solución de subred ampliada descritos anteriormente sin ampliar la subred entre varios sitios. Aquí, cualquier subred determinada estaría presente en el sitio 1 o en el sitio 2, pero nunca en ambos sitios simultáneamente. Para mantener el espacio de direcciones IP en caso de una conmutación por error, es posible organizar mediante programación la infraestructura del enrutador para mover las subredes de un sitio al otro. En un escenario de conmutación por error, las subredes se moverían con las máquinas virtuales protegidas asociadas. El principal inconveniente de este escenario, es que si se produce un error, es necesario mover la subred completa. Esta podría ser una buena solución, pero podría afectar a la granularidad de la conmutación por error.
 
-Examinemos cómo una empresa ficticia denominada Contoso puede replicar sus máquinas virtuales en una ubicación de recuperación mientras se conmuta por error toda la subred. En primer lugar, se verá cómo Contoso puede administrar sus subredes durante la replicación de máquinas virtuales entre dos ubicaciones locales y se explicará el funcionamiento de la conmutación por error de subred cuando [Azure se usa como sitio de recuperación ante desastres](#failover-to-azure).
+Examinemos cómo una empresa ficticia denominada Contoso puede replicar sus máquinas virtuales en una ubicación de recuperación mientras se conmuta por error toda la subred. En primer lugar, veamos cómo administra Contoso sus subredes durante la replicación de máquinas virtuales entre dos ubicaciones locales; posteriormente, explicaremos el funcionamiento de la conmutación por error de la subred cuando [Azure se usa como sitio de recuperación ante desastres](#failover-to-azure).
 
-#### <a name="failover-from-on-premises-to-azure"></a>Recuperación del entorno local a Azure 
-Azure Site Recovery (ASR) permite que Azure se utilice como sitio de recuperación ante desastres para las máquinas virtuales.  
+#### <a name="fail-over-from-on-premises-to-azure"></a>Conmutación por error desde una ubicación local a Azure 
+Azure Site Recovery permite que Azure se utilice como sitio de recuperación ante desastres para las máquinas virtuales.  
 
-Examinemos un escenario en el que una compañía ficticia denominada Woodgrove Bank tiene una infraestructura local que hospeda su línea de aplicaciones empresariales y que hospeda sus aplicaciones móviles en Azure. La conectividad entre las máquinas virtuales de Woodgrove Bank en los servidores locales y de Azure se proporciona mediante una red privada virtual (VPN) de sitio a sitio (S2S) o mediante ExpressRoute. La VPN de S2S permite que la red virtual de Woodgrove Bank que se encuentra en Azure se considere una extensión de la red local de Woodgrove Bank. Esta comunicación la habilita una VPN de S2S entre el borde de Woodgrove Bank y la red virtual de Azure. Ahora, Woodgrove desea usar ASR para replicar sus cargas de trabajo ejecutando la región de Azure principal en otra región de Azure. Esta opción cubre las necesidades de Woodgrove, que desea una opción de recuperación ante desastres que sea económica y capaz de almacenar datos en entornos de nube pública. Woodgrove tiene que tratar con aplicaciones y configuraciones que dependen de direcciones IP codificadas de forma rígida, de ahí que tengan el requisito de conservar las direcciones IP de sus aplicaciones después de la conmutación por error a otra región de Azure.
+Examinemos un escenario en el que una compañía ficticia denominada Woodgrove Bank tiene una infraestructura local que hospeda sus aplicaciones de línea de negocio y que a su vez hospeda las aplicaciones móviles en Azure. La conectividad entre las máquinas virtuales de Woodgrove Bank en los servidores locales y de Azure se proporciona mediante una red privada virtual (VPN) de sitio a sitio (S2S) o mediante ExpressRoute. La VPN de sitio a sitio permite que la red virtual de Woodgrove Bank que se encuentra en Azure se considere una extensión de la red local de Woodgrove Bank. Esta comunicación la habilita una VPN de sitio a sitio entre el borde de Woodgrove Bank y la red virtual de Azure. Ahora, Woodgrove desea usar Site Recovery para replicar sus cargas de trabajo ejecutando la región de Azure principal en otra región de Azure. Esta opción cubre las necesidades de Woodgrove, que desea una opción de recuperación ante desastres que sea económica y capaz de almacenar datos en entornos de nube pública. Woodgrove tiene que tratar con aplicaciones y configuraciones que dependen de direcciones IP codificadas de forma rígida, de ahí que tengan el requisito de conservar las direcciones IP de sus aplicaciones después de la conmutación por error a otra región de Azure.
 
 Woodgrove ha decidido asignar direcciones IP del intervalo (172.16.1.0/24, 172.16.2.0/24) a sus recursos que se ejecutan en Azure.
 
@@ -87,10 +86,10 @@ Una vez que se desencadena la conmutación por error y que las máquinas virtual
 
 Después de la conmutación por error
 
-Si no tiene una ‘red de Azure' como se muestra en la imagen anterior. Puede crear una conexión VPN de sitio a sitio entre el 'Sitio principal' y la ‘Red de recuperación’ después de la conmutación por error.  
+Si no tiene una ‘red de Azure' como se muestra en la imagen anterior. Puede crear una conexión VPN de sitio a sitio entre el "Sitio principal" y la "Red de recuperación" después de la conmutación por error.  
 
 
-#### <a name="failover-to-a-secondary-on-premises-site"></a>Conmutación por error a un sitio local secundario
+#### <a name="fail-over-to-a-secondary-on-premises-site"></a>Conmutación por error a un sitio local secundario
 Examinemos un escenario en el que deseamos conservar la dirección IP de cada una de las máquinas virtuales y conmutar por error la subred completa. El sitio principal tiene aplicaciones que se ejecutan en la subred 192.168.1.0/24. Cuando se produce la conmutación por error, todas las máquinas virtuales que formen parte de esta subred se conmutarán por error en el sitio de recuperación y conservarán sus direcciones IP. Las rutas tendrán que modificarse correctamente para reflejar el hecho de que todas las máquinas virtuales que pertenezcan a la subred 192.168.1.0/24 se han movido al sitio de recuperación.
 
 En la siguiente ilustración, las rutas entre el sitio principal y el sitio de recuperación, el tercer sitio y el sitio principal, y el tercer sitio y el sitio de recuperación tendrán que modificarse correctamente.
@@ -107,13 +106,13 @@ La siguiente imagen muestra las redes y subredes después de la conmutación por
 
 Después de la conmutación por error
 
-Si el sitio secundario es local y está usando un servidor VMM para administrarlo, al habilitar la protección de una máquina virtual específica, ASR asignará los recursos de red según el flujo de trabajo siguiente:
+Si el sitio secundario es local y está usando un servidor VMM para administrarlo, al habilitar la protección de una máquina virtual específica, Site Recovery asignará los recursos de red según el flujo de trabajo siguiente:
 
-* ASR asigna una dirección IP a cada interfaz de red de la máquina virtual del grupo de direcciones IP estáticas definido en la red pertinente para cada instancia de System Center VMM.
-* Si el administrador define el mismo grupo de direcciones IP para la red del sitio de recuperación que para el grupo de direcciones IP de la red del sitio principal, mientras que la asignación de la dirección IP a la máquina virtual de réplica haría que ASR asignara la misma dirección IP que la máquina virtual principal.  La IP está reservada en VMM, pero no se ha establecido como una IP de conmutación por error en el host Hyper-v. La IP de conmutación por error en un host Hyper-v se establece inmediatamente antes de la conmutación por error.
+* Site Recovery asigna una dirección IP a cada interfaz de red de la máquina virtual del grupo de direcciones IP estáticas que esté definido en la red pertinente de cada instancia de System Center VMM.
+* Si el administrador define el mismo grupo de direcciones IP de la red del sitio de recuperación que el de la red del sitio principal, al asignar la dirección IP a la máquina virtual de réplica, Site Recovery asignará la misma dirección IP que la de la máquina virtual principal.  La dirección IP está reservada en VMM, pero no está establecida como dirección IP de conmutación por error en el host de Hyper-V. La dirección IP de conmutación por error de un host de Hyper-V se establece inmediatamente antes de la conmutación por error.
 
 
-Si no está disponible la misma IP, ASR asignaría otra dirección IP disponible en el grupo de direcciones IP definido.
+Si no está disponible la misma dirección IP, Site Recovery asignará alguna otra dirección IP disponible en el grupo de direcciones IP definido.
 
 Después de habilitar la máquina virtual por protección puede utilizar el siguiente script de ejemplo para comprobar la IP que se ha asignado a la máquina virtual. La misma IP se establecería como IP de conmutación por error y se asignaría a la máquina virtual en el momento de la conmutación por error:
 
@@ -123,14 +122,14 @@ Después de habilitar la máquina virtual por protección puede utilizar el sigu
         $ip.address  
 
 > [!NOTE]
-> En el escenario en que las máquinas virtuales usan DHCP, la administración de las direcciones IP está completamente fuera del control de ASR. Un administrador tiene que asegurarse de que el servidor DHCP que sirve las direcciones IP del sitio de recuperación pueda servir desde el mismo intervalo que el sitio principal.
+> En el escenario en que las máquinas virtuales usan DHCP, la administración de las direcciones IP está completamente fuera del control de Site Recovery. Un administrador tiene que asegurarse de que el servidor DHCP que sirve las direcciones IP del sitio de recuperación pueda servir desde el mismo intervalo que el sitio principal.
 >
 >
 
 
 
 ## <a name="option-2-changing-ip-addresses"></a>Opción 2: Cambio de las direcciones IP
-Por lo que hemos visto, este enfoque parece ser el más frecuente. Adopta la forma de cambiar la dirección IP de todas las máquinas virtuales implicadas en la conmutación por error. Una desventaja de este enfoque requiere que la red entrante 'aprenda' que la aplicación que estaba en IPx está ahora en IPy. Aunque IPx e IPy sean nombres lógicos, las entradas de DNS normalmente tienen que cambiarse o vaciarse en toda la red, y las entradas de la memoria caché de las tablas de red tienen que actualizarse o vaciarse; por consiguiente, podría producirse un tiempo de inactividad en función de cómo se haya configurado la infraestructura de DNS. Estos problemas se pueden mitigar con el uso de valores de TTL bajos en el caso de las aplicaciones de intranet y mediante [Azure Traffic Manager con ASR](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) en las aplicaciones basadas en Internet.
+Por lo que hemos visto, este enfoque parece ser el más frecuente. Adopta la forma de cambiar la dirección IP de todas las máquinas virtuales implicadas en la conmutación por error. Una desventaja de este enfoque requiere que la red entrante 'aprenda' que la aplicación que estaba en IPx está ahora en IPy. Aunque IPx e IPy sean nombres lógicos, las entradas de DNS normalmente tienen que cambiarse o vaciarse en toda la red, y las entradas de la memoria caché de las tablas de red tienen que actualizarse o vaciarse; por consiguiente, podría producirse un tiempo de inactividad en función de cómo se haya configurado la infraestructura de DNS. Estos problemas se pueden mitigar mediante valores de TTL bajos en el caso de aplicaciones de intranet y mediante [Azure Traffic Manager con Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) para aplicaciones basadas en Internet.
 
 ### <a name="changing-the-ip-addresses---illustration"></a>Cambio de las direcciones IP: ilustración
 Examinemos el escenario donde planea usar varias IP en los sitios principal y de recuperación. En el siguiente ejemplo también hay un tercer sitio desde el que se puede acceder a las aplicaciones hospedadas en los sitios principal o de recuperación.
@@ -140,7 +139,7 @@ Examinemos el escenario donde planea usar varias IP en los sitios principal y de
 
 En la imagen anterior hay algunas aplicaciones que se hospedan en la subred 192.168.1.0/24 del sitio principal que se han configurado para actuar en el sitio de recuperación en la subred 172.16.1.0/24 después de una conmutación por error. Las rutas de red/conexiones de VPN se han configurado correctamente de forma que los tres sitios son accesibles entre sí.
 
-Como muestra la imagen anterior, después de la conmutación por error de una o varias aplicaciones, se restaurarán en la subred de recuperación. En este caso, no estamos limitados a conmutar por error toda la red al mismo tiempo. Se requieren cambios para volver a configurar la VPN o las rutas de red. Una conmutación por error y algunas actualizaciones de DNS garantizarán que las aplicaciones seguirán siendo accesibles. Si el DNS está configurado para permitir actualizaciones dinámicas, las máquinas virtuales se registrarán a sí mismas con la nueva IP una vez que se inician después de una conmutación por error.
+Como muestra la imagen anterior, después de la conmutación por error de una o varias aplicaciones, se restaurarán en la subred de recuperación. En este caso, no estamos limitados a conmutar por error toda la subred al mismo tiempo. Se requieren cambios para volver a configurar la VPN o las rutas de red. Una conmutación por error y algunas actualizaciones de DNS garantizarán que las aplicaciones seguirán siendo accesibles. Si el DNS está configurado para permitir actualizaciones dinámicas, las máquinas virtuales se registrarán a sí mismas con la nueva IP una vez que se inician después de una conmutación por error.
 
 ![Otra dirección IP: después de la conmutación por error](./media/site-recovery-network-design/network-design11.png)
 
@@ -148,7 +147,7 @@ Como muestra la imagen anterior, después de la conmutación por error de una o 
 Después de la conmutación por error, es posible que la máquina virtual de réplica tenga una dirección IP que no sea la misma que la de la máquina virtual principal. Las máquinas virtuales actualizarán el servidor DNS que están utilizando después de iniciarse. Las entradas DNS normalmente tendrán que cambiarse o vaciarse en toda la red y las entradas en caché de las tablas de red tienen que actualizarse o vaciarse, por lo que no es raro tener que hacer frente al tiempo de inactividad mientras se producen estos cambios de estado. Este problema se puede mitigar con las acciones siguientes:
 
 * Utilizando valores de TTL bajos para las aplicaciones de intranet.
-* Utilizando el Administrador de tráfico de Azure con ASR para aplicaciones basadas en Internet.
+* Mediante Azure Traffic Manager con Site Recovery para aplicaciones basadas en Internet.
 * Por medio del siguiente script en el plan de recuperación para actualizar el servidor DNS y garantizar la oportuna actualización (el script no es necesario si se configura el registro DNS dinámico)
 
         param(
@@ -161,8 +160,8 @@ Después de la conmutación por error, es posible que la máquina virtual de ré
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### <a name="changing-the-ip-addresses--dr-to-azure"></a>Cambio de las direcciones IP: recuperación ante desastres en Azure
-La entrada de blog [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) (Configuración de la infraestructura de redes de Microsoft Azure como sitio de recuperación ante desastres) explica que configurar la infraestructura de red de Azure requerida al conservar las direcciones IP no es un requisito. Dicha entrada comienza con la descripción de la aplicación y luego examina cómo configurar las redes locales y en Azure, y concluye con la forma de realizar una conmutación por error de prueba y una conmutación por error planeada.
+### <a name="changing-the-ip-addresses--disaster-recovery-to-azure"></a>Cambiar direcciones IP: recuperación ante desastres en Azure
+En la entrada de blog [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) (Configuración de la infraestructura de redes de Microsoft Azure como sitio de recuperación ante desastres) se explica que configurar la infraestructura de red de Azure requerida al conservar las direcciones IP no es un requisito indispensable. Dicha entrada comienza con la descripción de la aplicación, a continuación, indica cómo configurar las redes en ubicaciones locales y en Azure y, finalmente, concluye explicando la forma de realizar una conmutación por error de prueba y una conmutación por error planeada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Obtenga información](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) sobre cómo Site Recovery asigna las redes de origen y de destino cuando se usa un servidor VMM para administrar el sitio principal.
+Obtenga información sobre la [asignación de redes](site-recovery-network-mapping.md).

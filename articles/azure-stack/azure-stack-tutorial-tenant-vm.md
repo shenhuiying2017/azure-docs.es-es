@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 9/25/2017
+ms.date: 10/23/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: afeec92c40262903e6cfd3c6d75a595fead616e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Máquinas virtuales disponibles para los usuarios de Azure Stack
 
@@ -51,7 +51,7 @@ Ahora puede preparar todo para los usuarios. Cuando se inicia el proceso, primer
 
    Las ofertas son grupos de uno o varios planes que los proveedores presentan a los usuarios para que estos los compren o se suscriban a ellos.
 
-   a. [Inicie sesión](azure-stack-connect-azure-stack.md) en el portal como administrador de la nube y, a continuación, haga clic en **Nuevo** > **Ofertas para los inquilinos + Planes** > **Oferta**.
+   a. [Inicie sesión](azure-stack-connect-azure-stack.md) en el portal como administrador de la nube y, a continuación, haga clic en **Nuevo** > **Ofertas + Planes** > **Oferta**.
    ![Nueva oferta](media/azure-stack-tutorial-tenant-vm/image01.png)
 
    b. En la sección **Nueva oferta**, rellene el **nombre para mostrar** y el **nombre de recurso** y, a continuación, seleccione un **grupo de recursos** nuevo o existente. El nombre para mostrar es el nombre descriptivo de la oferta. Solo el operador de la nube puede ver el nombre del recurso. Es el nombre que usan los administradores para trabajar con la oferta como un recurso de Administrador de recursos de Azure.
@@ -132,21 +132,23 @@ Ahora que ha creado una oferta, puede probarla. Inicie sesión como usuario y su
 
    Ahora puede iniciar sesión en el portal como usuario para aprovisionar a una máquina virtual mediante la suscripción. 
 
-   a. Inicie sesión en el portal de usuario como usuario y luego haga clic en **Nuevo** > **Proceso** > **Windows Server 2016 Datacenter Eval**.
-      - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador, y estará en el formato https://portal.&lt;*región*&gt;.&lt;*nombre completo*&gt;.
+   a. Inicie sesión en el portal de usuario como usuario.
+      - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador, y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
    - Si usa Azure Stack Development Kit, la dirección del portal es https://portal.local.azurestack.external.
 
-   b. En la sección **Aspectos básicos**, escriba un **Nombre**, **Nombre de usuario** y **Contraseña**. Para **Tipo de disco de máquina virtual**, elija **HDD**. Elija una **suscripción**. Cree un **grupo de recursos** o seleccione uno existente y, a continuación, haga clic en **Aceptar**.  
+   b.  En el panel, haga clic en **Nuevo** > **Proceso** > **Windows Server 2016 Datacenter Eval** y, luego, haga clic en **Crear**.
 
-   c. En la sección **Elegir un tamaño**, haga clic en **A1 Básico**y, a continuación, haga clic en **Seleccionar**.  
+   c. En la sección **Datos básicos**, escriba un **nombre**, **nombre de usuario** y **contraseña**, elija una **suscripción**, cree un **grupo de recursos** (o seleccione uno existente) y, a continuación, haga clic en **Aceptar**.
 
-   d. En la sección **Configuración**, haga clic en **Red virtual**. En la sección **Elegir red virtual** , haga clic en **Crear nueva**. En la sección **Crear red virtual**, acepte todos los valores predeterminados y haga clic en **Aceptar**. En la sección **Configuración**, haga clic en **Aceptar**.
+   d. En la sección **Elegir un tamaño**, haga clic en **A1 Estándar** y, después, en **Seleccionar**.  
+
+   e. En la sección **Configuración**, haga clic en **Red virtual**. En la sección **Elegir red virtual** , haga clic en **Crear nueva**. En la sección **Crear red virtual**, acepte todos los valores predeterminados y haga clic en **Aceptar**. En la sección **Configuración**, haga clic en **Aceptar**.
 
    ![Creación de una red virtual](media/azure-stack-provision-vm/image04.png)
 
-   e. En la sección **Resumen**, haga clic en **Aceptar** para crear la máquina virtual.  
+   f. En la sección **Resumen**, haga clic en **Aceptar** para crear la máquina virtual.  
 
-   f. Para ver la nueva máquina virtual, haga clic en **Todos los recursos** y, a continuación, busque la máquina virtual y haga clic en su nombre.
+   g. Para ver la nueva máquina virtual, haga clic en **Todos los recursos** y, a continuación, busque la máquina virtual y haga clic en su nombre.
 
     ![Todos los recursos](media/azure-stack-provision-vm/image06.png)
 

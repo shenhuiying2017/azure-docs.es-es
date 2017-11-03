@@ -1,6 +1,6 @@
 ---
 title: "Actualización a la última biblioteca de cliente de base de datos elástica | Microsoft Docs"
-description: "Actualización de aplicaciones y bibliotecas mediante NuGet"
+description: "Use Nuget para actualizar la biblioteca de cliente de base de datos elástica."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: ddove
-ms.openlocfilehash: 7e28d128645e856c0efa6e4f78d8f9f36982a76c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0334f701548d938c98aaa2a946b1e5e892c0700
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente
-Las nuevas versiones de la [biblioteca de clientes de Elastic Database](sql-database-elastic-database-client-library.md) están disponibles a través de NuGet y de la interfaz del Administrador de paquetes NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
+Las nuevas versiones de la [biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md) están disponibles a través de NuGet y de la interfaz del Administrador de paquetes NuGet en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
 
 **Para obtener la última versión** : vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 

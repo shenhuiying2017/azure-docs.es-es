@@ -1,6 +1,6 @@
 ---
 title: "Creación y administración de servidores y bases de datos SQL de Azure | Microsoft Docs"
-description: "Obtenga información sobre los conceptos relativos a los servidores y las bases de datos de Azure SQL Database y sobre cómo crear y administrar servidores y bases de datos mediante Azure Portal, PowerShell, la CLI de Azure, Transact-SQL y la API de REST."
+description: "Aprenda sobre los conceptos relativos a las bases de datos y los servidores de Transact-SQL, y sobre la creación y administración de bases de datos y servidores."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: dbc01dac6cf31916bef1cba9432e5653751dc625
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 345a3bf0ff417b35c2abaa26352cff3359997544
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creación y administración de servidores y bases de datos de Azure SQL Database
 

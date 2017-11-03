@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0a5a783751e4f0fa9f5fb43b22fa221dd9bf3444
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integración del centro de datos de Azure Stack: DNS
 
@@ -140,4 +140,4 @@ La mayoría de los registradores DNS requieren que se proporcione un mínimo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Integración del centro de datos de Azure Stack: publicar puntos de conexión](azure-stack-integrate-endpoints.md)
+[Integración del centro de datos de Azure Stack: Identidad](azure-stack-integrate-identity.md)

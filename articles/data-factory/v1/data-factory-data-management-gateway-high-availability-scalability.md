@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8c2248c064a7ec934dd8ef3e926f3325a05395
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
-Este artículo le ayuda a configurar una solución de alta disponibilidad y escalabilidad con Data Management Gateway.    
+Este artículo le ayuda a configurar una solución de alta disponibilidad y escalabilidad con Data Management Gateway/Integration.    
 
 > [!NOTE]
-> En este artículo se da por supuesto que ya está familiarizado con los conceptos básicos de Data Management Gateway. Para más información, consulte [Data Management Gateway](data-factory-data-management-gateway.md).
+> En este artículo se da por supuesto que ya está familiarizado con los conceptos básicos de Integration Runtime (anteriormente, Data Management Gateway). Para más información, consulte [Data Management Gateway](data-factory-data-management-gateway.md).
 
 >**La versión preliminar de esta característica es compatible oficialmente con Data Management Gateway versión 2.12.xxxx.x y superior**. Asegúrese de que está utilizando la versión 2.12.xxxx.x o superior. Descargue la versión más reciente de Data Management Gateway [aquí](https://www.microsoft.com/download/details.aspx?id=39717).
 
@@ -155,14 +155,21 @@ Puede actualizar una puerta de enlace existente para usar la característica de 
 - Agregue al menos dos nodos para asegurar la alta disponibilidad.  
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos del certificado TLS/SSL
-Estos son los requisitos para el certificado TLS/SSL que se usa para proteger las comunicaciones entre los nodos de la puerta de enlace:
+Estos son los requisitos para el certificado TLS/SSL que se usa para proteger las comunicaciones entre los nodos de Integration Runtime:
 
-- El certificado debe ser un certificado de confianza pública X509 v3.
-- Todos los nodos de la puerta de enlace deben confiar en este certificado. 
-- Se recomienda que utilice certificados emitidos por una entidad de certificación pública (CA).
+- El certificado debe ser un certificado de confianza pública X509 v3. Se recomienda que utilice certificados emitidos por una entidad de certificación pública (CA).
+- Cada nodo de Integration Runtime debe confiar en este certificado, así como en el equipo cliente que ejecuta la aplicación del Administrador de credenciales. 
+> [!NOTE]
+> La aplicación del Administrador de credenciales se usa al configurar de forma segura las credenciales en el Asistente para copia o en Azure Portal. Además, puede activarse en cualquier equipo que se encuentre en la misma red que el almacén de datos local o privado.
+- Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar ***.domain.contoso.com** como nombre del firmante del certificado.
+- No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com**, pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
 - Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
-- No se admiten certificados que utilizan claves CNG.
-- Se admiten certificados comodín. 
+- El certificado que usa claves CNG no es compatible. Doesrted no admite certificados que utilizan claves CNG.
+
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>P+F: ¿Cuándo no debería habilitar este cifrado?
+Habilitar el cifrado puede agregar determinados costos a la infraestructura (propiedad de certificado público), por lo que puede omitir el paso para habilitar el cifrado en los casos siguientes:
+- Cuando se ejecuta Integration Runtime en una red de confianza o en una red con cifrado transparente como IP/SEC. Puesto que esta comunicación del canal solo está limitada en su red de confianza, no se necesita cifrado adicional.
+- Cuando Integration Runtime no se ejecuta en un entorno de producción. Esto puede ayudar a reducir el costo del certificado TLS/SSL.
 
 
 ## <a name="monitor-a-multi-node-gateway"></a>Supervisión de una puerta de enlace de varios nodos

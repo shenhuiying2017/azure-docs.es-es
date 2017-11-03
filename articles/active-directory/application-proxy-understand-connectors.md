@@ -11,21 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/12/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9dce8c3132b60b0b0c44f9f9d1e9cf01f68fa280
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
 Los conectores son los que hacen posible el Proxy de aplicación de Azure AD. Son simples, fáciles de implementar y mantener y muy eficaces. En este artículo se habla de qué son los conectores, cómo funcionan, y se ofrecen algunas sugerencias para optimizar la implementación. 
 
-## <a name="what-is-an-application-proxy-connector"></a>Qué es un conector proxy de aplicación
+## <a name="what-is-an-application-proxy-connector"></a>¿Qué es un conector de proxy de aplicación?
 
 Los conectores son agentes ligeros que se colocan en local y facilitan la conexión saliente del servicio Proxy de aplicación. Los conectores deben instalarse en un servidor de Windows Server con acceso a la aplicación de back-end. Puede organizar los conectores en grupos; cada grupo controla el tráfico a aplicaciones concretas. Los conectores equilibran la cargan automáticamente y pueden ayudar a optimizar la estructura de red. 
 
@@ -78,10 +78,10 @@ Aunque los conectores equilibrarán la carga automáticamente dentro de un grupo
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Esta máquina tiene un límite de 200 conexiones. En todas las demás máquinas, hemos utilizado el límite de 200 conexiones de forma predeterminada.
+\* Esta máquina tiene un límite de 800 conexiones. En todas las demás máquinas, hemos utilizado el límite de 200 conexiones de forma predeterminada.
  
 >[!NOTE]
->El límite de configuración predeterminado es 200 (para 2, 4 y 8 núcleos).  Durante la prueba con 16 núcleos, el límite de conexiones se cambió a 800. No hay mucha diferencia en el TPS máximo entre máquinas de 4, 8 y 16 núcleos. La diferencia principal entre ellas está en la latencia esperada.  
+>No hay mucha diferencia en el TPS máximo entre máquinas de 4, 8 y 16 núcleos. La diferencia principal entre ellas está en la latencia esperada.  
 
 ## <a name="security-and-networking"></a>Seguridad y redes
 

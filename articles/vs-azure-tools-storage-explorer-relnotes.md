@@ -14,25 +14,85 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6010c0ef002730fd4a0020e0e2d61a6176a11cba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage (versión preliminar)
 
-En este artículo se detallan las notas de la versión para la versión 0.8.16 del Explorador de Azure Storage (versión preliminar), así como las de versiones anteriores.
+En este artículo se detallan las notas de la versión 0.9.0 del Explorador de Azure Storage (versión preliminar), así como las de versiones anteriores.
 
 [Explorador de Microsoft Azure Storage (versión preliminar)](./vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux.
+
+## <a name="version-091--090-preview"></a>Versión 0.9.1 / 0.9.0 (versión preliminar)
+20/10/2017
+
+### <a name="download-azure-storage-explorer-091-preview"></a>Descarga del Explorador de Azure Storage 0.9.1 (versión preliminar)
+- [Explorador de Azure Storage 0.9.1 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de Azure Storage 0.9.1 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de Azure Storage 0.9.1 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuevo
+* Compatibilidad de versión preliminar para Azure Cosmos DB:
+    * [Documentación en línea](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * Crear bases de datos y colecciones
+    * Manipular datos
+    * Consultar, crear o eliminar documentos
+    * Actualizar procedimientos almacenados, desencadenadores y funciones definidas por el usuario
+    * Usar las cadenas de conexión para conectarse y administrar las bases de datos
+* Se mejoró el rendimiento de la carga y descarga de muchos blobs pequeños.
+* Se agregó una acción "Reintentar todo" si hay errores en un grupo de carga de blobs o en un grupo de descarga de blobs.
+* El Explorador de Storage ahora pausará la iteración durante la carga o descarga de blobs si detecta que se perdió la conexión de red. A continuación, puede reanudar la iteración una vez que se haya restablecido la conexión de red.
+* Se agregó la posibilidad de "Cerrar todo", "Cerrar otros" y "Cerrar" pestañas a través del menú contextual.
+* El Explorador de Storage ahora usa los cuadros de diálogo nativos y los menús contextuales nativos.
+* El Explorador de Storage ahora es más accesible. Estas mejoras incluyen:
+    * Compatibilidad mejorada con el lector de pantalla, para NVDA en Windows y para VoiceOver en Mac
+    * Temas mejorados de contraste alto
+    * Correcciones del foco del teclado y del tabulador del teclado
+
+### <a name="fixes"></a>Correcciones
+* Si intenta abrir o descargar un blob con un nombre de archivo no válido de Windows, se podría producir un error en la operación. El Explorador de Storage detectará si el nombre de un blob no es válido y le solicitará si quiere codificarlo u omitir el blob. El Explorador de Storage también detectará si un nombre de archivo parece estar codificado y le solicitará si quiere descodificarlo antes de cargarlo.
+* Durante la carga del blob, el editor del contenedor del blob de destino podría no actualizarse correctamente. Esto se ha solucionado.
+* La compatibilidad con varios formatos de cadenas de conexión y URI de SAS se ha revertido. Se han resuelto todos los problemas conocidos, pero agradecemos que nos envíe sus comentarios si encuentra algún otro.
+* La notificación de actualización se interrumpió para algunos usuarios en 0.9.0. Este problema se ha corregido y, si este error le afectó, se puede descargar manualmente la versión más reciente del Explorador de Storage [aquí](https://azure.microsoft.com/en-us/features/storage-explorer/).
+
+### <a name="known-issues"></a>Problemas conocidos
+* El Explorador de Storage no admite cuentas de AD FS.
+* Las teclas de método abreviado de "Ver explorador" y "Ver administración de cuentas" deberían ser respectivamente CTRL/CMD+MAIÚS+E y CTRL/CMD+MAYÚS+A.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe aquí.
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* El panel de configuración de la cuenta puede indicar que necesita especificar de nuevo las credenciales para filtrar las suscripciones.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+```
+./StorageExplorer.exe --disable-gpu
+```
+* Los usuarios de Ubuntu 14.04 tendrán que asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos. Después, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-0816-preview"></a>Versión 0.8.16 (versión preliminar)
 8/21/2017
 
 ### <a name="download-azure-storage-explorer-0816-preview"></a>Descarga del Explorador de Azure Storage 0.8.16 (versión preliminar)
-- [Explorador de Azure Storage 0.8.16 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de Azure Storage 0.8.16 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de Azure Storage 0.8.16 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Descargar el Explorador de Azure Storage 0.8.16 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Descargar el Explorador de Azure Storage 0.8.16 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Descargar el Explorador de Azure Storage 0.8.16 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nuevo
 * Al abrir un blob, el Explorador de Storage le pedirá que cargue el archivo descargado si se detectó un cambio
@@ -41,13 +101,13 @@ En este artículo se detallan las notas de la versión para la versión 0.8.16 d
 
 
 ### <a name="fixes"></a>Correcciones
-* En algunos tipos de blob, al elegir la opción "reemplazar" durante un conflicto de carga, a veces provocaría que la carga se volviese a reiniciar. 
+* En algunos tipos de blob, al elegir la opción "reemplazar" durante un conflicto de carga, a veces provocaría que la carga se volviese a reiniciar.
 * En la versión 0.8.15, las cargas se detendrían a veces en un 99 %.
 * Al cargar archivos en un recurso compartido de archivos, si decide cargar en un directorio que todavía no existe, la carga produciría un error.
 * El Explorador de Storage estaba generando marcas de tiempo de forma incorrecta para las firmas de acceso compartido y las consultas de tabla.
 
 
-Problemas conocidos
+### <a name="known-issues"></a>Problemas conocidos
 * El uso de un nombre y una cadena de conexión de clave no funciona actualmente. Funcionará en la próxima versión. Hasta ese momento, puede usar la asociación con el nombre y la clave.
 * Si intenta abrir un archivo con un nombre de archivo de Windows no válido, la descarga provocará un error de archivo no encontrado.
 * Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Se trata de una limitación de la biblioteca Azure Storage Node.
@@ -71,43 +131,9 @@ Problemas conocidos
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0814-preview"></a>Versión 0.8.14 (versión preliminar)
-22/06/2017
-
-### <a name="download-azure-storage-explorer-0814-preview"></a>Descarga del Explorador de Azure Storage 0.8.14 (versión preliminar)
-* [Descarga del Explorador de Azure Storage 0.8.14 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Descarga del Explorador de Azure Storage 0.8.14 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Descarga del Explorador de Azure Storage 0.8.14 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-### <a name="new"></a>Nuevo
-
-* Versión de Electron actualizada a la 1.7.2 para aprovechar las múltiples actualizaciones de seguridad críticas
-* Ahora se puede acceder rápidamente a la guía de solución de problemas en línea desde el menú de ayuda
-* [Guía][2] de solución de problemas del Explorador de Storage
-* [Instrucciones][3] sobre cómo conectarse a una suscripción de Azure Stack
-
-### <a name="known-issues"></a>Problemas conocidos
-
-* Los botones del cuadro de diálogo de confirmación de eliminación de carpeta no registran los clics del mouse en Linux. La solución alternativa consiste en usar la tecla Entrar.
-* Si no elige el certificado de tarjeta inteligente o el PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide la decisión.
-* Si hay más de tres grupos de blobs o archivos cargándose al mismo tiempo, se pueden producir errores.
-* El panel de configuración de la cuenta puede indicar que necesita especificar de nuevo las credenciales para filtrar las suscripciones.
-* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
-* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada. 
-* La instalación de Ubuntu 14.04 requiere que se actualice la versión de gcc. A continuación puede ver los pasos para actualizarla:
-
-    ```
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get dist-upgrade
-    ```
-
-
-
-
 ## <a name="previous-releases"></a>Versiones anteriores
 
+* [Versión 0.8.14](#version-0814)
 * [Versión 0.8.13](#version-0813)
 * [Versión 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
 * [Versión 0.8.9 / 0.8.8](#version-089--088)
@@ -124,6 +150,33 @@ Problemas conocidos
 * [Versión 0.7.20160105.0](#version-07201601050)
 * [Versión 0.7.20151116.0](#version-07201511160)
 
+
+### <a name="version-0814"></a>Versión 0.8.14
+22/06/2017
+
+### <a name="new"></a>Nuevo
+
+* Versión de Electron actualizada a la 1.7.2 para aprovechar las múltiples actualizaciones de seguridad críticas
+* Ahora se puede acceder rápidamente a la guía de solución de problemas en línea desde el menú de ayuda
+* [Guía][2] de solución de problemas del Explorador de Storage
+* [Instrucciones][3] sobre cómo conectarse a una suscripción de Azure Stack
+
+### <a name="known-issues"></a>Problemas conocidos
+
+* Los botones del cuadro de diálogo de confirmación de eliminación de carpeta no registran los clics del mouse en Linux. La solución alternativa consiste en usar la tecla Entrar.
+* Si no elige el certificado de tarjeta inteligente o el PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide la decisión.
+* Si hay más de tres grupos de blobs o archivos cargándose al mismo tiempo, se pueden producir errores.
+* El panel de configuración de la cuenta puede indicar que necesita especificar de nuevo las credenciales para filtrar las suscripciones.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* La instalación de Ubuntu 14.04 requiere que se actualice la versión de gcc. A continuación puede ver los pasos para actualizarla:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
 
 ### <a name="version-0813"></a>Versión 0.8.13
 05/12/2017
@@ -149,7 +202,7 @@ Problemas conocidos
 * Si hay más de tres grupos de blobs o archivos cargándose al mismo tiempo, se pueden producir errores.
 * El panel de configuración de la cuenta puede indicar que necesita especificar de nuevo las credenciales para filtrar las suscripciones.
 * Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
-* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada. 
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * La instalación de Ubuntu 14.04 requiere que se actualice la versión de gcc. A continuación puede ver los pasos para actualizarla:
 
     ```
@@ -171,7 +224,7 @@ Problemas conocidos
 * Ahora puede contraer el panel izquierdo.
 * Ahora la detección se ejecuta al mismo tiempo que la descarga.
 * Use Estadísticas del contenedor de blobs, el recurso compartido de archivos y los editores de tablas para ver el tamaño del recurso o de la selección.
-* Ahora puede iniciar sesión en Azure Active Directory (AAD) basándose en cuentas de Azure Stack. 
+* Ahora puede iniciar sesión en Azure Active Directory (AAD) basándose en cuentas de Azure Stack.
 * Ahora puede cargar archivos de archivo de más de 32 MB en cuentas de almacenamiento Premium.
 * Compatibilidad de accesibilidad mejorada.
 * Ahora puede agregar certificados SSL X.509 cifrados en Base-64 de confianza en Editar -&gt; Certificados SSL -&gt; Importar certificados.
@@ -182,8 +235,8 @@ Problemas conocidos
 * Problema corregido: Al generar un SAS para tablas y colas de emulador, se producía una URL no válida.
 * Problema corregido: Las cuentas de almacenamiento premium ahora se pueden ampliar mientras haya un proxy habilitado.
 * Problema corregido: El botón Aplicar de la página de administración de cuentas no funcionaba si había una o cero cuentas seleccionadas.
-* Problema corregido: Se puede producir un error al cargar blobs que requieran resoluciones de conflictos. Esto se ha corregido en la versión 0.8.11. 
-* Problema corregido: No se podían enviar comentarios en la versión 0.8.11. Corregido en la versión 0.8.12. 
+* Problema corregido: Se puede producir un error al cargar blobs que requieran resoluciones de conflictos. Esto se ha corregido en la versión 0.8.11.
+* Problema corregido: No se podían enviar comentarios en la versión 0.8.11. Corregido en la versión 0.8.12.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -192,7 +245,7 @@ Problemas conocidos
 * Si hay más de tres grupos de blobs o archivos cargándose al mismo tiempo, se pueden producir errores.
 * El panel de configuración de la cuenta puede indicar que necesita especificar de nuevo las credenciales para filtrar las suscripciones.
 * Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
-* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada. 
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * La instalación de Ubuntu 14.04 requiere que se actualice la versión de gcc. A continuación puede ver los pasos para actualizarla:
 
     ```
@@ -274,7 +327,7 @@ Problemas conocidos
 * Ya puede abrir varios editores en diferentes pestañas. Haga un solo clic para abrir una pestaña temporal y doble clic para abrir una pestaña permanente. También puede hacer clic en la pestaña temporal para que se convierta en una pestaña permanente.
 * Hemos realizado mejoras notables de rendimiento y estabilidad para cargas y descargas, especialmente para archivos de gran tamaño en máquinas rápidas
 * Las carpetas vacías "virtuales" ya se pueden crear en contenedores de blobs.
-* Hemos vuelto a incorporar la búsqueda en ámbito con la nueva y mejorada búsqueda de subcadenas, por lo que ahora tiene dos opciones para realizar búsquedas: 
+* Hemos vuelto a incorporar la búsqueda en ámbito con la nueva y mejorada búsqueda de subcadenas, por lo que ahora tiene dos opciones para realizar búsquedas:
     * Búsqueda global: solo tiene que indicar un término de búsqueda en el cuadro de texto de búsqueda.
     * Búsqueda de ámbito: haga clic en el icono de lupa al lado de un nodo; después, agregue un término de búsqueda al final de la ruta o haga clic con el botón derecho y seleccione “Buscar desde aquí”.
 * Hemos agregado varios temas: claro (valor predeterminado), oscuro, negro en alto contraste y blanco en alto contraste. Vaya a Editar -&gt; Temas para cambiar las preferencias de temas.
@@ -292,12 +345,12 @@ Problemas conocidos
 * Problema corregido: No se podía abrir el Panel de consulta en una tabla vacía.
 * Problema corregido: Varios errores en la búsqueda.
 * Problema corregido: Aumento del número de recursos que se cargan de 50 a 100 al hacer clic en “Cargar más”.
-* Problema corregido: En la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada. 
+* Problema corregido: En la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
 * Esta versión del Explorador de Storage no se ejecuta en Ubuntu 14.04.
-* Para abrir varias pestañas para el mismo recurso, no haga clic varias veces en el mismo recurso. Haga clic en otro recurso y, después, vuelva y haga clic en el recurso original para volver a abrirlo en otra pestaña. 
+* Para abrir varias pestañas para el mismo recurso, no haga clic varias veces en el mismo recurso. Haga clic en otro recurso y, después, vuelva y haga clic en el recurso original para volver a abrirlo en otra pestaña.
 * Acceso rápido solo funciona con elementos basados en la suscripción. En esta versión no se admiten recursos locales o recursos adjuntados a través de la clave o token de SAS.
 * Es posible que Acceso rápido tarde unos segundos en desplazarse hasta el recurso de destino, en función del número de recursos que tenga.
 * Si hay más de tres grupos de blobs o archivos cargándose al mismo tiempo, se pueden producir errores.
@@ -462,7 +515,7 @@ Problemas conocidos
 
 ### <a name="known-issues-amp-mitigations"></a>Problemas conocidos y mitigaciones
 
-* La descarga de archivos de blob grandes no funciona correctamente. Le recomendamos que use AzCopy mientras no se soluciona este problema. 
+* La descarga de archivos de blob grandes no funciona correctamente. Le recomendamos que use AzCopy mientras no se soluciona este problema.
 * Las credenciales de cuentas no se recuperan ni se almacenan en caché si la carpeta de inicio no se encuentra o no se puede escribir en ella.
 * Al agregar, editar o importar una entidad con una propiedad con un valor numérico ambiguo, como “1” o “1.0” y cuando el usuario intenta enviarla como `Edm.String`, el valor volverá a través de la API del cliente como un Edm.Double.
 * Al importar archivos CSV con registros de varias líneas, es posible que los datos se corten o se desordenen.
@@ -490,7 +543,7 @@ Problemas conocidos
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: La carga o descarga de un gran número de blobs (más de 500) puede provocar en ocasiones que la aplicación muestre una pantalla en blanco. 
+* Problema corregido: La carga o descarga de un gran número de blobs (más de 500) puede provocar en ocasiones que la aplicación muestre una pantalla en blanco.
 * Problema corregido: Al establecer el nivel de acceso público en un contenedor de blobs, el valor nuevo no se actualiza hasta que vuelva a establecer el foco en el contenedor. Además, el diálogo siempre tiene como valor predeterminado “Sin acceso público” y no el valor real actual.
 * Mejor accesibilidad de teclado general y compatibilidad con IU.
 * El historial de enlaces se ajusta cuando es demasiado largo con espacios en blanco.
@@ -500,7 +553,7 @@ Problemas conocidos
 
 #### <a name="known-issues"></a>Problemas conocidos
 
-* La instalación de Linux requiere que se actualice la versión de gcc. A continuación puede ver los pasos para actualizarla: 
+* La instalación de Linux requiere que se actualice la versión de gcc. A continuación puede ver los pasos para actualizarla:
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
     * `sudo apt-get update`
     * `sudo apt-get upgrade`

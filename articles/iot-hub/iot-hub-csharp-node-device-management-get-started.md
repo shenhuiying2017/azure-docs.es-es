@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: juanpere
-ms.openlocfilehash: a3d235ca3f0183ee765c463e5e39759ccc624471
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d0b7b1ab5893e55a6e2aa16451b6a9fc1481966
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>Introducción a la administración de dispositivos (.NET y Node)
 
@@ -62,13 +62,13 @@ En esta sección, creará una aplicación de consola de .NET (mediante C#) que i
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión de IoT Hub que creó en la sección anterior y el dispositivo de destino.
+5. Agregue los campos siguientes a la clase **Program** . Reemplace el valor de marcador de posición por la cadena de conexión de IoT Hub para la central que creó en la sección "Creación de un IoT Hub". 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
-        static string targetDevice = "{deviceIdForTargetDevice}";
+        static string targetDevice = "myDeviceId";
         
 6. Agregue el método siguiente a la clase **Program**.  Este código obtiene el dispositivo gemelo para el dispositivo de reinicio y genera las propiedades notificadas.
    

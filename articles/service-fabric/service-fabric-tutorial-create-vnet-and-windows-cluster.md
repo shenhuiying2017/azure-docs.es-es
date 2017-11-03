@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7cee4f8d68062dcfd2b6f61d55319160a2a80a98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1eabaa1a2f1f8ba8102d567fee97c65d04ca5f7
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Windows de Service Fabric en una red virtual de Azure
 Este tutorial es la primera parte de una serie. Obtendrá información sobre cómo implementar un clúster de Azure Service Fabric con Linux en una instancia existente de Azure Virtual Network (VNET) y en una subred mediante PowerShell. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones.  Para crear un clúster de Linux con la CLI de Azure, consulte [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Creación de un clúster de Linux seguro en Azure).
@@ -61,8 +61,9 @@ Set-AzureRmContext -SubscriptionId <guid>
 Cree un nuevo grupo de recursos para su implementación y asígnele un nombre y una ubicación.
 
 ```powershell
-$ResourceGroupName = "sfclustertutorialgroup"
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
+$groupname = "sfclustertutorialgroup"
+$clusterloc="southcentralus"
+New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 ```
 
 ## <a name="deploy-the-network-topology"></a>Implementación de la topología de red
@@ -77,122 +78,50 @@ Descargue la plantilla de Resource Manager y el archivo de parámetros siguiente
 Use el siguiente comando de PowerShell para implementar la plantilla de Resource Manager y los archivos de parámetros para la configuración de la red:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
 ```
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
-## <a name="create-a-key-vault-and-upload-a-certificate"></a>Creación de un almacén de claves y carga de un certificado
-La plantilla de Resource Manager para el clúster de Service Fabric del siguiente paso está configurada para crear un clúster con certificado seguro. El certificado se utiliza para proteger la comunicación de nodo a nodo del clúster y para administrar el acceso de los usuarios al clúster de Service Fabric. API Management también usa este certificado para tener acceso al servicio de nomenclatura de Service Fabric para detectar servicios. Este paso requiere un certificado en Key Vault para la seguridad del clúster.
-
-El siguiente script crea un almacén de claves en Azure, crea un certificado autofirmado y carga el certificado en el almacén de claves.  Si desea usar un certificado existente, establezca **$CreateSelfSignedCertificate** en "$false" y especifique la ubicación en **$ExistingPfxFilePath**.
-
-```powershell
-$VaultResourceGroupName = 'ryanwikeyvaultgroup'
-$VaultName= 'ryanwikeyvault'
-$Location = "westus"
-$CertificateName = "ryanwicertificate1"
-$Password = 'mypa$$word!'
-$DnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
-$OutputPath = "C:\MyCertificates" # location where you want the .PFX to be stored
-$CreateSelfSignedCertificate = $true
-$ExistingPfxFilePath = 'C:\MyCertificates\ryanwicertificate1.pfx'
-
-$ErrorActionPreference = 'Stop'
-
-Write-Host "Switching context to SubscriptionId $SubscriptionId"
-Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
-
-# New-AzureRmResourceGroup is idempotent as long as the location matches
-Write-Host "Ensuring ResourceGroup $VaultResourceGroupName in $Location"
-New-AzureRmResourceGroup -Name $VaultResourceGroupName -Location $Location -Force | Out-Null
-$resourceId = $null
-
-try
-{
-    $existingKeyVault = Get-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName
-    $resourceId = $existingKeyVault.ResourceId
-
-    Write-Host "Using existing vault $VaultName in $($existingKeyVault.Location)"
-}
-catch
-{
-}
-
-if(!$existingKeyVault)
-{
-    Write-Host "Creating new vault $VaultName in $location"
-    $newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName -Location $Location -EnabledForDeployment
-    $resourceId = $newKeyVault.ResourceId
-}
-
-if($CreateSelfSignedCertificate)
-{
-    $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
-
-    $NewPfxFilePath = Join-Path $OutputPath $($CertificateName+".pfx")
-
-    Write-Host "Creating new self signed certificate at $NewPfxFilePath"
-    
-    ## Changes to PSPKI version 3.5.2 New-SelfSignedCertificate replaced by New-SelfSignedCertificateEx
-    $PspkiVersion = (Get-Module PSPKI).Version
-    if($PSPKIVersion.Major -ieq 3 -And $PspkiVersion.Minor -ieq 2 -And $PspkiVersion.Build -ieq 5) {
-        New-SelfsignedCertificateEx -Subject "CN=$DnsName" -EKU "Server Authentication", "Client authentication" -KeyUsage "KeyEncipherment, DigitalSignature" -Path $NewPfxFilePath -Password $securePassword -Exportable
-    }
-    else {
-        New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName $DnsName | Export-PfxCertificate -FilePath $NewPfxFilePath -Password $securePassword | Out-Null
-    }
-
-    $ExistingPfxFilePath = $NewPfxFilePath
-}
-
-Write-Host "Reading pfx file from $ExistingPfxFilePath"
-$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $Password
-
-$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
-$base64 = [System.Convert]::ToBase64String($bytes)
-
-$jsonBlob = @{
-   data = $base64
-   dataType = 'pfx'
-   password = $Password
-   } | ConvertTo-Json
-
-    $contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
-    $content = [System.Convert]::ToBase64String($contentbytes)
-
-    $secretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
-
-Write-Host "Writing secret to $CertificateName in vault $VaultName"
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertificateName -SecretValue $secretValue
-
-$output = @{};
-$output.SourceVault = $resourceId;
-$output.CertificateURL = $secret.Id;
-$output.CertificateThumbprint = $cert.Thumbprint;
-
-Write-Host "Source vault: " $output.SourceVault
-Write-Host "Certificate URL: " $output.CertificateURL
-Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
-```
-
 ## <a name="deploy-the-service-fabric-cluster"></a>Implementación del clúster de Service Fabric
 Una vez implementados los recursos de red, el siguiente paso es implementar un clúster de Service Fabric a la red virtual, en la subred y el grupo de seguridad de red designados para el clúster de Service Fabric. La implementación de un clúster en una red virtual y subred (implementada anteriormente en este artículo) existentes requiere una plantilla de Resource Manager.  Para más información, vea [Creación de un clúster con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Para esta serie de tutoriales, la plantilla está preconfigurada para usar los nombres de la red virtual, la subred y el grupo de seguridad de red que configuró en un paso anterior.  Descargue la plantilla de Resource Manager y el archivo de parámetros siguientes:
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-Complete los parámetros **clusterName**, **adminUserName**, **adminPassword**, **certificateThumbprint**, **certificateUrlValue** y **sourceVaultValue** vacíos en el archivo *cluster.parameters.json* para la implementación.  Si tiene un certificado existente cargado previamente en un almacén de claves, complete los valores **certificateThumbprint**, **certificateUrlValue** y **sourceVaultValue** para ese certificado.
+Un certificado se utiliza para proteger la comunicación de nodo a nodo del clúster y para administrar el acceso de los usuarios al clúster de Service Fabric. API Management también usa este certificado para tener acceso al servicio de nomenclatura de Service Fabric para detectar servicios. 
 
-Use el siguiente comando de PowerShell para implementar la plantilla de Resource Manager y los archivos de parámetros para crear el clúster de Service Fabric:
+El script siguiente utiliza el cmdlet [AzureRmServiceFabricCluster New](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) para implementar un clúster nuevo en Azure. El cmdlet también crea un almacén de claves en Azure, un certificado autofirmado y un almacén de claves, y carga el certificado en el archivo de certificados de forma local.   
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+# Certificate variables.
+$certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
+$certfolder="c:\mycertificates\"
+
+# Variables for VM admin.
+$adminuser="vmadmin"
+$adminpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+
+# Variables for common values
+$clustername = "mysfcluster"
+$vmsku = "Standard_D2_v2"
+$vaultname = "clusterkeyvault"
+$vaultgroupname="clusterkeyvaultgroup"
+$subname="$clustername.$clusterloc.cloudapp.azure.com"
+
+# Set the number of cluster nodes. Possible values: 1, 3-99
+$clustersize=5 
+
+# Create the Service Fabric cluster.
+New-AzureRmServiceFabricCluster -Name $clustername -ResourceGroupName $groupname -Location $clusterloc `
+-ClusterSize $clustersize -VmUserName $adminuser -VmPassword $adminpwd -CertificateSubjectName $subname `
+-CertificatePassword $certpwd -CertificateOutputFolder $certfolder `
+-OS WindowsServer2016DatacenterwithContainers -VmSku $vmsku -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Conexión al clúster seguro
 Conéctese al clúster mediante el módulo PowerShell de Service Fabric instalado con el SDK de Service Fabric.  En primer lugar, instale el certificado en el almacén personal (Mi) del usuario actual en el equipo.  Ejecute el siguiente comando de PowerShell:
 
 ```powershell
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+$certpwd="q6D7nN%6ck@6" | ConvertTo-SecureString -AsPlainText -Force
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -FilePath C:\mycertificates\mysfcluster20170531104310.pfx `
         -Password $certpwd
@@ -200,7 +129,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
 
 Ahora está listo para conectarse a su clúster seguro.
 
-El módulo PowerShell de **Service Fabric** proporciona muchos cmdlets para administrar clústeres, aplicaciones y servicios de Service Fabric.  Use el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para conectarse al clúster seguro. Los detalles de la huella digital de certificado y del punto de conexión se encuentran en la salida de un paso anterior.
+El módulo PowerShell de **Service Fabric** proporciona muchos cmdlets para administrar clústeres, aplicaciones y servicios de Service Fabric.  Use el cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) para conectarse al clúster seguro. Los detalles de la huella digital de certificado y del punto de conexión se encuentran en el resultado del paso anterior.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
@@ -217,16 +146,13 @@ Get-ServiceFabricClusterHealth
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-En el resto de artículos de esta serie de tutoriales se usa el clúster que se acaba de crear. Si no va a pasar inmediatamente al siguiente artículo, puede eliminar el clúster para evitar incurrir en cargos. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
+En el resto de artículos de esta serie de tutoriales se usa el clúster que se acaba de crear. Si no va a pasar inmediatamente al siguiente artículo, puede ser conveniente eliminar el clúster y el almacén de claves para evitar incurrir en cargos. La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
 
-Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](http://portal.azure.com). Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).  Además, elimine el grupo de recursos que contiene el almacén de claves.
 
 ```powershell
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId "Subcription ID"
-
-$ResourceGroupName = "sfclustertutorialgroup"
-Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
+Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 0decb8918a544114316569720aa5deede692d5f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure
 En este tutorial se muestra cómo realizar varias tareas comunes de ciencia de los datos con la máquina virtual de Linux Data Science. Linux Data Science Virtual Machine (DSVM) es una imagen de máquina virtual disponible en Azure que viene preinstalada con una colección de herramientas usadas normalmente en el análisis de los datos y el aprendizaje automático. Los componentes de software principales se detallan en el tema [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md) . La imagen de máquina virtual permite comenzar a trabajar fácilmente con la ciencia de los datos en cuestión de minutos, sin tener que instalar ni configurar cada una de las herramientas de forma individual. Puede escalar la máquina virtual verticalmente de manera fácil, si es necesario, y detenerla cuando no la use. Así que este recurso es tanto elástico como rentable.
@@ -32,7 +32,8 @@ Antes de poder usar una máquina virtual de Linux Data Science, debe tener lo si
 
 * Una **suscripción de Azure**. Si ya tiene una, consulte [Cree su cuenta gratuita de Azure hoy mismo](https://azure.microsoft.com/free/).
 * Una [**máquina virtual de ciencia de los datos de Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para más información sobre el aprovisionamiento de esta máquina virtual, consulte [Aprovisionamiento de Linux Data Science Virtual Machine](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) instalado en su equipo y abierta una sesión de XFCE. Para más información sobre la instalación y la configuración de un **cliente X2Go**, consulte [Instalación y configuración del cliente X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
+* [X2Go](http://wiki.x2go.org/doku.php) instalado en su equipo y abierta una sesión de XFCE. Para más información sobre la instalación y la configuración de un **cliente X2Go**, consulte [Instalación y configuración del cliente X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* Para una experiencia más fluida de desplazamiento, active o desactive la marca gfx.xrender.enabled en about:config en el explorador FireFox de las máquinas virtuales. [Consulte más información aquí.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere también la posibilidad de alternar *mousewheel.enable_pixel_scrolling* en False. [Consulte las instrucciones aquí.](https://support.mozilla.org/en-US/questions/981140)
 * Una **cuenta de AzureML**. Si aún no tiene una, suscríbase en la [página principal de AzureML](https://studio.azureml.net/). Hay un nivel de uso gratuito para ayudarle a comenzar.
 
 ## <a name="download-the-spambase-dataset"></a>Descarga del conjunto de datos spambase
@@ -406,7 +407,7 @@ Una de las características interesantes de Rattle es la posibilidad de ejecutar
 Cuando haya terminado de crear modelos, seleccione la pestaña **Log** (Registrar) para ver el código R ejecutado por Rattle durante la sesión. Puede seleccionar el botón **Export** (Exportar) para guardarlo.
 
 > [!NOTE]
-> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ...* (Exportar este registro) en el texto del registro.
+> Hay un error en la versión actual de Rattle. Para modificar el script o usarlo para repetir los pasos más adelante, debe insertar un carácter # delante de *Export this log ... * (Exportar este registro) en el texto del registro.
 >
 >
 

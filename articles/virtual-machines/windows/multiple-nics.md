@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 9e84e18c5d6c205d320c6c9c565ce6723d8fa6e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Crear y administrar una máquina virtual con Windows que tiene varias NIC
 En Azure, las máquinas virtuales (VM) pueden tener varias tarjetas de interfaz de red virtual (NIC) conectadas a ellas. Un escenario común es tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se describe cómo crear una máquina virtual con varias NIC conectadas. También obtendrá información sobre cómo agregar o quitar NIC de una máquina virtual existente. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
-
-Para obtener más detalles, incluido cómo crear varias NIC dentro de sus propios scripts de PowerShell, vea la [implementación de máquinas virtuales con varias NIC](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que tiene la [versión de Azure PowerShell más reciente instalada y configurada](/powershell/azure/overview).
@@ -78,7 +76,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Normalmente también se crea un [grupo de seguridad de red](../../virtual-network/virtual-networks-nsg.md) o un [equilibrador de carga](../../load-balancer/load-balancer-overview.md) que ayuden a administrar y distribuir el tráfico entre las distintas máquinas virtuales. En el [artículo más detallado sobre máquinas virtuales con varias NIC](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md) se proporcionan los pasos para crear un grupo de seguridad de red y asignar NIC.
+Normalmente también crea un [grupo de seguridad de red](../../virtual-network/virtual-networks-nsg.md) para filtrar el tráfico de red a la máquina virtual y un [equilibrador de carga](../../load-balancer/load-balancer-overview.md) para distribuir el tráfico entre varias máquinas virtuales.
 
 ### <a name="create-the-virtual-machine"></a>Creación de la máquina virtual
 Comience ahora a compilar la configuración de la máquina virtual. El tamaño de cada máquina virtual tiene un límite en cuanto al número total de NIC que se pueden agregar a una máquina virtual. Para más información, vea [Tamaños de las máquinas virtuales con Windows](sizes.md).

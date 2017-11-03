@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: fd63d53697ccd529c144482202e2fd8c6b184991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28965ec8290c8ab22255f9001cc6c3905dda4b8b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Uso de la identidad del servicio administrada (versión preliminar pública) en App Service y Azure Functions
 
@@ -149,6 +149,9 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 
 
 Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+
+> [!NOTE] 
+> Las variables de entorno se configuran cuando el proceso se inicia por primera vez, por lo que después de habilitar la funcionalidad Managed Service Identity de la aplicación puede que necesite reiniciar la aplicación, o implementar de nuevo el código, antes de que `MSI_ENDPOINT` y `MSI_SECRET` estén disponibles en el código.
 
 ### <a name="rest-protocol-examples"></a>Ejemplos de protocolo de REST
 Una solicitud de ejemplo puede tener el siguiente aspecto:

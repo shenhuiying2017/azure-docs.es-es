@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="performance-metrics"></a>Métricas de rendimiento
 
@@ -40,7 +40,7 @@ Para las máquinas del clúster, considere la posibilidad de recopilar los sigui
 | Disco físico (por disco) |  Bytes de escritura en disco/s |
 | Memoria | MB disponibles |
 | Archivo de paginación | % de uso |
-| Proceso (total) | % de tiempo de procesador |
+| Procesador (total) | % de tiempo de procesador |
 | Proceso (por servicio) | % de tiempo de procesador |
 | Proceso (por servicio) | Id. de proceso |
 | Proceso (por servicio) | Bytes privados |
@@ -48,6 +48,11 @@ Para las máquinas del clúster, considere la posibilidad de recopilar los sigui
 | Proceso (por servicio) | Bytes virtuales |
 | Proceso (por servicio) | Espacio de trabajo |
 | Proceso (por servicio) | Espacio de trabajo privado |
+| Interfaz de red (todas las instancias) | Longitud de la cola de salida |
+| Interfaz de red (todas las instancias) | Paquetes de salida descartados |
+| Interfaz de red (todas las instancias) | Paquetes recibidos descartados |
+| Interfaz de red (todas las instancias) | Paquetes de salida con errores |
+| Interfaz de red (todas las instancias) | Paquetes recibidos con errores |
 
 ## <a name="net-applications-and-services"></a>Aplicaciones y servicios .NET
 

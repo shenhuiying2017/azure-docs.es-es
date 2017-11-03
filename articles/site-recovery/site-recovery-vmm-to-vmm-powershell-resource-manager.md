@@ -12,54 +12,31 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/19/2017
 ms.author: sutalasi
-ms.openlocfilehash: 5a6e00877b0a2b139d5322f610c1901ad76a710f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c978c2e31e775f56824d765491f6d7b73648b8ae
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-powershell-resource-manager"></a>Replicación de máquinas virtuales Hyper-V de nubes VMM en un sitio VMM secundario mediante PowerShell (Resource Manager)
-> [!div class="op_single_selector"]
-> * [Portal de Azure](site-recovery-vmm-to-vmm.md)
-> * [Portal clásico](site-recovery-vmm-to-vmm-classic.md)
-> * [PowerShell: administrador de recursos](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
->
->
 
-Bienvenido a Azure Site Recovery. Utilice este artículo si quiere replicar máquinas virtuales locales de Hyper-V administradas en nubes de System Center Virtual Machine Manager (VMM) en un sitio secundario.
+En este artículo se muestra cómo usar PowerShell para automatizar las tareas comunes que debe realizar al configurar Azure Site Recovery para replicar máquinas virtuales Hyper-V de nubes VMM de System Center a nubes VMM de System Center de un sitio secundario.
 
-En este artículo se muestra cómo usar PowerShell para automatizar las tareas comunes que debe realizar al configurar Azure Site Recovery para replicar máquinas virtuales Hyper-V de nubes VMM de System Center en nubes del mismo tipo del sitio secundario.
 
-El artículo incluye los requisitos previos para el escenario y muestra
-
-* Configuración del almacén de Servicios de recuperación
-* Instalar el proveedor de Azure Site Recovery en los servidores VMM de origen y de destino.
-* Registrar los servidores VMM en el almacén.
-* Configurar la directiva de replicación para la nube VMM. La configuración de replicación de la directiva se aplicará a todas las máquinas virtuales protegidas.
-* Habilitar la protección en las máquinas virtuales.
-* Probar la conmutación por error de máquinas virtuales de manera individual o como parte de un plan de recuperación para garantizar que todo funciona según lo previsto.
-* Realizar una conmutación por error (planeada o no planeada) de máquinas virtuales de manera individual o como parte de un plan de recuperación para garantizar todo funciona según lo previsto.
-
-Si tiene problemas al configurar este escenario, publique sus preguntas en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-> [!NOTE]
-> Azure tiene dos [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md) diferentes para crear y utilizar recursos: Azure Resource Manager y el clásico. Azure también tiene dos portales: el Portal de Azure clásico que admite el modelo de implementación clásico y el Portal de Azure que es compatible con ambos modelos de implementación. Este artículo trata sobre el modelo de implementación del Administrador de recursos.
->
->
 
 ## <a name="on-premises-prerequisites"></a>Requisitos previos locales
 Esto es lo que necesita tener en los sitios locales principal y secundario para implementar este escenario:
 
 | **Requisitos previos** | **Detalles** |
 | --- | --- |
-| **VMM** |Se recomienda implementar un servidor VMM en el sitio principal y otro del mismo tipo en el secundario.<br/><br/> También puede [llevar a cabo una replicación entre nubes en un solo servidor VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Para ello, necesitará, al menos, dos nubes configuradas en el servidor VMM.<br/><br/> Los servidores VMM deben estar ejecutando, como mínimo, System Center 2012 SP1 con las actualizaciones más recientes.<br/><br/> Cada servidor VMM debe tener una o más nubes configuradas y todas las nubes deben tener definido el perfil de capacidad de Hyper-V. <br/><br/>Las nubes deben incluir uno o más grupos de hosts de VMM.<br/><br/>Aprenda a configurar nubes de VMM en [Configuración del tejido de nube de VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric) y [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) (Tutorial: Creación de nubes privadas con System Center 2012 SP1 VMM).<br/><br/> Los servidores VMM deben tener acceso a Internet. |
+| **VMM** |Se recomienda implementar un servidor VMM en el sitio principal y otro del mismo tipo en el secundario.<br/><br/> También puede llevar a cabo una replicación entre nubes en un solo servidor VMM. Para ello, necesitará, al menos, dos nubes configuradas en el servidor VMM.<br/><br/> Los servidores VMM deben estar ejecutando, como mínimo, System Center 2012 SP1 con las actualizaciones más recientes.<br/><br/> Cada servidor VMM debe tener una o más nubes configuradas y todas las nubes deben tener definido el perfil de capacidad de Hyper-V. <br/><br/>Las nubes deben incluir uno o más grupos de hosts de VMM. Los servidores VMM deben tener acceso a Internet. |
 | **Hyper-V** |Los servidores Hyper-V deben estar ejecutando, como mínimo, Windows Server 2012 con el rol Hyper-V y tener instaladas las actualizaciones más recientes.<br/><br/> Un servidor de Hyper-V debe contener una o varias máquinas virtuales.<br/><br/>  Los servidores host de Hyper-V deben estar ubicados en grupos host de las nubes de VMM principal y secundaria.<br/><br/> Si está ejecutando Hyper-V en un clúster en Windows Server 2012 R2, debe instalar la [actualización 2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Si va a ejecutar Hyper-V en un clúster de Windows Server 2012, tenga en cuenta que el agente de clúster no se crea automáticamente si tiene un clúster basado en una dirección IP estática. Tendrá que configurar manualmente el agente de clúster. [Más información](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **Proveedor** |Durante la implementación de Site Recovery, se instala el proveedor de Azure Site Recovery en los servidores VMM. El proveedor se comunica con Site Recovery mediante HTTPS 443 para organizar la replicación. La replicación de datos se produce entre los servidores Hyper-V principal y secundario mediante la conexión LAN o VPN.<br/><br/> El proveedor que se ejecuta en el servidor VMM necesita acceso a estas direcciones URL: *.hypervrecoverymanager.windowsazure.com; *.accesscontrol.windows.net; *.backup.windowsazure.com; *.blob.core.windows.net; *.store.core.windows.net.<br/><br/> Además, hay que permitir tanto la comunicación del firewall entre los servidores VMM y los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) como el protocolo HTTPS (443). |
 
 ### <a name="network-mapping-prerequisites"></a>Requisitos previos de asignación de redes
-La asignación de red se realiza entre las redes de VM de VMM en los servidores VMM principal y secundario con el fin de:
+La asignación de red se realiza entre las redes de máquinas virtuales VMM que se encuentran en los servidores VMM principal y secundario con el fin de realizar lo siguiente:
 
 * Colocar óptimamente las máquinas virtuales de réplica en los hosts de Hyper-V secundarios tras la conmutación por error.
 * Conectar las máquinas virtuales de réplica a las redes VM adecuadas.
@@ -74,7 +51,6 @@ Puede encontrar información sobre cómo configurar redes VMM en los siguientes 
 * [Configuración de redes lógicas en VMM](http://go.microsoft.com/fwlink/p/?LinkId=386307)
 * [Configuración de redes de máquina virtual y puertas de enlace en VMM](http://go.microsoft.com/fwlink/p/?LinkId=386308)
 
-[más información](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) sobre cómo funciona la asignación de red.
 
 ### <a name="powershell-prerequisites"></a>Requisitos previos de PowerShell
 Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para obtener más información sobre cómo configurar PowerShell, lea la [guía para instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](/powershell/azure/overview).
@@ -100,7 +76,7 @@ Para ver sugerencias que puedan ayudarlo a usar los cmdlets —por ejemplo, cóm
 1. Cree un grupo de recursos de Azure Resource Manager si todavía no lo ha hecho.
 
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
-2. Cree un almacén de Servicios de recuperación y guarde el objeto de almacén de ASR creado en una variable (se utilizará más adelante). También puede recuperar el objeto de almacén de ASR tras la creación con el cmdlet Get-AzureRMRecoveryServicesVault:-
+2. Cree un almacén de Recovery Services y guarde el objeto de almacén de Recovery Services en una variable (se utilizará más adelante). Tras la creación, puede recuperar el objeto de almacén mediante el cmdlet Get-AzureRMRecoveryServicesVault:-
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
@@ -155,7 +131,7 @@ Para ver sugerencias que puedan ayudarlo a usar los cmdlets —por ejemplo, cóm
         $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
-    > La nube VMM puede contener hosts Hyper-V que ejecuten versiones distintas de Windows Server (tal y como se mencionó en los requisitos previos de Hyper-V), pero la directiva de replicación es específica de la versión del sistema operativo. Si tiene diferentes hosts que ejecutan diferentes versiones del sistema operativo, cree directivas de replicación independientes para cada tipo de versión del sistema operativo. Por ejemplo, si tiene 5 hosts que se ejecutan en Windows Servers 2012 y 3 en Windows Server 2012 R2, cree 2 directivas de replicación: una para cada tipo de versión del sistema operativo.
+    > La nube VMM puede contener hosts Hyper-V que ejecuten versiones distintas de Windows Server (tal y como se mencionó en los requisitos previos de Hyper-V), pero la directiva de replicación es específica de la versión del sistema operativo. Si tiene diferentes hosts que ejecutan diferentes versiones del sistema operativo, cree directivas de replicación independientes para cada tipo de versión del sistema operativo. Por ejemplo, si tiene cinco hosts que se ejecutan en Windows Server 2012 y tres que se ejecutan en Windows Server 2012 R2, cree dos directivas de replicación; una para cada tipo de versión del sistema operativo.
 
 1. Obtenga el contenedor de protección principal (nube VMM principal) y el de recuperación (nube VMM de recuperación) ejecutando los siguientes comandos:
 
@@ -193,7 +169,7 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
 1. El primer comando obtiene los servidores para el almacén actual de Azure Site Recovery. El comando almacena los servidores de Microsoft Azure Site Recovery en la variable de matriz $Servers.
 
         $Servers = Get-AzureRmSiteRecoveryServer
-2. Con los siguientes comandos se obtiene la red de recuperación del sitio para los servidores VMM de origen y de destino.
+2. Con los siguientes comandos se obtiene la red de Site Recovery de los servidores VMM de origen y de destino.
 
         $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 

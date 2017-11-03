@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: 5d9a5b0dbd0b2a95bbb3cae37aea27908addc3c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca593890b6b030caa0acb9ede90ca24fe136ca0
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Introducción a la supervisión de aplicaciones web de Azure con Application Insights
 
@@ -45,9 +45,9 @@ Las aplicaciones web que se configuran con Application Insights se muestran en l
 
 Use los botones *Habilitar profiler* o *Deshabilitar Profiler* de la hoja Configurar para controlar Profiler en todas las aplicaciones web vinculadas.
 
-
-
 ![Hoja Configurar][linked app services]
+
+A diferencia de las aplicaciones web hospedadas con planes de App Service, las que se hospedan en recursos de *Azure Compute* (por ejemplo, máquinas virtuales, conjuntos de escalado de máquinas virtuales, Service Fabric o Cloud Services) no se administran directamente mediante Azure. En este caso, no hay ninguna aplicación web para vincular y basta con hacer clic para habilitar Profiler en la pantalla.
 
 ## <a name="disable-the-profiler"></a>Deshabilitar Profiler
 Si tiene que detener o reiniciar Profiler para una instancia de App Services, lo encontrará **en el recurso App Service**, en **Trabajos web**. Para eliminarlo, mire en **Extensiones**.

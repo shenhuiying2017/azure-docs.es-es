@@ -1,6 +1,6 @@
 ---
 title: "Introducción a trabajos de base de datos elástica | Microsoft Docs"
-description: "usar trabajos de base de datos elástica"
+description: Utilice los trabajos de Elastic Database para ejecutar scripts de T-SQL que abarcan varias bases de datos.
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b5a77782b64873a753f19863459f9cdfcd70cc
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introducción a Trabajos de base de datos elástica
-Trabajos de base de datos elástica (vista previa) para Base de datos SQL de Azure permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para obtener más información sobre la característica de base de datos elástica, vea la [página de introducción a la característica](sql-database-elastic-jobs-overview.md).
+Trabajos de base de datos elástica (vista previa) para Base de datos SQL de Azure permite ejecutar de forma confiable scripts de T-SQL que abarcan varias bases de datos al tiempo que realizan reintentos automáticos y ofrecen garantías de finalización futura. Para más información sobre la característica de trabajo de Elastic Database, vea [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
 
-Este tema amplía el ejemplo que aparece en [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md). Cuando termine, podrá: crear y administrar trabajos que administran un grupo de bases de datos relacionadas. No es necesario usar las herramientas de escalado elástico para aprovechar las ventajas de los trabajos elásticos.
+Este artículo amplía el ejemplo que aparece en [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md). Cuando termine, habrá aprendido a crear y administrar trabajos que administran un grupo de bases de datos relacionadas. No es necesario usar las herramientas de escalado elástico para aprovechar las ventajas de los trabajos elásticos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Descargue [Introducción al ejemplo de herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creación de un administrador de mapas de particiones con la aplicación de ejemplo
-Aquí se creará un administrador de mapas de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si ya dispone de particiones configuradas con datos particionados en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
+Aquí se crea un administrador del mapa de particiones junto con varias particiones, seguido de la inserción de datos en las particiones. Si ya dispone de particiones configuradas con datos particionados en ellas, puede omitir los pasos siguientes y pasar a la sección siguiente.
 
-1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica** . Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá la siguiente línea de comandos:
+1. Cree y ejecute la aplicación de ejemplo **Introducción a las herramientas de base de datos elástica** . Siga los pasos hasta el paso 7 de la sección [Descarga y ejecución de la aplicación de ejemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Al final del paso 7, verá el siguiente símbolo del sistema:
 
    ![símbolo del sistema](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
@@ -40,7 +40,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 
    ![Confirmación de Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   En este punto, crearemos una colección de base de datos personalizada que refleja todas las bases de datos en el mapa de particiones. Esto nos permitirá crear y ejecutar un trabajo que agrega una nueva tabla entre las particiones.
+   En este punto, creamos una colección de bases de datos personalizada que refleja todas las bases de datos en el mapa de particiones. Así, podemos crear y ejecutar un trabajo que agrega una nueva tabla entre las particiones.
 
 Aquí normalmente se crearía un destino del mapa de particiones, con el cmdlet **New-AzureSqlJobTarget** . Se debe establecer la base de datos de administrador de mapa de particiones como destino de la base de datos y luego especificar el mapa de particiones específico como destino. En lugar de eso, vamos a enumerar todas las bases de datos del servidor y a agregar las bases de datos, excepto la base de datos maestra, a la nueva colección personalizada.
 
@@ -226,7 +226,7 @@ Puede usar este script de PowerShell para ver los detalles de una ejecución de 
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Recuperación de errores dentro de las ejecuciones de tareas de trabajo
-El objeto JobTaskExecution incluye una propiedad para el ciclo de vida de la tarea y una propiedad de mensaje. Si no se realiza correctamente la ejecución de tareas de un trabajo, la propiedad de ciclo de vida se establecerá en *Failed* y la propiedad de mensaje se establecerá en el mensaje de excepción resultante y la pila. Si un trabajo no se realiza correctamente, es importante ver los detalles de las tareas de trabajo que no se realizaron correctamente en un trabajo determinado.
+El objeto JobTaskExecution incluye una propiedad para el ciclo de vida de la tarea y una propiedad de mensaje. Si no se realiza correctamente la ejecución de tareas de un trabajo, la propiedad Lifecycle da se establece en *Failed* y la propiedad Message se establece en el mensaje de excepción resultante y en su pila. Si un trabajo no se realiza correctamente, es importante ver los detalles de las tareas de trabajo que no se realizaron correctamente en un trabajo determinado.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -254,7 +254,7 @@ Trabajos de base de datos elástica admite la creación de directivas de ejecuci
 Actualmente, las directivas de ejecución permiten definir:
 
 * Nombre: identificador de la directiva de ejecución.
-* Tiempo de espera del trabajo: tiempo total antes de que Trabajos de base de datos elástica cancele un trabajo.
+* Tiempo de espera del trabajo: tiempo total antes de que Trabajos de Elastic Database cancele un trabajo.
 * Intervalo de reintento inicial: intervalo de espera antes del primer reintento.
 * Intervalo máximo de reintento: límite de intervalos de reintento que se usan.
 * Coeficiente de retroceso de intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos.  Se usa la siguiente fórmula: (intervalo de reintento inicial) * Math.pow ((coeficiente de retroceso de intervalo), (número de intentos de) - 2).
@@ -297,14 +297,14 @@ Actualizar la directiva de ejecución que se quiere actualizar:
    ```
 
 ## <a name="cancel-a-job"></a>Cancelación de un trabajo
-Trabajos de base de datos elástica admite solicitudes de cancelación de trabajos.  Si Trabajos de base de datos elástica detecta una solicitud de cancelación para un trabajo que está ejecutándose en ese momento, intentará detener el trabajo.
+Trabajos de base de datos elástica admite solicitudes de cancelación de trabajos.  Si Trabajos de Elastic Database detecta una solicitud de cancelación para un trabajo que está ejecutándose en ese momento, intenta detener el trabajo.
 
 Trabajos de base de datos elástica puede realizar una cancelación de dos formas distintas:
 
-1. Cancelación de tareas actualmente en ejecución: si se detecta una cancelación mientras se ejecuta una tarea, se intentará cancelar el aspecto de la tarea que se está ejecutando actualmente.  Por ejemplo: si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intentará cancelar la consulta.
-2. Cancelación de reintentos de tareas: si el subproceso de control detecta una cancelación antes de iniciar una tarea para su ejecución, evitará iniciar la tarea y declarará cancelada la solicitud.
+1. Cancelación de tareas actualmente en ejecución: si se detecta una cancelación mientras se ejecuta una tarea, se intenta cancelar el aspecto de la tarea que se esté ejecutando actualmente.  Por ejemplo, si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intenta cancelar la consulta.
+2. Cancelación de reintentos de tareas: si el subproceso de control detecta una cancelación antes de iniciar una tarea para su ejecución, evita iniciar la tarea y declare cancelada la solicitud.
 
-Si se solicita una cancelación de trabajo para un trabajo primario, se respetará la solicitud de cancelación para el trabajo primario y todos los trabajos secundarios.
+Si se solicita una cancelación de un trabajo para un trabajo primario, se respeta la solicitud de cancelación para el trabajo primario y para todos sus trabajos secundarios.
 
 Para enviar una solicitud de cancelación, use el cmdlet **Stop-AzureSqlJobExecution** y establezca el parámetro **JobExecutionId**.
 
@@ -314,7 +314,7 @@ Para enviar una solicitud de cancelación, use el cmdlet **Stop-AzureSqlJobExecu
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminación de un trabajo por nombre y el historial de trabajos
-Trabajos de base de datos elástica admite la eliminación asincrónica de trabajos. Un trabajo se puede marcar para su eliminación y el sistema eliminará el trabajo y su historial de trabajos una vez completadas todas las ejecuciones de trabajos para ese trabajo. El sistema no cancelará automáticamente las ejecuciones de trabajos activos.  
+Trabajos de base de datos elástica admite la eliminación asincrónica de trabajos. Un trabajo se puede marcar para eliminación y el sistema elimina el trabajo y su historial de trabajos una vez completadas todas las ejecuciones de trabajos para ese trabajo. El sistema no cancela automáticamente las ejecuciones de trabajos activos.  
 
 En su lugar, se debe invocar Stop-AzureSqlJobExecution para cancelar las ejecuciones de trabajos activos.
 
@@ -347,7 +347,7 @@ Establecimiento de las siguientes variables para que reflejen la configuración 
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>Adición de bases de datos a un destino de colección de bases de datos personalizada
-Los destinos de base de datos se pueden asociar a los destinos de colección de bases de datos personalizada para crear un grupo de bases de datos. Cada vez que se crea un trabajo que se destina a una colección de bases de datos personalizada, se expandirá para dirigirse a las bases de datos asociadas al grupo en el momento de ejecución.
+Los destinos de base de datos se pueden asociar a los destinos de colección de bases de datos personalizada para crear un grupo de bases de datos. Cada vez que se crea un trabajo que se destina a una colección de bases de datos personalizada, se expande para dirigirse a las bases de datos asociadas al grupo en el momento de ejecución.
 
 Adición de la base de datos que se quiera a una colección personalizada específica:
 
@@ -369,7 +369,7 @@ Use el cmdlet **Get-AzureSqlJobTarget** para recuperar las bases de datos secund
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Creación de un trabajo para ejecutar un script transversalmente en un destino de colección de bases de datos personalizada
-Use el cmdlet **New-AzureSqlJob** para crear un trabajo en un grupo de bases de datos definido por un destino de la colección de base de datos personalizada. Trabajos de base de datos elástica expande el trabajo en varios trabajos secundarios, cada uno correspondiente a una base de datos asociada al destino de la colección de bases de datos personalizada y garantiza que el script se ejecuta en cada una de las bases de datos. De nuevo, es importante que los scripts sean idempotentes para que sean resistentes a los reintentos.
+Use el cmdlet **New-AzureSqlJob** para crear un trabajo en un grupo de bases de datos definido por un destino de la colección de base de datos personalizada. Trabajos de Elastic Database expande el trabajo en varios trabajos secundarios, cada uno correspondiente a una base de datos asociada al destino de la colección de bases de datos personalizada, y garantiza que el script se ejecuta en cada una de las bases de datos. De nuevo, es importante que los scripts sean idempotentes para que sean resistentes a los reintentos.
 
    ```
     $jobName = "{Job Name}"
@@ -384,7 +384,7 @@ Use el cmdlet **New-AzureSqlJob** para crear un trabajo en un grupo de bases de 
 ## <a name="data-collection-across-databases"></a>Recopilación de datos de una base de datos a otra
 **Trabajos de base de datos elástica** es compatible con la ejecución de una consulta transversal en un grupo de bases de datos y envía los resultados a la tabla de la base de datos especificada. La tabla se puede consultar a posteriori para ver los resultados de la consulta de cada base de datos. Esto ofrece un mecanismo asincrónico para ejecutar una consulta transversalmente en varias bases de datos. Los casos de error, como que una de las bases de datos no esté disponible temporalmente, se controlan automáticamente a través de reintentos.
 
-Se creará automáticamente la tabla de destino especificada si todavía no existe ninguna que coincida con el esquema del conjunto de resultados devuelto. Si la ejecución de un script devuelve varios conjuntos de resultados, Trabajos de base de datos elástica solo enviará el primero a la tabla de destino proporcionada.
+Se crea automáticamente la tabla de destino especificada, si todavía no existe ninguna que coincida con el esquema del conjunto de resultados devuelto. Si la ejecución de un script devuelve varios conjuntos de resultados, Trabajos de Elastic Database solo envía el primero a la tabla de destino proporcionada.
 
 El siguiente script de PowerShell sirve para ejecutar un script que recopile sus resultados en una tabla especificada. Este script presupone que se creó un script T-SQL que genera un único conjunto de resultados y se creó un destino de la colección de bases de datos personalizada.
 

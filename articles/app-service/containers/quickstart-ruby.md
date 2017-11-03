@@ -1,6 +1,6 @@
 ---
-title: "Creación de una aplicación de Ruby con Azure Web Apps en Linux | Microsoft Docs"
-description: Aprenda a crear aplicaciones de Ruby con Azure Web Apps en Linux.
+title: "Creación de una aplicación de Ruby e implementación en App Service en Linux | Microsoft Docs"
+description: Aprenda a crear aplicaciones de Ruby con App Service en Linux.
 keywords: azure app service, linux, oss, ruby
 services: app-service
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 7080a655040918c6cc059023ad3d62389dd6ab71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55ff4dc168ca6f8b2bdbb7c5743515691e8ac92d
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-ruby-app-with-web-apps-on-linux"></a>Creación de una aplicación de Ruby con Web Apps en Linux
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Creación de una aplicación de Ruby en App Service en Linux
 
-[Azure Web Apps](../app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En esta guía de inicio rápido se muestra cómo crear una aplicación de Ruby on Rails básica en la aplicación e implementarla a continuación en Azure como Aplicación web en Linux.
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. En esta guía de inicio rápido se muestra cómo crear una aplicación de Ruby on Rails básica en la aplicación e implementarla a continuación en Azure como Aplicación web en Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 * [Ruby 2.4.1 o superior](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller).
 * [Git](https://git-scm.com/downloads).
-* Una [suscripción de Azure activa](https://azure.microsoft.com/pricing/free-trial/).
+* Una [suscripción de Azure activa](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ Mediante el explorador web, vaya a `http://localhost:3000` para probar la aplica
 ## <a name="modify-app-to-display-welcome-message"></a>Modificación de la aplicación para mostrar el mensaje de bienvenida
 
 Modifique la aplicación para que aparezca en ella un mensaje de bienvenida. En primer lugar, debe configurar una ruta mediante la modificación del archivo *~/workspace/ruby-docs-hello-world/config/routes.rb* para que incluya una ruta denominada `hello`.
-    
+
   ```ruby
   Rails.application.routes.draw do
       #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -170,4 +170,4 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Preguntas más frecuentes sobre Web App on Linux de Azure App Service](app-service-linux-faq.md)
+[Peguntas más frecuentes sobre Azure App Service en Linux](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

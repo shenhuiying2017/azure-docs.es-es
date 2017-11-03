@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa7c0738120ecda8d43669725748585e1ad5a581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Escenario de distribución ramificada de entrada/salida en Durable Functions: ejemplo de copia de seguridad en la nube
 
@@ -97,12 +97,12 @@ Con la implementación se carga el archivo desde el disco y transmite de forma a
 > [!NOTE]
 > Es un ejemplo perfecto de cómo se mueven las operaciones de E/S a una función `activityTrigger`. No solo se puede distribuir el trabajo en muchas máquinas virtuales diferentes, sino que también obtendrá las ventajas de establecer puntos de control del progreso. Si el proceso de host se finaliza por alguna razón, sabrá qué cargas ya se han completado.
 
-## <a name="running-the-sample"></a>Ejecución del ejemplo
+## <a name="run-the-sample"></a>Ejecución del ejemplo
 
-Con las funciones desencadenadas mediante HTTP del ejemplo, puede iniciar la orquestación con la siguiente solicitud HTTP POST.
+Puede iniciar la orquestación mediante el envío de la siguiente solicitud HTTP POST.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -112,7 +112,7 @@ Content-Length: 20
 > [!NOTE]
 > La función `HttpStart` que se está invocando solo funciona con contenido con formato JSON. Por este motivo, se necesita el encabezado `Content-Type: application/json` y se codifica la ruta de acceso de directorio como cadena JSON.
 
-Esto desencadenará el orquestador `E2_BackupSiteContent` pasará la cadena `D:\home\LogFiles` como parámetro. La respuesta proporciona un vínculo para obtener el estado de esta operación de copia de seguridad:
+Esta solicitud HTTP desencadena el orquestador `E2_BackupSiteContent` y pasa la cadena `D:\home\LogFiles` como un parámetro. La respuesta proporciona un vínculo para obtener el estado de esta operación de copia de seguridad:
 
 ```
 HTTP/1.1 202 Accepted
@@ -158,9 +158,7 @@ Esta es la orquestación como archivo único de C# en un proyecto de Visual Stud
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este punto, debe tener un mayor conocimiento de las funcionalidades básicas de orquestación de Durable Functions. Los ejemplos siguientes muestran características y escenarios más avanzados.
+Este ejemplo ha mostrado cómo implementar el modelo de distribución ramificada de salida y entrada. El ejemplo siguiente muestra cómo implementar el modelo [singleton con estado](durable-functions-singletons.md) en una [orquestación eterna](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
 > [Ejecución del ejemplo de singleton con estado](durable-functions-counter.md)
-
-

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -251,6 +251,10 @@ Traffic Manager responde con el nombre DNS del punto de conexión. Para admitir 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>¿Puedo usar el Administrador de tráfico con más de una aplicación web en la misma región?
 
 Normalmente, el Administrador de tráfico se utiliza para dirigir el tráfico a las aplicaciones implementadas en diferentes regiones. Sin embargo, también se puede utilizar en los casos en que una aplicación tenga más de una implementación en la misma región. Los puntos de conexión de Azure de Traffic Manager no permiten que se agregue más de un punto de conexión de aplicación web de la misma región de Azure al mismo perfil de Traffic Manager.
+
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>¿Cómo muevo los puntos de conexión de Azure de mi perfil de Traffic Manager a un grupo de recursos diferente?
+
+El seguimiento de los puntos de conexión de Azure que están asociados a un perfil de Traffic Manager se realiza mediante sus identificadores de recurso. Cuando un recurso de Azure que se usa como punto de conexión (por ejemplo, una dirección IP pública, un servicio en la nube clásico, una aplicación web u otro perfil de Traffic Manager usado de forma anidada) se mueve a otro grupo de recursos, su identificador de recurso cambia. Actualmente, en este caso, debe actualizar el perfil de Traffic Manager. Para ello, debe eliminar primero los puntos de conexión y, después, volver a agregarlos al perfil. 
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 

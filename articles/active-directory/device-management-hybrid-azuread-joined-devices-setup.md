@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43d6bcd62690fe41599888b06ee9828c8e40fc0
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -294,8 +294,7 @@ La definición le ayuda a comprobar si los valores están presentes o si debe cr
 
 En la notificación anterior,
 
-- `$<domain>` corresponde a la dirección URL del servicio AD FS.
-- `<verified-domain-name>` corresponde a un marcador de posición que se debe reemplazar con uno de los nombres de dominio comprobados en Azure AD.
+- `<verified-domain-name>` corresponde a un marcador de posición que se debe reemplazar con uno de los nombres de dominio comprobados en Azure AD. Por ejemplo, Value = "http://contoso.com/adfs/services/trust/"
 
 
 

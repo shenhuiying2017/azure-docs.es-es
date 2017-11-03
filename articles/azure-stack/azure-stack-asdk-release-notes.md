@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/13/2017
 ms.author: helaw
-ms.openlocfilehash: b3f8768b612f476485cb45cfc47b8b7ab0f00e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5ee2f8164d13e61f9a43abcbda729298f2168518
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión de Azure Stack Development Kit
 
 *Se aplica a: Azure Stack Development Kit*
 
-Estas notas de la versión proporcionan información sobre las nuevas características y los problemas conocidos en el kit de desarrollo de Azure Stack.  Si no está seguro de qué versión se está ejecutando, puede usar el [portal para comprobar](azure-stack-updates.md#determine-the-current-version).
+Estas notas de la versión proporcionan información sobre las nuevas características y los problemas conocidos en el kit de desarrollo de Azure Stack. Si no está seguro de qué versión se está ejecutando, puede usar el [portal de administración](azure-stack-updates.md#determine-the-current-version).
 
 ## <a name="release-build-201709283"></a>Compilación de versión 20170928.3
 
@@ -32,16 +32,12 @@ Estas notas de la versión proporcionan información sobre las nuevas caracterí
 
 #### <a name="powershell"></a>PowerShell
 
-Azure PowerShell 1.2.11 aún no está disponible, pero está realizando el seguimiento para una versión posterior a lo largo de esta semana. Hasta ese momento, tenga en cuenta lo siguiente:
-* Los proveedores de recursos de MYSQL Adapter, SQL Adapter y App Service son dependientes de PowerShell 1.2.11. Por lo tanto, se retrasan hasta que la nueva versión de Azure PowerShell esté disponible.
-* En la documentación, se hace referencia a Azure PowerShell 1.2.11, aunque no esté disponible.
-* AzureStack-Tools sigue haciendo referencia a Azure PowerShell 1.2.10 y permanecerá de este modo hasta que la versión 1.2.11 esté disponible.
-* Azure PS 1.2.10 todavía puede utilizarse con el kit de desarrollo para varias operaciones. Necesitará reemplazarlo cuando Azure PS 1.2.11 esté disponible.
-
+- La versión del módulo de PowerShell AzureRM 1.2.11 incluye una lista de los últimos cambios. Para información sobre cómo actualizar la versión 1.2.10, consulte la guía de migración en [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
 
 
 #### <a name="deployment"></a>Implementación
 * Debe especificar un servidor de hora mediante una dirección IP durante la implementación.  
+
 
 #### <a name="portal"></a>Portal
 * Puede ver un panel en blanco en el portal.  Para recuperar el panel, seleccione el icono de engranaje en la esquina superior derecha del portal y seleccione "Restaurar configuración predeterminada".

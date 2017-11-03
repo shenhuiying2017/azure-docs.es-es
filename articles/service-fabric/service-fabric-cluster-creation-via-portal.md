@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,8 @@ Un clúster seguro es un clúster que impide el acceso no autorizado a operacion
 
 Los conceptos son los mismos para crear clústeres seguros, tanto si se trata de clústeres de Linux como de Windows. Para más información y scripts de aplicaciones auxiliares para crear clústeres seguros de Linux, consulte [Creación de clústeres seguros en Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Los parámetros obtenidos por el script de la aplicación auxiliar pueden especificarse en el portal como se describe en la sección [Creación de un clúster en Azure Portal](#create-cluster-portal).
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="configure-key-vault"></a>Configuración de Key Vault 
+### <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 En esta guía se usa [Azure PowerShell][azure-powershell]. Al iniciar una nueva sesión de PowerShell, inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
 
 Inicie sesión en su cuenta de Azure:
@@ -58,7 +59,7 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="set-up-key-vault"></a>Configuración del Almacén de claves
+### <a name="set-up-key-vault"></a>Configuración del Almacén de claves
 Esta parte de la guía le lleva por la creación de un Almacén de claves para un clúster de Service Fabric de Azure y para aplicaciones de Service Fabric. Para obtener una guía completa sobre Key Vault, consulte [Introducción a Key Vault][key-vault-get-started].
 
 Service Fabric usa certificados X.509 para proteger un clúster. El Almacén de claves de Azure se usa para administrar certificados para clústeres de Service Fabric en Azure. Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados del Almacén de claves y los instala en las máquinas virtuales del clúster.
@@ -67,7 +68,7 @@ En el diagrama siguiente se ilustra la relación entre el Almacén de claves, un
 
 ![Instalación del certificado][cluster-security-cert-installation]
 
-### <a name="create-a-resource-group"></a>Creación de un grupo de recursos
+#### <a name="create-a-resource-group"></a>Creación de un grupo de recursos
 El primer paso es crear un nuevo grupo de recursos específicamente para el Almacén de claves. Se recomienda colocar el Almacén de claves en su propio grupo de recursos, así puede quitar los grupos de recursos de almacenamiento y de proceso, como el grupo de recursos que tiene el clúster de Service Fabric, sin perder sus claves y secretos. El grupo de recursos que tiene el Almacén de claves debe estar en la misma región que el clúster que lo usa.
 
 ```powershell
@@ -83,7 +84,7 @@ El primer paso es crear un nuevo grupo de recursos específicamente para el Alma
 
 ```
 
-### <a name="create-key-vault"></a>Create Key Vault
+#### <a name="create-key-vault"></a>Create Key Vault
 Cree un Almacén de claves en el nuevo grupo de recursos. El Almacén de claves **debe estar habilitado para implementación** de forma que el proveedor de recursos de Service Fabric pueda recibir de él certificados e instalarlos en nodos del clúster:
 
 ```powershell
@@ -124,10 +125,10 @@ Si tiene un Almacén de claves existente, puede habilitarlo para implementación
 ```
 
 
-## <a name="add-certificates-to-key-vault"></a>Adición de certificados al Almacén de claves
+### <a name="add-certificates-to-key-vault"></a>Adición de certificados al Almacén de claves
 Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para obtener más información sobre el modo en que se usan los certificados en Service Fabric, consulte los [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
 
-### <a name="cluster-and-server-certificate-required"></a>Certificado de clúster y servidor (obligatorio)
+#### <a name="cluster-and-server-certificate-required"></a>Certificado de clúster y servidor (obligatorio)
 Este certificado es necesario para proteger un clúster e impedir el acceso no autorizado. La seguridad adopta dos formas:
 
 * **Autenticación del clúster:** se autentica la comunicación de nodo a nodo para la federación del clúster. Solo los nodos que pueden probar su identidad con este certificado pueden unirse al clúster.
@@ -139,7 +140,7 @@ Para servir a estos propósitos, el certificado debe cumplir los siguientes requ
 * El certificado debe crearse para el intercambio de claves, que se puedan exportar a un archivo Personal Information Exchange (.pfx).
 * El nombre de sujeto del certificado debe coincidir con el nombre del dominio usado para acceder al clúster de Service Fabric. Este es un requisito para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio `.cloudapp.azure.com` . Adquiera un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado que se usó para el clúster.
 
-### <a name="client-authentication-certificates"></a>Certificados de autenticación de cliente
+#### <a name="client-authentication-certificates"></a>Certificados de autenticación de cliente
 Los certificados de cliente adicionales autentican a los administradores en las tareas de administración del clúster. Service Fabric tiene dos niveles de acceso: **administrador** y **usuario de solo lectura**. Se debe usar como mínimo un certificado para el acceso administrativo. Para accesos de nivel de usuario adicionales, se debe proporcionar un certificado diferente. Para obtener más información sobre los roles de acceso, consulte [Control de acceso basado en roles para clientes de Service Fabric][service-fabric-cluster-security-roles].
 
 No es necesario cargar los certificados de autenticación de cliente en Key Vault para trabajar con Service Fabric. Estos certificados solo se deben proporcionar a los usuarios que están autorizados para la administración del clúster. 
@@ -149,7 +150,7 @@ No es necesario cargar los certificados de autenticación de cliente en Key Vaul
 > 
 > 
 
-### <a name="application-certificates-optional"></a>Certificados de aplicación (opcionales)
+#### <a name="application-certificates-optional"></a>Certificados de aplicación (opcionales)
 Se puede instalar un número cualquiera de certificados adicionales en un clúster para proteger la aplicación. Antes de crear el clúster, tenga en cuenta los escenarios de seguridad de las aplicaciones que requieren que se instale un certificado en los nodos, por ejemplo:
 
 * Cifrado y descifrado de los valores de configuración de aplicación
@@ -157,7 +158,7 @@ Se puede instalar un número cualquiera de certificados adicionales en un clúst
 
 No se pueden configurar certificados de la aplicación al crear un clúster mediante el Portal de Azure. Para configurar certificados de aplicación en el momento de configuración del clúster, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm]. También puede agregar certificados de aplicación al clúster después de que se ha creado.
 
-### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Formato de certificados para el uso del proveedor de recursos de Azure
+#### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Formato de certificados para el uso del proveedor de recursos de Azure
 Los archivos de clave privada (.pfx) se pueden agregar y usar directamente mediante el Almacén de claves. Sin embargo, el proveedor de recursos de Azure requiere que las claves se almacenen en un formato JSON especial que incluye el .pfx como una cadena codificada con base-64 y la contraseña de clave privada. Para hacer frente a estos requisitos, las claves deben estar colocadas en una cadena JSON y luego almacenarse como *secretos* en el Almacén de claves.
 
 Para facilitar este proceso, hay un módulo de PowerShell [disponible en GitHub][service-fabric-rp-helpers]. Siga estos pasos para utilizar el módulo:

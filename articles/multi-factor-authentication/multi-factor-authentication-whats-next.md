@@ -3,25 +3,29 @@ title: "Configuración de Azure MFA | Microsoft Docs"
 description: "Esta es la página de Azure Multi-Factor Authentication que describe los pasos siguientes a realizar con MFA.  Esto incluye informes, alertas de fraude, omisión por única vez, mensajes de voz personalizados, almacenamiento en caché, direcciones IP de confianza y contraseñas de aplicación."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2017
-ms.author: kgremban
-ms.openlocfilehash: a470a8bc70365a1891fc57efc6d2d4391162fd17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/02/2017
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 65a149b0d291bc650e0937c7ef3f90600f54c669
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
-Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora que ya está preparado y con todo funcionando.  Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication.  No todas estas características están disponibles en todas las versiones de Azure Multi-Factor Authentication.
+# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configuración de Azure Multi-Factor Authentication (versión preliminar pública)
+
+Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora que ya está preparado y con todo funcionando.  Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication.  No todas estas características están disponibles en todas las [versiones de Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
+
+>[!NOTE]
+>Esta configuración es una versión preliminar pública en Azure Portal. Para documentación sobre cómo administrar la configuración Azure Multi-Factor Authentication en el portal web, consulte [Configuración de Azure Multi-Factor Authentication](multi-factor-authentication-whats-next-pfweb.md).
 
 | Característica | Descripción | 
 |:--- |:--- |
@@ -34,88 +38,61 @@ Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora
 | [Recordar la autenticación multifactor para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA. |
 | [Métodos de verificación seleccionables](#selectable-verification-methods) |Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen. |
 
-## <a name="access-the-azure-mfa-management-portal"></a>Acceso al Portal de administración de Azure MFA
-
-Las características que se tratan en este artículo están configuradas en el Portal de administración de Azure Multi-Factor Authentication. Hay dos formas de acceder al Portal de administración de MFA a través del Portal de Azure clásico. La primera es mediante la administración de un proveedor de Multi-Factor Auth. La segunda es mediante la configuración del servicio MFA. 
-
-### <a name="use-an-auth-provider"></a>Uso de un proveedor de autenticación
-
-Si se usa un proveedor de Multi-Factor Auth para MFA basada en el consumo, utilice este método para acceder al portal de administración.
-
-Para acceder al Portal de administración de MFA a través de un proveedor de Azure Multi-Factor Authentication, inicie sesión en el Portal de Azure clásico como administrador y seleccione la opción Active Directory. Haga clic en la pestaña **Proveedores de autenticación multifactor**, seleccione el directorio y haga clic en el botón **Administrar** en la parte inferior.
-
-### <a name="use-the-mfa-service-settings-page"></a>Uso de la página de configuración del servicio MFA 
-
-Si tiene un proveedor de Multi-Factor Auth o una licencia de Azure MFA, Azure AD Premium, o Enterprise Mobility + Security, utilice este método para tener acceso a la página de configuración del servicio MFA.
-
-Para acceder al Portal de administración de MFA a través de la página de configuración del servicio MFA, inicie sesión en el Portal de Azure clásico como administrador y seleccione la opción Active Directory. Haga clic en el directorio y, a continuación, haga clic en la pestaña **Configurar** . En la sección de autenticación multifactor, seleccione **Administrar configuración del servicio**. En la parte inferior de la página Configuración del servicio MFA, haga clic en el vínculo **Ir al portal** .
-
-
 ## <a name="fraud-alert"></a>Alerta de fraude
 Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de acceso a sus recursos.  Los usuarios pueden informar del fraude con la aplicación móvil o a través de su teléfono.
 
-### <a name="set-up-fraud-alert"></a>Configuración de la alerta de fraude
-1. Desplácese hasta el Portal de administración de MFA según las instrucciones que aparecen en la parte superior de esta página.
-2. En el Portal de administración de Azure Multi-Factor Authentication, haga clic en **Configuración** en la sección Configurar.
-3. En la sección Alerta de fraude de la página Configuración, active la casilla **Permitir a los usuarios enviar alertas de fraude**.
-4. Seleccione **Guardar** para aplicar los cambios. 
+### <a name="turn-on-fraud-alert"></a>Activación de la alerta de fraude
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
+2. Vaya a **Azure Active Directory** > **MFA Server** (Servidor MFA) > **Alerta de fraude**.
+
+   ![Alerta de fraude](./media/multi-factor-authentication-whats-next/fraudalert.png)
+
+3. Cambie **Permitir a los usuarios enviar alertas de fraude** a **Activado**.
+4. Seleccione **Guardar**.
 
 ### <a name="configuration-options"></a>Opciones de configuración
 
 - **Bloquear usuario al notificarse fraudes**: si se informa de que un usuario ha cometido un fraude, se bloquea su cuenta.
-- **Código para notificar fraudes durante el saludo inicial**: los usuarios normalmente presionan # para confirmar la verificación en dos pasos. Si desean notificar un fraude, especifican un código antes de presionar #. De manera predeterminada, dicho código es **0**, pero se puede personalizar.
+- **Código para notificar fraudes durante el saludo inicial**: cuando los usuarios reciben una llamada telefónica al realizar la comprobación de dos pasos, normalmente presionan # para confirmar el inicio de sesión. Si desean notificar un fraude, especifican un código antes de presionar #. De manera predeterminada, dicho código es **0**, pero se puede personalizar.
 
 > [!NOTE]
 > El saludo predeterminado de Microsoft indica a los usuarios que presionen 0# para enviar una alerta de fraude. Si quiere usar un código distinto de 0, deberá grabar y cargar sus propio saludo personalizado con las instrucciones apropiadas.
 
-![Opciones de alerta de fraude (captura de pantalla)](./media/multi-factor-authentication-whats-next/fraud.png)
-
-### <a name="how-users-report-fraud"></a>Cómo notifican un fraude los usuarios 
-Una alerta de fraude se puede notificar de dos maneras.  Ya sea a través de la aplicación móvil o del teléfono.  
-
-#### <a name="report-fraud-with-the-mobile-app"></a>Notificación de fraude con la aplicación móvil
-1. Cuando se envíe una comprobación a su teléfono, selecciónela para abrir la aplicación Microsoft Authenticator.
-2. Seleccione **Denegar** en la notificación. 
-3. Haga clic en **Notificar fraude**.
-4. Cierre la aplicación.
-
-#### <a name="report-fraud-with-a-phone"></a>Notificación de fraude con un teléfono
-1. Cuando una llamada de comprobación llegue a su teléfono, contéstela.  
-2. Para notificar un fraude, especifique su código (el valor predeterminado es 0) y, después, en el signo #. Se le notificará que se ha enviado una alerta de fraude.
-3. Finalice la llamada.
-
 ### <a name="view-fraud-reports"></a>Visualización de notificaciones de fraude
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En la parte izquierda, seleccione Active Directory.
-3. En la parte superior, seleccione **Proveedores de autenticación multifactor**. Aparecerá una lista de los proveedores de Multi-Factor Authentication.
-4. Seleccione el proveedor de Multi-Factor Authentication y haga clic en **Administrar** en la parte inferior de la página. Se abrirá el Portal de administración de Azure Multi-Factor Authentication.
-5. En el Portal de administración de Azure Multi-Factor Authentication, en Ver un informe, haga clic en **Alerta de fraude**.
-6. Especifique el intervalo de fechas que desea ver en el informe. También puede especificar los nombres de usuario, los números de teléfono y el estado del usuario.
-7. Haga clic en **Ejecutar**. Aparecerá un informe de las alertas de fraude. Haga clic en **Exportar a CSV** si desea exportar el informe.
+2. En la parte izquierda, seleccione **Active Directory**.
+3. Seleccione el directorio que desee administrar. 
+4. Seleccione **Configurar**.
+5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
+6. En la parte inferior de la página Configuración del servicio, seleccione **Ir al portal**.
+7. En el Portal de administración de Azure Multi-Factor Authentication, en Ver un informe, haga clic en **Alerta de fraude**.
+8. Especifique el intervalo de fechas que desea ver en el informe. También puede especificar los nombres de usuario, los números de teléfono y el estado del usuario.
+9. Haga clic en **Ejecutar**. Aparecerá un informe de las alertas de fraude. Haga clic en **Exportar a CSV** si desea exportar el informe.
 
 ## <a name="one-time-bypass"></a>Omisión por única vez
 Una omisión por única vez permite a un usuario autenticarse una sola vez y, por consiguiente, no realizar la verificación en dos pasos. La omisión es temporal y expira una vez que ha pasado el número especificado de segundos. En aquellas situaciones en las que la aplicación móvil o el teléfono no reciben una notificación o una llamada de teléfono, puede habilitar una omisión por única vez para que el usuario pueda acceder al recurso deseado.
 
 ### <a name="create-a-one-time-bypass"></a>Creación de una omisión por única vez
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Desplácese hasta el Portal de administración de MFA según las instrucciones que aparecen en la parte superior de esta página.
-3. En el Portal de administración de Azure Multi-Factor Authentication, si ve el nombre del inquilino o del proveedor de Azure MFA a la izquierda con un signo **+** al lado, haga clic en **+** para ver los diferentes grupos de aplicaciones de servidor MFA y el grupo predeterminado de Azure. Seleccione el grupo adecuado.
-4. En Administración de usuarios, seleccione **Omisión por única vez**.
-5. En la página Omisión por única vez, haga clic en **Nueva omisión por única vez**.
 
-  ![Nube](./media/multi-factor-authentication-whats-next/create1.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
+2. Vaya a **Azure Active Directory** > **MFA Server** (Servidor MFA) > **Omisión por única vez**.
 
-6. Escriba el nombre de usuario, el número de segundos que durará la omisión y el motivo de esta. Haga clic en **Omitir**.
-7. El límite de tiempo entra en vigor inmediatamente, por lo que es preciso que el usuario inicie sesión antes de que expire la omisión por única vez. 
+   ![Omisión por única vez](./media/multi-factor-authentication-whats-next/onetimebypass.png)
+3. Seleccione **Agregar**.
+4. Si es necesario, seleccione el grupo de replicación para esta omisión.
+5. Escriba el nombre de usuario (tipo username@domain.com), el número de segundos que durará la omisión y el motivo de esta. 
+6. Seleccione **Agregar**. El límite de tiempo entra en vigor inmediatamente, por lo que es preciso que el usuario inicie sesión antes de que expire la omisión por única vez. 
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualización del informe de omisión por única vez
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En la parte izquierda, seleccione Active Directory.
-3. En la parte superior, seleccione **Proveedores de autenticación multifactor**. Aparecerá una lista de los proveedores de Multi-Factor Authentication.
-4. Seleccione el proveedor de Multi-Factor Authentication y haga clic en **Administrar** en la parte inferior de la página. Se abrirá el Portal de administración de Azure Multi-Factor Authentication.
-5. En el Portal de administración de Azure Multi-Factor Authentication, a la izquierda, en Ver un informe haga clic en **Omisión por única vez**.
-6. Especifique el intervalo de fechas que desea ver en el informe. También puede especificar los nombres de usuario, los números de teléfono y el estado del usuario.
-7. Haga clic en **Ejecutar**. Aparecerá un informe de las omisiones. Haga clic en **Exportar a CSV** si desea exportar el informe.
+2. En la parte izquierda, seleccione **Active Directory**.
+3. Seleccione el directorio que desee administrar. 
+4. Seleccione **Configurar**.
+5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
+6. En la parte inferior de la página Configuración del servicio, seleccione **Ir al portal**.
+7. En el Portal de administración de Azure Multi-Factor Authentication, en Ver un informe, haga clic en **Omisión por única vez**.
+8. Especifique el intervalo de fechas que desea ver en el informe. También puede especificar los nombres de usuario, los números de teléfono y el estado del usuario.
+9. Haga clic en **Ejecutar**. Aparecerá un informe de las omisiones. Haga clic en **Exportar a CSV** si desea exportar el informe.
 
 ## <a name="custom-voice-messages"></a>Mensajes de voz personalizados
 Los mensajes de voz personalizados le permiten utilizar sus propias grabaciones o saludos para la verificación en dos pasos. Pueden utilizarse además o reemplazar a las grabaciones de Microsoft.
@@ -128,34 +105,15 @@ Antes de comenzar tenga en cuenta lo siguiente:
 
 ### <a name="set-up-a-custom-message"></a>Configuración de un mensaje personalizado
 
-La creación de mensajes personalizados consta de dos partes. En primer lugar, se carga el mensaje y, después, se activa para los usuarios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
+2. Vaya a **Azure Active Directory** > **MFA Server** (Servidor MFA) > **Configuración de la llamada telefónica**.
 
-Para cargar un mensaje personalizado:
+   ![Configuración de la llamada telefónica](./media/multi-factor-authentication-whats-next/phonecallsettings.png)
 
-1. Cree un mensaje de voz personalizado mediante uno de los formatos de archivo compatibles.
-2. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-3. Desplácese hasta el Portal de administración de MFA según las instrucciones que aparecen en la parte superior de esta página.
-4. En el Portal de administración de Azure Multi-Factor Authentication, haga clic en **Mensajes de voz** en la sección Configurar.
-5. En la página Configurar: mensajes de voz, haga clic en **Nuevo mensaje de voz**.
-   ![Nube](./media/multi-factor-authentication-whats-next/custom1.png)
-6. En la página Configurar: Nuevos mensajes de voz, haga clic en **Administrar archivos de sonido**.
-   ![Nube](./media/multi-factor-authentication-whats-next/custom2.png)
-7. En la página Configurar: Archivos de sonido, haga clic en **Cargar archivo de sonido**.
-   ![Nube](./media/multi-factor-authentication-whats-next/custom3.png)
-8. En la página Configurar: Cargar archivo de sonido, haga clic en **Examinar** y navegue hasta el mensaje de voz; luego haga clic en **Abrir**.
-9. Agregue una descripción y haga clic en **Cargar**.
-10. Cuando se complete, verá un mensaje que confirma que se ha cargado correctamente el archivo.
-
-Para activar el mensaje para los usuarios:
-
-1. A la izquierda, haga clic en **Mensajes de voz**.
-2. En la sección Mensajes de voz, haga clic en **Nuevo mensaje de voz**.
-3. En la lista desplegable Idioma, seleccione un idioma.
-4. Si este mensaje es para una aplicación específica, especifíquela en el cuadro aplicación.
-5. En la lista desplegable Tipo de mensaje, seleccione el tipo de mensaje al que va a reemplazar el nuevo mensaje personalizado.
-6. En la lista desplegable Archivo de sonido, seleccione el archivo de sonido que cargó en la primera parte.
-7. Haga clic en **Crear**. Un mensaje confirmará que ha creado correctamente un mensaje de voz.
-    ![Nube](./media/multi-factor-authentication-whats-next/custom5.png)</center>
+3. Seleccione **Agregar saludo**.
+4. Elija el tipo de saludo y el idioma.
+5. Seleccione un archivo de sonido. mp3 o .wav para cargar.
+6. Seleccione **Agregar**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Almacenamiento en caché en Azure Multi-Factor Authentication
 El almacenamiento en caché permite establecer un período específico para que los intentos de autenticación siguientes que se realicen en dicho período tengan de forma automática un resultado satisfactorio. Se utiliza principalmente cuando sistemas locales, como VPN, envían varias solicitudes de comprobación mientras la primera solicitud aún está en curso. Esto permite que las solicitudes subsiguientes se realicen correctamente de forma automática después de que el usuario lleva a cabo correctamente la primera comprobación en curso. 
@@ -163,13 +121,16 @@ El almacenamiento en caché permite establecer un período específico para que 
 El almacenamiento en caché no está concebido para usarse en los inicios de sesión en Azure AD.
 
 ### <a name="set-up-caching"></a>Configuración del almacenamiento en caché 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Desplácese hasta el Portal de administración de MFA según las instrucciones que aparecen en la parte superior de esta página.
-3. En el Portal de administración de Azure Multi-Factor Authentication, haga clic en **Almacenamiento en caché** en la sección Configurar.
-4. En la página Configure caching (Configurar almacenamiento en caché), haga clic en **Nueva caché**.
-5. Seleccione el tipo de caché y los segundos en caché. Haga clic en **Crear**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
+2. Vaya a **Azure Active Directory** > **MFA Server** (Servidor MFA) > **Reglas de caché**.
 
-<center>![Nube](./media/multi-factor-authentication-whats-next/cache.png)</center>
+   ![Reglas de caché](./media/multi-factor-authentication-whats-next/cachingrules.png)
+
+4. Seleccione **Agregar**.
+5. Seleccione el tipo de caché en la lista desplegable y especifique el número máximo de segundos en caché. 
+6. Si es necesario, seleccione un tipo de autenticación y especifique una aplicación. 
+7. Seleccione **Agregar**.
+
 
 ## <a name="trusted-ips"></a>IP de confianza
 IP de confianza es una característica de Azure MFA que los administradores de un inquilino administrado o federado pueden usar para omitir la verificación en dos pasos de los usuarios que inicien sesión desde la intranet local de la empresa. Esta característica está disponible con la versión completa de Azure Multi-Factor Authentication, no la versión gratuita para administradores. Para más información sobre cómo obtener la versión completa de Azure Multi-Factor Authentication, consulte [Azure Multi-Factor Authentication](multi-factor-authentication.md).
@@ -193,13 +154,16 @@ Independientemente de que IP de confianza esté habilitado, se requiere la verif
 
 ### <a name="to-enable-trusted-ips"></a>Para habilitar IP de confianza
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Navegue a la página MFA Service Settings (Configuración del servicio MFA) como ha indicado en las instrucciones del principio de este artículo.
-3. En la página Configuración del servicio, en IP de confianza, hay dos opciones:
+2. En la parte izquierda, seleccione **Active Directory**.
+3. Seleccione el directorio que desee administrar. 
+4. Seleccione **Configurar**.
+5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
+6. En la página Configuración del servicio, en IP de confianza, hay dos opciones:
    
    * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS.
    * **Para solicitudes de un intervalo de IP públicas específico**: escriba las direcciones IP en el cuadros de texto proporcionado y use para ello la notación CIDR. Por ejemplo: xxx.xxx.xxx.0/24 para direcciones IP en el intervalo de xxx.xxx.xxx.1 – xxx.xxx.xxx.254, o xxx.xxx.xxx.xxx/32 para una única dirección IP. Puede especificar hasta 50 intervalos de direcciones IP. Los usuarios que inician sesión desde estas direcciones IP omiten la comprobación en dos pasos.
-4. Haga clic en **Guardar**.
-5. Una vez que se hayan aplicado las actualizaciones, haga clic en **Cerrar**.
+7. Haga clic en **Guardar**.
+8. Una vez que se hayan aplicado las actualizaciones, haga clic en **Cerrar**.
 
 ![IP de confianza](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -255,8 +219,11 @@ Azure AD admite la federación (inicio de sesión único) con Active Directory D
 De forma predeterminada, los usuarios no pueden crear contraseñas de aplicación. Esta característica debe habilitarse. Para que los usuarios tengan la posibilidad de crear contraseñas de aplicación, use el procedimiento siguiente:
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Navegue a la página MFA Service Settings (Configuración del servicio MFA) como ha indicado en las instrucciones del principio de este artículo.
-3. Seleccione el botón de radio que hay junto a **Allow users to create app passwords to sign into non-browser apps** (Permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones que no son de explorador).
+2. En la parte izquierda, seleccione **Active Directory**.
+3. Seleccione el directorio que desee administrar. 
+4. Seleccione **Configurar**.
+5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
+6. Seleccione el botón de radio que hay junto a **Allow users to create app passwords to sign into non-browser apps** (Permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones que no son de explorador).
 
 ![Crear contraseñas de aplicación](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
@@ -283,12 +250,15 @@ Por tanto, recordar MFA en dispositivos de confianza reduce el número de autent
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Habilitación del recuerdo de la autenticación multifactor
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Navegue a la página MFA Service Settings (Configuración del servicio MFA) como ha indicado en las instrucciones del principio de este artículo.
-3. En la página Configuración del servicio, en la sección para administrar la configuración de dispositivos de usuario, active la casilla **Permitir que los usuarios recuerden la autenticación multifactor en dispositivos de confianza**.
+2. En la parte izquierda, seleccione **Active Directory**.
+3. Seleccione el directorio que desee administrar. 
+4. Seleccione **Configurar**.
+5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
+6. En la página Configuración del servicio, en la sección para administrar la configuración de dispositivos de usuario, active la casilla **Permitir que los usuarios recuerden la autenticación multifactor en dispositivos de confianza**.
    ![Recordar dispositivos](./media/multi-factor-authentication-whats-next/remember.png)
-4. Establezca el número de días que desea permitir que los dispositivos de confianza omitan la verificación en dos pasos. El valor predeterminado es 14 días.
-5. Haga clic en **Guardar**.
-6. Haga clic en **Cerrar**.
+7. Establezca el número de días que desea permitir que los dispositivos de confianza omitan la verificación en dos pasos. El valor predeterminado es 14 días.
+8. Haga clic en **Guardar**.
+9. Haga clic en **Cerrar**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marca de un dispositivo como de confianza
 
@@ -310,9 +280,12 @@ Cuando los usuarios inscriben sus cuentas para MFA, deciden su método de compro
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Habilitación/deshabilitación de los métodos de autenticación
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Navegue a la página MFA Service Settings (Configuración del servicio MFA) como ha indicado en las instrucciones del principio de este artículo.
-3. En la página Configuración del servicio, en Opciones de comprobación, active o desactive las opciones que desee usar.
+2. En la parte izquierda, seleccione **Active Directory**.
+3. Seleccione el directorio que desee administrar. 
+4. Seleccione **Configurar**.
+5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
+6. En la página Configuración del servicio, en Opciones de comprobación, active o desactive las opciones que desee usar.
    ![Opciones de verificación](./media/multi-factor-authentication-whats-next/authmethods.png)
-4. Haga clic en **Guardar**.
-5. Haga clic en **Cerrar**.
+7. Haga clic en **Guardar**.
+8. Haga clic en **Cerrar**.
 

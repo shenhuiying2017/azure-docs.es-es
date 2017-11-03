@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 19b1d772236c14c8403d1056e5c9dcda7b741501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solución de problemas comunes en Azure Automation 
 Este artículo proporciona ayuda para solucionar los errores comunes que puede experimentar en Azure Automation y sugiere posibles soluciones para resolverlos.
@@ -101,8 +101,8 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 
 1. Inicie sesión en la suscripción de Azure  
 2. Seleccione la cuenta de Automatización que desee actualizar  
-3. Haga clic en **Configuración** > **Plan de tarifa y uso** > **Plan de tarifa**.  
-4. En la página **Elegir el plan de tarifa**, seleccione **Básico**    
+3. Haga clic en **Configuración** > **Precios**.
+4. Haga clic en **Habilitar** en la parte inferior de la página para actualizar su cuenta al nivel **Básico**.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Escenario: No se reconoce el Cmdlet cuando se ejecuta un runbook
 **Error**: se produce un error en su trabajo de runbook con el mensaje "``<cmdlet name>``: El término ``<cmdlet name>`` no se reconoce como nombre de un cmdlet, una función, un archivo de script o un programa ejecutable".

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 4abfdcc0a50c229555088dff0ac2c00c15f49218
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8129678b5ee2b0b1f2a59049fc6632b6cbf3383
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
 
@@ -77,14 +77,14 @@ Use estos pasos para configurar al cliente VPN de Windows nativo para la autenti
 2. Haga doble clic en el paquete para instalarlo. Si ve una ventana emergente de SmartScreen, haga clic en **Más información** y en **Ejecutar de todas formas**.
 3. En el equipo cliente, vaya a **Configuración de red** y haga clic en **VPN**. La conexión VPN muestra el nombre de la red virtual a la que se conecta. 
 
-## <a name="installmac"></a>Instalación de la configuración de cliente VPN de Mac (OSX)
+## <a name="installmac"></a>Configurar un cliente VPN en dispositivos Mac (OSX)
 
-Para todos los dispositivos Mac que se conecten a una red virtual de Azure, se debe crear una configuración de cliente VPN independiente. No se pueden reutilizar archivos de configuración para varios dispositivos Mac. Esto es porque, para estos dispositivos, debe especificar el certificado de usuario en los archivos de configuración de cliente VPN. La carpeta **Genérico** contiene toda la información necesaria para crear la configuración de cliente VPN, Si no ve la carpeta Genérico en la descarga, es posible que IKEv2 no se haya seleccionado como tipo de túnel. Una vez que se seleccione IKEv2, vuelva a generar el archivo ZIP para recuperar la carpeta Genérico. que son los archivos siguientes:
+Azure no proporciona el archivo mobileconfig para realizar la autenticación de certificados nativa de Azure. Tendrá que configurar manualmente el cliente de VPN nativo IKEv2 en cada equipo Mac que se conecte a Azure. La carpeta **Genérico** contiene toda la información necesaria para configurarlo. Si no ve la carpeta Genérico en la descarga, es posible que IKEv2 no se haya seleccionado como tipo de túnel. Una vez que se seleccione IKEv2, vuelva a generar el archivo ZIP para recuperar la carpeta Genérico. que son los archivos siguientes:
 
 * **VpnSettings.xml**, con configuración importante, como el tipo de túnel y la dirección del servidor. 
 * **VpnServerRoot.cer**, con el certificado raíz necesario para validar la puerta de enlace de VPN de Azure durante la instalación de la conexión de punto a sitio.
 
-Use los pasos siguientes para configurar el cliente VPN nativo en Mac para la autenticación mediante certificado:
+Siga los pasos siguientes para configurar el cliente de VPN nativo en equipos Mac para realizar una autenticación mediante certificado. Deberá completar estos pasos en cada equipo Mac que se conecte a Azure:
 
 1. Importe el certificado raíz **VpnServerRoot** en Mac. Para ello, sobreescriba el archivo en Mac y haga doble clic en él.  
 Haga clic en **Agregar** para importarlo.
@@ -101,7 +101,7 @@ Haga clic en **Agregar** para importarlo.
 4. Haga clic en **Configuración de autenticación** y seleccione **Certificado**. 
 
   ![configuración de autenticación](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. Haga clic en **Seleccionar...** para elegir el certificado que quiere usar en la autenticación.
+5. Haga clic en **Seleccionar...** para elegir el certificado de cliente que quiere usar en la autenticación. Debe tener instalado un certificado de cliente en el equipo (consulte el paso 2 de la sección anterior **Flujo de trabajo de P2S**).
 
   ![certificado](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 6. En **Choose An Identity** (Elegir una identidad) se muestra una lista de certificados para elegir. Seleccione el certificado adecuado y haga clic en **Continuar**.

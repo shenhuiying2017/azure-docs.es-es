@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configuración de Firewalls y redes virtuales de Azure Storage (versión preliminar)
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
@@ -44,7 +44,7 @@ Las reglas de red se pueden aplicar a cuentas de almacenamiento existentes o se 
 
 Una vez que se apliquen las reglas de red, se aplicarán a todas las solicitudes.  Los tokens de SAS que conceden acceso a un servicio de dirección IP específico sirven para **limitar** el acceso del titular del token, pero no conceden un acceso nuevo más allá de las reglas de red configuradas. 
 
-El tráfico de disco de máquina virtual (incluidas las operaciones de montaje y desmontaje y las operaciones de E/S de disco) **no** se ve afectado por las reglas de red.  No se admite la copia de seguridad de discos no administrados para las cuentas de almacenamiento protegido durante la versión preliminar.  El acceso de REST a los blobs en páginas (usados para los discos de máquina virtual) está protegido por las reglas de red.
+El tráfico de disco de máquina virtual (incluidas las operaciones de montaje y desmontaje y las operaciones de E/S de disco) **no** se ve afectado por las reglas de red.  El acceso de REST a los blobs en páginas está protegido por las reglas de red.
 
 Las cuentas de almacenamiento clásicas **no** admite Firewalls and Virtual Networks (Firewalls y redes virtuales).
 
@@ -305,6 +305,7 @@ Cuando la excepción "Servicios de Microsoft de confianza" está habilitada, se 
 |HDInsight de Azure|Microsoft.HDInsight|Aprovisionamiento e instalación de clústeres.  [Más información](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Conexión a Azure|Microsoft.Networking|Almacenamiento y análisis de los registros de tráfico de red.  [Más información](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Almacenamiento de datos SQL de Azure|Microsoft.Sql|Importación y exportación de datos.  [Más información](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure Backup|Microsoft.RecoveryServices|Copia de seguridad y restauración de discos no administrados.  [Más información](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento

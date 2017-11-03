@@ -1,6 +1,6 @@
 ---
 title: Una sola base de datos de Azure SQL Database | Microsoft Docs
-description: "Administración de una sola base de datos de Azure SQL."
+description: Administre el nivel de servicio, el nivel de rendimiento y la cantidad de almacenamiento para una sola base de datos SQL de Azure.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 8393d175f58b031dff2ab4c00b73c09b2e4908d5
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Administración de recursos para una sola base de datos en Azure SQL Database
 
@@ -101,7 +101,7 @@ Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y 
 |[Databases - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
 |[Databases - List By Recommended Elastic Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Devuelve una lista de bases de datos dentro de un grupo elástico recomendado.|
 |[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
-|[Databases - Update]((/rest/api/sql/databases/update)|Actualiza una base de datos ya existente.|
+|[Databases - Update](/rest/api/sql/databases/update)|Actualiza una base de datos ya existente.|
 
 
 

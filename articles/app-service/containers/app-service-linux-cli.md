@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 5213bec66095d50ef29cc3bec0a7b6307614dc92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Administración de Web Apps for Containers mediante la CLI de Azure
 
@@ -34,7 +34,7 @@ Puede empezar a usar la nueva versión de la CLI de dos formas:
 Para crear un plan de App Service de Linux, puede usar el siguiente comando:
 
 ```azurecli-interactive
-az appservice plan create -n appname -g rgname --islinux -l "South Central US" --sku S1 --number-of-workers 1
+az appservice plan create -n appname -g rgname --is-linux -l "South Central US" --sku S1 --number-of-workers 1
 ```
 
 ## <a name="create-a-custom-docker-container-web-app"></a>Creación de una aplicación web del contenedor de Docker personalizada
@@ -103,8 +103,8 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [What is Azure Web App for Containers?](app-service-linux-intro.md) (¿Qué es Azure Web App for Containers?)
+* [¿Qué es Azure App Service en Linux?](app-service-linux-intro.md)
 * [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (versión preliminar)](../../cloud-shell/overview.md)
 * [Configuración de entornos de ensayo en Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implementación continua con Azure Web App for Containers](app-service-linux-ci-cd.md)
+* [Implementación continua con Web App for Containers](app-service-linux-ci-cd.md)

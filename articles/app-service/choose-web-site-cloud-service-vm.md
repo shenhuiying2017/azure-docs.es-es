@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fca6023fedcfc64ecfe66c0f4ed60a495953cfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparación de Servicio de aplicaciones de Azure, Máquinas virtuales, Service Fabric y Servicios en la nube
 ## <a name="overview"></a>Información general
@@ -40,7 +40,7 @@ La siguiente tabla compara las funcionalidades de Servicio de aplicaciones, Serv
 | Escalado horizontal a máquinas más grandes sin volver a implementar |X | | |X | |
 | Las instancias de un servidor web comparten contenido y configuración; esto significa que no es necesario volver a implementar o configurar a medida que escale. |X | | |X | |
 | Varios entornos de implementación (producción y ensayo) |X |X | |X |Service Fabric le permite tener varios entornos para las aplicaciones o para implementar versiones diferentes de su aplicación en paralelo. |
-| Administración de actualización automática del SO |X |X | | |Las actualizaciones automáticas del SO están previstas para las próximas versiones de Service Fabric. |
+| Administración de actualización automática del SO |X |X | | |Disponibilidad parcial con Orchestration Application (POA) y disponibilidad total prevista en el futuro. |
 | Intercambio fluido entre plataformas (mover fácilmente entre 32 bits y 64 bits) |X |X | | | |
 | Código de implementación con GIT, FTP |X | |X | | |
 | Código de implementación con Web Deploy |X | |X | |Servicios en la nube admite el uso de Web Deploy para implementar actualizaciones en instancias de rol individuales. Sin embargo, no puede utilizarlo para la implementación inicial de un rol, y si utiliza Web Deploy para una actualización, tiene que realizar la implementación por separado para cada instancia de un rol. Se requieren múltiples instancias para optar al contrato de nivel de servicio de Servicio en la nube para entornos de producción. |

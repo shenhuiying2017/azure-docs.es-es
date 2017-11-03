@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01da017587aed7c0f2415786fdcbf6f64024cbe3
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Batch
 
@@ -268,7 +268,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 En el ejemplo de código [MultiInstanceTasks][github_mpi] que se encuentra en GitHub se muestra cómo puede usarse una tarea de instancias múltiples para ejecutar una aplicación de [MS-MPI][msmpi_msdn] en los nodos de proceso de Batch. Siga los pasos que se describen en las secciones [Preparación](#preparation) y [Ejecución](#execution) para ejecutar el ejemplo.
 
 ### <a name="preparation"></a>Preparación
-1. Siga los dos primeros pasos que se indican en [Compilación y ejecución de un sencillo programa de MS-MPI][msmpi_howto]. De este modo, cumplirá los requisitos necesarios para el siguiente paso.
+1. Siga los dos primeros pasos que se indican en [Compilación y ejecución de un sencillo programa de MS-MPI][msmpi_howto]. De este modo, cumplirá los requisitos previos necesarios para el siguiente paso.
 2. Compile una versión de *lanzamiento* del programa de ejemplo [MPIHelloWorld][helloworld_proj] de MPI. La tarea de instancias múltiples ejecutará este programa en los nodos de proceso.
 3. Cree un archivo zip que contenga `MPIHelloWorld.exe` (creado en el paso 2) y `MSMpiSetup.exe` (descargado en el paso 1). En el siguiente paso, cargará este archivo zip como paquete de aplicación.
 4. Use [Azure Portal][portal] para crear una [aplicación](batch-application-packages.md) de Batch llamada "MPIHelloWorld" y establezca el archivo zip que creó en el paso anterior como versión "1.0" del paquete de aplicación. Para más información, consulte [Carga y administración de aplicaciones](batch-application-packages.md#upload-and-manage-applications).
@@ -285,7 +285,7 @@ En el ejemplo de código [MultiInstanceTasks][github_mpi] que se encuentra en Gi
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. En el proyecto **Microsoft.Azure.Batch.Samples.Common**, especifique las credenciales de la cuenta de Batch y Storage en `AccountSettings.settings`.
 4. **Compile y ejecute** la solución MultiInstanceTasks. De este modo, ejecutará la aplicación de ejemplo de MPI en los nodos de proceso de un grupo de Batch.
-5. *Opcional*: puede usar [Azure Portal][portal] o el [explorador de Batch][batch_explorer] para examinar el grupo, el trabajo y la tarea de ejemplo ("MultiInstanceSamplePool", "MultiInstanceSampleJob" y "MultiInstanceSampleTask") antes de eliminar los recursos.
+5. *Opcional*: puede usar [Azure Portal][portal] o [BatchLabs][batch_labs] para examinar el grupo, el trabajo y la tarea de ejemplo ("MultiInstanceSamplePool", "MultiInstanceSampleJob" y "MultiInstanceSampleTask") antes de eliminar los recursos.
 
 > [!TIP]
 > Si no tiene Visual Studio, puede descargar gratis [Visual Studio Community][visual_studio].
@@ -335,7 +335,7 @@ Sample complete, hit ENTER to exit...
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd

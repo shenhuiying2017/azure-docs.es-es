@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: d2214b914899b24dfb36873e0083632a7deaba52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 
@@ -51,7 +51,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
 ## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>Realización de la instalación sin conexión de App Service en Azure Stack
 
-1. En la máquina host de Azure Stack desconectado, ejecute appservice.exe como azurestack\administrator.
+1. En la máquina host de Azure Stack desconectado, ejecute appservice.exe como azurestack\clouadmin.
 
 2. Haga clic en **Opciones avanzadas** > **Completar la instalación sin conexión**.
 
@@ -72,7 +72,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 7. En la página siguiente:
     1. Haga clic en el botón **Conectar** situado junto al cuadro **Azure Stack Subscriptions** (Suscripciones de Azure Stack).
         - Si se usa Azure Active Directory (Azure AD), escriba la cuenta de administrador y la contraseña de Azure AD que proporcionó al implementar Azure Stack. Haga clic en **Iniciar sesión**.
-        - Si se usan los Servicios de federación de Active Directory (AD FS), debe proporcionar la cuenta de administrador. Por ejemplo: azurestackadmin@azurestack.local. Escriba la contraseña y haga clic en **Iniciar sesión**.
+        - Si se usan los Servicios de federación de Active Directory (AD FS), debe proporcionar la cuenta de administrador. Por ejemplo: cloudadmin@azurestack.local. Escriba la contraseña y haga clic en **Iniciar sesión**.
     2. En el cuadro **Azure Stack Subscriptions** (Suscripciones de Azure Stack), seleccione su suscripción.
     3. En el cuadro **Azure Stack Locations** (Ubicaciones de Azure Stack), seleccione la ubicación que corresponda a la región en la que se va a implementar. Por ejemplo, seleccione **local** si va a implementar con Azure Stack Development Kit.
     4. Escriba un **Nombre de grupo de recursos** para la implementación de App Service. De forma predeterminada, se establece en **APPSERVICE\<MOBILE\>**.
@@ -81,7 +81,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image03.png)
 
-8. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**.
+8. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe utilizar el nombre de dominio completo del servidor de archivos, como \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o la dirección IP, como \\\10.0.0.1\websites.
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image04.png)
 
@@ -110,9 +110,14 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Revise las opciones de SKU y la instancia de rol. Los valores predeterminados se rellenan con las SKU de instancia mínimas recomendadas para cada rol. Se proporciona un resumen de los requisitos de memoria y núcleo para ayudar a planear la implementación. Después de realizar las selecciones, haga clic en **Siguiente**.
+12. Revise las opciones de SKU y la instancia de rol. Los valores predeterminados se rellenan con el número mínimo de instancia y la SKU mínima para cada rol en una implementación de ASDK. Se proporciona un resumen de los requisitos de memoria y núcleo para ayudar a planear la implementación. Después de realizar las selecciones, haga clic en **Siguiente**.
 
-    | Rol | Instancias mínimas recomendadas | SKU mínima recomendada | Notas |
+     > [!NOTE]
+     > Para las implementaciones de producción, siga las instrucciones que encontrará en [Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack](azure-stack-app-service-capacity-planning.md).
+     > 
+     >
+
+    | Rol | Instancias mínimas | SKU mínima | Notas |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 Core, 1792 MB) | Administra y mantiene el estado de la nube de App Service. |
     | Administración | 1 | Standard_A2 - (2 núcleos, 3584 MB) | Administra los puntos de conexión de API y Azure Resource Manager de App Service, las extensiones de portales (portal de Functions, administración e inquilino) y el servicio de datos. Para admitir la conmutación por error, se incrementan las instancias recomendadas a 2. |
@@ -123,7 +128,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     ![Instalador de App Service](media/azure-stack-app-service-deploy/image08.png)    
 
     > [!NOTE]
-    > En las versiones preliminares técnicas, el instalador del proveedor de recursos de App Service también implementa una instancia de Estándar A1 para que funcione como servidor de archivos simple para la compatibilidad con Azure Resource Manager. Esta instancia permanece para el kit de desarrollo de un único nodo. Para las cargas de trabajo de producción de disponibilidad general, el instalador de App Service permite el uso de un servidor de archivos de alta disponibilidad.
+    > **Windows Server 2016 Core no es una imagen de plataforma compatible para usarla con Azure App Service en Azure Stack**.
 
 13. En el cuadro **Select Platform Image** (Seleccionar imagen de plataforma), elija su imagen de máquina virtual Windows Server 2016 de implementación entre las que están disponibles en el proveedor de recursos de procesos para la nube de App Service. Haga clic en **Siguiente**.
 
@@ -150,19 +155,11 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validación de la instalación de App Service en Azure Stack
 
-1. En el portal de administración de Azure Stack, vaya al grupo de recursos creado por el instalador. De forma predeterminada, este grupo es **APPSERVICE-LOCAL**.
+1. En el Portal de administración de Azure Stack, vaya a **Administración - App Service**.
 
-2. Busque **CN0-VM**. Para conectarse a la máquina virtual, haga clic en **Conectar** en la hoja **Máquina virtual**.
+2. En la información general del estado, compruebe que en **Estado** se muestra **Todos los roles están listos**.
 
-3. En el escritorio de esta máquina virtual, haga doble clic en **Web Cloud Management Console** (Consola de administración de la nube web).
-
-4. Vaya a **Servidores administrados**.
-
-5. Cuando se muestre **Listo** en todas las máquinas para uno o varios trabajos, vaya al paso 6.
-
-6. Cierre la máquina del escritorio remoto y vuelva a la máquina donde ejecutó el instalador de App Service.
-
-    ![Instalador de App Service](media/azure-stack-app-service-deploy/managed-servers.png)    
+    ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)    
 
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Prueba de App Service en Azure Stack

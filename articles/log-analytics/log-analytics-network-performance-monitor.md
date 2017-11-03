@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solución Monitor de rendimiento de red de Log Analytics
 
@@ -92,28 +92,24 @@ Utilice la siguiente información para instalar y configurar la solución.
     >[!NOTE]
     >Los agentes para sistemas operativos de servidor de Windows admiten TCP e ICMP como protocolos de transacción sintética. Pero los agentes para sistemas operativos de cliente de Windows admiten solo ICMP como protocolo para la transacción sintética.
 
-2. Agregue la solución Network Performance Monitor (monitor de rendimiento de red) al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).  
-   ![Símbolo del Network Performance Monitor](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-3. En el portal OMS, verá un icono nuevo titulado **Monitor de rendimiento de red** con el mensaje *La solución necesita una configuración adicional*. Debe configurar la solución para que agregue redes según las subredes y los nodos detectados por los agentes. Haga clic en **Monitor de rendimiento de red** para empezar a configurar la red predeterminada.  
-   ![La solución necesita una configuración adicional](./media/log-analytics-network-performance-monitor/npm-config.png)
+2. Agregue la solución Network Performance Monitor (monitor de rendimiento de red) al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).<br><br> ![Símbolo del Network Performance Monitor](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
+3. En el portal OMS, verá un icono nuevo titulado **Monitor de rendimiento de red** con el mensaje *La solución necesita una configuración adicional*. Haga clic en el icono para ir a la pestaña **Implementación** y seleccione el protocolo que se va a usar para realizar las transacciones sintéticas para supervisión de la red.  Revise [Selección del protocolo adecuado: ICMP o TCP](#choose-the-right-protocol-icmp-or-tcp) para obtener ayuda acerca del protocolo adecuado para su red.<br><br> ![la solución requiere la selección de protocolo](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-### <a name="configure-the-solution-with-a-default-network"></a>Configuración de la solución con una red predeterminada
-En la página de configuración, verá una única red denominada **Predeterminada**. Si no ha definido ninguna red, todas las subredes detectadas automáticamente se colocan en la red Predeterminada.
-
-Siempre que cree una red, se agrega una subred en ella y se quita dicha subred de la red Predeterminada. Si elimina una red, se devuelven automáticamente todas sus subredes a la red Predeterminada.
-
-Dicho de otro modo, la red Predeterminada es el contenedor de todas las subredes que no se incluyan en alguna red definida por el usuario. No puede editar ni eliminar la red Predeterminada. Siempre permanece en el sistema. Sin embargo, puede crear todas las redes que necesite.
-
-En la mayoría de los casos, las subredes de la organización estarán organizadas en más de una red y, por tanto, deberá crear una o más redes para agrupar las subredes de forma lógica.
+4. Después de elegir el protocolo, se le redirigirá a la página **OMS overview** (Información general de OMS). Mientras la solución agrega datos desde la red, el icono de información general de Network Performance Monitor mostrará el mensaje *La agregación de datos está en curso*.<br><br> ![la solución está agregando datos](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Una vez que los datos están recopilados e indexados, el icono de información general cambiará e indicará que tiene que realizar algunos ajustes adicionales.<br><br> ![El icono de la solución requiere una configuración adicional](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Haga clic en el icono y empiece a configurar la solución siguiendo estos pasos.
 
 ### <a name="create-new-networks"></a>Creación de nuevas redes
-En el Monitor de rendimiento de red, una red es un contenedor de subredes. Puede crear una red con cualquier nombre que desee y agregarle subredes. Por ejemplo, puede crear una red denominada "*Edificio1*" y, después, agregar subredes, o bien puede crear una red denominada *DMZ* y, luego, agregar a ella todas las subredes que pertenezcan a la red perimetral.
+En Network Performance Monitor, una red es un contenedor lógico de subredes. Puede crear una red con un nombre descriptivo y agregar subredes según la lógica de negocios. Por ejemplo, puede crear una red denominada *Londres* y agregar a ella todas las subredes del centro de datos de Londres, o una red denominada *ContosoFrontEnd* y agregar a ella todas las subredes que atienden al front-end de la aplicación denominada Contoso.
+En la página de configuración, verá una red denominada **Predeterminada** en la pestaña Redes. Si no ha creado ninguna red, todas las subredes detectadas automáticamente se colocan en la red Predeterminada.
+Siempre que cree una red, se agrega una subred en ella y se quita dicha subred de la red Predeterminada. Si elimina una red, se devuelven automáticamente todas sus subredes a la red Predeterminada.
+Así pues, la red Predeterminada actúa como contenedor de todas las subredes que no se incluyan en alguna red definida por el usuario. No puede editar ni eliminar la red Predeterminada. Siempre permanece en el sistema. Sin embargo, puede crear todas las redes personalizadas que necesite.
+En la mayoría de los casos, las subredes de la organización estarán organizadas en más de una red y, por tanto, deberá crear una o más redes para agrupar las subredes de acuerdo con la lógica de negocios.
 
 #### <a name="to-create-a-new-network"></a>Para crear una nueva red
 1. Haga clic en **Agregar red** y, después, escriba el nombre de red y la descripción.
 2. Seleccione una o varias subredes y, luego, haga clic en **Agregar**.
-3. Para guardar la configuración, haga clic en **Guardar**.  
-   ![Agregar red](./media/log-analytics-network-performance-monitor/npm-add-network.png)
+3. Para guardar la configuración, haga clic en **Guardar**.<br><br> ![Agregar red](./media/log-analytics-network-performance-monitor/npm-add-network.png)
 
 ### <a name="wait-for-data-aggregation"></a>Tiempo de espera hasta que se agreguen los datos
 Tras guardar la configuración por primera vez, la solución empezará a recopilar información de latencia y pérdida de paquetes de la red entre los nodos en los que se hayan instalado los agentes. Este proceso puede tardar bastante, en ocasiones más de 30 minutos. Durante este estado, en el icono Monitor de rendimiento de red de la página Información general se muestra un mensaje que dice *Data aggregation in process* (Agregación de datos en curso).
@@ -135,8 +131,7 @@ Se muestran todas las subredes donde se instaló al menos un agente en la pesta�
 1. Active o desactive la casilla junto a la **Id. de subred** y, luego, asegúrese de que **Usar para la supervisión** esté activada o desactivada, según corresponda. Puede seleccionar o borrar varias subredes. Cuando esta casilla se desactiva, no se supervisan las subredes, ya que se actualizarán los agentes para que dejen de hacer ping a los demás agentes.
 2. Elija los nodos que desee supervisar de esa subred concreta seleccionándola de la lista y moviendo los nodos pertinentes entre las listas que contienen los nodos supervisados y los que no se supervisan.
    Puede agregar una **descripción** personalizada a la subred, si así lo desea.
-3. Para guardar la configuración, haga clic en **Guardar**.  
-   ![Editar la subred](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
+3. Para guardar la configuración, haga clic en **Guardar**.<br><br> ![Editar la subred](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>Elección de los nodos que desee supervisar
 En la pestaña **Nodos** se muestran todos los nodos que tienen un agente instalado.
@@ -144,25 +139,28 @@ En la pestaña **Nodos** se muestran todos los nodos que tienen un agente instal
 #### <a name="to-enable-or-disable-monitoring-for-nodes"></a>Para habilitar o deshabilitar la supervisión de nodos
 1. Active o desactive los nodos que desee supervisar o dejar de supervisar.
 2. Active la casilla **Usar para la supervisión** o desactívela, según corresponda.
-3. Haga clic en **Guardar**.  
-   ![Habilitar la supervisión de nodos](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+3. Haga clic en **Guardar**.<br><br> ![Habilitar la supervisión de nodos](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>Conjunto de reglas de supervisión
-Monitor de rendimiento de red genera eventos de estado sobre la conectividad entre un par de nodos o vínculos de red o subred cuando se supera un umbral. El sistema puede aprender automáticamente estos umbrales, o bien puede configurarlos para usar reglas de alerta personalizadas.
+Network Performance Monitor genera eventos de estado cuando se supera el umbral del rendimiento de las conexiones de red entre dos subredes o entre dos redes. El sistema puede aprender automáticamente estos umbrales, o bien puede especificar umbrales personalizados.
+El sistema crea también automáticamente la regla Predeterminada, que genera un evento de estado siempre que la pérdida o la latencia entre cualquier par de vínculos de red o subred superen el umbral aprendido por el sistema. Esto ayuda a la solución a supervisar la infraestructura de red hasta que no haya creado ninguna regla de supervisión explícitamente. Si está habilitada la regla Predeterminada, todos los nodos envían transacciones sintéticas al resto de nodos que se han habilitado para la supervisión. La regla predeterminada es útil en el caso de redes pequeñas, por ejemplo, en un escenario donde tiene un número pequeño de servidores que ejecutan un microservicio y desea asegurarse de que todos los servidores tengan conectividad entre sí.
 
-El sistema crea la *regla predeterminada*, así como un evento de estado siempre que la pérdida o la latencia entre cualquier par de vínculos de red o subred superen el umbral aprendido por el sistema. Puede optar por deshabilitar la regla personalizada y crear reglas de supervisión personalizadas.
+>[!NOTE]
+>Es muy recomendable que deshabilite la regla predeterminada y cree que reglas de supervisión personalizadas, especialmente en el caso de las redes de gran tamaño en las que usa un número grande de nodos para la supervisión. Esto reducirá el tráfico generado por la solución y ayudará a organizar la supervisión de la red.
+
+Cree reglas de supervisión personalizadas de acuerdo con la lógica de negocios. Por ejemplo, si desea supervisar el rendimiento de la conectividad de red de dos oficinas con la sede, agrupe todas las subredes de la oficina 1 en la red O1, todas las subredes de la oficina 2 en la red O2 y todas las subredes de la sede en la red S. Cree dos reglas de supervisión: una entre O1 y S y otra entre O2 y S.
+
 
 #### <a name="to-create-custom-monitoring-rules"></a>Para crear reglas de supervisión personalizadas
 1. Haga clic en **Agregar regla** en la pestaña **Supervisión** y escriba el nombre y la descripción de la regla.
 2. Seleccione en la lista el par de vínculos de red o subred que desee supervisar.
 3. Primero, seleccione la red que contenga las subredes de interés en el menú desplegable de red y, después, elija estas últimas en el menú desplegable de subredes correspondiente.
    Seleccione **Todas las subredes** Si desea supervisar todas las subredes de un vínculo de red. De forma similar, seleccione las demás subredes que le interesen. Asimismo, puede hacer clic en **Agregar excepción** para excluir de la supervisión determinados vínculos de red de la selección que haya realizado.
-4. Elija entre los protocolos ICMP y TCP para ejecutar transacciones sintéticas.
+4. [Elija entre los protocolos ICMP y TCP](#choose-the-right-protocol-icmp-or-tcp) para ejecutar transacciones sintéticas.
 5. Si no desea crear eventos de estado para los elementos que ha seleccionado, desactive **Habilitar Seguimiento de estado en los vínculos que abarca esta regla**.
 6. Elija las condiciones de supervisión.
    Puede establecer umbrales personalizados para la generación de eventos de estado escribiendo valores de umbral. Siempre que el valor de la condición supere el umbral seleccionado para el par de red/subred seleccionado, se generará un evento de estado.
-7. Para guardar la configuración, haga clic en **Guardar**.  
-   ![Crear una regla de supervisión personalizada](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+7. Para guardar la configuración, haga clic en **Guardar**.<br><br> ![Crear una regla de supervisión personalizada](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
 Después de guardar una regla de supervisión, puede integrar esa regla con Administración de alertas haciendo clic en **Crear alerta**. Se crea automáticamente una regla de alerta con la consulta de búsqueda y se rellenan automáticamente otros parámetros necesarios. Mediante una regla de alerta, puede recibir alertas de correo electrónico, además de las alertas existentes dentro de NPM. Las alertas también pueden desencadenar acciones correctoras con runbooks o se pueden integrar con soluciones de administración de servicios existentes mediante webhooks. Puede hacer clic en **Administrar alerta** para editar la configuración de alertas.
 
@@ -192,7 +190,9 @@ Puede utilizar scripts de PowerShell para configurar reglas de firewall en los e
 En cambio, ICMP no utiliza ningún puerto. En la mayoría de los escenarios empresariales, se permite el tráfico ICMP a través de los firewalls para posibilitar el uso de herramientas de diagnóstico de red, como la utilidad de ping. Por lo tanto, si puede hacer ping a un equipo desde otro, podrá usar el protocolo ICMP sin necesidad de configurar manualmente los firewalls.
 
 > [!NOTE]
-> En caso de duda sobre qué protocolo utilizar, elija ICMP para empezar. Si no está satisfecho con los resultados, siempre podrá cambiar a TCP más adelante.
+> Algunos firewall pueden bloquear ICMP, lo cual podría provocar una retransmisión que produciría un gran número de eventos en el sistema de administración de eventos e información de seguridad. Asegúrese de que el protocolo que elija no esté bloqueado por un firewall de red o un grupo de seguridad de red; en caso contrario, NPM no podrá supervisar el segmento de red.  Por este motivo, se recomienda usar TCP para la supervisión. Debe usar ICMP en escenarios donde no sea posible utilizar TCP, como los siguientes:
+> * Utiliza nodos basados en cliente de Windows, dado que los sockets TCP sin formato no se permiten en el cliente de Windows.
+> * El firewall de red o el grupo de seguridad de red bloquea TCP.
 
 
 #### <a name="how-to-switch-the-protocol"></a>Cambio de protocolo
@@ -205,8 +205,6 @@ Si decide utilizar ICMP durante la implementación, puede cambiar a TCP en cualq
 3.  Haga clic en **Guardar** para aplicar el cambio.
 
 Aunque la regla predeterminada use un protocolo específico, puede crear nuevas reglas con un protocolo diferente. Incluso puede crear una combinación de reglas en la que algunas usen ICMP y otras utilicen TCP.
-
-
 
 
 ## <a name="data-collection-details"></a>Detalles de la recopilación de datos
@@ -292,20 +290,14 @@ Todos los datos expuestos mediante gráficos en las páginas de exploración en 
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Investigación de la causa principal de una alerta de estado
 Ahora que se ha familiarizado con Monitor de rendimiento de red, veamos una investigación sencilla de la causa principal de un evento de estado.
 
-1. En la página Información general, podrá obtener una instantánea rápida del estado de la red con solo observar el icono **Monitor de rendimiento de red**. Observe que, de los 6 vínculos de subred que se están supervisando, 2 son incorrectos. Esta situación se debe investigar. Haga clic en el icono para ver el panel de la solución.  
-   ![Icono Monitor de rendimiento de red](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. En la imagen de ejemplo siguiente, se puede observar que hay un evento de estado en un vínculo de red con un estado incorrecto. Supongamos que decide investigar el problema y hace clic en el vínculo de red **DMZ2-DMZ1** para descubrir su causa.  
-   ![Ejemplo de vínculo de red incorrecto](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. En la página de exploración en profundidad se muestran todos los vínculos de subred del vínculo de red **DMZ2-DMZ1**. Observará que, en el caso de ambos vínculos de subred, la latencia ha superado el umbral, lo que ha hecho que el vínculo de red esté incorrecto. También puede ver las tendencias de latencia de ambos vínculos de subred. Puede utilizar la opción para seleccionar el tiempo del gráfico a fin de centrarse en el intervalo de tiempo pertinente. Puede ver la hora del día en la que la latencia ha alcanzado su punto máximo. Después, puede buscar en los registros este periodo para investigar el problema. Haga clic en **Ver vínculos de nodo** para profundizar aún más.  
-   ![Ejemplo de vínculos de subred incorrectos](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
-4. Como sucedía en la página anterior, en la página de exploración en profundidad del vínculo de subred concreto se enumeran los vínculos de nodo que lo componen. Aquí puede efectuar acciones similares a las realizadas en el paso anterior. Haga clic en **Ver topología** para ver la topología entre los dos nodos.  
-   ![Ejemplo de vínculos de nodo incorrectos](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
-5. Todas las rutas de acceso entre los dos nodos seleccionados estarán trazadas en el mapa de topología. Puede visualizar la topología de salto a salto de las rutas entre dos nodos en el mapa de topología. Ofrece una perspectiva clara de cuántas rutas existen entre los dos nodos y qué rutas de acceso emplean los paquetes de datos. Los cuellos de botella de rendimiento de red se marcan en rojo. Puede encontrar una conexión o dispositivo de red defectuosos examinando los elementos de color rojo presentes en el mapa de topología.  
-   ![Ejemplo de la vista de topología incorrecta](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
+1. En la página Información general, podrá obtener una instantánea rápida del estado de la red con solo observar el icono **Monitor de rendimiento de red**. Observe que, de los 6 vínculos de subred que se están supervisando, 2 son incorrectos. Esta situación se debe investigar. Haga clic en el icono para ver el panel de la solución.<br><br> ![Icono Monitor de rendimiento de red](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. En la imagen de ejemplo siguiente, se puede observar que hay un evento de estado en un vínculo de red con un estado incorrecto. Supongamos que decide investigar el problema y hace clic en el vínculo de red **DMZ2-DMZ1** para descubrir su causa.<br><br> ![Ejemplo de vínculo de red incorrecto](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. En la página de exploración en profundidad se muestran todos los vínculos de subred del vínculo de red **DMZ2-DMZ1**. Observará que, en el caso de ambos vínculos de subred, la latencia ha superado el umbral, lo que ha hecho que el vínculo de red esté incorrecto. También puede ver las tendencias de latencia de ambos vínculos de subred. Puede utilizar la opción para seleccionar el tiempo del gráfico a fin de centrarse en el intervalo de tiempo pertinente. Puede ver la hora del día en la que la latencia ha alcanzado su punto máximo. Después, puede buscar en los registros este periodo para investigar el problema. Haga clic en **Ver vínculos de nodo** para profundizar aún más.<br><br> ![Ejemplo de vínculos de subred incorrectos](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
+4. Como sucedía en la página anterior, en la página de exploración en profundidad del vínculo de subred concreto se enumeran los vínculos de nodo que lo componen. Aquí puede efectuar acciones similares a las realizadas en el paso anterior. Haga clic en **Ver topología** para ver la topología entre los dos nodos.<br><br> ![Ejemplo de vínculos de nodo incorrectos](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+5. Todas las rutas de acceso entre los dos nodos seleccionados estarán trazadas en el mapa de topología. Puede visualizar la topología de salto a salto de las rutas entre dos nodos en el mapa de topología. Ofrece una perspectiva clara de cuántas rutas existen entre los dos nodos y qué rutas de acceso emplean los paquetes de datos. Los cuellos de botella de rendimiento de red se marcan en rojo. Puede encontrar una conexión o dispositivo de red defectuosos examinando los elementos de color rojo presentes en el mapa de topología.<br><br> ![Ejemplo de la vista de topología incorrecta](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. Es posible consultar la pérdida, la latencia y el número de saltos de cada ruta de acceso en el panel **Acción**. Utilice la barra de desplazamiento para ver los detalles de esas rutas de acceso incorrectas.  Use los filtros para seleccionar las rutas de acceso con el salto incorrecto de modo que se pueda trazar la topología únicamente de las rutas de acceso seleccionadas. Puede utilizar la rueda del mouse para acercar o alejar el mapa de topología.
 
-   En la siguiente imagen puede ver con claridad la causa principal de las áreas problemáticas de la sección específica de la red con solo observar las rutas de acceso y los saltos marcados en color rojo. Si hace clic en un nodo en el mapa de topología, se mostrarán las propiedades del nodo, incluido el FQDN y la dirección IP. Si se hace clic en un salto, se mostrará su dirección IP.  
-   ![Ejemplo de topología incorrecta con detalles sobre las rutas de acceso](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+   En la siguiente imagen puede ver con claridad la causa principal de las áreas problemáticas de la sección específica de la red con solo observar las rutas de acceso y los saltos marcados en color rojo. Si hace clic en un nodo en el mapa de topología, se mostrarán las propiedades del nodo, incluido el FQDN y la dirección IP. Si se hace clic en un salto, se mostrará su dirección IP.<br><br> ![Ejemplo de topología incorrecta con detalles sobre las rutas de acceso](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 28c589b6821526fa6b91dc558a08ef2fb68f97df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Puntos de control y reproducción en Durable Functions (Azure Functions)
 
@@ -115,7 +115,7 @@ El comportamiento de reproducción crea restricciones sobre el tipo de código q
 
   Las operaciones no deterministas deben realizarse en las funciones de actividad. Esto incluye cualquier interacción con otros enlaces de entrada o salida. Así se garantiza que los valores no deterministas se generan una vez durante la primera ejecución y se guardan en el historial de ejecución. Las ejecuciones posteriores usarán el valor guardado automáticamente.
 
-* El código de orquestador debe ser **sin bloqueo**. Por ejemplo, sin `Thread.Sleep` o API equivalentes.
+* El código de orquestador debe ser **sin bloqueo**. Por ejemplo, eso significa ninguna E/S y ninguna llamada a `Thread.Sleep` o API equivalentes.
 
   Si un orquestador necesita un retraso,puede usar la API [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_).
 

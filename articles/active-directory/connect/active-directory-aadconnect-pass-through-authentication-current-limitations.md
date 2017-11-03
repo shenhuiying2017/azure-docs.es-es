@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 86c6459ae26a45cb3118cf53ce17ac3234551f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: limitaciones actuales
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 Los siguientes escenarios son totalmente compatibles:
 
 - Inicios de sesión de usuario en todas las aplicaciones basadas en explorador web.
-- Inicios de sesión de usuario en las aplicaciones cliente de Office 365 que admitan la [autenticación moderna](https://aka.ms/modernauthga).
+- Inicios de sesión de usuario en las aplicaciones cliente de Office 365 que admitan la [autenticación moderna](https://aka.ms/modernauthga): Office 2016 y Office 2013 _con_ autenticación moderna.
 - Azure AD Join para dispositivos con Windows 10.
 - Compatibilidad con Exchange ActiveSync.
 
@@ -38,14 +38,15 @@ Los siguientes escenarios son totalmente compatibles:
 
 Los siguientes escenarios _no_ son compatibles:
 
-- Inicios de sesión de usuarios en aplicaciones cliente de Office heredadas (Office 2013 o versiones anteriores). Se recomienda a las organizaciones que cambien a la autenticación moderna, en caso de que sea posible. La autenticación moderna permite la compatibilidad de la autenticación de paso a través, pero también le ayuda a proteger sus cuentas de usuario mediante características de [acceso condicional](../active-directory-conditional-access.md) como Multi-Factor Authentication (MFA).
+- Inicios de sesión de usuario en las aplicaciones de cliente de Office de heredadas (Office 2010 y Office 2013) _sin_ autenticación moderna. Se recomienda a las organizaciones que cambien a la autenticación moderna, en caso de que sea posible. La autenticación moderna permite la compatibilidad de la autenticación de paso a través, pero también le ayuda a proteger sus cuentas de usuario mediante características de [acceso condicional](../active-directory-conditional-access.md) como Multi-Factor Authentication (MFA).
 - Inicios de sesión de usuarios en aplicaciones cliente de Skype Empresarial, incluido Skype Empresarial 2016.
 - Inicios de sesión de usuario en PowerShell v1.0. Se recomienda que use PowerShell v2.0 en su lugar.
+- Azure AD Domain Services.
 - Contraseñas de aplicación para MFA.
 - Detección de usuarios con [credenciales filtradas](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Como solución alternativa para escenarios no admitidos, habilite la sincronización de hash de contraseñas en la página [Características opcionales](active-directory-aadconnect-get-started-custom.md#optional-features) del asistente de Azure AD Connect. La sincronización de hash de contraseñas _solo_ actúa como reserva en los escenarios anteriores (y _no_ como reserva genérica en la autenticación de paso a través). Al habilitar la sincronización de hash de contraseña también dispone de la opción de autenticación mediante conmutación por error (a través del Soporte técnico de Microsoft) si se interrumpe la infraestructura local.
+>Como solución alternativa _solo_ para escenarios no admitidos, habilite la sincronización de hash de contraseñas en la página [Características opcionales](active-directory-aadconnect-get-started-custom.md#optional-features) del asistente de Azure AD Connect. Al habilitar la sincronización de hash de contraseña también le proporciona la opción de autenticación mediante conmutación por error si se interrumpe la infraestructura local. Esta conmutación por error de la autenticación de paso a través a la sincronización de hash de contraseña no es automática, tiene que realizarse con la ayuda del Soporte técnico de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [**Inicio rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md): desarrollo y ejecución de la autenticación de paso a través de Azure AD.

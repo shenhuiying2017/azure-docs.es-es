@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 319ee2c0f7492389bc1767aa2669dd273f8cfa1b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="monitoring-windows-server-containers-with-oms"></a>Supervisión de contenedores de Windows Server con OMS
 
 ## <a name="oms-containers-solution"></a>Solución Containers de OMS
 
-El equipo de Operations Management Suite (OMS) ha publicado una solución Containers para el diagnóstico y la supervisión de contenedores. Junto con su solución de Service Fabric, esta solución es una herramienta excelente para supervisar las implementaciones de contenedores que se organizan en Service Fabric. Este es un ejemplo sencillo de aspecto del panel de la solución:
+Operations Management Suite (OMS) Log Analytics tiene una solución de contenedores que sirve para la supervisión de los contenedores. Junto con la solución de Service Fabric, esta es una herramienta excelente para supervisar las implementaciones de contenedores que se orquestan en Service Fabric. Este es un ejemplo sencillo de aspecto del panel de la solución:
 
 ![Panel de OMS básico](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
@@ -40,7 +40,7 @@ En este artículo se tratan los pasos necesarios para configurar la supervisión
 
 ## <a name="1-set-up-a-service-fabric-cluster"></a>1. Configuración de un clúster de Service Fabric
 
-Cree un clúster de Service Fabric mediante la plantilla de Azure Resource Manager que encontrará [aquí](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample). Asegúrese de agregar un nombre de área de trabajo de OMS único. Esta plantilla también tiene como valor predeterminado la implementación de un clúster en la versión preliminar de Service Fabric (v255.255), lo que significa que no se puede usar en producción y no se puede actualizar a otra versión de Service Fabric. Si decide usar esta plantilla para el uso de producción o a largo plazo, cambie la versión a un número de versión estable.
+Cree un clúster de Service Fabric mediante la plantilla de Azure Resource Manager que encontrará [aquí](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows). Asegúrese de agregar un nombre de área de trabajo de OMS único. Esta plantilla también tiene como valor predeterminado la implementación de un clúster en la versión preliminar de Service Fabric (v255.255), lo que significa que no se puede usar en producción y no se puede actualizar a otra versión de Service Fabric. Si decide usar esta plantilla para el uso de producción o a largo plazo, cambie la versión a un número de versión estable.
 
 Una vez que se ha configurado el clúster, confirme que ha instalado el certificado adecuado y asegúrese de que puede conectarse al clúster.
 

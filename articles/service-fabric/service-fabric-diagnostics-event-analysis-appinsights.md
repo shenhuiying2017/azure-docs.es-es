@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -38,6 +38,9 @@ Necesita la clave de instrumentación de AI para configurar el recurso de AI con
 
 ### <a name="configuring-ai-with-wad"></a>Configuración de AI con WAD
 
+>[!NOTE]
+>Solo se aplica a los clústeres de Windows por ahora.
+
 Hay dos métodos principales para enviar datos de WAD a AI de Azure, algo que se consigue mediante la agregación de un receptor de AI a la configuración de WAD, como se detalla en [este artículo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 #### <a name="add-an-ai-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Agregar una clave de instrumentación de AI al crear un clúster en Azure Portal
@@ -50,7 +53,7 @@ Si se activa "Diagnostics" al crear un clúster, aparecerá un campo opcional pa
 
 En el archivo "WadCfg" de la plantilla de Resource Manager, agregue un "receptor" mediante la introducción de estos dos cambios:
 
-1. Agregue la configuración del receptor:
+1. Agregue la configuración del receptor directamente después de la confirmación de que `DiagnosticMonitorConfiguration` se ha completado:
 
     ```json
     "SinksConfig": {
@@ -64,7 +67,7 @@ En el archivo "WadCfg" de la plantilla de Resource Manager, agregue un "receptor
 
     ```
 
-2. Incluya el receptor en DiagnosticMonitorConfiguration mediante la incorporación de la siguiente línea en la sección "DiagnosticMonitorConfiguration" de "WadCfg":
+2. Incluya el receptor en `DiagnosticMonitorConfiguration`; para ello, agregue la siguiente línea en `DiagnosticMonitorConfiguration` de `WadCfg` (justo antes de que se confirmen `EtwProviders`):
 
     ```json
     "sinks": "applicationInsights"

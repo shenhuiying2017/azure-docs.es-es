@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a07ff578c6afeedc6f3806d52bfe5aef6945c04
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -31,8 +31,8 @@ Traffic Manager proporciona enrutamiento en el nivel de DNS para que los usuario
 
 Mediante el uso de Traffic View, puede:
 - comprender dónde se encuentran las bases de usuarios (hasta una granularidad en el nivel de resolución DNS local).
-- conocer el volumen de tráfico que se origina desde estas regiones.
-- conocer la latencia representativa que experimentan estos usuarios.
+- ver el volumen de tráfico (en forma de consultas DNS controladas por Azure Traffic Manager) que se origina en estas regiones.
+-  conocer la latencia representativa que experimentan estos usuarios.
 - profundizar en los patrones de tráfico específicos de cada una de estas bases de usuarios para las regiones de Azure en la que tiene puntos de conexión. 
 
 Por ejemplo, puede usar Traffic View para conocer qué regiones tienen una gran cantidad de tráfico pero experimentan latencias más altas. A continuación, puede utilizar esta información para planear la expansión de superficie a nuevas regiones de Azure para que estos usuarios pueden tener una experiencia de latencia inferior.

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 10/17/2017
 ms.author: helaw
-ms.openlocfilehash: 5787b25fb1dd7331e561798152678ed187e24d54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Proporcionar a las aplicaciones acceso a Azure Stack
 
@@ -55,7 +55,7 @@ Al iniciar sesión mediante programación, deberá usar el identificador de la a
 
 1. En **App registrations** (Registros de aplicaciones), en Active Directory, seleccione su aplicación.
 
-2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones de la sección de [aplicaciones de ejemplo](#sample-applications) hacen referencia a este valor como el id. de cliente.
+2. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones de la sección de [aplicaciones de ejemplo](#sample-applications) hacen referencia a este valor como el identificador de cliente.
 
      ![ID. DE CLIENTE](./media/azure-stack-create-service-principal/image12.png)
 3. Para generar una clave de autenticación, seleccione **Claves**.
@@ -72,32 +72,55 @@ Una vez que haya finalizado, [asigne un rol a la aplicación](azure-stack-create
 ## <a name="create-service-principal-for-ad-fs"></a>Crear una entidad de servicio para AD FS
 Si ha implementado Azure Stack con AD FS, puede usar PowerShell para crear una entidad de servicio, asignar un rol para el acceso e iniciar sesión en Powershell con dicha identidad.
 
-### <a name="before-you-begin"></a>Antes de empezar
+El script se ejecuta desde el punto de conexión con privilegios de una máquina virtual ERCS.
 
-[Descargue las herramientas necesarias para trabajar con Azure Stack en el equipo local.](azure-stack-powershell-download.md)
 
-### <a name="import-the-identity-powershell-module"></a>Importar el módulo de Identity PowerShell
-Después de descargar las herramientas, vaya a la carpeta descargada e importe el módulo de Identity PowerShell mediante el comando siguiente:
+Requisitos:
+- Se requiere un certificado.
 
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
+**Parámetros**
 
-Al importar el módulo, puede recibir un error que indique lo siguiente: "AzureStack.Connect.psm1 no está firmado digitalmente. El script no se ejecutará en el sistema". Para resolver este problema, puede configurar la directiva de ejecución para que permita la ejecución del script con el siguiente comando en una sesión de PowerShell con privilegios elevados:
+Se requiere la siguiente información como entrada para los parámetros de automatización:
 
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
 
-### <a name="create-the-service-principal"></a>Creación de la entidad de servicio
-Puede crear una entidad de servicio mediante la ejecución del comando siguiente. Para ello, asegúrese también de actualizar el parámetro *DisplayName*:
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-```
+|Parámetro|Description|Ejemplo|
+|---------|---------|---------|
+|Nombre|Nombre de la cuenta SPN|MyAPP|
+|ClientCertificates|Matriz de objetos de certificado|Certificado X509|
+|ClientRedirectUris<br>(Opcional)|URI de redireccionamiento de aplicación|         |
+
+**Ejemplo**
+
+1. Abra una sesión de Windows PowerShell con privilegios elevados y ejecute los siguientes comandos:
+
+   > [!NOTE]
+   > En este ejemplo se crea un certificado autofirmado. Al ejecutar estos comandos en una implementación de producción, use Get-Certificate para recuperar el objeto de certificado del certificado que desee usar.
+
+   ```
+   $creds = Get-Credential
+
+   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+
+   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+
+   $session|remove-pssession
+
+   ```
+
+2. Una vez finalizada la automatización, esta muestra los detalles necesarios para usar el SPN. 
+
+   Por ejemplo:
+
+   ```
+   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   PSComputerName        : azs-ercs01
+   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+   ```
 ### <a name="assign-a-role"></a>Asignar un rol
 Una vez que se crea la entidad de servicio, debe [asignarla a un rol](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 

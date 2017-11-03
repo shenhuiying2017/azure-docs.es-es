@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/17/2017
 ms.author: bwren
-ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Problemas conocidos y preguntas frecuentes sobre la nueva búsqueda de registros de Log Analytics
 
@@ -94,6 +94,18 @@ La [API de búsqueda de registros](log-analytics-log-search-api.md) heredada dej
 Puede ver una comparación de los dos portales en [Portales para la creación y edición de consultas de registros en Azure Log Analytics](log-analytics-log-search-portals.md).  Cada uno tiene distintas ventajas, para que pueda elegir el que mejor satisfaga sus necesidades.  Es común escribir consultas en el portal de análisis avanzado y copiarlas en otros lugares, como el Diseñador de vistas.  Debe leer sobre las [cuestiones que debe tener en cuenta](log-analytics-log-search-portals.md#advanced-analytics-portal) para ejecutar lo anterior.
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>Pregunta: Después de actualizar, recibo un error al tratar de ejecutar consultas, y también veo errores en mis vistas.
+
+El explorador requiere acceso a las direcciones siguientes para ejecutar las consultas de Log Analytics después de la actualización.  Si el explorador tiene acceso a Azure Portal a través de un firewall, debe habilitar el acceso a estas direcciones.
+
+| Identificador URI | IP | Puertos |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinámica | 80 443 |
+| api.loganalytics.io    | Dinámica | 80 443 |
+| docs.loganalytics.io   | Dinámica | 80 443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Pregunta: ¿Hay algún cambio en la integración con Power BI?
@@ -103,10 +115,12 @@ Sí.  Una vez que se haya actualizado el área de trabajo, el proceso de exporta
 Actualmente hay un límite de tamaño de 8 MB para una consulta de Log Analytics que se puede exportar a Power BI.  Este límite se a aumentará próximamente.
 
 
-##<a name="powershell-cmdlets"></a>Cmdlets de PowerShell
+## <a name="powershell-cmdlets"></a>Cmdlets de PowerShell
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Pregunta: ¿También se actualiza el cmdlet de PowerShell para búsqueda de registros?
-El cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) aún no se ha actualizado al nuevo lenguaje de búsqueda.  Continúe usando el lenguaje de consulta heredado con este cmdlet, incluso después de actualizar el área de trabajo.  La documentación actualizada estará disponible para el cmdlet en cuanto este se actualice.
+El cmdlet [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) dejará de utilizarse una vez completada la actualización de todas las áreas de trabajo.  Use el [cmdlet Invoke-LogAnalyticsQuery](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) para realizar búsquedas de registros en áreas de trabajo actualizadas.
+
+
 
 
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
@@ -159,11 +173,9 @@ No. La actualización no afecta a los datos de los registros disponibles para la
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Pregunta: ¿Qué sucede si no actualizo mi área de trabajo?  
 La búsqueda de registros heredada dejará de utilizarse en los próximos meses. Las áreas de trabajo que no se hayan actualizado en esa fecha se actualizarán automáticamente.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Pregunta: Yo no elegí actualizar y, sin embargo, el área de trabajo se ha actualizado igualmente. ¿Qué ha ocurrido?  
-Otro administrador de esta área de trabajo la ha actualizado. Tenga en cuenta que todas las áreas de trabajo se actualizarán automáticamente cuando el nuevo lenguaje tenga disponibilidad general.  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>Pregunta: ¿Es posible revertir después de actualizar?
+Antes de la disponibilidad general, podía revertir el área de trabajo después de actualizar.  Ahora que el nuevo lenguaje alcanzó la disponibilidad general, se ha suprimido esta funcionalidad a medida que empezamos a retirar la plataforma anterior.
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Pregunta: He actualizado por error y ahora necesito cancelar la actualización y restaurarlo todo de nuevo. ¿Qué debo hacer?  
-No se preocupe.  Se crea una instantánea del área de trabajo antes de la actualización, con lo cual puede restaurarla si es necesario. Aunque debe tener en cuenta que las búsquedas, alertas o vistas que guardó después de la actualización se perderán.  Para restaurar el entorno del área de trabajo, siga el procedimiento descrito en [¿Se puede revertir la actualización?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade).
 
 
 ## <a name="views"></a>Vistas

@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 77d5e04b2e4606cdeb79de12b7c5a0b0cc8f5c25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c5f9f813a3bf1f041b4cd6979b9615e46be5cfb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Compilación de una aplicación web PHP y MySQL en Azure
 
-[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático mediante el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web PHP y conectarla a una base de datos MySQL. Cuando haya terminado, tendrá una aplicación [Laravel](https://laravel.com/) en ejecución en Web Apps for Containers.
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web PHP y conectarla a una base de datos MySQL. Cuando haya terminado, tendrá una aplicación [Laravel](https://laravel.com/) que se ejecuta en App Service en Linux.
 
 ![Aplicación PHP que se ejecuta en Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -192,7 +192,6 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 > [!NOTE]
 > Actualmente, Azure Database for MySQL (versión preliminar) limita las conexiones únicamente a servicios de Azure. Dado que las direcciones IP se asignan de forma dinámica en Azure, es mejor habilitarlas todas. El servicio está en versión preliminar. Se planean los mejores métodos para proteger la base de datos.
 >
->
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Conexión al servidor MySQL de producción local
 
@@ -327,7 +326,7 @@ En este paso se implementará la aplicación PHP conectada a MySQL en Azure App 
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
-[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-no-h.md)]
+[!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 

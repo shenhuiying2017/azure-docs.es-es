@@ -3,8 +3,8 @@ title: "Configuración del enrutamiento (emparejamiento) de un circuito ExpressR
 description: "Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito."
 documentationcenter: na
 services: expressroute
-author: ganesr
-manager: timlt
+author: osamazia
+manager: jonor
 editor: 
 tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: ganesr;cherylmc
-ms.openlocfilehash: af68955b78239832e413e1b59e033d7d3da8d599
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/11/2017
+ms.author: osamaz
+ms.openlocfilehash: c430367ba5e444351b7b6c993179138e0d9f77a7
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute mediante PowerShell
 
@@ -48,9 +48,144 @@ Estas instrucciones se aplican solo a los circuitos creados con proveedores de s
 > 
 > 
 
-Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una. 
+Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una. Para más información sobre los emparejamientos y dominios de enrutamiento, vea [Dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 
-## <a name="azure-private-peering"></a>Configuración entre pares privados de Azure
+## <a name="msft"></a>Emparejamiento de Microsoft
+
+Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento de Microsoft para un circuito ExpressRoute.
+
+> [!IMPORTANT]
+> Se anunciarán todos los prefijos de servicio para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron antes del 1 de agosto de 2017, incluso si no se definen filtros de ruta. No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito. Para más información, consulte [Configuración de un filtro de ruta para el emparejamiento de Microsoft](how-to-routefilter-powershell.md).
+> 
+> 
+
+### <a name="to-create-microsoft-peering"></a>Creación del emparejamiento de Microsoft
+
+[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
+
+1. Importe el módulo de PowerShell para ExpressRoute.
+
+  Para comenzar a usar los cmdlets de ExpressRoute, debe instalar el programa de instalación de PowerShell más reciente desde la [Galería de PowerShell](http://www.powershellgallery.com/) e importar los módulos de Azure Resource Manager en la sesión de PowerShell. Deberá ejecutar PowerShell como administrador.
+
+  ```powershell
+  Install-Module AzureRM
+
+  Install-AzureRM
+  ```
+
+  Importe todos los módulos de AzureRM.* dentro del intervalo de versiones semánticas conocidas.
+
+  ```powershell
+  Import-AzureRM
+  ```
+
+  También puede importar un módulo determinado en dicho intervalo.
+
+  ```powershell
+  Import-Module AzureRM.Network
+  ```
+
+  Inicie sesión en su cuenta.
+
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
+  Seleccione la suscripción en la que desea crear un circuito ExpressRoute.
+
+  ```powershell
+Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+  ```
+2. Crear un circuito ExpressRoute.
+
+  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si el proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitar a su proveedor de conectividad que habilite para usted la configuración entre pares de Microsoft. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Sin embargo, si el proveedor de conectividad no administra el enrutamiento por usted, después de crear el circuito, continúe con la configuración mediante los pasos siguientes. 
+
+3. Compruebe el circuito ExpressRoute para asegurarse de que está aprovisionado y también habilitado. Utilice el ejemplo siguiente:
+
+  ```powershell
+  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  ```
+
+  La respuesta es similar al siguiente ejemplo:
+
+  ```
+  Name                             : ExpressRouteARMCircuit
+  ResourceGroupName                : ExpressRouteResourceGroup
+  Location                         : westus
+  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+  Etag                             : W/"################################"
+  ProvisioningState                : Succeeded
+  Sku                              : {
+                                       "Name": "Standard_MeteredData",
+                                       "Tier": "Standard",
+                                       "Family": "MeteredData"
+                                     }
+  CircuitProvisioningState         : Enabled
+  ServiceProviderProvisioningState : Provisioned
+  ServiceProviderNotes             : 
+  ServiceProviderProperties        : {
+                                       "ServiceProviderName": "Equinix",
+                                       "PeeringLocation": "Silicon Valley",
+                                       "BandwidthInMbps": 200
+                                     }
+  ServiceKey                       : **************************************
+  Peerings                         : []
+  ```
+4. Establezca la configuración del emparejamiento de Microsoft para el circuito. Asegúrese de que tiene la siguiente información antes de empezar:
+
+  * Una subred /30 o /126 para el vínculo principal. Debe ser un prefijo de IPv4 o IPv6 público válido que sea de su propiedad y esté registrado en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
+  * Una subred /30 o /126 para el vínculo secundario. Debe ser un prefijo de IPv4 o IPv6 público válido que sea de su propiedad y esté registrado en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
+  * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN.
+  * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
+  * Prefijos anunciados: tiene que proporcionar una lista de todos los prefijos que planea anunciar en la sesión BGP. Se aceptan solo prefijos de direcciones IP públicas. Si tiene pensado enviar un conjunto de prefijos, puede enviar una lista separada por comas. Estos prefijos tienen que estar registrados a su nombre en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
+  * Nombre del enrutamiento del Registro: puede especificar el RIR o TIR en el que están registrados el número AS y los prefijos.
+  * Opcional:
+    * Cliente ASN: si los prefijos anunciados están registrados en el número AS de configuración entre pares, puede especificar el número de AS en el que están registrados.
+    * Un hash MD5, en caso de que haya decidido usarlo.
+
+  Use el ejemplo siguiente para configurar el emparejamiento de Microsoft para el circuito:
+
+  ```powershell
+  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  ```
+
+### <a name="getmsft"></a>Obtención de detalles del emparejamiento de Microsoft
+
+Puede obtener detalles sobre la configuración mediante el ejemplo siguiente:
+
+```powershell
+$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+
+Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+```
+
+### <a name="updatemsft"></a>Actualización de la configuración de emparejamiento de Microsoft
+
+Puede actualizar cualquier parte de la configuración mediante el ejemplo siguiente:
+
+```powershell
+Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
+### <a name="deletemsft"></a>Eliminación del emparejamiento de Microsoft
+
+Puede quitar la configuración de emparejamiento ejecutando el siguiente cmdlet:
+
+```powershell
+Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+
+Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+```
+
+## <a name="private"></a>Configuración entre pares privados de Azure
 
 Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento privado de Azure para un circuito ExpressRoute.
 
@@ -90,9 +225,8 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
   ```
 2. Crear un circuito ExpressRoute.
 
-  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad.
+  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Sin embargo, si el proveedor de conectividad no administra el enrutamiento por usted, después de crear el circuito, continúe con la configuración mediante los pasos siguientes.
 
-  Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Sin embargo, si el proveedor de conectividad no administra el enrutamiento por usted, después de crear el circuito, continúe con la configuración mediante los pasos siguientes.
 3. Compruebe el circuito ExpressRoute para asegurarse de que está aprovisionado y también habilitado. Utilice el ejemplo siguiente:
 
   ```powershell
@@ -130,7 +264,8 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
   * Una subred /30 para el vínculo secundario. La subred no debe ser parte de ningún espacio de direcciones reservado para redes virtuales.
   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN.
   * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Puede usar un número AS privado para esta configuración entre pares. Asegúrese de que no usa 65515.
-  * **Opcional:** un hash MD5 si elige usar uno.
+  * Opcional:
+    * Un hash MD5, en caso de que haya decidido usarlo.
 
   Use el ejemplo siguiente para configurar el emparejamiento privado de Azure para su circuito:
 
@@ -151,7 +286,7 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
   > 
   >
 
-### <a name="to-view-azure-private-peering-details"></a>Visualización de los detalles del emparejamiento privado
+### <a name="getprivate"></a>Obtención de los detalles del emparejamiento privado
 
 Puede obtener detalles sobre la configuración mediante el ejemplo siguiente:
 
@@ -161,7 +296,7 @@ $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGr
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
 ```
 
-### <a name="to-update-azure-private-peering-configuration"></a>Actualización del establecimiento de configuración del emparejamiento privado de Azure
+### <a name="updateprivate"></a>Actualización del establecimiento de configuración del emparejamiento privado de Azure
 
 Puede actualizar cualquier parte de la configuración mediante el ejemplo siguiente. En este ejemplo, se va a actualizar el identificador de VLAN del circuito de 100 a 500.
 
@@ -171,7 +306,7 @@ Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-azure-private-peering"></a>Eliminación del emparejamiento privado de Azure
+### <a name="deleteprivate"></a>Eliminación del emparejamiento privado de Azure
 
 Puede quitar la configuración de emparejamiento mediante la ejecución del ejemplo siguiente:
 
@@ -186,7 +321,7 @@ Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Expr
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="azure-public-peering"></a>Configuración entre pares públicos de Azure
+## <a name="public"></a>Configuración entre pares públicos de Azure
 
 Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento público de Azure para un circuito ExpressRoute.
 
@@ -227,9 +362,8 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
   ```
 2. Crear un circuito ExpressRoute.
 
-  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad.
+  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si el proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares públicos de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Sin embargo, si el proveedor de conectividad no administra el enrutamiento por usted, después de crear el circuito, continúe con la configuración mediante los pasos siguientes.
 
-  Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Sin embargo, si el proveedor de conectividad no administra el enrutamiento por usted, después de crear el circuito, continúe con la configuración mediante los pasos siguientes.
 3. Compruebe el circuito ExpressRoute para asegurarse de que está aprovisionado y también habilitado. Utilice el ejemplo siguiente:
 
   ```powershell
@@ -267,7 +401,8 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
   * Una subred /30 para el vínculo secundario. Tiene que ser un prefijo IPv4 público válido.
   * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN.
   * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
-  * **Opcional:** un hash MD5 si elige usar uno.
+  * Opcional:
+    * Un hash MD5, en caso de que haya decidido usarlo.
 
   Ejecute el siguiente ejemplo para configurar el emparejamiento público de Azure para su circuito:
 
@@ -290,7 +425,7 @@ Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración
   > 
   >
 
-### <a name="to-view-azure-public-peering-details"></a>Visualización de detalles de un emparejamiento público de Azure
+### <a name="getpublic"></a>Obtención de detalles de un emparejamiento público de Azure
 
 Puede obtener detalles sobre la configuración mediante el siguiente cmdlet:
 
@@ -300,7 +435,7 @@ Puede obtener detalles sobre la configuración mediante el siguiente cmdlet:
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
-### <a name="to-update-azure-public-peering-configuration"></a>Actualización del establecimiento de configuración del emparejamiento público de Azure
+### <a name="updatepublic"></a>Actualización del establecimiento de configuración del emparejamiento público de Azure
 
 Puede actualizar cualquier parte de la configuración mediante el ejemplo siguiente. En este ejemplo, se va a actualizar el identificador de VLAN del circuito de 200 a 600.
 
@@ -310,141 +445,12 @@ Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -Express
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="to-delete-azure-public-peering"></a>Eliminación del emparejamiento público de Azure
+### <a name="deletepublic"></a>Eliminación del emparejamiento público de Azure
 
 Puede quitar la configuración de emparejamiento mediante la ejecución del ejemplo siguiente:
 
 ```powershell
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
-## <a name="microsoft-peering"></a>Emparejamiento de Microsoft
-
-Esta sección le ayuda a crear, obtener, actualizar y eliminar la configuración de emparejamiento de Microsoft para un circuito ExpressRoute.
-
-> [!IMPORTANT]
-> Se anunciarán todos los prefijos de servicio para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron antes del 1 de agosto de 2017, incluso si no se definen filtros de ruta. No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito. Para más información, consulte [Configuración de un filtro de ruta para el emparejamiento de Microsoft](how-to-routefilter-powershell.md).
-> 
-> 
-
-### <a name="to-create-microsoft-peering"></a>Creación del emparejamiento de Microsoft
-
-1. Importe el módulo de PowerShell para ExpressRoute.
-
-  Para comenzar a usar los cmdlets de ExpressRoute, debe instalar el programa de instalación de PowerShell más reciente desde la [Galería de PowerShell](http://www.powershellgallery.com/) e importar los módulos de Azure Resource Manager en la sesión de PowerShell. Deberá ejecutar PowerShell como administrador.
-
-  ```powershell
-  Install-Module AzureRM
-
-  Install-AzureRM
-  ```
-
-  Importe todos los módulos de AzureRM.* dentro del intervalo de versiones semánticas conocidas.
-
-  ```powershell
-  Import-AzureRM
-  ```
-
-  También puede importar un módulo determinado en dicho intervalo.
-
-  ```powershell
-  Import-Module AzureRM.Network
-  ```
-
-  Inicie sesión en su cuenta.
-
-  ```powershell
-  Login-AzureRmAccount
-  ```
-
-  Seleccione la suscripción en la que desea crear un circuito ExpressRoute.
-
-  ```powershell
-Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
-  ```
-2. Crear un circuito ExpressRoute.
-
-  Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad.
-
-  Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Sin embargo, si el proveedor de conectividad no administra el enrutamiento por usted, después de crear el circuito, continúe con la configuración mediante los pasos siguientes.
-3. Compruebe el circuito ExpressRoute para asegurarse de que está aprovisionado y también habilitado. Utilice el ejemplo siguiente:
-
-  ```powershell
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
-
-  La respuesta es similar al siguiente ejemplo:
-
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
-                                       "Name": "Standard_MeteredData",
-                                       "Tier": "Standard",
-                                       "Family": "MeteredData"
-                                     }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
-                                       "ServiceProviderName": "Equinix",
-                                       "PeeringLocation": "Silicon Valley",
-                                       "BandwidthInMbps": 200
-                                     }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
-4. Establezca la configuración del emparejamiento de Microsoft para el circuito. Asegúrese de que tiene la siguiente información antes de empezar:
-
-  * Una subred /30 para el vínculo principal. Debe ser un prefijo de IPv4 público válido que sea de su propiedad y esté registrado en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
-  * Una subred /30 para el vínculo secundario. Debe ser un prefijo de IPv4 público válido que sea de su propiedad y esté registrado en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
-  * Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN.
-  * Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS.
-  * Prefijos anunciados: tiene que proporcionar una lista de todos los prefijos que planea anunciar en la sesión BGP. Se aceptan solo prefijos de direcciones IP públicas. Si tiene pensado enviar un conjunto de prefijos, puede enviar una lista separada por comas. Estos prefijos tienen que estar registrados a su nombre en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
-  * **Opcional:** Cliente ASN: si los prefijos anunciados no están registrados en el número AS de emparejamiento, puede especificar el número de AS en el que están registrados.
-  * Nombre del enrutamiento del Registro: puede especificar el RIR o TIR en el que están registrados el número AS y los prefijos.
-  * **Opcional:** un hash MD5 si elige usar uno.
-
-   Use el ejemplo siguiente para configurar el emparejamiento de Microsoft para el circuito:
-
-  ```powershell
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
-
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
-
-### <a name="to-get-microsoft-peering-details"></a>Obtención de detalles del emparejamiento de Microsoft
-
-Puede obtener detalles sobre la configuración mediante el ejemplo siguiente:
-
-```powershell
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
-```
-
-### <a name="to-update-microsoft-peering-configuration"></a>Actualización de la configuración de emparejamiento de Microsoft
-
-Puede actualizar cualquier parte de la configuración mediante el ejemplo siguiente:
-
-```powershell
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
-
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
-
-### <a name="to-delete-microsoft-peering"></a>Eliminación del emparejamiento de Microsoft
-
-Puede quitar la configuración de emparejamiento ejecutando el siguiente cmdlet:
-
-```powershell
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
-
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 

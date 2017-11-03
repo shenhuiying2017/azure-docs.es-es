@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: e74f2cbeca5385b2e766d02a5f3f8ba3a815c91f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a345cacfe53f37f851eebb76b5b8997cb9c0b54b
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
 La comprobación en dos pasos es un paso adicional de seguridad que ayuda a proteger su cuenta para que el acceso para las demás personas sea más complicado. Si está leyendo este artículo, probablemente tiene un correo electrónico del administrador del trabajo o la escuela sobre Multi-Factor Authentication. O quizás ha intentado iniciar sesión y tiene un mensaje pidiéndole que configure la comprobación de seguridad adicional. Si es así, **no puede iniciar sesión hasta que haya completado el proceso de inscripción automática**.
@@ -29,7 +29,7 @@ Este artículo le ayudará a configurar su **cuenta profesional o educativa**. S
 
 ## <a name="set-up-your-account"></a>Configuración de la cuenta
 
-Cuando el departamento de TI requiera que empiece a usar la verificación de dos pasos, aparece una pantalla con el mensaje **El administrador requiere que configure esta cuenta para realizar una comprobación de seguridad adicional**:
+Cuando la empresa requiera que empiece a usar la verificación de dos pasos, aparece una pantalla con el mensaje **El administrador requiere que configure esta cuenta para realizar una comprobación de seguridad adicional**:
 
 ![Configuración](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -44,11 +44,11 @@ La primera pregunta en el proceso de inscripción es cómo desea ponerse en cont
 | Método de contacto | Descripción |
 | --- | --- |
 | [Aplicación móvil](#use-a-mobile-app-as-the-contact-method) |- **Recibir notificaciones de comprobación.** Esta opción inserta una notificación en la aplicación del autenticador en su smartphone o tableta. Vea la notificación y, si es legítima, seleccione **Autenticar** en la aplicación. Puede que su trabajo o escuela requiera que escriba un PIN para autenticarse.<br>- **Usar el código de comprobación.** En este modo, la aplicación del autenticador genera un código de comprobación que se actualiza cada 30 segundos. Escriba el código de comprobación más reciente en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| [Llamada de teléfono móvil o texto](#use-your-mobile-phone-as-the-contact-method) |- **Llamada de teléfono** realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse.<br>- **Mensaje de texto** envía un mensaje de texto que contiene un código de verificación. Según la solicitud en el texto, responda al mensaje de texto o escriba el código de comprobación proporcionado en la interfaz de inicio de sesión. |
+| [Llamada de teléfono móvil o texto](#use-your-mobile-phone-as-the-contact-method) |- **Llamada de teléfono** realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse.<br>- **Mensaje de texto** envía un mensaje de texto que contiene un código de comprobación. Según la solicitud en el texto, responda al mensaje de texto o escriba el código de comprobación proporcionado en la interfaz de inicio de sesión. |
 | [Llamada de teléfono de la oficina](#use-your-office-phone-as-the-contact-method) |Realiza una llamada de voz automatizada al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Usar una aplicación móvil como método de contacto
-Con este método se requiere que instale una aplicación de autenticador en el teléfono o tableta. Los pasos de este artículo se basan en la aplicación Microsoft Authenticator, que está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Con este método se requiere que instale una aplicación de autenticador en el teléfono o tableta. Los pasos de este artículo se basan en la aplicación Microsoft Authenticator, que está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 1. Seleccione **Aplicación móvil** en la lista desplegable.
 2. Seleccione **Recibir notificaciones de comprobación** o **Usar código de comprobación** y, luego, seleccione **Configurar**.

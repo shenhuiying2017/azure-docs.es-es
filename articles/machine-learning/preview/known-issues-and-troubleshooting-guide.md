@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f79910ba4fea81e88fce90dd67ba7cb4db2e8220
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: Guía de solución de problemas conocidos 
 En este artículo se le ayuda a buscar y corregir los errores que se producen como parte del uso de la aplicación de Azure Machine Learning Workbench. 
@@ -83,7 +83,10 @@ Cuando trabaja en Azure Machine Learning Workbench nos puede enviar también una
 
 - Las transformaciones de agrupaciones en clústeres de texto no son compatibles con Mac.
 
-- La biblioteca de RevoScalePy no es compatible solo en Windows o en Linux (en contenedores de Docker). Tampoco es compatible con macOS.
+- La biblioteca de RevoScalePy solo es compatible con Windows y Linux (en contenedores de Docker). Tampoco es compatible con macOS.
+
+## <a name="file-name-too-long-on-windows"></a>El nombre del archivo es demasiado largo en Windows
+Si usa Workbench en Windows, es posible que se encuentre con el límite predeterminado de 260 caracteres de longitud máxima del nombre de archivo, que puede aparecer como un error "El sistema no encuentra la ruta de acceso especificada". Puede modificar una configuración de la clave del Registro para permitir que el nombre de ruta del archivo sea más largo. Revise [este artículo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para obtener más información acerca de cómo establecer la clave del Registro _MAX_PATH_.
 
 ## <a name="docker-error-read-connection-refused"></a>Error de Docker "read: connection refused" ("lectura: se ha rechazado la conexión")
 Cuando se ejecuta en un contenedor de Docker local, puede que, en algunas ocasiones, aparezca el siguiente error: 

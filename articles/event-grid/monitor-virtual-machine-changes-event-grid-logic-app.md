@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
 
@@ -225,29 +225,26 @@ Ahora, agregue una [ *acción* ](../logic-apps/logic-apps-what-are-logic-apps.md
 
 Enhorabuena, ha creado y ejecutado una aplicación lógica que supervisa los eventos del recurso mediante una cuadrícula de eventos y le envía por correo electrónico un mensaje cuando se producen esos eventos. También ha aprendido cómo puede crear fácilmente flujos de trabajo que automatizan los procesos y a integrar sistemas y servicios en la nube.
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Este tutorial utiliza recursos y realiza acciones que generan gastos en su suscripción de Azure. Cuando haya terminado con el tutorial y las pruebas, asegúrese de deshabilitar o eliminar todos los recursos si no desea que generen gastos.
-
-Puede detener la ejecución de la aplicación lógica y el envío de correo electrónico sin eliminar la aplicación. En el menú de la aplicación lógica, elija **Overview** (Información general). En la barra de herramientas, elija **Deshabilitar**.
-
-![Desactive la aplicación lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
-
-## <a name="faq"></a>P+F
-
-**P**: ¿Qué otras tareas de supervisión de máquinas virtuales puedo realizar con cuadrículas de eventos y aplicaciones lógicas? </br>
-**R**: Puede supervisar otros cambios de configuración, por ejemplo:
+Puede supervisar otros cambios de configuración con las cuadrículas de eventos y las aplicaciones lógicas, por ejemplo:
 
 * Una máquina virtual obtiene derechos de control de acceso basado en roles (RBAC).
 * Se realizan cambios en un grupo de seguridad de red (NSG) en una interfaz de red (NIC).
 * Los discos para una máquina virtual se agregan o se quitan.
 * Se asigna una dirección IP pública a una máquina virtual de NIC.
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Este tutorial utiliza recursos y realiza acciones que generan gastos en su suscripción de Azure. Cuando haya terminado con el tutorial y las pruebas, asegúrese de deshabilitar o eliminar todos los recursos si no desea que generen gastos.
+
+* Para detener la ejecución de la aplicación lógica sin eliminar el trabajo, deshabilítela. En el menú de la aplicación lógica, elija **Overview** (Información general). En la barra de herramientas, elija **Deshabilitar**.
+
+  ![Desactive la aplicación lógica](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+
+  > [!TIP]
+  > Si no ve el menú de la aplicación lógica, intente volver al panel de Azure y vuelva a abrir la aplicación lógica.
+
+* Para eliminar la aplicación de forma definitiva, en el menú de la aplicación lógica, elija **Información general**. En la barra de herramientas, elija **Eliminar**. Confirme que quiere eliminar la aplicación lógica y elija **Eliminar**.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Información general sobre la cuadrícula de eventos](../event-grid/overview.md)
-* [Conceptos sobre la cuadrícula de eventos](../event-grid/concepts.md)
-* [Inicio rápido: Creación y enrutamiento de eventos personalizados con Azure Event Grid](../event-grid/custom-event-quickstart.md)
-* [Esquema de eventos de Event Grid](../event-grid/event-schema.md)
-* [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)
-* [Creación de flujos de trabajo de aplicación lógica con plantillas predefinidas](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Creación y enrutamiento de eventos personalizados con Event Grid](../event-grid/custom-event-quickstart.md)

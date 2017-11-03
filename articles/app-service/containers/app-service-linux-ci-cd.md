@@ -1,11 +1,11 @@
 ---
-title: "Implementación continua con Azure Web App for Containers | Microsoft Docs"
-description: "Configuración de la implementación continua en Azure Web App for Containers."
-keywords: azure app service, linux, oss, acr
+title: "Implementación continua desde un registro de contenedor de Docker con Web App for Containers - Azure | Microsoft Docs"
+description: "Describe cómo configurar una implementación continua desde un registro de contenedor de Docker en Web App for Containers."
+keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: 
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="continuous-deployment-with-azure-web-app-for-containers"></a>Implementación continua con Azure Web App for Containers
+# <a name="continuous-deployment-with-web-app-for-containers"></a>Implementación continua con Web App for Containers
 
-En este tutorial, configurará una implementación continua para una imagen de contenedor personalizada desde los repositorios administrados de [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) o [Docker Hub](https://hub.docker.com).
+En este tutorial, configurará una implementación continua para una imagen de contenedor personalizada desde los repositorios administrados de [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) o [Docker Hub](https://hub.docker.com).
 
-## <a name="step-1---sign-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal: http://portal.azure.com/.
+Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 
-## <a name="step-2---enable-container-continuous-deployment-feature"></a>Paso 2: Habilitación de la característica de implementación continua del contenedor
+## <a name="enable-container-continuous-deployment-feature"></a>Habilitación de la característica de implementación continua del contenedor
 
-Puede habilitar la característica de implementación continua mediante la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), así como ejecutando el siguiente comando
+Puede habilitar la característica de implementación continua mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), así como ejecutando el siguiente comando
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true
-``` 
+```
 
 En **[Azure Portal](https://portal.azure.com/)**, haga clic en la opción **App Service** del lado izquierdo de la página.
 
@@ -45,13 +45,13 @@ En la **configuración de la aplicación**, agregue una aplicación llamada `DOC
 
 ![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## <a name="step-3---prepare-webhook-url"></a>Paso 3: Preparación de la dirección URL de webhook
+## <a name="prepare-webhook-url"></a>Preparación de la dirección URL de webhook
 
-Puede obtener la dirección URL de webhook mediante la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli), así como ejecutando el siguiente comando
+Puede obtener la dirección URL de webhook mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli), así como ejecutando el siguiente comando
 
 ```azurecli-interactive
 az webapp deployment container show-cd-url -n sname1 -g rgname
-``` 
+```
 
 Para la URL del Webhook, debe tener el siguiente punto de conexión: `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
 
@@ -59,7 +59,7 @@ Puede obtener `publishingusername` y `publishingpwd` descargando el perfil de pu
 
 ![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
-## <a name="step-4---add-a-web-hook"></a>Paso 4: Incorporación de webhook
+## <a name="add-a-web-hook"></a>Incorporación de webhook
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
@@ -85,10 +85,10 @@ Cuando se actualiza la imagen, la aplicación web se actualizan automáticamente
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [What is Azure Web App for Containers?](./app-service-linux-intro.md) (¿Qué es Azure Web App for Containers?)
-* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [Uso de .NET Core en Azure Web Apps for Containers](quickstart-dotnetcore.md)
-* [Uso de Ruby en Azure Web Apps for Containers](quickstart-ruby.md)
-* [Cómo usar una imagen personalizada de Docker para Azure Web Apps for Containers](quickstart-custom-docker-image.md)
-* [Preguntas más frecuentes sobre Web App for Containers de Azure App Service ](./app-service-linux-faq.md) 
+* [¿Qué es Azure App Service en Linux?](./app-service-linux-intro.md)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Uso de .NET Core en Azure App Service en Linux](quickstart-dotnetcore.md)
+* [Uso de Ruby en Azure App Service en Linux](quickstart-ruby.md)
+* [Uso de una imagen personalizada de Docker para Web App for Containers](quickstart-custom-docker-image.md)
+* [Preguntas más frecuentes sobre Web App for Containers de Azure App Service ](./app-service-linux-faq.md)
 * [Administración de Web Apps for Containers mediante la CLI de Azure 2.0](./app-service-linux-cli.md)

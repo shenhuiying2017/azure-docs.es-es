@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781d06d2a8234d4cedf546ef059d49b7ece8783d
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único federado para una aplicación ajena a la galería
 
-Para configurar una aplicación ajena a la galería, debe tener Azure AD Premium y que la aplicación admita SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Para configurar un inicio de sesión único para una aplicación que no esté en la galería no *sin escribir código*, debe tener una suscripción o Azure AD Premium, y la aplicación debe ser compatible con SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="overview-of-steps-required"></a>Introducción a los pasos necesarios
-A continuación se muestra una introducción de alto nivel sobre los pasos necesarios para configurar un inicio de sesión único federado para una aplicación ajena a la galería (p. ej. una aplicación personalizada).
+A continuación se muestra información general sobre los pasos necesarios para configurar un inicio de sesión único federado con SAML 2.0 para una aplicación ajena a la galería (p. ej. una aplicación personalizada).
 
 -   [Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, identificador, URL de respuesta)](#_Configuring_single_sign-on)
 

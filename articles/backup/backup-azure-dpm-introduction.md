@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ En este artículo se proporciona una introducción al uso de Microsoft Azure Bac
 >
 >
 
-Datos de aplicación y archivo de copia de seguridad de System Center DMP. Los datos con copia de seguridad en DPM se pueden almacenar en una cinta o en un disco, o se puede crear una copia de seguridad de ellos en Azure con Microsoft Azure Backup. DPM interactúa con Copia de seguridad de Azure de la manera siguiente:
+Datos de aplicación y archivo de copia de seguridad de [System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview). Puede encontrar más información sobre cargas de trabajo compatibles [aquí](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix). Los datos con copia de seguridad en DPM se pueden almacenar en una cinta o en un disco, o se puede crear una copia de seguridad de ellos en Azure con Microsoft Azure Backup. DPM interactúa con Azure Backup de la manera siguiente:
 
 * **DPM implementado como un servidor físico o una máquina virtual local** : si DPM se implementa como un servidor físico o una máquina virtual de Hyper-V local, además de en disco y cinta, puede crear una copia de seguridad de los datos en un almacén de Servicios de recuperación.
 * **DPM implementado como una máquina virtual de Azure** : desde System Center 2012 R2 con Update 3, DPM puede implementarse como una máquina virtual de Azure. Si DPM se implementa como una máquina virtual de Azure, puede crear una copia de seguridad de los datos en discos de Azure conectados a la máquina virtual de DPM Azure, o puede descargar el almacenamiento de datos creando una copia de seguridad de ellos en un almacén de Servicios de recuperación.
@@ -60,6 +60,15 @@ Prepare Copia de seguridad de Azure para crear copias de seguridad de los datos 
 2. **Descargar credenciales de almacén** : descargue las credenciales que va a usar para registrar el servidor DPM en el almacén de Servicios de recuperación.
 3. **Instalar el agente Copia de seguridad de Azure** : desde Copia de seguridad de Azure, instale el agente en cada servidor DPM.
 4. **Registrar el servidor** : registre el servidor DPM en el almacén de Servicios de recuperación.
+
+## <a name="key-definitions"></a>Definiciones clave
+Estas son algunas definiciones clave para copia de seguridad de Azure para DPM:
+
+1. **Credenciales de almacén**: las credenciales de almacén son necesarias para autenticar la máquina para enviar datos de copia de seguridad a un almacén identificado en el servicio Azure Backup. Se puede descargar desde el almacén y son válidas durante 48 horas.
+2. **Frase de contraseña**: la frase de contraseña se utiliza para cifrar las copias de seguridad en la nube. Guarde el archivo en una ubicación segura, ya que puede ser necesario durante una operación de recuperación.
+3. **PIN de seguridad**: si ha habilitado la [configuración de seguridad](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature) del almacén, el PIN de seguridad es necesario para realizar operaciones de copia de seguridad críticas. Esta Multi-Factor Authentication agrega otra capa de seguridad. 
+4. **Carpeta de recuperación**: es la frase en la que se descargan temporalmente las copias de seguridad de la nube durante las recuperaciones de la nube. Su tamaño debe ser aproximadamente igual al tamaño de los elementos de copia de seguridad que desea recuperar en paralelo.
+
 
 ### <a name="1-create-a-recovery-services-vault"></a>1. Creación de un almacén de Servicios de recuperación
 Para crear un almacén de Servicios de recuperación:

@@ -12,22 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="analyzers-in-azure-search"></a>Analizadores de Azure Search
 
-Un *analizador* es un componente de la [búsqueda de texto completo](search-lucene-query-architecture.md) responsable del procesamiento de texto en las cadenas de consulta y de los documentos indexados. Durante la indexación, un analizador transforma el texto en *tokens*, que se escriben como *términos con tokens* en el índice. Durante la búsqueda, un analizador realiza las mismas transformaciones en los *términos de consulta*, lo que proporciona la base para la coincidencia de términos en el índice.
-
-Las siguientes transformaciones son típicas durante el análisis:
+Un *analizador* es un componente de la [búsqueda de texto completo](search-lucene-query-architecture.md) responsable del procesamiento de texto en las cadenas de consulta y de los documentos indexados. Las siguientes transformaciones son típicas durante el análisis:
 
 + Se quitan las palabras no esenciales (palabras irrelevantes) y los signos de puntuación.
 + Las frases y las palabras con guiones se dividen en las partes que los componen.
 + Las palabras en mayúsculas se ponen en minúsculas.
 + Las palabras se reducen a sus formas raíz, con el fin de que se puedan encontrar coincidencias independientemente del tiempo verbal.
+
+Los analizadores lingüísticos convierten una entrada de texto en formularios primitivos o raíz que son eficaces para la recuperación y el almacenamiento de información. La conversión se produce durante la indexación, cuando se crea el índice y, de nuevo, durante la búsqueda cuando se lee el índice. Es más probable que obtenga los resultados de búsqueda que espera si usa el mismo analizador de texto para ambas operaciones.
 
 Azure Search usa el [analizador Estándar Lucene](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) como predeterminado. Puede invalidar el valor predeterminado campo por campo. En este artículo se describe el intervalo de opciones y se ofrecen procedimientos recomendados para el análisis personalizado. También se proporcionan configuraciones de ejemplo para escenarios clave.
 
@@ -53,12 +53,12 @@ Puede personalizar un analizador predefinido, como **Pattern** o **Stop**, para 
 
 3. La adición de un analizador a una definición de campo provoca una operación de escritura en el índice. Si agrega un **analizador** a un índice existente, observe los siguientes pasos:
  
- | Escenario | Pasos |
- |----------|-------|
- | Adición de un nuevo campo | Si el campo no existe todavía en el esquema, no hay ninguna revisión de campo que realizar. El análisis de texto se produce cuando agrega o actualiza documentos que proporcionan contenido para el nuevo campo. Use [Actualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) y [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarea.|
- | Agregue un analizador a un campo indexado ya existente. | El índice invertido para ese campo debe volver a crearse desde el principio y se debe volver a indexar el contenido del documento de esos campos. <br/> <br/>En el caso de índices en desarrollo activo, [elimine](https://docs.microsoft.com/rest/api/searchservice/delete-index) y [cree](https://docs.microsoft.com/rest/api/searchservice/create-index) el índice para que recoja la nueva definición del campo. <br/> <br/>En el caso de índices en producción, debe crear un nuevo campo para proporcionar la definición revisada y empezar a usarlo. Use [Actualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) y [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para incorporar el nuevo campo. Más adelante, como parte de un mantenimiento planeado del índice, puede limpiarlo para quitar campos obsoletos. |
+ | Escenario | Impacto | Pasos |
+ |----------|--------|-------|
+ | Adición de un nuevo campo | mínimo | Si el campo no existe todavía en el esquema, no hay ninguna revisión del campo que realizar porque el campo no tiene todavía una presencia física en el índice. Use [Actualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) y [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarea.|
+ | Agregue un analizador a un campo indexado ya existente. | recompilar | El índice invertido para ese campo debe volver a crearse desde el principio y se debe volver a indexar el contenido de esos campos. <br/> <br/>En el caso de índices en desarrollo activo, [elimine](https://docs.microsoft.com/rest/api/searchservice/delete-index) y [cree](https://docs.microsoft.com/rest/api/searchservice/create-index) el índice para que recoja la nueva definición del campo. <br/> <br/>En el caso de índices en producción, debe crear un nuevo campo para proporcionar la definición revisada y empezar a usarlo. Use [Actualizar índice](https://docs.microsoft.com/rest/api/searchservice/update-index) y [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para incorporar el nuevo campo. Más adelante, como parte de un mantenimiento planeado del índice, puede limpiarlo para quitar campos obsoletos. |
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="tips-and-best-practices"></a>Sugerencias y procedimientos recomendados
 
 En esta sección se proporcionan consejos para trabajar con los analizadores.
 
@@ -72,12 +72,13 @@ Una regla general es usar el mismo analizador de para los índices y las consult
 
 El reemplazo del analizador estándar requiere que se reconstruya el índice. Si es posible, decida qué analizadores se van a usar durante el desarrollo activo antes de poner un índice en producción.
 
-### <a name="compare-analyzers-side-by-side"></a>Comparación de analizadores
+### <a name="inspect-tokenized-terms"></a>Inspección de términos con tokens
 
-Se recomienda utilizar la [API de Analyze](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). La respuesta consta de los tokens que genera un analizador concreto para el texto que proporcione. 
+Si se produce un error en una búsqueda para devolver los resultados esperados, el escenario más probable es que se creen discrepancias de tokens entre las entradas de término en la consulta y términos con tokens en el índice. Si los tokens no son los mismos, las coincidencias no pueden materializarse. Para inspeccionar la salida del tokenizador recomendamos usar la [API de análisis](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) como herramienta de investigación. La respuesta consta de los tokens que genera un analizador concreto.
 
-> [!Tip]
-> La [versión de demostración de Search Analyzer](http://alice.unearth.ai/) muestra una comparación del analizador de Lucene estándar, el analizador del lenguaje para inglés de Lucene y el procesador de lenguaje natural para inglés de Microsoft. Cada vez que se realiza una entrada de búsqueda, los resultados de cada analizador se muestran en los paneles adyacentes.
+### <a name="compare-english-analyzers"></a>Comparación de los analizadores en inglés
+
+La [versión de demostración de Search Analyzer](http://alice.unearth.ai/) es una aplicación de demostración de terceros que muestra una comparación del analizador de Lucene estándar, el analizador del lenguaje para inglés de Lucene y el procesador de lenguaje natural para inglés de Microsoft. El índice es fijo: contiene texto de un caso popular. Para cada entrada de búsqueda que proporcione, se muestran los resultados de cada analizador en paneles adyacentes, lo que le ofrece una idea de la forma en la que cada analizador procesa la misma cadena. 
 
 ## <a name="examples"></a>Ejemplos
 

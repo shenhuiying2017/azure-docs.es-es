@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cae11f53df768daf5846ac719a45715709326d76
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introducción a la aplicación Microsoft Authenticator
 La aplicación Microsoft Authenticator proporciona un nivel de seguridad adicional para su cuenta profesional o educativa (por ejemplo, bsimon@contoso.com) o su cuenta de Microsoft (por ejemplo, bsimon@outlook.com).
@@ -91,10 +91,10 @@ Para una cuenta Microsoft personal (una que use para iniciar sesión en Outlook.
 
     ![Pantalla Cuentas](./media/authenticator-app-how-to/accounts.png)
 
-### <a name="add-an-account-to-the-app-using-touch-id"></a>Incorporación de una cuenta a la aplicación con Touch ID
-La aplicación Microsoft Authenticator de iOS es compatible con Touch ID.  Azure Multi-Factor Authentication permite a las organizaciones pedir un PIN para los dispositivos. Con Touch ID, los usuarios de iOS no tienen por qué escribir un PIN. En su lugar, pueden digitalizar su huella y seleccionar **Aprobar**.
+### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Incorporación de una cuenta a la aplicación con funcionalidades de reconocimiento facial o de huella digital del dispositivo
+Su organización puede requerir un PIN para completar el desafío de verificación. La aplicación Microsoft Authenticator puede usar funcionalidades de reconocimiento facial o de huella digital del dispositivo en lugar de un PIN. Para configurar esta opción en la primera verificación de la aplicación, verá una opción para usar Touch ID (para iOS) o la identificación mediante huella digital. 
 
-Configurar Touch ID con Microsoft Authenticator es sencillo. Un PIN supone un reto de comprobación normal. Si el dispositivo es compatible con Touch ID, Microsoft Authenticator lo configura automáticamente para esa cuenta.
+Para configurar Touch ID para Microsoft Authenticator, debe completar un desafío de verificación normal con un PIN. Microsoft Authenticator se configura automáticamente en los dispositivos que admiten Touch ID. 
 
 ![Comprobación de la configuración de Touch ID](./media/authenticator-app-how-to/touchid1.png)
 

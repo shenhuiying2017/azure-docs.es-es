@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: e82cc53d53a6d0296aaab2c3a76ad4e2f6c12c54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8384d17405653a29207cdfa4f6143504d0db2022
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestadores singleton con Durable Functions (Azure Functions)
 
@@ -26,36 +26,40 @@ Para trabajos en segundo plano u orquestaciones de tipo actor, a menudo debe ase
 
 ## <a name="singleton-example"></a>Ejemplo de singleton
 
-En el ejemplo de C# siguiente se muestra una función de desencadenador de HTTP que crea una orquestación de trabajo en segundo plano de singleton. Utiliza un identificador de instancia conocido para asegurarse de que solo existe una instancia.
+En el ejemplo de C# siguiente se muestra una función de desencadenador de HTTP que crea una orquestación de trabajo en segundo plano de singleton. El código garantiza que solo existe una instancia de un identificador de instancia especificado.
 
 ```cs
-[FunctionName("EnsureSingletonTrigger")]
-public static async Task<HttpResponseMessage> Ensure(
-    [HttpTrigger(AuthorizationLevel.Function, methods: "post")] HttpRequestMessage req,
+[FunctionName("HttpStartSingle")]
+public static async Task<HttpResponseMessage> RunSingle(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/{instanceId}")] HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient starter,
+    string functionName,
+    string instanceId,
     TraceWriter log)
 {
-    // Ensure only one instance is ever running at a time
-    const string OrchestratorName = "MySingletonOrchestrator";
-    const string InstanceId = "MySingletonInstanceId";
-
-    var existingInstance = await starter.GetStatusAsync(InstanceId);
+    // Check if an instance with the specified ID already exists.
+    var existingInstance = await starter.GetStatusAsync(instanceId);
     if (existingInstance == null)
     {
-        log.Info($"Creating singleton instance with ID = {InstanceId}...");
-        await starter.StartNewAsync(OrchestratorName, InstanceId, input: null);
+        // An instance with the specified ID doesn't exist, create one.
+        dynamic eventData = await req.Content.ReadAsAsync<object>();
+        await starter.StartNewAsync(functionName, instanceId, eventData);
+        log.Info($"Started orchestration with ID = '{instanceId}'.");
+        return starter.CreateCheckStatusResponse(req, instanceId);
     }
-
-    return starter.CreateCheckStatusResponse(req, InstanceId);
+    else
+    {
+        // An instance with the specified ID exists, don't create one.
+        return req.CreateErrorResponse(
+            HttpStatusCode.Conflict,
+            $"An instance with ID '{instanceId}' already exists.");
+    }
 }
 ```
 
-De forma predeterminada, los identificadores de instancia son identificadores únicos globales generados aleatoriamente. Sin embargo, observe que en este caso la función de desencadenador utiliza una variable `InstanceId` predefinida con un valor de `MySingletonInstanceId` para asignar previamente un identificador de instancia a la función de orquestador. Esto permite que el desencadenador compruebe si ya se está ejecutando la instancia conocida mediante una llamada a [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_).
+De forma predeterminada, los identificadores de instancia son identificadores únicos globales generados aleatoriamente. Pero, en este caso, el identificador de instancia se pasa en los datos de ruta desde la dirección URL. El código llama a [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) para comprobar si ya se está ejecutando una instancia con el identificador especificado. Si no es así, se crea una instancia con ese identificador.
 
 Los detalles de implementación de la función de orquestador no importan realmente. Podría tratarse de una función de orquestador normal, con un principio y un final, o de una que se ejecuta sin fin (es decir, una [orquestación infinita](durable-functions-eternal-orchestrations.md)). Lo importante es que haya solo una instancia en ejecución cada vez.
-
-> [!NOTE]
-> Si la instancia de orquestación singleton se finaliza, tiene un error o se completa, no será posible volver a crearla con el mismo identificador. En esos casos, debe estar preparado para volver a crearla con un nuevo identificador de instancia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

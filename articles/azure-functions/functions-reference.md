@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -95,7 +95,7 @@ Las aplicaciones de función se integran en App Service, por lo que todas las [o
 3. Vaya a `D:\home\site\wwwroot\` para actualizar *host.json* o `D:\home\site\wwwroot\<function_name>` para actualizar los archivos de la función.
 4. Arrastre y coloque el archivo que desea cargar en la carpeta adecuada en la cuadrícula de archivos. Hay dos áreas en la cuadrícula de archivos donde puede colocar un archivo. Para los archivos *.zip* , aparece un cuadro con la etiqueta "Drag here to upload and unzip" (Arrastre aquí para cargar y descomprimir). Para otros tipos de archivo, colóquelos en la cuadrícula de archivos, pero fuera del cuadro para "descomprimir".
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
 #### <a name="to-use-continuous-deployment"></a>Para usar la implementación continua
 Siga las instrucciones que se indican en el tema [Continuous deployment for Azure Functions](functions-continuous-deployment.md)(Implementación continua para Funciones de Azure).
@@ -105,7 +105,7 @@ Cuando se producen varios eventos de desencadenado más rápido de lo que un tie
 
 ## <a name="functions-runtime-versioning"></a>Versiones del entorno en tiempo de ejecución de Functions
 
-Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Puede consultar la versión exacta de Function App en la pestaña **Configuración** de Azure Portal.
+Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](functions-versions.md).
 
 ## <a name="repositories"></a>Repositorios
 El código de Funciones de Azure es código abierto y está almacenado en repositorios de GitHub:

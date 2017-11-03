@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: badfee15fba5822b383b09a6cc29d9944e64e007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -45,7 +45,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 + **Una instancia de Azure API Management**. Para más información, consulte [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Creación de una instancia de API Management en una red virtual interna
-En las redes virtuales internas, el servicio API Management se hospeda detrás de un equilibrador de carga interno (ILB). La dirección IP del equilibrador de carga está en el intervalo [RFC1918](http://www.faqs.org/rfcs/rfc1918.html).  
+En las redes virtuales internas, el servicio API Management se hospeda detrás de un equilibrador de carga interno (ILB).
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Habilitación de una conexión de red virtual mediante Azure Portal
 
@@ -69,7 +69,7 @@ También puede habilitar la conectividad de la red virtual utilizando cmdlets de
 * Implementación de un servicio API Management existente en una red virtual: utilice el cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) para crear un servicio API Management existente en una red virtual y configúrelo para que utilice el tipo de red virtual interna.
 
 ## <a name="apim-dns-configuration"></a>Configuración de DNS
-Cuando API Management está en modo de red virtual externa, el DNS está administrado por Azure. En el modo de red virtual interna, es usted quien tiene que administrar su propio DNS.
+Cuando API Management está en modo de red virtual externa, el DNS está administrado por Azure. En el modo de red virtual interna, es usted quien tiene que administrar su propio enrutamiento.
 
 > [!NOTE]
 > El servicio API Management no escucha las solicitudes procedentes de direcciones IP. Solo responde a las solicitudes dirigidas al nombre de host establecido en los puntos de conexión de servicio. Estos puntos de conexión de servicio pueden ser la puerta de enlace, el portal del desarrollador, el portal del editor, el punto de conexión de administración directa y Git.
@@ -105,6 +105,11 @@ Así, podrá tener acceso a todos los puntos de conexión de servicio desde la m
 
    2. A continuación, puede crear registros en el servidor DNS para acceder a los puntos de conexión que solo están accesibles desde dentro de la red virtual.
 
+## <a name="routing"> </a> Enrutamiento
++ Se reservará una dirección IP virtual privada con equilibrio de carga desde el intervalo de subred y se utilizará para tener acceso a los puntos de conexión del servicio API Management desde la red virtual.
++ También se reservará una dirección IP pública (VIP) con equilibrio de carga para proporcionar acceso al punto de conexión del servicio de administración solo a través del puerto 3443.
++ Se usará una dirección IP de un intervalo de IP de subred (DIP) para el acceso a los recursos dentro de la red virtual y una dirección IP pública (VIP) para el acceso a los recursos fuera de la red virtual.
++ Las direcciones IP privadas y públicas con equilibrio de carga pueden encontrarse en la hoja Información general/nformación esencial en Azure Portal.
 
 ## <a name="related-content"></a>Contenido relacionado
 Para obtener más información, consulte los artículos siguientes:

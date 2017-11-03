@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
+ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.contentlocale: es-es
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Creación y configuración de una instancia de Integration Runtime autohospedado
 Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información acerca del tiempo de ejecución de integración, consulte [Integration Runtime Overview](concepts-integration-runtime.md) (Información general de Integration Runtime).
@@ -69,7 +68,7 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Las versiones de **sistema operativo** compatibles son Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. No se admite la instalación del entorno Integration Runtime autohospedado en un **controlador de dominio**.
+- Las versiones de **sistema operativo** compatibles son Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. No se admite la instalación del entorno Integration Runtime autohospedado en un **controlador de dominio**.
 - Es necesario **.NET Framework 4.6.1 o posterior**. Si está instalando el entorno Integration Runtime autohospedado en una máquina con Windows 7, instale .NET Framework 4.6.1 o posterior. Consulte [Requisitos de sistema de .NET Framework](/dotnet/framework/get-started/system-requirements) para más información.
 - La **configuración** recomendada de la máquina del entorno Integration Runtime autohospedado es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y disco de 80 GB.
 - Si la máquina host está en hibernación, el entorno Integration Runtime autohospedado no responde a las solicitudes de datos. Por tanto, configure un plan de energía adecuado en el equipo antes de instalar el entorno Integration Runtime autohospedado. Si la máquina está configurada para hibernar, se mostrará un mensaje durante la instalación del entorno Integration Runtime autohospedado.
@@ -240,4 +239,3 @@ Si decide no abrir el puerto 8060 en la máquina del entorno Integration Runtime
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea el tutorial siguiente para obtener instrucciones detalladas: [Tutorial: copy on-premises data to cloud](tutorial-hybrid-copy-powershell.md) (Tutorial: copia de datos locales en la nube).
-

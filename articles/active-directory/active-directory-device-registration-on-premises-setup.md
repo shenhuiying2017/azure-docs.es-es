@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b695a6e07007d4a4cad2d58795e279c5d30fcd4d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory
 Cuando se requiera que los usuarios unan sus dispositivos personales al área de trabajo en el servicio de registro de dispositivos de Azure Active Directory (Azure AD), los dispositivos deben estar marcados como conocidos para la organización. A continuación aparece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
@@ -220,8 +220,5 @@ En los comandos anteriores, el **nombre de relación de confianza para usuario a
 Y **yourdomain.com** es el nombre de dominio que configuró con Azure Active Directory (por ejemplo, contoso.com).
 Asegúrese de quitar los saltos de línea (si existen) del contenido HTML que se pasa al cmdlet **Set-AdfsRelyingPartyWebContent**.
 
-Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no esté registrado con el servicio de registro de dispositivos de Azure Active Directory, verán una página similar a la captura de pantalla siguiente.
-
-![Captura de pantalla de un error cuando los usuarios no han registrado su dispositivo con Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+Ahora, cuando los usuarios accedan a la aplicación desde un dispositivo que no esté registrado con el servicio de registro de dispositivos de Azure Active Directory, verán un error.
 

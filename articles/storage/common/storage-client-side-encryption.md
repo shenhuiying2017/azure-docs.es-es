@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 10/20/2017
 ms.author: tamram
-ms.openlocfilehash: 0c36679fd9128613cb4a7e54786ab09eb3a1fc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -146,10 +146,11 @@ Al crear un objeto de EncryptionPolicy, los usuarios pueden proporcionar solo un
   * La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
   * Si no se especifica la resolución, pero sí se especifica una clave, la clave se usa si su identificador coincide con el identificador de clave necesario. Si el identificador no coincide, se genera un error.
 
-Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas, junto con la integración del Almacén de claves.
+Los ejemplos de código en este artículo muestran el establecimiento de una directiva de cifrado y el funcionamiento con datos cifrados, pero no muestran el funcionamiento con Azure Key Vault. Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) en GitHub muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas, junto con la integración del Almacén de claves.
 
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption
 Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. Este comportamiento lo controla la propiedad **RequireEncryption** de los controles de objeto de las opciones de solicitud. Si la aplicación va a cifrar todos los objetos almacenados en el Almacenamiento de Azure, puede establecer la propiedad **RequireEncryption** en las opciones de solicitud predeterminadas del objeto de cliente de servicio. Por ejemplo, establezca **CloudBlobClient.DefaultRequestOptions.RequireEncryption** en **true** para requerir que se realice el cifrado para todas las operaciones de blobs realizadas a través de ese objeto de cliente.
+
 
 ### <a name="blob-service-encryption"></a>Cifrado del servicio de blobs
 Cree un objeto **BlobEncryptionPolicy** y configúrelo en las opciones de solicitud (por API o en un nivel de cliente mediante el elemento **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.

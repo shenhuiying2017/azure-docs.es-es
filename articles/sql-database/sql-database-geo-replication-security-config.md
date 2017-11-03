@@ -1,6 +1,6 @@
 ---
 title: "Configuración de la seguridad de Azure SQL Database para recuperación ante desastres | Microsoft Docs"
-description: "En este tema se explican las consideraciones de seguridad para configurar y administrar la seguridad después de la restauración de una base de datos o una conmutación por error en un servidor secundario ante la eventualidad de interrupción del centro de datos u otro desastre"
+description: "Conozca las consideraciones sobre seguridad para configurar y administrar la seguridad después de una restauración de la base de datos o una conmutación por error a un servidor secundario."
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -15,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: sashan
-ms.openlocfilehash: 48b35f761273c68b03af1fc5e977bb99455a01e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5522bb8770212cc226cb794dacaccee07cb4e91b
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error 
+
+En este tema se describen los requisitos de autenticación para configurar y controlar la [replicación geográfica activa](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. También se describe cómo habilitar el acceso a la base de datos recuperada después de utilizar la [georrestauración](sql-database-recovery-using-backups.md#geo-restore). Para más información sobre opciones de recuperación, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 
 > [!NOTE]
 > La [replicación geográfica activa](sql-database-geo-replication-overview.md) está ahora disponible para todas las bases de datos en todos los niveles de servicio.
 >  
-
-## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Información general sobre los requisitos de autenticación para la recuperación ante desastres
-En este tema se describen los requisitos de autenticación para configurar y controlar la [replicación geográfica activa](sql-database-geo-replication-overview.md) y los pasos necesarios para configurar el acceso de usuario a la base de datos secundaria. También se describe cómo habilitar el acceso a la base de datos recuperada después de utilizar la [georrestauración](sql-database-recovery-using-backups.md#geo-restore). Para más información sobre opciones de recuperación, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 
 ## <a name="disaster-recovery-with-contained-users"></a>Recuperación ante desastres con usuarios contenidos
 A diferencia de los usuarios tradicionales, que deben asignarse a inicios de sesión en la base de datos maestra, un usuario independiente se administra completamente en la base de datos, lo que ofrece dos ventajas. En el escenario de replicación geográfica, los usuarios pueden proceder a conectarse a la nueva base de datos principal o a la base de datos recuperada mediante georrestauración, sin ninguna configuración adicional, ya que la base de datos administra los usuarios. También existen ventajas potenciales de escalabilidad y rendimiento con esta configuración desde la perspectiva del inicio de sesión. Para obtener más información, vea [Usuarios de base de datos independiente - Conversión de la base de datos en portátil](https://msdn.microsoft.com/library/ff929188.aspx). 

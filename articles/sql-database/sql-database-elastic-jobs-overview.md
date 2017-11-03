@@ -1,6 +1,6 @@
 ---
 title: "Administración de bases de datos escaladas horizontalmente en la nube | Microsoft Docs"
-description: "Muestra el servicio de trabajo de base de datos elástica"
+description: "Use el servicio Trabajo de Elastic Database para ejecutar un script a través de un grupo de bases de datos."
 metakeywords: azure sql database elastic databases
 services: sql-database
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 8e84562115a866c0df5e0dee6c7f66c036a74737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74618179fe169b968e822cd9c563410560244848
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Administración de bases de datos escaladas horizontalmente en la nube
 Para administrar bases de datos con particiones y escaladas horizontalmente en la nube, la característica **Trabajos de base de datos elástica** (versión preliminar) permite ejecutar un script de Transact-SQL (T-SQL) de forma confiable en un grupo de bases de datos, lo que incluye:

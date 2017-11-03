@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
-ms.openlocfilehash: 6e2f6983e00f874420f7f0907dbc68185f0af713
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f26c35512bb92323b5a9c1688f96a958e0749c6
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
 
@@ -72,7 +72,7 @@ Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al
 
 1. Comience a crear un clúster siguiendo los pasos que se describen en [Creación de clústeres de HDInsight basados en Linux](hdinsight-hadoop-create-linux-clusters-portal.md), pero no complete la operación.
 
-2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
+2. En la sección **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
    * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
 
@@ -86,7 +86,7 @@ Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al
 
    * **PARÁMETROS**: deje este campo en blanco.
 
-3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
+3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la sección **Configuración opcional** para guardar la información de configuración opcional.
 
 4. Continúe creando el clúster, tal como se describe en [Creación de clústeres de HDInsight basados en Linux](hdinsight-hadoop-create-linux-clusters-portal.md).
 

@@ -11,17 +11,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: f17f3084138d667b2584142ed90ecc8fc1586189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f864ca586e8e607168ae7b46a1eaa297eca1cfb8
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leer mensajes del dispositivo a la nube desde el punto de conexión integrado
 
-De forma predeterminada, los mensajes se enrutan al punto de conexión integrado orientado al servicio (**messages/events**), que es compatible con [Event Hubs][lnk-event-hubs]. Actualmente este punto de conexión solo se expone mediante el protocolo [AMQP][lnk-amqp] en el puerto 5671. IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
+De forma predeterminada, los mensajes se enrutan al punto de conexión orientado al servicio integrado (**/messages/events**), que es compatible con [Event Hubs][lnk-event-hubs]. Actualmente este punto de conexión solo se expone mediante el protocolo [AMQP][lnk-amqp] en el puerto 5671. IoT Hub muestra las propiedades siguientes para permitirle controlar el punto de conexión de mensajería integrado compatible con Event Hubs **messages/events**.
 
 | Propiedad            | Descripción |
 | ------------------- | ----------- |
@@ -40,16 +40,18 @@ IoT Hub expone el punto de conexión integrado **messages/events** para los serv
 
 Al usar el [SDK de Azure Service Bus para .NET][lnk-servicebus-sdk] o [Event Hubs - host del procesador de eventos][lnk-eventprocessorhost], puede usar cualquier cadena de conexión del centro de IoT con los permisos correctos. A continuación, utilice **messages/events** como el nombre del Centro de eventos.
 
-Cuando use SDK (o integraciones de productos) que no detecten IoT Hub, tiene que recuperar un punto de conexión y un nombre compatibles con Event Hub de la configuración de IoT Hub en [Azure Portal][lnk-management-portal]:
+Cuando use SDK (o integraciones de productos) que no detecten IoT Hub, tiene que recuperar un punto de conexión y un nombre compatibles con Event Hub de la configuración de IoT Hub:
 
-1. En la hoja IoT Hub, haga clic en **Puntos de conexión**.
-1. En la sección **Built-in endpoints** (Puntos de conexión integrados), haga clic en **Eventos**. La hoja contiene los siguientes valores: **Event Hub-compatible endpoint** (Punto de conexión compatible con el Centro de eventos), **Event Hub-compatible name** (Nombre compatible con el Centro de eventos), **Particiones**, **Tiempo de retención** y **Grupos de consumidores**.
+1. Inicie sesión en [Azure Portal][lnk-management-portal] y vaya a IoT Hub.
+1. Haga clic en **Extremos**.
+1. En la sección **Built-in endpoints** (Puntos de conexión integrados), haga clic en **Eventos**. 
+1. Se abrirá una página de propiedades, que contiene los siguientes valores: **Event Hub-compatible endpoint** (Punto de conexión compatible con el Centro de eventos), **Event Hub-compatible name** (Nombre compatible con el Centro de eventos), **Particiones**, **Tiempo de retención** y **Grupos de consumidores**.
 
     ![Configuración de dispositivo a nube][img-eventhubcompatible]
 
-El SDK de IoT Hub requiere el nombre del punto de conexión de IoT Hub, que es **messages/events** tal y como se muestra en la hoja **Puntos de conexión**.
+El SDK de IoT Hub requiere el nombre del punto de conexión de IoT Hub, que es **messages/events** tal y como se muestra en **Puntos de conexión**.
 
-Si el SDK que utiliza requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema de **Event Hub-compatible endpoint** (Punto de conexión compatible con el Centro de eventos). Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net** y el **espacio de nombres** sería **iothub-ns-myiothub-1234**.
+Si el SDK que utiliza requiere un valor de **Nombre de host** o **Espacio de nombres**, quite el esquema de **Event Hub-compatible endpoint** (Punto de conexión compatible con el Centro de eventos). Por ejemplo, si el punto de conexión compatible con el Centro de eventos es **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, el **nombre de host** sería **iothub-ns-myiothub-1234.servicebus.windows.net**. El **Namespace** sería **iothub-ns-myiothub-1234**.
 
 A continuación, puede usar cualquier directiva de acceso compartido que tenga permisos **ServiceConnect** para conectarse a la instancia de Event Hub especificada.
 

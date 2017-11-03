@@ -1,275 +1,400 @@
 ---
-title: 'Control del enrutamiento y las aplicaciones virtuales en Azure: PowerShell | Microsoft Docs'
-description: "Obtenga información sobre cómo controlar el enrutamiento y las aplicaciones virtuales con PowerShell."
+title: "Creación de una ruta definida por el usuario para enrutar el tráfico de red a través de una aplicación virtual de red - PowerShell | Microsoft Docs"
+description: "Obtenga información sobre cómo crear una ruta definida por el usuario para invalidar el enrutamiento predeterminado de Azure enrutando el tráfico de red a través de una aplicación virtual de red."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
-ms.assetid: 9582fdaa-249c-4c98-9618-8c30d496940f
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/23/2016
+ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3ab24f193c74449ae7414b4ea0675c0aae0211f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ca7f791b4c5c8bb9020144785b1c1aeb20db195
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="create-user-defined-routes-udr-using-powershell"></a>Creación de rutas definidas por el usuario (UDR) con PowerShell
+# <a name="create-a-user-defined-route---powershell"></a>Creación de una ruta definida por el usuario - PowerShell
 
-> [!div class="op_single_selector"]
-> * [PowerShell](virtual-network-create-udr-arm-ps.md)
-> * [CLI de Azure](virtual-network-create-udr-arm-cli.md)
-> * [Plantilla](virtual-network-create-udr-arm-template.md)
-> * [PowerShell (clásico)](virtual-network-create-udr-classic-ps.md)
-> * [CLI (clásico)](virtual-network-create-udr-classic-cli.md)
+En este tutorial, aprenderá a crear rutas definidas por el usuario para enrutar el tráfico entre dos subredes de la [red virtual](virtual-networks-overview.md) a través de una aplicación virtual de red. Una aplicación virtual de red es una máquina virtual que ejecuta una aplicación de red, por ejemplo, un firewall. Para obtener más información sobre las aplicaciones virtuales de red preconfiguradas que puede implementar en una red virtual de Azure, visite [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
+Al crear subredes en una red virtual, Azure genera [rutas del sistema](virtual-networks-udr-overview.md#system-routes) predeterminadas que permiten a los recursos de todas las subredes comunicarse entre sí, como se muestra en la siguiente imagen:
 
-[!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
+![Rutas predeterminadas](./media/create-user-defined-route/default-routes.png)
 
-> [!IMPORTANT]
-> Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: Azure Resource Manager y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo.
->
+En este tutorial, puede crear una red virtual con subredes públicas, privadas y DMZ, como se muestra en la imagen que aparece a continuación. Normalmente, los servidores web pueden implementarse en una subred pública, mientras que un servidor de aplicaciones o bases de datos puede implementarse en una subred privada. Puede crear una máquina virtual que actúe como una aplicación virtual de red en la subred DMZ y, de forma opcional, crear una máquina virtual en cada red que se comunique a través de la aplicación virtual de red. Todo el tráfico entre las subredes públicas y privadas se enruta a través de la aplicación, como se muestra en la siguiente imagen:
 
-Este artículo trata sobre el modelo de implementación del Administrador de recursos. También puede [crear rutas definidas por el usuario en el modelo de implementación clásico](virtual-network-create-udr-classic-ps.md).
+![Rutas definidas por el usuario](./media/create-user-defined-route/user-defined-routes.png)
 
-[!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
+En este artículo se indican los pasos para crear una ruta definida por el usuario mediante el modelo de implementación de Resource Manager, que es el recomendado para crear rutas definidas por el usuario. Si debe crear una ruta definida por el usuario (clásica), consulte [Creación de una ruta definida por el usuario (clásica)](virtual-network-create-udr-classic-ps.md). Si no está familiarizado con los modelos de implementación de Azure, vea [Understand Azure deployment models (Descripción de los modelos de implementación de Azure)](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined-routes).
 
-En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, cree primero el entorno de prueba mediante la implementación de [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR-Before), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
+## <a name="create-routes-and-network-virtual-appliance"></a>Creación de rutas y aplicación virtual de red
 
-[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+Puede instalar y configurar la última versión del módulo [AzureRM](https://www.powershellgallery.com/packages/AzureRM/) de PowerShell en su equipo, o bien hacer clic en el botón **Probarlo** de cualquiera de los scripts para ejecutarlos en Azure Cloud Shell. Cloud Shell tiene instalado el módulo AzureRM de PowerShell.
+ 
+1. **Requisito previo**: cree una red virtual con dos subredes completando los pasos de [Crear una red virtual](#create-a-virtual-network).
+2. Si ejecuta PowerShell en su equipo, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account) mediante el comando `login-azurermaccount`. Si usa Cloud Shell, ya ha iniciado sesión automáticamente. Es posible que Cloud Shell necesite reiniciarse para cambiar del shell de Bash (el que se utilizó al crear la red virtual del requisito previo).
+3. Establezca algunas variables utilizadas a lo largo de los pasos:
 
-## <a name="create-the-udr-for-the-front-end-subnet"></a>Creación de la ruta definida por el usuario para la subred front-end
-Para crear la tabla de rutas y la ruta necesaria para la subred front-end según el escenario anterior, siga los siguientes pasos:
-
-1. Cree una ruta que se use para enviar todo el tráfico destinado a la subred back-end (192.168.2.0/24) para enrutarse a la aplicación virtual **FW1** (192.168.0.4).
-
-    ```powershell
-    $route = New-AzureRmRouteConfig -Name RouteToBackEnd `
-    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
-    -NextHopIpAddress 192.168.0.4
+    ```azurepowershell-interactive
+    $rgName="myResourceGroup"
+    $location="eastus"
     ```
 
-2. Cree una tabla de rutas denominada **UDR-FrontEnd** en la región **westus** que contenga la ruta.
+4. Cree una subred DMZ en la red virtual existente:
 
-    ```powershell
-    $routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
-    -Name UDR-FrontEnd -Route $route
+    ```azurepowershell-interactive
+    $virtualNetwork = Get-AzureRmVirtualNetwork `
+      -Name myVnet `
+      -ResourceGroupName $rgName 
+    Add-AzureRmVirtualNetworkSubnetConfig `
+      -Name 'DMZ' `
+      -AddressPrefix "10.0.2.0/24" `
+      -VirtualNetwork $virtualNetwork
+    $virtualNetwork | Set-AzureRmVirtualNetwork
     ```
 
-3. Cree una variable que contenga la red virtual donde está la subred. En nuestro escenario, la red virtual se llama **TestVNet**.
+5. Cree una dirección IP pública estática para la máquina virtual de aplicación virtual de red.
 
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+    ```azurepowershell-interactive
+    $Pip = New-AzureRmPublicIpAddress `
+      -AllocationMethod Static `
+      -ResourceGroupName $rgName `
+      -Location $location `
+      -Name myPublicIp-myVm-Nva
+    
+6. Create a network interface in the *DMZ* subnet, assign a static private IP address to it, and enable IP forwarding for the network interface. By assigning a static IP address to the network interface, you ensure that it doesn't change for the life of the virtual machine the network interface is attached to. IP forwarding must be enabled for each network interface that receives traffic not addressed to an IP address assigned to it.
+
+    ```azurepowershell-interactive
+    $virtualNetwork = Get-AzureRmVirtualNetwork `
+      -Name myVnet `
+      -ResourceGroupName $rgName
+    $subnet = Get-AzureRmVirtualNetworkSubnetConfig `
+      -Name DMZ `
+      -VirtualNetwork $virtualNetwork
+    $nic = New-AzureRmNetworkInterface `
+      -ResourceGroupName $rgName `
+      -Location $location `
+      -Name 'myNic-Nva' `
+      -SubnetId $subnet.Id `
+      -PrivateIpAddress 10.0.2.4 `
+      -EnableIPForwarding `
+      -PublicIpAddressId $Pip.Id 
     ```
 
-4. Asocie la tabla de ruta creada anteriormente a la subred **FrontEnd** .
+7. Cree la máquina virtual de aplicación virtual de red (NVA). La NVA puede ser una máquina virtual que ejecute los sistemas operativos Linux o Windows. Para crearla, copie el script de cualquiera de los sistemas operativos y péguelo en la sesión de PowerShell. Si crea una máquina virtual Windows, pegue el script en un editor de texto, cambie el valor de la variable $cred y, luego, pegue el texto modificado en la sesión de PowerShell:
 
-    ```powershell
-    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
-    -AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
+    **Linux**
+
+    ```azurepowershell-interactive
+    # Define the admin user name and a blank password.
+    $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+    $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+
+    # Define the virtual machine configuration.
+    $vmConfig = New-AzureRmVMConfig `
+      -VMName 'myVm-Nva' `
+      -VMSize Standard_DS2 | `
+      Set-AzureRmVMOperatingSystem -Linux `
+      -ComputerName 'myVm-Nva' `
+      -Credential $cred -DisablePasswordAuthentication| `
+      Set-AzureRmVMSourceImage `
+      -PublisherName Canonical `
+      -Offer UbuntuServer `
+      -Skus 14.04.2-LTS `
+      -Version latest | `
+      Add-AzureRmVMNetworkInterface -Id $nic.Id
+
+    # Configure SSH Keys
+    $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+    Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"    
+
+    # Create the virtual machine
+    $vm = New-AzureRmVM `
+      -ResourceGroupName $rgName `
+      -Location $location `
+      -VM $vmConfig
     ```
 
-    > [!WARNING]
-    > La salida del comando anterior muestra el contenido del objeto de configuración de red virtual, que solo existe en el equipo donde se ejecuta PowerShell. Debe ejecutar el cmdlet **AzureVirtualNetwork Set** para guardar esta configuración en Azure.
-    > 
+    **Windows**
 
-5. Guarde la nueva configuración de subred de Azure.
+    ```azurepowershell-interactive
+    # Create user object
+    $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
-    ```powershell
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    $vmConfig = New-AzureRmVMConfig `
+      -VMName 'myVm-Nva' `
+      -VMSize Standard_DS2 | `
+      Set-AzureRmVMOperatingSystem -Windows `
+      -ComputerName 'myVm-Nva' `
+      -Credential $cred | `
+      Set-AzureRmVMSourceImage `
+      -PublisherName MicrosoftWindowsServer `
+      -Offer WindowsServer `
+      -Skus 2016-Datacenter `
+      -Version latest | `
+      Add-AzureRmVMNetworkInterface -Id $nic.Id
+    
+    $vm = New-AzureRmVM `
+      -ResourceGroupName $rgName `
+      -Location $location `
+      -VM $vmConfig
     ```
 
-    Resultado esperado:
-   
-        Name              : TestVNet
-        ResourceGroupName : TestRG
-        Location          : westus
-        Id                : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag              : W/"[Id]"
-        ProvisioningState : Succeeded
-        Tags              : 
-                            Name         Value
-                            ===========  =====
-                            displayName  VNet 
-   
-        AddressSpace      : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptions       : {
-                              "DnsServers": null
-                            }
-        NetworkInterfaces : null
-        Subnets           : [
-                                ...,
-                              {
-                                "Name": "FrontEnd",
-                                "Etag": "W/\"[Id]\"",
-                                "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-                                "AddressPrefix": "192.168.1.0/24",
-                                "IpConfigurations": [
-                                  {
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
-                                  },
-                                  {
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
-                                  }
-                                ],
-                                "NetworkSecurityGroup": {
-                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
-                                },
-                                "RouteTable": {
-                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
-                                },
-                                "ProvisioningState": "Succeeded"
-                              },
-                                ...
-                            ]    
+8. De forma predeterminada, Azure enruta el tráfico entre todas las subredes de una red virtual. Cree una ruta para cambiar el enrutamiento predeterminado de Azure, de modo que el tráfico de la subred *pública* se enrute a través de la máquina NVA, en lugar de directamente a la subred *privada*.
 
-## <a name="create-the-udr-for-the-back-end-subnet"></a>Creación de la ruta definida por el usuario para la subred back-end
-
-Para crear la tabla de rutas y la ruta necesaria para la subred back-end según el escenario anterior, siga los siguientes pasos.
-
-1. Cree una ruta que se use para enviar todo el tráfico destinado a la subred front-end (192.168.1.0/24) para enrutarse a la aplicación virtual **FW1** (192.168.0.4).
-
-    ```powershell
-    $route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
-    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
-    -NextHopIpAddress 192.168.0.4
+    ```azurepowershell-interactive    
+    $routePrivate = New-AzureRmRouteConfig `
+      -Name 'ToPrivateSubnet' `
+      -AddressPrefix 10.0.1.0/24 `
+      -NextHopType VirtualAppliance `
+      -NextHopIpAddress $nic.IpConfigurations[0].PrivateIpAddress
     ```
 
-2. Cree una tabla de rutas denominada **UDR-BackEnd** en la región **uswest** que contenga la ruta que se ha creado anteriormente.
+9. Cree una tabla de rutas para la subred *pública*.
 
+    ```azurepowershell-interactive
+    $routeTablePublic = New-AzureRmRouteTable `
+      -Name 'myRouteTable-Public' `
+      -ResourceGroupName $rgName `
+      -location $location `
+      -Route $routePrivate
     ```
-    $routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
-    -Name UDR-BackEnd -Route $route
-    ```
+    
+10. Asocie la tabla de rutas a la subred pública. Al hacerlo, Azure enruta todo el tráfico saliente de la subred según las rutas de la tabla de rutas. Una tabla de rutas se puede asociar a ninguna o varias subredes, mientras que una subred puede tener ninguna o una tabla de rutas asociada.
 
-3. Asocie la tabla de ruta creada anteriormente a la subred **BackEnd** .
-
-    ```powershell
-    Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
-    -AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
-    ```
-
-4. Guarde la nueva configuración de subred de Azure.
-
-    ```powershell
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
-
-    Resultado esperado:
-   
-        Name              : TestVNet
-        ResourceGroupName : TestRG
-        Location          : westus
-        Id                : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-        Etag              : W/"[Id]"
-        ProvisioningState : Succeeded
-        Tags              : 
-                            Name         Value
-                            ===========  =====
-                            displayName  VNet 
-   
-        AddressSpace      : {
-                              "AddressPrefixes": [
-                                "192.168.0.0/16"
-                              ]
-                            }
-        DhcpOptions       : {
-                              "DnsServers": null
-                            }
-        NetworkInterfaces : null
-        Subnets           : [
-                              ...,
-                              {
-                                "Name": "BackEnd",
-                                "Etag": "W/\"[Id]\"",
-                                "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-                                "AddressPrefix": "192.168.2.0/24",
-                                "IpConfigurations": [
-                                  {
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
-                                  },
-                                  {
-                                    "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
-                                  }
-                                ],
-                                "NetworkSecurityGroup": {
-                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BacEnd"
-                                },
-                                "RouteTable": {
-                                  "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
-                                },
-                                "ProvisioningState": "Succeeded"
-                              }
-                            ]
-
-## <a name="enable-ip-forwarding-on-fw1"></a>Habilitación del reenvío IP en FW1
-Para habilitar el reenvío IP en la NIC usada por **FW1**, siga estos pasos.
-
-1. Cree una variable que contenga la configuración de la NIC usada por FW1. En nuestro escenario, la NIC se llama **NICFW1**.
-
-    ```powershell
-    $nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+    ```azurepowershell-interactive
+    Set-AzureRmVirtualNetworkSubnetConfig `
+      -VirtualNetwork $virtualNetwork `
+      -Name 'Public' `
+      -AddressPrefix 10.0.0.0/24 `
+      -RouteTable $routeTablePublic | `
+    Set-AzureRmVirtualNetwork
     ```
 
-2. Habilite el reenvío IP y guarde la configuración de NIC.
+11. Cree una ruta para el tráfico de la subred *privada* a la *pública* a través de la máquina virtual NVA.
 
-    ```powershell
-    $nicfw1.EnableIPForwarding = 1
-    Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
+    ```azurepowershell-interactive    
+    $routePublic = New-AzureRmRouteConfig `
+      -Name 'ToPublicSubnet' `
+      -AddressPrefix 10.0.0.0/24 `
+      -NextHopType VirtualAppliance `
+      -NextHopIpAddress $nic.IpConfigurations[0].PrivateIpAddress
     ```
-   
-    Resultado esperado:
-   
-        Name                 : NICFW1
-        ResourceGroupName    : TestRG
-        Location             : westus
-        Id                   : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
-        Etag                 : W/"[Id]"
-        ProvisioningState    : Succeeded
-        Tags                 : 
-                               Name         Value                  
-                               ===========  =======================
-                               displayName  NetworkInterfaces - DMZ
-   
-        VirtualMachine       : {
-                                 "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1"
-                               }
-        IpConfigurations     : [
-                                 {
-                                   "Name": "ipconfig1",
-                                   "Etag": "W/\"[Id]\"",
-                                   "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1",
-                                   "PrivateIpAddress": "192.168.0.4",
-                                   "PrivateIpAllocationMethod": "Static",
-                                   "Subnet": {
-                                     "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ"
-                                   },
-                                   "PublicIpAddress": {
-                                     "Id": "/subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1"
-                                   },
-                                   "LoadBalancerBackendAddressPools": [],
-                                   "LoadBalancerInboundNatRules": [],
-                                   "ProvisioningState": "Succeeded"
-                                 }
-                               ]
-        DnsSettings          : {
-                                 "DnsServers": [],
-                                 "AppliedDnsServers": [],
-                                 "InternalDnsNameLabel": null,
-                                 "InternalFqdn": null
-                               }
-        EnableIPForwarding   : True
-        NetworkSecurityGroup : null
-        Primary              : True
 
+12. Cree la tabla de rutas para la subred *privada*.
+
+    ```azurepowershell-interactive
+    $routeTablePrivate = New-AzureRmRouteTable `
+      -Name 'myRouteTable-Private' `
+      -ResourceGroupName $rgName `
+      -location $location `
+      -Route $routePublic
+    ```
+      
+13. Asocie la tabla de rutas a la subred *privada*.
+
+    ```azurepowershell-interactive
+    Set-AzureRmVirtualNetworkSubnetConfig `
+      -VirtualNetwork $virtualNetwork `
+      -Name 'Private' `
+      -AddressPrefix 10.0.1.0/24 `
+      -RouteTable $routeTablePrivate | `
+    Set-AzureRmVirtualNetwork
+    ```
+    
+14. **Opcional:** la creación de una máquina virtual en las subredes pública y privada, y la validación de esa comunicación entre las máquinas virtuales, se enrutan a través de la aplicación virtual de red completando los pasos de [Validación de enrutamiento](#validate-routing).
+15. **Opcional**: para eliminar los recursos que cree en este tutorial, complete los pasos que aparecen en la sección [Eliminar recursos](#delete-resources).
+
+## <a name="validate-routing"></a>Validación de enrutamiento
+
+1. Si aún no lo ha hecho, complete los pasos de [Creación de rutas y aplicación virtual de red](#create-routes-and-network-virtual-appliance).
+2. Haga clic en el botón **Probarlo** del cuadro que aparece a continuación, que abre Azure Cloud Shell. Cuando se le solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Azure Cloud Shell es un shell de Bash gratuito con la interfaz de la línea de comandos de Azure preinstalada. 
+
+    Los siguientes scripts crean dos máquinas virtuales, una en la subred *pública* y la otra en la *privada*. Los scripts también habilitan el reenvío IP para la interfaz de red en el sistema operativo de la máquina NVA con el fin permitir a dicho sistema operativo enrutar el tráfico a través de la interfaz de red. Una máquina NVA de producción suele inspeccionar el tráfico antes de enrutarlo. Sin embargo, en este tutorial, la máquina NVA sencilla se limita a enrutarlo sin inspeccionarlo. 
+
+    Haga clic en el botón **Copiar** de los scripts de **Linux** o **Windows** que aparecen a continuación y pegue el contenido de los scripts en un editor de texto. Cambie la contraseña de la variable *adminPassword* y, a continuación, pegue el script en Azure Cloud Shell. Ejecute el script del sistema operativo que seleccionó al crear la aplicación virtual de red en el paso 7 de [Creación de rutas y aplicación virtual de red](#create-routes-and-network-virtual-appliance). 
+
+    **Linux**
+
+    ```azurecli-interactive
+    #!/bin/bash
+
+    #Set variables used in the script.
+    rgName="myResourceGroup"
+    location="eastus"
+    adminPassword=ChangeToYourPassword
+    
+    # Create a virtual machine in the Public subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Public \
+      --image UbuntuLTS \
+      --vnet-name myVnet \
+      --subnet Public \
+      --public-ip-address myPublicIp-Public \
+      --admin-username azureuser \
+      --admin-password $adminPassword
+
+    # Create a virtual machine in the Private subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Private \
+      --image UbuntuLTS \
+      --vnet-name myVnet \
+      --subnet Private \
+      --public-ip-address myPublicIp-Private \
+      --admin-username azureuser \
+      --admin-password $adminPassword
+
+    # Enable IP forwarding for the network interface in the NVA virtual machine's operating system.    
+    az vm extension set \
+      --resource-group $rgName \
+      --vm-name myVm-Nva \
+      --name customScript \
+      --publisher Microsoft.Azure.Extensions \
+      --settings '{"commandToExecute":"sudo sysctl -w net.ipv4.ip_forward=1"}'
+    ```
+
+    **Windows**
+
+    ```azurecli-interactive
+
+    #!/bin/bash
+    #Set variables used in the script.
+    rgName="myResourceGroup"
+    location="eastus"
+    adminPassword=ChangeToYourPassword
+    
+    # Create a virtual machine in the Public subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Public \
+      --image win2016datacenter \
+      --vnet-name myVnet \
+      --subnet Public \
+      --public-ip-address myPublicIp-Public \
+      --admin-username azureuser \
+      --admin-password $adminPassword
+
+    # Allow pings through the Windows Firewall.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Public \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow"}'
+
+    # Create a virtual machine in the Private subnet.
+    az vm create \
+      --resource-group $rgName \
+      --name myVm-Private \
+      --image win2016datacenter \
+      --vnet-name myVnet \
+      --subnet Private \
+      --public-ip-address myPublicIp-Private \
+      --admin-username azureuser \
+      --admin-password $adminPassword
+
+    # Allow pings through the Windows Firewall.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Private \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow"}'
+
+    # Enable IP forwarding for the network interface in the NVA virtual machine's operating system.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Nva \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"powershell.exe Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1"}'
+
+    # Restart the NVA virtual machine.
+    az vm extension set \
+      --publisher Microsoft.Compute \
+      --version 1.9 \
+      --name CustomScriptExtension \
+      --vm-name myVm-Nva \
+      --resource-group $rgName \
+      --settings '{"commandToExecute":"powershell.exe Restart-Computer -ComputerName myVm-Nva -Force"}'
+    ```
+
+3. Valide la comunicación entre las máquinas virtuales de las subredes pública y privada. 
+
+    - Abra una conexión [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) o a [Escritorio remoto](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) a la dirección IP pública de la máquina virtual *myVm-Public*.
+    - En un símbolo del sistema de la máquina virtual *myVm-Public*, escriba `ping myVm-Private`. Recibe respuestas porque la máquina NVA enruta el tráfico desde la subred pública a la privada.
+    - En la máquina virtual *myVm-Public*, ejecute una ruta de seguimiento entre las máquinas virtuales de las subredes pública y privada. Escriba el comando adecuado que aparece a continuación, dependiendo del sistema operativo instalado en las máquinas virtuales de las subredes pública y privada:
+        - **Windows**: en un símbolo del sistema, ejecute el comando `tracert myvm-private`.
+        - **Ubuntu**: ejecute el comando `tracepath myvm-private`.
+      El tráfico pasa a través de 10.0.2.4 (la máquina NVA) antes de llegar a 10.0.1.4 (la máquina virtual de la subred privada). 
+    - Complete los pasos anteriores conectándose a la máquina virtual *myVm-Private* y haciendo ping a la máquina virtual *myVm-Public*. En la ruta de seguimiento se muestra la circulación de la comunicación a través de 10.0.2.4 antes de llegar a 10.0.0.4 (la máquina virtual de la subred pública).
+    - **Opcionalmente**: para validar el próximo salto entre dos máquinas virtuales de Azure, use la funcionalidad de próximo salto de Azure Network Watcher. Antes de usar Network Watcher, primero debe [crear una instancia de Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para la región donde desea utilizarla. En este tutorial, se usa la región Este de EE. UU. Una vez que haya habilitado una instancia de Network Watcher para la región, escriba el siguiente comando para ver la información del próximo salto entre las máquinas virtuales de las subredes pública y privada:
+     
+        ```azurecli-interactive
+        az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
+        ```
+
+       El resultado devuelve *10.0.2.4* como **nextHopIpAddress** y *VirtualAppliance* como **nextHopType**.
+
+> [!NOTE]
+> Para ilustrar los conceptos de este tutorial, las direcciones IP públicas se asignan a las máquinas virtuales de las subredes pública y privada, mientras que todo el acceso a los puertos de red está habilitado en Azure para ambas máquinas virtuales. Al crear máquinas virtuales para su uso en producción, no puede asignar direcciones IP públicas a estas y filtrar el tráfico de red a la subred privada implementando una aplicación virtual de red frente a él o asignando un grupo de seguridad de red a las subredes, a la interfaz de red o a ambas. Para obtener más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad de red](virtual-networks-nsg.md).
+
+## <a name="create-a-virtual-network"></a>Crear una red virtual
+
+Este tutorial requiere una red virtual existente con dos subredes. Haga clic en el botón **Probarlo** del cuadro que aparece a continuación para crear con rapidez una red virtual. Al hacer clic en el botón **Probarlo** se abre [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aunque Cloud Shell ejecuta PowerShell o un shell de Bash, en esta sección, el shell de Bash se usa para crear la red virtual. El shell de Bash tiene la interfaz de la línea de comandos de Azure instalada. Cuando Cloud Shell se lo solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Para crear la red virtual usada en este tutorial, haga clic en el botón **Copiar** del siguiente cuadro y, a continuación, pegue el script en Azure Cloud Shell:
+
+```azurecli-interactive
+#!/bin/bash
+
+#Set variables used in the script.
+rgName="myResourceGroup"
+location="eastus"
+
+# Create a resource group.
+az group create \
+  --name $rgName \
+  --location $location
+
+# Create a virtual network with one subnet named Public.
+az network vnet create \
+  --name myVnet \
+  --resource-group $rgName \
+  --address-prefixes 10.0.0.0/16 \
+  --subnet-name Public \
+  --subnet-prefix 10.0.0.0/24
+
+# Create an additional subnet named Private in the virtual network.
+az network vnet subnet create \
+  --name Private \
+  --address-prefix 10.0.1.0/24 \
+  --vnet-name myVnet \
+  --resource-group $rgName
+```
+
+Para obtener más información sobre cómo usar el portal, PowerShell o una plantilla de Azure Resource Manager para crear una red virtual, consulte [Crear una red virtual](virtual-networks-create-vnet-arm-pportal.md).
+
+## <a name="delete-resources"></a>Eliminar recursos
+
+Cuando termine este tutorial, es posible que quiera eliminar los recursos que ha creado para no incurrir en gastos de uso. Al eliminar un grupo de recursos se eliminan también todos los recursos contenidos en el mismo. En PowerShell, escriba el comando siguiente:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Cree una [aplicación virtual de red de alta disponibilidad](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Las aplicaciones virtuales de red suelen tener varias interfaces de red y direcciones IP asignadas a ellas. Obtenga información sobre cómo [agregar interfaces de red a una máquina virtual existente](virtual-network-network-interface-vm.md#vm-add-nic) y [agregar direcciones IP a una interfaz de red existente](virtual-network-network-interface-addresses.md#add-ip-addresses). Aunque todos los tamaños de máquina virtual pueden tener al menos dos interfaces de red asociadas a ellos, cada tamaño de máquina virtual admite un número máximo de interfaces de red. Para obtener información sobre cuántas interfaces de red admite cada máquina virtual, consulte los tamaños de máquina virtual [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) y [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Cree una ruta definida por el usuario para forzar el tráfico de túnel local a través de una [conexión VPN de sitio a sitio](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

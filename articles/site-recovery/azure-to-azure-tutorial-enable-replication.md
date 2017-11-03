@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9cb2bfe459421ee6e28b9d83dffc569b7592c1f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
 
@@ -129,7 +129,11 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
 Site Recovery crea la configuración predeterminada y la directiva de replicación para la región de destino. Puede cambiar la configuración para ajustarla a sus requisitos.
 
+1. Haga clic en **Configuración** para ver la configuración de destino.
+2. Para invalidar la configuración de destino de forma predeterminada, haga clic en **Personalizar**. 
+
 ![Definición de la configuración](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+
 
 - **Ubicación de destino**: la región de destino que se usa para la recuperación ante desastres. Se recomienda que la ubicación de destino coincida con la ubicación del almacén de Site Recovery.
 
@@ -142,7 +146,7 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
 
 - **Cuentas de almacenamiento de destino**: de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino, para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
 
-- **Conjuntos de disponibilidad de destino**: de forma predeterminada, Site Recovery crea un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr".
+- **Conjuntos de disponibilidad de destino**: de forma predeterminada, Site Recovery crea un nuevo conjunto de disponibilidad en la región de destino con el sufijo "asr". Solo puede agregar conjuntos de disponibilidad si las máquinas virtuales forman parte de un conjunto en la región de origen.
 
 - **Nombre de la directiva de replicación**: Nombre de la directiva.
 

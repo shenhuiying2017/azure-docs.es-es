@@ -1,5 +1,5 @@
 ---
-title: "Guía completa sobre cómo usar la API de ejecución de Preparación de datos de Azure Machine Learning | Microsoft Docs"
+title: "Guía completa sobre cómo usar la API de ejecución de preparación de datos de Azure Machine Learning | Microsoft Docs"
 description: "En este documento se proporciona información detallada sobre cómo ejecutar paquetes de preparación de datos y de orígenes de datos previamente diseñados"
 services: machine-learning
 author: euangMS
@@ -12,18 +12,21 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: ceecc718f8198e9a88cae4acbe97e7f26d95f984
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a0e4bd58ffa4bc7062ee4844a090be43047e8a1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="executing-data-sources-and-data-preparation-packages-from-python"></a>Ejecutar paquetes de preparación de datos y de orígenes de datos desde Python
+# <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Ejecución de paquetes de preparación de datos y de orígenes de datos desde Python
 
-Para usar un paquete de preparación de datos o de origen de datos en Python:
-- Vaya a la pestaña Data (Datos) del proyecto.
-- Haga clic con el botón derecho en el origen adecuado.
-- Seleccione "Generate Data Access Code File" (Generar archivo de código de acceso a datos).
+Para utilizar un paquete de orígenes de datos de Azure Machine Learning o de preparación de datos de Azure Machine Learning en Python:
+
+1. Vaya a la pestaña **Datos** del proyecto.
+
+2. Haga clic con el botón derecho en el origen adecuado.
+
+3. Seleccione **Generate Data Access Code File** (Generar archivo de código de acceso a datos).
 
 Con esta acción se crea un breve script de Python que ejecuta el paquete y devuelve una trama de datos.
 
@@ -31,10 +34,10 @@ Con esta acción se crea un breve script de Python que ejecuta el paquete y devu
 
 El módulo `azureml.dataprep.datasource` contiene una sola función para ejecutar un origen de datos y devolver una trama de datos: `load_datasource(path, secrets=None, spark=None)`.
 - `path` es la ruta de acceso al origen de datos (archivo .dsource).
-- `secrets` es un diccionario opcional que asigna claves a los secretos.
-- `spark` es un booleano opcional que especifica si se debe devolver una trama de datos de Spark o una trama de datos de Pandas. De forma predeterminada, Azure ML Workbench determina qué tipo de trama de datos se va a devolver en tiempo de ejecución en función del contexto.
+- `secrets` es un diccionario opcional que asigna claves a secretos.
+- `spark` es un booleano opcional que especifica si se debe devolver una trama de datos de Spark o una trama de datos de Pandas. De forma predeterminada, Azure Machine Learning Workbench determina qué tipo de trama de datos se va a devolver en tiempo de ejecución en función del contexto.
 
-## <a name="data-preparation-packages"></a>Paquetes de preparación de datos
+## <a name="data-preparations-packages"></a>Paquetes de preparación de datos
 
 El módulo `azureml.dataprep.package` contiene tres funciones que ejecutan un flujo de datos de un paquete de preparación de datos.
 
@@ -48,5 +51,5 @@ El módulo `azureml.dataprep.package` contiene tres funciones que ejecutan un fl
 
 - `package_path` es la ruta de acceso al paquete de preparación de datos (archivo .dprep).
 - `dataflow_idx` es el índice de base cero del flujo de datos del paquete que se va a ejecutar. Si el flujo de datos especificado hace referencia a otros flujos de datos o a otros orígenes de datos, también se ejecutarán.
-- `secrets` es un diccionario opcional que asigna claves a los secretos.
-- `spark` es un booleano opcional que especifica si se debe devolver una trama de datos de Spark o una trama de datos de Pandas. De forma predeterminada, Azure ML Workbench determina qué tipo de trama de datos se va a devolver en tiempo de ejecución en función del contexto.
+- `secrets` es un diccionario opcional que asigna claves a secretos.
+- `spark` es un booleano opcional que especifica si se debe devolver una trama de datos de Spark o una trama de datos de Pandas. De forma predeterminada, Workbench determina qué tipo de trama de datos se va a devolver en tiempo de ejecución en función del contexto.

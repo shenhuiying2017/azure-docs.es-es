@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
@@ -127,6 +127,10 @@ La configuración tarda algún tiempo en aplicarse; el período de tiempo depend
 
 En función del tipo de problema, es posible que tenga que buscar estos registros en distintos lugares.
 
+### <a name="azure-ad-connect-logs"></a>Registros de Azure AD Connect
+
+Para errores relacionados con la instalación, compruebe los registros de Azure AD Connect en **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### <a name="authentication-agent-event-logs"></a>Registros de eventos del agente de autenticación
 
 Para ver los errores relacionados con el agente de autenticación , abra la aplicación Visor de eventos en el servidor y consulte **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -135,7 +139,7 @@ Para obtener un análisis detallado, habilite el registro "Session" (sesión). N
 
 ### <a name="detailed-trace-logs"></a>Registros de seguimiento detallados
 
-Para solucionar errores de inicio de sesión de usuarios, busque los registros de seguimiento en **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Estos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica Autenticación de paso a través. Estos errores también pueden hacerse corresponder con los motivos de errores de inicio de sesión mostrados en la [tabla](#sign-in-failure-reasons-on-the-Azure-portal) anterior. La siguiente es una entrada del registro de ejemplo:
+Para solucionar errores de inicio de sesión de losusuarios, busque los registros de seguimiento en **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Estos registros incluyen los motivos por los que un usuario concreto no pudo iniciar sesión mediante la característica Autenticación de paso a través. Estos errores también pueden hacerse corresponder con los motivos de errores de inicio de sesión mostrados en la [tabla](#sign-in-failure-reasons-on-the-Azure-portal) anterior. La siguiente es una entrada del registro de ejemplo:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

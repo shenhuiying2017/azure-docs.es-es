@@ -1,6 +1,6 @@
 ---
 title: "Grupos de conmutación por error y replicación geográfica activa: Azure SQL Database | Microsoft Docs"
-description: "Los grupos de conmutación por error automática con replicación geográfica activa le permiten configurar cuatro réplicas de la base de datos en cualquiera de los centros de datos de Azure y realizar la conmutación por error automática en caso de una interrupción."
+description: "Use los grupos de conmutación por error automática con la replicación geográfica activa y habilite la conmutación por error automática por si se produce una interrupción del servicio."
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 0725d5747ab343dcf99ad8f2dc0e47d7304c9f1e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0b424e2b260ec527f33cdbfe49d1d981b14edfda
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Introducción: grupos de conmutación por error y replicación geográfica activa
 La replicación geográfica activa le permite configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos (regiones) o en otras. Las bases de datos secundarias están disponibles para la consulta y para la conmutación por error si hay una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal. La aplicación del usuario debe iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. 
@@ -65,7 +65,7 @@ La característica de replicación geográfica activa ofrece las siguientes func
 * **Bases de datos secundarias legibles**: una aplicación puede acceder a una base de datos secundaria para operaciones de solo lectura con las mismas entidades de seguridad que las usadas para tener acceso a la base de datos principal u otras diferentes. Las bases de datos secundarias funcionan en el modo de aislamiento de instantánea para asegurarse de que no se retrasa la replicación de las actualizaciones de la base de datos principal (reproducción de registro) por las consultas ejecutadas en la secundaria.
 
    > [!NOTE]
-   > La reproducción de registros se retrasa en la base de datos secundaria si las actualizaciones de esquema que está recibiendo desde la principal requieren que se bloquee el esquema en la base de datos secundaria. 
+   > La reproducción de registros se retrasa en la base de datos secundaria si hay actualizaciones del esquema en el servidor principal. Lo último requiere un bloqueo del esquema en la base de datos secundaria. 
    > 
 
 * **Varias bases de datos secundarias legibles**: dos o más bases de usuarios secundarias aumentan la redundancia y el nivel de protección de la base de datos principal y la aplicación. Si existen varias bases de datos secundarias, la aplicación sigue estando protegida incluso si se produce un error en una de ellas. Si solo hay una base de datos secundaria y se produce un error, la aplicación está expuesta a un mayor riesgo hasta que se crea una nueva base de datos secundaria.

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 10/30/2017
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: ddcf33a919d6f619394d405d061296469b568770
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8f3c0e87a052b327e9949acd3e7db1d28c1eb46
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
- Para conectar su infraestructura local a Microsoft a través de un proveedor de conectividad, debe solicitar un *circuito ExpressRoute* . La ilustración siguiente proporciona una representación lógica de conectividad entre la WAN y Microsoft.
+ Para conectar su infraestructura local a Microsoft a través de un proveedor de conectividad, debe solicitar un *circuito ExpressRoute* . En la ilustración siguiente se muestra una representación lógica de conectividad entre la WAN y Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
@@ -65,14 +65,14 @@ Revise la [página de P+F](expressroute-faqs.md) para obtener más información 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-La conectividad con los demás servicios en línea de Microsoft (Office 365, Dynamics 365 y servicios de PaaS de Azure) se llevará a cabo a través del emparejamiento de Microsoft. Permitimos la conectividad bidireccional entre la WAN y los servicios en la nube de Microsoft mediante el dominio de enrutamiento de emparejamiento de Microsoft. Solo debe conectarse a los servicios en la nube de Microsoft mediante direcciones IP públicas que pertenezcan a usted o a su proveedor de conectividad, y debe cumplir todas las reglas definidas. Para obtener más información, consulte la página [Requisitos previos de ExpressRoute](expressroute-prerequisites.md) .
+La conectividad con los demás servicios en línea de Microsoft (Office 365, Dynamics 365 y servicios de PaaS de Azure) se lleva a cabo a través del emparejamiento de Microsoft. Permitimos la conectividad bidireccional entre la WAN y los servicios en la nube de Microsoft mediante el dominio de enrutamiento de emparejamiento de Microsoft. Solo debe conectarse a los servicios en la nube de Microsoft mediante direcciones IP públicas que pertenezcan a usted o a su proveedor de conectividad, y debe cumplir todas las reglas definidas. Para obtener más información, consulte la página [Requisitos previos de ExpressRoute](expressroute-prerequisites.md) .
 
 Para obtener más información sobre los servicios admitidos, los costos y los datos de configuración, consulte la [página de P+F](expressroute-faqs.md) . Para obtener información sobre la lista de proveedores de conectividad que ofrecen soporte técnico de emparejamiento de Microsoft, consulte la página [Ubicaciones de ExpressRoute](expressroute-locations.md) .
 
 ## <a name="routing-domain-comparison"></a>Comparación de dominios de enrutamiento
-La tabla siguiente comparan los tres dominios de enrutamiento.
+En la tabla siguiente se comparan los tres dominios de enrutamiento:
 
-|  | **Emparejamiento privado** | **Emparejamiento público** | **Emparejamiento de Microsoft** |
+|  | **Emparejamiento privado** | **Emparejamiento público** | **Emparejamiento de Microsoft*** |
 | --- | --- | --- | --- |
 | **Número máximo de prefijos admitidos por emparejamiento** |4000 de forma predeterminada, 10.000 con ExpressRoute Premium |200 |200 |
 | **Intervalos de direcciones IP admitidas** |Cualquier dirección IP válida de la WAN. |Direcciones IP públicas propiedad suya o de su proveedor de conectividad. |Direcciones IP públicas propiedad suya o de su proveedor de conectividad. |
@@ -81,9 +81,11 @@ La tabla siguiente comparan los tres dominios de enrutamiento.
 | **Direcciones IP de la interfaz de enrutamiento** |Direcciones IP públicas y de RFC1918 |Direcciones IP públicas registradas para usted en los registros de enrutamiento. |Direcciones IP públicas registradas para usted en los registros de enrutamiento. |
 | **Compatibilidad con Hash MD5** |Sí |Sí |Sí |
 
+(*) Requiere el nivel premium de la SKU de complemento.
+
 Puede elegir habilitar uno o varios de los dominios de enrutamiento como parte de su circuito ExpressRoute. Puede elegir colocar todos los dominios de enrutamiento en la misma VPN si quiere combinarlos en un único dominio de enrutamiento. También puede colocarlos en diferentes dominios de enrutamiento, como en el diagrama. La configuración recomendada es que el emparejamiento privado esté conectado directamente a la red principal y que los vínculos de emparejamiento público y de Microsoft estén conectados a la red perimetral.
 
-Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesiones de BGP (un par para cada tipo de emparejamiento). Los pares de sesión de BGP proporcionan un vínculo de alta disponibilidad. Si se va a conectar mediante proveedores de conectividad de capa 2, será responsable de configurar y administrar el enrutamiento. Para obtener más información, revise los [flujos de trabajo](expressroute-workflows.md) para configurar ExpressRoute.
+Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesiones de BGP (un par para cada tipo de emparejamiento). Los pares de sesión de BGP proporcionan un vínculo de alta disponibilidad. Si se va a conectar mediante proveedores de conectividad de capa 2, tendrá que encargarse de configurar y administrar el enrutamiento. Para obtener más información, revise los [flujos de trabajo](expressroute-workflows.md) para configurar ExpressRoute.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Busque un proveedor de servicios. Consulte [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).

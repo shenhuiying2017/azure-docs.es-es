@@ -1,10 +1,10 @@
 ---
-title: "Escalado automático y conjuntos de escalado de máquinas virtuales | Microsoft Docs"
-description: "Obtenga información sobre el uso de los diagnósticos y los recursos de escalado automático para escalar automáticamente las máquinas virtuales de un conjunto de escalas."
+title: "Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs"
+description: "Obtenga información sobre los distintos modos en que puede escalar automáticamente un conjunto de escalado de máquinas virtuales de Azure en función del rendimiento o de una programación fija."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
@@ -13,240 +13,135 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
-ms.author: adegeo
+ms.date: 10/19/2017
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Procedimiento para usar el escalado automático y los conjuntos de escalado de máquinas virtuales
-El escalado automático de máquinas virtuales en un conjunto de escalado consiste en la creación o eliminación de máquinas del conjunto según sea necesario para cumplir los requisitos de rendimiento. A medida que crece el volumen de trabajo, una aplicación puede requerir recursos adicionales para poder realizar sus tareas de manera eficaz.
+# <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
+Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento mínimamente aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
 
-El escalado automático es un proceso automatizado que ayuda a reducir la sobrecarga de administración. Al reducir la sobrecarga, no es necesario supervisar el rendimiento del sistema continuamente o decidir cómo administrar los recursos. El escalado es un proceso flexible. A medida que la carga aumenta, pueden agregarse más recursos. Y cuando la demanda se reduce, pueden quitarse recursos para minimizar los costos y mantener los niveles de rendimiento.
 
-Configure el escalado automático en un conjunto de escalado mediante una plantilla de Azure Resource Manager, Azure PowerShell, la CLI de Azure o Azure Portal.
+## <a name="benefits-of-autoscale"></a>Ventajas del escalado automático
+Si aumenta la demanda de la aplicación, la carga de las instancias de máquinas virtuales del conjunto de escalado aumenta. Si este aumento de la carga es continuado, en lugar de ser algo puntual, puede configurar reglas de escalado automático para aumentar el número de instancias de máquinas virtuales en el conjunto de escalado.
 
-## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configuración del escalado mediante plantillas de Resource Manager
-En lugar de implementar y administrar cada recurso de la aplicación por separado, utilice una plantilla que implemente todos los recursos en una operación única y coordinada. En la plantilla, se definen los recursos de la aplicación y se especifican los parámetros de implementación para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para más información, eche un vistazo a [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Cuando se crean estas instancias de máquinas virtuales y se implementan las aplicaciones, el conjunto de escalado empieza a distribuir el tráfico entre ellas mediante el equilibrador de carga. Puede controlar qué métricas se deben supervisar como, por ejemplo, la CPU o la memoria, cuánto tiempo debe cumplir la carga de la aplicación un límite determinado y cuántas instancias de máquinas virtuales se deben agregar al conjunto de escalado.
 
-En la plantilla, especifique el elemento de la capacidad:
+La demanda de la aplicación puede reducirse por las tardes o durante los fines de semana. Si esta reducción es constante a lo largo de un período de tiempo, puede configurar reglas de escalado automático para reducir el número de instancias de máquinas virtuales del conjunto de escalado. Esta acción de reducción horizontal permite reducir el costo a la hora de ejecutar el conjunto de escalado ya que solo se ejecuta el número de instancias necesario para satisfacer la demanda actual.
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 3
-},
-```
 
-La capacidad identifica el número de máquinas virtuales en el conjunto. Puede cambiar manualmente la capacidad mediante la implementación de una plantilla con un valor diferente. Si implementa una plantilla solo para cambiar la capacidad, incluya solo el elemento SKU con la capacidad actualizada.
+## <a name="use-host-based-metrics"></a>Uso de métricas basadas en host
+Puede crear reglas de escalado automático que hagan que las métricas de host estén disponibles en las instancias de máquinas virtuales. Las métricas de host le dan visibilidad sobre el rendimiento de las instancias de máquinas virtuales en un conjunto de escalado sin la necesidad de instalar o configurar recopilaciones de datos y agentes adicionales. Las reglas de escalado automático que usan estas métricas pueden reducir verticalmente u horizontalmente el número de instancias de máquinas virtuales en respuesta al uso de CPU, la demanda de memoria o el acceso a disco.
 
-La capacidad del conjunto de escalado puede ajustarse automáticamente mediante la combinación del recurso **autoscaleSettings** y la extensión de diagnóstico.
+Las reglas de escalado automático que usan métricas basadas en host se pueden crear con una de las herramientas siguientes:
 
-### <a name="configure-the-azure-diagnostics-extension"></a>Configuración de la extensión Diagnósticos de Azure
-El ajuste automático de escalado solo es posible si la colección de métricas es correcta en cada máquina virtual del conjunto de escalado. La extensión Diagnósticos de Azure proporciona las funcionalidades de supervisión y diagnóstico que satisfacen las necesidades de la colección de métricas del recurso de escalado automático. Puede instalar la extensión como parte de la plantilla de Resource Manager.
+- [Portal de Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
-Este ejemplo muestra las variables que se utilizan en la plantilla para configurar la extensión de diagnósticos:
+Para crear reglas de escalado automático que usen métricas de rendimiento más detalladas, puede [instalar y configurar la extensión de Azure Diagnostics](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) en instancias de máquinas virtuales o [configurar la aplicación para usar App Insights](#application-level-metrics-with-app-insights).
 
-```json
-"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
-"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
-"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
-"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
-"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-"wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
-```
+Las reglas de escalado automático usan métricas basadas en host, métricas de máquinas virtuales hospedadas internamente con la extensión de Azure Diagnostics, y App Insights puede usar los siguientes valores de configuración.
 
-Cuando se implementa la plantilla, se proporcionan parámetros. En este ejemplo, el nombre de la cuenta de almacenamiento (donde se guardan los datos) y el nombre del conjunto de escalado (donde se recopilan los datos). También en este ejemplo de Windows Server, se recopila solo el contador de rendimiento llamado Número de subprocesos. Todos los contadores disponibles en Windows o Linux se pueden usar para recopilar información de diagnóstico y se pueden incluir en la configuración de la extensión.
+### <a name="metric-sources"></a>Orígenes de métricas
+Las reglas de escalado automático pueden usar métricas de uno de los siguientes orígenes:
 
-En este ejemplo se muestra la definición de la extensión en la plantilla:
+| Origen de métricas        | Caso de uso                                                                                                                     |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Conjunto de escalado actual    | Para métricas basadas en host que no requieren la instalación o configuración de agentes adicionales.                                  |
+| Cuenta de almacenamiento      | La extensión de Azure Diagnostics escribe métricas de rendimiento a Azure Storage, que a continuación se consume para desencadenar reglas de escalado automático. |
+| Cola de ServiceBus    | Su aplicación u otros componentes pueden transmitir mensajes en una cola de Azure Service Bus para desencadenar reglas.                   |
+| Application Insights | Un paquete de instrumentación instalado en la aplicación que hace streaming de métricas directamente en la aplicación.                         |
 
-```json
-"extensionProfile": {
-  "extensions": [
-    {
-      "name": "Microsoft.Insights.VMDiagnosticsSettings",
-      "properties": {
-        "publisher": "Microsoft.Azure.Diagnostics",
-        "type": "IaaSDiagnostics",
-        "typeHandlerVersion": "1.5",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
-          "storageAccount": "[variables('diagnosticsStorageAccountName')]"
-        },
-        "protectedSettings": {
-          "storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-          "storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
-          "storageAccountEndPoint": "https://core.windows.net"
-        }
-      }
-    }
-  ]
-}
-```
 
-Cuando se ejecuta la extensión de diagnósticos, los datos se recopilan y almacenan en una tabla en la cuenta de almacenamiento que haya especificado. En la tabla **WADPerformanceCounters** puede encontrar los datos recopilados:
+### <a name="autoscale-rule-criteria"></a>Criterios de las reglas de escalado automático
+Las siguientes métricas basadas en host están disponibles para su uso al crear reglas de escalado automático. Si usa la extensión de Azure Diagnostics o App Insights, puede definir las métricas que se van a supervisar y utilizar con las reglas de escalado automático.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
+| Nombre de métrica               |
+|---------------------------|
+| Porcentaje de CPU            |
+| Red interna                |
+| Red interna               |
+| Bytes de lectura de disco           |
+| Bytes de escritura de disco          |
+| Operaciones de lectura de disco por segundo  |
+| Operaciones de escritura por segundo en disco |
+| Créditos de CPU restantes     |
+| Créditos de CPU consumidos      |
 
-### <a name="configure-the-autoscalesettings-resource"></a>Configuración del recurso autoScaleSettings
-El recurso autoscaleSettings usa la información de la extensión de diagnóstico para decidir si aumentar o disminuir el número de máquinas virtuales en el conjunto de escalado.
+Al crear reglas de escalado automático para supervisar una métrica especificada, las reglas se fijan en una de las siguientes acciones de agregación de métricas:
 
-En este ejemplo se muestra la configuración del recurso en la plantilla:
+| Tipo de agregación |
+|------------------|
+| Media          |
+| Mínima          |
+| Máxima          |
+| Total            |
+| Último             |
+| Recuento            |
 
-```json
-{
-  "type": "Microsoft.Insights/autoscaleSettings",
-  "apiVersion": "2015-04-01",
-  "name": "[concat(parameters('resourcePrefix'),'as1')]",
-  "location": "[resourceGroup().location]",
-  "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-  ],
-  "properties": {
-    "enabled": true,
-    "name": "[concat(parameters('resourcePrefix'),'as1')]",
-    "profiles": [
-      {
-        "name": "Profile1",
-        "capacity": {
-          "minimum": "1",
-          "maximum": "10",
-          "default": "1"
-        },
-        "rules": [
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "GreaterThan",
-              "threshold": 650
-            },
-            "scaleAction": {
-              "direction": "Increase",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          },
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "LessThan",
-              "threshold": 550
-            },
-            "scaleAction": {
-              "direction": "Decrease",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          }
-        ]
-      }
-    ],
-    "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-  }
-}
-```
+A continuación, las reglas de escalado automático se desencadenan al compararse las métricas con su umbral definido con uno de los siguientes operadores:
 
-En el ejemplo anterior, se crearon dos reglas para definir las acciones de escalado automático. La primera regla define la acción de escalado horizontal y la segunda, la acción de reducción horizontal. Estos valores se proporcionan en las reglas:
+| operador                 |
+|--------------------------|
+| Mayor que             |
+| Mayor o igual que |
+| Menor que                |
+| Menor o igual que    |
+| Igual a                 |
+| No igual a             |
 
-| Regla | Descripción |
-| ---- | ----------- |
-| metricName        | Este valor es igual que el contador de rendimiento que definimos en la variable wadperfcounter para la extensión de diagnóstico. En el ejemplo anterior, se utilizó el contador Número de subprocesos.    |
-| metricResourceUri | Este valor es el identificador de recursos del conjunto de escalado de máquinas virtuales. Este identificador contiene el nombre del grupo de recursos, el nombre del proveedor de recursos y el nombre del conjunto de escalado que se va a escalar. |
-| timeGrain         | Este valor es la granularidad de las métricas que se recopilan. En el ejemplo anterior, los datos se recopilaban en intervalos de un minuto. Este valor se utiliza en combinación con timeWindow. |
-| statistic         | Este valor determina cómo se combinan las métricas para dar cabida a la acción de escalado automático. Los valores posibles son: Average, Min y Max. |
-| timeWindow        | Este valor es el intervalo de tiempo durante el cual se recopilan los datos de instancia. Debe estar comprendido entre 5 minutos y 12 horas. |
-| timeAggregation   | Este valor determina la manera en que se deberían combinar los datos recopilados en el tiempo. El valor predeterminado es Average. Los valores posibles son: Average, Minimum, Maximum, Last, Total, Count. |
-| operator          | Este valor es el operador que se utiliza para comparar los datos de métrica y el umbral. Los valores posibles son: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual. |
-| threshold         | Este es el valor que desencadena la acción de escalado. Asegúrese de que proporciona una diferencia suficiente entre los valores de umbral para las acciones de **escalado horizontal** y de **reducción horizontal**. Si establece los mismos valores para ambas acciones, el sistema prevé el cambio constante, lo que evita tener que implementar una acción de escalado. Por ejemplo, si se establecen en 600 subprocesos en el ejemplo anterior, no funciona. |
-| dirección         | Este valor determina la acción que se realiza cuando se alcanza el valor de umbral. Los valores posibles son Increase o Decrease. |
-| type              | Este valor es el tipo de acción que debe realizarse y que se debe establecer en ChangeCount. |
-| value             | Este valor es el número de máquinas virtuales que se agregan o se quitan del conjunto de escalado. Este valor debe ser 1 o un valor superior. |
-| cooldown          | Este valor es la cantidad de tiempo de espera desde la última acción de escalado hasta antes de que se produzca la siguiente acción. Debe estar comprendido entre un minuto y una semana. |
 
-Según el contador de rendimiento que se utilice, algunos de los elementos de la configuración de plantilla se utilizarán de manera diferente. En el ejemplo anterior, el contador de rendimiento es el llamado Número de subprocesos y el valor de umbral es 650 para una acción de escalado horizontal y 550, para la acción de reducción horizontal. Si utiliza un contador como % de tiempo de procesador, el valor de umbral se establece en el porcentaje de uso de la CPU que determina una acción de escalado.
+### <a name="actions-when-rules-trigger"></a>Acciones al desencadenarse las reglas
+Al desencadenarse una regla de escalado automático, su conjunto de escalado puede escalar automáticamente de una de las siguientes formas:
 
-Cuando se desencadena una acción de escalado, por ejemplo, una carga elevada, la capacidad del conjunto aumenta en función del valor de la plantilla. Por ejemplo, en un conjunto de escalado en el que la capacidad se establece en 3 y el valor de la acción de escalado se establece en 1:
+| Operación de escalado     | Caso de uso                                                                                                                               |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Aumentar recuento en   | Un número fijo de instancias de máquinas virtuales que se van a crear. Útil en conjuntos de escalado con un número menor de máquinas virtuales.                                           |
+| Aumentar porcentaje en | Un aumento basado en porcentajes de instancias de máquinas virtuales. Bueno para conjuntos de escalado mayores donde es posible que un aumento fijo no mejore el rendimiento considerablemente. |
+| Aumentar recuento en   | Cree tantas instancias de máquinas virtuales como sean necesarias para alcanzar una cantidad máxima deseada.                                                            |
+| Reducir recuento en   | Un número fijo de instancias de máquinas virtuales que se van a quitar. Útil en conjuntos de escalado con un número menor de máquinas virtuales.                                           |
+| Reducir porcentaje en | Un descenso basado en porcentajes de instancias de máquinas virtuales. Bueno para conjuntos de escalado mayores donde es posible que un aumento fijo no reduzca los costos y el consumo de recursos considerablemente. |
+| Reducir recuento en   | Quite tantas instancias de máquinas virtuales como sean necesarias para alcanzar una cantidad mínima deseada.                                                            |
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
-Cuando la carga actual hace que el número promedio de subprocesos suba por encima del umbral de 650:
+## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Métricas de máquinas virtuales hospedadas internamente con la extensión de Azure Diagnostics
+La extensión de Azure Diagnostics es un agente que se ejecuta dentro de una instancia de máquinas virtuales. El agente supervisa y guarda métricas de rendimiento en Azure Storage. Estas métricas de rendimiento contienen información más detallada sobre el estado de la máquina virtual, como *AverageReadTime* para discos o *PercentIdleTime* para CPU. Puede crear reglas de escalado automático basadas en un reconocimiento más detallado del rendimiento de la máquina virtual, no solo el porcentaje de uso de CPU o el consumo de memoria.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
+Para usar la extensión de Azure Diagnostics, debe crear cuentas de Azure Storage para las instancias de máquinas virtuales, instalar el agente de Azure Diagnostics y, a continuación, configurar las máquinas virtuales para hacer streaming de contadores de rendimiento específicos en la cuenta de almacenamiento.
 
-Se desencadena una acción de **escalado horizontal** que provoca que se aumente en una unidad la capacidad del conjunto:
+Para obtener más información, consulte los artículos sobre cómo habilitar la extensión de Azure Diagnostics en una [VM Linux](../virtual-machines/linux/diagnostic-extension.md) o [VM Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 4
-},
-```
 
-El resultado es que se agrega una máquina virtual al conjunto de escalado:
+## <a name="application-level-metrics-with-app-insights"></a>Métricas de nivel de aplicación con App Insights
+Para obtener mayor visibilidad en el rendimiento de sus aplicaciones, puede usar Application Insights. Puede instalar un paquete de instrumentación pequeño en su aplicación que supervisa la aplicación y envía telemetría a Azure. Puede supervisar métricas como los tiempos de respuesta de su aplicación, el rendimiento de carga de las páginas y el recuento de sesiones. Estas métricas de la aplicación se pueden usar para crear reglas de escalado automático en un nivel pormenorizado e incrustado al desencadenar reglas basadas en conocimiento útil que puede afectar a la experiencia del cliente.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
+Para obtener más información sobre App Insights, consulte [¿Qué es Application Insights?](../application-insights/app-insights-overview.md)
 
-Tras un período de recuperación de cinco minutos, si el número medio de subprocesos en las máquinas sigue siendo superior a 600, se agregará otra máquina al conjunto. Si el número medio de subprocesos permanece por debajo de 550, la capacidad del conjunto de escalado se reduce en uno y se quita una máquina del conjunto.
 
-## <a name="set-up-scaling-using-azure-powershell"></a>Configuración del escalado con Azure PowerShell
+## <a name="scheduled-autoscale"></a>Escalado automático programado
+También puede crear reglas de escalado automático basadas en programaciones. Estas reglas basadas en programación permiten escalar automáticamente el número de instancias de máquinas virtuales en determinados momentos. Con las reglas basadas en el rendimiento, puede haber un impacto del rendimiento en la aplicación antes de que las reglas de escalado automático se desencadenen y de que las nuevas instancias de máquinas virtuales se aprovisionen. Si puede anticipar tal demanda, las instancias de máquinas virtuales adicionales se aprovisionan y están listas para su uso adicional por parte del cliente y la demanda de la aplicación.
 
-Para ver ejemplos del uso de PowerShell para configurar el escalado automático, consulte [Ejemplos de inicio rápido de PowerShell de Azure Monitor](../monitoring-and-diagnostics/insights-powershell-samples.md).
+Los siguientes ejemplos son escenarios que pueden beneficiar el uso de reglas de escalado automático basadas en programación:
 
-## <a name="set-up-scaling-using-azure-cli"></a>Configuración del escalado con la CLI de Azure
+- Reduzca verticalmente de forma automática el número de instancias de máquinas virtuales al principio de la jornada laboral, cuando la demanda del cliente aumenta. Al final de la jornada laboral, reduzca horizontalmente de forma automática el número de instancias de máquinas virtuales para minimizar los costos de recursos, cuando el uso de la aplicación es bajo.
+- Si un departamento usa mucho una aplicación en determinados momentos del mes o ciclo fiscal, escala automáticamente el número de instancias de máquinas virtuales para adaptarse a sus demandas adicionales.
+- Cuando hay un evento de marketing, una promoción o una oferta de fiesta, puede escalar automáticamente el número de instancias de máquinas virtuales frente a la demanda anticipada del cliente. 
 
-Para ver ejemplos del uso de la CLI de Azure para configurar el escalado automático, consulte [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md).
-
-## <a name="set-up-scaling-using-the-azure-portal"></a>Configuración del escalado mediante Azure Portal
-
-Para ver un ejemplo de uso de Azure Portal para configurar el escalado automático, examine [Creación de un conjunto de escalado con Azure Portal](virtual-machine-scale-sets-portal-create.md).
-
-## <a name="investigate-scaling-actions"></a>Más información sobre las acciones de escalado
-
-* **Portal de Azure**  
-En estos momentos, puede obtener una cantidad limitada de información mediante el portal.
-
-* **Explorador de recursos de Azure**  
-Se trata de la mejor herramienta para explorar el estado actual del conjunto e escalado. Siga esta ruta de acceso y debería ver la vista de instancia del conjunto de escala que creó:  
-**Subscriptions &gt; {su suscripción} &gt; resourceGroups &gt; {su grupo de recursos} &gt; providers &gt; Microsoft.Compute &gt; virtualMachineScaleSets &gt; {su conjunto de escalado} &gt; virtualMachines**
-
-* **Azure PowerShell**  
-Use este comando para obtener información:
-
-  ```powershell
-  Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
-  Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
-  ```
-
-* Conéctese a la máquina virtual de jumpbox igual que lo haría con cualquier otra máquina y, a continuación, podrá obtener acceso remoto a las máquinas virtuales del conjunto de escala para supervisar los procesos individuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](virtual-machine-scale-sets-windows-autoscale.md) para ver un ejemplo de cómo crear un conjunto de escalado con el escalado automático configurado.
+Puede crear reglas de escalado automático que usen métricas basadas en host con una de las herramientas siguientes:
 
-* Encuentre ejemplos de características de supervisión de Azure Monitor en [Ejemplos de inicio rápido de PowerShell de Azure Monitor](../monitoring-and-diagnostics/insights-powershell-samples.md).
+- [Portal de Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
-* Información acerca de las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+En esta introducción se detallaba cómo utilizar reglas de escalado automático para escalar horizontalmente y aumentar o reducir el *número* de instancias de máquinas virtuales del conjunto de escalado. También puede escalar verticalmente para aumentar o reducir el *tamaño* de la instancia de máquinas virtuales. Para obtener más información, consulte [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-* Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Para obtener más información sobre cómo administrar las instancias de máquinas virtuales, consulte [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) (Administración de conjuntos de escalado de máquinas virtuales con Azure PowerShell).
 
-* Más información sobre los [escenarios avanzados de escalado automático](virtual-machine-scale-sets-advanced-autoscale.md).
+Para obtener más información sobre cómo generar alertas cuando la regla de escalado automático se desencadena, consulte [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). También puede [usar registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

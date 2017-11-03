@@ -1,6 +1,6 @@
 ---
 title: "Ejemplo de PowerShell para configurar la replicación geográfica activa para una instancia única de Azure SQL Database | Microsoft Docs"
-description: "Script de ejemplo de Azure PowerShell para configurar la replicación geográfica activa para una instancia única de Azure SQL Database"
+description: "Script de ejemplo de Azure PowerShell para configurar la replicación geográfica activa para una sola base de datos de Azure SQL y para conmutarla por error."
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: e6c82973032b88e7ed16baf6ce71086d9d86d902
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22688c1b3c1a993612898da2c3e2b6cca3d03b30
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Use PowerShell para configurar la replicación geográfica activa para una instancia única de Azure SQL Database
 

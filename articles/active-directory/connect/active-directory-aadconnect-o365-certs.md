@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -158,9 +158,18 @@ Actualice Office 365 con los nuevos certificados de firma de token que se utiliz
 > [!NOTE]
 > Si necesita admitir varios dominios de nivel superior, por ejemplo, contoso.com y fabrikam.com, debe utilizar el modificador **SupportMultipleDomain** con cualquier cmdlet. Para más información, consulte [Support for Multiple Top Level Domains](active-directory-aadconnect-multiple-domains.md)(Compatibilidad con varios dominios de nivel superior).
 >
->
+
 
 ## Reparar la relación de confianza de Azure AD con Azure AD Connect <a name="connectrenew"></a>
 Si ha configurado la granja de servidores de AD FS o la relación de confianza de Azure AD con Azure AD Connect, puede usar Azure AD Connect para detectar si es necesario tomar alguna medida para los certificados de firma de tokens. Si necesita renovar los certificados, puede utilizar Azure AD Connect para hacerlo.
 
 Para más información, consulte la sección [Reparación de la confianza](active-directory-aadconnect-federation-management.md).
+
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>Pasos de actualización de certificados de AD FS y Azure AD
+Los certificados de firma de tokens son certificados X509 estándar que se usan para firmar de forma segura todos los tokens que emite el servidor de federación. Los certificados de descifrado de tokens son certificados X509 estándar que se usan para descifrar los tokens entrantes. 
+
+De forma predeterminada, AD FS está configurado para generar certificados de firma y descifrado de tokens automáticamente, tanto en el momento de la configuración inicial como cuando los certificados se aproximan a su fecha de expiración.
+
+Azure AD intenta recuperar un nuevo certificado de los metadatos de servicio de federación 30 días antes de la expiración del certificado actual. Si no hay disponible ningún certificado nuevo en ese momento, Azure AD seguirá supervisando los metadatos a intervalos diarios normales. En cuanto el nuevo certificado esté disponible en los metadatos, la configuración de federación del dominio se actualiza con la información del certificado nuevo. Puede usar `Get-MsolDomainFederationSettings` para comprobar si ver el nuevo certificado en NextSigningCertificate o SigningCertificate.
+
+Para más información acerca de los certificados de firma de tokens en AD FS, consulte [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs) (Obtención y configuración de certificados de firma y descripción de tokens para AD FS)

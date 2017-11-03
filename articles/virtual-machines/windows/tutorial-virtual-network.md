@@ -13,40 +13,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 10/12/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: bbd0658a3bafc1b82ff6ddd39a4d23d015188337
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21f2d586a4c468071bec55c65005b35baf323fe7
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Administración de máquinas virtuales Windows y redes virtuales de Azure con Azure PowerShell
 
-Las máquinas virtuales de Azure utilizan las redes de Azure para la comunicación de red interna y externa. En este tutorial, creará varias máquinas virtuales (VM) en una red virtual y configurará la conectividad de red entre ellas. Aprenderá a:
+Las máquinas virtuales de Azure utilizan las redes de Azure para la comunicación de red interna y externa. Este tutorial le guía a través de la implementación de dos máquinas virtuales y la configuración de redes de Azure para estas máquinas virtuales. Se da por supuesto que en los ejemplos de este tutorial las máquinas virtuales hospedan una aplicación web con un back-end de base de datos, sin embargo, no se implementa ninguna aplicación en el tutorial. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una red virtual
-> * Crear subredes de redes virtuales
-> * Controlar el tráfico de red con grupos de seguridad de red
-> * Ver reglas de tráfico en acción
+> * Creación de una red virtual y una subred
+> * Crear una dirección IP pública
+> * Crear una máquina virtual de front-end
+> * Protegen el tráfico de red.
+> * Creación de la máquina virtual de "back-end"
 
-Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Al completar este tutorial, podrá ver que se crearon los siguientes recursos:
 
-## <a name="create-vnet"></a>Creación de una red virtual
+![Red virtual con dos subredes](./media/tutorial-virtual-network/networktutorial.png)
 
-Una red virtual es una representación de su propia red en la nube. Una red virtual es un aislamiento lógico de la nube de Azure dedicada a su suscripción. Dentro de una red virtual, hay subredes, reglas para la conectividad a esas subredes y conexiones desde las máquinas virtuales a las subredes.
+- *myVNet*: red virtual que las máquinas virtuales usan para comunicarse entre sí y con Internet.
+- *myFrontendSubnet*: subred de *myVNet* que usan los recursos de front-end.
+- *myPublicIPAddress*: dirección IP pública que se usa para tener acceso a *myFrontendVM* desde Internet.
+- *myFrontentNic*: interfaz de red que usa *myFrontendVM* para comunicarse con *myBackendVM*.
+- *myFrontendVM*: máquina virtual que se usa para la comunicación entre Internet y *myBackendVM*.
+- *myBackendNSG*: grupo de seguridad de red que controla la comunicación entre *myFrontendVM* y *myBackendVM*.
+- *myBackendSubnet*: subred asociada a *myBackendNSG* y que usan los recursos de back-end.
+- *myBackendNic*: interfaz de red que usa *myBackendVM* para comunicarse con *myFrontendVM*.
+- *myBackendVM*: máquina virtual que usa el puerto 1433 para comunicarse con *myFrontendVM*.
 
-Para poder crear otros recursos de Azure, tiene que crear un grupo de recursos con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myRGNetwork* en la ubicación *EastUS*:
+Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable AzureRM`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+
+## <a name="vm-networking-overview"></a>Introducción a las redes de máquinas virtuales
+
+Las redes virtuales de Azure habilitan las conexiones de red seguras entre máquinas virtuales, Internet y otros servicios de Azure SQL Database. Las redes virtuales se dividen en segmentos lógicos llamados subredes. Las subredes se utilizan para controlar el flujo de red y como límite de seguridad. La implementación de una máquina virtual incluye, por lo general, una interfaz de red virtual, que está conectada a una subred.
+
+## <a name="create-a-virtual-network-and-subnet"></a>Creación de una red virtual y una subred
+
+Para este tutorial, se crea una única red virtual con dos subredes: una subred de front-end para hospedar una aplicación web y una subred de back-end para hospedar un servidor de bases de datos.
+
+Antes de poder crear una máquina virtual, debe crear un grupo de recursos mediante [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En el ejemplo siguiente, se crea un grupo de recursos denominado *myRGNetwork* en la ubicación *EastUS*:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-Una subred es un recurso secundario de una red virtual que le ayudará a definir segmentos de espacios de direcciones dentro de un bloque CIDR mediante prefijos de direcciones IP. Las NIC pueden agregarse a subredes y conectarse a máquinas virtuales, lo cual le proporciona conectividad a varias cargas de trabajo.
+### <a name="create-subnet-configurations"></a>Crear configuraciones de subred
 
-Cree una subred con [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
+Cree una configuración de subred llamada *myFrontendSubnet* mediante [AzureRmVirtualNetworkSubnetConfig New](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
@@ -54,7 +73,17 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -AddressPrefix 10.0.0.0/24
 ```
 
-Crear una red virtual denominada *myVNet* con *myFrontendSubnet* con [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
+Además, debe crear una configuración de subred llamada *myBackendSubnet*:
+
+```azurepowershell-interactive
+$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.1.0/24
+```
+
+### <a name="create-virtual-network"></a>Creación de una red virtual
+
+Cree una red virtual denominada *myVNet* mediante *myFrontendSubnet* y *myBackendSubnet* mediante [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork):
 
 ```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
@@ -62,25 +91,32 @@ $vnet = New-AzureRmVirtualNetwork `
   -Location EastUS `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
-  -Subnet $frontendSubnet
+  -Subnet $frontendSubnet, $backendSubnet
 ```
 
-## <a name="create-front-end-vm"></a>Creación de una máquina virtual de "front-end"
+Entonces, se ha creado una red y se ha segmentado en dos subredes, una para servicios front-end y otra para servicios back-end. En la siguiente sección, se crean máquinas virtuales y se conectan a estas subredes.
 
-Una máquina virtual debe tener un interfaz de red virtual (NIC) para comunicarse en una red virtual. A *myFrontendVM* se obtiene acceso desde Internet, por lo que también se necesita una dirección IP pública. 
+## <a name="create-a-public-ip-address"></a>Crear una dirección IP pública
 
-Cree una dirección IP pública con [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
+Una dirección IP pública permite que los recursos de Azure estén accesibles en Internet. El método de asignación de la dirección IP pública se puede configurar como dinámico o estático. De forma predeterminada, la dirección IP pública se asigna dinámicamente. Las direcciones IP dinámicas se liberan al desasignar una máquina virtual. Este comportamiento hace que la dirección IP cambie durante cualquier operación que incluya una desasignación de máquina virtual.
+
+El método de asignación se puede establecer en estático, lo que garantiza que la dirección IP siga asignada a una máquina virtual, incluso durante un estado de desasignación. Cuando se usa una dirección IP asignada estáticamente, no se puede especificar la propia dirección IP, sino que se asigna desde un grupo de direcciones disponibles.
+
+Cree una dirección IP pública denominada *myPublicIPAddress* mediante [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
 ```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
-  -AllocationMethod Static `
+  -AllocationMethod Dynamic `
   -Name myPublicIPAddress
 ```
 
-Cree una NIC con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
+Puede cambiar el parámetro -AllocationMethod a `Static`, para asignar una dirección IP pública estática.
 
+## <a name="create-a-front-end-vm"></a>Crear una máquina virtual de front-end
+
+Para que una máquina virtual se comunique en una red virtual, debe tener una interfaz de red virtual (NIC). Cree una NIC con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface):
 
 ```azurepowershell-interactive
 $frontendNic = New-AzureRmNetworkInterface `
@@ -97,7 +133,7 @@ Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta
 $cred = Get-Credential
 ```
 
-Cree las máquinas virtuales con [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) y [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). 
+Cree las máquinas virtuales mediante [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) y [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
 ```azurepowershell-interactive
 $frontendVM = New-AzureRmVMConfig `
@@ -131,45 +167,38 @@ New-AzureRmVM `
     -VM $frontendVM
 ```
 
-## <a name="install-web-server"></a>Instalación del servidor web
+## <a name="secure-network-traffic"></a>Protegen el tráfico de red.
 
-Puede instalar IIS en *myFrontendVM* usando una sesión del Escritorio remoto. Debe obtener la dirección IP pública de la máquina virtual para acceder a ella.
+Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a redes virtuales de Azure (VNet). Los NSG se pueden asociar a subredes o a interfaces de red individuales. Cuando un NSG está asociado a una interfaz de red, se aplica solo a la máquina virtual asociada. Cuando un grupo de seguridad de red está asociado a una subred, las reglas se aplican a todos los recursos conectados a la subred.
 
-Puede conseguir la dirección IP pública de *myFrontendVM* con [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). En el ejemplo siguiente se obtiene la dirección IP de *myPublicIPAddress* que se ha creado anteriormente:
+### <a name="network-security-group-rules"></a>Reglas del grupo de seguridad de red
 
-```azurepowershell-interactive
-Get-AzureRmPublicIPAddress `
-    -ResourceGroupName myRGNetwork `
-    -Name myPublicIPAddress | select IpAddress
-```
+Las reglas de NSG definen puertos de redes a través de los que se permite o deniega el tráfico. Las reglas pueden incluir intervalos de direcciones IP de origen y destino para que el tráfico se controle entre sistemas o subredes específicos. Las reglas de NSG también incluyen una prioridad (entre 1 y 4096). Las reglas se evalúan por orden de prioridad. Una regla con una prioridad de 100 se evalúa antes que una regla con prioridad de 200.
 
-Tome nota de esta dirección IP para poder usarla en pasos futuros.
+Todos los grupos de seguridad de red contienen un conjunto de reglas predeterminadas. No se pueden eliminar las reglas predeterminadas, pero dado que tienen asignada la mínima prioridad, pueden reemplazarse por las reglas que cree.
 
-Utilice el comando siguiente para crear una sesión del Escritorio remoto con *myFrontendVM*. Reemplace *<publicIPAddress>* por la dirección que haya registrado previamente. Cuando se le solicite, escriba las credenciales usadas al crear la máquina virtual.
+- **Red virtual:** el tráfico que se origina y termina en una red virtual se permite en las direcciones tanto de entrada como de salida.
+- **Internet:** se permite el tráfico saliente pero se bloquea el entrante.
+- **Equilibrador de carga:** se permite que el equilibrador de carga de Azure sondee el estado de las máquinas virtuales y las instancias de rol. Si no va a usar un conjunto con equilibrio de carga, puede invalidar esta regla.
 
-```
-mstsc /v:<publicIpAddress>
-``` 
+### <a name="create-network-security-groups"></a>Creación de grupos de seguridad de red
 
-Ahora que ha iniciado sesión en *myFrontendVM*, puede usar una sola línea de PowerShell para instalar IIS y habilitar la regla de firewall local para permitir el tráfico web. Abra un símbolo del sistema de PowerShell en la máquina virtual desde la sesión RDP y ejecute el siguiente comando:
-
-Use [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) para ejecutar la extensión de script personalizado que instala el servidor web de IIS:
+Cree una regla de entrada denominada *myFrontendNSGRule* para permitir el tráfico web entrante en *myFrontendVM* mediante [AzureRmNetworkSecurityRuleConfig New](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
 ```azurepowershell-interactive
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
+$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+  -Name myFrontendNSGRule `
+  -Protocol Tcp `
+  -Direction Inbound `
+  -Priority 200 `
+  -SourceAddressPrefix * `
+  -SourcePortRange * `
+  -DestinationAddressPrefix * `
+  -DestinationPortRange 80 `
+  -Access Allow
 ```
 
-Ahora puede usar la dirección IP pública para ir a la máquina virtual con el fin de ver el sitio de IIS.
-
-![Sitio predeterminado de IIS](./media/tutorial-virtual-network/iis.png)
-
-## <a name="manage-internal-traffic"></a>Administración del tráfico interno
-
-Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a una red virtual. Los NSG se pueden asociar a las subredes o a NIC individuales conectados a máquinas virtuales. La apertura o el cierre del acceso a las máquinas virtuales a través de puertos se realiza mediante las reglas de NSG. Al crear *myFrontendVM*, el puerto de entrada 3389 se abrió automáticamente para la conectividad RDP.
-
-La comunicación interna de las máquinas virtuales puede configurarse con un NSG. En esta sección, aprenderá a crear una subred adicional en la red y asignar un NSG a ella para permitir una conexión de *myFrontendVM* a *myBackendVM* en el puerto 1433. Después, la subred se asigna a la máquina virtual cuando se crea.
-
-Puede limitar el tráfico interno a *myBackendVM* solo desde *myFrontendVM* creando un NSG para la subred de "back-end". En el ejemplo siguiente se crea una regla NSG denominada *myBackendNSGRule* con [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
+Puede limitar el tráfico interno a *myBackendVM* solo desde *myFrontendVM* creando un NSG para la subred de "back-end". En el ejemplo siguiente, se crea una regla NSG denominada *myBackendNSGRule*:
 
 ```azurepowershell-interactive
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -184,7 +213,17 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-Agregue un nuevo grupo de seguridad de red denominado *myBackendNSG* con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+Agregue un nuevo grupo de seguridad de red denominado *myFrontendNSG* mediante [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup):
+
+```azurepowershell-interactive
+$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+  -ResourceGroupName myRGNetwork `
+  -Location EastUS `
+  -Name myFrontendNSG `
+  -SecurityRules $nsgFrontendRule
+```
+
+A continuación, agregue un nuevo grupo de seguridad de red denominado *myBackendNSG* mediante New-AzureRmNetworkSecurityGroup:
 
 ```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
@@ -193,25 +232,31 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -Name myBackendNSG `
   -SecurityRules $nsgBackendRule
 ```
-## <a name="add-back-end-subnet"></a>Adición de una subred de "back-end"
 
-Adición de *myBackEndSubnet* a *myVNet* con [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
+Agregue los grupos de seguridad de red a las subredes:
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig `
-  -Name myBackendSubnet `
-  -VirtualNetwork $vnet `
-  -AddressPrefix 10.0.1.0/24 `
-  -NetworkSecurityGroup $nsgBackend
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 $vnet = Get-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Name myVNet
+$frontendSubnet = $vnet.Subnets[0]
+$backendSubnet = $vnet.Subnets[1]
+$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
+  -Name myFrontendSubnet `
+  -AddressPrefix $frontendSubnet.AddressPrefix `
+  -NetworkSecurityGroup $nsgFrontend
+$backendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
+  -Name myBackendSubnet `
+  -AddressPrefix $backendSubnet.AddressPrefix `
+  -NetworkSecurityGroup $nsgBackend
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 ```
 
-## <a name="create-back-end-vm"></a>Creación de la máquina virtual de "back-end"
+## <a name="create-a-back-end-vm"></a>Crear una máquina virtual de back-end
 
-La manera más fácil de crear la máquina virtual de "back-end "es utilizando una imagen de SQL Server. Con este tutorial solo se crea la máquina virtual con el servidor de base de datos, pero no se proporciona información del acceso a la base de datos.
+La manera más fácil de crear la máquina virtual de back-end que se detalla en este tutorial es usar una imagen de SQL Server. Con este tutorial solo se crea la máquina virtual con el servidor de base de datos, pero no se proporciona información del acceso a la base de datos.
 
 Creación de *myBackendNic*:
 
@@ -270,12 +315,13 @@ La imagen que se utiliza tiene instalado SQL Server, pero no se usa en este tuto
 En este tutorial, ha creado y protegido redes de Azure cuando están relacionadas con máquinas virtuales. 
 
 > [!div class="checklist"]
-> * Crear una red virtual
-> * Crear subredes de redes virtuales
-> * Controlar el tráfico de red con grupos de seguridad de red
-> * Ver reglas de tráfico en acción
+> * Creación de una red virtual y una subred
+> * Crear una dirección IP pública
+> * Crear una máquina virtual de front-end
+> * Protegen el tráfico de red.
+> * Crear una máquina virtual de back-end
 
-Prosiga con el siguiente tutorial para aprender a supervisar la protección de datos en máquinas virtuales mediante Azure Backup. .
+Prosiga con el siguiente tutorial para aprender a supervisar la protección de datos en máquinas virtuales mediante Azure Backup.
 
 > [!div class="nextstepaction"]
 > [Copia de seguridad de máquinas virtuales Windows en Azure](./tutorial-backup-vms.md)

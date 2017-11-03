@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
-ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente (clásico)
 
@@ -70,11 +70,11 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 Si ya tiene una VPN de sitio a sitio con una puerta de enlace de enrutamiento dinámico, perfecto. Puede pasar a [Exportación de la configuración de la red virtual](#export). De lo contrario, haga lo siguiente:
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Si ya dispone de una red virtual de sitio a sitio, pero con una puerta de enlace de enrutamiento estático (basada en directivas):
-1. Cambie el tipo de puerta de enlace a enrutamiento dinámico. Una VPN de varios sitios requiere una puerta de enlace de enrutamiento dinámico (también denominada basada en ruta). Para cambiar el tipo de puerta de enlace, tendrá que eliminar primero la puerta de enlace existente y, a continuación, crear una nueva. Para obtener instrucciones, consulte [Configuración de una puerta de enlace VPN para el modelo de implementación clásico](vpn-gateway-configure-vpn-gateway-mp.md).  
-2. Configure la nueva puerta de enlace y cree un túnel de VPN. Para obtener instrucciones, vea [Configuración de una VPN Gateway en el Portal de Azure clásico](vpn-gateway-configure-vpn-gateway-mp.md). Para empezar, cambie el tipo de puerta de enlace a enrutamiento dinámico.
+1. Cambie el tipo de puerta de enlace a enrutamiento dinámico. Una VPN de varios sitios requiere una puerta de enlace de enrutamiento dinámico (también denominada basada en ruta). Para cambiar el tipo de puerta de enlace, tendrá que eliminar primero la puerta de enlace existente y, a continuación, crear una nueva.
+2. Configure la nueva puerta de enlace y cree un túnel de VPN. Para obtener instrucciones, consulte [Especificación del tipo de VPN y SKU](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Asegúrese de especificar el tipo de enrutamiento como "Dinámico".
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Si no dispone de una red virtual de sitio a sitio:
-1. Cree una red virtual de sitio a sitio con estas instrucciones: [Creación de una Virtual Network con una conexión de VPN de sitio a sitio en el Portal de Azure clásico](vpn-gateway-site-to-site-create.md).  
+1. Cree una red virtual de sitio a sitio con estas instrucciones: [Creación de una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).  
 2. Configure una puerta de enlace de enrutamiento dinámico con estas instrucciones: [Configuración de una VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Asegúrese de seleccionar **enrutamiento dinámico** como tipo de puerta de enlace.
 
 ## <a name="export"></a>2. Exportar el archivo de configuración de red
@@ -157,7 +157,7 @@ Para agregar referencias a sitios adicionales (crear una configuración de vario
 ```
 
 ## <a name="5-import-the-network-configuration-file"></a>5. Importar el archivo de configuración de red
-Importe un archivo de configuración de red. Cuando importe este archivo con los cambios, se agregarán nuevos túneles. Los túneles usarán la puerta de enlace dinámica que creó anteriormente. Se puede usar el portal clásico o PowerShell para importar el archivo.
+Importe un archivo de configuración de red. Cuando importe este archivo con los cambios, se agregarán nuevos túneles. Los túneles usarán la puerta de enlace dinámica que creó anteriormente. Puede usar PowerShell para importar el archivo.
 
 ## <a name="6-download-keys"></a>6. Descargar las claves
 Una vez que se han agregado los nuevos túneles, use el cmdlet de PowerShell 'Get-AzureVNetGatewayKey' para obtener las claves IPsec/IKE compartidas previamente para cada túnel.

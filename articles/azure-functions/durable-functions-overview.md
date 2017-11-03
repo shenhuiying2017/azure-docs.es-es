@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1ba4d68ba93073ebe3516c4fe886c7845080c534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="durable-functions-overview-azure-functions"></a>Información general sobre Durable Functions (Azure Functions)
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 Dado que el estado está administrado por el tiempo de ejecución de Durable Functions, no tendrá que implementar su propio mecanismo de seguimiento de estado.
 
-Aunque la extensión de Durable Functions tiene webhooks integrados para la administración de orquestaciones de larga ejecución, el usuario puede implementar este patrón utilizando sus propios desencadenadores de función (por ejemplo, HTTP, la cola o Event Hub) y el enlace `orchestrationClient`.
+Aunque la extensión de Durable Functions tiene webhooks integrados para la administración de orquestaciones de larga ejecución, el usuario puede implementar este patrón utilizando sus propios desencadenadores de función (por ejemplo, HTTP, la cola o Event Hub) y el enlace `orchestrationClient`. Por ejemplo, podría utilizar un mensaje de cola para desencadenar la terminación.  O bien, puede usar un desencadenador HTTP protegido por una directiva de autenticación de Azure Active Directory en lugar de webhooks integradas que usen una clave generada para la autenticación. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -161,7 +161,7 @@ El siguiente diagrama muestra una función que se ejecuta en un bucle infinito m
 
 ![Diagrama de singleton con estado](media/durable-functions-overview/stateful-singleton.png)
 
-Mientras que Durable Functions no es una implementación del modelo de actor, las funciones de orquestador tienen muchas de las mismas características de tiempo de ejecución. Por ejemplo, son de ejecución larga (posiblemente infinita), globales, confiables y su ubicación es transparente; además, tienen estado y un único subproceso. Esto hace que las funciones del orquestador sean útiles para escenarios de tipo "actor" sin necesidad de un marco independiente.
+Mientras que Durable Functions no es una implementación del modelo de actor, las funciones de orquestador tienen muchas de las mismas características de tiempo de ejecución. Por ejemplo, son de ejecución larga (posiblemente infinita), globales, confiables y su ubicación es transparente; además, tienen estado y un único subproceso. Esto hace que las funciones del orquestador sean útiles para escenarios de tipo "actor".
 
 Las funciones normales son sin estado y, por tanto, no son adecuadas para implementar un patrón singleton con estado. Sin embargo, la extensión de Durable Functions facilita bastante la implementación del patrón singleton con estado. El código siguiente es una función de orquestador simple que implementa un contador.
 

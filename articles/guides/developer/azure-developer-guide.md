@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -105,11 +105,10 @@ Además de hospedar aplicaciones, Azure ofrece servicios que pueden mejorar la f
 
 La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independientemente de cómo decida hospedar la aplicación en Azure, considere la posibilidad de usar uno o varios de los siguientes servicios de datos y almacenamiento.
 
--   **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
+-   **Azure Cosmos DB**: un servicio de base de datos multimodelo de distribución global que le permite escalar de forma flexible el rendimiento y el almacenamiento en cualquier cantidad de regiones geográficas con un Acuerdo de Nivel de Servicio completo. 
+    >**Cuándo se usa:** cuando la aplicación necesita bases de datos de gráficos, tablas o documentos, incluidas las bases de datos de MongoDB, con varios modelos de coherencia bien definidos. 
 
-    >**Cuándo se usa**: cuando la aplicación requiera almacenamiento de datos con integridad referencial y admisión de transacciones y consultas TSQL.
-
-    >**Para empezar**: [cree una base de datos SQL en cuestión de minutos con Azure Portal](../../sql-database/sql-database-get-started.md).
+    >**Para empezar**: [compile una aplicación web de Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Si es desarrollador de MongoDB, consulte [Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure Storage**: ofrece un almacenamiento duradero y de alta disponibilidad para blobs, colas, archivos y otros tipos de datos no relacionales. Storage proporciona la base de almacenamiento para las máquinas virtuales.
 
@@ -117,10 +116,12 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
 
     >**Para empezar**: elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
--   **Azure DocumentDB**: un servicio de base de datos NoSQL totalmente administrado y escalable, que incluye consultas SQL a datos de objeto. Para acceder a DocumentDB puede usar los controladores de MongoDB existentes.
-    >**Cuándo se usa:** cuando la aplicación necesita poder ejecutar consultas SQL en documentos JSON, o si usa MongoDB.
+-   **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
 
-    >**Para empezar**: [cree una aplicación de consola de C# para DocumentDB](../../documentdb/documentdb-get-started.md). Si es un desarrollador de MongoDB, consulte el artículo sobre la [compatibilidad del protocolo DocumentDB para MongoDB](../../documentdb/documentdb-protocol-mongodb.md).
+    >**Cuándo se usa**: cuando la aplicación requiera almacenamiento de datos con integridad referencial y admisión de transacciones y consultas TSQL.
+
+    >**Para empezar**: [cree una base de datos SQL en cuestión de minutos con Azure Portal](../../sql-database/sql-database-get-started.md).
+
 
 Puede usar [Azure Data Factory](../../data-factory/introduction.md) para mover los datos locales existentes a Azure. Si no está listo para mover los datos a la nube, [Conexiones híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) en BizTalk le permite conectar su aplicación hospedada en App Service con recursos locales. También puede conectarse a los servicios de datos y almacenamiento de Azure desde las aplicaciones locales.
 

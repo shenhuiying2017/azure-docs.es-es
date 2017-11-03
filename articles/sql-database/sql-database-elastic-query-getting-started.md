@@ -1,6 +1,6 @@
 ---
 title: "Informes de bases de datos escaladas horizontalmente en la nube (partición horizontal) | Microsoft Docs"
-description: "cómo utilizar consultas de bases de datos cruzadas"
+description: "Uso de consultas de bases de datos entre bases de datos para informes a través de varias bases de datos."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb5c39a600fb55dffc342535386f8049c9f4ca5a
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
 Puede crear informes de varias bases de datos SQL de Azure desde un único punto de conexión mediante una [consulta elástica](sql-database-elastic-query-overview.md). Las bases de datos deben tener particiones horizontales (también conocidas como "particiones").

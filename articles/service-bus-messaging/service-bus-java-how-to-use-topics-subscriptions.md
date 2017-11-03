@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 10/17/2017
 ms.author: sethm
-ms.openlocfilehash: 3061b8e44a14a609c485f04f073b3f8019ed8790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 632af7294a7e6766d791d1d9ab08f98308fb2c02
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Uso de temas y suscripciones de Service Bus con Java
 
@@ -38,7 +38,7 @@ Una suscripción a un tema se asemeja a una cola virtual que recibe copias de lo
 Las suscripciones y temas de Service Bus le permiten escalar para realizar el procesamiento de un número elevado de mensajes en una serie amplia de usuarios y aplicaciones.
 
 ## <a name="create-a-service-namespace"></a>Creación de un espacio de nombres de servicio
-Para empezar a usar temas y suscripciones de Service Bus en Azure, primero debe crear un espacio de nombres, que proporcione un contenedor con un ámbito para tener acceso a recursos de Service Bus dentro de la aplicación.
+Para empezar a usar temas y suscripciones de Service Bus en Azure, primero debe crear un *espacio de nombres*, lo cual proporciona un contenedor con un ámbito para tener acceso a recursos de Service Bus dentro de la aplicación.
 
 Para crear un espacio de nombres:
 
@@ -96,7 +96,7 @@ topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateTopicResult result = service.createTopic(topicInfo);
 ```
 
-Tenga en cuenta que puede usar el método **listTopics** en los objetos **ServiceBusContract** para comprobar si un tema con un nombre específico ya existe dentro de un espacio de nombres de servicio.
+Puede usar el método **listTopics** en los objetos **ServiceBusContract** para comprobar si un tema con un nombre específico ya existe dentro de un espacio de nombres de servicio.
 
 ## <a name="create-subscriptions"></a>Creación de suscripciones
 Las suscripciones a los temas también se crean con la clase **ServiceBusService**. A las suscripciones se les puede asignar un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a la cola virtual de la suscripción.
@@ -154,7 +154,7 @@ service.sendTopicMessage("TestTopic", message);
 Los mensajes enviados a los temas de Service Bus son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage]* tienen un conjunto de métodos estándar (como **setLabel** y **TimeToLive**), un diccionario que contiene las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor del objeto [BrokeredMessage][BrokeredMessage] y, a continuación, se usará el valor de **DataContractSerializer** adecuado para serializar el objeto. También se puede proporcionar un elemento **java.io.InputStream**.
 
 En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba al objeto `TestTopic` **MessageSender** obtenido en el fragmento de código anterior.
-Observe ahora que el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (lo que determina qué suscripciones lo reciben):
+Observe ahora que el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (este valor determina qué suscripciones lo reciben):
 
 ```java
 for (int i=0; i<5; i++)  {
@@ -172,7 +172,7 @@ El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 Para recibir mensajes de una suscripción, utilice un objeto **ServiceBusContract**. Los mensajes recibidos pueden funcionar de dos modos distintos: **ReceiveAndDelete** (el predeterminado) y **PeekLock**.
 
-Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura para un mensaje, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura para un mensaje, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Por ejemplo, pongamos una situación en la que un consumidor emite una solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
 En el modo **PeekLock**, el proceso de recepción es una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción mediante la llamada a **Delete** en el mensaje recibido. Cuando Service Bus ve la llamada **Delete**, marca el mensaje como consumido y lo elimina del tema.
 
@@ -236,7 +236,7 @@ El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin prob
 
 También hay un tiempo de expiración asociado con un mensaje bloqueado en el tema y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de expiración del bloqueo (por ejemplo, si la aplicación se bloquea), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Este proceso habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; sin embargo, en determinadas situaciones, podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
 La principal manera de eliminar temas y suscripciones es usar un objeto **ServiceBusContract**. Al eliminar un tema también se eliminan todas las suscripciones que estén registradas con él. También se pueden eliminar las suscripciones de forma independiente.
@@ -257,8 +257,8 @@ Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter 
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

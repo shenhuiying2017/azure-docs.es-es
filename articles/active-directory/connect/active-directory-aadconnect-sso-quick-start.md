@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8975a82c5573cc0c284e1fc76cd0ef2c19fbbd72
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -32,10 +32,13 @@ Para implementar SSO de conexión directa, debe seguir estos pasos:
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-1. El servidor de Azure AD Connect está configurado: si usa la [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md) como método de inicio de sesión, no es necesaria realizar ninguna otra acción. Si va a usar la [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
-- Está usando la versión 1.1.484.0 de Azure AD Connect o una posterior.
-- Azure AD Connect puede comunicarse con las direcciones URL de `*.msappproxy.net` y a través del puerto 443. Este requisito solo es aplicable cuando se habilita la característica, no para los inicios de sesión de usuarios reales.
-- Azure AD Connect también puede crear conexiones IP directas con los [intervalos de IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). De nuevo, este requisito solo es aplicable cuando se habilita la característica.
+1. Configure el servidor de Azure AD Connect: si usa la [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md) como método de inicio de sesión, no es necesaria ninguna otra comprobación de requisitos previos. Si va a usar la [sincronización de hash de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
+- Está usando la versión 1.1.644.0 de Azure AD Connect o una posterior. 
+- Si el firewall o el proxy permiten la creación de listas de permitidos con DNS, cree una lista de permitidos para las conexiones a las direcciones URL **\*.msappproxy.net** en el puerto 443. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana. Este requisito solo es aplicable cuando se habilita la característica, no para los inicios de sesión de usuarios reales.
+
+    >[!NOTE]
+    >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si se _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para más información.
+
 2. Tendrá que especificar las credenciales de administrador de dominio para cada bosque de AD que sincronice con Azure AD (a través de Azure AD Connect) y para cuyos usuarios desee habilitar SSO de conexión directa.
 
 ## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitación de la característica
@@ -73,6 +76,8 @@ Para implantar la característica a los usuarios, debe agregar las siguientes di
 - https://autologon.microsoftazuread-sso.com
 - https://aadg.windows.net.nsatc.net
 
+Además, tiene que habilitar a una configuración de directiva de zona de intranet (mediante la directiva de grupo) denominada "Permitir actualizaciones en la barra de estado a través de script".
+
 >[!NOTE]
 > Las siguientes instrucciones solo funcionan en Internet Explorer y Google Chrome en Windows (si comparte el mismo conjunto de direcciones URL de sitios de confianza que Internet Explorer). Lea la sección siguiente para obtener instrucciones para configurar Mozilla Firefox y Google Chrome en Mac.
 
@@ -85,7 +90,7 @@ De forma predeterminada, el explorador calcula automáticamente la zona correcta
 1. Abra las herramientas de administración de directivas de grupo.
 2. Edite la directiva de grupo que se aplica a algunos o todos los usuarios. En este ejemplo, se usa la **directiva de dominio predeterminada**.
 3. Vaya a **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** y seleccione **Site to Zone Assignment List** (Lista de asignación de sitio a zona).
-![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso6.png)  
+![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso6.png)
 4. Habilite la directiva y escriba los siguientes valores (direcciones URL de Azure AD desde donde se reenvían los vales de Kerberos) y los datos (*1* indica la zona de Intranet) en el cuadro de diálogo.
 
         Value: https://autologon.microsoftazuread-sso.com
@@ -96,8 +101,11 @@ De forma predeterminada, el explorador calcula automáticamente la zona correcta
 > Si no desea permitir que algunos usuarios usen SSO de conexión directa (por ejemplo, si estos usuarios inician sesión en quioscos compartidos) establezca los valores anteriores en *4*. De este modo, agrega las direcciones URL de AD Azure a la zona Sitios restringidos y el SSO de conexión directa no puede conectar a esos usuarios.
 
 5. Haga clic en **Aceptar** y en **Aceptar** de nuevo.
-
 ![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso7.png)
+6. Vaya a **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Intranet Zone** y seleccione **Permitir actualizaciones en la barra de estado a través de script**.
+![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso11.png)
+7. Habilite la configuración de directiva y haga clic en **Aceptar**.
+![Inicio de sesión único](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### <a name="browser-considerations"></a>Consideraciones sobre el explorador
 
@@ -151,7 +159,7 @@ En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [**Profundización técnica**](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
-- [**Preguntas más frecuentes**](active-directory-aadconnect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes.
-- [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): aprenda a resolver problemas comunes de esta característica.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.
+- [Información técnica detallada](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
+- [Preguntas más frecuentes](active-directory-aadconnect-sso-faq.md): respuestas a las preguntas más frecuentes.
+- [Solución de problemas](active-directory-aadconnect-troubleshoot-sso.md): información para resolver problemas habituales de esta característica.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.

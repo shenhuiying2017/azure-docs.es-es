@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -28,8 +28,6 @@ Cada centro de IoT tiene un registro de identidades que almacena información ac
 El identificador de dispositivo que se almacena en el registro de identidad distingue mayúsculas de minúsculas.
 
 En un nivel superior, el registro de identidad es un conjunto de recursos de identidad de dispositivos compatible con REST. Cuando agrega una entrada al registro de identidades, IoT Hub crea un conjunto de recursos por dispositivo, como una cola que contiene mensajes de nube al dispositivo en curso.
-
-### <a name="when-to-use"></a>Cuándo se deben usar
 
 Utilice el registro de identidad cuando necesite:
 
@@ -72,7 +70,7 @@ Una solución de IoT normalmente tiene un almacén independiente específico de 
 Puede deshabilitar los dispositivos actualizando la propiedad **status** de una identidad en el registro de identidad. Normalmente, esta propiedad se usa en dos escenarios:
 
 * Durante el proceso de orquestación de aprovisionamiento. Para más información, consulte [Aprovisionamiento de dispositivos][lnk-guidance-provisioning].
-* Si por cualquier motivo considera que un dispositivo está en peligro o no está autorizado.
+* Si por cualquier motivo cree que un dispositivo está en peligro o no está autorizado.
 
 ## <a name="import-and-export-device-identities"></a>Importar y exportar identidades de dispositivo
 
@@ -80,8 +78,7 @@ Puede exportar identidades de dispositivo de forma masiva desde el registro de i
 
 Puede importar identidades de dispositivo de forma masiva a un registro de identidades de un centro de IoT mediante operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints]. Las importaciones son trabajos de ejecución prolongada que usan los datos de un contenedor de blobs proporcionado por el cliente para escribir datos de identidad del dispositivo en el registro de identidad.
 
-* Para más información sobre la importación y exportación de API, consulte [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis].
-* Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva][lnk-bulk-identity].
+Para más información sobre la importación y exportación de API, consulte [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis]. Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 
@@ -143,17 +140,13 @@ Cuerpo: esta sección está en formato JSON y representa el dispositivo gemelo d
 }
 ```
 
-## <a name="reference-topics"></a>Temas de referencia:
-
-Los siguientes temas de referencia proporcionan más información sobre el registro de identidad.
-
 ## <a name="device-identity-properties"></a>Propiedades de identidad del dispositivo
 
 Las identidades de dispositivos se representan como documentos JSON con las propiedades siguientes:
 
 | Propiedad | Opciones | Description |
 | --- | --- | --- |
-| deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
 | ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232][lnk-rfc7232]. |
 | auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
@@ -180,7 +173,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden interesarle los siguientes temas de la Guía del desarrollador de IoT Hub:
+Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden interesarle los siguientes temas de la Guía para desarrolladores de IoT Hub:
 
 * [Control del acceso a IoT Hub][lnk-devguide-security]
 * [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones][lnk-devguide-device-twins]

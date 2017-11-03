@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21f8f66d8b78c2b536792bc96e9233d5739fde81
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)
 
-El objetivo de este escenario real es explicar cómo se usa Azure Machine Learning Workbench para resolver una tarea complicada de procesamiento de lenguaje natural (NLP), como la extracción de entidades contenidas en texto no estructurado:
+La extracción de la entidad es una subtarea de extracción de información (también conocida como [reconocimiento de entidades con nombre (ER)](https://en.wikipedia.org/wiki/Named-entity_recognition), identificación de la entidad y fragmentación de entidad). El objetivo de este escenario real es explicar cómo se usa Azure Machine Learning Workbench para resolver una tarea complicada de procesamiento de lenguaje natural (NLP), como la extracción de entidades contenidas en texto no estructurado:
 
 1. Se explica cómo entrenar un modelo de incrustación de palabras neuronales en un corpus de texto de aproximadamente 18 millones de resúmenes de PubMed mediante la [implementación de Word2Vec de Spark](https://spark.apache.org/docs/latest/mllib-feature-extraction.html#word2vec).
 2. Se explica cómo compilar un modelo de red neuronal recurrente profundo de memoria a corto y largo plazo (LSTM) para la extracción de entidades en una máquina virtual de ciencia de datos de Azure habilitada para GPU (GPU DS VM) en Azure.
@@ -32,15 +32,16 @@ El objetivo de este escenario real es explicar cómo se usa Azure Machine Learni
 4. Se muestran las capacidades siguientes de Azure Machine Learning Workbench:
 
     * Creación de instancias de [estructura y plantillas del proceso de ciencia de los datos en equipos (TDSP)](how-to-use-tdsp-in-azure-ml.md).
-    * Ejecución de código en Jupyter Notebook, así como scripts de Python.
-    * Seguimiento del historial de ejecuciones de archivos de Python.
+    * Administración automatizada de las dependencias del proyecto, incluidas la descarga y la instalación.
+    * Ejecución de scripts de Python en distintos entornos de proceso.
+    * Seguimiento del historial de ejecuciones de scripts de Python.
     * Ejecución de trabajos en un contexto de proceso remoto de Spark mediante clústeres de HDInsight Spark 2.1.
     * Ejecución de trabajos en máquinas virtuales de GPU remota en Azure.
-    * Puesta en marcha sencilla de modelos de aprendizaje profundo como servicios web en Azure Container Service.
+    * Puesta en marcha sencilla de modelos de aprendizaje profundo como servicios web en Azure Container Service (ACS).
 
 ## <a name="use-case-overview"></a>Información general del caso de uso
 El reconocimiento de entidades biomédicas con nombre es un paso esencial para las tareas biomédicas complejas de procesamiento de lenguaje natural, como: 
-* Extracción de enfermedades y síntomas de historias clínicas o registros médicos electrónicos.
+* Extracción de menciones de entidades con nombre como enfermedades, medicamentos, elementos químicos y síntomas de registros electrónicos sanitarios o médicos.
 * Detección de fármacos.
 * Interpretación de las interacciones entre los diferentes tipos de entidades, como la interacción entre los fármacos, la relación entre los fármacos y las enfermedades, y la relación entre los genes y las proteínas.
 
@@ -130,14 +131,14 @@ El flujo de trabajo detallado de ciencia de datos es el siguiente:
 
 ### <a name="1-data-acquisition-and-understanding"></a>1. Adquisición y comprensión de los datos
 
-Vea [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_Data_Acquisition_and_Understanding/ReadMe.md) (Adquisición y comprensión de los datos).
+Vea [Data Acquisition and Understanding](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) (Adquisición y comprensión de los datos).
 
 El corpus de MEDLINE sin formato tiene un total de 27 millones de resúmenes, donde aproximadamente 10 millones de artículos tienen un campo abstracto vacío. Se usa Azure HDInsight Spark para procesar macrodatos que no se pueden cargar en la memoria de un solo equipo como una [trama de datos de Pandas](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). En primer lugar, se descargan los datos en el clúster de Spark. Después, se ejecutan los pasos siguientes en la [trama de datos de Spark](https://spark.apache.org/docs/latest/sql-programming-guide.html): 
 * Se analizan los archivos XML mediante el analizador XML de Medline.
 * Se preprocesa el texto abstracto, incluida la división de oraciones, la tokenización y la normalización de mayúsculas.
 * Se excluyen los artículos en los que el campo abstracto está vacío o tiene un texto breve. 
 * Se crea el vocabulario a partir de los resúmenes de entrenamiento.
-* Se entrena el modelo neuronal de incrustación de palabras. Para obtener más información, vea el [vínculo del código de GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/Code/01_DataPreparation/ReadMe.md) para empezar a trabajar.
+* Se entrena el modelo neuronal de incrustación de palabras. Para obtener más información, vea el [vínculo del código de GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/blob/master/code/01_data_acquisition_and_understanding/ReadMe.md) para empezar a trabajar.
 
 
 Después de analizar los archivos XML, los datos tienen el formato siguiente: 
@@ -151,7 +152,7 @@ El modelo de extracción de entidades neuronales se ha entrenado y evaluado con 
 
 ### <a name="2-modeling"></a>2. Modelado
 
-Vea [Modeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling) (Modelado).
+Vea [Modeling](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling) (Modelado).
 
 El modelado es la fase en la que le mostramos cómo puede usar los datos descargados en la sección anterior para entrenar su propio modelo de incrustación de palabras y usarlo para otras tareas que siguen en la cadena. Aunque usamos los datos de PubMed, la canalización para generar las incrustaciones es genérica y se puede reutilizar para entrenar incrustaciones de palabras para cualquier otro dominio. Para que las incrustaciones sean una representación precisa de los datos, es fundamental que word2vec se entrene con una gran cantidad de datos.
 Cuando las incrustaciones de palabras estén listas, se puede entrenar un modelo de red neuronal profunda que use las incrustaciones aprendidas para inicializar la capa de incrustación. El nivel de incrustación se marca como no entrenable, pero esto no es obligatorio. El entrenamiento del modelo de incrustación de palabras no se supervisa y, por tanto, se pueden aprovechar las ventajas que suponen los textos sin etiquetas. Aun así, el entrenamiento del modelo de reconocimiento de entidades es una tarea de aprendizaje supervisada y su precisión depende de la cantidad y la calidad de los datos anotados manualmente. 
@@ -159,9 +160,9 @@ Cuando las incrustaciones de palabras estén listas, se puede entrenar un modelo
 
 #### <a name="21-feature-generation"></a>2.1. Generación de características
 
-Vea [Feature generation](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering) (Generación de características).
+Vea [Feature generation](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/01_feature_engineering) (Generación de características).
 
-Word2Vec es el algoritmo de aprendizaje de incrustación de palabras que entrena un modelo de red neuronal en un corpus de entrenamiento sin etiquetas. Genera un vector continuo para cada palabra del corpus que representa su información semántica. Estos modelos son redes neuronales simples con una capa oculta. Los vectores/incrustaciones de palabras se aprenden mediante la propagación hacia atrás y el descenso de gradiente estocástico. Hay dos tipos de modelos de word2vec, denominados Skip-Gram y Continuous Bag Of Words (haga clic [aquí](https://arxiv.org/pdf/1301.3781.pdf) para obtener más información). Dado que usamos la implementación de word2vec de MLlib, que es compatible con el modelo Skip-Gram, lo describiremos brevemente (imagen procedente de este [vínculo](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)): 
+Word2Vec es el algoritmo de aprendizaje sin supervisar de incrustación de palabras que entrena un modelo de red neuronal desde un corpus de entrenamiento sin etiquetas. Genera un vector continuo para cada palabra del corpus que representa su información semántica. Estos modelos son redes neuronales simples con una única capa oculta. Los vectores/incrustaciones de palabras se aprenden mediante la propagación hacia atrás y el descenso de gradiente estocástico. Hay dos tipos de modelos de word2vec, denominados Skip-Gram y Continuous Bag Of Words (haga clic [aquí](https://arxiv.org/pdf/1301.3781.pdf) para obtener más información). Dado que usamos la implementación de word2vec de MLlib, que es compatible con el modelo Skip-Gram, lo describiremos brevemente (imagen procedente de este [vínculo](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)): 
 
 ![Modelo Skip-Gram](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
@@ -170,11 +171,11 @@ Imagen tomada de [aquí](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis
 
 ##### <a name="visualization"></a>Visualización
 
-Una vez que tenemos las incrustaciones, nos gustaría visualizarlas y ver la relación que existe entre palabras similares semánticamente. 
+Una vez que tenemos las incrustaciones de palabras, nos gustaría visualizarlas y ver la relación que existe entre palabras similares semánticamente. 
 
 ![Similitud de W2V](./media/scenario-tdsp-biomedical-recognition/w2v-sim.png)
 
-Hemos mostrado dos formas diferentes de visualizar las incrustaciones. La primera usa PCA para proyectar el vector con una alta dimensionalidad en un espacio de vector 2D. Esto produce una pérdida considerable de información y la visualización no es tan precisa. La segunda consiste en usar PCA con [t-SNE](https://distill.pub/2016/misread-tsne/). t-SNE es una técnica de reducción de dimensionalidad no lineal que resulta ideal para incrustar datos con una alta dimensionalidad en un espacio de dos o tres dimensiones, que después se pueden visualizar en un gráfico de dispersión.  Modela cada objeto con una alta dimensionalidad mediante un punto de dos o tres dimensiones, de tal manera que los objetos similares se modelan mediante puntos cercanos y los objetos dispares se modelan mediante puntos lejanos. Funciona en dos partes. En primer lugar, crea una distribución de probabilidad en los pares del espacio con más alta dimensionalidad, de forma que hay una gran probabilidad de que se seleccionen objetos similares y una baja probabilidad de que se seleccionen puntos dispares. En segundo lugar, define una distribución de probabilidad similar en los puntos de un mapa con baja dimensionalidad y minimiza la divergencia de KL entre las dos distribuciones con respecto a la ubicación de los puntos en el mapa. Para obtener la ubicación de los puntos en la dimensión baja, se minimiza la divergencia de KL mediante el descenso de gradiente. A pesar de todo, t-SNE podría no ser de confianza en todo momento. Encontrará [aquí](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/01_FeatureEngineering) más detalles sobre la implementación. 
+Hemos mostrado dos formas diferentes de visualizar las incrustaciones. La primera usa PCA para proyectar el vector con una alta dimensionalidad en un espacio de vector 2D. Esto produce una pérdida considerable de información y la visualización no es tan precisa. La segunda consiste en usar PCA con [t-SNE](https://distill.pub/2016/misread-tsne/). t-SNE es una técnica de reducción de dimensionalidad no lineal que resulta ideal para incrustar datos con una alta dimensionalidad en un espacio de dos o tres dimensiones, que después se pueden visualizar en un gráfico de dispersión.  Modela cada objeto con una alta dimensionalidad mediante un punto de dos o tres dimensiones, de tal manera que los objetos similares se modelan mediante puntos cercanos y los objetos dispares se modelan mediante puntos lejanos. Funciona en dos partes. En primer lugar, crea una distribución de probabilidad en los pares del espacio con más alta dimensionalidad, de forma que hay una gran probabilidad de que se seleccionen objetos similares y una baja probabilidad de que se seleccionen puntos dispares. En segundo lugar, define una distribución de probabilidad similar en los puntos de un mapa con baja dimensionalidad y minimiza la divergencia de KL entre las dos distribuciones con respecto a la ubicación de los puntos en el mapa. Para obtener la ubicación de los puntos en la dimensión baja, se minimiza la divergencia de KL mediante el descenso de gradiente. A pesar de todo, t-SNE podría no ser de confianza en todo momento. Encontrará [aquí](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/01_feature_engineering) más detalles sobre la implementación. 
 
 
 Como se muestra en la imagen siguiente, la visualización de t-SNE proporciona una mayor separación de los vectores de palabras y los posibles modelos de agrupación en clústeres. 
@@ -194,7 +195,7 @@ Como se muestra en la imagen siguiente, la visualización de t-SNE proporciona u
 
 #### <a name="22-train-the-neural-entity-extractor"></a>2.2. Entrenar el extractor de entidades neuronales
 
-Vea [Train the neural entity extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation/ReadMe.md) (Entrenar el extractor de entidades neuronales).
+Vea [Train the neural entity extractor](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation/ReadMe.md) (Entrenar el extractor de entidades neuronales).
 
 La arquitectura de red neuronal de prealimentacion tiene un problema que consiste en tratar cada entrada y salida como independiente de las demás entradas y salidas. Esta arquitectura no puede modelar tareas de etiquetado de secuencia en secuencia, como la traducción automática y la extracción de entidades. Los modelos de red neuronal recurrente resuelven este problema al pasar la información calculada hasta el momento al nodo siguiente. Esta propiedad se denomina "tener memoria en la red", ya que puede usar la información calculada previamente como se muestra en la imagen siguiente:
 
@@ -204,13 +205,15 @@ Las redes neuronales recurrentes básicas sufren el [problema del gradiente evan
 
 ![Célula LSTM](./media/scenario-tdsp-biomedical-recognition/lstm-cell.png)
 
-Vamos a intentar crear nuestra propia red neuronal recurrente basada en LSTM y a intentar extraer los tipos de entidades, como menciones a fármacos, enfermedades y síntomas en los datos de PubMed. Como cabría suponer, el primer paso consiste en obtener una gran cantidad de datos etiquetados, algo que no es nada sencillo. La mayoría de los datos médicos contienen gran cantidad de información confidencial sobre las personas y, por lo tanto, no están disponibles públicamente. Nos basaremos en una combinación de dos conjuntos de datos diferentes que están disponibles públicamente. El primer conjunto de datos es la tarea 9.1 de Semeval 2013 (reconocimiento de fármacos) y el segundo es la tarea CDR de BioCreative V. Vamos a combinar y etiquetar automáticamente estos dos conjuntos de datos, para poder detectar fármacos y enfermedades en textos médicos y evaluar nuestras incrustaciones de palabras. Para obtener detalles de implementación, vea el [vínculo del código de GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/02_Modeling/02_ModelCreation).
+Vamos a intentar crear nuestra propia red neuronal recurrente basada en LSTM y a intentar extraer los tipos de entidades, como menciones a fármacos, enfermedades y síntomas en los datos de PubMed. Como cabría suponer, el primer paso consiste en obtener una gran cantidad de datos etiquetados, algo que no es nada sencillo. La mayoría de los datos médicos contienen gran cantidad de información confidencial sobre las personas y, por lo tanto, no están disponibles públicamente. Nos basaremos en una combinación de dos conjuntos de datos diferentes que están disponibles públicamente. El primer conjunto de datos es la tarea 9.1 de Semeval 2013 (reconocimiento de fármacos) y el segundo es la tarea CDR de BioCreative V. Vamos a combinar y etiquetar automáticamente estos dos conjuntos de datos, para poder detectar fármacos y enfermedades en textos médicos y evaluar nuestras incrustaciones de palabras. Para obtener detalles de implementación, vea el [vínculo del código de GitHub](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/02_model_creation).
 
 La arquitectura del modelo que hemos usado en todos los códigos y para la comparación se muestra más adelante. El parámetro que cambia para los diferentes conjuntos de datos es la longitud de secuencia máxima (en este caso, 613).
 
 ![Modelo LSTM](./media/scenario-tdsp-biomedical-recognition/d-a-d-model.png)
 
 #### <a name="23-model-evaluation"></a>2.3. Evaluación del modelo
+Vea [Evaluación del modelo](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/02_modeling/03_model_evaluation/ReadMe.md).
+
 Para evaluar la precisión, la recuperación y la puntuación F1 del modelo, se usa el script de evaluación de la tarea compartida de [reconocimiento de bioentidades en BioNLP/NLPBA 2004](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html). 
 
 #### <a name="in-domain-versus-generic-word-embedding-models"></a>El modelo de incrustación de palabras genéricas frente al modelo de incrustación de palabras en dominio
@@ -249,7 +252,7 @@ Hemos llegado a la conclusión de que CNTK tiene tan buen rendimiento como Tenso
 
 ### <a name="3-deployment"></a>3. Implementación
 
-Vea [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/Code/03_Deployment) (Implementación).
+Vea [Deployment](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction/tree/master/code/03_deployment) (Implementación).
 
 Hemos implementado un servicio web en un clúster en [Azure Container Service (ACS)](https://azure.microsoft.com/services/container-service/). El entorno de puesta en marcha aprovisiona Docker y Kubernetes en el clúster para administrar la implementación del servicio web. [Aquí](model-management-service-deploy.md ) encontrará más información sobre el proceso de puesta en marcha.
 

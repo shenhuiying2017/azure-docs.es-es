@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 13a75d5cafd94435346660614721399f2d77919b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Registro y cancelación del registro de un servidor con Azure File Sync (versión preliminar)
 Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -57,8 +57,12 @@ Antes de usar una instancia de Windows Server como *punto de conexión del servi
 > [!Important]  
 > Si el servidor es miembro de un clúster de conmutación por error, el agente de Azure File Sync se deberá instalar en cada nodo del clúster.
 
-### <a name="register-the-server-using-the-server-registration-ui"></a>Registro del servidor mediante la interfaz de usuario de registro de servidor
-1. Si la interfaz de usuario de registro de servidor no se inició inmediatamente después de finalizar la instalación del agente de Azure File Sync, se puede iniciar manualmente mediante la ejecución de `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
+### <a name="register-the-server-using-the-server-registration-ui"></a>Registro del servidor mediante la interfaz de usuario de registro del servidor
+
+> [!Important]  
+> Las suscripciones del Proveedor de soluciones en la nube no pueden utilizar la interfaz de usuario de registro del servidor. En su lugar, use PowerShell (debajo de esta sección).
+
+1. Si la interfaz de usuario de registro del servidor no se inició inmediatamente después de finalizar la instalación del agente de Azure File Sync, se puede iniciar manualmente ejecutando `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Haga clic en *Iniciar sesión* para acceder a la suscripción de Azure. 
 
     ![Apertura del cuadro de diálogo de la interfaz de usuario de registro de servidor](media/storage-sync-files-server-registration/server-registration-ui-1.png)
@@ -73,6 +77,15 @@ Antes de usar una instancia de Windows Server como *punto de conexión del servi
 
 > [!Important]  
 > Si el servidor es miembro de un clúster de conmutación por error, cada servidor debe ejecutar el registro de servidor. Cuando ve los servidores registrados en Azure Portal, Azure File Sync reconoce automáticamente cada nodo como miembro del mismo clúster de conmutación por error y los agrupa de la manera adecuada.
+
+### <a name="register-the-server-with-powershell"></a>Registro del servidor con PowerShell
+También puede realizar el registro del servidor a través de PowerShell. Esta es la única forma compatible de registrar el servidor para las suscripciones del Proveedor de soluciones en la nube:
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```
 
 ## <a name="unregister-the-server-with-storage-sync-service"></a>Cancelación del registro del servidor del servicio de sincronización de almacenamiento
 Hay varios pasos que son necesarios para anular el registro de un servidor del servicio de sincronización de almacenamiento. A continuación se indica cómo anular el registro correctamente de un servidor.

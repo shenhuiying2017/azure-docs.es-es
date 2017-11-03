@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0cef360de3b7a9be01536b0ebe90769c89e7c432
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -68,7 +68,7 @@ Las distintas versiones de HDInsight tienen distintas versiones de componentes y
 
 ### <a name="bps10"></a> Concentrarse en el sistema operativo
 
-HDInsight basado en Linux utiliza como cimientos la distribución de Ubuntu Linux. Las distintas versiones de HDInsight se basan en diferentes versiones de Ubuntu, que podrían cambiar el funcionamiento del script. Por ejemplo, HDInsight 3.4 y versiones anteriores se basan en versiones de Ubuntu que emplean Upstart. La versión 3.5 se basa en Ubuntu 16.04, que utiliza Systemd. Systemd y Upstart se basan en comandos diferentes, por lo que debe escribirse el script para usar los dos.
+HDInsight basado en Linux utiliza como cimientos la distribución de Ubuntu Linux. Las distintas versiones de HDInsight se basan en diferentes versiones de Ubuntu, que podrían cambiar el funcionamiento del script. Por ejemplo, HDInsight 3.4 y versiones anteriores se basan en versiones de Ubuntu que emplean Upstart. La versión 3.5 y superiores se basan en Ubuntu 16.04, que utiliza Systemd. Systemd y Upstart se basan en comandos diferentes, por lo que debe escribirse el script para usar los dos.
 
 Otra diferencia importante entre HDInsight 3.4 y 3.5 es que `JAVA_HOME` ahora apunta a Java 8.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b64413e9cc916837dc779b92117f90293c4f1d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0
 La concesión de un código de autorización de OAuth 2.0 se puede usar en aplicaciones que se instalan en un dispositivo para obtener acceso a recursos protegidos, como las API web.  Mediante la implementación de OAuth 2.0 del modelo de aplicaciones v2.0, puede agregar inicio de sesión y acceso a API a las aplicaciones móviles y de escritorio.  Esta guía, que es independiente del lenguaje, describe cómo enviar y recibir mensajes HTTP sin usar ninguna de nuestras bibliotecas de código abierto.
@@ -167,9 +167,8 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el portador |
 | expires_in |Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | ámbito |Los ámbitos para los que el access_token es válido. |
-| refresh_token |Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para adquirir tokens de acceso adicionales una vez que expire el token de acceso actual.  Los refresh_tokens son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo.  Para más información, consulte la [referencia a los tokens v2.0](active-directory-v2-tokens.md). |
-| ID_token |Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad.  Para más información sobre los parámetros id_token, consulte [Referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
-
+| refresh_token |Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para adquirir tokens de acceso adicionales una vez que expire el token de acceso actual.  Los refresh_tokens son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo.  Para más información, consulte la [referencia a los tokens v2.0](active-directory-v2-tokens.md). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `offline_access`. |
+| ID_token |Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad.  Para más información sobre los parámetros id_token, consulte [Referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `openid`. |
 #### Respuesta de error
 Las respuestas de error tendrán un aspecto similar al siguiente:
 
@@ -273,8 +272,8 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el portador |
 | expires_in |Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | ámbito |Los ámbitos para los que el access_token es válido. |
-| refresh_token |Un nuevo token de actualización de OAuth 2.0. Debe reemplazar el token de actualización antiguo con este token de actualización recientemente adquirido para asegurar que los tokens de actualización siguen siendo válidos durante tanto tiempo como sea posible. |
-| ID_token |Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad.  Para más información sobre los parámetros id_token, consulte [Referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
+| refresh_token |Un nuevo token de actualización de OAuth 2.0. Debe reemplazar el token de actualización antiguo con este token de actualización recientemente adquirido para asegurar que los tokens de actualización siguen siendo válidos durante tanto tiempo como sea posible. <br> **Nota:** Solo se proporciona si se solicitó el ámbito `offline_access`. |
+| ID_token |Un token web JSON (JWT) sin firmar. La aplicación puede descodificar base64Url en los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad.  Para más información sobre los parámetros id_token, consulte [Referencia de los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `openid`. |
 
 #### Respuesta de error
 ```

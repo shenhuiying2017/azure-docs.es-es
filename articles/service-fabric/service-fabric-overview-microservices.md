@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>¿Por qué usar un enfoque de microservicios para crear aplicaciones?
 La forma en que los desarrolladores de software nos planteamos la factorización de una aplicación en sus distintos componentes no es nueva en absoluto. Es el paradigma central de la orientación a objetos, las abstracciones de software y la componentización. En la actualidad, esta factorización suele adoptar la forma de clases e interfaces entre bibliotecas compartidas y niveles de tecnología. Normalmente, se emplea un enfoque con niveles con un almacén en el back-end, lógica de negocios en el nivel intermedio y una interfaz de usuario (IU) en el front-end. Lo que *ha* cambiado en los últimos años es que los desarrolladores ahora crean aplicaciones distribuidas para la nube impulsados por las empresas.
@@ -147,10 +147,10 @@ Service Fabric proporciona tres amplias áreas que le ayudan a crear aplicacione
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migración de aplicaciones existentes a Service Fabric
 Un enfoque clave en Service Fabric es reutilizar código existente, que luego puede modernizarse con nuevos microservicios. Hay cinco fases para la modernización de aplicaciones. Puede empezar y detenerse en cualquiera de ellas. Las fases son:
 
-1) Adopción de una aplicación monolítica tradicional
-2) Levantamiento y movimiento: use contenedores o ejecutables invitados para hospedar código existente en Service Fabric.
-3) Modernización: se agregan nuevos microservicios con código existente en contenedores. 
-4) Innovación: divida la aplicación monolítica en microservicios únicamente en función de las necesidades.
+1) Adopción de una aplicación monolítica tradicional  
+2) Levantamiento y movimiento: use contenedores o ejecutables invitados para hospedar código existente en Service Fabric.  
+3) Modernización: se agregan nuevos microservicios con código existente en contenedores.  
+4) Innovación: divida la aplicación monolítica en microservicios únicamente en función de las necesidades.  
 5) Transformación en microservicios: transforme aplicaciones monolíticas existentes o cree aplicaciones "vírgenes".
 
 ![Migración a microservicios][Image3]
@@ -162,7 +162,7 @@ Es importante destacar de nuevo que se puede **comenzar y detenerse en cualquier
 - Reducción de costos debidos a la consolidación y eliminación de hardware existente o a la ejecución de aplicaciones de mayor densidad. 
 - Contrato de implementación coherente entre el desarrollo y las operaciones.
 
-La reducción de costos es comprensible, además, en Microsoft, gran cantidad de aplicaciones existentes que se convierten en contenedores suponen simplemente un ahorro de millones de dólares. La implementación coherente es difícil de evaluar, pero también es muy importante. Se dice que los desarrolladores tienen libertad para elegir la tecnología que mejor se ajuste a sus necesidades, pero las operaciones solo aceptarán una única forma de implementar y administrar esas aplicaciones. Evita que las operaciones se vean afectadas por la complejidad de muchas tecnologías diferentes o que obliguen a los desarrolladores a elegir solo algunas. Básicamente, cada aplicación se convierte en un contenedor de imágenes de implementación independientes.
+La reducción de costos es comprensible. Además, en Microsoft, se están usando contenedores en una gran cantidad de aplicaciones existentes con el único fin de ahorrar millones de dólares. La implementación coherente es difícil de evaluar, pero también es muy importante. Se dice que los desarrolladores tienen libertad para elegir la tecnología que mejor se ajuste a sus necesidades, pero las operaciones solo aceptarán una única forma de implementar y administrar esas aplicaciones. Evita que las operaciones se vean afectadas por la complejidad de muchas tecnologías diferentes o que obliguen a los desarrolladores a elegir solo algunas. Básicamente, cada aplicación se convierte en un contenedor de imágenes de implementación independientes.
 
 Muchas organizaciones se detienen aquí. Ya tienen las ventajas de los contenedores y Service Fabric ofrece la experiencia de administración completa de implementación, actualizaciones, control de versiones, reversiones, supervisión de estado, etc.
 

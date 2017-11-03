@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: billmath
-ms.openlocfilehash: 328e2039bbaa8988dc35b46712fd0de6f8bcbee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/119/2017
+ms.author: barclayn
+ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referencia técnica del conector de Lotus Domino
 En este artículo, se describe el conector de Lotus Domino. El artículo se aplica a los siguientes productos:
@@ -39,7 +39,7 @@ Desde una perspectiva de alto nivel, las siguientes características son compati
 | Origen de datos conectado |Servidor:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Domino 8.5.x</li><li>Lotus Notes 9.x</li> |
 | Escenarios |<li>Administración del ciclo de vida de objetos</li><li>Administración de grupos</li><li>Administración de contraseñas</li> |
 | Operaciones |<li>Importación completa y diferencial</li><li>Exportación</li><li>Establecer y cambiar la contraseña en Contraseña de HTTP</li> |
-| Esquema |<li>Persona (usuario móvil, contacto (personas sin certificado))</li><li>Grupo</li><li>Recurso (recurso, sala, reunión en línea)</li><li>Base de datos de correo de entrada</li><li>Detección dinámica de atributos para los objetos admitidos</li> |
+| Esquema |<li>Persona (usuario móvil, contacto (personas sin certificado))</li><li>Grupo</li><li>Recurso (recurso, sala, reunión en línea)</li><li>Base de datos de correo de entrada</li><li>Detección dinámica de atributos para los objetos admitidos</li><li>Admite hasta 250 certificadores personalizados con una organización y con unidades organizativas (OU)</li> |
 
 El conector de Lotus Domino usa el cliente de Lotus Notes para comunicarse con el servidor de Lotus Domino. Como consecuencia de esta dependencia, debe instalarse un cliente de Lotus Notes compatible en el servidor de sincronización. La comunicación entre el cliente y el servidor se implementa a través de la interfaz de interoperabilidad .NET de Lotus Notes (Interop.domino.dll). Esta interfaz facilita la comunicación entre el cliente de Lotus Notes y la plataforma de Microsoft .NET, y admite el acceso a documentos y vistas de Lotus Domino. Para la importación diferencial, es también posible que se use la interfaz nativa de C++ (según el método de importación diferencial seleccionado).
 

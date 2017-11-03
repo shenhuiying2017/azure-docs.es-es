@@ -1,6 +1,6 @@
 ---
-title: "Implementación de Azure Web App en Linux: ¿imagen personalizada o imagen de plataforma integrada?  | Microsoft Docs"
-description: "Cómo decidir entre la implementación de contenedores de Docker personalizada y un marco de trabajo de la aplicación integrado"
+title: "Implementación de Azure App Service: ¿imagen personalizada o imagen de plataforma integrada?  | Microsoft Docs"
+description: "Cómo decidir entre la implementación de contenedores de Docker personalizada y un marco de trabajo de la aplicación integrado para App Service en Linux"
 keywords: "azure app service, aplicación web, linux, oss"
 services: app-service
 documentationCenter: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: nickwalk
-ms.openlocfilehash: 322533a9dce54222943f8b2a3d653780a674c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a04bba2375b5a107bc3cb8cdc1a75d037c50af6
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>¿Imagen personalizada o imagen de plataforma integrada?
 
-[Web App en Linux](app-service-linux-intro.md) ofrece dos formas diferentes de publicar su aplicación en la Web:
+[App Service en Linux](app-service-linux-intro.md) ofrece dos formas diferentes de publicar su aplicación en la Web:
 
 - **Implementación de una imagen personalizada**: convierte la aplicación en una imagen de Docker que contiene todos los archivos y dependencias en un paquete listo para ejecutarse.
 - **Implementación de aplicaciones con una imagen de plataforma integrada**: nuestras imágenes de plataforma integrada contienen entornos en tiempo de ejecución y dependencias de aplicaciones web comunes, como Node y PHP. Use cualquiera de los [métodos de implementación de Azure App Service](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implementar la aplicación en el almacenamiento de la aplicación web y, luego, use una imagen de plataforma integrada para ejecutarla.

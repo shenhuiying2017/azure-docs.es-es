@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5ce000814f2f5899a7338fdefb39c4873c006b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b30aa04854b779c25582abafc0f9ebba65b71ba
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -131,7 +131,7 @@ Cuando un punto de conexión tiene un estado Degradado, ya no se devuelve en res
 
 * **Prioridad**. Los puntos de conexión forman una lista clasificada en orden de prioridad. Siempre se devuelve el primer punto de conexión disponible de la lista. Si un punto de conexión pasa al estado Degradado, se devuelve el siguiente punto de conexión disponible.
 * **Ponderado**. Se elige un punto de conexión disponible al azar según sus ponderaciones asignadas y las ponderaciones de los demás puntos de conexión disponibles.
-* **Rendimiento**. Se devuelve el punto de conexión más cercano al usuario final. Si dicho punto de conexión no está disponible, el punto de conexión se elige de forma aleatoria entre todos los disponibles. Al elegir un punto de conexión aleatorio, se evita un error en cascada que se puede producir cuando se sobrecarga el punto de conexión más cercano. Puede configurar planes de conmutación por error alternativos para el enrutamiento del tráfico de rendimiento mediante los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
+* **Rendimiento**. Se devuelve el punto de conexión más cercano al usuario final. Si ese punto de conexión no está disponible, Traffic Manager moverá el tráfico a los puntos de conexión de la región de Azure siguiente más cercana. Puede configurar planes de conmutación por error alternativos para el enrutamiento del tráfico de rendimiento mediante los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfico**. Se devuelve el punto de conexión asignado para dar servicio a la ubicación geográfica en función de la dirección IP de la solicitud de consulta. Si ese punto de conexión no está disponible, no se seleccionará otro punto de conexión para la conmutación por error, ya que una ubicación geográfica se puede asignar solo a un punto de conexión en un perfil (puede encontrar más detalles en el artículo [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como práctica recomendada al usar enrutamiento geográfico, se recomienda que los clientes usen perfiles de Traffic Manager anidados con más de un punto de conexión como puntos de conexión del perfil.
 
 Para más información, consulte [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md).

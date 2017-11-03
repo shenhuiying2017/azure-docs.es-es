@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación de Azure a Azure
 
@@ -145,8 +145,8 @@ Máquinas virtuales migradas con Site Recovery | Compatible | Si es una máquina
 
 **Configuración** | **No admite/no se admite** | **Comentarios**
 --- | --- | ---
-Tamaño de disco máximo del sistema operativo | 1023 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
-Tamaño máximo del disco de datos | 1023 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Tamaño de disco máximo del sistema operativo | 2048 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
+Tamaño máximo del disco de datos | 4095 GB | Consulte [Discos usados por las máquinas virtuales](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms).
 Número de discos de datos | Hasta 64, que es el admitido por un tamaño de máquina virtual específico de Azure. | Consulte los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md)
 Disco temporal | Siempre se excluyen de la replicación | El disco temporal se excluye de la replicación siempre. Como recomienda Azure, no se deben colocar los datos persistentes en los discos temporales. Consulte [Discos temporales en máquinas virtuales de Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para más información.
 Velocidad de cambio de datos en el disco | Máximo de 6 Mbps por disco | Si la velocidad media de cambio de los datos en el disco sobrepasa los 6 Mbps continuamente, la replicación no mantendrá el ritmo. Sin embargo, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 6 Mbps durante algún tiempo y desciende, la replicación mantendrá el ritmo. En este caso, podría ver puntos de recuperación ligeramente retrasados.

@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Preguntas más frecuentes de Azure Machine Learning
 
@@ -108,7 +108,7 @@ Sí, el servicio Experimentación y Administración de modelos funcionan en conj
 
 **¿Se admiten escenarios de implementación tanto de forma local como en la nube?**
 
-Sí. Se admiten escenarios de implementación en local y en la nube a través de contenedores de Docker. Los destinos de ejecución locales incluyen: implementaciones de Docker de nodo único, [Microsoft SQL Server con servicios de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop o Spark. También se admiten implementaciones en la nube a través de Docker, incluidas: implementaciones en clúster a través de Azure Container Service, y clústeres de Kubernetes, HDInsight o Spark. Los escenarios de borde se admiten a través de contenedores de Docker y Azure IoT Edge. 
+Sí. Se admiten escenarios de implementación locales y en la nube a través de contenedores Docker. Los destinos de ejecución locales incluyen: implementaciones de Docker de nodo único, [Microsoft SQL Server con servicios de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services), Hadoop o Spark. También se admiten implementaciones en la nube a través de Docker, incluidas: implementaciones en clúster a través de Azure Container Service, y clústeres de Kubernetes, HDInsight o Spark. Los escenarios de borde se admiten a través de contenedores de Docker y Azure IoT Edge. 
 
 **¿Es posible ejecutar una imagen de Docker que se creó mediante la CLI de Azure Machine Learning en otro host?**
 

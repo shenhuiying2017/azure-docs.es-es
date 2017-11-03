@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -28,8 +28,9 @@ Este artículo sirve de ayuda para encontrar información acerca de cómo soluci
 
 - En algunos casos, el proceso para habilitar el inicio de sesión único de conexión directa puede tardar hasta 30 minutos.
 - El soporte técnico para el explorador Edge no está disponible.
-- La activación de licencias en clientes de Office, especialmente en escenarios de equipos compartidos, provoca solicitudes de inicio de sesión adicionales para los usuarios.
-- SSO de conexión directa no funciona en modo de exploración privada en Firefox. y 
+- Iniciar clientes de Office, especialmente en escenarios de equipos compartidos, provoca solicitudes de inicio de sesión adicionales para los usuarios. Los usuarios tendrán que escribir con frecuencia sus nombres de usuario, pero no las contraseñas.
+- Si se realiza el inicio de sesión único (SSO) sin problemas, el usuario no tiene la oportunidad de elegir "Mantener la sesión iniciada". Debido a este comportamiento los escenarios de asignación de SharePoint y OneDrive no funcionan.
+- SSO de conexión directa no funciona en modo de exploración privada en Firefox.
 - El inicio de sesión único de conexión directa no funciona en Internet Explorer cuando está activado el modo de protección mejorada.
 - El inicio de sesión único de conexión directa no funciona en exploradores móviles en iOS y Android.
 - Si va a sincronizar treinta bosques de AD o más, no se puede habilitar SSO de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) la característica en su inquilino.

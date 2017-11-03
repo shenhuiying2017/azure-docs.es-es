@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Adición de acciones a reglas de alerta en Log Analytics
 Cuando se [crea una alerta en Log Analytics](log-analytics-alerts.md), tiene la opción de [configurar la regla de alerta](log-analytics-alerts.md) para realizar una o varias acciones.  En este artículo se describen las diferentes acciones que están disponibles y los detalles sobre la configuración de cada tipo.
@@ -112,10 +112,10 @@ Las acciones de runbook requieren las propiedades de la siguiente tabla.
 
 Las acciones de runbook inician el runbook mediante un [webhook](../automation/automation-webhooks.md).  Al crear la regla de alerta, se creará automáticamente un nuevo webhook para el runbook con el nombre **OMS Alert Remediation** seguido de un GUID.  
 
-No se pueden llenar directamente los parámetros del runbook, pero el [parámetro $WebhookData](../automation/automation-webhooks.md) incluirá los detalles de la alerta, como los resultados de la búsqueda de registros que lo crearan.  El runbook tendrá que definir **$WebhookData** como parámetro para tener acceso a las propiedades de la alerta.  Los datos de la alerta están disponibles en formato json en una sola propiedad denominada **SearchResults** de la propiedad **RequestBody** de **$WebhookData**.  Esta tendrá las propiedades de la siguiente tabla.
+No se pueden llenar directamente los parámetros del runbook, pero el [parámetro $WebhookData](../automation/automation-webhooks.md) incluirá los detalles de la alerta, como los resultados de la búsqueda de registros que lo crearan.  El runbook tendrá que definir **$WebhookData** como parámetro para tener acceso a las propiedades de la alerta.  Los datos de alerta están disponibles en formato json en una propiedad única denominada **SearchResult** (para las acciones de runbook y acciones de webhook con carga estándar) o **SearchResults** (acciones de webhook con carga personalizada, incluido **IncludeSearchResults ": true**) en la propiedad **RequestBody** de **$WebhookData**.  Esta tendrá las propiedades de la siguiente tabla.
 
 >[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la carga del runbook ha cambiado.  Los detalles del formato se encuentran en la [API de REST de Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Puede ver una muestra en la sección [Ejemplos](#sample-payload) más adelante.
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la carga del runbook ha cambiado.  Los detalles del formato se encuentran en la [API de REST de Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).  Puede ver una muestra en la sección [Ejemplos](#sample-payload) más adelante.  
 
 | Nodo | Descripción |
 |:--- |:--- |
@@ -123,14 +123,19 @@ No se pueden llenar directamente los parámetros del runbook, pero el [parámetr
 | __metadata |Información sobre la alerta, como el número de registros y el estado de los resultados de búsqueda. |
 | value |Entrada independiente para cada registro en los resultados de búsqueda.  Los detalles de la entrada coincidirán con las propiedades y los valores del registro. |
 
-Por ejemplo, el siguiente runbook podría extraer los registros devueltos por la búsqueda de registros y asignar propiedades diferentes según el tipo de cada registro.  Tenga en cuenta que el runbook se inicia mediante la conversión de **RequestBody** de json, por lo que puede actuar como un objeto de PowerShell.
+Por ejemplo, los siguientes runbooks podrían extraer los registros devueltos por la búsqueda de registros y asignar propiedades diferentes según el tipo de cada registro.  Tenga en cuenta que el runbook se inicia mediante la conversión de **RequestBody** de json, por lo que puede actuar como un objeto de PowerShell.
+
+>[!NOTE]
+> Estos runbook usan **SearchResult**, que es la propiedad que contiene los resultados de las acciones de runbook y acciones de webhook con carga estándar.  Si se ha llamado el runbook desde una respuesta de webhook con una carga personalizada, tendría que cambiar esta propiedad a **SearchResults**.
+
+El siguiente runbook funcionará con la carga desde el [área de trabajo de Log Analytics heredada](log-analytics-log-search-upgrade.md).
 
     param ( 
         [object]$WebhookData
     )
 
     $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResults.value
+    $Records     = $RequestBody.SearchResult.value
 
     foreach ($Record in $Records)
     {
@@ -152,11 +157,61 @@ Por ejemplo, el siguiente runbook podría extraer los registros devueltos por la
         }
     }
 
+El siguiente runbook funcionará con la carga desde un [área de trabajo de Log Analytics heredada](log-analytics-log-search-upgrade.md).
+
+    param ( 
+        [object]$WebhookData
+    )
+
+    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
+
+    # Get all metadata properties    
+    $AlertRuleName = $RequestBody.AlertRuleName
+    $AlertThresholdOperator = $RequestBody.AlertThresholdOperator
+    $AlertThresholdValue = $RequestBody.AlertThresholdValue
+    $AlertDescription = $RequestBody.Description
+    $LinktoSearchResults =$RequestBody.LinkToSearchResults
+    $ResultCount =$RequestBody.ResultCount
+    $Severity = $RequestBody.Severity
+    $SearchQuery = $RequestBody.SearchQuery
+    $WorkspaceID = $RequestBody.WorkspaceId
+    $SearchWindowStartTime = $RequestBody.SearchIntervalStartTimeUtc
+    $SearchWindowEndTime = $RequestBody.SearchIntervalEndtimeUtc
+    $SearchWindowInterval = $RequestBody.SearchIntervalInSeconds
+
+    # Get detailed search results
+    if($RequestBody.SearchResult -ne $null)
+    {
+        $SearchResultRows    = $RequestBody.SearchResult.tables[0].rows 
+        $SearchResultColumns = $RequestBody.SearchResult.tables[0].columns;
+
+        foreach ($SearchResultRow in $SearchResultRows)
+        {   
+            $Column = 0
+            $Record = New-Object –TypeName PSObject 
+        
+            foreach ($SearchResultColumn in $SearchResultColumns)
+            {
+                $Name = $SearchResultColumn.name
+                $ColumnValue = $SearchResultRow[$Column]
+                $Record | Add-Member –MemberType NoteProperty –Name $name –Value $ColumnValue -Force
+                        
+                $Column++
+            }
+
+            # Include code to work with the record. 
+            # For example $Record.Computer to get the computer property from the record.
+            
+        }
+    }
+
+
 
 ## <a name="sample-payload"></a>Carga de ejemplo
 En esta sección se muestra la carga de ejemplo para las acciones de webhook y runbook en una [área de trabajo de Log Analytics actualizada](log-analytics-log-search-upgrade.md) y otra heredada.
 
 ### <a name="webhook-actions"></a>Acciones de webhook
+Ambos ejemplos usan **SearchResult**, que es la propiedad que contiene los resultados de las acciones de webhook con carga estándar.  Si el webhook utilizó una carga personalizada que incluye los resultados de búsqueda, esta propiedad sería **SearchResults**.
 
 #### <a name="legacy-workspace"></a>Área de trabajo heredada.
 A continuación se muestra una carga de ejemplo para una acción de webhook en una área de trabajo heredada.
@@ -376,7 +431,7 @@ A continuación se muestra una carga de ejemplo para una acción de webhook en u
 A continuación se muestra una carga de ejemplo para una acción de runbook en una área de trabajo heredada.
 
     {
-        "SearchResults": {
+        "SearchResult": {
             "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
             "__metadata": {
                 "resultType": "raw",
