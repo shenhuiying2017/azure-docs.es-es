@@ -31,7 +31,7 @@
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Ejecución de proyectos
   href: project-execution.md
-- name: Tutoriales
+- name: Ejemplos
   href: walkthroughs.md
   items:
     - name: Aprendizaje automático de Azure
@@ -60,6 +60,12 @@
       href: walkthroughs-sql-server.md
     - name: T-SQL y Python con SQL DW
       href: walkthroughs-sql-data-warehouse.md
+- name: Cursos
+  items:
+    - name: TDSP para científicos de datos
+      href: team-data-science-process-for-data-scientists.md
+    - name: TDSP para DevOps
+      href: team-data-science-process-for-devops.md
 - name: Procedimientos
   items:
     - name: Uso de TDSP en Azure ML
@@ -174,7 +180,7 @@
               maintainContext: true
     - name: Implementación de modelos
       items:
-        - name: Con un servicio web.
+        - name: Con un servicio web
           href: ../studio/publish-a-machine-learning-web-service.md
           maintainContext: true
         - name: Consumo de un servicio web

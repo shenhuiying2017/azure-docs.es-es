@@ -112,24 +112,23 @@
 #### [Ejemplos de inicio de sesión](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Uso de certificados](active-directory-reporting-api-with-certificates.md)
 
-## [Administrar contraseñas](active-directory-passwords-overview.md)
+## Administrar contraseñas
+### [Introducción a las contraseñas](active-directory-passwords-overview.md)
 ### Documentos de usuario
 #### [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
 #### [Procedimientos recomendados sobre las contraseñas](active-directory-secure-passwords.md)
 #### [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)
-### [Licencia de SSPR](active-directory-passwords-licensing.md)
-### [Implementación de SSPR](active-directory-passwords-best-practices.md)
+### [Vea cómo funciona SSPR](active-directory-passwords-how-it-works.md)
+### [Guía de implementación de SSPR](active-directory-passwords-best-practices.md)
+### [Directivas de SSPR](active-directory-passwords-policy.md)
+### [Personalización de SSPR](active-directory-passwords-customize.md)
+### [Requisitos de datos de SSPR](active-directory-passwords-data.md)
+### [Informes de SSPR](active-directory-passwords-reporting.md)
 ### Administradores de TI: Restablecimiento de contraseñas
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Portal de Azure clásico](active-directory-create-users-reset-password.md)
-### [Descripción de las directivas de SSPR](active-directory-passwords-policy.md)
-### [Descripción del restablecimiento de contraseñas](active-directory-passwords-how-it-works.md)
-### [Personalización de SSPR](active-directory-passwords-customize.md)
-### [Datos usados por SSPR](active-directory-passwords-data.md)
-### [Generación de informes en SSPR](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Licencia de SSPR](active-directory-passwords-licensing.md)
 ### [Escritura diferida de contraseñas](active-directory-passwords-writeback.md)
-### [Sincronización de hash de contraseñas](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Solución de problemas](active-directory-passwords-troubleshoot.md)
 ### [P+F](active-directory-passwords-faq.md)
 
@@ -300,7 +299,7 @@
 ## Protección de las identidades
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Controles](active-directory-conditional-access-controls.md)
-#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### Tareas
@@ -313,8 +312,6 @@
 ##### [Corrección](active-directory-conditional-access-device-remediation.md)
 #### [Referencia técnica](active-directory-conditional-access-technical-reference.md)
 #### [Preguntas más frecuentes](active-directory-conditional-faqs.md)
-#### [Portal clásico](active-directory-conditional-access.md)
-##### [Primeros pasos](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Autenticación sin contraseñas](active-directory-azureadjoin-passport.md)

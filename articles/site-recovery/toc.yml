@@ -15,7 +15,7 @@
       items:
         - name: Configuración de la recuperación ante desastres
           href: azure-to-azure-tutorial-enable-replication.md
-        - name: Ejecución de la exploración en profundidad de una recuperación ante desastres
+        - name: Ejecución de un simulacro de recuperación ante desastres
           href: azure-to-azure-tutorial-dr-drill.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación
           href: azure-to-azure-tutorial-failover-failback.md
@@ -27,7 +27,7 @@
           href: tutorial-prepare-on-premises-vmware.md
         - name: Configuración de la recuperación ante desastres
           href: tutorial-vmware-to-azure.md
-        - name: Ejecución de la exploración en profundidad de una recuperación ante desastres
+        - name: Ejecución de un simulacro de recuperación ante desastres
           href: tutorial-dr-drill-azure.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación
           href: tutorial-vmware-to-azure-failover-failback.md
@@ -59,6 +59,8 @@
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Recuperación ante desastres para cargas de trabajo
       href: site-recovery-workload.md
+    - name: Migración Azure Site Recovery
+      href: site-recovery-migrate-to-azure.md
     - name: Redes de Azure a Azure (versión preliminar)
       href: site-recovery-azure-to-azure-networking-guidance.md
     - name: Conectividad de máquina virtual después de una conmutación por error a Azure
@@ -87,9 +89,9 @@
           href: tutorial-vmm-to-vmm.md
         - name: Máquinas virtuales de VMware y servidores físicos en un sitio secundario
           href: tutorial-vmware-to-vmware.md
-        - name: Ejecución de la exploración en profundidad de una recuperación ante desastres en Azure
+        - name: "Ejecución de un simulacro de recuperación ante desastres\r\n en Azure"
           href: tutorial-dr-drill-azure.md
-        - name: Ejecución de la exploración en profundidad de una recuperación ante desastres en un sitio secundario
+        - name: "Ejecución de un simulacro de recuperación ante desastres\r\nen un sitio secundario"
           href: tutorial-dr-drill-secondary.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación en servidores físicos
           href: tutorial-vmware-to-azure-failover-failback.md
@@ -104,9 +106,9 @@
         - name: Herramienta Deployment Planner para la replicación de VMware en Azure
           href: site-recovery-deployment-planner.md
         - name: Planeamiento de la capacidad para la replicación de Hyper-V en Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
-        - name: Herramienta Capacity Planner para la replicación de Hyper-V en Azure
           href: site-recovery-capacity-planner.md
+        - name: Herramienta Capacity Planner para la replicación de Hyper-V en Azure
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
         - name: Escalado horizontal de los servidores de proceso para la replicación de VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: Pruebas de escalado de rendimiento para la replicación de Hyper-V entre sitios locales
@@ -134,7 +136,7 @@
           items:
             - name: Implementación de Mobility Service con System Center Configuration Manager
               href: site-recovery-install-mobility-service-using-sccm.md
-            - name: Implementación de Mobility Service con DSC de Automatización de Azure
+            - name: Implementación de Mobility Service con DSC de Azure Automation
               href: site-recovery-automate-mobility-service-install.md
         - name: Habilitar replicación
           items:
@@ -147,7 +149,7 @@
         - name: Configuración de planes de recuperación
           href: site-recovery-create-recovery-plans.md
           items:
-            - name: Adicción de runbooks de Azure a los planes de recuperación
+            - name: Adición de runbooks de Azure a los planes de recuperación
               href: site-recovery-runbook-automation.md
         - name: Ejecución de una conmutación por error de prueba
           items:
@@ -181,7 +183,9 @@
           href: site-recovery-vmm-to-vmm-powershell-resource-manager.md
     - name: Migrar
       items:
-        - name: Replicación de máquinas migradas a otra región de Azure
+        - name: Migración de máquinas virtuales de Azure a otra región de Azure
+          href: site-recovery-migrate-azure-to-azure.md
+        - name: Replicación de máquinas a otra región de Azure después de la migración
           href: site-recovery-azure-to-azure-after-migration.md
     - name: Cargas de trabajo
       items:
