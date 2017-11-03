@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
 ExpressRoute amplía una red local en Microsoft Cloud por medio de una conexión privada que se realiza mediante un proveedor de conectividad, y abarca las siguientes tres zonas de red distintas:
@@ -281,7 +281,7 @@ Para obtener los detalles de configuración del emparejamiento de Microsoft, use
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Validación de ARP entre Microsoft y el proveedor de servicios
-Esta sección utiliza comandos de PowerShell (clásico). Si ha estado usando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción a través del [Portal de Azure clásico][OldPortal]. Para solucionar problemas con los comandos de Azure Resource Manager, vea el documento [Getting ARP tables in the Resource Manager deployment model][ARP] (Obtención de tablas ARP en el modelo de implementación de Resource Manager).
+Esta sección utiliza comandos de PowerShell (clásico). Si ha estado utilizando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción. Para solucionar problemas con los comandos de Azure Resource Manager, vea el documento [Getting ARP tables in the Resource Manager deployment model][ARP] (Obtención de tablas ARP en el modelo de implementación de Resource Manager).
 
 >[!NOTE]
 >Para obtener ARP, se pueden usar los comandos de PowerShell tanto de Azure Portal como de Azure Resource Manager. Si se producen errores con los comandos de PowerShell de Azure Resource Manager, los comandos de PowerShell clásico deben funcionar también con circuitos ExpressRoute de Azure Resource Manager.
@@ -314,7 +314,7 @@ En el ejemplo siguiente se muestra que no hay respuesta del comando para un empa
 >
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Validación de BGP y las rutas en el MSEE
-Esta sección utiliza comandos de PowerShell (clásico). Si ha estado utilizando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción a través del [Portal de Azure clásico][OldPortal]
+Esta sección utiliza comandos de PowerShell (clásico). Si ha estado utilizando los comandos de PowerShell de Azure Resource Manager, asegúrese de que tiene acceso de administrador o coadministrador a la suscripción.
 
 >[!NOTE]
 >Para obtener información de BGP, se pueden usar los comandos de PowerShell tanto de Azure Portal como de Azure Resource Manager. Si se producen errores con los comandos de PowerShell de Azure Resource Manager, los comandos de PowerShell clásico deben funcionar también con circuitos ExpressRoute de Azure Resource Manager.

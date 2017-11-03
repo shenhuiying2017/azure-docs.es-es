@@ -1,9 +1,9 @@
 ---
 title: Usar Azure PowerShell con Azure Storage | Microsoft Docs
-description: "Aprenda a usar los cmdlets de Azure PowerShell para el almacenamiento de Azure para crear y administrar cuentas de almacenamiento; trabajar con blobs, tablas, colas y archivos; configurar y consultar el análisis de almacenamiento, y crear firmas de acceso compartido."
+description: Aprenda a usar los cmdlets de Azure PowerShell para Azure Storage.
 services: storage
 documentationcenter: na
-author: tamram
+author: robinsh
 manager: timlt
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
@@ -11,838 +11,239 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2017
-ms.author: tamram
-ms.openlocfilehash: 019da8eb9e42894fa3592cd11cce1dc6754290f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 09/30/2017
+ms.author: robinsh
+ms.openlocfilehash: a116b4c15046e704e374ca67c5695ff3f01ba7fb
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Almacenamiento de Azure
-## <a name="overview"></a>Información general
-Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Es un Shell de línea de comandos y un lenguaje de scripting basados en tareas y diseñados especialmente para la administración del sistema. Con PowerShell, podrá controlar y automatizar fácilmente la administración de los servicios y aplicaciones de Azure. Por ejemplo, puede usar los cmdlets para realizar las mismas tareas que podría realizar a través de [Azure Portal](https://portal.azure.com).
 
-En esta guía, se examina cómo usar los [cmdlets de Azure Storage](/powershell/module/azurerm.storage/#storage) para realizar diversas tareas de desarrollo y administración con Azure Storage.
+Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. Para Azure Storage, estos cmdlets se dividen en dos categorías: el plano de control y el plano de datos. Los cmdlets del plano de control se usan para administrar la cuenta de almacenamiento: crear cuentas de almacenamiento, establecer las propiedades, eliminar las cuentas de almacenamiento, rotar las claves de acceso, etc. Los cmdlets del plano de datos se usan para administrar los datos almacenados *en* la cuenta de almacenamiento. Por ejemplo, cargar blobs, crear recursos compartidos de archivo y agregar mensajes a una cola.
 
-En esta guía se considera que ya tiene experiencia previa en el uso de [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) y [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). La guía le proporcionará una serie de scripts para que pueda aprender a usar PowerShell con Almacenamiento de Azure. Antes de ejecutar cada script, deberá actualizar las variables de los mismos según su configuración.
+En este artículo de ayuda se tratan las operaciones comunes con los cmdlets del plano de administración para administrar las cuentas de almacenamiento. Aprenderá a: 
 
-La primera sección de esta guía le permitirá echar un rápido vistazo a Almacenamiento de Azure y a PowerShell. Para obtener información detallada e instrucciones, puede comenzar por los [requisitos previos para usar Azure PowerShell con Almacenamiento de Azure](#prerequisites-for-using-azure-powershell-with-azure-storage).
+> [!div class="checklist"]
+> * Enumerar cuentas de almacenamiento
+> * Obtener una referencia a una cuenta de almacenamiento existente
+> * Crear una cuenta de almacenamiento 
+> * Definir las propiedades de una cuenta de almacenamiento
+> * Recuperar y regenerar las claves de acceso
+> * Proteger el acceso a la cuenta de almacenamiento 
+> * Habilitar Storage Analytics
 
-## <a name="getting-started-with-azure-storage-and-powershell-in-5-minutes"></a>Introducción de 5 minutos a Almacenamiento de Azure y PowerShell
-En esta sección, aprenderá en 5 minutos a acceder a Almacenamiento de Azure a través de PowerShell.
+También se proporcionan vínculos a otros artículos de PowerShell para Storage, que tratan, por ejemplo, sobre cómo habilitar Storage Analytics y acceder a este servicio y cómo usar los cmdlets del plano de datos.
+<!-- also how to access the china and government clouds  -->
 
-**Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Para obtener más información sobre las suscripciones a Azure, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/hh531793.aspx) .
+Este ejercicio requiere la versión 3.6 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). 
 
-**Después de crear una suscripción y una cuenta de Microsoft Azure:**
+Para este ejercicio, puede escribir los comandos en una ventana de PowerShell regular o puede usar [Windows PowerShell ISE](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) y escribir los comandos en un editor y, después, probar uno o varios comandos a la vez mientras revisa los ejemplos. Puede resaltar las filas que desea ejecutar y hacer clic en Ejecutar seleccionado para ejecutar solo esos comandos.
 
-1. Descargue e instale la última versión de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/latest).
-2. Inicie el Entorno de scripting integrado (ISE) de Windows PowerShell: en el equipo local, vaya al menú **Inicio** . Escriba **Herramientas administrativas** y haga clic en ella para ejecutarla. En la ventana **Herramientas administrativas**, haga clic con el botón derecho en **Windows PowerShell ISE** y haga clic en **Ejecutar como administrador**.
-3. En **Windows PowerShell ISE**, haga clic en **Archivo** > **Nuevo** para crear un nuevo archivo de script.
-4. A continuación, se presenta un sencillo script que muestra los comandos básicos de PowerShell para poder acceder a Azure Storage. El script le pedirá sus credenciales de cuenta de Azure para agregar su cuenta al entorno local de PowerShell. Una vez hecho esto, el script establecerá una suscripción predeterminada de Azure y creará una nueva cuenta de almacenamiento en Azure. Posteriormente, el script creará un nuevo contenedor en la nueva cuenta de almacenamiento y cargará un archivo de imagen existente (blob) en ese contenedor. Una vez el script ha enumerado todos los blobs en ese contenedor, creará un nuevo directorio de destino en el equipo local y descargará el archivo de imagen.
-5. En la siguiente sección de código, seleccione el script que se encuentra entre las notas **#begin** y **#end**. Presione CTRL+C para copiarlo en el portapapeles.
+Para más información sobre las cuentas de almacenamiento, vea [Introducción a Microsoft Azure Storage](storage-introduction.md) y [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
 
-    ```powershell
-    # begin
-    # Update with the name of your subscription.
-    $SubscriptionName = "YourSubscriptionName"
-       
-    # Give a name to your new storage account. It must be lowercase!
-    $StorageAccountName = "yourstorageaccountname"
-       
-    # Choose "West US" as an example.
-    $Location = "West US"
-       
-    # Give a name to your new container.
-    $ContainerName = "imagecontainer"
-       
-    # Have an image file and a source directory in your local computer.
-    $ImageToUpload = "C:\Images\HelloWorld.png"
-       
-    # A destination directory in your local computer.
-    $DestinationFolder = "C:\DownloadImages"
-       
-    # Add your Azure account to the local PowerShell environment.
-    Add-AzureAccount
-       
-    # Set a default Azure subscription.
-    Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-       
-    # Create a new storage account.
-    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
-       
-    # Set a default storage account.
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-       
-    # Create a new container.
-    New-AzureStorageContainer -Name $ContainerName -Permission Off
-       
-    # Upload a blob into a container.
-    Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
-       
-    # List all blobs in a container.
-    Get-AzureStorageBlob -Container $ContainerName
-       
-    # Download blobs from the container:
-    # Get a reference to a list of all blobs in a container.
-    $blobs = Get-AzureStorageBlob -Container $ContainerName
-       
-    # Create the destination directory.
-    New-Item -Path $DestinationFolder -ItemType Directory -Force  
-       
-    # Download blobs into the local destination directory.
-    $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
-       
-    # end
-    ```
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-6. En el **Windows PowerShell ISE**, presione CTRL+V para copiar el script. Haga clic en **archivo** > **Guardar**. En el cuadro de diálogo **Guardar como** , escriba el nombre del archivo de script, por ejemplo, mystoragescript. Haga clic en **Save**.
-7. Ahora deberá actualizar las variables del script basadas en la configuración. Debe actualizar la variable **$SubscriptionName** con su propia suscripción. Puede mantener las demás variables tal y como se especifican en el script o actualizarlas a su gusto.
-   
-   * **$SubscriptionName:** debe actualizar esta variable con su propia suscripción. Siga una de las tres maneras siguientes para buscar el nombre de su suscripción:
-     
-    a. En **Windows PowerShell ISE**, haga clic en **Archivo** > **Nuevo** para crear un nuevo archivo de script. Copie el siguiente script al nuevo archivo de script y haga clic en **Depurar** > **Ejecutar**. El script le pedirá las credenciales de su cuenta de Azure para así agregar su cuenta al entorno local de PowerShell y mostrar todas las suscripciones conectadas a la sesión local de PowerShell. Anote el nombre de la suscripción que desea usar para realizar este tutorial:
-     
-    ```powershell
-    Add-AzureAccount 
-      Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-    ```
+Inicie sesión en la suscripción de Azure con el comando `Login-AzureRmAccount` y siga las instrucciones de la pantalla.
 
-    b. Para ubicar y copiar el nombre de la suscripción en [Azure Portal](https://portal.azure.com), en el menú del concentrador que se encuentra a la izquierda, haga clic en **Suscripciones**. Copie el nombre de la suscripción que desee usar para ejecutar los scripts que se proporcionan en esta guía.
-     
-     ![Portal de Azure](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
+```powershell
+Login-AzureRmAccount
+```
 
-    c. Para ubicar y copiar el nombre de la suscripción en el [Portal de Azure clásico](https://manage.windowsazure.com/), desplácese hacia abajo y haga clic en la opción **Configuración** que encontrará en el lado izquierdo del portal. Haga clic en **Suscripciones** para ver una lista de las suscripciones. Copie el nombre de la suscripción que desee usar para ejecutar los scripts que se proporcionan en esta guía.
-     
-     ![Portal de Azure clásico](./media/storage-powershell-guide-full/Subscription_currentportal.png)
+## <a name="list-the-storage-accounts-in-the-subscription"></a>Enumeración de las cuentas de almacenamiento de la suscripción
 
-   * **$StorageAccountName:** use el nombre proporcionado en el script o escriba un nuevo nombre para la cuenta de almacenamiento. **Importante:** el nombre de la cuenta de almacenamiento debe ser exclusivo en Azure. También debe estar en minúscula.
-   * **$Location:** use la ubicación "Oeste de EE. UU." proporcionado en el script o elija otra ubicación de Azure como "Este de EE. UU", "Europa del Norte", etc.
-   * **$ContainerName:** use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
-   * **$ImageToUpload:** escriba una ruta de acceso a una imagen en el equipo local, como por ejemplo: "C:\Images\HelloWorld.png".
-   * **$DestinationFolder:** escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Azure Storage, como "C:\DownloadImages".
-8. Después de actualizar las variables del script en el archivo "mystoragescript.ps1", haga clic en **Archivo** > **Guardar**. A continuación, haga clic en **Depurar** > **Ejecutar** o presione **F5** para ejecutar el script.  
+Ejecute el cmdlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.resources/get-azurermstorageaccount) para recuperar la lista de cuentas de almacenamiento de la suscripción actual. 
 
-Una vez ejecutado el script, debería tener una carpeta de destino local que incluye el archivo de imagen descargado. La siguiente captura de pantalla le muestra un ejemplo del resultado:
+```powershell
+Get-AzureRMStorageAccount | Select StorageAccountName, Location
+```
 
-![blobs](./media/storage-powershell-guide-full/Blobdownload.png)
+## <a name="get-a-reference-to-a-storage-account"></a>Obtener una referencia a una cuenta de almacenamiento
 
-> [!NOTE]
-> La sección "Introducción de 5 minutos a Almacenamiento de Azure y PowerShell" le proporcionará una breve introducción sobre cómo usar Azure PowerShell con Almacenamiento de Azure. Para obtener información detallada e instrucciones, le recomendamos que lea las secciones siguientes.
-> 
+Después, necesita una referencia a una cuenta de almacenamiento. Puede crear una cuenta de almacenamiento u obtener una referencia a una cuenta de almacenamiento ya existente. En las secciones siguientes se muestran ambos métodos. 
 
-## <a name="prerequisites-for-using-azure-powershell-with-azure-storage"></a>requisitos previos para usar Azure PowerShell con Almacenamiento de Azure
-Necesita una suscripción de Azure y una cuenta para poder ejecutar los cmdlets de PowerShell que se proporcionan en esta guía, como se describe anteriormente.
+### <a name="use-an-existing-storage-account"></a>Uso de una cuenta de almacenamiento existente 
 
-Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Para obtener más información acerca de la instalación y configuración de Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview). Le recomendamos que descargue e instale o que actualice el módulo de Azure PowerShell para tener la versión más reciente, antes de comenzar a usar esta guía.
+Para recuperar una cuenta de almacenamiento existente, necesita el nombre del grupo de recursos y el nombre de la cuenta de almacenamiento. Establezca las variables para esos dos campos y después use el cmdlet [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount). 
 
-Puede ejecutar los cmdlets en la consola estándar de Windows PowerShell o en el Entorno de scripting integrado (ISE) de PowerShell. Por ejemplo, para abrir **Windows PowerShell ISE**, vaya al menú Inicio, escriba Herramientas administrativas y haga clic en la aplicación para ejecutarla. En la ventana Herramientas administrativas, haga clic derecho en Windows PowerShell ISE y haga clic en Ejecutar como administrador.
+```powershell
+$resourceGroup = "myexistingresourcegroup"
+$storageAccountName = "myexistingstorageaccount"
 
-## <a name="how-to-manage-storage-accounts-in-azure"></a>Cómo administrar cuentas de almacenamiento en Azure
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName 
+```
 
-Veamos la administración de cuentas de almacenamiento en Azure con PowerShell.
+Ahora ya tiene $storageAccount, que señala a una cuenta de almacenamiento existente.
 
-### <a name="how-to-set-a-default-azure-subscription"></a>Cómo establecer una suscripción predeterminada de Azure
-Para administrar Almacenamiento de Azure con Azure PowerShell, necesita autenticar su entorno de cliente con Azure a través de una autenticación basada en certificados o la autenticación de Azure Active Directory. Para obtener información detallada, vea el tutorial [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) . Esta guía usa la autenticación de Azure Active Directory.
+### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 
-1. En Windows PowerShell ISE, escriba el siguiente comando para agregar su cuenta de Azure al entorno local de PowerShell:
+El siguiente script muestra cómo crear una cuenta de almacenamiento de uso general mediante [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Después de crear la cuenta, recuperar su contexto, que se puede usar en los siguientes comandos en lugar de especificar la autenticación con cada llamada.
 
-    ```powershell
-    Add-AzureAccount
-    ```
+```powershell
+# Get list of locations and select one.
+Get-AzureRmLocation | select Location 
+$location = "eastus"
 
-2. En la ventana "Iniciar sesión en Microsoft Azure", escriba la dirección de correo electrónico y la contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, luego, cierra la ventana.
+# Create a new resource group.
+$resourceGroup = "teststoragerg"
+New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
 
-3. Seguidamente, ejecute el siguiente comando para ver las cuentas de Azure que están en el entorno local de PowerShell y verifique que su cuenta se encuentra entre ellas:
-   
-    ```powershell
-    Get-AzureAccount
-    ```
-4. Después, ejecute el siguiente cmdlet para ver todas las suscripciones que están conectadas a la sesión local de PowerShell y compruebe que su suscripción aparece entre ellas:
-
-    ```powershell
-    Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
-    ```
-5. Para establecer una suscripción de Azure predeterminada, ejecute el cmdlet Select-AzureSubscription:
-
-    ```powershell
-    $SubscriptionName = 'Your subscription Name'
-    Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-    ```
-
-6. Compruebe el nombre de la suscripción predeterminada cuando ejecute el cmdlet Get-AzureSubscription:
-
-    ```powershell
-    Get-AzureSubscription -Default
-    ```
-
-7. Para ver todos los cmdlets de PowerShell disponibles para Almacenamiento de Azure, ejecute:
+# Set the name of the storage account and the SKU name. 
+$storageAccountName = "testpshstorage"
+$skuName = "Standard\_LRS"
     
-    ```powershell
-    Get-Command -Module Azure -Noun *Storage*`
-    ```
+# Create the storage account.
+$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName `
+  -Location $location `
+  -SkuName $skuName
 
-### <a name="how-to-create-a-new-azure-storage-account"></a>Cómo crear una nueva cuenta de almacenamiento de Azure
-Para utilizar Almacenamiento de Azure, necesitará una cuenta de almacenamiento. Puede crear una nueva cuenta de almacenamiento de Azure después de configurar el equipo para que pueda conectarse a su suscripción.
+# Retrieve the context. 
+$ctx = $storageAccount.Context
+```
 
-1. Ejecute el cmdlet Get-AzureLocation para buscar todas las ubicaciones de centro de datos disponibles:
+El script usa los siguientes cmdlets de PowerShell: 
 
-    ```powershell
-    Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes
-    ```
+*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation): recupera una lista de las ubicaciones válidas. En el ejemplo se usa `eastus` para la ubicación.
 
-2. Inmediatamente después, ejecute el cmdlet New-AzureStorageAccount para crear una nueva cuenta de almacenamiento. En el ejemplo siguiente se crea una nueva cuenta de almacenamiento en el centro de datos de la región "Oeste de EE. UU".
-   
-    ```powershell
-    $location = "West US"
-    $StorageAccountName = "yourstorageaccount"
-    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
-    ```
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup): crea un grupo de recursos. Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se llama `teststoragerg`. 
+
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount): crea la cuenta de almacenamiento real. En el ejemplo se utiliza `testpshstorage`.
+
+El nombre de SKU indica el tipo de replicación para la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Para más información sobre la replicación, vea [Replicación de almacenamiento de Azure](storage-redundancy.md).
 
 > [!IMPORTANT]
-> El nombre de la cuenta de almacenamiento debe ser único en Azure y estar en minúscula. Para las convenciones de nomenclatura y otras restricciones, consulte [Acerca de las cuentas de Azure Storage](../storage-create-storage-account.md) y [Convenciones de nomenclatura y referencia de contenedores, blobs y metadatos](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> El nombre de la cuenta de almacenamiento debe ser único en Azure y estar en minúscula. Para las convenciones de nomenclatura y otras restricciones, vea [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) (Convenciones de nomenclatura y referencia de contenedores, blobs y metadatos).
 > 
-> 
 
-### <a name="how-to-set-a-default-azure-storage-account"></a>Cómo configurar una cuenta de almacenamiento de Azure predeterminada
-Puede tener varias cuentas de almacenamiento en su suscripción. Puede elegir una de ellas y establecerla como cuenta de almacenamiento predeterminada para todos los comandos de almacenamiento en la misma sesión de PowerShell. Esto le permite ejecutar los comandos de almacenamiento de Azure PowerShell sin especificar explícitamente el contexto de almacenamiento.
+Ahora ya tiene una cuenta de almacenamiento nueva y una referencia a ella. 
 
-1. Para establecer una cuenta de almacenamiento predeterminada para su suscripción, puede ejecutar el cmdlet Set-AzureSubscription.
+## <a name="managing-the-storage-account"></a>Administración de la cuenta de almacenamiento
 
-    ```powershell
-    $SubscriptionName = "Your subscription name"
-    $StorageAccountName = "yourstorageaccount"  
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
+Ahora que tiene una referencia a una cuenta de almacenamiento o una cuenta de almacenamiento existente, en la sección siguiente se explican algunos de los comandos que puede usar para administrar la cuenta de almacenamiento.
 
-2. Seguidamente, ejecute el cmdlet Get-AzureSubscription para comprobar que la cuenta de almacenamiento está asociada a la cuenta de suscripción predeterminada. Este comando devuelve las propiedades de suscripción de la suscripción actual, incluyendo su cuenta de almacenamiento actual.
+### <a name="storage-account-properties"></a>Propiedades de una cuenta de almacenamiento
 
-    ```powershell
-    Get-AzureSubscription –Current
-    ```
+Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). Aunque no puede cambiar la ubicación de una cuenta de almacenamiento o el grupo de recursos en que reside, sí puede modificar muchas de las propiedades. A continuación, se enumeran algunas de las propiedades que se pueden cambiar con PowerShell.
 
-### <a name="how-to-list-all-azure-storage-accounts-in-a-subscription"></a>Cómo enumerar todas las cuentas de almacenamiento de Azure en una suscripción
-Cada suscripción de Azure puede tener hasta 100 cuentas de almacenamiento. Para obtener la última información sobre los límites, consulte [Suscripción de Azure y límites de servicio, cuotas y restricciones](../../azure-subscription-service-limits.md).
+* El **dominio personalizado** asignado a la cuenta de almacenamiento.
 
-Ejecute el siguiente cmdlet para averiguar el nombre y el estado de las cuentas de almacenamiento en la suscripción actual:
+* Las **etiquetas** asignadas a la cuenta de almacenamiento. Las etiquetas se suelen usar para categorizar recursos de facturación.
 
-```powershell
-Get-AzureStorageAccount | Format-Table -Property StorageAccountName, Location, AccountType, StorageAccountStatus
-```
+* La **SKU** es la configuración de replicación de la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Por ejemplo, puede cambiar de Standard\_LRS a Standard\_GRS o Standard\_RAGRS. Tenga en cuenta que no se puede cambiar ZRS estándar o LRS premium a otra SKU ni cambiar otras SKU a estos niveles. 
 
-### <a name="how-to-create-an-azure-storage-context"></a>Cómo crear un contexto de almacenamiento de Azure
-El contexto de almacenamiento de Azure es un objeto de PowerShell que sirve para encapsular las credenciales de almacenamiento. Si usa el contexto de almacenamiento mientras ejecuta cualquier cmdlet posterior, podrá autenticar la solicitud sin tener que especificar la cuenta de almacenamiento y su clave de acceso. Puede crear un contexto de almacenamiento de muchas formas; por ejemplo, mediante el uso de la clave de acceso y el nombre de la cuenta de almacenamiento, el token de firma de acceso compartido (SAS), la cadena de conexión o de forma anónima. Para obtener más información, consulte [New-AzureStorageContext](/powershell/module/azure.storage/new-azurestoragecontext).  
+* El **nivel de acceso** para las cuentas de Blob Storage. El valor del nivel de acceso se establece en **frecuente** o **esporádico** y permite minimizar los costes gracias a la selección del nivel de acceso que mejor se adapta a la forma de utilizar la cuenta de almacenamiento. Para más información, vea [Niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 
-Use una de las tres formas que se presentan para crear un contexto de almacenamiento:
+* La configuración de cifrado del servicio de almacenamiento para Blob Storage o File Storage. Para más información sobre SSE, vea [Cifrado del servicio Storage](storage-service-encryption.md).
 
-* Ejecute el cmdlet [Get-AzureStorageKey](/powershell/module/azure.storage/get-azurestoragekey) para conseguir la clave de acceso de almacenamiento principal de la cuenta de almacenamiento de Azure. A continuación, llame al cmdlet [Get-AzureStorageKey](/powershell/module/azure.storage/new-azurestoragecontext) para crear un contexto de almacenamiento:
+* Permitir solo el tráfico HTTPS. 
 
-    ```powershell
-    $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-    ```
+### <a name="managing-the-access-keys"></a>Administración de las claves de acceso
 
-* Genere un token de firma de acceso compartido para un contenedor de almacenamiento de Azure y úselo para crear un contexto de almacenamiento:
-
-    ```powershell
-    $sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
-    $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
-    ```
-
-    Para más información, consulte [New-AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) y [Uso de Firmas de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md).
-
-* Es posible que en algunos casos quiera precisar los extremos de servicio cuando crea un nuevo contexto de almacenamiento. Esto puede resultarle necesario si ha registrado un nombre de dominio personalizado para la cuenta de almacenamiento con el servicio Blob o si desea usar una firma de acceso compartido para tener acceso a los recursos de almacenamiento. Deberá configurar los extremos de servicio en una cadena de conexión y usarlos para crear un nuevo contexto de almacenamiento tal como se muestra a continuación:
-
-    ```powershell
-    $ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    $Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
-    ```
-
-Para obtener más información sobre cómo configurar una cadena de conexión de almacenamiento, consulte [Configurar cadenas de conexión](../storage-configure-connection-string.md).
-
-Ahora que ya tiene el equipo configurado y sabe cómo administrar suscripciones y cuentas de almacenamiento con Azure PowerShell, vaya a la siguiente sección para aprender a administrar los blobs de Azure y las instantáneas de blob.
-
-### <a name="how-to-retrieve-and-regenerate-azure-storage-keys"></a>Cómo recuperar y volver a generar las claves de almacenamiento de Azure
-Una cuenta de almacenamiento de Azure incluye dos claves de cuenta. Puede utilizar el siguiente cmdlet para recuperar claves.
+Una cuenta de almacenamiento de Azure incluye dos claves de cuenta. Para recuperar las claves, use [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). Este ejemplo recupera la primera clave. Para recuperar otra, use `Value[1]` en lugar de `Value[0]`.
 
 ```powershell
-Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+$storageAccountKey = `
+    (Get-AzureRmStorageAccountKey `
+    -ResourceGroupName $resourceGroup `
+    -Name $storageAccountName).Value[0]
 ```
 
-Utilice el siguiente cmdlet para recuperar una clave específica. Los valores válidos son: Principal y Secundaria.  
+Para regenerar la clave, use [New-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccountKey). 
 
 ```powershell
-(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
-    
-(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName `
+  -KeyName key1 
 ```
 
-Si desea volver a generar las claves, use el siguiente cmdlet. Los valores válidos para -KeyType -son "Principal" y "Secundaria".
+Para regenerar la otra clave, use `key2` como el nombre de clave en lugar de `key1`.
+
+Regenere una de las claves y después vuelva a recuperarla para ver el nuevo valor.
+
+> [!NOTE] 
+> Debe realizar un planeamiento minucioso antes de regenerar la clave para una cuenta de almacenamiento de producción. La regeneración de una o ambas claves invalidará el acceso para alguna aplicación que use la clave regenerada. Para más información, vea [Nueva generación de las claves de acceso de almacenamiento](storage-create-storage-account.md#regenerate-storage-access-keys).
+
+
+### <a name="delete-a-storage-account"></a>Eliminar una cuenta de almacenamiento 
+
+Para eliminar una cuenta de almacenamiento, utilice [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount). 
+
+> [!IMPORTANT]
+> Cuando se elimina una cuenta de almacenamiento, también se eliminan todos los recursos almacenados en ella. Si elimina accidentalmente una cuenta, llame al soporte técnico de inmediato y abra una incidencia para restaurar la cuenta de almacenamiento. No se garantiza la recuperación de los datos, pero a veces funciona. No cree una cuenta de almacenamiento con el mismo nombre que la anterior hasta que se resuelva el vale de soporte. 
+>
 
 ```powershell
-New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Primary"
-    
-New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType "Secondary"
+Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
-## <a name="how-to-manage-azure-blobs"></a>Administrar blobs de Azure
-El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Para realizar esta sección, supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de blobs de Azure. Para más información, consulte [Introducción a Blob Storage mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md) y [Conceptos de Blob service](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+### <a name="protecting-your-storage-account-using-vnets-and-firewalls"></a>Protección de la cuenta de almacenamiento mediante redes virtuales y firewall
 
-### <a name="how-to-create-a-container"></a>Cómo crear un contenedor
-Todos los blobs del almacenamiento de Azure han de estar en un contenedor. Puede crear un contenedor privado usando el cmdlet New-AzureStorageContainer:
+De forma predeterminada, se puede acceder a todas las cuentas de almacenamiento a través de cualquier red que tenga acceso a Internet. Sin embargo, puede configurar reglas de red para permitir que solo las aplicaciones de redes virtuales específicas accedan a una cuenta de almacenamiento. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](storage-network-security.md). 
 
-```powershell
-$StorageContainerName = "yourcontainername"
-New-AzureStorageContainer -Name $StorageContainerName -Permission Off
-```
+En el artículo se explica cómo administrar esta configuración con los siguientes cmdlets de PowerShell:
+* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
+* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
+* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+
+## <a name="using-storage-analytics"></a>Uso de Storage Analytics  
+
+[Azure Storage Analytics](storage-analytics.md) consta de [métricas de Storage Analytics](/rest/api/storageservices/about-storage-analytics-metrics) y [registros de Storage Analytics](/rest/api/storageservices/about-storage-analytics-logging). 
+
+Las **métricas de Storage Analytics** se usan para recopilar métricas de las cuentas de almacenamiento de Azure que puede usar para supervisar el mantenimiento de una cuenta de almacenamiento. Las métricas pueden habilitarse para blobs, archivos, tablas y colas.
+
+Los **registros de Storage Analytics** se dan en el lado servidor y le permiten grabar en la cuenta de almacenamiento detalles de solicitudes correctas e incorrectas. Estos registros le permiten no solo ver detalles de lectura y escritura, sino que también le permitirán eliminar operaciones de tablas, colas, blobs y las razones por las cuales las solicitudes fallaron. Los registros no están disponibles para Azure Files.
+
+Puede configurar la supervisión a través de [Azure Portal](https://portal.azure.com), PowerShell o mediante programación a través de la biblioteca del cliente de Storage. 
 
 > [!NOTE]
-> Existen tres niveles de acceso de lectura anónimo: **Desactivado**, **Blob** y **Contenedor**. Para evitar el acceso anónimo a los blobs, establezca el parámetro de permiso en **Desactivado**. El nuevo contenedor es privado por defecto y solo puede acceder a él el propietario de la cuenta. Para permitir un acceso de lectura público y anónimo a los recursos de blob, pero no a los metadatos del contenedor ni a la lista de blobs del contenedor, seleccione **Blob**en el parámetro Permiso. Para hacer que el acceso de lectura a los recursos de blob, a los metadatos del contenedor y a la lista de blobs del contenedor sean totalmente públicos, elija **Contenedor**en el parámetro Permiso. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
-> 
-> 
+> Puede habilitar el análisis de minutos con PowerShell. Esta funcionalidad no está disponible en el portal.
+>
 
-### <a name="how-to-upload-a-blob-into-a-container"></a>Cómo cargar un blob en un contenedor
-El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. Para más información, consulte [Introducción a los blobs en bloques, los blobs de anexión y los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* Para obtener información sobre cómo habilitar y ver los datos de las métricas de Storage con PowerShell, vea [Habilitar las métricas de Azure Storage y ver sus datos](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell).
 
-Para cargar blobs en un contenedor, puede usar el cmdlet [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) . Este comando carga de forma predeterminada los archivos locales a un blob en bloque. Para especificar el tipo de blob, puede usar el parámetro -BlobType.
+* Para obtener información sobre cómo habilitar y recuperar los datos de registro del almacenamiento con PowerShell, vea [Cómo habilitar el registro de almacenamiento con PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) y [Buscar sus datos de registro de almacenamiento](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
 
-El siguiente ejemplo ejecuta el cmdlet [Get-ChildItem](http://technet.microsoft.com/library/hh849800.aspx) para obtener todos los archivos en la carpeta especificada y pasarlos al siguiente cmdlet mediante el operador de canalización. El cmdlet [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) carga los archivos locales al contenedor:
+* Para obtener información detallada sobre el uso de las Métricas de almacenamiento y los Registros de almacenamiento para solucionar los problemas de almacenamiento que surjan, consulte [Supervisar, diagnosticar y solucionar problemas en Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
-```powershell
-Get-ChildItem –Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
-```
+## <a name="managing-the-data-in-the-storage-account"></a>Administración de los datos de la cuenta de almacenamiento
 
-### <a name="how-to-download-blobs-from-a-container"></a>Cómo descargar blobs de un contenedor
-En el siguiente ejemplo le mostraremos cómo descargar blobs de un contenedor. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso principal. Después, el ejemplo recupera una referencia de blob usando el cmdlet [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) . Seguidamente, el ejemplo usa el cmdlet [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) para descargar los blobs en la carpeta de destino local.
+Ahora que sabe cómo administrar la cuenta de almacenamiento con PowerShell, en los artículos siguientes se explica cómo usar PowerShell para acceder a los objetos de datos de la cuenta de almacenamiento.
 
-```powershell
-#Define the variables.
-$ContainerName = "yourcontainername"
-$DestinationFolder = "C:\DownloadImages"
+* [Administración de blobs con PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
+* [Administración de archivos con PowerShell](../files/storage-how-to-use-files-powershell.md)
+* [Administración de colas con PowerShell](../queues/storage-powershell-how-to-use-queues.md)
 
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+<!--## Government Cloud and China Cloud
 
-#List all blobs in a container.
-$blobs = Get-AzureStorageBlob -Container $ContainerName -Context $Ctx
+ROBINROBINROBIN 
 
-#Download blobs from a container.
-New-Item -Path $DestinationFolder -ItemType Directory -Force
-$blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder -Context $Ctx
-```
+To access the Government cloud of the China datacenters, you have to use some special steps. The following article shows how to access these special cloud accounts using PowerShell.
 
-### <a name="how-to-copy-blobs-from-one-storage-container-to-another"></a>Cómo copiar blobs de un contenedor de almacenamiento a otro
-Puede copiar blobs entre cuentas de almacenamiento y regiones de forma asincrónica. En el siguiente ejemplo le mostraremos cómo copiar blobs de un contenedor de almacenamiento a otro, en dos cuentas de almacenamiento diferentes. Primero, el ejemplo establece las variables de las cuentas de almacenamiento de origen y destino para después crear un contexto de almacenamiento para cada cuenta. A continuación, copia los blobs del contenedor de origen al contenedor de destino usando el cmdlet [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) . Recuerde que en este ejemplo se asume que las cuentas de almacenamiento de origen y destino ya existen.
-
-```powershell
-#Define the source storage account and context.
-$SourceStorageAccountName = "yoursourcestorageaccount"
-$SourceStorageAccountKey = "Storage key for yoursourcestorageaccount"
-$SrcContainerName = "yoursrccontainername"
-$SourceContext = New-AzureStorageContext -StorageAccountName $SourceStorageAccountName -StorageAccountKey $SourceStorageAccountKey
-
-#Define the destination storage account and context.
-$DestStorageAccountName = "yourdeststorageaccount"
-$DestStorageAccountKey = "Storage key for yourdeststorageaccount"
-$DestContainerName = "destcontainername"
-$DestContext = New-AzureStorageContext -StorageAccountName $DestStorageAccountName -StorageAccountKey $DestStorageAccountKey
-
-#Get a reference to blobs in the source container.
-$blobs = Get-AzureStorageBlob -Container $SrcContainerName -Context $SourceContext
-
-#Copy blobs from one container to another.
-$blobs| Start-AzureStorageBlobCopy -DestContainer $DestContainerName -DestContext $DestContext
-```
-
-Tenga en cuenta que este ejemplo realiza una copia asincrónica. Puede supervisar el estado de cada copia ejecutando el cmdlet [Get-AzureStorageBlobCopyState](/powershell/module/azure.storage/start-azurestorageblobcopystate) .
-
-### <a name="how-to-copy-blobs-from-a-secondary-location"></a>Cómo copiar blobs desde una ubicación secundaria
-Puede copiar blobs de la ubicación secundaria de una cuenta habilitada con RA-GRS.
-
-```powershell
-#define secondary storage context using a connection string constructed from secondary endpoints.
-$SrcContext = New-AzureStorageContext -ConnectionString "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***;BlobEndpoint=http://***-secondary.blob.core.windows.net;FileEndpoint=http://***-secondary.file.core.windows.net;QueueEndpoint=http://***-secondary.queue.core.windows.net; TableEndpoint=http://***-secondary.table.core.windows.net;"
-Start-AzureStorageBlobCopy –Container *** -Blob *** -Context $SrcContext –DestContainer *** -DestBlob *** -DestContext $DestContext
-```
-
-### <a name="how-to-delete-a-blob"></a>Cómo eliminar un blob
-Para eliminar un blob, primero deberá obtener una referencia de blob y después llamar al cmdlet Remove-AzureStorageBlob que se encuentra en ella. El siguiente ejemplo elimina todos los blobs de un contenedor. Primero, establece las variables de una cuenta de almacenamiento y después crea un contexto de almacenamiento. A continuación, el ejemplo recupera una referencia de blob mediante el cmdlet [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) y ejecuta el cmdlet [Remove-AzureStorageBlob](/powershell/module/azure.storage/remove-azurestorageblob) para eliminar los blobs de un contenedor en Azure Storage.
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-$ContainerName = "containername"
-$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-#Get a reference to all the blobs in the container.
-$blobs = Get-AzureStorageBlob -Container $ContainerName -Context $Ctx
-
-#Delete blobs in a specified container.
-$blobs| Remove-AzureStorageBlob
-```
-
-## <a name="how-to-manage-azure-blob-snapshots"></a>Cómo administrar las instantáneas de blob de Azure
-Azure permite crear una instantánea de un blob. Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado. Una vez se crea la instantánea, puede leerla, copiarla o eliminarla, pero no modificarla. Las instantáneas le ofrecen una oportunidad de realizar una copia de seguridad de un blob en el momento en que éste aparezca. Para obtener más información, consulte [Crear una instantánea de un blob](http://msdn.microsoft.com/library/azure/hh488361.aspx).
-
-### <a name="how-to-create-a-blob-snapshot"></a>Cómo crear una instantánea de blob
-Para crear una instantánea de un blob, deberá conseguir una referencia de blob y después llamar al método `ICloudBlob.CreateSnapshot` que se encuentra en ella. El siguiente ejemplo primero establece las variables de una cuenta de almacenamiento y después crea un contexto de almacenamiento. A continuación, el ejemplo recupera una referencia de blob mediante el cmdlet [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) y ejecuta el método [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) para crear una instantánea.
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-$ContainerName = "yourcontainername"
-$BlobName = "yourblobname"
-$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-#Get a reference to a blob.
-$blob = Get-AzureStorageBlob -Context $Ctx -Container $ContainerName -Blob $BlobName
-
-#Create a snapshot of the blob.
-$snap = $blob.ICloudBlob.CreateSnapshot()
-```
-
-### <a name="how-to-list-a-blobs-snapshots"></a>Cómo enumerar las instantáneas de un blob
-Puede crear tantas instantáneas como desee para un blob. Es más, puede enumerar las instantáneas asociadas al blob para hacer un seguimiento de las instantáneas que tenga en ese momento. El siguiente ejemplo usa un blob predefinido y llama al cmdlet [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) para así poder enumerar las instantáneas del blob.  
-
-```powershell
-#Define the blob name.
-$BlobName = "yourblobname"
-
-#List the snapshots of a blob.
-Get-AzureStorageBlob –Context $Ctx -Prefix $BlobName -Container $ContainerName  | Where-Object  { $_.ICloudBlob.IsSnapshot -and $_.Name -eq $BlobName }
-```
-
-### <a name="how-to-copy-a-snapshot-of-a-blob"></a>Cómo copiar una instantánea de un blob
-Puede copiar una instantánea de un blob para restaurar la instantánea. Para obtener más información y detalles acerca de las restricciones, consulte [Crear una instantánea de un blob](http://msdn.microsoft.com/library/azure/hh488361.aspx). El siguiente ejemplo primero establece las variables de una cuenta de almacenamiento y después crea un contexto de almacenamiento. A continuación precisa las variables del contenedor y del nombre del blob. El ejemplo recupera una referencia de blob mediante el cmdlet [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) y ejecuta el método [ICloudBlob.CreateSnapshot](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.icloudblob.aspx) para crear una instantánea. Después, el ejemplo ejecuta el cmdlet [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/start-azurestorageblobcopy) para copiar la instantánea de un blob mediante el objeto ICloudBlob del blob de origen. Asegúrese de actualizar las variables según su configuración antes de ejecutar el ejemplo. Tenga en cuenta que en siguiente ejemplo se supone que los contenedores de origen y destino, así como el blob de origen, ya existen.
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-#Define the variables.
-$SrcContainerName = "yoursourcecontainername"
-$DestContainerName = "yourdestcontainername"
-$SrcBlobName = "yourblobname"
-$DestBlobName = "CopyBlobName"
-
-#Get a reference to a blob.
-$blob = Get-AzureStorageBlob -Context $Ctx -Container $SrcContainerName -Blob $SrcBlobName
-
-#Create a snapshot of a blob.
-$snap = $blob.ICloudBlob.CreateSnapshot()
-
-#Copy the snapshot to another container.
-Start-AzureStorageBlobCopy –Context $Ctx -ICloudBlob $snap -DestBlob $DestBlobName -DestContainer $DestContainerName
-```
-
-Ahora que ya ha aprendido a administrar los blobs de Azure y las instantáneas de blob con Azure PowerShell, vaya a la siguiente sección para aprender a administrar tablas, colas y archivos.
-
-## <a name="how-to-manage-azure-tables-and-table-entities"></a>Cómo administrar las entidades de tabla y las tablas de Azure
-El servicio de almacenamiento de tablas Azure es un almacén de datos NoSQL que puede utilizar para almacenar y consultar conjuntos grandes de datos estructurados y no relacionales. Los componentes principales del servicio son tablas, entidades y propiedades. Una tabla es una colección de entidades. Una entidad es un conjunto de propiedades. Cada entidad puede tener hasta 252 propiedades, las cuales son todas pares nombre-valor. Para realizar esta sección, supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de tablas de Azure. Para más información, consulte [Introducción al modelo de datos de Table Service](http://msdn.microsoft.com/library/azure/dd179338.aspx) e [Introducción a Azure Table Storage mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md).
-
-En las subsecciones siguientes, aprenderá a administrar el servicio Azure Table Storage mediante Azure PowerShell. Los escenarios que aquí se describen incluyen **crear**, **eliminar** y **recuperar** **tablas**, así como **agregar**, **consultar** y **eliminar entidades de tabla**.
-
-### <a name="how-to-create-a-table"></a>Cómo crear una tabla
-Todas las tablas deberán estar en una cuenta de almacenamiento de Azure. En el siguiente ejemplo le indicaremos cómo crear una tabla en Almacenamiento de Azure. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. Seguidamente, usa el cmdlet [New-AzureStorageTable](/powershell/module/azure.storage/new-azurestoragetable) para crear una tabla en Almacenamiento de Azure.
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-$Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-#Create a new table.
-$tabName = "yourtablename"
-New-AzureStorageTable –Name $tabName –Context $Ctx
-```
-
-### <a name="how-to-retrieve-a-table"></a>Cómo recuperar una tabla
-Puede consultar y recuperar una o todas las tablas de una cuenta de almacenamiento. En el siguiente ejemplo le indicaremos cómo recuperar una tabla determinada mediante el cmdlet [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) .
-
-```powershell
-#Retrieve a table.
-$tabName = "yourtablename"
-Get-AzureStorageTable –Name $tabName –Context $Ctx
-```
-
-Si llama al cmdlet Get-AzureStorageTable sin parámetros, éste obtendrá todas las tablas de almacenamiento de una cuenta de almacenamiento.
-
-### <a name="how-to-delete-a-table"></a>Cómo eliminar una tabla
-Puede eliminar una tabla de una cuenta de almacenamiento usando el cmdlet [Remove-AzureStorageTable](/powershell/module/azure.storage/remove-azurestoragetable) .  
-
-```powershell
-#Delete a table.
-$tabName = "yourtablename"
-Remove-AzureStorageTable –Name $tabName –Context $Ctx
-```
-
-### <a name="how-to-manage-table-entities"></a>Cómo administrar las entidades de tabla
-Actualmente, Azure PowerShell no proporciona cmdlets para administrar entidades de tabla de forma directa. Para realizar operaciones en entidades de tabla, puede usar las clases de la [Biblioteca de cliente del Almacenamiento de Azure para .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
-
-#### <a name="how-to-add-table-entities"></a>Cómo agregar entidades de tabla
-Para agregar una entidad a una tabla, primero deberá crear un objeto que defina las propiedades de la entidad. Una entidad puede tener hasta 255 propiedades, incluyendo 3 propiedades de sistema: **PartitionKey**, **RowKey** y **Timestamp**. Usted será el que deba encargarse de insertar y actualizar los valores de **PartitionKey** y **RowKey**. El servidor se encargará de administrar el valor **Timestamp**, así que no podrá modificarlo. Tanto **PartitionKey** como **RowKey** identifican de forma exclusiva todas las entidades de una tabla.
-
-* **PartitionKey**: determina la partición en la que se almacena la entidad.
-* **RowKey**: identifica de forma única la entidad dentro de la partición.
-
-Puede definir hasta 252 propiedades personalizadas para una entidad. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](http://msdn.microsoft.com/library/azure/dd179338.aspx).
-
-En el siguiente ejemplo le indicaremos cómo agregar entidades a una tabla. El ejemplo le mostrará cómo recuperar la tabla de empleados y cómo agregar varias entidades. En primer lugar, establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, recupera la tabla proporcionada mediante el cmdlet [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable) . Si la tabla no existe, se usará el cmdlet [New-AzureStorageTable](/powershell/module/azure.storage/new-azurestoragetable) para crear una tabla en Almacenamiento de Azure. Seguidamente, el ejemplo definirá una función Add-Entity personalizada para así poder agregar entidades a la tabla especificando la partición de cada entidad y su clave de fila. La función Add-Entity llama al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx), que se encuentra en la clase [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) para crear un objeto de entidad. A continuación, el ejemplo llama al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) en este objeto de entidad para agregarlo a una tabla.
-
-```powershell
-#Function Add-Entity: Adds an employee entity to a table.
-function Add-Entity() {
-    [CmdletBinding()]
-    param(
-       $table,
-       [String]$partitionKey,
-       [String]$rowKey,
-       [String]$name,
-       [Int]$id
-    )
-
-  $entity = New-Object -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity -ArgumentList $partitionKey, $rowKey
-  $entity.Properties.Add("Name", $name)
-  $entity.Properties.Add("ID", $id)
-
-  $result = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Insert($entity))
-}
-
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-$Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-$TableName = "Employees"
-
-#Retrieve the table if it already exists.
-$table = Get-AzureStorageTable –Name $TableName -Context $Ctx -ErrorAction Ignore
-
-#Create a new table if it does not exist.
-if ($table -eq $null)
-{
-   $table = New-AzureStorageTable –Name $TableName -Context $Ctx
-}
-
-#Add multiple entities to a table.
-Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
-Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
-Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
-Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row2 -Name Steven -Id 4
-```
-
-#### <a name="how-to-query-table-entities"></a>Cómo consultar entidades de tabla
-Para consultar una tabla, use la clase [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) . Para el siguiente ejemplo, tendrá que haber ejecutado el script que se le proporcionó en la sección de esta guía que explica cómo agregar entidades. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, intenta recuperar la tabla de empleados que se creó antes mediante el cmdlet [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable). Al llamar al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) que se encuentra en la clase Microsoft.WindowsAzure.Storage.Table.TableQuery, se crea un nuevo objeto de consulta. En el ejemplo, se buscan las entidades que tienen una columna "ID" cuyo valor es 1, tal y como se especificó en un filtro de cadena. Para obtener información detallada, vea [Consultar tablas y entidades](http://msdn.microsoft.com/library/azure/dd894031.aspx). Al ejecutar esta consulta, devolverá todas las entidades que coinciden con los criterios del filtro.
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-$Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-$TableName = "Employees"
-
-#Get a reference to a table.
-$table = Get-AzureStorageTable –Name $TableName -Context $Ctx
-
-#Create a table query.
-$query = New-Object Microsoft.WindowsAzure.Storage.Table.TableQuery
-
-#Define columns to select.
-$list = New-Object System.Collections.Generic.List[string]
-$list.Add("RowKey")
-$list.Add("ID")
-$list.Add("Name")
-
-#Set query details.
-$query.FilterString = "ID gt 0"
-$query.SelectColumns = $list
-$query.TakeCount = 20
-
-#Execute the query.
-$entities = $table.CloudTable.ExecuteQuery($query)
-
-#Display entity properties with the table format.
-$entities  | Format-Table PartitionKey, RowKey, @{ Label = "Name"; Expression={$_.Properties["Name"].StringValue}}, @{ Label = "ID"; Expression={$_.Properties["ID"].Int32Value}} -AutoSize
-```
-
-#### <a name="how-to-delete-table-entities"></a>Cómo eliminar entidades de tabla
-Puede eliminar una entidad usando sus claves de partición y fila. Para el siguiente ejemplo, tendrá que haber ejecutado el script que se le proporcionó en la sección de esta guía que explica cómo agregar entidades. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, intenta recuperar la tabla de empleados que se creó antes mediante el cmdlet [Get-AzureStorageTable](/powershell/module/azure.storage/get-azurestoragetable). Si la tabla existe, el ejemplo llama al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Retrieve](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx) para recuperar una entidad basada en sus valores clave de partición y fila. A continuación, pase la entidad al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Delete](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.delete.aspx) para eliminarla.
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-$Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-
-#Retrieve the table.
-$TableName = "Employees"
-$table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
-
-#If the table exists, start deleting its entities.
-if ($table -ne $null) 
-{
-    #Together the PartitionKey and RowKey uniquely identify every  
-    #entity within a table.
-    $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve("Partition2", "Row1"))
-    $entity = $tableResult.Result
-    if ($entity -ne $null)
-    {
-        #Delete the entity.
-        $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
-    }
-}
-```
-
-## <a name="how-to-manage-azure-queues-and-queue-messages"></a>Cómo administrar las colas de Azure y la cola de mensajes
-El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Para realizar esta sección supondremos que ya está familiarizado con los conceptos del Servicio de almacenamiento de colas de Azure. Para más información, consulte [Introducción al Almacenamiento en cola de Azure mediante .NET](../storage-dotnet-how-to-use-queues.md).
-
-En esta sección le mostraremos cómo administrar el servicio de almacenamiento de cola de Azure con Azure PowerShell. Entre los escenarios que aquí se describen, se incluyen la **inserción** y la **eliminación** de mensajes de cola, así como la **creación**, **eliminación** y **recuperación de colas**.
-
-### <a name="how-to-create-a-queue"></a>Creación de una cola
-En el siguiente ejemplo, primero se establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación llama al cmdlet [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) para crear una cola llamada "queuename".
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-$Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-$QueueName = "queuename"
-$Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
-```
-
-Para obtener información sobre las convenciones de nomenclatura del servicio Cola de Azure, consulte [Nomenclatura de colas y metadatos](http://msdn.microsoft.com/library/azure/dd179349.aspx).
-
-### <a name="how-to-retrieve-a-queue"></a>Cómo recuperar una cola
-Puede consultar y recuperar una cola específica o una lista de todas las colas de una cuenta de almacenamiento. En el siguiente ejemplo le mostraremos cómo recuperar una cola específica usando el cmdlet [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) .
-
-```powershell
-#Retrieve a queue.
-$QueueName = "queuename"
-$Queue = Get-AzureStorageQueue –Name $QueueName –Context $Ctx
-```
-
-Si llama al cmdlet [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) sin parámetros, este obtendrá una lista de todas las colas.
-
-### <a name="how-to-delete-a-queue"></a>Como eliminar una cola
-Para eliminar una cola y todos los mensajes que contenga, llame al cmdlet Remove-AzureStorageQueue. En el siguiente ejemplo se muestra cómo eliminar una cola específica usando el cmdlet Remove-AzureStorageQueue.
-
-```powershell
-#Delete a queue.
-$QueueName = "yourqueuename"
-Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
-```
-
-#### <a name="how-to-insert-a-message-into-a-queue"></a>Cómo insertar un mensaje en una cola
-Para insertar un mensaje en una cola ya existente, primero deberá crear una instancia nueva de la clase [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) . A continuación, llame al método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
-
-En el siguiente ejemplo le mostraremos cómo agregar un mensaje a una cola. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, este recupera la cola especificada mediante el cmdlet [Get-AzureStorageQueue](https://msdn.microsoft.com/library/azure/dn806377.aspx) . Si la cola existe, se usa el cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) para crear una instancia de la clase [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Seguidamente, el ejemplo llama al método [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) en este objeto de mensaje para agregarlo a la cola. Aquí tiene el código que recupera una cola e inserta el mensaje 'MessageInfo':
-
-```powershell
-#Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-$Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-
-#Retrieve the queue.
-$QueueName = "queuename"
-$Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
-
-#If the queue exists, add a new message.
-if ($Queue -ne $null) {
-   # Create a new message using a constructor of the CloudQueueMessage class.
-   $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
-
-   # Add a new message to the queue.
-   $Queue.CloudQueue.AddMessage($QueueMessage)
-}
-```
-
-#### <a name="how-to-de-queue-at-the-next-message"></a>Cómo extraer el siguiente mensaje de la cola
-El código quita un mensaje de una cola en dos pasos. Cuando llama al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) , verá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de eliminar el mensaje de la cola, debe llamar también al método [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) . Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **DeleteMessage** justo después de que se haya procesado el mensaje.
-
-```powershell
-# Define the storage account and context.
-$StorageAccountName = "yourstorageaccount"
-$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-$Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-
-# Retrieve the queue.
-$QueueName = "queuename"
-$Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
-
-$InvisibleTimeout = [System.TimeSpan]::FromSeconds(10)
-
-# Get the message object from the queue.
-$QueueMessage = $Queue.CloudQueue.GetMessage($InvisibleTimeout)
-# Delete the message.
-$Queue.CloudQueue.DeleteMessage($QueueMessage)
-```
-
-## <a name="how-to-manage-azure-file-shares-and-files"></a>Cómo administrar archivos y recursos compartidos de archivos de Azure
-Azure Files ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Las máquinas virtuales y los servicios en la nube de Microsoft Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos o Azure PowerShell.
-
-Para más información sobre Azure Files, consulte [Introducción a Azure File Storage](../files/storage-files-introduction.md) y [File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx) (API de REST del servicio de archivos).
-
-## <a name="how-to-set-and-query-storage-analytics"></a>Cómo establecer y consultar el análisis de almacenamiento
-Puede usar el [Análisis de almacenamiento de Azure](../storage-analytics.md) para recopilar las métricas de sus cuentas de almacenamiento de Azure y de los datos de registro acerca de las solicitudes enviadas a su cuenta de almacenamiento. Puede usar las métricas de almacenamiento para supervisar el estado de una cuenta de almacenamiento y los registros de almacenamiento para diagnosticar y solucionar los problemas que surjan con su cuenta de almacenamiento. Puede configurar la supervisión a través de Azure Portal o Windows PowerShell, o mediante programación a través de la biblioteca del cliente de almacenamiento. Los registros de almacenamiento se dan en el lado servidor y le permiten grabar en la cuenta de almacenamiento detalles de solicitudes correctas e incorrectas. Estos registros le permiten no solo ver detalles de lectura y escritura, sino que también le permitirán eliminar operaciones de tablas, colas, blobs y las razones por las cuales las solicitudes fallaron.
-
-Para obtener más información sobre cómo habilitar y ver los datos de las métricas de almacenamiento mediante PowerShell, consulte [Cómo habilitar las métricas de almacenamiento mediante PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
-
-Para obtener información sobre cómo habilitar y recuperar los datos de registro del almacenamiento con PowerShell, vea [Cómo habilitar el registro de almacenamiento con PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) y [Buscar sus datos de registro de almacenamiento](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata).
-Para obtener información detallada sobre el uso de las Métricas de almacenamiento y los Registros de almacenamiento para solucionar los problemas de almacenamiento que surjan, consulte [Supervisar, diagnosticar y solucionar problemas en Almacenamiento de Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
-
-## <a name="how-to-manage-shared-access-signature-sas-and-stored-access-policy"></a>Cómo administrar una firma de acceso compartido (SAS) y la directiva de acceso almacenada
-Las firmas de acceso compartido son una parte importante del modelo de seguridad de cualquier aplicación que use Almacenamiento de Azure, ya que, entre otras cosas, facilitan permisos limitados a su cuenta de almacenamiento a aquellos clientes que no han de tener la clave de cuenta. De forma predeterminada, solamente el dueño de la cuenta de almacenamiento puede obtener acceso a blobs, tablas y colas en esa cuenta. Si su servicio o aplicación han de facilitar estos recursos a otros clientes sin tener que compartir la clave de acceso, tiene tres opciones:
-
-* Establecer los permisos de un contenedor para permitir el acceso de lectura anónimo al contenedor y a sus blobs. Esto no se permite para tablas o colas.
-* Usar una firma de acceso compartido que conceda derechos de acceso restringido a los contenedores, blobs, colas y tablas durante un intervalo concreto de tiempo.
-* Usar una directiva de acceso almacenada para obtener un nivel adicional de control sobre las firmas de acceso compartido de un contenedor o sus blobs, de una cola o de una tabla. La directiva de acceso almacenado le permite cambiar la hora de inicio, la hora de finalización, los permisos de una firma o revocarla una vez se ha emitido.
-
-Una firma de acceso compartido puede presentar una de estas dos formas:
-
-* **SAS ad hoc**: cuando se crea una SAS ad hoc, la hora de inicio, la hora de finalización y los permisos para la Firma de acceso compartido se especifican en el URI de la SAS. Este tipo de SAS puede crearse en un contenedor, blob, tabla o cola y no se puede revocar.
-* **SAS con directiva de acceso almacenada:**una directiva de acceso almacenada se define en un contenedor de recursos, un contenedor de blobs, una tabla o una cola, y puede usarla para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada. Este tipo de SAS se puede revocar.
-
-Para más información, consulte [Uso de Firmas de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md) y [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
-
-En las siguientes secciones, obtendrá información sobre cómo crear un token de firma de acceso compartido y una directiva de acceso almacenada para las tablas de Azure. Azure PowerShell también proporciona cmdlets similares para contenedores, blobs y colas. Para ejecutar los scripts de esta sección, descargue [la versión 0.8.14 de Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) o posterior.
-
-### <a name="how-to-create-a-policy-based-shared-access-signature-token"></a>Cómo crear una directiva basada en el token de firma de acceso compartido
-Use el cmdlet New-AzureStorageTableStoredAccessPolicy para crear una nueva directiva de acceso almacenada. A continuación, llame al cmdlet [New-AzureStorageTableSASToken](/powershell/module/azure.storage/new-azurestoragetablesastoken) para crear un nuevo token de firma de acceso compartido basada en las nuevas directivas, para una tabla de Almacenamiento de Azure.
-
-```powershell
-$policy = "policy1"
-New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
-New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
-```
-
-### <a name="how-to-create-an-ad-hoc-non-revocable-shared-access-signature-token"></a>Creación de un token de firma de acceso compartido ad hoc (no revocable)
-Use el cmdlet [New-AzureStorageTableSASToken](/powershell/module/azure.storage/new-azurestoragetablesastoken) para crear un nuevo token de firma de acceso compartido ad hoc (no revocable) para una tabla de Azure Storage:
-
-```powershell
-New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
-```
-    
-### <a name="how-to-create-a-stored-access-policy"></a>Cómo crear una directiva de acceso almacenada
-Use el cmdlet New-AzureStorageTableStoredAccessPolicy para crear una nueva directiva de acceso almacenada para una tabla de almacenamiento de Azure:
-
-```powershell
-$policy = "policy1"
-New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
-```
-    
-### <a name="how-to-update-a-stored-access-policy"></a>Cómo actualizar una directiva de acceso almacenada
-Use el cmdlet Set-AzureStorageTableStoredAccessPolicy para actualizar una directiva de acceso almacenada existente para una tabla de almacenamiento de Azure:
-
-```powershell
-Set-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Permission "rd" -NoExpiryTime -NoStartTime -Context $Ctx
-```
-
-### <a name="how-to-delete-a-stored-access-policy"></a>Cómo eliminar una directiva de acceso almacenada
-Use el cmdlet Remove-AzureStorageTableStoredAccessPolicy para eliminar una directiva de acceso almacenada en una tabla de almacenamiento de Azure:
-
-```powershell
-Remove-AzureStorageTableStoredAccessPolicy -Policy $policy -Table $tableName -Context $Ctx
-```
-
-## <a name="how-to-use-azure-storage-for-us-government-and-azure-china"></a>Cómo usar el servicio Almacenamiento de Azure desarrollado para el gobierno de Estados Unidos y Azure desarrollado para China
-Un entorno de Azure es una implementación independiente de Microsoft Azure como, por ejemplo, [Azure Government para el gobierno de EE. UU.](https://azure.microsoft.com/features/gov/), [AzureCloud para el servicio global de Azure](https://portal.azure.com) y [AzureChinaCloud para el servicio de Azure operado por 21Vianet en China](http://www.windowsazure.cn/). Puede implementar el nuevo entorno de Azure para el gobierno de los EE. UU. y Azure para China.
-
-Para usar Almacenamiento de Azure con AzureChinaCloud, necesitará crear un contexto de almacenamiento que esté asociado con AzureChinaCloud. Siga estos pasos para comenzar:
-
-1. Ejecute el cmdlet [Get-AzureEnvironment](/powershell/module/azure/get-azureenvironment?view=azuresmps-3.7.0) para ver los entornos de Azure disponibles:
-   
-    ```powershell
-    Get-AzureEnvironment
-    ```
-
-2. Agregue una cuenta de Azure para China a Windows PowerShell:
-   
-    ```powershell
-    Add-AzureAccount –Environment AzureChinaCloud
-    ```
-
-3. Cree un contexto de almacenamiento para una cuenta AzureChinaCloud:
-   
-    ```powershell
-    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
-    ```
-
-Para usar el almacenamiento de Azure con [Azure Government para EE. UU.](https://azure.microsoft.com/features/gov/), deberá precisar un nuevo entorno y crear un nuevo contexto de almacenamiento con este entorno:
-
-1. Ejecute el cmdlet [Get-AzureEnvironment](/powershell/module/azure/get-azureenvironment?view=azuresmps-3.7.0) para ver los entornos de Azure disponibles:
-
-    ```powershell
-    Get-AzureEnvironment
-    ```
-
-2. Agregue una cuenta de Azure del Gobierno de EE. UU. a Windows PowerShell:
-   
-    ```powershell
-    Add-AzureAccount –Environment AzureUSGovernment
-    ```
-
-3. Cree un contexto de almacenamiento para una cuenta de AzureUSGovernment:
-   
-    ```powershell
-    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
-    ```
-     
-Para más información, consulte:
-
-* [Guía para desarrolladores de Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md).
-* [Información general de las diferencias en la creación de una aplicación de servicio de China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [How to manage storage accounts in Government Cloud and China](storage-powershell-govt-china.md)
+-->
 
 ## <a name="next-steps"></a>Pasos siguientes
-En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure PowerShell. A continuación encontrará algunos artículos relacionados y recursos para obtener más información acerca de estos servicios.
 
-* [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Cmdlets de PowerShell de Almacenamiento de Azure.](/powershell/module/azurerm.storage/#storage)
+En este artículo de ayuda se tratan las operaciones comunes con los cmdlets del plano de administración para administrar las cuentas de almacenamiento. Aprenderá a: 
+
+> [!div class="checklist"]
+> * Enumerar cuentas de almacenamiento
+> * Obtener una referencia a una cuenta de almacenamiento existente
+> * Crear una cuenta de almacenamiento 
+> * Definir las propiedades de una cuenta de almacenamiento
+> * Recuperar y regenerar las claves de acceso
+> * Proteger el acceso a la cuenta de almacenamiento 
+> * Habilitar Storage Analytics
+
+También se incluyen vínculos a otros artículos, como, por ejemplo, los que tratan sobre cómo administrar los objetos de datos y cómo habilitar Storage Analytics. A continuación encontrará algunos artículos relacionados y recursos de referencia: 
+<!--, and how to access storage with PowerShell using the Government Cloud and the China Cloud.
+-->
+
+* [Cmdlets de PowerShell para el plano de control de Azure Storage](/powershell/module/AzureRM.Storage/)
+* [Cmdlets de PowerShell para el plano de datos de Azure Storage](/powershell/module/azure.storage/)
 * [Referencia de Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
-
-[Getting started with Azure Storage and PowerShell in 5 minutes]: #getstart
-[Prerequisites for using Azure PowerShell with Azure Storage]: #pre
-[How to manage storage accounts in Azure]: #manageaccount
-[How to set a default Azure subscription]: #setdefsub
-[How to create a new Azure storage account]: #createaccount
-[How to set a default Azure storage account]: #defaultaccount
-[How to list all Azure storage accounts in a subscription]: #listaccounts
-[How to create an Azure storage context]: #createctx
-[How to manage Azure blobs and blob snapshots]: #manageblobs
-[How to create a container]: #container
-[How to upload a blob into a container]: #uploadblob
-[How to download blobs from a container]: #downblob
-[How to copy blobs from one storage container to another]: #copyblob
-[How to delete a blob]: #deleteblob
-[How to manage Azure blob snapshots]: #manageshots
-[How to create a blob snapshot]: #createshot
-[How to list snapshots of a blob]: #listshot
-[How to copy a snapshot of a blob]: #copyshot
-[How to manage Azure tables and table entities]: #managetables
-[How to create a table]: #createtable
-[How to retrieve a table]: #gettable
-[How to delete a table]: #remtable
-[How to manage table entities]: #mngentity
-[How to add table entities]: #addentity
-[How to query table entities]: #queryentity
-[How to delete table entities]: #deleteentity
-[How to manage Azure queues and queue messages]: #managequeues
-[How to create a queue]: #createqueue
-[How to retrieve a queue]: #getqueue
-[How to delete a queue]: #remqueue
-[How to manage queue messages]: #mngqueuemsg
-[How to insert a message into a queue]: #addqueuemsg
-[How to de-queue at the next message]: #dequeuemsg
-[How to manage Azure file shares and files]: #files
-[How to set and query storage analytics]: #stganalytics
-[How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
-[How to use Azure Storage for U.S. government and Azure China]: #gov
-[Next Steps]: #next

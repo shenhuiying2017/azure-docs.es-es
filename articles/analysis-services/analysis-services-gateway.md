@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 10/11/2017
 ms.author: owend
-ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local de Azure
 La puerta de enlace de datos local actúa como un puente, ya que proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma región con una sola puerta de enlace. 
@@ -139,6 +139,9 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **R**: La clave de recuperación proporciona una forma de migrar o recuperar la configuración de la puerta de enlace después de un desastre.
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
+**P**: ¿Por qué no veo mi puerta de enlace en la lista de instancias de puerta de enlace al intentar crear el recurso de puerta de enlace de Azure? <br/>
+**R**: Hay dos razones posibles. La primera es que el recurso ya se ha creado para la puerta de enlace actual o en otra suscripción. Para eliminar esa posibilidad, enumere los recursos del tipo **Puertas de enlace de datos locales** en el portal. Asegúrese de seleccionar todas las suscripciones al enumerar todos los recursos. Tenga en cuenta que una vez que se crea el recurso, la puerta de enlace no aparecerá en la lista de instancias de puerta de enlace en la experiencia del portal de creación de recursos de puerta de enlace. La segunda posibilidad es que la identidad de Azure AD del usuario que ha instalado la puerta de enlace es distinta de la del usuario que inició sesión en Azure Portal. Para resolver este problema, inicie sesión el portal mediante la misma cuenta que el usuario que ha instalado la puerta de enlace.
 
 **P**: ¿Cómo se pueden ver las consultas que se envían al origen de datos local? <br/>
 **R**: Puede habilitar el seguimiento de consultas, que incluye las consultas que se envían. No olvide devolver el seguimiento de consultas al valor original cuando haya terminado de solucionar problemas. Si lo deja activado, crea registros de mayor tamaño.

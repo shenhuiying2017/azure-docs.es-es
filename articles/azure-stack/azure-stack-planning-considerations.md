@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/16/2017
 ms.author: twooley
-ms.openlocfilehash: 790b65720a8457b780dc727b0f67fcd12aed31bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8484f7947f23a00c05b34babf13cd75f9d227740
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de planeamiento para sistemas integrados de Azure Stack
 
@@ -115,8 +115,7 @@ Para la implementación, debe proporcionar los certificados de Capa de sockets s
 > La información del certificado en este artículo se proporciona únicamente como guía general. Antes de adquirir los certificados para Azure Stack, trabaje con los asociados de hardware OEM. Le proporcionarán una orientación más detallada de los certificados y los requisitos.
 
 - Puede usar un único certificado de carácter comodín o bien un conjunto de certificados dedicados y utilizar caracteres comodín solo para los puntos de conexión, como el almacenamiento y Key Vault.
-- Los certificados los debe emitir una entidad de certificación de confianza pública (CA) o una CA empresarial.
-- El certificado no lo puede emitir una CA intermedia.
+- Los certificados los debe emitir una entidad de certificación (CA) de confianza pública o una CA administrada por el cliente.
  
 La siguiente tabla muestra los servicios y el número de puntos de conexión de acceso público que requieren certificados para la implementación inicial de Azure Stack. 
 

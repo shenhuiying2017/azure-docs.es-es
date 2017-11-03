@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
+ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 2f6cf4709c77ca1bb051b7d5c9e7d1d5d125c343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Cómo usar Managed Service Identity (MSI) de una máquina virtual de Azure para el inicio de sesión y la adquisición de tokens 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Después de habilitar MSI en una máquina virtual de Azure, puede usar MSI para el inicio de sesión y para solicitar un token de acceso. En este artículo se muestran varias maneras de utilizar una [entidad de servicio](develop/active-directory-dev-glossary.md#service-principal-object) de MSI para el inicio de sesión y para adquirir un [token de acceso de solo aplicación](develop/active-directory-dev-glossary.md#access-token) para tener acceso a otros recursos, incluidos:
@@ -183,14 +183,14 @@ Content-Type: application/json
 | `resource` | El recurso para el que se solicitó el token de acceso, que coincide con el parámetro de la cadena de consulta `resource` de la solicitud. |
 | `token_type` | El tipo de token, que es un token de acceso al "Portador", lo que significa que el recurso puede permitir el acceso al portador del token. |
 
-## <a name="how-to-sign-in-with-azure-sdk-libraries-using-msi"></a>Cómo iniciar sesión con las bibliotecas del SDK de Azure mediante MSI
+## <a name="how-to-use-msi-with-azure-sdk-libraries"></a>Uso de MSI con bibliotecas de Azure SDK
 
 Azure admite varias plataformas de programación a través de una serie de [SDK de Azure](https://azure.microsoft.com/downloads). Varios se han actualizado para admitir el inicio de sesión con MSI y proporcionan los ejemplos correspondientes para mostrar el uso. Esta lista se actualiza a medida que se agrega compatibilidad adicional:
 
 | SDK | Muestra |
 | --- | ------ | 
-| .NET   | [Administración de recursos desde una máquina virtual con MSI habilitado](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Administración de almacenamiento desde una máquina virtual con MSI habilitado](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| .NET | [Deploy an ARM template from a Windows VM using Managed Service Identity](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet)(Implementación de una plantilla de ARM desde una máquina virtual Windows mediante Managed Service Identity) |
+| .NET Core | [Call Azure services from a Linux VM using Managed Service Identity](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) (Llamada a servicios de Azure desde una máquina virtual Linux mediante Managed Service Identity) |
 | Node.js| [Administración de recursos con Managed Service Identity](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python | [Uso de MSI para una autenticación simple desde una máquina virtual](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby   | [Administración de recursos desde una máquina virtual con MSI habilitado](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 

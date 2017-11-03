@@ -1,6 +1,6 @@
 ---
 title: "Búsquedas y alertas guardadas en soluciones de OMS | Microsoft Docs"
-description: "Las soluciones de OMS suelen incluir búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una plantilla de ARM para que puedan incluirse en soluciones de administración."
+description: "Las soluciones de OMS suelen incluir búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución.  Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico.  En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/16/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Incorporación de las búsquedas y las alertas guardadas de Log Analytics en la solución de administración de OMS (versión preliminar)
 
@@ -32,15 +32,30 @@ Las [soluciones de administración de OMS](operations-management-suite-solutions
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración y se describen en [Creating management solutions in Operations Management Suite (OMS) (Creación de soluciones de administración en Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md).  
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](operations-management-suite-solutions-creating.md) y la estructura de una [plantilla de ARM](../resource-group-authoring-templates.md) y un archivo de solución.
+En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](operations-management-suite-solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../resource-group-authoring-templates.md) y un archivo de solución.
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabajo de Log Analytics
-Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../log-analytics/log-analytics-manage-access.md).  Como se describe en [el área de trabajo de OMS y la cuenta de Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account), el área de trabajo no está incluido en la solución de administración pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
+Todos los recursos de Log Analytics están contenidos en un [área de trabajo](../log-analytics/log-analytics-manage-access.md).  Como se describe en [el área de trabajo de OMS y la cuenta de Automation](operations-management-suite-solutions.md#oms-workspace-and-automation-account), el área de trabajo no está incluida en la solución de administración pero debe existir antes de que se instale la solución.  Si no está disponible, se producirá un error en la instalación de la solución.
 
 El nombre del área de trabajo es el nombre de cada recurso de Log Analytics.  Esto se hace en la solución con el parámetro **workspace** tal como se muestra en el siguiente ejemplo de un recurso de savedsearch.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
+
+## <a name="log-analytics-api-version"></a>Versión de la API de Log Analytics
+Todos los recursos de Log Analytics definidos en una plantilla de Resource Manager tienen una propiedad **apiVersion** que define la versión de la API que el recurso debe usar.  Esta versión es diferente para los recursos que usan el [lenguaje de consulta heredado y actualizado](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ En la tabla siguiente se especifican las versiones de la API de Log Analytics para áreas de trabajo heredadas y actualizadas y una consulta de ejemplo para especificar una sintaxis diferente para cada una. 
+
+| Versión del área de trabajo | Versión de API | Consulta de ejemplo |
+|:---|:---|:---|
+| v1 (heredado)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (actualizado) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+Tenga en cuenta lo siguiente para que las áreas de trabajo sean compatibles con versiones diferentes.
+
+- Las plantillas que usan el lenguaje de consulta heredado pueden instalarse en un área de trabajo heredada o actualizada.  Si se instalan en un área de trabajo actualizada, las consultas se convierten sobre la marcha al nuevo lenguaje cuando el usuario las ejecuta.
+- Las plantillas que usan el lenguaje de consulta actualizado solo pueden instalarse en un área de trabajo actualizada.
 
 
 ## <a name="saved-searches"></a>Búsquedas guardadas
@@ -81,10 +96,10 @@ Las reglas de alerta que ejecutan una búsqueda guardada a intervalos regulares 
 
 Las reglas de alerta en una solución de administración se componen de los tres siguientes recursos.
 
-- **Búsqueda guardada.**  Define la búsqueda de registros que se va a ejecutar.  Varias reglas de alerta pueden compartir una única búsqueda guardada.
-- **Programación.**  Define la frecuencia con la que se va a ejecutar la búsqueda de registros.  Cada regla de alerta tendrá una única programación.
-- **Acción de alerta.**  Cada regla de alerta tendrá un único recurso de acción con un tipo de **alerta** que define los detalles de la alerta, como los criterios de cuándo se creará un registro de alertas y la gravedad de la alerta.  El recurso de acción definirá, opcionalmente, una respuesta de correo electrónico y de runbook.
-- **Acción de webhook (opcional).**  Si la regla de alerta llama a un webhook, se requiere un recurso de acción adicional con un tipo de **Webhook**.    
+- **Búsqueda guardada.**  Define la búsqueda de registros que se ejecuta.  Varias reglas de alerta pueden compartir una única búsqueda guardada.
+- **Programación.**  Define la frecuencia con la que se ejecuta la búsqueda de registros.  Cada regla de alerta tiene una única programación.
+- **Acción de alerta.**  Cada regla de alerta tiene un único recurso de acción con un tipo de **alerta** que define los detalles de la alerta, como los criterios de cuándo se crea un registro de alertas y la gravedad de la alerta.  El recurso de acción definirá, opcionalmente, una respuesta de correo electrónico y de runbook.
+- **Acción de webhook (opcional).**  Si la regla de alerta llama a un webhook, se requiere un recurso de acción adicional con un tipo de **webhook**.    
 
 Los recursos de búsquedas guardadas se han descrito anteriormente.  Los demás recursos se describen a continuación.
 
@@ -129,7 +144,7 @@ Los recursos de acción tienen un tipo de `Microsoft.OperationalInsights/workspa
 
 #### <a name="alert-actions"></a>Acciones de alerta
 
-Cada programación tendrá una acción **Alert**.  Esto define los detalles de la alerta y, opcionalmente, las acciones de notificación y corrección.  Una notificación envía un mensaje de correo electrónico a una o varias direcciones.  Una corrección inicia un runbook en Azure Automation para intentar corregir el problema detectado.
+Cada programación tiene una acción **Alert**.  Esto define los detalles de la alerta y, opcionalmente, las acciones de notificación y corrección.  Una notificación envía un mensaje de correo electrónico a una o varias direcciones.  Una corrección inicia un runbook en Azure Automation para intentar corregir el problema detectado.
 
 Las acciones de alerta tienen la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
 
@@ -174,7 +189,7 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 
 | Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
-| Tipo | Sí | Tipo de la acción.  Será **Alert** para las acciones de alerta. |
+| Tipo | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
 | Nombre | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
 | Descripción | No | Descripción opcional de la alerta. |
 | Gravedad | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **Critical)** (Crítico)<br>**Warning (ADVERTENCIA)**<br>**Informational** (Informativo) |
@@ -253,17 +268,17 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 
 | Nombre del elemento | Obligatorio | Descripción |
 |:--|:--|:--|
-| type | Sí | Tipo de la acción.  Será **Webhook** para las acciones de webhook. |
+| type | Sí | Tipo de la acción.  Es **Webhook** para las acciones de webhook. |
 | name | Sí | Nombre para mostrar de la acción.  Esto no se muestra en la consola. |
 | wehookUri | Sí | URI del webhook. |
-| customPayload | No | Carga personalizada que se va a enviar al webhook. El formato dependerá de lo que el webhook espere. |
+| customPayload | No | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
 
 
 
 
 ## <a name="sample"></a>Muestra
 
-A continuación se muestra un ejemplo de una solución que incluye los siguientes recursos:
+A continuación, se muestra un ejemplo de una solución que incluye los siguientes recursos:
 
 - Búsqueda guardada
 - Schedule

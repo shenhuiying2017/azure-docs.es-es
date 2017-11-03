@@ -1,6 +1,6 @@
 ---
 title: "Migración de una base de datos de SQL Server a Azure SQL Database | Microsoft Docs"
-description: "Obtenga más información acerca de la migración de una base de datos de SQL Server a Azure SQL Database en la nube. Antes de migrar una base de datos, use herramientas de migración de bases de datos para determinar la compatibilidad."
+description: "Obtenga más información acerca de la migración de una base de datos de SQL Server a Azure SQL Database en la nube."
 keywords: "migración de base de datos, migración de base de datos de sql server, herramientas de migración de bases de datos, migración de la base de datos, migrar base de datos sql"
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migración de una base de datos de SQL Server a una Base de datos SQL en la nube
 En este artículo se describen los dos principales métodos para migrar una base de datos de SQL Server 2005 o posterior a Azure SQL Database. El primer método es más sencillo, pero durante la migración se requiere un determinado tiempo de inactividad, que puede ser considerable. El segundo método es más complejo, pero reduce en gran medida el tiempo de inactividad durante la migración.
@@ -43,15 +43,15 @@ En la lista siguiente se describe el flujo de trabajo general para una migració
 2. Prepare todas las correcciones necesarias como scripts de Transact-SQL.
 3. Realice una copia coherente desde un punto de vista transaccional de la base de datos de origen que se está migrando y asegúrese de que no se vayan a realizar más cambios en la base de datos de origen (los cambios pueden aplicarse manualmente una vez completada la migración). Existen diferentes modos de poner una base de datos en modo inactivo, desde la deshabilitación de la conectividad de cliente hasta la creación de una [instantánea de base de datos](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implemente los scripts de Transact-SQL para aplicar las correcciones a la copia de la base de datos.
-5. [Exporte](sql-database-export.md) la copia de la base de datos a un archivo .BACPAC en una unidad local.
-6. [Importe](sql-database-import.md) el archivo .BACPAC como una nueva instancia de Azure SQL Database mediante alguna de las herramientas de importación de BACPAC, de entre las que se recomienda SQLPackage.exe para obtener los mejores resultados.
+5. [Exporte](sql-database-export.md) la copia de la base de datos a un archivo BACPAC en una unidad local.
+6. [Importe](sql-database-import.md) el archivo BACPAC como una nueva base de datos de Azure SQL mediante alguna de las herramientas de importación de BACPAC, de entre las que se recomienda SQLPackage.exe para obtener los mejores resultados.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimización del rendimiento de transferencia de datos durante la migración 
 
 En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento durante el proceso de importación.
 
 * Elija el mejor nivel de servicio y de rendimiento que su presupuesto permita para optimizar el rendimiento de la transferencia. Una vez completada la migración, puede seleccionar una opción inferior para ahorrar dinero. 
-* Reduzca la distancia entre su archivo .BACPAC y el centro de datos de destino.
+* Reduzca la distancia entre su archivo BACPAC y el centro de datos de destino.
 * Deshabilite las estadísticas automáticas durante la migración.
 * Cree particiones de tablas e índices.
 * Quite las vistas indexadas y vuelva a crearlas cuando se haya completado el proceso.

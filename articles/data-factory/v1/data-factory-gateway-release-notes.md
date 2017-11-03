@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b677990efe49b666396728767ee59587a280efe
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 Uno de los desafíos de la integración de datos moderna es la migración de datos entre la ubicación local y la nube. Data Factory realiza la integración con Data Management Gateway, un agente que se puede instalar de forma local para permitir la migración de datos híbridos.
@@ -29,16 +29,19 @@ En los siguientes artículos se proporciona información detallada sobre Data Ma
 *  [Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-21063477"></a>VERSIÓN ACTUAL (2.10.6347.7)
+## <a name="current-version"></a>VERSIÓN ACTUAL 
+Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la versión más recientes [aquí](https://go.microsoft.com/fwlink/?linkid=853077).
 
+
+
+
+## <a name="earlier-versions"></a>Versiones anteriores
+## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Mejoras-
 - Puede agregar entradas DNS a la lista de Service Bus permitidos en vez de incluir todas las direcciones IP de Azure en la lista de permitidas del firewall (en caso necesario). Puede encontrar la entrada DNS correspondiente en Azure Portal (Data Factory -> "Crear e implementar" -> "Puertas de enlace" -> "serviceUrls" (en JSON)
 - El conector HDFS admite ahora certificados públicos autofirmados para poder omitir la validación de SSL.
 - Solucionado: problema con la puerta de enlace sin conexión durante la actualización (debido a la distorsión del reloj)
 
-
-
-## <a name="earlier-versions"></a>Versiones anteriores
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Mejoras-

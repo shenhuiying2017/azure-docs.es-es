@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 033ef0cdd607ced5de6c975e071e0ce37e677201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Creación de un registro de contenedor mediante Azure Portal
 
@@ -39,11 +39,13 @@ Seleccione **Nuevo** > **Contenedores** > **Azure Container Registry**.
 
 ![Creación de un registro de contenedor en Azure Portal][qs-portal-01]
 
-Escriba valores para **Nombre del Registro** y **Grupo de recursos**. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. Cree un nuevo grupo de recursos denominado `myResourceGroup` y, en **SKU**, seleccione "Classic". Seleccione **Crear** para implementar la instancia de ACR.
+Escriba valores para **Nombre del Registro** y **Grupo de recursos**. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. Cree un nuevo grupo de recursos denominado `myResourceGroup` y, en **SKU**, seleccione "Básico". Seleccione **Crear** para implementar la instancia de ACR.
 
 ![Creación de un registro de contenedor en Azure Portal][qs-portal-03]
 
-Azure Container Registry está disponible actualmente en varias SKU: `Classic`, `Basic`, `Standard` y `Premium`. Aunque `Basic`, `Standard` y `Premium` proporcionan funcionalidades avanzadas, como almacenamiento administrado y webhooks, actualmente se encuentran en versión preliminar y no están disponibles en algunas regiones de Azure. En esta guía de inicio rápido, seleccionaremos la SKU `Classic` por su disponibilidad en todas las regiones.
+En esta guía de inicio rápido, creamos un registro *Básico*. Azure Container Registry está disponible en varias SKU diferentes, que se describen brevemente en la tabla siguiente. Para obtener detalles ampliados de cada una, consulte [SKU del registro de contenedor](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Cuando aparezca el mensaje **Implementación correcta**, seleccione el registro de contenedor en el portal y luego seleccione **Claves de acceso**.
 

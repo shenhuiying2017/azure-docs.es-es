@@ -15,24 +15,25 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 778fe746f1e8dff1d1c80b6ba7d8f10cc2bfacee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
+
 Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de Azure en una [canalización de Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) o utilizar el [complemento de Jenkins de Azure App Service](https://plugins.jenkins.io/azure-app-service). La versión 1.0 del complemento de Jenkins es compatible con la implementación continua mediante la característica Web Apps de Azure App Service a través de lo siguiente:
 * Git y FTP
 * Docker para Web Apps en Linux
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Configurar Jenkins para implementar Web Apps a través de Git y FTP 
-> * Configurar Jenkins para implementar Web Apps for Containers 
-
+> * Configurar Jenkins para implementar Web Apps a través de Git y FTP
+> * Configurar Jenkins para implementar Web App for Containers.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Creación y configuración de una instancia de Jenkins
+
 Si aún no tiene un servidor maestro de Jenkins, comience con la [plantilla de la solución](install-jenkins-solution-template.md), que incluye la versión 8 de Java Development Kit (JDK) y los siguientes complementos de Jenkins necesarios:
 
 * [Complemento de cliente de Git de Jenkins](https://plugins.jenkins.io/git-client), versión 2.4.6 
@@ -51,7 +52,7 @@ sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-Para implementar en Web Apps for Containers, instale Docker en el servidor maestro de Jenkins o en el agente de VM que se usa para la compilación. Para obtener las instrucciones de instalación, consulte [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/) (Instalación de Docker en Ubuntu).
+Para implementar en Web App for Containers, instale Docker en el servidor maestro de Jenkins o en el agente de VM que se usa para la compilación. Para obtener las instrucciones de instalación, consulte [Install Docker on Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/) (Instalación de Docker en Ubuntu).
 
 ##<a name="service-principal"></a> Adición de una entidad de servicio de Azure a las credenciales de Jenkins
 
@@ -128,7 +129,7 @@ El complemento de Jenkins de Azure App Service es compatible con la canalizació
 6. Actualice el valor **Script Path** (Ruta de acceso del script) con **Jenkinsfile_ftp_plugin**.
 7. Haga clic en **Save** (guardar) y ejecute el trabajo.
 
-## <a name="configure-jenkins-to-deploy-web-apps-for-containers"></a>Configuración de Jenkins para implementar Web Apps for Containers
+## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Configuración de Jenkins para implementar Web App for Containers
 
 Web Apps en Linux admite la implementación mediante el uso de Docker. Para implementar su aplicación web con Docker, debe proporcionar un archivo de Docker que empaquete la aplicación web con el servicio en tiempo de ejecución en una imagen de Docker. Después, el complemento de Jenkins compila la imagen, la inserta en un registro de Docker y la implementa en la aplicación web.
 
@@ -168,7 +169,7 @@ Para el valor de **Docker registry URL** (Dirección URL de registro del Docker)
 12. De forma similar al enfoque de carga de archivos, puede elegir un valor en **Slot** (Ranura) diferente de **Production** (Producción).
 13. Guarde y compile el proyecto. Verá que la imagen del contenedor se inserta en el registro y se implementa la aplicación web.
 
-### <a name="deploy-web-apps-for-containers-by-using-jenkins-pipeline"></a>Implementación de Web Apps for Containers mediante la canalización de Jenkins
+### <a name="deploy-web-app-for-containers-by-using-jenkins-pipeline"></a>Implementación de Web App for Containers mediante la canalización de Jenkins
 
 1. En la interfaz de GitHub, abra el archivo **Jenkinsfile_container_plugin**. Para editar el archivo, seleccione el icono de lápiz. Actualice las definiciones de **resourceGroup** y **webAppName** para la aplicación web en las líneas 11 y 12, respectivamente:
     ```java
@@ -176,15 +177,15 @@ Para el valor de **Docker registry URL** (Dirección URL de registro del Docker)
     def webAppName = '<myAppName>'
     ```
 
-2. Cambie en la línea 13 su servidor de registro de contenedor:   
+2. Cambie en la línea 13 su servidor de registro de contenedor:
     ```java
     def registryServer = '<registryURL>'
-    ```    
+    ```
 
-3. Cambie la línea 16 para utilizar el identificador de la credencial en la instancia de Jenkins:  
+3. Cambie la línea 16 para utilizar el identificador de la credencial en la instancia de Jenkins:
     ```java
     azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-    ```    
+    ```
 
 ### <a name="create-a-jenkins-pipeline"></a>Creación de una canalización de Jenkins    
 
@@ -234,4 +235,4 @@ Ha aprendido a:
 
 > [!div class="checklist"]
 > * Configurar Jenkins para implementar en Azure App Service a través de FTP 
-> * Configurar Jenkins para implementar en Web Apps for Containers 
+> * Configuración de Jenkins para implementar Web App for Containers 

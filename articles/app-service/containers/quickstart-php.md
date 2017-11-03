@@ -1,6 +1,6 @@
 ---
-title: "Creación de una aplicación web de PHP en un contenedor de Linux en Azure | Microsoft Docs"
-description: "Implementación de su primera aplicación Hola mundo de PHP en Azure App Service Web Apps en cuestión de minutos."
+title: "Creación de una aplicación web de PHP e implementación en App Service en Linux | Microsoft Docs"
+description: "Implementación de su primera aplicación Hola mundo de PHP en App Service en Linux en cuestión de minutos."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Creación de una aplicación web de PHP en un contenedor de Linux en Azure
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creación de una aplicación web de PHP en App Service en Linux
 
-[Web Apps for Containers](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático mediante el sistema operativo Linux. En esta guía de inicio rápido se explica cómo se implementa una aplicación de PHP en Azure Web Apps for Containers. Se crea la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en Cloud Shell y se usa Git para implementar el código PHP en la aplicación web.
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En esta guía de inicio rápido se explica cómo se implementa una aplicación de PHP en Azure App Service en Linux. Se crea la aplicación web con una imagen integrada utilizando la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en Cloud Shell y se usa Git para implementar el código PHP en la aplicación web.
 
 ![Sample app running in Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-Estos pasos se pueden realizar con un equipo Mac, Windows o Linux. 
+Estos pasos se pueden realizar con un equipo Mac, Windows o Linux.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -71,19 +71,17 @@ En la ventana de terminal, presione **Ctrl + C** para salir del servidor web.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Creación de una aplicación web
+## <a name="create-a-web-app-with-built-in-image"></a>Creación de una aplicación web con imagen integrada
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Vaya al sitio para ver la aplicación web recién creada. Reemplace  _&lt;nombre de aplicación>_ por un nombre de aplicación único.
+Vaya al sitio para ver la aplicación web recién creada con una imagen integrada. Reemplace  _&lt;nombre de aplicación>_ por un nombre de aplicación único.
 
 ```bash
 http://<app name>.azurewebsites.net
 ```
 
 ![Página de la aplicación web vacía](media/quickstart-php/app-service-web-service-created.png)
-
-Ha creado una nueva aplicación web vacía en un contenedor de Linux, con la implementación de Git habilitada.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -120,11 +118,11 @@ Vaya a la aplicación implementada mediante el explorador web.
 http://<app_name>.azurewebsites.net
 ```
 
-El código de ejemplo de PHP se está ejecutando en una aplicación web de Azure App Service.
+El código de ejemplo de PHP se está ejecutando en una aplicación web con una imagen integrada.
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**¡Enhorabuena!** Ha implementado la primera aplicación PHP en App Service.
+**¡Enhorabuena!** Ha implementado su primera aplicación PHP en App Service en Linux.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Actualización local y nueva implementación del código
 

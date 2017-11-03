@@ -1,5 +1,5 @@
 > [!WARNING]
-> Cuando se habilita el diagnóstico en un rol existente, todas las extensiones que se hayan habilitado se deshabilitarán al implementar el paquete. Entre ellos se incluyen los siguientes:
+> Cuando se habilita el diagnóstico para un rol existente, todas las extensiones que se hayan establecido ya se deshabilitan al implementar el paquete. Entre ellos se incluyen los siguientes:
 >
 > * Diagnósticos de Microsoft Monitoring Agent
 > * Supervisión de la seguridad de Microsoft Azure
@@ -11,5 +11,5 @@
 > * Extensión de escritorio remoto de Microsoft Azure
 > * Recopilador de registros de Microsoft Azure
 >
-> Las extensiones se pueden volver a habilitar a través de Azure Portal o PowerShell después de haber implementado el rol actualizado.
+> Puede volver a establecer sus extensiones a través de Azure Portal o de PowerShell después de haber implementado el rol actualizado.
 >

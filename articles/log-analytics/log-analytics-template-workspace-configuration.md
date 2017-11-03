@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 10/16/2017
 ms.author: richrund
-ms.openlocfilehash: 37ecfe2762bd239a0abf6015ef6ffd6a5132bb7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
@@ -36,6 +36,17 @@ Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-mana
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
 Este artículo proporciona ejemplos de plantilla que muestran algunas de las funciones que puede realizar desde las plantillas.
+
+## <a name="api-versions"></a>Versiones de API
+El ejemplo de este artículo es para un [área de trabajo de Log Analytics actualizada](log-analytics-log-search-upgrade.md).  Para usar un área de trabajo heredada, se debe cambiar la sintaxis de las consultas por la del lenguaje heredado y cambiar la versión de API de cada recurso.  En la tabla siguiente se muestra la versión de API de los recursos usados en este ejemplo.
+
+| Recurso | Tipo de recurso | Versión de API heredada | Versión de API actualizada |
+|:---|:---|:---|:---|
+| Área de trabajo   | áreas de trabajo    | 2015-11-01-preview | 2017-03-15-preview |
+| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Origen de datos | datasources   | 2015-11-01-preview | 2015-11-01-preview |
+| Solución    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creación y configuración de un área de trabajo de Log Analytics
 El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
@@ -122,7 +133,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -134,7 +145,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -144,7 +155,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },

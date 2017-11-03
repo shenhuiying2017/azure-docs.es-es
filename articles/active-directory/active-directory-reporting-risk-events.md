@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
 
@@ -29,10 +29,9 @@ En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo
 - [Usuarios con credenciales perdidas](#leaked-credentials) 
 - [Inicios de sesión desde direcciones IP anónimas](#sign-ins-from-anonymous-ip-addresses) 
 - [Viaje imposible a ubicaciones inusuales](#impossible-travel-to-atypical-locations) 
-- [Inicios de sesión desde ubicaciones desconocidas](#sign-in-from-unfamiliar-locations)
 - [Inicios de sesión desde dispositivos infectados](#sign-ins-from-infected-devices) 
 - [Inicios de sesión desde direcciones IP con actividad sospechosa](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-
+- [Inicios de sesión desde ubicaciones desconocidas](#sign-in-from-unfamiliar-locations) (exclusivo de las ediciones **Azure Active Directory Premium P2**)
 
 ![Evento de riesgo](./media/active-directory-reporting-risk-events/91.png)
 

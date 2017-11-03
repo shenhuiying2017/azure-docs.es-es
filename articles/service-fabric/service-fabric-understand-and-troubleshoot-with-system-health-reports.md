@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: 21f04c1b01033adcef7b7d73c710dd2b4590f76f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
@@ -101,6 +101,13 @@ El equilibrador de carga de Service Fabric notifica una advertencia cuando detec
 * **SourceId**: System.PLB
 * **Propiedad**: comienza por **Capacity**.
 * **Pasos siguientes**: compruebe las métricas proporcionadas y vea la capacidad actual en el nodo.
+
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Error de coincidencia de la capacidad de nodo de las métricas de regulación de recursos
+Si las capacidades de nodo definidas en el manifiesto de clúster son mayores que las capacidades de nodo reales de las métricas de regulación de recursos (núcleos de memoria y CPU), System.Hosting se encarga de proporcionar un aviso. El informe de mantenimiento se mostrará cuando el primer paquete de servicio que usa la [regulación de recursos](service-fabric-resource-governance.md) se registre en un nodo específico.
+
+* **SourceId**: System.Hosting
+* **Propiedad**: ResourceGovernance
+* **Pasos siguientes**: esto puede ser un problema, ya que los paquetes de servicio de regulación no se aplicarán según lo previsto y la [regulación de recursos](service-fabric-resource-governance.md) no funcionará correctamente. Puede actualizar el manifiesto de clúster con las capacidades de nodo correctas de estas métricas o no especificarlas en absoluto y permitir que Service Fabric detecte automáticamente los recursos disponibles.
 
 ## <a name="application-system-health-reports"></a>Informes de mantenimiento del sistema de la aplicación
 **System.CM**, que representa el servicio Administrador de clústeres, es la autoridad que administra la información acerca de una aplicación.
@@ -815,6 +822,13 @@ System.Hosting notifica un error si se produce un error de validación durante l
 * **SourceId**: System.Hosting
 * **Propiedad**: usa el prefijo **FabricUpgradeValidation** y contiene la versión de actualización.
 * **Descripción**: señala el error encontrado.
+
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacidad de nodo sin definir de las métricas de regulación de recursos
+Si las capacidades de nodo no se definen en el manifiesto de clúster y se desactiva la configuración de la detección automática, System.Hosting se encarga de mostrar un aviso. Asimismo, Service Fabric mostrará un aviso de mantenimiento cada vez que el paquete de servicio que usa la [regulación de recursos](service-fabric-resource-governance.md) se registre en un nodo específico.
+
+* **SourceId**: System.Hosting
+* **Propiedad**: ResourceGovernance
+* **Pasos siguientes**: la mejor manera de solucionar este problema consiste en cambiar el manifiesto de clúster para habilitar la detección automática de los recursos disponibles. Otra manera de solucionar esto es actualizar el manifiesto de clúster con las capacidades de nodo de estas métricas especificadas correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Vista de los informes de estado de Service Fabric](service-fabric-view-entities-aggregated-health.md)

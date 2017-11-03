@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 4acc29dc74a37d16a9e90101aa9b7706c55af58e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado ODBC:
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Odbc** | Sí |
-| connectionString | La cadena de conexión que excluye la parte de la credencial. Consulte los ejemplos en la sección siguiente. | Sí |
+| connectionString | La cadena de conexión que excluye la parte de la credencial. Puede especificar la cadena de conexión con un patrón como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime con `"DSN=<name of the DSN on IR machine>;"` (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda).| Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC.<br/>Los valores permitidos son: **Básica** y **Anónima**. | Sí |
 | userName | Especifique el nombre de usuario si usa la autenticación básica. | No |
 | Contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString. | No |
@@ -71,11 +71,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado ODBC:
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -100,11 +100,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado ODBC:
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Anonymous",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -240,9 +240,93 @@ Para copiar datos a un almacén de datos compatible con ODBC, establezca el tipo
 ]
 ```
 
+## <a name="ibm-informix-source"></a>Origen de IBM Informix
+
+Puede copiar datos de la base de datos de IBM Informix mediante el conector ODBC genérico.
+
+Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para Informix para conectarse al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Por ejemplo, puede usar el controlador "IBM INFORMIX ODBC DRIVER (64-bit)". Consulte la sección [Requisitos previos](#prerequisites) para detalles.
+
+Antes de usar el origen de Informix en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección [Solución de problemas de conectividad](#troubleshoot-connectivity-issues).
+
+Se crea un servicio vinculado ODBC para vincular un almacén de datos de IBM Informix con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
+
+```json
+{
+    "name": "InformixLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<Informix connection string or DSN>"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen o receptor en una operación de copia.
+
+## <a name="microsoft-access-source"></a>Origen de Microsoft Access
+
+Puede copiar datos de la base de datos de Microsoft Access mediante el conector ODBC genérico.
+
+Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para Microsoft Access para conectarse al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Consulte la sección [Requisitos previos](#prerequisites) para detalles.
+
+Antes de usar el origen de Microsoft Access en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección [Solución de problemas de conectividad](#troubleshoot-connectivity-issues).
+
+Se crea un servicio vinculado ODBC para vincular un almacén de datos de Microsoft Access con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
+
+```json
+{
+    "name": "MicrosoftAccessLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen o receptor en una operación de copia.
+
 ## <a name="ge-historian-source"></a>Origen de GE Historian
 
-Cree un servicio vinculado ODBC para vincular un almacén de datos [GE Proficy Historian (ahora GE Historian)](http://www.geautomation.com/products/proficy-historian) a Data Factory de Azure, tal y como se muestra en el ejemplo siguiente:
+Puede copiar datos de GE Historian mediante el conector ODBC genérico.
+
+Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para que GE Historian se conecte al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Consulte la sección [Requisitos previos](#prerequisites) para detalles.
+
+Antes de usar el origen de GE Historian en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección [Solución de problemas de conectividad](#troubleshoot-connectivity-issues).
+
+Se crea un servicio vinculado ODBC para vincular un almacén de datos de Microsoft Access con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
 
 ```json
 {
@@ -252,11 +336,11 @@ Cree un servicio vinculado ODBC para vincular un almacén de datos [GE Proficy H
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -270,10 +354,6 @@ Cree un servicio vinculado ODBC para vincular un almacén de datos [GE Proficy H
     }
 }
 ```
-
-Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para que GE Historian se conecte al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Consulte la sección [Requisitos previos](#prerequisites) para detalles.
-
-Antes de usar el almacén GE Historian en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección siguiente.
 
 Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen o receptor en una operación de copia.
 
@@ -283,7 +363,13 @@ Lea el artículo desde el principio para obtener información general detallada 
 >Para copiar datos desde un almacén de datos de SAP HANA, consulte el artículo sobre el [conector SAP HANA](connector-sap-hana.md) nativo. Para copiar datos a SAP HANA, siga estas instrucciones para usar el conector ODBC. Tenga en cuenta que los servicios vinculados para el conector SAP HANA y el conector ODBC tienen tipos distintos y, por tanto, no se pueden reutilizar.
 >
 
-Se crea un servicio vinculado ODBC para vincular un almacén de datos de SAP HANA con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
+Puede copiar datos en la base de datos de SAP HANA mediante el conector ODBC genérico.
+
+Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para SAP HANA para conectarse al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Consulte la sección [Requisitos previos](#prerequisites) para detalles.
+
+Antes de usar el receptor de SAP HANA en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección [Solución de problemas de conectividad](#troubleshoot-connectivity-issues).
+
+Cree un servicio vinculado ODBC para vincular un almacén de datos de SAP HANA con una instancia de Azure Data Factory como se muestra en el ejemplo siguiente:
 
 ```json
 {
@@ -293,11 +379,11 @@ Se crea un servicio vinculado ODBC para vincular un almacén de datos de SAP HAN
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -311,10 +397,6 @@ Se crea un servicio vinculado ODBC para vincular un almacén de datos de SAP HAN
     }
 }
 ```
-
-Configure una instancia de Integration Runtime autohospedado en una máquina con acceso al almacén de datos. Integration Runtime usa el controlador ODBC para SAP HANA para conectarse al almacén de datos. Por lo tanto, instale el controlador si todavía no está instalado en la misma máquina. Consulte la sección [Requisitos previos](#prerequisites) para detalles.
-
-Antes de usar el receptor de SAP HANA en una solución de Data Factory, compruebe si Integration Runtime se puede conectar al almacén de datos con las instrucciones que aparecen en la sección siguiente.
 
 Lea el artículo desde el principio para obtener información general detallada de uso de almacenes de datos ODBC como almacenes de datos de origen o receptor en una operación de copia.
 

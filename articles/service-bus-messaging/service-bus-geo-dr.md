@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: sethm
-ms.openlocfilehash: 2c509b56282ace92e536dc85f1a28f83a4701940
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus (versión preliminar)
 
@@ -29,7 +29,7 @@ Actualmente, la versión preliminar de la recuperación ante desastres con local
 
 En el artículo [Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Service Bus](service-bus-outages-disasters.md) se hace una distinción entre "interrupciones" y "desastres", la cual es importante tener en cuenta. Una *interrupción* es la falta de disponibilidad temporal de Azure Service Bus y puede afectar a algunos componentes del servicio, como un almacén de mensajes o incluso todo el centro de datos. Sin embargo, una vez corregido el problema, Service Bus vuelve a estar disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de una interrupción de este tipo podría ser un error de corriente en el centro de datos.
 
-Un *desastre* se define como la pérdida permanente de una [unidad de escalado](service-bus-architecture.md#service-bus-scale-units) de Service Bus o un centro de datos. El centro de datos no volverá necesariamente a estar disponible, o puede que esté fuera de servicio durante horas o días. Normalmente, un desastre provoca la pérdida de algunos o todos los mensajes u otros datos. Algunos ejemplos de esos desastres son los incendios, las inundaciones o los terremotos.
+Un *desastre* se define como la pérdida permanente o a largo plazo de un centro de datos o una [unidad de escalado](service-bus-architecture.md#service-bus-scale-units) de Service Bus. El centro de datos no volverá necesariamente a estar disponible, o puede que esté fuera de servicio durante horas o días. Algunos ejemplos de esos desastres son los incendios, las inundaciones o los terremotos. Un desastre que se convierte en permanente podría provocar la pérdida de algunos mensajes u otros datos. Sin embargo, en la mayoría de los casos, no debe producirse una pérdida de datos y se pueden recuperar los mensajes una vez que se realiza la copia de seguridad del centro de datos.
 
 La característica de recuperación ante desastres con localización geográfica de Azure Service Bus es una solución de recuperación ante desastres. Los conceptos y el flujo de trabajo descritos en este artículo se aplican a situaciones catastróficas y no a interrupciones transitorias o temporales.  
 
@@ -45,7 +45,7 @@ Los siguientes términos se utilizan en este artículo:
 
 -  *Metadatos*: Su representación de objetos en Azure Service Bus. Actualmente solo admitimos metadatos.
 
--  *Conmutación por error*: El proceso de activación del espacio de nombres secundario. Debe extraer mensajes de su espacio de nombres anteriormente principal una vez que vuelva a estar disponible y, a continuación, eliminarlo. Para crear otra conmutación por error, puede agregar un nuevo espacio de nombres secundario al emparejamiento.
+-  *Conmutación por error*: El proceso de activación del espacio de nombres secundario. Debe extraer mensajes de su espacio de nombres anteriormente principal una vez que vuelva a estar disponible y, a continuación, eliminarlo. Para crear otra conmutación por error, puede agregar un nuevo espacio de nombres secundario al emparejamiento. Si desea reutilizar el espacio de nombres principal anterior después de una conmutación por error, primero debe quitar todas las entidades existentes del espacio de nombres. Asegúrese de que recibe todos los mensajes de recepción antes de hacerlo.
 
 ## <a name="failover-workflow"></a>Flujo de trabajo de la conmutación por error
 

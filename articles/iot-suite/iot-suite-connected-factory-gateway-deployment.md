@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.openlocfilehash: b0e6ae705911d7c18643c77b7fe08fdffffa5eb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 341b3860e103f54d97d325e18fc17f4895f804f0
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada de fábrica conectada
 
@@ -153,6 +153,8 @@ También puede realizar este paso después de instalar docker desde el menú **C
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la arquitectura de la solución preconfigurada de fábrica conectada, consulte el [tutorial de la solución preconfigurada de fábrica conectada][lnk-walkthrough].
+
+Aprenda sobre la [implementación de referencia de OPC Publisher](iot-suite-connected-factory-publisher.md).
 
 [img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
 [img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png

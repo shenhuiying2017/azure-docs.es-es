@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7a886cdb0c36008bdb66592a8d3428889739627e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5feadd851b166d0a9a77bd1d124cdd599d5d701
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -91,6 +91,8 @@ A continuación, se explica cómo los agentes de autenticación se registran en 
 4. Azure AD valida el token de acceso en la solicitud de registro y verifica que la solicitud proviene de un administrador global.
 5. Azure AD después firma y emite un certificado de identidad digital al agente de autenticación.
     - El certificado se firma mediante la **entidad de certificación raíz (CA) de Azure AD**. Tenga en cuenta que esta entidad de certificación _no_ está en el almacén de **entidades de certificación raíz de confianza** de Windows.
+    - Esa entidad de certificación se usa solo con la característica de autenticación de paso a través. Solo se usa para la firmas CSR durante el registro del agente de autenticación.
+    - Esta entidad de certificación no se usa ningún otro servicio en Azure AD.
     - El sujeto del certificado (**nombre distintivo o DN**) se establece en su **Id. de inquilino**. Se trata de un GUID que identifica al inquilino de forma exclusiva. Limita el uso del certificado solo con dicho inquilino.
 6. Azure AD almacena la clave pública del agente de autenticación en una instancia de Azure SQL Database, a la que solo Azure AD tiene acceso.
 7. El certificado (emitido en el paso 5) se almacena en el servidor local en el **almacén de certificados de Windows** (concretamente, en la ubicación **[CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)**) y lo utilizan el agente de autenticación y las aplicaciones del actualizador.
@@ -133,6 +135,7 @@ La autenticación de paso a través administra una solicitud de inicio de sesió
 9. El agente de autenticación busca el valor de la contraseña cifrada específico para su clave pública (con un identificador) y lo descifra con su clave privada.
 10. El agente de autenticación intenta validar el nombre de usuario y la contraseña en el entorno local de Active Directory con **[Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)** (mediante el parámetro **dwLogonType** definido en **LOGON32_LOGON_NETWORK**). 
     - Se trata de la misma API que utilizan los Servicios de federación de Active Directory (AD FS) para que los usuarios inicien sesión en un escenario de inicio de sesión federado.
+    - Esto se basa en el proceso de resolución estándar de Windows Server para buscar el controlador de dominio.
 11. El agente de autenticación recibe el resultado de Active Directory (correcto, nombre de usuario o contraseña incorrectos, contraseña expirada, usuario bloqueado, etc.).
 12. El agente de autenticación reenvía el resultado al servicio STS de Azure AD por un canal HTTPS saliente autenticado mutuamente a través del puerto 443. La autenticación mutua usa el mismo certificado emitido anteriormente al agente de autenticación durante el registro.
 13. STS de Azure AD verifica que este resultado se pone en correlación con la solicitud de inicio de sesión específica del inquilino.

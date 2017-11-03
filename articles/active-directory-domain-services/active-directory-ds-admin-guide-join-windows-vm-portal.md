@@ -12,23 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ce50c678247226b629490a2bd8ba2935ed229f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Windows Server a un dominio administrado
-> [!div class="op_single_selector"]
-> * [Azure Portal - Windows](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-> * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
->
->
-
-<br>
-
 Este artículo muestra cómo implementar una máquina virtual Windows Server mediante Azure Portal. A continuación, muestra cómo unir la máquina virtual a un dominio administrado de Azure AD Domain Services.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Paso 1: Crear la máquina virtual de Windows
@@ -57,7 +49,7 @@ Realice los siguientes pasos de configuración para crear una máquina virtual W
 
     > [!TIP]
     > **Elija la red y subred virtual correctas.**
-    > Seleccione la red virtual en la que está implementado el dominio administrado o una red virtual que esté conectada a ella mediante emparejamiento de redes virtuales. Si selecciona una red virtual diferente, no podrá unir la red virtual al dominio administrado.
+    > Seleccione la red virtual en la que está implementado el dominio administrado o una red virtual que esté conectada a ella mediante emparejamiento de redes virtuales. Si selecciona una red virtual no conectada, no se puede unir la máquina virtual al dominio administrado.
     > Le recomendamos que implemente el dominio administrado en una subred dedicada. Por lo tanto, no seleccione la subred en la que se ha habilitado el dominio administrado.
 
 7. En la página **Compra**, revise la configuración y haga clic en **Aceptar** para implementar la máquina virtual.
@@ -128,7 +120,7 @@ Si aparece el cuadro de diálogo que solicita credenciales para unirse al domini
 Consulte los siguientes pasos si tiene problemas con las credenciales y no puede unirse al dominio.
 
 * Pruebe a usar el formato UPN para especificar las credenciales. El atributo SAMAccountName de su cuenta se puede generar automáticamente si hay varios usuarios con el mismo prefijo UPN en el inquilino o si el prefijo UPN es demasiado largo. Por lo tanto, el formato del atributo SAMAccountName de su cuenta puede que no sea el mismo que espera o que usa en su dominio local.
-* Pruebe a utilizar las credenciales de una cuenta de usuario que pertenezca al grupo 'Administradores de controlador de dominio de AAD' para conectar equipos al dominio administrado.
+* Intente usar las credenciales de una cuenta de usuario que pertenezca al grupo "Administradores de controlador de dominio de AAD".
 * Asegúrese de que ha [habilitado la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) según los pasos que se describen en la Guía de introducción.
 * Asegúrese de que utiliza el UPN del usuario como está configurado en Azure AD (por ejemplo, "bob@domainservicespreview.onmicrosoft.com") para iniciar sesión.
 * Asegúrese de haber esperado suficiente tiempo para que la sincronización de contraseñas se complete, como se especifica en la Guía de introducción.

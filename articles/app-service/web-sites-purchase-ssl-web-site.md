@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
-ms.openlocfilehash: 191dd7240ad15b4936a72bc27a2d0162350f3afb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para el Servicio de aplicaciones de Azure
 
-En este tutorial, protegerá su aplicación web comprando un certificado SSL para su instancia de  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** almacenándolo de forma segura en [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)y asociándolo a un dominio personalizado.
+Este tutorial muestra cómo proteger su aplicación web comprando un certificado SSL para su instancia de  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** almacenándolo de forma segura en [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)y asociándolo a un dominio personalizado.
 
 ## <a name="step-1---log-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
 
@@ -38,7 +38,7 @@ Puede hacer un pedido de certificado SSL creando un [certificado de App Service]
 Escriba un **nombre** descriptivo para su certificado SSL y especifique el **nombre de dominio**.
 
 > [!NOTE]
-> Esta es una de las partes más importantes del proceso de compra. Asegúrese de especificar el nombre de host correcto (dominio personalizado) que desea proteger con este certificado. **NO** anexe el nombre de host con WWW. 
+> Este paso es una de las partes más importantes del proceso de compra. Asegúrese de especificar el nombre de host correcto (dominio personalizado) que desea proteger con este certificado. **NO** anexe el nombre de host con WWW. 
 >
 
 Seleccione la **suscripción**, el **grupo de recursos** y la **SKU de certificado**.
@@ -53,15 +53,15 @@ Seleccione la **suscripción**, el **grupo de recursos** y la **SKU de certifica
 > [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) es un servicio de Azure que ayuda a proteger claves criptográficas y secretos que emplean servicios y aplicaciones en la nube.
 >
 
-Una vez completada la compra del certificado SSL, debe abrir la hoja de recursos [Certificados de App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders).
+Una vez completada la compra del certificado SSL, debe abrir la página [Certificados de App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders).
 
 ![insertar imagen de listo para almacenar en KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-Observará que el estado del certificado es "**Emisión pendiente**", ya que hay algunos pasos más que debe completar antes de poder empezar a usar este certificado.
+El estado del certificado es "**Emisión pendiente**", ya que hay algunos pasos más que debe completar antes de poder empezar a usar este certificado.
 
-Haga clic en "**Configuración del certificado**" dentro de la hoja Propiedades del certificado y haga clic en "**Paso 1: Almacenar**" para almacenar este certificado en Azure Key Vault.
+Haga clic en "**Configuración del certificado**" dentro de la página Propiedades del certificado y haga clic en "**Paso 1: Almacenamiento**" para almacenar este certificado en Azure Key Vault.
 
-En la hoja **Estado de Key Vault**, haga clic en **Repositorio de Key Vault** para elegir un almacén de claves existente para almacenar este certificado. **También puede hacer clic en Crear nuevo almacén de claves** para generar el nuevo almacén de claves dentro de la misma suscripción y del mismo grupo de recursos.
+En la página **Estado de Key Vault**, haga clic en **Repositorio de Key Vault** para elegir un almacén de claves existente para almacenar este certificado. **También puede hacer clic en Crear nuevo almacén de claves** para generar el nuevo almacén de claves dentro de la misma suscripción y del mismo grupo de recursos.
 
 > [!NOTE]
 > Azure Key Vault tiene gastos mínimos por almacenar este certificado.
@@ -75,9 +75,9 @@ Una vez que haya seleccionado el repositorio de Key Vault donde almacenar este c
 ## <a name="step-4---verify-the-domain-ownership"></a>Paso 4: Comprobación de la propiedad del dominio
 
 > [!NOTE]
-> Los tres tipos de comprobación de dominios compatibles con los certificados de App Service son Comprobación de dominio, Comprobación de correo y Comprobación manual. Estos se explican con más detalle en la sección [Avanzado](#advanced).
+> Los tres tipos de comprobación de dominios compatibles con los certificados de App Service son Comprobación de dominio, Comprobación de correo y Comprobación manual. Estos tipos de comprobación se explican con más detalle en la sección [Avanzado](#advanced).
 
-En la hoja **Configuración del certificado** que usó en el paso 3, haga clic en **Paso 2: Comprobación**.
+En la página **Configuración del certificado** que usó en el paso 3, haga clic en **Paso 2: Comprobación**.
 
 **Comprobación de dominio** es el proceso más cómodo, pero **SOLO SI****[adquirió el dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md)**.
 Haga clic en el botón **Comprobar** para completar este paso.
@@ -150,7 +150,7 @@ Si necesita reenviar el correo electrónico de comprobación, haga clic en el bo
 
 1. Creación de un archivo HTML denominado "**starfield.html**"
 
-1. El contenido de este archivo debe ser exactamente el mismo nombre del token de comprobación de dominio (puede copiar el token de la hoja Estado de comprobación de dominio).
+1. El contenido de este archivo debe ser exactamente el mismo nombre del token de comprobación de dominio (puede copiar el token de la página Estado de comprobación de dominio).
 
 1. Cargue este archivo en la raíz del servidor web que hospeda el dominio `/.well-known/pki-validation/starfield.html`.
 
@@ -175,19 +175,27 @@ Después de haber configurado un enlace SSL basado en IP, se asigna una direcci�
 
 ![insertar imagen de SSL de IP](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
-Tenga en cuenta que esta dirección IP será distinta de la dirección IP virtual que ha usado previamente para configurar el registro D de su dominio. Si lo ha configurado para usar una SSL basada en SNI, o bien no lo ha configurado para usar SSL, esta entrada no contendrá ninguna dirección.
+Esta dirección IP será distinta de la dirección IP virtual que ha usado previamente para configurar el registro D de su dominio. Si lo ha configurado para usar una SSL basada en SNI, o bien no lo ha configurado para usar SSL, esta entrada no contendrá ninguna dirección.
 
 Mediante las herramientas proporcionadas por su registrador de nombres de dominio, modifique el registro D de su nombre de dominio personalizado para que apunte a la dirección IP del paso anterior.
 
 ## <a name="rekey-and-sync-the-certificate"></a>Regeneración de la clave del certificado y sincronización de este
 
-Si necesita regenerar la clave del certificado, seleccione la opción **Regenerar clave y sincronizar** en la hoja **Propiedades del certificado**.
+Si necesita regenerar la clave del certificado, seleccione la opción **Regenerar clave y sincronizar** en la página **Propiedades del certificado**.
 
 Haga clic en el botón **Regenerar clave** para iniciar el proceso. Este proceso puede tardar de 1 a 10 minutos en completarse.
 
 ![insertar imagen de SSL de regeneración de claves](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 La regeneración de claves del certificado renovará el certificado con un nuevo certificado emitido desde la entidad de certificación.
+
+<a name="notrenewed"></a>
+## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>¿Por qué mi certificado SSL no se renueva automáticamente?
+
+Si el certificado SSL está configurado para la renovación automática, pero no se renueva automáticamente, puede tener una comprobación del dominio pendiente. Tenga en cuenta lo siguiente: 
+
+- GoDaddy, que genera certificados de App Service, requiere la comprobación del dominio una vez cada tres años. El administrador del dominio recibe un correo electrónico una vez cada tres años para comprobar el dominio. Un error al comprobar el correo electrónico o comprobar el dominio impide que el certificado de App Service se renueve automáticamente. 
+- Todos los certificados de App Service emitidos antes del 31 de marzo de 2017 requieren la comprobación de nuevo del dominio en el momento de la renovación siguiente (incluso si la renovación automática está habilitada para el certificado). Esto es resultado del cambio en la directiva de GoDaddy. Compruebe su correo electrónico y complete esta comprobación de dominio de un solo uso para continuar con la renovación automática del certificado de App Service. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

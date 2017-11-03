@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -108,6 +108,9 @@ Siga estos pasos para publicar la aplicación. Para obtener un tutorial más det
 
   ![Selección de permisos](./media/application-proxy-ping-access/select-permissions.png)
 
+17. Conceda los permisos antes de cerrar la pantalla de permisos. 
+![Concesión de permisos](media/application-proxy-ping-access/grantperms.png)
+
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Recopilación de información para los pasos de PingAccess
 
 1. En la hoja de configuración de la aplicación, seleccione **Propiedades**. 
@@ -132,7 +135,7 @@ Siga estos pasos para publicar la aplicación. Para obtener un tutorial más det
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional: actualice GraphAPI para enviar los campos personalizados
 
-Para obtener una lista de los tokens de seguridad que Azure AD envía para la autenticación, consulte la [referencia de tokens de Azure AD](./develop/active-directory-token-and-claims.md). Si necesita una notificación personalizada que enviar a otros tokens, use GraphAPI para establecer el campo de la aplicación *acceptMappedClaims* en **True**. Puede utilizar el Explorador de Azure AD Graph o MS Graph para hacer esta configuración. 
+Para obtener una lista de los tokens de seguridad que Azure AD envía para la autenticación, consulte la [referencia de tokens de Azure AD](./develop/active-directory-token-and-claims.md). Si necesita una notificación personalizada que enviar a otros tokens, use GraphAPI para establecer el campo de la aplicación *acceptMappedClaims* en **True**. Solo puede utilizar el Explorador de Azure AD Graph para hacer esta configuración. 
 
 En este ejemplo se usa el Explorador de Graph:
 
@@ -143,6 +146,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+
+>[!NOTE]
+>Para usar una notificación personalizada, también debe tener una directiva personalizada definida y asignada a la aplicación.  Esta directiva debe incluir todos los atributos personalizados necesarios.
+>
+>La asignación y definición de directivas se pueden realizar a través de PowerShell, el Explorador de Azure AD Graph o MS Graph.  Si usa PowerShell, primero debe usar `New-AzureADPolicy ` y, a continuación, asignarlo a la aplicación con `Set-AzureADServicePrincipalPolicy`.  Para más información, consulte la [documentación de Azure AD Policy](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+### <a name="optional---use-a-custom-claim"></a>Opcional: uso de una notificación personalizada
+Para que la aplicación use una notificación personalizada e incluya campos adicionales, asegúrese de que también ha [creado una directiva de asignación de notificaciones personalizadas y la ha asignado a la aplicación](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Descarga de PingAccess y configuración de la aplicación
 

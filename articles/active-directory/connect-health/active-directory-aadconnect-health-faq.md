@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 902e5bdfbbf04ab70989be8c41e16eb69e475908
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c32ac27187a88dd13bb747f541968d2e81c5064
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure AD Connect Health
 Este artículo incluye respuestas a preguntas más frecuentes (P+f) sobre Azure Active Directory (Azure AD) Connect Health. Estas preguntas más frecuentes abarcan cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
@@ -57,6 +57,10 @@ Ejemplo:
 | 3 | 51 | 1 servidor de Active Directory Federation Services (AD FS), 1 proxy de AD FS y 1 controlador de dominio |
 | 4 | 76 | 1 servidor de AD FS, 1 proxy de AD FS y 2 controladores de dominio |
 | 5 | 101 | 1 servidor de Azure AD Connect, 1 servidor de AD FS, 1 proxy de AD FS y 2 controladores de dominio |
+
+**P: ¿Se admite Azure AD Connect Health en la nube de Azure Alemania?**
+
+Azure AD Connect Health tiene una [instalación](active-directory-aadconnect-health-agent-install.md) para Azure Alemania. Todos los datos de los clientes de la nube en Alemania se conservan en la nube de Azure Alemania.
 
 
 ## <a name="installation-questions"></a>Preguntas sobre instalación

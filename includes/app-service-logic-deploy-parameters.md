@@ -1,13 +1,10 @@
-Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada Parámetros que contiene todos los valores de los parámetros.
-Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan. 
+Con Azure Resource Manager, puede definir los parámetros de los valores que se usan al implementar la plantilla. La plantilla incluye una sección `parameters` que contiene todos los valores de los parámetros. La plantilla usa cada uno de estos valores de los parámetros para definir los recursos que se desea implementar.
 
-Al definir parámetros, use el campo **allowedValues** para especificar los valores que un usuario puede proporcionar durante la implementación. Use el campo **defaultValue** para asignar un valor al parámetro, si no se proporciona ningún valor durante la implementación.
+> [!NOTE]
+> No defina parámetros para valores que siempre permanezcan igual. Defina parámetros solo para los valores que varíen, en función del proyecto que vaya a implementar o del entorno en el que vaya a realizar la implementación.
 
-Vamos a describir cada parámetro de la plantilla.
+Cuando defina los parámetros:
 
-### <a name="logicappname"></a>logicAppName
-El nombre de la aplicación lógica que se va a crear.
+* Para especificar los valores que un usuario puede proporcionar durante la implementación, use el campo **allowedValues**.
 
-    "logicAppName": {
-        "type": "string"
-    }
+* Para asignar los valores predeterminados a un parámetro cuando no se proporcionan valores durante la implementación, use el campo **defaultValue**. 

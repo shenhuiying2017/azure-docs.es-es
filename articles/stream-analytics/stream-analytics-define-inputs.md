@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Análisis de transmisiones
 La conexión de datos a un trabajo de Stream Analytics es un flujo de eventos procedente de un origen de datos, que se denomina *entrada* del trabajo. Stream Analytics cuenta con integración de primera clase con orígenes de flujo de datos de Azure, como, por ejemplo, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Estos orígenes de entrada pueden proceder de la misma suscripción de Azure que el trabajo de análisis o de otra suscripción.
@@ -37,7 +37,7 @@ Para aprender a crear entradas de datos de referencia, vea [Uso de datos de refe
 
 ## <a name="compression"></a>Compresión
 
-Azure Stream Analytics pronto implementará una característica de compresión en todos los orígenes de entrada del flujo de datos (Event Hubs, IoT Hub y Blob Storage). Esta característica agrega una opción desplegable nueva en la hoja **Nueva entrada** en Azure Portal, lo que le permite elegir, de manera opcional, si comprimir o no el flujo de datos. Los tipos compatibles actualmente son None, GZip y compresión Deflate. 
+Azure Stream Analytics admite la compresión en todos los orígenes de entrada del flujo de datos (Event Hubs, IoT Hub y Blob Storage). Esta característica agrega una opción desplegable nueva en la hoja **Nueva entrada** en Azure Portal, lo que le permite elegir, de manera opcional, si comprimir o no el flujo de datos. Los tipos compatibles actualmente son None, GZip y compresión Deflate. 
 
 La compresión no es compatible en conjunto con la serialización de Avro y no se aplica a los datos de referencia. 
 
@@ -81,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> Si se usa Event Hubs como punto de conexión para las rutas de IoT Hub, puede acceder a los metadatos de IoT Hub mediante la [función GetMetadataPropertyValue](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>Creación de una entrada de flujo de datos desde IoT Hub
 El centro de Iot de Azure es un servicio de introducción de eventos de suscripción-publicación altamente escalable optimizado para escenarios de IoT.

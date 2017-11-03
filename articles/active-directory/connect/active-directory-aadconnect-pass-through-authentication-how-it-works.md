@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9ded5e0199f5ca48e2a00d2afee0e4c13b3a3460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7863e38671349b6424ee08330da8aaa49cb2a70
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticación de paso a través de Azure Active Directory: información técnica detallada
 En el artículo siguiente se presenta una introducción de cómo funciona la autenticación de paso a través de Azure AD.  Si desea información técnica y de seguridad detallada, consulte el artículo [**Análisis a fondo de la seguridad**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
@@ -31,11 +31,11 @@ Cuando un usuario intenta iniciar sesión en una aplicación protegida mediante 
 2. Si el usuario todavía no inicia sesión, se le redirige a la página de inicio de sesión de Azure AD.
 3. El usuario escribe su nombre de usuario y contraseña en la página de inicio de sesión de Azure AD y hace clic en el botón "Iniciar sesión".
 4. Cuando Azure AD recibe la solicitud de inicio de sesión, pone el nombre de usuario y la contraseña (cifrada mediante una clave pública) en una cola.
-5. Un agente de autenticación de paso a través local hace una llamada saliente a la cola y recupera el nombre de usuario y la contraseña cifrada.
+5. Un agente de autenticación local recupera el nombre de usuario y la contraseña cifrada de la cola.
 6. El agente descifra la contraseña con su clave privada.
 7. Después, el agente valida el nombre de usuario y la contraseña en Active Directory mediante las API de Windows (un mecanismo similar al que se usa en Servicios de federación de Active Directory). El nombre de usuario puede ser el nombre de usuario predeterminado local (normalmente, `userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
 8. Luego, el controlador de dominio (DC) de Active Directory local evalúa la solicitud y devuelve la respuesta adecuada (correcto, error, contraseña expirada o bloqueo de usuario) al agente
-9. que, a su vez, la devuelve a Azure AD.
+9. El agente de autenticación, a su vez, devuelve esta respuesta a Azure AD.
 10. Azure AD evalúa la respuesta y responde al usuario según corresponda, por ejemplo, inicia la sesión del usuario de inmediato o solicita la autenticación multifactor (MFA).
 11. Si el inicio de sesión del usuario se realiza correctamente, el usuario puede acceder a la aplicación.
 

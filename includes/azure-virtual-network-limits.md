@@ -39,19 +39,24 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Grupos de seguridad de aplicaciones que se pueden especificar en todas las reglas de seguridad de un grupo de seguridad de red |50 |100 |
 | Tablas de rutas definidas por el usuario |100 |200 |
 | Rutas definidas por el usuario por tabla de ruta |100 |400 |
-| Direcciones IP públicas - dinámicas |(Básico) |60 |póngase en contacto con el soporte técnico |
+| Direcciones IP públicas - dinámicas |(Básico) 60 |póngase en contacto con el soporte técnico |
 | Direcciones IP públicas - estáticas |(Básico) 20 |póngase en contacto con el soporte técnico |
 | Direcciones IP públicas - estáticas |(Estándar) 20 |póngase en contacto con el soporte técnico |
-| Equilibradores de carga (interno y accesibles desde Internet, Básico y Estándar) |100 |1000 |
-| Reglas de Load Balancer (Básico) por equilibrador de carga |150 |250 |
-| Reglas de Load Balancer (Estándar) por equilibrador de carga | 1250 | 1.500|
-| Reglas de Load Balancer (Básico) por configuración IP |250 |250 |
-| Dirección IP de front-end pública por Load Balancer (Básico) |10 |30 |
-| Dirección IP de front-end pública por Load Balancer (Estándar) | 10 | 600 |
-| Dirección IP de front-end privada por Load Balancer (Básico) |10 |póngase en contacto con el soporte técnico |
-| Dirección IP de front-end privada por Load Balancer (Estándar) | 10 | 600 |
 | Certificados raíz de punto a sitio por puerta de enlace de VPN |20 |20 | |
 
+#### <a name="load-balancer"></a>Límites de Load Balancer
+
+| Recurso | Límite predeterminado | Límite máximo |
+| --- | --- | --- |
+| Equilibradores de carga | 100 | 1000 |
+| Reglas por recurso, básico | 150 | 250 |
+| Reglas por recurso, estándar | 1250 | 1.500 |
+| Reglas por configuración de dirección IP | 299 |299 |
+| Configuraciones de direcciones IP de front-end, básico | 10 | póngase en contacto con el soporte técnico |
+| Configuraciones de direcciones IP de front-end, estándar | 10 | 600 |
+| Grupo de back-end, básico | 100, conjunto de disponibilidad único | - |
+| Grupo de back-end, estándar | 1000, red virtual única | póngase en contacto con el soporte técnico |
+| Puertos de alta disponibilidad, estándar | 1 por front-end interno | - |
 
 Si necesita que los límites sean superiores a lo establecido de manera predeterminada, [póngase en contacto con el soporte técnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

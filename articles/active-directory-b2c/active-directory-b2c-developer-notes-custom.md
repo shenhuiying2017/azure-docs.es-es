@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 05/05/2017
+ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fa4665115e0682df7c3fe3d8e2664a0f7a77a07
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de la versión preliminar de la directiva personalizada de Azure Active Directory B2C
 El conjunto de características de la directiva personalizada está disponible para su evaluación en versión preliminar pública para todos los clientes de Azure Active Directory B2C (Azure AD B2C). Este conjunto de características está destinado a desarrolladores de identidades avanzados que crean las soluciones de identidad más complejas.  
@@ -48,18 +48,100 @@ Con las nuevas características introducidas en la versión preliminar pública 
 La configuración manual de directivas concede un acceso de nivel inferior a la plataforma subyacente de Azure AD B2C y da como resultado la creación de un marco de confianza único y totalmente personalizable. Las posibles permutaciones de proveedores de identidades personalizados, las relaciones de confianza, las integraciones con servicios externos y los flujos de trabajo paso a paso exigen más a los desarrolladores avanzados que los utilizan.
 
 Para aprovechar de forma completa la versión preliminar pública, se recomienda que los desarrolladores que utilizan el conjunto de características de directivas personalizadas cumplan las directrices siguientes:
-* Conocer el lenguaje de configuración de Identity Experience Engine y la administración de claves/secretos.
+* Conocer el lenguaje de configuración de Identity Experience Framework y la administración de claves y secretos.
 * Tomar posesión de escenarios e integraciones personalizadas.
 * Realizar pruebas metódicas de los escenarios.
 * Seguir los procedimientos recomendados de desarrollo de software y almacenamiento provisional con un mínimo de un entorno de desarrollo y prueba, y un entorno de producción.
 * Mantenerse informado sobre los nuevos desarrollos de los proveedores de identidad y los servicios con los que está integrado. Por ejemplo, realizar un seguimiento de cambios en los secretos y los cambios programados y no programados en el servicio.
 * Configurar la supervisión activa y supervisar la capacidad de respuesta de los entornos de producción.
-* Mantener actualizadas las direcciones de correo electrónico de contacto y responder a los correos mensajes de correo electrónico del equipo del sitio activo de Microsoft.
+* Mantenga actualizadas las direcciones de correo electrónico de contacto y responda a los correos mensajes de correo electrónico del equipo de Microsoft.
 * Realizar las acciones pertinentes cuando se lo indique el equipo del sitio activo de Microsoft. 
 
+## <a name="features-by-stage-and-known-issues"></a>Características por fase y problemas conocidos
+Las directiva personalizadas y las funcionalidades de Identity Experience Framework están en desarrollo constante y rápido.  Esta tabla es un índice de disponibilidad de características y componentes.
 
->[!NOTE]
->Estas características pueden llegar a incluirse en las directivas integradas de Azure AD, lo que hace que todos los desarrolladores puedan acceder más fácilmente a ellas.
+Publique preguntas en Stack Overflow en [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+
+
+### <a name="identity-providers-tokens-protocols"></a>Proveedores de identidades, Tokens, Protocolos
+Interfaces con aplicaciones y componentes externos
+
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|---------------------------------------------|-------------|---------|----|-------|
+| IDP-OpenIDConnect |  | x |  | por ejemplo, Google+ |
+| IDP-OAUTH2 |  | x |  | por ejemplo, Facebook  |
+| IDP-OAUTH1 |  | x |  | por ejemplo, Twitter |
+| IDP-SAML |  | x |  | por ejemplo, Salesforce, ADFS |
+| IDP-WSFED | x |  |  |  |
+| Usuario de confianza OAUTH |  | x |  |  |
+| Usuario de confianza OIDC |  | x |  |  |
+| Usuario de confianza SAML | x |  |  |  |
+| Usuario de confianza WSFED | x |  |  |  |
+| API de REST con autenticación básica y de certificado |  | x |  | por ejemplo, Azure Functions |
+
+
+### <a name="component-support"></a>Compatibilidad de componentes
+
+
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|-------------------------------------------|-------------|---------|----|-------|
+| Autenticación multifactor de Azure |  | x |  |  |
+| Azure Active Directory como directorio local |  | x |  |  |
+| Subsistema de correo electrónico de Azure para 2FA |  | x |  |  |
+| Compatibilidad con varios lenguajes|  | x |  |  |
+| Complejidad de la contraseña | x |  |  |  |
+
+
+### <a name="content-definition"></a>Definición de contenido
+
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|-----------------------------------------------------------------------------|-------------|---------|----|-------|
+|   Página de error, api.error |  | x |  |  |
+|   Página de selección de IDP, api.idpselections |  | x |  |  |
+|   Selección de IDP para suscribirse, api.idpselections.signup |  | x |  |  |
+|   Ha olvidado la contraseña, api.localaccountpasswordreset |  | x |  |  |
+|   Inicio de sesión en cuenta local, api.localaccountsignin |  | x |  |  |
+|   Registro en cuenta local, api.localaccountsignup |  | x |  |  |
+|   Página de MFA, api.phonefactor |  | x |  |  |
+|   Autoaserción: por ejemplo registro en cuenta social, api.selfasserted |  | x |  |  |
+|   Actualización de perfil de autoaserción, api.selfasserted.profileupdate |  | x |  |  |
+|   Página unificada de registro o inicio de sesión, api.signuporsignin |  | x |  |  |
+
+
+### <a name="app-ief-integration"></a>Integración de aplicaciones IEF
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
+| Parámetro de cadena de consulta id_token_hint | x |  |  |  |
+| Parámetro de cadena de consulta domain_hint |  | x |  | disponible como notificación, puede pasarse al IDP |
+| Parámetro de cadena de consulta login_hint |  | x |  | disponible como notificación, puede pasarse al IDP |
+| Insertar JSON en UserJourney a través de client_assertion | x |  |  | en desuso |
+| Insertar JSON en UserJourney como id_token_hint | x |  |  | enfoque de avance para pasar a JSON |
+
+
+### <a name="session-management"></a>Administración de sesiones
+
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|---------------------------------|-------------|---------|----|-------|
+| Proveedor de sesión SSO |  | x |  |  |
+| Proveedor de sesión de inicio de sesión externa |  | x |  |  |
+| Proveedor de sesión de SSO de SAML |  | x |  |  |
+
+
+### <a name="security"></a>Seguridad
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|---------------------------------------------|-------------|---------|----|-------|
+| Claves de directivas: generar, manual, carga |  | x |  |  |
+| Claves de directivas: RSA/Certificado, secretos |  | x |  |  |
+
+
+### <a name="developer-interface"></a>Interfaz del desarrollador
+| Característica | Desarrollo | Vista previa | GA | Notas |
+|---------------------------------------------|-------------|---------|----|-------|
+| Azure Portal-IEF UX |  | x |  |  |
+| Registros de UserJourney de Application Insights  |  | x |  |  |
+| Registros de eventos de Application Insights |x|  |  |  |
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).

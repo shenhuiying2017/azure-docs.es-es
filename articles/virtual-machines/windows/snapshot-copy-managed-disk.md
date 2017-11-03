@@ -1,8 +1,8 @@
 ---
-title: "Creación de una copia de un disco administrado de Azure para copia de seguridad | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una copia de un disco administrado de Azure que se usará para copias de seguridad o solucionar problemas del disco."
+title: "Creación de una instantánea de un disco duro virtual en Azure | Microsoft Docs"
+description: "Aprenda a crear una copia de una máquina virtual de Azure como copia de seguridad o para solucionar problemas."
 documentationcenter: 
-author: cwatson-cat
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -12,31 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 2/9/2017
-ms.author: cwatson
-ms.openlocfilehash: c19b5156bc23b06de48bc7a6dc786f576f78127d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/09/2017
+ms.author: cynthn
+ms.openlocfilehash: dba70db512d88dfc57107bade0df50d1834eb883
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Creación de una copia de un VHD almacenado como un disco administrado de Azure mediante instantáneas administradas
-Cree una instantánea de un disco administrado para copias de seguridad o cree un disco administrado a partir de la instantánea y conéctelo a una máquina virtual de prueba para fines de solución de problemas. Una instantánea administrada es una copia completa a partir de un momento específico de un disco administrado de VM. Crea una copia de solo lectura del VHD y, de forma predeterminada, se almacena como un Disco administrado estándar. Para más información sobre Managed Disks, consulte [Azure Managed Disks overview](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Introducción a Azure Managed Disks).
+# <a name="create-a-snapshot"></a>Crear una instantánea
 
-Para información sobre los precios, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/). 
+Tome una instantánea de un disco duro virtual de un disco de datos o del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual. Una instantánea es una copia completa de solo lectura de un disco duro virtual. 
 
-## <a name="before-you-begin"></a>Antes de empezar
-Si usa PowerShell, asegúrese de que tiene la versión más reciente del módulo de PowerShell AzureRM.Compute. Ejecute el siguiente comando para instalarla.
-
-```
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Para más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
-
-## <a name="copy-the-vhd-with-a-snapshot"></a>Copia del VHD con una instantánea
-Use Azure Portal o PowerShell para crear una instantánea del disco administrado.
-
-### <a name="use-azure-portal-to-take-a-snapshot"></a>Uso de Azure Portal para crear una instantánea 
+## <a name="use-azure-portal-to-take-a-snapshot"></a>Uso de Azure Portal para crear una instantánea 
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. En la parte superior izquierda, haga clic en **Nuevo** y busque **instantánea**.
@@ -48,22 +36,25 @@ Use Azure Portal o PowerShell para crear una instantánea del disco administrado
 8. Seleccione el **tipo de cuenta** que se usará para almacenar la instantánea. Se recomienda **Standard_LRS**, a menos que necesite almacenarla en un disco de alto rendimiento.
 9. Haga clic en **Crear**.
 
-### <a name="use-powershell-to-take-a-snapshot"></a>Uso de PowerShell para crear una instantánea
-Los pasos siguientes le muestran cómo obtener el disco VHD que se copiará, crear las configuraciones de instantánea y crear una instantánea del disco con el cmdlet New-AzureRmSnapshot<!--Add link to cmdlet when available-->. 
+## <a name="use-powershell-to-take-a-snapshot"></a>Uso de PowerShell para crear una instantánea
+Los pasos siguientes le muestran cómo obtener el disco duro virtual que se copiará, crear las configuraciones de instantánea y crear una instantánea del disco con el cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
+
+Asegúrese de que tiene instalada la versión más reciente del módulo AzureRM.Compute de PowerShell. Ejecute el siguiente comando para realizar la instalación.
+
+```
+Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+```
+Para más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
+
 
 1. Configure algunos parámetros. 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
-$location = 'southeastasia' 
-$dataDiskName = 'ContosoMD_datadisk1' 
-$snapshotName = 'ContosoMD_datadisk1_snapshot1'  
+$location = 'eastus' 
+$dataDiskName = 'myDisk' 
+$snapshotName = 'mySnapshot'  
 ```
-  Reemplace los valores de parámetro:
-  -  "myResourceGroup", con el grupo de recursos de la VM.
-  -  "southeastasia", con la ubicación geográfica en la que desea almacenar la instantánea administrada. <!---How do you look these up? -->
-  -  "ContosoMD_datadisk1", con el nombre del disco VHD que desea copiar.
-  -  "ContosoMD_datadisk1_snapshot1", con el nombre que desea usar para la instantánea nueva.
 
 2. Obtenga el disco VHD que se copiará.
 
@@ -82,4 +73,6 @@ New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGro
 ```
 Si tiene previsto utilizar la instantánea para crear un disco administrado y conectarle una VM que precisa de un alto rendimiento, use el parámetro `-AccountType Premium_LRS` con el comando New-AzureRmSnapshot. El parámetro crea la instantánea para que se almacene como disco administrado Premium. Managed Disks Premium son más costosos que los Estándar. Por lo tanto, asegúrese de que realmente necesita discos Premium antes de usar el parámetro.
 
+## <a name="next-steps"></a>Pasos siguientes
 
+Cree una máquina virtual a partir de una instantánea; para ello, cree primero un disco administrado con la instantánea y conéctelo como disco del sistema operativo. Para más información, consulte el ejemplo [Creación de una máquina virtual a partir de una instantánea](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

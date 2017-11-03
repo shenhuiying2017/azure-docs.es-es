@@ -15,78 +15,134 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 3e54cb45cf002a183a5b0bd9b3082a235cd825f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62d78e067e50183f25af84e547db2e11c0014f5d
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="high-availability-ports-overview-preview"></a>Introducción a los puertos de alta disponibilidad (versión preliminar)
 
-La SKU estándar de Azure Load Balancer introduce los puertos de alta disponibilidad (HA), una funcionalidad para distribuir el tráfico desde todos los puertos y para todos los protocolos admitidos. Durante la configuración de un equilibrador de carga interno, los usuarios pueden configurar una regla de puertos HA que establezca los puertos de front-end y back-end en **0** y el protocolo en **all** y, de esta forma, permitir el flujo de todo el tráfico a través de este equilibrador.
+Azure Load Balancer Standard presenta una nueva capacidad para equilibrar la carga de los flujos TCP y UDP en todos los puertos simultáneamente al usar un equilibrador de carga interno. 
 
 >[!NOTE]
 > La característica de puertos de alta disponibilidad está disponible con Load Balancer estándar y se encuentra actualmente en versión preliminar. Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es necesario registrarse en la versión preliminar de Load Balancer estándar para usar los puertos de alta disponibilidad con recursos de Load Balancer estándar. Siga también las instrucciones para el registro adicional en Load Balancer [estándar (versión preliminar)](https://aka.ms/lbpreview#preview-sign-up).
 
-El algoritmo de equilibrio de carga sigue siendo el mismo y el destino se selecciona en función de las cinco tuplas <Dirección IP de origen, Puerto de origen, Dirección IP de destino, Puerto de destino, Protocolo>. Sin embargo, esta configuración permite que una única regla LB procese todo el tráfico disponible y reduce la complejidad de la configuración, además de los límites impuestos por el número máximo de reglas de equilibrio de carga que se pueden agregar.
+Una regla de puertos de alta disponibilidad es una variante de una regla de equilibrio de carga configurada en una instancia interna de Load Balancer estándar.  Los escenarios se simplifican proporcionando una única regla de Load Balancer para equilibrar la carga de todos los flujos TCP y UDP que llegan a todos los puertos de un frontend interno de Load Balancer estándar. La decisión de equilibrio de carga se toma por cada flujo en función de la tupla de cinco formada por la dirección IP de origen, el puerto de origen, la dirección IP de destino, el puerto de destino y el protocolo.
 
-Uno de los escenarios críticos que permiten los puertos HA es la implementación de alta disponibilidad de las aplicaciones virtuales de red en redes virtuales de Azure. Además, otro escenario común que posibilitan los puertos HA es el equilibrio de carga en un intervalo de puertos. 
+Los puertos de alta disponibilidad permiten escenarios críticos como los de alta disponibilidad y escalado de aplicaciones virtuales de red (NVA) dentro de redes virtuales así como otros escenarios en los que se debe equilibrar la carga de un gran número de puertos. 
 
-## <a name="why-use-high-ha-ports"></a>Por qué usar los puertos HA
+Los puertos de alta disponibilidad se configuran estableciendo los puertos de front-end y back-end en **0** y el protocolo en **Todos**.  El recurso del equilibrador de carga interno equilibra ahora todos los flujos TCP y UDP, independientemente del número de puerto.
 
-Los clientes de Azure dependen en gran medida de las aplicaciones virtuales de red (NVA) para proteger sus cargas de trabajo frente a varios tipos de amenazas de seguridad. Además, las NVA deben ser confiable y tener una alta disponibilidad.  
+## <a name="why-use-ha-ports"></a>¿Por qué usar puertos de alta disponibilidad?
 
-Los puertos HA reducen la complejidad del escenario HA de NVA al eliminar la necesidad de soluciones más complejas, como Zookeeper, y aumentan la confiabilidad gracias a las opciones de conmutación por error más rápida y el escalado horizontal. Ahora, es posible lograr HA de NVA con solo agregar NVA al grupo de back-end del equilibrador de carga interno de Azure, y mediante la posterior configuración de la regla de Load Balancer de puertos HA.
+### <a name="network-virtual-appliances"></a>Aplicaciones virtuales de red
 
-En el ejemplo siguiente se presenta una implementación de red virtual de concentrador y radio, donde los radios fuerzan la tunelización de su tráfico a la red virtual del concentrador y mediante la NVA antes de abandonar el espacio de confianza. Las NVA están detrás de un equilibrador de carga interno con la configuración de puertos HA, así que pueden procesar todo el tráfico y reenviarlo en consecuencia. 
+Puede usar aplicaciones virtuales de red (NVA) para proteger la carga de trabajo de Azure frente a varios tipos de amenazas de seguridad. Cuando se utilizan NVA en estos escenarios, estas deben ser confiables, de alta disponibilidad y con escalabilidad horizontal a petición.
+
+Puede lograr estos objetivos en el escenario simplemente agregando instancias de NVA en el grupo back-end del equilibrador de carga interno de Azure y configurando una regla de equilibrador de carga de puertos de alta disponibilidad.
+
+Los puertos de alta disponibilidad ofrecen varias ventajas para los escenarios de alta disponibilidad de las NVA:
+- conmutación por error rápida para instancias en buen estado con sondeos de estado por instancia
+- mayor rendimiento con escalado horizontal para instancias n-activas
+- escenarios n-activos y activo-pasivo
+- eliminación de la necesidad de soluciones complejas como los nodos de Zookeeper para la supervisión de aplicaciones
+
+En el ejemplo siguiente se presenta una implementación de red virtual de concentrador y radio, donde los radios fuerzan la tunelización de su tráfico a la red virtual del concentrador y mediante la NVA antes de abandonar el espacio de confianza. Las NVA están detrás de una instancia interna de Load Balancer estándar con configuración de puertos de alta disponibilidad.  En consecuencia, se puede procesar y reenviar todo el tráfico. 
 
 ![Ejemplo de puertos HA](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 Figura 1: Red virtual de concentrador y radio con NVA implementada en modo de alta disponibilidad
 
+Si va a usar aplicaciones virtuales de red, confirme con el proveedor respectivo cómo aprovechar mejor los puertos de alta disponibilidad y cuáles son los escenarios admitidos.
+
+### <a name="load-balancing-large-numbers-of-ports"></a>Equilibrado de carga de un gran número de puertos
+
+También puede usar puertos de alta disponibilidad para los escenarios de aplicaciones que requieren el equilibrado de carga de un gran número de puertos. Estos escenarios se pueden simplificar mediante una instancia interna de [Load Balancer estándar](https://aka.ms/lbpreview) con puertos de alta disponibilidad en los que una sola regla de equilibrio de carga reemplaza varias reglas individuales, una para cada puerto.
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-Actualmente, los puertos de alta disponibilidad están disponibles en las regiones siguientes:
-- Este de EE. UU. 2
-- Central EE. UU.:
-- Europa del Norte
-- Centro occidental de EE.UU.
-- Europa occidental
-- Sudeste asiático 
+Los puertos de alta disponibilidad se encuentran en las [mismas regiones que Load Balancer estándar](https://aka.ms/lbpreview#region-availability).  
 
 ## <a name="preview-sign-up"></a>Registro en versión preliminar
 
-Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en la SKU estándar de Load Balancer, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0.
-
-- Registro con PowerShell
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Registro con la CLI de Azure 2.0
-
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
-    ```  
-
+Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en Load Balancer estándar, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0.  Siga estos tres pasos:
 
 >[!NOTE]
 >Para usar esta característica, es necesario registrarse en la versión preliminar de Load Balancer [estándar](https://aka.ms/lbpreview#preview-sign-up) además de para los puertos de alta disponibilidad. El registro de las versiones preliminares de los puertos de alta disponibilidad o Load Balancer estándar puede tardar hasta una hora.
+
+### <a name="sign-up-using-azure-cli-20"></a>Registro con la CLI de Azure 2.0
+
+1. Registre la característica con el proveedor
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
+    ```
+    
+2. La operación anterior puede tardar hasta 10 minutos en completarse.  Puede comprobar el estado de la operación con el siguiente comando:
+
+    ```cli
+    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
+    ```
+    
+    Continúe con el paso 3 si el estado de registro de la característica devuelve "Registered" (Registrado) tal y como se muestra a continuación:
+   
+    ```json
+    {
+       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
+       "name": "Microsoft.Network/AllowILBAllPortsRule",
+       "properties": {
+          "state": "Registered"
+       },
+       "type": "Microsoft.Features/providers/features"
+    }
+    ```
+    
+3. Complete el registro de la versión preliminar volviendo a registrar la suscripción con el proveedor de recursos:
+
+    ```cli
+    az provider register --namespace Microsoft.Network
+    ```
+    
+### <a name="sign-up-using-powershell"></a>Registro con PowerShell
+
+1. Registre la característica con el proveedor
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+    
+2. La operación anterior puede tardar hasta 10 minutos en completarse.  Puede comprobar el estado de la operación con el siguiente comando:
+
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+    Continúe con el paso 3 si el estado de registro de la característica devuelve "Registered" (Registrado) tal y como se muestra a continuación:
+   
+    ```
+    FeatureName          ProviderName      RegistrationState
+    -----------          ------------      -----------------
+    AllowILBAllPortsRule Microsoft.Network Registered
+    ```
+    
+3. Complete el registro de la versión preliminar volviendo a registrar la suscripción con el proveedor de recursos:
+
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+
 
 ## <a name="limitations"></a>Limitaciones
 
 A continuación se indican las configuraciones o excepciones admitidas en puertos HA:
 
-- Una única configuración IP de front-end puede tener una única regla de Load Balancer DSR o no DRS con puertos HA (todos los puertos). No puede tener ambas.
-- Una única configuración IP de interfaz de red solo puede tener una regla de equilibrio de carga DRS con puertos HA. Ninguna otra regla se puede configurar para esta configuración IP.
-- Una única configuración IP de interfaz de red puede tener una o más reglas de equilibrio de carga DRS con puertos HA, siempre y cuando todas sus configuraciones IP de front-end respectivas sean exclusivas.
-- Es posible la coexistencia de dos o más reglas que apunten al mismo grupo de back-end si todas las reglas de equilibrio de carga son puertos HA (solo DSR) o no HA (DSR y no DSR). Esta coexistencia no es posible si hay una combinación de reglas de puertos HA y no HA.
-- El puerto HA en inquilinos habilitados para IPv6 no está disponible.
+- Una única configuración IP de front-end puede tener una única regla de Load Balancer DSR o no DRS con puertos de alta disponibilidad. No puede tener ambas.
+- Una única configuración IP de interfaz de red solo puede tener una regla de equilibrio de carga DRS con puertos de alta disponibilidad. Ninguna otra regla se puede configurar para esta configuración IP.
+- Una única configuración IP de interfaz de red puede tener una o más reglas de equilibrio de carga DRS con puertos de alta disponibilidad, siempre y cuando todas sus configuraciones IP de front-end respectivas sean exclusivas.
+- Es posible la coexistencia de dos o más reglas que apunten al mismo grupo de back-end si todas las reglas de equilibrio de carga son puertos de alta disponibilidad (solo DSR) o no lo son (DSR y no DSR). Esta coexistencia de reglas de equilibrio de carga no es posible si hay una combinación de reglas de puertos de alta disponibilidad y puertos que no son de alta disponibilidad.
+- Los puertos de alta disponibilidad no están disponibles para IPv6.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de puertos de alta disponibilidad para el equilibrador de carga interno](load-balancer-configure-ha-ports.md)
+- [Configuración de puertos de alta disponibilidad para la instancia interna de Load Balancer estándar](load-balancer-configure-ha-ports.md)
+- [Más información acerca de la versión preliminar de Load Balancer estándar](https://aka.ms/lbpreview)
 

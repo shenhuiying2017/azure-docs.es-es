@@ -31,3 +31,5 @@ En la siguiente imagen se muestran los costos en los recursos de Azure que incur
 Haga clic con el botón derecho en un tipo de recurso y seleccione **Cost Entities** (Entidades de costo) para ver las entidades y los servicios que ha consumido el recurso. Los servicios de máquina virtual y de trabajo de DevOps han consumido $486.60 y $435.71 en este ejemplo. El total para ambos es $922.
 
 ![entidades de costo y servicios](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Para visualizar un tutorial de vídeo sobre cómo ver los datos de facturación en la nube, consulte [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/G0pvI3iLH-Y) (Análisis de los datos frente al tiempo de facturación en la nube con Azure Cost Management de Cloudyn).

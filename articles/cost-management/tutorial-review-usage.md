@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="review-usage-and-costs"></a>Revisión del uso y los costos
 
@@ -39,15 +39,17 @@ A continuación se muestra un informe de ejemplo:
 
 ![informe de ejemplo](./media/tutorial-review-usage/actual-cost01.png)
 
-El informe muestra todos los gastos de los últimos 30 días. Para ver solo el gasto de los servicios de Azure, aplique el grupo de servicio y, a continuación, filtre por todos los servicios de Azure. La imagen siguiente muestra los servicios filtrados.
+El informe muestra todos los gastos de los últimos 30 días. Para ver solo el gasto de los servicios de Azure, aplique el grupo de servicio y, a continuación, filtre por todos los servicios de Azure. En la siguiente imagen se muestran los servicios de filtrado.
 
 ![servicios filtrados](./media/tutorial-review-usage/actual-cost02.png)
 
-En el ejemplo anterior, se gastó menos dinero a partir del 31/08/2017 que antes. La tendencia de costos se mantiene para los distintos servicios durante unos nueve días. Posteriormente, los gastos adicionales vuelven a ser los de antes. Sin embargo, un exceso de columnas puede ocultar una tendencia obvia. Puede cambiar la vista de informe a un gráfico de línea o área para ver los datos mostrados en otras vistas. La imagen siguiente muestra la tendencia con mayor claridad.
+En el ejemplo anterior, se gastó menos dinero a partir del 31/08/2017 que antes. La tendencia de costos se mantiene para los distintos servicios durante unos nueve días. Posteriormente, los gastos adicionales vuelven a ser los de antes. Sin embargo, un exceso de columnas puede ocultar una tendencia obvia. Puede cambiar la vista de informe a un gráfico de línea o área para ver los datos mostrados en otras vistas. En la siguiente imagen muestra la tendencia con mayor claridad.
 
 ![tendencia en el informe](./media/tutorial-review-usage/actual-cost03.png)
 
 En el ejemplo, se ve claramente la caída de los costos de Azure Storage a partir del 31-08-2017, mientras que los gastos en otros servicios de Azure permanecían estables. Por lo tanto, ¿qué causó esa reducción en los gastos? En este ejemplo, algunos empleados estaban de vacaciones y no usaron el servicio de Storage.
+
+Para ver un tutorial de vídeo sobre el seguimiento de las tendencias de uso y costo, consulte [Analyzing your cloud billing data vs. time with Azure Cost Management by Cloudyn](https://youtu.be/7LsVPHglM0g) (Análisis de los datos frente al tiempo de facturación en la nube con Azure Cost Management de Cloudyn).
 
 ## <a name="detect-usage-inefficiencies"></a>Detectar deficiencias de uso
 
@@ -55,7 +57,7 @@ Los informes de optimizador mejoran la eficacia, optimizan el uso e identifican 
 
 Un problema común que afecta a las organizaciones cuando mueven recursos inicialmente a la nube es su estrategia de virtualización. A menudo usan un enfoque similar al que usan para crear máquinas virtuales para el entorno de virtualización local. Además, supone que los costos se reducen moviendo sus máquinas virtuales locales a la nube, tal cual. Sin embargo, es improbable que este enfoque reduzca los costos.
 
-El problema es que ya se ha pagado su infraestructura existente. Los usuarios podían crear y mantener máquinas virtuales muy grandes en ejecución: inactivas o no, y con muy pocas consecuencias. Mover máquinas virtuales muy grandes o inactivas a la nube es probable que *aumente* los costos. La asignación de costos para recursos es muy importante al formalizar acuerdos con proveedores de servicios de nube. Deberá pagar por aquello con lo que se comprometa, independientemente de si usa el recurso completamente.
+El problema es que ya se ha pagado su infraestructura existente. Los usuarios pueden crear y mantener máquinas virtuales muy grandes en ejecución: inactivas o no, y con muy pocas consecuencias. Mover máquinas virtuales grandes o inactivas a la nube es probable que *aumente* los costos. La asignación de costos para recursos es importante al formalizar acuerdos con proveedores de servicios en la nube. Deberá pagar por aquello con lo que se comprometa, independientemente de si usa el recurso completamente.
 
 El informe de recomendaciones de tamaño rentables identifica posibles ahorros anuales comparando la capacidad de tipo de instancia de máquina virtual con los datos de uso de memoria y CPU históricos correspondientes.  
 
@@ -67,9 +69,11 @@ En este ejemplo, se pudieron ahorrar 3114 USD siguiendo las recomendaciones para
 
 ![detalles de recomendación](./media/tutorial-review-usage/sizing02.png)
 
-Haga clic en el signo más junto a **List of Candidates (Lista de candidatos)** para ver los identificadores de instancia de máquina virtual.
+Para ver los identificadores de instancia de máquina virtual, haga clic en el símbolo más junto a **Lista de candidatos**.
 
 ![Lista de candidatos](./media/tutorial-review-usage/sizing03.png)
+
+Para ver un tutorial de vídeo sobre cómo detectar deficiencias de uso, consulte [Optimizing VM Size in Azure Cost Management by Cloudyn](https://youtu.be/1xaZBNmV704) (Optimización del tamaño de máquina virtual en Azure Cost Management de Cloudyn).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Crear alertas de gastos inusuales
 

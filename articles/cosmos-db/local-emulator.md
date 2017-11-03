@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: 1e23fa988952f2515d82d4d043c390c263959ccc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6124a8fa630424558c0812edbf12d5ad25d6bf6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local
 
@@ -44,12 +44,13 @@ En este artículo se tratan las tareas siguientes:
 
 > [!div class="checklist"]
 > * Instalación del Emulador
-> * Ejecución del Emulador en Docker para Windows
 > * Autenticación de solicitudes
 > * Uso del Explorador de datos en el Emulador
 > * Exportación de certificados SSL
 > * Llamada al Emulador desde la línea de comandos
+> * Ejecución del Emulador en Docker para Windows
 > * Recopilación de archivos de seguimiento
+> * Solución de problemas
 
 Antes que nada, se recomienda ver el siguiente vídeo, donde Kirill Gavrylyuk describe las funciones básicas del Emulador de Azure Cosmos DB. Tenga en cuenta que en el vídeo se hace referencia al emulador como el "Emulador de DocumentDB", pero después de que se grabara el vídeo se ha cambiado el nombre de la herramienta a "Emulador de Azure Cosmos DB". Toda la información contenida en el vídeo sigue siendo correcta para el Emulador de Azure Cosmos DB. 
 
@@ -65,6 +66,16 @@ Aunque se crea una emulación local de alta fidelidad del propio servicio Azure 
 > [!NOTE]
 > En este momento, el Explorador de datos del emulador solo admite la creación de colecciones de API de DocumentDB y colecciones de MongoDB. El Explorador de datos del emulador no admite actualmente la creación de tablas y gráficos. 
 
+## <a name="differences-between-the-emulator-and-the-service"></a>Diferencias entre el emulador y el servicio 
+Dado que el Emulador de Azure Cosmos DB proporciona un entorno emulado que se ejecuta en una estación de trabajo de desarrollador local, hay algunas diferencias de funcionalidad entre el emulador y una cuenta de Azure Cosmos DB en la nube:
+
+* El Emulador de Azure Cosmos DB es compatible con una sola cuenta fija y una clave maestra ya conocida.  La regeneración de claves no es posible en el Emulador de Azure Cosmos DB.
+* El Emulador de Azure Cosmos DB no es un servicio escalable y no será compatible con un gran número de colecciones.
+* El Emulador de Azure Cosmos DB no simula diferentes [niveles de coherencia de Azure Cosmos DB](consistency-levels.md).
+* El Emulador de Azure Cosmos DB no simula [la replicación en varias regiones](distribute-data-globally.md).
+* El Emulador de Azure Cosmos DB no es compatible con las invalidaciones de cuotas de servicio que están disponibles en el servicio Azure Cosmos DB (por ejemplo, los límites de tamaño del documento, el mayor almacenamiento de colección con particiones).
+* Como la copia del Emulador de Azure Cosmos DB puede no contener los cambios más recientes del servicio Azure Cosmos DB, inicie el [planeador de capacidad de Azure Cosmos DB](https://www.documentdb.com/capacityplanner) para calcular con precisión las necesidades de rendimiento de producción (RU) de la aplicación.
+
 ## <a name="system-requirements"></a>Requisitos del sistema
 El Emulador de Azure Cosmos DB presenta los siguientes requisitos de hardware y software:
 
@@ -75,52 +86,12 @@ El Emulador de Azure Cosmos DB presenta los siguientes requisitos de hardware y 
   * 10 GB de espacio disponible en disco duro
 
 ## <a name="installation"></a>Instalación
-Puede descargar e instalar el Emulador de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://aka.ms/cosmosdb-emulator). 
+Puede descargar e instalar el emulador de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://aka.ms/cosmosdb-emulator) o puede ejecutarlo en Docker para Windows. Para más instrucciones sobre cómo utilizar el emulador en Docker para Windows, consulte [Ejecución en Docker para Windows](#running-on-docer). 
 
 > [!NOTE]
 > Para instalar, configurar y ejecutar el Emulador de Azure Cosmos DB, debe tener privilegios administrativos en el equipo.
 
-## <a name="running-on-docker-for-windows"></a>Ejecución en Docker para Windows
-
-El Emulador de Azure Cosmos DB se puede ejecutar en Docker para Windows. El emulador no funciona en Docker para Oracle Linux.
-
-Una vez que tenga instalado [Docker para Windows](https://www.docker.com/docker-windows) y haya cambiado a contenedores de Windows, puede extraer la imagen del emulador de Docker Hub ejecutando el siguiente comando desde su shell favorito (cmd.exe, PowerShell, etc.).
-
-```      
-docker pull microsoft/azure-cosmosdb-emulator 
-```
-Para iniciar la imagen, ejecute los siguientes comandos.
-
-``` 
-md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
-```
-
-La respuesta será similar a la siguiente:
-
-```
-Starting Emulator
-Emulator Endpoint: https://172.20.229.193:8081/
-Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
-Exporting SSL Certificate
-You can import the SSL certificate from an administrator command prompt on the host by running:
-cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
-powershell .\importcert.ps1
---------------------------------------------------------------------------------------------------
-Starting interactive shell
-``` 
-
-Si cierra el shell interactivo una vez iniciado el emulador, se cerrará el contenedor de este.
-
-Use el punto de conexión y la clave maestra de la respuesta en el cliente e importe el certificado SSL en el host. Para importar el certificado SSL, haga lo siguiente desde un símbolo del sistema de administración:
-
-```
-cd %LOCALAPPDATA%\CosmosDBEmulatorCert
-powershell .\importcert.ps1
-```
-
-
-## <a name="start-the-emulator"></a>Iniciar el emulador
+## <a name="running-on-windows"></a>Ejecución en Windows
 
 Para iniciar el Emulador de Azure Cosmos DB, seleccione el botón Inicio o presione la tecla Windows. Comience a escribir **Emulador de Azure Cosmos DB** y seleccione el emulador de la lista de aplicaciones. 
 
@@ -158,7 +129,7 @@ Al igual que con Azure Cosmos DB en la nube, se deben autenticar todas las solic
 
 Además, lo mismo que el servicio Azure Cosmos DB, el Emulador de Azure Cosmos DB solo admite la comunicación segura a través de SSL.
 
-## <a name="running-the-emulator-on-a-local-network"></a>Ejecución del emulador en una red local
+## <a name="running-on-a-local-network"></a>Ejecución en una red local
 
 Puede ejecutar el emulador en una red local. Para habilitar el acceso de red, especifique la opción /AllowNetworkAccess en la [línea de comandos](#command-line-syntax), que también requiere que especifique /Key=key_string o /KeyFile=file_name. Puede usar /GenKeyFile=file_name para generar un archivo con una clave aleatoria por adelantado.  Después, puede pasar /KeyFile=file_name o /Key=contents_of_file.
 
@@ -327,16 +298,6 @@ Para ver la lista de opciones, escriba `CosmosDB.Emulator.exe /?` en el símbolo
 </tr>
 </table>
 
-## <a name="differences-between-the-azure-cosmos-db-emulator-and-azure-cosmos-db"></a>Diferencias entre el Emulador de Azure Cosmos DB y Azure Cosmos DB 
-Dado que el Emulador de Azure Cosmos DB proporciona un entorno emulado que se ejecuta en una estación de trabajo de desarrollador local, hay algunas diferencias de funcionalidad entre el emulador y una cuenta de Azure Cosmos DB en la nube:
-
-* El Emulador de Azure Cosmos DB es compatible con una sola cuenta fija y una clave maestra ya conocida.  La regeneración de claves no es posible en el Emulador de Azure Cosmos DB.
-* El Emulador de Azure Cosmos DB no es un servicio escalable y no será compatible con un gran número de colecciones.
-* El Emulador de Azure Cosmos DB no simula diferentes [niveles de coherencia de Azure Cosmos DB](consistency-levels.md).
-* El Emulador de Azure Cosmos DB no simula [la replicación en varias regiones](distribute-data-globally.md).
-* El Emulador de Azure Cosmos DB no es compatible con las invalidaciones de cuotas de servicio que están disponibles en el servicio Azure Cosmos DB (por ejemplo, los límites de tamaño del documento, el mayor almacenamiento de colección con particiones).
-* Como la copia del Emulador de Azure Cosmos DB puede no contener los cambios más recientes del servicio Azure Cosmos DB, inicie el [planeador de capacidad de Azure Cosmos DB](https://www.documentdb.com/capacityplanner) para calcular con precisión las necesidades de rendimiento de producción (RU) de la aplicación.
-
 ## <a id="set-partitioncount"></a>Cambio del número de colecciones
 
 Con el Emulador de Azure Cosmos DB, puede crear de forma predeterminada hasta 25 colecciones de partición única o una colección con particiones. Al modificar el valor de **PartitionCount**, puede crear hasta 250 colecciones de partición única o 10 colecciones con particiones o cualquier combinación de las dos que no superen las 250 particiones de partición única (donde 1 colección con particiones = 25 colecciones de partición única).
@@ -356,6 +317,59 @@ Para cambiar el número de colecciones disponibles en el Emulador de Azure Cosmo
 3. Cierre todas las instancias abiertas; para ello, haga clic con el botón derecho en el icono del **Emulador de Azure Cosmos DB** de la bandeja del sistema y, luego, haga clic en **Salir**. Todas las instancias pueden tardar un minuto en salir.
 4. Instale la versión más reciente del [Emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 5. Para iniciar el emulador con la marca PartitionCount, establezca un valor <= 250. Por ejemplo: `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`.
+
+## <a name="running-on-docker"></a>Ejecución en Docker
+
+El Emulador de Azure Cosmos DB se puede ejecutar en Docker para Windows. El emulador no funciona en Docker para Oracle Linux.
+
+Una vez que haya instalado [Docker para Windows](https://www.docker.com/docker-windows), cambie a contenedores de Windows haciendo clic con el botón derecho en el icono de Docker en la barra de herramientas, y seleccione **Switch to Windows containers** (Cambiar a contenedores de Windows).
+
+A continuación, extraiga la imagen del emulador de Docker Hub ejecutando el siguiente comando desde su shell favorito.
+
+```     
+docker pull microsoft/azure-cosmosdb-emulator 
+```
+Para iniciar la imagen, ejecute los siguientes comandos.
+
+Desde la línea de comandos:
+```cmd 
+md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+```
+
+Desde PowerShell:
+```powershell
+md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+```
+
+La respuesta será similar a la siguiente:
+
+```
+Starting Emulator
+Emulator Endpoint: https://172.20.229.193:8081/
+Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+Exporting SSL Certificate
+You can import the SSL certificate from an administrator command prompt on the host by running:
+cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
+powershell .\importcert.ps1
+--------------------------------------------------------------------------------------------------
+Starting interactive shell
+``` 
+
+Ahora, use el punto de conexión y la clave maestra de la respuesta en el cliente e importe el certificado SSL en el host. Para importar el certificado SSL, haga lo siguiente desde un símbolo del sistema de administración:
+
+```
+cd %LOCALAPPDATA%\CosmosDBEmulatorCert
+powershell .\importcert.ps1
+```
+
+Si cierra el shell interactivo una vez iniciado el emulador, se cerrará el contenedor de este.
+
+Para abrir el Explorador de datos vaya a la siguiente dirección URL en el explorador. El punto de conexión del emulador se proporciona en el mensaje de respuesta mostrado anteriormente.
+
+    https://<emulator endpoint provided in response>/_explorer/index.html
+
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

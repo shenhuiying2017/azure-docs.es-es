@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc9038cf895ddaeb06dd0e4e9852d5ef4a4513a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="service-fabric-hosting-model"></a>Modelo de hospedaje de Service Fabric
 En este artículo se ofrece información general sobre los modelos de hospedaje de aplicaciones que Service Fabric proporciona y, además, se describen las diferencias entre los modelos de **proceso compartido** y **proceso exclusivo**. Se describe el aspecto de una aplicación implementada en un nodo de Service Fabric y la relación entre las réplicas o instancias del servicio y el proceso de host de servicio.
@@ -53,7 +53,7 @@ Como se puede observar, Service Fabric ha colocado la nueva réplica de la parti
 En esta ocasión, Service Fabric ha activado una nueva copia de "MyServicePackage" que inicia una nueva copia de "MyCodePackage", y las réplicas de las dos particiones del servicio **fabric:/App2/ServiceA** (es decir, **P4** & **P5**) se colocan en esta nueva copia "MyCodePackage".
 
 ## <a name="shared-process-model"></a>Modelo de proceso compartido
-Lo que se ha expuesto anteriormente se corresponde con el modelo de hospedaje predeterminado que ofrece Service Fabric, al que se hace referencia como modelo de **proceso compartido**. En este modelo, para una *aplicación* determinada, solo se activa una copia de un *ServicePackage* determinado en un *nodo* (que inicia todas las instancias de *CodePackages* contenidas en él), y todas las réplicas de todos los servicios de un tipo *ServiceType* concreto se colocan en el *CodePackage* que registra dicho tipo *ServiceType*. En otras palabras, todas las réplicas de todos los servicios de un determinado *ServiceType* comparten el mismo proceso.
+Lo que se ha expuesto anteriormente se corresponde con el modelo de hospedaje predeterminado que ofrece Service Fabric, al que se hace referencia como modelo de **proceso compartido**. En este modelo, para una *aplicación* determinada, solo se activa una copia de un *ServicePackage* determinado en un *nodo* (que inicia todas las instancias de *CodePackages* contenidas en él), y todas las réplicas de todos los servicios de un tipo *ServiceType* concreto se colocan en el *CodePackage* que registra dicho tipo *ServiceType*. En otras palabras, todas las réplicas de todos los servicios en un nodo de un determinado *ServiceType* comparten el mismo proceso.
 
 ## <a name="exclusive-process-model"></a>Modelo de proceso exclusivo
 El otro modelo de hospedaje proporcionado por Service Fabric es el modelo de **proceso exclusivo**. En este modelo, en un determinado *nodo*, para colocar cada réplica, Service Fabric activa una nueva copia del *ServicePackage* (que inicia todas las instancias de *CodePackages* que contiene), y la réplica se coloca en el *CodePackage* que ha registrado el tipo *ServiceType* del servicio al que la réplica pertenece. En otras palabras, cada réplica reside en su propio proceso dedicado. 
@@ -96,16 +96,16 @@ Continuando con el ejemplo anterior, se crea otro servicio **fabric:/App1/Servic
 ![Vista del nodo de la aplicación implementada][node-view-four]
 </center>
 
-Como se puede observar, Service Fabric ha activado dos copias de "MyServicePackage" (una para cada réplica de la partición **P6** & **P7**) y ha colocado cada réplica en su copia dedicada de *CodePackage*. Otra cuestión que hay que tener en cuenta es que, cuando se usa el modelo de **proceso exclusivo**, en una *aplicación* determinada, puede haber varias copias de un *ServicePackage* determinado activas en un *nodo*. En el ejemplo anterior, se observa que hay tres copias de "MyServicePackage" activas para **fabric:/App1**. Cada una de estas copias activas de "MyServicePackage" tiene un **ServicePackageAtivationId** asociado a ella que identifica dicha copia en la *aplicación* **fabric:/App1**.
+Como se puede observar, Service Fabric ha activado dos copias de "MyServicePackage" (una para cada réplica de la partición **P6** & **P7**) y ha colocado cada réplica en su copia dedicada de *CodePackage*. Otra cuestión que hay que tener en cuenta es que, cuando se usa el modelo de **proceso exclusivo**, en una *aplicación* determinada, puede haber varias copias de un *ServicePackage* determinado activas en un *nodo*. En el ejemplo anterior, se observa que hay tres copias de "MyServicePackage" activas para **fabric:/App1**. Cada una de estas copias activas de "MyServicePackage" tiene un **ServicePackageActivationId** asociado que identifica dicha copia en la *aplicación* **fabric:/App1**.
 
-Si solo se usa el modelo de **proceso compartido** para una *aplicación*, como **fabric:/App2** en el ejemplo anterior, solo hay una copia activa de *ServicePackage* en un *nodo*, y **ServicePackageAtivationId** en esta activación de *ServicePackage* es una "cadena vacía".
+Si solo se usa el modelo de **proceso compartido** para una *aplicación*, como **fabric:/App2** en el ejemplo anterior, solo hay una copia activa de *ServicePackage* en un *nodo*, y **ServicePackageActivationId** en esta activación de *ServicePackage* es una "cadena vacía".
 
 > [!NOTE]
->- La correspondencia del modelo de hospedaje de **proceso compartido** para **ServicePackageAtivationMode** es igual a **SharedProcess**. Se trata del modelo de hospedaje predeterminado, y no es necesario especificar **ServicePackageAtivationMode** en el momento en que se crea el servicio.
+>- La correspondencia del modelo de hospedaje de **proceso compartido** para **ServicePackageActivationMode** es igual a **SharedProcess**. Se trata del modelo de hospedaje predeterminado, y no es necesario especificar **ServicePackageActivationMode** en el momento en que se crea el servicio.
 >
->- La correspondencia del modelo de hospedaje de **proceso exclusivo** para **ServicePackageAtivationMode** es igual a **ExclusiveProcess** y debe especificarse explícitamente en el momento en que se crea el servicio. 
+>- La correspondencia del modelo de hospedaje de **proceso exclusivo** para **ServicePackageActivationMode** es igual a **ExclusiveProcess** y debe especificarse explícitamente en el momento en que se crea el servicio. 
 >
->- El modelo de hospedaje de un servicio se puede saber consultando la [descripción del servicio][p2] y el valor de **ServicePackageAtivationMode**.
+>- El modelo de hospedaje de un servicio se puede saber consultando la [descripción del servicio][p2] y el valor de **ServicePackageActivationMode**.
 >
 >
 
@@ -121,7 +121,7 @@ A una copia activa de *ServicePackage* en un nodo se le denomina [paquete de ser
 >
 > - Si **ServicePackageActivationId** se omite, su valor predeterminado es "cadena vacía". Si existe un paquete de servicio implementado activado en el modelo de **proceso compartido**, la operación se realizará en él; de lo contrario, se producirá un error en la operación.
 >
-> - No se recomienda consultar una vez ni almacenar **ServicePackageActivationId** en caché, ya que se genera de forma dinámica y puede variar por diversos motivos. Antes de realizar una operación que necesita **ServicePackageActivationId**, primero debe consultar la lista de [paquetes de servicio implementados][p3] de un nodo y luego usar el valor de *ServicePackageActivationId** de los resultados de consulta para realizar la operación original.
+> - No se recomienda consultar una vez ni almacenar **ServicePackageActivationId** en caché, ya que se genera de forma dinámica y puede variar por diversos motivos. Antes de realizar una operación que necesita **ServicePackageActivationId**, primero debe consultar la lista de [paquetes de servicio implementados][p3] de un nodo y luego usar el valor de **ServicePackageActivationId** de los resultados de la consulta para realizar la operación original.
 >
 >
 
@@ -141,7 +141,7 @@ Ambos modelos de hospedaje tienen sus ventajas e inconvenientes, por lo que el u
 ## <a name="exclusive-process-model-and-application-model-considerations"></a>Consideraciones sobre el modelo de proceso exclusivo y el modelo de aplicación
 El modelo recomendado para la aplicación de Service Fabric es mantener un *ServiceType* por *ServicePackage*, y este modelo es conveniente para la mayoría de las aplicaciones. 
 
-Sin embargo, para habilitar escenarios especiales donde puede no resultar práctico tener un *ServiceType* por cada *ServicePackage*, Service Fabric permite tener más de un *ServiceType* por *ServicePackage* (y un *CodePackage* puede registrar más de un *ServiceType*). A continuación se presentan algunos escenarios en que esta configuración puede resultar útil:
+Destinado a determinados casos de uso, Service Fabric también permite más de un *ServiceType* por *ServicePackage* (y un *CodePackage* puede registrar más de un  *ServiceType*). A continuación se presentan algunos escenarios en que esta configuración puede resultar útil:
 
 - Desea optimizar el uso de recursos del sistema operativo generando menos procesos y con una mayor densidad de réplica por proceso.
 - Las réplicas de diferentes instancias de ServiceTypes deben compartir algunos datos comunes, lo que genera un alto coste de inicialización o memoria.

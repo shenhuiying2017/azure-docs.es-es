@@ -13,21 +13,24 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/24/2017
+ms.date: 10/20/2017
 ms.author: denlee
-ms.openlocfilehash: 090a786b77cbe7b228f42f98dcb5f066b6fe62a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Java y Azure Portal
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Utilice Azure Cosmos DB para crear y consultar rápidamente las bases de datos de gráficos, tablas y documentos administradas. 
 
-Este tutorial rápido crea una base de datos de grafos mediante las herramientas de Azure Portal para Azure Cosmos DB. Este tutorial rápido también muestra cómo crear rápidamente una aplicación de consola Java usando una base de datos de grafos mediante el controlador [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) de OSS. Las instrucciones que se indican en este tutorial rápido se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. Con esta guía de inicio rápido se familiarizará con la creación y modificación de los recursos de grafos en la interfaz de usuario o mediante programación, lo que prefiera. 
+Este tutorial rápido crea una base de datos de gráficos simple mediante las herramientas de Azure Portal para Azure Cosmos DB. Este tutorial rápido también muestra cómo crear rápidamente una aplicación de consola Java usando una base de datos de grafos mediante el controlador [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) de OSS. Las instrucciones que se indican en este tutorial rápido se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Java. Con esta guía de inicio rápido se familiarizará con la creación y modificación de los gráficos en la interfaz de usuario o mediante programación, lo que prefiera. 
 
 ## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+Además:
 
 * [Kit de desarrollo de Java (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * En Ubuntu, ejecute `apt-get install default-jdk` para instalar el JDK.
@@ -36,8 +39,6 @@ Este tutorial rápido crea una base de datos de grafos mediante las herramientas
     * En Ubuntu, puede ejecutar `apt-get install maven` para instalar Maven.
 * [Git](https://www.git-scm.com/)
     * En Ubuntu, puede ejecutar `sudo apt-get install git` para instalar Git.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -49,28 +50,35 @@ Para poder crear una base de datos de grafos, debe crear una cuenta de base de d
 
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos de grafos. 
 
-1. En Azure Portal, en el menú de navegación izquierdo, haga clic en **Explorador de datos (versión preliminar)**. 
-2. En la hoja **Explorador de datos (versión preliminar)**, haga clic en **New Graph** (Nuevo grafo) y rellene la página con la información siguiente:
+1. Haga clic en **Explorador de datos** > **Nuevo gráfico**.
 
-    ![Explorador de datos en Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
+    El área **Agregar gráfico** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
+
+    ![Explorador de datos en Azure Portal, página Agregar gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
+
+2. En la página **Agregar gráfico**, especifique la configuración del nuevo gráfico.
 
     Configuración|Valor sugerido|Descripción
     ---|---|---
-    Identificador de base de datos|sample-database|Identificador de la nueva base de datos. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final.
-    Identificador de grafo|sample-graph|Identificador del nuevo grafo. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
-    Capacidad de almacenamiento| 10 GB|Deje el valor predeterminado. Se trata de la capacidad de almacenamiento de la base de datos.
-    Rendimiento|400 RU|Deje el valor predeterminado. Se puede escalar el rendimiento más adelante si quiere reducir la latencia.
+    Identificador de base de datos|sample-database|Escriba *sample-database* como nombre de la nueva base de datos. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final.
+    Identificador de grafo|sample-graph|Escriba *sample-graph* como nombre de la nueva colección. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
+    Capacidad de almacenamiento|Fija (10 GB)|Cambie el valor a **Fija (10 GB)**. Este valor corresponde a la capacidad de almacenamiento de la base de datos.
+    Rendimiento|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.
     Clave de partición|Déjelo en blanco|Para este tutorial rápido, deje en blanco la clave de partición.
 
 3. Una vez que haya rellenado el formulario, haga clic en **Aceptar**.
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar una aplicación de grafos desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
+Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación de API Graph desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación.  
 
-1. Abra una ventana de terminal de Git, como Git Bash, y `cd` en un directorio de trabajo.  
+1. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a una carpeta para instalar la aplicación de ejemplo.  
 
-2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. 
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -78,7 +86,7 @@ Ahora vamos a clonar una aplicación de grafos desde GitHub, establecer la caden
 
 ## <a name="review-the-code"></a>Revisar el código
 
-Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `Program.java` en la carpeta \src\GetStarted y busque estas líneas de código. 
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se toman del archivo `Program.java` en la carpeta C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
 
 * El elemento `Client` de Gremlin se a partir de la configuración de `src/remote.yaml`.
 
@@ -101,51 +109,71 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `P
     }
     ```
 
-## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
+## <a name="update-your-connection-information"></a>Actualización de la información de conexión
 
-1. Abra el archivo src/remote.yaml. 
+Ahora vuelva a Azure Portal para obtener la información de conexión y cópiela en la aplicación. Esta configuración permitirá que la aplicación se comunique con la base de datos hospedada.
 
-3. Rellene los valores de *hosts*, *nombre de usuario* y *contraseña* en el archivo src/remote.yaml. El resto de los valores no tienen que cambiarse.
+1. En [Azure Portal](http://portal.azure.com/), haga clic en **Claves**. 
 
-    Configuración|Valor sugerido|Descripción
-    ---|---|---
-    Hosts|[***.graphs.azure.com]|Consulte la captura de pantalla que sigue a esta tabla. Este es el valor del identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.<br><br>Este valor también se puede obtener desde la pestaña Claves; para ello, use el valor del identificador URI, quite https://, sustituya documents por graphs y elimine la terminación :443 /.
-    Nombre de usuario|/dbs/sample-database/colls/sample-graph|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos actual y `<coll>` es el nombre de la colección actual.
-    Password|*Su clave maestra principal*|Vea la segunda captura de pantalla que sigue a esta tabla. Este valor es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Copie el valor con el botón Copiar a la derecha del cuadro.
+    Copie la primera parte del valor URI.
 
-    Para obtener el valor de Hosts, copie el valor de **URI de Gremlin** de la página **Introducción**. Si está vacía, consulte las instrucciones en la fila Hosts en la tabla anterior acerca de cómo crear el URI de Gremlin desde la hoja de claves.
-![Copie del valor del URI de Gremlin en la página Introducción en Azure Portal ](./media/create-graph-java/gremlin-uri.png)
+    ![Visualización y copia de una clave de acceso en Azure Portal, página Claves](./media/create-graph-java/keys.png)
+2. Abra el archivo src/remote.yaml y pegue el valor sobre `$name$` en `hosts: [$name$.graphs.azure.com]`.
 
-    Para obtener el valor de la contraseña, copie la **Clave principal** de la página **Claves**: ![Copie la clave principal en la página Claves de Azure Portal](./media/create-graph-java/keys.png)
+    La línea 1 de remote.yaml debe tener un aspecto similar a 
+
+    `hosts: [test-graph.graphs.azure.com]`
+
+3. En Azure Portal, use el botón Copiar para copiar la clave principal y péguela sobre `$masterKey$` en `password: $masterKey$`.
+
+    La línea 4 de remote.yaml debe tener ahora un aspecto similar a 
+
+    `password: 2Ggkr662ifxz2Mg==`
+
+4. Cambio de la línea 3 de remote.yaml de
+
+    `username: /dbs/$database$/colls/$collection$`
+
+    to 
+
+    `username: /dbs/sample-database/colls/sample-graph`
+
+5. Guarde el archivo remote.yaml.
 
 ## <a name="run-the-console-app"></a>Ejecutar la aplicación de consola
 
 1. En la ventana del terminal de git, use `cd` para cambiar a la carpeta azure-cosmos-db-graph-java-getting-started.
 
+    ```git
+    cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
+    ```
+
 2. En la ventana del terminal de git, escriba `mvn package` para instalar los paquetes Java necesarios.
 
-3. En la ventana del terminal de git, ejecute `mvn exec:java -D exec.mainClass=GetStarted.Program` para iniciar la aplicación de Java.
+3. En la ventana del terminal de Git, ejecute `mvn exec:java -D exec.mainClass=GetStarted.Program` para iniciar la aplicación de Java.
 
-En la ventana del terminal se muestran los vértices y los bordes que se agregan al grafo. Una vez que el programa finalice, vuelva a cambiar a Azure Portal en el Explorador de Internet. 
+    En la ventana del terminal se muestran los vértices y los bordes que se agregan al grafo. Una vez que el programa se detenga, vuelva a cambiar a Azure Portal en el Explorador de Internet. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Revise y agregue datos de ejemplo
 
 Ahora puede volver al Explorador de datos y ver los vértices que se agregan al grafo, y agregar puntos de datos adicionales.
 
-1. En el Explorador de datos, expanda el **grafo de ejemplo** de la **base de datos de ejemplo**/, haga clic en **Grafo** y, a continuación, haga clic en **Aplicar filtro**. 
+1. Haga clic en el **Explorador de datos**, expanda **sample-graph**, haga clic en **Gráfico** y luego haga clic en **Aplicar filtro**. 
 
    ![Creación de documentos en el Explorador de datos en Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. En la lista **Resultados**, observe los nuevos usuarios agregados al grafo. Seleccione **ben** y observe que se ha conectado a robin. Puede mover los vértices en el explorador de grafos, acercar y alejar el grafo, y ampliar el tamaño de la superficie del explorador de grafos. 
+2. En la lista **Resultados**, observe los nuevos usuarios agregados al grafo. Seleccione **ben** y observe que se ha conectado a robin. Puede mover los vértices arrastrando y colocando, acercarse y alejarse desplazando la rueda del mouse y ampliar el tamaño del gráfico con la flecha doble. 
 
    ![Nuevos vértices en el grafo del Explorador de datos de Azure Portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Vamos a agregar algunos usuarios nuevos al grafo mediante el Explorador de datos. Haga clic en el botón **Nuevo vértice** para agregar datos al grafo.
+3. Vamos a agregar algunos usuarios nuevos. Haga clic en el botón **Nuevo vértice** para agregar datos al grafo.
 
    ![Creación de documentos en el Explorador de datos en Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. Escriba una etiqueta de *persona* y, a continuación, escriba las claves y los valores siguientes para crear el primer vértice en el grafo. Tenga en cuenta que puede crear propiedades únicas para cada persona en el grafo. Solo se requiere la clave de identificador.
+4. Escriba una etiqueta de *persona*.
+
+5. Haga clic en **Agregar propiedad** para agregar cada una de las siguientes propiedades. Tenga en cuenta que puede crear propiedades únicas para cada persona en el grafo. Solo se requiere la clave de identificador.
 
     key|value|Notas
     ----|----|----
@@ -156,9 +184,13 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
     > [!NOTE]
     > En este tutorial rápido se crea una colección sin particiones. Sin embargo, si crea una colección con particiones especificando una clave de partición durante la creación de la colección, debe incluir la clave de partición como una clave en cada nuevo vértice. 
 
-5. Haga clic en **Aceptar**. Puede que tenga que expandir la pantalla para ver **Aceptar** en la parte inferior de la pantalla.
+6. Haga clic en **Aceptar**. Puede que tenga que expandir la pantalla para ver **Aceptar** en la parte inferior de la pantalla.
 
-6. Haga clic en **Nuevo vértice** de nuevo y agregue otro usuario. Escriba una etiqueta de *persona* y, a continuación, escriba las claves y los valores siguientes:
+7. Haga clic en **Nuevo vértice** de nuevo y agregue otro usuario. 
+
+8. Escriba una etiqueta de *persona*.
+
+9. Haga clic en **Agregar propiedad** para agregar cada una de las siguientes propiedades:
 
     key|value|Notas
     ----|----|----
@@ -166,25 +198,25 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
     gender|hombre| 
     centro educativo|MIT| 
 
-7. Haga clic en **Aceptar**. 
+10. Haga clic en **Aceptar**. 
 
-8. Haga clic en **Aplicar filtro** con el filtro `g.V()` predeterminado. Todos los usuarios se muestran ahora en la lista **Resultados**. Si agrega más datos, puede usar filtros para limitar los resultados. De forma predeterminada, el Explorador de datos usa `g.V()` para recuperar todos los vértices de un grafo, pero puede cambiarlo a una [consulta de grafo](tutorial-query-graph.md), como `g.V().count()`, para devolver un recuento de todos los vértices del grafo en formato JSON.
+11. Haga clic en **Aplicar filtro** con el filtro `g.V()` predeterminado para mostrar todos los valores en el gráfico. Todos los usuarios se muestran ahora en la lista **Resultados**. 
 
-9. Ahora podemos conectar a rakesh y ashley. Asegúrese de que **ashley** está seleccionado en la lista **Resultados** y, a continuación, haga clic en el botón para editar junto a **Destinos** en la parte inferior derecha. Puede que tenga que ampliar la ventana para ver el área **Propiedades**.
+    Si agrega más datos, puede usar filtros para limitar los resultados. De forma predeterminada, el Explorador de datos usa `g.V()` para recuperar todos los vértices en un gráfico. Se puede cambiar a otra [consulta de gráfico](tutorial-query-graph.md), como `g.V().count()`, para devolver un recuento de todos los vértices en el gráfico en formato JSON. Si ha cambiado el filtro, vuelva a cambiar el filtro a `g.V()` y haga clic en **Aplicar filtro** para volver a mostrar todos los resultados.
+
+12. Ahora podemos conectar a rakesh y ashley. Asegúrese de que **ashley** está seleccionado en la lista **Resultados** y, a continuación, haga clic en el botón para editar junto a **Destinos** en la parte inferior derecha. Puede que tenga que ampliar la ventana para ver el área **Propiedades**.
 
    ![Cambio del destino de un vértice en un grafo](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-10. En el cuadro **Destino**, escriba *rakesh*, en el cuadro **Edge label** (Etiqueta de borde), escriba *sabe* y, a continuación, haga clic en la casilla.
+13. En el cuadro **Destino**, escriba *rakesh*, en el cuadro **Edge label** (Etiqueta de borde), escriba *sabe* y, a continuación, haga clic en la casilla.
 
    ![Adicion de una conexión entre ashley y rakesh en el Explorador de datos](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
-11. Ahora seleccione **rakesh** en la lista de resultados y compruebe que ashley y rakesh están conectados. 
+14. Ahora seleccione **rakesh** en la lista de resultados y compruebe que ashley y rakesh están conectados. 
 
    ![Dos vértices conectados en el Explorador de datos](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-    También puede usar el Explorador de datos para crear procedimientos almacenados, UDF y desencadenadores para realizar la lógica de negocios del servidor, así como escalar el rendimiento. El Explorador de datos expone todo el acceso a datos mediante programación integrado que está disponible en las API, pero permite un acceso fácil a los datos de Azure Portal.
-
-
+   Esto completa la parte de la creación de recursos de este tutorial. Puede seguir agregando vértices en el gráfico, modificar los vértices existentes o cambiar las consultas. Ahora vamos a revisar las métricas que proporciona Azure Cosmos DB y, a continuación, limpiaremos los recursos. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Revisar los SLA en Azure Portal
 
@@ -192,10 +224,7 @@ Ahora puede volver al Explorador de datos y ver los vértices que se agregan al 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal: 
-
-1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
-2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

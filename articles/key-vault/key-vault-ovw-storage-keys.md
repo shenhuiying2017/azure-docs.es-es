@@ -8,12 +8,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 09/14/2017
-ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/12/2017
+ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Claves de cuenta de almacenamiento de Azure Key Vault
 
@@ -25,7 +25,7 @@ Para más información general sobre las cuentas de Azure Storage, vea [Acerca d
 
 ## <a name="supporting-interfaces"></a>Interfaces admitidas
 
-La característica de claves de la cuenta de Azure Storage está disponible inicialmente a través de las interfaces de REST, .NET/C# y PowerShell. Para obtener más información, vea [Documentación de Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Encontrará una lista completa y vínculos a nuestras interfaces de programación y scripting en la [Guía del desarrollador de Key Vault](key-vault-developers-guide.md#coding-with-key-vault).
 
 
 ## <a name="what-key-vault-manages"></a>¿Qué administra Key Vault?
@@ -99,15 +99,11 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configuración de permisos de control de acceso basado en roles (RBAC)
 
-Key Vault necesita permisos para *mostrar* y *volver a generar* las claves de una cuenta de almacenamiento. Configure estos permisos mediante los siguientes pasos:
+La identidad de aplicación de Azure Key Vault necesita permisos para *enumerar* y *regenerar* las claves de una cuenta de almacenamiento. Configure estos permisos mediante los siguientes pasos:
 
-- Obtenga ObjectId de Key Vault: 
+- Obtenga ObjectId de la identidad de Azure Key Vault: 
 
     `Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093`
-    
-     o
-     
-    `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
 - Asigne el rol Operador de claves de almacenamiento a la identidad de Azure Key Vault: 
 
@@ -131,14 +127,14 @@ Se proporcionan las siguientes instrucciones para este ejemplo práctico.
 ### <a name="get-a-service-principal"></a>Obtener una entidad de servicio
 
 ```powershell
-Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+$yourKeyVaultServicePrincipalId = (Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093).Id
 ```
 
-El resultado del comando anterior incluirá su entidad de servicio, que llamaremos *yourServicePrincipalId*. 
+El resultado del comando anterior incluirá su entidad de servicio, que llamaremos *yourKeyVaultServicePrincipalId*. 
 
 ### <a name="set-permissions"></a>Establecer permisos
 
-Asegúrese de que tiene los permisos de almacenamiento establecidos en *todo*. Puede obtener yourUserPrincipalId y establecer permisos en el almacén mediante los siguientes comandos.
+Asegúrese de que tiene los permisos de almacenamiento establecidos en *todo*. Puede obtener yourKeyVaultServicePrincipalId y establecer permisos en el almacén mediante los siguientes comandos.
 
 ```powershell
 Get-AzureRmADUser -SearchString "your name"
@@ -146,7 +142,7 @@ Get-AzureRmADUser -SearchString "your name"
 Ahora busque su nombre y obtenga el ObjectId relacionado, que se usará al establecer permisos en el almacén.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Permitir acceso
@@ -154,7 +150,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincip
 El servicio Key Vault debe poder tener acceso a las cuentas de almacenamiento para que se pueda crear una cuenta de almacenamiento administrada y las definiciones de SAS.
 
 ```powershell
-New-AzureRmRoleAssignment -ObjectId yourServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
+New-AzureRmRoleAssignment -ObjectId $yourKeyVaultServicePrincipalId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '/subscriptions/subscriptionId/resourceGroups/yourresgroup1/providers/Microsoft.Storage/storageAccounts/yourtest1'
 ```
 
 ### <a name="create-storage-account"></a>Crear cuenta de almacenamiento

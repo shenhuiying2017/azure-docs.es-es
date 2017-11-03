@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: fb242abfbea79bc8c242a7a89b3d775cf74a0617
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59cd03f6e04e9b096fe740e8a7140e602c0baa58
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Uso de la ventana Azure Cloud Shell
 
@@ -56,10 +56,10 @@ Si sale de una sesión, asegúrese de salir de cada ventana de sesión, ya que c
 
 ## <a name="changing-the-text-size"></a>Cambio del tamaño del texto
 ![](media/using-the-shell-window/text-size.png)
-* Haga clic en el icono de configuración que se encuentra en la esquina superior izquierda de la ventana y, luego, mantenga el puntero sobre la opción "Tamaño de texto" y seleccione el tamaño de texto que prefiera.
+* Haga clic en el icono de configuración que se encuentra en la esquina superior izquierda de la ventana y, luego, mantenga el puntero sobre la opción "Tamaño de texto" y seleccione el tamaño de texto que prefiera. La selección se conservará de una sesión a otra.
 
 ## <a name="exit-command"></a>Comando Exit
-Al ejecutar `exit` se terminará la sesión activa. Este comportamiento se produce de forma predeterminada después de 10 minutos sin interacción.
+Al ejecutar `exit` se terminará la sesión activa. Este comportamiento se produce de forma predeterminada después de 20 minutos sin interacción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

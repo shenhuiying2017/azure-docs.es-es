@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 8c794b8c919fe286c3917927a44d64aa84771f28
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Envío de mensajes X12 en lotes a asociados comerciales
 
@@ -113,6 +113,9 @@ Para poder enviar mensajes a un lote, primero debe crear una aplicación lógica
 7.  Ahora que ha creado una aplicación lógica receptora, guárdela.
 
     ![Guardado de la aplicación lógica](./media/logic-apps-scenario-EDI-send-batch-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > Una partición tiene un límite de 5000 mensajes o 80 MB. Si se cumple alguna de estas condiciones, el lote puede liberarse, incluso cuando no se cumple la condición definida por el usuario.
 
 <a name="sender"></a>
 

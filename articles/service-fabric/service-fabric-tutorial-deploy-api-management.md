@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Implementación de API Management con Service Fabric
 Este tutorial es la segunda parte de una serie. En este tutorial se muestra cómo configurar [Azure API Management](../api-management/api-management-key-concepts.md) con Service Fabric para enrutar el tráfico a un servicio back-end de Service Fabric.  Cuando haya terminado, habrá implementado API Management en una red virtual y configurado una operación de API para enviar tráfico a servicios sin estado de back-end. Para más información sobre escenarios de Azure API Management con Service Fabric, consulte el artículo de [introducción](service-fabric-api-management-overview.md).
@@ -42,11 +42,11 @@ Antes de empezar este tutorial:
 - Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o la [CLI de Azure 2.0](/cli/azure/install-azure-cli).
 - Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure
+- Si implementa un clúster de Windows, configure un entorno de desarrollo de Windows. Instale [Visual Studio 2017](http://www.visualstudio.com) y las cargas de trabajo de **desarrollo Azure**, **desarrollo web y ASP.NET**, y **desarrollo a través de plataformas .NET Core**.  Después, configure un [entorno de desarrollo .NET](service-fabric-get-started.md).
+- Si implementa un clúster Linux, configure un entorno de desarrollo Java en [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Instale la [CLI de Service Fabric](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Inicio de sesión en Azure y selección de la suscripción
-En este tutorial se usa [Azure PowerShell][azure-powershell]. Al iniciar una nueva sesión de PowerShell, inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
- 
-Inicie sesión en la cuenta de Azure y seleccione su suscripción:
+Inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -99,7 +99,7 @@ La API de REST de API Management actualmente es la única manera de configurar u
  2. Marque la casilla **Habilitar API de REST de API Management**.
  3. Anote la **URL de API de Administración**, que se usará más adelante para configurar el back-end de Service Fabric.
  4. Genere un **token de acceso**; para ello, seleccione una fecha de expiración y una clave, y haga clic en el botón **Generar** situado hacia la parte inferior de la página.
- 5. Copie el **token de acceso** y guárdelo.  Usaremos el token de acceso en los siguientes pasos. Tenga en cuenta que es distinto de las claves principal y secundaria.
+ 5. Copie el **token de acceso** y guárdelo.  Usamos el token de acceso en los siguientes pasos. Tenga en cuenta que es distinto de las claves principal y secundaria.
 
 #### <a name="upload-a-service-fabric-client-certificate"></a>Carga de un certificado de cliente de Service Fabric
 
@@ -152,7 +152,7 @@ Cuerpo de la solicitud:
 }
 ```
 
-Este parámetro **url** es el nombre de acceso completo del servicio en el clúster al que se enrutan todas las solicitudes de forma predeterminada si no se especifica ningún nombre de servicio en una directiva de back-end. Puede usar un nombre de servicio falso, como "fabric:/fake/service" si no desea un servicio de reserva.
+Este parámetro **url** es el nombre completo del servicio en el clúster al que se enrutan todas las solicitudes de forma predeterminada si no se especifica ningún nombre de servicio en una directiva de back-end. Puede usar un nombre de servicio falso, como "fabric:/fake/service" si no desea un servicio de reserva.
 
 Para más información sobre cada campo, consulte la [documentación de referencia de la API de back-end](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) de API Management.
 
@@ -193,19 +193,17 @@ print(response.text)
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Implementación de un servicio de back-end de Service Fabric
 
-Ahora que tiene Service Fabric configurado como back-end para API Management, puede crear directivas de back-end para las API que envían tráfico a los servicios de Service Fabric. Pero primero necesita que un servicio que se ejecute en Service Fabric acepte las solicitudes.
+Ahora que tiene Service Fabric configurado como back-end para API Management, puede crear directivas de back-end para las API que envían tráfico a los servicios de Service Fabric. Pero primero necesita que un servicio que se ejecute en Service Fabric acepte las solicitudes.  Si ha creado anteriormente un [clúster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), implemente un servicio .NET Service Fabric.  Si ha creado anteriormente un [clúster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), implemente un servicio Java Service Fabric.
 
-### <a name="create-a-service-fabric-service-with-an-http-endpoint"></a>Creación de un servicio de Service Fabric con un punto de conexión HTTP
+### <a name="deploy-a-net-service-fabric-service"></a>Implementación de un servicio .NET Service Fabric
 
-Para este tutorial, vamos a crear un servicio básico confiable de ASP.NET Core sin estado con la plantilla de proyecto de API web predeterminada. Así se crea un punto de conexión HTTP para el servicio que se expondrá en Azure API Management:
+En este tutorial, vamos a crear un servicio básico confiable de ASP.NET Core sin estado con la plantilla de proyecto de Web API predeterminada. Así se crea un punto de conexión HTTP para el servicio que se expone en Azure API Management:
 
 ```
 /api/values
 ```
 
-Empiece por [configurar el entorno de desarrollo para ASP.NET Core](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core).
-
-Una vez configurado el entorno de desarrollo, inicie Visual Studio como administrador y cree un servicio ASP.NET Core:
+Inicie Visual Studio como administrador y cree un servicio ASP.NET Core:
 
  1. En Visual Studio, seleccione Archivo -> Nuevo proyecto.
  2. En Nube, seleccione la plantilla de aplicación de Service Fabric y asígnele el nombre **"ApiApplication"**.
@@ -231,11 +229,47 @@ Una vez configurado el entorno de desarrollo, inicie Visual Studio como administ
     ["value1", "value2"]`
     ```
 
-    Este es el punto de conexión que deberá exponer a través de API Management en Azure.
+    Este es el punto de conexión que debe exponer a través de API Management en Azure.
 
- 7. Por último, implemente la aplicación en el clúster en Azure. **Con Visual Studio**, haga clic con el botón derecho en el proyecto de la aplicación y seleccione [Publicar](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box). Proporcione el punto de conexión del clúster (por ejemplo, `mycluster.westus.cloudapp.azure.com:19000`) para implementar la aplicación en el clúster de Service Fabric en Azure.
+ 7. Por último, implemente la aplicación en el clúster en Azure. **Con Visual Studio**, haga clic con el botón derecho en el proyecto de la aplicación y seleccione [Publicar](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box). Proporcione el punto de conexión del clúster (por ejemplo, `mycluster.southcentralus.cloudapp.azure.com:19000`) para implementar la aplicación en el clúster de Service Fabric en Azure.
 
 En el clúster de Service Fabric en Azure ahora se ejecutará un servicio sin estado ASP.NET Core denominado `fabric:/ApiApplication/WebApiService`.
+
+### <a name="create-a-java-service-fabric-service"></a>Creación de un servicio Java Service Fabric
+En este tutorial, implementamos un servidor web básico que devuelve mensajes al usuario. Esta aplicación de ejemplo de servidor de eco contiene un punto de conexión HTTP para el servicio que se expone en Azure API Management.
+
+1. Clone los ejemplos de introducción a Java.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. Edite *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Actualice el punto de conexión para que el servicio atienda en el puerto 8081.
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. Guarde *ServiceManifest.xml*; a continuación, compile la aplicación EchoServer1.0.
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. Implemente la aplicación en el clúster.
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   Ahora se ejecutará un servicio sin estado Java denominado `fabric:/EchoServerApplication/EchoServerService` en el clúster Service Fabric en Azure.
+
+5. Abra un explorador y escriba http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage; debería ver "[version 1.0]Hello World !!!" en la pantalla.
+
 
 ## <a name="create-an-api-operation"></a>Creación de una operación de API
 
@@ -253,7 +287,7 @@ Ahora estamos listos crear una operación en API Management que los clientes ext
  
 4. Seleccione **Service Fabric App** en la lista de API y haga clic en **+ Agregar operación** para agregar una operación de API de front-end. Rellene los valores:
     
-    - **URL**: seleccione **GET** y proporcione una ruta de acceso URL para la API. Use "/api/values" en este tutorial.  De forma predeterminada, la ruta de acceso URL que se especifica aquí se envía al servicio de back-end de Service Fabric. Si utiliza aquí la misma ruta de acceso URL que usa el servicio, en este caso, "/api/values", la operación funciona sin más modificaciones. También puede especificar aquí una ruta de acceso URL distinta de la que usa el servicio de back-end de Service Fabric, en cuyo caso también deberá especificar después una ruta de acceso de reescritura en la directiva de la operación.
+    - **URL**: seleccione **GET** y proporcione una ruta de acceso URL para la API. Use "/api/values" en este tutorial.  De forma predeterminada, la ruta de acceso URL que se especifica aquí se envía al servicio de back-end de Service Fabric. Si utiliza aquí la misma ruta de acceso URL que usa el servicio, en este caso, "/api/values", la operación funciona sin más modificaciones. También puede especificar aquí una ruta de acceso URL distinta de la que usa el servicio de back-end de Service Fabric, en cuyo caso también debe especificar después una ruta de acceso de reescritura en la directiva de la operación.
     - **Nombre para mostrar**: proporcione cualquier nombre para la API. Use "Values" en este tutorial.
 
 5. Haga clic en **Guardar**.

@@ -1,6 +1,6 @@
 ---
-title: "Uso del complemento Maven de Azure Web Apps para implementar una aplicación de Spring Boot en contenedor en Azure"
-description: "Aprenda a usar el complemento Maven de Azure Web Apps para implementar una aplicación de Spring Boot en Azure."
+title: "Uso del complemento Maven para Web App for Containers para implementar una aplicación de Spring Boot en contenedor en Azure"
+description: "Aprenda a usar el complemento Maven para Web App for Containers para implementar una aplicación de Spring Boot en Azure."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,21 +14,21 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.openlocfilehash: b2de785746c8598d9d6954487b06018af3cfcc52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0329aa9b88c7542ab3235a104a0652cd217ff872
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Uso del complemento Maven de Azure Web Apps para implementar una aplicación de Spring Boot en contenedor en Azure
+# <a name="how-to-use-the-maven-plugin-for-web-app-for-containers-to-deploy-a-containerized-spring-boot-app-to-azure"></a>Uso del complemento Maven para Web App for Containers para implementar una aplicación de Spring Boot en contenedor en Azure
 
-El [complemento Maven para Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) de [Apache Maven](http://maven.apache.org/) proporciona una perfecta integración de Azure App Service en proyectos de Maven y simplifica el proceso para que los desarrolladores implementen aplicaciones web en Azure App Service.
+El [complemento Maven para Web App for Containers](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) de [Apache Maven](http://maven.apache.org/) proporciona una perfecta integración de Azure App Service en proyectos de Maven y simplifica el proceso para que los desarrolladores implementen aplicaciones web en Azure App Service.
 
-Este artículo muestra cómo utilizar el complemento Maven de Azure Web Apps para implementar una aplicación de Spring Boot de ejemplo en un contenedor de Docker en Azure App Services.
+Este artículo muestra cómo utilizar el complemento Maven para Web App for Containers para implementar una aplicación de Spring Boot de ejemplo en un contenedor de Docker en Web App for Containers.
 
 > [!NOTE]
 >
-> El complemento Maven de Azure Web Apps está disponible actualmente como versión preliminar. Por ahora, solo se admite la publicación FTP, aunque se van a agregar características adicionales en el futuro.
+> El complemento Maven para Web App for Containers está disponible actualmente como versión preliminar. Por ahora, solo se admite la publicación FTP, aunque se van a agregar características adicionales en el futuro.
 >
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -47,7 +47,7 @@ Para poder realizar los pasos de este tutorial, necesitará tener los siguientes
 > Dados los requisitos de virtualización de este tutorial, los pasos que se describen en este artículo no se pueden seguir en una máquina virtual; es preciso usar un equipo físico con características de virtualización habilitadas.
 >
 
-## <a name="clone-the-sample-spring-boot-on-docker-web-app"></a>Clonación de la aplicación de Spring Boot de ejemplo en la aplicación web de Docker
+## <a name="clone-the-sample-spring-boot-application"></a>Clonación de la aplicación de Spring Boot de ejemplo
 
 En esta sección, clone una aplicación de Spring Boot en contenedor y pruébela de forma local.
 
@@ -62,7 +62,7 @@ En esta sección, clone una aplicación de Spring Boot en contenedor y pruébela
    cd /users/robert/SpringBoot
    ```
 
-1. Clone el proyecto de ejemplo [inicial de Spring Boot en Docker] en el directorio que ha creado, por ejemplo:
+1. Clone el proyecto de ejemplo [Spring Boot with Docker] en el directorio que creó, por ejemplo:
    ```shell
    git clone https://github.com/microsoft/gs-spring-boot-docker
    ```
@@ -155,7 +155,7 @@ En esta sección, utilice los valores de la entidad de servicio de Azure para co
    `<client>` | Contiene el valor `appId` de la entidad de servicio.
    `<tenant>` | Contiene el valor `tenant` de la entidad de servicio.
    `<key>` | Contiene el valor `password` de la entidad de servicio.
-   `<environment>` | Define el entorno en la nube de Azure de destino, que es `AZURE` en este ejemplo. (Una lista completa de los entornos está disponible en la documentación del [complemento Maven de Azure Web Apps])
+   `<environment>` | Define el entorno en la nube de Azure de destino, que es `AZURE` en este ejemplo. (Hay disponible una lista completa de los entornos en la documentación del [complemento Maven para Web App for Containers])
 
 1. Guarde y cierre el archivo *settings.xml*.
 
@@ -181,7 +181,7 @@ Si tiene una cuenta de Docker, puede generar la imagen de contenedor de Docker l
       mvn clean package docker:build
       docker push
       ```
-   
+
    * Si tiene el [complemento de Docker para Maven] instalado, puede generar automáticamente la imagen del contenedor en Docker Hub mediante el parámetro `-DpushImage`:
       ```shell
       mvn clean package docker:build -DpushImage
@@ -216,15 +216,15 @@ Abra el archivo `pom.xml` de la aplicación de Spring Boot en un editor de texto
    </plugin>
    ```
 
-Hay varios valores que se pueden modificar en el complemento Maven y hay una descripción detallada de cada uno de estos elementos disponible en la documentación del [complemento Maven de Azure Web Apps]. Dicho esto, hay varios valores que merece la pena destacar en este artículo:
+Hay varios valores que se pueden modificar en el complemento Maven y hay una descripción detallada de cada uno de estos elementos disponible en la documentación del [complemento Maven para Web App for Containers]. Dicho esto, hay varios valores que merece la pena destacar en este artículo:
 
 Elemento | Descripción
 ---|---|---
-`<version>` | Especifica la versión del [complemento Maven de Azure Web Apps]. Debe comprobar la versión que aparece en el [repositorio central de Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) para asegurarse de que está utilizando la versión más reciente.
+`<version>` | Especifica la versión del [complemento Maven para Web App for Containers]. Debe comprobar la versión que aparece en el [repositorio central de Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) para asegurarse de que está utilizando la versión más reciente.
 `<authentication>` | Especifica la información de autenticación de Azure que, en este ejemplo, contiene un elemento `<serverId>` que contiene `azure-auth`; Maven utiliza ese valor para buscar los valores de la entidad de servicio de Azure en el archivo *settings.xml* que se definió en una sección anterior de este artículo.
 `<resourceGroup>` | Especifica el grupo de recursos de destino, que es `maven-plugin` en este ejemplo. Se creará este grupo de recursos durante la implementación si todavía no existe.
 `<appName>` | Especifica el nombre de destino de la aplicación web. En este ejemplo, el nombre de destino es `maven-linux-app-${maven.build.timestamp}`, donde el sufijo `${maven.build.timestamp}` se anexa en este ejemplo para evitar conflictos. (La marca de tiempo es opcional; puede especificar cualquier cadena única para el nombre de la aplicación).
-`<region>` | Especifica la región de destino, que en este ejemplo es `westus`. (Puede encontrar una lista completa en la documentación del [complemento Maven de Azure Web Apps]).
+`<region>` | Especifica la región de destino, que en este ejemplo es `westus`. (Puede encontrar una lista completa en la documentación del [complemento Maven para Web App for Containers]).
 `<appSettings>` | Especifica los valores únicos de Maven que se deben usar durante la implementación de la aplicación web en Azure. En este ejemplo, un elemento `<property>` contiene un par nombre/valor de elementos secundarios que especifican el puerto de la aplicación.
 
 > [!NOTE]
@@ -252,7 +252,7 @@ Maven implementará la aplicación web en Azure; si la aplicación web no existe
 >
 > Si la región que especifique en el elemento `<region>` del archivo *pom.xml* no tiene suficientes servidores disponibles al iniciar la implementación, aparecerá un error parecido al del siguiente ejemplo:
 >
-> ```
+> ```bash
 > [INFO] Start deploying to Web App maven-linux-app-20170804...
 > [INFO] ------------------------------------------------------------------------
 > [INFO] BUILD FAILURE
@@ -303,11 +303,11 @@ The embedded Tomcat server in the sample Spring Boot application is configured t
 
 Para más información acerca de las diferentes tecnologías que se tratan en este artículo, consulte los artículos siguientes:
 
-* [complemento Maven de Azure Web Apps]
+* [complemento Maven para Web App for Containers]
 
 * [Inicio de sesión en Azure desde la CLI de Azure](/azure/xplat-cli-connect)
 
-* [Uso del complemento Maven de Azure Web Apps para implementar una aplicación de Spring Boot en Azure App Service ](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
+* [Aprenda a usar el complemento Maven para Web App for Containers para implementar una aplicación Azure App Service en Linux](../app-service-web-deploy-spring-boot-app-with-maven-plugin.md)
 
 * [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
 
@@ -329,9 +329,9 @@ Para más información acerca de las diferentes tecnologías que se tratan en es
 [Maven]: http://maven.apache.org/
 [ventajas como suscriptor de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[inicial de Spring Boot en Docker]: https://github.com/spring-guides/gs-spring-boot-docker
+[Spring Boot on Docker Getting Started]: https://github.com/spring-guides/gs-spring-boot-docker
 [Spring Framework]: https://spring.io/
-[complemento Maven de Azure Web Apps]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[complemento Maven para Web App for Containers]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

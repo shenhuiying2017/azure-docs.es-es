@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/09/2017
+ms.date: 10/13/2017
 ms.author: genemi
-ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -125,6 +125,9 @@ Si quiere, puede optar por la opción de usar el [control de acceso basado en ro
 ## <a name="limitations"></a>Limitaciones
 
 Para Azure SQL Database, la característica de las reglas de red virtual tiene las siguientes limitaciones:
+
+- En la actualidad, una instancia de Azure Web App en una subred que tenga **puntos de conexión de servicio** activados aún no funciona según lo previsto. Estamos trabajando para habilitar esta funcionalidad.
+    - Hasta que esta característica esté implementada totalmente, se recomienda que pase su instancia de Web App a una subred diferente que no tenga puntos de conexión de servicio activados para SQL.
 
 - En el firewall de su instancia de SQL Database, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda la base de datos SQL.
 
@@ -288,9 +291,6 @@ La característica de puntos de conexión del servicio de Virtual Network de Mic
 
 <!-- ??2
 #### Syntax related articles
-
-- PowerShell cmdlets
-
 - REST API Reference, including JSON
 
 - Azure CLI

@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2017
 ms.author: billmath
-ms.openlocfilehash: 6e526e10ac5e3307aeefcdd22840a3e6a6ec843d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 370f8973b9b8a0cd0c5220a35218efe81bfd07e0
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
 
 Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado y comprender si necesita actualizar a la versión más reciente o no.
-
->[!IMPORTANT]
->A partir de la compilación 1.1.484, Azure AD Connect introdujo un error de regresión que requiere permisos de administrador del sistema para actualizar la base de datos SQL.  Este error sigue estando presente en la última compilación 1.1.614.  Si va a actualizar a esta versión, necesitará permisos de administrador del sistema.  Los permisos de dbo no son suficientes.  Si intenta actualizar Azure AD Connect sin tener permisos de administrador del sistema, se producirá un error en la actualización y Azure AD Connect dejará de funcionar correctamente después.  Microsoft conoce este problema y está trabajando para corregir este problema.
 
 Lista de temas relacionados:
 
@@ -37,12 +34,77 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+
+## <a name="116470"></a>1.1.647.0
+Estado: 19 de octubre de 2017
+
+> [!IMPORTANT]
+> Hay un problema de compatibilidad conocido entre Azure AD Connect versión 1.1.647.0 y el agente Azure AD Connect Health (para la sincronización) versión 3.0.127.0. Este problema impide que al agente de Health envíe datos de estado sobre el servicio de sincronización de Azure AD Connect (incluidos errores de sincronización de objetos y datos de historial de ejecución) a Azure AD Health Service. Antes de actualizar manualmente la implementación de Azure AD Connect a la versión 1.1.647.0, compruebe la versión actual del agente de Azure AD Connect Health que está instalado en el servidor de Azure AD Connect. Para ello puede ir a *Panel de Control → Agregar o quitar programas* y buscar la aplicación del *agente de Microsoft Azure AD Connect Health para la sincronización*. Si su versión es 3.0.127.0, se recomienda que espere a que la próxima versión de Azure AD Connect esté disponible antes de la actualización. Si la versión del agente Health no es 3.0.127.0, no hay problema en continuar con la actualización local manual. Tenga en cuenta que este problema no afecta a la actualización oscilante o a los clientes que realicen una instalación nueva de Azure AD Connect.
+>
+>
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas corregidos
+* Se corrigió un problema con la tarea *Cambiar inicio de sesión de usuario* en el asistente de Azure AD Connect:
+
+  * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **habilitada**, y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Antes de aplicar el cambio, el asistente muestra incorrectamente la solicitud "*Deshabilitar la sincronización de contraseña*". Sin embargo, la sincronización de contraseña sigue estando habilitada después de aplicar el cambio. Con esta corrección, el asistente ya no muestra la solicitud.
+
+  * De forma predeterminada, el asistente no deshabilita la sincronización de contraseña cuando se actualiza el método de inicio de sesión de usuario usando la tarea *Cambiar inicio de sesión de usuario*. Esto sirve para evitar trastornos a los clientes que desean mantener la sincronización de contraseña, aunque vayan a habilitar la autenticación de paso a través o la federación como su método principal de inicio de sesión de usuario.
+  
+  * Si desea deshabilitar la sincronización de contraseña después de actualizar el método de inicio de sesión de usuario, tiene que ejecutar la tarea *Personalizar la configuración de sincronización* en el asistente. Cuando se desplaza a la página *Características opcionales* desactive la opción *Sincronización de contraseña*.
+  
+  * Tenga en cuenta que el mismo problema también se produce si intenta habilitar o deshabilitar un inicio de sesión único de conexión directa. De forma específica cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña habilitada, y el método de inicio de sesión de usuario ya está configurado como *Autenticación de paso a través*. Mediante la tarea *Cambiar inicio de sesión de usuario* puede activar o desactivar la opción *Habilitar el Inicio de sesión único de conexión directa* mientras el método de inicio de sesión de usuario se mantiene configurado como "Autenticación de paso a través". Antes de aplicar el cambio, el asistente muestra incorrectamente la solicitud "*Deshabilitar la sincronización de contraseña*". Sin embargo, la sincronización de contraseña sigue estando habilitada después de aplicar el cambio. Con esta corrección, el asistente ya no muestra la solicitud.
+
+* Se corrigió un problema con la tarea *Cambiar inicio de sesión de usuario* en el asistente de Azure AD Connect:
+
+   * El problema se produce cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña **deshabilitada**, y está intentando establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Cuando se aplica el cambio, el asistente habilita tanto la autenticación de paso a través como la sincronización de contraseña. Con esta corrección, el asistente ya no habilita la sincronización de contraseña.
+
+  * Anteriormente, la sincronización de contraseña era un requisito previo para habilitar la autenticación de paso a través. Al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*, permitiría tanto la autenticación de paso a través como la sincronización de contraseña. Recientemente, la sincronización de contraseña se ha eliminado como un requisito previo. Como parte de Azure AD Connect versión 1.1.557.0, se realizó un cambio en Azure AD Connect para no habilitar la sincronización de contraseña al establecer el método de inicio de sesión de usuario como *Autenticación de paso a través*. Sin embargo, el cambio se aplicó solamente a la instalación de Azure AD Connect. Con esta corrección, el mismo cambio se aplica también a la tarea *Cambiar inicio de sesión de usuario*.
+  
+  * Tenga en cuenta que el mismo problema también se produce si intenta habilitar o deshabilitar un inicio de sesión único de conexión directa. De forma específica cuando tiene una implementación de Azure AD Connect existente con sincronización de contraseña deshabilitada, y el método de inicio de sesión de usuario ya está configurado como *Autenticación de paso a través*. Mediante la tarea *Cambiar inicio de sesión de usuario* puede activar o desactivar la opción *Habilitar el Inicio de sesión único de conexión directa* mientras el método de inicio de sesión de usuario se mantiene configurado como "Autenticación de paso a través". Cuando se aplica el cambio, el asistente habilita la sincronización de contraseña. Con esta corrección, el asistente ya no habilita la sincronización de contraseña. 
+
+* Se corrigió un problema que provocaba el fallo de la actualización de Azure AD Connect con el error "*No se pudo actualizar el componente servicio de sincronización*". Además, ya no se puede iniciar el servicio de sincronización con el error de evento "*No se pudo iniciar este servicio porque la versión de la base de datos es más reciente que la versión de los binarios instalados.*". El problema se produce cuando el administrador que realiza la actualización no tiene privilegios sysadmin para el servidor SQL Server que Azure AD Connect está usando. Con esta corrección, Azure AD Connect solo requiere que el administrador tenga privilegios db_owner en la base de datos de ADSync durante la actualización.
+
+* Corregido un problema con la actualización de Azure AD Connect que afectaba a los clientes que han activado el [Inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). Cuando se actualiza Azure AD Connect, el Inicio de sesión único de conexión directa aparece incorrectamente como deshabilitado en el asistente de Azure AD Connect, aunque la característica permanezca habilitada y totalmente funcional. Con esta solución, la característica ahora aparece correctamente como habilitada en el asistente.
+
+* Se corrigió un problema que provocaba que el asistente de Azure AD Connect mostrase siempre la solicitud "*Configuración del delimitador de origen*" en la página *Listo para configurar*, incluso si no se había realizado ningún cambio relacionado con el delimitador de origen.
+
+* Al realizar la actualización local manual de Azure AD Connect, el cliente debe proporcionar las credenciales de administrador global del correspondiente inquilino de Azure AD. Anteriormente, se podía realizar la actualización incluso si las credenciales de administrador global proporcionadas pertenecían a un inquilino de Azure AD diferente. Aunque la actualización parecía completarse sin problemas, determinadas configuraciones no se almacenaban correctamente tras la actualización. Con este cambio, el asistente no permitirá que la actualización continúe si las credenciales proporcionadas no coinciden con el inquilino de Azure AD.
+
+* Eliminada la lógica redundante que reiniciaba innecesariamente el servicio Azure AD Connect Health al principio de una actualización manual.
+
+
+#### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+* Se ha agregado la lógica para simplificar los pasos necesarios para configurar Azure AD Connect con Microsoft Germany Cloud. Anteriormente, era necesario actualizar ciertas claves de registro específicas en el servidor de Azure AD Connect para que funcionase con Microsoft Germany Cloud, tal como se describe en este artículo. Ahora, Azure AD Connect puede detectar automáticamente si el inquilino está en Microsoft Germany Cloud basándose en las credenciales de administrador global proporcionadas durante la configuración.
+
+### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
+>[!NOTE]
+> Nota: El servicio de sincronización tiene una interfaz WMI que le permite desarrollar su propio programador personalizado. Esta interfaz está ahora en desuso y se eliminará en futuras versiones de Azure AD Connect que se suministren después del 30 de junio de 2018. Los clientes que deseen personalizar la programación de sincronización deben utilizar el programador integrado (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+
+#### <a name="fixed-issues"></a>Problemas corregidos
+* Cuando el asistente de Azure AD Connect crea la cuenta de AD Connector necesaria para sincronizar los cambios de la instancia local de Active Directory, no asigna correctamente a la cuenta el permiso necesario para leer objetos PublicFolder. Este problema afecta a la instalación rápida y a la instalación personalizada. Este cambio corrige el problema.
+
+* Se ha corregido un problema que provocaba que la página de solución de problemas del asistente de Azure AD Connect no se represente correctamente para los administradores que la ejecuten desde Windows Server 2016.
+
+#### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+* Cuando solucione problemas de sincronización de contraseña mediante la página de solución de problemas del asistente de Azure AD Connect, la página de solución de problemas devuelve ahora el estado específico de dominio.
+
+* Anteriormente, si intentaba habilitar la sincronización de hash de contraseña, Azure AD Connect no comprobaba si la cuenta de AD Connector había necesitado permisos para sincronizar hashes de contraseña desde instancias locales de AD. Ahora, el asistente de Azure AD Connect comprobará y le advertirá si la cuenta de AD Connector no tiene permisos suficientes.
+
+### <a name="ad-fs-management"></a>Administración de AD FS
+#### <a name="fixed-issue"></a>Problema corregido
+* Se corrigió un problema relacionado con el uso de la característica [msDS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). Este problema afecta a los clientes que han configurado *Federación con AD FS* como método de inicio de sesión de usuario. Cuando se ejecuta la tarea *Configuración del delimitador de origen* en el asistente, Azure AD Connect pasa a utilizar * ms-DS-ConsistencyGuid como atributo de origen para immutableId. Como parte de este cambio, Azure AD Connect intenta actualizar las reglas de notificación para ImmutableId en AD FS. Sin embargo, este paso fallaba porque Azure AD Connect no tenía las credenciales de administrador necesarias para configurar AD FS. Con esta corrección, Azure AD Connect ahora le pide que escriba las credenciales de administrador para AD FS cuando se ejecuta la tarea *Configuración delimitador de origen*.
+
+
+
 ## <a name="116140"></a>1.1.614.0
 Estado: 05 de septiembre de 2017
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Problemas conocidos
+* Se corrigió un problema que provocaba el fallo de la actualización de Azure AD Connect con el error "*No se pudo actualizar el componente servicio de sincronización*". Además, ya no se puede iniciar el servicio de sincronización con el error de evento "*No se pudo iniciar este servicio porque la versión de la base de datos es más reciente que la versión de los binarios instalados.*". El problema se produce cuando el administrador que realiza la actualización no tiene privilegios sysadmin para el servidor SQL Server que Azure AD Connect está usando. Los permisos de dbo no son suficientes.
+
 * Hay un problema conocido con la actualización de Azure AD Connect que afecta a los clientes que han activado [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md). Después de actualizar Azure AD Connect, la característica aparece como deshabilitada en el asistente, aunque realmente sigue estando habilitada. Se proporcionará una solución a este problema en una versión futura. Los clientes preocupados por este problema de presentación pueden solucionarlo manualmente habilitando la opción Inicio de sesión único de conexión directa en el asistente.
 
 #### <a name="fixed-issues"></a>Problemas corregidos

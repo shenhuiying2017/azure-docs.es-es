@@ -1,6 +1,6 @@
 ---
-title: "Análisis de uso de aplicaciones web con Azure Application Insights | Microsoft Docs"
-description: "Entender a los usuarios y lo qué hacen con su aplicación web."
+title: "Análisis de uso con Azure Application Insights | Microsoft Docs"
+description: "Entienda a los usuarios y lo qué hacen con la aplicación."
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -10,17 +10,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 10/10/2017
 ms.author: bwren
-ms.openlocfilehash: edf15e72c822ea5e045895c6f03477c613c0a6c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6985467658ae8a52d3c963dd1965c0711cac4ca7
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
-# <a name="usage-analysis-for-web-applications-with-application-insights"></a>Análisis de uso de aplicaciones web con Application Insights
+# <a name="usage-analysis-with-application-insights"></a>Análisis de uso con Application Insights
 
-¿Qué características de su aplicación web son más populares? ¿Los usuarios logran sus objetivos con la aplicación? ¿Salen de ella en momentos concretos y vuelven más tarde?  [Azure Application Insights](app-insights-overview.md) lo ayudará a obtener información eficaz sobre cómo los usuarios usan su aplicación web. Cada vez que actualice la aplicación, puede evaluar también si funciona bien para los usuarios. Con este conocimiento, puede tomar decisiones basadas en datos sobre los ciclos de desarrollo siguientes.
+¿Qué características de la aplicación web o móvil son más populares? ¿Los usuarios logran sus objetivos con la aplicación? ¿Salen de ella en momentos concretos y vuelven más tarde?  [Azure Application Insights](app-insights-overview.md) le ayudará a obtener información eficaz sobre el uso de la aplicación por parte de los usuarios. Cada vez que actualice la aplicación, puede evaluar también si funciona bien para los usuarios. Con este conocimiento, puede tomar decisiones basadas en datos sobre los ciclos de desarrollo siguientes.
 
 ## <a name="send-telemetry-from-your-app"></a>Envío de telemetría desde la aplicación
 
@@ -34,8 +34,9 @@ La mejor experiencia se obtiene mediante la instalación de Application Insights
 
     ![Copie el script en el encabezado de la página web maestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
+3. **Código de aplicación móvil:** utilice el SDK de Mobile Center para recopilar eventos de la aplicación y después enviar copias de estos eventos a Application Insights para el análisis; para ello, [siga esta guía](app-insights-mobile-center-quickstart.md).
 
-3. **Obtener telemetría:** ejecute su proyecto en modo de depuración durante unos minutos y luego busque resultados en la hoja de información general en Application Insights.
+4. **Obtener telemetría:** ejecute su proyecto en modo de depuración durante unos minutos y luego busque resultados en la hoja de información general en Application Insights.
 
     Publique su aplicación para supervisar el rendimiento de su aplicación y descubra lo que hacen sus usuarios con ella.
 
@@ -53,7 +54,7 @@ Los informes Usuarios y sesiones filtran los datos por páginas o eventos person
 
 La información de la derecha señala patrones de interés en el conjunto de datos.  
 
-* El informe **Usuarios** indica el número de usuarios únicos que tienen acceso a las páginas dentro de los periodos seleccionados. (Los usuarios se cuentan mediante el uso de cookies. Si alguien accede a su sitio con distintos exploradores o equipos cliente, o borra sus cookies, se contabilizarán de más de una vez.)
+* El informe **Usuarios** indica el número de usuarios únicos que tienen acceso a las páginas dentro de los periodos seleccionados. Para las aplicaciones web, los usuarios se cuentan con cookies. Si alguien accede a su sitio con distintos exploradores o máquinas cliente, o borra las cookies, se contabilizarán más de una vez.
 * El informe **Sesiones** indica el número de sesiones de usuario que acceden al sitio. Una sesión es un periodo de actividad por parte de un usuario, que finaliza con un periodo de inactividad de más de media hora.
 
 [Más información sobre las herramientas Usuarios, Sesiones y Eventos](app-insights-usage-segmentation.md)  
@@ -94,20 +95,20 @@ Los controles de retención de la parte superior permiten definir eventos espec�
 
 ## <a name="custom-business-events"></a>Eventos de negocio personalizados
 
-Para obtener una idea clara de lo que los usuarios hacen con la aplicación web, es útil insertar líneas de código para registrar eventos personalizados. Estos eventos pueden realizar un seguimiento desde acciones del usuario detalladas como hacer clic en botones específicos hasta eventos de negocio más importantes como realizar una compra o ganar una partida. 
+Para obtener una idea clara de lo que los usuarios hacen con la aplicación, es útil insertar líneas de código para registrar los eventos personalizados. Estos eventos pueden realizar un seguimiento desde acciones del usuario detalladas como hacer clic en botones específicos hasta eventos de negocio más importantes como realizar una compra o ganar una partida. 
 
 Aunque, en algunos casos, las vistas de página pueden representar eventos útiles, en general, no es así. Un usuario puede abrir una página de un producto sin necesidad de adquirirlo. 
 
 Con los eventos específicos del negocio, puede realizar un gráfico del progreso de los usuarios en su sitio. Puede averiguar sus preferencias para diferentes opciones y en qué partes salen o tienen dificultades. Con este conocimiento, puedan tomar decisiones fundamentadas en lo que respecta a las prioridades del trabajo pendiente en materia de desarrollo.
 
-Los eventos se pueden registrar en la página web:
+Los eventos se pueden registrar del lado del cliente de la aplicación:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-O bien, en el lado del servidor de la aplicación web:
+O del lado del servidor:
 
 ```C#
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();

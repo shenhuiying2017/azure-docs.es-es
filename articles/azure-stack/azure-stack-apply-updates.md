@@ -9,22 +9,22 @@ editor:
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/20/2017
 ms.author: twooley
-ms.openlocfilehash: 8fbed3c15b385e385e64093331df37363a558185
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00bd606faaffaad30ff6cea3bcf47dc85282f69
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="apply-updates-in-azure-stack"></a>Aplicación de actualizaciones en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
-Para aplicar paquetes de actualizaciones de Microsoft a Azure Stack los operadores de Azure Stack deben hacer clic en el icono Actualización del portal de administración. Debe descargar el paquete de actualización de Microsoft, importar los archivos del paquete en Azure Stack e instalar el paquete de actualización. 
+Para aplicar paquetes de actualización de Microsoft a Azure Stack los operadores de Azure Stack deben hacer clic en el icono Actualización del portal de administración. Debe descargar el paquete de actualización de Microsoft, importar los archivos del paquete en Azure Stack e instalar el paquete de actualización. 
 
 ## <a name="download-the-update-package"></a>Descarga del paquete de actualización
 
@@ -37,6 +37,9 @@ Cuando haya disponible un paquete de actualización de Microsoft para Azure Stac
 ## <a name="import-and-install-updates"></a>Importación e instalación de actualizaciones
 
 El siguiente procedimiento muestra cómo importar e instalar actualizaciones en el portal de administración.
+
+> [!IMPORTANT]
+> Se recomienda firmemente notificar a los usuarios cualquier operación de mantenimiento, así como programar ventanas de mantenimiento normal durante el horario no laborable tanto como sea posible. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
 
 1. En el portal de administración, seleccione **Más servicios**. Luego, en la categoría **Datos y almacenamiento**, seleccione **Cuentas de almacenamiento** (o bien, en el cuadro de filtro, empiece a escribir **storage accounts** y selecciónelo).
 
@@ -73,4 +76,5 @@ El siguiente procedimiento muestra cómo importar e instalar actualizaciones en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md)
 - [Directiva de servicio de Azure Stack](azure-stack-servicing-policy.md)

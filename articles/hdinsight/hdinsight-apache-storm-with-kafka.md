@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/21/2017
+ms.date: 10/12/2017
 ms.author: larryfr
-ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41afdbb019f8533a49db3ebd37ff144186f956
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Uso de Apache Kafka (versión preliminar) con Storm en HDInsight
 
@@ -79,7 +79,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
   > [!WARNING]
   > Para garantizar la disponibilidad de Kafka en HDInsight, el clúster debe contener al menos tres nodos de trabajo. Esta plantilla crea un clúster de Kafka que contiene tres nodos de trabajo.
 
-2. Utilice la guía siguiente para rellenar las entradas de la hoja **Implementación personalizada**:
+2. Utilice la guía siguiente para rellenar las entradas de la sección **Implementación personalizada**:
    
     ![Implementación personalizada de HDInsight](./media/hdinsight-apache-storm-with-kafka/parameters.png)
 
@@ -101,9 +101,9 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 4. Por último, active **Anclar al panel** y seleccione **Adquirir**. Se tarda aproximadamente 20 minutos en crear los clústeres.
 
-Cuando se hayan creado los recursos, se muestra la hoja del grupo de recursos.
+Cuando se hayan creado los recursos, se muestra la sección del grupo de recursos.
 
-![Hoja de grupo de recursos de la red virtual y clústeres](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
+![Sección del grupo de recursos de la red virtual y los clústeres](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > Observe que los nombres de los clústeres de HDInsight son **storm-BASENAME** y **kafka-BASENAME**, donde BASENAME es el nombre que indicó en la plantilla. Estos nombres se utilizarán más adelante al establecer la conexión con los clústeres.
@@ -294,7 +294,7 @@ Para más información sobre las topologías de Flux, vea [https://storm.apache.
   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
   ```
 
-2. Cuando se inicie la topología, abra la interfaz de usuario de Storm. Esta interfaz de usuario web se encuentra en https://storm-BASENAME.azurehdinsight.net/stormui. Reemplace __BASENAME__ por el nombre base que utilizó al crear el clúster. 
+2. Cuando se inicie la topología, abra la interfaz de usuario de Storm. La interfaz de usuario de este sitio web se encuentra en `https://storm-BASENAME.azurehdinsight.net/stormui`. Reemplace __BASENAME__ por el nombre base que utilizó al crear el clúster. 
 
     Cuando se le pida, use el nombre de inicio de sesión de administrador (de forma predeterminada, `admin`) y la contraseña que utilizó al crear el clúster. Verá una página web similar a la siguiente:
 

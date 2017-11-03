@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Reacción ante eventos de Blob Storage (versión preliminar)
 
@@ -20,21 +20,9 @@ Los eventos de Azure Blob Storage permiten a las aplicaciones reaccionar ante la
 
 Los escenarios habituales de los eventos de Blob Storage incluyen el procesamiento de imágenes o de vídeo, la indexación de búsqueda o cualquier flujo de trabajo orientado a archivos.  Cargas de archivos asincrónicas son una excelente elección para los eventos.  Cuando se realizan pocos cambios en el escenario, pero se requiere una respuesta inmediata, la arquitectura basada en eventos puede ser especialmente eficaz.
 
+Actualmente Event Grid se encuentra en versión preliminar y está disponible para cuentas ubicadas en el ***Centro occidental de EE. UU.*** o en el ***Oeste de EE. UU. 2***.  En [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)](storage-blob-event-quickstart.md), puede encontrar un ejemplo.
+
 ![Modelo de Event Grid](./media/storage-blob-event-overview/event-grid-functional-model.png)
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="join-the-preview"></a>Unión a la vista previa
-Los eventos de Blob Storage están disponibles para la vista previa.  Los usuarios pueden solicitar unirse a la versión preliminar mediante el uso de los siguientes comandos en su suscripción:
-```azurecli-interactive
-az provider register --namespace  Microsoft.EventGrid
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-Las suscripciones se agregan al Programa de vista previa a medida que hay capacidad disponible.  El estado de la solicitud puede supervisarse mediante el comando siguiente:
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-Cuando el estado de registro cambia a "Registrado", significa que ha sido admitido al programa de versión preliminar y puede suscribirse a los eventos de Blob Storage de las cuentas que se encuentren en la ubicación ***Centro occidental de EE.UU.*** o ***Oeste de EE.UU. 2***.  En [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)](storage-blob-event-quickstart.md), puede encontrar un ejemplo.
 
 ## <a name="blob-storage-accounts"></a>Cuentas de Blob Storage
 Los eventos de Blob Storage están disponibles en las [cuentas de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (no en las cuentas de almacenamiento de uso general).  Una cuenta de Almacenamiento de blobs es una cuenta de almacenamiento especializado para almacenar los datos no estructurados como blobs (objetos) en Almacenamiento de Azure. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.

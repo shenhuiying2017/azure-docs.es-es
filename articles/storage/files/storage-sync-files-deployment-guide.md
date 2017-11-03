@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9f9ff0674fd4e3f9b0598a982d81681eaa6d1997
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b31b6ae413f72c626e2601ba860aad44ddaa29cd
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-deploy-azure-file-sync-preview"></a>Cómo implementar Azure File Sync (versión preliminar)
 Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -117,6 +117,9 @@ El panel resultante "Agregar punto de conexión del servidor" requiere la siguie
 - **Espacio disponible del volumen**: la cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se coloca en niveles en Azure Files. Observe que con independencia de si la característica de niveles de la nube está habilitada, el recurso compartido de Azure Files siempre tiene una copia completa de los datos del grupo de sincronización.
 
 Haga clic en "Crear" para agregar el punto de conexión de servidor. Los archivos ahora se mantienen sincronizados entre el recurso compartido de Azure Files y el servidor de Windows Server. 
+
+> [!Important]  
+> Puede realizar cambios en cualquier punto de conexión de servidor o la nube del grupo de sincronización y sincronizar los archivos con los demás puntos de conexión del grupo de sincronización. Si realiza algún cambio directamente en el punto de conexión de nube (recurso compartido de archivos de Azure Files), tenga en cuenta que un trabajo de detección de cambios de Azure File Sync deberá detectar primero esos cambios y dicho trabajo solo se inicia una sola vez cada 24 horas en el punto de conexión de nube. Consulte las [preguntas más frecuentes de Azure Files](storage-files-faq.md#afs-change-detection) para obtener más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Add/Remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md) (Adición o eliminación de un punto de conexión de servidor de Azure File Sync)

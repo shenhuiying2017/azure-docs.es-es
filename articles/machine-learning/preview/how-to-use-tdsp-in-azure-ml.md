@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: d47c219dfd1e62351d7113d930b17ac45f64c369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo
 
@@ -28,31 +28,32 @@ En este documento se proporcionan instrucciones acerca de cómo crear proyectos 
 ## <a name="what-is-the-team-data-science-process"></a>¿Qué es el Proceso de ciencia de datos en equipo (TDSP)?
 El Proceso de ciencia de datos en equipo es un proceso de ciencia de datos ágil e iterativo para la ejecución y entrega de soluciones de análisis avanzado. Está diseñado para mejorar la colaboración y la eficacia de los equipos de ciencia de datos en las organizaciones empresariales. Contribuye a estos objetivos con cuatro componentes claves:
 
-   * Una definición de [ciclo de vida de ciencia de datos](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md) estándar.
+   * Una definición de [ciclo de vida de ciencia de datos](../team-data-science-process/lifecycle.md) estándar.
    * Una estructura de proyecto estandarizada, [plantillas de informes y documentación del proyecto](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
-   * Una infraestructura y recursos para la ejecución del proyecto, como infraestructura de cálculo y almacenamiento, y repositorios de código.
+   * Una infraestructura y recursos para la ejecución del proyecto, como una infraestructura de cálculo y almacenamiento y repositorios de código, respectivamente.
    * [Herramientas y utilidades](https://github.com/Azure/Azure-TDSP-Utilities) para las tareas del proyecto de ciencia de datos como:
-      - Control de versiones y revisión del código colaborativos
+      - Control de versiones colaborativo
+      - Revisión de código
       - Exploración y modelado de datos
       - Planeamiento del trabajo
 
-Para obtener una explicación más completa del TDSP, consulte [Introducción al proceso de ciencia de datos en equipo](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/README.md).
+Para obtener una explicación más completa del TDSP, consulte [Introducción al proceso de ciencia de datos en equipo](../team-data-science-process/overview.md).
 
 ## <a name="why-should-you-use-the-tdsp-structure-and-templates"></a>¿Por qué debería utilizar las plantillas y la estructura del TDSP?
-La normalización de la estructura, el ciclo de vida y la documentación de los proyectos de ciencia de datos es fundamental para facilitar una colaboración eficaz entre los equipos de ciencia de datos. La capacidad de crear proyectos de Azure Machine Learning con la plantilla de TDSP proporciona un marco para conseguir un trabajo en equipo coordinado.
+La normalización de la estructura, el ciclo de vida y la documentación de los proyectos de ciencia de datos es fundamental para facilitar una colaboración eficaz entre los equipos de ciencia de datos. Cree proyectos de aprendizaje automático con la plantilla de TDSP para proporcionar un marco así para el trabajo en equipo coordinado.
 
-Previamente se presentó un [repositorio de GitHub para las plantillas y la estructura del proyecto de TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para ayudarle a lograr estos objetivos. Sin embargo, no fue posible hasta ahora crear una instancia de las plantillas y de la estructura de TDSP en una herramienta de ciencia de datos. Ahora ya es posible crear un proyecto de Machine Learning que cree instancias de las plantillas de documentación y estructura de TDSP. 
+Previamente se presentó un [repositorio de GitHub para las plantillas y la estructura del proyecto de TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para ayudarle a lograr estos objetivos. Sin embargo, no fue posible hasta ahora crear una instancia de las plantillas y de la estructura de TDSP en una herramienta de ciencia de datos. Ahora, ya es posible crear un proyecto de aprendizaje automático que cree instancias de las plantillas de documentación y estructura de TDSP. 
 
 ## <a name="things-to-note-before-creating-a-new-project"></a>Cosas a tener en cuenta antes de crear un nuevo proyecto
-Tenga en cuenta lo siguiente *antes* de crear un nuevo proyecto:
+Revise los siguientes elementos *antes* de crear un nuevo proyecto:
 * Revise la [plantilla](https://aka.ms/tdspamlgithubrepo) de Machine Learning de TDSP.
 * El contenido (distinto del que está en la carpeta "docs") no debe superar los 25 MB de tamaño. Consulte la nota que sigue a esta lista.
 * La carpeta sample\_data es solo para archivos de datos pequeños (menos de 5 MB) con los que puede probar el código o iniciar un desarrollo temprano.
 * Almacenar archivos, como Word y PowerPoint, puede aumentar sustancialmente el tamaño de la carpeta "docs". Le recomendamos que busque una Wiki colaborativa, [SharePoint](https://products.office.com/en-us/sharepoint/collaboration) u otro recurso colaborativo para almacenar estos archivos.
-* Para más información sobre cómo manejar archivos de gran tamaño y salidas en Machine Learning, lea [Guardar los cambios y trabajar con archivos de gran tamaño](http://aka.ms/aml-largefiles).
+* Para más información sobre cómo tratar con archivos de gran tamaño y salidas en Machine Learning, lea [Guardar los cambios y trabajar con archivos de gran tamaño](http://aka.ms/aml-largefiles).
 
 > [!NOTE]
-> Asegúrese de que, además del archivo readme.md, todo el contenido relacionado con la documentación (texto, marcas, imágenes y otros archivos de documento) que *no* se utilice durante la ejecución del proyecto resida en la carpeta denominada "docs" (todo en minúsculas). Esta es una carpeta especial que la ejecución de Azure Machine Learning ignora para que su contenido no se copie innecesariamente en el destino de proceso. Los objetos de esta carpeta tampoco cuentan para el tamaño límite de 25 MB del proyecto. La carpeta "documentos", por ejemplo, es el lugar indicado para almacenar los archivos de imagen grandes necesarios en la documentación. Git seguirá controlando estos archivos a través del historial de ejecuciones. 
+> Todo el contenido relacionado con la documentación (texto, marcas, imágenes y otros archivos de documento) que *no* se utilice durante la ejecución del proyecto, a excepción del archivo readme.md, debe residir en la carpeta denominada "docs" (todo en minúsculas). Esta es una carpeta especial que la ejecución de Azure Machine Learning ignora para que su contenido no se copie innecesariamente en el destino de proceso. Los objetos de esta carpeta tampoco cuentan para el tamaño límite de 25 MB del proyecto. La carpeta "documentos", por ejemplo, es el lugar indicado para almacenar los archivos de imagen grandes necesarios en la documentación. Git seguirá controlando estos archivos a través del historial de ejecuciones. 
 
 ## <a name="instantiate-the-tdsp-structure-and-templates-from-the-machine-learning-template-gallery"></a>Creación de instancias de plantillas y de la estructura de TDSP desde la galería de plantillas de Machine Learning
 Para crear un nuevo proyecto con las plantillas de documentación y la estructura del Proceso de ciencia de datos en equipo, complete los siguientes procedimientos.
@@ -80,7 +81,7 @@ Para crear un nuevo proyecto, abra Azure Machine Learning. En **Proyectos** en e
 
 
 ## <a name="examine-the-tdsp-project-structure"></a>Examen de la estructura del proyecto TDSP
-Una vez creado el nuevo proyecto, puede examinar su estructura (consulte el panel izquierdo de la ilustración siguiente). Contiene todos los aspectos de la documentación estandarizada sobre conocimiento del negocio. Estos elementos incluyen las fases del ciclo de vida del Proceso de ciencia de datos en equipo, la ubicación de los datos, las definiciones y la arquitectura de esta plantilla de documentación. 
+Después de crear el nuevo proyecto, puede examinar su estructura (consulte el panel izquierdo de la ilustración siguiente). Contiene todos los aspectos de la documentación estandarizada sobre conocimiento del negocio. Estos elementos incluyen las fases del ciclo de vida del Proceso de ciencia de datos en equipo, la ubicación de los datos, las definiciones y la arquitectura de esta plantilla de documentación. 
 
 La estructura que aparece se deriva de la estructura del TDSP que se publicó en el artículo sobre[estructura de proyectos, documentos y plantillas de artefactos de TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate), con algunas modificaciones. Por ejemplo, varias plantillas del documento se combinan en un marcado, denominado [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport). 
 
@@ -94,7 +95,7 @@ La plantilla del proyecto TDSP contiene las siguientes carpetas de nivel superio
 
 
 ## <a name="use-the-tdsp-structure-and-templates"></a>Uso de plantillas y de la estructura del TDSP
-Debe agregar información específica del proyecto a la estructura y a las plantillas. Se espera que rellene estos con el código y la información necesaria para ejecutar y entregar el proyecto. El archivo [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) es una plantilla que se debe modificar con la información pertinente del proyecto. Se trata de un conjunto de preguntas que le ayudarán a rellenar la información para cada una de las cuatro fases del [ciclo de vida del proceso de ciencia de datos en equipo](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
+Debe agregar información específica del proyecto a la estructura y a las plantillas. Se espera que los rellene con el código y la información necesaria para ejecutar y entregar el proyecto. El archivo [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) es una plantilla que se debe modificar con la información pertinente del proyecto. Se trata de un conjunto de preguntas que le ayudarán a rellenar la información para cada una de las cuatro fases del [ciclo de vida del proceso de ciencia de datos en equipo](../team-data-science-process/lifecycle.md).
 
 Se proporciona un ejemplo del aspecto que puede tener una estructura de proyecto durante la ejecución o una vez finalizada en el panel izquierdo de la ilustración siguiente. Este proyecto pertenece al [Proyecto de ejemplo del Proceso de ciencia de datos en equipo: Clasificación de ingresos a partir de los datos del censo de EE. UU. en Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
 

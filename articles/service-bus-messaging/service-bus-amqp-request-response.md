@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
 En este tema se define la lista de operaciones de respuesta/solicitud de Microsoft Azure Service Bus. Esta información se basa en la versión 1.0 de Administración de AMQP (fase de borrador).  
   
-Si desea obtener una guía detallada a nivel de conexión del protocolo AMQP 1.0, que describe cómo Service Bus se implementa y se basa en la especificación técnica de OASIS AMQP, consulte la [Guía del protocolo AMQP 1.0 en Service Bus de Azure y Event Hubs](service-bus-amqp-protocol-guide.md).  
+Si desea obtener una guía detallada a nivel de conexión del protocolo AMQP 1.0, que describe cómo se implementa Service Bus y se construye sobre la especificación técnica de OASIS AMQP, consulte la [Guía del protocolo AMQP 1.0 en Service Bus de Azure y Event Hubs][Guía del protocolo AMQP 1.0].  
   
 ## <a name="concepts"></a>Conceptos  
   
@@ -618,9 +618,9 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 Para obtener más información sobre AMQP y Service Bus, visite los siguientes vínculos:
 
 * [Información general sobre AMQP para Service Bus]
-* [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]
+* [Guía del protocolo AMQP 1.0]
 * [AMQP de Service Bus para Windows Server]
 
 [Información general sobre AMQP para Service Bus]: service-bus-amqp-overview.md
-[Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Guía del protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
 [AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.asp

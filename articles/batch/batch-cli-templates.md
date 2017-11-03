@@ -9,19 +9,19 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 10/17/2017
 ms.author: markscu
-ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)
 
 Se puede usar la CLI de Azure para ejecutar trabajos de Batch sin escribir código.
 
-Se pueden crear y usar los archivos de plantilla con la CLI de Azure que permiten que se creen grupos, trabajos y tareas de Batch. Los archivos de entrada de trabajo se pueden cargar fácilmente a la cuenta de almacenamiento asociada con la cuenta de Batch. También se pueden descargar los archivos de salida de trabajos.
+Cree y use archivos de plantilla con la CLI de Azure para crear grupos, trabajos y tareas de Batch. Los archivos de entrada de trabajo se pueden cargar fácilmente a la cuenta de almacenamiento asociada con la cuenta de Batch. También se pueden descargar los archivos de salida de trabajos.
 
 ## <a name="overview"></a>Información general
 
@@ -38,11 +38,11 @@ Los archivos de datos de entrada deben proporcionarse para trabajos y a menudo s
 
 Por ejemplo, [ffmpeg](http://ffmpeg.org/) es una aplicación popular que procesa archivos de audio y video. La CLI de Azure Batch puede usarse para invocar ffmpeg para transcodificar los archivos de video de origen para diferentes resoluciones.
 
--   Se crea una plantilla de grupo. El usuario que crea la plantilla sabe cómo llamar a la aplicación ffmpeg y sus requisitos. Especifica el sistema operativo adecuado, el tamaño de la máquina virtual, cómo está instalado ffmpeg (por ejemplo, de un paquete de aplicación o mediante un administrador de paquetes) y otros valores de propiedad del grupo. Los parámetros se crean para que cuando se use la plantilla, solo deban especificarse el ID del grupo y el número de máquinas virtuales.
+-   Se crea una plantilla de grupo. El usuario que crea la plantilla sabe cómo llamar a la aplicación ffmpeg y sus requisitos. Especifica el sistema operativo adecuado, el tamaño de la máquina virtual, cómo está instalado ffmpeg (por ejemplo, de un paquete de aplicación o mediante un administrador de paquetes) y otros valores de propiedad del grupo. Los parámetros se crean para que cuando se use la plantilla, solo deban especificarse el identificador del grupo y el número de máquinas virtuales.
 
 -   Se crea una plantilla de trabajo. El usuario que crea la plantilla sabe cómo debe invocarse ffmpeg para transcodificar el vídeo de origen a una resolución diferente y especifica la línea de comandos de la tarea. También sabe que hay una carpeta que contiene los archivos de vídeo de origen, con una tarea obligatoria por cada archivo de entrada.
 
--   Si un usuario final necesita transcodificar un conjunto de archivos de vídeo, primero crea un grupo con la plantilla de grupo, donde solo se especifica el identificador del grupo y el número de máquinas virtuales necesarias. A continuación, puede cargar los archivos de origen para transcodificarlos. Luego, se puede enviar un trabajo mediante la plantilla de trabajo, especificando solo el ID del grupo y la ubicación de los archivos de origen cargados. Se crea el trabajo de Batch, con una tarea por cada archivo de entrada que se esté generando. Por último, se pueden descargar los archivos de salida transcodificados.
+-   Si un usuario final necesita transcodificar un conjunto de archivos de vídeo, primero crea un grupo con la plantilla de grupo, donde solo se especifican el identificador del grupo y el número de máquinas virtuales necesarias. A continuación, puede cargar los archivos de origen para transcodificarlos. Luego, se puede enviar un trabajo mediante la plantilla de trabajo, especificando solo el identificador del grupo y la ubicación de los archivos de origen cargados. Se crea el trabajo de Batch, con una tarea por cada archivo de entrada que se esté generando. Por último, se pueden descargar los archivos de salida transcodificados.
 
 ## <a name="installation"></a>Instalación
 
@@ -50,10 +50,10 @@ Las funcionalidades de transferencia de plantillas y archivos requieren una exte
 
 Para obtener instrucciones sobre cómo instalar la CLI de Azure, vea [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Una vez que se ha instalado la CLI de Azure, se puede instalar la extensión de Batch mediante el siguiente comando de la CLI:
+Una vez que se ha instalado la CLI de Azure, se puede instalar la última versión de la extensión de Batch mediante el siguiente comando de la CLI:
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 Para más información sobre la extensión de Batch, vea [Microsoft Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux) (Extensiones de la CLI de Microsoft Azure Batch para Windows, Mac y Linux).
@@ -70,7 +70,7 @@ Las plantillas de Azure Batch son similares a las plantillas de Azure Resource M
 
 -   **Parámetros**
 
-    -   Permiten que se especifiquen valores de propiedad en una sección del cuerpo, donde solo es necesario proporcionar los valores de parámetro cuando se usa la plantilla. Por ejemplo, se podría colocar la definición completa de un grupo en el cuerpo y solo un parámetro definido para el ID del grupo. Por lo tanto, solo tiene que proporcionarse un string del ID del grupo para crearlo.
+    -   Permiten que se especifiquen valores de propiedad en una sección del cuerpo, donde solo es necesario proporcionar los valores de parámetro cuando se usa la plantilla. Por ejemplo, se podría colocar la definición completa de un grupo en el cuerpo y solo un parámetro definido para el identificador del grupo. Por lo tanto, solo tiene que proporcionarse una cadena del identificador del grupo para crearlo.
         
     -   El cuerpo de la plantilla lo puede crear alguien con conocimientos de Batch y las aplicaciones que Batch ejecuta. Solo se deben proporcionar los valores para los parámetros definidos por el autor cuando se use la plantilla. Un usuario sin conocimientos detallados de las aplicaciones y/o Batch, por tanto, puede usar las plantillas.
 
@@ -92,7 +92,7 @@ Además de las funcionalidades de plantillas estándares de parámetros y variab
 
     -   Opcionalmente, permite que el software se copie en nodos de grupo mediante el uso de administradores de paquetes. Se especifican el administrador y el identificador de paquete. Al poder declararse uno o varios paquetes, se evita la necesidad de crear un script que obtenga los paquetes necesarios, instalarlo y ejecutarlo en cada nodo de grupo.
 
-A continuación, se muestra un ejemplo de una plantilla que crea un grupo de máquinas virtuales de Linux con ffmpeg instalada y solo requiere que se proporcionen el string del ID de grupo y el número de máquinas virtuales para usarse:
+A continuación, se muestra un ejemplo de una plantilla que crea un grupo de máquinas virtuales Linux con ffmpeg instalada y solo requiere que se proporcionen la cadena del identificador del grupo y el número de máquinas virtuales para usarse:
 
 ```json
 {
@@ -106,7 +106,7 @@ A continuación, se muestra un ejemplo de una plantilla que crea un grupo de má
         "poolId": {
             "type": "string",
             "metadata": {
-                "description": "The pool id "
+                "description": "The pool ID "
             }
         }
     },

@@ -1,8 +1,8 @@
 ---
-title: Copia de un disco administrado de Azure para copias de seguridad | Microsoft Docs
-description: "Obtenga información sobre cómo crear una copia de un disco administrado de Azure que se usará para copias de seguridad o solucionar problemas del disco."
+title: "Creación de una instantánea de un disco duro virtual en Azure | Microsoft Docs"
+description: Aprenda a crear una copia de un disco duro virtual en Azure como copia de seguridad o para solucionar problemas.
 documentationcenter: 
-author: squillace
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -11,27 +11,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 2/6/2017
-ms.author: rasquill
-ms.openlocfilehash: c91367ef11c9d531bebac7c069d2df586607ec29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/09/2017
+ms.author: cynthn
+ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Creación de una copia de un VHD almacenado como un disco administrado de Azure mediante instantáneas administradas
-Cree una instantánea de un disco administrado para copias de seguridad o cree un disco administrado a partir de la instantánea y conéctelo a una máquina virtual de prueba para fines de solución de problemas. Una instantánea administrada es una copia completa a partir de un momento específico de un disco administrado de VM. Crea una copia de solo lectura del VHD y, de forma predeterminada, se almacena como un Disco administrado estándar. 
+# <a name="create-a-snapshot"></a>Crear una instantánea 
 
-Para información sobre los precios, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
-
-Use Azure Portal o la CLI de Azure 2.0 para realizar una instantánea del disco administrado.
+Tome una instantánea de un disco duro virtual o un disco de datos del sistema operativo para realizar una copia de seguridad o para solucionar problemas de la máquina virtual. Una instantánea es una copia completa de solo lectura de un disco duro virtual. 
 
 ## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Uso de la CLI de Azure 2.0 para realizar una instantánea
 
-> [!NOTE] 
-> En el ejemplo siguiente, es necesario que la CLI de Azure 2.0 esté instalada y que haya iniciado sesión en la cuenta de Azure.
+En el ejemplo siguiente, es necesario que la CLI de Azure 2.0 esté instalada y que haya iniciado sesión en la cuenta de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
-En los pasos siguientes se explica cómo obtener y realizar una instantánea de un disco administrado del SO usando el comando `az snapshot create` con el parámetro `--source-disk`. En el siguiente ejemplo se supone que hay una VM denominada `myVM` creada con un disco administrado del SO en el grupo de recursos `myResourceGroup`.
+Los pasos siguientes muestran cómo realizar una instantánea mediante el comando `az snapshot create` con el parámetro `--source-disk`. En el siguiente ejemplo se supone que hay una VM denominada `myVM` creada con un disco administrado del SO en el grupo de recursos `myResourceGroup`.
 
 ```azure-cli
 # take the disk id with which to create a snapshot
@@ -80,4 +76,8 @@ La salida debe tener un aspecto similar al siguiente:
 
 Si tiene previsto utilizar la instantánea para crear un disco administrado y conectarle una VM que precisa de un alto rendimiento, use el parámetro `--sku Premium_LRS` con el comando `az snapshot create`. De esta forma, se crea la instantánea para que se almacene como un disco administrado premium. Los Managed Disks Premium tienen un rendimiento mayor porque son discos de estado sólido (SSD), pero cuestan más que los discos estándar (HDD).
 
+
+## <a name="next-steps"></a>Pasos siguientes
+
+ Cree una máquina virtual a partir de una instantánea; para ello, cree primero un disco administrado con la instantánea y asocie el nuevo disco administrado como disco del sistema operativo. Para más información, consulte el script que se incluye en [Creación de una máquina virtual a partir de una instantánea](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json).
 

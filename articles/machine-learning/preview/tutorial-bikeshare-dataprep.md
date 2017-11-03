@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 722657c9bbae23a051a63972a8800d3cc40e7e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de uso compartido de bicicletas: preparación avanzada de datos con Azure Machine Learning Workbench
 Los servicios de Azure Machine Learning (versión preliminar) son una solución integrada de análisis avanzado y ciencia de datos de un extremo a otro diseñada para que los científicos de datos profesionales preparen datos, desarrollen experimentos e implementen modelos a escala de nube.
@@ -210,7 +210,7 @@ Ya no necesita la columna __REPORTTYPE__. Haga clic con el botón derecho en el 
    ![Imagen de la opción de quitar columna](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Cambiar tipos de datos y eliminar errores
-1. Si presiona __Ctrl__ mientras selecciona encabezados de columna, puede seleccionar varias columnas a la vez. Use este método para seleccionar los siguientes encabezados de columna:
+1. Si presiona __Ctrl (comando ⌘ en Mac)__ mientras selecciona encabezados de columna, puede seleccionar varias columnas a la vez. Use este método para seleccionar los siguientes encabezados de columna:
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
@@ -262,6 +262,9 @@ Para usar los datos de una predicción para bloques temporales de dos horas, deb
    > [!NOTE]
    > Azure ML Workbench sintetiza un programa basado en los ejemplos que usted ha proporcionado y lo aplica a las filas restantes. Las demás filas se rellenan automáticamente en función del ejemplo proporcionado. Workbench también analiza los datos e intenta identificar casos extremos. 
 
+   > [!IMPORTANT]
+   > La identificación de los casos límite puede no funcionar en Mac en la versión actual de Workbench. Omita el __paso 3__ y el __paso 4__ a continuación en el equipo Mac. En su lugar, presione __Aceptar__ una vez que todas las filas se rellenen con los valores derivados.
+   
 3. El texto **Analyzing Data** (Analizando datos) encima de la cuadrícula indica que Workbench está intentando detectar casos extremos. Cuando finalice, el estado cambiará a **Review next suggested row** (Revisar siguiente fila sugerida) o **No suggestions** (Ninguna sugerencia). En este ejemplo, se devuelve **Review next suggested row** (Revisar siguiente fila sugerida).
 
 4. Para revisar los cambios sugeridos, seleccione **Review next suggested row** (Revisar siguiente fila sugerida). En la pantalla se resalta la celda que debe revisar y corregir (si es necesario).
@@ -290,6 +293,12 @@ Para usar los datos de una predicción para bloques temporales de dos horas, deb
    Workbench determina la transformación en función del ejemplo proporcionado. En este ejemplo, el resultado es que el formato de fecha se cambia y se concatena con el período de dos horas.
 
    ![Imagen del ejemplo "Jan 01, 2015 12AM-2AM" (1 de enero de 2015, 12 a. m.-2 a. m.)](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
+
+   > [!IMPORTANT]
+   > En el equipo Mac, siga el paso siguiente en lugar del __paso 8__ a continuación.
+   >
+   > * Vaya a la primera celda que contenga `Feb 01, 2015 12AM-2AM`. Debe ser la __fila 15__. Corrija el valor a `Jan 02, 2015 12AM-2AM` y presione __Entrar__. 
+   
 
 8. Espere a que el estado cambie de **Analyzing Data** (Analizando datos) a **Review next suggested row** (Revisar siguiente fila sugerida). Esto podría tardar varios segundos. Seleccione el vínculo de estado para desplazarse a la fila sugerida. 
 
@@ -392,7 +401,7 @@ Para la preparación de datos, hay una serie de visualizaciones útiles llamadas
 1. Seleccione al mismo tiempo las columnas **start station latitude** (latitud de la estación de inicio) y **start station longitude** (longitud de la estación de inicio). Haga clic con el botón derecho en una de las columnas y seleccione **Mapa**.
 
     > [!TIP]
-    > Para seleccionar varios elementos al mismo tiempo, mantenga presionada la tecla __Ctrl__ y seleccione el encabezado de cada columna.
+    > Para habilitar la selección de varios elementos al mismo tiempo, mantenga presionada la tecla __Ctrl (comando ⌘ en Mac)__ y seleccione el encabezado de cada columna.
 
     ![Imagen de la visualización de mapas](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -506,6 +515,11 @@ Para resumir la demanda de bicicletas durante un período de 2 horas, use column
 
     ![Imagen de los datos de ejemplo](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
 
+   > [!IMPORTANT]
+   > En el equipo Mac, siga el paso siguiente en lugar del __paso 3__ a continuación.
+   >
+   > * Vaya a la primera celda que contenga `Jan 01, 2017 1AM-2AM`. Debe ser la __fila 14__. Corrija el valor a `Jan 01, 2017 12AM-2AM` y presione __Entrar__. 
+
 3. Espere hasta que la aplicación calcule los valores de todas las filas. Esto podría tardar varios segundos. Una vez completado el análisis, use el vínculo __Review next suggested row__ (Revisar siguiente fila sugerida) para revisar los datos.
 
    ![Imagen del análisis completado con un vínculo de revisión](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -557,7 +571,7 @@ Para combinar los datos meteorológicos con los datos del viaje, siga estos paso
 
     ![Imagen de la columna Período](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Para quitar las columnas **Date Hour Range** (Intervalo de fecha y hora) y **rDate Hour Range**, presione **Ctrl** y seleccione cada encabezado de columna. Haga clic con el botón derecho y seleccione **Quitar columna**.
+3. Para quitar las columnas **Date Hour Range** (Intervalo de fecha y hora) y **rDate Hour Range**, presione **Ctrl (comando ⌘ en Mac)** y seleccione cada encabezado de columna. Haga clic con el botón derecho y seleccione **Quitar columna**.
 
 ## <a name="read-data-from-python"></a>Leer datos de Python
 

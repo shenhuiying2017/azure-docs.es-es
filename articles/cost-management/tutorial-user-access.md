@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a datos de Administración de costos
 
@@ -49,6 +49,8 @@ Los usuarios típicos que necesitan acceder a datos de administración de costos
 
 ![agregar un usuario nuevo con acceso de usuario](.\media\tutorial-user-access\new-user-access.png)
 
+Para ver un vídeo tutorial sobre cómo agregar usuarios, consulte [Adding Users to Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30) (Adición de usuarios a Azure Cost Management de Cloudyn).
+
 ## <a name="create-entities"></a>Crear entidades
 
 Cuando se define la jerarquía de entidades de costo, identificar la estructura de la organización es un procedimiento recomendado.
@@ -67,6 +69,10 @@ Junto a **Entities** (Entidades), haga clic en **Add Entity** (Agregar entidad).
 
 Al acabar, **guarde** la entidad.
 
+
+Para ver un vídeo tutorial acerca de cómo crear una jerarquía de entidades de costo, consulte [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn](https://youtu.be/dAd9G7u0FmU) (Creación de una jerarquía de entidades de costo en Azure Cost Management de Cloudyn).
+
+Si es un usuario de contrato Enterprise de Azure, vea un vídeo tutorial acerca de cómo asociar cuentas y las suscripciones a las entidades en [Connecting to Azure Resource Manager with Azure Cost Management by Cloudyn](https://youtu.be/oCIwvfBB6kk) (Conexión a Azure Resource Manager con Azure Cost Management de Cloudyn).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

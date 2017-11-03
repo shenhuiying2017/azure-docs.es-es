@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-ms.openlocfilehash: e274e0806e99cce484f6ff03803c03bf0034dcd6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
@@ -26,7 +26,7 @@ Las siguientes directrices le ayudan a seleccionar una red virtual para usarla c
 
 ### <a name="type-of-azure-virtual-network"></a>Tipo Azure Virtual Network
 * **Redes virtuales de Resource Manager**: Azure AD Domain Services se puede habilitar en las redes virtuales creadas mediante Azure Resource Manager.
-* Azure AD Domain Services se puede habilitar en una instancia clásica de Azure Virtual Network. De todas formas, la compatibilidad con las redes virtuales clásicas dejará de utilizarse pronto. Se recomienda usar redes virtuales de Resource Manager para los dominios administrados recién creados.
+* Azure AD Domain Services no se puede habilitar en una instancia clásica de Azure Virtual Network.
 * Se pueden conectar otras redes virtuales a la red virtual en la que Azure AD Domain Services está habilitado. Para más información, consulte la sección [Conectividad de red](active-directory-ds-networking.md#network-connectivity).
 * **Redes virtuales regionales**: si planea usar una red virtual existente, asegúrese de que sea una red virtual regional.
 
@@ -53,7 +53,7 @@ Un [grupo de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md)
 
 ![Diseño de subred recomendado](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="best-practices-for-choosing-a-subnet"></a>Procedimientos recomendados para elegir una subred
+### <a name="guidelines-for-choosing-a-subnet"></a>Guías para elegir una subred
 * Implemente Azure AD Domain Services en una **subred dedicada independiente** dentro de la instancia de Azure Virtual Network.
 * No aplique los NSG a la subred dedicada para el dominio administrado. Si debe aplicarlos a la subred dedicada, asegúrese de **no bloquear los puertos necesarios para mantener y administrar el dominio**.
 * No restrinja en exceso el número de direcciones IP disponibles dentro de la subred dedicada para el dominio administrado. Esta restricción impide que el servicio ponga dos controladores de dominio a disposición del dominio administrado.
@@ -76,7 +76,7 @@ Los siguientes puertos son necesarios para que Azure AD Domain Services mantenga
 
 El puerto 5986 se usa para realizar tareas de administración usando la comunicación remota de PowerShell en el dominio administrado. Los controladores de dominio para el dominio administrado no suelen escuchar en este puerto. El servicio abre este puerto en los controladores de dominio administrados solo cuando debe llevarse a cabo una operación de administración o mantenimiento para el dominio administrado. Tan pronto como finaliza la operación, el servicio cierra este puerto en los controladores de dominio administrados.
 
-Se utiliza el puerto 3389 para las conexiones de escritorio remoto a su dominio administrado. Este puerto también permanece desactivado en gran medida en el dominio administrado. El servicio habilita este puerto solo si es necesario conectarse al dominio administrado para solucionar problemas, algo que normalmente se inicia en respuesta a una solicitud de servicio iniciada por el cliente. Este mecanismo no se utiliza de forma continuada, puesto que las tareas de administración y supervisión se realizan usando la comunicación remota de PowerShell. Este puerto se usa únicamente en el caso excepcional de que necesitemos conectarnos de forma remota a su dominio administrado para solución de problemas avanzada. El puerto se cierra en cuanto se completa la operación de solución de problemas.
+Se utiliza el puerto 3389 para las conexiones de escritorio remoto a su dominio administrado. Este puerto también permanece desactivado en gran medida en el dominio administrado. El servicio habilita este puerto solo si necesitamos conectarnos a un dominio administrado para solucionar cualquier problema, algo que se inicia en respuesta a una solicitud de servicio iniciada por el cliente. Este mecanismo no se utiliza de forma continuada, puesto que las tareas de administración y supervisión se realizan usando la comunicación remota de PowerShell. Este puerto se usa únicamente en el caso excepcional de que necesitemos conectarnos de forma remota a su dominio administrado para solución de problemas avanzada. El puerto se cierra en cuanto se completa la operación de solución de problemas.
 
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Grupo de seguridad de red (NSG) de ejemplo para redes virtuales con Azure AD Domain Services

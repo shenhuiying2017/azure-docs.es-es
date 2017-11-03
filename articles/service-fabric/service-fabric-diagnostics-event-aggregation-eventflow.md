@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Recopilación y agregación de eventos con EventFlow
 
 [Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) puede enrutar los eventos de un nodo a uno o varios destinos de supervisión. Dado que se incluye como un paquete de NuGet en el proyecto de servicio, el código y la configuración de EventFlow van con el servicio, por lo que se elimina el problema de la configuración por nodo que se mencionó antes sobre Diagnósticos de Azure. EventFlow se ejecuta dentro del proceso de servicio y se conecta directamente con las salidas configuradas. Gracias a esta conexión directa, EventFlow funciona en implementaciones de servicios de Azure, de contenedor o locales. Tenga cuidado si ejecuta EventFlow en escenarios de alta densidad, como un contenedor, ya que cada canalización EventFlow genera una conexión externa. Por tanto, si hospeda varios procesos, obtendrá varias conexiones salientes. Esto no supone un problema para las aplicaciones de Service Fabric, ya que todas las réplicas de `ServiceType` se ejecutan en el mismo proceso, lo que limita el número de conexiones salientes. EventFlow también proporciona filtrado de eventos, de manera que solo se envían los eventos que coinciden con el filtro especificado.
 
-## <a name="setting-up-eventflow"></a>Configuración de EventFlow
+## <a name="set-up-eventflow"></a>Configuración de EventFlow
 
 Los archivos binarios de EventFlow están disponibles como un conjunto de paquetes de NuGet. Para agregar EventFlow a un proyecto de servicio de Service Fabric, en el Explorador de soluciones, haga clic con el botón derecho en el proyecto y elija "Administrar paquetes de NuGet". Cambie a la pestaña "Examinar" y busque "`Diagnostics.EventFlow`":
 
@@ -41,7 +41,7 @@ Aparecerá una lista de los diferentes paquetes, marcados con las etiquetas "Ent
 
 Una vez instalados todos los paquetes, el siguiente paso es configurar y habilitar EventFlow en el servicio.
 
-## <a name="configuring-and-enabling-log-collection"></a>Configuración y habilitación de la recopilación de registros
+## <a name="configure-and-enable-log-collection"></a>Configuración y habilitación de la colección de registros
 La canalización de EventFlow, responsable del envío de los registros, se crea a partir de una especificación almacenada en un archivo de configuración. El paquete `Microsoft.Diagnostics.EventFlow.ServiceFabric` instala un archivo de configuración inicial de EventFlow en la carpeta de la solución `PackageRoot\Config`, llamada `eventFlowConfig.json`. Este archivo de configuración debe modificarse para capturar los datos de la clase `EventSource` del servicio predeterminado y cualquier otra entrada que desee configurar y enviar los datos al servicio Application Insights.
 
 A continuación, se presenta un ejemplo de *eventFlowConfig.json* basado en los paquetes NuGet mencionados anteriormente:
@@ -136,13 +136,13 @@ namespace Stateless1
 
 El nombre que se pasa como parámetro del método `CreatePipeline` de `ServiceFabricDiagnosticsPipelineFactory` es el nombre de la *entidad de estado de mantenimiento* que representa la canalización de recopilación de registros de EventFlow. Este nombre se usa si EventFlow encuentra un error y lo notifica a través del subsistema de estado de mantenimiento de Service Fabric.
 
-### <a name="using-service-fabric-settings-and-application-parameters-to-in-eventflowconfig"></a>Uso de los parámetros de la aplicación y de la configuración de Service Fabric en eventFlowConfig
+### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>Uso de los parámetros de la aplicación y de la configuración de Service Fabric en eventFlowConfig
 
 EventFlow permite usar los parámetros de la aplicación y la configuración de Service Fabric para configurar EventFlow. Puede hacer referencia a los parámetros de configuración de Service Fabric mediante la utilización de esta sintaxis especial para los valores:
 
 ```json
 servicefabric:/<section-name>/<setting-name>
-``` 
+```
 
 `<section-name>` es el nombre de la sección de configuración de Service Fabric, y `<setting-name>` es el conjunto de configuración que proporciona el valor que se usará para configurar una opción de EventFlow. Para leer más información sobre cómo realizar esto, vaya a [Support for Service Fabric settings and application parameters](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters) (Compatibilidad de los parámetros de la aplicación y la configuración de Service Fabric).
 

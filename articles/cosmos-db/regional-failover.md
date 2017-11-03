@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Conmutación por error regional automática para la continuidad empresarial en Azure Cosmos DB
 Azure Cosmos DB simplifica la distribución global de datos gracias a que ofrece [cuentas de base de datos de varias regiones](distribute-data-globally.md) completamente administradas que proporcionan un claro equilibrio entre coherencia, disponibilidad y rendimiento, todo ello con sus garantías correspondientes. Las cuentas de Cosmos DB ofrecen alta disponibilidad, latencias de ms de un solo dígito, varios [niveles de coherencia bien definidos](consistency-levels.md), conmutación por error regional transparente con API de hospedaje múltiple, y la posibilidad de escalar elásticamente el rendimiento y el almacenamiento en todo el mundo. 
@@ -85,19 +85,40 @@ Una vez que la región afectada se recupera de la interrupción, el servicio rec
 
 **¿Qué ocurre si una región de escritura sufre una interrupción?**
 
-Si la región afectada es la región actual de escritura de una determinada cuenta de Cosmos DB, entonces la región se marcará automáticamente como desconectadas. Después, se promueve una región alternativa como región de escritura de cada cuenta de Cosmos DB afectada. Puede controlar completamente el orden de selección de las regiones para las cuentas de Cosmos DB a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Si la región afectada es la región actual de escritura y la conmutación automática por error está habilitada para la cuenta de Azure Cosmos DB, la región se marcará automáticamente como desconectada. Después, se promueve una región alternativa como región de escritura para cada cuenta de Azure Cosmos DB afectada. Puede habilitar la conmutacion automática por error y controlar completamente el orden de selección de las regiones para las cuentas de Azure Cosmos DB a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Prioridades de conmutación por error de Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-Durante la conmutación por error automática, Cosmos DB elige automáticamente la siguiente región de escritura para una cuenta concreta de Cosmos DB según el orden de prioridad especificado. 
+Durante las conmutaciones por error automáticas, Azure Cosmos DB elige automáticamente la siguiente región de escritura para una cuenta concreta de Azure Cosmos DB según el orden de prioridad especificado. Las aplicaciones pueden utilizar la propiedad WriteEndpoint o la clase DocumentClient para detectar el cambio en la región de escritura.
 
 ![Errores de la región de escritura en Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
 Una vez que la región afectada se recupera de la interrupción, el servicio recupera automáticamente todas las cuentas de Cosmos DB afectadas de la región. 
 
-* Las cuentas de Cosmos DB cuya región de escritura anterior se encuentre en la zona afectada permanecerán en modo desconectado con disponibilidad de lectura incluso después que se recupere dicha zona. 
-* Puede consultar esta región para calcular todas las escrituras no replicadas durante la interrupción realizando una comparación de los datos disponibles en la actual región de escritura. En función de las necesidades de su aplicación, puede realizar una combinación o resolución de conflictos y escribir el conjunto final de cambios en la región de escritura actual. 
-* Una vez que haya terminado de combinar los cambios, vuelva a poner la región afectada en línea quitando la región de la cuenta de Cosmos DB y volviéndola a agregar. Cuando la región se haya agregado, puede configurarla de nuevo como región de escritura mediante una conmutación por error manual a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Los datos presentes en la región anterior de escritura que no se replicaron en las regiones de lectura durante la interrupción se publican como una fuente de conflictos. Las aplicaciones pueden leer la fuente de conflictos, resolver los conflictos de acuerdo con la lógica específica de la aplicación y escribir los datos actualizados de nuevo en la cuenta de Azure Cosmos DB según corresponda. 
+* Se vuelve a crear la región anterior de escritura como una región de lectura y se pone en línea de nuevo automáticamente. 
+* Puede reconfigurar la región de lectura que se puso de nuevo en línea automáticamente como región de escritura mediante una conmutación por error manual a través de Azure Portal o [mediante programación](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+
+El fragmento de código siguiente muestra cómo procesar conflictos una vez que la región afectada se recupera de la interrupción.
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a> Conmutaciones por error manuales
 

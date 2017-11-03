@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4f4fa884694dc8dad6349e3835e7c7ba2c4d2bdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: inicio rápido
 
@@ -43,7 +43,11 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
 1. Identifique un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. Agregue el servidor al mismo bosque de AD que los usuarios cuyas contraseñas se deben validar.
-2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.557.0 o posterior.
+2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.644.0 o posterior.
+
+    >[!NOTE]
+    >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la **sincronización de hash de contraseña**. Si se _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para más información.
+
 3. Identifique un servidor adicional que ejecute Windows Server 2012 R2 o posterior en el que se ejecute un agente de autenticación independiente. La versión del agente de autenticación debe ser 1.5.193.0 o posterior. Este servidor es necesario para garantizar la alta disponibilidad de las solicitudes de inicio de sesión. Agregue el servidor al mismo bosque de AD que los usuarios cuyas contraseñas se deben validar.
 4. Si hay un firewall entre los servidores y Azure AD, debe configurar los elementos siguientes:
    - Asegúrese de que los agentes de autenticación pueden realizar solicitudes **salientes** a Azure AD a través de los puertos siguientes:
@@ -87,7 +91,7 @@ Si va a instalar Azure AD Connect por primera vez, elija la [ruta de acceso de i
 
 ![Azure AD Connect: inicio de sesión de usuario](./media/active-directory-aadconnect-sso/sso3.png)
 
-Si ya tiene instalado Azure AD Connect (mediante la ruta de [instalación rápida](active-directory-aadconnect-get-started-express.md) o de [instalación personalizada](active-directory-aadconnect-get-started-custom.md)), elija **Cambiar inicio de sesión de usuario** en Azure AD Connect y haga clic en **Siguiente**. Seleccione **Autenticación de paso a través** como métodos de inicio de sesión. Si se completa correctamente, se instala un agente de autenticación de paso a través en el mismo servidor que Azure AD Connect y se habilita la característica en el inquilino.
+Si ya tiene instalado Azure AD Connect (mediante la ruta de [instalación rápida](active-directory-aadconnect-get-started-express.md) o de [instalación personalizada](active-directory-aadconnect-get-started-custom.md)), elija la tarea **Cambiar inicio de sesión de usuario** en Azure AD Connect y haga clic en **Siguiente**. Seleccione **Autenticación de paso a través** como métodos de inicio de sesión. Si se completa correctamente, se instala un agente de autenticación de paso a través en el mismo servidor que Azure AD Connect y se habilita la característica en el inquilino.
 
 ![Azure AD Connect: Change user sign-in page (Cambiar página de inicio de sesión del usuario)](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
