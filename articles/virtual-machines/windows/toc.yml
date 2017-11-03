@@ -39,7 +39,9 @@
       href: tutorial-azure-security.md
     - name: 12 - CI/CD de Team Services
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - Protección de servidor web con SSL
+    - name: 13 - Instalación de una pila SQL\IIS\.
+      href: tutorial-iis-sql.md
+    - name: 14 - Protección de un servidor web con SSL
       href: tutorial-secure-web-server.md
 - name: Muestras
   items:
@@ -55,6 +57,27 @@
       href: regions-and-availability.md
     - name: Tamaños y tipos de máquinas virtuales
       href: sizes.md
+      items:
+        - name: Uso general
+          href: sizes-general.md
+          items:
+            - name: Ampliables de la serie B
+              href: b-series-burstable.md
+        - name: Proceso optimizado
+          href: sizes-compute.md
+        - name: Memoria optimizada
+          href: sizes-memory.md
+        - name: Almacenamiento optimizado
+          href: sizes-storage.md
+        - name: GPU optimizada
+          href: sizes-gpu.md
+          items:
+            - name: Configuración de los controladores de GPU
+              href: n-series-driver-setup.md
+        - name: Proceso de alto rendimiento
+          href: sizes-hpc.md
+        - name: Unidades de proceso de Azure (ACU)
+          href: sizes-general.md
     - name: Mantenimiento y actualizaciones
       href: maintenance-and-updates.md
     - name: Storage

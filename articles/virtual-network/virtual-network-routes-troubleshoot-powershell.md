@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 141e3c571d744470fd07e99538b6e38d4144e8d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Solución de problemas de rutas mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Las tablas de rutas están asociadas con subredes y son eficaces en todas las in
 
 * **Rutas del sistema:** de forma predeterminada, cada subred creada en Azure Virtual Network (VNet) tiene tablas de rutas del sistema que permiten el tráfico de red virtual local, el tráfico local a través de las puertas de enlace VPN y el tráfico de Internet. Las rutas del sistema existen también para las redes virtuales emparejadas.
 * **Rutas BGP:** propagadas a las interfaces de red a través de ExpressRoute o de conexiones VPN de sitio a sitio. Para más información acerca del enrutamiento BGP consulte los artículos sobre [BGP con VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md) e [Introducción técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
-* **Rutas definidas por el usuario (UDR):** si usa dispositivos de red virtual o si hay tráfico de tunelización forzada a una red local a través de una VPN de sitio a sitio, es posible que tenga rutas definidas por el usuario (UDR) asociadas a la tabla de rutas de subred. Si no está familiarizado con las UDR, consulte el artículo sobre [rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined-routes) .
+* **Rutas definidas por el usuario (UDR):** si usa dispositivos de red virtual o si hay tráfico de tunelización forzada a una red local a través de una VPN de sitio a sitio, es posible que tenga rutas definidas por el usuario (UDR) asociadas a la tabla de rutas de subred. Si no está familiarizado con las UDR, consulte el artículo sobre [rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined) .
 
 Con las diversas rutas que se pueden aplicar a una interfaz de red, puede resultar difícil determinar qué rutas agregadas son eficaces. Para ayudarle a solucionar problemas de conectividad de red de máquina virtual, puede ver todas las rutas eficaces para una interfaz de red en el modelo de implementación de Azure Resource Manager.
 
