@@ -9,6 +9,7 @@
 ## [Solución de problemas y supervisión](troubleshooting-monitoring.md)
 ## Cómo
 ### [Configurar alta disponibilidad con STONITH](ha-setup-with-stonith.md)
+### [Copia de seguridad del sistema operativo para SKU de tipo II](os-backup-type-ii-skus.md)
 # SAP HANA en Azure Virtual Machines
 ## [Instancia individual de SAP HANA](hana-get-started.md)
 ## [Guía de implementación de S/4 HANA o BW/4 HANA SAP CAL](cal-s4h.md)

@@ -1,6 +1,9 @@
 # [Información general](active-directory-b2c-overview.md)
 
 # Introducción
+## [Versión de prueba de una aplicación web de Azure AD B2C](active-directory-b2c-quickstarts-web-app.md)
+## [Versión de prueba de una aplicación de escritorio de Azure AD B2C](active-directory-b2c-quickstarts-desktop-app.md)
+## [Versión de prueba de una aplicación de una página de Azure AD B2C](active-directory-b2c-quickstarts-spa.md)
 ## [Creación de un directorio de Azure AD B2C](active-directory-b2c-get-started.md)
 ## [Registro de la aplicación](active-directory-b2c-app-registration.md)
 ## [Directivas integradas](active-directory-b2c-reference-policies.md)
@@ -57,7 +60,7 @@
 # Marco de experiencia de identidad
 ## [Directivas personalizadas](active-directory-b2c-overview-custom.md)
 ## Guías
-### [Primeros pasos](active-directory-b2c-get-started-custom.md)
+### [Introducción](active-directory-b2c-get-started-custom.md)
 ### Configuración de proveedores de OIDC/OAUTH
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Cuenta Microsoft](active-directory-b2c-custom-setup-msa-idp.md)

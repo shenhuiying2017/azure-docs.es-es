@@ -8,17 +8,17 @@ author: MladjoA
 ms.assetid: a8bf0e2c-bc74-44d0-9b1e-bcc9a6aa2e33
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.openlocfilehash: 7e245cf1fb28eef26739b55967de3f05128f38c6
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 6389702b1be5e52c7191e6e57d17b48289e800b2
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Información general sobre las consultas elásticas de Azure SQL Database (versión preliminar)
 La característica de consulta elástica (en versión preliminar) le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos en Azure SQL Database. Permite realizar consultas entre bases de datos para acceder a tablas remotas, así como conectar herramientas de Microsoft y de terceros (Excel, PowerBI, Tableau, etc.) para hacer consultas en capas de datos con varias bases de datos. Con esta característica, puede escalar consultas horizontalmente a capas de datos de gran tamaño en Base de datos SQL y visualizar los resultados en los informes de inteligencia empresarial (BI).

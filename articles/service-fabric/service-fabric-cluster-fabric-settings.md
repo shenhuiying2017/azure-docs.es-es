@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 8143cf739f475ebfa6e65dc43945174304ffbb3b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -91,7 +91,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ### <a name="section-name-transactionalreplicator"></a>Nombre de sección: TransactionalReplicator
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-| MaxCopyQueueSize |Uint, el valor predeterminado es 16384. | estática |Es el valor máximo y define el tamaño inicial de la cola que mantiene operaciones de replicación. Tenga en cuenta que debe ser una potencia de 2. Si, durante el tiempo de ejecución, la cola crece y alcanza este tamaño, se limitarán las operaciones entre los replicadores principal y secundario. |
+| MaxCopyQueueSize |Uint, el valor predeterminado es 16384. | estática |Es el valor máximo y define el tamaño inicial de la cola que mantiene operaciones de replicación. Tenga en cuenta que debe ser una potencia de 2. Si, durante el tiempo de ejecución, la cola crece y alcanza este tamaño, se limitará la operación entre los replicadores principal y secundario. |
 | BatchAcknowledgementInterval | Tiempo en segundos, el valor predeterminado es 0,015. | estática | Especifique el intervalo de tiempo en segundos. Determina la cantidad de tiempo que el replicador espera después de recibir una operación, antes de devolver una confirmación. Las confirmaciones de otras operaciones recibidas durante este período de tiempo se devolverán en un solo mensaje-> de forma que se reduce el tráfico de red pero también posiblemente el rendimiento del replicador. |
 | MaxReplicationMessageSize |Uint, el valor predeterminado es 52 428 800. | estática | Tamaño máximo de mensaje de las operaciones de replicación. El valor predeterminado es 50 MB. |
 | ReplicatorAddress |string, el valor predeterminado es "localhost:0". | estática | El punto de conexión en forma de cadena -'IP:Port' que usa el replicador de Windows Fabric para establecer conexiones con otras réplicas para enviar o recibir operaciones. |
@@ -228,7 +228,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ServiceDescriptionCacheLimit | Int, el valor predeterminado es 0. |estática| El número máximo de entradas mantenidas en la caché de descripción del servicio LRU en el almacén del servicio de nomenclatura (se establece en 0 para un número ilimitado). |
 |RepairInterval | Tiempo en segundos, el valor predeterminado es 5. |estática| Especifique el intervalo de tiempo en segundos. Intervalo dentro del cual se inicia la reparación de la incoherencia de nomenclatura entre el propietario de la entidad y el propietario del nombre. |
 |MaxNamingServiceHealthReports | Int, el valor predeterminado es 10. |Dinámica|El número máximo de operaciones lentas que el almacén del servicio de nomenclatura notifica como incorrectas al mismo tiempo. Si es 0, se envían todas las operaciones lentas. |
-| MaxMessageSize |Int, el valor predeterminado es 4*1024*1024. |estática|El tamaño de mensaje máximo para la comunicación del nodo cliente cuando se usa la nomenclatura. Mitigación de ataque de DOS; el valor predeterminado es 4 MB. |
+| MaxMessageSize |Int, el valor predeterminado es 4\*1024\*1024. |estática|El tamaño de mensaje máximo para la comunicación del nodo cliente cuando se usa la nomenclatura. Mitigación de ataque de DOS; el valor predeterminado es 4 MB. |
 | MaxFileOperationTimeout |Tiempo en segundos, el valor predeterminado es 30. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo permitido para la operación del servicio de almacén de archivos. Las solicitudes que especifiquen un tiempo de espera mayor se rechazarán. |
 | MaxOperationTimeout |Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo permitido para las operaciones de cliente. Las solicitudes que especifiquen un tiempo de espera mayor se rechazarán. |
 | MaxClientConnections |Int, el valor predeterminado es 1000. |Dinámica|El número máximo permitido de conexiones de cliente por puerta de enlace. |

@@ -18,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: 'Uso de blobs: .NET'
       href: storage-quickstart-blobs-dotnet.md
+    - name: 'Uso de blobs: Java'
+      href: storage-quickstart-blobs-java.md
     - name: 'Uso de blobs: Python'
       href: storage-quickstart-blobs-python.md
 - name: Tutoriales

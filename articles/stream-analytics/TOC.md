@@ -24,6 +24,7 @@
 ### [Uso datos de referencia](stream-analytics-use-reference-data.md)
 ### [Consultas de prueba](stream-analytics-test-query.md)
 ### [Integración de las UDF de JavaScript](stream-analytics-javascript-user-defined-functions.md)
+### [Integración de agregados definidos por el usuario de JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Integración de la API de REST y Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Creación de salidas](stream-analytics-define-outputs.md)
 ### [Uso de Data Lake Store como destino](stream-analytics-data-lake-output.md)
@@ -31,7 +32,7 @@
 
 ## Uso de herramientas de Visual Studio
 ### [Instalación](stream-analytics-tools-for-visual-studio-install.md)
-### [Primeros pasos](stream-analytics-tools-for-visual-studio.md)
+### [Introducción](stream-analytics-tools-for-visual-studio.md)
 ### [Configuración de canalizaciones de integración y entrega continuas](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Supervisión y optimización

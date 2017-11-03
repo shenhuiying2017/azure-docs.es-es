@@ -9,17 +9,17 @@ editor:
 ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: db26b7a99a7fd8bb7cb5c3d4937c44686fc68222
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 203e1f8842c229088102412afa5de8f967837041
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>Implemente un servicio de división y combinación
 La herramienta de división y combinación permite mover los datos entre bases de datos particionadas. Consulte [Mover datos entre bases de datos en la nube escaladas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
