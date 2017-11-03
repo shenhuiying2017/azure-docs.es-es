@@ -12,16 +12,16 @@ ms.custom: monitor & tune
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: b075253c12918df63a464de79e2ab2ff43103da1
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Uso del registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights
+# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Uso del registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights.
 
 Esta página proporciona información sobre cómo usar el registro de diagnóstico de rendimiento de Azure SQL Database generado por [Intelligent Insights](sql-database-intelligent-insights.md), el formato y los datos que contiene según sus necesidades de desarrollo personalizadas. Este registro de diagnóstico se puede enviar a [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o a una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
@@ -76,7 +76,7 @@ Los patrones de rendimiento detectable y los detalles que se transmiten al regis
 
 ### <a name="detection-category"></a>Categoría de detección
 
-La propiedad de categoría (category) describe la categoría de los patrones de rendimiento detectable. Consulte la siguiente tabla para ver todas las categorías posibles de patrones de rendimiento detectables. Para más información, consulte [Troubleshoot database performance issues with Intelligent Insight](sql-database-intelligent-insights-troubleshoot-performance.md) (Solución de problemas de rendimiento de la base de datos con Intelligent Insight).
+La propiedad de categoría (category) describe la categoría de los patrones de rendimiento detectable. Consulte la siguiente tabla para ver todas las categorías posibles de patrones de rendimiento detectables. Para más información, consulte [Troubleshoot database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md) (Solución de problemas de rendimiento de la base de datos con Intelligent Insights).
 
 En función del problema de rendimiento detectado, los detalles que incluye el archivo de registro de diagnóstico difieren en consecuencia.
 

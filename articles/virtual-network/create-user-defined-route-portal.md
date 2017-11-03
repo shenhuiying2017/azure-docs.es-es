@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: d037b793609c359cccebd8dbea917516abf16fce
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 736e48f9651d89a1f4e8e0ae72cdffebb8e9c6e0
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Creación de una ruta definida por el usuario - Azure Portal
 
-En este tutorial, obtenga información sobre cómo crear rutas definidas por el usuario para enrutar el tráfico entre dos subredes de la [red virtual](virtual-networks-overview.md) a través de una aplicación virtual de red. Una aplicación virtual de red es una máquina virtual que ejecuta una aplicación de red como, por ejemplo, un firewall. Para obtener más información sobre las aplicaciones virtuales de red preconfiguradas que puede implementar en una red virtual de Azure, consulte [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
+En este tutorial, obtenga información sobre cómo crear rutas definidas por el usuario para enrutar el tráfico entre dos subredes de la [red virtual](virtual-networks-overview.md) a través de una aplicación virtual de red. Una aplicación virtual de red es una máquina virtual que ejecuta una aplicación de red, por ejemplo, un firewall. Para obtener más información sobre las aplicaciones virtuales de red preconfiguradas que puede implementar en una red virtual de Azure, visite [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
-Al crear subredes en una red virtual, Azure crea [rutas del sistema](virtual-networks-udr-overview.md#system-routes) predeterminadas que permiten a los recursos de todas las subredes comunicarse entre sí, como se muestra en la siguiente imagen:
+Al crear subredes en una red virtual, Azure genera [rutas del sistema](virtual-networks-udr-overview.md#system-routes) predeterminadas que permiten a los recursos de todas las subredes comunicarse entre sí, como se muestra en la siguiente imagen:
 
 ![Rutas predeterminadas](./media/create-user-defined-route/default-routes.png)
 
@@ -32,7 +32,7 @@ En este tutorial, puede crear una red virtual con subredes públicas, privadas y
 
 ![Rutas definidas por el usuario](./media/create-user-defined-route/user-defined-routes.png)
 
-En este artículo se indican los pasos para crear una ruta definida por el usuario mediante el modelo de implementación de Resource Manager, que es el modelo de implementación recomendado para crear rutas definidas por el usuario. Si debe crear una ruta definida por el usuario (clásica), consulte [Creación de una ruta definida por el usuario (clásica)](virtual-network-create-udr-classic-ps.md). Si no está familiarizado con los modelos de implementación de Azure, vea [Understand Azure deployment models (Descripción de los modelos de implementación de Azure)](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined-routes).
+En este artículo se indican los pasos para crear una ruta definida por el usuario mediante el modelo de implementación de Resource Manager, que es el recomendado para crear rutas definidas por el usuario. Si debe crear una ruta definida por el usuario (clásica), consulte [Creación de una ruta definida por el usuario (clásica)](virtual-network-create-udr-classic-ps.md). Si no está familiarizado con los modelos de implementación de Azure, vea [Understand Azure deployment models (Descripción de los modelos de implementación de Azure)](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Creación de rutas y aplicación virtual de red
 
@@ -142,12 +142,12 @@ En este artículo se indican los pasos para crear una ruta definida por el usuar
 
 ## <a name="validate-routing"></a>Validación de enrutamiento
 
-1. Si aún no lo ha hecho, complete los pasos en [Creación de rutas y aplicación virtual de red](#create-routes-and-network-virtual-appliance).
-2. Haga clic en el botón **Pruébelo** en el cuadro que aparece a continuación y que abre Azure Cloud Shell. Cuando se le solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Azure Cloud Shell es un shell de Bash gratuito con la interfaz de la línea de comandos de Azure preinstalada. 
+1. Si aún no lo ha hecho, complete los pasos de [Creación de rutas y aplicación virtual de red](#create-routes-and-network-virtual-appliance).
+2. Haga clic en el botón **Probarlo** del cuadro que aparece a continuación, que abre Azure Cloud Shell. Cuando se le solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Azure Cloud Shell es un shell de Bash gratuito con la interfaz de la línea de comandos de Azure preinstalada. 
 
-    Los siguientes scripts crean dos máquinas virtuales, una en la subred *Pública* y la otra en la subred *Privada*. Los scripts también habilitan el reenvío IP para la interfaz de red en el sistema operativo de la NVA para permitir a dicho sistema operativo enrutar el tráfico a través de la interfaz de red. Una NVA de producción suele inspeccionar el tráfico antes de enrutarlo. Sin embargo, en este tutorial, la sencilla NVA se limita a enrutar el tráfico sin inspeccionarlo. 
+    Los siguientes scripts crean dos máquinas virtuales, una en la subred *pública* y la otra en la *privada*. Los scripts también habilitan el reenvío IP para la interfaz de red en el sistema operativo de la máquina NVA con el fin permitir a dicho sistema operativo enrutar el tráfico a través de la interfaz de red. Una máquina NVA de producción suele inspeccionar el tráfico antes de enrutarlo. Sin embargo, en este tutorial, la máquina NVA sencilla se limita a enrutarlo sin inspeccionarlo. 
 
-    Haga clic en el botón **Copiar** en los scripts de **Linux** o **Windows** que aparecen a continuación y pegue el contenido de los scripts en un editor de texto. Cambie la contraseña de la variable *adminPassword* y, a continuación, pegue el script en Azure Cloud Shell. Ejecute el script del sistema operativo seleccionado al crear la aplicación virtual de red en el paso 6 de [Creación de rutas y aplicación virtual de red](#create-routes-and-network-virtual-appliance). 
+    Haga clic en el botón **Copiar** de los scripts de **Linux** o **Windows** que aparecen a continuación y pegue el contenido de los scripts en un editor de texto. Cambie la contraseña de la variable *adminPassword* y, a continuación, pegue el script en Azure Cloud Shell. Ejecute el script del sistema operativo seleccionado al crear la aplicación virtual de red en el paso 6 de [Creación de rutas y aplicación virtual de red](#create-routes-and-network-virtual-appliance). 
 
     **Linux**
 
@@ -259,16 +259,16 @@ En este artículo se indican los pasos para crear una ruta definida por el usuar
       --settings '{"commandToExecute":"powershell.exe Restart-Computer -ComputerName myVm-Nva -Force"}'
     ```
 
-3. Valide la comunicación entre las máquinas virtuales en las subredes Pública y Privada. 
+3. Valide la comunicación entre las máquinas virtuales de las subredes pública y privada. 
 
     - Abra una conexión [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) o a [Escritorio remoto](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) a la dirección IP pública de la máquina virtual *myVm-Public*.
     - En un símbolo del sistema de la máquina virtual *myVm-Public*, escriba `ping myVm-Private`. Puede recibir respuestas porque la NVA enruta el tráfico desde la subred pública a la privada.
-    - En la máquina virtual *myVm-Public*, ejecute una ruta de seguimiento entre las máquinas virtuales de las subredes Pública y Privada. Escriba el comando adecuado que aparece a continuación, dependiendo del sistema operativo instalado en las máquinas virtuales de las subredes Pública y Privada:
+    - En la máquina virtual *myVm-Public*, ejecute una ruta de seguimiento entre las máquinas virtuales de las subredes pública y privada. Escriba el comando adecuado que aparece a continuación, dependiendo del sistema operativo instalado en las máquinas virtuales de las subredes pública y privada:
         - **Windows**: en un símbolo del sistema, ejecute el comando `tracert myvm-private`.
         - **Ubuntu**: ejecute el comando `tracepath myvm-private`.
-      El tráfico pasa a través de 10.0.2.4 (la NVA) antes de llegar a 10.0.1.4 (la máquina virtual de la subred Privada). 
-    - Complete los pasos anteriores conectándose a la máquina virtual *myVm-Private* y haciendo ping en la máquina virtual *myVm-Public*. En la ruta de seguimiento se muestra la circulación de la comunicación a través de 10.0.2.4 antes de llegar a 10.0.0.4 (la máquina virtual de la subred Pública).
-    - **Opcionalmente**: para validar el próximo salto entre dos máquinas virtuales de Azure, use la funcionalidad de próximo salto de Azure Network Watcher. Antes de usar Network Watcher, primero debe [crear una instancia de Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para la región donde desea utilizarla. En este tutorial, se usa la región Este de EE. UU. Una vez que haya habilitado una instancia de Network Watcher para la región, escriba el siguiente comando para ver la información del próximo salto entre las máquinas virtuales de las subredes Pública y Privada:
+      El tráfico pasa a través de 10.0.2.4 (la máquina NVA) antes de llegar a 10.0.1.4 (la máquina virtual de la subred privada). 
+    - Complete los pasos anteriores conectándose a la máquina virtual *myVm-Private* y haciendo ping a la máquina virtual *myVm-Public*. En la ruta de seguimiento se muestra la circulación de la comunicación a través de 10.0.2.4 antes de llegar a 10.0.0.4 (la máquina virtual de la subred Pública).
+    - **Opcionalmente**: para validar el próximo salto entre dos máquinas virtuales de Azure, use la funcionalidad de próximo salto de Azure Network Watcher. Antes de usar Network Watcher, primero debe [crear una instancia de Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para la región donde desea utilizarla. En este tutorial, se usa la región Este de EE. UU. Una vez que haya habilitado una instancia de Network Watcher para la región, escriba el siguiente comando para ver la información del próximo salto entre las máquinas virtuales de las subredes pública y privada:
      
         ```azurecli-interactive
         az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
@@ -277,11 +277,11 @@ En este artículo se indican los pasos para crear una ruta definida por el usuar
        El resultado devuelve *10.0.2.4* como **nextHopIpAddress** y *VirtualAppliance* como **nextHopType**. 
 
 > [!NOTE]
-> Para ilustrar los conceptos de este tutorial, las direcciones IP públicas se asignan a las máquinas virtuales de las subredes Pública y Privada, mientras que todo el acceso a los puertos de red está habilitado en Azure para ambas máquinas virtuales. Al crear máquinas virtuales para su uso en producción, es posible no asignar direcciones IP públicas a estas y filtrar el tráfico de red a la subred Privada implementando una aplicación virtual de red frente a él o asignando un grupo de seguridad de red a las subredes, a la interfaz de red o a ambas. Para más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad de red](virtual-networks-nsg.md).
+> Para ilustrar los conceptos de este tutorial, las direcciones IP públicas se asignan a las máquinas virtuales de las subredes pública y privada, mientras que todo el acceso a los puertos de red está habilitado en Azure para ambas máquinas virtuales. Al crear máquinas virtuales para su uso en producción, no puede asignar direcciones IP públicas a estas y filtrar el tráfico de red a la subred privada implementando una aplicación virtual de red frente a él o asignando un grupo de seguridad de red a las subredes, a la interfaz de red o a ambas. Para obtener más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad de red](virtual-networks-nsg.md).
 
 ## <a name="create-a-virtual-network"></a>Crear una red virtual
 
-En este tutorial se requiere una red virtual existente con dos subredes. Haga clic en el botón **Pruébelo** del cuadro que aparece a continuación para crear con rapidez una red virtual. Al hacer clic en el botón **Pruébelo** se abre [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aunque Cloud Shell ejecuta PowerShell o un shell de Bash, en esta sección, el shell de Bash se usa para crear la red virtual. El shell de Bash tiene la interfaz de la línea de comandos de Azure instalada. Cuando Cloud Shell se lo solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Para crear la red virtual usada en este tutorial, haga clic en el botón **Copiar** del siguiente cuadro y, a continuación, pegue el script en Azure Cloud Shell:
+En este tutorial se requiere una red virtual existente con dos subredes. Haga clic en el botón **Probarlo** del cuadro que aparece a continuación para crear con rapidez una red virtual. Al hacer clic en el botón **Probarlo** se abre [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aunque Cloud Shell ejecuta PowerShell o un shell de Bash, en esta sección, el shell de Bash se usa para crear la red virtual. El shell de Bash tiene la interfaz de la línea de comandos de Azure instalada. Cuando Cloud Shell se lo solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Para crear la red virtual usada en este tutorial, haga clic en el botón **Copiar** del siguiente cuadro y, a continuación, pegue el script en Azure Cloud Shell:
 
 ```azurecli-interactive
 #!/bin/bash

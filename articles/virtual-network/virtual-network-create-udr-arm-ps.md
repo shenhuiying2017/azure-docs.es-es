@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 4ca7f791b4c5c8bb9020144785b1c1aeb20db195
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>Creación de una ruta definida por el usuario - PowerShell
 
@@ -32,7 +32,7 @@ En este tutorial, puede crear una red virtual con subredes públicas, privadas y
 
 ![Rutas definidas por el usuario](./media/create-user-defined-route/user-defined-routes.png)
 
-En este artículo se indican los pasos para crear una ruta definida por el usuario mediante el modelo de implementación de Resource Manager, que es el recomendado para crear rutas definidas por el usuario. Si debe crear una ruta definida por el usuario (clásica), consulte [Creación de una ruta definida por el usuario (clásica)](virtual-network-create-udr-classic-ps.md). Si no está familiarizado con los modelos de implementación de Azure, vea [Understand Azure deployment models (Descripción de los modelos de implementación de Azure)](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined-routes).
+En este artículo se indican los pasos para crear una ruta definida por el usuario mediante el modelo de implementación de Resource Manager, que es el recomendado para crear rutas definidas por el usuario. Si debe crear una ruta definida por el usuario (clásica), consulte [Creación de una ruta definida por el usuario (clásica)](virtual-network-create-udr-classic-ps.md). Si no está familiarizado con los modelos de implementación de Azure, vea [Understand Azure deployment models (Descripción de los modelos de implementación de Azure)](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Creación de rutas y aplicación virtual de red
 
@@ -334,7 +334,7 @@ Puede instalar y configurar la última versión del módulo [AzureRM](https://ww
 3. Valide la comunicación entre las máquinas virtuales de las subredes pública y privada. 
 
     - Abra una conexión [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) o a [Escritorio remoto](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) a la dirección IP pública de la máquina virtual *myVm-Public*.
-    - En un símbolo del sistema de la máquina virtual *myVm-Public*, escriba `ping myVm-Private`. Recibe respuestas porque la máquina NVA enruta el tráfico desde la subred pública a la privada.
+    - En un símbolo del sistema de la máquina virtual *myVm-Public*, escriba `ping myVm-Private`. Puede recibir respuestas porque la NVA enruta el tráfico desde la subred pública a la privada.
     - En la máquina virtual *myVm-Public*, ejecute una ruta de seguimiento entre las máquinas virtuales de las subredes pública y privada. Escriba el comando adecuado que aparece a continuación, dependiendo del sistema operativo instalado en las máquinas virtuales de las subredes pública y privada:
         - **Windows**: en un símbolo del sistema, ejecute el comando `tracert myvm-private`.
         - **Ubuntu**: ejecute el comando `tracepath myvm-private`.
@@ -353,7 +353,7 @@ Puede instalar y configurar la última versión del módulo [AzureRM](https://ww
 
 ## <a name="create-a-virtual-network"></a>Crear una red virtual
 
-Este tutorial requiere una red virtual existente con dos subredes. Haga clic en el botón **Probarlo** del cuadro que aparece a continuación para crear con rapidez una red virtual. Al hacer clic en el botón **Probarlo** se abre [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aunque Cloud Shell ejecuta PowerShell o un shell de Bash, en esta sección, el shell de Bash se usa para crear la red virtual. El shell de Bash tiene la interfaz de la línea de comandos de Azure instalada. Cuando Cloud Shell se lo solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Para crear la red virtual usada en este tutorial, haga clic en el botón **Copiar** del siguiente cuadro y, a continuación, pegue el script en Azure Cloud Shell:
+En este tutorial se requiere una red virtual existente con dos subredes. Haga clic en el botón **Probarlo** del cuadro que aparece a continuación para crear con rapidez una red virtual. Al hacer clic en el botón **Probarlo** se abre [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Aunque Cloud Shell ejecuta PowerShell o un shell de Bash, en esta sección, el shell de Bash se usa para crear la red virtual. El shell de Bash tiene la interfaz de la línea de comandos de Azure instalada. Cuando Cloud Shell se lo solicite, inicie sesión en Azure con la [cuenta de Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Para crear la red virtual usada en este tutorial, haga clic en el botón **Copiar** del siguiente cuadro y, a continuación, pegue el script en Azure Cloud Shell:
 
 ```azurecli-interactive
 #!/bin/bash

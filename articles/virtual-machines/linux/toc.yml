@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: Tamaños y tipos de máquinas virtuales
       href: sizes.md
+      items:
+        - name: Uso general
+          href: sizes-general.md
+          items:
+            - name: Ampliables de la serie B
+              href: b-series-burstable.md
+        - name: Proceso optimizado
+          href: sizes-compute.md
+        - name: Memoria optimizada
+          href: sizes-memory.md
+        - name: Almacenamiento optimizado
+          href: sizes-storage.md
+        - name: GPU optimizada
+          href: sizes-gpu.md
+          items:
+            - name: Configuración de los controladores de GPU
+              href: n-series-driver-setup.md
+        - name: Proceso de alto rendimiento
+          href: sizes-hpc.md
+        - name: Unidades de proceso de Azure (ACU)
+          href: sizes-general.md
     - name: Distribuciones aprobadas
       href: endorsed-distros.md
     - name: Mantenimiento y actualizaciones

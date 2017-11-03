@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
 Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una Puerta de enlace de VPN y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:
@@ -70,7 +70,7 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
   * **AZF3**. Firewall de administración al que los administradores tienen acceso desde el centro de datos local y que está conectado a una subred de administración que se usa para administrar todas las aplicaciones de firewall. Puede encontrar plantillas de aplicaciones virtuales de 2 NIC en Marketplace, o bien solicitar una directamente al proveedor de aplicaciones.
 
 ## <a name="user-defined-routing-udr"></a>Enrutamiento definido por el usuario (UDR)
-Cada subred de Azure se puede vincular a una tabla de UDR que se usa para definir cómo se enruta el tráfico que se inicia en esa subred. Si no hay definida ninguna UDR, Azure usa las rutas predeterminadas para permitir que el tráfico fluya de una subred a otra. Consulte el artículo [¿Qué son las rutas definidas por el usuario y el reenvío IP?](virtual-networks-udr-overview.md#ip-forwarding)para comprender mejor las UDR.
+Cada subred de Azure se puede vincular a una tabla de UDR que se usa para definir cómo se enruta el tráfico que se inicia en esa subred. Si no hay definida ninguna UDR, Azure usa las rutas predeterminadas para permitir que el tráfico fluya de una subred a otra. Consulte el artículo [¿Qué son las rutas definidas por el usuario y el reenvío IP?](virtual-networks-udr-overview.md)para comprender mejor las UDR.
 
 Para asegurarse de que la comunicación que se realiza a través de la aplicación de firewall correcta, según el último requisito mencionado, debe crear la siguiente tabla de ruta que contiene UDR en **azurevnet**.
 
@@ -110,7 +110,7 @@ UDR y Reenvío de IP son características que se pueden usar en conjunto para pe
 
 La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP de la máquina virtual. Esta es una opción de configuración de Azure, no de la configuración del sistema operativo invitado. De todos modos, la aplicación virtual debe ejecutar algún tipo de aplicación para controlar el tráfico entrante y enrutarlo como corresponda.
 
-Visite [¿Qué son las rutas definidas por el usuario y el reenvío IP?](virtual-networks-udr-overview.md#ip-forwarding)para obtener más información sobre el reenvío IP.
+Visite [¿Qué son las rutas definidas por el usuario y el reenvío IP?](virtual-networks-udr-overview.md)para obtener más información sobre el reenvío IP.
 
 Como ejemplo, imagine que tiene una red virtual de Azure con la siguiente configuración:
 
