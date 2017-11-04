@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: 730a3f464b4437c260d09abc026a186a0e26293c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca51cc33561817e36ebaba9a9146bebf9d5d5d96
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Java para conectarse y consultar datos
-En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante una aplicación de Java. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha utilizado Azure Database for PostgreSQL.
+En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante una aplicación de Java. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En los pasos de este artículo, se da por hecho que está familiarizado con el desarrollo con Java, pero que nunca ha trabajado con Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este tutorial rápido se usan como punto de partida los recursos creados en una de estas guías:
@@ -40,7 +40,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
 
 ## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
-Use el código siguiente para conectarse y cargar los datos mediante la función con una instrucción SQL **INSERT**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) se usan para conectarse, quitar y crear la tabla. El objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) se usa para generar los comandos insert, con setString() y setInt() para enlazar los valores de parámetro. El método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) ejecuta el comando para cada conjunto de parámetros. 
+Use el código siguiente para conectarse y cargar los datos en la base de datos mediante la función con una instrucción SQL **INSERT**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) se usan para conectarse a la base de datos, colocar y crear la tabla. El objeto [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) se usa para generar los comandos insert, con setString() y setInt() para enlazar los valores de parámetro. El método [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) ejecuta el comando para cada conjunto de parámetros. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
 
@@ -140,7 +140,7 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Lectura de datos
-Use el código siguiente para leer los datos con una instrucción SQL **SELECT**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) se usan para conectarse, crear y ejecutar la instrucción Select. Los resultados se procesan mediante un objeto [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
+Use el código siguiente para leer los datos con una instrucción SQL **SELECT**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) se usan para conectarse a la base de datos, crear y ejecutar la instrucción Select. Los resultados se procesan mediante un objeto [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html). 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
 
@@ -227,7 +227,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Actualización de datos
-Use el código siguiente para cambiar los datos con una instrucción SQL **UPDATE**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) se usan para conectarse, preparar y ejecutar la instrucción Update. 
+Use el código siguiente para cambiar los datos con una instrucción SQL **UPDATE**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) se usan para conectarse a la base de datos, preparar y ejecutar la instrucción Update. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
 
@@ -307,7 +307,7 @@ public class UpdateTable {
 }
 ```
 ## <a name="delete-data"></a>Eliminación de datos
-Use el código siguiente para quitar datos con una instrucción SQL **DELETE**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) se usan para conectarse, preparar y ejecutar la instrucción Delete. 
+Use el código siguiente para quitar datos con una instrucción SQL **DELETE**. Los métodos [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) y [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) se usan para conectarse a la base de datos, preparar y ejecutar la instrucción Delete. 
 
 Reemplace los parámetros de host, database, user y password por los valores que especificó al crear el servidor y la base de datos.
 

@@ -4,7 +4,7 @@ description: "Se describe cómo usar el servicio Administrador de dispositivos d
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2017
+ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar el servicio Administrador de dispositivos de StorSimple para supervisar el dispositivo StorSimple
+
 ## <a name="overview"></a>Información general
 Puede usar el servicio Administrador de dispositivos de StorSimple para supervisar dispositivos específicos dentro de la solución StorSimple. Puede crear gráficos personalizados basados en el rendimiento de E/S, el uso de la capacidad, el rendimiento de la red y las métricas de rendimiento del dispositivo, y anclarlos al panel. Para más información, vaya a [personalizar el panel del portal](../azure-portal/azure-portal-dashboards.md).
 
@@ -44,6 +45,19 @@ De forma predeterminada, se notifica el uso de las últimas 24 horas. Puede edit
 * Últimos 90 días
 * Últimos año
 
+Para los gráficos de utilización, se notifican dos métricas clave: el crecimiento y el rango. El rango hace referencia al valor máximo y a los valores mínimos de utilización notificados durante el tiempo seleccionado (por ejemplo, los últimos 7 días).
+
+El crecimiento hace referencia al aumento de la utilización desde el primer día hasta el último día durante el tiempo seleccionado. 
+
+El crecimiento y el rango también se pueden representar mediante las ecuaciones siguientes:
+
+```
+Range = {Usage(minimum), Usage(maximum)}
+
+Growth = Usage(Last day) - Usage(first day)
+
+Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
+```
 
 La capacidad de almacenamiento principal, en la nube y local puede describirse como sigue:
 

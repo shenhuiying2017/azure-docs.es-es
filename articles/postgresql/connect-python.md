@@ -11,11 +11,11 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
-ms.openlocfilehash: 342e7dfd35ce890cda4a1d98613592353a63d7e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso de Python para conectarse y consultar datos
 En este tutorial de inicio rápido se muestra cómo usar [Python](https://python.org) para conectarse a una instancia de Azure Database for PostgreSQL. También se muestra cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos en plataformas macOS, Ubuntu Linux y Windows. En los pasos de este artículo se da por hecho que está familiarizado con el desarrollo mediante Python, pero que nunca ha trabajado con Azure Database for PostgreSQL.
@@ -61,8 +61,8 @@ Este tema contiene cuatro ejemplos de código en total, cada uno de los cuales r
 
 - Con su editor de texto favorito, cree un nuevo archivo.
 - Copie y pegue uno de los ejemplos de código en las secciones siguientes del archivo de texto. Reemplace los parámetros **host**, **dbname**, **user** y **password** por los valores especificados al crear el servidor y la base de datos.
-- Guarde el archivo con la extensión .py (por ejemplo, postgres.py) en la carpeta del proyecto. Si va a ejecutar el sistema operativo Windows, asegúrese de seleccionar la codificación UTF-8 cuando guarde el archivo. 
-- Inicie el símbolo del sistema o el shell de Bash y luego cambie el directorio a la carpeta del proyecto, por ejemplo `cd postgres`.
+- Guarde el archivo con la extensión .py (por ejemplo, postgres.py) en la carpeta del proyecto. Si ejecuta Windows, asegúrese de seleccionar la codificación UTF-8 cuando guarde el archivo. 
+- Inicie el símbolo del sistema, Terminal o el shell de Bash y, luego, cambie el directorio a la carpeta del proyecto, por ejemplo `cd postgres`.
 -  Para ejecutar el código, escriba el comando de Python seguido del nombre de archivo, por ejemplo `Python postgres.py`.
 
 > [!NOTE]
