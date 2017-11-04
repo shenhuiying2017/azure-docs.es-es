@@ -8,18 +8,15 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 1a489f199bcc955fd14e82d16670d854305b00c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (versión preliminar)
 
 Azure Event Grid es un servicio de eventos para la nube. En este artículo, se usa la CLI de Azure para suscribirse a los eventos de Blob Storage y desencadenar el evento para ver el resultado. 
-
-> [!IMPORTANT]
-> Para completar este tutorial, debe estar registrado para la versión preliminar de eventos de Blob Storage.  Para más información acerca del programa de versión preliminar, haga clic [aquí](storage-blob-event-overview.md#join-the-preview).
 
 Por lo general, los eventos se envían a un punto de conexión que responde ante ellos, como un webhook o Azure Function. Para simplificar el ejemplo de este artículo, enviamos los eventos a una dirección URL que simplemente recopila los mensajes. Esta dirección URL se crea mediante una herramienta de código abierto de terceros llamada [RequestBin](https://requestb.in/).
 
@@ -55,7 +52,7 @@ Para usar Azure Storage, necesita una cuenta de almacenamiento.  Actualmente, lo
 Una cuenta de Almacenamiento de blobs es una cuenta de almacenamiento especializado para almacenar los datos no estructurados como blobs (objetos) en Almacenamiento de Azure. Las cuentas de Almacenamiento de blobs son similares a las cuentas de almacenamiento de uso general existentes y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API para blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.
 
 > [!NOTE]
-> Para el lanzamiento de la versión preliminar, los eventos de Blob Storage solo están disponibles para las cuentas de almacenamiento de la ubicación **westcentralus**.
+> Event Grid está actualmente en versión preliminar y solo está disponible para las cuentas de almacenamiento de las regiones **westcentralus** y **westus2**.
 
 Reemplace `<storage_account_name>` por el nombre único de la cuenta de almacenamiento y `<resource_group_name>` por el grupo de recursos que creó anteriormente.
 

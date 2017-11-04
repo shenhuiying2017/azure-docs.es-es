@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: 07497231e2cfab86082c5a0d1f4a4ec8ab31f6a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guía del desarrollador del Centro de IoT de Azure
 
@@ -48,11 +48,11 @@ Esta guía del desarrollador de IoT Hub incluye los siguientes artículos:
 * En [Invocación de un método directo en un dispositivo][devguide-directmethods] se describe el ciclo de vida de un método directo y proporciona información sobre cómo invocar métodos en un dispositivo desde la aplicación back-end y controlar el método directo en el dispositivo.
 * En [Programación de trabajos en varios dispositivos][devguide-jobs] se describe cómo se programan trabajos en varios dispositivos. En el artículo se describe cómo enviar trabajos que realizan tareas como la ejecución de un método directo y la actualización de un dispositivo mediante un dispositivo gemelo. También describe cómo consultar el estado de un trabajo.
 * [Referencia: elegir un protocolo de comunicación][devguide-protocol] describe los protocolos de comunicación que IoT Hub admite para la comunicación de dispositivos y muestra los puertos que deben estar abiertos.
-* En la [reference de puntos de conexión de IoT Hub][devguide-endpoints] se describen los diferentes puntos de conexión que expone cada centro de IoT para las operaciones en tiempo de ejecución y de administración. El artículo también describe cómo puede crear puntos de conexión adicionales en su IoT Hub y cómo usar una puerta de enlace de campo para habilitar la conectividad de dispositivos con los puntos de conexión de su IoT Hub en escenarios no estándar.
+* En la [reference de puntos de conexión de IoT Hub][devguide-endpoints] se describen los diferentes puntos de conexión que expone cada centro de IoT para las operaciones en tiempo de ejecución y de administración. En el artículo también se describe cómo puede crear puntos de conexión adicionales en su IoT Hub y cómo usar una puerta de enlace de campo para habilitar la conectividad con los puntos de conexión de su IoT Hub en escenarios no estándar.
 * [Referencia: lenguaje de consulta para dispositivos gemelos, trabajos y enrutamiento de mensajes][devguide-query] describe el lenguaje de consulta de IoT Hub que le permite recuperar información desde su instancia de IoT Hub sobre los dispositivos gemelos y los trabajos.
-* En [Referencia: cuotas y limitaciones][devguide-quotas] se resumen las cuotas establecidas en el servicio de IoT Hub y el comportamiento de limitación que puede esperar ver cuando supere la cuota.
+* En [Referencia: cuotas y limitaciones][devguide-quotas] se resumen las cuotas establecidas en el servicio de IoT Hub y la limitación que se produce cuando supera una cuota.
 * [Referencia: precios][devguide-pricing] proporciona información general sobre diferentes SKU y precios para IoT Hub y detalles sobre cómo las diversas funcionalidades se miden como mensajes en IoT Hub.
-* En [Referencia: SDK de servicio y de dispositivo][devguide-sdks] se muestran los diversos SDK que puede usar para desarrollar aplicaciones de dispositivo y de servicio que interactúen con su IoT Hub. El artículo incluye vínculos a documentación de la API en línea.
+* En [Referencia: SDK de servicio y de dispositivo][devguide-sdks] se muestran los diversos SDK de Azure IoT para desarrollar aplicaciones de dispositivo y de servicio que interactúen con su IoT Hub. El artículo incluye vínculos a documentación de la API en línea.
 * En [Referencia: compatibilidad con MQTT de IoT Hub][devguide-mqtt] se proporciona más información acerca de la compatibilidad de IoT Hub con el protocolo MQTT. En el artículo se describe la compatibilidad con el protocolo MQTT integrado en los SDK de IoT de Azure y se proporciona información acerca de cómo utilizar el protocolo MQTT directamente.
 * [Glosario][devguide-glossary], una lista de términos habituales relacionados con IoT Hub.
 

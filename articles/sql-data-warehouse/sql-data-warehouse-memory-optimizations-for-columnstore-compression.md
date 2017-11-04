@@ -1,9 +1,9 @@
 ---
-title: "Mejora del rendimiento del índice de almacén de columnas en Azure SQL | Microsoft Docs"
+title: "Mejora del rendimiento del índice de almacén de columnas - Azure SQL Data Warehouse | Microsoft Docs"
 description: "Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 6/2/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/23/2017
+ms.author: barbkess
+ms.openlocfilehash: 0476afb875616ed0758835aa52fb2334b63959a9
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
