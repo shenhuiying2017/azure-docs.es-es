@@ -50,36 +50,36 @@ Hay tres productos del servicio CDN de Azure: **Azure CDN Standard de Akamai**, 
 |  | Estándar de Akamai | Estándar de Verizon | Premium de Verizone |
 | --- | --- | --- | --- |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Características de rendimiento y optimizaciones__ |
-| [Aceleración de sitios dinámicos](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&amp;#x2713;**  | **&amp;#x2713;** | **&amp;#x2713;** |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Aceleración de sitio dinámico: compresión de imagen adaptable](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&amp;#x2713;**  |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Aceleración de sitio dinámico: precarga de objetos](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&amp;#x2713;**  |  |  |
-| [Optimización de streaming multimedia](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&amp;#x2713;**  | \* |  \* |
-| [Optimización de archivos grandes](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&amp;#x2713;**  | \* |  \* |
-| [Equilibrio de carga del servidor global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Purga rápida](cdn-purge-endpoint.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Carga previa de activos](cdn-preload-endpoint.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| Pila dual IPv4/IPv6 |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Compatibilidad con HTTP/2](cdn-http2.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| [Aceleración de sitios dinámicos](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Aceleración de sitio dinámico: compresión de imagen adaptable](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only) | **&#x2713;**  |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  [Aceleración de sitio dinámico: precarga de objetos](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-akamai-only) | **&#x2713;**  |  |  |
+| [Optimización de streaming multimedia](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [Optimización de archivos grandes](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [Equilibrio de carga del servidor global (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Purga rápida](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Carga previa de activos](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
+| [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Pila dual IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Compatibilidad con HTTP/2](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Seguridad__ |
-| Compatibilidad con HTTPS con el punto de conexión de red CDN |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Dominio personalizado HTTPS](cdn-custom-ssl.md) | |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Filtrado geográfico](cdn-restrict-access-by-country.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Autenticación de token](cdn-token-auth.md)|  |  |**&amp;#x2713;**| 
-| [Protección contra DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
+| Compatibilidad con HTTPS con el punto de conexión de red CDN |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Dominio personalizado HTTPS](cdn-custom-ssl.md) | |**&#x2713;** |**&#x2713;** |
+| [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Filtrado geográfico](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Autenticación de token](cdn-token-auth.md)|  |  |**&#x2713;**| 
+| [Protección contra DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Análisis e informes__ |
-| [Análisis esencial](cdn-analyze-usage-patterns.md) | **&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | |**&amp;#x2713;** |
-| [Estadísticas en tiempo real](cdn-real-time-stats.md) | | |**&amp;#x2713;** |
-| [Alertas en tiempo real](cdn-real-time-alerts.md) | | |**&amp;#x2713;** |
+| [Análisis esencial](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Informes de HTTP avanzados](cdn-advanced-http-reports.md) | | |**&#x2713;** |
+| [Estadísticas en tiempo real](cdn-real-time-stats.md) | | |**&#x2713;** |
+| [Alertas en tiempo real](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  __Facilidad de uso__ |
-| Fácil integración con servicios de Azure, como [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) y [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| Se puede administrar mediante la [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) o [PowerShell](cdn-manage-powershell.md). |**&amp;#x2713;** |**&amp;#x2713;** |**&amp;#x2713;** |
-| [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | |**&amp;#x2713;** |
-| Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
-| Redirección/rescritura de direcciones URL (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
-| Reglas de dispositivos móviles (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&amp;#x2713;** |
+| Fácil integración con servicios de Azure, como [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) y [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Se puede administrar mediante la [API de REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) o [PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md) | | |**&#x2713;** |
+| Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
+| Redirección/rescritura de direcciones URL (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
+| Reglas de dispositivos móviles (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
 
 \* Verizon admite la entrega de archivos de gran tamaño y de elementos multimedia directamente a través de la entrega web general.
 
