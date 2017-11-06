@@ -79,8 +79,6 @@
   items:
     - name: Recuperación ante desastres
       items:
-        - name: Máquinas virtuales de VMware con compatibilidad para multiinquilinos en Azure
-          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: Máquinas virtuales de Hyper-V en Azure
           href: tutorial-hyper-v-to-azure.md
         - name: Servidores físicos en Azure
@@ -99,6 +97,8 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: Ejecución de una conmutación por error y una conmutación por recuperación entre sitios locales
           href: tutorial-vmm-to-vmm-failover-failback.md
+        - name: Máquinas virtuales de VMware con compatibilidad para multiinquilinos en Azure
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
     - name: Capacidad y escalado
       items:
         - name: Planeamiento de la capacidad para la replicación de VMware a Azure
@@ -203,6 +203,8 @@
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
+        - name: Servidor de archivos
+          href: file-server-disaster-recovery.md
         - name: Aplicaciones web basadas en IIS
           href: site-recovery-iis.md
         - name: Citrix XenApp y XenDesktop

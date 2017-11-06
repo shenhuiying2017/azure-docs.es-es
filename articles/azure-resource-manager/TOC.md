@@ -71,15 +71,10 @@
 
 ## Establecimiento de directivas de recursos
 ### [¿Qué son las directivas de recursos?](resource-manager-policy.md)
-### [Uso de Azure Portal para asignar directivas](resource-manager-policy-portal.md)
 ### [Uso de scripts para asignar directivas](resource-manager-policy-create-assign.md)
 ### Ejemplos
 #### [Etiquetas](resource-manager-policy-tags.md)
 #### [Convenciones de nomenclatura](resource-manager-policy-naming-convention.md)
-#### [Red](resource-manager-policy-network.md)
-#### [Storage](resource-manager-policy-storage.md)
-#### [Máquina virtual Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Máquina virtual Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Auditoría
 ### [Visualización de registros de actividad](resource-group-audit.md)

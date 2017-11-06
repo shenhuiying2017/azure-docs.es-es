@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 270d1aec5855ee3bb9cc121526d311ab78d989c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afe5dcab2beca2c6bf3d116adf249fc9717eeb09
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="iot-hub-documentation"></a>Documentación de IoT Hub 
 
@@ -48,7 +48,7 @@ Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recurso
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_video.svg" alt="" />
+                            <img src="media/common/i_video.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -66,7 +66,7 @@ Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recurso
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -84,7 +84,7 @@ Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recurso
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_get-started.svg" alt="" />
+                            <img src="media/common/i_get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -102,7 +102,7 @@ Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recurso
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/media/common/i_road-map.svg" alt="" />
+                            <img src="media/common/i_road-map.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -136,13 +136,26 @@ Aprenda a usar IoT Hub para conectar, supervisar y controlar millones de recurso
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
+                        <h3>Ejemplos de código</h3>
+                        <p><a href="https://azure.microsoft.com/resources/samples/?service=iot-hub">Ejemplos de código</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
                         <h3>Idiomas</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (servicio)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispostivos)</a></p>
                         <p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">SDK para dispositivos C</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (servicio)</a></p>
                         <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (dispositivos)</a></p>
-                        <p><a href="http://azure.github.io/azure-iot-sdk-node/">SDK para Node.js</a></p>
+                        <p><a href="/javascript/api/azure-iot-device/">Node.js (Dispositivos)</a></p>
+                        <p><a href="/javascript/api/azure-iothub">Node.js (Servicio)</a></p>
                         <p><a href="http://azure.github.io/iot-edge/">Azure IoT Edge</a></p>
                     </div>
                 </div>
