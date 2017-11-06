@@ -37,6 +37,8 @@
       href: kubernetes-helm.md
     - name: Desarrollo de aplicaciones con Draft
       href: kubernetes-draft.md
+    - name: Conservación de datos con Azure Files
+      href: azure-files.md
     - name: Uso del panel de Kubernetes
       href: kubernetes-dashboard.md
     - name: Creación de una entidad de servicio
