@@ -90,6 +90,13 @@
       href: maintenance-and-updates.md
     - name: Storage
       href: azure-vm-storage-overview.md
+      items:
+        - name: Premium Storage
+          href: premium-storage.md
+        - name: Rendimiento de Premium Storage
+          href: premium-storage-performance.md
+        - name: Standard storage
+          href: standard-storage.md
     - name: Redes
       href: network-overview.md
     - name: Aplicaciones de escalado automático
@@ -310,6 +317,8 @@
           href: expand-disks.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
+        - name: Copia de seguridad y recuperación ante desastres para discos
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Copia de seguridad de discos no administrados
           href: incremental-snapshots.md
         - name: Conversión en Managed Disks
@@ -318,6 +327,8 @@
           href: convert-disk-storage.md
         - name: Copia de archivos en una máquina virtual
           href: copy-files-to-linux-vm-using-scp.md
+        - name: Migración a Premium Storage con Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Uso de File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Implementación de discos con plantilla

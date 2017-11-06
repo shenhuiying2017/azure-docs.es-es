@@ -70,7 +70,7 @@
 ### Filtros de Azure Search
 #### [Información general](search-filters.md)
 #### [Filtros de faceta](search-filters-facets.md)
-#### [Filtros de lenguaje](search-filters-language.md)
+#### [Filtros de idioma](search-filters-language.md)
 #### [Recorte de seguridad](search-security-trimming-for-azure-search.md)
 #### [Referencia sobre sintaxis de expresión](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
 ### [Paginación de resultados](search-pagination-page-layout.md)
@@ -78,6 +78,7 @@
 ### [Sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Navegación por facetas](search-faceted-navigation.md)
 ### [Vista previa de sinónimos](search-synonyms.md)
+### [Versión preliminar de moreLikeThis](search-more-like-this.md)
 
 # Referencia
 
@@ -86,7 +87,7 @@
 ## [Python (administración)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (administración)](/rest/api/searchmanagement)
-## [REST de servicio (Versión preliminar)](search-api-2015-02-28-preview.md)
+## [REST de servicio (Versión preliminar)](search-api-2016-09-01-preview.md)
 
 # Recursos
 

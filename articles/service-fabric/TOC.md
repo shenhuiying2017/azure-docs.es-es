@@ -6,6 +6,7 @@
 ## [Creación de una aplicación .NET](service-fabric-quickstart-dotnet.md)
 ## [Implementación de una aplicación contenedora de Linux](service-fabric-quickstart-containers-linux.md)
 ## [Implementación de una aplicación contenedora de Windows](service-fabric-quickstart-containers.md)
+## [Implementación de una aplicación Java](service-fabric-quickstart-java.md)
 
 # Tutoriales
 ## Implementación de una aplicación .NET
@@ -28,7 +29,9 @@
 ### 1--Creación de un clúster en Azure
 #### [1a Creación de un clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b Creación de un clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2- Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2- Escalado del clúster](service-fabric-tutorial-scale-cluster.md)
+### [3- Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Muestras
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=service-fabric)

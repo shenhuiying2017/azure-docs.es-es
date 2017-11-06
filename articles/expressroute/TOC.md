@@ -41,6 +41,7 @@
 ## Configuración de un enrutador para ExpressRoute
 ### [Configuración de un enrutador](expressroute-config-samples-routing.md)
 ### [Ejemplos de configuración de enrutador para NAT](expressroute-config-samples-nat.md)
+## [Configuración de Network Performance Monitor para ExpressRoute](how-to-npm.md)
 
 ## Prácticas recomendadas
 ### [Procedimientos recomendados para seguridad de red y servicios en la nube](../best-practices-network-security.md)

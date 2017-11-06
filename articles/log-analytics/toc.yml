@@ -150,6 +150,12 @@
           href: log-analytics-alerts-webhooks.md
         - name: Solución de Alert Management
           href: log-analytics-solution-alert-management.md
+    - name: Administrar
+      items:
+        - name: Administración del costo del área de trabajo
+          href: log-analytics-manage-cost-storage.md
+        - name: Eliminar un área de trabajo
+          href: log-analytics-manage-del-workspace.md
     - name: Uso de soluciones
       items:
         - name: Introducción a soluciones
