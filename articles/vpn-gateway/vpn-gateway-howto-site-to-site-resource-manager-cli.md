@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
-ms.openlocfilehash: 070805ed4cd7e2d03a47fc04c01ea331c664e2cb
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 832cb92f07696ac5ea4df74467899adcc0de0903
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI
 
@@ -87,6 +87,11 @@ az group create --name TestRG1 --location eastus
 ## <a name="VNet"></a>3. Crear una red virtual
 
 Si aún no tiene una red virtual, créela con el comando [az network vnet create](/cli/azure/network/vnet#create). Al crear una red virtual, compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local.
+
+>[!NOTE]
+>Para que esta red virtual se conecte a una ubicación local, debe coordinarse con el administrador de la red local para delimitar un intervalo de direcciones IP que pueda usar específicamente para esta red virtual. En caso contrario, el tráfico no se enrutará correctamente si existe un intervalo de direcciones duplicado en ambos lados de la conexión VPN.
+>
+>
 
 El siguiente ejemplo crea una red virtual denominada 'TestVNet1' y una subred llamada 'Subnet1'.
 

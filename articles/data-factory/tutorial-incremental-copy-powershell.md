@@ -11,16 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: a9d59e8ad2669b7a00ec83e019148bbac96f679f
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: f6f90f35fc4d26c0cdb021e85a159d4984d48399
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
-Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI). 
+
+[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
+
+#### <a name="this-tutorial"></a>Este tutorial
+
+> [!NOTE]
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Durante el recorrido de integración de datos, uno de los escenarios ampliamente usados consiste en cargar de forma incremental los datos periódicamente para actualizar el resultado de los análisis actualizados después del análisis y las cargas de datos iniciales. En este tutorial, se centrará en cargar únicamente registros nuevos o actualizados desde los orígenes de datos en los receptores de datos. Esto resulta más eficiente comparado con las completas, especialmente para los conjuntos de datos de gran tamaño.    
 

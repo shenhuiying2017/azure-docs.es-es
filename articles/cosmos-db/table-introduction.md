@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a la API Table de Azure Cosmos DB
 
@@ -38,10 +38,10 @@ Se recomienda ver el vídeo siguiente, donde Aravind Ramachandran explica cómo 
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>API Table premium y estándar
-Si actualmente usa Table Storage, obtendrá las siguientes ventajas si actualiza a la versión preliminar de las "tablas premium" de Azure Cosmos DB:
+## <a name="table-offerings"></a>Ofertas de Table
+Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas si actualiza a la versión preliminar de la API Table de Azure Cosmos DB:
 
-| | Almacenamiento de tablas de Azure | Table Storage de Azure Cosmos DB (versión preliminar) |
+| | Azure Table Storage | API Table de Azure Cosmos DB (versión preliminar) |
 | --- | --- | --- |
 | Latency | Rápido, pero no hay límites máximos en la latencia. | Latencia en milisegundos de un solo dígito para lecturas y escrituras, respaldada con lecturas con una latencia inferior a 10 ms y escrituras con una latencia inferior a 15 ms en el percentil 99, a cualquier escala, en cualquier lugar del mundo. |
 | Rendimiento | Modelo de rendimiento variable. Las tablas tienen un límite de escalabilidad de 20.000 operaciones por segundo. | Altamente escalable con [rendimiento reservado dedicado por tabla](request-units.md) respaldado por los SLA. Las cuentas no tienen límite máximo en el rendimiento y admiten más de 10 millones de operaciones por segundo por tabla. |
@@ -52,7 +52,7 @@ Si actualmente usa Table Storage, obtendrá las siguientes ventajas si actualiza
 | Precios | Optimizado para el almacenamiento. | Optimizado para el rendimiento. |
 | SLA | disponibilidad del 99,99%. | Disponibilidad del 99,99 % en una sola región y capacidad de agregar más regiones para una mayor disponibilidad. [SLA completos líderes en el sector](https://azure.microsoft.com/support/legal/sla/cosmos-db/) en disponibilidad general. |
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Crear una cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com). A continuación, empezar a trabajar con nuestra [Guía de inicio rápido para la API Table mediante .NET](create-table-dotnet.md). 
 

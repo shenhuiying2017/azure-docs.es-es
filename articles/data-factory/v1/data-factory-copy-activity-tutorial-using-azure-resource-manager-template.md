@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 85855a3696529eae4f977e9e75800d6fa32b7cc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f3523f17b5b39da94177038584d983aa3592199f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -32,7 +32,9 @@ ms.lasthandoff: 10/11/2017
 > * [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
-> 
+
+> [!NOTE]
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-dot-net.md). 
 
 En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure Data Factory. La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. No transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 

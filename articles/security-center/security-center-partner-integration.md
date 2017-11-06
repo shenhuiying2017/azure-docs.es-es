@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
+ms.date: 10/26/2017
 ms.author: yurid
-ms.openlocfilehash: 847a872661bea31b774814188c7707260a16e620
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -32,10 +32,24 @@ Security Center facilita la habilitación de soluciones de seguridad integradas 
 
 En la actualidad, las soluciones de seguridad integradas incluyen:
 
-- Protección de puntos de conexión [[Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, [Microsoft Antimalware para Azure Cloud Services y Virtual Machines](https://docs.microsoft.com/azure/security/azure-security-antimalware), Windows Defender, y System Center Endpoint Protection (SCEP)]
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender y System Center Endpoint Protection (SCEP))
 - Firewall de aplicaciones web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) y [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Firewall de última generación ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) y [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Evaluación de vulnerabilidades ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
+
+La experiencia de integración de Endpoint Protection puede variar según la solución. En la tabla siguiente se muestran más detalles sobre la experiencia de cada solución:
+
+| Endpoint Protection               | Plataformas                             | Instalación de Security Center | Detección de Security Center |
+|-----------------------------------|---------------------------------------|------------------------------|---------------------------|
+| Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, se integra en el sistema operativo.           | Sí                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Mediante extensión                | Sí                       |
+| Trend Micro: todas las versiones         | Familia de Windows Server                 | Mediante extensión                | Sí                       |
+| Symantec v12 +                     | Familia de Windows Server                 | No                           | Sí                        |
+| MacAfee                           | Familia de Windows Server                 | No                           | No                        |
+| Kaspersky                         | Familia de Windows Server                 | No                           | No                        |
+| Sophos                            | Familia de Windows Server                 | No                           | No                        |
+
+
 
 ## <a name="how-security-solutions-are-integrated"></a>Integración de soluciones de seguridad
 Las soluciones de seguridad de Azure que se implementan desde Security Center se conectan automáticamente. También se pueden conectar otros orígenes de datos de seguridad, como:

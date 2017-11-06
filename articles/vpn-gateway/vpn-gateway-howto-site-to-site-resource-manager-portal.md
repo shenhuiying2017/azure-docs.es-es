@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.openlocfilehash: 15f257ffa313762333fae58197c7d0fab53ca5fc
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 41279502c16d0b23c91739dcb62e8f94f3b8bd67
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creación de una conexión de sitio a sitio mediante Azure Portal
 
@@ -47,7 +47,7 @@ Antes de comenzar con la configuración, compruebe que se cumplen los criterios 
 
 ### <a name="values"></a>Valores del ejemplo
 
-Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo.
+Los ejemplos de este artículo utilizan los valores siguientes. Puede usar estos valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo. Para más información sobre la configuración de VPN Gateway en general, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md).
 
 * **Nombre de red virtual:** TestVNet1
 * **Espacio de direcciones:** 

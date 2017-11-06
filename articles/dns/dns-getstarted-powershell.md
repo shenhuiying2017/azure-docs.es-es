@@ -3,7 +3,7 @@ title: "Introducción a Azure DNS PowerShell | Microsoft Docs"
 description: "Obtenga información sobre cómo crear una zona y un registro DNS en Azure DNS. Esta es una guía paso a paso para crear y administrar su primera zona y su primer registro DNS con PowerShell."
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0b0d474752615e60747ffe7681c2d04cd2685bba
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Introducción a DNS de Azure con PowerShell
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > * [CLI de Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [CLI de Azure 2.0](dns-getstarted-cli.md)
 
-Este artículo lo guiará por los pasos necesarios para crear una zona DNS con Azure PowerShell. También puede llevar a cabo estos pasos con Azure Portal o la CLI de Azure multiplataforma.
+Este artículo lo guiará por los pasos necesarios para crear una zona DNS con Azure PowerShell. También puede llevar a cabo estos pasos con Azure Portal o la CLI de Azure multiplataforma. Azure DNS también admite la creación de dominios privados. Para obtener instrucciones paso a paso sobre cómo crear la primera zona DNS privada y registrarla, consulte [Introducción al uso de PowerShell con las zonas privadas de Azure DNS](private-dns-getstarted-powershell.md).
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS. Finalmente, para publicar la zona DNS en Internet, debe configurar los servidores de nombres para el dominio. A continuación, se describen cada uno de estos pasos.
 

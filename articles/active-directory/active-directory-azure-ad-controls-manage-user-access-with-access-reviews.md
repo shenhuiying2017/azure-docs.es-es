@@ -1,6 +1,6 @@
 ---
 title: "Administración del acceso de los usuarios con las revisiones de acceso de Azure AD | Microsoft Docs"
-description: "Obtenga información acerca de cómo administrar el acceso de los usuarios, como la pertenencia a un grupo o la asignación a una aplicación con revisiones de acceso de Azure Active Directory"
+description: "Aprenda a administrar el acceso de los usuarios, como la pertenencia a un grupo o la asignación a una aplicación con revisiones de acceso de Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
@@ -13,42 +13,48 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 0459eb5cc71939202c8491f6b2714e28bd8e202d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4ea5d797613b214be569c6405a0fc672cae83a0
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Administración del acceso de los usuarios con las revisiones de acceso de Azure AD
 
-Con Azure Active Directory, se puede asegurar fácilmente que los usuarios tienen el acceso adecuado, solicitando a los usuarios mismos o a alguien con capacidad de toma de decisiones, su participación en una revisión de acceso para recertificar (o "avalar") el acceso de los usuarios.  Los revisores pueden dar su aprobación para cada necesidad de acceso continuado de los usuarios, en función de las sugerencias de Azure AD. Cuando finaliza una revisión de los accesos, es posible hacer cambios y retirar accesos a los usuarios que ya no lo necesitan.
+Con Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen el acceso adecuado. Puede pedir a los propios usuarios o a quien decida en su lugar que participen en una revisión de acceso y vuelvan a certificar (o atestiguar) el acceso de los usuarios. Los revisores pueden dar su aprobación para cada necesidad de acceso continuado de los usuarios, en función de las sugerencias de Azure AD. Cuando una revisión de acceso haya terminado, es posible hacer cambios y retirar la concesión de acceso a los usuarios que ya no lo necesitan.
 
 > [!NOTE]
-> Si desea revisar solo el acceso de los usuarios invitados y no revisar el acceso de todos los tipos de usuarios, consulte cómo [administrar el acceso de usuarios invitados con revisiones de acceso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).  Si desea revisar la pertenencia del usuario a roles administrativos tales como administrador global, consulte [Cómo iniciar una revisión de acceso en Azure AD PIM](active-directory-privileged-identity-management-how-to-start-security-review.md). 
+> Si desea revisar solo el acceso de los usuarios invitados y no el de todos los tipos de usuarios, consulte [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md). Si desea revisar la pertenencia de los usuarios a roles administrativos tales como administrador global, consulte [Inicio de una revisión de acceso en Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
 >
 >
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
-Las revisiones de acceso están disponibles con la edición Premium P2 de Azure Active Directory, incluida en EMS E5. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).  Cada usuario que interactúa con esta característica, para crear una revisión, revisar el acceso o aplicar una revisión, requiere una licencia.
+Las revisiones de acceso están disponibles con la edición Premium P2 de Azure AD, que se incluye en Microsoft Enterprise Mobility + Security, E5. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md). Cada usuario que interactúa con esta característica para crear una revisión, acceder a ella o aplicarla requiere una licencia.
 
 
-## <a name="creating-and-performing-an-access-review"></a>Cómo crear y realizar una revisión de acceso
+## <a name="create-and-perform-an-access-review"></a>Creación y realización de una revisión de acceso
 
 Puede tener uno o más usuarios como revisores en una revisión de acceso.  
 
-1. Seleccione un grupo en Azure Active Directory que tenga uno o más miembros o bien una aplicación conectada a Azure Active Directory que tenga uno o más usuarios asignados a ella. 
+1. Seleccione un grupo de Azure AD con uno o más miembros. O bien, seleccione una aplicación conectada a Azure AD con uno o más usuarios asignados a ella. 
+
 2. Decida si cada usuario revisará su propio acceso o bien si uno o más usuarios revisarán el acceso de todos.
-3. Habilite las revisiones de acceso para que aparezcan en los paneles de acceso del revisor.  Como administrador global, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
-4. Inicie la revisión de acceso. Para más información, consulte [cómo crear una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md).
-5. Pida a los revisores que proporcionen sus datos de entrada. De forma predeterminada, cada uno recibirá un correo electrónico de Azure AD con un vínculo al panel de acceso, en el que podrán [realizar la revisión de acceso](active-directory-azure-ad-controls-perform-access-review.md).
-6. Si los revisores no han proporcionado información, puede pedir a Azure AD que les envíe un recordatorio.  De forma predeterminada, Azure AD enviará automáticamente un recordatorio hacia la mitad del tiempo hasta la fecha de finalización a los revisores que no hayan respondido todavía.
-7. Cuando los revisores hayan proporcionado sus datos de entrada, detenga la revisión de acceso y aplique los cambios. Para más información, consulte cómo [realizar una revisión de acceso](active-directory-azure-ad-controls-complete-access-review.md).
+
+3. Habilite las revisiones de acceso para que aparezcan en los paneles de acceso de los revisores. Como administrador global, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+
+4. Inicie la revisión de acceso. Para más información, consulte el artículo sobre la [creación de una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md).
+
+5. Pida a los revisores que proporcionen sus datos de entrada. De forma predeterminada, cada uno recibe un correo electrónico de Azure AD con un vínculo al panel de acceso, en el que podrán [realizar la revisión de acceso](active-directory-azure-ad-controls-perform-access-review.md).
+
+6. Si los revisores no han proporcionado información, puede pedir a Azure AD que les envíe un recordatorio. De forma predeterminada, Azure AD envía automáticamente un recordatorio hacia la mitad del plazo de finalización a los revisores que no hayan respondido.
+
+7. Cuando los revisores hayan proporcionado la información, detenga la revisión de acceso y aplique los cambios. Para más información, consulte el artículo sobre la [realización de una revisión de acceso](active-directory-azure-ad-controls-complete-access-review.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Crear una revisión de acceso para los miembros de un grupo o el acceso a una aplicación](active-directory-azure-ad-controls-create-access-review.md)
+[Crear una revisión de acceso para los miembros de un grupo o el acceso a una aplicación](active-directory-azure-ad-controls-create-access-review.md)
 
 
 

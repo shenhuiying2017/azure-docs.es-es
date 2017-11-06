@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: b3531579f65d08e7dcc453502899970d89b82bcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a6b52f56647a8bc018c4cf56e996877c1c0d2e6
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [!div class="op_single_selector"]
@@ -32,6 +32,9 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
+
+> [!NOTE]
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte [Guía de inicio rápido: Creación de una factoría de datos mediante la versión 2 de Azure Data Factory](../quickstart-create-data-factory-rest-api.md).
 
 En este artículo usará la API de REST de Data Factory para crear su primera instancia de Azure Data Factory. Para realizar el tutorial con otros SDK/herramientas, seleccione una de las opciones de la lista desplegable.
 
