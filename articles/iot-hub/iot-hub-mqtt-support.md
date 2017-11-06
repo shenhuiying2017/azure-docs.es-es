@@ -84,7 +84,7 @@ Para usar el protocolo MQTT directamente, el cliente *debe* conectarse mediante 
 
 Para establecer una conexión TLS, es posible que deba descargar el certificado raíz de DigiCert Baltimore. Este es el certificado que Azure usa para proteger la conexión y que puede encontrar en el [repositorio Azure-iot-sdk-c][lnk-sdk-c-certs]. Para obtener más información acerca de estos certificados, vaya al [sitio web de Digicert][lnk-digicert-root-certs].
 
-Un ejemplo de cómo implementar esto con la versión de Python de la [biblioteca Paho MQTT] [ lnk-paho] de la Fundación Eclipse podría tener el aspecto siguiente.
+Un ejemplo de cómo implementar esto con la versión de Python de la [biblioteca Paho MQTT][lnk-paho] de la Fundación Eclipse podría tener el aspecto siguiente.
 
 En primer lugar, instale la biblioteca Paho desde el entorno de línea de comandos:
 

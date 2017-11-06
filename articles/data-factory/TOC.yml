@@ -71,6 +71,8 @@
               href: connector-azure-cosmos-db.md
             - name: Almacén de Azure Data Lake
               href: connector-azure-data-lake-store.md
+            - name: Azure File Storage
+              href: connector-azure-file-storage.md
             - name: Búsqueda de Azure
               href: connector-azure-search.md
             - name: Azure SQL Database
