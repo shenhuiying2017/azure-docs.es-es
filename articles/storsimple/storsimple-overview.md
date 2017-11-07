@@ -216,7 +216,7 @@ A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 | Copia de seguridad |Copia de seguridad de destino principal |Sí* |Compatible cuando el dispositivo StorSimple se emplea en exclusiva para esta carga de trabajo |Actualización 3 y posteriores |
 | Copia de seguridad |Copia de seguridad de destino secundario |Sí* |Compatible cuando el dispositivo StorSimple se emplea en exclusiva para esta carga de trabajo |Actualización 3 y posteriores |
 
-*Sí&amp;#42;. Se deben aplicar las restricciones y directrices de la solución.*
+*Sí&#42; - Se deben aplicar las restricciones y directrices de la solución.*
 
 Las cargas de trabajo siguientes no son compatibles con dispositivos de la serie 8000 de StorSimple. Si se implementa en StorSimple, estas cargas de trabajo generarán una configuración no admitida.
 
@@ -239,7 +239,7 @@ A continuación, se muestra una lista de los componentes de infraestructura comp
 | General |Indización |Sí* |Para volúmenes en capas, solo se admite la indización de metadatos (sin datos).<br>Para volúmenes anclados localmente, se admite la indización completa. |Todas las versiones |
 | General |Antivirus |Sí* |Para volúmenes en capas, se admite solo el examen al abrir y cerrar.<br> Para volúmenes anclados localmente, se admite el examen completo. |Todas las versiones |
 
-*Sí&amp;#42;. Se deben aplicar las restricciones y directrices de la solución.*
+*Sí&#42; - Se deben aplicar las restricciones y directrices de la solución.*
 
 A continuación se muestra una lista de otro software que se usa con StorSimple para crear soluciones.
 
