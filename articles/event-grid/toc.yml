@@ -4,6 +4,8 @@
   items:
     - name: Acerca de Event Grid
       href: overview.md
+    - name: Comparación de los servicios de mensajería
+      href: compare-messaging-services.md
 - name: Inicios rápidos
   items:
     - name: 'Enrutamiento de eventos de Blob Storage: CLI de Azure'

@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 3c8f6a66b3dd1564bc5eafbecafee6e2f1542caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Explicación de las unidades de proceso en Azure Database for PostgreSQL
 En este tema se explica el concepto de unidades de proceso y lo que sucede cuando se alcanza el nivel máximo de tales unidades en la carga de trabajo.
@@ -21,7 +21,7 @@ En este tema se explica el concepto de unidades de proceso y lo que sucede cuand
 ## <a name="what-are-compute-units"></a>¿Qué son las unidades de proceso?
 Las unidades de proceso son una medida de la capacidad de proceso de la CPU que se garantiza que está disponible para un único servidor de Azure Database for PostgreSQL. Una unidad de proceso es una medida combinada de recursos de CPU y memoria. Por lo general, 50 unidades de proceso equivalen a medio núcleo. 100 unidades de proceso equivalen a un núcleo. 2000 unidades de proceso equivalen a una disponibilidad de rendimiento de procesamiento de 20 núcleos garantizada para el servidor.
 
-La cantidad de memoria por unidad de proceso está optimizada para los planes de tarifa Básico y Estándar. Duplicar las unidades de proceso aumentando el nivel de rendimiento equivale duplicar el conjunto de recursos disponibles para ese único servidor de Azure Database for PostgreSQL.
+La cantidad de memoria por unidad de proceso está optimizada para los planes de tarifa Básico y Estándar. La duplicación de las unidades de proceso mediante el aumento del nivel de rendimiento equivale duplicar la cantidad de CPU y la memoria disponibles para ese único servidor de Azure Database for PostgreSQL.
 
 Por ejemplo, 800 unidades de proceso de un plan Estándar proporcionan 8 veces más rendimiento de CPU y memoria que una configuración Estándar con 100 unidades de proceso. Sin embargo, mientras que 100 unidades de proceso de un plan Estándar proporcionan el mismo rendimiento de CPU que 100 unidades de proceso de uno Básico, la cantidad de memoria preconfigurada en el plan de tarifa Estándar es el doble de la configurada para el Básico. Por tanto, el plan de tarifa Estándar ofrece un mejor rendimiento para cargas de trabajo y una menor latencia en las transacciones que el Básico con las mismas unidades de proceso seleccionadas.
 

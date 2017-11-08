@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/8/2017
-ms.openlocfilehash: dc5ad012398b7d07886cd22c20975e61f820d7e0
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 10/26/2017
+ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>Limitaciones en Azure Database for MySQL (versión preliminar)
 El servicio Azure Database for MySQL se encuentra en versión preliminar pública. En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -30,7 +30,7 @@ Hay un número máximo de conexiones, unidades de proceso y almacenamiento en ca
 | 100 unidades de proceso básicas    | 100 conexiones   |
 | 100 unidades de proceso estándar | 200 conexiones   |
 | 200 unidades de proceso estándar | 400 conexiones   |
-| 400 unidades de proceso estándar | 400 conexiones   |
+| 400 unidades de proceso estándar | 800 conexiones   |
 | 800 unidades de proceso estándar | 1600 conexiones  |
 | **Unidades de proceso máximas**      |                   |
 | Nivel de servicio Básico         | 100 unidades de proceso |

@@ -1,6 +1,6 @@
 ---
-title: "¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?"
-description: "Azure Site Recovery protege sus cargas de trabajo y aplicaciones mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales locales y servidores físicos en Azure o en un sitio local secundario."
+title: "¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery? | Microsoft Docs"
+description: "Describe las cargas de trabajo que pueden protegerse mediante la recuperación ante desastres con el servicio Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/08/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
-Este artículo describe las aplicaciones y cargas de trabajo que se pueden replicar con el servicio Azure Site Recovery.
 
-Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Este artículo describe las aplicaciones y cargas de trabajo que se pueden replicar con el servicio [Azure Site Recovery](site-recovery-overview.md).
+
+
 
 ## <a name="overview"></a>Información general
+
 Las organizaciones necesitan una estrategia de recuperación ante desastres y continuidad empresarial (BCDR) para mantener las cargas de trabajo y los datos seguros y disponibles durante los tiempos de inactividad planeados y no planeados, y recuperar las condiciones de funcionamiento normales lo antes posible.
 
 Site Recovery es un servicio de Azure que contribuye a su estrategia de recuperación ante desastres y continuidad del negocio. Mediante Site Recovery, puede implementar la replicación con reconocimiento de aplicaciones en la nube o en un sitio secundario. Si las aplicaciones se basan en Windows o Linux, y se ejecutan en servidores físicos, VMware o Hyper-V, puede usar Site Recovery para organizar la replicación, realizar pruebas de recuperación ante desastres y ejecutar conmutaciones por error y conmutación por recuperación.
@@ -33,6 +35,7 @@ Site Recovery es un servicio de Azure que contribuye a su estrategia de recupera
 Site Recovery se integra con aplicaciones de Microsoft, incluidas SharePoint, Exchange, Dynamics, SQL Server y Active Directory. Microsoft también trabaja en estrecha colaboración con destacados proveedores como Oracle, SAP y Red Hat. Puede personalizar las soluciones de replicación en función de cada aplicación.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>¿Por qué es aconsejable usar Site Recovery para la replicación de aplicaciones?
+
 Site Recovery contribuye a la recuperación y protección de nivel de aplicación como se indica a continuación:
 
 * Independiente de las aplicaciones; proporciona replicación para las cargas de trabajo que se ejecutan en un equipo compatible.
@@ -157,4 +160,5 @@ Aquí encontrará [más información](https://azure.microsoft.com/pricing/licens
 [Más información](site-recovery-citrix-xenapp-and-xendesktop.md) acerca de la protección de las implementaciones de Citrix XenApp y XenDesktop. También puede consultar las [notas del producto de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr), donde se detallan.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Comprobación de los requisitos previos](site-recovery-prereq.md)
+
+[Introducción](azure-to-azure-quickstart.md) a la replicación de máquinas virtuales de Azure.

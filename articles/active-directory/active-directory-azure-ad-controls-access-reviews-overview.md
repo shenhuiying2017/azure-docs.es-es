@@ -1,6 +1,6 @@
 ---
 title: Revisiones de acceso de Azure AD| Microsoft Docs
-description: "Puede controlar la pertenencia a grupos y el acceso a las aplicaciones para cumplir con las iniciativas de cumplimiento, administración de riesgos y gobierno de su organización aprovechando las revisiones de acceso de Azure Active Directory."
+description: "Puede controlar la pertenencia a grupos y el acceso a las aplicaciones para cumplir con las iniciativas de cumplimiento, administración de riesgos y gobierno de su organización con las revisiones de acceso de Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebeff09a16ca7ecb4214cbccb31ffcfb2c512f7c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-ad-access-reviews-preview"></a>Revisiones de acceso de Azure AD (versión preliminar)
 
-Las revisiones de acceso permiten a las organizaciones administrar de forma eficiente las pertenencias a grupos y el acceso a las aplicaciones empresariales. 
+Las revisiones de acceso de Azure Active Directory (Azure AD) permiten a las organizaciones administrar de forma eficiente la pertenencia a grupos y el acceso a las aplicaciones empresariales. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>¿Qué puede hacer con las revisiones del acceso?
    
-- Puede volver a certificar el acceso de los usuarios invitados utilizando las revisiones de acceso de su acceso a las aplicaciones y las pertenencias a grupos, con información que permite a los revisores decidir eficazmente si los invitados deben tener acceso continuado.
+- Puede volver a certificar el acceso de usuario invitado mediante las revisiones de acceso a las aplicaciones y la pertenencia a grupos. Los revisores pueden usar esta información proporcionada para decidir de manera eficiente si los invitados deben seguir teniendo acceso.
       
-- Puede volver a certificar el acceso de los empleados a las aplicaciones y las pertenencias a grupos con las revisiones de acceso.
+- Puede volver a certificar el acceso de los empleados a las aplicaciones y la pertenencia a grupos con las revisiones de acceso.
    
-- Puede recopilar los controles de revisiones de acceso en programas importantes para que su organización realice un seguimiento de las revisiones de aplicaciones vulnerables o de cumplimiento normativo.
+- Puede recopilar los controles de las revisiones de acceso en programas relevantes para que la organización realice un seguimiento de las revisiones de las aplicaciones vulnerables o de cumplimiento normativo.
     
 
 ## <a name="next-steps"></a>Pasos siguientes

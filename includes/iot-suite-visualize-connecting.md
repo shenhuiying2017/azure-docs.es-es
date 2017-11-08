@@ -1,40 +1,40 @@
-## <a name="view-device-telemetry-in-the-dashboard"></a>Ver la telemetría de dispositivo en el panel
-El panel de la solución de supervisión remota permite ver la telemetría que los dispositivos envían a IoT Hub.
+## <a name="view-device-telemetry"></a>Ver la telemetría de dispositivo
 
-1. En el explorador, vuelva al panel de la solución de supervisión remota, haga clic en **Dispositivos** en el panel izquierdo para navegar hasta la **lista de dispositivos**.
-2. En la **lista de dispositivos**, debería ver que el estado del dispositivo es **En ejecución**. Si no es así, haga clic en **Habilitar dispositivo** en el panel **Detalles del dispositivo**.
-   
-    ![Ver el estado del dispositivo][18]
-3. Haga clic en el **Panel** para volver a él, seleccione el dispositivo en la lista desplegable **Device to View** (Dispositivo para ver) para ver su telemetría. La telemetría de la aplicación de ejemplo es 50 unidades para la temperatura interior, 55 unidades para la temperatura exterior y 50 unidades para la humedad.
-   
-    ![Ver la telemetría de dispositivo][img-telemetry]
+Puede ver la telemetría enviada desde el dispositivo en la página **Dispositivos** de la solución.
 
-## <a name="invoke-a-method-on-your-device"></a>Invocar un método en el dispositivo
-El panel de la solución de supervisión remota le permite invocar métodos en los dispositivos a través de IoT Hub. Por ejemplo, en la solución de supervisión remota, puede invocar un método para simular que se reinicia un dispositivo.
+1. Seleccione el dispositivo que aprovisionó en la lista de dispositivos de la página **Dispositivos**. Un panel muestra información sobre el dispositivo incluyendo un trazado de su telemetría:
 
-1. En el panel de la solución de supervisión remota, haga clic en **Devices** (Dispositivos) en el panel izquierdo para navegar a la **lista de dispositivos**.
-2. Haga clic en **Device ID** (Id. de dispositivo) en el dispositivo de la **lista de dispositivos**.
-3. En el panel **Detalles del dispositivo**, haga clic en **Métodos**.
-   
-    ![Métodos de dispositivo][13]
-4. En el menú desplegable **Método**, seleccione **InitiateFirmwareUpdate** y, luego, en **FWPACKAGEURI**, escriba una dirección URL ficticia. Haga clic en **Invocar método** para llamar al método en el dispositivo.
-   
-    ![Invocar un método de dispositivo][14]
-   
+    ![Ver detalles del dispositivo](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-5. Puede ver un mensaje en la consola donde se ejecuta el código del dispositivo cuando el dispositivo controla el método. Los resultados del método se agregan al historial en el portal de la solución:
+1. Elija **Presión** para cambiar la presentación de telemetría:
 
-    ![Ver el historial de métodos][img-method-history]
+    ![Ver la telemetría de presión](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. Para ver información de diagnóstico sobre el dispositivo, desplácese hacia abajo hasta **Diagnósticos**:
+
+    ![Ver el diagnóstico de los dispositivos](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## <a name="act-on-your-device"></a>Actúe en su dispositivo
+
+Para invocar métodos en los dispositivos, use la página **Dispositivos** de la solución de supervisión remota. Por ejemplo, en los dispositivos **Chiller** de la solución de supervisión remota, implemente un método **Reboot**.
+
+1. Elija **Dispositivos** para ir hasta la página **Dispositivos** de la solución.
+
+1. Seleccione el dispositivo que aprovisionó en la lista de dispositivos de la página **Dispositivos**:
+
+    ![Seleccione el dispositivo físico](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. Para mostrar una lista de los métodos se pueden llamar en su dispositivo, elija **Programación**. Para programar un método para ejecutarse en varios dispositivos, puede seleccionar varios en la lista. El panel **Programación** muestra los tipos de método comunes a todos los dispositivos seleccionados.
+
+1. Elija **Reboot**, establezca el nombre del trabajo en **RebootPhysicalChiller** y elija **Aplicar**:
+
+    ![Programe el reinicio](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. Aparece un mensaje en la consola donde se ejecuta el código del dispositivo cuando el dispositivo controla el método.
+
+> [!NOTE]
+> Para realizar un seguimiento del estado del trabajo en la solución, elija **Vista**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En el artículo [Personalización de soluciones preconfiguradas][lnk-customize] se describen algunas formas de ampliar este ejemplo. Entre las posibles extensiones se incluyen el uso de sensores reales y la implementación de comandos adicionales.
 
-Puede obtener más información sobre los [permisos en el sitio azureiotsuite.com][lnk-permissions].
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+En el artículo [Personalización de la solución preconfigurada de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) se describen algunas formas de personalizar la solución preconfigurada.

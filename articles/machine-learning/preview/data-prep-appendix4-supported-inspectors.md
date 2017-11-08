@@ -1,6 +1,6 @@
 ---
 title: "Inspectores admitidos disponibles con la preparación de datos de Azure Machine Learning | Microsoft Docs"
-description: "En este documento se proporciona una lista completa de los inspectores disponibles para la preparación de datos de Azure ML."
+description: "En este documento se proporciona una lista completa de los inspectores disponibles para la preparación de datos para Azure Machine Learning"
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,23 +12,23 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="supported-inspectors-for-this-preview"></a>Inspectores admitidos para esta versión preliminar
+# <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspectores admitidos disponibles para la versión preliminar de la preparación de datos de Azure Machine Learning
 En este documento se describe el conjunto de inspectores disponibles en esta versión preliminar.
 
 ## <a name="the-halo-effect"></a>El efecto de halo 
-Algunos inspectores admiten el efecto de Halo. Dicho efecto usa dos colores diferentes para mostrar inmediatamente el cambio de manera visual en una transformación. El color gris representa el valor antes de la transformación más reciente, mientras que el color azul muestra el valor actual. Este efecto puede habilitarse o deshabilitarse en las opciones.
+Algunos inspectores admiten el efecto de halo. Dicho efecto usa dos colores diferentes para mostrar inmediatamente el cambio de manera visual en una transformación. El color gris representa el valor más reciente antes de la transformación, mientras que el color azul muestra el valor actual. Este efecto puede habilitarse o deshabilitarse en las opciones.
 
 ## <a name="graphical-filtering"></a>Filtrado gráfico 
 Algunos de los inspectores admiten el filtrado de datos mediante el uso del inspector como si se tratara de un editor. Para ello, se seleccionan los elementos gráficos y, después, se usa la barra de herramientas de la parte superior derecha de la ventana del inspector para filtrar los valores seleccionados. 
 
 ## <a name="column-statistics"></a>Estadísticas de columna
-Para las columnas numéricas, este inspector proporciona diversas estadísticas sobre la columna. Las estadísticas incluyen:
+Para las columnas numéricas, este inspector proporciona diversas estadísticas sobre la columna. Las estadísticas incluyen las siguientes medidas: 
 - Mínima
 - Cuartil inferior
 - Media
@@ -42,22 +42,23 @@ Para las columnas numéricas, este inspector proporciona diversas estadísticas 
 - None
 
 ## <a name="histogram"></a>Histograma 
-Calcula y muestra un histograma de una sola columna numérica. El número predeterminado de depósitos se calcula mediante la regla de Scott. Dicha regla se puede invalidar a través de las opciones.
-Este Inspector es compatible con el efecto de halo.
+Calcula y muestra un histograma de una sola columna numérica. El número predeterminado de cubos se calcula utilizando la regla de Scott. De todas formas, se puede invalidar la regla a través de las opciones.
+
+Este inspector admite el efecto de halo.
 
 
 ### <a name="options"></a>Opciones
-- Número mínimo de depósitos (se aplica incluso cuando está seleccionada la creación de depósitos predeterminada)
-- Número predeterminado de depósitos (regla de Scott) 
+- Número mínimo de cubos (se aplica incluso cuando está seleccionada la creación de cubos predeterminada)
+- Número predeterminado de cubos (regla de Scott) 
 - Mostrar halo
 - Superposición de trazado de densidad de kernel (kernel gaussiano) 
 
 
 ### <a name="actions"></a>Acciones
-Este inspector admite el filtrado en los depósitos, ya sean de selección única o múltiple, y aplica los filtros como se ha descrito anteriormente.
+Este inspector admite el filtrado a través de cubos, que pueden incluir uno o una selección de varios cubos. Aplique los filtros como se ha descrito anteriormente.
 
 ## <a name="value-counts"></a>Recuentos de valor
-Este inspector presenta una tabla de frecuencias de valores para la columna seleccionada. La visualización predeterminada muestra los 6 valores superiores. El límite puede cambiarse a cualquier número o contar de abajo arriba. Este Inspector es compatible con el efecto de halo.
+Este inspector presenta una tabla de frecuencias de valores para la columna seleccionada en la actualidad. La visualización predeterminada es para los seis valores superiores. De todas formas puede cambiar el límite a cualquier número. También puede establecer la visualización a contar desde la parte inferior en lugar de la parte superior. Este inspector admite el efecto de halo.
 
 ### <a name="options"></a>Opciones 
 - Número de valores superiores
@@ -67,16 +68,16 @@ Este inspector presenta una tabla de frecuencias de valores para la columna sele
 
 
 ### <a name="actions"></a>Acciones 
-Este inspector admite el filtrado en las barras, ya sean de selección única o múltiple, y aplica los filtros como se ha descrito anteriormente.
+Este inspector admite el filtrado a través de barras, que pueden incluir uno o una selección de varias barras. Aplique los filtros como se ha descrito anteriormente.
 
 ## <a name="box-plot"></a>Diagrama de caja 
-Diagrama de cajas y bigotes de una columna numérica.
+Gráfico de cajas y bigotes de una columna numérica.
 
 ### <a name="options"></a>Opciones 
 - Agrupar por columna
 
-## <a name="scatter-plot"></a>Gráfico de dispersión
-Gráfico de dispersión para dos columnas numéricas. Los datos se reducen por motivos de rendimiento. El tamaño de muestra se puede invalidar mediante las opciones.
+## <a name="scatter-plot"></a>gráfico de dispersión
+Un gráfico de dispersión para dos columnas numéricas. La muestra de datos es reducida por motivos de rendimiento. El tamaño de muestra se puede reemplazar en las opciones.
 
 ### <a name="options"></a>Opciones  
 - Columna del eje X
@@ -99,7 +100,7 @@ Este inspector admite el filtrado mediante el método de selección de hacer cli
 
 
 ## <a name="map"></a>Map 
-Mapa con puntos trazados, suponiendo que se han especificado la latitud y la longitud. La latitud debe seleccionarse primero.
+Un mapa con puntos trazados, suponiendo que se han especificado la latitud y la longitud. La latitud debe seleccionarse primero.
 
 ### <a name="options"></a>Opciones
 - Columna de latitud
@@ -109,5 +110,6 @@ Mapa con puntos trazados, suponiendo que se han especificado la latitud y la lon
 
 
 ### <a name="actions"></a>Acciones
-Este inspector admite el filtrado mediante la selección de puntos en el mapa. Presione la tecla Control y, después, haga clic y arrastre con el mouse para formar un cuadrado alrededor de los puntos. Después, aplique los filtros como se ha descrito anteriormente.
-Es posible cambiar el tamaño del mapa rápidamente para mostrar todos los puntos posibles y ninguno más. Para ello, presione la **E** situada en el lado izquierdo del mapa.
+Este inspector admite el filtrado mediante la selección de puntos en el mapa. Presione la tecla **Ctrl** y, después, haga clic y arrastre con el mouse para formar un cuadrado alrededor de los puntos. Después, aplique los filtros como se ha descrito anteriormente.
+
+Puede cambiar el tamaño del mapa rápidamente para mostrar solamente todos los puntos posibles. Para ello, presione la **E** situada en el lado izquierdo del mapa.

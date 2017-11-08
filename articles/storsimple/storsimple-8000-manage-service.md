@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 51db9539451afafe7eddaaeef0e02328431611de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar el servicio Administrador de dispositivos de StorSimple para dispositivos de la serie StorSimple 8000
 
@@ -74,7 +74,7 @@ Revise el impacto de la migración al nuevo Azure Portal antes de mover el servi
 
 #### <a name="before-you-transition"></a>Antes de realizar la transición
 
-* El dispositivo ejecuta la versión Update 3.0 o posterior. Si el dispositivo ejecuta una versión anterior, instale las actualizaciones más recientes. Para más información, vaya a [Instalación de Update 5](storsimple-8000-install-update-5.md). Si usa StorSimple Cloud Appliance (8010/8020), no puede actualizar aplicación en la nube. Utilice la versión más reciente del software para crear una nueva aplicación en la nube con la versión Update 5.0 y después realizar una conmutación por error en la nueva aplicación en la nube creada.
+* El dispositivo ejecuta la versión Update 3.0 o posterior. Si el dispositivo usa una versión anterior, se recomienda encarecidamente instalar Update 5 a través del método de revisión. Para más información, vaya a [Instalación de Update 5](storsimple-8000-install-update-5.md). Si usa StorSimple Cloud Appliance (8010/8020), no puede actualizar aplicación en la nube. Utilice la versión más reciente del software para crear una nueva aplicación en la nube con la versión Update 5.0 y después realizar una conmutación por error en la nueva aplicación en la nube creada.
 
 * Una vez que se realiza la transición al nuevo Azure Portal, no puede usar el portal de Azure clásico para administrar el dispositivo de StorSimple.
 

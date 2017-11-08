@@ -21,6 +21,8 @@
       href: tutorial-user-access.md
     - name: 3 - Previsión de gastos
       href: tutorial-forecast-spending.md
+    - name: 4 - Administración de costos
+      href: tutorial-manage-costs.md
 - name: Recursos
   items:
     - name: Vídeos sobre Cost Management

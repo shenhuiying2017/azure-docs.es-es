@@ -20,6 +20,7 @@
 ## [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)
 ## [Obtención de bibliotecas de clientes](analysis-services-data-providers.md)
 ## [Copia de seguridad y restauración](analysis-services-backup.md)
+## [Configuración del escalado horizontal de réplicas de consultas](analysis-services-scale-out.md)
 ## [Conexión con Excel](analysis-services-connect-excel.md)
 ## [Conexión con Power BI](analysis-services-connect-pbi.md)
 ## [Creación de un archivo .odc](analysis-services-odc.md)

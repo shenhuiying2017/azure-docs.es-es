@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e233547ce2add2d3eab1e9c46c4d7e701df72495
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure AD
 
@@ -110,6 +110,11 @@ El objetivo de este paso es conceder a la aplicación permisos **Leer datos de d
 6. En la barra de herramientas de la parte superior, haga clic en **Guardar**.
 
     ![Registre la aplicación](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
+
+7. Haga clic en **Conceder permisos** y, después, haga clic en **Sí**.
+
+    ![Registre la aplicación](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
+
 
 ## <a name="gather-configuration-settings"></a>Recopilación de configuraciones 
 En esta sección se muestra cómo obtener la siguiente configuración del directorio:

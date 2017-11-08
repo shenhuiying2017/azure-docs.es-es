@@ -6,7 +6,7 @@
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nombre de la aplicación** | Nombre único globalmente | Nombre que identifica la nueva Function App. | 
+    | **Nombre de la aplicación** | Nombre único globalmente | Nombre que identifica la nueva Function App. Los caracteres válidos son `a-z`, `0-9` y `-`.  | 
     | **Suscripción** | Su suscripción | La suscripción en que se creará esta nueva aplicación de función. | 
     | **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nombre para el nuevo grupo de recursos en el que se va a crear la Function App. | 
     | **[Plan de hospedaje](../articles/azure-functions/functions-scale.md)** |   Plan de consumo | Plan de hospedaje que define cómo se asignan los recursos a la Function App. En el **Plan de consumo** predeterminado, los recursos se agregan dinámicamente según lo requieran sus funciones. Solo se paga por el tiempo durante el cual se ejecuten las funciones.   |

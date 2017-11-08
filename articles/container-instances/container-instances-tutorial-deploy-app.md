@@ -1,5 +1,5 @@
 ---
-title: "Tutorial de Azure Container Instances: implementación de aplicación | Microsoft Docs"
+title: "Tutorial de Azure Container Instances: implementación de aplicación"
 description: "Tutorial de Azure Container Instances: implementación de aplicación"
 services: container-instances
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implementación de un contenedor en Azure Container Instances
 
@@ -32,31 +32,39 @@ Esta es la tercera parte de un tutorial de tres. En las secciones anteriores, [s
 > * Visualización de la aplicación en el explorador
 > * Visualización de los registros del contenedor
 
+## <a name="before-you-begin"></a>Antes de empezar
+
+Para realizar este tutorial es necesario que ejecute la versión 2.0.20 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
+
+Para completar este tutorial, se necesita un entorno de desarrollo de Docker. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell no incluye los componentes de Docker necesarios para completar cada paso de este tutorial. Por lo tanto, le recomendamos que realice una instalación local del entorno de desarrollo de la CLI de Azure y Docker.
+
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Implementación del contenedor mediante la CLI de Azure
 
 La CLI de Azure permite la implementación de un contenedor en Azure Container Instances en solo un comando. Como la imagen de contenedor se hospeda en la instancia privada de Azure Container Registry, debe incluir las credenciales que se necesitan para acceder a ella. En caso de ser necesario, puede consultarlas tal como se indica a continuación.
 
 Servidor de inicio de sesión en el registro de contenedor (actualice con su nombre de registro):
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
 Contraseña del registro de contenedor:
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Para implementar la imagen de contenedor desde el registro de contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el comando siguiente:
+Para implementar una imagen de contenedor desde el registro de contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el comando siguiente:
 
-```azurecli-interactive
+```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-En cuestión de segundos, recibirá una respuesta inicial de Azure Resource Manager. Para ver el estado de la implementación, use:
+En pocos segundos, debería recibir una respuesta inicial de Azure Resource Manager. Para ver el estado de la implementación, use:
 
-```azurecli-interactive
+```azurecli
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
@@ -78,7 +86,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 
 También puede ver la salida de registro del contenedor:
 
-```azurecli-interactive
+```azurecli
 az container logs --name aci-tutorial-app -g myResourceGroup
 ```
 

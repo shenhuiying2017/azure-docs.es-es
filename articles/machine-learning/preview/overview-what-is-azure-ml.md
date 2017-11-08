@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5535433c478b989e255451a0bf882dfb8ba8f8fe
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="what-is-azure-machine-learning"></a>¿Qué es Azure Machine Learning?
 
@@ -105,7 +105,7 @@ A través de una configuración sencilla, puede ejecutar sus experimentos en una
 
 El servicio de experimentación construye entornos virtuales para asegurarse de que el script se pueda ejecutar de forma aislada con resultados reproducibles. Registra la información de historial de ejecución y presenta el historial visualmente. Puede seleccionar fácilmente el mejor modelo de las ejecuciones de experimento. 
 
-Para obtener más información, consulte [Configuración de ejecución de Experimentación](experiment-execution-configuration.md).
+Para más información, consulte [Configuración de la experimentación](experimentation-service-configuration.md).
 
 ## <a name="azure-machine-learning-model-management-service"></a>Servicio Administración de modelos de Azure Machine Learning
 

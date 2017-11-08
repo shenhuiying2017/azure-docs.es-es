@@ -1,73 +1,71 @@
 > [!div class="op_single_selector"]
 > * [C en Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
 > * [C en Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> 
-> 
+> * [Node.js (genérico)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
+> * [Node.js en Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
+> * [C en Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
 
-## <a name="scenario-overview"></a>Información general de escenario
-En este escenario, creará un dispositivo que envía la siguiente telemetría a la [solución preconfigurada][lnk-what-are-preconfig-solutions] de supervisión remota:
+En este tutorial, implementa un dispositivo **Chiller** que envía la siguiente telemetría a la [solución preconfigurada](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md) de supervisión remota:
 
-* Temperatura exterior
-* Temperatura interior
+* Temperatura
+* Presión
 * Humedad
 
-Para simplificar, el código del dispositivo genera valores de ejemplo, pero le recomendamos que amplíe el ejemplo conectando sensores reales a su dispositivo y enviando telemetría real.
+Para simplificar, el código genera valores de telemetría de ejemplo para el **Chiller**. Puede ampliar el ejemplo conectando sensores reales al dispositivo y enviando telemetría real.
 
-El dispositivo también puede responder a los métodos que se invocan desde el panel de la solución y los valores de propiedades deseadas establecidos en el panel de la solución.
+El dispositivo de ejemplo también:
 
-Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte la [evaluación gratuita de Azure][lnk-free-trial].
+* Envía los metadatos a la solución para describir sus funcionalidades.
+* Responde a las acciones que se desencadenan desde la página **Dispositivos** de la solución.
+* Responde a los cambios de configuración que se envían desde la página **Dispositivos** de la solución.
+
+Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Antes de comenzar
+
 Antes de escribir ningún código para el dispositivo, debe aprovisionar la solución preconfigurada de supervisión remota y aprovisionar un nuevo dispositivo personalizado en esa solución.
 
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Aprovisionar su solución preconfigurada de supervisión remota
-El dispositivo que cree en este tutorial enviará datos a una instancia de la solución preconfigurada de [supervisión remota][lnk-remote-monitoring]. Si todavía no aprovisionó la solución preconfigurada de supervisión remota en su cuenta de Azure, use estos pasos:
 
-1. En la página <https://www.azureiotsuite.com/>, haga clic en **+** para crear una solución.
-2. Haga clic en **Seleccionar** en el panel de **supervisión remota** para crear la solución.
-3. En la página **Create Remote monitoring solution** (Crear solución de supervisión remota), escriba el **nombre de solución** que prefiera, seleccione la **región** en la que desea realizar la implementación y seleccione la suscripción de Azure que desea usar. Haga clic en **Crear solución**.
-4. Espere a que finalice el proceso de aprovisionamiento.
-
-> [!WARNING]
-> Las soluciones preconfiguradas utilizan servicios de Azure facturables. Para evitar gastos innecesarios, asegúrese de quitar la solución preconfigurada de la suscripción cuando haya terminado. Para quitar completamente una solución preconfigurada de su suscripción, diríjase a la página <https://www.azureiotsuite.com/>.
-> 
-> 
+El dispositivo **Chiller** que se crea en este tutorial envía datos a una instancia de la solución preconfigurada de [supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Si todavía no ha aprovisionado la solución preconfigurada de supervisión remota en su cuenta de Azure, consulte [Implementación de la solución preconfigurada de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
 
 Cuando finalice el proceso de aprovisionamiento para la solución de supervisión remota, haga clic en **Iniciar** para abrir el panel de la solución en el explorador.
 
-![Panel de soluciones][img-dashboard]
+![El panel de soluciones](media/iot-suite-selector-connecting/dashboard.png)
 
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Aprovisionar el dispositivo en la solución de supervisión remota
+
 > [!NOTE]
-> Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Debe conocer las credenciales del dispositivo cuando cree la aplicación cliente.
-> 
-> 
+> Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Necesitará las credenciales del dispositivo cuando cree la aplicación cliente.
 
-Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en el Centro de IoT con credenciales válidas. Puede recuperar las credenciales del dispositivo desde el panel de la solución. Incluirá las credenciales del dispositivo en la aplicación de cliente más adelante en este tutorial.
+Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en el Centro de IoT con credenciales válidas. Puede recuperar las credenciales del dispositivo desde la página **Dispositivos** de la solución. Incluirá las credenciales del dispositivo en la aplicación de cliente más adelante en este tutorial.
 
-Para agregar un dispositivo a su solución de supervisión remota, complete los pasos siguientes en el panel de la solución:
+Para agregar un dispositivo a su solución de supervisión remota, realice los pasos siguientes en la página **Dispositivos** de la solución:
 
-1. En la esquina inferior izquierda del panel, haga clic en **Agregar un dispositivo**.
-   
-   ![Agregar un dispositivo][1]
-2. En el panel **Dispositivo personalizado**, haga clic en **Agregar nuevo**.
-   
-   ![Agregar un dispositivo personalizado][2]
-3. Elija **Permitirme definir mi propio id. de dispositivo**. Especifique un id. de dispositivo, como **mydevice**, haga clic en **Comprobar id.** para comprobar que el nombre todavía no está en uso y, luego, haga clic en **Crear** para aprovisionar el dispositivo.
-   
-   ![Agregar id. de dispositivo][3]
-4. Anote las credenciales de dispositivo (id. de dispositivo, nombre de host de IoT Hub y clave de dispositivo). La aplicación cliente necesita estos valores para conectarse con la solución de supervisión remota. A continuación, haga clic en **Hecho**.
-   
-    ![Ver las credenciales del dispositivo][4]
-5. Seleccione el dispositivo en la lista de dispositivos del panel de la solución. Luego, en el panel **Detalles del dispositivo**, haga clic en **Habilitar dispositivo**. El estado del dispositivo ahora es **En ejecución**. La solución de supervisión remota ahora puede recibir telemetría desde el dispositivo e invocar métodos en el dispositivo.
+1. Elija **Aprovisionar** y, a continuación, elija **Físico** como el **Tipo de dispositivo**:
 
-[img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
-[1]: ./media/iot-suite-selector-connecting/suite0.png
-[2]: ./media/iot-suite-selector-connecting/suite1.png
-[3]: ./media/iot-suite-selector-connecting/suite2.png
-[4]: ./media/iot-suite-selector-connecting/suite3.png
+    ![Aprovisione un dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
 
-[lnk-what-are-preconfig-solutions]: ../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md
-[lnk-remote-monitoring]: ../articles/iot-suite/iot-suite-remote-monitoring-sample-walkthrough.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+1. Escriba **Refrigerador físico** como identificador de dispositivo. Elija las opciones **Clave simétrica** y **Generar claves automáticamente**:
+
+    ![Elección de las opciones de dispositivo](media/iot-suite-selector-connecting/devicesoptions.png)
+
+Para buscar las credenciales que el dispositivo debe usar para conectarse a la solución preconfigurada, desplácese hasta Azure Portal en el explorador. Inicie sesión en su suscripción.
+
+1. Busque el grupo de recursos que contiene los servicios de Azure que la solución de supervisión remota utiliza. El grupo de recursos tiene el mismo nombre que la solución de supervisión remota aprovisionada.
+
+1. Navegue hasta el centro de IoT de este grupo de recursos. A continuación, elija **Explorador de dispositivos**:
+
+    ![Explorador de dispositivos](media/iot-suite-selector-connecting/deviceexplorer.png)
+
+1. Elija el **Id. de dispositivo** que creó en la página **Dispositivos** de la solución de supervisión remota.
+
+1. Anote el **identificador del dispositivo** y la **clave principal**. Use estos valores al agregar código para conectar el dispositivo a la solución.
+
+Ahora ha aprovisionado un dispositivo físico en la solución preconfigurada de supervisión remota. En las siguientes secciones, se implementa la aplicación cliente que utiliza las credenciales del dispositivo para conectarse a la solución.
+
+La aplicación cliente implementa el modelo de dispositivo **Chiller** integrado. Un modelo de dispositivo de la solución preconfigurada especifica lo siguiente acerca de un dispositivo:
+
+* Las propiedades que el dispositivo notifica a la solución. Por ejemplo, un dispositivo **Chiller** notifica información acerca de su ubicación y firmware.
+* Los tipos de telemetría que el dispositivo envía a la solución. Por ejemplo, un dispositivo **Chiller** envía los valores de temperatura, humedad y presión.
+* Los métodos que puede programar desde la solución para ejecutarse en el dispositivo. Por ejemplo, un dispositivo **Chiller** debe implementar los métodos **Reboot**, **FirmwareUpdate**, **EmergencyValveRelease** e **IncreasePressuree**.

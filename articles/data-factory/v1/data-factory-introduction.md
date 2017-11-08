@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fcfea96516e0cde6329ef9dd4b9024a1b448c5b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a la Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Sin Data Factory, las empresas deben crear componentes de movimiento de datos pe
 
 Con Data Factory, puede usar la actividad de copia en una canalización de datos para mover los datos desde almacenes de datos de orígenes locales y en la nube a un almacén de datos de centralización en la nube para su posterior análisis. 
 
-Por ejemplo, puede recopilar datos en Azure Data Lake Store y transformarlos posteriormente mediante un servicio de proceso de Azure Data Lake Analytics. O también puede recopilar datos en Azure Blob Storage y transformarlos más adelante con un clúster de Azure HDInsight Hadoop.
+Por ejemplo, puede recopilar datos de Azure Data Lake Store y transformarlos posteriormente mediante un servicio de proceso de Azure Data Lake Analytics. O también puede recopilar datos en Azure Blob Storage y transformarlos más adelante con un clúster de Azure HDInsight Hadoop.
 
 ### <a name="transform-and-enrich"></a>Transformar y enriquecer
 Con los datos presentes en un almacén de datos centralizado en la nube, podrá procesarlos o transferirlos mediante servicios de proceso como HDInsight Hadoop, Spark, Data Lake Analytics o Machine Learning. Querrá generar de manera confiable datos transformados según una programación controlada y fácil de mantener a fin de alimentar los entornos de producción con datos de confianza. 

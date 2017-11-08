@@ -1,5 +1,5 @@
 ---
-title: "Profundización: SSPR de Azure AD | Microsoft Docs"
+title: "¿Cómo funciona? SSPR de Azure AD | Microsoft Docs"
 description: "Profundización del autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: 
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -39,10 +39,10 @@ Cuando un usuario navega al portal de restablecimiento de contraseñas, se inici
 
 Lea los pasos siguientes para obtener información sobre la lógica de la página de restablecimiento de contraseña.
 
-1. El usuario hace clic en el vínculo ¿No puede acceder a su cuenta? o va directamente a [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+1. El usuario hace clic en el vínculo ¿No puede acceder a su cuenta? o va directamente a [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
 2. Según la configuración regional del explorador la experiencia se representa en el idioma adecuado. La experiencia de restablecimiento de contraseña se localiza en los idiomas que admite Office 365.
 3. El usuario escribe un identificador de usuario y pasa un captcha.
-4. Azure AD comprueba si el usuario es capaz de utilizar esta característica; para ello, hace lo siguiente:
+4. Azure AD comprueba si el usuario puede utilizar esta característica; para ello, hace las siguientes comprobaciones:
    * Comprueba que el usuario tiene esta característica habilitada y una licencia de Azure AD asignada.
      * Si el usuario no tiene esta característica habilitada o una licencia asignada, se solicita al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
    * Comprueba que el usuario tiene los datos de comprobación correctos definidos en la cuenta según la directiva del administrador.
@@ -57,12 +57,14 @@ Lea los pasos siguientes para obtener información sobre la lógica de la págin
 
 ## <a name="authentication-methods"></a>Métodos de autenticación
 
-Si Autoservicio de restablecimiento de contraseña (SSPR) está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. Se recomienda encarecidamente elegir al menos dos métodos de autenticación para que los usuarios tengan más flexibilidad.
+Si Autoservicio de restablecimiento de contraseña (SSPR) está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. En ocasiones, es posible que oiga hablar de estas opciones como puertas. Se recomienda encarecidamente elegir al menos dos métodos de autenticación para que los usuarios tengan más flexibilidad.
 
 * Email
 * Teléfono móvil
 * Teléfono del trabajo
 * Preguntas de seguridad
+
+![Autenticación][Authentication]
 
 ### <a name="what-fields-are-used-in-the-directory-for-authentication-data"></a>Qué campos se usan en el directorio para los datos de autenticación
 
@@ -81,7 +83,7 @@ Si los usuarios no desea que su número de teléfono móvil esté visible en el 
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 
-Esta opción determina el número mínimo de métodos de autenticación disponibles que un usuario debe superar para restablecer o desbloquear su contraseña, y se puede establecer en 1 o 2.
+Esta opción determina el número mínimo de métodos de autenticación disponibles o puertas que un usuario debe superar para restablecer o desbloquear su contraseña y se puede establecer en 1 o 2.
 
 Los usuarios pueden elegir proporcionar más métodos de autenticación si el administrador los administra.
 
@@ -162,7 +164,7 @@ La habilitación de esta opción requiere que un usuario que tenga habilitado el
 * Aplicaciones federadas
 * Aplicaciones personalizadas mediante Azure AD
 
-La deshabilitación de esta característica permitirá a los usuarios registrar manualmente su información de contacto de dos formas diferentes: visitando [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) o haciendo clic en el vínculo de **registro para el restablecimiento de contraseña**, que se encuentra en la pestaña del perfil del panel de acceso.
+Cuando está deshabilitada, los usuarios pueden registrar manualmente su información de contacto de dos formas diferentes: visitando [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) o haciendo clic en el vínculo de **registro para el restablecimiento de contraseña**, que se encuentra en la pestaña del perfil del panel de acceso.
 
 > [!NOTE]
 > Para descartar el Portal de registro de restablecimiento de contraseña, los usuarios deben hace clic en Cancelar o cerrar la ventana, algo que se les solicita cada vez que inician sesión hasta que completan el registro.
@@ -188,89 +190,46 @@ Ejemplo: hay cuatro administradores en un entorno. El administrador "A" restable
 
 ## <a name="on-premises-integration"></a>Integración local
 
-Si ha instalado, configurado y habilitado Azure AD Connect, tendrá más opciones para las integraciones locales.
+Si ha instalado, configurado y habilitado Azure AD Connect, tendrá las opciones adicionales siguientes para integraciones locales.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Escritura diferida de contraseñas en un directorio local
 
 Controla si la escritura diferida de contraseñas está habilitada en este directorio y, si lo está, indica el estado del servicio de escritura diferida local. Esto es útil si desea deshabilitar temporalmente la escritura diferida de contraseñas sin volver a configurar Azure AD Connect.
 
-* Si el modificador se establece en Sí, se habilitará la escritura diferida y los usuarios federados y sincronizados por hash de contraseña podrán restablecer sus contraseñas.
-* Si el modificador se establece en No, se deshabilitará la escritura diferida y los usuarios federados y sincronizados por hash de contraseña no podrán restablecer sus contraseñas.
+* Si el modificador se establece en Sí, se habilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña pueden restablecer sus contraseñas.
+* Si el modificador se establece en No, se deshabilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña no pueden restablecer sus contraseñas.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña
 
-Designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin restablecer su contraseña. De forma predeterminada, Azure AD siempre desbloqueará las cuentas al realizar un restablecimiento de contraseña; esta opción le permite separar esas dos operaciones. 
+Designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin restablecer su contraseña. De forma predeterminada, Azure AD desbloquea las cuentas al realizar un restablecimiento de contraseña; esta opción le permite separar esas dos operaciones. 
 
-* Si se establece en "sí", los usuarios tendrán la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin restablecer la contraseña.
-* Si se establece en "no", los usuarios solo podrán realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
-
-## <a name="network-requirements"></a>Requisitos de red
-
-### <a name="firewall-rules"></a>Reglas de firewall
-
-[Lista de direcciones IP y direcciones URL de Microsoft Office](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-
-En el caso de Azure AD Connect, versiones 1.1.443.0 y posteriores, se necesita acceso HTTPS saliente al siguiente
-* passwordreset.microsoftonline.com
-* servicebus.windows.net
-
-Para obtener un acceso más detallado, [aquí](https://www.microsoft.com/download/details.aspx?id=41653) puede encontrar la lista actualizada de intervalos IP de centro de datos de Microsoft Azure Datacenter que se actualiza todos los miércoles y que entra en vigor el lunes siguiente.
-
-### <a name="idle-connection-timeouts"></a>Tiempos de espera de conexiones inactivas
-
-La herramienta Azure AD Connect envía pings o keepalives periódicos a los puntos de conexión de ServiceBus para garantizar que las conexiones se mantienen activas. Si la herramienta detecta que se están terminando demasiadas conexiones, automáticamente aumentará la frecuencia de envío de pings al punto de conexión. Los "intervalos de envío de pings" más bajos se reducen a 1 ping cada 60 segundos; sin embargo, se recomienda encarecidamente que los proxy o firewalls permitan que la conexiones inactivas persistan durante un mínimo de 2-3 minutos. *En el caso de las versiones anteriores, se sugiere una persistencia de 4 minutos, o más.
-
-## <a name="active-directory-permissions"></a>Permisos de Active Directory
-
-La cuenta especificada en la utilidad de Azure AD Connect debe tener derechos extendidos de restablecimiento de contraseña, cambio de contraseña, permisos de escritura en lockoutTime y permisos de escritura en pwdLastSet en el objeto raíz de **cada dominio** de ese bosque **O** en las unidades organizativas del usuario que desea que estén en el ámbito de SSPR.
-
-Si no está seguro de cuál es la cuenta a la que se hace referencia en el párrafo anterior, abra la interfaz de usuario de la configuración de Azure Active Directory Connect y haga clic en la opción Ver la configuración actual. La cuenta a la que necesita agregar permiso se enumera en "Directorios sincronizados"
-
-El establecimiento de estos permisos permite que la cuenta de servicio de agente de administración de cada bosque administre las contraseñas en nombre de las cuentas de usuario de dicho bosque. **Si no asigna estos permisos, aunque la escritura diferida parezca estar configurada correctamente, los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube.**
-
-> [!NOTE]
-> Estos permisos pueden tardar una hora, o más, en replicarse en todos los objetos del directorio.
->
-
-Para configurar los permisos adecuados para que se realice la escritura diferida de contraseñas
-
-1. Abra Usuarios y equipos de Active Directory con una cuenta que tenga los permisos de administración de dominios adecuados
-2. En el menú Ver, asegúrese de que la opción Características avanzadas está activada
-3. En el panel izquierdo, haga clic con el botón derecho en el objeto que representa la raíz del dominio y elija Propiedades
-    * Haga clic en la pestaña Seguridad
-    * Luego, haga clic en Opciones avanzadas.
-4. En la pestaña Permisos, haga clic en Agregar
-5. Elija la cuenta a la que se van a aplicar los permisos (en el programa de instalación de Azure AD Connect)
-6. En la lista desplegable Se aplica a, seleccione Descendent User objects (Objetos de usuario descendiente)
-7. En permisos, active las casillas para los siguientes elementos
-    * Contraseña sin expiración
-    * Restablecimiento de contraseña
-    * Cambiar contraseña
-    * Escribir lockoutTime
-    * Escribir pwdLastSet
-8. Haga clic en Aplicar o Aceptar para aplicar los cambios y salir de los cuadros de diálogo abiertos.
+* Si se establece en "sí", los usuarios tienen la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin restablecer la contraseña.
+* Si se establece en "no", los usuarios solo pueden realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>¿Cómo funciona el restablecimiento de contraseña para usuarios B2B?
-El restablecimiento y cambio de contraseña son totalmente compatibles con todas las configuraciones de B2B.  Lea la información que encontrará a continuación para conocer los tres casos de B2B explícitos que admiten el restablecimiento de contraseña.
+El restablecimiento y cambio de contraseña son totalmente compatibles con todas las configuraciones de B2B. Los tres casos siguientes se admiten para el restablecimiento la de contraseña de usuario de B2B.
 
 1. **Usuarios de una organización asociada con un inquilino de Azure AD existente**: si la organización con la que se asocia tiene un inquilino de Azure AD existente, **respetamos todas las directivas de restablecimiento de contraseña habilitadas en dicho inquilino**. Para que el restablecimiento de contraseña funcione, la organización del asociado simplemente necesita asegurarse de que la función SSPR de Azure AD esté habilitada, lo que no supone un cargo adicional para los clientes de Office 365. Se puede habilitar siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
 2. **Usuarios registrados mediante el [registro de autoservicio](active-directory-self-service-signup.md)**: si la organización con la que se asocia usaba la característica de [registro de autoservicio](active-directory-self-service-signup.md) para acceder a un inquilino, les permitimos el restablecimiento con el correo electrónico que registraron.
 3. **Usuarios de B2B**: los nuevos usuarios de B2B creados mediante las nuevas [funcionalidades de B2B de Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
 
-Para probarlo, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Siempre que tengan un correo electrónico alternativo o un correo electrónico de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
+Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Siempre que tengan un correo electrónico alternativo o un correo electrónico de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
-* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
-* [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
-* [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planeamiento e implementación de SSPR para los usuarios con las directrices que aquí se proporcionan
-* [**Directiva**](active-directory-passwords-policy.md): información sobre las directivas de contraseñas de Azure AD y cómo establecerlas
-* [**Escritura diferida de contraseñas**](active-directory-passwords-writeback.md): cómo funciona la escritura diferida de contraseñas con el directorio local
-* [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
-* [**Informes**](active-directory-passwords-reporting.md): informes para detectar si los usuarios acceden a la funcionalidad de SSPR que especifican el momento y el lugar del acceso
-* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
-* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
+* [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
+* [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).
+* [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
+* [¿Tiene alguna pregunta acerca de las licencias?](active-directory-passwords-licensing.md)
+* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](active-directory-passwords-data.md)
+* [¿Qué métodos de autenticación están disponibles para los usuarios?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [¿Cuáles son las opciones de directiva con SSPR?](active-directory-passwords-policy.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](active-directory-passwords-writeback.md)
+* [¿Cómo se informa sobre la actividad de SSPR?](active-directory-passwords-reporting.md)
+* [¿Cuáles son todas las opciones en SSPR y qué significan?](active-directory-passwords-how-it-works.md)
+* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
 
+[Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Métodos de autenticación de Azure AD disponibles y cantidad requerida"

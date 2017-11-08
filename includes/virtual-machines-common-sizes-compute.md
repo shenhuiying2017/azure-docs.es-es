@@ -1,10 +1,29 @@
 <!-- F-series, Fs-series* -->
 
-La serie F se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz, que puede alcanzar velocidades de reloj de hasta 3,1 GHz con Intel Turbo Boost Technology 2.0. Este es el mismo rendimiento de CPU que el de la serie Dv2 de máquinas virtuales.  Con un precio en lista por hora inferior, la serie F tiene la mejor relación precio/rendimiento en la cartera de Azure en base a la unidad de proceso de Azure (ACU) por vCPU. 
+La serie Fsv2 usa el procesador Intel® Xeon® Platinum 8168, que ofrece una frecuencia de núcleo base de 2,7 GHz con una frecuencia turbo máxima de un solo núcleo individual de 3,7 GHz. Las instrucciones de Intel® AVX-512, que son nuevas en los procesadores de Intel escalables, pueden llegar a duplicar el rendimiento en las cargas de trabajo de procesamiento vectorial en las operaciones de número de punto flotante de precisión individual y doble. En otras palabras, son muy rápidos para cualquier carga de trabajo de cálculo. 
+
+Dado que su precio por hora es inferior, la serie Fsv2 tiene la mejor relación precio/rendimiento de la cartera de Azure según la unidad de proceso de Azure (ACU) por vCPU. 
+
+La serie F se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz, que puede alcanzar velocidades de reloj de hasta 3,1 GHz con Intel Turbo Boost Technology 2.0. Este es el mismo rendimiento de CPU que el de la serie Dv2 de máquinas virtuales.  
 
 Las máquinas virtuales de la serie F son una opción excelente para cargas de trabajo que exigen CPU más rápidas, pero que no necesitan tanta memoria o almacenamiento temporal por vCPU.  Las cargas de trabajo, como análisis, servidores de juegos, servidores web y procesamiento por lotes se beneficiarán del valor de la serie F.
 
 La serie Fs proporciona todas las ventajas de la serie F, además de Premium Storage.
+
+# <a name="fsv2-series"></a>Serie Fsv2
+
+ACU: 195 - 210
+
+| Tamaño             | vCPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Nº máx. NIC / rendimiento de red esperado (Mbps) |
+|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderado                                       |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderado                                       |
+| Standad_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | Alto                                           |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | Alto                                           |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremadamente alto                                 |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremadamente alto                                 |
+| Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremadamente alto                                 |
+
 
 ## <a name="fs-series"></a>Serie Fs*
 

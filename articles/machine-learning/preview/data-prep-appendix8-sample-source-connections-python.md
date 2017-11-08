@@ -1,6 +1,6 @@
 ---
-title: "Conexiones de datos de origen adicionales de ejemplo posibles con la preparación de datos de Azure Machine Learning | Microsoft Docs"
-description: "En este documento se proporciona un conjunto de ejemplos de conexiones de datos de origen posibles con la preparación de datos de Azure ML."
+title: "Ejemplos de conexiones de datos de origen adicionales posibles con la preparación de datos de Azure Machine Learning | Microsoft Docs"
+description: "En este documento se proporciona un conjunto de ejemplos de conexiones de datos de origen que son posibles con la preparación de datos de Azure Machine Learning"
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -12,31 +12,31 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 550cca100314009f63eec2136e8c65426d8bf07f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aaf4329b25cb189146949afed89cf15619ba592
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Ejemplo de conexiones de origen personalizadas (Python) 
-Antes de leer este apéndice, vea la [introducción a la extensibilidad de Python](data-prep-python-extensibility-overview.md).
+Antes de leer este apéndice, vea la [Introducción a la extensibilidad de Python](data-prep-python-extensibility-overview.md).
 
-## <a name="loading-data-from-dataworld"></a>Cargar datos desde data.world
+## <a name="load-data-from-dataworld"></a>Carga de datos desde data.world
 
 ### <a name="prerequisites"></a>Requisitos previos
 
 #### <a name="register-yourself-at-dataworld"></a>Registrarse en data.world
-Se necesita un token de API que se obtiene en el sitio web de data.world.
+Necesita un token de la API desde el sitio web data.world.
 
 #### <a name="install-dataworld-library"></a>Instalar la biblioteca de data.world
 
-Abra la interfaz de línea de comandos de Azure Machine Learning Workbench desde _File->Open command-line interface_ (Archivo->Abrir interfaz de línea de comandos).
+Abra la interfaz de línea de comandos de Azure Machine Learning Workbench seleccionando **File** > **Open command-line interface** (Archivo->Abrir interfaz de línea de comandos).
 
 ```console
 pip install git+git://github.com/datadotworld/data.world-py.git
 ```
 
-Ejecute `dw configure` en la línea de comandos. Se le pedirá el token. Cuando escriba el token, se creará un directorio .dw/ en el directorio particular y el token se almacenará allí.
+A continuación ejecute `dw configure` en la línea de comandos. Se le pedirá el token. Cuando escriba el token, se creará un directorio .dw/ en el directorio particular y el token se almacenará allí.
 
 ```
 API token (obtained at: https://data.world/settings/advanced): <enter API token here>
@@ -45,24 +45,24 @@ Ahora ya debería poder importar bibliotecas de data.world.
 
 #### <a name="load-data-into-data-preparation"></a>Cargar datos en la preparación de datos
 
-Cree un flujo de datos basado en script y use el script siguiente para cargar los datos de data.world.
+Cree un nuevo flujo de datos basados en script. A continuación, use el siguiente script para cargar los datos de data.world.
 
 ```python
 #paths = df['Path'].tolist()
 
 import datadotworld as dw
 
-#load the dataset
+#Load the dataset.
 lds = dw.load_dataset('data-society/the-simpsons-by-the-data')
 
-#Load specific data frame from the dataset
+#Load specific data frame from the dataset.
 df = lds.dataframes['simpsons_episodes']
 
 ```
 
-## <a name="load-cosmosdb-data-into-data-preparation"></a>Cargar datos de CosmosDB en la preparación de datos
+## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Carga de los datos de Azure Cosmos DB en la preparación de datos
 
-Cree un flujo de datos basado en script y use el script siguiente para cargar los datos de CosmosDB (primero deberá instalar las bibliotecas, vea el documento de referencia indicado anteriormente).
+Cree un flujo de datos basado en script y use el script siguiente para cargar los datos de Azure Cosmos DB. (Las bibliotecas tienen que instalarse primero. Para más información, consulte el documento de referencia con vínculo anterior).
 
 ```python
 import pydocumentdb
@@ -77,7 +77,7 @@ config = {
     'DOCUMENTDB_COLLECTION': '<collectionname>'
 };
 
-# Initialize the Python DocumentDB client
+# Initialize the Python DocumentDB client.
 client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
 
 # Read databases and take first since id should not be duplicated.

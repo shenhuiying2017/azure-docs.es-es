@@ -1,5 +1,5 @@
 ---
-title: "Tutorial de Azure Container Instances: preparación de Azure Container Registry | Microsoft Docs"
+title: "Tutorial de Azure Container Instances: preparación de Azure Container Registry"
 description: "Tutorial de Azure Container Instances: preparación de Azure Container Registry"
 services: container-instances
 documentationcenter: 
@@ -14,18 +14,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb00210ee260383d546be4faf141c133661156b
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementación y uso de Azure Container Registry
 
-Esta es la segunda parte de un tutorial de tres partes. En el [paso anterior](./container-instances-tutorial-prepare-app.md), se creó una imagen de contenedor para una aplicación web simple escrita en [Node.js](http://nodejs.org). En este tutorial, esta imagen se insertó en una instancia de Azure Container Registry. Si no ha creado la imagen de contenedor, vuelva a [Tutorial 1: Creación de una imagen de contenedor](./container-instances-tutorial-prepare-app.md). 
+Esta es la segunda parte de un tutorial de tres partes. En el [paso anterior](container-instances-tutorial-prepare-app.md), se creó una imagen de contenedor para una aplicación web simple escrita en [Node.js](http://nodejs.org). En este tutorial, la imagen se inserta en una instancia de Azure Container Registry. Si no ha creado la imagen de contenedor, vuelva a [Tutorial 1: Creación de una imagen de contenedor](container-instances-tutorial-prepare-app.md).
 
 Azure Container Registry es un registro privado basado en Azure para imágenes de contenedor de Docker. Este tutorial le guía a través de la implementación de una instancia de Azure Container Registry y la inserción de una imagen de contenedor en ella. Los pasos completados incluyen:
 
@@ -38,7 +38,11 @@ En los tutoriales subsiguientes, se implementa el contenedor del registro privad
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para realizar este tutorial es necesario que ejecute la versión 2.0.12 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Para realizar este tutorial es necesario que ejecute la versión 2.0.20 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
+
+Para completar este tutorial, se necesita un entorno de desarrollo de Docker. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell no incluye los componentes de Docker necesarios para completar cada paso de este tutorial. Por lo tanto, le recomendamos que realice una instalación local del entorno de desarrollo de la CLI de Azure y Docker.
 
 ## <a name="deploy-azure-container-registry"></a>Implementación de Azure Container Registry
 
@@ -60,7 +64,7 @@ En el resto de este tutorial, usamos `<acrname>` como un marcador de posición p
 
 ## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 
-Debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) para completar la operación. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
+Debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando [az acr login](/cli/azure/acr#az_acr_login) para completar la operación. Debe especificar el nombre único que dio al registro de contenedor cuando se creó.
 
 ```azurecli
 az acr login --name <acrName>
@@ -85,7 +89,7 @@ REPOSITORY                   TAG                 IMAGE ID            CREATED    
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
 ```
 
-Para obtener el nombre de loginServer, ejecute el comando siguiente.
+Para obtener el nombre de loginServer, ejecute el comando siguiente:
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
@@ -158,7 +162,7 @@ En este tutorial, se preparó una instancia de Azure Container Registry para usa
 > [!div class="checklist"]
 > * Implementación de una instancia de Azure Container Registry
 > * Etiquetado de una imagen de contenedor para Azure Container Registry
-> * Carga de una imagen a Azure Container Registry
+> * Carga de una imagen en Azure Container Registry
 
 Vaya al tutorial siguiente para obtener información sobre cómo implementar el contenedor en Azure con Azure Container Instances.
 

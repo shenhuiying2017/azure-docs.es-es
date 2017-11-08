@@ -71,7 +71,6 @@
 
 ## Establecimiento de directivas de recursos
 ### [¿Qué son las directivas de recursos?](resource-manager-policy.md)
-### [Uso de scripts para asignar directivas](resource-manager-policy-create-assign.md)
 ### Ejemplos
 #### [Etiquetas](resource-manager-policy-tags.md)
 #### [Convenciones de nomenclatura](resource-manager-policy-naming-convention.md)

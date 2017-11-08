@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 958ee2f12ebbd46472972a3012ec59aecbc23126
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creación de reglas de pertenencia dinámica a grupos basadas en atributos en Azure Active Directory
 En Azure Active Directory (Azure AD), puede crear reglas avanzadas para habilitar la pertenencia dinámica a grupos basada en atributos complejos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos.
@@ -30,7 +30,7 @@ Cuando cambia cualquier atributo de un usuario, el sistema evalúa todas las reg
 > [!NOTE]
 > - Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365.
 >
-> - Esta característica requiere una licencia de Azure AD Premium P1 para cada miembro de usuario agregado a al menos un grupo dinámico.
+> - Esta característica requiere una licencia de Azure AD Premium P1 para cada miembro de usuario agregado a al menos un grupo dinámico. No es obligatorio asignar licencias a los usuarios para que sean miembros de grupos dinámicos, pero es preciso tener en el inquilino el número mínimo de licencias para cubrirlos a todos. Por ejemplo: si tiene 1000 usuarios únicos en todos los grupos dinámicos del inquilino, debe tener al menos 1000 licencias para Azure AD Premium P1 (o cualquier versión posterior) para cumplir el requisito de licencia.
 >
 > - Puede crear un grupo dinámico para dispositivos o usuarios, pero no se puede crear una regla que contenga tanto objetos de usuario como de dispositivo.
 
@@ -306,7 +306,7 @@ Hay un proceso de actualización en curso en Azure Portal para admitir esta func
 **Uso de PowerShell para cambiar la administración de la pertenencia a un grupo**
 
 > [!NOTE]
-> Para cambiar las propiedades del grupo dinámico, debe usar las cmdlets de [Azure AD PowerShell versión 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Puede instalarlo desde [aquí](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para cambiar las propiedades de un grupo dinámico, es preciso usar los cmdlets de **la versión preliminar de** [Azure AD PowerShell, versión 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Dicha versión preliminar se puede instalar desde [aquí](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Este es un ejemplo e las funciones que cambian la administración de la pertenencia a un grupo existente. Tenga en cuenta que se actúa con precaución para manipular correctamente la propiedad GroupTypes y preservar todos los valores que puedan existir ahí, sin relación con la pertenencia a un grupo dinámico.
 

@@ -1,24 +1,24 @@
 ---
 title: "Administración de actualizaciones para varias máquinas virtuales de Azure | Documentos de Microsoft"
-description: "Incorporación de máquinas virtuales de Azure para administrar actualizaciones."
-services: operations-management-suite
+description: "En este tema se describe cómo administrar las actualizaciones de máquinas virtuales de Azure."
+services: automation
 documentationcenter: 
 author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
-ms.service: operations-management-suite
+ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/31/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Administración de actualizaciones para varias máquinas virtuales de Azure
 
@@ -27,10 +27,46 @@ Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesitará lo siguiente para completar los pasos de esta guía:
+Para usar Update Management, necesita:
 
-* Una cuenta de Automatización de Azure Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo sobre las [cuentas de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
-* Una máquina virtual de Azure Resource Manager (no clásico). Para obtener instrucciones sobre la creación de una máquina virtual, consulte [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* Una cuenta de Automatización de Azure Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo [Introducción a Azure Automation](automation-offering-get-started.md).
+
+* Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
+
+## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+
+Update Management es compatible con los sistemas operativos siguientes.
+
+### <a name="windows"></a>Windows
+
+* Windows Server 2008 y versiones posterior, y las implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores.  No se admiten las opciones de instalación de Server Core y Nano Server.
+
+    > [!NOTE]
+    > Para poder implementar las actualizaciones en Windows Server 2008 R2 SP1 se necesita .NET Framework 4.5 y WMF 5.0 o versiones posteriores.
+    > 
+* No se admiten los sistemas operativos cliente Windows.
+
+Los agentes de Windows deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o tener acceso a Microsoft Update.
+
+> [!NOTE]
+> System Center Configuration Manager no puede administrar simultáneamente el agente de Windows.
+>
+
+### <a name="linux"></a>Linux
+
+* CentOS 6 (x86/x64) y 7 (x64)  
+* Red Hat Enterprise (x86/x64) 6 y 7 (x64)  
+* SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)  
+* Ubuntu 12.04 LTS y versiones más recientes (x86/x64)   
+
+> [!NOTE]  
+> Para evitar que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu, vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información sobre cómo configurarlo, consulte el [tema sobre actualizaciones automáticas en la Guía de Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+
+Los agentes de Linux deben tener acceso a un repositorio de actualización.
+
+> [!NOTE]
+> La solución no admite un agente de OMS para Linux configurado para informar a varias áreas de trabajo OMS.  
+>
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitación de la administración de actualizaciones de máquinas virtuales de Azure
 
@@ -45,9 +81,36 @@ Necesitará lo siguiente para completar los pasos de esta guía:
 
 Update Management está habilitado para su máquina virtual.
 
+## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitación de Update Management en equipos y máquinas virtuales que no son de Azure
+
+Para obtener instrucciones sobre cómo habilitar Update Management en equipos y máquinas virtuales Windows que no sean de Azure, consulte [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agents.md).
+
+Para obtener instrucciones acerca de cómo habilitar Update Management en equipos y máquinas virtuales Linux que no sean de Azure, consulte [Conexión de equipos Linux a Operations Management Suite (OMS)](../log-analytics/log-analytics-agent-linux.md).
+
 ## <a name="view-update-assessment"></a>Visualización de la evaluación de la actualización
 
 Una vez habilitado **Update Management**, se muestra la pantalla **Administración de actualizaciones**. Puede ver una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
+
+## <a name="data-collection"></a>Colección de datos
+
+Tanto los agentes instalados en las máquinas virtuales como los equipos recopilan datos acerca de las actualizaciones y los envían a Azure Update Management.
+
+### <a name="supported-agents"></a>Agentes admitidos
+
+En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
+
+| Origen conectado | Compatible | Description |
+| --- | --- | --- |
+| Agentes de Windows |Sí |Update Management recopila información acerca de las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
+| Agentes de Linux |Sí |Update Management recopila información acerca de las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
+| Grupo de administración de Operations Manager |Sí |Update Management recopila información acerca de las actualizaciones del sistema de agentes en un grupo de administración conectado. |
+| Cuenta de almacenamiento de Azure |No |Azure Storage no incluye información acerca de las actualizaciones del sistema. |
+
+### <a name="collection-frequency"></a>Frecuencia de recopilación
+
+Para cada equipo Windows administrado, se realiza un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado y, de ser así, se inicia un examen de cumplimiento.  Para cada equipo Linux administrado, se realiza un examen cada tres horas.
+
+Puede tardar entre 30 minutos y 6 horas mostrar en el panel los datos actualizados de los equipos administrados.
 
 ## <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
 
@@ -106,6 +169,8 @@ Haga clic en **Todos los registros** para ver todas las entradas de registro que
 Haga clic en el icono **Salida** para ver el flujo de trabajo del runbook responsable de administrar la implementación de actualizaciones en la máquina virtual de destino.
 
 Haga clic en **Errores** para ver información detallada sobre los errores de la implementación.
+
+Para obtener información detallada acerca de los registros, la salida y la información de error, consulte [Update Management](../operations-management-suite/oms-solution-update-management.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

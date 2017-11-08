@@ -15,11 +15,11 @@
 | Conexiones de depurador [simultáneas](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) por aplicación |1 |1 |1 |5 |5 |
 | [subdominio de azurewebsites.net con FTP/S y SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |X |X |X |X |X |
 | [Compatibilidad con dominio](../articles/app-service/app-service-web-tutorial-custom-domain.md) personalizado | |X |X |X |X |
-| Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Ilimitado |Sin límite, 5 conexiones SSL SNI y 1 conexión SSL de IP incluidas |Sin límite, 5 conexiones SSL SNI y 1 conexión SSL de IP incluidas |
+| Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |
 | Equilibrador de carga integrado | |X |X |X |X |
 | [Siempre activado](../articles/app-service/web-sites-configure.md) | | |X |X |X |
 | [Copias de seguridad programadas](../articles/app-service/web-sites-backup.md) | | | |Una vez al día |Una vez cada 5 minutos<sup>8</sup> |
-| [Escala automática](../articles/app-service/web-sites-scale.md) | | |X |X |X |
+| [Escala automática](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Compatibilidad con Programador de Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |
 | [Supervisión de extremos](../articles/app-service/web-sites-monitor.md) | | |X |X |X |

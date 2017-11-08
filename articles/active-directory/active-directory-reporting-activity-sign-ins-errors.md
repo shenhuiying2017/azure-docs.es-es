@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dcdd8b5830edb542cb99d07f1b0087629d374264
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 3b8653b3bddd8bf2ee01c2e68da763e803711633
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -58,16 +58,17 @@ En la siguiente sección se proporciona una información general completa de tod
 
 | Error| Descripción |
 | --- | --- |
-| 50001| No se encontró la entidad de servicio denominada X en el inquilino denominado Y. Esto puede pasar si el administrador del inquilino no es el que ha instalado la aplicación. O bien no se encontró la entidad de servicio del recurso en el directorio o no es válida|
+| 50001| No se encontró la entidad de servicio denominada X en el inquilino denominado Y. Esto puede pasar si el administrador del inquilino no es el que ha instalado la aplicación. O bien no se encontró la entidad de servicio del recurso en el directorio o no es válida.|
 | 50008| La aserción SAML falta o está mal configurada en el token.|
 | 50011| La dirección de respuesta falta, está mal configurada o no coincide con las direcciones de respuesta configuradas para la aplicación.|
+| 50012| El usuario notificó un fraude durante la autenticación multifactor.|
 | 50053| La cuenta está bloqueada porque el usuario intentó iniciar sesión demasiadas veces con un Id. de usuario o contraseña incorrectos.|
 | 50054| Se utilizó una contraseña antigua para realizar la autenticación.|
 | 50055| La contraseña no es válida o ha expirado.|
 | 50057| La cuenta de usuario está deshabilitada.|
 | 50058| No se encontró información acerca de la identidad del usuario entre las credenciales proporcionadas, o no se encontró al usuario en el inquilino, o se envió una solicitud de inicio de sesión silenciosa pero ningún usuario inició sesión, o el servicio no pudo autenticar al usuario.|
-| 50074| Se requiere una autenticación sólida (segundo factor)|
-| 50079| El usuario debe inscribirse para el segundo factor de autenticación|
+| 50074| El usuario no superó el desafío MFA.|
+| 50079| El usuario debe inscribirse para el segundo factor de autenticación.|
 | 50126| Nombre de usuario o contraseña no válidos, o nombre de usuario o contraseña locales no válidos.|
 | 50131| Se usa en varios errores de acceso condicional. Por ejemplo, estado de dispositivo incorrecto de Windows, solicitud bloqueada debido a actividades sospechosas, directivas de acceso y decisiones sobre directivas de seguridad.|
 | 50133| La sesión no es válida debido a que ha expirado o a un cambio reciente de contraseña.|
@@ -75,13 +76,14 @@ En la siguiente sección se proporciona una información general completa de tod
 | 65001| La aplicación X no tiene permiso para acceder a la aplicación Y o este se ha revocado. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización al administrador del inquilino para que actúe en nombre de la aplicación: Y para el recurso: Z.|
 | 65005| La lista de acceso a recursos requeridos de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph devolvió una solicitud incorrecta o no se encontró el recurso.|
 | 70001| No se encontró la aplicación denominada X en el inquilino denominado Y. Esto puede pasar si el administrador del inquilino no es el que ha instalado la aplicación o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
-| 80001| No hay ningún agente de autenticación disponible.|
+| 80001| El agente de autenticación no puede conectarse a Active Directory.|
 | 80002| El tiempo de espera se agotó para la solicitud de validación de contraseña del agente de autenticación.|
 | 80003| El agente de autenticación recibió una respuesta no válida.|
 | 80004| Se usó un nombre principal de usuario (UPN) incorrecto en una solicitud de inicio de sesión.|
 | 80005| Error del agente de autenticación.|
-| 80007| El agente de autenticación no puede conectarse a Active Directory.|
+| 80007| El agente de autenticación no puede validar la contraseña del usuario.|
 | 80010| El agente de autenticación no puede descifrar la contraseña.|
+| 80011| El agente de autenticación no puede recuperar la clave de descifrado.|
 | 81001| El vale de Kerberos del usuario es demasiado grande.|
 | 81002| No se ha podido validar el vale de Kerberos del usuario.|
 | 81003| No se ha podido validar el vale de Kerberos del usuario.|
@@ -94,6 +96,7 @@ En la siguiente sección se proporciona una información general completa de tod
 | 81013| No se encuentra el objeto de usuario con la información del vale de Kerberos del usuario.|
 | 90014| Se utiliza en varios casos cuando un campo esperado no está presente en la credencial.|
 | 90093| Se devolvió un gráfico con un código de error prohibido para la solicitud.|
+
 
 
 

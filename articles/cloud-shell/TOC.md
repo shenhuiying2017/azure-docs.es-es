@@ -8,7 +8,6 @@
 ## [Características y herramientas de Bash](features.md)
 ## [Características y herramientas de PowerShell](features-powershell.md)
 ## [Limitaciones](limitations.md)
-## [Solución de problemas](troubleshooting.md)
 
 # Procedimiento
 ## [Almacenamiento persistente en Bash](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Uso de la ventana](using-the-shell-window.md)
 
 # [Precios](pricing.md)
+
+# [Solución de problemas](troubleshooting.md)
 
 # Referencia
 ## [CLI de Azure](/cli/azure)

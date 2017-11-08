@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Creación de una canalización de integración continua con Visual Studio Team Services e IIS
 Para automatizar las fases de creación, prueba e implementación del desarrollo de la aplicación, puede utilizar una canalización de integración e implementación continua (CI/CD). En este tutorial se creará una canalización CI/CD utilizando Visual Studio Team Services y una máquina virtual Windows en Azure que ejecuta IIS. Aprenderá a:
@@ -230,7 +230,7 @@ En este tutorial, ha creado una aplicación web ASP.NET en Team Services y confi
 > * Crear una definición de versión para publicar nuevos paquetes de implementación en IIS
 > * Prueba de la canalización de CI/CD
 
-Pase al siguiente tutorial para aprender a proteger un servidor web con certificados SSL.
+Avance hasta el siguiente tutorial para aprender a instalar una pila SQL&#92;IIS&#92;.NET en un par de máquinas virtuales Windows.
 
 > [!div class="nextstepaction"]
-> [Protección de un servidor web con SSL](tutorial-secure-web-server.md)
+> [Pila SQL&#92;IIS&#92;.NET](tutorial-iis-sql.md)

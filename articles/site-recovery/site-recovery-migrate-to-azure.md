@@ -1,10 +1,10 @@
 ---
-title: "Migración a Azure con Site Recovery | Microsoft Docs"
-description: "Este artículo proporciona información general acerca de la migración de máquinas virtuales y servidores físicos en Azure con Azure Site Recovery"
+title: "Migración de máquinas virtuales locales y servidores físicos a Azure con Site Recovery | Microsoft Docs"
+description: "En este tutorial se describe cómo migrar máquinas virtuales locales y servidores físicos a Azure con Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: c413efcd-d750-4b22-b34b-15bcaa03934a
 ms.service: site-recovery
@@ -12,72 +12,69 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/05/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 423a1727efb0e1fd54eb0f8d5971ace3f8efc6cb
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Migración a Azure con Site Recovery
 
-Lea este artículo para obtener información general sobre el uso del servicio de Azure Site Recovery para la migración de máquinas virtuales y servidores físicos.
+Lea este artículo para obtener información sobre el uso del servicio [Azure Site Recovery](site-recovery-overview.md) para migrar servidores físicos y máquinas virtuales (VM) locales a máquinas virtuales de Azure.
 
-Site Recovery es un servicio de Azure que contribuye a su estrategia de BCDR mediante la coordinación de la replicación de servidores físicos locales y máquinas virtuales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, se realiza la conmutación por error a la ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. La conmutación por recuperación a la ubicación principal se produce cuando vuelve a su funcionamiento normal. Más información en [¿Qué es Site Recovery?](site-recovery-overview.md) También usa Site Recovery para migrar las cargas de trabajo locales existentes a Azure con el fin de acelerar el viaje a la nube y aprovechar la matriz de características que Azure ofrece.
+## <a name="before-you-start"></a>Antes de comenzar
 
-Para una descripción general de cómo realizar la migración, consulte este vídeo.
+Vea este vídeo para obtener una introducción rápida de los pasos necesarios para migrar a Azure.
 >[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/ASRHowTo-Video2-Migrate-Virtual-Machines-to-Azure/player]
-
-En este artículo se describe cómo realizar la implementación en [Azure Portal](https://portal.azure.com). El [Portal de Azure clásico](https://manage.windowsazure.com/) se puede utilizar para conservar los almacenes de Site Recovery existentes, pero no podrá crear almacenes nuevos.
-
-Publique sus comentarios en la parte inferior de este artículo. Formule cualquier pregunta técnica en el [Foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="what-do-we-mean-by-migration"></a>¿Qué entendemos por migración?
 
-Puede implementar Site Recovery para la replicación de servidores físicos y máquinas virtuales locales en Azure o en un sitio secundario. Puede replicar máquinas, conmutarlas por error desde el sitio principal cuando se producen interrupciones, y conmutarlas por recuperación en el sitio principal cuando se recupera. Además de esto, puede usar Site Recovery para migrar máquinas virtuales y servidores físicos a Azure a fin de que los usuarios puedan tener acceso a ellos como máquinas virtuales de Azure. La migración conlleva la replicación y la conmutación por error desde el sitio principal a Azure y un gesto de migración completa.
+Puede implementar Site Recovery para la replicación y migración de servidores físicos y máquinas virtuales locales.
+
+- Al realizar la replicación, se configuran las máquinas locales para replicar de forma regular en Azure. A continuación, cuando se produce una interrupción, se conmutan por error las máquinas desde el sitio local a Azure y se accede a ellas desde allí. Cuando el sitio local está disponible de nuevo, puede realizar una conmutación por recuperación desde Azure.
+- Cuando use Site Recovery para la migración, replique las máquinas locales en Azure. A continuación, conmútelas por error desde el sitio local a Azure y finalice el proceso de migración. No hay implicada ninguna conmutación por recuperación.  
 
 ## <a name="what-can-site-recovery-migrate"></a>¿Qué se puede migrar con Site Recovery?
 
 Puede:
 
-- Migre cargas de trabajo en ejecución en máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos, para que pasen a ejecutarse en máquinas virtuales de Azure. También puede hacer la replicación completa y la conmutación por recuperación en este escenario.
-- Migre [máquinas virtuales de IaaS de Azure](site-recovery-migrate-azure-to-azure.md) entre regiones de Azure. Actualmente, en este escenario solo se admite la migración, lo que significa que no se admite la conmutación por recuperación.
-- Migre [instancias de AWS Windows](site-recovery-migrate-aws-to-azure.md) a máquinas virtuales de IaaS de Azure. Actualmente, en este escenario solo se admite la migración, lo que significa que no se admite la conmutación por recuperación.
+- **Migrar desde un entorno local**: migre las máquinas virtuales Hyper-V locales, las máquinas virtuales VMware y los servidores físicos a Azure. Después de la migración, las cargas de trabajo que se ejecutan en las máquinas locales se ejecutarán en las máquinas virtuales de Azure. 
+- **Migrar dentro de Azure**: migre las máquinas virtuales de Azure entre regiones de Azure. 
+- **Migrar AWS**: migre instancias de Windows AWS a máquinas virtuales IaaS de Azure. 
 
-## <a name="migrate-on-premises-vms-and-physical-servers"></a>Migración de máquinas virtuales locales y servidores físicos
+## <a name="migrate-from-on-premises-to-azure"></a>Migración desde un entorno local a Azure
 
-Para migrar máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos, se siguen casi los mismos pasos que los de una replicación normal.
+Para migrar máquinas virtuales VMware locales, máquinas virtuales Hyper-V y servidores físicos, se siguen casi los mismos pasos que en una replicación completa. 
 
-1. Configuración del almacén de Recovery Services
-2. Configure los servidores de administración necesarios (VMware, VMM o Hyper-V, según lo que desee migrar), agréguelos al almacén y especifique la configuración de replicación.
-3. Habilite la replicación de las máquinas que desea migrar.
-4. Después de la migración inicial, ejecute una conmutación por error de prueba rápida para asegurarse de que todo funciona como debería.
-5. Después de comprobar que funciona el entorno de replicación, use una conmutación por error planeada o no planeada en función de lo que su escenario [admita](site-recovery-failover.md). Se recomienda usar una conmutación por error planificada cuando sea posible.
-6. Para la migración, no es necesario ejecutar una conmutación por error ni eliminarla. En su lugar, seleccione la opción **Completar migración** de cada máquina que desea migrar.
-     - En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual y después haga clic en **Completar migración**. Haga clic en **Aceptar** para finalizar. Puede realizar un seguimiento del progreso de las propiedades de máquina virtual mediante la supervisión del trabajo Completar migración en **Trabajos de Site Recovery**.
-     - La acción **Completar migración** termina el proceso de migración, quita la replicación de la máquina y se detiene la facturación de la máquina en Site Recovery.
-
-![Completar migración](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Migración entre regiones de Azure
 
-Puede migrar máquinas virtuales de Azure entre regiones con Site Recovery. En este escenario solo se admite la migración. En otras palabras, puede replicar las máquinas virtuales de Azure y conmutarlas por error a otra región, pero no podrá realizar una conmutación por recuperación. En este escenario, configure un almacén de Recovery Services, implemente un servidor de configuración local para administrar la replicación, agréguelo al almacén y especifique la configuración de replicación. Habilite la replicación para las máquinas que desea migrar y ejecute una conmutación por error de prueba rápida. Después, ejecute una conmutación por error no planeada con la opción **Completar migración**.
+Para migrar máquinas virtuales de Azure entre regiones, se siguen casi los mismos pasos que en una migración completa.
+
+1. [Habilite la replicación](azure-to-azure-tutorial-enable-replication.md) de las máquinas que desea migrar.
+2. [Ejecute una conmutación por error de prueba rápida](azure-to-azure-tutorial-dr-drill.md) para asegurarse de que todo funciona.
+3. Después, [ejecute una conmutación por error no planeada](azure-to-azure-tutorial-failover-failback.md) con la opción **Migración completa**.
+4. Después de completar la migración, puede [configurar la replicación para la recuperación ante desastres](site-recovery-azure-to-azure-after-migration.md), desde la región de Azure a la que ha migrado, en una región secundaria.
+
+
 
 ## <a name="migrate-aws-to-azure"></a>Migración de AWS a Azure
 
-Puede migrar instancias de AWS a máquinas virtuales de Azure. En este escenario solo se admite la migración. En otras palabras, puede replicar las instancias de AWS y conmutarlas por error a Azure, pero no podrá realizar una conmutación por recuperación. Las instancias de AWS se controlan de la misma manera que los servidores físicos en lo que respecta a la migración. Configure un almacén de Recovery Services, implemente un servidor de configuración local para administrar la replicación, agréguelo al almacén y especifique la configuración de replicación. Habilite la replicación para las máquinas que desea migrar y ejecute una conmutación por error de prueba rápida. Después, ejecute una conmutación por error no planeada con la opción **Completar migración**.
+Puede migrar instancias de AWS a máquinas virtuales de Azure.
+- En este escenario solo se admite la migración. En otras palabras, puede replicar las instancias de AWS y conmutarlas por error a Azure, pero no podrá realizar una conmutación por recuperación.
+- Las instancias de AWS se controlan de la misma manera que los servidores físicos en lo que respecta a la migración. Configure un almacén de Recovery Services, implemente un servidor de configuración local para administrar la replicación, agréguelo al almacén y especifique la configuración de replicación.
+- Habilite la replicación para las máquinas que desea migrar y ejecute una conmutación por error de prueba rápida. Después, ejecute una conmutación por error no planeada con la opción **Completar migración**.
+
+
 
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Migración de máquinas virtuales VMware a Azure](site-recovery-vmware-to-azure.md)
-- [Migración de máquinas virtuales de Hyper-V de nubes VMM a Azure](site-recovery-vmm-to-azure.md)
-- [Migración de máquinas virtuales de Hyper-V (sin VMM) a Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Migración de máquinas virtuales de Azure entre regiones de Azure](site-recovery-migrate-azure-to-azure.md)
-- [Migración de instancias de AWS a Azure](site-recovery-migrate-aws-to-azure.md)
-- [Preparación de máquinas migradas para habilitar la replicación](site-recovery-azure-to-azure-after-migration.md) en otra región para cubrir las necesidades de recuperación ante desastres.
-- Empezar a proteger las cargas de trabajo mediante la [replicación de máquinas virtuales de Azure.](site-recovery-azure-to-azure.md)
+- [Migración de máquinas locales a Azure](tutorial-migrate-on-premises-to-azure.md)
+- [Migración de máquinas virtuales de una región de Azure a otra](site-recovery-migrate-azure-to-azure.md)
+- [Migración de AWS a Azure](tutorial-migrate-aws-to-azure.md)

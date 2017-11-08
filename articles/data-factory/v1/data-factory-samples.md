@@ -15,13 +15,17 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2e1024924b96cf2c86c9dec8d199a0b7ea2422c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 046358644abb5a83d7b8f586006e8db7ee95a453
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-data-factory---samples"></a>Factoría de datos de Azure: ejemplos
+> [!NOTE]
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si utiliza la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte [Ejemplos de PowerShell en la versión 2 de Data Factory](../samples-powershell.md) y [ejemplos de código en la galería de ejemplos de código de Azure](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory).
+
+
 ## <a name="samples-on-github"></a>Ejemplos en GitHub
 El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Factoría de datos de Azure (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
 
