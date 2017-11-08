@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/08/2016
 ms.author: danlep
-ms.openlocfilehash: 0dc0d15c64d8951c3c457df73588c37418a3c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c8a5aacd19d83b26cfeb3750d57dd783687f1c4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster
 Si implementa nodos de "ráfaga" de Azure en su clúster de HPC Pack o crea un clúster de HPC Pack en máquinas virtuales de Azure, puede que quiera una manera de aumentar o reducir automáticamente recursos, como los nodos o los núcleos, según la carga de trabajo en el clúster. El escalado de los recursos del clúster de este modo le permite usar de forma más eficaz los recursos de Azure y controlar los costos.
@@ -178,7 +178,7 @@ De forma predeterminada, HPC Pack aumenta un 1 % los nodos adicionales para los 
     Set-HpcClusterProperty -ExtraNodesGrowRatio 10
 
 ### <a name="soa-example"></a>Ejemplo de SOA
-De forma predeterminada,**SoaJobGrowThreshold** se establece en 50 000 y **SoaRequestsPerCore** se establece en 200 000. Si envía un trabajo SOA con 70 000 solicitudes, hay una tarea en cola y las solicitudes entrantes son 70 000. En este caso, HPC Pack crece un núcleo para la tarea en cola y, para las solicitudes entrantes, crece (70 000 - 50 000)/20 000 = 1 núcleo, por lo que crece en total 2 núcleos para este trabajo SOA.
+De forma predeterminada,**SoaJobGrowThreshold** se establece en 50000 y **SoaRequestsPerCore** en 20000. Si envía un trabajo SOA con 70 000 solicitudes, hay una tarea en cola y las solicitudes entrantes son 70 000. En este caso, HPC Pack crece un núcleo para la tarea en cola y, para las solicitudes entrantes, crece (70 000 - 50 000)/20 000 = 1 núcleo, por lo que crece en total 2 núcleos para este trabajo SOA.
 
 ## <a name="run-the-azureautogrowshrinkps1-script"></a>Ejecución del script AzureAutoGrowShrink.ps1
 ### <a name="prerequisites"></a>Requisitos previos

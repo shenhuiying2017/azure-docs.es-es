@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: 97bacc2c1285fe4a467a54f224bb9fabbd851fee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferencia de objetos a y desde Azure Blob Storage mediante .NET
 
@@ -29,7 +29,7 @@ En este tutorial de inicio rápido, aprenderá a usar C#.NET para cargar, descar
 
 Para completar esta guía de inicio rápido:
 
-* Instale [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) con la carga de trabajo siguiente:
+* Instale [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con la carga de trabajo siguiente:
     - **Desarrollo de Azure**
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -52,7 +52,7 @@ En primer lugar, cree una nueva cuenta de almacenamiento de uso general que se u
 12. Seleccione el valor de `Location` que desee usar para la cuenta de almacenamiento.
 13. Active **Anclar al panel** y haga clic en **Crear** para crear la cuenta de almacenamiento. 
 
-Después de crear la cuenta de almacenamiento, se ancla al panel. Haga clic en ella para abrirla. En CONFIGURACIÓN, haga clic en **Claves de acceso**. Seleccione una clave, copie la CADENA DE CONEXIÓN en el Portapapeles y péguela en el Bloc de notas para utilizarla posteriormente.
+Después de crear la cuenta de almacenamiento, se ancla al panel. Haga clic en ella para abrirla. En CONFIGURACIÓN, haga clic en **Claves de acceso**. Seleccione una clave, copie la CADENA DE CONEXIÓN en el Portapapeles y péguela en un editor de texto para utilizarla posteriormente.
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 
@@ -68,7 +68,7 @@ Este comando clona el repositorio en la carpeta git local. Para abrir la soluci�
 
 ## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
 
-En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Abra el archivo `app.config` en el Explorador de soluciones en Visual Studio. Busque la entrada StorageConnectionString. Para **value**, reemplace todo el valor de la cadena de conexión por la que guardó en Azure Portal en el Bloc de notas. Cuando termine, debería ver algo parecido a lo siguiente.
+En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Abra el archivo `app.config` en el Explorador de soluciones en Visual Studio. Busque la entrada `StorageConnectionString`. Para **value** (valor), reemplace todo el valor de la cadena de conexión por la que guardó en Azure Portal. El elemento `storageConnectionString` debe ser similar al siguiente:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,8 +78,8 @@ En la aplicación, debe proporcionar la cadena de conexión para la cuenta de al
     </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;
-    AccountName=youraccountname;
-    AccountKey=7NGE5jasdfdRzASDFNOMEx1u20W/thisisjustC/anexampleZK/Rt5pz2xNRrDckyv8EjB9P1WGF==" />
+    AccountName=<NameHere>;
+    AccountKey=<KeyHere>" />
   </appSettings>
 </configuration>
 ```
@@ -98,7 +98,7 @@ https://mystorage.blob.core.windows.net/quickstartblobs/QuickStart_cbd5f95c-6ab8
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8_DOWNLOADED.txt
 ```
 
-Al presionar cualquier tecla para continuar, se elimina el contenedor de almacenamiento y los archivos. Antes de continuar, compruebe MyDocuments para los dos archivos para ver si puede abrirlos y si son idénticos. Copie la dirección URL para el blob fuera de la ventana de consola y péguela en un explorador para ver el contenido del archivo de Blob Storage.
+Al presionar cualquier tecla para continuar, se elimina el contenedor de almacenamiento y los archivos. Antes de continuar, compruebe los dos archivos en Mis documentos. Puede abrirlos y ver que son idénticas. Copie la dirección URL para el blob fuera de la ventana de consola y péguela en un explorador para ver el contenido del archivo de Blob Storage.
 
 También puede usar una herramienta como [Explorador de Azure Storage](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para ver los archivos de Blob Storage. El Explorador de Azure Storage es una herramienta gratuita multiplataforma que permite acceder a la información de la cuenta de almacenamiento. 
 
@@ -110,7 +110,7 @@ Lo primero que hay que hacer es crear las referencias a los objetos usados para 
 
 * Cree una instancia del objeto **CloudStorageAccount** que apunte a la cuenta de almacenamiento. 
 
-* Cree una instancia del objeto **CloudBlobClient**, que apunta a Blob service en la cuenta de almacenamiento. 
+* Cree una instancia del objeto **CloudBlobClient**, que apunte al servicio de Blob de la cuenta de almacenamiento. 
 
 * Cree una instancia del objeto **CloudBlobContainer**, que representa el contenedor al que está accediendo. Los contenedores se usan para organizar los blobs al igual que se usan las carpetas en el equipo para organizar los archivos.
 
@@ -118,7 +118,7 @@ Una vez que tenga **CloudBlobContainer**, puede crear una instancia del objeto *
 
 En esta sección, se crean instancias de los objetos, se crea un nuevo contenedor y luego se establecen permisos en el contenedor para que los blobs sean públicos y se pueda acceder a ellos con tan solo una dirección URL. El contenedor se denomina **quickstartblobs**. 
 
-En este ejemplo se utiliza CreateIfNotExists porque queremos crear un nuevo contenedor cada vez que se ejecuta el ejemplo. En un entorno de producción donde se usa el mismo contenedor en toda una aplicación, lo más recomendable es llamar solamente a CreateIfNotExists una vez o crear el contenedor antes de tiempo de forma que no sea necesario crearlo en el código.
+En este ejemplo se utiliza **CreateIfNotExists** porque queremos crear un nuevo contenedor cada vez que se ejecuta el ejemplo. En un entorno de producción donde se usa el mismo contenedor en toda una aplicación, lo más recomendable es llamar solamente a **CreateIfNotExists** una vez. O bien crear el contenedor con antelación para que no necesite crearlo en el código.
 
 ```csharp
 // Create a CloudStorageAccount instance pointing to your storage account.
@@ -161,11 +161,11 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 Existen varios métodos de carga que puede usar con Blob Storage. Por ejemplo, si tiene una secuencia de memoria, puede utilizar el método UploadFromStreamAsync en lugar de UploadFromFileAsync. 
 
-Los blobs en bloques pueden tener un tamaño de hasta 4,7 TB y pueden ser cualquier cosa, desde hojas de cálculo de Excel a archivos de vídeo grandes. Los blobs en páginas se utilizan principalmente para los archivos VHD usados para respaldar VM IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
+Los blobs en bloques pueden ser cualquier tipo de archivo de texto o binario. Los blobs en páginas se utilizan principalmente para los archivos VHD usados para respaldar VM IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
 
 ## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Obtenga una lista de archivos del contenedor mediante [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). El código siguiente recupera la lista de blobs, luego los recorre y se muestran los URI de los blobs encontrados. Puede copiar el URI desde la ventana de comandos y pegarlo en un explorador para ver el archivo.
+Puede obtener una lista de archivos del contenedor mediante [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). El código siguiente recupera la lista de blobs, luego los recorre y se muestran los URI de los blobs encontrados. Puede copiar el URI desde la ventana de comandos y pegarlo en un explorador para ver el archivo.
 
 Si tiene hasta 5000 blobs en el contenedor, todos los nombres de blob se recuperan en una llamada a ListBlobsSegmentedAsync. Si tiene más de 5000 blobs en el contenedor, el servicio recupera la lista en conjuntos de 5000 hasta que todos los nombres de blob se hayan recuperado. Por tanto, la primera vez que se llama a esta API, devuelve los primeros 5000 nombres de blob y un token de continuación. La segunda vez, se proporciona el token, y el servicio recupera el siguiente conjunto de nombres de blob, y así sucesivamente hasta que el token de continuación es null, lo que indica que se han recuperado todos los nombres de blob. 
 

@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e695cdd7c51e18a386764ab8444d3336366ae265
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Administración de Azure Cosmos DB en el Explorador de Azure Storage (versión preliminar)
 
@@ -32,8 +32,11 @@ En este artículo, aprenderá a usar el Explorador de Storage para administrar A
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Una cuenta de Azure Cosmos DB para una base de datos de MongoDB o SQL (DocumentDB). Si no tiene una cuenta, puede crear una en Azure Portal, tal y como se describe en [Azure Cosmos DB: Compilar una aplicación web de API DocumentDB con .NET y Azure Portal](create-documentdb-dotnet.md).
-- Instale la versión más reciente del Explorador de Azure Storage. También puede instalarla a través de estos vínculos: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
+Una cuenta de Azure Cosmos DB para una base de datos de MongoDB o SQL (DocumentDB). Si no tiene una cuenta, puede crear una en Azure Portal, tal y como se describe en [Azure Cosmos DB: Compilar una aplicación web de API DocumentDB con .NET y Azure Portal](create-documentdb-dotnet.md).
+
+## <a name="installation"></a>Instalación
+
+Instale los bits más recientes del Explorador de Azure Storage aquí: [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/), ahora se admite la versión de Windows, Linux y MAC.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conexión a una suscripción de Azure
 
@@ -146,10 +149,8 @@ Para editar el filtro de documento, escriba una [Consulta SQL](documentdb-sql-qu
 
 * Las operaciones para **desencadenadores** y **UDF** son similares a las de los **procedimientos almacenados**.
 
-## <a name="demo"></a>Demostración
-* Para ver cómo se usa Azure Cosmos DB en el Explorador de Azure Storage, vea este vídeo: [Use Azure Cosmos DB in Azure Storage Explorer](https://go.microsoft.com/fwlink/?linkid=858710) (Usar Azure Cosmos DB en el Explorador de Azure Storage).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que tiene el Explorador de Azure Storage conectado a su cuenta de Azure Cosmos DB, amplíe la información sobre el Explorador de Storage y la conexión de otros servicios en [Introducción al Explorador de Storage (versión preliminar)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Para ver cómo se usa Azure Cosmos DB en el Explorador de Azure Storage, vea este vídeo: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) (Usar Azure Cosmos DB en el Explorador de Azure Storage).
+* Más información acerca del Explorador de Storage y conexión a más servicios en [Introducción al Explorador de Storage (versión preliminar)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

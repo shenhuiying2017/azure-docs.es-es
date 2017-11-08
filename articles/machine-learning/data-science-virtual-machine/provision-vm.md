@@ -13,27 +13,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: a438a0d83ad4749953297b6481cba9cec5900140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de Data Science Virtual Machine de Windows en Azure
 Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de Windows Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Las herramientas incluidas son:
 
-* Microsoft R Server Developer Edition
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning-services/) Workbench
+* [Microsoft ML Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Anaconda Python Distribution
-* Notebook de Jupyter (con kernels R, Python)
+* Notebook de Jupyter (con kernels R, Python y PySpark)
 * Visual Studio Community Edition
 * Power BI Desktop
-* SQL Server 2016 Developer Edition
+* SQL Server 2017 Developer Edition
+* Instancia independiente de Spark para desarrollo y pruebas locales
+* [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * Herramientas de aprendizaje automático y análisis
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): kit de herramientas de software de aprendizaje profundo de Microsoft Research.
+  * Marcos de aprendizaje profundo: amplio conjunto de marcos de IA, como [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, Keras, incluido en la máquina virtual.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y los aprendizajes activo e interactivo
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
   * [Rattle](http://rattle.togaware.com/) (sigla del inglés “R Analytical Tool To Learn Easily”, la herramienta de análisis de R para aprender fácilmente): herramienta que simplifica la introducción al análisis de datos y al aprendizaje automático en R con una exploración de datos basada en GUI y un modelado con generación automática de códigos en R
-  * [mxnet](https://github.com/dmlc/mxnet): un entorno de aprendizaje en profundidad diseñado para lograr eficiencia y flexibilidad
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): software de minería de datos visual y aprendizaje automático de Java.
   * [Apache Drill](https://drill.apache.org/): motor de consultas SQL sin esquemas para Hadoop, NoSQL y almacenamiento en la nube.  Es compatible con las interfaces ODBC y JDBC para habilitar consultas NoSQL y archivos de herramientas de BI estándar como Power BI, Excel o Tableau.
 * Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
@@ -50,40 +52,39 @@ Los científicos de datos usan varias herramientas para realizar estas tareas. P
 
 Microsoft Data Science Virtual Machine da un empujón al inicio de los proyecto de análisis. Le permite trabajar en tareas en varios lenguajes, incluidos R, Python, SQL y C#. Visual Studio proporciona un IDE para desarrollar y probar el código que es fácil de usar. El SDK de Azure incluido en la máquina virtual permite crear aplicaciones con varios servicios en la plataforma en la nube de Microsoft. 
 
-No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Solo paga por las cuotas de uso de Azure, que dependen del tamaño de la máquina virtual que aprovisione. Puede encontrar más detalles sobre las cuotas de proceso en la sección de detalles de precios de la página [Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) . 
+No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Solo paga por las cuotas de uso de Azure, que dependen del tamaño de la máquina virtual que aprovisione. Puede encontrar más detalles sobre las cuotas de proceso en la sección de detalles de precios de la página [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) . 
 
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Otras versiones de Data Science Virtual Machine
-También hay una imagen de [CentOS](linux-dsvm-intro.md) disponible, con la mayoría de las mismas herramientas que la imagen de Windows. También hay una imagen de [Ubuntu](dsvm-ubuntu-intro.md) disponible, con muchas herramientas similares más marcos de trabajo de aprendizaje profundo.
+También hay una imagen de [Ubuntu](dsvm-ubuntu-intro.md) disponible, con muchas herramientas similares más otros marcos de trabajo de aprendizaje profundo. También hay una imagen de [CentOS](linux-dsvm-intro.md) disponible. También ofrecemos la [versión Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la máquina virtual de ciencia de datos, aunque algunas herramientas solo están disponibles para la versión Windows Server 2016.  Respecto al resto, este artículo también se aplica a la versión Windows Server 2012.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo siguiente:
 
-* **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Una cuenta de Azure Storage**: consulte la sección sobre [creación de una cuenta de Azure Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para crear una. Como alternativa, la cuenta de almacenamiento puede crearse como parte del proceso de creación de la máquina virtual si no quiere usar una cuenta existente.
+* **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](http://azure.com/free).
+
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Creación de su Microsoft Data Science Virtual Machine
 Estos son los pasos para crear una instancia de Microsoft Data Science Virtual Machine:
 
-1. Navegue a la lista de máquinas virtuales en [Azure Portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1. Navegue a la lista de máquinas virtuales en [Azure Portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
 2. Seleccione el botón **Crear** ubicado en la parte inferior para acceder a un asistente.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. El asistente que se usó para crear la instancia de Microsoft Data Science Virtual Machine necesita **datos de entrada** para cada uno de los **cinco pasos** que se enumeran en la parte derecha de esta ilustración. Estas son las entradas necesarias para configurar cada uno de estos pasos:
+3. El asistente que se usó para crear la instancia de Microsoft Data Science Virtual Machine necesita **datos de entrada** para cada uno de los **cuatro pasos** que se enumeran en la parte derecha de esta ilustración. Estas son las entradas necesarias para configurar cada uno de estos pasos:
    
    1. **Aspectos básicos**
       
       1. **Nombre**: nombre del servidor de ciencia de datos que está creando.
-      2. **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador.
-      3. **Contraseña**: contraseña de la cuenta del administrador.
-      4. **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
-      5. **Grupo de recursos**: puede crear uno nuevo o usar un grupo que ya exista.
-      6. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red.
+      2. **Tipo de disco de máquina virtual**: elija entre SSD o HDD. Para GPU (serie NC), elija **HDD** como tipo de disco. 
+      3. **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador.
+      4. **Contraseña**: contraseña de la cuenta del administrador.
+      5. **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
+      6. **Grupo de recursos**: puede crear uno nuevo o usar un grupo que ya exista.
+      7. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red.
    2. **Tamaño**: seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Para obtener más opciones de tamaños de máquina virtual, seleccione "Ver todo".
    3. **Configuración**:
       
-      1. **Tipo de disco**: elija Premium si prefiere una unidad de estado sólido (SSD), de lo contrario elija "Estándar".
-      2. **Cuenta de almacenamiento**: puede crear una nueva cuenta de Azure Storage en su suscripción o usar una existente en la misma *Ubicación* que ha elegido en el paso **Aspectos básicos** del asistente.
-      3. **Otros parámetros**: normalmente usará simplemente los valores predeterminados. Puede mover el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos en caso de que desee considerar el uso de valores no predeterminados.
-   4. **Resumen**: Compruebe que toda la información que ha especificado es correcta.
-   5. **Compra**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
+      1. **Usar Managed Disks**: elija Administrado si desea que Azure administre los discos de la máquina virtual.  En caso contrario, debe especificar una cuenta de almacenamiento nueva o existente. 
+      2. **Otros parámetros**: normalmente usará simplemente los valores predeterminados. Puede mover el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos en caso de que desee considerar el uso de valores no predeterminados.
+   4. **Resumen**: compruebe que toda la información que ha especificado es correcta y haga clic en **Crear**. **NOTA**: La máquina virtual no tiene ningún cargo aparte del proceso para el tamaño del servidor que eligió en el paso **Tamaño**. 
 
 > [!NOTE]
 > El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en Azure Portal.
@@ -95,22 +96,15 @@ Una vez creada la máquina virtual, puede usar el escritorio remoto con las cred
 
 Una vez creada y aprovisionada la máquina virtual, está listo para comenzar a usar las herramientas que se instalan y configuran en ella. Hay iconos del menú de inicio e iconos del escritorio para muchas de las herramientas. 
 
-## <a name="how-to-create-a-strong-password-for-jupyter-and-start-the-notebook-server"></a>Creación de una contraseña segura para Jupyter e inicio del servidor de notebooks
-De forma predeterminada, el servidor de notebooks de Jupyter está preconfigurado pero deshabilitado en la máquina virtual hasta que se establezca una contraseña para Jupyter. Para crear una contraseña segura para el servidor de cuadernos de Jupyter Notebook instalado en la máquina, ejecute el siguiente comando desde un símbolo del sistema en la máquina virtual de Data Science, o bien haga doble clic en el acceso directo que hemos proporcionado en el escritorio, llamado **Jupyter Set Password & Start** desde una cuenta de administrador de máquina virtual local.
-
-    C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
-
-Siga los mensajes y elija una contraseña segura cuando se le solicite.
-
-El script anterior crea un hash de contraseña y lo almacena en el archivo de configuración de Jupyter ubicado en: **C:\ProgramData\jupyter\jupyter_notebook_config.py**, bajo el nombre de parámetro ***c.NotebookApp.password***.
-
-El script también habilita y ejecuta el servidor de Jupyter en segundo plano. El servidor de Jupyter se crea como una tarea de Windows llamada **Start_IPython_Notebook**, en el programador de tareas de Windows.  Quizás tenga que esperar unos pocos segundos después de establecer la contraseña antes de abrir el notebook en el explorador. Consulte la sección titulada **Jupyter Notebook** acerca de cómo tener acceso al servidor de notebooks de Jupyter. 
-
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Herramientas instaladas en Microsoft Data Science Virtual Machine
 
-### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
-Si desea usar R para su análisis, la máquina virtual tiene Microsoft R Server Developer Edition instalado. Microsoft R Server es una plataforma de análisis de nivel empresarial que se puede implementar ampliamente gracias a que R es compatible, escalable y seguro. Compatible con una gran variedad de estadísticas de macrodatos, con funcionalidades de modelado de predicción y de aprendizaje automático, R Server admite toda la gama de análisis: exploración, análisis, visualización y modelado. Al usar y ampliar R de código abierto, Microsoft R Server es totalmente compatible con scripts, funciones y paquetes CRAN de R, a fin de analizar datos a escala empresarial. También resuelve las limitaciones en memoria de R de origen abierto agregando el procesamiento paralelo y fragmentado de datos. Esto permite ejecutar análisis de datos mucho mayor de lo que cabe en la memoria principal.  La edición Visual Studio Community Edition incluida en la máquina virtual contiene la extensión R Tools for Visual Studio que proporciona un IDE completo para trabajar con R. También puede descargar y usar otros IDE, así como [RStudio](http://www.rstudio.com). 
+### <a name="azure-machine-learning-workbench"></a>Azure Machine Learning Workbench
+
+Azure Machine Learning Workbench es una aplicación de escritorio y una interfaz de la línea de comandos. Workbench tiene un sistema de preparación de datos integrado que aprende sus pasos de preparación de datos conforme los lleva a cabo. También proporciona la administración de proyectos, el historial de ejecuciones y la integración de cuadernos para aumentar la productividad. Aproveche los mejores marcos de código abierto, como TensorFlow, Cognitive Toolkit, Spark ML y scikit-learn para desarrollar sus modelos. En DSVM, proporcionamos un icono del escritorio (InstallAMLFromLocal) para extraer localmente Azure Machine Learning Workbench en el directorio %LOCALAPPDATA% de cada usuario. Los usuarios que necesiten usar una instancia de Workbench deben seguir una acción única de doble clic en el icono del escritorio InstallAMLFromLocal para instalarla. Azure Machine Learning también crea y usa un entorno de Python por usuario que se extrae en la carpeta %LOCALAPPDATA%\amlworkbench\python.
+
+### <a name="microsoft-ml-server-developer-edition"></a>Microsoft ML Server Developer Edition
+Si desea utilizar las bibliotecas empresariales de Microsoft para R o Python escalables para los análisis, la máquina virtual tendrá Microsoft ML Server Developer Edition (conocido anteriormente como Microsoft R Server) instalada. Microsoft ML Server es una plataforma de análisis empresarial que se puede implementar ampliamente, está disponible para R y Python, y es escalable; además es compatible y segura comercialmente. Compatible con una gran variedad de estadísticas de macrodatos, con funcionalidades de modelado de predicción y de aprendizaje automático, ML Server admite toda la gama de análisis: exploración, análisis, visualización y modelado. Al usar y ampliar R y Python de código abierto, Microsoft ML Server es totalmente compatible con los scripts, las funciones y los paquetes CRAN/pip/Conda de R y Python, a fin de analizar datos a escala empresarial. También resuelve las limitaciones en memoria de R de origen abierto agregando el procesamiento paralelo y fragmentado de datos. Esto permite ejecutar análisis de datos mucho mayor de lo que cabe en la memoria principal.  La versión Visual Studio Community Edition incluida en la máquina virtual contiene las extensiones Herramientas de R para Visual Studio y Herramientas de Python para Visual Studio que proporciona un IDE completo para trabajar con R o Python. También se proporcionan otros IDE, como [RStudio](http://www.rstudio.com) y [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) en la máquina virtual. 
 
 ### <a name="python"></a>Python
 Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 y 3.5. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares. Puede usar Herramientas de Python para Visual Studio (PTVS) que se instala en la edición de Visual Studio 2015 Community o uno de los IDE incluidos con Anaconda, como IDLE o Spyder. Para iniciar uno de ellos, busque en la barra de búsqueda (tecla **Win** + **S**).
@@ -123,16 +117,16 @@ Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 
 Anaconda Python 2.7 se instala en C:\Anaconda y Anaconda Python 3.5 se instala en c:\Anaconda\envs\py35. Consulte la [documentación de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) para ver los pasos detallados. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
-La distribución de Anaconda también incluye una instancia de Jupyter Notebook, un entorno para compartir código y análisis. Previamente se ha configurado un servidor de notebooks de Jupyter con kernels de Python 2.7, Python 3.4, Python 3.5 y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el explorador y tener acceso al servidor Notebook. Si está en la máquina virtual a través de un escritorio remoto, también puede visitar [https://localhost:9999/](https://localhost:9999/) para acceder al servidor de Jupyter Notebook cuando inicie sesión en la máquina virtual.
+La distribución de Anaconda también incluye una instancia de Jupyter Notebook, un entorno para compartir código y análisis. Previamente se ha configurado un servidor de notebooks de Jupyter con kernels de Python 2.7, Python 3.5, PySpark, Julia y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el servidor de Jupyter y el explorador para acceder al servidor de Notebook. 
 
 > [!NOTE]
 > Continúe aunque aparezca una advertencia de certificado. 
 > 
 > 
 
-Hemos empaquetado varios notebooks de ejemplo en Python y en R. Los notebooks de Jupyter muestran cómo trabajar con Microsoft R Server, SQL Server 2016 R Services (análisis en bases de datos), Python, Microsoft Cognitive ToolKit para un aprendizaje en profundidad y otras tecnologías de Azure una vez que inicie sesión en Jupyter. Puede ver el vínculo a los ejemplos en la página de inicio del notebook después de que se autentique en Jupyter Notebook con la contraseña creada en el paso anterior. 
+Hemos empaquetado varios notebooks de ejemplo en Python y en R. Los notebooks de Jupyter muestran cómo trabajar con Microsoft ML Server, SQL Server ML Services (análisis en base de datos), Python, Microsoft Cognitive ToolKit, Tensorflow y otras tecnologías de Azure una vez haya accedido a Jupyter. Puede ver el vínculo a los ejemplos en la página de inicio del notebook después de que se autentique en Jupyter Notebook con la contraseña creada en el paso anterior. 
 
-### <a name="visual-studio-2015-community-edition"></a>Visual Studio 2015 Community Edition
+### <a name="visual-studio-2017-community-edition"></a>Visual Studio 2017 Community Edition
 Visual Studio Community Edition instalado en la máquina virtual. Se trata de una versión gratuita del popular IDE de Microsoft que puede usar para fines de evaluación y para equipos pequeños. Puede revisar los términos de licencia [aquí](https://www.visualstudio.com/support/legal/mt171547).  Haga doble clic en el icono del escritorio o en el menú **Inicio** para abrir Visual Studio. Para buscar programas, también puede usar **Win** + **S** y escribir "Visual Studio". Una vez ahí, puede crear proyectos en lenguajes como C#, Python, R o node.js. También encontrará complementos instalados que resultan prácticos para trabajar con servicios de Azure como Azure Data Catalog, Azure HDInsight (Hadoop, Spark) y Azure Data Lake. 
 
 > [!NOTE]
@@ -140,24 +134,24 @@ Visual Studio Community Edition instalado en la máquina virtual. Se trata de un
 > 
 > 
 
-### <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Developer Edition
-La máquina virtual incluye la versión para desarrolladores de SQL Server 2016 con R Services para ejecutar análisis en bases de datos. R Services proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes. Puede usar el completo y eficaz lenguaje R y los numerosos paquetes de la comunidad para crear modelos y generar predicciones con sus datos de SQL Server. Puede mantener análisis cerca de los datos porque los servicios de R (en bases de datos) integran el lenguaje R con SQL Server. Esto elimina los costos y riesgos de seguridad asociados con el movimiento de datos.
+### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer Edition
+La máquina virtual (R o Python) incluye la versión para desarrolladores de SQL Server 2017 con ML Services para ejecutar análisis en bases de datos. ML Services proporciona una plataforma para desarrollar e implementar aplicaciones inteligentes. Puede usar estos lenguajes, completos y eficaces, y los numerosos paquetes de la comunidad para crear modelos y generar predicciones con sus datos de SQL Server. Puede mantener análisis cerca de los datos, porque ML Services (en la base de datos) integra los lenguajes R y Python con SQL Server. Esto elimina los costos y riesgos de seguridad asociados con el movimiento de datos.
 
 > [!NOTE]
-> La edición para desarrolladores de SQL Server 2016 solo puede utilizarse para fines de desarrollo y prueba. Para ejecutarlo en producción necesita una licencia. 
+> La edición para desarrolladores de SQL Server solo puede utilizarse para fines de desarrollo y prueba. Para ejecutarlo en producción necesita una licencia. 
 > 
 > 
 
 Para tener acceso a SQL Server, inicie **SQL Server Management Studio**. El nombre de la máquina virtual se rellenará como Nombre del servidor. Use Autenticación de Windows cuando inicie sesión como administrador en Windows. Una vez que esté en SQL Server Management Studio, puede crear otros usuarios, crear bases de datos, importar datos y ejecutar consultas SQL. 
 
-Para habilitar el análisis en bases de datos con Microsoft R, ejecute el siguiente comando como una acción puntual en SQL Server Management Studio después de iniciar sesión como administrador del servidor. 
+Para habilitar el análisis en la base de datos con ML Services de SQL, ejecute el siguiente comando como una acción puntual en SQL Server Management Studio después de iniciar sesión como administrador del servidor. 
 
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
         (Please replace the %COMPUTERNAME% with your VM name)
 
 
-### <a name="azure"></a>Las tablas de Azure
+### <a name="azure"></a>Azure
 En la VM se instalan varias herramientas de Azure:
 
 * Hay un acceso directo del escritorio para tener acceso a la documentación del SDK de Azure. 
@@ -165,7 +159,7 @@ En la VM se instalan varias herramientas de Azure:
 * **Explorador de Microsoft Azure Storage**: se usa para explorar los objetos que almacenó en la cuenta de Azure Storage y para transferir los datos hacia y desde Azure Storage. Puede escribir **Explorador de Storage** en la búsqueda o buscarlo en el menú Inicio de Windows para acceder a esta herramienta. 
 * **Adlcopy**: se usa para trasladar datos a Azure Data Lake. Para ver su uso escriba **adlcopy** en el símbolo del sistema. 
 * **dtui**: se usa para trasladar datos hacia y desde Azure Cosmos DB, una base de datos NoSQL en la nube. Escriba **dtui** en el símbolo del sistema. 
-* **Microsoft Data Management Gateway**: permite el traslado de datos entre orígenes de datos locales y en la nube. Se usa en herramientas como Azure Data Factory. 
+* **Integration Runtime de Azure Data Factory**: permite el traslado de datos entre orígenes de datos locales y la nube. Se usa en herramientas como Azure Data Factory. 
 * **Microsoft Azure PowerShell**: en la máquina virtual también se instala una herramienta para administrar los recursos de Azure en el lenguaje de scripting de PowerShell. 
 
 ### <a name="power-bi"></a>Power BI
@@ -187,9 +181,10 @@ Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.micros
 | Otros ejemplos |c:\dsvm\samples |
 | Anaconda (predeterminado: Python 2.7) |c:\Anaconda |
 | Entorno Anaconda Python 3.5 |c:\Anaconda\envs\py35 |
-| Directorio de la instancia de R Server Standalone (instancia predeterminada de R basada en R3.2.2) |C:\Archivos de programa\Microsoft SQL Server\130\R_SERVER |
-| Directorio de la instancia en base de datos de R Server (R3.2.2) |C:\Archivos de programa\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES |
-| Directorio de la instancia de Microsoft R Open (R3.3.1) |C:\Archivos de programa\Microsoft\MRO-3.3.1 |
+| Python independiente de Microsoft ML Server  | C:\Archivos de programa\Microsoft\ML Server\PYTHON_SERVER |
+| Instancia de R predeterminada (independiente de ML Server) |C:\Archivos de programa\Microsoft\ML Server\R_SERVER |
+| Directorio de la instancia en la base de datos de ML Services de SQL |C:\Archivos de programa\Microsoft SQL Server\MSSQL14.MSSQLSERVER |
+| Azure Machine Learning Workbench (por usuario) | %localappdata%\amlworkbench | 
 | Herramientas varias |c:\dsvm\tools |
 
 > [!NOTE]
@@ -201,8 +196,9 @@ Puede usar el [**Instalador de plataforma web de Microsoft**](https://www.micros
 Estos son algunos pasos para proseguir con el aprendizaje y la exploración. 
 
 * Explore las diversas herramientas de Data Science Virtual Machine haciendo clic en el menú Inicio y comprobando las herramientas incluidas en el menú.
-* Vaya a **C:\Archivos de programa\Microsoft SQL Server\130\R_SERVER\library\RevoScaleR\demoScripts** para ver ejemplos de uso de la biblioteca RevoScaleR de R que admite análisis de datos a escala empresarial.  
+* Más información acerca de Azure Machine Learning Services y Workbench en la [página de las guías de inicio rápido y los tutoriales](https://docs.microsoft.com/azure/machine-learning/preview/) del producto. 
+* Vaya a **C:\Archivos de programa\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para ver ejemplos de uso de la biblioteca RevoScaleR de R que admiten análisis de datos a escala empresarial.  
 * Lea el artículo [Diez cosas que puede hacer en Data Science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Aprenda a crear soluciones analíticas completas mediante el uso sistemático del [Proceso de ciencia de los datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visite [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com) para ver ejemplos de aprendizaje automático y de análisis de datos usando Cortana Intelligence Suite. También hemos proporcionado un icono en el menú **Inicio** y en el escritorio de la máquina virtual para el acceso a esta galería.
+* Visite la [galería de Azure Machine Learning](http://gallery.cortanaintelligence.com) para ejemplos de aprendizaje automático y análisis de datos donde se usa Azure Machine Learning y servicios de datos relacionados en Azure. También hemos proporcionado un icono en el menú **Inicio** y en el escritorio de la máquina virtual para el acceso a esta galería.
 

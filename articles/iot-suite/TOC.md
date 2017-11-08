@@ -8,6 +8,41 @@
 ### [Implementación de la solución preconfigurada](iot-suite-remote-monitoring-deploy.md)
 ### [Uso de la solución preconfigurada](iot-suite-remote-monitoring-explore.md)
 
+## Supervisión remota (versión anterior)
+### [¿Qué son las soluciones preconfiguradas?](iot-suite-v1-what-are-preconfigured-solutions.md)
+### [Preguntas más frecuentes](iot-suite-v1-faq.md)
+
+### Introducción
+#### [Introducción a las soluciones preconfiguradas](iot-suite-v1-getstarted-preconfigured-solutions.md)
+#### [Permisos en azureiotsuite.com](iot-suite-v1-permissions.md)
+#### [Tutorial de la solución de supervisión remota](iot-suite-v1-remote-monitoring-sample-walkthrough.md)
+#### [Conexión de la Raspberry Pi](iot-suite-v1-raspberry-pi-kit-get-started.md)
+##### Uso de C
+###### [Datos simulados](iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md)
+###### [Uso de sensores reales](iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md)
+###### [Implementación de la actualización de firmware](iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md)
+##### Uso de Node.js
+###### [Datos simulados](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
+###### [Uso de sensores reales](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
+###### [Implementación de la actualización de firmware](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
+#### Conexión de la puerta de enlace de Intel NUC
+##### [Datos simulados](iot-suite-v1-gateway-kit-get-started-simulator.md)
+##### [Uso de sensor real](iot-suite-v1-gateway-kit-get-started-sensortag.md)
+
+### Procedimientos
+#### Conexión a un dispositivo simulado
+##### [C en Windows](iot-suite-v1-connecting-devices.md)
+##### [C en Linux](iot-suite-v1-connecting-devices-linux.md)
+##### [Node.js](iot-suite-v1-connecting-devices-node.md)
+#### [Conexión de la aplicación lógica a la solución de supervisión remota](iot-suite-v1-logic-apps-tutorial.md)
+#### [Personalización de una solución preconfigurada](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
+#### [Uso de telemetría dinámica con la solución de supervisión remota](iot-suite-v1-dynamic-telemetry.md)
+#### [Creación de una regla personalizada en la solución de supervisión remota](iot-suite-v1-custom-rule.md)
+#### [Información de dispositivos en la solución de supervisión remota](iot-suite-v1-remote-monitoring-device-info.md)
+
+
+
+
 ## Mantenimiento predictivo
 ### [Introducción a la solución de mantenimiento predictivo](iot-suite-predictive-overview.md)
 ### [Tutorial de la solución de mantenimiento predictivo](iot-suite-predictive-walkthrough.md)
@@ -51,8 +86,9 @@
 
 # Temas relacionados
 ## [Stream Analytics](/azure/stream-analytics/)
-## [Centros de eventos](/azure/event-hubs/)
-## [Centro de IoT](/azure/iot-hub/)
+## [Event Hubs](/azure/event-hubs/)
+## 
+            [IoT Hub](/azure/iot-hub/)
 ## [IoT Central](/azure/index#pivot=services&panel=iot)
 ## [Machine Learning](/azure/machine-learning/)
 

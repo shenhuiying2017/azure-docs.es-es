@@ -1,4 +1,4 @@
-En la ventana del terminal local, agregue una instancia remota de Azure al repositorio de Git local.
+En la ventana del terminal local, agregue una instancia remota de Azure al repositorio de Git local. Este repositorio remoto de Azure se ha creado automáticamente en [Creación de una aplicación web](#create-a-web-app).
 
 ```bash
 git remote add azure <URI from previous step>

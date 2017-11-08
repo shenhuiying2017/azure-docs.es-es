@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0aaf199d309be289b215a75bb4c222e76e1fb1b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e6127d419bb41f1b146aff147c43dce2233d8d
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creación del primer contenedor en Azure Container Instances
 
@@ -114,6 +114,7 @@ Todo el código del contenedor utilizado en esta guía de inicio rápido está d
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Container Instances](./container-instances-tutorial-prepare-app.md)
 
+Para probar opciones para ejecutar contenedores en un sistema de orquestación en Azure, consulte los inicios rápidos de [Service Fabric][service-fabric] o [Azure Container Service (AKS)][container-service].  
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
@@ -123,6 +124,8 @@ Todo el código del contenedor utilizado en esta guía de inicio rápido está d
 [az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md
+[container-service]: ../aks/kubernetes-walkthrough.md
 
 
 <!-- IMAGES -->

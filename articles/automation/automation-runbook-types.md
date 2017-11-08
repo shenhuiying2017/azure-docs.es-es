@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 4bf4a3d755afeee9930204a2dbae9ff9fada3517
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbooks de Automatización de Azure
 Azure Automation admite numerosos tipos de runbooks que se describen brevemente en la tabla siguiente.  Las secciones siguientes proporcionan información adicional sobre cada tipo, incluidas consideraciones sobre cuándo usar cada uno.
@@ -85,8 +85,19 @@ Los runbooks del flujo de trabajo de PowerShell son runbooks de texto basados en
 * Los runbooks de PowerShell pueden incluirse únicamente como runbooks secundarios mediante el cmdlet Start-AzureAutomationRunbook, que crea un nuevo trabajo.
 
 ## <a name="python-runbooks"></a>Runbooks de Python
+Runbooks de Python compilados en Python 2.  Puede modificar directamente el código del runbook mediante el editor de texto de Azure Portal, o puede usar cualquier editor de texto sin conexión e [importar el runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) en Azure Automation.
 
-## <a name="bash-runbooks"></a>Runbooks de Bash
+### <a name="advantages"></a>Ventajas
+* Utilice la biblioteca estándar sólida de Python.
+
+### <a name="limitations"></a>Limitaciones
+* Debe estar familiarizado con el scripting de Python.
+* En este momento solo se admite Python 2, lo que significa que las funciones específicas de Python 3 producirán error.
+
+### <a name="known-issues"></a>Problemas conocidos
+A continuación se describen los problemas conocidos actuales con runbooks de Python.
+
+* Para poder utilizar bibliotecas de terceros, se debe ejecutar el runbook en un [Windows Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) o [Linux Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) con las bibliotecas ya instaladas en la máquina antes de iniciar el runbook.
 
 ## <a name="considerations"></a>Consideraciones
 Se deben tener en cuenta las siguientes consideraciones adicionales al determinar qué tipo usar para un runbook determinado.

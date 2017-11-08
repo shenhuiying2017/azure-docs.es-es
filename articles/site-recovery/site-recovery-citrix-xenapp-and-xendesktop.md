@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar una implementación de XenApp y XenDesktop de Citrix de niveles múltiples mediante Azure Site Recovery
 
@@ -74,7 +74,7 @@ Dado que en Azure se admite XenApp 7.7 o una versión posterior, solo se pueden 
 
 1. No se admite la protección y la recuperación de implementaciones locales mediante equipos con sistema operativo de servidor para entregar aplicaciones y escritorios de XenApp publicados.
 
-2. No se admite la protección y la recuperación de implementaciones locales mediante equipos con sistema operativo de escritorio para entregar VDI para escritorios virtuales de cliente, incluido Windows 10. Esto se debe a que ASR no admite la recuperación de equipos con sistemas operativos de escritorio.  Además, todavía no se admiten algunos tipos de escritorio virtual de cliente (por ejemplo, Windows 7) para la concesión de licencias en Azure. Aquí encontrará [más información](https://azure.microsoft.com/pricing/licensing-faq/) acerca de la concesión de licencias a escritorios de cliente/servidor de Azure.
+2. No se admite la protección y la recuperación de implementaciones locales mediante equipos con sistema operativo de escritorio para entregar VDI para escritorios virtuales de cliente, incluido Windows 10. Esto se debe a que ASR no admite la recuperación de equipos con sistemas operativos de escritorio.  Además, todavía no se admiten algunos sistemas operativos de escritorio virtual de cliente (por ejemplo, Windows 7) para la concesión de licencias en Azure. Aquí encontrará [más información](https://azure.microsoft.com/pricing/licensing-faq/) acerca de la concesión de licencias a escritorios de cliente/servidor de Azure.
 
 3.  Azure Site Recovery no puede replicar y proteger clones locales de MCS o PVS existentes.
 Debe volver a crear estos clones mediante el aprovisionamiento de Azure RM desde el controlador de entrega.

@@ -1,6 +1,6 @@
 ---
 title: "Optimización del entorno de Active Directory con Azure Log Analytics | Microsoft Docs"
-description: "Puede usar periódicamente la solución de evaluación de Active Directory para evaluar el riesgo y el estado de los entornos de servidor."
+description: "Puede usar periódicamente la solución Active Directory Health Check para evaluar el riesgo y el estado de los entornos."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución de evaluación de Active Directory en Log Analytics
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Log Analytics
 
-![Símbolo de AD Assessment](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
+![Símbolo de AD Health Check](./media/log-analytics-ad-assessment/ad-assessment-symbol.png)
 
-Puede usar periódicamente la solución de evaluación de Active Directory para evaluar el riesgo y el estado de los entornos de servidor. Este artículo facilita la instalación y el uso de la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
+Puede usar periódicamente la solución Active Directory Health Check para evaluar el riesgo y el estado de los entornos del servidor. Este artículo facilita la instalación y el uso de la solución para que pueda tomar acciones correctivas en caso de posibles problemas.
 
 Esta solución proporciona una lista priorizada de recomendaciones específicas para su infraestructura de servidor implementada. Las recomendaciones se clasifican en cuatro áreas de enfoque que ayudan a comprender rápidamente el riesgo y a tomar una acción correctiva.
 
@@ -33,46 +33,48 @@ Las recomendaciones se basan en los conocimientos y la experiencia adquiridos po
 
 Puede elegir las áreas de enfoque que sean más importantes para su organización y realizar un seguimiento del progreso hacia la consecución de un entorno libre de riesgos y en buen estado.
 
-Después de agregar la solución y completar una evaluación, se muestra información resumida sobre las áreas de enfoque en el panel **AD Assessment** (Evaluación de AD) para la infraestructura del entorno. Las secciones siguientes describen cómo usar la información que aparece en el panel **AD Assessment** (Evaluación de AD), donde puede ver y ejecutar las acciones recomendadas para su infraestructura de servicio de Active Directory.
+Después de agregar la solución y completar una comprobación, se muestra información resumida sobre las áreas de enfoque en el panel de **AD Health Check** para la infraestructura del entorno. Las secciones siguientes describen cómo usar la información que aparece en el panel de **AD Health Check**, donde puede ver y ejecutar las acciones recomendadas para su infraestructura de servicio de Active Directory.  
 
-![imagen del icono de evaluación de SQL](./media/log-analytics-ad-assessment/ad-tile.png)
+![imagen del icono de AD Health Check](./media/log-analytics-ad-assessment/ad-healthcheck-summary-tile.png)
 
-![imagen del panel de evaluación de SQL](./media/log-analytics-ad-assessment/ad-assessment.png)
+![imagen del panel de AD Health Check](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
-Use la siguiente información para instalar y configurar las soluciones.
+## <a name="prerequisites"></a>Requisitos previos
 
-* Los agentes deben instalarse en controladores que sean miembros del dominio que se va a evaluar.
-* La solución de evaluación de Active Directory requiere que esté instalada una versión compatible de .NET Framework 4 (4.5.2 o superior) en todos los equipos que tengan un agente de OMS.
-* Agregue la solución Active Directory Assessment (evaluación de Active Directory) al área de trabajo de OMS desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ADAssessmentOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+* La solución Active Directory Health Check requiere que esté instalada una versión compatible de .NET Framework 4.5.2 o superior en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y el servicio Log Analytics, usan el agente de MMA. 
+* La solución es compatible con controladores de dominio que ejecutan Windows Server 2008, y 2008 R2, Windows Server 2012, y 2012 R2 y Windows Server 2016.
+* Un área de trabajo de Log Analytics para agregar la solución Active Directory Health Check desde Azure Marketplace en Azure Portal.  No es necesario realizar ninguna configuración más.
 
   > [!NOTE]
-  > Después de agregar la solución, el archivo AdvisorAssessment.exe se agrega a servidores con agentes. Los datos de configuración se leen y, luego, se envían al servicio de OMS en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.
+  > Después de agregar la solución, el archivo AdvisorAssessment.exe se agrega a servidores con agentes. Los datos de configuración se leen y, luego, se envían al servicio Log Analytics en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.
   >
   >
 
-## <a name="active-directory-assessment-data-collection-details"></a>Detalles de la recopilación de datos para la evaluación de Active Directory
+Para llevar a cabo la comprobación de estado en los controladores de dominio que son miembros del dominio que se va a evaluar, necesitan un agente y conectividad a Log Analytics mediante alguno de los siguientes métodos admitidos:
 
-Active Directory Assessment recopila datos de los siguientes orígenes mediante los agentes habilitados:
+1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
+2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el controlador de dominio se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
+3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) una vez que habilite la solución en el área de trabajo.  
 
-- Recopiladores de registros
-- Recopiladores de LDAP
+El agente del controlador de dominio que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración al servicio Log Analytics.  Los datos no se escriben en las bases de datos de Operations Manager.  
+
+## <a name="active-directory-health-check-data-collection-details"></a>Detalles de la recopilación de datos de Active Directory Health Check
+
+Active Directory Health Check recopila datos de los siguientes orígenes mediante el agente habilitado:
+
+- Registro 
+- LDAP 
 - .NET Framework
-- Recopiladores de registros de eventos
+- Registro de eventos 
 - Interfaces ADSI
 - Windows PowerShell
-- Recopiladores de datos de archivo
+- Datos de archivo 
 - Instrumental de administración de Windows (WMI)
 - API de la herramienta DCDIAG
 - API del servicio de replicación de archivos (NTFRS)
 - Código personalizado C#
 
-
-En la siguiente tabla se muestran los métodos de recopilación de datos para agentes, si se necesita Operations Manager (SCOM) y la frecuencia con la que un agente recopila datos.
-
-| plataforma | Agente directo | Agente de SCOM | Azure Storage | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |&#8226; |&#8226; |  |  |&#8226; |7 días |
+Los datos se recopilan en el controlador de dominio y se reenvían a Log Analytics cada siete días.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Cómo se establecen prioridades entre las recomendaciones
 A cada recomendación efectuada se le asigna un valor de ponderación que identifica su importancia relativa. Se muestran solo las diez recomendaciones más importantes.
@@ -100,71 +102,76 @@ No necesariamente. Las recomendaciones se basan en los conocimientos y las exper
 
 Cada recomendación incluye pautas que indican por qué es importante. Debe utilizar estas directrices para evaluar si es adecuado o no para usted implementar la recomendación, en función de la naturaleza de los servicios de TI y las necesidades empresariales de su organización.
 
-## <a name="use-assessment-focus-area-recommendations"></a>Uso de las recomendaciones de área de enfoque de evaluación
-Antes de que pueda usar una solución de evaluación en OMS, debe tener instalada la solución. Para más información sobre cómo instalar las soluciones, consulte [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md). Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono Evaluación en el panel Información general de OMS.
+## <a name="use-health-check-focus-area-recommendations"></a>Uso de las recomendaciones del área centradas en la comprobación de estado
+Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono Comprobación de estado en la página de soluciones de Azure Portal.
 
 Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
-1. En la página **Overview** (Información general), haga clic en el icono **Assessment** (Evaluación) correspondiente a su infraestructura de servidor.
-2. En la página **Evaluación** , revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para dicha área de enfoque.
-3. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.  
-    ![imagen de las recomendaciones de evaluación](./media/log-analytics-ad-assessment/ad-focus.png)
-4. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registran las acciones recomendadas que se han realizado y aumenta su puntuación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
+1. Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com). 
+2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
+3. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y, a continuación, haga clic en el icono de **Portal de OMS**.  
+4. En la página **Información general**, haga clic en el icono de **AD Health Check**. 
+5. En la página **Comprobación de estado**, revise la información de resumen de una de las hojas de las áreas de enfoque y, a continuación, haga clic en una de ellas para ver las recomendaciones para esa área de enfoque.
+6. En cualquiera de las páginas de área de enfoque, puede ver las recomendaciones priorizadas que se han efectuado para su entorno. Haga clic en una recomendación en **Objetos afectados** para ver los detalles sobre por qué se realiza la recomendación.<br><br> ![imagen de las recomendaciones de la comprobación de estado](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
+7. Puede tomar las medidas correctivas que se sugieren en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registran las acciones recomendadas que se han realizado y aumenta su puntuación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
 ## <a name="ignore-recommendations"></a>Omisión de las recomendaciones
-Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS usará para evitar que aparezcan recomendaciones en los resultados de la evaluación.
+Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log Analytics usará para evitar que aparezcan las recomendaciones en los resultados de la evaluación.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar las recomendaciones que omitirá
-1. Inicie sesión en su área de trabajo y abra Búsqueda de registros. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
+1. En Azure Portal, en la página del área de trabajo de Log Analytics correspondiente al área de trabajo seleccionado, haga clic en el icono de **Búsqueda de registros**.
+2. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
 
-   ```
-   Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    ```
+    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
+    >[!NOTE]
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-   Captura de pantalla que muestra la consulta de Búsqueda de registros: ![recomendaciones fallidas](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
-2. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
+    Captura de pantalla que muestra la consulta de Búsqueda de registros: <br><br> ![recomendaciones con error](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
+
+3. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Para crear y usar un archivo de texto IgnoreRecommendations.txt
 1. Cree un archivo llamado IgnoreRecommendations.txt.
 2. Pegue o escriba cada RecommendationId para cada recomendación que desee que Log Analytics omita en una línea independiente y, luego, guarde y cierre el archivo.
-3. Coloque el archivo en la carpeta siguiente en cada equipo donde desea que OMS omita las recomendaciones.
+3. Coloque el archivo en la carpeta siguiente en cada equipo donde desea que Log Analytics omita las recomendaciones.
    * En equipos con Microsoft Monitoring Agent (conectado directamente o a través de Operations Manager): *UnidadDelSistema*:\Archivos de programa\Microsoft Monitoring Agent\Agent
-   * En el servidor de administración de Operations Manager: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2012 R2\Operations Manager\Server
+   * En el servidor de administración de Operations Manager 2012 R2: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2012 R2\Operations Manager\Server 
+   * En el servidor de administración de Operations Manager 2016: *UnidadDelSistema*:\Archivos de programa\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para comprobar que se omiten las recomendaciones
-Después de que se ejecute la siguiente evaluación programada, de forma predeterminada cada 7 días, las recomendaciones especificadas se marcan como *omitidas* y no aparecen en el panel de evaluación.
+Después de que se ejecute la siguiente comprobación de estado programada, de forma predeterminada cada siete días, las recomendaciones especificadas se marcan como *omitidas* y no aparecerán en el panel.
 
 1. Puede usar las consultas de búsqueda de registros siguientes para enumerar todas las recomendaciones omitidas.
 
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
->[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
->
-> `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+    >[!NOTE]
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md), la consulta anterior cambiaría como sigue.
+    >
+    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. Si posteriormente decide que desea ver las recomendaciones omitidas, quite todos los archivos IgnoreRecommendations.txt. También puede quitar RecommendationID de ellos.
 
-## <a name="ad-assessment-solutions-faq"></a>Preguntas más frecuentes sobre las soluciones de evaluación de AD
-*¿Con qué frecuencia se ejecuta una evaluación?*
+## <a name="ad-health-check-solutions-faq"></a>Preguntas más frecuentes sobre las soluciones de AD Health Check
+*¿Con qué frecuencia se ejecuta una comprobación de estado?*
 
-* La evaluación se realiza cada 7 días.
+* La comprobación se ejecuta cada siete días.
 
-*¿Se puede configurar la frecuencia con la que se realiza la evaluación?*
+*¿Se puede configurar la frecuencia con la que se realiza la comprobación?*
 
 * De momento, no.
 
-*Si se detecta otro servidor después de haber agregado una solución de evaluación, ¿se evaluará?*
+*Si se detecta otro servidor después de haber agregado una solución de comprobación de estado, ¿se comprobará?*
 
-* Sí, una vez que se detecte, se evaluará cada 7 días a partir de entonces.
+* Sí, una vez que se detecte, se comprobará cada siete días a partir de entonces.
 
-*Si se retira un servidor, ¿cuándo dejará de incluirse en la evaluación?*
+*Si se retira un servidor, ¿cuándo dejará de incluirse en la comprobación de estado?*
 
 * Si un servidor no envía datos durante 3 semanas, se quitará.
 
@@ -189,4 +196,4 @@ Después de que se ejecute la siguiente evaluación programada, de forma predete
 * Sí, consulte la sección [Omisión de las recomendaciones](#ignore-recommendations) anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver recomendaciones y datos detallados de evaluación de AD.
+* Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para aprender a analizar recomendaciones y datos detallados de AD Health Check.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f820e2e58ee0a105118e590a1206ca89bddba8f
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Recordatorios y temporizadores de los actores
 Los actores pueden programar el trabajo periódico mediante el registro de temporizadores o recordatorios. En este artículo se muestra cómo utilizar temporizadores y recordatorios. Además, se explican las diferencias entre ellos.
@@ -133,7 +133,7 @@ El runtime de los actores guarda los cambios realizados en el administrador de e
 Todos los temporizadores se detienen cuando el actor se desactiva como parte de la recolección de elementos no utilizados. Después de eso, no se invoca ninguna devolución de llamada de temporizador. Además, el tiempo de ejecución de los actores no conserva ninguna información sobre los temporizadores que se estaban ejecutando antes de la desactivación. Es el actor el que decide si se registran los temporizadores que necesita cuando se reactive en el futuro. Para obtener más información, consulte la sección [Recolección de actores no utilizados](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Recordatorios de actor
-Los recordatorios son un mecanismo para desencadenar devoluciones de llamada persistentes en un actor en momentos especificados. Su funcionalidad es similar a la de los temporizadores. Sin embargo, a diferencia de los temporizadores, los recordatorios se desencadenan en todas las circunstancias hasta que el actor las registre o elimine del registro expresamente. En concreto, los recordatorios se activan en conmutaciones por error y desactivaciones de actores, ya que el tiempo de ejecución de los actores conserva la información sobre los recordatorios de actor.
+Los recordatorios son un mecanismo para desencadenar devoluciones de llamada persistentes en un actor en momentos especificados. Su funcionalidad es similar a la de los temporizadores. Sin embargo, a diferencia de los temporizadores, los recordatorios se desencadenan en todas las circunstancias hasta que el actor las registre o elimine del registro expresamente. En concreto, los recordatorios se activan en conmutaciones por error y desactivaciones de actores, ya que el tiempo de ejecución de los actores conserva la información sobre los recordatorios de actor mediante un proveedor de estado. Tenga en cuenta que la confiabilidad de los recordatorios está ligada a las garantías de confiabilidad del estado proporcionadas por el proveedor de estado del actor. Esto significa que para los actores cuya persistencia de estado se establece en Ninguna, los recordatorios no se activarán después de una conmutación por error. 
 
 Para registrar un recordatorio, un actor llama al método `RegisterReminderAsync` que se ofrece en la clase base, tal y como se muestra en el ejemplo siguiente:
 

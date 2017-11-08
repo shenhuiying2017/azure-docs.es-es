@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Cómo usar Jupyter Notebooks de Azure Machine Learning Workbench
 
@@ -39,7 +39,7 @@ Para obtener más información, consulte la [documentación oficial de Jupyter](
 Puede tener acceso a diferentes kernels en Azure Machine Learning Workbench solo configurando las ejecuciones y los destinos de proceso en la carpeta `aml_config` del proyecto. La adición de un nuevo destino de proceso mediante la emisión del comando `az ml computetarget attach` es equivalente a la adición de un kernel nuevo.
 
 >[!NOTE]
->Revise [Configurar ejecución](experiment-execution-configuration.md) para obtener más información acerca de las configuraciones de ejecución y los destinos de proceso.
+>Revise [Configurar ejecución](experimentation-service-configuration.md) para obtener más información acerca de las configuraciones de ejecución y los destinos de proceso.
 
 ### <a name="kernel-naming-convention"></a>Convención de nomenclatura de Kernel
 Los kernels se denominan normalmente con el formato "\<nombre del proyecto> \<nombre de la configuración de ejecución>". Por ejemplo, si tiene una configuración de ejecución denominada _docker-python_ en un proyecto denominado _myIris_, puede encontrar un kernel denominado "myIris docker-python" en la lista de kernels cuando abre un bloc de notas de Jupyter.
@@ -107,5 +107,5 @@ Ahora puede hacer clic en un archivo del bloc de notas `.ipynb`, abrirlo y estab
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener información acerca de cómo usar Jupyter Notebook, consulte la [documentación oficial de Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- Para obtener una descripción más detallada del entorno de ejecución de experimentación de Azure Machine Learning, revise [Overview of Azure Machine Learning experiment execution service](experiment-execution-configuration.md) (Información general del servicio de ejecución de experimentación de Azure Machine Learning).
+- Para obtener una descripción más detallada del entorno de ejecución de Experimentación de Azure Machine Learning, consulte [Overview of Azure Machine Learning experimentation service](experimentation-service-configuration.md) (Información general del servicio Experimentación de Azure Machine Learning)
 

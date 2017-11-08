@@ -13,18 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
 Tras la implementación, muchas organizaciones desean saber cómo se usa realmente SSPR. Azure AD proporciona características de creación de informes que ayudan a responder a preguntas mediante informes predefinidos y, si dispone de la licencia adecuada, también permite crear consultas personalizadas.
+
+![Informes][Reporting]
 
 Las siguientes preguntas se pueden responder mediante informes existentes en [Azure Portal] (https://portal.azure.com/).
 
@@ -39,6 +41,10 @@ Las siguientes preguntas se pueden responder mediante informes existentes en [Az
 * ¿Cuáles son los problemas comunes que encuentran los usuarios o administradores al intentar utilizar el restablecimiento de contraseña?
 * ¿Qué administradores restablecen sus propias contraseñas con frecuencia?
 * ¿Hay alguna actividad sospechosa en relación con el restablecimiento de contraseña?
+
+## <a name="power-bi-content-pack"></a>Paquete de contenido de Power BI
+
+Si es un usuario de Power BI, hay un paquete de contenido para Azure AD que incluye una creación de informes fácil de usar para SSPR. Encuentre más información acerca de cómo utilizar e implementar el paquete de contenido en el artículo [Uso del paquete de contenido de Power BI de Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md). Puede crear después sus propios paneles y compartirlos con otras personas de su organización.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Visualización de los informes de administración de contraseñas en Azure Portal
 
@@ -94,77 +100,6 @@ En la tabla siguiente se describen los distintos valores permitidos para cada co
 | Columna | Valores permitidos y su significado |
 | --- | --- |
 | Datos registrados |**Correo electrónico alternativo**: el usuario ha usado un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse.<p><p>**Teléfono de la oficina**: el usuario ha usado el teléfono de la oficina para autenticarse.<p>**Teléfono móvil**: el usuario ha usado un teléfono móvil o un teléfono de autenticación para autenticarse.<p>**Preguntas de seguridad**: el usuario ha usado preguntas de seguridad para autenticarse.<p>**Cualquier combinación de los valores anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)**: tiene lugar cuando se especifica una directiva de 2 puertas y muestra los dos métodos que el usuario utilizó para autenticar su solicitud de restablecimiento de contraseña. |
-
-## <a name="view-password-reset-activity-in-the-classic-portal"></a>Visualización de la actividad de restablecimiento de contraseña en el portal clásico
-
-Este informe muestra todos los intentos de restablecimiento de contraseña que se han producido en su organización.
-
-* **Intervalo de tiempo máximo**: 30 días
-* **Número máximo de filas**: 75 000
-* **Se puede descargar**: Sí, en un archivo CSV
-
-### <a name="description-of-report-columns-in-azure-classic-portal"></a>Descripción de las columnas del informe en el Portal de Azure clásico
-
-La siguiente lista explica en detalle cada una de las columnas del informe:
-
-1. **Usuario**: usuario que intentó una operación de restablecimiento de contraseña (basado en el campo Id. de usuario especificado cuando el usuario intenta restablecer una contraseña).
-2. **Rol** : rol del usuario en el directorio.
-3. **Fecha y hora** : fecha y hora del intento.
-4. **Métodos usados**: métodos de autenticación que utiliza el usuario para esta operación de restablecimiento.
-5. **Resultado**: resultado de la operación de restablecimiento de contraseña.
-6. **Detalles** : detalles de por qué el restablecimiento de contraseña dio ese resultado.  También incluye los pasos de mitigación que podría seguir para resolver un error inesperado.
-
-### <a name="description-of-report-values-in-azure-classic-portal"></a>Descripción de los valores del informe en el Portal de Azure clásico
-
-En la tabla siguiente se describen los distintos valores permitidos para cada columna:
-
-| Columna | Valores permitidos y su significado |
-| --- | --- |
-| Métodos usados |**Correo electrónico alternativo**: el usuario ha usado un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse.<p>**Teléfono de la oficina**: el usuario ha usado el teléfono de la oficina para autenticarse.<p>**Teléfono móvil**: el usuario ha usado un teléfono móvil o un teléfono de autenticación para autenticarse.<p>**Preguntas de seguridad**: el usuario ha usado preguntas de seguridad para autenticarse.<p>**Cualquier combinación de los valores anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)**: tiene lugar cuando se especifica una directiva de 2 puertas y muestra los dos métodos que el usuario utilizó para autenticar su solicitud de restablecimiento de contraseña. |
-| Resultado |**Abandonado**: el usuario ha iniciado un restablecimiento de contraseña, pero lo ha interrumpido antes de que finalizara.<p>**Bloqueado**: se ha impedido que la cuenta de usuario usara el restablecimiento de contraseña debido a un intento de usar la página de restablecimiento de contraseña o una sola puerta de restablecimiento de contraseña demasiadas veces en un período de 24 horas.<p>**Cancelado**: el usuario ha iniciado un restablecimiento de contraseña, pero después hizo clic en el botón Cancelar para cancelar la sesión en mitad del proceso. <p>**Administrador notificado**: el usuario ha tenido un problema durante su sesión que no pudo resolver, por lo que hizo clic en el vínculo “Póngase en contacto con el administrador”, en lugar de finalizar el flujo de restablecimiento de contraseña.<p>**Con error**: el usuario no ha podido restablecer una contraseña, probablemente porque el usuario no estaba configurado para usar esta característica (por ejemplo, no tiene licencia, falta información de autenticación, o bien la contraseña se administra en el entorno local, pero la escritura diferida está desactivada).<p>**Correcto** : la contraseña se restableció correctamente. |
-| Detalles |Consulte la tabla siguiente: |
-
-### <a name="allowed-values-for-details-column"></a>Valores permitidos para la columna Detalles
-
-A continuación se muestra la lista de los tipos de resultados que puede esperar cuando usa el informe de actividad de restablecimiento de contraseña:
-
-| Detalles | Tipo de resultado |
-| --- | --- |
-| El usuario abandonó tras completar la opción de comprobación de correo electrónico. |Abandonado |
-| El usuario abandonó tras completar la opción de comprobación por SMS en el teléfono móvil. |Abandonado |
-| El usuario abandonó tras completar la opción de comprobación por llamada de voz al teléfono móvil. |Abandonado |
-| El usuario abandonó tras completar la opción de comprobación por llamada de voz a la oficina. |Abandonado |
-| El usuario abandonó tras completar la opción de preguntas de seguridad. |Abandonado |
-| El usuario abandonó después de escribir su identificador de usuario. |Abandonado |
-| El usuario abandonó tras iniciar la opción de comprobación de correo electrónico. |Abandonado |
-| El usuario abandonó tras iniciar la opción de comprobación por SMS en el teléfono móvil. |Abandonado |
-| El usuario abandonó tras iniciar la opción de comprobación por llamada de voz al teléfono móvil. |Abandonado |
-| El usuario abandonó tras iniciar la opción de comprobación por llamada de voz a la oficina. |Abandonado |
-| El usuario abandonó tras iniciar la opción de preguntas de seguridad. |Abandonado |
-| El usuario abandonó antes de seleccionar una nueva contraseña. |Abandonado |
-| El usuario abandonó mientras seleccionaba una nueva contraseña. |Abandonado |
-| El usuario escribió demasiados códigos de comprobación por SMS no válidos y se ha bloqueado durante 24 horas. |Bloqueado |
-| El usuario intentó la comprobación por llamada de voz al teléfono móvil demasiadas veces y se ha bloqueado durante 24 horas. |Bloqueado |
-| El usuario intentó la comprobación por llamada de voz al teléfono de la oficina demasiadas veces y se ha bloqueado durante 24 horas. |Bloqueado |
-| El usuario intentó responder las preguntas de seguridad demasiadas veces y se ha bloqueado durante 24 horas. |Bloqueado |
-| El usuario intentó comprobar un número de teléfono demasiadas veces y se ha bloqueado durante 24 horas. |Bloqueado |
-| El usuario lo canceló antes de pasar a los métodos de autenticación requeridos. |Canceled |
-| El usuario lo canceló antes de enviar una contraseña nueva. |Canceled |
-| El usuario se puso en contacto con un administrador después de intentar la opción de comprobación de correo electrónico. |Administrador contactado |
-| El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por SMS en el teléfono móvil. |Administrador contactado |
-| El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por llamada de voz al teléfono móvil. |Administrador contactado |
-| El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por llamada de voz a la oficina. |Administrador contactado |
-| El usuario se puso en contacto con un administrador después de intentar la opción de comprobación con preguntas de seguridad. |Administrador contactado |
-| El restablecimiento de contraseña no está habilitado para este usuario. Habilite el restablecimiento de contraseña en la pestaña Configurar para resolver este problema. |Con error |
-| El usuario no tiene una licencia. Puede agregar una licencia al usuario para resolver este problema. |Con error |
-| El usuario intentó el restablecimiento desde un dispositivo sin las cookies habilitadas. |Con error |
-| La cuenta del usuario no tiene definidos suficientes métodos de autenticación. Agregue información de autenticación para resolver este problema. |Con error |
-| La contraseña del usuario se administra en el entorno local. Puede habilitar la escritura diferida de contraseña para resolver este problema. |Con error |
-| No pudimos obtener acceso a su servicio de restablecimiento de contraseña local. Compruebe el registro de eventos de su máquina de sincronización. |Con error |
-| Se encontró un problema durante el restablecimiento de la contraseña local del usuario. Compruebe el registro de eventos de su máquina de sincronización. |Con error |
-| Este usuario no es miembro del grupo de usuarios de restablecimiento de contraseña. Agregue este usuario a ese grupo para resolver este problema. |Con error |
-| El restablecimiento de contraseña se ha deshabilitado por completo para este inquilino. Consulte [aquí](http://aka.ms/ssprtroubleshoot) para resolver este problema. |Con error |
-| El usuario restableció la contraseña correctamente. |Correcto |
 
 ## <a name="self-service-password-management-activity-types"></a>Tipos de actividad de administración de contraseñas de autoservicio
 
@@ -263,15 +198,16 @@ En la lista siguiente se explica en detalle esta actividad:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
+* [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
+* [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).
+* [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
+* [¿Tiene alguna pregunta acerca de las licencias?](active-directory-passwords-licensing.md)
+* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](active-directory-passwords-data.md)
+* [¿Qué métodos de autenticación están disponibles para los usuarios?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [¿Cuáles son las opciones de directiva con SSPR?](active-directory-passwords-policy.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](active-directory-passwords-writeback.md)
+* [¿Cuáles son todas las opciones en SSPR y qué significan?](active-directory-passwords-how-it-works.md)
+* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
 
-* [Acceso directo a los registros de auditoría de administración de usuario](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit): se le remite directamente a los registros de auditoría de administración de usuario del inquilino
-* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
-* [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
-* [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
-* [**Personalización**](active-directory-passwords-customize.md): personalización de la experiencia de SSPR para la empresa
-* [**Artículo técnico de profundización**](active-directory-passwords-how-it-works.md): más información para comprender el funcionamiento de la administración de contraseñas
-* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
-* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
-* [**Directiva**](active-directory-passwords-policy.md): información sobre las directivas de contraseñas de Azure AD y cómo establecerlas
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Ejemplo de registros de auditoría de actividad de SSPR en Azure AD"

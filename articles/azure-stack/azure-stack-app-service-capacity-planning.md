@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: anwestg
-ms.openlocfilehash: 54ba07d0bbe3f509411b0e45ff06f4fdf6db04cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack
 
@@ -88,16 +88,14 @@ Cuando decida el número de roles de trabajo web compartidos que utilizar, revis
 
 ## <a name="file-server-role"></a>Rol de servidor de archivos
 
-Para el rol de servidor de archivos, puede usar el servidor de archivos independiente para desarrollo y pruebas. Para fines de producción, debe utilizar un servidor de archivos preconfigurado de Windows o que no sea de Windows.
-
-El servidor de archivos independiente se incluye como parte de la instalación predeterminada de Windows Azure Pack: Web Sites. La instalación independiente aprovisiona el rol de servidor de archivos en una única máquina, asigna ACL para las cuentas adecuadas y crea los recursos compartidos de red necesarios.
+Para el rol de servidor de archivos, puede usar un servidor de archivos independiente para desarrollo y pruebas. Por ejemplo, cuando implemente Azure App Service en Azure Stack Development Kit puede usar esta plantilla: https://aka.ms/appsvconmasdkfstemplate. Para fines de producción, debe utilizar un servidor de archivos preconfigurado de Windows o que no sea de Windows.
 
 En entornos de producción, el rol de servidor de archivos experimenta una intensa actividad de E/S de disco. Puesto que contiene todos los archivos de contenido y de aplicación para los sitios web de usuario, debe configurar previamente uno de los elementos siguientes acciones para que ejerza este rol:
 - Servidor de archivos de Windows
 - Clúster de servidor de archivos
 - Servidor de archivos que no sea de Windows
 - clúster de servidor de archivos
-- Dispositivo NAS (almacenamiento conectado a la red). Para más información, consulte [Aprovisionamiento de un servidor de archivos]().
+- Dispositivo NAS (almacenamiento conectado a la red). Para más información, consulte [Aprovisionamiento de un servidor de archivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

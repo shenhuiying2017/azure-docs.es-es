@@ -9,20 +9,20 @@ editor:
 ms.assetid: d15a2e3f-5adf-41f0-95fa-4b945448e184
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: 5bb6d17ffd047ae91476c52750f293414d1dfdd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a99607a0a57087c313d1718ff0b77af3637e1fa9
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Base de datos SQL de Azure
-Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Base de datos elástica** . Estas herramientas y características permiten usar los recursos prácticamente ilimitados de bases de datos de **Base de datos SQL de Azure** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de la base de datos elástica se componen de lo siguiente:
+Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Base de datos elástica** . Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
 
 * [Biblioteca de cliente de base de datos elástica](sql-database-elastic-database-client-library.md): la biblioteca de cliente es una característica que permite crear y mantener bases de datos particionadas.  Consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 * [Herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-overview-split-and-merge.md): mueve datos entre bases de datos particionadas. Es útil para mover datos de una base de datos de varios inquilinos a una de un solo inquilino (o viceversa). Consulte el [tutorial de la herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -30,7 +30,7 @@ Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las h
 * [Consulta de Base de datos elástica](sql-database-elastic-query-overview.md) (vista previa): le permite ejecutar una consulta de Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, PowerBI, Tableau, etc.
 * [Transacciones elásticas](sql-database-elastic-transactions-overview.md): esta característica permite ejecutar transacciones que abarcan varias bases de datos de Base de datos SQL de Azure. Las transacciones de bases de datos elásticas están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se emplean las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
-El siguiente gráfico muestra una arquitectura que incluye las **características de base de datos elástica** en relación con una colección de bases de datos.
+El siguiente gráfico muestra una arquitectura que incluye las **características de Elastic Database** en relación con una colección de bases de datos.
 
 En este gráfico, los colores de la base de datos representan esquemas. Las bases de datos con el mismo color comparten el mismo esquema.
 
@@ -40,15 +40,15 @@ En este gráfico, los colores de la base de datos representan esquemas. Las base
 4. Un **trabajo de Elastic Database** ejecuta scripts de T-SQL programados o ad-hoc en todas las bases de datos.
 5. La **herramienta de división y combinación** se usa para mover datos de una partición a otra.
 6. La **consulta de base de datos elástica** le permite escribir una consulta que abarque todas las bases de datos del conjunto de particiones.
-7. **Transacciones elásticas** , podrá ejecutar las transacciones que abarcan varias bases de datos. 
+7. Las **transacciones elásticas** le permiten ejecutar transacciones que abarcan varias bases de datos. 
 
 ![Herramientas de Base de datos elástica][1]
 
 ## <a name="why-use-the-tools"></a>¿Por qué hay que usar las herramientas?
-Dotar de capacidad de ampliación y escalabilidad a las aplicaciones en la nube ha sido sencillo para el almacenamiento de blobs y las máquinas virtuales; basta con sumar o restar unidades, o bien con aumentar la potencia. Pero sigue siendo un desafío para el procesamiento de datos con estado en bases de datos relacionales. Estos son los desafíos que han surgido en estos escenarios:
+Dotar de elasticidad y escalabilidad a las aplicaciones en la nube ha sido sencillo para el almacenamiento de blobs y las máquinas virtuales; basta con sumar o restar unidades, o bien con aumentar la potencia. Pero sigue siendo un desafío para el procesamiento de datos con estado en bases de datos relacionales. Estos son los desafíos que han surgido en estos escenarios:
 
 * Aumento y disminución de la capacidad de la parte de la base de datos relacional de la carga de trabajo.
-* La administración de las zonas activas puede afectar a un subconjunto específico de datos, como un usuario final (inquilino) particularmente ocupado.
+* La administración de las zonas activas puede afectar a un subconjunto específico de datos, como un usuario final (inquilino) ocupado.
 
 Tradicionalmente, escenarios similares se han abordado a través de la inversión en servidores de base de datos a gran escala para admitir la aplicación. Sin embargo, esta opción está limitada en la nube donde todo el procesamiento ocurre en hardware estándar predefinido. En su lugar, la distribución de datos y el procesamiento a través de muchas bases de datos con una estructura idéntica (un patrón de escalado horizontal conocido como "particionamiento") proporciona una alternativa a los enfoques de escalado vertical tradicionales, tanto en términos de costo como de elasticidad.
 
@@ -61,7 +61,7 @@ Escalar horizontalmente es agregar o quitar bases de datos con el fin de ajustar
 
 Escalar verticalmente es aumentar o disminuir el nivel de rendimiento de una base individual; también se conoce como "escalado vertical".
 
-La mayoría de las aplicaciones de bases de datos a escala de la nube usarán una combinación de estas dos estrategias. Por ejemplo, una aplicación de software como servicio podría utilizar escalado horizontal para aprovisionar usuarios finales nuevos y escalado vertical para permitir que la base de datos de cada cliente final aumente o disminuya los recursos, según lo requiera la carga de trabajo.
+La mayoría de las aplicaciones de bases de datos a escala de la nube usan una combinación de estas dos estrategias. Por ejemplo, una aplicación de software como servicio podría utilizar escalado horizontal para aprovisionar usuarios finales nuevos y escalado vertical para permitir que la base de datos de cada cliente final aumente o disminuya los recursos, según lo requiera la carga de trabajo.
 
 * El escalado horizontal se administra mediante la [biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md).
 * El escalado vertical se logra utilizando cmdlets de Azure PowerShell para cambiar el nivel de servicio o colocando bases de datos en un grupo elástico.
@@ -72,7 +72,7 @@ La mayoría de las aplicaciones de bases de datos a escala de la nube usarán un
 * La cantidad total de datos es demasiado grande para caber dentro de las restricciones de una base de datos
 * El rendimiento de transacciones de la carga de trabajo total supera la capacidad de una sola base de datos
 * Los inquilinos pueden requerir el aislamiento físico entre sí, por lo que se necesitan bases de datos independientes para cada inquilino
-* Distintas secciones de una base de datos pueden tener que residir en diferentes geografías por motivos de cumplimiento, rendimiento o geopolíticos.
+* Es posible que distintas secciones de una base de datos tengan que residir en diferentes geografías por motivos de cumplimiento, rendimiento o geopolíticos.
 
 En otros escenarios, como la recopilación de datos desde dispositivos distribuidos, el particionamiento se puede usar para llenar un conjunto de bases de datos organizadas de manera temporal. Por ejemplo, puede dedicarse una base de datos independiente a cada día o semana. En ese caso, la clave de particionamiento puede ser un entero que representa la fecha (presente en todas las filas de las tablas particionadas) y la aplicación debe enrutar las consultas que recuperan información de un intervalo de fechas al subconjunto de bases de datos que abarca el intervalo en cuestión.
 
@@ -83,15 +83,15 @@ Algunas aplicaciones usan el enfoque más simple de crear una base de datos inde
 
 ![Un solo inquilino frente a multiinquilinos][4]
 
-Otros escenarios empaquetan varios inquilinos juntos en bases de datos, en lugar de aislarlos en bases de datos independientes. Se trata de un **patrón de particionamiento multiinquilinos** típico y puede estar impulsado por el hecho de que una aplicación administra grandes cantidades de inquilinos muy pequeños. En el particionamiento de varios inquilinos, las filas de las tablas de bases de datos están diseñadas para contener una clave que identifique la clave de particionamiento o el identificador del inquilino. De nuevo, la capa de aplicación es la responsable de enrutar la solicitud de un inquilino a la base de datos adecuada, y esto puede admitirlo la biblioteca de cliente de bases de datos elásticas. Además, es posible usar seguridad en el nivel de fila para filtrar las filas a las que puede tener acceso cada inquilino; si desea obtener detalles, consulte [Aplicaciones multiinquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md). La redistribución de datos entre las bases de datos puede ser necesaria con el patrón de particionamiento multiinquilinos, lo que se ve facilitado por la herramienta de división y combinación de bases de datos elásticas. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
+Otros escenarios empaquetan varios inquilinos juntos en bases de datos, en lugar de aislarlos en bases de datos independientes. Se trata de un **patrón de particionamiento multiinquilino** típico y puede estar impulsado por el hecho de que una aplicación administra grandes cantidades de pequeños inquilinos. En el particionamiento de varios inquilinos, las filas de las tablas de bases de datos están diseñadas para contener una clave que identifique la clave de particionamiento o el identificador del inquilino. De nuevo, la capa de aplicación es la responsable de enrutar la solicitud de un inquilino a la base de datos adecuada, y esto puede admitirlo la biblioteca de cliente de bases de datos elásticas. Además, es posible usar seguridad en el nivel de fila para filtrar las filas a las que puede tener acceso cada inquilino; si desea obtener detalles, consulte [Aplicaciones multiinquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md). La redistribución de datos entre las bases de datos puede ser necesaria con el patrón de particionamiento multiinquilinos, lo que se ve facilitado por la herramienta de división y combinación de bases de datos elásticas. Para más información sobre los patrones de diseño de las aplicaciones SaaS que usan grupos elásticos, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Diseño de patrones para aplicaciones SaaS multiempresa con Base de datos SQL de Azure).
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Mover datos de bases de datos de multinIiquilino a inquilino único
 Al crear una aplicación SaaS, es típico ofrecer a los clientes potenciales una versión de prueba del software. En este caso, resulta más rentable usar una base de datos multiinquilino para los datos. Sin embargo, cuando un cliente potencial se convierte en un cliente, una base de datos de inquilino único es mejor, puesto que ofrece un mejor rendimiento. Si el cliente había creado datos durante el período de prueba, use la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md) para mover los datos de la base de datos multiinquilino a la nueva base de datos de inquilino único.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver una aplicación de ejemplo que demuestra la biblioteca de cliente, consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
+Para ver una aplicación de ejemplo que demuestra la biblioteca de cliente, consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
-Para convertir las bases de datos existentes con el fin de emplear las herramientas, consulte [Migración de bases de datos existentes a escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
+Para convertir las bases de datos existentes con el fin de emplear las herramientas, consulte [Migración de bases de datos existentes de escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Para ver los detalles del grupo elástico, consulte [Consideraciones de precio y rendimiento para un grupo elástico](sql-database-elastic-pool.md) o cree un nuevo grupo con [grupos elásticos](sql-database-elastic-pool-manage-portal.md).  
 

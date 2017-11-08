@@ -4,7 +4,7 @@ description: Entender y resolver errores de directorios que no coinciden en domi
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 118773be1f03701246051b8832695c591d76b1e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
 Tiene un dominio administrado que se ha habilitado mediante el Portal de Azure clásico. Cuando navega al nuevo Azure Portal y ve el dominio administrado, aparece el siguiente mensaje de error:
@@ -43,7 +43,7 @@ En resumen, no puede habilitar un dominio administrado para un inquilino de Azur
 
 ![Configuración de inquilino que no coincide](./media/getting-started/mismatched-tenant-config.png)
 
-Por lo tanto, verá este error en los escenarios en los que el dominio administrado y la red virtual en la que está habilitado pertenecen a dos inquilinos de Azure AD diferentes.
+Por lo tanto, verá este error cuando el dominio administrado y la red virtual en la que está habilitado pertenecen a dos inquilinos de Azure AD diferentes.
 
 Las reglas siguientes se aplican al entorno de Resource Manager:
 - Un directorio de Azure AD puede tener varias suscripciones de Azure.
@@ -55,9 +55,9 @@ Las reglas siguientes se aplican al entorno de Resource Manager:
 ## <a name="resolution"></a>Resolución
 Tiene dos opciones para resolver el error de directorio que no coincide. Puede hacer lo siguiente:
 
-- Haga clic en el botón **Eliminar** para eliminar el dominio administrado existente. Vuelva a crearlo en [Azure Portal](https://portal.azure.com), de modo que el dominio administrado y la red virtual en la que está disponible pertenezcan al directorio de Azure AD. Debe unir de nuevo al dominio administrado recién creado todas las máquinas que antes estaban unidas al dominio eliminado.
+- Haga clic en el botón **Eliminar** para eliminar el dominio administrado existente. Vuelva a crearlo en [Azure Portal](https://portal.azure.com), de modo que el dominio administrado y la red virtual en la que está disponible pertenezcan al directorio de Azure AD. Una todas las máquinas que antes estaban unidas al dominio eliminado al dominio administrado recién creado.
 
-- Póngase en contacto con el soporte técnico de Azure para mover la suscripción de Azure que contiene la red virtual al directorio de Azure AD al que pertenece el dominio administrado. Haga clic en **Nueva solicitud de soporte técnico** y especifique **directorio que no coincide** en la sección **Detalles** de la solicitud de soporte técnico. Incluya la información proporcionada en el mensaje de error como parte de la solicitud de soporte técnico.
+- Mueva la suscripción de Azure que contiene la red virtual al directorio de Azure AD al que pertenece el dominio administrado. Siga los pasos del artículo [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md).
 
 
 ## <a name="related-content"></a>Contenido relacionado

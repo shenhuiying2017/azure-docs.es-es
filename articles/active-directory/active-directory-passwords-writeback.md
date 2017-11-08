@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 
@@ -90,11 +90,41 @@ En los pasos siguientes se da por supuesto que ya ha configurado Azure AD Connec
 6. En la pantalla Características opcionales, active la casilla junto a **Escritura diferida de contraseñas** y haga clic en **Siguiente**.
    ![Habilitar la escritura diferida de contraseñas en Azure AD Connect][Writeback]
 7. En la pantalla Listo para configurar, haga clic en **Configurar** y espere a que se complete el proceso.
-8. Cuando aparezca Configuración completa, puede hacer clic en **Salir**.
+8. Cuando aparezca Configuración completa, haga clic en **Salir**.
+
+## <a name="active-directory-permissions"></a>Permisos de Active Directory
+
+La cuenta especificada en la utilidad de Azure AD Connect debe tener derechos extendidos de restablecimiento de contraseña, cambio de contraseña, permisos de escritura en lockoutTime y permisos de escritura en pwdLastSet en el objeto raíz de **cada dominio** de ese bosque **O** en las unidades organizativas del usuario que desea que estén en el ámbito de SSPR.
+
+Si no está seguro de cuál es la cuenta a la que se hace referencia en el párrafo anterior, abra la interfaz de usuario de la configuración de Azure Active Directory Connect y haga clic en la opción Ver la configuración actual. La cuenta a la que necesita agregar permiso se enumera en "Directorios sincronizados"
+
+El establecimiento de estos permisos permite que la cuenta de servicio de agente de administración de cada bosque administre las contraseñas en nombre de las cuentas de usuario de dicho bosque. **Si no asigna estos permisos, aunque la escritura diferida parezca estar configurada correctamente, los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube.**
+
+> [!NOTE]
+> Estos permisos pueden tardar una hora, o más, en replicarse en todos los objetos del directorio.
+>
+
+Para configurar los permisos adecuados para que se realice la escritura diferida de contraseñas
+
+1. Abra Usuarios y equipos de Active Directory con una cuenta que tenga los permisos de administración de dominios adecuados
+2. En el menú Ver, asegúrese de que la opción Características avanzadas está activada
+3. En el panel izquierdo, haga clic con el botón derecho en el objeto que representa la raíz del dominio y elija Propiedades
+    * Haga clic en la pestaña Seguridad
+    * Luego, haga clic en Opciones avanzadas.
+4. En la pestaña Permisos, haga clic en Agregar
+5. Elija la cuenta a la que se van a aplicar los permisos (en el programa de instalación de Azure AD Connect)
+6. En la lista desplegable Se aplica a, seleccione Descendent User objects (Objetos de usuario descendiente)
+7. En permisos, active las casillas para los siguientes elementos
+    * Contraseña sin expiración
+    * Restablecimiento de contraseña
+    * Cambiar contraseña
+    * Escribir lockoutTime
+    * Escribir pwdLastSet
+8. Haga clic en Aplicar o Aceptar para aplicar los cambios y salir de los cuadros de diálogo abiertos.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
 
-Para obtener información sobre licencias, vea el tema [Licencias necesarias para la escritura diferida de contraseñas](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) o visite los sitios siguientes:
+Para más información sobre licencias, consulte [Licencias necesarias para la escritura diferida de contraseñas](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) o visite los sitios siguientes:
 
 * [Sitio sobre precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -159,9 +189,9 @@ La escritura diferida de contraseñas es un servicio muy seguro.  Para asegurars
 A continuación se describen los pasos de cifrado que se llevan a cabo para una solicitud de restablecimiento de contraseña después de que un usuario la envía, pero antes de que llegue a su entorno local, para garantizar la seguridad y confiabilidad máximas del servicio.
 
 * **Paso 1: Cifrado de contraseña con la clave RSA de 2048 bits**: Una vez que un usuario envía una contraseña para que se escriba en diferido en local, primero se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
-* **Paso 2: Cifrado a nivel de paquete con AES-GCM**: A continuación, todo el paquete (contraseña + metadatos necesarios) se cifra mediante AES-GCM. Esto evita que cualquier persona con acceso directo al canal de ServiceBus subyacente vea o manipula el contenido.
-* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda la comunicación con ServiceBus tiene lugar en un canal SSL/TLS. Esto protege el contenido de terceras personas no autorizadas.
-* **Sustitución de clave automática cada seis meses**: cada 6 meses y de forma automática, o cada vez que la escritura diferida de contraseñas se deshabilita o se vuelve a habilitar en Azure AD Connect, se sustituyen todas estas claves para garantizar la máxima seguridad del servicio.
+* **Paso 2: Cifrado a nivel de paquete con AES-GCM**: A continuación, todo el paquete (contraseña + metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de ServiceBus subyacente vea o manipula el contenido.
+* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda la comunicación con ServiceBus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
+* **Sustitución de clave automática cada seis meses**: cada 6 meses, o cada vez que la escritura diferida de contraseñas se deshabilita o se vuelve a habilitar en Azure AD Connect, se sustituyen automáticamente todas las claves para garantizar la máxima seguridad del servicio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de ancho de banda de la escritura diferida de contraseñas
 
@@ -182,17 +212,16 @@ El tamaño de cada uno de los mensajes que se ha descrito anteriormente está no
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
-
-* [**Inicio rápido**](active-directory-passwords-getting-started.md): preparativos para el autoservicio de administración de contraseñas de Azure AD 
-* [**Licencias**](active-directory-passwords-licensing.md): configuración de licencias de Azure AD
-* [**Datos**](active-directory-passwords-data.md): información sobre los datos necesarios y cómo se usan para administrar contraseñas
-* [**Implementación**](active-directory-passwords-best-practices.md): planee e implemente SSPR en sus usuarios mediante las instrucciones que se encuentran aquí.
-* [**Personalización**](active-directory-passwords-customize.md): personalice el aspecto de la experiencia SSPR para su empresa.
-* [**Directiva**](active-directory-passwords-policy.md): información sobre las directivas de contraseñas de Azure AD y cómo establecerlas
-* [**Informes**](active-directory-passwords-reporting.md): informes para detectar si los usuarios acceden a la funcionalidad de SSPR que especifican el momento y el lugar del acceso
-* [**Profundización técnica**](active-directory-passwords-how-it-works.md): conozca lo que hay detrás para comprender cómo funciona.
-* [**Preguntas más frecuentes**](active-directory-passwords-faq.md): ¿Cómo? ¿Por qué? ¿Qué? ¿Dónde? ¿Quién? ¿Cuándo? : respuestas a las preguntas que siempre se ha hecho.
-* [**Solución de problemas**](active-directory-passwords-troubleshoot.md): información para resolver problemas habituales de SSPR
+* [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
+* [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).
+* [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
+* [¿Tiene alguna pregunta acerca de las licencias?](active-directory-passwords-licensing.md)
+* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](active-directory-passwords-data.md)
+* [¿Qué métodos de autenticación están disponibles para los usuarios?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [¿Cuáles son las opciones de directiva con SSPR?](active-directory-passwords-policy.md)
+* [¿Cómo se informa sobre la actividad de SSPR?](active-directory-passwords-reporting.md)
+* [¿Cuáles son todas las opciones en SSPR y qué significan?](active-directory-passwords-how-it-works.md)
+* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Habilitar la escritura diferida de contraseñas en Azure AD Connect"

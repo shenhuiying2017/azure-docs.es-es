@@ -16,11 +16,11 @@ ms.workload: app-service
 ms.date: 03/08/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3254fdd57cfcd170f22374c1e3b058e6081d8e8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b587f299e7b11effd05cbbc4b15976fee3f83ffd
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="azure-powershell-samples"></a>Ejemplos de Azure PowerShell
 
@@ -43,6 +43,10 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash creados con Azure 
 |**Conexión de la aplicación a recursos**||
 | [Conexión de una aplicación web a una base de datos SQL](./scripts/app-service-powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una aplicación web de Azure y una base de datos SQL y, a continuación, añade la cadena de conexión de base de datos a la configuración de la aplicación. |
 | [Conexión de una aplicación web a una cuenta de almacenamiento](./scripts/app-service-powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea una aplicación web de Azure y una cuenta de almacenamiento y, a continuación, añade la cadena de conexión de almacenamiento a la configuración de la aplicación. |
+|**Copia de seguridad y restauración de la aplicación**||
+| [Back up a web app](./scripts/app-service-powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Copia de seguridad de una aplicación web) | Crea una aplicación web de Azure y una copia de seguridad única para ella. |
+| [Create a scheduled backup for a web app](./scripts/app-service-powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Creación de una copia de seguridad programada para una aplicación web) | Crea una aplicación web de Azure y una copia de seguridad programada para ella. |
+| [Delete a backup for a web app](./scripts/app-service-powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) (Eliminación de una copia de seguridad de una aplicación web) | Elimina una copia de seguridad existente de una aplicación web. |
 |**Supervisión de la aplicación**||
 | [Supervisión de una aplicación web con registros de servidor web](./scripts/app-service-powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea una aplicación web de Azure, habilita el registro para ella y descarga los registros en el equipo local. |
 | | |

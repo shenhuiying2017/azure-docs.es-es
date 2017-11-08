@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/27/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>Ayuda, he olvidado mi contraseña de Azure AD
 
@@ -51,7 +51,7 @@ Siga los pasos siguientes para obtener acceso al autoservicio de restablecimient
    > Si necesita desbloquear la cuenta, elija la opción "Conozco la contraseña, pero aún así no puedo iniciar sesión".
    >
 
-3. En función de cómo haya configurado el personal de TI el SSPR, verá una o varias de las siguientes opciones. El usuario o su personal de TI ya habrán rellenado parte de esta información antes de usar el artículo [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
+3. Dependiendo de cómo el personal de TI haya configurado SSPR, verá uno o varios de los siguientes métodos de autenticación. El usuario o su personal de TI ya habrán rellenado parte de esta información antes de usar el artículo [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
 
    * **Enviar un mensaje de correo electrónico a mi dirección alternativa**
    * **Enviar mensaje de texto a mi teléfono móvil**
