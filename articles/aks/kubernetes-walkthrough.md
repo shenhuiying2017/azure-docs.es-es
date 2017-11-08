@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: ac6afa9d2e5a838623754fbcb7d5cf68f7a9ad95
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a25f91d092c2f72ea1cbc174d1bf8bf48885788a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implementación de un clúster de Azure Container Service (AKS)
 
@@ -33,7 +33,7 @@ En esta guía de inicio rápido se supone que tiene unos conocimientos básicos 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.20 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.20 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Habilitación de la versión preliminar de AKS para su suscripción de Azure
 Mientras AKS está en versión preliminar, la creación de nuevos clústeres requiere una marca de característica en su suscripción. Esta característica la puede solicitar para cualquier número de suscripciones que desee utilizar. Use el comando `az provider register` para registrar el proveedor de AKS:
@@ -83,10 +83,10 @@ Después de varios minutos, el comando se completa y devuelve información en fo
 
 Para administrar un clúster de Kubernetes, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), el cliente de línea de comandos de Kubernetes.
 
-Si usa Azure CloudShell, kubectl ya está instalado. Si desea instalarlo en un entorno local, ejecute el siguiente comando.
+Si usa Azure Cloud Shell, kubectl ya está instalado. Si desea instalarlo en un entorno local, ejecute el siguiente comando.
 
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 

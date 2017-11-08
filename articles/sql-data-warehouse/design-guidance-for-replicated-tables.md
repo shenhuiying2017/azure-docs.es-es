@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 39ac9aa678464c497d9f7963bab802141ce9e854
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse
 En este artículo se proporcionan recomendaciones para el diseño de tablas replicadas en el esquema de SQL Data Warehouse. Siga estas recomendaciones para mejorar el rendimiento de las consultas al reducir el movimiento de datos y la complejidad de las consultas.
@@ -140,7 +140,7 @@ SQL Data Warehouse implementa una tabla replicada mediante el mantenimiento de u
 
 Las recompilaciones son necesarias después de que:
 - Se carguen o modifiquen datos.
-- El almacenamiento de datos se escale a una configuración DWU diferente
+- El almacenamiento de datos se escale a un [nivel de servicio](performance-tiers.md#service-levels) diferente
 - Se actualice la definición de tabla
 
 Las recompilaciones no son necesarias después de que:
