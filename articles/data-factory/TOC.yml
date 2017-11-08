@@ -65,7 +65,7 @@
               href: connector-amazon-redshift.md
             - name: Amazon S3
               href: connector-amazon-simple-storage-service.md
-            - name: Almacenamiento de blobs de Azure
+            - name: Azure Blob Storage
               href: connector-azure-blob-storage.md
             - name: Azure Cosmos DB
               href: connector-azure-cosmos-db.md
@@ -73,11 +73,11 @@
               href: connector-azure-data-lake-store.md
             - name: Azure File Storage
               href: connector-azure-file-storage.md
-            - name: Búsqueda de Azure
+            - name: Azure Search
               href: connector-azure-search.md
             - name: Azure SQL Database
               href: connector-azure-sql-database.md
-            - name: Almacenamiento de datos SQL de Azure
+            - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
             - name: Azure Table Storage
               href: connector-azure-table-storage.md
@@ -166,6 +166,8 @@
           href: compute-linked-services.md
     - name: Flujo de control
       items:
+        - name: Actividad If Condition
+          href: control-flow-if-condition-activity.md
         - name: Actividad web
           href: control-flow-web-activity.md
         - name: Actividad de búsqueda

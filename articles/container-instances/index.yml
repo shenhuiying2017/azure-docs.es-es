@@ -29,7 +29,7 @@ sections:
             href: /azure/container-instances/container-instances-quickstart
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portal de Azure
+            text: Azure Portal
             href: /azure/container-instances/container-instances-quickstart-portal
   - title: Tutoriales detallados
     items:
