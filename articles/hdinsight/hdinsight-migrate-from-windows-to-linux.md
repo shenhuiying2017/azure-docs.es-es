@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3bba2cfd765505a167fe4776f81d06445a8c39c
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
 
@@ -98,7 +98,7 @@ Siga estos pasos para copiar datos desde el clúster de producción al clúster 
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>Copia directa entre blobs de Azure Storage
 
-También puede utilizar el cmdlet de Azure PowerShell `Start-AzureStorageBlobCopy` para copiar blobs entre cuentas de almacenamiento fuera de HDInsight. Para más información, consulte la sección Administración de blobs de Azure de Uso de Azure PowerShell con Almacenamiento de Azure.
+También puede utilizar el cmdlet de Azure PowerShell `Start-AzureStorageBlobCopy` para copiar blobs entre cuentas de almacenamiento fuera de HDInsight. Para más información, consulte la sección Administración de blobs de Azure de Uso de Azure PowerShell con Azure Storage.
 
 ## <a name="client-side-technologies"></a>Tecnologías de cliente
 
@@ -140,9 +140,9 @@ Otra característica de personalización es **arranque**. En el caso de clúster
 
 La función de arranque para clústeres basados en Linux no proporciona esta funcionalidad. En su lugar, use la acción de script que se documenta en [Incorporación de bibliotecas de Hive durante la creación del clúster](hdinsight-hadoop-add-hive-libraries.md).
 
-### <a name="virtual-networks"></a>Redes virtuales
+### <a name="virtual-networks"></a>Virtual Networks
 
-Los clústeres de HDInsight basados en Windows solo funcionan con redes virtuales clásicas, mientras que los clústeres HDInsight basados en Linux requieren redes virtuales del Administrador de recursos. Si tiene recursos en una red virtual clásica a la que debe conectarse el clúster de HDInsight en Linux, consulte [Conexión de una red virtual clásica a una red virtual del Administrador de recursos](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+Los clústeres de HDInsight basados en Windows solo funcionan con redes virtuales clásicas, mientras que los clústeres HDInsight basados en Linux requieren redes virtuales de Resource Manager. Si tiene recursos en una red virtual clásica a la que debe conectarse el clúster de HDInsight en Linux, consulte [Conexión de una red virtual clásica a una red virtual de Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 Para más información sobre los requisitos de configuración, vea [Extensión de las funcionalidades de HDInsight con una red virtual](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -188,8 +188,8 @@ Las cargas de trabajo de Pig y MapReduce son similares en clústeres basados en 
 HDInsight basado en Linux no proporciona funcionalidad de escritorio remoto. En su lugar, puede usar SSH para conectar remotamente con los nodos principales del clúster. Para obtener más información, vea los documentos siguientes:
 
 * [Uso de Hive con SSH](hdinsight-hadoop-use-hive-ssh.md)
-* [Uso de Pig con SSH](hdinsight-hadoop-use-pig-ssh.md)
-* [Uso de MapReduce con SSH](hdinsight-hadoop-use-mapreduce-ssh.md)
+* [Uso de Pig con SSH](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Uso de MapReduce con SSH](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
@@ -200,11 +200,11 @@ El gráfico siguiente ofrece orientación sobre cómo migrar las cargas de traba
 
 | En basado en Windows, se usa... | En basado en Linux... |
 | --- | --- |
-| **Editor de Hive** |[Vista de Hive en Ambari](hdinsight-hadoop-use-hive-ambari-view.md) |
+| **Editor de Hive** |[Vista de Hive en Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` para habilitar Tez |Tez es el motor de ejecución predeterminado para clústeres basados en Linux, por lo que ya no se necesita la instrucción set. |
 | Funciones definidas por el usuario de C# | Para obtener información sobre cómo validar los componentes de C# con HDInsight basado en Linux, consulte [Migración de soluciones .​NE​T para HDInsight basado en ​Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | Scripts o archivos CMD en el servidor que se invoca como parte de un trabajo de Hive |se usan scripts de Bash |
-| `hive` desde Escritorio remoto |Uso de [Beeline](hdinsight-hadoop-use-hive-beeline.md) o [Hive en una sesión de SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` desde Escritorio remoto |Uso de [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) o [Hive en una sesión de SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -233,7 +233,7 @@ Si tiene un flujo de trabajo que utiliza una aplicación de C#, valide estas apl
 
 | En basado en Windows, se usa... | En basado en Linux... |
 | --- | --- |
-| Panel de Storm |El panel de Storm no está disponible. Consulte [Implementación y administración de topologías de Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md) para ver formas de enviar topologías. |
+| Panel de Storm |El panel de Storm no está disponible. Consulte [Implementación y administración de topologías de Storm en HDInsight basado en Linux](storm/apache-storm-deploy-monitor-topology-linux.md) para ver formas de enviar topologías. |
 | UI de Storm |La interfaz de usuario de Storm está disponible en https://NOMBREDELCLÚSTER.azurehdinsight.net/stormui |
 | Visual Studio para crear, implementar y administrar topologías de C# o híbridas |Visual Studio puede utilizarse para crear, implementar y administrar topologías de C# (SCP.NET) o híbridas en clústeres Storm en HDInsight basados en Linux. Solo se puede usar con los clústeres creados después del 28/10/2016. |
 
@@ -249,11 +249,11 @@ Los clústeres de Spark estaban disponibles en los clústeres de Windows durante
 
 ## <a name="known-issues"></a>Problemas conocidos
 
-### <a name="azure-data-factory-custom-net-activities"></a>Actividades de .NET personalizadas de Data Factory de Azure
+### <a name="azure-data-factory-custom-net-activities"></a>Actividades de .NET personalizadas de Azure Data Factory
 
-Las actividades de .NET personalizadas de Data Factory de Azure no son compatibles actualmente con clústeres de HDInsight basado en Linux. En su lugar, se debe usar uno de los métodos siguientes para implementar actividades personalizadas como parte de la canalización de ADF.
+Las actividades de .NET personalizadas de Azure Data Factory no son compatibles actualmente con clústeres de HDInsight basado en Linux. En su lugar, se debe usar uno de los métodos siguientes para implementar actividades personalizadas como parte de la canalización de ADF.
 
-* Ejecute actividades de .NET en grupo de Lote de Azure. Consulte la sección Servicio vinculado de Lote de Azure de [Uso de actividades personalizadas en una canalización de Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
+* Ejecute actividades de .NET en grupo de Azure Batch. Consulte la sección servicio vinculado de Azure Batch de [Uso de actividades personalizadas en una canalización de Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
 * Implemente la actividad como una actividad MapReduce. Para obtener más información, consulte [Invocación de programas MapReduce desde Data Factory](../data-factory/transform-data-using-hadoop-map-reduce.md).
 
 ### <a name="line-endings"></a>Fin de línea

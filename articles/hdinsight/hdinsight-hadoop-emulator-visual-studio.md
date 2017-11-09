@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53db03029ffca724638871b22a12dfa7f160fc64
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
 
@@ -29,7 +29,7 @@ Mediante Sandbox de Hortonworks puede trabajar con Hadoop localmente en su entor
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Sandbox de Hortonworks en ejecución en una máquina virtual en el entorno de desarrollo. Este documento se ha escrito y probado con el espacio aislado ejecutado en Oracle VirtualBox, Para información sobre cómo configurar el espacio aislado, consulte el documento de [introducción al espacio aislado de Hortonworks](hdinsight-hadoop-emulator-get-started.md) .
+* Sandbox de Hortonworks en ejecución en una máquina virtual en el entorno de desarrollo. Este documento se ha escrito y probado con el espacio aislado ejecutado en Oracle VirtualBox, Para información sobre cómo configurar el espacio aislado, consulte el documento de [introducción al espacio aislado de Hortonworks](hadoop/apache-hadoop-emulator-get-started.md) .
 
 * Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017 (cualquier edición).
 
@@ -39,7 +39,7 @@ Mediante Sandbox de Hortonworks puede trabajar con Hadoop localmente en su entor
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configuración de contraseñas para el espacio aislado
 
-Asegúrese de que Sandbox de Hortonworks se esté ejecutando. A continuación, siga los pasos descritos en el documento de [introducción al espacio aislado de Hortonworks](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). Estos pasos configuran la contraseña de la cuenta `root` de SSH y de la cuenta `admin` de Ambari. Estas contraseñas se usan al conectarse al espacio aislado desde Visual Studio.
+Asegúrese de que Sandbox de Hortonworks se esté ejecutando. A continuación, siga los pasos descritos en el documento de [introducción al espacio aislado de Hortonworks](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords). Estos pasos configuran la contraseña de la cuenta `root` de SSH y de la cuenta `admin` de Ambari. Estas contraseñas se usan al conectarse al espacio aislado desde Visual Studio.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Conexión de las herramientas al espacio aislado
 
@@ -90,7 +90,7 @@ Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con
 
         select count(*) from sample_08;
 
-    Para ejecutar la consulta, seleccione **Enviar** en la parte superior de la ventana. Deje las demás opciones (**Lote** y el nombre del servidor) en los valores predeterminados.
+    Para ejecutar la consulta, seleccione **Enviar** en la parte superior de la ventana. Deje las demás opciones (**Batch** y el nombre del servidor) en los valores predeterminados.
 
     ![Captura de pantalla de la ventana de consulta, con el botón Enviar resaltado](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
@@ -109,7 +109,7 @@ Hive proporciona un lenguaje de consultas de tipo SQL (HiveQL) para trabajar con
 
     Use el vínculo **Salida de trabajo** para ver la salida. En este caso es 823, el número de filas de la tabla sample_08. Puede ver información de diagnóstico sobre el trabajo mediante los vínculos **Registro de trabajo** y **Descargar registro YARN**.
 
-4. También puede ejecutar trabajos de Hive de forma interactiva cambiando el campo **Lote** a **Interactivo**. Luego, seleccione **Ejecutar**.
+4. También puede ejecutar trabajos de Hive de forma interactiva cambiando el campo **Batch** a **Interactivo**. Luego, seleccione **Ejecutar**.
 
     ![Captura de pantalla de los botones Interactivo y Ejecutar resaltados](./media/hdinsight-hadoop-emulator-visual-studio/interactive-query.png)
 

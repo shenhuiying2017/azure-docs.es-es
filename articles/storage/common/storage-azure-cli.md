@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: tamram
-ms.openlocfilehash: 69c1d41a4c2dbddd20c0e603ef335f3030a484d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f4070c5a02e559bd299033865aa5258532498aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso de la CLI de Azure 2.0 con Azure Storage
 
@@ -31,11 +31,11 @@ Los ejemplos de la guía se basan en el shell Bash en Ubuntu, pero el resto de l
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
-En esta guía se supone que conoce los conceptos básicos de Almacenamiento de Azure. También se da por sentado que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y el servicio Almacenamiento.
+En esta guía se supone que conoce los conceptos básicos de Azure Storage. También se da por sentado que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y el servicio Almacenamiento.
 
 ### <a name="accounts"></a>Cuentas
 * **Cuenta de Azure**: si aún no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
-* **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](storage-create-storage-account.md).
+* **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de Azure Storage](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli-20"></a>Instalación de la CLI de Azure 2.0
 
@@ -393,7 +393,7 @@ Salida de ejemplo
 }
 ```
 
-### <a name="list-share-napshots"></a>Enumeración de instantáneas de recursos compartidos
+### <a name="list-share-snapshots"></a>Enumerar instantáneas del recurso compartido
 
 Puede enumerar las instantáneas del recurso compartido de un recurso compartido determinado mediante `az storage share list --include-snapshots`
 

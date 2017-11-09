@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>SKU de Azure Container Registry
 
@@ -43,21 +43,7 @@ La SKU de registro clásica habilitó la versión inicial del servicio Azure Con
 
 En la tabla siguiente se detallan las características y los límites de los niveles de servicio Básico, Estándar y Premium.
 
-| Característica | Básico | Standard | Premium |
-|---|---|---|---|---|
-| Storage | 10 GiB | 100 GiB| 500 GiB |
-| Operaciones de lectura por minuto<sup>1, 2</sup> | 1000 | 300 000 | 10 000 000 |
-| Operaciones de escritura por minuto<sup>1, 3</sup> | 100 | 500 | 2000 |
-| Ancho de banda de descarga en MBps<sup>1</sup> | 30 | 60 | 100 |
-| Ancho de banda de carga en MBps<sup>1</sup> | 10 | 20 | | 50 |
-| Webhooks | 2 | 10 | 100 |
-| Replicación geográfica | N/D | N/D | [Compatible *(versión preliminar)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> Las *operaciones de lectura*, las *operaciones de escritura* y el *ancho de banda* son estimaciones mínimas. ACR trata de mejorar el rendimiento que el uso requiere.
-
-<sup>2</sup> La [extracción de docker](https://docs.docker.com/registry/spec/api/#pulling-an-image) se traduce en varias operaciones de lectura en función del número de capas de la imagen, además de la recuperación de manifiesto.
-
-<sup>3</sup> La [inserción de docker](https://docs.docker.com/registry/spec/api/#pushing-an-image) se traduce en varias operaciones de escritura, en función del número de capas que se deben insertar. Un elemento `docker push` incluye *operaciones de lectura* para recuperar un manifiesto para una imagen existente.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>Administración del tamaño del registro
 Las restricciones de almacenamiento de cada SKU están diseñadas para adaptarlas a un escenario típico: Básico para obtener una introducción, Estándar para la mayoría de las aplicaciones de producción y Premium para obtener un rendimiento a gran escala y [replicación geográfica](container-registry-geo-replication.md). Durante todo el ciclo de vida del registro, debe administrar su tamaño mediante la eliminación periódica del contenido sin usar.

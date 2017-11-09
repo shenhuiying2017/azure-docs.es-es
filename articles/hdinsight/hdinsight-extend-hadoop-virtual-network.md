@@ -1,6 +1,6 @@
 ---
 title: "Extensión de HDInsight con Virtual Network - Azure | Microsoft Docs"
-description: Aprenda a usar la Red virtual de Azure para conectar HDInsight con otros recursos en la nube o recursos en su centro de datos.
+description: Aprenda a usar Azure Virtual Network para conectar HDInsight con otros recursos en la nube o recursos en su centro de datos.
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 17059c5861962a56ed2011a8f8874fc23673ed68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5835d4ac83b54648b4f7885de577f90008018baa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -466,7 +466,7 @@ Use los pasos siguientes para crear una red virtual que restringe el tráfico de
 
     Cuando se haya creado el grupo, recibirá información sobre el nuevo grupo.
 
-2. Utilice lo siguiente para agregar reglas al nuevo grupo de seguridad de red que permitan la comunicación entrante en el puerto 443 desde el servicio de mantenimiento y administración de HDInsight de Azure. Reemplace **RESOURCEGROUPNAME** por el nombre del grupo de recursos que contiene la red virtual de Azure.
+2. Utilice lo siguiente para agregar reglas al nuevo grupo de seguridad de red que permitan la comunicación entrante en el puerto 443 desde el servicio de mantenimiento y administración de HDInsight de Azure. Reemplace **RESOURCEGROUPNAME** por el nombre del grupo de recursos que contiene la instancia de Azure Virtual Network.
 
     > [!IMPORTANT]
     > Cambie las direcciones IP que se usan en este ejemplo para que coincidan con la región de Azure que está usando. Puede encontrar esta información en la sección [HDInsight con grupos de seguridad de red y rutas definidas por el usuario](#hdinsight-ip).
@@ -671,8 +671,8 @@ Después de completar estos pasos, puede conectarse a recursos en la red virtual
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener un ejemplo integral de la configuración de HDInsight para conectarse a una red local, vea [Conexión de HDInsight a la red local](./connect-on-premises-network.md).
-* Para configurar clústeres de Hbase en las redes virtuales de Azure, consulte [Creación de clústeres de HBase en HDInsight en Azure Virtual Network](./hdinsight-hbase-provision-vnet.md).
-* Para configurar la replicación geográfica de HBase, consulte [Configuración de la replicación de clúster de HBase en redes virtuales de Azure](./hdinsight-hbase-replication.md).
+* Para configurar clústeres de Hbase en las redes virtuales de Azure, consulte [Creación de clústeres de HBase en HDInsight en Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Para configurar la replicación geográfica de HBase, consulte [Configuración de la replicación de clúster de HBase en redes virtuales de Azure](hbase/apache-hbase-replication.md).
 * Para más información sobre las redes virtuales de Azure, vea la [información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 * Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).

@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/23/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 9464ead9105bf9334096543f22ec308416a37674
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: ffeaec73a38939783174c71641c3618f4f8a3c1b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Niveles de rendimiento de Azure SQL Data Warehouse (versión preliminar)
 SQL Data Warehouse ofrece dos niveles de rendimiento optimizados para cargas de trabajo de análisis. En este artículo se explican los conceptos de niveles de rendimiento que le ayudarán a elegir el más adecuado para su carga de trabajo. 
@@ -63,16 +63,16 @@ Los niveles de servicio para el nivel de rendimiento Optimizado para Elasticity 
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW100         | 4                      | 1             | 60                             | 400                              |  24                                |
 | DW200         | 8                      | 2             | 30                             | 800                              |  48                                |
-| DW300         | 12                     | 3             | 20 |                             | 1,200                            |  72                                |
+| DW300         | 12                     | 3             | 20                             | 1,200                            |  72                                |
 | DW400         | 16                     | 4             | 15                             | 1600                            |  96                                |
-| DW500         | 20 |                     | 5             | 12                             | 2.000                            | 120                                |
+| DW500         | 20                     | 5             | 12                             | 2.000                            | 120                                |
 | DW600         | 24                     | 6             | 10                             | 2,400                            | 144                                |
 | DW1000        | 32                     | 10            | 6                              | 4.000                            | 240                                |
 | DW1200        | 32                     | 12            | 5                              | 4,800                            | 288                                |
 | DW1500        | 32                     | 15            | 4                              | 6,000                            | 360                                |
-| DW2000        | 48                     | 20 |            | 3                              | 8.000                            | 480                                |
-| DW3000        | 64                     | 30            | 2                              | 12,000                           | 720                                |
-| DW6000        | 128                    | 60            | 1                              | 24,000                           | 1440                               |
+| DW2000        | 32                     | 20            | 3                              | 8.000                            | 480                                |
+| DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
+| DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
 ### <a name="optimized-for-compute"></a>Optimizado para Compute
 
@@ -81,14 +81,14 @@ Los niveles de servicio para el nivel de rendimiento Optimizado para Compute osc
 | Nivel de servicio | N.º máximo de consultas simultáneas | Nodos de proceso | Distribuciones por nodo de proceso | Memoria máxima por distribución (GB) | Memoria máxima por almacenamiento de datos (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW1000c       | 32                     | 2             | 30                             |  10                              |   600                              |
-| DW1500c       | 32                     | 3             | 20 |                             |  15                              |   900                              |
-| DW2000c       | 32                     | 4             | 15                             |  20 |                              |  1200                              |
+| DW1500c       | 32                     | 3             | 20                             |  15                              |   900                              |
+| DW2000c       | 32                     | 4             | 15                             |  20                              |  1200                              |
 | DW2500c       | 32                     | 5             | 12                             |  25                              |  1.500                              |
 | DW3000c       | 32                     | 6             | 10                             |  30                              |  1.800                              |
 | DW5000c       | 32                     | 10            | 6                              |  50                              |  3000                              |
 | DW6000c       | 32                     | 12            | 5                              |  60                              |  3600                              |
 | DW7500c       | 32                     | 15            | 4                              |  75                              |  4500                              |
-| DW10000c      | 32                     | 20 |            | 3                              | 100                              |  6000                              |
+| DW10000c      | 32                     | 20            | 3                              | 100                              |  6000                              |
 | DW15000c      | 32                     | 30            | 2                              | 150                              |  9000                              |
 | DW30000c      | 32                     | 60            | 1                              | 300                              | 18000                              |
 

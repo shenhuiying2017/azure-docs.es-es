@@ -1,6 +1,6 @@
 ---
 title: Carga de datos para trabajos de Hadoop en HDInsight | Microsoft Docs
-description: "Aprenda a cargar datos en HDInsight y a obtener acceso a ellos para trabajos de Hadoop con la CLI de Azure, el Explorador de almacenamiento de Azure, Azure PowerShell, la línea de comandos de Hadoop o Sqoop."
+description: "Aprenda a cargar datos en HDInsight y a obtener acceso a ellos para trabajos de Hadoop con la CLI de Azure, el Explorador de Azure Storage, Azure PowerShell, la línea de comandos de Hadoop o Sqoop."
 keywords: "extracción, transformación y carga de datos de hadoop, obtención de datos en hadoop, carga de datos de hadoop"
 services: hdinsight,storage
 documentationcenter: 
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Hadoop en HDInsight
 
@@ -140,7 +140,7 @@ Azure PowerShell es un eficaz entorno de scripting que se puede usar para contro
 Por ejemplo los scripts de PowerShell creados para trabajar con HDInsight, consulte [HDInsight tools (Herramientas de HDInsight)](https://github.com/blackmist/hdinsight-tools).
 
 #### <a id="azcopy"></a>AzCopy
-AzCopy es una herramienta de la línea de comandos diseñada para simplificar la tarea de transferir datos dentro y fuera de una cuenta de almacenamiento de Azure. Puede usarla como una herramienta independiente o incorporarla a una aplicación existente. [Descarga de AzCopy][azure-azcopy-download]
+AzCopy es una herramienta de la línea de comandos diseñada para simplificar la tarea de transferir datos dentro y fuera de una cuenta de Azure Storage. Puede usarla como una herramienta independiente o incorporarla a una aplicación existente. [Descarga de AzCopy][azure-azcopy-download]
 
 La sintaxis de AzCopy es la siguiente:
 
@@ -184,26 +184,26 @@ Para obtener una lista de otros comandos de Hadoop que funcionan con archivos, c
 >
 
 ### <a name="graphical-clients"></a>Clientes gráficos
-También hay varias aplicaciones que proporcionan una interfaz gráfica para trabajar con el almacenamiento de Azure. La siguiente tabla es una lista de algunas de estas aplicaciones:
+También hay varias aplicaciones que proporcionan una interfaz gráfica para trabajar con Azure Storage. La siguiente tabla es una lista de algunas de estas aplicaciones:
 
 | Cliente | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Microsoft Visual Studio Tools para HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
-| [Explorador de almacenamiento de Azure](http://storageexplorer.com/) |✔ |✔ |✔ |
+| [Microsoft Visual Studio Tools para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Explorador de Azure Storage](http://storageexplorer.com/) |✔ |✔ |✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio Tools para HDInsight
-Para obtener más información, consulte [Navegación por los recursos vinculados](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Para obtener más información, consulte [Navegación por los recursos vinculados](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
-#### <a id="storageexplorer"></a>Explorador de almacenamiento de Azure
-*Explorador de almacenamiento de Azure* es una práctica herramienta para inspeccionar y modificar los datos de blobs. Se trata de una herramienta gratuita que se puede descargar de [http://storageexplorer.com/](http://storageexplorer.com/). El código fuente también está disponible en este vínculo.
+#### <a id="storageexplorer"></a>Explorador de Azure Storage
+*Explorador de Azure Storage* es una práctica herramienta para inspeccionar y modificar los datos de blobs. Se trata de una herramienta gratuita que se puede descargar de [http://storageexplorer.com/](http://storageexplorer.com/). El código fuente también está disponible en este vínculo.
 
 Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para obtener instrucciones para lograr esta información, vea la sección "Vista, copia y regeneración de las claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storage-account].
 
-1. Ejecute el explorador de almacenamiento de Azure. Si es la primera vez que ejecuta el Explorador de almacenamiento, se le pide **Nombre de cuenta de almacenamiento** y **Clave de cuenta de almacenamiento**. Si ya lo ejecutó antes, use el botón **Agregar** para agregar un nombre y una clave de cuenta de almacenamiento nuevos.
+1. Ejecute el explorador de Azure Storage. Si es la primera vez que ejecuta el Explorador de Storage, se le pide **Nombre de cuenta de almacenamiento** y **Clave de cuenta de almacenamiento**. Si ya lo ejecutó antes, use el botón **Agregar** para agregar un nombre y una clave de cuenta de almacenamiento nuevos.
 
     Escriba el nombre y la clave para la cuenta de almacenamiento que usa el clúster de HDInsight y seleccione **GUARDAR Y ABRIR**.
 
@@ -223,11 +223,11 @@ Vea [Montaje de Azure Storage como unidad local](http://blogs.msdn.com/b/bigdata
 
 ### <a name="upload-using-services"></a>Carga mediante servicios
 #### <a name="azure-data-factory"></a>Azure Data Factory
-El servicio Factoría de datos de Azure es un servicio completamente administrado para crear servicios de almacenamiento de datos, procesamiento de datos y movimiento en canalizaciones de producción de datos confiable, escalable y simplificado.
+El servicio Azure Data Factory es un servicio completamente administrado para crear servicios de almacenamiento de datos, procesamiento de datos y movimiento en canalizaciones de producción de datos confiable, escalable y simplificado.
 
 Azure Data Factory puede usarse para mover datos a Azure Storage o para crear canalizaciones de datos que usen directamente características de HDInsight como Hive y Pig.
 
-Para obtener más información, consulte [Documentación de Factoría de datos](https://azure.microsoft.com/documentation/services/data-factory/).
+Para obtener más información, consulte [Documentación de Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 #### <a id="sqoop"></a>Apache Sqoop
 Sqoop es una herramienta diseñada para transferir datos entre Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS), como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos de Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en un RDBMS.
@@ -307,14 +307,14 @@ Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguie
 [azure-azcopy-download]:../storage/common/storage-use-azcopy.md
 [azure-azcopy]:../storage/common/storage-use-azcopy.md
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 

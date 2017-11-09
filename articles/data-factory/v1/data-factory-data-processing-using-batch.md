@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ceef65eaf195b605fada2f8dfe511fe33a5daa0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>Procesamiento de datos a gran escala mediante Data Factory y Batch
+> [!NOTE]
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea [Custom activities in Data Factory version 2](../transform-data-using-dotnet-custom-activity.md) (Actividades personalizadas en Data Factory, versión 2).
+
 En este artículo se describe la arquitectura de una solución de ejemplo en la que se mueven y se procesan conjuntos de datos a gran escala de forma automática y programada. También se incluye un tutorial paso a paso para implementar la solución con Azure Data Factory y Azure Batch.
 
 Este artículo es más largo de lo habitual, ya que contiene un tutorial de una solución de ejemplo completa. Si no tiene experiencia con Batch y Data Factory, puede informarse sobre estos servicios y cómo interactúan. Si tiene algún conocimiento sobre los servicios y está diseñando una solución, puede consultar la [sección sobre arquitectura](#architecture-of-sample-solution) del artículo. Si está desarrollando un prototipo o una solución, tal vez le interese también seguir las instrucciones paso a paso que se describen en el [tutorial](#implementation-of-sample-solution). No dude en hacernos llegar cualquier comentario que tenga sobre el contenido y su uso.
@@ -45,7 +48,8 @@ Factoría de datos es un servicio de integración de datos basado en la nube que
 
 Si no está familiarizado con Azure Data Factory, consulte los siguientes artículos, que le ayudarán a comprender la arquitectura e implementación de la solución que se describe en este artículo.  
 
-* [Introducción al servicio Data Factory de Azure](data-factory-introduction.md)
+* 
+            [Introducción al servicio Azure Data Factory](data-factory-introduction.md)
 * [Creación de la primera canalización de datos](data-factory-build-your-first-pipeline.md)   
 
 (Opcional) Para más información sobre Azure Data Factory, consulte la [ruta de aprendizaje de Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
@@ -64,12 +68,13 @@ En el diagrama, se muestra 1) cómo Data Factory organiza el movimiento y el pro
 
 La lista siguiente proporciona los pasos básicos del proceso. La solución incluye código y explicaciones para compilar la solución completa.
 
-1. **Configure Lote de Azure con un grupo de nodos de proceso (máquinas virtuales)**. Puede especificar el número de nodos y el tamaño de cada nodo.
-2. **Cree una instancia de Azure Data Factory** que esté configurada con entidades que representen Azure Blob Storage, el servicio de proceso Azure Batch, los datos de entrada y salida y un flujo de trabajo o una canalización con las actividades que mueven y transforman datos.
+1. **Configure Azure Batch con un grupo de nodos de proceso (máquinas virtuales)**. Puede especificar el número de nodos y el tamaño de cada nodo.
+2. 
+            **Cree una instancia de Azure Data Factory** que esté configurada con entidades que representen Azure Blob Storage, el servicio de proceso de Azure Batch, los datos de entrada y salida y un flujo de trabajo o una canalización con las actividades que mueven y transforman datos.
 3. **Cree una actividad personalizada de .NET en la canalización de Data Factory**. La actividad es el código de usuario que se ejecutará en el grupo de Azure Batch.
 4. **Almacene grandes cantidades de datos de entrada como blobs en Azure Storage**. Los datos se dividen en segmentos lógicos (normalmente, en función de la fecha y la hora).
 5. **Data Factory copia los datos que se procesan en paralelo** en la ubicación secundaria.
-6. **Data Factory ejecuta la actividad personalizada con el grupo que asigna Lote**. Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Azure Storage.
+6. **Data Factory ejecuta la actividad personalizada con el grupo que asigna Batch**. Además, puede ejecutar actividades al mismo tiempo. Cada actividad procesa un segmento de datos. Los resultados se almacenan en Azure Storage.
 7. **Data Factory mueve los resultados finales a una tercera ubicación**para que se distribuyan a través de una aplicación o para que se sigan procesando con otras herramientas.
 
 ## <a name="implementation-of-sample-solution"></a>Implementación de la solución de ejemplo
@@ -85,15 +90,15 @@ Si carece de suscripción de Azure, puede crear una cuenta de prueba gratuita en
 En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una, consulte [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account). En la solución de ejemplo, se usa Blob Storage.
 
 #### <a name="azure-batch-account"></a>Cuenta de Azure Batch
-Cree una cuenta de Azure Batch en [Azure Portal](http://manage.windowsazure.com/). Consulte [Creación y administración de una cuenta de Azure Batch en Azure Portal](../../batch/batch-account-create-portal.md). Anote el nombre y la clave de la cuenta de Azure Batch. También puede usar el cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) para crear una cuenta de Azure Batch. Consulte [Introducción a los cmdlets de PowerShell para Azure Batch](../../batch/batch-powershell-cmdlets-get-started.md) para obtener instrucciones detalladas para usar este cmdlet.
+Cree una cuenta de Azure Batch en [Azure Portal](http://portal.azure.com/). Consulte [Creación y administración de una cuenta de Azure Batch en Azure Portal](../../batch/batch-account-create-portal.md). Anote el nombre y la clave de la cuenta de Azure Batch. También puede usar el cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) para crear una cuenta de Azure Batch. Consulte [Introducción a los cmdlets de PowerShell para Azure Batch](../../batch/batch-powershell-cmdlets-get-started.md) para obtener instrucciones detalladas para usar este cmdlet.
 
 La solución de ejemplo usa Azure Batch (de forma indirecta mediante una canalización de Azure Data Factory) para procesar datos en paralelo en un grupo de nodos de proceso, que es una colección administrada de máquinas virtuales.
 
 #### <a name="azure-batch-pool-of-virtual-machines-vms"></a>Grupo de máquinas virtuales (VM) de Azure Batch
-Cree un **grupo Azure Batch** con al menos 2 nodos de proceso.
+Cree un **grupo de Azure Batch** con al menos 2 nodos de proceso.
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Examinar** en el menú izquierdo y haga clic en **Cuentas de Batch**.
-2. Seleccione la cuenta de Lote de Azure para abrir la hoja **Cuenta de Lote** .
+2. Seleccione la cuenta de Azure Batch para abrir la hoja **Cuenta de Batch**.
 3. Haga clic en el icono **Grupos** .
 4. En la hoja **Grupos**, haga clic en el botón Agregar en la barra de herramientas para agregar un grupo.
    1. Especifique un identificador para el grupo (**Identificador del grupo**). Anote el **identificador del grupo**; lo necesitará al crear la solución de Data Factory.
@@ -484,7 +489,7 @@ Si coloca varios archivos (file.txt, file2.txt, file3.txt) con el mismo contenid
 
 El archivo de salida tiene ahora tres líneas, una por cada archivo de entrada (blob) en la carpeta asociada con el segmento (2015-11-16-00).
 
-Se crea una tarea para cada ejecución de actividad. En este ejemplo, solamente hay una actividad en la canalización. Cuando se procesa un segmento en la canalización, la actividad personalizada se ejecuta en Azure Batch para procesar el segmento. Puesto que hay 5 segmentos (cada segmento puede tener varios blobs o archivos), se crearán 5 tareas en Azure Batch. Cuando se ejecuta una tarea en Lote, lo que realmente se está ejecutando es la actividad personalizada.
+Se crea una tarea para cada ejecución de actividad. En este ejemplo, solamente hay una actividad en la canalización. Cuando se procesa un segmento en la canalización, la actividad personalizada se ejecuta en Azure Batch para procesar el segmento. Puesto que hay 5 segmentos (cada segmento puede tener varios blobs o archivos), se crearán 5 tareas en Azure Batch. Cuando se ejecuta una tarea en Batch, lo que realmente se está ejecutando es la actividad personalizada.
 
 En el siguiente tutorial, se proporcionan más detalles.
 
@@ -539,7 +544,7 @@ En este paso, creará un servicio vinculado para su cuenta de **Azure Batch** qu
       En la propiedad **poolName**, también puede especificar el identificador del grupo, en lugar del nombre del grupo.
 
       > [!NOTE]
-      > El servicio de Factoría de datos no admite una opción a petición para el Lote de Azure como lo hace para HDInsight. Solo puede usar su propio grupo de Azure Batch en una instancia de Azure Data Factory.
+      > El servicio de Factoría de datos no admite una opción a petición para Azure Batch como lo hace para HDInsight. Solo puede usar su propio grupo de Azure Batch en una instancia de Azure Data Factory.
       >
       >
    5. Especifique **StorageLinkedService** for the **linkedServiceName** . Ha creado este servicio vinculado en el paso anterior. Este almacenamiento se usa como área de almacenamiento provisional para archivos y registros.
@@ -803,16 +808,16 @@ En este paso, probará la canalización colocando archivos en las carpetas de en
 >
 >
 
-#### <a name="data-factory-and-batch-integration"></a>Integración de Data Factory y Lote
+#### <a name="data-factory-and-batch-integration"></a>Integración de Data Factory y Batch
 El servicio Data Factory crea un trabajo en Azure Batch llamado: `adf-poolname:job-xxx`.
 
-![Data Factory de Azure: trabajos por lotes](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+![Azure Data Factory: trabajos por lotes](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
 Se crea una tarea en el trabajo para cada ejecución de actividad de un segmento. Si hay 10 segmentos listos para ser procesados, se crean 10 tareas en este trabajo. Si el grupo tiene varios nodos de procesos, puede haber más de un segmento en ejecución en paralelo. También puede haber más de un segmento en ejecución en el mismo proceso si el número máximo de tareas se establece un valor mayor que 1.
 
 En este ejemplo, hay 5 segmentos y, por tanto, 5 tareas en Azure Batch. Ahora que el valor **concurrency** está establecido en **5** en el JSON de la canalización de Azure Data Factory y que **Maximum tasks per VM** (Máximo de tareas por máquina virtual) está establecido en **2** en el grupo de Azure Batch con **2** máquinas virtuales, las tareas se ejecutarán muy rápido (compruebe los tiempos de inicio y finalización de las tareas).
 
-Use el portal para ver el trabajo de Lote y las tareas que están asociadas con los **segmentos** y para comprobar en qué máquina virtual se ejecuta cada segmento.
+Use el portal para ver el trabajo de Batch y las tareas que están asociadas con los **segmentos** y para comprobar en qué máquina virtual se ejecuta cada segmento.
 
 ![Azure Data Factory: tareas de trabajos de Batch](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
 
@@ -868,7 +873,7 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
 1. Agregue las siguientes subcarpetas en `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08, 2015-11-16-09 y coloque archivos de entrada en ellas. Cambie la hora de finalización de la canalización de `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. En el **vista de diagrama**, haga doble clic en **InputDataset** y confirme que los segmentos de entrada están listos. Haga doble clic en **OuptutDataset** para ver el estado de los segmentos de salida. Si se encuentran en el estado Listo, compruebe si los archivos de salida se encuentran en la carpeta de salida.
 2. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Azure Batch. (Consulte Paso 4: Creación y ejecución de la canalización con una actividad personalizada para más información sobre la configuración **concurrency** ).
 3. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Azure Batch en la solución de Data Factory para que use el nuevo grupo que creó. (Consulte Paso 4: Creación y ejecución de la canalización con una actividad personalizada para más información sobre la configuración **Máximo de tareas por máquina virtual** ).
-4. Cree un grupo de Azure Batch con la característica de **escalado automático** . El escalado automático de los nodos de ejecución de un grupo de Azure Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. 
+4. Cree un grupo de Azure Batch con la característica **Autoescala** . El escalado automático de los nodos de ejecución de un grupo de Azure Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. 
 
     La fórmula del ejemplo logra el siguiente comportamiento: cuando el grupo se crea inicialmente, empieza con 1 máquina virtual. La métrica $PendingTasks define el número de tareas que están en ejecución o activas (en cola).  La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. Garantiza que TargetDedicated nunca supera las 25 VM. Por tanto, a medida que se envían nuevas tareas, el grupo crece automáticamente y a medida que estás se completan, las VM se liberan una a una y el escalado automático las reduce. startingNumberOfVMs y maxNumberofVMs se pueden adaptar a sus necesidades.
  
@@ -882,9 +887,9 @@ Puede extender este ejemplo para obtener más información acerca de las caracte
     $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
     ```
 
-   Para más información, consulte [Escalado automático de los nodos de proceso en un grupo de Lote de Azure](../../batch/batch-automatic-scaling.md) .
+   Para más información, consulte [Escalado automático de los nodos de proceso en un grupo de Azure Batch](../../batch/batch-automatic-scaling.md) .
 
-   Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada.  Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
+   Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada.  Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 5. En la solución de ejemplo, el método **Execute** invoca al método **Calculate** que procesa un segmento de datos de entrada para generar un segmento de datos de salida. Puede escribir su propio método para procesar los datos de entrada y reemplazar la llamada al método Calculate en el método Execute por una llamada a su método.
 
 ### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de los datos
@@ -896,11 +901,15 @@ Después de procesar datos, puede consumirlos con herramientas en línea como **
 * [Azure y Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referencias
-* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
+* 
+            [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-  * [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md)
-  * [Introducción a Azure Data Factory](data-factory-build-your-first-pipeline.md)
-  * [Uso de actividades personalizadas en una canalización de Factoría de datos de Azure](data-factory-use-custom-activities.md)
+  * 
+            [Introducción al servicio Azure Data Factory](data-factory-introduction.md)
+  * 
+            [Introducción a Azure Data Factory](data-factory-build-your-first-pipeline.md)
+  * 
+            [Uso de actividades personalizadas en una canalización de Azure Data Factory](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
   * [Datos básicos de Azure Batch](../../batch/batch-technical-overview.md)

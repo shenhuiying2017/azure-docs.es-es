@@ -1,5 +1,5 @@
 ---
-title: "Implementación de la puerta de enlace de fábrica conectada al Conjunto de aplicaciones de IoT de Azure | Microsoft Docs"
+title: "Implementación de la puerta de enlace de fábrica conectada - Azure | Microsoft Docs"
 description: "Cómo implementar una puerta de enlace en Windows o Linux para habilitar la conectividad a la solución preconfigurada de fábrica conectada."
 services: 
 suite: iot-suite
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.openlocfilehash: 341b3860e103f54d97d325e18fc17f4895f804f0
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 9f11d93be49f7d88012b1274ad61495e38a2e9a9
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada de fábrica conectada
 

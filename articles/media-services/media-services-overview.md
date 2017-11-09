@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/24/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: a2c5fbb574f0388af62186047afedfb45f0881a0
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: 6678f429d5d1242f1193933ec147fc910d53f925
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-media-services-overview"></a>Introducción a Azure Media Services 
 
@@ -28,7 +28,7 @@ Puede crear flujos de trabajo de un extremo a otro usando solamente Media Servic
 
 Puede elegir entre transmitir en secuencias el contenido en directo o entregar el contenido a petición. El tema también incluye vínculos a otros temas de interés.
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 Puede ver las rutas de aprendizaje de Azure Media Services aquí:
 
 * [Flujo de trabajo de streaming en vivo de Azure Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
@@ -51,13 +51,13 @@ Para compilar soluciones de Media Services, puede usar:
 
 * [API de REST de Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Uno de los SDK de cliente disponibles:
-    * [SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services)
+    * [SDK de Azure Media Services para .NET](https://github.com/Azure/azure-sdk-for-media-services)
     * [SDK de Azure para Java](https://github.com/Azure/azure-sdk-for-java)
     * [SDK de Azure para PHP](https://github.com/Azure/azure-sdk-for-php)
     * [Azure Media Services para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (es decir, una versión de un SDK de Node.js que no sea de Microsoft. Su mantenimiento corre a cargo de una comunidad y actualmente no tiene una cobertura del 100 % de las API de AMS).
 * Herramientas existentes:
     * [Azure Portal](https://portal.azure.com/)
-    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de servicios multimedia de Azure (AMSE) es una aplicación Winforms/C# para Windows)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (El Explorador de Azure Media Services (AMSE) es una aplicación Winforms/C# para Windows)
 
 ## <a name="code-samples"></a>Ejemplos de código
 
@@ -77,7 +77,7 @@ Para más información, consulte [Scenarios and availability of Media Services f
 * Garantizamos la disponibilidad del 99,9% de las transacciones de API de REST para la codificación de Media Services.
 * Para el streaming, atenderemos correctamente las solicitudes de servicio con una garantía de disponibilidad del 99,9 % para el contenido multimedia existente cuando se adquiera un punto de conexión de streaming estándar o premium.
 * Para los canales en directo, garantizamos que los canales en ejecución tendrán una conectividad externa como mínimo el 99,9 % del tiempo.
-* Para la protección de contenido, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
+* Para Content Protection, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
 * Para el indizador, atenderemos correctamente las solicitudes de tarea de indizador procesadas con una unidad reservada de codificación el 99,9% del tiempo.
 
 Para obtener más información, consulte el [Contrato de nivel de servicio (SLA) de Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
@@ -86,7 +86,8 @@ Para obtener información acerca de la disponibilidad en los centros de datos, c
 
 ## <a name="support"></a>Soporte técnico
 
-[Soporte técnico de Azure](https://azure.microsoft.com/support/options/) proporciona opciones de soporte técnico para Azure, incluido Media Services.
+
+            [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) proporciona opciones de soporte técnico para Azure, incluido Media Services.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 

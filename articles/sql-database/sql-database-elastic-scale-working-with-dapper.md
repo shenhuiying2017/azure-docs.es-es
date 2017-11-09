@@ -8,17 +8,17 @@ author: torsteng
 ms.assetid: 463d2676-3b19-47c2-83df-f8c50492c9d2
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: sql-database
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: f0efd37a39c1a60eee7b47304483c27727ca8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c258b1859e14d9783a3dfa75431b69bef4d640fd
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Uso de la biblioteca de cliente de bases de datos elásticas con Dapper
 Este documento está dirigido a desarrolladores que utilizan Dapper para compilar aplicaciones, pero que también desean adaptar las [herramientas de bases de datos elásticas](sql-database-elastic-scale-introduction.md) para crear aplicaciones que implementen el particionamiento para escalar horizontalmente su capa de datos.  Este documento muestra los cambios que es necesario realizar en las aplicaciones basadas en Dapper para su integración con las herramientas de bases de datos elásticas. Nuestro enfoque se centra en componer la administración de particiones de bases de datos elásticas y el enrutamiento dependiente de los datos con Dapper. 
@@ -50,8 +50,8 @@ En lugar de usar la forma tradicional de crear conexiones para Dapper, hay que u
 ### <a name="requirements-for-dapper-integration"></a>Requisitos para la integración de Dapper
 Cuando se trabaja con la biblioteca de cliente de bases de datos elásticas y las API de Dapper, conviene conservar las propiedades siguientes:
 
-* **Ampliación**: es necesario poder agregar o quitar bases de datos de la capa de datos de la aplicación particionada cuando las demandas de capacidad de la aplicación lo requieran. 
-* **Coherencia**: dado que nuestra aplicación se amplía mediante particionamiento, necesitamos realizar el enrutamiento dependiente de datos. Para ello, queremos usar las funciones de enrutamiento dependiente de los datos de la biblioteca. En particular, queremos conservar las garantías de coherencia y validación que proporcionan las conexiones administradas mediante el administrador de mapas de particiones para evitar daños o que se generen unos resultados incorrectos de la consulta. Esto garantiza que las conexiones a un shardlet determinado se rechazan o se detienen si, por ejemplo, el shardlet se mueve actualmente a una partición diferente mediante las API de división y combinación.
+* **Escalado horizontal**: es necesario poder agregar o quitar bases de datos de la capa de datos de la aplicación particionada cuando las demandas de capacidad de la aplicación lo requieran. 
+* **Coherencia**: dado que la aplicación se amplía mediante particionamiento, es necesario realizar el enrutamiento dependiente de datos. Para ello, queremos usar las funciones de enrutamiento dependiente de los datos de la biblioteca. En particular, queremos conservar las garantías de coherencia y validación que proporcionan las conexiones administradas mediante el administrador de mapas de particiones para evitar daños o que se generen unos resultados incorrectos de la consulta. Esto garantiza que las conexiones a un shardlet determinado se rechazan o se detienen si, por ejemplo, el shardlet se mueve actualmente a una partición diferente mediante las API de división y combinación.
 * **Asignación de objetos**: queremos conservar la comodidad de las asignaciones de Dapper para traducir entre las clases de la aplicación y las estructuras de base de datos subyacentes. 
 
 La siguiente sección proporciona orientación sobre estos requisitos para aplicaciones basadas en **Dapper** y **DapperExtensions**.
@@ -79,7 +79,7 @@ Este ejemplo de código (del ejemplo adjunto) muestra el enfoque donde la aplica
 
 La llamada a la API [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) reemplaza la creación predeterminada y la apertura de una conexión de cliente SQL. La nueva llamada [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) adopta los argumentos necesarios para el enrutamiento dependiente de los datos: 
 
-* El mapa de particiones para tener acceso a las interfaces de enrutamiento dependiente de datos
+* El mapa de particiones para acceder a las interfaces de enrutamiento dependiente de datos.
 * La clave de particionamiento para identificar el shardlet
 * Las credenciales (nombre de usuario y contraseña) para conectarse a la partición
 

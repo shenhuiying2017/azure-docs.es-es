@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Search
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Search.
@@ -44,7 +44,7 @@ Hay algunos [planes de tarifas](https://azure.microsoft.com/pricing/details/sear
 |  | Básica | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Número máximo de réplicas por servicio |3 |12 |12 |12 |12 |
-| Número máximo de particiones por servicio |1 |12 |12 |12 |1 |
+| Número máximo de particiones por servicio |1 |12 |12 |12 |3 |
 | Número máximo de unidades de búsqueda (réplicas * particiones) por servicio |3 |36 |36 |36 |36 (3 particiones como máximo) |
 | Número máximo de documentos por servicio |1 millón |180 millones |720 millones |1,4 mil millones |600 millones |
 | Almacenamiento máximo por servicio |2 GB |< 300 GB |1,2 TB |2,4 TB |600 GB |

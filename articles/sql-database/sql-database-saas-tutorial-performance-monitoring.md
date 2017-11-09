@@ -10,17 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 1509a4f05ceb3a54aad790553183616c97b4bee2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
@@ -204,16 +204,19 @@ En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Ha
 1. Ejecute el script con **F5**.
 
 
-1. En [Azure Portal](https://portal.azure.com) abra **Pool1**.
+1. En [Azure portal](https://portal.azure.com), vaya a la lista de bases de datos en el servidor *tenants1*. 
+1. Haga clic en la base de datos **contosoconcerthall**.
+1. Haga clic en el grupo en el que se encuentra **contosoconcerthall**. Busque el grupo en la sección **Grupo de bases de datos elásticas**.
+
 1. Inspeccione el gráfico **Supervisión de grupo elástico** y busque el aumento de uso de eDTU en el grupo. Pasado un minuto o dos, la carga mayor entrará en vigor rápidamente y verá que el grupo alcanza el 100 % de uso.
-1. Observe la pantalla **Supervisión de bases de datos elásticas** que muestra las bases de datos principales de la última hora. La base de datos *contosoconcerthall* pronto debería aparecer como una de las cinco bases de datos principales.
-1. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página****Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
-1. En la lista de bases de datos, haga clic en **contosoconcerthall**.
-1. Haga clic en **Plan de tarifa (escalar DTU)** para abrir la página **Configurar rendimiento** donde puede establecer un nivel de rendimiento independiente para la base de datos.
-1. Haga clic en la pestaña **Estándar** para abrir las opciones de escalado del nivel Estándar.
-1. Deslice el **control deslizante de las DTU** a la derecha para seleccionar **100** DTU. Tenga en cuenta que esto se corresponde con el objetivo de servicio, **S3**.
-1. Haga clic en **Aplicar** para sacar la base de datos del grupo y convertirla en una base de datos *S3 Estándar*.
-1. Una vez completado el escalado, supervise el efecto sobre la base de datos contosoconcerthall y Pool1 en las hojas de base de datos y grupos elásticos.
+2. Observe la pantalla **Supervisión de bases de datos elásticas** que muestra las bases de datos principales de la última hora. La base de datos *contosoconcerthall* pronto debería aparecer como una de las cinco bases de datos principales.
+3. **Haga clic en el gráfico Supervisión de bases de datos elásticas** y se abre la **página****Uso de recursos de base de datos** donde puede supervisar cualquier base de datos. Esto le permite aislar la presentación de la base de datos *contosoconcerthall*.
+4. En la lista de bases de datos, haga clic en **contosoconcerthall**.
+5. Haga clic en **Plan de tarifa (escalar DTU)** para abrir la página **Configurar rendimiento** donde puede establecer un nivel de rendimiento independiente para la base de datos.
+6. Haga clic en la pestaña **Estándar** para abrir las opciones de escalado del nivel Estándar.
+7. Deslice el **control deslizante de las DTU** a la derecha para seleccionar **100** DTU. Tenga en cuenta que esto se corresponde con el objetivo de servicio, **S3**.
+8. Haga clic en **Aplicar** para sacar la base de datos del grupo y convertirla en una base de datos *S3 Estándar*.
+9. Una vez completado el escalado, supervise el efecto sobre la base de datos contosoconcerthall y Pool1 en las hojas de base de datos y grupos elásticos.
 
 Una vez que desaparezca el exceso de carga de la base de datos contosoconcerthall debe devolverla rápidamente al grupo para reducir el coste. Si no es evidente cuándo ocurrirá esto, podría establecer una alerta en la base de datos que se active cuando el uso de DTU descienda por debajo del máximo por base de datos establecido para el grupo. El movimiento de una base de datos a un grupo se describe en el ejercicio 5.
 

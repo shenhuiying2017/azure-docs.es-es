@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: d1cb92e15109775fd120d82df6cfa94b7023d5b9
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 08fd66ed68b651bd24bc1bc58ec9631106665381
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Uso de Draft con Azure Container Service y Azure Container Registry para crear e implementar una aplicación en Kubernetes
 
@@ -41,7 +41,7 @@ Le resultará muy fácil [crear una nueva instancia de Azure Container Registry]
 
 2. Cree un registro de imagen ACR mediante [az acr create](/cli/azure/acr#create) y asegúrese de que la opción `--admin-enabled` está establecida en `true`.
       ```azurecli
-      az acr create --resource-group draft --name draftacs --sku Basic --admin-enabled true 
+      az acr create --resource-group draft --name draftacs --sku Basic
       ```
 
 

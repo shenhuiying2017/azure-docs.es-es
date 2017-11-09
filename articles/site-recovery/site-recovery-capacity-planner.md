@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 10/30/2017
 ms.author: nisoneji
-ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>Planeación de la capacidad para la protección de máquinas virtuales y de los servidores físicos en Azure Site Recovery
+# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planeamiento de la capacidad para proteger las máquinas virtuales de Hyper-V con Site Recovery
 
-La herramienta Azure Site Recovery Capacity Planner lo ayuda a determinar los requisitos de capacidad para replicar máquinas virtuales de Hyper-V, máquinas virtuales de VMware y servidores físicos de Windows/Linux con Azure Site Recovery.
+La herramienta Azure Site Recovery Capacity Planner le ayuda a determinar los requisitos de capacidad al replicar máquinas virtuales de Hyper-V con Azure Site Recovery.
 
 Use Capacity Planner de Site Recovery para analizar el entorno de origen y las cargas de trabajo, calcular las necesidades de ancho de banda, los recursos de servidor que necesita en la ubicación de origen y los recursos (máquinas virtuales y almacenamiento, etc.) que necesitará en su ubicación de destino.
 
@@ -35,11 +35,8 @@ Puede ejecutar la herramienta de dos modos distintos:
 
 
 1. Recopile información sobre su entorno, incluidas las máquinas virtuales, discos por máquina virtual y almacenamiento por disco.
-2. Identifique la tasa de cambio (renovación) diaria para los datos replicados. Para ello, siga estos pasos:
-
-   * Si está replicando máquinas virtuales de Hyper-V, descargue la [herramienta de planeamiento de capacidad de Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) para obtener la tasa de cambio. [Más información](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre esta herramienta. Se recomienda ejecutar esta herramienta durante una semana para capturar los promedios.
-   * Si va a replicar máquinas virtuales de VMware, use [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) para calcular la frecuencia de renovación.
-   * Si está replicando servidores físicos, debe realizar los cálculos manualmente.
+2. Identifique la tasa de cambio (renovación) diaria para los datos replicados. Para ello, descargue la [herramienta de planeamiento de la capacidad de Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057) y obtendrá la tasa de cambio. [Más información](site-recovery-capacity-planning-for-hyper-v-replication.md) sobre esta herramienta. Se recomienda ejecutar esta herramienta durante una semana para capturar los promedios.
+   
 
 ## <a name="run-the-quick-planner"></a>Ejecución de Quick Planner
 1. Descargue la herramienta [Capacity Planner de Azure Site Recovery](http://aka.ms/asr-capacity-planner-excel) y ábrala. Como debe ejecutar macros, seleccione las opciones de permitir la edición y de habilitar el contenido cuando se le solicite.
@@ -50,8 +47,8 @@ Puede ejecutar la herramienta de dos modos distintos:
 
    * En **Select your scenario** (Seleccionar escenario) elija **Hyper-V to Azure** (Hyper-V a Azure) o **VMware/Physical to Azure** (VMWare/Físico a Azure).
    * En **Average daily data change rate (%)** [Tasa media diaria de cambio de datos (%)], agregue la información que ha recopilado con la [herramienta de planeamiento de capacidad de Hyper-V](site-recovery-capacity-planning-for-hyper-v-replication.md) o con [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).  
-   * **Compresión** solo se aplica a la compresión que se ofrece al replicar máquinas virtuales de VMware o servidores físicos en Azure. Consideramos que es del 30 % o más, pero el valor se puede modificar según sea necesario. Para la replicación de máquinas virtuales de Hyper-V a la compresión de Azure puede usar un dispositivo de terceros, como Riverbed.
-   * En **Entradas de retención** especifique durante cuánto tiempo hay que conservar las réplicas. Si está replicando VMware o servidores físicos, especifique un valor en días. Si está replicando Hyper-V, especifique el tiempo en horas.
+   * La configuración de **compresión** no se utiliza al replicar máquinas virtuales de Hyper-V en Azure. Para la compresión, use un dispositivo de terceros como Riverbed.
+   * En **Entradas de retención**, especifique durante cuánto tiempo hay que conservar las réplicas, en horas.
    * En **Number of hours in which initial replication for the batch of virtual machines should complete** (Número de horas en las que debe completarse la replicación inicial para el lote de máquinas virtuales) y **Number of virtual machines per initial replication batch** (Número de máquinas virtuales por lote de replicación inicial) hay que especificar la configuración que se ha usado para procesar los requisitos de replicación iniciales.  Cuando se implementa Site Recovery, se debe cargar el conjunto de datos inicial completo.
 
    ![Entradas](./media/site-recovery-capacity-planner/inputs.png)
@@ -126,3 +123,7 @@ Cuando toda la información esté definida, haga clic en **Enviar datos a la her
 2. Si desea realizar cambios, deberá modificar la hoja de cálculo **Workload Qualification** y hacer clic de nuevo en **Enviar datos a la herramienta del planificador**.  
 
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Aprenda a ejecutar](site-recovery-capacity-planning-for-hyper-v-replication.md) la herramienta Capacity Planner.

@@ -1,6 +1,6 @@
 ---
 title: "Anotación de orígenes de datos | Microsoft Docs"
-description: "Artículo de procedimientos que señala cómo anotar recursos de datos en el Catálogo de datos de Azure, incluidos expertos, etiquetas, descripciones y nombres descriptivos."
+description: "Artículo de procedimientos que señala cómo anotar recursos de datos en Azure Data Catalog, incluidos expertos, etiquetas, descripciones y nombres descriptivos."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 4518fc126c717cc79ca7950c0b1ddcd9f1d8c7d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-annotate-data-sources"></a>Anotación de orígenes de datos
 ## <a name="introduction"></a>Introducción
-**Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, Data Catalog ayuda a las personas a detectar, comprender y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos. Cuando un origen de datos se registra en Data Catalog, el servicio copia e indexa sus metadatos, pero eso no es todo. Data Catalog permite que los usuarios faciliten sus propios metadatos descriptivos, como descripciones y etiquetas, para complementar los metadatos extraídos del origen de datos y conseguir que más personas lo comprendan.
+**Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, Data Catalog ayuda a las personas a detectar, comprender y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos. Cuando un origen de datos se registra en Data Catalog, el servicio copia e indexa sus metadatos, pero eso no es todo. Data Catalog permite que los usuarios faciliten sus propios metadatos descriptivos, como descripciones y etiquetas, para complementar los metadatos extraídos del origen de datos y conseguir que más personas lo comprendan.
 
 ## <a name="annotation-and-crowdsourcing"></a>Anotación y micromecenazgo
 Todo el mundo tiene una opinión. Y eso es algo bueno.

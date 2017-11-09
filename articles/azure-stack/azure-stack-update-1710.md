@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/26/2017
 ms.author: twooley
-ms.openlocfilehash: 6b54bb616accb926af9364865bf4108fe0aa3bc8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: d91a23ae4eb5aee14d3d2fef74467e7f33c458cc
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Actualización de Azure Stack 1710 (compilación 20171020.1)
 
@@ -55,9 +55,12 @@ Esta actualización incluye las siguientes correcciones y mejoras de calidad par
 
 En esta sección se abordan problemas conocidos que pueden surgir durante la instalación de la actualización 1710.
 
+> [!IMPORTANT]
+> Si se produce un error en la actualización, al intentar reanudarla posteriormente debe usar el cmdlet `Resume-AzureStackUpdate` en el punto de conexión con privilegios. No reanude la actualización mediante el portal de administrador (es un problema conocido de esta versión). Para obtener más información, consulte [Supervisión de las actualizaciones en Azure Stack mediante el uso del punto de conexión con privilegios](azure-stack-monitor-update.md).
+
 | Síntoma  | Causa  | Resolución |
 |---------|---------|---------|
-|Cuando se realiza una actualización, puede producirse un error similar al siguiente durante el paso de "Storage Hosts Restart Storage Node" (Los hosts de almacenamiento reinician el nodo de almacenamiento) del plan de acción de actualización.<br><br>**{"name":"Restart Storage Hosts","description":"Restart Storage Hosts.","errorMessage":"Type 'Restart' of Role 'BareMetal' raised an exception:\n\nThe computer HostName-05 is skipped. Fail to retrieve its LastBootUpTime via the WMI service with the following error message: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).\nat Restart-Host** | Este problema está causado por la presencia de un posible controlador defectuoso en algunas configuraciones. | 1. Inicie sesión en la interfaz web del controlador de administración de placa base (BMC) y reinicie el host que se identifica en el mensaje de error.<br><br>2. Reanude la actualización. |
+|Cuando se realiza una actualización, puede producirse un error similar al siguiente durante el paso de "Storage Hosts Restart Storage Node" (Los hosts de almacenamiento reinician el nodo de almacenamiento) del plan de acción de actualización.<br><br>**{"name":"Restart Storage Hosts","description":"Restart Storage Hosts.","errorMessage":"Type 'Restart' of Role 'BareMetal' raised an exception:\n\nThe computer HostName-05 is skipped. Fail to retrieve its LastBootUpTime via the WMI service with the following error message: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).\nat Restart-Host** | Este problema está causado por la presencia de un posible controlador defectuoso en algunas configuraciones. | 1. Inicie sesión en la interfaz web del controlador de administración de placa base (BMC) y reinicie el host que se identifica en el mensaje de error.<br><br>2. Reanude la actualización mediante el uso del punto de conexión con privilegios. |
 | Cuando se realiza una actualización, el proceso de actualización parece detenerse y no progresar después del paso "Step: Running step 2.4 - Install update"(Ejecución del paso 2.4: instalación de la actualización) del plan de acción de actualización.<br><br>A este paso le sigue una serie de procesos de copia de archivos .nupkg en los recursos compartidos de archivos de infraestructura interna. Por ejemplo:<br><br>**Copying 1 files from content\PerfCollector\VirtualMachines to \VirtualMachineName-ERCS03\C$\TraceCollectorUpdate\PerfCounterConfiguration**  | El problema se debe a archivos de registro que llenan los discos en una máquina virtual de infraestructura. Se entregará una edición del Servidor de archivos de escalabilidad horizontal (SOFS) de Windows Server en una actualización posterior. | Póngase en contacto con el Soporte técnico y el servicio al cliente de Microsoft (CSS). | 
 | Cuando se realiza una actualización, puede producirse un error similar al siguiente durante el paso "Step: Running step 2.13.2 - Update *VM_Name*" (ejecución del paso 2.13.2: actualización de VM_Name) del plan de acción de actualización. (El nombre de la máquina virtual puede variar).<br><br>**ActionPlanInstanceWarning ece/MachineName: WarningMessage:Task: Invocation of interface 'LiveUpdate' of role 'Cloud\Fabric\WAS' failed:<br>Type 'LiveUpdate' of Role 'WAS' raised an exception:<br>ERROR during storage initialization: An error occurred while trying to make an API call to Microsoft Storage service: {"Message":"A timeout occurred while communicating with Service Fabric. Exception Type: TimeoutException. Exception message: Operation timed out."}**  | El problema se debe a un tiempo de espera de E/S en Windows Server que se corregirá en una actualización posterior. | Para recibir asistencia, póngase en contacto con Microsoft CSS.
 | Cuando se realiza una actualización, un error similar al siguiente puede producirse durante el paso "Step 21 Restart SQL server VMs" (Paso 21 Reinicio de las VM de SQL Server).<br><br>**Type 'LiveUpdateRestart' of Role 'VirtualMachines' raised an exception:<br>VerboseMessage:[VirtualMachines:LiveUpdateRestart] Querying for VM MachineName-Sql01. - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] VM is marked as HighlyAvailable. - 10/13/2017 5:11:50 PM VerboseMessage:[VirtualMachines:LiveUpdateRestart] at MS.Internal.ServerClusters.ExceptionHelp.Build at MS.Internal.ServerClusters.ClusterResource.BeginTakeOffline(Boolean force) at Microsoft.FailoverClusters.PowerShell.StopClusterResourceCommand.BeginTimedOperation() at Microsoft.FailoverClusters.PowerShell.TimedCmdlet.WrappedProcessRecord() at Microsoft.FailoverClusters.PowerShell.FCCmdlet.ProcessRecord() - 10/13/2017 5:11:50 PM WarningMessage:Task: Invocation of interface 'LiveUpdateRestart' of role 'Cloud\Fabric\VirtualMachines' failed:** | Este problema puede producirse si la máquina virtual no se puede reiniciar. | Para recibir asistencia, póngase en contacto con Microsoft CSS.

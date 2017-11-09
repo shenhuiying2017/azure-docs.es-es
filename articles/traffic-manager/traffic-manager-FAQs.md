@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -216,7 +216,7 @@ La salida de Traffic View incluye los datos de los siete días anteriores al dí
 
 ### <a name="how-does-traffic-view-handle-external-endpoints"></a>¿Cómo controla Traffic View los puntos de conexión externos?
 
-Cuando se usan puntos de conexión externos hospedados fuera de regiones de Azure en un perfil de Traffic Manager, puede elegir asignarlos a una región de Azure que funcione como un servidor proxy por sus características de latencia (de hecho, esto es necesario si se usa el método de enrutamiento de rendimiento). Si se tiene esta asignación de región de Azure, las métricas de latencia de dicha región se usarán al crear la salida de Traffic View. Si no se especifica ninguna región de Azure, no habrá información de latencia para esos puntos de conexión externos.
+Cuando se usan puntos de conexión externos hospedados fuera de regiones de Azure en un perfil de Traffic Manager, puede elegir asignarlos a una región de Azure que funcione como un servidor proxy por sus características de latencia (de hecho, esto es necesario si se usa el método de enrutamiento de rendimiento). Si tiene esta asignación de región de Azure, las métricas de latencia de dicha región se usarán al crear la salida de Vista de tráfico. Si no se especifica ninguna región de Azure, no habrá información de latencia para esos puntos de conexión externos.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>¿Es necesario habilitar Traffic View en cada perfil de la suscripción?
 Durante el período de versión preliminar, Traffic View está habilitado en el nivel de suscripción y está disponible para todos los perfiles de Traffic Manager dentro de esa suscripción.

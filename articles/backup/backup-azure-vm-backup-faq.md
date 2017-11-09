@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 0117398a1ad2a8519f50732d173bec9fbb7411b5
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d3178413e894c095235dde067b369e3554375aa6
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Preguntas sobre el servicio de copia de seguridad de máquinas virtuales de Azure
 En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes del servicio de copia de seguridad de máquinas virtuales de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -59,6 +59,9 @@ Use discos de restauración para:
   * Controlar la convención de nomenclatura para los recursos que se crean
   * Agregar una máquina virtual al conjunto de disponibilidad
   * Para cualquier configuración que solo se puede lograr mediante PowerShell o una definición de plantilla declarativa
+  
+### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>¿Puedo usar copias de seguridad de la VM de disco no administrada que se va a restaurar una vez que actualice mis discos a discos administrados?
+Sí, puede usar las copias de seguridad tomadas antes de migrar los discos de no administrados a administrados. De forma predeterminada, al restaurarse un trabajo de máquina virtual se creará una máquina virtual con discos no administrados. Puede usar la funcionalidad de restauración de discos para restaurar discos y usarlos para crear una máquina virtual en los discos administrados. 
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>¿Qué ocurre cuando se cambia una directiva de copia de seguridad en las máquinas virtuales?

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Administración de permisos de usuario en los niveles de archivo y carpeta
 
-[Clústeres de HDInsight unidos a un dominio](hdinsight-domain-joined-introduction.md): utilice una autenticación sólida con usuarios de Azure Active Directory (Azure AD) y también las directivas de *control de acceso basado en rol* (RBAC) para varios servicios, como YARN y Hive. Si el almacén de datos predeterminado del clúster es Azure Storage o Windows Azure Storage Blobs (WASB), también puede aplicar permisos a nivel de carpeta y archivo. Puede usar Apache Ranger para controlar el acceso de los usuarios y grupos sincronizados de Azure AD a los archivos del clúster.
+[Clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-introduction.md): utilice una autenticación sólida con usuarios de Azure Active Directory (Azure AD) y también las directivas de *control de acceso basado en rol* (RBAC) para varios servicios, como YARN y Hive. Si el almacén de datos predeterminado del clúster es Azure Storage o Windows Azure Storage Blobs (WASB), también puede aplicar permisos a nivel de carpeta y archivo. Puede usar Apache Ranger para controlar el acceso de los usuarios y grupos sincronizados de Azure AD a los archivos del clúster.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 La instancia de Apache Ranger para los clústeres de HDInsight unidos a un dominio tiene preconfigurado el servicio Ranger-WASB. El servicio Ranger-WASB es un motor de administración de políticas similar a Ranger-HDFS, pero con un cumplimiento distinto de las directivas de acceso de Ranger. En el servicio Ranger-WASB, si una solicitud de recursos entrante no tiene una directiva de Ranger de conciliación, la respuesta predeterminada es DENY. El servicio Ranger no pasa la comprobación de permisos a WASB.
@@ -69,7 +69,7 @@ Cuando un carácter comodín (`*`) está presente en la ruta de acceso de una di
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Administración de permisos a nivel de archivo y carpeta con Apache Ranger
 
-Si no lo ha hecho aún, siga [estas instrucciones](hdinsight-domain-joined-configure.md) para aprovisionar un nuevo clúster unido a un dominio.
+Si no lo ha hecho aún, siga [estas instrucciones](./domain-joined/apache-domain-joined-configure.md) para aprovisionar un nuevo clúster unido a un dominio.
 
 Abra Ranger-WASB; para ello, examine `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Escriba el nombre de usuario y la contraseña del administrador del clúster que definió cuando creó el clúster.
 
@@ -117,8 +117,8 @@ El [flujo de evaluación de directivas](#permission-and-policy-model) de Apache 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de directivas de Hive en HDInsight unido a un dominio](hdinsight-domain-joined-run-hive.md)
-* [Administración de clústeres de HDInsight unidos a dominio](hdinsight-domain-joined-manage.md)
+* [Configuración de directivas de Hive en HDInsight unido a un dominio](./domain-joined/apache-domain-joined-run-hive.md)
+* [Administración de clústeres de HDInsight unidos a dominio](./domain-joined/apache-domain-joined-manage.md)
 * [Administración de Ambari: autorización de usuarios en Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

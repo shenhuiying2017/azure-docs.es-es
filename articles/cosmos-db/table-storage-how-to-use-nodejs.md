@@ -12,32 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: e8b22dad84e89be6051041e60ca9d72ec4aa3c56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a92abbb08270c33f1848dc6789a89c2a81701ff
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Uso del almacenamiento de tablas de Azure en Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Información general
-Este tema muestra cómo realizar algunas tareas comunes a través del servicio Tabla de Azure en una aplicación Node.js.
+Este tema muestra cómo realizar algunas tareas comunes a través de Azure Table service en una aplicación Node.js.
 
 En los ejemplos de código de este tema se considera que ya tiene una aplicación Node.js. Para información sobre cómo crear una aplicación Node.js en Azure, consulte alguno de estos temas:
 
-* [Creación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure](../app-service/app-service-web-get-started-nodejs.md)
+* [Creación de una aplicación web de Node.js en Azure App Service](../app-service/app-service-web-get-started-nodejs.md)
 * [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (con Windows PowerShell)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento de Azure
-Para usar Almacenamiento de Azure necesitará el SDK de almacenamiento de Azure para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
+## <a name="configure-your-application-to-access-azure-storage"></a>Configuración de la aplicación para obtener acceso a Azure Storage
+Para usar Azure Storage necesitará el SDK de Azure Storage para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para instalar el paquete
 1. Use una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde creó la aplicación.
@@ -62,7 +62,7 @@ Agregue el código siguiente a la parte superior del archivo **server.js** de la
 var azure = require('azure-storage');
 ```
 
-## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de almacenamiento de Azure
+## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT y AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener información necesaria para conectarse a su cuenta de Azure Storage. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **TableService**.
 
 ## <a name="create-a-table"></a>Creación de una tabla
@@ -356,7 +356,7 @@ dc.table.queryEntities(tableName,
 
 Si inspecciona el objeto `continuationToken`, encontrará propiedades como `nextPartitionKey`, `nextRowKey` y `targetLocation`, que puede usar para iterar en todos los resultados.
 
-También hay un ejemplo de continuación en el repositorio de Node.js de Almacenamiento de Azure en GitHub. Busque `examples/samples/continuationsample.js`.
+También hay un ejemplo de continuación en el repositorio de Node.js de Azure Storage en GitHub. Busque `examples/samples/continuationsample.js`.
 
 ## <a name="work-with-shared-access-signatures"></a>Trabajo con firmas de acceso compartido
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las tablas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus datos, por ejemplo, para permitir que una aplicación móvil consulte registros.
@@ -447,6 +447,6 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 Para obtener más información, consulte los siguientes recursos:
 
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
-* [SDK de almacenamiento de Azure para Node.js](https://github.com/Azure/azure-storage-node) en GitHub
+* [SDK de Azure Storage para Node.js](https://github.com/Azure/azure-storage-node) en GitHub
 * [Centro para desarrolladores de Node.js](/develop/nodejs/)
 * [Creación e implementación de una aplicación Node.js en un sitio web de Azure](../app-service/app-service-web-get-started-nodejs.md)

@@ -1,6 +1,6 @@
 ---
 title: "Creación y administración de trabajos elásticos mediante PowerShell | Microsoft Docs"
-description: PowerShell usada para administrar grupos de Base de datos SQL de Azure
+description: PowerShell usada para administrar grupos de Azure SQL Database
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 12ace2ff3bcb967ec5e0ae88d3ce79a53836dd5e
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creación y administración de trabajos elásticos de SQL Database mediante PowerShell (versión preliminar)
 
-Las API de PowerShell para **Trabajos de base de datos elástica** permtein definir el grupo de bases de datos en las que se ejecutarán los scripts. Este artículo muestra cómo crear y administrar **trabajos de base de datos elástica** mediante cmdlets de PowerShell. Consulte [Información general sobre trabajos elásticos](sql-database-elastic-jobs-overview.md). 
+Las API de PowerShell para **Trabajos de Elastic Database** permiten definir el grupo de bases de datos en las que se ejecutarán los scripts. Este artículo muestra cómo crear y administrar **trabajos de Elastic Database** mediante cmdlets de PowerShell. Consulte [Información general sobre trabajos elásticos](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
-* Un conjunto de bases de datos creadas con las herramientas de base de datos elástica. Consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
+* Un conjunto de bases de datos creadas con las herramientas de Elastic Database. Consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* **Trabajos de base de datos elástica** : consulte [Installing Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md)
+* **Trabajos de Elastic Database**: consulte [Instalación de trabajos de Elastic Database](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selección de su suscripción a Azure
 Para seleccionar la suscripción, necesitará el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureRmSubscription** y copiar la información de la suscripción que quiera del conjunto de resultados. Cuando tenga la información de la suscripción, ejecute el siguiente cmdlet para establecer esta suscripción como predeterminada, es decir, el destino para crear y administrar trabajos:
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
-Se recomienda el uso de [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) para desarrollar y ejecutar scripts de PowerShell en Trabajos de base de datos elástica.
+Se recomienda el uso de [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) para desarrollar y ejecutar scripts de PowerShell en trabajos de Elastic Database.
 
-## <a name="elastic-database-jobs-objects"></a>Objetos de Trabajos de base de datos elástica
-En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de base de datos elástica** con su descripción y las API de PowerShell relevantes.
+## <a name="elastic-database-jobs-objects"></a>Objetos de trabajos de Elastic Database
+En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de Elastic Database** con su descripción y las API de PowerShell relevantes.
 
 <table style="width:100%">
   <tr>
@@ -48,7 +48,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de ba
   </tr>
   <tr>
     <td>Credential:</td>
-    <td>Nombre de usuario y contraseña que se usará al conectarse a bases de datos para la ejecución de scripts o la aplicación de archivos DACPAC. <p>La contraseña se cifra antes de enviarla y almacenarla en la base de datos de Trabajos de base de datos elástica.  El servicio Trabajos de base de datos elástica descifra la contraseña a través de la credencial que se creó y cargó desde el script de instalación.</td>
+    <td>Nombre de usuario y contraseña que se usará al conectarse a bases de datos para la ejecución de scripts o la aplicación de archivos DACPAC. <p>La contraseña se cifra antes de enviarla y almacenarla en la base de datos de trabajos de Elastic Database.  Los trabajos de Elastic Database descifra la contraseña a través de la credencial que se creó y cargó desde el script de instalación.</td>
     <td><p>Get-AzureSqlJobCredential</p>
     <p>New-AzureSqlJobCredential</p><p>Set-AzureSqlJobCredential</p></td></td>
   </tr>
@@ -68,7 +68,6 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de ba
   <tr>
     <td>DACPAC</td>
     <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Paquete de aplicación de capa de datos </a> que se va a aplicar transversalmente a las bases de datos.
-
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -78,8 +77,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de ba
   </tr>
   <tr>
     <td>Destino de la base de datos</td>
-    <td>Nombre del servidor y la base de datos que apuntan a una Base de datos SQL de Azure.
-
+    <td>Nombre del servidor y la base de datos que apuntan a una instancia de Azure SQL Database.
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
@@ -88,7 +86,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de ba
   </tr>
   <tr>
     <td>Destino de mapa de particiones</td>
-    <td>Combinación de un destino de base de datos y una credencial que se usará para determinar la información almacenada en un mapa de particiones de base de datos elástica.
+    <td>Combinación de un destino de base de datos y una credencial que se usará para determinar la información almacenada en un mapa de particiones de Elastic Database.
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
@@ -154,7 +152,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de ba
     <td>Directiva de ejecución de trabajos</td>
     <td>
     <p>Controla los tiempos de espera, los límites de reintentos y los intervalos entre reintentos de la ejecución de trabajos.</p>
-    <p>Trabajos de base de datos elástica incluye una directiva de ejecución de trabajos predeterminada que, básicamente, producirá un número infinito de reintentos de errores de tareas de trabajo con retroceso exponencial de intervalos entre reintentos.</p>
+    <p>Los trabajos de Elastic Database incluyen una directiva de ejecución de trabajos predeterminada que, básicamente, producirá un número infinito de reintentos de errores de tareas de trabajo con retroceso exponencial de intervalos entre reintentos.</p>
     </td>
     <td>
     <p>Get-AzureSqlJobExecutionPolicy</p>
@@ -187,7 +185,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de ba
   </tr>
 </table>
 
-## <a name="supported-elastic-database-jobs-group-types"></a>Tipos de grupo de trabajos de base de datos elástica admitidos
+## <a name="supported-elastic-database-jobs-group-types"></a>Tipos de grupo de trabajos de Elastic Database admitidos
 El trabajo ejecuta scripts de Transact-SQL (T-SQL) o la aplicación de archivos DACPAC en un grupo de bases de datos. Cuando se envía un trabajo para que se ejecute en un grupo de bases de datos, Trabajos de base de datos elástica se “expande” en trabajos secundarios, y cada uno realiza la ejecución solicitada en una sola base de datos del grupo. 
 
 Hay dos tipos de grupos que puede crear: 
@@ -195,21 +193,21 @@ Hay dos tipos de grupos que puede crear:
 * [Mapa de particiones](sql-database-elastic-scale-shard-map-management.md) : cuando se envía un trabajo con destino a un mapa de particiones, el trabajo consulta primero el mapa de particiones para determinar su conjunto actual de particiones y luego crea trabajos secundarios para cada partición del mapa de particiones.
 * Grupo Colección personalizada: conjunto personalizado de bases de datos. Cuando un trabajo está destinado a una colección personalizada, crea trabajos secundarios para cada base de datos de la colección personalizada.
 
-## <a name="to-set-the-elastic-database-jobs-connection"></a>Para establecer la conexión de Trabajos de base de datos elástica
-Se debe establecer una conexión con la *base de datos de control* de trabajos antes de usar las API de trabajos. Al ejecutar este cmdlet se desencadena una ventana de credenciales emergente que solicita el nombre de usuario y la contraseña creados al instalar Trabajos de base de datos elástica. En todos los ejemplos que se ofrecen en este tema se da por hecho que este primer paso ya se realizó.
+## <a name="to-set-the-elastic-database-jobs-connection"></a>Para establecer la conexión de trabajos de Elastic Database
+Se debe establecer una conexión con la *base de datos de control* de trabajos antes de usar las API de trabajos. Al ejecutar este cmdlet se desencadena una ventana de credenciales emergente que solicita el nombre de usuario y la contraseña creados al instalar trabajos de Elastic Database. En todos los ejemplos que se ofrecen en este tema se da por hecho que este primer paso ya se realizó.
 
-Apertura de una conexión a Trabajos de base de datos elástica:
+Apertura de una conexión a trabajos de Elastic Database:
 
     Use-AzureSqlJobConnection -CurrentAzureSubscription 
 
-## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Credenciales cifradas en el servicio Trabajos de base de datos elástica
+## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Credenciales cifradas en los trabajos de Elastic Database
 Las credenciales de la base de datos se pueden insertar en la *base de datos de control* de trabajos con su contraseña cifrada. Es preciso almacenar las credenciales para que los trabajos se puedan ejecutar después (mediante programaciones de trabajos).
 
 El cifrado funciona a través de un certificado creado como parte del script de instalación. El script de instalación crea y carga el certificado en el servicio en la nube de Azure para descifrar las contraseñas almacenadas que están cifradas. Más adelante, el servicio en la nube de Azure almacena la clave pública en la *base de datos de control* de trabajos, lo que permite que la API de PowerShell o la interfaz del Portal de Azure clásico cifren una contraseña proporcionada sin que el certificado tenga que estar instalado localmente.
 
-Las contraseñas de credenciales se cifran y se protegen de los usuarios mediante el acceso de solo lectura a los objetos de Trabajos de base de datos elástica. Pero es posible que usuarios malintencionados con acceso de lectura y escritura a los objetos de Trabajos de base de datos elástica extraigan una contraseña. Las credenciales están diseñadas para su reutilización entre ejecuciones de trabajos. Las credenciales se pasan a las bases de datos de destino al establecer conexiones. Como actualmente no hay ninguna restricción en las bases de datos de destino que se usan por cada credencial, un usuario malintencionado podría agregar como destino una base de datos que esté bajo el control del usuario malintencionado. Posteriormente, el usuario podría iniciar un trabajo destinado a esta base de datos para obtener la contraseña de la credencial.
+Las contraseñas de credenciales se cifran y se protegen de los usuarios mediante el acceso de solo lectura a los objetos de trabajos de Elastic Database. Pero es posible que usuarios malintencionados con acceso de lectura y escritura a los objetos de Trabajos de Elastic Database extraigan una contraseña. Las credenciales están diseñadas para su reutilización entre ejecuciones de trabajos. Las credenciales se pasan a las bases de datos de destino al establecer conexiones. Como actualmente no hay ninguna restricción en las bases de datos de destino que se usan por cada credencial, un usuario malintencionado podría agregar como destino una base de datos que esté bajo el control del usuario malintencionado. Posteriormente, el usuario podría iniciar un trabajo destinado a esta base de datos para obtener la contraseña de la credencial.
 
-Los procedimientos recomendados de seguridad para Trabajos de base de datos elástica son:
+Los procedimientos recomendados de seguridad para los trabajos de Elastic Database son:
 
 * Limitar el uso de las API a las personas de confianza.
 * Las credenciales deben tener los privilegios mínimos necesarios para realizar la tarea de trabajo.  Puede ver más información en este artículo de MSDN sobre SQL Server, [Autorización y permisos](https://msdn.microsoft.com/library/bb669084.aspx) .
@@ -228,8 +226,8 @@ Cuando las contraseñas cambian, use el [**cmdlet Set-AzureSqlJobCredential**](/
     $credentialName = "{Credential Name}"
     Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
 
-## <a name="to-define-an-elastic-database-shard-map-target"></a>Para definir un mapa de particiones de base de datos elástica de destino
-Para ejecutar un trabajo en todas las bases de datos de un conjunto de particiones (creado con la [biblioteca cliente de Base de datos elástica](sql-database-elastic-database-client-library.md)), use un mapa de particiones como base de datos de destino. Este ejemplo requiere crear una aplicación con particiones con la biblioteca cliente de Base de datos elástica. Consulte [Introducción a las herramientas de Base de datos elástica](sql-database-elastic-scale-get-started.md).
+## <a name="to-define-an-elastic-database-shard-map-target"></a>Para definir un mapa de particiones de una instancia de Elastic Database de destino
+Para ejecutar un trabajo en todas las bases de datos de un conjunto de particiones (creado con la [biblioteca cliente de Elastic Database](sql-database-elastic-database-client-library.md)), use un mapa de particiones como base de datos de destino. Este ejemplo requiere crear una aplicación con particiones con la biblioteca cliente de Elastic Database. Consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
 Se debe establecer la base de datos de administrador del mapa de particiones como base de datos de destino y luego especificar ese mapa de particiones como destino.
 
@@ -242,7 +240,7 @@ Se debe establecer la base de datos de administrador del mapa de particiones com
     Write-Output $shardMapTarget
 
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Crear un script T-SQL para su ejecución transversal en las bases de datos
-Al crear scripts de T-SQL para su ejecución, es muy recomendable hacerlo de forma que sean [idempotentes](https://en.wikipedia.org/wiki/Idempotence) y resistentes a los errores. Trabajos de base de datos elástica volverá a intentar la ejecución de un script cada vez que la ejecución encuentra un error, independientemente de la clasificación del error.
+Al crear scripts de T-SQL para su ejecución, es muy recomendable hacerlo de forma que sean [idempotentes](https://en.wikipedia.org/wiki/Idempotence) y resistentes a los errores. Trabajos de Elastic Database volverá a intentar la ejecución de un script cada vez que la ejecución encuentra un error, independientemente de la clasificación del error.
 
 Use el [**cmdlet New-AzureSqlJobContent**](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent) para crear y guardar un script de ejecución y establezca los parámetros **-ContentName** y **-CommandText**.
 
@@ -409,12 +407,12 @@ Este script de PowerShell sirve para esperar a que una tarea de trabajo se compl
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
 
 ## <a name="create-a-custom-execution-policy"></a>Crear una directiva de ejecución personalizada
-Trabajos de base de datos elástica admite la creación de directivas de ejecución personalizadas que se pueden aplicar al iniciar trabajos.
+Los trabajos de Elastic Database admiten la creación de directivas de ejecución personalizadas que se pueden aplicar al iniciar trabajos.
 
 Actualmente, las directivas de ejecución permiten definir:
 
 * Nombre: identificador de la directiva de ejecución.
-* Tiempo de espera del trabajo: tiempo total antes de que Trabajos de base de datos elástica cancele un trabajo.
+* Tiempo de espera del trabajo: tiempo total antes de que trabajos de Elastic Database cancele un trabajo.
 * Intervalo de reintento inicial: intervalo de espera antes del primer reintento.
 * Intervalo máximo de reintento: límite de intervalos de reintento que se usan.
 * Coeficiente de retroceso de intervalo de reintento: coeficiente que se usa para calcular el siguiente intervalo entre reintentos.  Se usa la siguiente fórmula: (intervalo de reintento inicial) * Math.pow ((coeficiente de retroceso de intervalo), (número de intentos de) - 2). 
@@ -454,9 +452,9 @@ Actualizar la directiva de ejecución que se quiere actualizar:
     Write-Output $updatedExecutionPolicy
 
 ## <a name="cancel-a-job"></a>Cancelación de un trabajo
-Trabajos de base de datos elástica admite solicitudes de cancelación de trabajos.  Si Trabajos de base de datos elástica detecta una solicitud de cancelación para un trabajo que está ejecutándose en ese momento, intentará detener el trabajo.
+Los trabajos de Elastic Database admiten solicitudes de cancelación de trabajos.  Si trabajos de Elastic Database detecta una solicitud de cancelación para un trabajo que está ejecutándose en ese momento, intentará detener el trabajo.
 
-Trabajos de base de datos elástica puede realizar una cancelación de dos formas distintas:
+Trabajos de Elastic Database puede realizar una cancelación de dos formas distintas:
 
 1. Cancelar las tareas actualmente en ejecución: si se detecta una cancelación mientras se ejecuta una tarea, se intentará cancelar el aspecto de la tarea que se está ejecutando actualmente.  Por ejemplo: si hay una consulta de larga ejecución en curso en el momento en que se intenta realizar una cancelación, se intentará cancelar la consulta.
 2. Cancelación de reintentos de tareas: si el subproceso de control detecta una cancelación antes de iniciar una tarea para su ejecución, evitará iniciar la tarea y declarará cancelada la solicitud.
@@ -469,7 +467,7 @@ Para enviar una solicitud de cancelación, use el [**cmdlet Stop-AzureSqlJobExec
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
 ## <a name="to-delete-a-job-and-job-history-asynchronously"></a>Para eliminar un trabajo y el historial de trabajos de forma asincrónica
-Trabajos de base de datos elástica admite la eliminación asincrónica de trabajos. Un trabajo se puede marcar para su eliminación y el sistema eliminará el trabajo y su historial de trabajos una vez completadas todas las ejecuciones de trabajos para ese trabajo. El sistema no cancelará automáticamente las ejecuciones de trabajos activos.  
+Los trabajos de Elastic Database admiten la eliminación asincrónica de trabajos. Un trabajo se puede marcar para su eliminación y el sistema eliminará el trabajo y su historial de trabajos una vez completadas todas las ejecuciones de trabajos para ese trabajo. El sistema no cancelará automáticamente las ejecuciones de trabajos activos.  
 
 Invoque a [**Stop-AzureSqlJobExecution**](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) para cancelar las ejecuciones de trabajos activas.
 
@@ -512,7 +510,7 @@ Use el cmdlet [**Get-AzureSqlJobTarget**](/powershell/module/elasticdatabasejobs
     Write-Output $childTargets
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Creación de un trabajo para ejecutar un script transversalmente en un destino de colección de bases de datos personalizada
-Use el cmdlet [**New-AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob) para crear un trabajo en un grupo de bases de datos definido por un destino de la colección de base de datos personalizada. Trabajos de base de datos elástica expande el trabajo en varios trabajos secundarios, cada uno correspondiente a una base de datos asociada al destino de la colección de bases de datos personalizada y garantiza que el script se ejecuta en cada una de las bases de datos. De nuevo, es importante que los scripts sean idempotentes para que sean resistentes a los reintentos.
+Use el cmdlet [**New-AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-azuresqljob) para crear un trabajo en un grupo de bases de datos definido por un destino de la colección de base de datos personalizada. Los trabajos de Elastic Database expanden el trabajo en varios trabajos secundarios, cada uno correspondiente a una base de datos asociada al destino de la colección de bases de datos personalizada y garantiza que el script se ejecuta en cada una de las bases de datos. De nuevo, es importante que los scripts sean idempotentes para que sean resistentes a los reintentos.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -525,7 +523,7 @@ Use el cmdlet [**New-AzureSqlJob**](/powershell/module/elasticdatabasejobs/new-a
 ## <a name="data-collection-across-databases"></a>Recopilación de datos de una base de datos a otra
 Puede usar un trabajo para ejecutar una consulta en un grupo de bases de datos y enviar los resultados a una tabla específica. La tabla se puede consultar a posteriori para ver los resultados de la consulta de cada base de datos. Esto ofrece un mecanismo asincrónico para ejecutar una consulta en numerosas bases de datos. Los intentos incorrectos se controlan automáticamente mediante reintentos.
 
-La tabla de destino especificada se creará automáticamente si todavía no existe. La nueva tabla coincide con el esquema del conjunto de resultados devuelto. Si un script devuelve varios conjuntos de resultados, Trabajos de base de datos elástica solo enviará el primero a la tabla de destino.
+La tabla de destino especificada se creará automáticamente si todavía no existe. La nueva tabla coincide con el esquema del conjunto de resultados devuelto. Si un script devuelve varios conjuntos de resultados, los trabajos de Elastic Database solo enviarán el primero a la tabla de destino.
 
 El siguiente script de PowerShell ejecuta un script y recopila los resultados en una tabla especificada. Este script presupone que se creó un script T-SQL que genera un único conjunto de resultados y que se creó una colección de bases de datos personalizada de destino.
 
@@ -608,7 +606,7 @@ Use [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresql
     Write-Output $jobTriggers
 
 ## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>Para crear una aplicación de capa de datos (DACPAC) para su ejecución en bases de datos
-Para crear una DACPAC, consulte [Aplicaciones de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx). Para implementar una DACPAC, use el [cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). La DACPAC debe ser accesible para el servicio. Se recomienda cargar una DACPAC creada en Almacenamiento de Azure y crear una [firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para la DACPAC.
+Para crear una DACPAC, consulte [Aplicaciones de capa de datos](https://msdn.microsoft.com/library/ee210546.aspx). Para implementar una DACPAC, use el [cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). La DACPAC debe ser accesible para el servicio. Se recomienda cargar una DACPAC creada en Azure Storage y crear una [firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) para la DACPAC.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"
@@ -616,7 +614,7 @@ Para crear una DACPAC, consulte [Aplicaciones de capa de datos](https://msdn.mic
     Write-Output $dacpac
 
 ### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>Para actualizar una aplicación de capa de datos (DACPAC) para su ejecución en bases de datos
-Las DACPAC existentes que se registren en Trabajos de base de datos elástica pueden actualizarse para que señalen a nuevos URI. Use el cmdlet [**Set-AzureSqlJobContentDefinition**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) para actualizar el URI de una DACPAC registrada:
+Las DACPAC existentes que se registren en los trabajos de Elastic Database pueden actualizarse para que señalen a nuevos URI. Use el cmdlet [**Set-AzureSqlJobContentDefinition**](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) para actualizar el URI de una DACPAC registrada:
 
     $dacpacName = "{Dacpac Name}"
     $newDacpacUri = "{Uri}"
@@ -624,7 +622,7 @@ Las DACPAC existentes que se registren en Trabajos de base de datos elástica pu
     Write-Output $updatedDacpac
 
 ## <a name="to-create-a-job-to-apply-a-data-tier-application-dacpac-across-databases"></a>Para crear un trabajo para aplicar una aplicación de capa de datos (DACPAC) en bases de datos
-Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse un trabajo que aplique transversalmente la DACPAC en un grupo de bases de datos. El siguiente script de PowerShell sirve para crear un trabajo DACPAC transversalmente en una colección personalizada de bases de datos:
+Una vez creada una DACPAC en trabajos de Elastic Database, puede crearse un trabajo que aplique transversalmente la DACPAC en un grupo de bases de datos. El siguiente script de PowerShell sirve para crear un trabajo DACPAC transversalmente en una colección personalizada de bases de datos:
 
     $jobName = "{Job Name}"
     $dacpacName = "{Dacpac Name}"

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas y herramientas para proyectos de equipo de ciencia de datos
 
@@ -61,10 +61,10 @@ Apache Spark es una plataforma de procesamiento paralelo de código abierto que 
 
 Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Se tardan unos diez minutos en crear un clúster Spark en HDInsight. Almacene los datos que se van procesar en Azure Blob Storage. Para más información sobre cómo usar Azure Blob Storage con HDInsight, consulte [Uso de Azure Storage con clústeres de Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre cómo usar clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, una que use Python y otra Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/hdinsight-apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
+El equipo de proceso de ciencia de datos en equipo de Microsoft ha publicado dos tutoriales completos sobre cómo usar clústeres de Azure HDInsight Spark para crear soluciones de ciencia de datos, una que use Python y otra Scala. Para más información sobre **clústeres de Azure HDInsight Spark**, consulte [Introducción a Apache Spark en HDInsight para Linux](../../hdinsight/spark/apache-spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Python** en un clúster de Azure HDInsight Spark, consulte [Información general sobre la ciencia de datos con Azure HDInsight Spark](spark-overview.md). Para obtener información sobre cómo crear una solución de ciencia de datos mediante **Scala** en un clúster de Azure HDInsight Spark, consulte [Ciencia de datos mediante Scala y Spark en Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Almacenamiento de datos SQL de Azure
+##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
 Azure SQL Data Warehouse le permite escalar los recursos de proceso fácilmente y en segundos, sin tener que realizar un aprovisionamiento excesivo o pagar en exceso. Además, ofrece la opción única de pausar el uso de los recursos de proceso, lo que aporta la libertad para administrar mejor los costos de la nube. La capacidad de implementar recursos de proceso escalables permite poner todos los datos en Azure SQL Data Warehouse. Los costos de almacenamiento son mínimos y puede ejecutar el proceso solo en aquellas partes de los conjuntos de datos que desea analizar. 
 
@@ -86,7 +86,7 @@ Hive le permite proyectar la estructura del proyecto en datos que en gran medida
 
 Para los científicos de datos, Hive puede ejecutar funciones de Python definidas por el usuario en consultas de Hive para procesar registros. Esta capacidad amplía considerablemente la funcionalidad de consultas de Hive en el análisis de datos. Específicamente, permite a los científicos de datos realizar ingeniería de características escalables en los lenguajes con los que están más familiarizados, como Python y HiveQA de tipo SQL. 
 
-Para más información sobre los clústeres de Azure HDInsight Hive, consulte [Uso de Hive y HiveQL con Hadoop en HDInsight](../../hdinsight/hdinsight-use-hive.md). Para aprender cómo crear una solución de ciencia de datos completa y escalable a clústeres de Hive de HDInsight de Azure, consulte [el proceso de ciencia de datos en equipo en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md).
+Para más información sobre los clústeres de Azure HDInsight Hive, consulte [Uso de Hive y HiveQL con Hadoop en HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Para aprender cómo crear una solución de ciencia de datos completa y escalable a clústeres de Hive de HDInsight de Azure, consulte [el proceso de ciencia de datos en equipo en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Azure File Storage 

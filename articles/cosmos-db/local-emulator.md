@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: arramac
-ms.openlocfilehash: a6124a8fa630424558c0812edbf12d5ad25d6bf6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 5ea254110a24ea3315d614ebca2d43bda0e1a674
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local
 
@@ -86,7 +86,7 @@ El Emulador de Azure Cosmos DB presenta los siguientes requisitos de hardware y 
   * 10 GB de espacio disponible en disco duro
 
 ## <a name="installation"></a>Instalación
-Puede descargar e instalar el emulador de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://aka.ms/cosmosdb-emulator) o puede ejecutarlo en Docker para Windows. Para más instrucciones sobre cómo utilizar el emulador en Docker para Windows, consulte [Ejecución en Docker para Windows](#running-on-docer). 
+Puede descargar e instalar el emulador de Azure Cosmos DB desde el [Centro de descarga de Microsoft](https://aka.ms/cosmosdb-emulator) o puede ejecutarlo en Docker para Windows. Para más instrucciones sobre cómo utilizar el emulador en Docker para Windows, consulte [Ejecución en Docker para Windows](#running-on-docker). 
 
 > [!NOTE]
 > Para instalar, configurar y ejecutar el Emulador de Azure Cosmos DB, debe tener privilegios administrativos en el equipo.

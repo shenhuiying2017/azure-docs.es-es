@@ -1,6 +1,6 @@
 ---
 title: "Solución del problema de la lentitud de copias de seguridad de archivos y carpetas en Azure Backup | Microsoft Docs"
-description: "Le proporciona una guía para solucionar problemas que le ayudará a diagnosticar la causa de los problemas de rendimiento de Copia de seguridad de Azure"
+description: "Le proporciona una guía para solucionar problemas que le ayudará a diagnosticar la causa de los problemas de rendimiento de Azure Backup"
 services: backup
 documentationcenter: 
 author: genlin
@@ -12,25 +12,25 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Copia de seguridad de Azure
-Este artículo proporciona una guía para la solución de problemas que le ayudará a diagnosticar la causa de un rendimiento lento en la copia de seguridad de archivos y carpetas cuando se usa Copia de seguridad de Azure. Si se utiliza el agente de Copia de seguridad de Azure para hacer copia de seguridad de los archivos, el proceso puede tardar más de lo esperado. Este problema puede deberse a uno o a varios de los siguientes motivos:
+# <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
+Este artículo proporciona una guía para la solución de problemas que le ayudará a diagnosticar la causa de un rendimiento lento en la copia de seguridad de archivos y carpetas cuando se usa Azure Backup. Si se utiliza el agente de Azure Backup para hacer copia de seguridad de los archivos, el proceso puede tardar más de lo esperado. Este problema puede deberse a uno o a varios de los siguientes motivos:
 
 * [Hay cuellos de botella que afectan al rendimiento del equipo en el que se realiza la copia de seguridad](#cause1)
-* [Otro proceso o software antivirus que interfiere en el proceso de Copia de seguridad de Azure](#cause2)
+* [Otro proceso o software antivirus que interfiere en el proceso de Azure Backup](#cause2)
 * [El agente de Copia de seguridad se ejecuta en una máquina virtual (VM) de Azure.](#cause3)  
 * [Se realiza una copia de seguridad de un número elevado (varios millones) de archivos.](#cause4)
 
-Antes de empezar a solucionar problemas, se recomienda descargar e instalar el [agente de Copia de seguridad de Azure más reciente](http://aka.ms/azurebackup_agent). Se realizan actualizaciones frecuentes en el agente de copia de seguridad para corregir varios problemas, agregar características y mejorar el rendimiento.
+Antes de empezar a solucionar problemas, se recomienda descargar e instalar el [agente de Azure Backup más reciente](http://aka.ms/azurebackup_agent). Se realizan actualizaciones frecuentes en el agente de copia de seguridad para corregir varios problemas, agregar características y mejorar el rendimiento.
 
-También recomendamos encarecidamente que revise el artículo [P+F de servicio de Copia de seguridad de Azure](backup-azure-backup-faq.md) para asegurarse de que no experimenta alguno de los problemas habituales de la configuración.
+También recomendamos encarecidamente que revise el artículo [P+F de servicio de Azure Backup](backup-azure-backup-faq.md) para asegurarse de que no experimenta alguno de los problemas habituales de la configuración.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -60,10 +60,10 @@ Estos son algunos contadores de rendimiento e intervalos que pueden resultar út
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Causa: otro proceso o software antivirus interfiere con Copia de seguridad de Azure.
-Se han detectado varios ejemplos en los que otros procesos del sistema de Windows han afectado negativamente al rendimiento del proceso del agente de Copia de seguridad de Azure. Por ejemplo, si utiliza el agente de Copia de seguridad de Azure y otro programa para realizar copias de seguridad de los datos o si se ejecuta un software antivirus que tiene bloqueados los archivos de los que se va a realizar la copia de seguridad, estos bloqueos de varios archivos podrían causar una contención. En esta situación, se podría producir un error en la copia de seguridad o el trabajo podría tardar más de lo esperado.
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Causa: otro proceso o software antivirus interfiere con Azure Backup.
+Se han detectado varios ejemplos en los que otros procesos del sistema de Windows han afectado negativamente al rendimiento del proceso del agente de Azure Backup. Por ejemplo, si utiliza el agente de Azure Backup y otro programa para realizar copias de seguridad de los datos o si se ejecuta un software antivirus que tiene bloqueados los archivos de los que se va a realizar la copia de seguridad, estos bloqueos de varios archivos podrían causar una contención. En esta situación, se podría producir un error en la copia de seguridad o el trabajo podría tardar más de lo esperado.
 
-La mejor recomendación en este escenario consiste en desactivar el otro programa de copia de seguridad para ver si cambia el tiempo de copia de seguridad del agente de Copia de seguridad de Azure. Normalmente, para evitar que unos trabajos de copia de seguridad afecten a otros es suficiente asegurarse de que no se ejecuta varios trabajos al mismo tiempo.
+La mejor recomendación en este escenario consiste en desactivar el otro programa de copia de seguridad para ver si cambia el tiempo de copia de seguridad del agente de Azure Backup. Normalmente, para evitar que unos trabajos de copia de seguridad afecten a otros es suficiente asegurarse de que no se ejecuta varios trabajos al mismo tiempo.
 
 En el caso de los programas antivirus, se recomienda que excluya los siguientes archivos y ubicaciones:
 
@@ -74,7 +74,7 @@ En el caso de los programas antivirus, se recomienda que excluya los siguientes 
 <a id="cause3"></a>
 
 ## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>Causa: el agente de Copia de seguridad se ejecuta en una máquina virtual de Azure.
-Si el agente de Copia de seguridad se ejecuta en una máquina virtual, el rendimiento será peor que si lo hace en una máquina física. Esto se debe a limitaciones de IOPS.  Sin embargo, el rendimiento se puede optimizar mediante el cambio de las unidades de datos de las que se realiza la copia de seguridad al Almacenamiento premium de Azure. Estamos trabajando para solucionar este problema y dicha solución estará disponible en futuras versiones.
+Si el agente de Copia de seguridad se ejecuta en una máquina virtual, el rendimiento será peor que si lo hace en una máquina física. Esto se debe a limitaciones de IOPS.  Sin embargo, el rendimiento se puede optimizar mediante el cambio de las unidades de datos de las que se realiza la copia de seguridad a Azure Premium Storage. Estamos trabajando para solucionar este problema y dicha solución estará disponible en futuras versiones.
 
 <a id="cause4"></a>
 

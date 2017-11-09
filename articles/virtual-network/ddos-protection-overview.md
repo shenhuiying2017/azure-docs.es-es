@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76da0d4e805c732d40a7bd02e5c70973c792e26c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Introducción a Protección contra DDoS de Azure estándar
 
@@ -35,12 +35,12 @@ Protección contra DDoS de Azure, en combinación con el uso de procedimientos r
 
 ![Protección contra DDoS de Azure estándar](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
-Para los escenarios de desarrollo y pruebas, le animamos a probar Protección contra DDoS estándar y usar estos recursos para enviar comentarios sobre su experiencia:
+Le recomendamos que pruebe la protección contra DDoS (estándar) en entornos de producción, prueba y desarrollo. Use los siguientes recursos para proporcionar comentarios sobre sus experiencias:
 - [Protección contra DDoS de Azure en el foro de Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
 - [Protección contra DDoS de Azure en el foro de MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection).
 - [Protección contra DDos de Azure en Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
 
-Para problemas de soporte técnico, puede [abrir una incidencia de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md).
+Para problemas de soporte técnico, puede [abrir una incidencia de soporte técnico de Azure](../azure-supportability/how-to-create-azure-support-request.md). Mientras la protección contra DDoS (estándar) se encuentra en una versión preliminar, se proporciona compatibilidad en función de la mejor opción.
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Tipos de ataques DDoS que mitiga Protección contra DDoS estándar
 

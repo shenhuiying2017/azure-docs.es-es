@@ -1,6 +1,6 @@
 ---
 title: "Generación de perfiles de datos de los orígenes de datos"
-description: "Este artículo de procedimientos destaca cómo incluir perfiles de datos de nivel de tabla y de columna al registrar orígenes de datos en el Catálogo de datos de Azure y cómo utilizar perfiles de datos para entender los orígenes de datos."
+description: "Este artículo de procedimientos destaca cómo incluir perfiles de datos de nivel de tabla y de columna al registrar orígenes de datos en Azure Data Catalog y cómo utilizar perfiles de datos para entender los orígenes de datos."
 services: data-catalog
 documentationcenter: 
 author: spelluru
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.date: 11/01/2017
 ms.author: spelluru
-ms.openlocfilehash: 8f4174f0ed74706b8275c8b1f0a62753f2834fa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 848d244a2a6c3420d1a11005e1b02f5671d7912a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="data-profile-data-sources"></a>Orígenes de datos de perfiles de datos
 ## <a name="introduction"></a>Introducción
-**Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Cuando un origen de datos se registra en el **Catálogo de datos de Azure**, el servicio copia e indexa sus metadatos, pero eso no es todo.
+**Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, **Azure Data Catalog** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Cuando un origen de datos se registra en **Azure Data Catalog**, el servicio copia e indexa sus metadatos, pero eso no es todo.
 
 La característica de **perfiles de datos** de **Azure Data Catalog** examina los datos de orígenes de datos admitidos en el catálogo y recopila estadísticas e información sobre esos datos. Es fácil incluir un perfil de sus recursos de datos. Al registrar un recurso de datos, elija **Incluir perfil de datos** en la herramienta de registro de orígenes de datos.
 
@@ -34,7 +34,7 @@ La generación de perfiles de datos examina los datos del origen de datos que se
 
 Los siguientes orígenes de datos admiten la generación de perfiles de datos:
 
-* Vistas y tablas de SQL Server (incluidos Almacenamiento de datos SQL y Base de datos SQL de Azure)
+* Vistas y tablas de SQL Server (incluidos SQL Data Warehouse y Azure SQL Database)
 * Vistas y tablas de Oracle
 * Vistas y tablas de Teradata
 * Tablas de Hive
@@ -73,7 +73,7 @@ Una vez que encuentre un origen de datos adecuado con un perfil, puede ver los d
 
 ![](media/data-catalog-data-profile/data-catalog-view.png)
 
-Un perfil de datos del **Catálogo de datos de Azure** muestra la información del perfil de tabla y columna, incluido lo siguiente:
+Un perfil de datos del **Azure Data Catalog** muestra la información del perfil de tabla y columna, incluido lo siguiente:
 
 ### <a name="object-data-profile"></a>Perfil de datos de objeto
 * Número de filas
@@ -91,4 +91,4 @@ La generación de perfiles de datos proporciona estadísticas e información sob
 
 ## <a name="see-also"></a>Otras referencias
 * [Registro de orígenes de datos](data-catalog-how-to-register.md)
-* [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
+* [Introducción a Azure Data Catalog](data-catalog-get-started.md)

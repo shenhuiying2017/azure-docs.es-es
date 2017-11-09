@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: f30462c62c0aad73e7a1797a8a6dcd0a2f705666
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
 En esta guía de inicio rápido, aprenderá a supervisar visualmente las canalizaciones de factorías de datos v2 sin escribir una sola línea de código.
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+> [!NOTE]
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Supervisión y administración de canalizaciones en Data Factory, versión 1](v1/data-factory-monitor-manage-app.md).
 
 ## <a name="monitor-data-factory-v2-pipelines"></a>Supervisión de las canalizaciones de factorías de datos v2
 
@@ -43,8 +46,8 @@ Vista de lista que muestra cada ejecución de canalización para las canalizacio
 | Hora de inicio de la ejecución | Fecha y hora de inicio de la ejecución de canalización (MM/DD/AAAA HH: mm: SS a.m./p.m.) |
 | Duration | Duración de ejecución (HH) |
 | Desencadenado por | Desencadenador manual, desencadenador de programación |
-| Estado | No se pudo, se realizó correctamente, en curso |
-| Parámetros | Canalización de parámetros de ejecución (nombre, pares de valor) |
+| Estado | No se pudo, Se realizó correctamente, En curso |
+| parameters | Canalización de parámetros de ejecución (nombre, pares de valor) |
 | Error | Error de ejecución de canalización (if/any) |
 | Ejecutar identificador | Identificador de la ejecución de canalización |
 

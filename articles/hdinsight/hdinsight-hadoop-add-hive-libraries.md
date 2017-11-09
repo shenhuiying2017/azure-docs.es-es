@@ -15,11 +15,11 @@ ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 90a1ea99cbba82b49a0ff6712bcaaa5dc814810e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02fcff7cf2b40c712f0575f7885eac95f9de04b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Hive al crear el clúster de HDInsight
 
@@ -61,7 +61,7 @@ En los **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wi
   > [!NOTE]
   > En este documento se supone que ha creado ya una cuenta de almacenamiento, contenedora de blobs, y ha cargado los archivos en ella.
   >
-  > Si no ha creado una cuenta de almacenamiento, puede hacerlo a través de [Azure Portal](https://portal.azure.com). Después, puede usar una utilidad como el [Explorador de almacenamiento de Azure](http://storageexplorer.com/) para crear un contenedor en la cuenta y cargar archivos en él.
+  > Si no ha creado una cuenta de almacenamiento, puede hacerlo a través de [Azure Portal](https://portal.azure.com). Después, puede usar una utilidad como el [Explorador de Azure Storage](http://storageexplorer.com/) para crear un contenedor en la cuenta y cargar archivos en él.
 
 ## <a name="create-a-cluster-using-the-script"></a>Creación de un clúster mediante el script
 
@@ -98,4 +98,4 @@ Una vez finalizada la creación del clúster, podrá utilizar los archivos JAR a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hdinsight-use-hive.md)
+Para obtener más información acerca del trabajo con Hive, consulte [Use Hive with HDInsight](hadoop/hdinsight-use-hive.md)

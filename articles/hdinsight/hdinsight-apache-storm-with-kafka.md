@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 7b41afdbb019f8533a49db3ebd37ff144186f956
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 97b89b9c6ef88c1611ccad7963a0aa8e7eb82318
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>Uso de Apache Kafka (versión preliminar) con Storm en HDInsight
 
 Obtenga información sobre cómo usar Apache Storm para leer y escribir en Apache Kafka. En este ejemplo también se muestra cómo guardar datos de una topología de Storm en el sistema de archivos compatible con HDFS que usa HDInsight.
 
 > [!NOTE]
-> Los pasos que se describen en este documento crean un grupo de recursos de Azure que contiene un clúster Storm en HDInsight y un clúster Kafka en HDInsight. Estos dos clústeres se encuentran en una red virtual de Azure, lo que permite al clúster Storm comunicarse directamente con el clúster Kafka.
+> Los pasos que se describen en este documento crean un grupo de recursos de Azure que contiene un clúster Storm en HDInsight y un clúster Kafka en HDInsight. Estos dos clústeres se encuentran en una instancia de Azure Virtual Network, lo que permite al clúster Storm comunicarse directamente con el clúster Kafka.
 > 
 > Cuando haya terminado los pasos indicados en este documento, no olvide eliminar los clústeres para evitar gastos innecesarios.
 
@@ -71,8 +71,8 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
     La plantilla de Azure Resource Manager se encuentra en **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-storm-cluster-in-vnet-v1.json**. Crea estos recursos:
     
     * Grupo de recursos de Azure
-    * Red virtual
-    * Cuenta de almacenamiento de Azure
+    * Azure Virtual Network
+    * Cuenta de Azure Storage
     * Kafka en HDInsight versión 3.6 (tres nodos de trabajo)
     * Storm en HDInsight versión 3.6 (tres nodos de trabajo)
 
@@ -341,6 +341,6 @@ Como el procedimiento descrito en este documento crea los dos clústeres en el m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver más ejemplos de topologías que pueden utilizarse con Storm en HDInsight, consulte [Topologías y componentes de ejemplo de Storm para Apache Storm en HDInsight](hdinsight-storm-example-topology.md).
+Para ver más ejemplos de topologías que pueden utilizarse con Storm en HDInsight, consulte [Topologías y componentes de ejemplo de Storm para Apache Storm en HDInsight](storm/apache-storm-example-topology.md).
 
-Para más información sobre la implementación y supervisión de topologías en HDInsight basado en Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md).
+Para más información sobre la implementación y supervisión de topologías en HDInsight basado en Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](storm/apache-storm-deploy-monitor-topology-linux.md).

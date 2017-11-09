@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: dd1e22cd538d9113062b77ea2d7ecc18d63fe528
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Programación con Logic Apps de tareas y flujos de trabajo ejecutados con regularidad
 
@@ -162,7 +162,7 @@ Este es un ejemplo de definición de desencadenador de periodicidad:
 | Ejecutar a las 8:30 a. m. todos los días (sin fecha y hora de inicio) | 1 | Día | {none} | {unavailable} | 8 | 30 | Esta programación se ejecuta a las 8:30 a. m. todos los días, según la programación especificada. | 
 | Ejecutar a las 8:30 a. m. todos los días (con fecha y hora de inicio) | 1 | Día | *startDate*T08:30:00Z | {unavailable} | {none} | {none} | Esta programación se inicia en la fecha de inicio especificada a las 8:30 a. m. | 
 | Ejecutar a las 8:30 a. m. y 4:30 p. m. todos los días | 1 | Día | {none} | {unavailable} | 8, 16 | 30 | | 
-| Ejecutar a las 8:30 a. m. y 4:45 p. m. todos los días | 1 | Día | {none} | {unavailable} | 8, 16 | 30, 45 | | 
+| Ejecutar a las 8:30 a. m., 8:45 a. m., 4:30 p. m. y 4:45 p. m. todos los días | 1 | Día | {none} | {unavailable} | 8, 16 | 30, 45 | | 
 | Ejecutar cada sábado a las 5 p. m. (ninguna fecha y hora de inicio) | 1 | Semana | {none} | "Saturday" | 17 | 00 | Esta programación se ejecuta cada sábado a las 5:00 p. m. | 
 | Ejecutar cada sábado a las 5 p. m. (con fecha y hora de inicio) | 1 | Semana | *startDate*T17:00:00Z | "Saturday" | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas; en este caso, el 9 de septiembre de 2017 a las 5:00 p. m. Las futuras periodicidades se ejecutan todos los sábados a las 5:00 p. m. | 
 | Ejecutar todos los martes y jueves a las 5:00 p. m. | 1 | Semana | {none} | "Tuesday", "Thursday" | 17 | {none} | Esta programación ejecuta todos los martes y jueves a las 5:00 p. m. | 

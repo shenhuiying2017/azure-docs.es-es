@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: subramar,jessebenson
+editor: subramar,zhol
 ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 8d81abec1c879ac6edbd4610dafdfd43ec7cf903
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Copia de seguridad y restauración de Reliable Services y Reliable Actors
 Azure Service Fabric es una plataforma de alta disponibilidad que replica el estado entre varios nodos para mantener esta disponibilidad alta.  Por lo tanto, incluso si se produce un error en un nodo del clúster, los servicios siguen estando disponibles. Aunque esta redundancia integrada proporcionada por la plataforma puede ser suficiente para algunos casos, en otros es conveniente que el servicio haga una copia de seguridad de los datos (en un almacén externo).
@@ -244,7 +244,7 @@ A continuación se proporcionan más detalles sobre la copia de seguridad y la r
 ### <a name="backup"></a>Copia de seguridad
 El Administrador de estado fiable proporciona la capacidad de crear copias de seguridad coherentes sin bloquear ninguna operación de lectura ni escritura. Para ello, usa un mecanismo de persistencia de registro y punto de control.  El Administrador de estado fiable instaura puntos de control aproximados (ligeros) en determinados puntos para aliviar la presión sobre el registro transaccional y mejorar los tiempos de recuperación.  Cuando se llama a `BackupAsync`, Reliable State Manager indica a todos los objetos Reliable que copien los archivos de punto de control más recientes en una carpeta local de copia de seguridad.  Después, el Administrador de estado confiable copia todas las entradas del registro desde el "puntero de inicio" hasta la entrada del registro más reciente en la carpeta de copia de seguridad.  Como todas las entradas del registro, de la primera a la última, se incluyen en la copia de seguridad y Reliable State Manager conserva el registro de escritura previa, Reliable State Manager garantiza que todas las transacciones confirmadas (aquellas en las que se devuelva `CommitAsync` correctamente) estarán incluidas en la copia de seguridad.
 
-Cualquier transacción que se confirme después de la llamada a `BackupAsync` puede estar o no incluida en la copia de seguridad.  Una vez que la plataforma rellene la carpeta de copia de seguridad (es decir, el tiempo de ejecución completó la copia de seguridad local), se invoca la devolución de llamada de la copia de seguridad del servicio.  Esta devolución de llamada se encarga de mover la carpeta de copia de seguridad a una ubicación externa, como Almacenamiento de Azure.
+Cualquier transacción que se confirme después de la llamada a `BackupAsync` puede estar o no incluida en la copia de seguridad.  Una vez que la plataforma rellene la carpeta de copia de seguridad (es decir, el tiempo de ejecución completó la copia de seguridad local), se invoca la devolución de llamada de la copia de seguridad del servicio.  Esta devolución de llamada se encarga de mover la carpeta de copia de seguridad a una ubicación externa, como Azure Storage.
 
 ### <a name="restore"></a>Restauración
 Reliable State Manager ofrece la posibilidad de restaurar los datos de una copia de seguridad mediante la API `RestoreAsync`.  

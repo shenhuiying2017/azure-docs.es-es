@@ -1,5 +1,5 @@
 ---
-title: "Migración de bases de datos existentes de escalado horizontal | Microsoft Docs"
+title: "Migración de bases de datos existentes al escalado horizontal | Microsoft Docs"
 description: "Conversión de bases de datos particionadas para usar herramientas para bases de datos elásticas creando un administrador de mapas de particiones"
 services: sql-database
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 099f40d00753b7c86ba726a818f17d440a125221
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="migrate-existing-databases-to-scale-out"></a>Migrate existing databases to scale-out (Migrar bases de datos existentes de escalado horizontal)
-Administre fácilmente sus bases de datos existentes particionadas con escalado horizontal mediante las herramientas de Base de datos SQL de Azure (como la [biblioteca de cliente de Bases de datos elásticas](sql-database-elastic-database-client-library.md)). Primero debe convertir un conjunto existente de bases de datos para utilizar [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
+# <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
+Administre fácilmente sus bases de datos existentes particionadas con escalado horizontal mediante las herramientas de Base de datos SQL de Azure (como la [biblioteca de cliente de Bases de datos elásticas](sql-database-elastic-database-client-library.md)). Primero convierta un conjunto existente de bases de datos para utilizar [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md). 
 
 ## <a name="overview"></a>Información general
 Para migrar una base de datos particionada existente: 
@@ -37,7 +37,7 @@ Estas técnicas pueden implementarse mediante la [biblioteca de cliente de .NET 
 Para más información sobre ShardMapManager, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Si desea más información general de las herramientas para bases de datos elásticas, consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md).
 
 ## <a name="prepare-the-shard-map-manager-database"></a>Prepare la base de datos de Shard Map Manager.
-Shard Map Manager es una base de datos especial que contiene los datos para administrar bases de datos con escalado horizontal. Puede utilizar una base de datos existente o crear una nueva. Tenga en cuenta que una base de datos que actúa como Shard Map Manager no debe ser la misma base de datos que la de una partición. Tenga en cuenta que el script de PowerShell no crea la base de datos por usted. 
+Shard Map Manager es una base de datos especial que contiene los datos para administrar bases de datos con escalado horizontal. Puede utilizar una base de datos existente o crear una nueva. Tenga en cuenta que una base de datos que actúa como Shard Map Manager no debe ser la misma base de datos que la de una partición. El script de PowerShell no crea la base de datos por usted. 
 
 ## <a name="step-1-create-a-shard-map-manager"></a>Paso 1: crear un administrador de mapas de particiones
     # Create a shard map manager. 
@@ -60,7 +60,7 @@ Después de la creación, puede recuperar el administrador de mapas de particion
 
 
 ## <a name="step-2-create-the-shard-map"></a>Paso 2: Crear el mapa de particiones
-Debe seleccionar el tipo de mapa de particiones que desea crear. La elección depende de la arquitectura de base de datos: 
+Seleccione el tipo de mapa de particiones que desea crear. La elección depende de la arquitectura de base de datos: 
 
 1. Un solo inquilino por base de datos (para ver los términos, consulte el [glosario](sql-database-elastic-scale-glossary.md)). 
 2. Varios inquilinos por base de datos (dos tipos):
@@ -71,11 +71,11 @@ Para un modelo de un solo inquilino, cree un mapa de particiones de **asignació
 
 ![Asignación de lista][1]
 
-El modelo de varios inquilinos asigna varios inquilinos a una base de datos única (y puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asignamos un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**. 
+El modelo de varios inquilinos asigna varios inquilinos a una base de datos única (y puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**. 
 
 ![Asignación de intervalo][2]
 
-O puede implementar un modelo de base de datos multiinquilino mediante una *asignación de lista* para asignar varios inquilinos a una base de datos única. Por ejemplo, DB1 se usa para almacenar información sobre el id. de inquilino 1 y 5, mientras que DB2 almacena datos sobre el inquilino 7 y 10. 
+O puede implementar un modelo de base de datos multiinquilino mediante una *asignación de lista* para asignar varios inquilinos a una base de datos única. Por ejemplo, DB1 se usa para almacenar información sobre el identificador de inquilino 1 y 5, mientras que DB2 almacena datos sobre el inquilino 7 y 10. 
 
 ![Varios inquilinos en una sola base de datos][3] 
 
@@ -91,7 +91,7 @@ Cree un mapa de particiones con el objeto ShardMapManager.
 
 
 ### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Opción 2: crear un mapa de particiones para una asignación de intervalo
-Tenga en cuenta que para usar este patrón de asignación, el id. de inquilino debe consistir en intervalos continuos y es aceptable que haya una brecha en los intervalos con solo omitir el intervalo al crear las bases de datos.
+Para usar este patrón de asignación, los valores del identificador de inquilino deben consistir en intervalos continuos y es aceptable que haya una brecha en los intervalos al omitir el intervalo al crear las bases de datos.
 
     # $ShardMapManager is the shard map manager object 
     # 'RangeShardMap' is the unique identifier for the range shard map.  
@@ -128,7 +128,7 @@ Asigne los datos agregando una asignación de lista para cada inquilino.
     -SqlDatabaseName '<shard_database_name>' 
 
 ### <a name="option-2-map-the-data-for-a-range-mapping"></a>Opción 2: asigne los datos de una asignación de intervalo
-Agregue las asignaciones de intervalo para todas las asociaciones de base de datos de intervalo de id. de inquilino:
+Agregue las asignaciones de intervalo para todas las asociaciones de base de datos de intervalo de identificador de inquilino:
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 
@@ -141,7 +141,7 @@ Agregue las asignaciones de intervalo para todas las asociaciones de base de dat
 
 
 ### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Paso 4, opción 3: asignar los datos para varios inquilinos en una sola base de datos
-Para cada inquilino, ejecute Add-ListMapping (opción 1, arriba). 
+Para cada inquilino, ejecute Add-ListMapping (opción 1). 
 
 ## <a name="checking-the-mappings"></a>Comprobación de las asignaciones
 Información sobre las particiones existentes y las asignaciones asociadas a ellas pueden consultarse mediante los comandos siguientes:  
@@ -154,7 +154,7 @@ Información sobre las particiones existentes y las asignaciones asociadas a ell
 Una vez haya completado la configuración, puede empezar a usar la Biblioteca de cliente de Base de datos elástica. También puede usar las características de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y [consulta a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga los scripts de PowerShell de [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)(Azure SQL DB: scripts de herramientas para bases de datos elásticas).
+Obtenga los scripts de PowerShell de [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Azure SQL DB: scripts de herramientas de Elastic Database).
 
 Las herramientas también se encuentran en GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
@@ -164,7 +164,7 @@ Use la herramienta de división y combinación para mover datos a un modelo de v
 Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
-Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Si tiene alguna pregunta, utilice el [foro de SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

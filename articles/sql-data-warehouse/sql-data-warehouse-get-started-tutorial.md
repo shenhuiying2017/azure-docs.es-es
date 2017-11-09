@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: quickstart
-ms.date: 01/26/2017
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: elbutter
+ms.openlocfilehash: 791990b6c544a416fc73bea69dc884e0b49d088e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>Introducción a SQL Data Warehouse
 
@@ -48,12 +48,12 @@ Si está ejecutando un sistema operativo Windows, se recomienda usar [Visual Stu
 
 [!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## <a name="create-a-sql-data-warehouse"></a>Creación de Almacenamiento de datos SQL
+## <a name="create-a-sql-data-warehouse"></a>Creación de SQL Data Warehouse
 
 SQL Data Warehouse es un tipo especial de base de datos diseñado para el procesamiento paralelo masivo. La base de datos se distribuye en varios nodos y procesa las consultas en paralelo. SQL Data Warehouse tiene un nodo de control que orquesta las actividades de todos los nodos. Los propios nodos usan SQL Database para administrar los datos.  
 
 > [!NOTE]
-> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Para más información, consulte [Precios de Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La creación de una instancia de SQL Data Warehouse puede dar lugar a un nuevo servicio facturable.  Para más información, consulte [Precios de Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 
 ### <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
@@ -85,7 +85,7 @@ SQL Data Warehouse es un tipo especial de base de datos diseñado para el proces
 
 5. Póngase cómodo y espere a que el almacenamiento de datos se implemente. Lo normal es que este proceso tarde varios minutos. El portal le avisa cuando está el almacenamiento de datos está listo para usarse. 
 
-## <a name="connect-to-sql-data-warehouse"></a>Conexión a Almacenamiento de datos SQL
+## <a name="connect-to-sql-data-warehouse"></a>Conexión a SQL Data Warehouse
 
 Este tutorial usa SQL Server Management Studio (SSMS) para conectarse al almacenamiento de datos. Puede conectarse a SQL Data Warehouse a través de los siguientes conectores compatibles: ADO.NET, JDBC, ODBC y PHP. Recuerde que la funcionalidad podría ser limitada para herramientas no compatibles con Microsoft.
 
@@ -198,7 +198,7 @@ Ahora está listo para cargar datos en el almacenamiento de datos. Este paso mue
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+        LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
 
@@ -239,7 +239,7 @@ Ahora está listo para cargar datos en el almacenamiento de datos. Este paso mue
     ```
 5. Creación de la tablas externas Estas tablas hacen referencia a los datos almacenados en Azure Blob Storage. Ejecute los siguientes comandos T-SQL para crear varias tablas externas que apuntan al blob de Azure que hemos definido previamente en nuestro origen de datos externo.
 
-```sql
+  ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
     (
         [DateID] int NOT NULL,
@@ -405,14 +405,14 @@ Ahora está listo para cargar datos en el almacenamiento de datos. Este paso mue
     )
     WITH
     (
-        LOCATION = 'Weather2013',
+        LOCATION = 'Weather',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
-```
+  ```
 
 ### <a name="import-the-data-from-azure-blob-storage"></a>Importe los datos desde Azure Blob Storage.
 
@@ -430,7 +430,7 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Date]
     OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
     ;
-    
+
     CREATE TABLE [dbo].[Geography]
     WITH
     ( 
@@ -441,7 +441,7 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
     SELECT * FROM [ext].[Geography]
     OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
     ;
-    
+
     CREATE TABLE [dbo].[HackneyLicense]
     WITH
     ( 
@@ -451,7 +451,7 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[HackneyLicense]
     OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
     ;
-    
+
     CREATE TABLE [dbo].[Medallion]
     WITH
     (
@@ -461,7 +461,7 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Medallion]
     OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
     ;
-    
+
     CREATE TABLE [dbo].[Time]
     WITH
     (
@@ -471,7 +471,7 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Time]
     OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
     ;
-    
+
     CREATE TABLE [dbo].[Weather]
     WITH
     ( 
@@ -481,7 +481,7 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
     AS SELECT * FROM [ext].[Weather]
     OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
     ;
-    
+
     CREATE TABLE [dbo].[Trip]
     WITH
     (
@@ -495,9 +495,9 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
 
 2. Consulte los datos mientras se carga.
 
-   Está cargando varios gigabytes de datos y comprimiéndolos en índices de almacén de columnas en clúster de alto rendimiento. Ejecute la siguiente consulta, que usa vistas de administración dinámica (DMV) para mostrar el estado de la carga. Después de iniciar la consulta, tómese un café y coma algo mientras SQL Data Warehouse hace el trabajo duro.
-    
-    ```sql
+  Está cargando varios gigabytes de datos y comprimiéndolos en índices de almacén de columnas en clúster de alto rendimiento. Ejecute la siguiente consulta, que usa vistas de administración dinámica (DMV) para mostrar el estado de la carga. Después de iniciar la consulta, tómese un café y coma algo mientras SQL Data Warehouse hace el trabajo duro.
+
+  ```sql
     SELECT
         r.command,
         s.request_id,
@@ -523,7 +523,8 @@ SQL Data Warehouse admite una instrucción clave denominada CREATE TABLE AS SELE
     ORDER BY
         nbr_files desc, 
         gb_processed desc;
-    ```
+  ```
+
 
 3. Consulte todas las consultas del sistema.
 
@@ -563,7 +564,7 @@ Primero vamos a reducir verticalmente hasta 100 DWU para que hacernos una idea d
     > [!NOTE]
     > No se pueden ejecutar consultas mientras se cambia la escala. El escalado **elimina** las consultas actualmente en ejecución. Puede reiniciarlas una vez finalizada la operación.
     >
-    
+
 5. Realice un examen de los datos de los trayectos y seleccione el primer millón de entradas de todas las columnas. Si desea avanzar rápidamente, seleccione menos filas. Tome nota del tiempo que tarda esta operación en ejecutarse.
 
     ```sql
@@ -626,11 +627,11 @@ Primero vamos a reducir verticalmente hasta 100 DWU para que hacernos una idea d
 
     > [!NOTE]
     > SQL Data Warehouse no administra automáticamente las estadísticas para usted. Las estadísticas son importantes para el rendimiento de las consultas, por lo que se recomienda encarecidamente crearlas y actualizarlas.
-    > 
+    >
     > **Sacará el máximo provecho con las estadísticas en columnas relacionadas con combinaciones, columnas que se usan en la cláusula WHERE y columnas de GROUP BY.**
     >
 
-3. Ejecute de nuevo la consulta desde los requisitos previos y observe las diferencias de rendimiento. Aunque las diferencias de rendimiento de las consultas no serán tan importantes como con el escalado vertical, notará un aumento de la velocidad. 
+4. Ejecute de nuevo la consulta desde los requisitos previos y observe las diferencias de rendimiento. Aunque las diferencias de rendimiento de las consultas no serán tan importantes como con el escalado vertical, notará un aumento de la velocidad. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -644,7 +645,7 @@ Si ha terminado de explorar por hoy, asegúrese de pausar la instancia. En un en
 
 [Simultaneidad y administración de cargas de trabajo][]
 
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure][]
+[Procedimientos recomendados para Azure SQL Data Warehouse][]
 
 [Supervisión de consultas][]
 
@@ -653,7 +654,7 @@ Si ha terminado de explorar por hoy, asegúrese de pausar la instancia. En un en
 [Migración de datos a Azure SQL Data Warehouse][]
 
 [Simultaneidad y administración de cargas de trabajo]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
+[Procedimientos recomendados para Azure SQL Data Warehouse]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Supervisión de consultas]: sql-data-warehouse-manage-monitor.md
 [Top 10 Best Practices for Building a Large Scale Relational Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/ (Los 10 mejores procedimientos para compilar un almacén de datos relacionales a gran escala)
 [Migración de datos a Azure SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/

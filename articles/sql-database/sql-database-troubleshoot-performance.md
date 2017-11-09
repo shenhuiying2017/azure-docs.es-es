@@ -1,6 +1,6 @@
 ---
 title: "Optimización de la supervisión y el rendimiento: Azure SQL Database | Microsoft Docs"
-description: "Sugerencias para la optimización del rendimiento de Base de datos SQL de Azure a través de la evaluación y la mejora."
+description: "Sugerencias para la optimización del rendimiento de Azure SQL Database a través de la evaluación y la mejora."
 services: sql-database
 documentationcenter: 
 author: v-shysun
@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: v-shysun
-ms.openlocfilehash: 4eb344bf9e87ef1a8f469268211588e51696164e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 1791c56f86ee1997177daa95638c4f14068f8115
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -41,7 +41,7 @@ Azure SQL Database le permite supervisar el uso de la base de datos e identifica
 Consulte el [tema de la guía de rendimiento](sql-database-performance-guidance.md) para buscar las técnicas que puede usar para mejorar el rendimiento de Azure SQL Database si identifica algún problema al usar estos informes o vistas.
 
 > [!IMPORTANT] 
-> Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y SQL Database. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 >
 
 ## <a name="optimize-database-to-improve-performance"></a>Optimización de la base de datos para mejorar el rendimiento

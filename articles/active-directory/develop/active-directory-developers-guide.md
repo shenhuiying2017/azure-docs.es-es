@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desarrolladores
 Azure Active Directory es un servicio de identidad en la nube que permite a los desarrolladores iniciar la sesión de cualquier usuario en una cuenta de trabajo o educativa de Microsoft.  Esta documentación muestra cómo agregar compatibilidad de Azure AD a la aplicación mediante protocolos de autenticación estándar del sector, OAuth y OpenID Connect.
@@ -59,16 +59,9 @@ En estos artículos se detallan las API, los mensajes de protocolo y los términ
 | [Glosario](active-directory-dev-glossary.md)                                      | Terminología y definiciones de palabras que se utilizan en esta documentación |
 | [Más material de referencia...](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>Ayuda y soporte técnico
-Estos son los mejores lugares para obtener ayuda con el desarrollo en Azure Active Directory.
-
-|  |  
-|---|
-|[`azure-active-directory` de Stack Overflow y etiquetas `adal`](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Comentarios sobre Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Pruebe Microsoft Dev Chat (gratis durante un tiempo limitado)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Si necesita iniciar sesión en cuentas personales de Microsoft, puede que desee considerar el uso del [punto de conexión de Azure AD v2.0](active-directory-appmodel-v2-overview.md).  El punto de conexión de la versión 2.0 de Azure AD es la unión de las cuentas personales de Microsoft y las cuentas de trabajo de Microsoft (de Azure AD) en un sistema de autenticación único.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
