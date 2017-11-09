@@ -52,11 +52,39 @@
      {
          "path_to_root": "cli_scripts",
          "url": "https://github.com/Azure/azure-docs-cli-python-samples",
-         "branch": "master"
+		"branch": "master",
+		"branch_mapping":
+		{
+			"release-build-mysql": "release-build",
+			"release-build-postgresql": "release-build",
+			"release-build-stellar": "release-build"
+		}
      },
      {
          "path_to_root": "powershell_scripts",
          "url": "https://github.com/Azure/azure-docs-powershell-samples",
+		"branch": "master",
+		"branch_mapping":
+		{
+			"release-build-mysql": "release-build",
+			"release-build-postgresql": "release-build",
+			"release-build-stellar": "release-build"
+		}
+	},
+	{
+		"path_to_root": "policy-templates",
+		"url": "https://github.com/Azure/azure-policy",
+		"branch": "master",
+		"branch_mapping":
+		{
+			"release-build-mysql": "release-build",
+			"release-build-postgresql": "release-build",
+			"release-build-stellar": "release-build"
+		}
+	},
+    {
+		"path_to_root": "samples-mediaservices-integration",
+		"url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
          "branch": "master"
      },
      {
@@ -97,7 +125,7 @@
     {
         "path_to_root": "samples-durable-functions",
         "url": "https://github.com/Azure/azure-functions-durable-extension",
-        "branch":"master"
+        "branch":"netcore20"
     },
     {
         "path_to_root": "samples-luis",
