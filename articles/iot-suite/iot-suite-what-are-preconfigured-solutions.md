@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 502b7678e0c47f594291409a9ede976dea3895e5
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2d6a09e234ee8ec63454d42a91613ed8da9d1c4b
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-iot-suite"></a>¿Qué es el Conjunto de aplicaciones de IoT de Azure?
 
@@ -85,6 +85,9 @@ Al implementar una solución preconfigurada, el proceso de aprovisionamiento con
 | Cosmos DB            | Sí                | Sí                    | Sí               |
 | Azure Tables         |                    | Sí                    | Sí               |
 
+> [!NOTE]
+> Para más información sobre los recursos implementados en la solución preconfigurada de supervisión remota, consulte este [artículo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) en GitHub.
+
 * [Azure IoT Hub](../iot-hub/index.md). Este servicio ofrece las capacidades de mensajería de dispositivo a la nube y de la nube al dispositivo y actúa como la puerta de enlace para la nube y los demás servicios del Conjunto de aplicaciones de IoT clave. El servicio le permite recibir mensajes de los dispositivos, a escala, y enviar comandos a los dispositivos. El servicio también le permite [administrar los dispositivos](../iot-hub/iot-hub-device-management-overview.md). Por ejemplo, puede configurar, reiniciar o realizar un restablecimiento de fábrica de uno o varios dispositivos conectados al centro.
 * [Azure Event Hubs](../event-hubs/index.md). Este servicio proporciona la ingesta de eventos de gran volumen en la nube. Consulte [Comparación entre Azure IoT Hub y Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.md). Las soluciones preconfiguradas utilizan este servicio para analizar y mostrar los datos de telemetría de los dispositivos.
@@ -124,7 +127,7 @@ Esta arquitectura de microservicios es un patrón comprobado para las soluciones
 Al implementar la nueva versión de la supervisión remota, debe seleccionar una de las siguientes opciones de implementación:
 
 * **Básico:** versión de menor costo para ver una demostración o probar una implementación. Todos los microservicios se implementan en una máquina virtual de Azure.
-* **Enterprise:** implementación de infraestructura expandida para desarrollar una implementación de producción. Azure Container Service implementa los microservicios en varias máquinas virtuales de Azure. Kubernetes orquesta los contenedores de Docker que hospedan los microservicios individuales.
+* **Standard:** implementación ampliada de la infraestructura para desarrollar una implementación de producción. Azure Container Service implementa los microservicios en varias máquinas virtuales de Azure. Kubernetes orquesta los contenedores de Docker que hospedan los microservicios individuales.
 
 ### <a name="language-choices-java-and-net"></a>Opciones de idioma: Java y .NET
 

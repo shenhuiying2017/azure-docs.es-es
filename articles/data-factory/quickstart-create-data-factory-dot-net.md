@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: 579311b28abb650c6527fe1160ebf875ce7e8c82
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: e27c1a8e130d20eb0ba0e5c001fc9a435e07c1cd
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creación de una factoría de datos y una canalización con SDK de .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ En esta guía de inicio rápido se describe cómo usar SDK de .NET para crear un
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Cuenta de Almacenamiento de Azure**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no dispone de una cuenta de Azure Storage, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para aprender a crearla. 
+* **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no dispone de una cuenta de Azure Storage, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para aprender a crearla. 
 * Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
 * **Visual Studio** 2013, 2015 o 2017. En el tutorial de este artículo se usa Visual Studio 2017.
 * **Descargue e instale [SDK de .NET de Azure](http://azure.microsoft.com/downloads/)**.
@@ -78,7 +78,7 @@ Con Visual Studio 2013, 2015 o 2017, cree una aplicación de consola .NET de C#.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Agregue el siguiente código al método **main** que define las variables. Reemplace los marcadores de posición con sus propios valores.
+2. Agregue el siguiente código al método **main** que define las variables. Reemplace los marcadores de posición con sus propios valores. Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
     ```csharp
     // Set variables
@@ -87,8 +87,6 @@ Con Visual Studio 2013, 2015 o 2017, cree una aplicación de consola .NET de C#.
     string authenticationKey = "<your authentication key for the application>";
     string subscriptionId = "<your subscription ID where the data factory resides>";
     string resourceGroup = "<your resource group where the data factory resides>";
-    // Currently, Data Factory V2 allows you to create data factories only in the East US and East US2 regions. 
-    // Note that the data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions
     string region = "East US 2";
     string dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>";
     string storageAccount = "<your storage account name to copy data>";
@@ -103,7 +101,7 @@ Con Visual Studio 2013, 2015 o 2017, cree una aplicación de consola .NET de C#.
     string pipelineName = "Adfv2QuickStartPipeline";    // name of the pipeline
     ```
 
-3. Agregue el código siguiente al método **main** que crea una instancia de la clase **DataFactoryManagementClient**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos y una canalización. También se usa para supervisar los detalles de ejecución de la canalización.
+3. Agregue el código siguiente al método **Main** que crea una instancia de la clase **DataFactoryManagementClient**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos y una canalización. También se usa para supervisar los detalles de ejecución de la canalización.
 
     ```csharp
     // Authenticate and create a data factory management client

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: shlo
-ms.openlocfilehash: 892e61397bb6e54781665f210434a4ab9ccb2632
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 3ff06ea07fcf5e391783575adf9dd5d99255eced
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Actividad Wait en Azure Data Factory
 Cuando use una actividad Wait en una canalización, esta espera durante el período de tiempo especificado antes de continuar con la ejecución de actividades sucesivas. 
@@ -106,9 +106,9 @@ En este ejemplo, la canalización tiene dos actividades: **Until** y **Wait**. L
 Consulte otras actividades de flujo de control compatibles con Data Factory: 
 
 - [Actividad If Condition](control-flow-if-condition-activity.md)
-- [Actividad Execute Pipeline](control-flow-execute-pipeline-activity.md)
-- [Actividad For Each](control-flow-for-each-activity.md)
-- [Actividad Get Metadata](control-flow-get-metadata-activity.md)
-- [Actividad Lookup](control-flow-lookup-activity.md)
-- [Actividad Web](control-flow-web-activity.md)
-- [Actividad Unit](control-flow-until-activity.md)
+- [Actividad de ejecución de canalización](control-flow-execute-pipeline-activity.md)
+- [Para cada actividad](control-flow-for-each-activity.md)
+- [Actividad de obtención de metadatos](control-flow-get-metadata-activity.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad web](control-flow-web-activity.md)
+- [Actividad Until](control-flow-until-activity.md)

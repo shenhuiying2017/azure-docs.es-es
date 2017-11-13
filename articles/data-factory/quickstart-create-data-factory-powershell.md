@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 82c6f69e886bfe86b2839e7efc3579782c8c3dce
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 04b8e0b30bf85c8bafd193c942a6a86f2166c1e7
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>Creación de una factoría de datos y una canalización con PowerShell
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Cuenta de Almacenamiento de Azure**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no dispone de una cuenta de Azure Storage, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para aprender a crearla. 
+* **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no dispone de una cuenta de Azure Storage, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para aprender a crearla. 
 * Cree un **contenedor de blobs** en Blob Storage, cree una **carpeta** de entrada en el contenedor y cargue algunos archivos en la carpeta. Puede usar herramientas como [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a Azure Blob Storage, crear un contenedor de blobs, cargar el archivo de entrada y comprobar el archivo de salida.
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -85,7 +85,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
         ```
 
     * Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
-    * Actualmente, Data Factory V2 le permite crear una factoría de datos solo en la región **Este de EE. UU.** y **Este de EE. UU. 2**. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+    * Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 

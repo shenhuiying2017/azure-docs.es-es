@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: 95d1dce536f8f8f0fc8d93f201520fd84f0f7629
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 12ead91f6729aa3eb631cc453180ddea9bafe3df
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>Copia de datos entre el entorno local y la nube
 
@@ -47,7 +47,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este tutorial.
-* **Cuenta de Almacenamiento de Azure**. Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+* **Cuenta de Azure Storage**. Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
@@ -85,7 +85,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
         ```
 
     * Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
-    * Actualmente, Data Factory le permite crear una factoría de datos solo en la región Este de EE. UU. y Este de EE. UU. 2. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+    * Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ## <a name="create-a-self-hosted-ir"></a>Creación de una instancia de IR autohospedada
 

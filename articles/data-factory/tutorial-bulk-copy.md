@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: cf69d30f36178db9cad18e18f370645cd84de558
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 
@@ -56,8 +56,8 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
-* **Cuenta de Almacenamiento de Azure**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
-* **Base de datos de SQL Azure**. Esta base de datos contiene los datos de origen. 
+* **Cuenta de Azure Storage**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
+* **Azure SQL Database**. Esta base de datos contiene los datos de origen. 
 * **Azure SQL Data Warehouse**. Este almacén de datos contiene los datos que se copian de SQL Database. 
 
 ### <a name="prepare-sql-database-and-sql-data-warehouse"></a>Preparación de SQL Database y SQL Data Warehouse
@@ -99,7 +99,7 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Ejecute el cmdlet **AzureRmDataFactoryV2 Set** para crear una factoría de datos. Reemplace los marcadores de posición con sus propios valores antes de ejecutar el comando.
+2. Ejecute el cmdlet **AzureRmDataFactoryV2 Set** para crear una factoría de datos. Reemplace los marcadores de posición con sus propios valores antes de ejecutar el comando. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
@@ -116,7 +116,7 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
         ```
 
     * Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
-    * Actualmente, Data Factory le permite crear una factoría de datos solo en la región Este de EE. UU. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+    * Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 

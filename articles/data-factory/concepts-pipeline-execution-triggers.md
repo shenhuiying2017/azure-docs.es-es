@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Para hacer que el desencadenador de programador dé inicio a una ejecución de c
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Para hacer que el desencadenador de programador dé inicio a una ejecución de c
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Para hacer que el desencadenador de programador dé inicio a una ejecución de c
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Para hacer que el desencadenador de programador dé inicio a una ejecución de c
 }
 ```
 
+> [!IMPORTANT]
+>  La propiedad **parameters** es una propiedad obligatoria dentro de las **canalizaciones**. Aunque la canalización no tome ningún parámetro, incluya una propiedad JSON vacía para los parámetros, ya que esta debe existir.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Información general: esquema del desencadenador de programador
 En la tabla siguiente se muestra una descripción general de los elementos más importantes relacionados con la periodicidad y la programación de un desencadenador:
 
 Propiedad JSON |     Descripción
 ------------- | -------------
 startTime | startTime es una fecha y hora. Para las programaciones sencillas, startTime es la primera aparición. Para las programaciones complejas, el desencadenador no se inicia antes de startTime.
+endTime | Especifica la fecha y hora de finalización para el desencadenador. El desencadenador no se ejecuta después de esta fecha. No es válido tener un valor de endTime en el pasado.
+timeZone | Actualmente, solo se admite UTC. 
 recurrence | El objeto recurrence especifica las reglas de periodicidad para el desencadenador. El objeto recurrence admite los elementos siguientes: frequency, interval, endTime, count y schedule. Si se define recurrence, se requiere frequency; los otros elementos de recurrence son opcionales.
 frequency | Representa la unidad de frecuencia con la que se repite el desencadenador. Los valores admitidos son: `minute`, `hour`, `day`, `week` o `month`.
 interval | El intervalo es un entero positivo. Indica el intervalo de la frecuencia que determina cuán seguido se ejecuta el desencadenador. Por ejemplo, si interval es 3 y frequency es “week”, el desencadenador se repite cada tres semanas.
-endTime | Especifica la fecha y hora de finalización para el desencadenador. El desencadenador no se ejecuta después de esta fecha. No es válido tener un valor de endTime en el pasado.
 schedule | Un desencadenador con una frecuencia especificada modifica su periodicidad según una programación periódica. La propiedad schedule contiene modificaciones basadas en minutos, horas, días de la semana, días del mes y número de semana.
+
+
+### <a name="schedule-trigger-example"></a>Ejemplo de desencadenador de programación
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Información general: valores predeterminados del esquema de desencadenador, límites y ejemplos
 
@@ -242,7 +283,7 @@ Hora de inicio en el futuro o en el presente | Se ejecuta una vez a la hora de i
 
 Veamos un ejemplo de lo que sucede cuando startTime se encuentra en el pasado, con recurrence, pero sin schedule. Suponga que la fecha actual es `2017-04-08 13:00`, startTime es `2017-04-07 14:00`, y recurrence es de dos días (definida con frequency: day e interval: 2). Tenga en cuenta que startTime se encuentra en el pasado y se produce antes de la hora actual.
 
-En estas condiciones, la primera ejecución será `2017-04-09 at 14:00`. El motor del Programador calcula las repeticiones de la ejecución desde la hora de inicio. Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro. En este caso, startTime es `2017-04-07 at 2:00pm`, así que la siguiente instancia es dos días a partir de ese momento, que es `2017-04-09 at 2:00pm`.
+En estas condiciones, la primera ejecución será `2017-04-09 at 14:00`. El motor de Scheduler calcula las repeticiones de la ejecución desde la hora de inicio. Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro. En este caso, startTime es `2017-04-07 at 2:00pm`, así que la siguiente instancia es dos días a partir de ese momento, que es `2017-04-09 at 2:00pm`.
 
 La fecha de la primera ejecución es la misma incluso si startTime es `2017-04-05 14:00` o `2017-04-01 14:00`. Después de la primera ejecución, las ejecuciones posteriores se calculan con la programación. Por lo tanto, son `2017-04-11 at 2:00pm`, luego `2017-04-13 at 2:00pm`, luego, `2017-04-15 at 2:00pm`, etc.
 
@@ -251,7 +292,7 @@ Por último, cuando un desencadenador tiene una programación, si no se establec
 ### <a name="deep-dive-schedule"></a>Profundización: schedule
 Por un lado, schedule puede limitar el número de ejecuciones de desencadenadores. Por ejemplo, si un desencadenador con frequency de “month” tiene un valor de schedule que se ejecuta solo el día 31, el desencadenador se ejecuta solo en los meses que tienen 31 días.
 
-Por otro lado, schedule también puede ampliar el número de ejecuciones de desencadenadores. Por ejemplo, si un desencadenador con frequency de “month” tiene un valor de schedule que se ejecuta los días 1 y 2 del mes, el desencadenador se ejecuta en los días 1 y 2 del mes en lugar de una vez al mes.
+En cambio, una programación también puede ampliar el número de ejecuciones de desencadenadores. Por ejemplo, si un desencadenador con frequency de “month” tiene un valor de schedule que se ejecuta los días 1 y 2 del mes, el desencadenador se ejecuta en los días 1 y 2 del mes en lugar de una vez al mes.
 
 Si se especifican varios elementos de programación, el orden de evaluación es de mayor a menor: número de semana, día del mes, día de la semana, hora y minuto.
 
@@ -262,9 +303,9 @@ Nombre JSON | Descripción | Valores válidos
 --------- | ----------- | ------------
 minutes | Minutos de la hora en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul>
 hours | Horas del día en la que se ejecuta el desencadenador. | <ul><li>Entero</li><li>Matriz de enteros</li></ul>
-weekDays | Días de la semana en los que se ejecuta el desencadenador. Solo se puede especificar con una frecuencia semanal. | <ul><li>Lunes, martes, miércoles, jueves, viernes, sábado o domingo</li><li>Matriz de cualquiera de los valores anteriores (tamaño de la matriz máx. 7)</li></p>No distingue mayúsculas de minúsculas</p>
+weekDays | Días de la semana en los que se ejecuta el desencadenador. Solo se puede especificar con una frecuencia semanal. | <ul><li>Lunes, martes, miércoles, jueves, viernes, sábado o domingo</li><li>Matriz de cualquiera de los valores anteriores (tamaño máximo de la matriz 7)</li></p>No distingue mayúsculas de minúsculas</p>
 monthlyOccurrences | Determina los días del mes en los que se ejecutar el desencadenador. Solo se puede especificar con una frecuencia mensual. | Matriz de objetos de monthlyOccurrence: `{ "day": day,  "occurrence": occurence }`. <p> day es el día de la semana en el que se ejecutar el desencadenador; por ejemplo, `{Sunday}` es cada domingo del mes. Necesario.<p>El valor de occurrence es la repetición del día durante el mes, por ejemplo, `{Sunday, -1}` es el último domingo del mes. Opcional.
-monthDays | Día del mes en el que se ejecutar el desencadenador. Solo se puede especificar con una frecuencia mensual. | <ul><li>Cualquier valor <= -1 y >= -31</li><li>Cualquier valor >= 1 y <= 31</li><li>Una matriz de valores por encima</li>
+monthDays | Día del mes en el que se ejecutar el desencadenador. Solo se puede especificar con una frecuencia mensual. | <ul><li>Cualquier valor <= -1 y >= -31</li><li>Cualquier valor >= 1 y <= 31</li><li>Una matriz de valores</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Ejemplos: programaciones de periodicidad

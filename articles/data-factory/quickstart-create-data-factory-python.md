@@ -13,11 +13,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: bc1c1fdc4d7482b0a92b14ac90b8162367946636
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 20130d6d4f331ec0a2435c9eea800ee6f62beaba
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Creación de una factoría de datos y una canalización con Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Cuenta de Almacenamiento de Azure**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+* **Cuenta de Azure Storage**. El almacenamiento de blobs se puede usar como almacén de datos de **origen** y **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
 * **Cree una aplicación en Azure Active Directory**. Para hacerlo, siga [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
 
 ### <a name="create-and-upload-an-input-file"></a>Crear y cargar un archivo de entrada
@@ -108,7 +108,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
-3. Agregue el código siguiente al método **main** que crea una instancia de la clase DataFactoryManagementClient. Este objeto se usa para crear la factoría de datos, el servicio vinculado, los conjuntos de datos y la canalización. También se usa para supervisar los detalles de ejecución de la canalización. Establezca la variable **subscription_id** en el identificador de su suscripción a Azure.
+3. Agregue el código siguiente al método **main** que crea una instancia de la clase DataFactoryManagementClient. Este objeto se usa para crear la factoría de datos, el servicio vinculado, los conjuntos de datos y la canalización. También se usa para supervisar los detalles de ejecución de la canalización. Establezca la variable **subscription_id** en el identificador de su suscripción a Azure. Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
     ```python   
     def main():
@@ -424,7 +424,7 @@ Copy duration: 4
 Para eliminar la factoría de datos, agregue el siguiente código al programa:
 
 ```python
-adf_client.data_factories.delete(rg_name, df_name)
+adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

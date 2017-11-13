@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 68c9f37b6e241d39911acff9c12aa4c978b4215d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introducción a la API Table de Azure Cosmos DB
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 11/02/2017
 * Alta disponibilidad garantizada.
 * [Indexación secundaria automática](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-Estas aplicaciones pueden migrar a Azure Cosmos DB mediante la API Table sin realizar ningún cambio en el código y pueden sacar provecho de las funcionalidades premium. La API Table está disponible para .NET y Python.
+Las aplicaciones escritas para Azure Table Storage pueden migrarse a Azure Cosmos DB mediante la API Table sin realizar ningún cambio en el código y pueden sacar provecho de las funcionalidades premium. La API Table tiene un cliente SDK disponible para. NET.
 
 Se recomienda ver el vídeo siguiente, donde Aravind Ramachandran explica cómo empezar a usar la API Table de Azure Cosmos DB:
 
@@ -41,7 +41,7 @@ Se recomienda ver el vídeo siguiente, donde Aravind Ramachandran explica cómo 
 ## <a name="table-offerings"></a>Ofertas de Table
 Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas si actualiza a la versión preliminar de la API Table de Azure Cosmos DB:
 
-| | Azure Table Storage | API Table de Azure Cosmos DB (versión preliminar) |
+| | Almacenamiento de tablas de Azure | API Table de Azure Cosmos DB (versión preliminar) |
 | --- | --- | --- |
 | Latency | Rápido, pero no hay límites máximos en la latencia. | Latencia en milisegundos de un solo dígito para lecturas y escrituras, respaldada con lecturas con una latencia inferior a 10 ms y escrituras con una latencia inferior a 15 ms en el percentil 99, a cualquier escala, en cualquier lugar del mundo. |
 | Rendimiento | Modelo de rendimiento variable. Las tablas tienen un límite de escalabilidad de 20.000 operaciones por segundo. | Altamente escalable con [rendimiento reservado dedicado por tabla](request-units.md) respaldado por los SLA. Las cuentas no tienen límite máximo en el rendimiento y admiten más de 10 millones de operaciones por segundo por tabla. |
@@ -64,5 +64,5 @@ Estas son algunas sugerencias para comenzar:
 * [Azure Cosmos DB: instrucciones de realización de consultas de tablas de datos con Table API (versión preliminar)](tutorial-query-table.md)
 * [Configuración de la distribución global de Azure Cosmos DB con la API Table](tutorial-global-distribution-table.md)
 * [API Table de .NET de Azure Cosmos DB](table-sdk-dotnet.md)
-* [SDK de Table de Azure Cosmos DB para Python](table-sdk-python.md)
+
 
