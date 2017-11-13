@@ -46,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: Esquema del evento
       href: event-schema.md
+      items:
+        - name: Suscripciones de Azure
+          href: event-schema-subscriptions.md
+        - name: Almacenamiento de blobs
+          href: event-schema-blob-storage.md
+        - name: Centros de eventos
+          href: event-schema-event-hubs.md
+        - name: Grupos de recursos
+          href: event-schema-resource-groups.md
 - name: Recursos
   items:
     - name: Azure Roadmap
