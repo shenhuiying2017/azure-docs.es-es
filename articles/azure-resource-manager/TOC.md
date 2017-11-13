@@ -71,9 +71,7 @@
 
 ## Establecimiento de directivas de recursos
 ### [¿Qué son las directivas de recursos?](resource-manager-policy.md)
-### Ejemplos
-#### [Etiquetas](resource-manager-policy-tags.md)
-#### [Convenciones de nomenclatura](resource-manager-policy-naming-convention.md)
+### [Convenciones de nomenclatura](resource-manager-policy-naming-convention.md)
 
 ## Auditoría
 ### [Visualización de registros de actividad](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Errores de implementación de máquinas virtuales

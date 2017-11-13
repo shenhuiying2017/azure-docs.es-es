@@ -55,7 +55,7 @@
   items:
     - name: Funcionamiento de App Service
       href: app-service-how-works-readme.md
-    - name: Planes del Servicio de aplicaciones
+    - name: Planes de App Service
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Funcionalidad del sistema operativo
       href: web-sites-available-operating-system-functionality.md
@@ -143,6 +143,8 @@
           href: web-sites-enable-diagnostic-log.md
     - name: Administración de aplicaciones
       items:
+        - name: Administración del plan de hospedaje
+          href: app-service-plan-manage.md
         - name: Copia de seguridad de una aplicación
           href: web-sites-backup.md
         - name: Restauración de una copia de seguridad

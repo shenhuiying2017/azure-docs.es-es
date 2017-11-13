@@ -36,12 +36,19 @@
 ### [Portal de Azure](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [CLI de Azure](how-to-routefilter-cli.md)
+## [Cambio de emparejamiento público a emparejamiento de Microsoft](how-to-move-peering.md)
 ## [Movimiento de un circuito del portal clásico a Resource Manager](expressroute-howto-move-arm.md)
 ## [Migración de redes virtuales asociadas del portal clásico a Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## Configuración de un enrutador para ExpressRoute
 ### [Configuración de un enrutador](expressroute-config-samples-routing.md)
 ### [Ejemplos de configuración de enrutador para NAT](expressroute-config-samples-nat.md)
 ## [Configuración de Network Performance Monitor para ExpressRoute](how-to-npm.md)
+## Artículos sobre el modelo de implementación clásica
+### [Modificación de un circuito](expressroute-howto-circuit-classic.md)
+### [Creación y modificación de la configuración de emparejamiento](expressroute-howto-routing-classic.md)
+### [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+### [Configuración de conexiones coexistentes de ExpressRoute y de sitio a sitio](expressroute-howto-coexist-classic.md)
+### [Adición de una puerta de enlace a una red virtual](expressroute-howto-add-gateway-classic.md)
 
 ## Prácticas recomendadas
 ### [Procedimientos recomendados para seguridad de red y servicios en la nube](../best-practices-network-security.md)

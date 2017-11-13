@@ -15,6 +15,12 @@
       href: container-registry-get-started-powershell.md
 - name: Tutoriales
   items:
+    - name: Azure Container Instances
+      href: ../container-instances/container-instances-tutorial-prepare-app.md
+    - name: Azure Container Service (AKS)
+      href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Service Fabric
+      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
     - name: Replicación geográfica (versión preliminar)
       items:
         - name: 1 - Preparación del registro del contenedor
@@ -23,12 +29,6 @@
           href: container-registry-tutorial-deploy-app.md
         - name: 3 - Actualización de la aplicación web
           href: container-registry-tutorial-deploy-update.md
-    - name: Azure Container Instances
-      href: ../container-instances/container-instances-tutorial-prepare-app.md
-    - name: Azure Container Service (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
-    - name: Service Fabric
-      href: ../service-fabric/service-fabric-tutorial-create-container-images.md
 - name: Conceptos
   items:
     - name: SKU de Container Registry
@@ -57,13 +57,19 @@
       href: /rest/api/containerregistry
     - name: PowerShell
       href: /powershell/module/azurerm.containerregistry
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.containerregistry/registries
 - name: Recursos
   items:
-    - name: Roadmap
-      href: 'https://aka.ms/acr/roadmap'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/container-registry/'
+    - name: Roadmap
+      href: 'https://aka.ms/acr/roadmap'
+    - name: Proporcionar comentarios sobre el producto
+      href: 'https://feedback.azure.com/forums/903958-azure-container-registry'
     - name: Stackoverflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-registry'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'

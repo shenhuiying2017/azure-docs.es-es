@@ -28,7 +28,13 @@
 - name: Conceptos
   items:
     - name: Actualización del área de trabajo
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Información general sobre la actualización
+          href: log-analytics-log-search-upgrade.md
+        - name: Resumen de cambios
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Preguntas más frecuentes sobre la actualización
+          href: log-analytics-log-search-faq.md
     - name: Preguntas frecuentes sobre Log Analytics
       href: log-analytics-faq.md
     - name: Consumo de datos
@@ -41,8 +47,6 @@
       items:
         - name: Introducción a búsquedas de registros
           href: log-analytics-log-search-new.md
-        - name: Preguntas más frecuentes sobre la búsqueda de registros
-          href: log-analytics-log-search-faq.md
         - name: Portales de búsqueda de registros
           href: log-analytics-log-search-portals.md
 - name: Guías de procedimientos
