@@ -11,15 +11,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2017
+ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: 1046e407bb4e9d07e91014384e9eba7b0c7020a8
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Almacenamiento de Azure
+# <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
 Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. Para Azure Storage, estos cmdlets se dividen en dos categorías: el plano de control y el plano de datos. Los cmdlets del plano de control se usan para administrar la cuenta de almacenamiento: crear cuentas de almacenamiento, establecer las propiedades, eliminar las cuentas de almacenamiento, rotar las claves de acceso, etc. Los cmdlets del plano de datos se usan para administrar los datos almacenados *en* la cuenta de almacenamiento. Por ejemplo, cargar blobs, crear recursos compartidos de archivo y agregar mensajes a una cola.
 
@@ -143,7 +143,7 @@ Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-Azu
 
 ### <a name="manage-the-access-keys"></a>Administrar las claves de acceso
 
-Una cuenta de almacenamiento de Azure incluye dos claves de cuenta. Para recuperar las claves, use [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). Este ejemplo recupera la primera clave. Para recuperar otra, use `Value[1]` en lugar de `Value[0]`.
+Una cuenta de Azure Storage incluye dos claves de cuenta. Para recuperar las claves, use [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). Este ejemplo recupera la primera clave. Para recuperar otra, use `Value[1]` en lugar de `Value[0]`.
 
 ```powershell
 $storageAccountKey = `
@@ -165,7 +165,7 @@ Para regenerar la otra clave, use `key2` como el nombre de clave en lugar de `ke
 Regenere una de las claves y después vuelva a recuperarla para ver el nuevo valor.
 
 > [!NOTE] 
-> Debe realizar un planeamiento minucioso antes de regenerar la clave para una cuenta de almacenamiento de producción. La regeneración de una o ambas claves invalidará el acceso para alguna aplicación que use la clave regenerada. Para más información, consulte [Nueva generación de las claves de acceso de almacenamiento](storage-create-storage-account.md#regenerate-storage-access-keys).
+> Debe realizar un planeamiento minucioso antes de regenerar la clave para una cuenta de almacenamiento de producción. La regeneración de una o ambas claves invalidará el acceso para alguna aplicación que use la clave regenerada. Para obtener más información, vea [Nueva generación de las claves de acceso de almacenamiento](storage-create-storage-account.md#regenerate-storage-access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Eliminar una cuenta de almacenamiento 
@@ -207,7 +207,7 @@ Puede configurar la supervisión a través de [Azure Portal](https://portal.azur
 
 * Para obtener información sobre cómo habilitar y recuperar los datos de registro del almacenamiento con PowerShell, vea [Cómo habilitar el registro de almacenamiento con PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) y [Buscar sus datos de registro de almacenamiento](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
 
-* Para obtener información detallada sobre el uso de las Métricas de almacenamiento y los Registros de almacenamiento para solucionar los problemas de almacenamiento que surjan, consulte [Supervisar, diagnosticar y solucionar problemas en Almacenamiento de Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
+* Para obtener información detallada sobre el uso de las Métricas de almacenamiento y los Registros de almacenamiento para solucionar los problemas de almacenamiento que surjan, consulte [Supervisar, diagnosticar y solucionar problemas en Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## <a name="manage-the-data-in-the-storage-account"></a>Administrar los datos de la cuenta de almacenamiento
 
@@ -216,6 +216,12 @@ Ahora que sabe cómo administrar la cuenta de almacenamiento con PowerShell, pue
 * [Administración de blobs con PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Administración de archivos con PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Administración de colas con PowerShell](../queues/storage-powershell-how-to-use-queues.md)
+* [Operaciones en Azure Table Storage con PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+
+La API Table de Azure Cosmos DB proporciona características premium para el almacenamiento de tablas, como la distribución global llave en mano, lecturas y escrituras de latencia baja, la indexación secundaria automática y el rendimiento dedicado. 
+
+* Para obtener más información, vea [API Table de Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
+* Para obtener información sobre cómo usar PowerShell para realizar operaciones de la API Table de Azure Cosmos DB, vea [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md) (Realizar operaciones de la API Table de Azure Cosmos DB con PowerShell).
 
 ## <a name="azures-independently-deployed-clouds"></a>Nubes implementadas de forma independiente de Azure
 

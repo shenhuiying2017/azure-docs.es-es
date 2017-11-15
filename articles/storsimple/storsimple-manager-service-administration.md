@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcca578b2993c025e62f1eca7ecec0e62a092479
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-8000-manager-service-administration.md). Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Información general
 En este artículo se describe la interfaz del servicio de Administrador de StorSimple, incluyendo cómo conectarse a la misma, las diversas opciones disponibles y los vínculos a los flujos de trabajo específicos que se pueden realizar a través de esta interfaz de usuario. Esta guía es aplicable tanto al dispositivo StorSimple físico como al virtual.
 
@@ -72,8 +75,8 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 | Desactivar un dispositivo</br>Eliminar un dispositivo |Servicio de Administrador de StorSimple → Dispositivos |[Desactivar o eliminar un dispositivo](storsimple-deactivate-and-delete-device.md) |
 | Obtener información sobre recuperación ante desastres y conmutación por error</br>Conmutación por error a un dispositivo físico</br>Conmutación por error en un dispositivo virtual</br>Recuperación ante desastres y continuidad empresarial (BCDR) |Servicio de Administrador de StorSimple → Dispositivos |[Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md) |
 | Enumerar copias de seguridad para un volumen</br>Seleccionar un conjunto de copia de seguridad</br>Eliminar un conjunto de copias de seguridad |Servicio de Administrador de StorSimple → Catálogo de copias de seguridad |[Administrar copias de seguridad](storsimple-manage-backup-catalog.md) |
-| Clonar un volumen |Servicio de Administrador de StorSimple → Catálogo de copias de seguridad |[Clonar un volumen](storsimple-clone-volume.md) |
-| Restaurar un conjunto de copias de seguridad |Servicio de Administrador de StorSimple → Catálogo de copias de seguridad |[Restaurar un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md) |
+| Clonar un volumen |servicio StorSimple Manager → Catálogo de copias de seguridad |[Clonar un volumen](storsimple-clone-volume.md) |
+| Restaurar un conjunto de copias de seguridad |Servicio StorSimple Manager → Catálogo de copias de seguridad |[Restaurar un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md) |
 | Acerca de las cuentas de almacenamiento</br>Agregar una cuenta de almacenamiento</br>Editar una cuenta de almacenamiento</br>Eliminar una cuenta de almacenamiento</br>Rotación de claves de las cuentas de almacenamiento |Servicio de Administrador de StorSimple → Configurar |[Administrar cuentas de almacenamiento](storsimple-manage-storage-accounts.md) |
 | Acerca de las plantillas de ancho de banda</br>Agregar una plantilla de ancho de banda</br>Editar una plantilla de ancho de banda</br>Eliminar una plantilla de ancho de banda</br>Usar una plantilla de ancho de banda predeterminada</br>Crear una plantilla de ancho de banda para todo el día que comienza a una hora especificada |Servicio de Administrador de StorSimple → Configurar |[Administrar plantillas de ancho de banda](storsimple-manage-bandwidth-templates.md) |
 | Acerca de los registros de control de acceso</br>Crear un registro de control de acceso</br>Editar un registro de control de acceso</br>Eliminar un registro de control de acceso |Servicio de Administrador de StorSimple → Configurar |[Administrar registros de control de acceso](storsimple-manage-acrs.md) |
@@ -89,7 +92,7 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 | Configuración de la administración remota |Servicio de Administrador de StorSimple → Dispositivos → Configurar |[Conectarse de forma remota al dispositivo StorSimple](storsimple-remote-connect.md) |
 | Configurar alertas |Servicio de Administrador de StorSimple → Dispositivos → Configurar |[Ver y administrar alertas de StorSimple](storsimple-manage-alerts.md) |
 | Configurar CHAP para el dispositivo StorSimple |Servicio de Administrador de StorSimple → Dispositivos → Configurar |[Configurar CHAP para el dispositivo StorSimple](storsimple-configure-chap.md) |
-| Agregar una directiva de copia de seguridad</br>Incorporación o modificación de una programación</br>Eliminación de una directiva de copia de seguridad</br>Creación de una copia de seguridad manual</br>Crear una directiva de copia de seguridad personalizada con varios programas y volúmenes |Servicio de Administrador de StorSimple → Dispositivos → Directivas de copia de seguridad |[Administrar directivas de copia de seguridad](storsimple-manage-backup-policies.md) |
+| Agregar una directiva de copia de seguridad</br>Incorporación o modificación de una programación</br>Eliminación de una directiva de copia de seguridad</br>Creación de una copia de seguridad manual</br>Crear una directiva de copia de seguridad personalizada con varios programas y volúmenes |Servicio StorSimple Manager → Dispositivos → Directivas de copia de seguridad |[Administrar directivas de copia de seguridad](storsimple-manage-backup-policies.md) |
 | Detener los controladores de dispositivo</br>Reiniciar los controladores de dispositivo</br>Apagar los controladores de dispositivo</br>Restablecer el dispositivo a los valores predeterminados de fábrica</br>(Lo anterior es solo para dispositivos locales) |Servicio de Administrador de StorSimple → Dispositivos → Mantenimiento |[Administrar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md) |
 | Obtener información sobre los componentes de hardware de StorSimple</br>Supervisar el estado del hardware</br>(Lo anterior es solo para dispositivos locales) |Servicio de Administrador de StorSimple → Dispositivos → Mantenimiento |[Supervisar componentes de hardware](storsimple-monitor-hardware-status.md) |
 | Crear un paquete de soporte |Servicio de Administrador de StorSimple → Dispositivos → Mantenimiento |[Crear y administrar paquetes de soporte técnico](storsimple-create-manage-support-package.md) |

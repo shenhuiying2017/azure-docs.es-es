@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure
  
 Terraform proporciona una manera fácil de definir, previsualizar e implementar infraestructura en la nube con un [lenguaje de plantillas simple](https://www.terraform.io/docs/configuration/syntax.html). En este artículo se describen los pasos necesarios para usar Terraform para aprovisionar recursos en Azure. 
 
 > [!TIP]
-> Terraform forma parte de la [experiencia de Bash de Azure Cloud Shell](/azure/cloud-shell/quickstart) y está preconfigurado con credenciales y [módulos de Terraform de Azure](https://registry.terraform.io/modules/Azure).
+> Terraform se instala de forma predeterminada en [Bash en la experiencia de Azure Cloud Shell](/azure/cloud-shell/quickstart). También está preconfigurado con las credenciales y los [módulos de Terraform de Azure](https://registry.terraform.io/modules/Azure). Mediante el uso de Cloud Shell, puede omitir las partes de instalación y configuración de este documento.
 
 ## <a name="install-terraform"></a>Instalar Terraform
 
@@ -47,9 +47,7 @@ Hay varias maneras de crear una aplicación de Azure AD y una entidad de servici
 
 Inicie sesión para administrar su suscripción de Azure con el comando siguiente:
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 Si tiene varias suscripciones de Azure, se devuelven sus detalles mediante el comando `az login`. Establezca la variable de entorno `SUBSCRIPTION_ID` para almacenar el valor devuelto del campo `id` de la suscripción que quiere usar. 
 

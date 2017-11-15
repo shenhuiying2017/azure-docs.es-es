@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 03841e08d071eb5f846b6a3a9e5a08edaa895611
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,7 +29,7 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector SAP BW](v1/data-factory-sap-business-warehouse-connector.md).
 
-## <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Puede copiar los datos desde SAP Business Warehouse hasta cualquier almacén de datos de receptores que se admita. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
@@ -73,11 +73,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP Busines
 ```json
 {
     "name": "SapBwLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "SapBw",
-        "typeProperties":
-        {
+        "typeProperties": {
             "server": "<server name>",
             "systemNumber": "<system number>",
             "clientId": "<client id>",
@@ -106,8 +104,7 @@ Para copiar datos desde SAP BW, establezca la propiedad type del conjunto de dat
 ```json
 {
     "name": "SAPBWDataset",
-    "properties":
-    {
+    "properties": {
         "type": "RelationalTable",
         "linkedServiceName": {
             "referenceName": "<SAP BW linked service name>",
@@ -194,4 +191,4 @@ Al copiar datos desde SAP BW, se usan las siguientes asignaciones de tipos de da
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

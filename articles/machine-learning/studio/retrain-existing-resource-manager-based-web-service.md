@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reciclaje de un servicio web predictivo existente
 En este documento se describe el proceso de reciclaje para el escenario siguiente:
@@ -83,15 +83,16 @@ Localice la declaración de **apikey**:
 
 En la sección **Basic consumption info** (Información básica sobre consumo) de la página **Consume** (Consumo), localice la clave principal y cópiela en la declaración de **apikey**.
 
-### <a name="update-the-azure-storage-information"></a>Actualización de la información de Almacenamiento de Azure
+### <a name="update-the-azure-storage-information"></a>Actualización de la información de Azure Storage
 El código de ejemplo de BES carga un archivo desde una unidad local (por ejemplo, "C:\temp\CensusIpnput.csv") en Azure Storage, lo procesa y escribe los resultados de nuevo en Azure Storage.  
 
-Para actualizar la información de Azure Storage, debe recuperar el nombre de la cuenta de almacenamiento, la clave y la información del contenedor para la cuenta de almacenamiento desde el Portal de Azure clásico y, a continuación, actualice el correspondiente después de ejecutar el experimento. El flujo de trabajo resultante debe ser similar al siguiente:
+Para actualizar la información de Azure Storage, debe recuperar el nombre de cuenta de almacenamiento, la clave y la información del contenedor para la cuenta de almacenamiento del Portal de Azure clásico y, luego, actualizar los valores correspondientes en el código.
+Después de ejecutar el experimento, el flujo de trabajo resultante debe ser similar al siguiente:
 
-![Flujo de trabajo resultante después de la ejecución][4]de valores ng en el código.
+![Flujo de trabajo resultante después de la ejecución][4]
 
 1. Inicie sesión en el portal clásico de Azure.
-2. En la columna de navegación izquierda, haga clic en **Almacenamiento**.
+2. En la columna de navegación izquierda, haga clic en **Storage**.
 3. En la lista de cuentas de almacenamiento, seleccione una para almacenar el modelo reciclado.
 4. En la parte inferior de la página, haga clic en **Administrar claves de acceso**.
 5. Copie y guarde la **clave de acceso principal** y cierre el cuadro de diálogo.
@@ -119,7 +120,9 @@ Al especificar la ubicación de salida en la carga útil de solicitud, la extens
             }
         },
 
-El siguiente es un ejemplo de resultado de reciclaje: ![Reciclaje de salida][6]
+El siguiente es un ejemplo de resultado de reciclaje:
+
+![Salida de reentrenamiento][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Evaluación de los resultados de reciclaje
 Al ejecutar la aplicación, la salida incluye la dirección URL y el token de firmas de acceso compartido que son necesarios para tener acceso a los resultados de evaluación.

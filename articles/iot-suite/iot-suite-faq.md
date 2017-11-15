@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2017
 ms.author: dobett
-ms.openlocfilehash: 9dfb0c898e74063719b3fd242d1fa9be2b89246c
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 63b059cb91956231fd3bafbe9770a04a0b7e347a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT
 
@@ -30,7 +30,7 @@ Consulte también la sección [Preguntas más frecuentes](iot-suite-faq-cf.md) e
 El código fuente se almacena en los siguientes repositorios de GitHub:
 
 * [Solución preconfigurada de supervisión remota (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
-* [Solución preconfigurada de supervisión remota (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
+* [Solución preconfigurada de supervisión remota (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Solución preconfigurada de mantenimiento predictivo](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Solución preconfigurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
 
@@ -70,7 +70,7 @@ Sí. Cualquier solución que exista en la actualidad continúa funcionando en su
 * Si elimina la solución preconfigurada en [azureiotsuite.com](https://www.azureiotsuite.com/), elimina todos los recursos aprovisionados cuando se creó la solución preconfigurada. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
 * Si elimina el grupo de recursos en [Azure Portal](https://portal.azure.com), solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada a la solución preconfigurada.
 
-### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias del Centro de IoT se pueden aprovisionar en una suscripción?
+### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias de IoT Hub se pueden aprovisionar en una suscripción?
 
 De forma predeterminada, puede aprovisionar [diez centros de IoT Hub por suscripción](../azure-subscription-service-limits.md#iot-hub-limits). Puede crear un [vale de soporte de Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar este límite. Como consecuencia, dado que todas las soluciones preconfiguradas aprovisionan una nueva instancia de IoT Hub, solo se pueden aprovisionar hasta 10 soluciones preconfiguradas en una suscripción determinada.
 

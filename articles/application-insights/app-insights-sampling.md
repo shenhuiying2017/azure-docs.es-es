@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ed612a0e2101397fb1074de61db07d2361f8463
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: af184574bdfa7d3a11baf75d8cdfbf80f1544dde
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -57,7 +57,7 @@ Al igual que otros tipos de muestreo, el algoritmo conserva elementos de telemet
 
 Los puntos de datos que se descartan por muestreo no están disponibles en ninguna característica de Application Insights como [exportación continua](app-insights-export-telemetry.md).
 
-El muestreo de ingesta no funciona mientras el muestreo adaptativo o de frecuencia fija basado en el SDK está en funcionamiento. Si la velocidad de muestreo en el SDK es inferior al 100 %, se omite la velocidad de muestreo de ingesta que haya establecido.
+El muestreo de ingesta no funciona mientras el muestreo adaptativo o de frecuencia fija basado en el SDK está en funcionamiento. Tenga en cuenta que el muestreo adaptable está habilitado de forma predeterminada cuando el SDK de ASP.NET está habilitado en Visual Studio o con el Monitor de estado, y el muestreo de recopilación está deshabilitado. Si la velocidad de muestreo en el SDK es inferior al 100 %, se omite la velocidad de muestreo de ingesta que haya establecido.
 
 > [!WARNING]
 > El valor que se muestra en el icono indica el valor que ha establecido para el muestreo de ingesta. Si el muestreo del SDK está en funcionamiento, no representa la frecuencia real de muestreo.

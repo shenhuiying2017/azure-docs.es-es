@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/10/2017
+ms.date: 10/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc228ce8a7a73dd32bde77d529698bdcb7f490c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -50,7 +50,7 @@ Los requisitos de software incluyen información sobre los exploradores web comp
 | Cantidad mínima de memoria (RAM) |8 GB <br> Para un servidor de archivos, 8 GB para menos de 2 millones de archivos y 16 GB para 2-4 millones de archivos|
 | Espacio en disco<sup>1</sup> |Disco de sistema operativo: 80 GB  <br></br>Disco de datos: de 500 GB a 8 TB |
 | Número mínimo de interfaces de red |1 |
-| Ancho de banda mínimo de Internet<sup>2</sup> |5 Mbps |
+| Ancho de banda de Internet<sup>2</sup> |Ancho de banda mínimo requerido: 5 Mbps <br> Ancho de banda recomendado: 100 Mbps <br> La velocidad de transferencia de datos se amplía con el ancho de banda de Internet. Por ejemplo, 100 GB de datos tardan dos días en transferirse a 5 Mbps, lo que generaría errores de copia de seguridad por el hecho de que las copias de seguridad no se completarían en un día. Con un ancho de banda de 100 Mbps, 100 GB de datos pueden transferirse en dos horas y media.   |
 
 <sup>1</sup> : con aprovisionamiento fino
 
@@ -113,13 +113,13 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 > [!NOTE]
 > 
 > * Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube. 
-> * Las IP de destino, por su parte, se deben establecer en los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * Las IP de destino, por su parte, se deben establecer en los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
 | Patrón de URL | Componente o funcionalidad |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Bus de servicio<br>Servicio de autenticación|
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación|
 | `http://*.backup.windowsazure.com` |Registro de dispositivos |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |
@@ -128,6 +128,5 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | `https://*.partners.extranet.microsoft.com/*` |Paquete de soporte |
 | `http://*.data.microsoft.com ` |Para información sobre el servicio de telemetría en Windows, consulte la [actualización para la experiencia del usuario y la telemetría de diagnóstico](https://support.microsoft.com/en-us/kb/3068708). |
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 * [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)
-

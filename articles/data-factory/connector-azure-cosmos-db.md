@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7d914684a0ee5598cee7972b78c3ec6296184466
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291ca51c83233294d882a94f886bc874e13e97be
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copia de datos con Azure Cosmos DB como origen o destino mediante Azure Data Factory
 
@@ -30,7 +30,7 @@ En este artículo se resume el uso de la actividad de copia de Azure Data Factor
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Cosmos DB](v1/data-factory-azure-documentdb-connector.md).
 
-## <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Puede copiar datos desde Azure Cosmos DB a cualquier almacén de datos de receptor compatible, o desde cualquier almacén de datos de origen admitido a Azure Cosmos DB. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 

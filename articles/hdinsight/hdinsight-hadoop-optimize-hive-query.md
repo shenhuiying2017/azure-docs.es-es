@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/26/2016
+ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: edbf797e6277a65b5311e4939f5ab72776b11557
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bd7f5b584030f9c1554b56895493837d2eac357
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Hive en Azure HDInsight
 
@@ -53,7 +53,7 @@ Tez es más rápido porque:
 * **Reutiliza contenedores**. Siempre que es posible, Tez puede reutilizar contenedores para asegurarse de que se reduce la latencia debido al reinicio de contenedores.
 * **Técnicas de optimización continua**. Tradicionalmente, la optimización se realizó durante la fase de compilación. Sin embargo, hay más información disponible acerca de las entradas que permiten una mejor optimización en tiempo de ejecución. Tez usa las técnicas de optimización continua que le permiten optimizar más el plan en la fase de tiempo de ejecución.
 
-Para más detalles sobre estos conceptos, consulte [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Para obtener más detalles sobre estos conceptos, consulte [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
 Puede realizar cualquier consulta de Hive habilitada con Tez anteponiendo a la consulta la siguiente configuración:
 
@@ -110,7 +110,7 @@ Cuando se cree la tabla con particiones, puede crear las particiones estáticas 
               L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
              L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
 
-Para obtener más información, vea [Tablas con particiones](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
+Para obtener más información, consulte [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables) (Tablas con particiones).
 
 ## <a name="use-the-orcfile-format"></a>Usar el formato ORCFile
 Hive admite diferentes formatos de archivo. Por ejemplo:
@@ -180,11 +180,11 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para obtener más información, consulte los artículos siguientes:
 
-* [Uso de Apache Hive en HDInsight](hdinsight-use-hive.md)
+* [Uso de Apache Hive en HDInsight](hadoop/hdinsight-use-hive.md)
 * [Análisis de datos de retraso de vuelos con Hive en HDInsight](hdinsight-analyze-flight-delay-data.md)
 * [Análisis de datos de Twitter con Hive en HDInsight](hdinsight-analyze-twitter-data.md)
-* [Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight](hdinsight-hive-analyze-sensor-data.md)
-* [Uso de Hive con HDInsight para analizar registros de sitios web](hdinsight-hive-analyze-website-log.md)
+* [Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Uso de Hive con HDInsight para analizar registros de sitios web](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

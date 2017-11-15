@@ -1,6 +1,6 @@
 ---
-title: Uso de Azure Import/Export para transferir datos al almacenamiento de blobs y desde este | Microsoft Docs
-description: "Aprenda a crear trabajos de importación y exportación en Azure Portal para transferir datos a Blob Storage y desde este."
+title: Uso de Azure Import/Export para transferir datos a y desde Azure Storage | Microsoft Docs
+description: "Aprenda a crear trabajos de importación y exportación en Azure Portal para transferir datos a y desde Azure Storage."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Uso del servicio Microsoft Azure Import/Export para transferir datos a Azure Storage
-En este artículo, proporcionamos instrucciones detalladas sobre el uso del servicio Azure Import/Export para transferir de forma segura grandes cantidades de datos a Blob Storage y File Storage mediante el envío de unidades de disco duro a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco duro y enviarlas al sitio local. Es posible importar los datos de una sola unidad de disco SATA interna a Azure Blob Storage o Azure File Storage. 
+En este artículo, se proporcionan instrucciones detalladas sobre el uso del servicio Azure Import/Export para transferir de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Storage hasta las unidades de disco duro y enviarlas al sitio local. Es posible importar los datos de una sola unidad de disco SATA interna a Azure Blob Storage o Azure Files. 
 
 > [!IMPORTANT] 
-> Este servicio acepta solo HDD o SSD de SATA internas. No se admite ningún otro dispositivo. No envíe dispositivos de HDD o NAS externos (o similares), ya que se devolverán en cuanto sea posible o se descartarán.
+> Este servicio acepta solo HDD o SSD de SATA internas. No se admite ningún otro dispositivo. No envíe dispositivos de HDD o NAS externos, entre otros, ya que se devolverán en cuanto sea posible o se descartarán.
 >
 >
 
-Siga estos pasos si los datos del disco se importarán en Azure Blob Storage.
+Siga estos pasos si los datos del disco se van a importar en Azure Storage.
 ### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Paso 1: Preparar las unidades que utilizan la herramienta WAImportExport y generar los archivos de diario.
 
-1.  Identifique los datos que se importarán en Azure Blob Storage. Podrían ser directorios o archivos independientes situados en el servidor local o un recurso compartido de red.
+1.  Identifique los datos que se van a importar en Azure Storage. Podrían ser directorios o archivos independientes situados en el servidor local o un recurso compartido de red.
 2.  Dependiendo del tamaño total de los datos, proporcione el número necesario de unidades de disco duro SATA II o III de 2,5 o 3,5 pulgadas o SSD de 2,5 pulgadas.
 3.  Conecte los discos duros directamente con SATA o con adaptadores USB externos a una máquina de Windows.
 4.  Cree un volumen NTFS en cada unidad de disco duro y asigne una letra de unidad al volumen. No hay puntos de montaje.
@@ -80,7 +80,7 @@ Puede utilizar este servicio en los siguientes escenarios:
 
 * Migración de datos a la nube: mueva rápidamente grandes cantidades de datos a Azure de manera rápida y rentable.
 * Distribución de contenido: envíe rápidamente datos a los sitios de cliente.
-* Copia de seguridad: realice copias de seguridad de los datos locales para almacenarlos en Azure Blob Storage.
+* Copia de seguridad: realice copias de seguridad de los datos locales para almacenarlos en Azure Storage.
 * Recuperación de datos: recupere una gran cantidad de datos almacenados en el almacenamiento y recíbalos en su ubicación local.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -90,13 +90,13 @@ En esta sección, se enumeran los requisitos previos necesarios para utilizar es
 Debe disponer de una suscripción de Azure existente y una o varias cuentas de almacenamiento para utilizar el servicio Import/Export. Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
 
 ### <a name="data-types"></a>Tipos de datos
-Puede usar el servicio Azure Import/Export para copiar datos de blobs **en bloque**, **en páginas** o **archivos**. Y a la inversa, solo puede exportar blobs **en bloque**, **en páginas** o **en anexos** de Azure Storage mediante este servicio. El servicio no admite la exportación de archivos de Azure y solo puede importar archivos a Azure Storage.
+Puede usar el servicio Azure Import/Export para copiar datos de blobs **en bloque**, **en páginas** o **archivos**. Y a la inversa, solo puede exportar blobs **en bloque**, **en páginas** o **en anexos** de Azure Storage mediante este servicio. El servicio admite solo la importación de Azure Files en Azure Storage. Actualmente no se admite la exportación de Azure Files.
 
 ### <a name="job"></a>Trabajo
 Para comenzar el proceso de importación o exportación desde el almacenamiento, cree primero un trabajo. Un trabajo puede ser un trabajo de importación o un trabajo de exportación:
 
-* Cree un trabajo de importación si desea transferir datos que tiene en su instalación local a blobs en su cuenta de Azure Storage.
-* Cree un trabajo de exportación si desea transferir datos que actualmente están almacenados en blobs de su cuenta de almacenamiento a discos duros que se nos enviarán posteriormente. Cuando crea un trabajo, notifica al servicio de importación y exportación que enviará uno o varios discos duros a un centro de datos de Azure.
+* Cree un trabajo de importación si desea transferir datos que tiene en su instalación local a la cuenta de almacenamiento de Azure.
+* Cree un trabajo de exportación si desea transferir datos que actualmente están almacenados en la cuenta de almacenamiento a discos duros que se enviarán posteriormente. Cuando crea un trabajo, notifica al servicio Import/Export que enviará uno o varios discos duros a un centro de datos de Azure.
 
 * En el caso de un trabajo de importación, enviará las unidades de disco duro que contengan los datos.
 * Si es un trabajo de exportación, enviará las unidades de disco duro vacías.
@@ -294,7 +294,7 @@ Al enviar unidades a Azure, pagar los gastos de envío al transportista. Cuando 
 
 **Costos de transacción**
 
-La importación de datos en Blob Storage no tiene ningún costo de transacción asociado. Los cargos de salida estándar son aplicables cuando se exportan datos desde Blob Storage. Para más información sobre los costos de transacción, consulte [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)
+La importación de datos en Azure Storage no tiene ningún costo de transacción asociado. Los cargos de salida estándar son aplicables cuando se exportan datos desde Blob Storage. Para más información sobre los costos de transacción, consulte [Detalles de precios de Transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 
@@ -304,7 +304,6 @@ El primer paso al importar datos mediante el servicio Azure Import/Export consis
 
 1. Identifique los datos que se importarán en Azure File Storage. Podrían ser directorios o archivos independientes situados en el servidor local o un recurso compartido de red.  
 2. Determine el número de unidades que necesitará según el tamaño total de los datos. Proporcione el número necesario de unidades de disco duro SATA II o III de 2,5 o 3,5 pulgadas o SSD de 2,5 pulgadas.
-3. Identifique la cuenta de almacenamiento, el contenedor, los directores virtuales y los blobs de destino.
 4. Determine los directorios o archivos independientes que se copiarán en cada unidad de disco duro.
 5. Cree los archivos CSV para el conjunto de datos y el conjunto de unidades.
     
@@ -439,7 +438,7 @@ Para preparar las unidades para el trabajo de exportación, se recomienda realiz
 8. Puede realizar un seguimiento del progreso del trabajo en el panel del portal. Consulte en [Visualización del estado del trabajo](#viewing-your-job-status)lo que significa cada estado de trabajo de la sección anterior.
 
    > [!NOTE]
-   > Si el blob que se va a exportar está en uso en el momento de la copia en la unidad de disco duro, el servicio Azure Import/Export tomará una instantánea del blob y copiará la instantánea.
+   > Si el blob que se va a exportar está en uso en el momento de la copia en la unidad de disco duro, el servicio Azure Import/Export tomará una instantánea del blob y la copiará.
    > 
    > 
  
@@ -455,7 +454,7 @@ Vaya a la sección de P+F a continuación, en ella se tratan las preguntas más 
 
 Sí, el servicio Azure Import/Export permite importar a Azure File Storage. Actualmente no admite la exportación de Azure Files.
 
-**¿Está disponible el servicio Importación/Exportación de Azure para suscripciones de CSP?**
+**¿Está disponible el servicio Azure Import/Export para suscripciones de CSP?**
 
 No, el servicio Azure Import/Export no admite suscripciones a CSP.
 
@@ -500,9 +499,9 @@ Se puede acceder a los datos almacenados en la cuenta de Azure Storage mediante 
 
 Al preparar una unidad de disco duro para un trabajo de importación, el destino se especifica mediante el campo DstBlobPathOrPrefix del archivo CSV de conjunto de datos. Este es el contenedor de destino de la cuenta de almacenamiento donde se copian los datos de la unidad de disco duro. Dentro de él se crean directorios virtuales para las carpetas de la unidad de disco duro y blobs para los archivos. 
 
-**Si la unidad tiene archivos que ya existen en la cuenta de almacenamiento, ¿el servicio sobrescribirá los blobs existentes en dicha cuenta?**
+**Si la unidad tiene archivos que ya existen en la cuenta de almacenamiento, ¿el servicio sobrescribirá los blobs o archivos existentes en dicha cuenta?**
 
-Al preparar la unidad, puede especificar que los archivos de destino se sobrescriban u omitan mediante el campo del archivo CSV de conjunto de datos llamado Disposition:<rename|no-overwrite|overwrite>. De forma predeterminada, el servicio cambiará el nombre de los nuevos archivos en lugar de sobrescribir los blobs existentes.
+Al preparar la unidad, puede especificar que los archivos de destino se sobrescriban u omitan mediante el campo del archivo CSV de conjunto de datos llamado Disposition:<rename|no-overwrite|overwrite>. De forma predeterminada, el servicio cambiará el nombre de los nuevos archivos en lugar de sobrescribir los blobs o archivos existentes.
 
 **¿Es compatible la herramienta WAImportExport con sistemas operativos de 32 bits?**
 No. La herramienta WAImportExport solo es compatible con sistemas operativos de Windows de 64 bits. Consulte la sección sobre sistemas operativos en los [requisitos previos](#pre-requisites) para ver una lista completa de las versiones de SO admitidas.

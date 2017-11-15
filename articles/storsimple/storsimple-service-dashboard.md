@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62273c0093876f136d97eedf5a509f0b306a1379
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>Uso del panel del servicio StorSimple Manager
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Uso del panel del servicio StorSimple Manager](storsimple-8000-service-dashboard.md). Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Información general
 La página del panel del servicio StorSimple Manager proporciona una vista resumida de todos los dispositivos que están conectados al servicio StorSimple Manager, y resalta aquellas que requieren la atención del administrador del sistema. Este tutorial presenta la página del panel, explica el contenido y la función del panel, y describe las tareas que puede realizar desde esta página.
 

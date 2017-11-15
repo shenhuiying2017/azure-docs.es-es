@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 2fa03b82750585454430da0c29392db57b20d3c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7da4c3c4aa902cf9ccb97ebd13b7d16940f2c32
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -29,13 +29,13 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Table Storage](v1/data-factory-azure-table-connector.md).
 
-## <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Puede copiar datos desde cualquier almacén de datos de origen compatible a Azure Table Storage o viceversa. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 En concreto, este conector de Azure Table Storage permite copiar datos utilizando las autenticaciones de **clave de cuenta** y **SAS de servicio** (firma de acceso compartido).
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
 
 En las secciones siguientes se proporciona información sobre las propiedades que se usan para definir entidades de Data Factory específicas de Azure Table Storage.
@@ -63,6 +63,7 @@ Puede crear un servicio vinculado de Azure Storage con la clave de cuenta, que p
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -87,7 +88,7 @@ Para usar la autenticación de SAS de servicio, se admiten las siguientes propie
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AzureStorage** |Sí |
-| sasUri | Especifique el URI de Firma de acceso compartido a los recursos de Almacenamiento de Azure como blob, contenedor o tabla. Marque este campo como SecureString. |Sí |
+| sasUri | Especifique el URI de Firma de acceso compartido a los recursos de Azure Storage como blob, contenedor o tabla. Marque este campo como SecureString. |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 **Ejemplo:**
@@ -271,4 +272,4 @@ Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones defin
 | Edm.String |String |Valor codificado mediante UTF-16. Los valores de cadena pueden tener hasta 64 KB. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

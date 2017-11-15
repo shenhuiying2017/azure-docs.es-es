@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2017
+ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f870df32bed8213f6252c70b2f687f436dbd71b8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Configurar E/S de múltiples rutas para el dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md). Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de SAN de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, dependiendo de la configuración de MPIO, puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Introducción a E/S de múltiples rutas and features").  
 
 Para conseguir una alta disponibilidad de la solución StorSimple, es necesario que MPIO esté configurado en el dispositivo StorSimple. Cuando MPIO se instala en los servidores host que ejecutan Windows Server 2012 R2, dichos servidores tendrán tolerancia a errores de vínculo, red e interfaz. 

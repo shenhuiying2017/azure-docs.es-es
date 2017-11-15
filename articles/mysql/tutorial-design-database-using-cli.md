@@ -5,16 +5,17 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 manager: jhubbard
+editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd59442c0b3aa5d6ed1a9ef287949d1d17fa80f
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Diseño de la primera base de datos de Azure Database for MySQL
 
@@ -23,7 +24,7 @@ Azure Database for MySQL es un servicio de base de datos relacional de Microsoft
 > [!div class="checklist"]
 > * Creación de una instancia de Azure Database for MySQL
 > * Configuración del firewall del servidor
-> * Uso de la [herramienta de línea de comandos de mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
+> * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
 > * Carga de datos de ejemplo
 > * Datos de consulta
 > * Actualización de datos
@@ -33,7 +34,7 @@ Puede usar Azure Cloud Shell en el explorador, o bien [instalar la CLI de Azure 
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
 Si tiene varias suscripciones, elija la adecuada donde se encuentre el recurso o para la cual se facture. Seleccione un identificador de suscripción específico en su cuenta mediante el comando [az account set](/cli/azure/account#set).
 ```azurecli-interactive
@@ -119,9 +120,9 @@ mysql> USE mysampledb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Creación de tablas en la base de datos
-Ahora que sabe cómo conectarse a la base de datos de Azure Database for MySQL, podemos ver cómo completar algunas tareas básicas.
+Ahora que sabe cómo conectarse a la base de datos de Azure Database for MySQL, complete algunas tareas básicas:
 
-En primer lugar, podemos crear una tabla y cargarla con algunos datos. Vamos a crear una tabla que almacena la información del inventario.
+En primer lugar, cree una tabla y cárguela con algunos datos. Vamos a crear una tabla que almacena la información del inventario.
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -131,7 +132,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Carga de datos en las tablas
-Ahora que tenemos una tabla, podemos insertar algunos datos en ella. En la ventana de símbolo del sistema abierta, ejecute la consulta siguiente para insertar algunas filas de datos.
+Ahora que tiene una tabla, inserte algunos datos en ella. En la ventana de símbolo del sistema abierta, ejecute la consulta siguiente para insertar algunas filas de datos.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
@@ -176,7 +177,7 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Creación de una instancia de Azure Database for MySQL
 > * Configuración del firewall del servidor
-> * Uso de la [herramienta de línea de comandos de mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
+> * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
 > * Carga de datos de ejemplo
 > * Datos de consulta
 > * Actualización de datos

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 98e75e11b54aea677b8ca1b6f303a48190c6fce8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 237b8396b56fdec86cc005c121646556825d8e98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>Información general del modelo de programación de Service Fabric
 Service Fabric ofrece varias maneras de escribir y administrar los servicios. Los servicios pueden optar por usar las API de Service Fabric para sacar el máximo provecho de los marcos de aplicaciones y las características de la plataforma. Los servicios también pueden ser cualquier programa ejecutable compilado escrito en cualquier lenguaje o código que se ejecute en un contenedor hospedado simplemente en un clúster de Service Fabric.
@@ -36,11 +36,16 @@ De forma predeterminada, Service Fabric implementa y activa estos servicios como
 ## <a name="reliable-services"></a>Reliable Services
 Reliable Services es un marco de trabajo ligero para escribir servicios que se integran con la plataforma Service Fabric y que se benefician de todo el conjunto de características de la plataforma. Reliable Services proporciona un conjunto mínimo de API que permiten que el tiempo de ejecución de Service Fabric administre el ciclo de vida de los servicios y que permiten a los servicios interactuar con el tiempo de ejecución. El marco de trabajo de la aplicación es mínimo, lo que proporciona un control total sobre las opciones de diseño e implementación, y puede usarse para hospedar cualquier otro marco de trabajo de la aplicación, como ASP.NET Core.
 
-Reliable Services puede no tener estado, de forma similar a la mayoría de las plataformas de servicios, como servidores web, en que cada instancia del servicio se crea de la misma y se conserva el estado en una solución externa, como Almacenamiento de tablas de Azure y Base de datos de Azure.
+Reliable Services puede no tener estado, de forma similar a la mayoría de las plataformas de servicios, como servidores web, en que cada instancia del servicio se crea de la misma y se conserva el estado en una solución externa, como Azure Table Storage y Azure DB.
 
 Reliable Services también pueden tener estado, exclusivo de Service Fabric, donde se conserva el estado directamente en el propio servicio mediante Colecciones confiables. El estado cuenta con una alta disponibilidad mediante la replicación y se distribuye a través de particiones, todo administrado automáticamente por Service Fabric.
 
 [Aprenda más sobre Reliable Services](service-fabric-reliable-services-introduction.md) o comience por [escribir su primer Reliable Service](service-fabric-reliable-services-quick-start.md).
+
+## <a name="aspnet-core"></a>ASP.NET Core
+ASP.NET Core es un nuevo marco de código abierto multiplataforma para crear aplicaciones conectadas a Internet modernas y basadas en la nube, como aplicaciones web, aplicaciones de IoT y back-ends móviles. Service Fabric se integra con ASP.NET para que pueda escribir aplicaciones ASP.NET Core sin estado y con estado que aproveche las funcionalidades de orquestación avanzada de Reliable Collections y Service Fabric.
+
+[Más información sobre ASP.NET Core en Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md) o comience a [escribir su primera aplicación Service Fabric de ASP.NET Core](service-fabric-add-a-web-frontend.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Basado en Reliable Services, el marco de Reliable Actor es un marco de aplicación que implementa el diseño de Virtual Actor, basado en el patrón de diseño del actor. El marco de Reliable Actor usa unidades independientes del proceso y el estado con la ejecución de subproceso único denominadas actores. El marco de Reliable Actor proporciona comunicaciones integradas para actores y las configuraciones de escalado horizontal y persistencia de estado establecidas previamente.
@@ -49,8 +54,6 @@ Como Reliable Actors es en sí mismo un marco de aplicación basado en Reliable 
 
 [Aprenda más sobre Reliable Actors](service-fabric-reliable-actors-introduction.md) o comience por [escribir el primer servicio de Reliable Actor](service-fabric-reliable-actors-get-started.md).
 
-## <a name="aspnet-core"></a>ASP.NET Core
-Service Fabric se integra con [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) para compilar servicios web y de API que se pueden incluir como parte de la aplicación. 
 
 [Crear un servicio de front-end mediante ASP.NET Core](service-fabric-add-a-web-frontend.md)
 

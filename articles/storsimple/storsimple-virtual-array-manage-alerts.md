@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Use de StorSimple Device Manager para administrar alertas de la matriz virtual de StorSimple
 
@@ -147,11 +147,16 @@ Las siguientes tablas enumeran algunas de las alertas de StorSimple que pueden e
 | La copia de seguridad de <*nombre de dispositivo*> no se pudo completar. |Error de trabajo de copia de seguridad. |No se pudo crear una copia de seguridad. Tenga en cuenta alguna de las siguientes opciones:<ul><li>Podrían existir problemas de conectividad que impiden que la operación de copia de seguridad se complete correctamente. Asegúrese de que no hay ningún problema de conectividad. Para obtener más información sobre cómo solucionar problemas de conectividad, vaya a la [interfaz de usuario web local](storsimple-ova-web-ui-admin.md) del dispositivo virtual.</li><li>Ha alcanzado el límite de almacenamiento disponible. Para liberar espacio, considere la posibilidad de eliminar las copias de seguridad que ya no son necesarias.</li></ul> Resuelva los problemas, borre la alerta y vuelva a intentar la operación. |
 | No se puedo completar la clonación de  <*nombre de dispositivo*>. |Error de trabajo de clonación. |No se pudo crear una clonación. Tenga en cuenta alguna de las siguientes opciones:<ul><li>La lista de copia de seguridad puede no ser válida. Actualice la lista para comprobar que sigue siendo válida</li><li>Los problemas de conectividad pueden evitar que la operación de clonación se complete correctamente. Asegúrese de que no hay ningún problema de conectividad.</li><li>Ha alcanzado el límite de almacenamiento disponible. Para liberar espacio, considere la posibilidad de eliminar las copias de seguridad que ya no son necesarias.</li></ul>Resuelva los problemas, borre la alerta y vuelva a intentar la operación. |
 
+### <a name="networking-alerts"></a>Alertas de red
+| Texto de la alerta | Evento | Más información / acciones recomendadas |
+|:--- |:--- |:--- |
+| No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para más información sobre los patrones de dirección URL en Azure Portal, vea los [requisitos de red de StorSimple Virtual Array](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
+
 ### <a name="performance-alerts"></a>Alertas de rendimiento
 
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
 |:--- |:--- |:--- |
-| Observa retrasos inesperados en la transferencia de datos. |Transferencias de datos lenta. |Los errores de limitación se producen cuando supera los objetivos de escalabilidad de un servicio de almacenamiento. El servicio de almacenamiento hace esto para asegurarse de que ningún cliente o inquilino pueda usar el servicio a expensas de otros. Para obtener más información sobre la solución de problemas de la cuenta de Azure Storage, vaya a [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
+| Observa retrasos inesperados en la transferencia de datos. |Transferencias de datos lenta. |Los errores de limitación se producen cuando supera los objetivos de escalabilidad de un servicio de almacenamiento. El servicio de almacenamiento hace esto para asegurarse de que ningún cliente o inquilino pueda usar el servicio a expensas de otros. Para obtener más información sobre la solución de problemas de la cuenta de Azure Storage, vaya a [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
 | Se está agotando el espacio de reserva en disco local en <*nombre de dispositivo*>. |Tiempo de respuesta lento. |El 10 % del tamaño total aprovisionado para <*nombre de dispositivo*> está reservado en el dispositivo local y ahora se está agotando el espacio reservado. La carga de trabajo <*nombre de dispositivo*> está generando una mayor tasa de renovación o puede que haya migrado recientemente una gran cantidad de datos. Esto puede producir un rendimiento inferior. Considere una de las siguientes acciones para resolver este problema:<ul><li>Aumente el ancho de banda de la nube para este dispositivo.</li><li>Reduzca o mueva las cargas de trabajo a otro volumen o recurso compartido.</li></ul> |
 
 ### <a name="security-alerts"></a>Alertas de seguridad

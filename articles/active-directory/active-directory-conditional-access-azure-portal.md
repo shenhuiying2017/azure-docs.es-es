@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
 
@@ -131,18 +131,13 @@ Puede utilizar el nivel calculado de riesgo de inicio de sesión como condición
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-La plataforma de dispositivo se caracteriza por el sistema operativo que se ejecuta en el dispositivo:
+La plataforma de dispositivos se caracteriza por el sistema operativo que se ejecuta en el dispositivo: puede definir las plataformas de dispositivos que se incluyen, así como plataformas de dispositivos que están exentas de una directiva.  
+Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (versión preliminar). 
 
 ![Condiciones](./media/active-directory-conditional-access-azure-portal/02.png)
 
-Puede definir las plataformas de dispositivos que se incluyen, así como las plataformas de dispositivos que se excluyen de una directiva.  
-Para usar plataformas de dispositivos en la directiva, primero cambie los conmutadores de configuración a **Sí** y, luego, seleccione las plataformas de dispositivos a las que se aplica la directiva (puede ser todas o algunas de ellas). Si selecciona algunas plataformas de dispositivos, la directiva solo afecta a estas plataformas. En este caso, la directiva no afecta a los inicios de sesión en otras plataformas compatibles.
+Para obtener una lista completa de las plataformas de dispositivos compatibles, vea [Condición de plataforma de dispositivos](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Ubicaciones

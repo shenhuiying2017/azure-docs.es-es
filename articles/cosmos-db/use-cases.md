@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: mimig
-ms.openlocfilehash: edbed5654a4df8a28b43f03ffd0ac204e0d7f8b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comunes de Azure Cosmos DB
 En este artículo se proporciona información general acerca de varios casos de uso comunes de Azure Cosmos DB.  Las recomendaciones de este artículo sirven como punto de partida para desarrollar su aplicación con Cosmos DB.   
@@ -35,7 +35,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 El proyecto Azure Cosmos DB comenzó en 2011 como "Proyecto Florencia" para abordar los problemas de desarrollo que aparecen en las aplicaciones a escala de Internet dentro de Microsoft. Después de observar que estos problemas no eran exclusivos de las aplicaciones de Microsoft, decidimos que Azure Cosmos DB estuviera disponible a nivel general para los desarrolladores externos en 2015 como [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). El servicio se usa de forma generalizada internamente dentro de Microsoft y es uno de los servicios de crecimiento más rápido que los desarrolladores de Azure usan de manera externa. 
 
-Azure Cosmos DB es una base de datos con varios modelos y de distribución global que se usa en una amplia variedad de aplicaciones y casos de uso. Constituye una buena opción para cualquier aplicación [sin servidor](http://azure.com/serverless) que necesite tiempos de respuesta reducidos, de milésimas de segundo, y precise escalarse rápida y globalmente. Admite varios modelos de datos (clave-valor, documentos, grafos y columnas) y muchas API para acceso de datos, entre las que se incluyen [MongoDB](mongodb-introduction.md), [DocumentDB SQL](documentdb-introduction.md), [Gremlin](graph-introduction.md) y [Azure Tables](table-introduction.md) de forma nativa y de forma extensible. 
+Azure Cosmos DB es una base de datos con varios modelos y de distribución global que se usa en una amplia variedad de aplicaciones y casos de uso. Constituye una buena opción para cualquier aplicación [sin servidor](http://azure.com/serverless) que necesite tiempos de respuesta reducidos, de milésimas de segundo, y precise escalarse rápida y globalmente. Admite varios modelos de datos (clave-valor, documentos, grafos y columnas) y muchas API para acceso de datos, entre las que se incluyen [API MongoDB](mongodb-introduction.md), [API DocumentDB (SQL)](documentdb-introduction.md), [API Graph (Gremlin)](graph-introduction.md) y [Table API](table-introduction.md) de forma nativa y de forma extensible. 
 
 A continuación se exponen algunos atributos de Azure Cosmos DB que la convierten en una opción perfecta para aplicaciones de alto rendimiento con una ambición mundial.
 
@@ -53,7 +53,7 @@ A menudo, los casos de uso de IoT comparten algunos patrones en el modo de inger
 
 ![Arquitectura de referencia de IoT de Azure Cosmos DB](./media/use-cases/iot.png)
 
-Las ráfagas de datos pueden ser asumidas por los Centros de eventos de Azure, ya que ofrecen una ingesta de datos de alto rendimiento con baja latencia. Los datos ingeridos que requieran procesamiento para obtener información en tiempo real se pueden dirigir a Azure Stream Analytics para realizar el análisis en tiempo real. Los datos pueden cargarse en Azure Cosmos DB para realizar consultas ad hoc. Una vez que los datos se carguen en Azure Cosmos DB, estarán listos para recibir consultas. Además, los nuevos datos y los cambios en los datos existentes se pueden leer en la fuente de cambios. La fuente de cambios es un registro persistente solo para anexar que almacena en orden secuencial los cambios en las colecciones de Cosmos DB. Todos los datos o solo los cambios en los datos de Azure Cosmos DB pueden usarse como referencia como parte del proceso de análisis en tiempo real. Además, los datos pueden afinarse y procesarse aún más conectando los datos de Azure Cosmos DB a HDInsight para trabajos de Pig, Hive o Map/Reduce.  Los datos afinados se cargan luego de nuevo en Azure Cosmos DB para la creación de informes.   
+Las ráfagas de datos pueden ser asumidas por Azure Event Hubs, ya que ofrecen una ingesta de datos de alto rendimiento con baja latencia. Los datos ingeridos que requieran procesamiento para obtener información en tiempo real se pueden dirigir a Azure Stream Analytics para realizar el análisis en tiempo real. Los datos pueden cargarse en Azure Cosmos DB para realizar consultas ad hoc. Una vez que los datos se carguen en Azure Cosmos DB, estarán listos para recibir consultas. Además, los nuevos datos y los cambios en los datos existentes se pueden leer en la fuente de cambios. La fuente de cambios es un registro persistente solo para anexar que almacena en orden secuencial los cambios en las colecciones de Cosmos DB. Todos los datos o solo los cambios en los datos de Azure Cosmos DB pueden usarse como referencia como parte del proceso de análisis en tiempo real. Además, los datos pueden afinarse y procesarse aún más conectando los datos de Azure Cosmos DB a HDInsight para trabajos de Pig, Hive o Map/Reduce.  Los datos afinados se cargan luego de nuevo en Azure Cosmos DB para la creación de informes.   
 
 Para ver una solución de IoT de ejemplo con Azure Cosmos DB, EventHubs y Storm, consulte el [repositorio de ejemplos de hdinsight-storm en GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 

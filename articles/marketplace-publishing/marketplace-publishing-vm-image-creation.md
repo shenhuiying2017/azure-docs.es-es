@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e37c55dbcc8de49aee32272b2f51b0792bef132c
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guía para la creación de una imagen de máquina virtual para Azure Marketplace
 En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
@@ -290,6 +290,8 @@ Durante el proceso de publicación, tiene que especificar los identificadores un
 
 El URI de firma de acceso compartido creado debe cumplir los siguientes requisitos:
 
+Nota: Las siguientes instrucciones solo son aplicables a los discos no administrados, que son los únicos compatibles.
+
 * Para generar los URI de firma de acceso compartido para sus VHD, son suficientes los permisos de lista y lectura. No proporcione acceso de escritura o eliminación.
 * La duración del acceso debe ser un mínimo de tres (3) semanas a partir de la creación del URI de firma de acceso compartido.
 * Para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 6 de octubre de 2014, seleccione 5/10/2014.
@@ -298,7 +300,7 @@ La dirección URL de SAS puede generarse de varias maneras a fin de compartir el
 Estos son las 3 herramientas recomendadas:
 
 1.  Explorador de Azure Storage
-2.  Explorador de almacenamiento de Microsoft
+2.  Explorador de Microsoft Azure Storage
 3.  CLI de Azure
 
 **Explorador de Azure Storage (recomendado para los usuarios de Windows)**
@@ -326,7 +328,7 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_05.png)
 
-7. Después de seleccionar el contenedor de blobs, se iniciará la aplicación Explorador de almacenamiento de Azure con los archivos dentro del contenedor. Seleccione el archivo de imagen (.vhd) que tiene que enviarse.
+7. Después de seleccionar el contenedor de blobs, se iniciará la aplicación Explorador de Azure Storage con los archivos dentro del contenedor. Seleccione el archivo de imagen (.vhd) que tiene que enviarse.
 
     ![dibujo](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
@@ -430,7 +432,7 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
 
 2.  Una vez completada la descarga, instálela.
 
-3.  Cree un archivo de PowerShell con el código siguiente y guárdelo en local.
+3.  Cree un archivo PowerShell (u otro ejecutable de la script) con el código siguiente y guárdelo localmente.
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -442,9 +444,9 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
 
     b. **`<Storage Account Key>`**: indique la clave de la cuenta de almacenamiento
 
-    c. **`<Permission Start Date>`**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 26 de octubre de 2016, el valor debe ser 10/25/2016.
+    c. **`<Permission Start Date>`**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 26 de octubre de 2016, el valor debe ser 10/25/2016. Si utiliza la CLI de Azure 2.0 (comando az), especifique la fecha y la hora en las fechas inicial y final, por ejemplo: 10-25-2016T00:00:00Z.
 
-    d. **`<Permission End Date>`**: seleccione una fecha que sea al menos 3 semanas después de la **Fecha de inicio**. Así, el valor debería ser **11/02/2016**.
+    d. **`<Permission End Date>`**: seleccione una fecha que sea al menos 3 semanas después de la **Fecha de inicio**. El valor debería ser **11/02/2016**. Si utiliza la CLI de Azure 2.0 (comando az), especifique la fecha y la hora en las fechas inicial y final, por ejemplo: 11-02-2016T00:00:00Z.
 
     A continuación se muestra el código de ejemplo después de actualizar los parámetros adecuados.
 
@@ -452,7 +454,7 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.  Abra el editor de Powershell con el modo de "Ejecutar como administrador" y abra el archivo del paso 3.
+4.  Abra el editor de Powershell con el modo de "Ejecutar como administrador" y abra el archivo del paso 3. Puede usar cualquier editor de script disponible en el sistema operativo.
 
 5.  Ejecute el script para conseguir la dirección URL de SAS para el acceso de nivel de contenedor.
 
@@ -494,7 +496,7 @@ Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la image
 4. Rellene las propiedades de la sección **SKUs** .
 5. En **Familia del sistema operativo**, haga clic en el tipo de sistema operativo asociado con el VHD del sistema operativo.
 6. En el cuadro **Sistema operativo** , describa el sistema operativo. Considere un formato como familia de sistemas operativos, tipo, versión y actualizaciones. Por ejemplo, "Windows Server Datacenter 2014 R2".
-7. Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en la hoja del plan de tarifa del Portal de Azure cuando este decide comprar e implementar su imagen. **Estas son solo recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.**
+7. Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en la hoja del plan de tarifa de Azure Portal cuando este decide comprar e implementar su imagen. **Estas son solo recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.**
 8. Especifique la versión. El campo de versión encapsula una versión semántica para identificar el producto y sus actualizaciones:
    * Las versiones deben ser del tipo X.Y.Z, donde X, Y y Z son números enteros.
    * Imágenes de SKU diferentes pueden tener distintas versiones principales y secundarias.
@@ -515,7 +517,7 @@ Una vez que haya creado su oferta y SKU, debe proporcionar los datos de la image
 |Error al copiar imágenes: "sp=rl" no está en la dirección URL de SAS|Error al copiar imágenes No se puede descargar el blob mediante la dirección URL de SAS indicada.|Actualización de la dirección Url de SAS con los permisos establecidos como "Lectura" y "Lista"|[https://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Error al copiar imágenes: la dirección URL de SAS tiene espacios en blanco en el nombre de disco duro virtual.|Error al copiar imágenes No se puede descargar el blob mediante la dirección URL de SAS indicada.|Actualización de la dirección URL de SAS sin espacios en blanco|[https://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Error al copiar imágenes: error de autorización de dirección Url de SAS|Error al copiar imágenes No se puede descargar blob debido a un error de autorización.|Regeneración de la dirección URL de SAS|[https://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-
+|Error al copiar imágenes: los parámetros "st" y "se" de la dirección URL de SAS no tienen una especificación de fecha-hora completa|Error al copiar imágenes No se puede descargar blob debido a una dirección URL de SAS incorrecta |Los parámetros de fecha de inicio y fin de la dirección URL de SAS ("st" y "se") tienen que tener la especificación de fecha-hora completa, como 11-02-2017T00:00:00Z, y no solo la fecha o las versiones acortadas para esa hora. Es posible que este escenario aparezca al usar la CLI de Azure 2.0 (comando az). Asegúrese de proporcionar la especificación de fecha-hora completa y regenerar la dirección URL de SAS.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Paso siguiente
 Cuando termine con los detalles de SKU, podrá continuar con la [guía de contenido de marketing de Azure Marketplace][link-pushstaging]. En este paso del proceso de publicación, proporciona el contenido de marketing, precios y demás información necesaria antes del **Paso 3: Prueba de la oferta de máquina virtual en ensayo**, donde prueba varios escenarios de caso de uso antes de implementar la oferta en Azure Marketplace para la compra y visibilidad pública.  

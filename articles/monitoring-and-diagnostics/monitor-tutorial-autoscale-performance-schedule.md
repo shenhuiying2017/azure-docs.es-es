@@ -10,20 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creación de una configuración de escalado automático de recursos de Azure basado en los datos de rendimiento o una programación
 
-La configuración de escalado automático le permite agregar o quitar instancias de servicio según condiciones predefinidas. Esta configuración puede crearse a través del portal. Este método proporciona una interfaz de usuario basada en explorador para crear y establecer una configuración de escalado automático. Este tutorial lo guía por lo siguiente:
+La configuración de escalado automático le permite agregar o quitar instancias de servicio según condiciones predefinidas. Esta configuración puede crearse a través del portal. Este método proporciona una interfaz de usuario basada en explorador para crear y establecer una configuración de escalado automático. 
 
-1. Creación de App Service
-2. Definición de una configuración de escalado automático
-3. Desencadenamiento de una acción de escalado horizontal
-4. Desencadenamiento de una acción de reducción horizontal
+En este tutorial, aprenderá lo siguiente: 
+> [!div class="checklist"]
+> * Creación de una aplicación web y un plan de App Service
+> * Configuración de reglas de escalado automático para reducción horizontal y escalado horizontal de solicitudes que recibe una aplicación web
+> * Activación de una acción de escalado horizontal y visualización del número de aumento de instancias
+> * Activación de una acción de reducción horizontal y visualización del número de reducción de instancias
+> * Limpiar los recursos
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -32,12 +35,15 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Creación de una aplicación web y un plan de App Service
-1. Haga clic en la opción **Nuevo** en el panel de navegación izquierdo.
-2. Busque y seleccione el elemento *Aplicación web* y haga clic en **Crear**.
-3. Seleccione un nombre de aplicación, como *MyTestScaleWebApp*. Cree un nuevo grupo de recursos myResourceGroup y colóquelo en el grupo de recursos de su elección.
-4. En el plazo de unos minutos, los recursos deberían aprovisionarse. A lo largo de este tutorial, se hará referencia a la aplicación web y al plan de App Service correspondiente, que acaba de crear.
+Haga clic en la opción **Nuevo** en el panel de navegación izquierdo.
 
-    ![Creación de un nuevo servicio de aplicación en el portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+Busque y seleccione el elemento *Aplicación web* y haga clic en **Crear**.
+
+Seleccione un nombre de aplicación, como *MyTestScaleWebApp*. Cree un nuevo grupo de recursos myResourceGroup y colóquelo en el grupo de recursos de su elección.
+
+En el plazo de unos minutos, los recursos deberían aprovisionarse. Utilice la aplicación web y el plan de App Service correspondiente a lo largo de este tutorial.
+
+    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Navegación a la configuración de escalado automático
 1. En el panel de navegación izquierdo, seleccione la opción **Monitor**. Una vez que la página se cargue, seleccione la pestaña **Escalado automático**.
@@ -54,12 +60,12 @@ Los pasos siguientes le ayudarán a rellenar la pantalla de escalado automático
  ## <a name="configure-default-profile"></a>Configuración del perfil predeterminado
 1. Escriba un **Nombre** para la configuración de escalado automático.
 2. En el perfil predeterminado, asegúrese de que el **Modo de escala** esté establecido en “Escalar a un número específico de instancias”.
-3. Establezca el recuento de instancias en 1. Este valor garantiza que, cuando ningún otro perfil esté activo o en vigor, el perfil predeterminado devuelve el recuento de instancias a 1.
+3. Establezca el recuento de instancias en **1**. Este valor garantiza que, cuando ningún otro perfil esté activo o en vigor, el perfil predeterminado devuelve el recuento de instancias a 1.
 
   ![Navegación a la configuración de escalado automático](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrence-profile"></a>Creación del perfil de periodicidad
+## <a name="create-recurrance-profile"></a>Creación del perfil de periodicidad
 
 1. Haga clic en el vínculo **Agregar una condición de escala** bajo el perfil predeterminado.
 
@@ -67,11 +73,11 @@ Los pasos siguientes le ayudarán a rellenar la pantalla de escalado automático
 
 3. Asegúrese de que el **Modo de escala** esté establecido en “Escalado basado en una métrica”.
 
-4. Para **Límites de instancia**, establezca el **Mínimo** en 1, el **Máximo** en 2 y el valor **Predeterminado** en 1. Esto garantiza que este perfil no escale automáticamente el plan de servicio para que tenga menos de 1 instancia ni más de 2 instancias. Si el perfil no tiene suficientes datos para tomar una decisión, utiliza el número predeterminado de instancias (en este caso, 1).
+4. Para **Límites de instancia**, establezca el **Mínimo** en 1, el **Máximo** en 2 y el valor **Predeterminado** en 1. Esta configuración garantiza que este perfil no escale automáticamente el plan de servicio para que tenga menos de 1 instancia ni más de 2 instancias. Si el perfil no tiene suficientes datos para tomar una decisión, utiliza el número predeterminado de instancias (en este caso, 1).
 
-5. Para **Programación**, seleccione “Repetir en días específicos”.
+5. Para **Programación**, seleccione "Repetir en días específicos".
 
-6. Establezca el perfil para repetirse de lunes a viernes, de 09:00 PST a 18:00 PST. Esto garantiza que este perfil solo esté activo y se aplique de lunes a viernes de 09:00 18:00 h. Durante el resto del tiempo, el perfil “Predeterminado” será la configuración de escalado automático que utilice el perfil.
+6. Establezca el perfil para repetirse de lunes a viernes, de 09:00 PST a 18:00 PST. Esta configuración garantiza que este perfil solo esté activo y se aplique de lunes a viernes de 09:00 18:00 h. Durante el resto del tiempo, el perfil “Predeterminado” será la configuración de escalado automático que utilice el perfil.
 
 ## <a name="create-a-scale-out-rule"></a>Creación de una regla de escalado horizontal
 
@@ -150,7 +156,7 @@ La condición de reducción horizontal en la configuración de escalado automát
 
 6. Verá un gráfico que refleja el recuento de instancias del plan de App Service a lo largo del tiempo.
 
-7. En unos minutos, el recuento de instancias debería disminuir de 2 a 1. El proceso tarda al menos diez minutos.  
+7. En unos minutos, el recuento de instancias debería disminuir de 2 a 1. El proceso tarda al menos 100 minutos.  
 
 8. Debajo del gráfico, verá el conjunto correspondiente de entradas del registro de actividad para cada acción de escalado realizada por esta configuración de escalado automático.
 
@@ -168,7 +174,16 @@ La condición de reducción horizontal en la configuración de escalado automát
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado una aplicación web y un plan de App Service sencillos. Luego, creó una configuración de escalado automático que escala el plan de App Service en función del número de solicitudes que recibe la aplicación web. Para obtener más información sobre la configuración del escalado automático, continúe con la información general del escalado automático.
+En este tutorial, hizo lo siguiente:  
+> [!div class="checklist"]
+> * Creó una aplicación web y un plan de App Service.
+> * Configuró reglas de escalado automático para reducción horizontal y escalado horizontal de solicitudes que recibe una aplicación web.
+> * Activó una acción de escalado horizontal y visualizó el número de aumento de instancias.
+> * Activó una acción de reducción horizontal y visualizó el número reducción de instancias.
+> * Limpió los recursos.
+
+
+Para obtener más información sobre la configuración del escalado automático, continúe con la [información general del escalado automático](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Archivado de los datos de supervisión](./monitor-tutorial-archive-monitoring-data.md)
+> [Archivado de los datos de supervisión](monitor-tutorial-archive-monitoring-data.md)

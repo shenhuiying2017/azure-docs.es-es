@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 10/04/2017
 ms.author: v-shysun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88c54293b4a9b470febeda3c0e9a1755ad3b0638
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d692d806bab072fc2c4b734677223bad4142561
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-windows-azure-virtual-machines"></a>Preguntas más frecuentes para SQL Server en Microsoft Azure Virtual Machines
 
@@ -51,7 +51,7 @@ En este tema se proporcionan respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo instalar una segunda instancia de SQL Server en la misma máquina virtual? ¿Puedo cambiar las características instaladas de la instancia predeterminada?**
 
-   Sí. Los medios de instalación de SQL Server están ubicados en una carpeta en la unidad **C** . Ejecute **Setup.exe** desde esa ubicación para agregar instancias de SQL Server nuevas o para cambiar otras características instaladas de SQL Server en la máquina. Tenga en cuenta que algunas características, como Copia de seguridad automatizada, Aplicación de revisión automatizada e Integración de Azure Key Vault, solo funcionan con la instancia predeterminada.
+   Sí. Los medios de instalación de SQL Server están ubicados en una carpeta en la unidad **C** . Ejecute **Setup.exe** desde esa ubicación para agregar instancias de SQL Server nuevas o para cambiar otras características instaladas de SQL Server en la máquina. Tenga en cuenta que algunas características, como Automated Backup, Automated Patching e integración de Azure Key Vault, solo funcionan con la instancia predeterminada.
 
 1. **¿Puedo desinstalar la instancia predeterminada de SQL Server?**
 
@@ -60,6 +60,9 @@ En este tema se proporcionan respuestas a algunas de las preguntas más comunes 
       Se ha producido un error relacionado con la red o específico de la instancia al establecer una conexión en SQL Server. No se encontró el servidor o no era accesible.
 
    Si decide desinstalar la instancia predeterminada, desinstale también la [Extensión del Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
+   
+   >[!NOTE]
+   >Una máquina virtual de Azure de SQL Server se factura como se describe en [Orientación de precios de SQL Server para máquinas virtuales de Azure](virtual-machines-windows-sql-server-pricing-guidance.md). Si quita SQL Server, los cargos de uso continúan. Si ya no necesita SQL Server, puede implementar una nueva máquina virtual y migrar los datos y aplicaciones a la nueva máquina virtual. Después, puede quitar la máquina virtual de SQL Server.
 
 1. **¿Cómo actualizo a una nueva versión o edición de SQL Server en una máquina virtual de Azure?**
 
@@ -101,8 +104,8 @@ En este tema se proporcionan respuestas a algunas de las preguntas más comunes 
 * [Aprovisionamiento de una máquina virtual Windows con SQL Server](virtual-machines-windows-portal-sql-server-provision.md)
 * [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-windows-migrate-sql.md)
 * [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
-* [Procedimientos recomendados para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
-* [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+* [Prácticas recomendadas para mejorar el rendimiento para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
+* [Estrategias de desarrollo y patrones de aplicación de SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Máquinas virtuales Linux**:
 

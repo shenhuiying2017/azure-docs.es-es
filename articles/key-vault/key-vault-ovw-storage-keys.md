@@ -9,11 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 10/12/2017
-ms.openlocfilehash: 1d92ffc03b60695c5ff7b6c3d2ac54808c527efd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a87877f4b213365442400d113a67964ef942341f
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Claves de cuenta de almacenamiento de Azure Key Vault
 
@@ -134,15 +134,15 @@ El resultado del comando anterior incluirá su entidad de servicio, que llamarem
 
 ### <a name="set-permissions"></a>Establecer permisos
 
-Asegúrese de que tiene los permisos de almacenamiento establecidos en *todo*. Puede obtener yourKeyVaultServicePrincipalId y establecer permisos en el almacén mediante los siguientes comandos.
+Asegúrese de que tiene los permisos de almacenamiento establecidos en *todo*. Puede obtener youruserPrincipalId y establecer permisos en el almacén mediante los siguientes comandos.
 
 ```powershell
-Get-AzureRmADUser -SearchString "your name"
+$youruserPrincipalId = (Get-AzureRmADUser -SearchString "your user principal name").Id
 ```
 Ahora busque su nombre y obtenga el ObjectId relacionado, que se usará al establecer permisos en el almacén.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $yourKeyVaultServicePrincipalId -PermissionsToStorage all
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId $youruserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Permitir acceso

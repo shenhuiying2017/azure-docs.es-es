@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/01/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 55e5a60294fc5ccb2a55b1e572af2fd27c68f462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbf6e13efaad196c39e4fce0900fa40d7511122
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
@@ -61,7 +61,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
    ![Apertura de las definiciones de directiva disponibles](media/create-manage-policy/open-policy-definitions.png)
 
 5. Seleccione **Require SQL Server Version 12.0** (Requerir SQL Server 12.0).
-   
+
    ![Búsqueda de una directiva](media/create-manage-policy/select-available-definition.png)
 
 6. Proporcione un **Nombre** para mostrar para la asignación de directiva. En este caso, vamos a usar *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción proporciona detalles sobre cómo esta asignación de directiva garantiza que todos los servidores SQL Server creados en este entorno tengan la versión 12.0.
@@ -93,7 +93,7 @@ Ahora que se ha asignado la definición de directiva, vamos a crear una directiv
       - Los parámetros de directiva.
       - Las reglas/condiciones de la directiva, en este caso: tamaño de SKU de máquina virtual igual a la serie G
       - El efecto de la directiva, en este caso: **Deny** (Denegar).
-   
+
    Este es el aspecto que debe tener el json
 
 ```json
@@ -118,9 +118,225 @@ Ahora que se ha asignado la definición de directiva, vamos a crear una directiv
 }
 ```
 
+<!-- Update the following link to the top level samples page
+-->
    Para ver ejemplos de código de json, consulte este artículo: [Información general sobre las directivas de recursos](../azure-resource-manager/resource-manager-policy.md)
-   
+
 4. Seleccione **Guardar**.
+
+## <a name="create-a-policy-definition-with-rest-api"></a>Creación de una definición de directiva con la API de REST
+
+Puede crear una directiva con la API de REST para definiciones de directiva. La API de REST permite crear y eliminar definiciones de directiva, así como recuperar información sobre las definiciones existentes.
+Para crear una definición de directiva, use el siguiente ejemplo:
+
+```
+PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+
+```
+Incluya un cuerpo de solicitud similar al ejemplo siguiente:
+
+```
+{
+  "properties": {
+    "parameters": {
+      "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying resources",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+      }
+    },
+    "displayName": "Allowed locations",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('allowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+## <a name="create-a-policy-definition-with-powershell"></a>Creación de una definición de directiva con PowerShell
+
+Antes de continuar con el ejemplo de PowerShell, asegúrese de que tiene instalada la última versión de Azure PowerShell. Se agregaron parámetros de directiva en la versión 3.6.0. Si tiene una versión anterior, los ejemplos devuelven un error que indica que no se encuentra el parámetro.
+
+Puede crear una definición de directiva con el cmdlet `New-AzureRmPolicyDefinition`.
+
+Para crear una definición de directiva desde un archivo, pase la ruta de acceso al archivo. Para un archivo externo, use el ejemplo siguiente:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Para un archivo local, use el ejemplo siguiente:
+
+```
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Para crear una definición de directiva con una regla insertada, use el ejemplo siguiente:
+
+```
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+La salida se almacena en un objeto `$definition`, que se usa durante la asignación de directivas.
+En el ejemplo siguiente se crea una definición de directiva que incluye parámetros:
+
+```
+$policy = '{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Storage/storageAccounts"
+            },
+            {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters(''allowedLocations'')]"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "Deny"
+    }
+}'
+
+$parameters = '{
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "strongType": "location",
+          "displayName": "Allowed locations"
+        }
+    }
+}'
+
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters
+```
+
+## <a name="view-policy-definitions"></a>Visualización de definiciones de directiva
+
+Para ver todas las definiciones de directiva en su suscripción, utilice el siguiente comando:
+
+```
+Get-AzureRmPolicyDefinition
+```
+
+Devuelve todas las definiciones de directiva disponibles, incluidas las directivas integradas. Cada directiva se devuelve con el formato siguiente:
+
+```
+Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
+ResourceType       : Microsoft.Authorization/policyDefinitions
+Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
+                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     your geo-compliance requirements.; parameters=; policyRule=}
+PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
+```
+
+## <a name="create-a-policy-definition-with-azure-cli"></a>Creación de una definición de directiva con la CLI de Azure
+
+Puede crear una definición de directiva mediante la CLI de Azure con el comando de definición de directiva.
+Para crear una definición de directiva con una regla insertada, use el ejemplo siguiente:
+
+```
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
+  "if": {
+    "allOf": [
+      {
+        "field": "type",
+        "equals": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "field": "kind",
+        "equals": "BlobStorage"
+      },
+      {
+        "not": {
+          "field": "Microsoft.Storage/storageAccounts/accessTier",
+          "equals": "cool"
+        }
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}'
+```
+
+## <a name="view-policy-definitions"></a>Visualización de definiciones de directiva
+
+Para ver todas las definiciones de directiva en su suscripción, utilice el siguiente comando:
+
+```
+az policy definition list
+```
+
+Devuelve todas las definiciones de directiva disponibles, incluidas las directivas integradas. Cada directiva se devuelve con el formato siguiente:
+
+```
+{                                                            
+  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "displayName": "Allowed locations",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
+  "policyRule": {
+    "if": {
+      "not": {
+        "field": "location",
+        "in": "[parameters('listOfAllowedLocations')]"
+      }
+    },
+    "then": {
+      "effect": "Deny"
+    }
+  },
+  "policyType": "BuiltIn"
+}
+```
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Creación y asignación de una definición de iniciativa
 
@@ -166,7 +382,7 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
    - pricing tier (plan de tarifa): Standard
    - scope you would like this assignment applied to (ámbito al que desea que se aplique esta asignación): **Azure Advisor Capacity Dev**
 
-5. Seleccione **Asignar**. 
+5. Seleccione **Asignar**.
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Resolución de un recurso que no cumpla o que sea denegado
 
@@ -205,4 +421,4 @@ En este tutorial, ha realizado satisfactoriamente lo siguiente:
 Para más información sobre las estructuras de las definiciones de directiva, consulte este artículo:
 
 > [!div class="nextstepaction"]
-> [Estructura de definición de directiva](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure)
+> [Estructura de definición de Azure Policy](policy-definition.md)

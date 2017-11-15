@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Linux
 
@@ -65,6 +65,8 @@ Los siguientes valores se devuelven en MaintenanceRedeployStatus:
 | LastOperationResultCode               | El resultado del último intento de iniciar el mantenimiento en la máquina virtual ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Inicio del mantenimiento en la máquina virtual mediante la CLI
 
 La siguiente llamada iniciará el mantenimiento en una máquina virtual si `IsCustomerInitiatedMaintenanceAllowed` está establecido en true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>Implementaciones clásicas
+
+Si todavía tiene máquinas virtuales heredadas que se han implementado según el modelo de implementación clásico, puede usar la CLI 1.0 para consultar las máquinas virtuales e iniciar el mantenimiento.
+
+Asegúrese de que se encuentra en el modo correcto para trabajar con máquinas virtuales clásicas. Para ello, escriba lo siguiente:
+
+```
+azure config mode asm
+```
+
+Para obtener el estado de mantenimiento de una máquina virtual denominada *myVM*, escriba lo siguiente:
+
+```
+azure vm show myVM 
+``` 
+
+Para iniciar el mantenimiento en la máquina virtual clásica denominada *myVM* en el servicio *myService* y la implementación *myDeployment*, escriba lo siguiente:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>P+F

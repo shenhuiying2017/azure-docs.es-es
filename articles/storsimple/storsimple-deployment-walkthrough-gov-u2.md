@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/16/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 0b22dcdfc0432533b286e70d130bfe2ee2db92b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c904535dc232b0e9e16f8aed78c2bbb330172b37
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal-update-2"></a>Implemente el dispositivo StorSimple local en el Portal de Government (Update 2)
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Implementación del dispositivo StorSimple local en el Portal de Government (Update 2)](storsimple-8000-deployment-walkthrough-gov-u2.md). Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 [!INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
 ## <a name="overview"></a>Información general
@@ -176,7 +179,7 @@ Puede realizar una copia de seguridad manual en cualquier momento. Para conocer 
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurar una nueva cuenta de almacenamiento para el servicio
 Se trata de un paso opcional que debe llevar a cabo únicamente si no habilitó la creación automática de una cuenta de almacenamiento con su servicio. Se requiere una cuenta de almacenamiento de Microsoft Azure para crear un contenedor de volúmenes de StorSimple.
 
-Si necesita crear una cuenta de almacenamiento de Azure en una región distinta, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md) para obtener instrucciones paso a paso.
+Si necesita crear una cuenta de Azure Storage en una región distinta, vea [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md) para obtener instrucciones paso a paso.
 
 Siga estos pasos en el Portal de Government, en la página **Servicio de Administrador de StorSimple** .
 

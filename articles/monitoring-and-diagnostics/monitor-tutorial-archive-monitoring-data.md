@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Archivado de datos de supervisión de Azure
 
 Varias capas de su entorno de Azure generan datos de registros y de métricas que pueden archivarse en una cuenta de Azure Storage. Puede que desee hacer esto para conservar un historial de los datos de supervisión a lo largo del tiempo en un almacén económico y que no admite búsquedas, una vez que haya transcurrido el período de retención en Log Analytics o Azure Monitor. En este tutorial, se recorre el proceso de configuración del entorno de Azure para archivar datos en una cuenta de almacenamiento.
+
+> [!div class="checklist"]
+> * Creación de una cuenta de almacenamiento para conservar los datos de supervisión
+> * Enrutamiento de los registros de suscripción a la cuenta de almacenamiento 
+> * Enrutamiento de los datos de recursos a la cuenta de almacenamiento 
+> * Enrutamiento de los datos de máquinas virtuales (SO invitado) a la cuenta de almacenamiento 
+> * Visualización de los datos de supervisión en la cuenta de almacenamiento 
+> * Limpiar los recursos 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -158,7 +166,18 @@ Ya ha configurado correctamente que los datos de supervisión se archiven en una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha visto cómo configurar los datos de supervisión desde el entorno de Azure (suscripción, recursos y SO invitado) para archivarlos en una cuenta de almacenamiento. Para aprovechar mejor los datos y obtener mayor información, pruebe a enviar los datos a Log Analytics también.
+En este tutorial, ha visto cómo configurar los datos de supervisión desde el entorno de Azure (suscripción, recursos y SO invitado) para archivarlos en una cuenta de almacenamiento. 
+
+
+> [!div class="checklist"]
+> * Creación de una cuenta de almacenamiento para conservar los datos de supervisión
+> * Enrutamiento de los registros de suscripción a la cuenta de almacenamiento 
+> * Enrutamiento de los datos de recursos a la cuenta de almacenamiento 
+> * Enrutamiento de los datos de máquinas virtuales (SO invitado) a la cuenta de almacenamiento 
+> * Visualización de los datos de supervisión en la cuenta de almacenamiento 
+> * Limpiar los recursos 
+
+Para obtener el máximo partido de los datos y derivar información adicional, envíe también los datos en Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Introducción a Log Analytics](../log-analytics/log-analytics-get-started.md)

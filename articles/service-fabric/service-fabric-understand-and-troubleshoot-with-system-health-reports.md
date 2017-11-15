@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
@@ -55,6 +55,18 @@ El informe especifica el tiempo de expiración de concesión global como períod
 * **SourceId**: System.Federation
 * **Propiedad**: comienza por **Neighborhood** e incluye información sobre el nodo.
 * **Pasos siguientes**: investigue por qué se pierde el entorno; por ejemplo, compruebe la comunicación entre los nodos del clúster.
+
+### <a name="rebuild"></a>Recompilación
+
+El servicio **Administrador de conmutación por error** (**FM**) administra información sobre los nodos del clúster. Cuando FM pierde los datos y entra en estado de pérdida de datos, no puede garantizar que tenga la información más actualizada sobre los nodos de clúster. En este caso, el sistema se somete a una **recompilación** y **System.FM** reúne datos de todos los nodos del clúster para recompilar su estado. En ocasiones, debido a problemas de la red o del nodo, la recompilación puede bloquearse o detenerse. Lo mismo puede suceder con el servicio **Maestro administrador de conmutación por error** (**FMM**). **FMM** es un servicio de sistema sin estado que realiza un seguimiento del lugar en el que se encuentran todos los **FM** en el clúster. El nodo principal de los **FMM** siempre es el nodo con el identificador más cercano a 0. Si ese nodo se quita, se desencadena una **recompilación**.
+Cuando se produce una de las condiciones anteriores, **System.FM** o **System.FMM** la marcan mediante un informe de errores. La recompilación podría bloquearse en una de estas dos fases:
+
+* Esperando la difusión: **FM/FMM** esperará la respuesta del mensaje de difusión de los demás nodos. **Pasos siguientes:** investigue si hay un problema de conexión de red entre los nodos.   
+* Esperando los nodos: **FM/FMM** ya ha recibido una respuesta de difusión de los demás nodos y está esperando una respuesta de nodos específicos. En el informe de mantenimiento se enumeran los nodos para los que **FM/FMM** está esperando una respuesta. **Pasos siguientes:** investigue la conexión de red entre **FM/FMM** y los nodos enumerados. Investigue cada nodo enumerado en busca de otros posibles problemas.
+
+* **SourceID**: System.FM o System.FMM.
+* **Propiedad**: Rebuild.
+* **Pasos siguientes**: investigue la conexión de red entre los nodos, así como el estado de los nodos específicos que se muestran en la descripción del informe de mantenimiento.
 
 ## <a name="node-system-health-reports"></a>Informes de mantenimiento del sistema de nodos
 **System.FM**, que representa el servicio Administrador de conmutación por error, es la autoridad que administra la información acerca de los nodos del clúster. Todos los nodos deben tener un informe de System.FM que muestre el estado. Las entidades de nodo se quitan cuando se quita el estado del nodo. Para más información, consulte [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
