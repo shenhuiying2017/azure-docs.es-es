@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: abaf78428cb12235a659bad5c13d64e8e51f4ba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM para recursos de Azure (versión preliminar)
 
@@ -48,6 +48,7 @@ Los usuarios o los miembros de un grupo asignados a los roles Propietario o Admi
 ## <a name="tasks"></a>Tareas
 
 PIM ofrece un acceso cómodo para activar los roles, y ver las activaciones/solicitudes pendientes, las aprobaciones pendientes (para los [roles de directorio de Azure AD](azure-ad-pim-approval-workflow.md)) y las revisiones pendientes de respuesta en la sección Tareas del menú de navegación izquierdo.
+
 Cuando se accede a cualquiera de los elementos del menú Tareas del punto de entrada de Información general, la vista resultante contiene los resultados de los roles de directorio de Azure AD y los roles de los recursos de Azure (versión preliminar). 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
@@ -56,7 +57,7 @@ Mis roles contiene una lista de las asignaciones de rol activas y válidas para 
 
 ## <a name="activate-roles"></a>Activación de roles
 
-La activación de roles para los recursos de Azure (versión preliminar) presenta una nueva experiencia que permite a los miembros del rol aptos programar la activación de fechas y horas futuras, y seleccionar una duración de activación específica dentro de los límites (que configuren los administradores). Obtenga información acerca de la [activación de roles de Azure AD aquí](../active-directory-privileged-identity-management-how-to-activate-role.md).
+La activación de roles para los recursos de Azure (versión preliminar) presenta una nueva experiencia que permite a los miembros del rol aptos programar la activación de fechas y horas futuras, y seleccionar una duración de activación específica dentro de los límites (que configuren los administradores). Aprenda a [activar roles de Azure AD aquí](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 75408dc88b23b615971a23dc6235c563229d75aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Preparar un registro de contenedor de Azure con replicación geográfica
 
@@ -247,10 +247,10 @@ En este tutorial, creó un registro de contenedor privado con replicación geogr
 > * Compilar una imagen de contenedor de Docker desde el origen de la aplicación
 > * Insertar la imagen de contenedor en el registro
 
-Vaya al siguiente tutorial para aprender a implementar el contenedor en varias instancias de Azure App Service mediante la replicación geográfica y así poder servir las imágenes de forma local.
+Vaya al siguiente tutorial para aprender a implementar el contenedor en varias instancias de Web App for Containers mediante la replicación geográfica y así poder atender las imágenes de forma local.
 
 > [!div class="nextstepaction"]
-> [Implementar contenedores en Azure App Services](container-registry-tutorial-deploy-app.md)
+> [Implementación de una aplicación web desde Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

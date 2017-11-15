@@ -20,14 +20,14 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
 ---
-# Azure AD B2C: protocolos de autenticación
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: protocolos de autenticación
 Azure Active Directory B2C (Azure AD B2C) proporciona identidad como servicio para sus aplicaciones gracias a la compatibilidad con dos protocolos estándar del sector: OpenID Connect y OAuth 2.0. Aunque el servicio cumple con la norma, pueden existir diferencias sutiles entre dos implementaciones cualesquiera de estos protocolos. 
 
 La información de esta guía es útil si el código se escribe mediante el envío y el control directo de solicitudes HTTP, en lugar de usar una biblioteca de código abierto. Se recomienda que lea esta página antes de profundizar en los detalles de cada protocolo específico. Pero si ya está familiarizado con Azure AD B2C, puede ir directamente a [las guías de referencia de protocolo](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
-## Conceptos básicos
+## <a name="the-basics"></a>Conceptos básicos
 Todas las aplicaciones que usen Azure AD B2C deben estar registrada en su directorio B2C del [Portal de Azure](https://portal.azure.com). El proceso de registro de la aplicación recopila y asigna algunos valores a la aplicación:
 
 * Un **identificador de la aplicación** que identifica la aplicación de forma única.
@@ -53,14 +53,14 @@ En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas 
 
 * El **servidor de recursos** es el lugar en que residen el recurso o los datos. Confía en el servidor de autorizaciones para autenticar y autorizar de forma segura al cliente OAuth. También usa tokens de acceso de portador para asegurarse de que se puede conceder el acceso a un recurso.
 
-## Directivas
+## <a name="policies"></a>Directivas
 Puede decirse que las directivas de Azure AD B2C son las características más importantes del servicio. Azure AD B2C amplía los protocolos estándar de OAuth 2.0 y OpenID Connect mediante la introducción de las directivas. Estas permiten que Azure AD B2C realice tareas que van más allá de la mera autenticación y autorización. 
 
 Las directivas describen por completo las experiencias de identidad del consumidor como el registro, el inicio de sesión y la edición de perfil. Las directivas se pueden definir en una interfaz de usuario administrativa. Se pueden ejecutar mediante un parámetro de consulta especial en solicitudes de autenticación de HTTP. 
 
 Las directivas no son una característica estándar de OAuth 2.0 y OpenID Connect, así que debe dedicar tiempo a entenderlas. Para más información, consulte [Versión preliminar de Azure Active Directory B2C: marco de directiva extensible](active-directory-b2c-reference-policies.md).
 
-## Tokens
+## <a name="tokens"></a>Tokens
 La implementación de Azure AD B2C de OAuth 2.0 y OpenID Connect hace un uso generalizado de tokens de portador, incluidos los representados como tokens web JSON (JWT). Un token de portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido.
 
 El "portador" es cualquier parte que pueda presentar el token. Para que una parte pueda recibir un token de portador, es necesario que Azure AD la autentique previamente. Pero si no se realizan los pasos necesarios para proteger el token durante la transmisión y el almacenamiento, puede ser interceptado y usado por usuarios no previstos.
@@ -73,7 +73,7 @@ Para ver más consideraciones de seguridad relativas a los tokens de portador, c
 
 En [Azure AD B2C: referencia de tokens](active-directory-b2c-reference-tokens.md) encontrará más información sobre los distintos tipos de tokens que se usan en Azure AD B2C.
 
-## Protocolos
+## <a name="protocols"></a>Protocolos
 Cuando esté listo para revisar algunas solicitudes de ejemplo, puede comenzar con uno de los siguientes tutoriales. Cada uno de ellos corresponde a un escenario de autenticación determinado. Si necesita ayuda para determinar qué flujo es el más apropiado en su caso, consulte [los tipos de aplicaciones que puede compilar con Azure AD B2C](active-directory-b2c-apps.md).
 
 * [Creación de aplicaciones móviles nativas mediante OAuth 2.0](active-directory-b2c-reference-oauth-code.md)

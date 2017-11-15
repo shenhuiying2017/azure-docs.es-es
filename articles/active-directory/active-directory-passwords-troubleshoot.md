@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2eeb49cb6ab39c78612e0f1b3e08130ba88cf356
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Cómo solucionar problemas de autoservicio de restablecimiento de contraseña
 
@@ -102,6 +102,7 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
 | Código | Nombre/mensaje | Descripción |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619 –: "Una restricción impide que la contraseña se modifique por la que ha especificado actualmente". | Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple la duración de la contraseña, el historial, la complejidad o los requisitos de filtrado del dominio. <br> <br> Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0. <br> <br> Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha usado en las últimas N veces, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0. <br> <br> Si tiene requisitos de complejidad de contraseña, todos ellos se aplican cuando el usuario intenta cambiar o restablecer una contraseña. <br> <br> Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación. |
+| 6329 | MMS(3040): admaexport.cpp(2837): el servidor no contiene el control de directiva de contraseña LDAP. | Este problema se produce si el control LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) no está habilitado en los controladores de dominio. Para usar la característica de escritura diferida de contraseña, debe habilitar el control. Para ello, los controladores de dominio deben estar en Windows Server 2008 (con el último SP) o una versión posterior. Si los controladores de dominio están en 2008 (antes de la versión R2), también debe aplicar la revisión [KB2386717](http://support.microsoft.com/kb/2386717). |
 | HR 8023042 | El motor de sincronización devolvió un error hr=80230402, mensaje=Error al intentar obtener un objeto debido a que hay entradas duplicadas con el mismo delimitador | Este evento se produce cuando se habilita el mismo identificador de usuario en varios dominios. Por ejemplo, si se están sincronizando los bosques de cuentas y recursos y tienen el mismo identificador de usuario presente y habilitado en cada uno, es posible que se produzca este error. <br> <br> Este error también puede producirse si usa un atributo delimitador que no sea único (como un alias o UPN) y dos usuarios comparten el mismo atributo delimitador. <br> <br> Para resolver este problema, asegúrese de no tener ningún usuario duplicado dentro de los dominios y de estar utilizando un atributo de delimitador único para cada usuario. |
 
 ### <a name="source-of-event-is-passwordresetservice"></a>El origen del evento es PasswordResetService

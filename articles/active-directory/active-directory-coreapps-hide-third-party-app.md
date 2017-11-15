@@ -15,20 +15,20 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 28b6885e7e74a44f4d00f4a804a93e74f6eec685
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Ocultación de una aplicación de terceros de la experiencia del usuario en Azure Active Directory
 
 Si tiene una aplicación de terceros (es decir, una aplicación no publicada por Microsoft) que no desea que aparezca en los paneles de acceso de los usuarios o en los iniciadores de Office 365, hay una opción para ocultar el icono de esta aplicación. Al ocultar la aplicación, los usuarios todavía tendrán permisos de acceso a ella pero no podrán verla en los iniciadores de aplicaciones. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio.
 
-## <a name="hiding-a-users-access-panel"></a>Ocultar el panel de acceso de un usuario
-Siga estos pasos para ocultar el panel de acceso de un usuario y los iniciadores de aplicaciones de Office 365:
+## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Ocultación de una aplicación de terceros de la experiencia del usuario
+Siga estos pasos para ocultar una aplicación de terceros del panel de acceso de un usuario y de los iniciadores de aplicaciones de Office 365:
 
-### <a name="how-do-i-hide-an-app-from-users-access-panel-and-o365-app-launchers"></a>¿Cómo se puede ocultar una aplicación del panel de acceso del usuario y los iniciadores de aplicaciones de Office 365?
+### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>¿Cómo se puede ocultar una aplicación de terceros del panel de acceso del usuario y de los iniciadores de aplicaciones de Office 365?
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
 2.  Seleccione **Más servicios**, escriba **Azure Active Directory** en el cuadro de texto y presione **ENTRAR**.

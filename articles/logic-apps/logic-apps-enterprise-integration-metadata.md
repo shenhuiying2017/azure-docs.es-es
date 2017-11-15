@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/21/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 28bb8296ddd820ec5aa9793dc0928b4b1e67bf6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 473da6436ad39709359b579162a6b60efc38d61f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Administración de metadatos de artefactos en cuentas de integración para aplicaciones lógicas
 
-Puede definir metadatos personalizados para artefactos en cuentas de integración y recuperar metadatos durante el tiempo de ejecución para su aplicación lógica. Por ejemplo, puede especificar metadatos para artefactos como asociados, acuerdos, esquemas y asignaciones: todos almacenan metadatos usando pares de clave-valor. Actualmente, los artefactos no pueden crear metadatos a través de la interfaz de usuario, pero puede usar API de REST para crear metadatos. Para agregar metadatos al crear o seleccionar un asociado, acuerdo o esquema en Azure Portal, elija **Editar como JSON**. Para recuperar metadatos de artefactos en aplicaciones lógicas, puede usar la característica	 Búsqueda de artefactos de la cuenta de integración.
+Puede definir metadatos personalizados para artefactos en cuentas de integración y recuperar metadatos durante el tiempo de ejecución para su aplicación lógica. Por ejemplo, puede especificar metadatos para artefactos como asociados, acuerdos, esquemas y asignaciones: todos almacenan metadatos usando pares de clave-valor. Actualmente, los artefactos no pueden crear metadatos a través de la interfaz de usuario, pero puede usar API de REST para crear metadatos. Para agregar metadatos al crear o seleccionar un asociado, acuerdo o esquema en Azure Portal, elija **Editar**. Para recuperar metadatos de artefactos en aplicaciones lógicas, puede usar la característica	 Búsqueda de artefactos de la cuenta de integración.
 
 ## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Adición de metadatos a artefactos en cuentas de integración
 
@@ -31,7 +31,7 @@ Puede definir metadatos personalizados para artefactos en cuentas de integració
 
 2. Agregue un artefacto a su cuenta de integración, por ejemplo, un [asociado](logic-apps-enterprise-integration-partners.md#how-to-create-a-partner), un [acuerdo](logic-apps-enterprise-integration-agreements.md#how-to-create-agreements) o un [esquema](logic-apps-enterprise-integration-schemas.md).
 
-3.  Seleccione el artefacto, elija **Editar como JSON** y escriba los detalles de los metadatos.
+3.  Seleccione el artefacto, elija **Editar** y escriba los detalles de los metadatos.
 
     ![Introducción de los metadatos](media/logic-apps-enterprise-integration-metadata/image1.png)
 

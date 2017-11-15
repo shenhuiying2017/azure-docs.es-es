@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 744759968706e0a2c9fe8c1c153f44cc958e31b8
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Uso del servicio Azure Import/Export para la copia de datos sin conexión en Data Lake Store
 En este artículo, aprenderá a copiar conjuntos de datos de gran tamaño (más de 200 GB) en Azure Data Lake Store mediante el empleo de métodos de copia sin conexión, como el [servicio Azure Import/Export](../storage/common/storage-import-export-service.md). En concreto, el archivo de ejemplo que utilizamos en este artículo tiene 339 420 860 416 bytes; es decir, ocupa unos 319 GB de espacio en disco. Llamaremos a este archivo "319GB.tsv".
@@ -58,7 +58,7 @@ Siga las instrucciones de [Uso del servicio Azure Import/Export para transferir 
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
     Consulte [Uso del servicio Azure Import/Export](../storage/common/storage-import-export-service.md) para obtener más fragmentos de código de ejemplo.
-4. El comando anterior crea un archivo de diario en la ubicación especificada. Use este archivo de diario para crear un trabajo de importación desde el [Portal de Azure clásico](https://manage.windowsazure.com).
+4. El comando anterior crea un archivo de diario en la ubicación especificada. Use este archivo de diario para crear un trabajo de importación desde [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Crear un trabajo de importación
 Ahora puede crear un trabajo de importación con las instrucciones de [Uso del servicio Azure Import/Export ](../storage/common/storage-import-export-service.md) (sección **Creación de un trabajo de importación**). Para este trabajo de importación, proporcione también el archivo de diario creado al preparar las unidades de disco, además de otros detalles.
