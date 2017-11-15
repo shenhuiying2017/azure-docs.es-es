@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre la prueba comparativa Base de datos SQL de Azure"
-description: "Este tema describe la prueba comparativa Base de datos SQL de Azure Benchmark, que se usa para la medición del rendimiento de la Base de datos SQL de Azure."
+title: "Información general sobre la prueba comparativa Azure SQL Database"
+description: "Este tema describe la prueba comparativa Azure SQL Database Benchmark, que se usa para la medición del rendimiento de Azure SQL Database."
 services: sql-database
 documentationcenter: na
 author: jan-eng
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 43ab7ed75313863d2912063169ccc089af6052c2
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: fb8a5f205ddc143dc47349829048f46f88963d05
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Información general sobre la prueba comparativa Base de datos SQL de Azure
+# <a name="azure-sql-database-benchmark-overview"></a>Información general sobre la prueba comparativa Azure SQL Database
 ## <a name="overview"></a>Información general
-La Base de datos SQL de Microsoft Azure ofrece tres [niveles de servicio](sql-database-service-tiers.md) con varios niveles de rendimiento. Cada nivel de rendimiento proporciona un conjunto de recursos (o "capacidad") cada vez mayor, diseñado para proporcionar un mayor rendimiento.
+Microsoft Azure SQL Database ofrece tres [niveles de servicio](sql-database-service-tiers.md) con varios niveles de rendimiento. Cada nivel de rendimiento proporciona un conjunto de recursos (o "capacidad") cada vez mayor, diseñado para proporcionar un mayor rendimiento.
 
-Es importante poder cuantificar cómo se traduce la potencia creciente de cada nivel de rendimiento en un rendimiento de base de datos mejorado. Para ello, Microsoft ha desarrollado la prueba comparativa Base de datos SQL de Azure Benchmark (ASDB). La prueba comparativa ejerce una combinación de operaciones básicas que se encuentran en todas las cargas de trabajo OLTP. Medimos el rendimiento conseguido para bases de datos que se ejecuten en cada nivel de rendimiento.
+Es importante poder cuantificar cómo se traduce la potencia creciente de cada nivel de rendimiento en un rendimiento de base de datos mejorado. Para ello, Microsoft ha desarrollado la prueba comparativa Azure SQL Database Benchmark (ASDB). La prueba comparativa ejerce una combinación de operaciones básicas que se encuentran en todas las cargas de trabajo OLTP. Medimos el rendimiento conseguido para bases de datos que se ejecuten en cada nivel de rendimiento.
 
 Los recursos y la potencia de cada nivel de servicio y nivel de rendimiento se expresan en términos de [unidades de transacción de base de datos (DTU)](sql-database-what-is-a-dtu.md). Las DTU proporcionan un modo de describir la capacidad relativa de un nivel de rendimiento basándose en una medición combinada de CPU, memoria y velocidades de lectura y escritura ofrecidas por cada nivel de rendimiento. Doblar la tasa de DTU de una base de datos es equiparable a doblar la potencia de la base de datos. La prueba comparativa nos permite evaluar el impacto en el rendimiento de la base de datos de la cada vez mayor capacidad que ofrece cada nivel de rendimiento realizando operaciones reales en la base de datos, mientras se escala el tamaño de la base de datos, el número de usuarios y las velocidades de transacción en proporción a los recursos proporcionados a la base de datos.
 
@@ -106,7 +106,7 @@ La tabla siguiente muestra el número de usuarios sostenidos realmente para cada
 | Estándar (S2) |50 |7,1 GB |
 | Premium (P1) |100 |14 GB |
 | Premium (P2) |200 |28 GB |
-| Premium (P6/P3) |800 |114 GB |
+| Premium (P6) |800 |114 GB |
 
 ## <a name="measurement-duration"></a>Duración de la medición
 Una ejecución válida de la prueba comparativa precisa una duración de medición en estado fijo de al menos una hora.
@@ -124,10 +124,10 @@ Las métricas clave de la prueba comparativa son rendimiento y tiempo de respues
 | Básica |Transacciones por hora |Percentil 80 en 2,0 segundos |
 
 ## <a name="conclusion"></a>Conclusión
-La prueba comparativa Base de datos SQL de Azure Benchmark mide el rendimiento relativo de la Base de datos SQL de Azure que se ejecuta a lo largo del intervalo de niveles de servicio y niveles de rendimiento disponibles. La prueba comparativa ejerce una combinación de operaciones de bases de datos básicas que se producen con mayor frecuencia en las cargas de trabajo de procesamiento de transacciones en línea (OLTP). Mediante la medición del rendimiento real, la prueba comparativa proporciona una evaluación más significativa del impacto que tiene sobre el rendimiento el cambio del nivel de rendimiento de lo que sería posible con solo enumerando los recursos proporcionados por cada nivel, como velocidad de CPU, tamaño de memoria e IOPS. En el futuro, continuaremos evolucionando la prueba comparativa para ampliar su ámbito y los datos proporcionados.
+La prueba comparativa Azure SQL Database Benchmark mide el rendimiento relativo de Azure SQL Database que se ejecuta a lo largo del intervalo de niveles de servicio y niveles de rendimiento disponibles. La prueba comparativa ejerce una combinación de operaciones de bases de datos básicas que se producen con mayor frecuencia en las cargas de trabajo de procesamiento de transacciones en línea (OLTP). Mediante la medición del rendimiento real, la prueba comparativa proporciona una evaluación más significativa del impacto que tiene sobre el rendimiento el cambio del nivel de rendimiento de lo que sería posible con solo enumerando los recursos proporcionados por cada nivel, como velocidad de CPU, tamaño de memoria e IOPS. En el futuro, continuaremos evolucionando la prueba comparativa para ampliar su ámbito y los datos proporcionados.
 
 ## <a name="resources"></a>Recursos
-[Introducción a Base de datos SQL](sql-database-technical-overview.md)
+[Introducción a SQL Database](sql-database-technical-overview.md)
 
 [Niveles de servicio y niveles de rendimiento](sql-database-service-tiers.md)
 

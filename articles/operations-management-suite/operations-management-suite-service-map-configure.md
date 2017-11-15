@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: daef11a0cea11b0f6633ab32f7d84fac4591180a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 209631536d8c611b46a2ad3ff6c685062b17c649
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configuración de Service Map en Operations Management Suite
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Puede usarlo para ver los servidores tal como los considera: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
@@ -135,7 +135,7 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ### <a name="shell-script-for-linux"></a>Script de shell para Linux
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
-sh InstallDependencyAgent-Linux64.bin -s
+sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Extensión de máquina virtual de Azure
@@ -228,10 +228,15 @@ Un administrador puede desinstalar Dependency Agent de Windows a través del Pan
 Un administrador también puede ejecutar %Programfiles%\Microsoft Dependency Agent\Uninstall.exe para desinstalar Dependency Agent.
 
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Desinstalar Dependency Agent en Linux
-Para desinstalar completamente Dependency Agent de Linux, debe quitar el agente y el conector que se instala automáticamente con el agente. Puede desinstalar ambos mediante el comando siguiente:
-
-    rpm -e dependency-agent dependency-agent-connector
-
+Para desinstalar completamente Dependency Agent de Linux, debe quitar el agente y el conector que se instala automáticamente con el agente. Puede desinstalar ambos mediante el comando siguiente.
+<br>RHEL, CentOS y Oracle:
+```
+sudo rpm -e dependency-agent dependency-agent-connector
+```
+Ubuntu:
+```
+sudo dpkg --purge dependency-agent dependency-agent-connector
+```
 ## <a name="troubleshooting"></a>Solución de problemas
 Esta sección puede ayudarle si tiene problemas para instalar o ejecutar Service Map. Si sigue sin poder resolver el problema, póngase en contacto con Soporte técnico de Microsoft.
 
@@ -316,6 +321,7 @@ Las secciones siguientes enumeran los sistemas operativos compatibles para el ag
 | 7.1 | 3.10.0-229 |
 | 7,2 | 3.10.0-327 |
 | 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 | Versión del SO | Versión del kernel |
@@ -329,6 +335,7 @@ Las secciones siguientes enumeran los sistemas operativos compatibles para el ag
 | 6.6 | 2.6.32-504 |
 | 6.7 | 2.6.32-573 |
 | 6,8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
 | Versión del SO | Versión del kernel |
@@ -336,10 +343,17 @@ Las secciones siguientes enumeran los sistemas operativos compatibles para el ag
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
 | 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419 |
+| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
 
-#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux con Unbreakable Enterprise Kernel
+### <a name="ubuntu-server"></a>Ubuntu Server
+- No se admiten los kernel personalizados, incluidas las recompilaciones de kernels estándar.
 
+| Versión del SO | Versión del kernel |
+|:--|:--|
+| 16.04 | 4.4.0-98 |
+| 14.04 | 3.13.0-135<br>4.4.0-98 |
+
+### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux con Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
 | Versión del SO | Versión del kernel
 |:--|:--|

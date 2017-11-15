@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 2858f20cd9da469d5983e2bef9176f5922349196
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implementación de un contenedor en Azure Container Instances
 
@@ -56,31 +56,31 @@ Contraseña del registro de contenedor:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Para implementar una imagen de contenedor desde el registro de contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el comando siguiente:
+Para implementar una imagen de contenedor desde el registro de contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el comando siguiente. Reemplace `<acrLoginServer>` y `<acrPassword>` por los valores obtenidos en los dos comandos anteriores.
 
 ```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-En pocos segundos, debería recibir una respuesta inicial de Azure Resource Manager. Para ver el estado de la implementación, use:
+En pocos segundos, debería recibir una respuesta inicial de Azure Resource Manager. Para ver el estado de la implementación, use [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
 ```
 
-La ejecución de este comando puede seguir hasta que el estado cambie de *pendiente* a *en ejecución*. Después, ya se puede continuar.
+Repita el comando `az container show` hasta que el estado cambie de *Pendiente* a *En ejecución*, que debe tardar menos de un minuto. Cuando el contenedor esté en *En ejecución*, continúe con el paso siguiente.
 
 ## <a name="view-the-application-and-container-logs"></a>Visualización de los registros de contenedor y aplicación
 
-Una vez que la implementación se complete correctamente, puede abrir el explorador en la dirección IP que se muestran en la salida del comando siguiente:
+Cuando se complete correctamente la implementación, se mostrará la dirección IP pública del contenedor con el comando [az container show](/cli/azure/container#az_container_show):
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Salida de ejemplo: `"13.88.176.27"`
+
+Para ver la aplicación en ejecución, vaya a la dirección IP pública en su explorador favorito.
 
 ![Aplicación Hola mundo en el explorador][aci-app-browser]
 
@@ -96,6 +96,14 @@ Salida:
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si ya no necesita ninguno de los recursos creados en esta serie de tutoriales, puede ejecutar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos y todos los recursos que contiene. Este comando elimina el registro de contenedor que se ha creado, así como el contenedor en ejecución y todos los recursos relacionados.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

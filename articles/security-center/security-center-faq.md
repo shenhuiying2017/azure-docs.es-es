@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -44,7 +44,7 @@ El nivel **Gratis** permite ver el estado de seguridad de los recursos de Azure,
 En el **nivel Estándar** se agregan funcionalidades de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de atribución de amenazas. El nivel Estándar es gratuito durante los primeros 60 días. Si decide seguir utilizando el servicio después de esos 60 días, automáticamente se empieza a cobrar por el servicio.  Para actualizarlo, seleccione el [plan de tarifa](https://docs.microsoft.com/azure/security-center/security-center-pricing) de la directiva de seguridad.
 
 ## <a name="permissions"></a>Permisos
-Azure Security Center usa el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md), que proporciona [roles integrados](../active-directory/role-based-access-built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios en Azure.
+Azure Security Center usa el [control de acceso basado en roles (RBAC)](../active-directory/role-based-access-control-configure.md), que proporciona [roles integrados](../active-directory/role-based-access-built-in-roles.md) que se pueden asignar a usuarios, grupos y servicios de Azure.
 
 Security Center evalúa la configuración de los recursos para identificar problemas de seguridad y vulnerabilidades. En Security Center, solo se muestra información relacionada con un recurso cuando tiene asignado el rol de Propietario, Colaborador o Lector a la suscripción o grupo de recursos al que pertenece un recurso.
 
@@ -91,7 +91,7 @@ El Centro de seguridad de Azure analiza el estado de seguridad de los recursos d
 Aquí solo se muestran las recomendaciones habilitadas en las directivas de seguridad.
 
 ### <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>¿Cómo puedo ver el estado de seguridad actual de los recursos de Azure?
-La hoja **Security Center Overview** (Introducción a Security Center) muestra la posición de seguridad general del entorno con la información desglosada por proceso, redes, almacenamiento y datos, y aplicaciones. Cada tipo de recurso tiene un indicador que muestra si se ha identificado alguna posible vulnerabilidad de seguridad. Al hacer clic en cada icono, se muestra una lista de problemas de seguridad que ha identificado Security Center, junto con un inventario de los recursos de la suscripción.
+La hoja **Security Center Overview** (Introducción a Security Center) muestra la posición de seguridad general del entorno con la información desglosada por Compute, Network, Storage y datos, y aplicaciones. Cada tipo de recurso tiene un indicador que muestra si se ha identificado alguna posible vulnerabilidad de seguridad. Al hacer clic en cada icono, se muestra una lista de problemas de seguridad que ha identificado Security Center, junto con un inventario de los recursos de la suscripción.
 
 ### <a name="what-triggers-a-security-alert"></a>¿Qué desencadena una alerta de seguridad?
 Azure Security Center recopila, analiza y combina automáticamente los datos de registro de los recursos de Azure, la red y soluciones de asociados como firewalls y antimalware. Cuando se detecten amenazas, se creará una alerta de seguridad. Como ejemplos se incluye la detección de:
@@ -110,9 +110,9 @@ Azure Security Center es un servicio de Azure que no deja de supervisar el entor
 Azure Security Center supervisa los siguientes recursos de Azure:
 
 * Máquinas virtuales (se incluyen [Cloud Services](../cloud-services/cloud-services-choose-me.md))
-* Redes virtuales de Azure
+* Instancias de Azure Virtual Network
 * Servicio de SQL Azure
-* Cuenta de almacenamiento de Azure
+* Cuenta de Azure Storage
 * Azure Web Apps ([en App Service Environment](../app-service/environment/intro.md))
 * Soluciones de asociados integradas en su suscripción de Azure, como un firewall de aplicaciones web en las máquinas virtuales y en App Service Environment
 
@@ -127,6 +127,15 @@ Azure Security Center solo tiene visibilidad del antimalware instalado mediante 
 
 ### <a name="why-do-i-get-the-message-missing-scan-data-for-my-vm"></a>¿Por qué recibo el mensaje Faltan los datos de detección en mi máquina virtual?
 Este mensaje aparece cuando no hay datos de examen de una máquina virtual. Los datos de detección pueden tardar algún tiempo (menos de una hora) en rellenarse después de habilitar la recolección de datos en Azure Security Center. Tras el rellenado inicial de los datos de examen, se puede recibir este mensaje porque no hay ningún dato de examen o porque no hay ninguno que sea reciente. Estos análisis no se rellenan para las máquinas virtuales que estén detenidas. Este mensaje también podría aparecer si no se han rellenado datos de examen recientemente (de acuerdo con la directiva de retención del agente de Windows, que tiene un valor predeterminado de 30 días).
+
+### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>¿Con qué frecuencia Security Center analiza las vulnerabilidades del sistema operativo, las actualizaciones del sistema y los problemas de Endpoint Protection?
+La latencia de los análisis de Security Center en busca de vulnerabilidades, actualizaciones y problemas es:
+
+- Vulnerabilidades del sistema operativo (por Microsoft): los datos se actualizan en un plazo de 48 horas.
+- Actualizaciones del sistema: los datos se actualizan en un plazo de 24 horas.
+- Problemas de Endpoint Protection: los datos se actualizan en un plazo de 8 horas.
+
+Security Center suele buscar datos nuevos cada hora. Los valores de latencia indicados anteriormente son el peor escenario, en el que no se realiza ningún análisis reciente o se producen errores en el análisis.
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>¿Por qué recibo el mensaje Falta el agente de máquina virtual?
 El agente de VM debe instalarse en VM para habilitar la recopilación de datos. De manera predeterminada, el agente de máquina virtual está instalado en las máquinas virtuales que se implementan desde Azure Marketplace. La entrada de blog sobre [las extensiones y el agente de máquina virtual](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)proporciona información sobre cómo instalar el Agente de máquina virtual.

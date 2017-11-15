@@ -1,6 +1,6 @@
 ---
-title: "Sincronización de datos (versión preliminar) | Microsoft Docs"
-description: "Se trata de una introducción a Azure SQL Data Sync (versión preliminar)."
+title: "SQL Data Sync de Azure (versión preliminar) | Microsoft Docs"
+description: "Se trata de una introducción a SQL Data Sync de Azure (versión preliminar)."
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -16,13 +16,13 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 34bc9588745eb24d8b8c2e81389a9e5144497b34
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/08/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync de Azure (versión preliminar)
 
 SQL Data Sync es un servicio basado en Azure SQL Database que permite sincronizar los datos seleccionados de manera bidireccional entre varias bases de datos SQL e instancias de SQL Server.
 
@@ -39,18 +39,18 @@ Un grupo de sincronización tiene las siguientes propiedades:
 -   El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
 
 Data Sync usa una topología de concentrador y radio para sincronizar los datos. Defina una de las bases de datos del grupo como base de datos central. El resto de las bases de datos son bases de datos miembro. La sincronización solo se produce entre la base de datos central y los clientes individuales.
--   La **base de datos central** debe ser una base de datos SQL de Azure.
--   Las **bases de datos miembro** pueden ser bases de datos SQL, bases de datos de SQL Server locales o instancias de SQL Server en Azure Virtual Machines.
--   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos SQL de Azure ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
+-   La **base de datos central** debe ser una instancia de Azure SQL Database.
+-   Las **bases de datos miembro** pueden ser instancias de SQL Database, bases de datos de SQL Server locales o instancias de SQL Server en Azure Virtual Machines.
+-   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
 
 > [!NOTE]
-> Si usa una base de datos local, debe [configurar un agente local](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync).
+> Si usa una base de datos local, debe [configurar un agente local](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync).
 
 ![Sincronización de datos entre bases de datos](media/sql-database-sync-data/sync-data-overview.png)
 
 ## <a name="when-to-use-data-sync"></a>Cuándo usar Data Sync
 
-Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos SQL de Azure o bases de datos de SQL Server. Estos son los casos de uso principales de Data Sync:
+Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos Azure SQL Database o bases de datos de SQL Server. Estos son los casos de uso principales de Data Sync:
 
 -   **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales e instancias de Azure SQL Databases para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
 
@@ -58,7 +58,7 @@ Data Sync es útil en los casos en que es necesario mantener los datos actualiza
 
 -   **Aplicaciones globalmente distribuidas:** muchas empresas abarcan varias regiones e incluso varios países. Para minimizar la latencia de red, es preferible disponer de los datos en una región más cercana. Con Data Sync, puede mantener sincronizadas con facilidad las bases de datos de regiones de todo el mundo.
 
-No se recomienda Data Sync en los siguientes escenarios:
+Data Sync no es adecuado para los escenarios siguientes:
 
 -   Recuperación ante desastres
 
@@ -77,48 +77,6 @@ No se recomienda Data Sync en los siguientes escenarios:
 -   **Resolución de conflictos:** Data Sync proporciona dos opciones para la resolución de conflictos, *Prevalece la base de datos central* o *Prevalece el cliente*.
     -   Si selecciona *Prevalece la base de datos central*, los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
     -   Si selecciona *Prevalece el cliente*, los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
-
-## <a name="limitations-and-considerations"></a>Limitaciones y consideraciones
-
-### <a name="performance-impact"></a>Impacto en el rendimiento
-Data Sync usa desencadenadores de inserción, actualización y eliminación para realizar un seguimiento de los cambios. Crea tablas laterales en la base de datos de usuario para hacer un seguimiento de los cambios. Estas actividades de seguimiento de cambios afectan a la carga de trabajo de la base de datos. Evalúe el nivel de servicio y realice la actualización si fuera necesario.
-
-### <a name="eventual-consistency"></a>Coherencia final
-Como Data Sync se basa en desencadenadores, la coherencia transaccional no está garantizada. Microsoft garantiza que todos los cambios se realicen finalmente y que Data Sync no ocasione pérdida de datos.
-
-### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
-
--   Secuencia de archivos
-
--   UDT SQL/CLR
-
--   XMLSchemaCollection (XML admitido)
-
--   Cursor, Timestamp, Hierarchyid
-
-### <a name="requirements"></a>Requisitos
-
--   Cada tabla debe tener una clave principal. No cambie el valor de la clave principal de ninguna fila. Si tiene que hacerlo, elimine la fila y vuelva a crearla con el nuevo valor de clave principal. 
-
--   Una tabla no puede tener una columna de identidad que no sea la clave principal.
-
--   Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
-
--   Se debe habilitar el aislamiento de instantánea. Para más información, consulte [Aislamiento de instantáneas en SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
-### <a name="limitations-on-service-and-database-dimensions"></a>Limitaciones de las dimensiones de la base de datos y del servicio
-
-|                                                                 |                        |                             |
-|-----------------------------------------------------------------|------------------------|-----------------------------|
-| **Dimensiones**                                                      | **Límite**              | **Solución alternativa**              |
-| Número máximo de grupos de sincronización a los que una base de datos puede pertenecer       | 5                      |                             |
-| Número máximo de puntos de conexión en un único grupo de sincronización              | 30                     | Crear varios grupos de sincronización |
-| Número máximo de puntos de conexión locales en un único grupo de sincronización | 5                      | Crear varios grupos de sincronización |
-| Nombres de base de datos, tabla, esquema y columna                       | 50 caracteres por nombre |                             |
-| Tablas de un grupo de sincronización                                          | 500                    | Crear varios grupos de sincronización |
-| Columnas de una tabla de un grupo de sincronización                              | 1000                   |                             |
-| Tamaño de la fila de datos en una tabla                                        | 24 Mb                  |                             |
-| Intervalo de sincronización mínimo                                           | 5 minutos              |                             |
 
 ## <a name="common-questions"></a>Preguntas frecuentes
 
@@ -143,24 +101,71 @@ Este mensaje de error indica que uno de los dos problemas siguientes:
 Data Sync no controla las referencias circulares, así que asegúrese de no usarlas. 
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>¿Cómo se exporta e importa una base de datos con la sincronización de datos?
-Después de exportar una base de datos como un archivo .bacpac e importarla para crear una nueva base de datos, debe realizar los dos siguientes pasos para usar la sincronización de datos en la nueva base de datos:
+Después de exportar una base de datos como un archivo `.bacpac` e importar dicho archivo para crear una base de datos, debe realizar los dos pasos siguientes para usar Data Sync en la nueva base de datos:
 1.  Limpie los objetos de sincronización de datos y las tablas auxiliares en la **nueva base de datos** mediante [este script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Este script elimina todos los objetos de sincronización de datos necesarios de la base de datos.
 2.  Vuelva a crear el grupo de sincronización con la nueva base de datos. Si ya no necesita el grupo de sincronización antiguo, elimínelo.
+
+## <a name="sync-req-lim"></a> Requisitos y limitaciones
+
+### <a name="general-requirements"></a>Requisitos generales
+
+-   Cada tabla debe tener una clave principal. No cambie el valor de la clave principal de ninguna fila. Si tiene que hacerlo, elimine la fila y vuelva a crearla con el nuevo valor de clave principal. 
+
+-   Una tabla no puede tener una columna de identidad que no sea la clave principal.
+
+-   Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
+
+-   Se debe habilitar el aislamiento de instantánea. Para más información, consulte [Aislamiento de instantáneas en SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
+### <a name="general-considerations"></a>Consideraciones generales
+
+#### <a name="eventual-consistency"></a>Coherencia final
+Como Data Sync se basa en desencadenadores, la coherencia transaccional no está garantizada. Microsoft garantiza que todos los cambios se realicen finalmente y que Data Sync no ocasione pérdida de datos.
+
+#### <a name="performance-impact"></a>Impacto en el rendimiento
+Data Sync usa desencadenadores de inserción, actualización y eliminación para realizar un seguimiento de los cambios. Crea tablas laterales en la base de datos de usuario para hacer un seguimiento de los cambios. Estas actividades de seguimiento de cambios afectan a la carga de trabajo de la base de datos. Evalúe el nivel de servicio y realice la actualización si fuera necesario.
+
+### <a name="general-limitations"></a>Limitaciones generales
+
+#### <a name="unsupported-data-types"></a>Tipos de datos no admitidos
+
+-   Secuencia de archivos
+
+-   UDT SQL/CLR
+
+-   XMLSchemaCollection (XML admitido)
+
+-   Cursor, Timestamp, Hierarchyid
+
+#### <a name="limitations-on-service-and-database-dimensions"></a>Limitaciones de las dimensiones de la base de datos y del servicio
+
+| **Dimensiones**                                                      | **Límite**              | **Solución alternativa**              |
+|-----------------------------------------------------------------|------------------------|-----------------------------|
+| Número máximo de grupos de sincronización a los que una base de datos puede pertenecer       | 5                      |                             |
+| Número máximo de puntos de conexión en un único grupo de sincronización              | 30                     | Crear varios grupos de sincronización |
+| Número máximo de puntos de conexión locales en un único grupo de sincronización | 5                      | Crear varios grupos de sincronización |
+| Nombres de base de datos, tabla, esquema y columna                       | 50 caracteres por nombre |                             |
+| Tablas de un grupo de sincronización                                          | 500                    | Crear varios grupos de sincronización |
+| Columnas de una tabla de un grupo de sincronización                              | 1000                   |                             |
+| Tamaño de la fila de datos en una tabla                                        | 24 Mb                  |                             |
+| Intervalo de sincronización mínimo                                           | 5 minutos              |                             |
+|||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre SQL Data Sync, consulte:
 
--   [Introducción a SQL Data Sync](sql-database-get-started-sql-data-sync.md)
+-   [Introducción a SQL Data Sync de Azure](sql-database-get-started-sql-data-sync.md)
+-   [Procedimientos recomendados para SQL Data Sync de Azure](sql-database-best-practices-data-sync.md)
+-   [Solución de problemas de SQL Data Sync de Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:
     -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Uso de PowerShell para sincronizar una base de datos SQL de Azure y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para más información sobre SQL Database, consulte:
 
 -   [Información general de SQL Database](sql-database-technical-overview.md)
-
 -   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)

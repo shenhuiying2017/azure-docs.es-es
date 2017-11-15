@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Python
 En este tutorial de inicio rápido, aprenderá a usar Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
@@ -32,25 +32,7 @@ Para completar esta guía de inicio rápido:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Creación de una cuenta de almacenamiento mediante Azure Portal
-
-En primer lugar, cree una nueva cuenta de almacenamiento de uso general que se utilizará para este tutorial de inicio rápido. 
-
-1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure. 
-2. En el menú de concentrador, seleccione **Nuevo** > **Almacenamiento** > **Cuenta de almacenamiento: blob, archivo, tabla, cola**. 
-3. Escriba un nombre para la cuenta de almacenamiento. El nombre deben tener entre tres y 24 caracteres, y solo pueden contener números y letras minúsculas. También debe ser único.
-4. Establezca `Deployment model` en **Administrador de recursos**.
-5. Establezca `Account kind` en **Uso general**.
-6. Establezca `Performance` en **Estándar**. 
-7. Establezca `Replication` en **Almacenamiento con redundancia local (LRS)**.
-8. Establezca `Storage service encryption` en **Deshabilitado**.
-9. Establezca `Secure transfer required` en **Deshabilitado**.
-10. Seleccione su suscripción. 
-11. Para `resource group`, cree uno nuevo y asígnele un nombre único. 
-12. Seleccione el valor de `Location` que desee usar para la cuenta de almacenamiento.
-13. Active **Anclar al panel** y haga clic en **Crear** para crear la cuenta de almacenamiento. 
-
-Después de crear la cuenta de almacenamiento, se ancla al panel. Haga clic en ella para abrirla. En **CONFIGURACIÓN**, haga clic en **Claves de acceso**. Seleccione una clave, copie el nombre de la cuenta de almacenamiento en el Portapapeles y péguelo en el Bloc de notas para utilizarlo posteriormente.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Descarga de la aplicación de ejemplo
 La [aplicación de ejemplo](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) utilizada en este tutorial de inicio rápido es una aplicación con Python básica.  
@@ -100,8 +82,10 @@ Lo primero que hay que hacer es crear las referencias a los objetos usados para 
 
 Una vez que tenga CloudBlobContainer, puede crear una instancia del objeto **CloudBlockBlob** que apunte al blob específico en el que está interesado y realizar operaciones como carga, descarga y copia.
 
-En esta sección, se crean instancias de los objetos, se crea un contenedor y luego se establecen permisos en el contenedor para que los blobs sean públicos. El contenedor se denomina **quickstartblobs**. 
+> [!IMPORTANT]
+> Los nombres de contenedor deben estar en minúsculas. Para más información sobre la nomenclatura de contenedores y blobs, consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencia a contenedores, blobs y metadatos).
 
+En esta sección, se crean instancias de los objetos, se crea un contenedor y luego se establecen permisos en el contenedor para que los blobs sean públicos. El contenedor se denomina **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account

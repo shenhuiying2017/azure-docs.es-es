@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: babcf20b58af1415e0e658e0a622cb056e34642b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 159397ba4fc93628acbf2bb53edf5eb88fd0cac7
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Implementación de la solución preconfigurada de supervisión remota
 
@@ -39,13 +39,17 @@ En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en t
 
 Antes de implementar la solución preconfigurada en la suscripción de Azure, debe elegir algunas opciones de configuración:
 
-1. Inicie sesión en [azureiotsuite.com](https://www.azureiotsuite.com) con las credenciales de su cuenta de Azure y haga clic en **+** para crear una solución.
+1. Inicie sesión en [azureiotsuite.com](https://www.azureiotsuite.com) con las credenciales de su cuenta de Azure y haga clic en **+** para crear una solución nueva:
 
-1. Haga clic en **Seleccionar** en el icono **Supervisión remota**.
+    ![Crear una solución nueva](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
+
+1. Haga clic en **Seleccionar** en el icono **Vista previa de la supervisión remota**.
+
+    ![Elegir una supervisión remota](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
 1. En la página **Create Remote Monitoring solution** (Crear solución de supervisión remota), escriba un **nombre de la solución** para la solución preconfigurada de supervisión remota.
 
-1. Seleccione una implementación **Básica** o **Empresarial**. Si implementa la solución para saber cómo funciona o para ejecutar una demostración, elija la opción **Básica** para minimizar los costos.
+1. Seleccione una implementación **Básica** o **Estándar**. Si implementa la solución para saber cómo funciona o para ejecutar una demostración, elija la opción **Básica** para minimizar los costos.
 
 1. Elija **Java** o **.NET** como lenguaje. Todos los microservicios están disponibles como implementaciones Java o .NET.
 
@@ -53,7 +57,9 @@ Antes de implementar la solución preconfigurada en la suscripción de Azure, de
 
 1. Seleccione la **Suscripción** y **Región** que desea usar para aprovisionar la solución.
 
-1. Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Este proceso normalmente tarda varios minutos en ejecutarse.
+1. Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Este proceso normalmente tarda varios minutos en ejecutarse:
+
+    ![Detalles de la solución de supervisión remota](media/iot-suite-remote-monitoring-deploy/createform.png)
 
 Para información sobre la solución de problemas, consulte la sección sobre [lo que se debe hacer cuando se produce un error en una implementación](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) del repositorio GitHub.
 
@@ -61,12 +67,16 @@ Para información sobre la solución de problemas, consulte la sección sobre [l
 
 Cuando el proceso de aprovisionamiento se completa, puede iniciar sesión en la solución preconfigurada de supervisión remota.
 
-1. En la página **Soluciones aprovisionadas**, elija la solución de supervisión remota nueva.
+1. En la página **Soluciones aprovisionadas**, elija la solución de supervisión remota nueva:
+
+    ![Elegir la nueva solución](media/iot-suite-remote-monitoring-deploy/choosenew.png)
 
 1. Puede consultar información sobre la solución de supervisión remota en el panel que aparece. Elija el **panel de la solución** para conectarse a la solución de supervisión remota.
 
     > [!NOTE]
     > Puede eliminar la solución de supervisión remota de este panel cuando termine de usarla.
+
+    ![Panel de soluciones](media/iot-suite-remote-monitoring-deploy/solutionpanel.png)
 
 1. El panel de la solución de supervisión remota se muestra en el explorador.
 

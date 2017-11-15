@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 0c3f9b49c7931371bf3a4eaf1a5a3c6261dad839
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 9fc11352a031ac1c1abcc6c6bd173bd9b0e8a222
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Compilación de una aplicación web Node.js y MongoDB en Azure
 
@@ -182,7 +182,7 @@ Copie el valor de `primaryMasterKey`. Esta información la necesitará en el sig
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configuración de la cadena de conexión en la aplicación Node.js
 
-En la carpeta _config/env/_ del repositorio MEAN.js local, cree un archivo llamado _local-production.js_. _.gitignore_ está configurado para mantener este archivo fuera del repositorio. 
+En la carpeta _config/env/_ del repositorio MEAN.js local, cree un archivo llamado _local-production.js_. De forma predeterminada, _.gitignore_ está configurado para mantener este archivo fuera del repositorio. 
 
 Copie en él el código siguiente. Asegúrese de reemplazar los dos marcadores de posición *\<cosmosdb_name>* por el nombre de la base de datos Cosmos DB y de reemplazar el marcador de posición *\<primary_master_key>* por la clave que copió en el paso anterior.
 
@@ -209,7 +209,12 @@ gulp prod
 Ejecute el siguiente comando para usar la cadena de conexión que configuró en _config/env/local-production.js_.
 
 ```bash
+# Bash
 NODE_ENV=production node server.js
+
+# Windows PowerShell
+$env:NODE_ENV = "production" 
+node server.js
 ```
 
 `NODE_ENV=production` establece la variable de entorno que indica a Node.js que se ejecute en el entorno de producción.  `node server.js` inicia el servidor de Node.js con `server.js` en la raíz del repositorio. Así es como se carga la aplicación de Node.js en Azure. 
@@ -261,7 +266,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 En el código de Node.js, accederá a este valor de aplicación con `process.env.MONGODB_URI`, al igual que accedería a cualquier variable de entorno. 
 
-En el repositorio MEAN.js local, abra _config/env/production.js_ (no _config/env/local-production.js_), que tiene la configuración específica para el entorno de producción. Tenga en cuenta que la aplicación MEAN.js predeterminada ya está configurada para usar la variable de entorno `MONGODB_URI` que ha creado.
+En el repositorio MEAN.js local, abra _config/env/production.js_ (no _config/env/local-production.js_), que tiene la configuración específica para el entorno de producción. La aplicación MEAN.js predeterminada ya está configurada para usar la variable de entorno `MONGODB_URI` que ha creado.
 
 ```javascript
 db: {
@@ -416,12 +421,15 @@ Guarde todos los cambios.
 En la ventana de terminal local, pruebe de nuevo los cambios en el modo de producción.
 
 ```bash
+# Bash
 gulp prod
 NODE_ENV=production node server.js
-```
 
-> [!NOTE]
-> Recuerde que _config/env/production.js_ se ha revertido y que la variable de entorno `MONGODB_URI` solo está establecida en la aplicación web de Azure y no en la máquina local. Si examina al archivo de configuración, verá que la configuración de producción usa de forma predeterminada una base de datos de MongoDB local. De esta forma se garantiza que los datos de producción no se tocan al probar los cambios en el código localmente.
+# Windows PowerShell
+gulp prod
+$env:NODE_ENV = "production" 
+node server.js
+```
 
 Vaya a `http://localhost:8443` en un explorador y asegúrese de que ha iniciado sesión.
 

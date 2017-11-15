@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
 
@@ -120,7 +120,7 @@ Cuando haya actualizado a un almacén de Recovery Services, configure los inform
 No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
 
 **¿Qué ocurre con mis almacenes si no tengo previsto actualizar pronto?**</br>
-Puesto que todas las características nuevas solo se aplican a almacenes de Recovery Services, le instamos a que actualice los almacenes. Finalmente, Microsoft dejará de usar el portal clásico. A partir del 1 de septiembre de 2017, Microsoft comenzará a actualizar automáticamente los almacenes de copia de seguridad para almacenes de Recovery Services. Para el 1 de noviembre de 2017, Microsoft completará el proceso de actualización. El almacén se puede actualizar automáticamente en cualquier momento durante septiembre u octubre. Microsoft le recomienda que actualice el almacén tan pronto como sea posible.
+Puesto que todas las características nuevas solo se aplican a almacenes de Recovery Services, le instamos a que actualice los almacenes. Finalmente, Microsoft dejará de usar el portal clásico. A partir del 1 de septiembre de 2017, Microsoft comenzará a actualizar automáticamente los almacenes de copia de seguridad para almacenes de Recovery Services. Para el 30 de noviembre de 2017, Microsoft completará el proceso de actualización. El almacén se puede actualizar automáticamente en cualquier momento hasta esa fecha. Microsoft le recomienda que actualice el almacén tan pronto como sea posible.
 
 **¿Qué supone esta actualización para las herramientas existentes?**</br>
 Actualice las herramientas al modelo de implementación de Resource Manager. Los almacenes de Recovery Services se crearon para utilizarse en el modelo de implementación de Resource Manager. La planeación para el modelo de implementación de Resource Manager y la observación de la diferencia en los almacenes son importantes. 

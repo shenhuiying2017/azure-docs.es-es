@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: ed8e3081d2b2e07938d7cf3aa5f95f6dde81bc66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e6d68612be4b7d4e1d6cea13e0f29636931abd8
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager
 En este tema se muestra cómo iterar en la plantilla de Azure Resource Manager para crear varias instancias de un recurso o varias instancias de una propiedad de un recurso.
 
 Si tiene que agregar lógica a la plantilla que le permita especificar si se ha implementado un recurso, vea [Implementar recursos de forma condicional](#conditionally-deploy-resource).
+
+Para obtener un ejemplo de creación de varios elementos en una variable de matriz, vea [Variables](resource-group-authoring-templates.md#variables).
 
 ## <a name="resource-iteration"></a>Iteración de recursos
 Para crear varias instancias de un tipo de recurso, agregue un elemento `copy` al tipo de recurso. En el elemento de copia, especifique el número de iteraciones y un nombre para este bucle. El valor de recuento debe ser un número entero positivo y no puede ser superior a 800. Resource Manager crea los recursos en paralelo. Por lo tanto, no se garantiza el orden en el que se crean. Para crear recursos iterados en secuencia, consulte [Copia en serie](#serial-copy). 

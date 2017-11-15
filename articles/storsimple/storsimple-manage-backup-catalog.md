@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/28/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 5ee9855e1428c7a2d871d9c215d302c5c3b7101a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 732ae04a8ae5f85ed154370c680d87af2ba5ee39
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-backup-catalog"></a>Usar el servicio de Administrador de StorSimple para administrar su catálogo de copia de seguridad
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Usar el servicio de Administrador de StorSimple para administrar su catálogo de copia de seguridad](storsimple-8000-manage-backup-catalog.md). Si tiene alguna pregunta sobre este paso, vea las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Información general
 En la página **Catálogo de copias de seguridad** del servicio StorSimple Manager se muestran todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o programadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
@@ -46,7 +49,7 @@ A continuación, los conjuntos de copias de seguridad filtrados se presentan en 
 Complete los pasos siguientes para enumerar todas las copias de seguridad para un volumen.
 
 #### <a name="to-list-backup-sets"></a>Para enumerar los conjuntos de copia de seguridad
-1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copias de seguridad** .
+1. En la página del servicio StorSimple Manager, haga clic en la pestaña **Catálogo de copias de seguridad** .
 2. Filtre las selecciones de la siguiente manera:
    
    1. Seleccione el dispositivo adecuado.
@@ -60,7 +63,7 @@ Complete los pasos siguientes para enumerar todas las copias de seguridad para u
 Complete los pasos siguientes para seleccionar un conjunto de copias de seguridad para un volumen o una directiva de copia de seguridad.
 
 #### <a name="to-select-a-backup-set"></a>Para seleccionar un conjunto de copia de seguridad
-1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copias de seguridad** .
+1. En la página del servicio StorSimple Manager, haga clic en la pestaña **Catálogo de copias de seguridad** .
 2. Filtre las selecciones de la siguiente manera:
    
    1. Seleccione el dispositivo adecuado.

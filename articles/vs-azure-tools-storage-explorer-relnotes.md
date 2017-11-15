@@ -14,25 +14,93 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage (versión preliminar)
 
-En este artículo se detallan las notas de la versión 0.9.0 del Explorador de Azure Storage (versión preliminar), así como las de versiones anteriores.
+En este artículo se detallan las notas de la versión 0.9.2 del Explorador de Azure Storage (versión preliminar), así como las de versiones anteriores.
 
 [Explorador de Microsoft Azure Storage (versión preliminar)](./vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux.
 
+## <a name="version-092"></a>Versión 0.9.2
+01/11/2017
+
+### <a name="download-azure-storage-explorer-092-preview"></a>Descarga del Explorador de Azure Storage 0.9.2 (versión preliminar)
+- [Explorador de Azure Storage 0.9.2 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de Azure Storage 0.9.2 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de Azure Storage 0.9.2 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Revisiones
+* Se podían producir cambios de datos inesperados al editar los valores de Edm.DateTime para entidades de tabla según la zona horaria local. El editor ahora utiliza un cuadro de texto sin formato, lo que proporciona un control preciso y coherente de los valores de Edm.DateTime.
+* La carga o descarga de un grupo de blobs cuando se asocia con un nombre y una clave no se iniciarían. Esto se ha solucionado.
+* El Explorador de Storage solo le preguntaría si desea volver a autenticar una cuenta obsoleta si una o varias de las suscripciones de la cuenta se seleccionaron. Ahora el Explorador de Storage le pedirá incluso si la cuenta se filtra completamente.
+* El dominio de los puntos de conexión para Azure Gobierno de EE.UU. era incorrecto. Esto se ha solucionado.
+* A veces resultaba difícil hacer clic en el botón Aplicar del panel Administrar cuentas. Esto ya no debería ocurrir.
+
+### <a name="new"></a>Nuevo
+* Compatibilidad de versión preliminar para Azure Cosmos DB:
+    * [Documentación en línea](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * Crear bases de datos y colecciones
+    * Manipular datos
+    * Consultar, crear o eliminar documentos
+    * Actualizar procedimientos almacenados, desencadenadores y funciones definidas por el usuario
+    * Usar las cadenas de conexión para conectarse y administrar las bases de datos
+* Se mejoró el rendimiento de la carga y descarga de muchos blobs pequeños.
+* Se agregó una acción "Reintentar todo" si hay errores en un grupo de carga de blobs o en un grupo de descarga de blobs.
+* El Explorador de Storage ahora pausará la iteración durante la carga o descarga de blobs si detecta que se perdió la conexión de red. A continuación, puede reanudar la iteración una vez que se haya restablecido la conexión de red.
+* Se agregó la posibilidad de "Cerrar todo", "Cerrar otros" y "Cerrar" pestañas a través del menú contextual.
+* El Explorador de Storage ahora usa los cuadros de diálogo nativos y los menús contextuales nativos.
+* El Explorador de Storage ahora es más accesible. Estas mejoras incluyen:
+    * Compatibilidad mejorada con el lector de pantalla, para NVDA en Windows y para VoiceOver en Mac
+    * Temas mejorados de contraste alto
+    * Correcciones del foco del teclado y del tabulador del teclado
+
+### <a name="fixes"></a>Correcciones
+* Si intenta abrir o descargar un blob con un nombre de archivo no válido de Windows, se podría producir un error en la operación. El Explorador de Storage detectará si el nombre de un blob no es válido y le solicitará si quiere codificarlo u omitir el blob. El Explorador de Storage también detectará si un nombre de archivo parece estar codificado y le solicitará si quiere descodificarlo antes de cargarlo.
+* Durante la carga del blob, el editor del contenedor del blob de destino podría no actualizarse correctamente. Esto se ha solucionado.
+* La compatibilidad con varios formatos de cadenas de conexión y URI de SAS se ha revertido. Se han resuelto todos los problemas conocidos, pero agradecemos que nos envíe sus comentarios si encuentra algún otro.
+* La notificación de actualización se interrumpió para algunos usuarios en 0.9.0. Este problema se ha corregido y, si este error le afectó, se puede descargar manualmente la última versión del Explorador de Storage [aquí](https://azure.microsoft.com/en-us/features/storage-explorer/).
+
+### <a name="known-issues"></a>Problemas conocidos
+* El Explorador de Storage no admite cuentas de AD FS.
+* Las teclas de método abreviado de "Ver explorador" y "Ver administración de cuentas" deberían ser respectivamente CTRL/CMD+MAIÚS+E y CTRL/CMD+MAYÚS+A.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe aquí.
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* El panel de configuración de la cuenta puede indicar que necesita especificar de nuevo las credenciales para filtrar las suscripciones.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+```
+./StorageExplorer.exe --disable-gpu
+```
+* Los usuarios de Ubuntu 14.04 tendrán que asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos. Después, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
 ## <a name="version-091--090-preview"></a>Versión 0.9.1 / 0.9.0 (versión preliminar)
 20/10/2017
-
 ### <a name="download-azure-storage-explorer-091-preview"></a>Descarga del Explorador de Azure Storage 0.9.1 (versión preliminar)
-- [Explorador de Azure Storage 0.9.1 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de Azure Storage 0.9.1 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de Azure Storage 0.9.1 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Descargar el Explorador de Azure Storage 0.9.1 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Descargar el Explorador de Azure Storage 0.9.1 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Descargar el Explorador de Azure Storage 0.9.1 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Nuevo
 * Compatibilidad de versión preliminar para Azure Cosmos DB:
@@ -86,13 +154,30 @@ En este artículo se detallan las notas de la versión 0.9.0 del Explorador de A
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0816-preview"></a>Versión 0.8.16 (versión preliminar)
-8/21/2017
 
-### <a name="download-azure-storage-explorer-0816-preview"></a>Descarga del Explorador de Azure Storage 0.8.16 (versión preliminar)
-* [Descargar el Explorador de Azure Storage 0.8.16 (versión preliminar) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Descargar el Explorador de Azure Storage 0.8.16 (versión preliminar) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Descargar el Explorador de Azure Storage 0.8.16 (versión preliminar) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+## <a name="previous-releases"></a>Versiones anteriores
+
+* [Versión 0.8.16](#version-0816)
+* [Versión 0.8.14](#version-0814)
+* [Versión 0.8.13](#version-0813)
+* [Versión 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Versión 0.8.9 / 0.8.8](#version-089--088)
+* [Versión 0.8.7](#version-087)
+* [Versión 0.8.6](#version-086)
+* [Versión 0.8.5](#version-085)
+* [Versión 0.8.4](#version-084)
+* [Versión 0.8.3](#version-083)
+* [Versión 0.8.2](#version-082)
+* [Versión 0.8.0](#version-080)
+* [Versión 0.7.20160509.0](#version-07201605090)
+* [Versión 0.7.20160325.0](#version-07201603250)
+* [Versión 0.7.20160129.1](#version-07201601291)
+* [Versión 0.7.20160105.0](#version-07201601050)
+* [Versión 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-0816"></a>Versión 0.8.16
+8/21/2017
 
 ### <a name="new"></a>Nuevo
 * Al abrir un blob, el Explorador de Storage le pedirá que cargue el archivo descargado si se detectó un cambio
@@ -130,26 +215,6 @@ En este artículo se detallan las notas de la versión 0.9.0 del Explorador de A
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versiones anteriores
-
-* [Versión 0.8.14](#version-0814)
-* [Versión 0.8.13](#version-0813)
-* [Versión 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Versión 0.8.9 / 0.8.8](#version-089--088)
-* [Versión 0.8.7](#version-087)
-* [Versión 0.8.6](#version-086)
-* [Versión 0.8.5](#version-085)
-* [Versión 0.8.4](#version-084)
-* [Versión 0.8.3](#version-083)
-* [Versión 0.8.2](#version-082)
-* [Versión 0.8.0](#version-080)
-* [Versión 0.7.20160509.0](#version-07201605090)
-* [Versión 0.7.20160325.0](#version-07201603250)
-* [Versión 0.7.20160129.1](#version-07201601291)
-* [Versión 0.7.20160105.0](#version-07201601050)
-* [Versión 0.7.20151116.0](#version-07201511160)
-
 
 ### <a name="version-0814"></a>Versión 0.8.14
 22/06/2017

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.openlocfilehash: 9f1c8241d0d7e68abd175c7c1c3b023d18b24a68
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/03/2017
+ms.openlocfilehash: 1a210f813319a4f21c7c246002c968b8093f8a4e
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Diseño de la primera base de datos de Azure Database for PostgreSQL con Azure Portal
 
@@ -71,13 +71,13 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
 
-El servicio Azure Database for PostgreSQL crea un firewall en el nivel de servidor. De forma predeterminada, este firewall evita que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que se cree una regla de firewall que lo abra a un intervalo de direcciones IP concretas. 
+El servicio Azure Database for PostgreSQL usa un firewall en el nivel de servidor. De forma predeterminada, este firewall evita que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que se cree una regla de firewall que lo abra a un intervalo de direcciones IP concretas. 
 
 1.  Una vez finalizada la implementación, haga clic en **Todos los recursos** del menú izquierdo y escriba el nombre **mypgserver-20170401** para buscar el servidor recién creado. Haga clic en el nombre del servidor que aparece en el resultado de la búsqueda. Se abrirá la página **Introducción** del servidor, que proporciona opciones para continuar la configuración.
  
  ![Azure Database for PostgreSQL: búsqueda de un servidor ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  En la hoja del servidor, seleccione **Seguridad de la conexión**. 
+2.  En la página del servidor, seleccione **Seguridad de la conexión**. 
 3.  Haga clic en el cuadro de texto de **Nombre de la regla,** y agregue una nueva regla de firewall para añadir el intervalo de IP de conectividad a la lista de permitidos. Para este tutorial, vamos a permitir todas las direcciones IP; para ello, escriba **Nombre de la regla = AllowAllIps**, **IP inicial = 0.0.0.0** e **IP final = 255.255.255.255** y haga clic en **Guardar**. Puede establecer una regla de firewall que abarque un intervalo de IP más pequeño para que pueda conectarse desde la red.
  
  ![Azure Database for PostgreSQL: creación de una regla de firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
@@ -85,19 +85,20 @@ El servicio Azure Database for PostgreSQL crea un firewall en el nivel de servid
 4.  Haga clic en **Guardar** y en la **X** para cerrar la página **Seguridad de las conexiones**.
 
   > [!NOTE]
-  > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. Si es así, no podrá conectarse al servidor Azure SQL Database, a menos que el departamento de TI abra el puerto 5432.
+  > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 5432.
   >
 
 
 ## <a name="get-the-connection-information"></a>Obtención de la información de conexión
 
-Al crear el servidor de Azure Database for PostgreSQL, también se crea la base de datos de **postgres** predeterminada. Para conectarse al servidor de bases de datos, debe proporcionar las credenciales de acceso y la información del host.
+Al crear el servidor de Azure Database for PostgreSQL, también se creó la base de datos de **postgres** predeterminada. Para conectarse al servidor de bases de datos, debe proporcionar las credenciales de acceso y la información del host.
 
 1. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor **mypgserver-20170401** que acaba de crear.
 
   ![Azure Database for PostgreSQL: búsqueda de un servidor ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 3. Haga clic en el nombre del servidor **mypgserver-20170401**.
+
 4. Seleccione la página **Introducción** del servidor. Tome nota del **Nombre del servidor** y del **Server admin login name** (Nombre de inicio de sesión del administrador del servidor).
 
  ![Azure Database for PostgreSQL: inicio de sesión del administrador del servidor](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
@@ -136,9 +137,9 @@ En el símbolo del sistema, ejecute el siguiente comando para cambiar la conexi�
 \c mypgsqldb
 ```
 ## <a name="create-tables-in-the-database"></a>Creación de tablas en la base de datos
-Ahora que sabe cómo conectarse a Azure Database for PostgreSQL, podemos ver cómo completar algunas tareas básicas.
+Ahora que sabe cómo conectarse a la base de datos de Azure Database for PostgreSQL, puede completar algunas tareas básicas:
 
-En primer lugar, podemos crear una tabla y cargarla con algunos datos. Vamos a crear una tabla que hace el seguimiento de información del inventario.
+En primer lugar, cree una tabla y cárguela con algunos datos. Se va a crear una tabla que haga un seguimiento de la información del inventario con este código de SQL:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -153,7 +154,7 @@ Puede ver la tabla recién creada ahora en la lista de tablas si escribe lo sigu
 ```
 
 ## <a name="load-data-into-the-tables"></a>Carga de datos en las tablas
-Ahora que tenemos una tabla, podemos insertar algunos datos en ella. En la ventana de símbolo del sistema abierta, ejecute la consulta siguiente para insertar algunas filas de datos.
+Ahora que tiene una tabla, inserte algunos datos en ella. En la ventana de símbolo del sistema abierta, ejecute la consulta siguiente para insertar algunas filas de datos.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

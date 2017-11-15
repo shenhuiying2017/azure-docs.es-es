@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b7583a1556bb1113f349a78890768451e39c6878
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronización de Azure AD Connect: tareas y consideraciones operativas
 El objetivo de este tema es describir las tareas operativas de la sincronización de Azure AD Connect.
@@ -68,11 +68,18 @@ Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y A
 #### <a name="verify"></a>Verify
 1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x` El nombre del conector puede encontrarse en el Servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
-3. Copie el script de PowerShell de la sección [CSAnalyzer](#appendix-csanalyzer) en un archivo denominado "`csanalyzer.ps1`".
-4. Abra una ventana de PowerShell y vaya a la carpeta donde se creó el script de PowerShell.
-5. Ejecute `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
-6. Ahora tiene un archivo denominado "**processedusers1.csv**" que se puede examinar en Microsoft Excel. Todos los cambios almacenados provisionalmente para ser exportada en Azure AD se encuentran en este archivo.
-7. Realice los cambios necesarios en los datos o la configuración y ejecute estos pasos de nuevo (Importación y sincronización y Comprobación) hasta que se esperen los cambios que se van a exportar.
+3. Ejecute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Ahora tiene un archivo en %temp% denominado "export.csv" que se puede examinar en Microsoft Excel. Este archivo contiene todos los cambios que se van a exportar.
+4. Realice los cambios necesarios en los datos o la configuración y ejecute estos pasos de nuevo (Importación y sincronización y Comprobación) hasta que se esperen los cambios que se van a exportar.
+
+**Descripción del archivo export.csv** La mayor parte del archivo se explica por sí solo. Algunas abreviaturas para comprender el contenido:
+* OMODT: tipo de modificación de objeto. Indica si la operación en un nivel de objeto es Agregar, Actualizar o Eliminar.
+* AMODT: tipo de modificación de atributo. Indica si la operación en un nivel de atributo es Agregar, Actualizar o Eliminar.
+
+**Recuperación de identificadores comunes** El archivo export.csv contiene todos los cambios que se van a exportar. Cada fila corresponde a un cambio de un objeto en el espacio del conector y el objeto se identifica mediante el atributo DN. El atributo DN es un identificador único asignado a un objeto en el espacio del conector. Cuando haya muchas filas o cambios en el archivo export.csv que analizar, puede ser difícil averiguar para qué objetos son los cambios con solo el atributo DN. Para simplificar el proceso de análisis de los cambios, use el script de PowerShell csanalyzer.ps1. El script recupera los identificadores comunes (por ejemplo, displayName o userPrincipalName) de los objetos. Para usar el script:
+1. Copie el script de PowerShell de la sección [CSAnalyzer](#appendix-csanalyzer) en un archivo denominado "`csanalyzer.ps1`".
+2. Abra una ventana de PowerShell y vaya a la carpeta donde se creó el script de PowerShell.
+3. Ejecute `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+4. Ahora tiene un archivo denominado "**processedusers1.csv**" que se puede examinar en Microsoft Excel. Tenga en cuenta que el archivo proporciona una asignación del atributo DN a identificadores comunes (por ejemplo, displayName y userPrincipalName). Actualmente no incluye los cambios de atributo reales que se van a exportar.
 
 #### <a name="switch-active-server"></a>Cambio de servidor activo
 1. En el servidor actualmente activo, desactive el servidor (DirSync/FIM/Azure AD Sync) para que no exporte a Azure AD o establézcalo en modo provisional (Azure AD Connect).

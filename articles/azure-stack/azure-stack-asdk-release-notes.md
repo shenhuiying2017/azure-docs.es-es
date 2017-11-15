@@ -3,7 +3,7 @@ title: "Notas de la versión de Microsoft Azure Stack Development Kit | Microsof
 description: Mejoras, correcciones y problemas conocidos de Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: 
-author: heathl17
+author: twooley
 manager: byronr
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/02/2017
 ms.author: twooley
-ms.openlocfilehash: 81ccb4a731b71f87bccb2f2a0e333443428f32ee
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 95f63bc65491e56832b2c473d539cc702c38e584
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión de Azure Stack Development Kit
 
@@ -79,6 +79,7 @@ También se han realizado las siguientes correcciones:
 - No puede crear un equilibrador de carga con una dirección IP pública mediante el portal. Como alternativa, puede usar PowerShell para crear el equilibrador de carga.
 - Debe crear una regla de traducción de direcciones de red (NAT) cuando cree un equilibrador de carga de red. Si no lo hace, recibirá un error al intentar agregar una regla NAT después de crear el equilibrador de carga.
 - En **Red**, si hace clic en **Conexión** para configurar una conexión VPN, **VNet a VNet** aparece como un tipo de conexión posible. No seleccione esta opción. Actualmente, solo se admite la opción **De sitio a sitio (IPsec)**.
+- No se puede desasociar una dirección IP pública de una máquina virtual después de que la máquina virtual se haya creado y asociado a esa dirección IP. La desasociación parecerá funcionar, pero la dirección IP pública asignada previamente permanecerá asociada a la máquina virtual original. Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva. Actualmente, solo debe usar direcciones IP públicas nuevas para la creación de máquinas virtuales.
  
 #### <a name="sqlmysql"></a>SQL/MySQL 
 - Puede pasar una hora antes de que los inquilinos puedan crear bases de datos en una nueva SKU SQL o MySQL. 
@@ -126,6 +127,7 @@ También se han realizado las siguientes correcciones:
 - No puede crear un equilibrador de carga con una dirección IP pública mediante el portal. Como alternativa, puede usar PowerShell para crear el equilibrador de carga.
 - Debe crear una regla de traducción de direcciones de red (NAT) cuando cree un equilibrador de carga de red. Si no lo hace, recibirá un error al intentar agregar una regla NAT después de crear el equilibrador de carga.
 - En **Red**, si hace clic en **Conexión** para configurar una conexión VPN, **VNet a VNet** aparece como un tipo de conexión posible. No seleccione esta opción. Actualmente, solo se admite la opción **De sitio a sitio (IPsec)**.
+- No se puede desasociar una dirección IP pública de una máquina virtual después de que la máquina virtual se haya creado y asociado a esa dirección IP. La desasociación parecerá funcionar, pero la dirección IP pública asignada previamente permanecerá asociada a la máquina virtual original. Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que en ocasiones se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva. Actualmente, solo debe usar direcciones IP públicas nuevas para la creación de máquinas virtuales.
 
 
 #### <a name="sqlmysql"></a>SQL/MySQL

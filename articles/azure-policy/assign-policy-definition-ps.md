@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure usando PowerShell
 
-El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos actuales. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar recursos no compatibles con la definición de directiva *Require SQL Server version 12.0* (Requerir SQL Server 12.0). Al final de este proceso, habrá identificado correctamente qué servidores se corresponden con una versión distinta, o no compatibles.
+El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos con los que ya cuenta. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
+
+Al final de este proceso, habrá identificado correctamente qué máquinas virtuales no utilizan discos administrados y, por tanto, *no son compatibles*.
+
 
 PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se explica detalladamente cómo usar PowerShell para crear una asignación de directiva para identificar recursos no compatibles en el entorno de Azure.
 
@@ -29,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="opt-in-to-azure-policy"></a>Participación en Azure Policy
 
-Azure Policy ya se encuentra disponible en versión preliminar limitada y es necesario registrarse para solicitar el acceso.
+Azure Policy ya se encuentra disponible en versión preliminar pública y es necesario registrarse para solicitar el acceso.
 
 1. Vaya a Azure Policy en https://aka.ms/getpolicy y seleccione **Sign Up** (Suscribirse) en el panel izquierdo.
 
@@ -39,11 +42,11 @@ Azure Policy ya se encuentra disponible en versión preliminar limitada y es nec
 
    ![Participación en el uso de Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   La aceptación de la solicitud de registro puede tardar un par de días, en función de la demanda. Una vez aceptada la solicitud, se le envía un correo electrónico para notificarle que ya puede empezar a usar el servicio.
+   Su solicitud se aprueba automáticamente para la versión preliminar. Espere 30 minutos para que el sistema procese el registro.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
-En este inicio rápido, se va a crear una asignación de directiva y se va asignar la definición *Require SQL Server Version 12.0* (Requerir SQL Server 12.0). Esta definición de directiva identificará los recursos que no son compatibles con las condiciones establecidas en la definición de directiva.
+En este tutorial rápido, se crea una asignación de directiva y se le asigna la definición de la *Auditoría de máquinas virtuales sin discos administrados*. Esta definición de directiva identificará los recursos que no son compatibles con las condiciones establecidas en la definición de directiva.
 
 Siga los pasos siguientes para crear una nueva asignación de directiva.
 
@@ -62,15 +65,15 @@ Azure Policy viene ya con definiciones de directiva integradas para usarlas. Enc
 A continuación asigne la definición cd directiva al ámbito deseado usando el cmdlet `New-AzureRmPolicyAssignment`.
 
 Para este tutorial, proporcionamos la siguiente información para el comando:
-- **Nombre** para mostrar para la asignación de directiva. En este caso, se va a usar la asignación Require SQL Server version 12.0 (Requerir SQL Server 12.0).
-- **Directiva**: se trata de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, se corresponde con la definición de directiva *Require SQL Server version 12.0* (Requerir SQL Server 12.0)
+- **Nombre** para mostrar para la asignación de directiva. En este caso, vamos a usar la Auditoría de máquinas virtuales sin discos administrados.
+- **Directiva**: se trata de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, es la definición de la directiva: *Auditoría de máquinas virtuales sin discos administrados*.
 - Un **ámbito**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. En este ejemplo, se va a asignar la definición de directiva para al grupo de recursos **FabrikamOMS**.
-- **$definition**: tiene que proporcionar el identificador de recurso de la definición de directiva: en este caso, estamos usando el identificador para la definición de directiva: *Require SQL Server 12.0*.
+- **$definition**: tiene que proporcionar el identificador de recurso de la definición de directiva; en este caso, estamos usando el identificador para la definición de directiva: *Auditoría de máquinas virtuales sin discos administrados*.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Ahora ya está listo para identificar los recursos no compatibles para saber el estado de cumplimiento de su entorno.
@@ -89,7 +92,7 @@ Ahora ya está listo para identificar los recursos no compatibles para saber el 
 Otras guías de esta colección se basan en esta guía de inicio rápido. Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, elimine la asignación que creó mediante la ejecución de este comando:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

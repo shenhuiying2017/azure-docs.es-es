@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2016
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02373633f2a30c6cd50e30b77a9faac2922926e6
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Conmutación por error y recuperación ante desastres para dispositivos de StorSimple](storsimple-8000-device-failover-disaster-recovery.md). Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Información general
 En este tutorial se describen los pasos necesarios para conmutar por error un dispositivo StorSimple en caso de desastre. La conmutación por error permite migrar los datos desde un dispositivo de origen en el centro de datos a otro dispositivo físico o incluso virtual situado en la misma ubicación geográfica o en otra diferente. 
 
@@ -118,7 +121,7 @@ Siga estos pasos si solo dispone de un dispositivo y necesita realizar una conmu
 8. Después de que el trabajo se haya completado correctamente, acceda al dispositivo nuevo y navegue hasta la página **Contenedores de volúmenes** . Ahora se deben migrar todos los contenedores de volúmenes del dispositivo antiguo al dispositivo nuevo.
 
 ## <a name="fail-over-to-a-storsimple-virtual-device"></a>Conmutar por error a un dispositivo virtual de StorSimple
-Debe crear y configurar un dispositivo virtual de StorSimple antes de ejecutar este procedimiento. Si ejecuta Update 2, considere el uso de un dispositivo virtual 8020 para la recuperación ante desastres que tiene 64 TB y utiliza el almacenamiento premium. 
+Debe crear y configurar un dispositivo virtual de StorSimple antes de ejecutar este procedimiento. Si ejecuta Update 2, considere el uso de un dispositivo virtual 8020 para la recuperación ante desastres que tiene 64 TB y utiliza Premium Storage. 
 
 Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorSimple de destino.
 

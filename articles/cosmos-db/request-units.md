@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 83cbc622975344ec2a5700d2e10a5c77371e9899
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) de Azure Cosmos DB. Obtenga más información en [Estimación de las necesidades de rendimiento](request-units.md#estimating-throughput-needs).
@@ -26,7 +26,7 @@ Ya disponible: la [calculadora de unidades de solicitud](https://www.documentdb.
 ![Calculadora de rendimiento][5]
 
 ## <a name="introduction"></a>Introducción
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Con Azure Cosmos DB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los mejores ingenieros de Microsoft operan y supervisan de forma continua Azure Cosmos DB para ofrecer disponibilidad, rendimiento y protección de datos universales. Puede acceder a sus datos con las API de su preferencia, como [DocumentDB SQL](documentdb-sql-query.md) (documentos), MongoDB (documentos), [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/) (clave-valor) y [Gremlin](https://tinkerpop.apache.org/gremlin.html) (grafos), que admite de forma nativa. La divisa de Azure Cosmos DB es la Unidad de solicitud (RU). Con las RU, no necesita reservar funcionalidades de lectura o escritura ni aprovisionar CPU, memoria ni E/S por segundo.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Con Azure Cosmos DB, no tendrá que alquilar máquinas virtuales, implementar software ni supervisar bases de datos. Los mejores ingenieros de Microsoft operan y supervisan de forma continua Azure Cosmos DB para ofrecer disponibilidad, rendimiento y protección de datos universales. Puede acceder a los datos mediante las API de su elección, como SQL a través de la [API DocumentDB](documentdb-introduction.md), las API MongoDB, [Table API](table-introduction.md), y Gremlin a través de la [API Graph](graph-introduction.md); todas ellas son compatibles de forma nativa. La divisa de Azure Cosmos DB es la Unidad de solicitud (RU). Con las RU, no necesita reservar funcionalidades de lectura o escritura ni aprovisionar CPU, memoria ni IOPS.
 
 Azure Cosmos DB admite varias API con distintas operaciones que varían desde lecturas y escrituras sencillas hasta consultas de grafos complejos. Puesto que no todas las solicitudes son iguales, se les asigna una cantidad regularizada de **unidades de solicitud** según el número de procesamientos necesario para prestar servicio a la solicitud. El número de unidades de solicitud para una operación es determinista y puede realizar un seguimiento del número de unidades de solicitud consumidas por cualquier operación de Azure Cosmos DB a través de un encabezado de respuesta. 
 
@@ -39,7 +39,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 * ¿Cómo puedo estimar mis necesidades de unidad de solicitud de la aplicación?
 * ¿Qué ocurre si supero la capacidad de la unidad de solicitud para una colección?
 
-Debido a que Azure Cosmos DB es un servicio de base de datos con varios modelos, resulta importante tener en cuenta que haremos referencia a una colección/documento para una API de documento, a un grafo/nodo para una API de grafo y a una tabla/entidad para una API de tabla. En este documento se generalizarán los conceptos de contenedor/elemento.
+Debido a que Azure Cosmos DB es un servicio de base de datos con varios modelos, resulta importante tener en cuenta que, en este artículo, se hace referencia a una colección/documento para una API de documento, a un grafo/nodo para una API de grafo y a una tabla/entidad para una API de tabla. En este artículo se hace referencia al concepto de una colección, un grafo o una tabla como un contenedor, y a un documento, un nodo y una entidad como un elemento.
 
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitud y cargos de solicitud
 Azure Cosmos DB ofrece un rendimiento predecible y rápido mediante la *reserva* de recursos para satisfacer las necesidades de rendimiento de la aplicación.  Como la carga de aplicaciones y los patrones de acceso cambian con el tiempo, Azure Cosmos DB permite aumentar o disminuir fácilmente el rendimiento reservado disponible para la aplicación.
@@ -55,7 +55,7 @@ Se recomienda ver una introducción en el vídeo siguiente, donde Aravind Ramach
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificación de la capacidad de unidad de solicitud en Azure Cosmos DB
 Cuando comienza una nueva colección, tabla o grafo, especifica el número de unidades de solicitud por segundo (RU por segundo) que desea reservar. Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar la colección y divide y reequilibra los datos entre las particiones a medida que va creciendo.
 
-Azure Cosmos DB requiere que se especifique una clave de partición cuando se aprovisiona una colección con 2.500 unidades de solicitud o un valor superior. También se requiere una clave de partición para escalar el rendimiento de la colección a más de 2.500 unidades de solicitud en el futuro. Por lo tanto, se recomienda encarecidamente configurar una [clave de partición](partition-data.md) al crear un contenedor, sea cual sea su rendimiento inicial. Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos) para que Azure Cosmos DB pueda escalar la colección/tabla/grafo y las solicitudes de manera uniforme. 
+Azure Cosmos DB requiere que se especifique una clave de partición cuando se aprovisiona una colección con 2.500 unidades de solicitud o un valor superior. También se requiere una clave de partición para escalar el rendimiento de la colección a más de 2.500 unidades de solicitud en el futuro. Por lo tanto, se recomienda encarecidamente configurar una [clave de partición](partition-data.md) al crear un contenedor, sea cual sea su rendimiento inicial. Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar la colección, la tabla, el grafo y las solicitudes de manera uniforme. 
 
 > [!NOTE]
 > Una clave de partición es un límite lógico, no uno físico. Por lo tanto, no es necesario limitar el número de los valores de clave de partición distintos. De hecho, es mejor tener más valores distintos de clave de partición que tener menos, ya que Azure Cosmos DB dispondrá de más opciones de equilibrio de carga.
@@ -97,18 +97,18 @@ No se producirá ningún cambio en la disponibilidad del contenedor cuando cambi
 Al estimar el número de unidades de solicitud que se reservan para el contenedor de Azure Cosmos DB, es importante tener en cuenta las siguientes variables:
 
 * **Tamaño del elemento**. Cuando aumenta el tamaño, también aumentan las unidades que se usan para leer o escribir los datos.
-* **Recuento de propiedades del elemento**. Suponiendo que la indexación predeterminada de todas las propiedades, las unidades usadas para escribir un documento/nodo/identidad aumentarán conforme aumenta el recuento de propiedades.
+* **Recuento de propiedades del elemento**. Suponiendo que la indexación predeterminada de todas las propiedades, las unidades usadas para escribir un documento/nodo/entidad aumentarán conforme aumenta el recuento de propiedades.
 * **Coherencia de datos**. Al usar los niveles de coherencia de datos Alta y Obsolescencia limitada, se usarán unidades adicionales para leer elementos.
 * **Propiedades indexadas**. Una directiva de índice en cada contenedor determina qué propiedades se indexan de forma predeterminada. Puede reducir el consumo de unidades de solicitud limitando el número de las propiedades indexadas o habilitando la indexación diferida.
-* **Indexación de documentos**. De forma predeterminada, todos los elementos se indexan automáticamente, por tanto consumirá menos unidades de solicitud si no desea indexar algunos de los elementos.
+* **Indexación de documentos**. De forma predeterminada, cada elemento se indexa automáticamente. Consumirá menos unidades de solicitud si decide no indexar algunos elementos.
 * **Patrones de consultas**. La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de predicados, la naturaleza de los predicados, las proyecciones, el número de UDF y el tamaño del conjunto de datos de origen influyen en el costo de operaciones de consulta.
 * **Uso de script**.  Las consultas, procedimientos almacenados y desencadenadores consumen unidades de solicitud según la complejidad de las operaciones que se están llevando a cabo. Cuando desarrolla su aplicación, inspeccione el encabezado request charge para entender mejor cómo consumen las operaciones la capacidad de unidad de solicitud.
 
 ## <a name="estimating-throughput-needs"></a>Estimación de necesidades de rendimiento
-Una unidad de solicitud es una medida normalizada del costo de procesamiento de solicitudes. Una única unidad de solicitud representa la capacidad de procesamiento necesaria para leer (mediante una vinculación automática o Id.) un solo elemento de 1 KB que consta de 10 valores de propiedad únicos (excluidas las propiedades del sistema). Una solicitud para crear (insertar), reemplazar o eliminar el mismo elemento consumirá más procesamiento del servicio y, por tanto, más unidades de solicitud.   
+Una unidad de solicitud es una medida normalizada del costo de procesamiento de solicitudes. Una única unidad de solicitud representa la capacidad de procesamiento necesaria para leer (mediante una vinculación automática o Id.) un solo elemento de 1 KB que consta de diez valores de propiedad únicos (excluidas las propiedades del sistema). Una solicitud para crear (insertar), reemplazar o eliminar el mismo elemento consumirá más procesamiento del servicio y, por tanto, más unidades de solicitud.   
 
 > [!NOTE]
-> La línea de base de 1 unidad de solicitud de un elemento de 1 KB corresponde a una operación GET sencilla mediante una vinculación automática o un Id. del elemento.
+> La línea de base de una unidad de solicitud de un elemento de 1 KB corresponde a una operación GET sencilla mediante una vinculación automática o un Id. del elemento.
 > 
 > 
 
@@ -162,7 +162,7 @@ Por ejemplo, esta es una tabla que muestra el número de unidades de solicitud q
 </table>
 
 ### <a name="use-the-request-unit-calculator"></a>Uso de la calculadora de unidades de solicitud
-Para ayudar a los clientes a optimizar sus estimaciones de rendimiento, existe una [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) basada en web que le ayuda a calcular los requisitos de unidades de solicitud para las operaciones habituales, entre las cuales se incluye:
+Para ayudar a los clientes a optimizar sus estimaciones de rendimiento, existe una [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner) basada en Web que ayuda a calcular los requisitos de unidades de solicitud para las operaciones habituales, entre las cuales se incluyen:
 
 * Creaciones (escrituras) de elementos
 * Lecturas de elementos
@@ -197,7 +197,7 @@ Cada respuesta del servicio de Azure Cosmos DB incluye un encabezado personaliza
 Con esto en mente, un método para calcular la cantidad de rendimiento reservado requerido por la aplicación es registrar el cargo de la unidad de solicitud asociado a la ejecución de las operaciones típicas frente a un elemento representativo usado por la aplicación y, a continuación, calcular el número de operaciones que prevé realizar cada segundo.  Asegúrese de medir e incluir las consultas típicas y el uso del script de Azure Cosmos DB también.
 
 > [!NOTE]
-> Si dispone de tipos de elemento que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de elemento típico.
+> Si dispone de tipos de elementos que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de elemento típico.
 > 
 > 
 
@@ -243,7 +243,7 @@ La manera más sencilla de obtener una buena estimación de los cargos en materi
 ![Métricas del Portal de la API de MongoDB][6]
 
 ## <a name="a-request-unit-estimation-example"></a>Un ejemplo de estimación de la unidad de solicitud
-Considere el siguiente documento de ~1 KB:
+Considere el siguiente documento de ~1 KB:
 
 ```json
 {
@@ -322,7 +322,7 @@ Además, esta tabla muestra los cargos de unidad de solicitud para las consultas
 > 
 > 
 
-Con esta información, podemos hacer una estimación de los requisitos de RU para esta aplicación dado el número de operaciones y consultas que esperamos por segundo:
+Con esta información, puede hacer una estimación de los requisitos de RU para esta aplicación dado el número de operaciones y consultas que espera por segundo:
 
 | Operación o consulta | Número estimado por segundo | RU necesarias |
 | --- | --- | --- |
@@ -335,7 +335,7 @@ Con esta información, podemos hacer una estimación de los requisitos de RU par
 En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden proporciona 1300 RU/s para esta colección de la aplicación.
 
 ## <a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados en Azure Cosmos DB
-Recuerde que el consumo de la unidad de solicitud se evalúa como frecuencia por segundo si el presupuesto está vacío. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para un contenedor, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produzca una limitación, el servidor finalizará de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devolverá el encabezado x-ms-retry-after-ms que indicará la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
+Recuerde que el consumo de la unidad de solicitud se evalúa como frecuencia por segundo si el presupuesto está vacío. Para las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para un contenedor, las solicitudes a esa colección se limitarán hasta que la frecuencia caiga por debajo del nivel reservado. Cuando se produce una limitación, el servidor finaliza de forma preventiva la solicitud con RequestRateTooLargeException (código de estado HTTP 429) y devuelve el encabezado x-ms-retry-after-ms que indica la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

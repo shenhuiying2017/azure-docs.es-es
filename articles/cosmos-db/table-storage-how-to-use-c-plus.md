@@ -1,5 +1,5 @@
 ---
-title: Uso de Table Storage (C++) | Microsoft Docs
+title: Uso de Azure Table Storage con C++ | Microsoft Docs
 description: "Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL."
 services: cosmos-db
 documentationcenter: .net
@@ -12,23 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2017
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6adfda2ef17e04cedd026964cfcad7443e0bd9
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-from-c"></a>Uso de almacenamiento de tablas desde C++
+# <a name="how-to-use-azure-table-storage-with-c"></a>Uso de Azure Table Storage con C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Información general
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en C++ y usan la [biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Entre los escenarios descritos se incluyen **crear y eliminar una tabla**, así como **trabajar con entidades de tabla**.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en C++ y usan la [biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Entre los escenarios descritos se incluyen **crear y eliminar una tabla**, así como **trabajar con entidades de tabla**.
 
 > [!NOTE]
-> Esta guía se destina a la biblioteca de cliente de almacenamiento de Azure para C++, versión 1.0.0 y posteriores. La versión recomendada es la biblioteca de cliente de almacenamiento 2.2.0, que se encuentra disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp/).
+> Esta guía se destina a la biblioteca de cliente de Azure Storage para C++, versión 1.0.0 y posteriores. La versión recomendada es la biblioteca de cliente de almacenamiento 2.2.0, que se encuentra disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 > 
 
@@ -37,11 +37,11 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c-application"></a>Creación de una aplicación de C++
-En esta guía, usará las características de almacenamiento que se pueden ejecutar en una aplicación C++. Para ello, deberá instalar la biblioteca de cliente de almacenamiento de Azure para C++ y crear una cuenta de almacenamiento de Azure en su suscripción de Azure.  
+En esta guía, usará las características de almacenamiento que se pueden ejecutar en una aplicación C++. Para ello, deberá instalar la biblioteca de cliente de Azure Storage para C++ y crear una cuenta de Azure Storage en su suscripción de Azure.  
 
-Para instalar la biblioteca de cliente de almacenamiento de Azure para C++, puede usar los métodos siguientes:
+Para instalar la biblioteca de cliente de Azure Storage para C++, puede usar los métodos siguientes:
 
-* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
+* **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de Azure Storage para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
 * **Windows:** en Visual Studio, haga clic en **Herramientas &gt; Administrador de paquetes de NuGet &gt; Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione Entrar.  
   
      Install-Package wastorage
@@ -62,7 +62,7 @@ Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacen
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-Para probar la aplicación en el equipo local de Windows, puede usar el [emulador de almacenamiento de Azure](../storage/common/storage-use-emulator.md) que se instala con el [SDK de Azure](https://azure.microsoft.com/downloads/). El emulador de almacenamiento es una utilidad que simula los servicios Blob, Cola y Tabla de Azure en el equipo de desarrollo local. En el ejemplo siguiente se muestra cómo puede declarar un campo estático para mantener la cadena de conexión en el emulador de almacenamiento local:  
+Para probar la aplicación en el equipo local de Windows, puede usar el [emulador de almacenamiento de Azure](../storage/common/storage-use-emulator.md) que se instala con el [SDK de Azure](https://azure.microsoft.com/downloads/). El emulador de almacenamiento es una utilidad que simula los servicios Azure Blob, Queue y Table en el equipo de desarrollo local. En el ejemplo siguiente se muestra cómo puede declarar un campo estático para mantener la cadena de conexión en el emulador de almacenamiento local:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
@@ -140,7 +140,7 @@ azure::storage::table_result insert_result = table.execute(insert_operation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Inserción de un lote de entidades
-Puede insertar un lote de entidades en el servicio Tabla mediante una operación de escritura. El código siguiente crea un objeto **table_batch_operation** y, luego, le agrega tres operaciones de inserción. Cada operación de inserción se agrega al crear un nuevo objeto de entidad, configurar sus valores y, a continuación, llamar al método insert en el objeto **table_batch_operation** para asociar la entidad a una nueva operación de inserción. A continuación, se llama a **cloud_table.execute** para ejecutar la operación.  
+Puede insertar un lote de entidades en Table service mediante una operación de escritura. El código siguiente crea un objeto **table_batch_operation** y, luego, le agrega tres operaciones de inserción. Cada operación de inserción se agrega al crear un nuevo objeto de entidad, configurar sus valores y, a continuación, llamar al método insert en el objeto **table_batch_operation** para asociar la entidad a una nueva operación de inserción. A continuación, se llama a **cloud_table.execute** para ejecutar la operación.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -268,7 +268,7 @@ for (; it != end_of_results; ++it)
 ```
 
 ## <a name="retrieve-a-single-entity"></a>una sola entidad
-Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente usa un objeto **table_operation::retrive_entity** para especificar el cliente "Jeff Smith". Este método devuelve una sola entidad, en lugar de una colección, y el valor devuelto está en **table_result**. La forma más rápida de recuperar una sola entidad del servicio Tabla es especificar claves tanto de partición como de fila en las consultas.  
+Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente usa un objeto **table_operation::retrive_entity** para especificar el cliente "Jeff Smith". Este método devuelve una sola entidad, en lugar de una colección, y el valor devuelto está en **table_result**. La forma más rápida de recuperar una sola entidad de Table service es especificar claves tanto de partición como de fila en las consultas.  
 
 ```cpp
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -293,7 +293,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 ```
 
 ## <a name="replace-an-entity"></a>una entidad
-Para reemplazar una entidad, recupérela del servicio Tabla, modifique su objeto y, luego, guarde los cambios de nuevo en el servicio Tabla. El código siguiente cambia el número de teléfono y la dirección de correo electrónico de un cliente. En lugar de llamar a **table_operation::insert_entity**, este código usa **table_operation::replace_entity**. Esto hace que la entidad se reemplace por completo en el servidor, a menos que la entidad del servidor cambiara desde que se recuperó, en cuyo caso la operación dará error. Este error evita que la aplicación sobrescriba accidentalmente un cambio realizado entre la recuperación y la actualización por otro componente de la misma. La manera correcta de actuar ante este error es recuperar de nuevo la entidad, hacer los cambios oportunos (si siguen siendo válidos) y, a continuación, realizar otra operación **table_operation::replace_entity**. En la siguiente sección se muestra cómo invalidar este comportamiento.  
+Para reemplazar una entidad, recupérela de Table service, modifique su objeto y, luego, guarde los cambios de nuevo en Table service. El código siguiente cambia el número de teléfono y la dirección de correo electrónico de un cliente. En lugar de llamar a **table_operation::insert_entity**, este código usa **table_operation::replace_entity**. Esto hace que la entidad se reemplace por completo en el servidor, a menos que la entidad del servidor cambiara desde que se recuperó, en cuyo caso la operación dará error. Este error evita que la aplicación sobrescriba accidentalmente un cambio realizado entre la recuperación y la actualización por otro componente de la misma. La manera correcta de actuar ante este error es recuperar de nuevo la entidad, hacer los cambios oportunos (si siguen siendo válidos) y, a continuación, realizar otra operación **table_operation::replace_entity**. En la siguiente sección se muestra cómo invalidar este comportamiento.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -448,11 +448,11 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información sobre Almacenamiento de Azure:  
+Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información sobre Azure Storage:  
 
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 * [Uso del almacenamiento de blobs en C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Uso del almacenamiento de colas en C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-* [Enumeración de los recursos de Almacenamiento de Azure en C++](../storage/common/storage-c-plus-plus-enumeration.md)
+* [Enumeración de los recursos de Azure Storage en C++](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
-* [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentación de Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

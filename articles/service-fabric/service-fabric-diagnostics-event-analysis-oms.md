@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f0cefab15a115719ea9c378546a7e6004bd06187
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Análisis y visualización de eventos con OMS
 
@@ -37,52 +37,13 @@ Se recomienda que incluya la solución de Service Fabric en el área de trabajo 
 
 ![Solución SF en OMS](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
-Hay dos formas de aprovisionar y configurar el área de trabajo de OMS, bien a través de una plantilla de Resource Manager o directamente desde Azure Marketplace. Use la primera opción al implementar un clúster y la última si ya tiene un clúster implementado con Diagnostics habilitado.
-
-### <a name="deploying-oms-using-a-resource-management-template"></a>Implementación de OMS con una plantilla de Resource Manager
-
-Al implementar un clúster con una plantilla de Resource Manager, esta última también puede crear una nueva área de trabajo de OMS, agregar a ella la solución de Service Fabric y configurarla para leer datos de las tablas de almacenamiento apropiadas.
-
->[!NOTE]
->Para ello, Diagnostics tiene que estar habilitado para que haya tablas de almacenamiento de Azure en las que OMS o Log Analytics puedan leer información.
-
-[Aquí](https://azure.microsoft.com/resources/templates/service-fabric-oms/) hay una plantilla de ejemplo que puede usar y modificar según sea necesario, donde se realizan las acciones anteriores. En caso de que desee considerar otras alternativas, existen algunas plantillas más que ofrecen diferentes opciones en función del punto en que se encuentre en el proceso de configuración de un área de trabajo de OMS; se encuentran disponibles en la página de [plantillas de Service Fabric y OMS](https://azure.microsoft.com/resources/templates/?term=service+fabric+OMS).
-
-### <a name="deploying-oms-using-through-azure-marketplace"></a>Implementación de OMS a través de Azure Marketplace
-
-Si desea agregar un área de trabajo de OMS después de haber implementado un clúster, diríjase a Azure Marketplace y busque *"Service Fabric Analytics"*.
-
-![SF Analytics en OMS con Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
-
-* Haga clic en **Crear**.
-* En la ventana de creación de Service Fabric Analytics, haga clic en **Seleccione un área de trabajo** para el campo *Área de trabajo de OMS* y haga clic en **Create a new workspace** (Crear un área de trabajo). Rellene las entradas necesarias; el único requisito en este caso es que la suscripción del clúster de Service Fabric sea la misma que la del área de trabajo de OMS. Después de haber validado las entradas, el área de trabajo de OMS comenzará la implementación. Esto solo tardará unos minutos.
-* Cuando termine, haga clic en **Crear** de nuevo en la parte inferior de la ventana de creación de Service Fabric Analytics. Asegúrese de que la nueva área de trabajo aparece en *Área de trabajo de OMS*. Esto agregará la solución al área de trabajo que acaba de crear.
-
-
-Aunque así se agrega la solución al área de trabajo, el área de trabajo debe conectarse a los datos de diagnóstico del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Debería ver *ServiceFabric (\<nombreDelÁreaDeTrabajoDeOMS\>)*.
-
-* Haga clic en la solución para la página de introducción, desde donde podrá cambiar la configuración de la solución y del área de trabajo, y vaya al portal de OMS.
-* En el menú de navegación izquierdo, haga clic en **Registros de las cuentas de almacenamiento**, de *Orígenes de datos del área de trabajo*.
-
-    ![Solución Service Fabric Analytics en el portal](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
-
-* En la página *Registros de las cuentas de almacenamiento*, haga clic en **Agregar** en la parte superior para agregar los registros del clúster al área de trabajo.
-* Haga clic en **cuenta de Storage** para agregar la cuenta correspondiente que se creó en el clúster. Si utiliza el nombre predeterminado, la cuenta de Storage se denomina *sfdg\<resourceGroupName\>*. También puede confirmarlo al comprobar la plantilla de Azure Resource Manager utilizada para implementar el clúster; para ello, compruebe el valor de `applicationDiagnosticsStorageAccountName`. Quizá tenga que desplazarse hacia abajo y hacer clic en **Cargar más**, si no aparece el nombre de la cuenta. Haga clic en el nombre de cuenta de almacenamiento correcto cuando aparezca para seleccionarlo.
-* A continuación tendrá que especificar el *Tipo de datos*, que debe ser **Eventos de Service Fabric**.
-* El *Origen* se establecerá automáticamente en *WADServiceFabric\*EventTable*.
-* Haga clic en **Aceptar** para conectar el área de trabajo a los registros del clúster.
-
-    ![Incorporación de registros de la cuenta de Storage a OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
-
-* La cuenta debería aparecer ahora como parte de los *registros de la cuenta de Storage* en los orígenes de datos del área de trabajo.
-
-Con esto ya se ha agregado la solución Service Fabric Analytics a un área de trabajo de OMS Log Analytics correctamente conectada ahora a la plataforma del clúster y a la tabla de registros de la aplicación. Puede agregar orígenes adicionales al área de trabajo de la misma manera.
+Vea [Configuración de Log Analytics (OMS)](service-fabric-diagnostics-oms-setup.md) para empezar a usar esto para el clúster.
 
 ## <a name="using-the-oms-agent"></a>Uso del agente de OMS
 
-Se recomienda utilizar EventFlow y WAD como soluciones de agregación porque permiten adoptar un enfoque más modular de diagnóstico y supervisión. Por ejemplo, si desea cambiar las salidas de EventFlow, no es necesario realizar ningún cambio en la instrumentación real, sino tan solo una sencilla modificación del archivo de configuración. No obstante, si decide invertir en el uso de OMS y desea continuar utilizándolo para análisis de eventos (no tiene que ser la única plataforma que utilice, pero sí una de las que use), se recomienda explorar la configuración del [agente de OMS](../log-analytics/log-analytics-windows-agents.md). También debe utilizar al agente de OMS al implementar contenedores en el clúster, tal y como se comenta a continuación.
+Se recomienda utilizar EventFlow y WAD como soluciones de agregación porque permiten adoptar un enfoque más modular de diagnóstico y supervisión. Por ejemplo, si desea cambiar las salidas de EventFlow, no es necesario realizar ningún cambio en la instrumentación real, sino tan solo una sencilla modificación del archivo de configuración. Si, sin embargo, decide invertir en usar Log Analytics de OMS, debe configurar el [Agente de OMS](../log-analytics/log-analytics-windows-agents.md). También debe utilizar al agente de OMS al implementar contenedores en el clúster, tal y como se comenta a continuación. 
 
-El proceso para hacer esto es relativamente fácil, ya que solo tiene que agregar el agente como extensión del conjunto de escalado de máquinas virtuales a la plantilla de Resource Manager, asegurándose de que se instala en cada uno de los nodos. Para clústeres que ejecutan [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) o [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux), puede encontrar una plantilla de ejemplo de Resource Manager que implementa el área de trabajo de OMS con la solución Service Fabric (como se ha explicado anteriormente) y agrega el agente a los nodos.
+Vaya a [Incorporación del Agente de OMS a un clúster](service-fabric-diagnostics-oms-agent.md) para seguir los pasos correspondientes.
 
 Las ventajas que esto aporta son las siguientes:
 
@@ -107,16 +68,7 @@ El agente habilita la recopilación de varios registros específicos de contened
 * ContainerServiceLog: comandos de demonio de docker que se han ejecutado
 * Perf: contadores de rendimiento, entre los que se incluyen la cpu del contenedor, la memoria, el tráfico de red, la e/s de disco y métricas personalizadas de los equipos host
 
-En este artículo se tratan los pasos necesarios para configurar la supervisión del contenedor para el clúster. Para más información acerca de la solución Containers de OMS, consulte su [documentación](../log-analytics/log-analytics-containers.md).
-
-Para configurar la solución Containers en el área de trabajo, asegúrese de que el agente de OMS esté implementado en los nodos del clúster; para ello, siga los pasos mencionados anteriormente. Cuando el clúster esté listo, implemente un contenedor en él. Tenga en cuenta que la primera vez que una imagen del contenedor se implementa en un clúster, se tardan varios minutos en descargar la imagen según su tamaño.
-
-En Azure Marketplace, busque la *solución de Supervisión de contenedores* y cree el resultado de la **solución de Supervisión de contenedores** que debería aparecer, en la categoría Supervisión y administración.
-
-![Adición de la solución Containers](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
-
-En el paso de creación, solicita un área de trabajo de OMS. Seleccione el que se creó con la implementación anterior. Este paso agrega una solución Containers al área de trabajo de OMS y la detecta automáticamente el agente de OMS implementado por la plantilla. El agente empezará a recopilar datos sobre los procesos de contenedores del clúster y, en menos de 15 minutos, debería ver que aparecen los datos, como se muestra en la imagen del panel anterior.
-
+En el artículo [Supervisión de contenedores con Log Analytics de OMS](service-fabric-diagnostics-oms-containers.md) se tratan los pasos necesarios para configurar la supervisión del contenedor para el clúster. Para más información acerca de la solución Containers de OMS, consulte su [documentación](../log-analytics/log-analytics-containers.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

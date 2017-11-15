@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Creación de un servidor de Azure Database for PostgreSQL en Azure Portal
 
@@ -151,7 +151,7 @@ Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de 
     > [!TIP]
     > Si el firewall no está configurado para permitir la dirección IP de la instancia de Cloud Shell, aparece el siguiente error:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required.Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
     > 
     > Para resolver el error, asegúrese de que la configuración del servidor coincida con los pasos descritos en la sección "Configuración de una regla de firewall de nivel de servidor" de este artículo.
 
@@ -199,13 +199,13 @@ Para conectarse al servidor Azure PostgreSQL mediante la herramienta pgAdmin de 
 
 6. En el panel izquierdo del **explorador**, expanda el nodo **Servidores**. Seleccione el servidor (por ejemplo, **Azure PostgreSQL Server**). Haga clic para conectarse a él.
 
-7. Expanda el nodo de servidor y **Bases de datos**. La lista debe incluir la base de datos de *postgres* existente y las bases de datos de usuario recién creadas, como **mypgsqldb**, que hemos creado en la sección anterior. Tenga en cuenta que con Azure Database for PostgreSQL puede crear varias bases de datos por servidor.
+7. Expanda el nodo de servidor y **Bases de datos**. La lista debe incluir la base de datos de *postgres* existente y las bases de datos de usuario recién creadas, como **mypgsqldb**, que se creó en la sección anterior. Tenga en cuenta que con Azure Database for PostgreSQL puede crear varias bases de datos por servidor.
 
 8. Haga clic con el botón derecho en **Bases de datos**, elija el menú **Crear** y, a continuación, seleccione **Base de datos**.
 
 9. Escriba el nombre de base de datos que quiera en el campo **Base de datos**, como **mypgsqldb**, tal como se muestra en el ejemplo.
 
-10. Seleccione el **propietario** de la base de datos en el cuadro de lista. Elija el nombre de inicio de sesión del administrador del servidor, como **mylogin** en nuestro ejemplo.
+10. Seleccione el **propietario** de la base de datos en el cuadro de lista. Elija el nombre de inicio de sesión del administrador del servidor, como en el ejemplo, **mylogin**.
 
 11. Seleccione **Guardar** para crear una base de datos vacía.
 
@@ -221,9 +221,9 @@ Hay dos formas de eliminar los recursos que ha creado en la guía de inicio ráp
 > Otras guías de inicio rápido de esta colección se basan en esta. Si tiene previsto seguir usando otras guías de inicio rápido, no elimine los recursos que ha creado en esta. Si no tiene previsto continuar, siga estos pasos para eliminar los recursos creados en esta guía de inicio rápido en el portal.
 
 Para eliminar todo el grupo de recursos, incluido el servidor recién creado:
-1. Elimine el grupo de recursos en el portal. En el menú de la izquierda, seleccione **Grupos de recursos**. A continuación, seleccione el nombre de su grupo de recursos (en nuestro ejemplo, **myresourcegroup**).
+1. Elimine el grupo de recursos en el portal. En el menú de la izquierda, seleccione **Grupos de recursos**. A continuación, seleccione el nombre de su grupo de recursos (en el ejemplo, **myresourcegroup**).
 
-2. En la página del grupo de recursos, seleccione **Eliminar**. Escriba el nombre del grupo de recursos (en nuestro ejemplo, **myresourcegroup**) en el cuadro de texto para confirmar la eliminación. Seleccione **Eliminar**.
+2. En la página del grupo de recursos, seleccione **Eliminar**. Escriba el nombre del grupo de recursos (en el ejemplo, **myresourcegroup**) en el cuadro de texto para confirmar la eliminación. Seleccione **Eliminar**.
 
 Para eliminar solo el servidor recién creado:
 1. Busque el servidor en el portal si no lo tiene abierto. En el menú de la izquierda, seleccione **Todos los recursos**. Luego busque el servidor que ha creado.
@@ -232,7 +232,7 @@ Para eliminar solo el servidor recién creado:
 
     ![Botón "Eliminar"](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Confirme el nombre del servidor que desea eliminar y vea las bases de datos incluidas. Escriba el nombre del servidor en el cuadro de texto (en nuestro ejemplo, **mypgserver-20170401**). Seleccione **Eliminar**.
+3. Confirme el nombre del servidor que desea eliminar y vea las bases de datos incluidas. Escriba el nombre del servidor en el cuadro de texto (en el ejemplo, **mypgserver-20170401**). Seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]

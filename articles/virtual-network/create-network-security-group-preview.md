@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrado de tráfico de red con la red de Azure y grupos de seguridad de aplicaciones (versión preliminar)
 
@@ -44,6 +44,7 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. Escriba el siguiente comando para confirmar que está registrado para la versión preliminar:
@@ -52,7 +53,9 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    No continúe con los pasos restantes hasta que aparezca *Registrado* en **Estado** en la salida devuelta por el comando anterior. Si continúa antes de estar registrado, se producirá un error en los pasos restantes.
+    > [!WARNING]
+    > El registro puede tardar hasta una hora en completarse. No continúe con los pasos restantes hasta que aparezca *Registrado* en **Estado** en la salida devuelta por el comando anterior. Si continúa antes de estar registrado, se producirá un error en los pasos restantes.
+
 6. Ejecute el siguiente script de Bash para crear un grupo de recursos:
 
     ```azurecli-interactive
@@ -160,7 +163,6 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -169,7 +171,6 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -178,12 +179,11 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 9, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo *WebRule* es eficaz para *myWebNic*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *WebServers* y la regla especifica el grupo de seguridad de aplicaciones *WebServers* como su destino. Las reglas *AppRule* y *DatabaseRule* no se aplican a *myWebNic*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *AppServers* y *DatabaseServers*.
+    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 9, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo *WebRule* es eficaz para *myNic1*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *WebServers* y la regla especifica el grupo de seguridad de aplicaciones *WebServers* como su destino. Las reglas *AppRule* y *DatabaseRule* no se aplican a *myNic1*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *AppServers* y *DatabaseServers*.
 
 13. Cree una máquina virtual para cada tipo de servidor, conectando la interfaz de red correspondiente a cada máquina virtual. En este ejemplo se crean máquinas virtuales de Windows, pero puede cambiar *win2016datacenter* a *UbuntuLTS* para crear máquinas virtuales de Linux, si lo prefiere.
 
@@ -239,7 +239,8 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    No continúe con los pasos restantes hasta que aparezca *Registrado* en la columna **Estado de registro** en la salida devuelta por el comando anterior. Si continúa antes de estar registrado, se producirá un error en los pasos restantes.
+    > [!WARNING]
+    > El registro puede tardar hasta una hora en completarse. No continúe con los pasos restantes hasta que aparezca *Registrado* en **RegistrationState** en la salida devuelta por el comando anterior. Si continúa antes de estar registrado, se producirá un error en los pasos restantes.
         
 6. Cree un grupo de recursos:
 
@@ -343,7 +344,6 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -351,7 +351,6 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -359,11 +358,10 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 8, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo *WebRule* es eficaz para *myWebNic*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *WebServers* y la regla especifica el grupo de seguridad de aplicaciones *WebServers* como su destino. Las reglas *AppRule* y *DatabaseRule* no se aplican a *myWebNic*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *AppServers* y *DatabaseServers*.
+    Solo se aplica a la interfaz de red la regla de seguridad correspondiente que ha creado en el paso 8, en función del grupo de seguridad de aplicaciones al que pertenece la interfaz de red. Por ejemplo, solo *WebRule* es eficaz para *myNic1*, porque la interfaz de red pertenece al grupo de seguridad de aplicaciones *WebServers* y la regla especifica el grupo de seguridad de aplicaciones *WebServers* como su destino. Las reglas *AppRule* y *DatabaseRule* no se aplican a *myNic1*, porque la interfaz de red no pertenece a los grupos de seguridad de aplicaciones *AppServers* y *DatabaseServers*.
 
 13. Cree una máquina virtual para cada tipo de servidor, conectando la interfaz de red correspondiente a cada máquina virtual. En este ejemplo se crean máquinas virtuales de Windows, pero si quiere crear máquinas virtuales de Linux, antes de ejecutar el script puede cambiar *-Windows* por *- Linux*, *MicrosoftWindowsServer* por *Canonical*, *WindowsServer* por *UbuntuServer* y *2016-Datacenter* por *14.04.2-LTS*.
 

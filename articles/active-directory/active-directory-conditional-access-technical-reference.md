@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 4bcca3ee5862a0455b6064d0f9c0a91388db9516
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 316157a7a8ed920e9f3b15e24e15035db4cefc6c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referencia técnica del acceso condicional de Azure Active Directory
 
@@ -82,11 +82,7 @@ Además de las aplicaciones de nube de Microsoft, puede asignar una directiva de
 
 ## <a name="device-platform-condition"></a>Condición de plataforma de dispositivos
 
-En una directiva de acceso condicional, puede configurar la condición de la plataforma de dispositivos para asociar la directiva al sistema operativo que se está ejecutando en un cliente.
-
-![Asociar la directiva de acceso al sistema operativo del cliente](./media/active-directory-conditional-access-technical-reference/41.png)
-
-El acceso condicional de Azure AD admite las siguientes plataformas de dispositivo:
+En una directiva de acceso condicional, puede configurar la condición de la plataforma de dispositivos para asociar la directiva al sistema operativo que se está ejecutando en un cliente. El acceso condicional de Azure AD admite las siguientes plataformas de dispositivo:
 
 - Android
 
@@ -96,7 +92,12 @@ El acceso condicional de Azure AD admite las siguientes plataformas de dispositi
 
 - Windows
 
-- macOS (versión preliminar)
+- macOS
+
+
+![Asociar la directiva de acceso al sistema operativo del cliente](./media/active-directory-conditional-access-technical-reference/41.png)
+
+
 
 
 
@@ -131,8 +132,8 @@ En la directiva de acceso condicional, se admiten los siguientes exploradores:
 | Windows Server 2016    | Chrome                      | Próximamente |
 | Windows Server 2012 R2 | Internet Explorer, Chrome   | ![Comprobar][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome   | ![Comprobar][1] |
-| macOS                  | Safari                      | ![Comprobar][1] |
-| macOS                  | Chrome                      | Próximamente |
+| macOS                  | Chrome, Safari              | ![Comprobar][1] |
+
 
 > [!NOTE]
 > Para obtener soporte de Chrome, debe usar la versión 1703 de Windows 10 Creators Update o una versión posterior.<br>
@@ -153,7 +154,7 @@ Los siguientes clientes de escritorio y aplicaciones móviles admiten el acceso 
 | Aplicación de Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS y Android|
 | Aplicación de Correo electrónico/Calendario/People, Outlook 2016, Outlook 2013 (con la autenticación moderna)| Office 365 Exchange Online| Windows 10|
 | Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos.| Cualquier servicio de aplicaciones de Mis aplicaciones| Android e iOS|
-| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web| Equipos de Microsoft| Windows 10, Windows 8.1, Windows 7, iOS y Android|
+| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web| Equipos de Microsoft| Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS|
 | Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7, Windows 7|
 | Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), la compatibilidad con Grupos de Office está prevista para el futuro, la compatibilidad con la aplicación SharePoint está prevista para el futuro| Office 365 SharePoint Online| Windows 10|
 | Office 2016 para macOS (solo Word, Excel, PowerPoint y OneNote). Soporte técnico de OneDrive para la Empresa previsto para el futuro| Office 365 SharePoint Online| Mac OS X|
@@ -165,6 +166,7 @@ Los siguientes clientes de escritorio y aplicaciones móviles admiten el acceso 
 | Aplicación de PowerBI. La aplicación de Power BI para Android no admite actualmente el acceso condicional basado en dispositivos.| Servicio de PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS|
 | Skype Empresarial| Office 365 Exchange Online| Android, IOS|
 | Aplicación de Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS y Android|
+
 
 
 

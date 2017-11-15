@@ -3,7 +3,7 @@ title: Uso de servidores NPS existentes para proporcionar funcionalidades de Azu
 description: "La extensión Servidor de directivas de redes para Azure Multi-Factor Authentication es una solución sencilla para agregar funcionalidades de verificación de dos pasos basadas en la nube a la infraestructura de autenticación existente."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 42b0bda033b1721ba5c0f575ea2ce6b0933f0f45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5e0a852ae9b245ef69fcbff2e87712a31197790
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ La extensión de NPS está diseñada para funcionar con la infraestructura exist
 
 ### <a name="licenses"></a>Licencias
 
-La extensión de NPS para Azure MFA está disponible para los clientes con [licencias para Azure Multi-Factor Authentication](multi-factor-authentication.md) (incluida con Azure AD Premium, EMS o una suscripción de MFA).
+La extensión de NPS para Azure MFA está disponible para los clientes con [licencias para Azure Multi-Factor Authentication](multi-factor-authentication.md) (incluida con Azure AD Premium, EMS o una suscripción de MFA). Las licencias basadas en el consumo para Azure MFA, como las licencias por usuario o por autenticación no son compatibles con la extensión de NPS. 
 
 ### <a name="software"></a>Software
 
