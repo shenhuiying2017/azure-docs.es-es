@@ -69,10 +69,6 @@
 ### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)
 
-## Establecimiento de directivas de recursos
-### [¿Qué son las directivas de recursos?](resource-manager-policy.md)
-### [Convenciones de nomenclatura](resource-manager-policy-naming-convention.md)
-
 ## Auditoría
 ### [Visualización de registros de actividad](resource-group-audit.md)
 ### [Ver operaciones de implementación](resource-manager-deployment-operations.md)
