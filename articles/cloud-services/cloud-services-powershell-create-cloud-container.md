@@ -14,14 +14,14 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 2023fa7b318f9f76ce1e1ea0a46110297be9a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd703feb7bf5af765fc3a5448464499aa7b48d6a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Uso de un comando de Azure PowerShell para crear un contenedor vacío de servicios en la nube
-En este artículo se explica cómo crear rápidamente un contenedor de servicios en la nube mediante cmdlets de Azure PowerShell. Siga estos pasos:
+En este artículo se explica cómo crear rápidamente un contenedor de Cloud Services mediante cmdlets de Azure PowerShell. Siga estos pasos:
 
 1. Instale el cmdlet de Microsoft Azure PowerShell desde la página de [descargas de Azure PowerShell](http://aka.ms/webpi-azps) .
 2. Abra un símbolo del sistema de PowerShell.
@@ -50,5 +50,5 @@ Get-help New-AzureService
 ```
 
 ### <a name="next-steps"></a>Pasos siguientes
-* Para administrar la implementación de servicios en la nube, consulte los comandos [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) y [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx). Para más información, también puede consultar [Configuración de servicios en la nube](cloud-services-how-to-configure.md) .
+* Para administrar la implementación de servicios en la nube, consulte los comandos [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx) y [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx). Para más información, también puede consultar [Configuración de servicios en la nube](cloud-services-how-to-configure-portal.md) .
 * Para publicar el proyecto de servicio en la nube en Azure, consulte el código de ejemplo de **PublishCloudService.ps1** de [Entrega continua para Servicios en la nube de Azure](cloud-services-dotnet-continuous-delivery.md).

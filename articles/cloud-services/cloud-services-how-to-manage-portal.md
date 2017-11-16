@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-manage-cloud-services"></a>Administración de servicios en la nube
-> [!div class="op_single_selector"]
-> * [Portal de Azure](cloud-services-how-to-manage-portal.md)
-> * [Portal de Azure clásico](cloud-services-how-to-manage.md)
->
->
-
+# <a name="how-to-manage-cloud-services"></a>Administración de Cloud Services
 En el área **Cloud Services (clásico)** de Azure Portal, puede actualizar un rol de servicio o una implementación, promover una implementación de ensayo en producción, vincular recursos con su servicio en la nube para que pueda ver las dependencias de estos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
 Para obtener más información sobre cómo escalar un servicio en la nube, haga clic [aquí](cloud-services-how-to-scale-portal.md).
@@ -54,16 +48,16 @@ Si necesita actualizar el código de la aplicación para su servicio en la nube,
 ## <a name="how-to-swap-deployments-to-promote-a-staged-deployment-to-production"></a>Intercambio de implementaciones para pasar un servicio en la nube de ensayo a producción
 Cuando decida implementar una nueva versión de un servicio en la nube, puede colocar en etapa y probar la nueva versión en su entorno de ensayo del servicio en la nube. Use **Intercambiar** para cambiar las direcciones URL que dirigen a las dos implementaciones y promover una nueva versión a producción.
 
-Puede intercambiar implementaciones desde la página **Servicios en la nube** o el panel.
+Puede intercambiar implementaciones desde la página **Cloud Services** o el panel.
 
 1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera actualizar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 2. En la hoja, haga clic en el botón **Intercambiar** .
 
-    ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/swap-button.png)
+    ![Intercambio de Cloud Services](./media/cloud-services-how-to-manage-portal/swap-button.png)
 
 3. Se abre la siguiente solicitud de confirmación.
 
-    ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Intercambio de Cloud Services](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
 4. Después de verificar la información de la implementación, haga clic en **Aceptar** para intercambiar las implementaciones.
 
@@ -100,11 +94,11 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 1. En el [portal de Azure][Azure portal], seleccione el servicio en la nube que quiera eliminar. Tras esta acción, se abrirá la hoja de la instancia del servicio en la nube.
 2. En la hoja, haga clic en el botón **Eliminar** .
 
-    ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/delete-button.png)
+    ![Intercambio de Cloud Services](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
 3. Puede eliminar el servicio en la nube completo seleccionando **Servicio en la nube y sus implementaciones** o elija **Implementación de producción** o **Implementación de almacenamiento provisional**.
 
-    ![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+    ![Intercambio de Cloud Services](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
 4. Haga clic en el botón **Eliminar** situado en la parte inferior.
 5. Para eliminar el servicio en la nube, haga clic en **Eliminar servicio en la nube**. Luego, haga clic en **Sí**en la solicitud de confirmación.
@@ -116,7 +110,7 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 ## <a name="how-to-find-more-information-about-failed-deployments"></a>Búsqueda de más información acerca de las implementaciones con errores
 La hoja **Información general** tiene una barra de estado en la parte superior. Al hacer clic en ella, se abre una nueva hoja que muestra la información de cualquier error. Si la implementación no contiene errores, la hoja de información está en blanco.
 
-![Intercambio de servicios en la nube](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Intercambio de Cloud Services](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 

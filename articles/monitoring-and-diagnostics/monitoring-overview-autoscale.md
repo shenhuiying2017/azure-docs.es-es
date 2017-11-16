@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -96,7 +96,7 @@ El escalado automático solo escala horizontalmente, que es un aumento o una red
 
 En contraste, el escalado vertical es diferente. Mantiene el mismo número de máquinas virtuales, pero hace que sean más o menos potentes. La potencia se mide en memoria, velocidad de CPU, espacio en disco, etc.  El escalado vertical tiene más limitaciones, ya que depende de la disponibilidad de hardware de mayor tamaño, que supera el límite rápidamente y puede variar según la región. El escalado vertical también suele requerir que se detenga y reinicie una máquina virtual.
 
-Para obtener más información, consulte [Escalado vertical de máquinas virtuales de Azure con Automatización de Azure](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para obtener más información, consulte [Escalado vertical de máquinas virtuales de Azure con Azure Automation](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="methods-of-access"></a>Métodos de acceso
 Puede configurar el escalado automático en los siguientes lugares:
@@ -109,8 +109,8 @@ Puede configurar el escalado automático en los siguientes lugares:
 ## <a name="supported-services-for-autoscale"></a>Servicios compatibles con el escalado automático
 | Servicio | Esquema y documentos |
 | --- | --- |
-| Aplicaciones web |[Escalado en Web Apps](insights-how-to-scale.md) |
-| Servicios en la nube |[Escalado automático de un servicio en la nube](../cloud-services/cloud-services-how-to-scale.md) |
+| Web Apps |[Escalado en Web Apps](insights-how-to-scale.md) |
+| Cloud Services |[Escalado automático de un servicio en la nube](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: clásico |[Escalado de conjuntos de disponibilidad clásicos de máquina virtual](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: conjuntos de escalado de Windows |[Escalado de conjuntos de escalado de máquinas virtuales en Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtual Machines : conjuntos de escalado de Linux |[Escalado de conjuntos de escalado de máquinas virtuales en Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

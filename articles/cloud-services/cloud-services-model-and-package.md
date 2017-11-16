@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7210c944e2f99aacdc2f554409552007286c5da
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>¿Qué es el modelo de servicio en la nube y cómo se empaqueta?
 Un servicio en la nube se crea a partir de tres componentes: la definición de servicio *(.csdef)*, la configuración de servicio *(.cscfg)* y un paquete de servicio *(.cspkg)*. Los archivos **ServiceDefinition.csdef** y **ServiceConfig.cscfg** se basan ambos en XML y describen la estructura del servicio en la nube y cómo se configura; lo que se conoce en conjunto como modelo. **ServicePackage.cspkg** es un archivo ZIP que se genera a partir de **ServiceDefinition.csdef** y, entre otros, contiene todas las dependencias necesarias basadas en archivos binarios. Azure crea un servicio en la nube a partir de **ServicePackage.cspkg** y **ServiceConfig.cscfg**.
@@ -143,7 +143,7 @@ El archivo de configuración de servicio no se empaqueta con la aplicación, sin
 Puede hacer referencia al [esquema de configuración de servicio](https://msdn.microsoft.com/library/azure/ee758710.aspx) para comprender mejor el esquema XML que se usa aquí; sin embargo, a continuación se da una explicación rápida de los elementos:
 
 **Instances**  
-configura el número de instancias en ejecución para el rol. Para evitar la posibilidad de que el servicio en la nube deje de estar disponible durante las actualizaciones, es recomendable que implemente más de una instancia de los roles accesibles a través de web. Al hacerlo, estará siguiendo las instrucciones del [Acuerdo de Nivel de Servicio de procesos de Azure](http://azure.microsoft.com/support/legal/sla/), que garantiza la conectividad externa del 99,95 % para los roles accesibles a través de Internet cuando se implementan dos o más instancias de rol para un servicio.
+configura el número de instancias en ejecución para el rol. Para evitar la posibilidad de que el servicio en la nube deje de estar disponible durante las actualizaciones, es recomendable que implemente más de una instancia de los roles accesibles a través de web. Al hacerlo, estará siguiendo las instrucciones del [Acuerdo de Nivel de Servicio de Azure Compute](http://azure.microsoft.com/support/legal/sla/), que garantiza la conectividad externa del 99,95 % para los roles accesibles a través de Internet cuando se implementan dos o más instancias de rol para un servicio.
 
 **ConfigurationSettings**  
 configura los valores de las instancias en ejecución de un rol. El nombre de los elementos `<Setting>` debe coincidir con las definiciones de configuración del archivo de definición de servicio.
@@ -290,7 +290,7 @@ Estoy usando Visual Studio y quiero...
 * [Configurar Escritorio remoto para una instancia de servicio en la nube][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
-[remotedesktop]: cloud-services-role-enable-remote-desktop.md
+[remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: ../vs-azure-tools-remote-desktop-roles.md
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
