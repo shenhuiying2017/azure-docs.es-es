@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integración de las directivas de seguridad de Security Center con Azure Policy
 Este artículo le ayuda a configurar las directivas de seguridad de Azure Security Center, que se basan en Azure Policy. 
@@ -60,7 +60,7 @@ Puede editar la directiva de seguridad predeterminada de cada una de las suscrip
     ![Definiciones de directiva disponibles](./media/security-center-policies/security-center-policies-fig11.png)
 
     * Para obtener una explicación detallada de una directiva, selecciónela.  
-    Se abre una ventana de **vista previa** de la definición. En ella se muestra una descripción de la definición y un vínculo al código JSON que proporciona la estructura de la [definición de directiva](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure).
+    Se abre una ventana de **vista previa** de la definición. En ella se muestra una descripción de la definición y un vínculo al código JSON que proporciona la estructura de la [definición de directiva](../azure-policy/policy-definition.md).
 
     ![La ventana de vista previa de la definición](./media/security-center-policies/security-center-policies-fig14.png)
 

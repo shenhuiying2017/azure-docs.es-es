@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
 
@@ -25,6 +25,30 @@ En la versión preliminar, Event Grid admite las ubicaciones **westus2** y **wes
 Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).
 
 ![Modelo funcional de Event Grid](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Publicadores de eventos
+
+Actualmente, los siguientes servicios de Azure tienen compatibilidad de publicador integrada para Event Grid:
+
+* Grupos de recursos (operaciones de administración)
+* Suscripciones de Azure (operaciones de administración)
+* Event Hubs
+* Storage Blob
+* Temas personalizados
+
+Otros servicios de Azure se agregarán este año.
+
+## <a name="event-handlers"></a>Controladores de eventos
+
+Actualmente, los siguientes servicios de Azure tienen compatibilidad de controlador integrada para Event Grid: 
+
+* Azure Functions
+* Logic Apps
+* Azure Automation
+* WebHooks
+* Microsoft Flow
+
+Otros servicios de Azure se agregarán este año.
 
 ## <a name="concepts"></a>Conceptos
 
@@ -52,34 +76,6 @@ Estas son algunas características clave de Azure Event Grid:
 * **Eventos personalizados**: use la ruta, el filtrado y la entrega confiable de eventos personalizados de Event Grid en su aplicación.
 
 Para obtener una comparación de Event Grid, Event Hubs y Service Bus, vea [Choose between Azure services that deliver message](compare-messaging-services.md) (Elección entre servicios de Azure de envío mensajes).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Integración incorporada del publicador y el controlador
-
-Azure ofrece compatibilidad de eventos integrada con numerosos servicios, incluidos tanto publicadores como controladores.
-
-### <a name="publishers"></a>Publicadores
-
-Actualmente, los siguientes servicios de Azure tienen compatibilidad de publicador integrada para Event Grid:
-
-* Grupos de recursos (operaciones de administración)
-* Suscripciones de Azure (operaciones de administración)
-* Event Hubs
-* Storage Blob
-* Temas personalizados
-
-Otros servicios de Azure se agregarán este año.
-
-### <a name="handlers"></a>Controladores
-
-Actualmente, los siguientes servicios de Azure tienen compatibilidad de controlador integrada para Event Grid: 
-
-* Azure Functions
-* Logic Apps
-* Azure Automation
-* WebHooks
-* Microsoft Flow
-
-Otros servicios de Azure se agregarán este año.
 
 ## <a name="what-can-i-do-with-event-grid"></a>¿Qué puedo hacer con Event Grid?
 

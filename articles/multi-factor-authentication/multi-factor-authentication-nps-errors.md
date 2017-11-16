@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: cf1fc0f5cf0c53547c96b46404828f76a405650f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 5f27bac7f2de0411dacd5b981a09a93c80084af9
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | **HTTP_CONNECT_ERROR** | En el servidor que ejecuta la extensión de NPS, compruebe que puede acceder a https://adnotifications.windowsazure.com y https://login.microsoftonline.com/. Si esos sitios no cargan, solucione los problemas de conectividad que tenga ese servidor. |
 | **REGISTRY_CONFIG_ERROR** | Falta una clave en el registro de la aplicación, lo que puede deberse a que el [script de PowerShell](multi-factor-authentication-nps-extension.md#install-the-nps-extension) no se ejecutó después de la instalación. El mensaje de error debe incluir la clave que falta. Asegúrese de que la clave se encuentra en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Falta el atributo nombreUsuario\Identificador obligatorio en la solicitud de RADIUS. Compruebe que NPS recibe las solicitudes de RADIUS | Este error refleja habitualmente un problema de instalación. La extensión de NPS debe estar instalada en servidores de NPS que pueden recibir solicitudes de RADIUS. Los servidores de NPS que están instalados como dependencias para servicios como RDG y RRAS no reciben solicitudes de RADIUS. La extensión de NPS no funciona si se instala en esas instalaciones y genera errores porque no puede leer los detalles de la solicitud de autenticación. |
-| **REQUEST_MISSING_CODE** | Asegúrese de que el protocolo de cifrado de contraseña entre los servidores NPS y NAS admite el método de autenticación secundario que usa. **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil y código de comprobación de la aplicación móvil. **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil. |
+| **REQUEST_MISSING_CODE** | Asegúrese de que el protocolo de cifrado de contraseña entre los servidores NPS y NAS admite el método de autenticación secundario que usa. **PAP** es compatible con todos los métodos de autenticación de Azure MFA en la nube: llamada de teléfono, mensaje de texto unidireccional, notificación de aplicación móvil y código de verificación  de la aplicación móvil. **CHAPV2** y **EAP** admiten llamadas de teléfono y notificaciones de aplicación móvil. |
 | **USERNAME_CANONICALIZATION_ERROR** | Compruebe que el usuario existe en la instancia local de Active Directory y que el servicio NPS tiene permiso para acceder al directorio. Si usa confianzas entre bosques, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para más ayuda. |
 
 
@@ -60,7 +60,7 @@ Si encuentra errores en la extensión de NPS para Azure Multi-Factor Authenticat
 | **AuthenticationMethodNotSupported** | No se admite el método de autenticación especificado. | Recopile todos los registros que incluyen este error y [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support). Cuando lo haga, proporcione el nombre de usuario y el método de comprobación secundario que desencadenó el error. |
 | **BecAccessDenied** | La llamada Bec de MSODS devolvió un acceso denegado, probablemente porque el nombre de usuario no está definido en el inquilino | El usuario se encuentra en la instancia local de Active Directory, pero AD Connect no la sincroniza en Azure AD. O bien puede que el usuario falte en el inquilino. Agregue el usuario a Azure AD y haga que agregue sus métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](./end-user/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** o **StrongAuthenticationServiceInvalidParameter** | El número de teléfono tiene un formato no reconocible | Haga que el usuario corrija los números de teléfono de comprobación. |
-| **InvalidSession** | La sesión especificada no es válida o puede haber expirado | La sesión tarda más de tres minutos en completarse. Compruebe que el usuario escribe el código de comprobación o que responde a la notificación de aplicación en menos de tres minutos después de que se inicia la solicitud de autenticación. Si no se soluciona el problema, compruebe que no haya latencias de red entre el cliente, el servidor NAS, el servidor NPS y el punto de conexión de Azure MFA.  |
+| **InvalidSession** | La sesión especificada no es válida o puede haber expirado | La sesión tarda más de tres minutos en completarse. Compruebe que el usuario escribe el código de verificación o que responde a la notificación de aplicación en menos de tres minutos después de que se inicia la solicitud de autenticación. Si no se soluciona el problema, compruebe que no haya latencias de red entre el cliente, el servidor NAS, el servidor NPS y el punto de conexión de Azure MFA.  |
 | **NoDefaultAuthenticationMethodIsConfigured** | No se configuró ningún método de autenticación predeterminado para el usuario | Haga que el usuario agregue o compruebe los métodos de comprobación según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](./end-user/multi-factor-authentication-end-user-manage-settings.md). Compruebe que el usuario eligió un método de autenticación predeterminado y que configuró dicho método para la cuenta. |
 | **OathCodePinIncorrect** | Se escribió un PIN y un código de error incorrectos. | Este error no se espera en la extensión de NPS. Si el usuario encuentra este error, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support) para ayuda en la solución de problemas. |
 | **ProofDataNotFound** | No se configuraron datos de prueba para el método de autenticación especificado. | Haga que el usuario pruebe con otro método de comprobación o agregue métodos de comprobación nuevos según las instrucciones que aparecen en [Administración de la configuración de la verificación en dos pasos](./end-user/multi-factor-authentication-end-user-manage-settings.md). Si el usuario sigue viendo este error una vez que confirmó que el método de comprobación está configurado correctamente, [póngase en contacto con el servicio de soporte técnico](#contact-microsoft-support). |

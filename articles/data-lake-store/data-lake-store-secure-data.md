@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7cadb45202c7221876d377546e7c17199ec15809
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protección de los datos almacenados en el Almacén de Azure Data Lake
 Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque de tres pasos.
@@ -37,7 +37,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Creación de grupos de seguridad en Azure Active Directory
-Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 > [!NOTE] 
 > Puede agregar usuarios y otros grupos a un grupo de Azure AD mediante Azure Portal. Pero para agregar una entidad de servicio a un grupo, use el [módulo PowerShell de Azure AD](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
@@ -125,7 +125,7 @@ El Almacén de Azure Data Lake permite bloquear aún más el acceso a su almacé
 ![Configuración del firewall y acceso a IP](./media/data-lake-store-secure-data/firewall-ip-access.png "Configuración del firewall y dirección IP")
 
 ## <a name="remove-security-groups-for-an-azure-data-lake-store-account"></a>Quitar grupos de seguridad de una cuenta de Almacén de Azure Data Lake
-Cuando quita usuarios o grupos de seguridad de cuentas de Almacén de Azure Data Lake, solamente está cambiando el acceso a las operaciones de administración en la cuenta mediante el Portal de Azure y las API del Administrador de recursos de Azure.
+Cuando quita usuarios o grupos de seguridad de cuentas de Azure Data Lake Store, solamente está cambiando el acceso a las operaciones de administración en la cuenta mediante Azure Portal y las API de Azure Resource Manager.
 
 1. En la hoja de su cuenta de Data Lake Store, haga clic en **Configuración**. En la hoja **Configuración**, haga clic en **Usuarios**.
    
@@ -152,7 +152,7 @@ Cuando quita las ACL de grupos de seguridad del sistema de archivos de Azure Dat
 
 ## <a name="see-also"></a>Consulte también
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
-* [Copiar datos de los blobs de almacenamiento de Azure en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
+* [Copiar datos de los blobs de Azure Storage en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Introducción al Almacén de Azure Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)

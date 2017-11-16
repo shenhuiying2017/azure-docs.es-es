@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
-ms.openlocfilehash: d474cce902dad1390d55ed7bad556d9b0610605f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Hadoop en HDInsight
 
@@ -169,8 +169,8 @@ Ejemplos:
 | Servicio | Nodos | Port | Protocol | Ruta de acceso URL | Descripción |
 | --- | --- | --- | --- | --- | --- |
 | Servidores Thrift de Spark |Nodos principales |10002 |Thrift | &nbsp; | Servicio para conectarse a Spark SQL (Thrift/JDBC) |
-| Servidor Livy | Nodos principales | 8998 | HTTP | /lotes | Servicio para ejecutar instrucciones, trabajos y aplicaciones |
+| Servidor Livy | Nodos principales | 8998 | HTTP | &nbsp; | Servicio para ejecutar instrucciones, trabajos y aplicaciones |
 
 Ejemplos:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. En este ejemplo, `10.0.0.11` es la dirección IP del nodo principal que hospeda el servicio Livy.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. En este ejemplo, `10.0.0.11` es la dirección IP del nodo principal que hospeda el servicio Livy.

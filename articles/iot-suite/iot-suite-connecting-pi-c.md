@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 2f5915093a0d7984f0350af21aa438cdd588bbf2
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 45f4de7e9ec880775f9ccf77b7d945766d465aa7
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>Conexión del dispositivo Raspberry Pi a la solución preconfigurada de supervisión remota (C)
 
@@ -198,7 +198,7 @@ En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar l
     make
     ```
 
-1. Ejecute la aplicación cliente y envíe los datos telemetría al Centro de IoT:
+1. Ejecute la aplicación cliente y envíe los datos telemetría a IoT Hub:
 
     ```sh
     ./sample_app

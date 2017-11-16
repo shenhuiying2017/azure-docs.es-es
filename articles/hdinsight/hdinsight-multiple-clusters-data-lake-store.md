@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 08f860dcf0f1d6c69cee02261b2a4989fc5c694a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92339548768878d03b864853172f3e94ad899693
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Uso de varios clústeres de HDInsight con una cuenta de Azure Data Lake Store
 
@@ -52,7 +52,7 @@ En la tabla,
 - **Entidad de servicio** es la entidad de servicio de Azure Active Directory (AAD) asociada a la cuenta.
 - **FINGRP** es un grupo de usuarios creado en AAD que contiene usuarios de la organización de Finanzas.
 
-Para obtener instrucciones sobre cómo crear una aplicación de AAD (que también crea una entidad de servicio), consulte [Creación de una aplicación de Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Para obtener instrucciones sobre cómo crear un grupo de usuarios en AAD, consulte [Administración de grupos en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Para obtener instrucciones sobre cómo crear una aplicación de AAD (que también crea una entidad de servicio), consulte [Creación de una aplicación de Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Para obtener instrucciones sobre cómo crear un grupo de usuarios en AAD, consulte [Administración de grupos en Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 Algunos puntos que se deben tener en cuenta:
 

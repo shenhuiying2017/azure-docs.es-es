@@ -3,22 +3,22 @@ title: 'Azure Stack Storage: Diferencias y consideraciones'
 description: "Comprender las diferencias entre Azure Stack Storage y Azure Storage, junto con las consideraciones de implementación de Azure Stack."
 services: azure-stack
 documentationcenter: 
-author: xiaofmao
-manager: 
-editor: 
+author: jeffgilb
+manager: femila
+ms.reviwer: xiaofmao
 ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/25/2017
-ms.author: xiaofmao
-ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 11/08/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 1dc099fa234e217b682c88f2214fe271c916eec2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Diferencias y consideraciones
 
@@ -33,7 +33,7 @@ En este artículo se resumen las diferencias entre Azure Stack Storage y Azure S
 | Característica | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |File Storage|Recursos compartidos de archivos SMB basado en la nube admitidos|Todavía no se admite
-|Cifrado de datos en reposo|Cifrado de AES de 256 bits|Todavía no se admite
+|Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)|Cifrado de AES de 256 bits|Todavía no se admite
 |Tipo de cuenta de almacenamiento|Cuentas de Azure Blob Storage y de uso general|Solo para uso general
 |Opciones de replicación|Almacenamiento con redundancia local, almacenamiento con redundancia geográfica, almacenamiento con redundancia geográfica con acceso de lectura y almacenamiento con redundancia de zona|Almacenamiento con redundancia local
 |Premium Storage|Totalmente compatible|Se pueden aprovisionar, pero no hay límite de rendimiento o garantía

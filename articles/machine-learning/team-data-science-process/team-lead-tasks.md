@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e8bfeb547fbcd7f472fbed50073b1ca3176b72
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="team-lead-tasks"></a>Tareas del responsable de equipo
 
@@ -259,7 +259,7 @@ Ejecute ahora el mismo conjunto de cuatro comandos de Git desde el directorio **
  
 > Si está confirmando varios repositorios de Git, use el mismo nombre y la misma dirección de correo electrónico al confirmar cada uno de ellos. Usar el mismo nombre y la misma dirección de correo electrónico resulta muy cómodo más adelante al crear paneles de Power BI y realizar el seguimiento de las actividades de Git en varias bases de datos.
 
-![20 |](./media/team-lead-tasks/team-leads-20-git-config-name.png)
+![20](./media/team-lead-tasks/team-leads-20-git-config-name.png)
 
 
 ## <a name="3-create-team-data-and-analytics-resources-optional"></a>3. Creación de datos y recursos de análisis de equipo (opcional)

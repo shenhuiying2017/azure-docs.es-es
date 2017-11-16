@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 542d1e0c4c4d6cfa5d2fe9df90a7a34c72f19fc0
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2121198482265e9cc0682e5099b0294ad3f2ab3e
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Conectar el dispositivo a la solución preconfigurada de supervisión remota (Linux)
 
@@ -39,7 +39,7 @@ sudo apt-get install cmake gcc g++
 
 ### <a name="install-the-client-libraries-on-your-device"></a>Instalación de las bibliotecas de cliente en el dispositivo
 
-Las bibliotecas de cliente del Centro de IoT de Azure están disponibles como un paquete que puede instalar en su dispositivo Ubuntu ejecutando el comando **apt-get** . Complete los pasos siguientes para instalar el paquete que contiene la biblioteca de cliente de IoT Hub y los archivos de encabezado de su equipo Ubuntu:
+Las bibliotecas de cliente de Azure IoT Hub están disponibles como un paquete que puede instalar en su dispositivo Ubuntu ejecutando el comando **apt-get** . Complete los pasos siguientes para instalar el paquete que contiene la biblioteca de cliente de IoT Hub y los archivos de encabezado de su equipo Ubuntu:
 
 1. En un shell, agregue el repositorio de AzureIoT al equipo:
 
@@ -171,7 +171,7 @@ En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar l
     make
     ```
 
-1. Ejecute la aplicación cliente y envíe los datos telemetría al Centro de IoT:
+1. Ejecute la aplicación cliente y envíe los datos telemetría a IoT Hub:
 
     ```sh
     ./sample_app

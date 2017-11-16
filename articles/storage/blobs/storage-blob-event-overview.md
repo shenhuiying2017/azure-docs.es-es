@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Reacción ante eventos de Blob Storage (versión preliminar)
 
@@ -25,7 +25,7 @@ Actualmente Event Grid se encuentra en versión preliminar y está disponible pa
 ![Modelo de Event Grid](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Cuentas de Blob Storage
-Los eventos de Blob Storage están disponibles en las [cuentas de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (no en las cuentas de almacenamiento de uso general).  Una cuenta de Almacenamiento de blobs es una cuenta de almacenamiento especializado para almacenar los datos no estructurados como blobs (objetos) en Almacenamiento de Azure. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.
+Los eventos de Blob Storage están disponibles en las [cuentas de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (no en las cuentas de almacenamiento de uso general).  Una cuenta de Blob Storage es una cuenta de almacenamiento especializado para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.
 
 ## <a name="available-blob-storage-events"></a>Eventos de Blob Storage disponibles
 Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-subscriptions) para enrutar los mensajes de eventos a los suscriptores.  Las suscripciones a eventos de Blob Storage pueden incluir dos tipos de eventos:  
@@ -80,7 +80,7 @@ Este es un ejemplo de un evento BlobCreated:
 
 ```
 
-Para más información, consulte el [esquema de eventos de Blob Storage](../../event-grid/event-schema.md#azure-blob-storage).
+Para más información, consulte el [esquema de eventos de Blob Storage](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtrado de eventos
 Las suscripciones de eventos de blobs se pueden filtrar en función del tipo de evento y por el nombre del contenedor y el nombre del blob del objeto que se creó o eliminó.  Los filtros de asunto de Event Grid funcionan según las coincidencias de "comienza por" y "termina en", con el fin de que los eventos cuyo asunto coincida se entreguen al suscriptor.

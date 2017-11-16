@@ -16,10 +16,10 @@ ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
 ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Tecnologías de cifrado de Azure: protección de datos personales en reposo con cifrado
 
@@ -121,7 +121,7 @@ Para habilitar Cifrado del servicio Azure Storage, haga lo siguiente:
 
 4. En la sección Servicio Archivo, seleccione Cifrado.
 
-Una vez que haga clic en la configuración de cifrado, puede habilitar o deshabilitar Cifrado del servicio de Almacenamiento.
+Una vez que haga clic en la configuración de cifrado, puede habilitar o deshabilitar Cifrado del servicio Storage.
 
 ![](media/protect-personal-data-at-rest/storage-service-encryption.png)
 
@@ -135,7 +135,7 @@ Después de habilitar el cifrado, copie datos en la cuenta de almacenamiento med
 
 3. Copie los datos de blobs o archivos en Blob Storage y desde este, o entre cuentas de almacenamiento mediante las [bibliotecas de cliente de Storage, como .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Use un [Explorador de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) para cargar blobs a su cuenta de almacenamiento con cifrado habilitado.
+4.  Use un [Explorador de Storage](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) para cargar blobs a su cuenta de almacenamiento con cifrado habilitado.
 
 ### <a name="transparent-data-encryption"></a>Cifrado de datos transparente
 

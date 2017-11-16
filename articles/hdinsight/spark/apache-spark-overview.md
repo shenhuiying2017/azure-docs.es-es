@@ -4,7 +4,7 @@ description: "En este artículo se proporciona una introducción a Spark en HDIn
 keywords: "qué es apache spark, clúster de spark, introducción a spark, spark en hdinsight"
 services: hdinsight
 documentationcenter: 
-author: maxluk
+author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: maxluk
-ms.openlocfilehash: eafa3962e335cbb781ff0e1497374c008ac564df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: nitinme
+ms.openlocfilehash: 5ab6adb1cc3afb5733307cfb52029f9358904859
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Introducción a Spark en HDInsight
 
@@ -82,7 +82,7 @@ Los clústeres de Spark en HDInsight hacen posibles los siguientes escenarios cl
 
 Apache Spark en HDInsight almacena datos en Azure Storage o Azure Data Lake Store. Los expertos de la empresa y los responsables de la toma de decisiones clave pueden analizar esos datos y generar informes con ellos, así como usar Microsoft Power BI para crear informes interactivos a partir de los datos analizados. Los analistas pueden comenzar a partir de datos no estructurados y semiestructurados presentes en el almacenamiento de clúster, definir un esquema de los datos mediante notebooks y luego generar modelos de datos mediante Microsoft Power BI. Los clústeres de Spark en HDInsight también admiten varias herramientas de BI de terceros, como Tableau, por lo que es una plataforma ideal para analistas de datos, expertos de empresa y responsables de la toma de decisiones clave.
 
-### <a name="spark-machine-learning"></a>Aprendizaje automático con Spark
+### <a name="spark-machine-learning"></a>Machine Learning con Spark
 [Mire un tutorial: predecir las temperaturas de edificios con datos HVAC](apache-spark-ipython-notebook-machine-learning.md)
 
 [Mire un tutorial: predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
@@ -111,8 +111,8 @@ Empiece por crear un clúster de Spark en HDInsight. Consulte el [inicio rápido
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="scenarios"></a>Escenarios
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Creación de aplicaciones de Machine Learning con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
+* [Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](apache-spark-eventhub-streaming.md)
 * [Análisis del registro del sitio web con Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 

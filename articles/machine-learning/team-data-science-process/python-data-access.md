@@ -1,10 +1,10 @@
 ---
 title: Acceso a conjuntos de datos con la biblioteca de cliente de Python de Machine Learning | Microsoft Docs
-description: "Instale y use la biblioteca de cliente de Python para tener acceso y administrar datos de Aprendizaje automático de Azure de forma segura desde un entorno local de Python."
+description: Instale y use la biblioteca de cliente de Python para tener acceso y administrar datos de Azure Machine Learning de forma segura desde un entorno local de Python.
 services: machine-learning
 documentationcenter: python
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
@@ -12,21 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: huvalo;bradsev
-ms.openlocfilehash: 104999f3e667457892efb76a32123f8d64a8ffc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Aprendizaje automático de Azure
-La versión preliminar de la biblioteca de cliente de Python de Aprendizaje automático de Microsoft Azure puede permitir un acceso seguro a los conjuntos de datos de Aprendizaje automático de Azure desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
+# <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
+La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
 
 Este tema proporciona instrucciones sobre cómo realizar las siguientes acciones:
 
-* instalar la biblioteca de cliente de Python de Aprendizaje automático; 
-* obtener acceso y cargar conjuntos de datos, con instrucciones sobre cómo obtener autorización para el acceso a conjuntos de datos de Aprendizaje automático de Azure desde el entorno local de Python;
+* instalar la biblioteca de cliente de Python de Machine Learning; 
+* obtener acceso y cargar conjuntos de datos, con instrucciones sobre cómo obtener autorización para el acceso a conjuntos de datos de Azure Machine Learning desde el entorno local de Python;
 * obtener acceso a los conjuntos de datos intermedios de experimentos;
 * usar la biblioteca de cliente de Python para enumerar conjuntos de datos, obtener acceso a los metadatos, leer el contenido de un conjunto de datos, crear nuevos conjuntos de datos y actualizar conjuntos de datos existentes.
 
@@ -46,7 +46,7 @@ Tiene una dependencia en los siguientes paquetes:
 
 Se recomienda utilizar una distribución de Python como [Anaconda](http://continuum.io/downloads#all) o [Canopy](https://store.enthought.com/downloads/), incluidas con Python, IPython y los tres paquetes instalados enumerados anteriormente. Aunque IPython no es estrictamente necesario, es un excelente entorno para manipular y visualizar datos de forma interactiva.
 
-### <a name="installation"></a>Cómo instalar la biblioteca de cliente de Python de Aprendizaje automático de Azure
+### <a name="installation"></a>Cómo instalar la biblioteca de cliente de Python de Azure Machine Learning
 La biblioteca cliente de Python de Azure Machine Learning también debe instalarse para completar las tareas descritas en este tema. Está disponible desde el [Índice de paquetes de Python](https://pypi.python.org/pypi/azureml). Para instalarlo en su entorno de Python, ejecute el siguiente comando desde el entorno de Python local:
 
     pip install azureml
@@ -99,8 +99,8 @@ Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACI�
    
     ![Bloc de notas][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Obtener acceso a los conjuntos de datos intermedios de experimentos de Aprendizaje automático
-Después de ejecutar un experimento en el Estudio de aprendizaje automático, es posible tener acceso a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
+## <a name="accessingIntermediateDatasets"></a>Obtener acceso a los conjuntos de datos intermedios de experimentos de Machine Learning
+Después de ejecutar un experimento en Machine Learning Studio, es posible tener acceso a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
 
 El acceso a los conjuntos de datos intermedios es posible siempre que el formato de los datos sea compatible con la biblioteca de cliente de Python.
 
@@ -143,7 +143,7 @@ Los pasos siguientes muestran un ejemplo que crea un experimento, lo ejecuta y t
     
     ![Histograma][ipython-histogram]
 
-## <a name="clientApis"></a>Use la biblioteca de cliente de Python de Aprendizaje automático para obtener acceso, leer, crear y administrar conjuntos de datos.
+## <a name="clientApis"></a>Use la biblioteca de cliente de Python de Machine Learning para obtener acceso, leer, crear y administrar conjuntos de datos.
 ### <a name="workspace"></a>Área de trabajo
 El área de trabajo es el punto de entrada para la biblioteca de cliente de Python. Proporcione la clase `Workspace` con su id. de área de trabajo y token de autorización para crear una instancia:
 
@@ -195,7 +195,7 @@ Los demás son valores asignados por el Aprendizaje automático de Azure:
 Vea la clase `SourceDataset` para obtener más información sobre los metadatos disponibles.
 
 ### <a name="read-contents"></a>Leer contenido
-Los fragmentos de código que proporciona el Estudio de aprendizaje automático descargan y deserializan automáticamente el conjunto de datos a un objeto Pandas DataFrame. Esto se hace en el método `to_dataframe` :
+Los fragmentos de código que proporciona Machine Learning Studio descargan y deserializan automáticamente el conjunto de datos a un objeto Pandas DataFrame. Esto se hace en el método `to_dataframe` :
 
     frame = ds.to_dataframe()
 

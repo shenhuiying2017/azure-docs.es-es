@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: barlan
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 498dcea10b35fb8c11f848496ca403ac3e026e93
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?
 Ha recibido un correo electrónico de alguien en el departamento de TI o su jefe, que le informa de que se ha agregado una comprobación de seguridad adicional a su cuenta.  ¿Qué quiere decir esto?
@@ -30,7 +30,7 @@ Lo primero que debe hacer es completar el proceso de registro.  Pero antes de co
 
 * **Teléfono de la oficina o teléfono móvil** : elija entre usar el teléfono del trabajo o el teléfono móvil.
 * **Llamada de teléfono móvil, mensaje de texto o aplicación móvil**: si usa un teléfono móvil, escoja entre recibir una llamada, un mensaje de texto o utilizar la aplicación móvil.
-* **Aplicación móvil con una notificación o un código de comprobación** : si va a usar la aplicación móvil, elija entre recibir una notificación a la que tendrá que responder o un código de comprobación.
+* **Aplicación móvil con una notificación o un código de verificación** : si va a usar la aplicación móvil, elija entre recibir una notificación a la que tendrá que responder o un código de verificación.
 
 > [!NOTE]
 > El soporte técnico de la compañía puede deshabilitar una o varias de estas opciones.  Si es así, esas opciones no estarán disponibles durante el proceso de registro.  
