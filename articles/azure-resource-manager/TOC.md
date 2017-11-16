@@ -9,14 +9,6 @@
 ## [Extensión de VS Code para plantillas](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Muestras
-## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Implementación de la plantilla](resource-manager-samples-powershell-deploy.md)
-
-## CLI de Azure
-### [Implementación de la plantilla](resource-manager-samples-cli-deploy.md)
-
 # Procedimientos
 ## Crear plantillas
 ### [Secciones de plantilla](resource-group-authoring-templates.md)
