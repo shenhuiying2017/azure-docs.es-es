@@ -15,7 +15,8 @@
 ## [Tarea 4: Actualización de la configuración DNS para la red virtual](active-directory-ds-getting-started-dns.md)
 ## [Tarea 5: Habilitación de la sincronización de contraseña](active-directory-ds-getting-started-password-sync.md)
 
-# Procedimientos
+# Cómo
+## [Habilitar Azure AD Domain Services mediante PowerShell](active-directory-ds-enable-using-powershell.md)
 ## Unirse a un dominio administrado
 ### [Máquina virtual Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Máquina virtual Windows Server a partir de plantilla](active-directory-ds-join-windows-vm-template.md)

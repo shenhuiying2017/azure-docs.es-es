@@ -1,9 +1,8 @@
 # [Información general](search-what-is-azure-search.md)
-## [¿Qué es Búsqueda de Azure?](search-what-is-azure-search.md)
+## [¿Qué es Azure Search?](search-what-is-azure-search.md)
 
 # Introducción
 
-## [Elección de una SKU](search-sku-tier.md)
 ## [Creación de un servicio](search-create-service-portal.md)
 ## [Creación de un índice](search-what-is-an-index.md)
 ### [Azure Portal](search-create-index-portal.md)
@@ -20,21 +19,24 @@
 
 # Tutoriales
 
-## [.NET](search-howto-dotnet-sdk.md)
-## [Vista previa de sinónimos de .NET](search-synonyms-tutorial-sdk.md)
-## [Portal](search-get-started-portal.md)
+## [Desarrollo en .NET](search-howto-dotnet-sdk.md)
+## [Versión preliminar de sinónimos en .NET](search-synonyms-tutorial-sdk.md)
+## [Indexador de datos SQL en .NET](search-indexer-tutorial.md)
+## [Tutorial del portal](search-get-started-portal.md)
 ## [Búsqueda de datos semiestructurados](search-semi-structured-data.md)
-## [Node.js](search-get-started-nodejs.md)
-## [Java](search-get-started-java.md)
+## [Exploración de la API de REST](search-fiddler.md)
 
-# Procedimientos
+# Cómo
 
 ## Planeamiento y diseño
+### [Elección de una SKU](search-sku-tier.md)
 ### [Límites de servicio](search-limits-quotas-capacity.md)
 ### [Escalabilidad del servicio](search-capacity-planning.md)
 ### [Patrones de diseño para varios inquilinos](search-modeling-multitenant-saas-applications.md)
 ## Desarrollo
 ### [Versiones de API](search-api-versions.md)
+### [Desarrollo en Node.js](search-get-started-nodejs.md)
+### [Desarrollo en Java](search-get-started-java.md)
 ### [Actualización del SDK](search-dotnet-sdk-migration.md)
 ### [Actualización de la API de REST](search-api-migration.md)
 ### [Tipos de datos complejos de modelo](search-howto-complex-data-types.md)

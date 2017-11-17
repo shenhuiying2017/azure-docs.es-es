@@ -31,7 +31,7 @@
 ### [Puntos de conexión de streaming](media-services-streaming-endpoints-overview.md)
 #### [Portal de Azure](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### Almacenamiento
+### Storage
 #### [Actualización de Media Services después de regenerar las claves de acceso de almacenamiento](media-services-roll-storage-access-keys.md)
 #### [Administración de recursos en varias cuentas de Storage](meda-services-managing-multiple-storage-accounts.md)
 ### [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
@@ -94,7 +94,7 @@
 #### Codificación con flujo de trabajo de Media Encoder Premium
 ##### [Flujo de trabajo de Media Encoder Premium](media-services-encode-with-premium-workflow.md)
 ##### [Tutoriales sobre el flujo de trabajo de Media Encoder Premium](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo](media-services-workflow-designer.md)
+##### [Creación de flujos de trabajo de Encoding avanzado con el Diseñador de flujo de trabajo](media-services-workflow-designer.md)
 ##### [Flujo de trabajo premium con varias entradas](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### [Creación de una tarea que genera fragmentos fMP4](media-services-generate-fmp4-chunks.md)
 ### Procesadores de multimedia
@@ -105,8 +105,9 @@
 #### [Cifrado y empaquetado estático](media-services-static-packaging.md)
 
 ## [Streaming en vivo](media-services-manage-channels-overview.md)
-### [codificadores locales](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [Codificadores locales](media-services-live-streaming-with-onprem-encoders.md)
+#### [Codificadores locales recomendados](media-services-recommended-encoders.md)
+#### [Portal de Azure](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Streaming en vivo con codificador en la nube](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portal de Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Codificador Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Control de operaciones de larga ejecución](media-services-dotnet-long-operations.md)
 ### [Especificación de ingesta en vivo de MP4 fragmentado](media-services-fmp4-live-ingest-overview.md)
+
+## [Recorte del contenido](media-services-azure-media-clipper-overview.md)
+### [Introducción a Azure Media Clipper](media-services-azure-media-clipper-getting-started.md)
+### [Carga de activos en Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
+### [Configuración de métodos abreviados de teclado personalizados](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Envío de trabajos de recorte](media-services-azure-media-clipper-submit-job.md)
+### [Portal de Azure](media-services-azure-media-clipper-portal.md)
 
 ## [Protección](media-services-content-protection-overview.md)
 ### [Configuración de Content Protection en Azure Portal](media-services-portal-protect-content.md)

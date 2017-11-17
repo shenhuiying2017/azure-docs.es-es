@@ -125,7 +125,7 @@
           href: ps-template.md
         - name: Conexión a una máquina virtual
           href: connect-logon.md
-        - name: Uso de licencias AHUB
+        - name: Uso de la licencia para la ventaja de uso híbrido de Azure
           href: hybrid-use-benefit-licensing.md
         - name: Uso de los derechos de hospedaje multiinquilino para Windows 10
           href: windows-desktop-multitenant-hosting-deployment.md
@@ -139,8 +139,19 @@
           href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Uso de directivas
           href: policy.md
-        - name: Creación de una instancia de Key Vault
+        - name: Creación de un almacén de claves
           href: key-vault-setup.md
+    - name: Protección de máquinas virtuales
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      items:
+        - name: Copia de seguridad de una sola máquina virtual
+          items:
+            - name: Azure Portal
+              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Azure PowerShell
+              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Copia de seguridad de varias máquinas virtuales
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Administración de máquinas virtuales
       items:
         - name: Tareas comunes de PowerShell
@@ -167,6 +178,8 @@
           href: scheduled-events.md
         - name: Supervisión de metadatos
           href: instance-metadata-service.md
+        - name: Habilitar virtualización anidada
+          href: nested-virtualization.md
     - name: Uso de imágenes
       items:
         - name: Búsqueda y uso de imágenes

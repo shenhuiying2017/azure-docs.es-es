@@ -63,6 +63,7 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Máquinas virtuales
+#### [Rendimiento de red de máquinas virtuales](virtual-machine-network-throughput.md)
 #### Creación de una máquina virtual con una dirección IP pública estática
 ##### [Portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
@@ -191,7 +192,7 @@
 
 # Temas relacionados
 ## [Máquinas virtuales](/azure/virtual-machines/)
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [DNS de Azure](/azure/dns/)
 ## [Administrador de tráfico](/azure/traffic-manager/)
 ## [Equilibrador de carga](/azure/load-balancer/)

@@ -17,6 +17,7 @@
 #### [Azure AD con el servicio Batch](batch-aad-auth.md)
 #### [Azure AD con administración de Batch](batch-aad-auth-management.md)
 ### [Máquinas virtuales de procesos intensivos](batch-pool-compute-intensive-sizes.md)
+### [Cargas de trabajo de contenedor](batch-docker-container-workloads.md)
 ### [Tareas simultáneas en los nodos](batch-parallel-node-tasks.md)
 ### [Recuento de tareas por estado](batch-get-task-counts.md)
 ### [Creación de un grupo con una imagen personalizada](batch-custom-images.md)

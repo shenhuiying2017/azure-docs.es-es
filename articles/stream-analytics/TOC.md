@@ -2,6 +2,7 @@
 ## [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
 ## [Comparación de Storm con Stream Analytics](stream-analytics-comparison-storm.md)
 
+
 # Introducción
 ## [Procesamiento de datos de streaming de IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md)
@@ -13,7 +14,9 @@
 ### [Redes sociales](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Puntuación en tiempo real con Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
 ### [Procesamiento de eventos en tiempo real](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Stream Analytics en IoT Edge (versión preliminar)](stream-analytics-edge.md)
 ### [Detección de anomalías en la guía de uso de Azure (versión preliminar)](stream-analytics-machine-learning-anomaly-detection.md)
+### [Simulación comercial de alta frecuencia con Stream Analytics](stream-analytics-high-frequency-trading.md)
 
 ## Creación de trabajos
 ### [Creación de entradas](stream-analytics-define-inputs.md)

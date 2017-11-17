@@ -133,7 +133,7 @@
           href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Uso de directivas
           href: policy.md
-        - name: Creación de un Almacén de claves
+        - name: Creación de un almacén de claves
           href: key-vault-setup.md
         - name: Creación y uso de claves SSH
           items:
@@ -143,6 +143,17 @@
               href: ssh-from-windows.md
             - name: Pasos detallados
               href: create-ssh-keys-detailed.md
+    - name: Protección de máquinas virtuales
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+        - name: Copia de seguridad de una sola máquina virtual
+          href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Copia de seguridad de varias máquinas virtuales
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Restauración de un disco
+          href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Restauración de archivos individuales
+          href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Administración de máquinas virtuales
       items:
         - name: Tareas comunes de CLI
