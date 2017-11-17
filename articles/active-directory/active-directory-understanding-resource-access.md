@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Descripción de acceso a los recursos de Azure
 
@@ -53,7 +53,7 @@ Operaciones tales como mover recursos entre suscripciones pueden ser más difíc
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing/billing-add-change-azure-subscription-administrator.md)
 * Para obtener más información sobre cómo se relaciona Azure Active Directory con la suscripción de Azure, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-* Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md)
+* Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-understanding-resource-access/IC707931.png

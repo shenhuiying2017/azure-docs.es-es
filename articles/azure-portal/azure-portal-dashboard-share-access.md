@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a965f9773524a36bedc3d040bf1a1ca391507f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Uso compartido de paneles de Azure mediante el control de acceso basado en rol
 Después de configurar un panel, puede publicarlo y compartirlo con otros usuarios de su organización. Mediante el [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md)de Azure puede permitir que otros usuarios vean su panel. Asigne un usuario o grupo de usuarios a un rol y ese rol definirá si los usuarios pueden ver o modificar el panel publicado. 
@@ -44,7 +44,7 @@ Aquí tiene un ejemplo.  Supongamos que tiene una suscripción de Azure y que a 
 Sin embargo, también puede asignar permisos al grupo de recursos que contiene varios paneles o a un panel individual. Por ejemplo, puede decidir que un grupo de usuarios tenga permisos limitados a través de la suscripción pero un mayor acceso a un panel determinado. Asigne estos usuarios a un rol para ese panel. 
 
 ## <a name="publish-dashboard"></a>Publicación del panel
-Supongamos que ha terminado de configurar un panel que desea compartir con un grupo de usuarios de la suscripción. Los pasos siguientes describen un grupo personalizado denominado Administradores de almacenamiento, pero puede llamar al grupo como desee. Para más información sobre cómo crear un grupo de Active Directory y agregar usuarios a ese grupo, consulte [Administración de grupos en Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Supongamos que ha terminado de configurar un panel que desea compartir con un grupo de usuarios de la suscripción. Los pasos siguientes describen un grupo personalizado denominado Administradores de almacenamiento, pero puede llamar al grupo como desee. Para más información sobre cómo crear un grupo de Active Directory y agregar usuarios a ese grupo, consulte [Administración de grupos en Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
 
 1. En el panel, seleccione **Compartir**.
    

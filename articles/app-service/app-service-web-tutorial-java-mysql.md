@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 31af39eef3889bebd18baa2be297c433cc733ed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58e0533db1bb907b0c9a09cdeb7aabbf120d506f
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Compilación de una aplicación web Java y MySQL en Azure
 
@@ -397,7 +397,7 @@ Al actualizar la aplicación, ahora es visible la columna **Hora de creación**.
 
 Mientras se ejecuta la aplicación Java en Azure App Service, puede tener los registros de consola insertados directamente en el terminal. De este modo, puede obtener los mismos mensajes de diagnóstico para ayudarle a depurar errores de la aplicación.
 
-Para iniciar la transmisión del registro, use el comando [az webapp log tail](/cli/azure/appservice/web/log#tail) en Cloud Shell.
+Para iniciar la transmisión del registro, use el comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) en Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

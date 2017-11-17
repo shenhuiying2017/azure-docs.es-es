@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: glenga
-ms.openlocfilehash: 3ccd892cf693ed959f71845c3571601825c90cf2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1b868c07522a8df8b574b3bf3d31de512a547fe
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Uso del SDK de Azure Mobile Apps para Android
 
@@ -234,8 +234,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;
-    public String getText() { return mVersion; }
-    public final void setText(String version) { mVersion = version; }
+    public String getVersion() { return mVersion; }
+    public final void setVersion(String version) { mVersion = version; }
 
     public ToDoItem() { }
 
@@ -478,7 +478,7 @@ El enlace de datos implica tres componentes:
 * El diseño de la pantalla
 * El adaptador que une a ambos
 
-En nuestro código de muestra, devolvemos los datos de la tabla SQL Azure de Aplicaciones móviles **ToDoItem** en una matriz. Esta actividad es uno de los patrones más comunes para las aplicaciones de datos.  Las consultas en bases de datos normalmente devuelven una serie de filas que el cliente recibe en una lista o una matriz. En este ejemplo, la matriz es el origen de datos.  El código especifica un diseño de pantalla que define la vista de los datos que aparecerán en el dispositivo.  Los dos están vinculados mediante un adaptador, que en este código es una extensión de la clase **ArrayAdapter&lt;ToDoItem&gt;**.
+En nuestro código de muestra, devolvemos los datos de la tabla SQL Azure de Mobile Apps **ToDoItem** en una matriz. Esta actividad es uno de los patrones más comunes para las aplicaciones de datos.  Las consultas en bases de datos normalmente devuelven una serie de filas que el cliente recibe en una lista o una matriz. En este ejemplo, la matriz es el origen de datos.  El código especifica un diseño de pantalla que define la vista de los datos que aparecerán en el dispositivo.  Los dos están vinculados mediante un adaptador, que en este código es una extensión de la clase **ArrayAdapter&lt;ToDoItem&gt;**.
 
 #### <a name="layout"></a>Definición del diseño
 

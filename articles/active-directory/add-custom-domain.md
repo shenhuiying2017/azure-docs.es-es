@@ -14,11 +14,11 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2f0287202e1b39f395354b1124078b7b0dc95a7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Guía de inicio rápido: Incorporación de un nombre de dominio personalizado a Azure Active Directory
 
@@ -78,7 +78,7 @@ Si no puede comprobar un nombre de dominio personalizado, pruebe los siguientes 
 Si su organización usa varios nombres de dominio personalizados, como "contoso.com" y "contosobank.com", se puede agregar un máximo de 900 nombres de dominio. Los pasos de este artículo pueden ayudarle a agregar cada nombre de dominio.
 
 ### <a name="learn-more"></a>Más información
-[Información general conceptual de los nombres de dominio personalizados en Azure Active Directory](active-directory-add-domain-concepts.md)
+[Información general conceptual de los nombres de dominio personalizados en Azure Active Directory](active-directory-domains-manage-azure-portal.md)
 
 [Managing custom domain names (Administración de nombres de dominio).](active-directory-domains-manage-azure-portal.md)
 

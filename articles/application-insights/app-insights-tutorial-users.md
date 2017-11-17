@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: c0175d4fb98614d41423b7204fe7eb2aa50d23dc
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Use Azure Application Insights para entender la forma en que los clientes utilizan su aplicación
 
@@ -40,7 +40,7 @@ Para completar este tutorial:
 - Descargue e instale [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
 - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](app-insights-asp-net.md). 
 - [Envíe telemetría desde su aplicación](app-insights-usage-overview.md#send-telemetry-from-your-app) para agregar eventos personalizados o vistas de página
-- Enviar el [contexto del usuario](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-send-user-context) para realizar un seguimiento de lo que un usuario hace con el tiempo y utilizar plenamente las características de uso.
+- Enviar el [contexto del usuario](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) para realizar un seguimiento de lo que un usuario hace con el tiempo y utilizar plenamente las características de uso.
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).

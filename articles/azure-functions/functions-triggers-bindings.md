@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: glenga
-ms.openlocfilehash: 74933d9c3535ab71f47c792e20bfbc35e589ec08
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 Azure Functions le permite escribir código en respuesta a eventos en Azure y otros servicios mediante *desencadenadores* y *enlaces*. En este artículo, se ofrece una introducción conceptual a los desencadenadores y enlaces de todos los lenguajes de programación compatibles. Aquí se describen características comunes de todos los enlaces.
@@ -243,7 +243,7 @@ Por ejemplo, un desencadenador de Azure Storage Queue admite las siguientes prop
 
 Los detalles sobre las propiedades de metadatos de cada desencadenador se describen en el tema de referencia correspondiente. También podrá encontrar documentación en la pestaña **Integrar** del portal, en la sección **Documentación**, debajo del área de configuración de enlaces.  
 
-Por ejemplo, debido a que los desencadenadores de blobs tienen algunos retrasos, puede utilizar un desencadenador de colas para ejecutar la función (consulte el artículo relativo al [desencadenador de Blob Storage](functions-bindings-storage-blob.md#storage-blob-trigger)). El mensaje de la cola contendría el nombre de archivo del blob que se desencadenará. Mediante la propiedad de metadatos `queueTrigger`, puede especificar este comportamiento en la configuración, en lugar del código.
+Por ejemplo, debido a que los desencadenadores de blobs tienen algunos retrasos, puede utilizar un desencadenador de colas para ejecutar la función (consulte el artículo relativo al [desencadenador de Blob Storage](functions-bindings-storage-blob.md#blob-storage-trigger)). El mensaje de la cola contendría el nombre de archivo del blob que se desencadenará. Mediante la propiedad de metadatos `queueTrigger`, puede especificar este comportamiento en la configuración, en lugar del código.
 
 ```json
   "bindings": [
@@ -418,11 +418,12 @@ Para obtener más información sobre un tipo de enlace concreto, consulte estos 
 - [Blob Storage](functions-bindings-storage-blob.md)
 - [Table storage](functions-bindings-storage-table.md)
 - [Event Hubs](functions-bindings-event-hubs.md)
-- [Bus de servicio](functions-bindings-service-bus.md)
+- [Service Bus](functions-bindings-service-bus.md)
 - [Azure Cosmos DB](functions-bindings-documentdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
-- [Notification Hubs](functions-bindings-notification-hubs.md)
+- 
+            [Notification Hubs](functions-bindings-notification-hubs.md)
 - [Mobile Apps](functions-bindings-mobile-apps.md)
 - [Archivo externo](functions-bindings-external-file.md)

@@ -15,11 +15,11 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15c392c6e94abaff7c28bc672cfe61c7551ede4d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Consideraciones sobre la topología de red al utilizar el Proxy de aplicación de Azure Active Directory
 
@@ -102,7 +102,7 @@ Aunque el centro de atención de este artículo es la selección de la ubicació
 
 Las organizaciones están cambiando sus redes a entornos hospedados cada vez con más frecuencia. Esto les permite colocar sus aplicaciones en un entorno hospedado que también forma parte de su red corporativa y seguir estando dentro del dominio. En este caso, los patrones analizados en las secciones anteriores se pueden aplicar a la nueva ubicación de la aplicación. Si se plantea esta opción, consulte [Servicios de dominio de Azure Active Directory](../active-directory-domain-services/active-directory-ds-overview.md).
 
-Además, considere organizar los conectores con [grupos de conectores](active-directory-application-proxy-connectors.md) para las aplicaciones de destino que se encuentren en ubicaciones y redes distintas. 
+Además, considere organizar los conectores con [grupos de conectores](active-directory-application-proxy-connectors-azure-portal.md) para las aplicaciones de destino que se encuentren en ubicaciones y redes distintas. 
 
 ## <a name="common-use-cases"></a>Casos de uso comunes
 
@@ -174,5 +174,5 @@ También puede considerar la utilización de alguna otra variante en esta situac
 
 - [Habilitación del proxy de la aplicación](active-directory-application-proxy-enable.md)
 - [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
-- [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
+- [Habilitar el acceso condicional](application-proxy-enable-remote-access-sharepoint.md)
 - [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)

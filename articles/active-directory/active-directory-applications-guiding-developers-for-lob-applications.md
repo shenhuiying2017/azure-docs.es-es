@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desarrollo de aplicaciones de línea de negocio para Azure Active Directory
 Esta guía proporciona información general sobre el desarrollo de aplicaciones de línea de negocio (LoB) para Azure Active Directory (AD) y se ha diseñado expresamente para administradores globales de Active Directory y Office 365.
 
 ## <a name="overview"></a>Información general
-La creación de aplicaciones integradas con Azure AD proporciona a los usuarios de la organización inicio de sesión único con Office 365. Si tiene la aplicación en Azure AD, podrá controlar la directiva de autenticación de dicha aplicación. Para obtener más información sobre el acceso condicional y cómo proteger las aplicaciones con Multi-Factor Authentication (MFA), consulte [Configuración de las reglas de acceso](active-directory-conditional-access-azuread-connected-apps.md).
+La creación de aplicaciones integradas con Azure AD proporciona a los usuarios de la organización inicio de sesión único con Office 365. Si tiene la aplicación en Azure AD, podrá controlar la directiva de autenticación de dicha aplicación. Para obtener más información sobre el acceso condicional y cómo proteger las aplicaciones con Multi-Factor Authentication (MFA), consulte [Configuración de las reglas de acceso](active-directory-conditional-access-azure-portal-get-started.md).
 
 Registro de la aplicación para utilizar Azure Active Directory Registrar la aplicación significa que los programadores pueden usar Azure AD para autenticar usuarios y solicitar acceso a recursos de usuarios; por ejemplo, correo electrónico, calendario y documentos.
 
@@ -57,7 +57,7 @@ A continuación, se indica lo que el administrador global tendrá que hacer para
 * Suprimir la experiencia de consentimiento del usuario predeterminada
 
 ## <a name="configure-access-rules"></a>Configuración de las reglas de acceso
-Configure las reglas de acceso por aplicación a las aplicaciones SaaS. Por ejemplo, puede obligar a utilizar MFA o solo permitir el acceso a usuarios de redes de confianza. En el documento de [configuración de las reglas de acceso](active-directory-conditional-access-azuread-connected-apps.md)se muestran los detalles pertinentes.
+Configure las reglas de acceso por aplicación a las aplicaciones SaaS. Por ejemplo, puede obligar a utilizar MFA o solo permitir el acceso a usuarios de redes de confianza. En el documento de [configuración de las reglas de acceso](active-directory-conditional-access-azure-portal-get-started.md)se muestran los detalles pertinentes.
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Configurar la aplicación para requerir asignación de usuarios y asignar usuarios
 De forma predeterminada, los usuarios pueden acceder a las aplicaciones sin asignación previa. Sin embargo, si la aplicación expone roles o si quiere que aparezca en el panel de acceso de un usuario, debe requerir la asignación de usuarios.
@@ -78,6 +78,6 @@ Para obtener más información sobre el consentimiento de usuarios y cómo se ut
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
-* [Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+* [Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Administración del acceso a las aplicaciones con Azure AD](active-directory-managing-access-to-apps.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)

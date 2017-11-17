@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 5e101c4b92868181a6b627d060a9c8e72a7837c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creación de reglas de pertenencia dinámica a grupos basadas en atributos en Azure Active Directory
 En Azure Active Directory (Azure AD), puede crear reglas avanzadas para habilitar la pertenencia dinámica a grupos basada en atributos complejos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos.
@@ -296,7 +296,7 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Cambio de la pertenencia dinámica a estática, y viceversa
 Es posible cambiar cómo se administra la pertenencia a un grupo. Esto es útil cuando desea mantener el mismo nombre de grupo y el identificador en el sistema, por lo que cualquier referencia existente al grupo sigue siendo válida; crear un nuevo grupo requeriría actualizar esas referencias.
 
-Hay un proceso de actualización en curso en Azure Portal para admitir esta funcionalidad. Mientras tanto, puede usar el [Portal de Azure clásico](https://manage.windowsazure.com) (siga las instrucciones [aquí](active-directory-accessmanagement-groups-with-advanced-rules.md)) o usar los cmdlets de PowerShell tal y como se indica a continuación.
+Hay un proceso de actualización en curso en Azure Portal para admitir esta funcionalidad. Mientras tanto, puede usar el [Portal de Azure clásico](https://manage.windowsazure.com) (siga las instrucciones [aquí](active-directory-groups-dynamic-membership-azure-portal.md)) o usar los cmdlets de PowerShell tal y como se indica a continuación.
 
 > [!WARNING]
 > Al cambiar un grupo estático existente a un dinámico, se eliminarán todos sus miembros y, después, se procesará la regla de pertenencia para agregar nuevos miembros. Si el grupo se usa para controlar el acceso a las aplicaciones o los recursos, los miembros originales podrían perder el acceso hasta que se procese por completo la regla de pertenencia.

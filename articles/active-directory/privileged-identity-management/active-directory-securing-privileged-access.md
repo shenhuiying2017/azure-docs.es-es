@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protección del acceso con privilegios en Azure AD
 La protección del acceso con privilegios es un primer paso esencial para ayudar a proteger los activos empresariales en las organizaciones modernas. Las cuentas con privilegios son cuentas que administran los sistemas de TI. Estas cuentas son el objetivo de los ciberatacantes ya que les proporcionan acceso a los datos y los sistemas de una organización. Para proteger el acceso con privilegios, debe aislar las cuentas y los sistemas del riesgo de exposición a usuarios malintencionados.
@@ -66,7 +66,7 @@ Con el control de acceso condicional, Azure Active Directory comprueba las condi
 * Habilitación de [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
 * Habilitación de [Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-configure.md)
 * Habilitación de [Azure AD Identity Protection](../active-directory-identityprotection.md)
-* Habilitación de los [controles de acceso condicional](../active-directory-conditional-access.md)
+* Habilitación de los [controles de acceso condicional](../active-directory-conditional-access-azure-portal.md)
 
 Para más información sobre la creación de un plan de seguridad completo, consulte la sección sobre responsabilidades del cliente y plan de acción en el documento [Microsoft Cloud Security for Enterprise Architects](http://aka.ms/securecustomer) (Seguridad de Microsoft Cloud para los arquitectos de empresa). Para más información sobre cómo interactuar con los servicios de Microsoft para que le ayuden con alguno de estos temas, póngase en contacto con su representante de Microsoft o visite nuestra [página de soluciones de ciberseguridad](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 

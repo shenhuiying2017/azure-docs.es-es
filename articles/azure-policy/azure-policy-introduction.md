@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -51,7 +51,7 @@ En Azure Portal, se ofrecen algunas directivas integradas que están disponibles
 
 Puede asignar cualquiera de estas directivas a través de Azure Portal, PowerShell o la CLI de Azure.
 
-Para más información sobre las estructuras de las definiciones de directiva, consulte este artículo: [Estructura de definición de directiva](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Para más información sobre las estructuras de las definiciones de directiva, consulte este artículo: [Estructura de definición de directiva](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Asignación de directiva
 
@@ -68,7 +68,7 @@ Los parámetros se definen o crean cuando se crea una definición de directiva. 
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Para más información sobre los parámetros de directiva, consulte [Información general sobre las directivas de recursos: parámetros](../azure-resource-manager/resource-manager-policy.md#parameters).
+Para más información sobre los parámetros de directiva, consulte [Información general sobre las directivas de recursos: parámetros](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Definición de iniciativa
 Una definición de iniciativa es una colección de definiciones de directiva que están diseñadas para alcanzar un único objetivo general. Las definiciones de iniciativa simplifican la administración y asignación de las definiciones de directiva. Tal simplificación se realiza mediante la agrupación de un conjunto de directivas como un solo elemento. Por ejemplo, podría crear una iniciativa titulada **Habilitar la supervisión en Azure Security Center**, con el objetivo de supervisar todas las recomendaciones de seguridad disponibles en Azure Security Center.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -66,7 +66,8 @@ Tiempo aproximado para completarlo: una hora para menos de 1000 usuarios de prue
 | --- | --- |
 | Descargue la versión más reciente de Azure AD Connect. | [Descarga de Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
 | Instale Azure AD Connect con la ruta de acceso más sencilla: rápido. <br/>1. Filtre a la unidad organizativa de destino para minimizar el tiempo del ciclo de sincronización.<br/>2. Elija el conjunto de usuarios de destino en el grupo local.<br/>3. Implemente las características necesarias por los demás temas de la prueba de concepto. | [Azure AD Connect: Instalación personalizada: Filtrado por dominio y unidad organizativa](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Instalación personalizada: Filtrado de sincronización basado en grupos](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integración de las identidades locales con Azure Active Directory: Configuración de características de sincronización](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | [Azure AD Connect Sync: Programador](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | 
+            [Azure AD Connect Sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Abra el [Portal de administración de Azure AD](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), vaya a la hoja "Todos los usuarios", agregue la columna "Origen de autoridad" y vea los usuarios que aparecen, marcados correctamente como procedentes de "Windows Server AD". | [Portal de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### <a name="considerations"></a>Consideraciones
@@ -99,10 +100,10 @@ Tiempo aproximado para completarlo: 15 minutos
 | Paso | Recursos |
 | --- | --- |
 | Vaya al Portal de administración de Azure AD. | [Portal de administración de Azure AD: Personalización de marca de empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Cargue los recursos de la página de inicio de sesión (logotipo prominente o pequeño, etiquetas, etc.). Opcionalmente, si tiene AD FS, alinee los mismos recursos con páginas de inicio de sesión ADFS. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso: Elementos personalizables](active-directory-add-company-branding.md) |
+| Cargue los recursos de la página de inicio de sesión (logotipo prominente o pequeño, etiquetas, etc.). Opcionalmente, si tiene AD FS, alinee los mismos recursos con páginas de inicio de sesión ADFS. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso: Elementos personalizables](customize-branding.md) |
 | Espere unos minutos para que surta efecto el cambio. |  |
 | Inicie sesión con las credenciales de usuario de prueba de concepto para https://myapps.microsoft.com. |  |
-| Confirme la apariencia en el explorador. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md) |
+| Confirme la apariencia en el explorador. | [Incorporación de personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](customize-branding.md) |
 | Si lo desea, confirme la apariencia en otros dispositivos. |  |
 
 ### <a name="considerations"></a>Consideraciones
@@ -287,7 +288,8 @@ Tiempo aproximado para completarlo: 60 minutos
 | Cree perfiles de ejecución para el conector creado (importación completa, importación diferencial, sincronización completa, sincronización diferencial y exportación). | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx) (Creación de un perfil de ejecución del agente de administración)<br/> [Uso de conectores con el administrador de servicios de Azure AD Connect Sync](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Ejecute el perfil de importación completa y verifique que hay objetos en el espacio del conector. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx) (Búsqueda de un objeto en el espacio del conector)<br/>[Uso de conectores con el administrador de servicios de Azure AD Connect Sync: Espacio del conector de búsqueda](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Cree reglas de sincronización para que los objetos del metaverso tengan los atributos necesarios para las cargas de trabajo. | [Azure AD Connect Sync: procedimientos recomendados para cambiar la configuración predeterminada: Cambios en las reglas de sincronización](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect Sync: conocimiento del aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: conocimiento de expresiones de aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Inicie el ciclo de sincronización completa. | [Azure AD Connect Sync: Programador: Inicio del programador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
+| Inicie el ciclo de sincronización completa. | 
+            [Programador de sincronización de Azure AD Connect: Inicio del programador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
 | En caso de problemas, soluciónelos. | [Solución de problemas de un objeto que no se sincroniza con Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
 | Compruebe que el usuario de LDAP puede iniciar sesión y acceda a la aplicación. | https://myapps.microsoft.com |
 
@@ -379,7 +381,7 @@ Tiempo aproximado para completarlo: 15 minutos
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Habilitar la administración de contraseñas de autoservicio en el inquilino. | [Restablecimiento de contraseña de Azure Active Directory para administradores de TI](active-directory-passwords.md) |
+| Habilitar la administración de contraseñas de autoservicio en el inquilino. | [Restablecimiento de contraseña de Azure Active Directory para administradores de TI](active-directory-passwords-update-your-own-password.md) |
 | Habilitar la reescritura de contraseñas para administrar contraseñas localmente. Tenga en cuenta que esto requiere versiones específicas de Azure AD Connect | [Requisitos previos de escritura diferida de contraseñas](active-directory-passwords-writeback.md) |
 | Identificar a los usuarios de prueba de concepto que usarán esta funcionalidad y asegurarse de que son miembros de un grupo de seguridad. Los usuarios no deben ser administradores para mostrar completamente la funcionalidad. | [Personalización de la administración de contraseñas de Azure AD: Restringir acceso para restablecer la contraseña](active-directory-passwords-writeback.md) |
 

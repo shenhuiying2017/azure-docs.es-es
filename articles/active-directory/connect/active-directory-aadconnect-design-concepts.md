@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 53a0f766de9db7e6ee48b6659aad378620c0d727
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceptos de diseño
 El propósito de este tema es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Este tema trata de una profundización en determinadas áreas, y estos conceptos se describen también brevemente en otros temas.
@@ -191,7 +191,7 @@ John es un usuario de "contoso.com". Desea que John use el UPN local john@contos
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Dominios locales no enrutables y UPN para Azure AD
 Algunas organizaciones tienen dominios no enrutables, como "contoso.local" o dominios de etiqueta única simple como "contoso". No podrá comprobar un dominio no enrutable en Azure AD. Azure AD Connect puede sincronizarse solo con un dominio comprobado en Azure AD. Cuando se crea un directorio de Azure AD, se crea un dominio enrutable que se convierte en el dominio predeterminado para Azure SD, por ejemplo, "contoso.onmicrosoft.com". Por lo tanto, es necesario comprobar cualquier otro dominio enrutable en este escenario, en caso de que no desee sincronizar con el valor predeterminado ".onmicrosoft.com".
 
-Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory-add-domain.md) para más información sobre cómo agregar y comprobar dominios.
+Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](../active-directory-domains-add-azure-portal.md) para más información sobre cómo agregar y comprobar dominios.
 
 Azure AD Connect detecta si está ejecutando en un entorno de dominio no enrutable y le advertirá adecuadamente antes de que prosiga con la configuración rápida. Si está trabajando en un dominio no enrutable, es probable que el UPN de los usuarios tenga también un sufijo no enrutable. Por ejemplo, si se ejecuta bajo "contoso.local", Azure AD Connect le sugiere que utilice la configuración personalizada en lugar de la configuración rápida. Al usar una configuración personalizada, podrá especificar el atributo que debe usarse como UPN para iniciar sesión en Azure después de que los usuarios se sincronicen con Azure AD.
 

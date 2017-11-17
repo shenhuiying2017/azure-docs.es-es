@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 96a33547329931903d264d5ec4ea8da76e36a0a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6987ad8f36de55ac49785b41bb193721aa78321b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory
 
@@ -55,7 +55,7 @@ Puede combinar la autenticación de paso a través con la característica de [in
 
 - Admite el inicio de sesión de usuario en todas las aplicaciones basadas en explorador web y en las aplicaciones cliente de Microsoft Office que usan la [autenticación moderna](https://aka.ms/modernauthga).
 - Los nombres de usuario de inicio de sesión pueden ser el predeterminado local (`userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
-- La característica funciona sin problemas con características de [acceso condicional](../active-directory-conditional-access.md), como Multi-Factor Authentication (MFA), para ayudar a proteger a los usuarios.
+- La característica funciona sin problemas con características de [acceso condicional](../active-directory-conditional-access-azure-portal.md), como Multi-Factor Authentication (MFA), para ayudar a proteger a los usuarios.
 - Se integra con la [administración de contraseñas de autoservicio](../active-directory-passwords-overview.md) basada en la nube, incluida la escritura diferida de contraseñas en Active Directory local y la protección con contraseña mediante la prohibición de contraseñas usadas habitualmente.
 - Se admiten entornos de varios bosques si hay relaciones de confianza de bosque entre los bosques de AD y si el enrutamiento de sufijos de nombre está configurado correctamente.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
