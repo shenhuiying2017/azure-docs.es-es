@@ -1,55 +1,63 @@
 ---
 title: "Envío de eventos al entorno de Azure Time Series Insights | Microsoft Docs"
-description: "Este tutorial describe cómo se insertan eventos en el entorno de Time Series Insights"
-keywords: 
-services: tsi
-documentationcenter: 
+description: "En este tutorial se explica cómo crear y configurar el centro de eventos, y cómo ejecutar una aplicación de ejemplo para insertar eventos que se muestren en Azure Time Series Insights."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
-manager: jhubbard
-editor: 
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MarkMcGeeAtAquent
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envío de eventos a un entorno de Time Series Insights mediante un centro de eventos
-
-Este tutorial explica cómo crear y configurar el centro de eventos y ejecutar una aplicación de ejemplo para insertar eventos. Si tiene un centro de eventos existente con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Time Series Insights](https://insights.timeseries.azure.com).
+En este artículo se explica cómo crear y configurar el centro de eventos, y cómo ejecutar una aplicación de ejemplo para insertar eventos. Si tiene un centro de eventos existente con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Configuración de un centro de eventos
-1. Para crear un centro de eventos, siga las instrucciones de la [documentación](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) de Event Hubs.
+1. Para crear un centro de eventos, siga las instrucciones de la [documentación](../event-hubs/event-hubs-create.md) de Event Hubs.
 
-2. Asegúrese de crear un grupo de consumidores que sea utilizado exclusivamente por el origen de eventos de Time Series Insights.
+2. Busque el **centro de eventos** en la barra de búsqueda. Haga clic en **Event Hubs** en la lista devuelta.
 
-  > [!IMPORTANT]
-  > Asegúrese de que el grupo de consumidores no es utilizado por ningún otro servicio (como un trabajo de Stream Analytics u otro entorno de Time Series Insights). Si otros servicios utilizan el grupo de consumidores, la operación de lectura se ve afectada negativamente en este entorno y en los otros servicios. Utilizar “$Default” como grupo de consumidores podría provocar que otros lectores lo reutilicen.
+3. Haga clic en el nombre del centro de eventos para seleccionarlo.
+
+4. En Entidades de la ventana de configuración central, haga clic en **Event Hubs** de nuevo.
+
+5. Seleccione el nombre del centro de eventos para configurarlo.
 
   ![Selección del grupo de consumidores del centro de eventos](media/send-events/consumer-group.png)
 
-3. En el centro de eventos, cree "MySendPolicy", que se usa para enviar eventos en el ejemplo de csharp.
+6. En **Entidades**, seleccione **Grupos de consumidores**.
+ 
+7. Asegúrese de crear un grupo de consumidores que sea utilizado exclusivamente por el origen de eventos de Time Series Insights.
+
+   > [!IMPORTANT]
+   > Asegúrese de que el grupo de consumidores no es utilizado por ningún otro servicio (como un trabajo de Stream Analytics u otro entorno de Time Series Insights). Si otros servicios utilizan el grupo de consumidores, la operación de lectura se ve afectada negativamente en este entorno y en los otros servicios. Utilizar “$Default” como grupo de consumidores podría provocar que otros lectores lo reutilicen.
+
+8. En el encabezado **Configuración**, seleccione **Directivas de acceso compartido**.
+
+9. En el centro de eventos, cree **MySendPolicy**, que se usa para enviar eventos en el ejemplo de csharp.
 
   ![Seleccione Directivas de acceso compartido y haga clic en el botón Agregar](media/send-events/shared-access-policy.png)  
 
   ![Agregar nueva directiva de acceso compartido](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Creación de un origen de eventos de Time Series Insights
-1. Si no ha creado un origen de eventos, siga [estas instrucciones](time-series-insights-add-event-source.md) para crear un origen de eventos.
+1. Si no ha creado un origen de eventos, siga [estas instrucciones](time-series-insights-how-to-add-an-event-source-eventhub.md) para crear un origen de eventos.
 
-2. Especifique "deviceTimestamp" como nombre de la propiedad de marca de tiempo: esta propiedad se utiliza como marca de tiempo real en el ejemplo de csharp. El nombre de la propiedad timestamp distingue mayúsculas de minúsculas y los valores deben tener el formato __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ cuando se envían como JSON al centro de eventos. Si la propiedad no existe en el evento, se utiliza la hora de puesta en la cola del centro de eventos.
+2. Especifique **deviceTimestamp** como nombre de la propiedad de marca de tiempo: esta propiedad se utiliza como marca de tiempo real en el ejemplo de C#. El nombre de la propiedad timestamp distingue mayúsculas de minúsculas y los valores deben tener el formato __yyyy-MM-ddTHH:mm:ss.FFFFFFFK__ cuando se envían como JSON al centro de eventos. Si la propiedad no existe en el evento, se utiliza la hora de puesta en la cola del centro de eventos.
 
   ![Creación de un origen de eventos](media/send-events/event-source-1.png)
 
 ## <a name="sample-code-to-push-events"></a>Código de ejemplo para insertar eventos
-1. Vaya a la directiva del centro de eventos "MySendPolicy" y copie la cadena de conexión con la clave de directiva.
+1. Vaya a la directiva del centro de eventos denominada **MySendPolicy**. Copie la **cadena de conexión** con la clave de la directiva.
 
   ![Copia de la cadena de conexión de MySendPolicy](media/send-events/sample-code-connection-string.png)
 
@@ -163,6 +171,7 @@ Una matriz JSON con dos objetos JSON. Cada objeto JSON se convertirá en un even
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
+
 ### <a name="sample-3"></a>Ejemplo 3
 
 #### <a name="input"></a>Entrada
@@ -235,5 +244,4 @@ Un objeto JSON con una matriz JSON anidada que contiene dos objetos JSON. Esta e
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* Vea el entorno en el [portal de Time Series Insights](https://insights.timeseries.azure.com)
+Vea el entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).
