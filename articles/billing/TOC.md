@@ -6,6 +6,7 @@
 ## [Registro con la cuenta de Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Suscripción a Office 365 con la cuenta de Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Organización de recursos con grupos de administración](billing-enterprise-mgmt-group-overview.md)
+## [Ahorre dinero con las instancias reservadas de máquina virtual](billing-save-compute-costs-reservations.md)
 ## [Límites y cuotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Procedimientos
@@ -17,9 +18,13 @@
 ### [Descripción de los términos de uso](billing-understand-your-usage.md)
 ### [Descripción de los cargos de servicios externos](billing-understand-your-azure-marketplace-charges.md)
 ### [Descripción de la asignación de medidores de los servicios gratuitos](billing-understand-free-service-meter-mapping.md)
+### [Costos de Windows de instancias reservadas de máquina virtual](billing-reserved-instance-windows-software-costs.md)
+### [Descripción de la aplicación de descuentos para las instancias reservadas de máquina virtual](billing-understand-vm-reservation-charges.md)
 ### [Descripción del límite de gasto](billing-spending-limit.md)
 ### [Configurar alertas de facturación](billing-set-up-alerts.md)
 ### [Resolución del saldo vencido](billing-azure-subscription-past-due-balance.md)
+### [Descripción del pago por uso de las instancias reservadas de máquina virtual](billing-understand-reserved-instance-usage.md)
+### [Descripción del uso de las instancias reservadas en el nivel Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Administrar suscripciones
 ### [Administración de roles de administrador](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Actualización de la información de pago](billing-how-to-change-credit-card.md)
 ### [Vinculación al inquilino de Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pago de suscripciones por factura](billing-how-to-pay-by-invoice.md)
+## [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
 ## Solución de problemas
 ### [Problemas de suscripción](https://support.microsoft.com/en-us/help/4042959)
 ### [Tarjeta rechazada](https://support.microsoft.com/en-us/help/4042960)

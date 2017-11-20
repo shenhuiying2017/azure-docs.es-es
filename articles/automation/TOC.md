@@ -32,6 +32,7 @@
 ### [Configurar parámetros de entrada de runbook](automation-runbook-input-parameters.md)
 ### [Control de errores en runbooks gráficos](automation-runbook-graphical-error-handling.md)
 ### [Realizar el seguimiento de un trabajo de runbook](automation-runbook-execution.md)
+### [Creación de una tarea de monitor](automation-watchers-tutorial.md)
 ### [Cambiar la configuración de runbook](automation-runbook-settings.md)
 ### [Administrar datos de Azure Automation](automation-managing-data.md)
 ### [Llamada a un runbook de Azure Automation desde una alerta de Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
@@ -49,7 +50,8 @@
 ### [Incorporación de máquinas para administración](automation-dsc-onboarding.md)
 ### [Compilación de configuraciones DSC](automation-dsc-compile.md)
 ### [Implementación continua mediante Chocolatey](automation-dsc-cd-chocolatey.md)
-### [Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS](automation-dsc-diagnostics.md)
+### 
+            [Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS](automation-dsc-diagnostics.md)
 ## Administración de recursos
 ### [Certificados](automation-certificates.md)
 ### [Conexiones](automation-connections.md)
