@@ -370,6 +370,8 @@
           items:
             - name: Implementación de una aplicación de ejemplo
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Inquilinos de aprovisionamiento
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Supervisión del rendimiento de una base de datos
               href: saas-multitenantdb-performance-monitoring.md
             - name: Ejecución de consultas ad hoc

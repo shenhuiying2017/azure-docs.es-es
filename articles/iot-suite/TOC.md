@@ -25,11 +25,8 @@
 ###### [Datos simulados](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Uso de sensores reales](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementación de la actualización de firmware](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Conexión de la puerta de enlace de Intel NUC
-##### [Datos simulados](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Uso de sensor real](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Procedimientos
+### Guías de procedimientos
 #### Conexión a un dispositivo simulado
 ##### [C en Windows](iot-suite-v1-connecting-devices.md)
 ##### [C en Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Introducción a la solución de fábrica conectada](iot-suite-connected-factory-overview.md)
 ### [Tutorial de soluciones de fábrica conectadas](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Procedimientos
+# Guías de procedimientos
 ## Supervisión remota
 ### [Supervisión avanzada](iot-suite-remote-monitoring-monitor.md)
 ### [Uso de reglas para detectar problemas](iot-suite-remote-monitoring-automate.md)
