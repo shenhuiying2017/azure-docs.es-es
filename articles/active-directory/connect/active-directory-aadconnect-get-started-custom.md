@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: billmath
-ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eff198a522470e1145c97758a54fc9b8f294287f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](active-directory-aadconnect-get-started-express.md) no vale para su implementación o topología.
@@ -63,7 +63,7 @@ En la pantalla Conectarse a Azure AD, especifique una cuenta de administrador gl
 Esta cuenta solo se usa para crear una cuenta de servicio en Azure AD y no se utiliza una vez completado el asistente.  
 ![Inicio de sesión del usuario](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
-Si la cuenta de administrador global tiene MFA habilitado, será preciso que vuelva a especificar la contraseña en el elemento emergente de inicio de sesión y a completar el desafío MFA. Dicho desafío puede ser especificar un código de comprobación o una llamada telefónica.  
+Si la cuenta de administrador global tiene MFA habilitado, será preciso que vuelva a especificar la contraseña en el elemento emergente de inicio de sesión y a completar el desafío MFA. Dicho desafío puede ser especificar un código de verificación o una llamada telefónica.  
 ![Inicio de sesión del usuario en MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 La cuenta de administrador global también puede tener habilitado [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
@@ -91,9 +91,9 @@ Después de escribir el nombre del bosque y de hacer clic en **Agregar directori
 Esta página le permite revisar los dominios UPN presentes en el entorno local de AD DS y que se han comprobado en Azure AD. Esta página también le permite configurar el atributo que se usará para userPrincipalName.
 
 ![Dominios sin comprobar](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
-Revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización. Para más información, consulte [agregar y comprobar el dominio](../active-directory-add-domain.md)
+Revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización. Para más información, consulte [agregar y comprobar el dominio](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Un id. alternativo puede usarse con la sincronización de contraseñas y con la federación.
+**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Un id. alternativo puede usarse con la sincronización de contraseñas y con la federación. El atributo no debe definirse en Active Directory como de valores múltiples, aunque solo tenga un valor.
 
 >[!NOTE]
 > Al habilitar la autenticación de paso a través, debe tener al menos un dominio verificado para continuar con el asistente.
@@ -279,7 +279,7 @@ Se le solicita que escriba las credenciales, con el fin de que el Servidor de ap
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>Especificación de la cuenta de servicio para el servicio AD FS
 El servicio de AD FS requiere una cuenta de servicio de dominio para autenticar usuarios y la información de usuario de búsqueda en Active Directory. Puede admitir dos tipos de cuentas de servicio:
 
-* **Cuenta de servicio administrada de grupo**: se introdujo en Active Directory Domain Services con Windows Server 2012. Este tipo de cuenta proporciona servicios, como AD FS, que utilizan una única cuenta sin necesidad de actualizar la contraseña de la misma de forma periódica. Utilice esta opción si tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecen los servidores de AD FS.
+* **Cuenta de servicio administrada de grupo** : se introdujo en Active Directory Domain Services con Windows Server 2012. Este tipo de cuenta proporciona servicios, como AD FS, que utilizan una única cuenta sin necesidad de actualizar la contraseña de la misma de forma periódica. Utilice esta opción si tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecen los servidores de AD FS.
 * **Cuenta de usuario de dominio** : para este tipo de cuenta debe especificar una contraseña y actualizarla de forma periódica cuando cambie o expire. Utilice esta opción solo si no tiene controladores de dominio de Windows Server 2012 en el dominio al que pertenecen los servidores de AD FS.
 
 Si ha seleccionado Cuenta de servicio administrada de grupo y esta característica no se ha usado nunca en Active Directory, se le pedirán las credenciales de administrador de organización. Estas se usarán para iniciar el almacén de claves y habilitar la característica en Active Directory.
@@ -295,7 +295,7 @@ Esta configuración se utiliza para configurar la relación de federación entre
 ![Dominio de Azure AD](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Comprobación del dominio de Azure AD seleccionado para la federación
-Cuando se selecciona el dominio que se va a federar, Azure AD Connect proporciona la información necesaria para comprobar un dominio no comprobado. Para saber cómo usar esta información, consulte el artículo sobre [incorporación y comprobación del dominio](../active-directory-add-domain.md).
+Cuando se selecciona el dominio que se va a federar, Azure AD Connect proporciona la información necesaria para comprobar un dominio no comprobado. Para saber cómo usar esta información, consulte el artículo sobre [incorporación y comprobación del dominio](../active-directory-domains-add-azure-portal.md).
 
 ![Dominio de Azure AD](./media/active-directory-aadconnect-get-started-custom/verifyfeddomain.png)
 

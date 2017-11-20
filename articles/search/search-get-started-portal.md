@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: creación del primer índice de Azure Search en el portal | Microsoft Docs"
+title: "Índice, consulta y filtro en las páginas del portal de Azure Search | Microsoft Docs"
 description: "En el portal de Azure, use datos de ejemplo predefinidos para generar un índice. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más."
 services: search
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Tutorial: creación del primer índice de Azure Search en el portal
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creación, consulta y filtro de un índice en el portal de Azure Search
 
 En Azure Portal, comience con un conjunto de datos de ejemplo predefinido para generar rápidamente un índice mediante el **Asistente para la importación de datos**. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada y la búsqueda geográfica con el **Explorador de búsqueda**.  
 
-Esta introducción sin código le permitirá comenzar a trabajar con datos predefinidos de modo que pueda escribir consultas interesantes de forma inmediata. Si bien las herramientas del portal no sustituyen al código, resultan de utilidad para realizar estas tareas:
+Esta introducción sin código le permitirá comenzar a trabajar con datos predefinidos de modo que pueda escribir consultas interesantes de forma inmediata. Si bien las herramientas del portal no sustituyen al código, pueden ser de utilidad para estas tareas:
 
 + Aprender de manera práctica con un período de inicialización mínimo
 + Crear un prototipo de un índice antes de escribir código en **Import data** (Importar datos).
@@ -44,7 +44,7 @@ Si no desea aprovisionar un servicio inmediatamente, puede ver una demostración
 
 ## <a name="find-your-service"></a>Búsqueda del servicio
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. Abra el panel del servicio Búsqueda de Azure. Si no ancló el icono del servicio en el panel, pude encontrar su servicio de esta manera: 
+2. Abra el panel del servicio Azure Search. Si no ancló el icono del servicio en el panel, pude encontrar su servicio de esta manera: 
    
    * En la barra de accesos, haga clic en **More services** (Más servicios) en la parte inferior del panel de navegación izquierdo.
    * En el cuadro de búsqueda, escriba *búsqueda* para obtener una lista de servicios de búsqueda de sus suscripción. El servicio debe aparecer en la lista. 
@@ -64,7 +64,7 @@ Las consultas de búsqueda recorren en iteración un *índice* que contiene dato
 Para mantener esta tarea en el portal, usamos un conjunto de datos de ejemplo integrado que se puede rastrear mediante un indexador con el **Asistente para la importación de datos**. 
 
 #### <a name="step-1-start-the-import-data-wizard"></a>Paso 1: Inicio del Asistente para la importación de datos
-1. En el panel del servicio Búsqueda de Azure, haga clic en **Importar datos** en la barra de comandos para iniciar un asistente que crea y rellena un índice.
+1. En el panel del servicio Azure Search, haga clic en **Importar datos** en la barra de comandos para iniciar un asistente que crea y rellena un índice.
    
     ![Comando de importación de datos][2]
 
@@ -128,7 +128,7 @@ Ahora tiene un índice de búsqueda listo para su consulta. **Explorador de bús
 
 **`search=seattle`**
 
-+ El parámetro `search` se usa para la entrada de una búsqueda por palabra clave en la búsqueda de texto completo; en este caso, se devuelven listados de King County, en el estado de Washington, que contienen *Seattle* en los campos del documento que permiten búsqueda. 
++ El parámetro **search** se usa para la entrada de una búsqueda por palabra clave en la búsqueda de texto completo; en este caso, se devuelven listados de King County, en el estado de Washington, que contienen *Seattle* en los campos del documento que permiten la búsqueda. 
 
 + El **Explorador de búsqueda** devuelve resultados en JSON, que es detallado y difícil de leer si los documentos tienen una estructura densa. En función de los documentos, puede que necesite escribir código que administre los resultados de búsqueda para extraer los elementos importantes. 
 
@@ -136,35 +136,48 @@ Ahora tiene un índice de búsqueda listo para su consulta. **Explorador de bús
 
 **`search=seattle&$count=true&$top=100`**
 
-+ El símbolo `&` se usa para anexar parámetros de búsqueda, que pueden especificarse en cualquier orden. 
++ El símbolo **&** se usa para anexar parámetros de búsqueda, que pueden especificarse en cualquier orden. 
 
-+  El parámetro `$count=true` devuelve un recuento de la suma de todos los documentos devueltos. Puede comprobar las consultas de filtro mediante la supervisión de los cambios notificados por `$count=true`. 
++  El parámetro **$count=true** devuelve un recuento de la suma de todos los documentos devueltos. Puede comprobar las consultas de filtro mediante la supervisión de los cambios notificados por **$count=true**. 
 
-+ El parámetro `$top=100` devuelve los 100 documentos mejor clasificados del total. De forma predeterminada, Azure Search devuelve las primeras 50 mejores coincidencias. Puede aumentar o disminuir la cantidad mediante `$top`.
++ El parámetro **$top=100** devuelve los 100 documentos mejor clasificados del total. De forma predeterminada, Azure Search devuelve las primeras 50 mejores coincidencias. Puede aumentar o disminuir la cantidad mediante **$top**.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` es una búsqueda vacía. Las búsquedas vacías buscan en todo. Una de las razones para enviar una búsqueda vacía es filtrar o clasificar el conjunto completo de documentos. Por ejemplo, quiere una estructura de navegación en facetas que conste de todas las ciudades del índice.
+## <a name="filter-query"></a> Filtro de la consulta
 
-+  `facet` devuelve una estructura de navegación que puede pasar a un control de interfaz de usuario. Devuelve categorías y un recuento. En este caso, las categorías se basan en el número de ciudades. No hay ninguna agregación en Azure Search, pero puede aproximarla mediante `facet`, que proporciona un recuento de documentos de cada categoría.
-
-+ `$top=2` devuelve dos documentos, lo que ilustra que puede usar `top` para reducir o aumentar los resultados.
-
-**`search=seattle&facet=beds`**
-
-+ Esta consulta es una faceta de "beds", en una búsqueda de texto de *Seattle*. `"beds"` se puede especificar como una faceta porque el campo está marcado como que se puede recuperar, filtrar y clasificar en el índice, y los valores que contiene (numéricos del 1 al 5), son adecuados para clasificar los listados en grupos (listados con 3 dormitorios, 4 dormitorios). 
-
-+ Solo los campos que se pueden filtrar se pueden clasificar. Solo se pueden devolver en los resultados campos recuperables.
+Los filtros se incluyen en las solicitudes de búsqueda al anexar el parámetro **$filter**. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ El parámetro `filter` devuelve resultados que coincidan con los criterios que proporcionó. En este caso, más de 3 dormitorios. 
++ El parámetro **$filter** devuelve resultados que coinciden con los criterios que proporcionó. En este caso, más de 3 dormitorios. 
 
 + La sintaxis de filtro es una construcción de OData. Para más información, consulte la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
+## <a name="facet-query"></a> Faceta de la consulta
+
+Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el parámetro de faceta para devolver un recuento agregado de los documentos que coincidan con el valor de faceta que proporcione. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** es una búsqueda vacía. Las búsquedas vacías buscan en todo. Una de las razones para enviar una búsqueda vacía es filtrar o clasificar el conjunto completo de documentos. Por ejemplo, quiere una estructura de navegación en facetas que conste de todas las ciudades del índice.
+
++  **facet** devuelve una estructura de navegación que puede pasar a un control de interfaz de usuario. Devuelve categorías y un recuento. En este caso, las categorías se basan en el número de ciudades. No hay ninguna agregación en Azure Search, pero puede aproximarla mediante `facet`, que proporciona un recuento de documentos de cada categoría.
+
++ **$top=2** devuelve dos documentos, lo cual muestra que puede usar `top` para reducir o aumentar los resultados.
+
+**`search=seattle&facet=beds`**
+
++ Esta consulta es una faceta de "beds", en una búsqueda de texto de *Seattle*. El término *beds* se puede especificar como faceta, porque el campo está marcado como que se puede recuperar, filtrar y clasificar en el índice, y los valores que contiene (numéricos del 1 al 5), son adecuados para clasificar los listados en grupos (listados con 3 dormitorios, 4 dormitorios). 
+
++ Solo los campos que se pueden filtrar se pueden clasificar. Solo se pueden devolver en los resultados campos recuperables.
+
+## <a name="highlight-query"></a> Resaltado
+
+El proceso de resaltado de referencias se refiere al formato en el texto que coincide con la palabra clave, dadas las coincidencias encontradas en un campo determinado. Si el término de búsqueda está profundamente enterrado en una descripción, puede agregar resaltado de referencias para que sea más fácil detectarlo. 
+
 **`search=granite countertops&highlight=description`**
 
-+ El proceso de resaltado de referencias se refiere al formato en el texto que coincide con la palabra clave, dadas las coincidencias encontradas en un campo determinado. Si el término de búsqueda está profundamente enterrado en una descripción, puede agregar resaltado de referencias para que sea más fácil detectarlo. En este caso, la frase con formato `"granite countertops"` es más fácil de ver en el campo de descripción.
++ En este ejemplo, la frase con formato *granite countertops* es más fácil de detectar en el campo de descripción.
 
 **`search=mice&highlight=description`**
 
@@ -172,23 +185,29 @@ Ahora tiene un índice de búsqueda listo para su consulta. **Explorador de bús
 
 + Azure Search admite 56 analizadores de Lucene y Microsoft. El valor predeterminado usado por Azure Search es el analizador de Lucene estándar. 
 
+## <a name="fuzzy-search"></a> Búsqueda aproximada
+
+La palabras mal escritas, como *samamish* en referencia a la meseta de Samammish de la zona de Seattle, no devuelven coincidencias en una búsqueda normal. Para controlar los errores de ortografía, puede usar la búsqueda aproximada, que se describe en el ejemplo siguiente.
+
 **`search=samamish`**
 
-+ Palabras mal escritas, como "samamish" en referencia a la meseta de Samammish en la zona de Seattle, no devuelven coincidencias en una búsqueda normal. Para controlar los errores de ortografía, puede usar la búsqueda aproximada, que se describe en el ejemplo siguiente.
++ En este ejemplo se ha escrito incorrectamente un barrio de la zona de Seattle.
 
 **`search=samamish~&queryType=full`**
 
-+ La búsqueda aproximada se habilita cuando se especifica el símbolo `~` y usa el analizador de consultas completo, que interpreta y analiza correctamente la sintaxis `~`. 
++ La búsqueda aproximada se habilita al especificar el símbolo **~** y usa el analizador de consultas completas, que interpreta y analiza correctamente la sintaxis **~**. 
 
-+ La búsqueda aproximada está disponible cuando opta por el analizador de consultas completo, que tiene lugar cuando establece `queryType=full`. Para más información sobre los escenarios de consulta habilitados por el analizador de consultas completo, consulte [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintaxis de consulta de Lucene en Azure Search).
++ La búsqueda aproximada está disponible al optar por el analizador de consultas completas, que tiene lugar al establecer **queryType=full**. Para más información sobre los escenarios de consulta habilitados por el analizador de consultas completo, consulte [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Sintaxis de consulta de Lucene en Azure Search).
 
-+ Cuando `queryType` no se especifica, se usa el analizador de consultas sencillo de manera predeterminada. El analizador de consultas sencillo es más rápido, pero si necesita búsqueda aproximada, expresiones regulares, búsqueda de proximidad u otros tipos de consultas avanzadas, necesitará la sintaxis completa. 
++ Cuando **queryType** no se especifica, se usa el analizador de consultas sencillo de manera predeterminada. El analizador de consultas sencillo es más rápido, pero si necesita búsqueda aproximada, expresiones regulares, búsqueda de proximidad u otros tipos de consultas avanzadas, necesitará la sintaxis completa. 
+
+## <a name="geo-search"></a> Prueba de la búsqueda geoespacial
+
+Se admite la búsqueda geoespacial mediante el [tipo de dato edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en un campo que contenga coordenadas. La búsqueda geográfica es un tipo de filtro, que se especifica en la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Se admite la búsqueda geoespacial mediante el [tipo de dato edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en un campo que contenga coordenadas. La búsqueda geográfica es un tipo de filtro, que se especifica en la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
-
-+ La consulta de ejemplo filtra todos los resultados por datos de posición, donde los resultados sean inferiores a 5 kilómetros desde un punto dado (especificado como coordenadas de latitud y longitud). Al agregar `$count`, puede ver cuántos resultados se devuelven al cambiar la distancia o las coordenadas. 
++ La consulta de ejemplo filtra todos los resultados por datos de posición, donde los resultados sean inferiores a 5 kilómetros desde un punto dado (especificado como coordenadas de latitud y longitud). Al agregar **$count**, verá cuántos resultados se devuelven al cambiar la distancia o las coordenadas. 
 
 + La búsqueda geoespacial resulta útil si su aplicación de búsqueda tiene una característica "buscar cerca de mí" o utiliza la navegación mediante mapas. No obstante, no es una búsqueda de texto completo. Si tiene requisitos de usuario de buscar en una ciudad o país por nombre, agregue campos que contengan nombres de ciudades o de países, además de coordenadas.
 
