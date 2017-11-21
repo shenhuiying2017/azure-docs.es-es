@@ -95,7 +95,7 @@ Para conectar la aplicación de API web a Logic Apps, es necesario un [archivo d
 1. Si aún no lo ha hecho, instale el paquete de Swashbuckle Nuget en el proyecto de Visual Studio.
 
    1. En Visual Studio, seleccione **Herramientas** > **Administrador de paquetes de NuGet** > 
-   ** Consola del Administrador de paquetes**.
+   **Consola del Administrador de paquetes**.
 
    2. En la **Consola del Administrador de paquetes**, vaya al directorio del proyecto de la aplicación si aún no está ahí (ejecute `Set-Location "project-path"`) y ejecute este commandlet de PowerShell: 
    
