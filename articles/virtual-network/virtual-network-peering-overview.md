@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales
+# <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
 El emparejamiento de redes virtuales permite conectar sin problemas dos [redes virtuales](virtual-networks-overview.md) de Azure. Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. 
 
@@ -35,7 +35,7 @@ Las ventajas del uso del emparejamiento de redes virtuales son las siguientes:
 
 ## <a name="requirements-constraints"></a>Requisitos y restricciones
 
-* El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales en diferentes regiones está actualmente en versión preliminar en Centro-oeste de EE. UU., Canadá Central y Oeste de EE. UU. 2. Puede [registrar una suscripción](virtual-network-create-peering.md) para la versión preliminar.
+* El emparejamiento de redes virtuales en las mismas regiones tiene disponibilidad general. El emparejamiento de redes virtuales en diferentes regiones está actualmente en versión preliminar en Centro-oeste de EE. UU., Canadá Central y Oeste de EE. UU. 2. Antes de emparejar las redes virtuales en regiones diferentes, primero debe [registrar su suscripción](virtual-network-create-peering.md#register) para la versión preliminar. Se producirá un error al intentar crear un emparejamiento entre redes virtuales en diferentes regiones si no ha completado el registro para la versión preliminar.
     > [!WARNING]
     > Es posible que los emparejamientos de redes virtuales que se crean en entre regiones no tengan el mismo nivel de disponibilidad y confiabilidad que los emparejamientos de una versión de disponibilidad general. Es posible que los emparejamientos de redes virtuales tengan funcionalidades limitadas y no estén disponibles en todas las regiones de Azure. Para las notificaciones más al día sobre disponibilidad y estado de esta característica, consulte la página de [actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) .
 
@@ -65,7 +65,7 @@ Al configurar el emparejamiento de red virtual, puede abrir o cerrar las reglas 
 
 Puede configurar las rutas definidas por el usuario que apuntan a máquinas virtuales de redes virtuales emparejadas como la dirección IP del "próximo salto" para permitir el encadenamiento de servicios. El encadenamiento de servicios permite dirigir el tráfico desde una red virtual hasta una aplicación virtual de una red virtual emparejada mediante rutas definidas por el usuario.
 
-También puede crear eficazmente entornos del tipo de concentrador y radio, en los que el concentrador puede hospedar componentes de la infraestructura, como una aplicación virtual de red. Todas las redes virtuales de radio se pueden emparejar con la red virtual de concentrador. El tráfico puede fluir por las aplicaciones virtuales de red que se ejecutan en la red virtual de concentrador. En resumen, el emparejamiento de red virtual permite que la dirección IP de próximo salto de la ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada. Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md). Para aprender a crear una topología de red de concentrador y radio, consulte [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implementación de una topología de concentrador y radio en Azure)
+También puede crear eficazmente entornos del tipo de concentrador y radio, en los que el concentrador puede hospedar componentes de la infraestructura, como una aplicación virtual de red. Todas las redes virtuales de radio se pueden emparejar con la red virtual de concentrador. El tráfico puede fluir por las aplicaciones virtuales de red que se ejecutan en la red virtual de concentrador. En resumen, el emparejamiento de red virtual permite que la dirección IP de próximo salto de la ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada. Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md). Para aprender a crear una topología de red en estrella tipo hub-and-spoke, consulte [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implementación de una topología en estrella tipo hub-and-spoke en Azure).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Puertas de enlace y conectividad local
 

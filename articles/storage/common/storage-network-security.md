@@ -11,25 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configuración de Firewalls y redes virtuales de Azure Storage (versión preliminar)
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
 
 ## <a name="preview-availability-and-support"></a>Disponibilidad y soporte de la versión preliminar
-Firewalls y redes virtuales de Azure Storage se encuentra en versión preliminar.  Esta capacidad se encuentra actualmente disponible para las cuentas de almacenamiento nuevas o existentes en las siguientes regiones:
-- Este de EE. UU.
-- Oeste de EE. UU.
-- Oeste de EE. UU. 2
-- Centro occidental de EE.UU.
-- Australia Oriental
-- Sudeste de Australia
+Firewalls y redes virtuales de Azure Storage se encuentra en versión preliminar.  Esta capacidad se encuentra actualmente disponible para las cuentas de almacenamiento nuevas o existentes en todas las regiones de la nube pública de Azure.
 
 > [!NOTE]
 > No se admiten cargas de trabajo de producción durante la versión preliminar.
@@ -87,7 +81,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Instale la CLI de Azure 2.0](/cli/azure/install-azure-cli) e [inicie sesión](/cli/azure/authenticate-azure-cli).
 2. Visualice el estado de la regla predeterminada para la cuenta de almacenamiento.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.defaultAction
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
 ```
 
 3. Establezca la regla predeterminada para denegar el acceso de red de forma predeterminada.  
@@ -179,14 +173,14 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 3. Agregue una regla de red para una red virtual y subred.  
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule add --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 4. Quite una regla de red para una red virtual y subred. 
 ```azurecli
-subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "TestVNET" --name "default" --query id --output tsv)
-az storage account network-rule remove --resource-group myresourcegroup --account-name mystorageaccount --subnet $subnetid
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
 ```
 
 > [!IMPORTANT]
@@ -304,7 +298,7 @@ Cuando la excepción "Servicios de Microsoft de confianza" está habilitada, se 
 |Azure Event Hubs|Microsoft.EventHub|Archivo de datos con Event Hubs Capture.  [Más información](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).|
 |HDInsight de Azure|Microsoft.HDInsight|Aprovisionamiento e instalación de clústeres.  [Más información](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Conexión a Azure|Microsoft.Networking|Almacenamiento y análisis de los registros de tráfico de red.  [Más información](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Almacenamiento de datos SQL de Azure|Microsoft.Sql|Importación y exportación de datos.  [Más información](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Importación y exportación de datos.  [Más información](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
 |Azure Backup|Microsoft.RecoveryServices|Copia de seguridad y restauración de discos no administrados.  [Más información](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
@@ -346,7 +340,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 1. [Instale la CLI de Azure 2.0](/cli/azure/install-azure-cli) e [inicie sesión](/cli/azure/authenticate-azure-cli).
 2. Vea las excepciones para las reglas de red de la cuenta de almacenamiento.
 ```azurecli
-az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkAcls.bypass
+az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
 ```
 
 3. Configure las excepciones a las reglas de red de la cuenta de almacenamiento.

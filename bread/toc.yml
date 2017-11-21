@@ -34,10 +34,10 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
       items:
-        - name: Web App for Containers
+        - name: App Service en Linux
           tocHref: /azure/app-service/containers/
           topicHref: /azure/app-service/containers/
-        - name: Entornos del Servicio de aplicaciones
+        - name: Entornos de App Service
           tocHref: /azure/app-service/environment/
           topicHref: /azure/app-service/environment/
         - name: Web Apps
@@ -58,18 +58,27 @@
     - name: Automation
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure Databricks
+      tocHref: /azure/azure-databricks/
+      topicHref: /azure/azure-databricks/
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
+    - name: Administración de costos
+      tocHref: /azure/cost-management/
+      topicHref: /azure/cost-management/
     - name: Functions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
-    - name: Government
+    - name: Azure Government
       tocHref: /azure/azure-government/
       topicHref: /azure/azure-government/
-    - name: Alemania
+    - name: Azure Alemania
       tocHref: /azure/germany/
       topicHref: /azure/germany/
+    - name: Azure China 21Vianet
+      tocHref: /azure/china/
+      topicHref: /azure/china/
     - name: Azure Portal
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
@@ -91,6 +100,9 @@
     - name: Batch
       tocHref: /azure/batch/
       topicHref: /azure/batch/
+    - name: Batch AI
+      tocHref: /azure/batch-ai/
+      topicHref: /azure/batch-ai/
     - name: Facturación
       tocHref: /azure/billing/
       topicHref: /azure/billing/
@@ -116,6 +128,9 @@
         - name: Bing Web Search
           tocHref: /azure/cognitive-services/bing-web-search/
           topicHref: /azure/cognitive-services/bing-web-search/
+        - name: Voz
+          tocHref: /azure/cognitive-services/Speech/
+          topicHref: /azure/cognitive-services/Speech/
         - name: Computer Vision
           tocHref: /azure/cognitive-services/computer-vision/
           topicHref: /azure/cognitive-services/computer-vision/
@@ -143,6 +158,9 @@
     - name: Azure Container Instances
       tocHref: /azure/container-instances/
       topicHref: /azure/container-instances/
+    - name: AKS
+      tocHref: /azure/aks/
+      topicHref: /azure/aks/
     - name: Container Service
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
@@ -189,6 +207,31 @@
     - name: HDInsight
       tocHref: /azure/hdinsight/
       topicHref: /azure/hdinsight/
+      items:
+        - name: Hadoop
+          tocHref: /azure/hdinsight/hadoop
+          topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
+        - name: HBase
+          tocHref: /azure/hdinsight/hbase
+          topicHref: /azure/hdinsight/hbase/apache-hbase-overview
+        - name: Interactive Query
+          tocHref: /azure/hdinsight/interactive-query
+          topicHref: /azure/hdinsight/interactive-query/apache-interactive-query-get-started
+        - name: Kafka
+          tocHref: /azure/hdinsight/kafka
+          topicHref: /azure/hdinsight/kafka/apache-kafka-introduction
+        - name: Seguridad de la empresa
+          tocHref: /azure/hdinsight/domain-joined
+          topicHref: /azure/hdinsight/domain-joined/apache-domain-joined-introduction
+        - name: R Server
+          tocHref: /azure/hdinsight/r-server
+          topicHref: /azure/hdinsight/r-server-overview
+        - name: Spark
+          tocHref: /azure/hdinsight/spark
+          topicHref: /azure/hdinsight/spark/apache-spark-overview
+        - name: Storm
+          tocHref: /azure/hdinsight/storm
+          topicHref: /azure/hdinsight/storm/apache-storm-overview
     - name: IoT Hub
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -204,7 +247,7 @@
     - name: Log Analytics
       tocHref: /azure/log-analytics/
       topicHref: /azure/log-analytics/
-    - name: Aplicaciones lógicas
+    - name: Logic Apps
       tocHref: /azure/logic-apps/
       topicHref: /azure/logic-apps/
     - name: Machine Learning
@@ -284,7 +327,7 @@
     - name: Service Health
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/
-    - name: Programador
+    - name: Scheduler
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
     - name: Search
@@ -339,7 +382,10 @@
     - name: Stream Analytics
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
-    - name: Traffic Manager
+    - name: Time Series Insights
+      tocHref: /azure/time-series-insights/
+      topicHref: /azure/time-series-insights/
+    - name: Administrador de tráfico
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
     - name: Conjuntos de escalado de máquina virtual
@@ -370,7 +416,7 @@
             - name: Implementaciones clásicas de Windows
               tocHref: /azure/virtual-machines/windows/classic/
               topicHref: /azure/virtual-machines/windows/classic/
-    - name: Red virtual
+    - name: Virtual Network
       tocHref: /azure/virtual-network/
       topicHref: /azure/virtual-network/
     - name: VPN Gateway

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 6d28b82f892ac88c32ab3e04df19143d69a5a05b
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: a81d3264964b2433a2c93034ab815493548f0753
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copia de datos con HDFS como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector HDFS](v1/data-factory-hdfs-connector.md).
 
 
-## <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Puede copiar datos de HDFS en cualquier almacén de datos de receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
@@ -67,11 +67,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 ```json
 {
     "name": "HDFSLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Hdfs",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "authenticationType": "Anonymous",
             "userName": "hadoop"
@@ -89,11 +87,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 ```json
 {
     "name": "HDFSLinkedService",
-    "properties":
-    {
+    "properties": {
         "type": "Hdfs",
-        "typeProperties":
-        {
+        "typeProperties": {
             "url" : "http://<machine>:50070/webhdfs/v1/",
             "authenticationType": "Windows",
             "userName": "<username>@<domain>.com (for Kerberos auth)",
@@ -388,4 +384,4 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.
+Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

@@ -1,0 +1,1 @@
+A partir del 15 de noviembre de 2017, Virtual Machines estará disponible solo en [Azure Portal](https://portal.azure.com). Ya no se admitirá el acceso desde el Portal de Azure clásico.

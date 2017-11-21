@@ -4,7 +4,7 @@ description: "Seleccione los escenarios adecuados para el proceso de análisis p
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev
-ms.openlocfilehash: 1dbc47b8a56fb2d295adfea0920b7eea45be69a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b6a92f4f4615954902124c59adca25560182de6
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Aprendizaje automático de Azure
+# <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Azure Machine Learning
 En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el [proceso de ciencia de datos en equipos (TDSP)](overview.md). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
 
 En la última sección se presenta el **árbol de decisión** para seleccionar los escenarios de ejemplo adecuados para los datos y el objetivo.
@@ -37,7 +37,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 > 
 > * [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md)
 >   <br/>
-> * [Creación de un área de trabajo de Aprendizaje automático de Azure](../studio/create-workspace.md)
+> * [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
 > 
 > 
 
@@ -45,9 +45,9 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ![Archivos locales de tamaño pequeño a medio][1]
 
 #### <a name="additional-azure-resources-none"></a>Recursos adicionales de Azure: ninguno
-1. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
+1. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 2. Cargue un conjunto de datos.
-3. Cree un flujo de experimento de Aprendizaje automático de Azure comenzando con conjuntos de datos cargados.
+3. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
 
 ## <a name="smalllocalprocess"></a>Escenario \#2: Conjunto de datos de tamaño pequeño a medio de archivos locales que requieren procesamiento
 ![Archivos locales de tamaño pequeño a medio con procesamiento][2]
@@ -58,9 +58,9 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 3. Preprocese y limpie datos en IPython Notebook obteniendo acceso desde el contenedor de almacenamiento de Azure.
 4. Transforme datos para un formulario limpio y tabular.
 5. Guarde los datos transformados en blobs de Azure.
-6. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
+6. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 7. Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
-8. Cree un flujo de experimento de Aprendizaje automático de Azure comenzando con conjuntos de datos introducidos.
+8. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos introducidos.
 
 ## <a name="largelocal"></a>Escenario \#3: Conjunto de datos grande de archivos locales, con blobs de Azure como destino
 ![Archivos locales grandes][3]
@@ -73,7 +73,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 5. Explore datos y cree características según sea necesario.
 6. Extraiga una muestra de datos de tamaño pequeño a medio.
 7. Guarde los datos de muestra en blobs de Azure.
-8. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
+8. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 9. Lea los datos de blobs de Azure mediante el módulo [Importar datos][import-data].
 10. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos ingeridos.
 
@@ -103,7 +103,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
    * Use uno de los métodos de importación en bloque para cargar los datos desde archivos locales de máquina virtual.
 7. Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 8. Elija un tamaño de muestra de datos, si lo necesita y/o desea.
-9. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
+9. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 10. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 11. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos ingeridos.
 
@@ -144,7 +144,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
    > 
 5. Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 6. Elija un tamaño de muestra de datos, si lo necesita y/o desea.
-7. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
+7. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 8. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 9. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados
 
@@ -180,7 +180,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
    > 
 5. Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 6. Elija un tamaño de muestra de datos, si lo necesita y/o desea.
-7. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
+7. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 8. Lea los datos directamente desde SQL Server mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 9. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
 
@@ -235,8 +235,8 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
    c.  Especifique el directorio raíz de Hive mediante el comando `cd %hive_home%\bin` en la línea de comandos de Hadoop.
    
    d.  Ejecute las consultas de Hive en línea de comandos de Hadoop en el nodo principal del clúster de Hadoop para explorar los datos y crear características según sea necesario.
-7. Si lo necesita o desea, muestree los datos para ajustarlos en Estudio de aprendizaje automático de Azure.
-8. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/).
+7. Si lo necesita o desea, muestre los datos para ajustarlos en Azure Machine Learning Studio.
+8. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 9. Lea los datos directamente desde `Hive Queries` mediante el módulo [Importar datos][import-data]. Pegue la consulta necesaria que extrae los campos, crea características y toma muestras de datos si es necesario directamente en la consulta [Importar datos][import-data].
 10. Flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
 
@@ -247,7 +247,7 @@ El diagrama siguiente resume los escenarios descritos anteriormente y las opcion
 ![Escenarios de tutoriales de proceso de ciencia de datos de ejemplo][8]
 
 ### <a name="advanced-analytics-in-action-examples"></a>Ejemplos de análisis avanzado en acción
-Para los tutoriales de Aprendizaje automático de Azure completos que emplean la Tecnología y procesos de análisis avanzado mediante conjuntos de datos públicos, consulte:
+Para los tutoriales de Azure Machine Learning completos que emplean la Tecnología y procesos de análisis avanzado mediante conjuntos de datos públicos, consulte:
 
 * [Proceso de ciencia de datos en equipos en acción: uso de SQL Server](sql-walkthrough.md)
 * [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md)

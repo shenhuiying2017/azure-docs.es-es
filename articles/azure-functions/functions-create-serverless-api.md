@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creación de una API sin servidor mediante Azure Functions
 
@@ -61,7 +61,8 @@ A continuación, pruebe la función para verla en acción con la nueva superfici
 1. Para volver a la página de desarrollo, haga clic en el nombre de la función en el panel de navegación izquierdo.
 1. Haga clic en **Obtener la dirección URL de la función** y copie la dirección URL. Debería ver que ahora usa la ruta `/api/hello`.
 1. Copie la dirección URL en una nueva pestaña del explorador o el cliente de REST que prefiera. Los exploradores utilizarán GET de forma predeterminada.
-1. Ejecute la función y confirme que funciona. Es posible que deba proporcionar el parámetro "name" como cadena de consulta para satisfacer el código de la guía de inicio rápido.
+1. Agregue parámetros a la cadena de consulta en la dirección URL, por ejemplo, `/api/hello/?name=John`.
+1. Presione Entrar para confirmar que funciona. Debería ver la respuesta "*Hello John*".
 1. También puede intentar llamar al punto de conexión con otro método HTTP para confirmar que no se ejecuta la función. Para ello, debe usar a un cliente de REST, como cURL, Postman o Fiddler.
 
 ## <a name="proxies-overview"></a>Introducción a Servidores proxy
@@ -69,7 +70,7 @@ A continuación, pruebe la función para verla en acción con la nueva superfici
 En la siguiente sección, expondrá la API a través de un servidor proxy. Servidores proxy de Azure Functions es una característica en versión preliminar que permite reenviar solicitudes a otros recursos. Se define un punto de conexión HTTP al igual que con el desencadenador HTTP pero, en lugar de escribir código que se ejecute cuando se llame a ese punto de conexión, se proporciona una dirección URL a una implementación remota. Esto le permite crear varios orígenes de API dentro de una sola superficie de API que es fácil de consumir para los clientes. Esto resulta especialmente útil si desea compilar su API como microservicio.
 
 Un servidor proxy puede apuntar a cualquier recurso HTTP, como:
-- Funciones de Azure 
+- Azure Functions 
 - Aplicaciones de API en [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
 - Contenedores de Docker en [App Service en Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Cualquier otra API hospedada
@@ -85,9 +86,8 @@ En esta sección, creará un proxy que actúa como front-end de la API en genera
 Repita los pasos de [Creación de una aplicación de función](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app) para crear una aplicación de función en la que creará el proxy. Esta nueva dirección URL de la aplicación servirá como front-end para la API, mientras que la aplicación de función que editó antes actuará como back-end.
 
 1. Vaya a la nueva aplicación de función de front-end en el portal.
-1. Seleccione **Configuración**. Cambie **Habilitar servidores proxy de Azure Functions (versión preliminar)** a "Activado".
-1. Seleccione **Configuración de plataforma** y elija **Configuración de la aplicación**.
-1. Baje hasta **Configuración de la aplicación** y cree una configuración con la clave "HELLO_HOST". Establezca su valor en el host de la aplicación de función de back-end, como `<YourBackendApp>.azurewebsites.net`. Esto forma parte de la dirección URL que copió antes al probar la función HTTP. Hará referencia a este valor en la configuración más adelante.
+1. Seleccione **Características de la plataforma** y elija **Configuración de la aplicación**.
+1. Desplácese hacia abajo hasta **Configuración de la aplicación** donde se almacenan los pares clave-valor y cree una nueva configuración con la clave "HELLO_HOST". Establezca su valor en el host de la aplicación de función de back-end, como `<YourBackendApp>.azurewebsites.net`. Esto forma parte de la dirección URL que copió antes al probar la función HTTP. Hará referencia a este valor en la configuración más adelante.
 
     > [!NOTE] 
     > Se recomienda la configuración de la aplicación para que la configuración del host evite una dependencia de entorno codificada de forma rígida para el servidor proxy. Al usarse la configuración de la aplicación, puede mover la configuración del proxy entre entornos, y se aplicará la configuración de la aplicación específica del entorno.
@@ -120,7 +120,7 @@ Repita los pasos de [Creación de una aplicación de función](https://docs.micr
 
 A continuación, utilizará un proxy para crear una API simulada para su solución. Esto permite que avance el desarrollo del cliente, sin necesidad de que el back-end esté totalmente implementado. Más adelante en el desarrollo, podría crear una aplicación de función que admita esta lógica y redirigir al proxy a ella.
 
-Para crear esta API simulada, se va a crear un proxy, esta vez mediante el [Editor de App Service](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Para empezar, vaya a la aplicación de función en el portal. Seleccione **Características de la plataforma** y busque **Editor de App Service**. Al hacer clic en él, se abrirá el Editor de App Service en una nueva pestaña.
+Para crear esta API simulada, se va a crear un proxy, esta vez mediante el [Editor de App Service](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Para empezar, vaya a la aplicación de función en el portal. Seleccione **Características de la plataforma** y, en **Herramientas de desarrollo**, busque **App Service Editor**. Al hacer clic en él, se abrirá el Editor de App Service en una nueva pestaña.
 
 Seleccione `proxies.json` en el panel de navegación izquierdo. Es el archivo que almacena la configuración para todos los servidores proxy. Si utiliza uno de los [métodos de implementación de Functions](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment), es el archivo que mantendrá en el control de código fuente. Para aprender más sobre este archivo, consulte [Configuración avanzada de servidores proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies#advanced-configuration).
 
@@ -178,7 +178,7 @@ A continuación, va a agregar su API simulada. Reemplace su archivo proxies.json
 
 Esto agrega un nuevo proxy, "GetUserByName", sin la propiedad backendUri. En lugar de llamar a otro recurso, modifica la respuesta predeterminada desde Servidores proxy mediante una invalidación de la respuesta. Las invalidaciones de solicitud y respuesta también pueden utilizarse junto con una dirección URL de back-end. Esto resulta especialmente útil cuando se remite a través de un proxy a un sistema heredado, donde podría necesitar modificar los encabezados, los parámetros de consulta, etc. Para aprender más sobre las invalidaciones de solicitud y respuesta, consulte [Modificación de solicitudes y respuestas en Servidores proxy](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
 
-Pruebe la API simulada mediante una llamada al punto de conexión `/api/users/{username}` con un explorador o el cliente de REST que prefiera. Asegúrese de reemplazar _{username}_ por un valor de cadena que represente un nombre de usuario.
+Pruebe la API simulada mediante una llamada al punto de conexión `<YourProxyApp>.azurewebsites.net/api/users/{username}` con un explorador o el cliente de REST que prefiera. Asegúrese de reemplazar _{username}_ por un valor de cadena que represente un nombre de usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

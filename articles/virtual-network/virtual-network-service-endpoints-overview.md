@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Puntos de conexión del servicio Virtual Network (versión preliminar)
 
@@ -27,7 +27,7 @@ Los puntos de conexión del servicio Virtual Network (red virtual) extienden el 
 
 Esta característica está disponible en versión preliminar para los servicios y regiones de Azure siguientes:
 
-- **Azure Storage**: WestCentralUS, WestUS2, EastUS, WestUS, AustraliaEast y AustraliaSouthEast
+- **Azure Storage**: todas las regiones de la nube pública de Azure.
 - **Azure SQL Database**: WestCentralUS, WestUS2 y EastUS.
 
 Para las notificaciones más actualizadas sobre la versión preliminar, revise la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).

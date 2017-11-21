@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.openlocfilehash: 871887e67d686a965a0648d2c6f0c72b3008db05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/03/2017
+ms.openlocfilehash: 0cfce63b1523f939dc2d706dba771e56ce9ccd6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL mediante la CLI de Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-by-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor de Azure Database for PostgreSQL mediante la CLI de Azure
 
 Use Azure Database for PostgreSQL para restaurar una base de datos de servidor a una fecha de 7 a 35 días antes.
 
@@ -31,7 +31,7 @@ Para completar esta guía, necesita:
 > [!IMPORTANT]
 > Si instala y usa la CLI de Azure localmente, para esta guía se necesita la versión 2.0 o posterior de la CLI de Azure. Para confirmar la versión, en el símbolo del sistema de la CLI de Azure, escriba `az --version`. Para la instalación o la actualización, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="back-up-happens-automatically"></a>La copia de seguridad se realiza automáticamente
+## <a name="backup-happens-automatically"></a>Las copias de seguridad se realizan automáticamente
 Cuando se usa Azure Database for PostgreSQL, el servicio de base de datos realiza una copia de seguridad del servicio automáticamente cada 5 minutos. 
 
 Para el nivel básico, las copias de seguridad están disponibles durante 7 días. Para el nivel estándar, las copias de seguridad están disponibles durante 35 días. Para más información, consulte el artículo de [planes de tarifa de Azure Database for PostgreSQL](concepts-service-tiers.md).

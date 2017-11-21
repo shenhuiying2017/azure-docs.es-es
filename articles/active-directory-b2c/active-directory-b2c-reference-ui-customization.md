@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 23a2996a5eaa41af5dc66558d2a70dd3e4a4fe3f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalización de la interfaz de usuario de Azure AD B2C
 
 La experiencia del usuario es primordial en una aplicación de cliente.  Aumentar su base de clientes mediante el diseño de experiencias de usuario con la apariencia de su marca. Azure Active Directory B2C (Azure AD B2C) permite personalizar las páginas de registro, inicio de sesión, edición de perfil y restablecimiento de contraseña del cliente con control perfecto de píxeles.
 
 > [!NOTE]
-> La característica de personalización de la interfaz de usuario de la página que se describe en este artículo no se aplica a la directiva de inicio de sesión único, a la página de restablecimiento de contraseña adjunta y a los correos electrónicos de verificación.  Estas características utilizan en su lugar la [característica de personalización de marca de empresa](../active-directory/active-directory-add-company-branding.md).
+> La característica de personalización de la interfaz de usuario de la página que se describe en este artículo no se aplica a la directiva de inicio de sesión único, a la página de restablecimiento de contraseña adjunta y a los correos electrónicos de verificación.  Estas características utilizan en su lugar la [característica de personalización de marca de empresa](../active-directory/customize-branding.md).
 >
-> De manera similar, si un usuario inicia una directiva de edición de perfil *antes* de iniciar sesión, se redirigirá al usuario a una página que se puede personalizar con la [característica de personalización de marca de la empresa](../active-directory/active-directory-add-company-branding.md).
+> De manera similar, si un usuario inicia una directiva de edición de perfil *antes* de iniciar sesión, se redirigirá al usuario a una página que se puede personalizar con la [característica de personalización de marca de la empresa](../active-directory/customize-branding.md).
 
 En este artículo se tratan los temas siguientes:
 

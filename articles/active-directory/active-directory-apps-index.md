@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 3910c62e61d77f479da9fae2e1a8c0575c543281
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: d8ed395abb31a1cb41e35456ab5892a2e7c3a750
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
 Esta página proporciona una lista completa de todos los documentos escritos sobre las diversas características relacionadas con aplicaciones de Azure Active Directory (Azure AD).
@@ -32,7 +32,7 @@ Los artículos siguientes son buenos puntos de partida para quienes solo deseen 
 |:---:| --- |
 | Una introducción a los problemas de administración de aplicaciones que Azure AD resuelve |[Administración de aplicaciones con Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
 | Información general sobre las distintas características de Azure AD relacionadas con la habilitación del inicio de sesión único, la definición de quién tiene acceso a las aplicaciones y de la forma en que los usuarios inician las aplicaciones |[¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md) |
-| Un vistazo a los distintos pasos que deben darse al integrar aplicaciones en Azure AD |[Integración de Azure Active Directory con las aplicaciones](active-directory-integrating-applications-getting-started.md)<br /><br />[Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS](active-directory-sso-integrate-saas-apps.md)<br /><br />[Administración del acceso a las aplicaciones](active-directory-managing-access-to-apps.md) |
+| Un vistazo a los distintos pasos que deben darse al integrar aplicaciones en Azure AD |[Integración de Azure Active Directory con las aplicaciones](active-directory-integrating-applications-getting-started.md)<br /><br />[Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS](active-directory-enterprise-apps-manage-sso.md)<br /><br />[Administración del acceso a las aplicaciones](active-directory-managing-access-to-apps.md) |
 | Una explicación técnica de cómo se representan las aplicaciones de Azure AD |[Cómo y por qué se agregan aplicaciones a Azure AD](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>Artículos de solución de problemas
@@ -80,8 +80,8 @@ Si en la red privada tiene aplicaciones a las que los usuarios y dispositivos de
 |:---:| --- |
 | Información general sobre el proxy de aplicación de Azure AD y su funcionamiento |[Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md) |
 | Tutoriales sobre cómo configurar el proxy de aplicación y cómo publicar la primera aplicación |[Habilitación del proxy de aplicación en el Portal de Azure](active-directory-application-proxy-enable.md)<br /><br />[Instalación de forma silenciosa el conector de Proxy de aplicación de Azure AD](active-directory-application-proxy-silent-installation.md)<br /><br />[Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](active-directory-application-proxy-publish.md)<br /><br />[Uso de dominios personalizados en el proxy de la aplicación de Azure AD](active-directory-application-proxy-custom-domains.md) |
-| Habilitación del inicio de sesión único y del acceso condicional en aplicaciones publicadas con el proxy de aplicación |[Inicio de sesión único con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Uso de acceso condicional](active-directory-application-proxy-conditional-access.md) |
-| Guía sobre cómo usar el proxy de aplicación en los escenarios siguientes |[Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de la aplicación](active-directory-application-proxy-native-client.md)<br /><br />[Trabajar con las aplicaciones para notificaciones en el proxy de la aplicación](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](active-directory-application-proxy-connectors.md) |
+| Habilitación del inicio de sesión único y del acceso condicional en aplicaciones publicadas con el proxy de aplicación |[Inicio de sesión único con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)<br /><br />[Uso de acceso condicional](application-proxy-enable-remote-access-sharepoint.md) |
+| Guía sobre cómo usar el proxy de aplicación en los escenarios siguientes |[Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de la aplicación](active-directory-application-proxy-native-client.md)<br /><br />[Trabajar con las aplicaciones para notificaciones en el proxy de la aplicación](active-directory-application-proxy-claims-aware-apps.md)<br /><br />[Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](active-directory-application-proxy-connectors-azure-portal.md) |
 | Guía de solución de problemas del proxy de aplicación |[Solucionar problemas del proxy de aplicación](active-directory-application-proxy-troubleshoot.md) |
 
 El proxy de aplicación está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), se pueden [utilizar grupos para asignar el acceso a las aplicaciones](#managing-access-to-applications).
@@ -107,10 +107,9 @@ Una vez configurado el inicio de sesión único en las aplicaciones y los recurs
 
 | Guía de artículos |  |
 |:---:| --- |
-| Una introducción a las funcionalidades de acceso condicional que se ofrecen a través de Azure AD, Office 365 e Intune |[Administración de riesgos con el acceso condicional](active-directory-conditional-access.md) |
-| Habilitación del acceso condicional para los siguientes tipos de recursos |[Introducción al acceso condicional de Azure Active Directory](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Directivas de dispositivo de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access.md)<br /><br />[Acceso condicional para aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD](active-directory-application-proxy-conditional-access.md) |
-
-| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo | [Introducción al Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
+| Una introducción a las funcionalidades de acceso condicional que se ofrecen a través de Azure AD, Office 365 e Intune |[Administración de riesgos con el acceso condicional](active-directory-conditional-access-azure-portal.md) |
+| Habilitación del acceso condicional para los siguientes tipos de recursos |[Introducción al acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Directivas de dispositivo de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-azure-portal.md)<br /><br />[Acceso condicional para aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD](application-proxy-enable-remote-access-sharepoint.md) |
+| Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo |[Introducción al Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Uso de la aplicación Microsoft Authenticator para la comprobación en dos pasos |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
@@ -162,8 +161,8 @@ Para ayudarle a administrar quién debe tener acceso a cada recurso, Azure Activ
 |:---:| --- |
 | Introducción a las características de administración de acceso de Azure AD |[Introducción a la administración del acceso a las aplicaciones](active-directory-managing-access-to-apps.md)<br /><br />[Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)<br /><br />[Uso de un grupo para administrar el acceso a las aplicaciones SaaS](active-directory-accessmanagement-group-saasapps.md) |
 | Habilitación de la administración autoservicio de aplicaciones y grupos |[Configuración de Azure Active Directory para la administración de grupos de autoservicio](active-directory-self-service-application-access.md)<br /><br />[Administración de grupos de autoservicio](active-directory-accessmanagement-self-service-group-management.md) |
-| Instrucciones para configurar los grupos en Azure AD |[Administración de grupos en Azure Active Directory](active-directory-accessmanagement-manage-groups.md)<br /><br />[Administración de propietarios de un grupo](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Uso del grupo "Todos los usuarios"](active-directory-accessmanagement-dedicated-groups.md) |
-| Uso de grupos dinámicos para rellenar automáticamente la pertenencia al grupo mediante reglas de pertenencia basadas en atributos |[Uso de atributos para crear reglas avanzadas](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Solución de problemas de pertenencias a grupos dinámicos](active-directory-accessmanagement-troubleshooting.md) |
+| Instrucciones para configurar los grupos en Azure AD |[Administración de grupos en Azure Active Directory](active-directory-groups-create-azure-portal.md)<br /><br />[Administración de propietarios de un grupo](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[Uso del grupo "Todos los usuarios"](active-directory-accessmanagement-dedicated-groups.md) |
+| Uso de grupos dinámicos para rellenar automáticamente la pertenencia al grupo mediante reglas de pertenencia basadas en atributos |[Uso de atributos para crear reglas avanzadas](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Solución de problemas de pertenencias a grupos dinámicos](active-directory-accessmanagement-troubleshooting.md) |
 
 La administración de acceso a aplicaciones basado en grupos está disponible para [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) y [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). La administración de grupos de autoservicio, la administración de aplicaciones de autoservicio y los grupos dinámicos son características de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -209,6 +208,6 @@ Para ver qué informes incluyen las diferentes ediciones de Azure Active Directo
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 
-[Servicios de dominio de Azure Active Directory](https://azure.microsoft.com/services/active-directory-ds/)
+[Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)

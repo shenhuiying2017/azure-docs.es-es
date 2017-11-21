@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de conexión comunes relacionados con la base de datos SQL de Azure"
-description: "Pasos para identificar y resolver errores de conexión comunes para la base de datos SQL de Azure."
+title: "Solución de problemas de conexión comunes relacionados con Azure SQL Database"
+description: "Pasos para identificar y resolver errores de conexión comunes para Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: dalechen
@@ -13,16 +13,16 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: 22208bf4f138a7f7c3b263a1f310e27a0f085b37
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cc9b1e1474e67628857dd80a63850634469ca5e8
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Solución de problemas de conexión de Base de datos SQL de Azure
-Cuando la conexión a Base de datos SQL de Azure no se logra establecer, se reciben [mensajes de error](sql-database-develop-error-messages.md). Este artículo es un tema centralizado que ayuda a la solución de problemas de conectividad de Base de datos SQL de Azure. Se presentan [las causas habituales](#cause) de los problemas de conexión, se recomienda [una herramienta de solución de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que lo ayuda a identificar el problema y se proporcionan pasos de solución de problemas para resolver [errores transitorios](#troubleshoot-transient-errors) y [errores persistentes o no transitorios](#troubleshoot-persistent-errors). 
+# <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Solución de problemas de conexión de Azure SQL Database
+Cuando la conexión a Azure SQL Database no se logra establecer, se reciben [mensajes de error](sql-database-develop-error-messages.md). Este artículo es un tema centralizado que ayuda a la solución de problemas de conectividad de Azure SQL Database. Se presentan [las causas habituales](#cause) de los problemas de conexión, se recomienda [una herramienta de solución de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que lo ayuda a identificar el problema y se proporcionan pasos de solución de problemas para resolver [errores transitorios](#troubleshoot-transient-errors) y [errores persistentes o no transitorios](#troubleshoot-persistent-errors). 
 
 Si encuentra problemas de conexión, pruebe los pasos de solución de problemas que se describen en este artículo.
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -30,19 +30,19 @@ Si encuentra problemas de conexión, pruebe los pasos de solución de problemas 
 ## <a name="cause"></a>Causa
 Los problemas de conexión pueden tener alguna de las siguientes causas:
 
-* Error al aplicar los procedimientos recomendados y las directrices de diseño durante el proceso de diseño de aplicaciones.  Para comenzar, consulte [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md) .
-* Reconfiguración de la Base de datos SQL de Azure
+* Error al aplicar los procedimientos recomendados y las directrices de diseño durante el proceso de diseño de aplicaciones.  Para comenzar, consulte [Información general de desarrollo de SQL Database](sql-database-develop-overview.md) .
+* Reconfiguración de Azure SQL Database
 * Configuración de firewall
 * Tiempo de espera de conexión agotado
 * Información de inicio de sesión incorrecta
-* Límite máximo alcanzado en algunos recursos de Base de datos SQL de Azure
+* Límite máximo alcanzado en algunos recursos de Azure SQL Database
 
-Por lo general, los problemas de conexión de Base de datos SQL de Azure se pueden clasificar en los siguientes:
+Por lo general, los problemas de conexión de Azure SQL Database se pueden clasificar en los siguientes:
 
 * [Errores transitorios (corta duración o intermitentes)](#troubleshoot-transient-errors)
 * [Errores persistentes o no transitorios (errores que se repiten con frecuencia)](#troubleshoot-persistent-errors)
 
-## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>Pruebe el solucionador de problemas para los problemas de conectividad de Base de datos SQL de Azure
+## <a name="try-the-troubleshooter-for-azure-sql-database-connectivity-issues"></a>Pruebe el solucionador de problemas para los problemas de conectividad de Azure SQL Database
 Si se produce un error de conexión específico, pruebe [esta herramienta](https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database), que le ayudará a identificar y resolver el problema.
 
 ## <a name="troubleshoot-transient-errors"></a>Solución de problemas de errores transitorios
@@ -63,14 +63,14 @@ Este error se produce cuando la base de datos de Azure se está moviendo (o reco
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Pasos para resolver los problemas de conectividad transitorios
 
 1. Compruebe el [panel de Estado de Microsoft Azure](https://azure.microsoft.com/status) para comprobar si hay interrupciones conocidas que se hayan producido durante el tiempo en el que la aplicación informó de los errores.
-2. Para las aplicaciones que se conectan a un servicio en la nube, como la base de datos SQL de Azure, se deben prever eventos periódicos de reconfiguración e implementación de la lógica de reintento para gestionar estos errores en lugar de mostrarlos como errores de la aplicación. Consulte la sección [Errores transitorios](sql-database-connectivity-issues.md), así como los procedimientos recomendados e instrucciones de diseño en [Información general de desarrollo de SQL Database](sql-database-develop-overview.md), donde encontrará más información e instrucciones para las estrategias generales de reintento. Después, para información específica, consulte ejemplos de código en [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md) .
+2. Para las aplicaciones que se conectan a un servicio en la nube, como Azure SQL Database, se deben prever eventos periódicos de reconfiguración e implementación de la lógica de reintento para gestionar estos errores en lugar de mostrarlos como errores de la aplicación. Consulte la sección [Errores transitorios](sql-database-connectivity-issues.md), así como los procedimientos recomendados e instrucciones de diseño en [Información general de desarrollo de SQL Database](sql-database-develop-overview.md), donde encontrará más información e instrucciones para las estrategias generales de reintento. Después, para información específica, consulte ejemplos de código en [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md) .
 3. Conforme una base de datos se acerca a sus límites de recursos, puede parecer un problema de conectividad transitorio. Vea [Solucionar problemas de rendimiento](sql-database-troubleshoot-performance.md).
 4. Si los problemas de conectividad continúan, si el tiempo de detección del error por parte de la aplicación supera los 60 segundos o si el error se repite varias veces en un día determinado, realice una solicitud de soporte técnico a Azure; para ello, seleccione **Obtener soporte** en el sitio [Soporte técnico de Azure](https://azure.microsoft.com/support/options) .
 
 ## <a name="troubleshoot-persistent-errors"></a>Solución de problemas de los errores persistentes
-Si la aplicación no se puede conectar a la Base de datos SQL de Azure de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
+Si la aplicación no se puede conectar a Azure SQL Database de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
 
-* Configuración del firewall. La base de datos SQL de Azure o el firewall del cliente están bloqueando las conexiones de la base de datos SQL de Azure.
+* Configuración del firewall. Azure SQL Database o el firewall del cliente están bloqueando las conexiones de Azure SQL Database.
 * Reconfiguración de la red en el lado cliente: por ejemplo, un nuevo servidor de proxy o dirección IP.
 * Error de usuario: por ejemplo, escribió incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión.
 
@@ -81,12 +81,12 @@ Si la aplicación no se puede conectar a la Base de datos SQL de Azure de forma 
 4. Compruebe el estado del servicio en el panel. Si piensa que hay un interrupción regional, vea [Recuperación tras una interrupción](sql-database-disaster-recovery.md) para los pasos para recuperarse para una región nueva.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Evaluación y mejora del rendimiento de la base de datos con la Base de datos SQL de Azure](sql-database-troubleshoot-performance.md)
+* [Evaluación y mejora del rendimiento de la base de datos con Azure SQL Database](sql-database-troubleshoot-performance.md)
 * [Buscar en la documentación de Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-* [Ver las últimas actualizaciones del servicio Base de datos SQL](http://azure.microsoft.com/updates/?service=sql-database)
+* [Ver las últimas actualizaciones del servicio SQL Database](http://azure.microsoft.com/updates/?service=sql-database)
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Información general de desarrollo de Base de datos SQL](sql-database-develop-overview.md)
+* [Información general de desarrollo de SQL Database](sql-database-develop-overview.md)
 * [Orientación general sobre reintentos](../best-practices-retry-general.md)
-* [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
+* [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md)
 

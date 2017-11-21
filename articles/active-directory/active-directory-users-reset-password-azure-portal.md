@@ -1,6 +1,6 @@
 ---
 title: "Restablecimiento de contraseñas en Azure Active Directory | Microsoft Docs"
-description: "En este artículo se explica cómo restablecer la contraseña de un usuario de Azure Active Directory | Microsoft Azure"
+description: "El administrador inició el restablecimiento de contraseña de un usuario en Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MicrosoftGuyJFlo
@@ -12,35 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/01/2017
 ms.author: joflore
-ms.reviewer: jeffsta
-ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: f88a227eda042991ad5dd9cd6c3f349ccb0c4366
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.reviewer: sahenry
+ms.custom: it-pro
+ms.openlocfilehash: bea082081e3f3f52ba78188903a9536fe9de9392
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario en Azure Active Directory
 
+Los administradores pueden tener que restablecer la contraseña de un usuario en escenarios en los que la han olvidado, se han bloqueado, etc. Los pasos siguientes le guiarán en el restablecimiento de la contraseña de un usuario.
+
 ## <a name="how-to-reset-the-password-for-a-user"></a>Restablecimiento de la contraseña de un usuario
-1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Usuarios y grupos**.
 
-   ![Apertura de Administración de usuarios](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
-3. Seleccione **Todos los usuarios**.
+1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga permisos de directorio para restablecer contraseñas de usuario.
+2. Seleccione **Azure Active Directory** > **Usuarios y grupos** > **Todos los usuarios**.
+3. Seleccione el usuario para el que desee restablecer la contraseña.
+2. Para el usuario seleccionado, seleccione **Restablecer contraseña**.
 
-   ![Apertura del grupo Todos los usuarios](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
-1. Seleccione un usuario en la lista.
-2. Para el usuario seleccionado, seleccione **Introducción** y en la barra de comandos, seleccione **Restablecer contraseña**.
-
-    ![Selección del comando Restablecer contraseña](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
+    ![Restablecimiento de la contraseña de un usuario desde el perfil de usuario en Azure AD](./media/active-directory-users-reset-password-azure-portal/user-password-reset.png)
+    
 6. En **Restablecer contraseña**, seleccione **Restablecer contraseña**.
+7. Se muestra una contraseña temporal que puede proporcionar al usuario. Se le solicitará al usuario que cambie la contraseña la próxima vez que inicie sesión. 
+
+   > [!NOTE]
+   > Esta contraseña temporal no tiene tiempo de expiración, por lo que será válida hasta que el usuario inicie sesión y se le fuerce a cambiarla. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Adición de un usuario](active-directory-users-create-azure-portal.md)
-* [Asignar a un usuario a un rol de Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Cambiar la información de trabajo de un usuario](active-directory-users-work-info-azure-portal.md)
+* [Asignación de roles de administrador a un usuario](active-directory-users-assign-role-azure-portal.md)
 * [Administrar perfiles de usuario](active-directory-users-profile-azure-portal.md)
-* [Eliminar un usuario de Azure AD](active-directory-users-delete-user-azure-portal.md)
+* [Eliminación de un usuario en Azure AD](active-directory-users-delete-user-azure-portal.md)

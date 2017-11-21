@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Protección de las llamadas a sus API personalizadas desde aplicaciones lógicas
 
@@ -49,7 +49,7 @@ Estos son los pasos generales para este método:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Creación de una identidad de aplicación de Azure AD para la aplicación lógica
 
-La aplicación lógica usa esta identidad de aplicación de Azure AD para autenticarse en Azure AD. Solo tiene que establecer esta identidad una vez para el directorio. Por ejemplo, puede usar la misma identidad para todas las aplicaciones lógicas, aunque puede crear identidades únicas para cada una. Puede configurar estas identidades en Azure Portal, en el [Portal de Azure clásico](#app-identity-logic-classic) o con [PowerShell](#powershell).
+La aplicación lógica usa esta identidad de aplicación de Azure AD para autenticarse en Azure AD. Solo tiene que establecer esta identidad una vez para el directorio. Por ejemplo, puede usar la misma identidad para todas las aplicaciones lógicas, aunque puede crear identidades únicas para cada una. Puede configurar estas identidades en Azure Portal o usar [PowerShell](#powershell).
 
 **Creación de la identidad de aplicación para la aplicación lógica en Azure Portal**
 
@@ -94,34 +94,6 @@ La aplicación lógica usa esta identidad de aplicación de Azure AD para autent
 
    ![Copiar y guardar la clave para más tarde](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Creación de la identidad de aplicación para la aplicación lógica en el Portal de Azure clásico**
-
-1. En el Portal de Azure clásico, elija [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Seleccione el directorio que usó para la aplicación web o de API.
-
-3. En la pestaña **Aplicaciones**, elija **Agregar** en la parte inferior de la página.
-
-4. Asigne un nombre a la identidad de aplicación y elija **Siguiente** (flecha derecha).
-
-5. En **Propiedades de la aplicación**, proporcione una cadena única con formato de dominio para **Dirección URL de inicio de sesión** y **URI de id. de aplicación**, y elija **Completar** (marca de verificación).
-
-6. En la pestaña **Configurar**, copie y guarde el valor de **Id. de cliente** para usarlo con la aplicación lógica en la parte 3.
-
-7. En **Claves**, abra la lista **Seleccionar duración**. Seleccione una duración para la clave.
-
-   La clave que va a crear actúa como "secreto" o contraseña de la identidad de aplicación para la aplicación lógica.
-
-8. En la parte inferior de la página, elija **Guardar**. Quizás tenga que esperar unos segundos.
-
-9. En **Claves**, asegúrese de copiar y guardar la clave que ahora aparece. 
-
-   Cuando configure la aplicación lógica en la parte 3, especifique esta clave como "secreto" o contraseña.
-
-Para más información, aprenda a [configurar la aplicación de App Service para usar el inicio de sesión de Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **Creación de la identidad de aplicación para la aplicación lógica en PowerShell**
@@ -156,7 +128,7 @@ Si ya se ha implementado la aplicación web o de API, puede activar la autentica
 
 4. En la página **Autenticación/autorización**, elija **Guardar**.
 
-Ahora debe buscar el identificador de cliente y el de inquilino para la identidad de aplicación que esté asociada con la aplicación web o de API. Ha usado estos identificadores en la parte 3. Por tanto, continúe con estos pasos para Azure Portal o el [Portal de Azure clásico](#find-id-classic).
+Ahora debe buscar el identificador de cliente y el de inquilino para la identidad de aplicación que esté asociada con la aplicación web o de API. Ha usado estos identificadores en la parte 3. Por tanto, continúe con estos pasos para Azure Portal.
 
 **Búsqueda de los identificadores de cliente y de inquilino de la identidad de aplicación para su aplicación web o de API en Azure Portal**
 
@@ -177,32 +149,6 @@ Ahora debe buscar el identificador de cliente y el de inquilino para la identida
 
 5. Sin guardar los cambios, cierre la página **Configuración de Azure Active Directory**.
 
-<a name="find-id-classic"></a>
-
-**Búsqueda de los identificadores de cliente y de inquilino de la identidad de aplicación para su aplicación web o de API en Portal de Azure clásico**
-
-1. En el Portal de Azure clásico, elija [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Seleccione el directorio que usó para la aplicación web o de API.
-
-3. En el cuadro **Búsqueda**, busque y seleccione la identidad de aplicación para su aplicación web o de API.
-
-4. En la pestaña **Configurar**, copie el valor de **Id. de cliente** y guarde ese GUID para usarlo en la parte 3.
-
-5. Después de obtener el identificador de cliente, en la parte inferior de la pestaña **Configurar**, elija **Ver extremos**.
-
-6. Copie la dirección URL para **Documento de metadatos de federación** y vaya a ella.
-
-7. En el documento de metadatos que se abre, busque el elemento **Id. de EntityDescriptor** raíz, que tiene un atributo **entityID** con este formato: `https://sts.windows.net/{GUID}` 
-
-   El GUID de este atributo es el del inquilino específico (Identificador de inquilino).
-
-8. Copie el identificador del inquilino y guárdelo para usarlo en la parte 3 y también en la plantilla de implementación de su aplicación web o de API, si es necesario.
-
-Para más información, consulte los temas siguientes:
-
-* [Autenticación y autorización en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Activación de la autenticación cuando implemente con una plantilla de Azure Resource Manager**
@@ -212,7 +158,7 @@ Todavía debe crear para su aplicación web o de API una identidad de aplicació
 También puede seguir los pasos en la parte 1, pero asegúrese de usar `https://{URL}` para la aplicación web o de API en **Dirección URL de inicio de sesión** y **URI de id. de aplicación**. En estos pasos, tiene que guardar el identificador de cliente y el de inquilino para usarlos en la plantilla de implementación de la aplicación y también en la parte 3.
 
 > [!NOTE]
-> Cuando cree la identidad de aplicación de Azure AD para su aplicación web o de API, debe usar Azure Portal o el Portal de Azure clásico, en lugar de PowerShell. El cmdlet de PowerShell no configura los permisos necesarios para iniciar la sesión de los usuarios en un sitio web.
+> Cuando cree la identidad de aplicación de Azure AD para su aplicación web o de API, debe usar Azure Portal, no PowerShell. El cmdlet de PowerShell no configura los permisos necesarios para iniciar la sesión de los usuarios en un sitio web.
 
 Una vez que obtenga los identificadores de cliente y de inquilino, inclúyalos como un subrecurso de la aplicación web o de API en la plantilla de implementación:
 

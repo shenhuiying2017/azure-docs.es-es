@@ -55,6 +55,9 @@
 ### [Configuración de redes virtuales](devtest-lab-configure-vnet.md)
 ### [Selección de la opción de configuración de IP](devtest-lab-shared-ip.md)
 
+## Administración de discos de datos
+### [Asociar y desasociar discos de datos](devtest-lab-attach-detach-data-disk.md)
+
 ## [Escala de un laboratorio](devtest-lab-scale-lab.md)
 
 # Referencia

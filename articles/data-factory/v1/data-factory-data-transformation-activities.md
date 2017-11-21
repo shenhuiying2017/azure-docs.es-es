@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2ec40ee232ab50f79169f42b6573d294b77110a2
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a631708ce755b07701c053e217dd658e5f7bb82b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/27/2017
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo acerca de las [actividades de transformación de datos en Azure Data Factory, versión 2](../transform-data.md).
 
-En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información. Una actividad de transformación se ejecuta en un entorno informático, como clúster de HDInsight de Azure o un Lote de Azure. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
+En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información. Una actividad de transformación se ejecuta en un entorno informático, como clúster de Azure HDInsight o una instancia de Azure Batch. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
 
 Data Factory admite las siguientes actividades de transformación de datos que se pueden agregar a las [canalizaciones](data-factory-create-pipelines.md) tanto individualmente como encadenadas a otra actividad.
 
@@ -96,7 +96,7 @@ Azure Data Factory admite las siguientes actividades de transformación de datos
 | [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |MV de Azure |
-| [Procedimiento almacenado](data-factory-stored-proc-activity.md) |SQL Azure, Almacenamiento de datos SQL de Azure o SQL Server |
+| [Procedimiento almacenado](data-factory-stored-proc-activity.md) |SQL Azure, Azure SQL Data Warehouse o SQL Server |
 | [U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |Análisis con Azure Data Lake |
-| [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Lote de Azure |
+| [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Azure Batch |
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9b7490fd51a2a39e6438856041fb25110ddde69
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -79,7 +79,7 @@ La configuración de clúster de tres nodos se admite en desarrollo y pruebas po
 
 En general, no. Service Fabric almacena el estado en discos efímeros locales, lo que quiere decir que si la máquina virtual se mueve a un host distinto, los datos no se mueven con ella. En el funcionamiento normal, esto no es un problema ya que otros nodos ponen al día al nuevo nodo. Pero, si detiene todos los nodos y los reinicia más tarde, existe una posibilidad importante de que la mayoría de los nodos se inicien en nuevos hosts y hagan que el sistema no pueda recuperar.
 
-Si quiere crear clústeres para probar su aplicación antes de implementarla, le recomendamos que cree dinámicamente esos clústeres como parte de su [integración continua/ canalización de implementación continua](service-fabric-set-up-continuous-integration.md).
+Si quiere crear clústeres para probar su aplicación antes de implementarla, le recomendamos que cree dinámicamente esos clústeres como parte de su [integración continua/ canalización de implementación continua](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>¿Cómo se puede actualizar el sistema operativo (por ejemplo, de Windows Server 2012 a Windows Server 2016)?

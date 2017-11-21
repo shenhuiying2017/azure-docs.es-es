@@ -24,15 +24,13 @@
 ## Implementación
 ### [Redes virtuales](virtual-networks-create-vnet-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI de Azure 2.0](virtual-networks-create-vnet-arm-cli.md)
-#### [CLI de Azure 1.0](virtual-networks-create-vnet-cli-nodejs.md)
+#### [CLI de Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Plantilla](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Grupos de seguridad de red
 #### [Portal de Azure](virtual-networks-create-nsg-arm-pportal.md)
 #### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [CLI de Azure 2.0](virtual-networks-create-nsg-arm-cli.md)
-#### [CLI de Azure 1.0](virtual-networks-create-nsg-cli-nodejs.md)
+#### [CLI de Azure](virtual-networks-create-nsg-arm-cli.md)
 #### [Plantilla](virtual-networks-create-nsg-arm-template.md)
 #### [Grupos de seguridad de la aplicación](create-network-security-group-preview.md)
 #### Clásico
@@ -42,8 +40,7 @@
 ### Rutas definidas por el usuario
 #### [Portal de Azure](create-user-defined-route-portal.md)
 #### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [CLI de Azure 2.0](virtual-network-create-udr-arm-cli.md)
-#### [CLI de Azure 1.0](virtual-network-create-udr-arm-cli-nodejs.md)
+#### [CLI de Azure](virtual-network-create-udr-arm-cli.md)
 #### [Plantilla](virtual-network-create-udr-arm-template.md)
 #### Clásico
 ##### [Azure PowerShell](virtual-network-create-udr-classic-ps.md)
@@ -63,11 +60,11 @@
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
 ### Máquinas virtuales
+#### [Rendimiento de red de máquinas virtuales](virtual-machine-network-throughput.md)
 #### Creación de una máquina virtual con una dirección IP pública estática
 ##### [Portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
 ##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [CLI de Azure 2.0](virtual-network-deploy-static-pip-arm-cli.md)
-##### [CLI de Azure 1.0](virtual-network-deploy-static-pip-cli-nodejs.md)
+##### [CLI de Azure](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Plantilla](virtual-network-deploy-static-pip-arm-template.md)
 ##### Clásico
 ###### [Azure PowerShell](virtual-networks-reserved-public-ip.md)
@@ -83,8 +80,7 @@
 
 #### Creación de una máquina virtual con varias interfaces de red
 ##### [Azure PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI de Azure 2.0](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI de Azure 1.0](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI de Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Plantilla](virtual-network-deploy-multinic-arm-template.md)
 
 ##### Clásico
@@ -136,7 +132,7 @@
 #### Clásico
 ##### Direcciones IP estáticas
 ###### [PowerShell](virtual-networks-reserved-private-ip.md)
-###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 ##### [Dirección IP pública en el nivel de instancia](virtual-networks-instance-level-public-ip.md)
 
 ### Clásico
@@ -154,8 +150,7 @@
 ### Grupos de seguridad de red
 #### [Portal de Azure](virtual-network-manage-nsg-arm-portal.md)
 #### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [CLI de Azure 2.0](virtual-network-manage-nsg-arm-cli.md)
-#### [CLI de Azure 1.0](virtual-network-manage-nsg-cli-nodejs.md)
+#### [CLI de Azure](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Registros](virtual-network-nsg-manage-log.md)
 ### Interfaces de red (NIC)
@@ -191,7 +186,7 @@
 
 # Temas relacionados
 ## [Máquinas virtuales](/azure/virtual-machines/)
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [DNS de Azure](/azure/dns/)
 ## [Administrador de tráfico](/azure/traffic-manager/)
 ## [Equilibrador de carga](/azure/load-balancer/)

@@ -1,6 +1,6 @@
 ---
 title: Preguntas frecuentes sobre Azure Data Catalog | Microsoft Docs
-description: "Preguntas más frecuentes sobre el Catálogo de datos de Azure, incluidas las funciones de detección de origen de datos, anotación y administración."
+description: "Preguntas más frecuentes sobre Azure Data Catalog, incluidas las funciones de detección de origen de datos, anotación y administración."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 11e4bc7e71b4a94c3a0eda4275745b1beb44974d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre el Catálogo de datos de Azure
+# <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
 
 ## <a name="what-is-azure-data-catalog"></a>¿Qué es Azure Data Catalog?

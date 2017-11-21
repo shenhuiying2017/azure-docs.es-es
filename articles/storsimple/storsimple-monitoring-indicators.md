@@ -12,15 +12,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ae0caec211dc1199f0abd2ce9bc0c7ad11c02ec
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de supervisión de StorSimple para administrar su dispositivo
+
+
 ## <a name="overview"></a>Información general
 El dispositivo StorSimple incluye diodos emisores de luz (LED) y alarmas que sirven para supervisar los módulos y el estado general del dispositivo StorSimple. Los indicadores de supervisión pueden estar en los componentes de hardware del revestimiento principal del dispositivo y del revestimiento de EBOD. Estos indicadores de supervisión pueden ser LED o alarmas audibles.
 
@@ -33,7 +35,7 @@ Existen tres estados de LED para indicar el estado de un módulo: verde, intermi
 En lo que resta de artículo se describen los distintos indicadores LED de supervisión, sus ubicaciones en el dispositivo StorSimple, el estado del dispositivo en función de los estados de LED y las alarmas audibles asociadas.
 
 ## <a name="front-panel-indicator-leds"></a>Indicadores LED en el panel frontal
-El panel frontal, también conocido como **panel de operaciones**, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
+El panel frontal, también conocido como *panel de* *operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
 
    ![Panel frontal del dispositivo][1]
 

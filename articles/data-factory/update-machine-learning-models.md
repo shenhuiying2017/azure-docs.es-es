@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 062d82d1bb2126a5b135796a2b5fa00ccf02511d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo. 
@@ -88,7 +88,7 @@ Para que funcione el flujo de trabajo de un extremo a otro mencionado anteriorme
 Para el segundo servicio vinculado de Azure Machine Learning, la configuración es diferente si el servicio web de Azure Machine Learning es un servicio web clásico o un servicio web nuevo. Las diferencias se tratan por separado en las secciones siguientes. 
 
 ## <a name="web-service-is-a-classic-web-service"></a>El servicio web es un servicio web clásico
-Si el servicio web de predicción es un **servicio web clásico**, cree el segundo **punto de conexión no predeterminado y actualizable** mediante [Azure Portal](https://manage.windowsazure.com). Para conocer los pasos necesarios para ello, consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md). Después de crear el punto de conexión actualizable no predeterminado, realice los siguientes pasos:
+Si el servicio web de predicción es un **servicio web clásico**, cree el segundo **punto de conexión no predeterminado y actualizable** mediante Azure Portal. Para conocer los pasos necesarios para ello, consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md). Después de crear el punto de conexión actualizable no predeterminado, realice los siguientes pasos:
 
 * Haga clic en **EJECUCIÓN DE LOTES** para obtener el valor del URI para la propiedad JSON **mlEndpoint**.
 * Haga clic en vínculo **ACTUALIZAR RECURSO** para obtener el valor de URI para la propiedad JSON **updateResourceEndpoint**. La clave de API está en la página de punto de conexión (en la esquina inferior derecha).

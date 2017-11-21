@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50917572ef8739ddc674d3592696a1ee4a8edc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09aa98a35fa8286828a99c49a33a80d5938afe3a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidad y recuperación ante desastres de SAP HANA para instancias grandes en Azure 
 
@@ -222,12 +222,12 @@ Escriba el comando `hdbuserstore` de esta forma:
 
 **Para la configuración de HANA distinta de MDC**
 ```
-hdbuserstore set <key> <host><3[instance]15> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]15> <user> <password>
 ```
 
 **Para la configuración de HANA MDC**
 ```
-hdbuserstore set <key> <host><3[instance]13> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]13> <user> <password>
 ```
 
 En el ejemplo siguiente, el usuario es **SCADMIN01**, el nombre del host es **lhanad01** y el número de instancia es **01**:
@@ -385,7 +385,7 @@ A medida que finalizan todos los pasos de preparación, puede comenzar a estable
 Se pueden crear tres tipos de copias de seguridad de instantánea:
 - **HANA**: copia de seguridad de la instantánea combinada en la que la instantánea coordinada abarca los volúmenes que contienen /hana/data y /hana/shared (que también contiene /usr/sap). Es posible realizar una sola restauración de archivos a partir de esta instantánea.
 - **Registros**: copia de seguridad de la instantánea del volumen /hana/logbackups. Ninguna instantánea de HANA se desencadena para ejecutar esta instantánea de almacenamiento. Este volumen de almacenamiento es el volumen pensado para contener las copias de seguridad del registro de transacciones de SAP HANA. Las copias de seguridad del registro de transacciones de SAP HANA se realizan más frecuentemente para limitar el crecimiento del registro y evitar la posible pérdida de datos. Es posible realizar una sola restauración de archivos a partir de esta instantánea. No debe reducir la frecuencia por debajo de cinco minutos.
-- **Arranque**: instantánea del volumen que contiene el número de unidad lógica (LUN) de arranque de la instancia grande de HANA. La copia de seguridad de esta instantánea solo es posible con las SKU de tipo I de las instancias grandes de HANA. No es posible realizar restauraciones de archivos únicas a partir de la instantánea del volumen que contiene el LUN de arranque.  
+- **Arranque**: instantánea del volumen que contiene el número de unidad lógica (LUN) de arranque de la instancia grande de HANA. La copia de seguridad de esta instantánea solo es posible con las SKU de tipo I de las instancias grandes de HANA. No es posible realizar restauraciones de archivos únicas a partir de la instantánea del volumen que contiene el LUN de arranque. En las SKU de tipo II de instancias grandes de HANA, puede realizar la copia de seguridad de nivel de sistema operativo y restaurar también archivos individuales. Para más información, consulte el documento "[Copia de seguridad del sistema operativo para SKU de tipo II](os-backup-type-ii-skus.md)".
 
 
 La sintaxis de llamada de estos tres tipos distintos de instantáneas es la siguiente:

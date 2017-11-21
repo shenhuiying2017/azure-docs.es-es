@@ -12,29 +12,43 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 11/2/2017
 ms.author: damaerte
-ms.openlocfilehash: 4c99ae37b66200244514ee554c9696cf18c1b800
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 89d5d8df9327c6136fbd00078f6a34f78d85032e
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="troubleshooting-azure-cloud-shell"></a>Solución de problemas de Azure Cloud Shell
 
 Entre las resoluciones conocidas de problemas en Azure Cloud Shell, se incluyen las siguientes:
 
-## <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Cuadro de diálogo de Storage. Error: 403 RequestDisallowedByPolicy
+## <a name="general-resolutions"></a>Resoluciones generales
+
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Cuadro de diálogo de Storage. Error: 403 RequestDisallowedByPolicy
 - **Detalles**: al crear una cuenta de almacenamiento a través de Cloud Shell se produce un error debido a una directiva de Azure creada por el administrador. El mensaje de error incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Resolución**: póngase en contacto con el administrador de Azure para quitar o actualizar la directiva que deniega la creación del almacenamiento.
 
-## <a name="storage-dialog---error-400-disallowedoperation"></a>Cuadro de diálogo de Storage. Error: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>Cuadro de diálogo de Storage. Error: 400 DisallowedOperation
  - **Detalles**: cuando se usa una suscripción de Azure Active Directory, no puede crear almacenamiento.
  - **Resolución**: use una suscripción de Azure capaz de crear recursos de almacenamiento. Las suscripciones de Azure AD no pueden crear recursos de Azure.
 
-## <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Salida de terminal. Error: Failed to connect terminal: websocket cannot be established (Error al conectar con el terminal: no se puede establecer el websocket). Presione `Enter` para volver a conectarse.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Salida de terminal. Error: Failed to connect terminal: websocket cannot be established (Error al conectar con el terminal: no se puede establecer el websocket). Presione `Enter` para volver a conectarse.
  - **Detalles**: Cloud Shell requiere la capacidad de establecer una conexión de websocket con la infraestructura de Cloud Shell.
  - **Resolución**: Compruebe que ha configurado las opciones de red para permitir el envío de solicitudes https y websocket para dominios en *.console.azure.com.
+
+## <a name="bash-resolutions"></a>Resoluciones de Bash
+
+### <a name="cannot-run-az-login"></a>No se puede ejecutar el inicio de sesión de az
+
+- **Detalles**: la ejecución de `az login` no funcionará, ya que ya se ha autenticado en la cuenta utilizada para iniciar sesión en Cloud Shell o Azure Portal.
+- **Resolución**: utilice la cuenta usada para iniciar sesión o cierre sesión y vuelva a autenticar con la cuenta de Azure prevista.
+
+### <a name="cannot-run-the-docker-daemon"></a>No se puede ejecutar el demonio de Docker
+
+- **Detalles**: Cloud Shell utiliza un contenedor para hospedar el entorno de shell, lo que hace que no se permita la ejecución del demonio.
+- **Resolución**: utilice la [máquina de Docker](https://docs.docker.com/machine/overview/), que se instala de forma predeterminada para administrar contenedores de Docker desde un host de Docker remoto.
 
 ## <a name="powershell-resolutions"></a>Resoluciones de PowerShell
 

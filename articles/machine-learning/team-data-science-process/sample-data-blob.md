@@ -1,10 +1,10 @@
 ---
 title: Muestra de datos en Azure Blob Storage | Microsoft Docs
-description: Muestra de datos en el almacenamiento de blobs de Azure
+description: Muestra de datos en Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e8d9ad2c-86c5-43d6-80b8-d355b5c0dccf
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: ff9ce56afb68ce0d8e88c3a832fe2a8c6372bf02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00444853cc7b0f8d8ea4dfa1e6cddad4479daec0
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
 En este documento se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure descargándolos mediante programación y luego realizando un muestreo de los mismos con procedimientos escritos en Python.
@@ -68,7 +68,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
 
 Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del 1 por ciento, para la generación de características y exploración más a fondo.
 
-## <a name="heading"></a>Carga de datos y lectura en Aprendizaje automático de Azure
+## <a name="heading"></a>Carga de datos y lectura en Azure Machine Learning
 Puede usar el ejemplo de código siguiente para muestrear los datos y usarlos directamente en Azure Machine Learning:
 
 1. Escribir la trama de datos en un archivo local

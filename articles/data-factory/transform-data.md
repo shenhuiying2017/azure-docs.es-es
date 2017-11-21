@@ -3,7 +3,7 @@ title: Transformar datos mediante Azure Data Factory | Microsoft Docs
 description: "Aprenda cómo transformar datos o procesar datos en Azure Data Factory mediante Hadoop, Machine Learning o Azure Data Lake Analytics."
 services: data-factory
 documentationcenter: 
-author: sharonlo101
+author: shengcmsft
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: shlo
-ms.openlocfilehash: 832c4f232a3821225c8086b636de713da2b967a0
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.author: shengc
+ms.openlocfilehash: 88ff71956c82d79fb244f1a687debeb726291ae8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/27/2017
 > * [.NET personalizado](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Información general
-En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información. Una actividad de transformación se ejecuta en un entorno informático, como clúster de HDInsight de Azure o un Lote de Azure. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
+En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información. Una actividad de transformación se ejecuta en un entorno informático, como clúster de Azure HDInsight o una instancia de Azure Batch. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
 
 Data Factory admite las siguientes actividades de transformación de datos que se pueden agregar a las [canalizaciones](concepts-pipelines-activities.md) tanto individualmente como encadenadas a otra actividad.
 

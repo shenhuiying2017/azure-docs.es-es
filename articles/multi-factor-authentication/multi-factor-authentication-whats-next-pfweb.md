@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: f71c569d31494c0f4035d8bec7e327bd1c2677d1
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: c6c5d5718a7e7e56ad73900f20c27f3637772872
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora que ya está preparado y con todo funcionando.  Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication.  No todas estas características están disponibles en todas las versiones de Azure Multi-Factor Authentication.
@@ -308,9 +308,9 @@ Cuando los usuarios inscriben sus cuentas para MFA, deciden su método de compro
 | Método | Descripción |
 |:--- |:--- |
 | Llamada al teléfono |Hace una llamada de voz automática. El usuario responde a la llamada y pulsa la # del teclado del teléfono para autenticarse. Este número de teléfono no se sincroniza con Active Directory local. |
-| Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se le pide al usuario que o bien conteste al mensaje de texto con el código de comprobación o que escriba el código de verificación en la interfaz de inicio de sesión. |
+| Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se le pide al usuario que o bien conteste al mensaje de texto con el código de verificación o que escriba el código de verificación en la interfaz de inicio de sesión. |
 | Notificación a través de aplicación móvil |Envía una notificación push a su teléfono o dispositivo registrado. El usuario ve la notificación y selecciona **Comprobar** para completar la comprobación. <br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de comprobación desde aplicación móvil |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada treinta segundos. El usuario escribe dicho código en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificación desde aplicación móvil |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada treinta segundos. El usuario escribe dicho código en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Habilitación/deshabilitación de los métodos de autenticación
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).

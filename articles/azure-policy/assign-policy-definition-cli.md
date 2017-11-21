@@ -5,49 +5,50 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 92b532691986e72eca68d9bc3033e20ff8ffef3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 764554a6afcc7912c53fc5000a6af44abb2adc99
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure con la CLI de Azure
 
-El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos actuales. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar recursos incompatibles con la definición de directiva *Require SQL Server version 12.0* (Requerir SQL Server 12.0). Al final de este proceso, habrá identificado correctamente qué servidores se corresponden con una versión distinta, es decir, los que son incompatibles básicamente.
+El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos con los que ya cuenta. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
 
-La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía se explica detalladamente cómo usar la CLI de Azure para crear una asignación de directiva para identificar recursos no compatibles en el entorno de Azure.
+Al final de este proceso, habrá identificado correctamente qué máquinas virtuales no utilizan discos administrados y, por tanto, *no son compatibles*.
+.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
- 
+
 ## <a name="opt-in-to-azure-policy"></a>Participación en Azure Policy
 
-Azure Policy ya se encuentra disponible en versión preliminar limitada y, por tanto, necesita registrarse para solicitar acceso.
+Azure Policy ya se encuentra disponible en versión preliminar pública y es necesario registrarse para solicitar el acceso.
 
-1. Vaya a Azure Policy en https://aka.ms/getpolicy y seleccione **Suscribirse** en el panel izquierdo.
+1. Vaya a Azure Policy en https://aka.ms/getpolicy y seleccione **Sign Up** (Suscribirse) en el panel izquierdo.
 
-   ![Búsqueda de políticas](media/assign-policy-definition/sign-up.png)
+   ![Búsqueda de directivas](media/assign-policy-definition/sign-up.png)
 
-2. Para participar en Azure Policy, seleccione las suscripciones con las que le gustaría trabajar en la lista **Suscripción**. Después, seleccione **Registrar**.
+2. Para participar en Azure Policy, seleccione las suscripciones con las que le gustaría trabajar en la lista **Subscription** (Suscripción). Después, seleccione **Registrar**.
 
    ![Participación en el uso de Azure Policy](media/assign-policy-definition/preview-opt-in.png)
 
-   La aceptación de la solicitud de registro puede tardar un par de días, en función de la demanda. Una vez aceptada la solicitud, se le envía un correo electrónico para notificarle que ya puede empezar a usar el servicio.
+   Su solicitud se aprueba automáticamente para la versión preliminar. Espere 30 minutos para que el sistema procese el registro.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
-En este inicio rápido, se va a crear una asignación de directiva y se va asignar la definición Require SQL Server Version 12.0 (Requerir SQL Server 12.0). Esta definición de directiva identifica los recursos que no son compatibles con las condiciones establecidas en la definición de directiva.
+En este tutorial rápido, se crea una asignación de directiva y se le asigna la definición de la Auditoría de máquinas virtuales sin discos administrados. Esta definición de directiva identifica los recursos que no son compatibles con las condiciones establecidas en la definición de directiva.
 
-Siga los pasos siguientes para crear una asignación de directiva.
+Siga los pasos siguientes para crear una nueva asignación de directiva.
 
-Consulte todas las definiciones de directiva y busque la definición "Require SQL Server version 12.0" (Requerir SQL Server 12.0):
+Vea todas las definiciones de directiva, y busque la definición de la directiva de la Auditoría de máquinas virtuales sin discos administrados:
 
 ```azurecli
 az policy definition list
@@ -55,22 +56,22 @@ az policy definition list
 
 Azure Policy integra ya definiciones de directiva disponibles para usarlas. Encontrará definiciones de directiva integradas como:
 
-- Enforce tag and its value (Forzar etiqueta y su valor)
-- Apply tag and its value (Aplicar etiqueta y su valor)
+- Enforce tag and its value (Forzar una etiqueta y su valor)
+- Apply tag and its value (Aplicar una etiqueta y su valor)
 - Require SQL Server Version 12.0 (Requerir SQL Server 12.0)
 
 A continuación, proporcione la información siguiente y ejecute el comando siguiente para asignar la definición de directiva:
 
-- **Nombre** para mostrar para la asignación de directiva. En este caso, se va a usar la asignación *Require SQL Server version 12.0* (Requerir SQL Server 12.0).
-- **Directiva**: se trata de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, se corresponde con la definición de directiva *Require SQL Server version 12.0* (Requerir SQL Server 12.0).
-- Un **ámbito** determina en qué recursos o agrupación de recursos se exige la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
+- **Nombre** para mostrar para la asignación de directiva. En este caso, vamos a usar la *Auditoría de máquinas virtuales sin discos administrados*.
+- **Directiva**: se trata de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, es la definición de la directiva: *Auditoría de máquinas virtuales sin discos administrados*.
+- Un **ámbito**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
 
-  Use la suscripción o el grupo de recursos que registró anteriormente cuando empezó a participar en Azure Policy; en este ejemplo, se va a usar el identificador de suscripción **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** y el nombre de grupo de recursos **FabrikamOMS**. No olvide cambiar estos valores por el identificador de la suscripción y el nombre del grupo de recursos con los que trabaja. 
+  Use la suscripción o el grupo de recursos que registró anteriormente cuando empezó a participar en Azure Policy; en este ejemplo, se va a usar el identificador de suscripción **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** y el nombre de grupo de recursos **FabrikamOMS**. No olvide cambiar estos valores por el identificador de la suscripción y el nombre del grupo de recursos con los que trabaja.
 
 El comando debe presentar un aspecto similar a este:
 
 ```azurecli
-az policy assignment create --name Require SQL Server version 12.0 Assignment --policy Require SQL Server version 12.0 --scope /subscriptions/ 
+az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
@@ -92,7 +93,7 @@ Para ver los recursos que no son compatibles con esta nueva asignación:
 Otras guías de esta colección se basan en esta guía de inicio rápido. Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, elimine la asignación que creó mediante la ejecución de este comando:
 
 ```azurecli
-az policy assignment delete –name Require SQL Server version 12.0 Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
+az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -103,4 +104,3 @@ Para obtener información sobre la asignación de directivas, para garantizar la
 
 > [!div class="nextstepaction"]
 > [Crear y administrar directivas](./create-manage-policy.md)
-

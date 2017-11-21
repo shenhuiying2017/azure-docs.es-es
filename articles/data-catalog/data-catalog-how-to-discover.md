@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 9ff67dcb5ecb00440f73f979fd8d2b79a570c674
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c2a1d61bc13ba1cde404e2b732933d2d314e3e3
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Detección de orígenes de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción
@@ -59,7 +59,7 @@ Al visualizar los resultados de la búsqueda, puede que no siempre sea evidente 
 
 En la vista de iconos predeterminada, cada icono que se muestre en los resultados de la búsqueda incluirá un icono **Ver coincidencias de los términos de búsqueda**, que le permite ver rápidamente el número de coincidencias y su ubicación, y obtener acceso a ellas si lo desea.
 
- ![Resaltado de referencias y coincidencias de búsqueda en el portal del Catálogo de datos de Azure](./media/data-catalog-how-to-discover/search-matches.png)
+ ![Resaltado de referencias y coincidencias de búsqueda en el portal de Azure Data Catalog](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Resumen
 Puesto que al registrar un origen de datos con Azure Data Catalog se copian los metadatos estructurales y descriptivos del origen de datos en el servicio de catálogo, es más fácil la detección y comprensión de ese origen de datos. Una vez registrado un origen de datos, puede detectarlo mediante el filtrado y la búsqueda desde el portal de Data Catalog.

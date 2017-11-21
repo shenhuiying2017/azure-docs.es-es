@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -111,7 +111,7 @@ Algunas cargas de trabajo de Office 365 presentan ciertas restricciones en cuant
 
 | Carga de trabajo | Restricciones |
 --------- | ---------
-| Exchange Online | Si hay más de una organización de Exchange local (es decir, Exchange se ha implementado en más de un bosque), debe usar Exchange 2013 SP1 o versiones posteriores. Consulte [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/library/jj873754.aspx) para más información. |
+| Exchange Online | Para más información sobre las topologías híbridas que se admiten en Exchange Online, consulte [Implementaciones híbridas con varios bosques de Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
 | Skype Empresarial | Cuando se usan varios bosques locales, solo se admite la topología de bosque de cuenta-recurso. Para más información, consulte los [requisitos de entorno de Skype para Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
 
 

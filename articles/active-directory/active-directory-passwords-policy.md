@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5c33f08e54d522e0eea13a3e267f14f407fc59b6
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9d61f46070e6956c60f1135b98a9ebe71011b922
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -94,7 +94,7 @@ En la tabla siguiente se describe la configuración de políticas de contraseña
 
 ## <a name="set-password-expiration-policies-in-azure-active-directory"></a>Establecimiento de directivas de caducidad de contraseña en Azure Active Directory
 
-Un administrador global de un servicio en la nube de Microsoft puede usar el módulo de Microsoft Azure Active Directory para Windows PowerShell para configurar las contraseñas de usuario de modo que no caduquen. También puede usar cmdlets de Windows PowerShell para quitar la configuración de nunca caduca o para ver qué contraseñas de usuario están configuradas para que no caduquen. Esta guía se aplica a otros proveedores como Microsoft Intune y Office 365, que también dependen de Microsoft Azure Active Directory para los servicios de identidad y directorio.
+Un administrador global de un servicio en la nube de Microsoft puede usar el módulo de Microsoft Azure Active Directory para Windows PowerShell para configurar las contraseñas de usuario de modo que no caduquen. También puede usar cmdlets de Windows PowerShell para quitar la configuración de nunca caduca o para ver qué contraseñas de usuario están configuradas para que no caduquen. Esta guía se aplica a otros proveedores como Microsoft Intune y Office 365, que también dependen de Microsoft Azure Active Directory para los servicios de identidad y directorio. Esta es la única parte de la directiva que se puede cambiar.
 
 > [!NOTE]
 > Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para obtener más información sobre la sincronización de directorios, consulte [Conectar AD con Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
@@ -127,6 +127,9 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
 
    * Para configurar la contraseña de un usuario para que nunca caduque, ejecute el cmdlet siguiente con el nombre principal de usuario (UPN) o el identificador de usuario del usuario: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
    * Para configurar las contraseñas de todos los usuarios de una organización para que nunca caduquen, ejecute el siguiente cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+
+   > [!WARNING]
+   > Si establece `-PasswordNeverExpires $true`, la contraseña seguirá teniendo una antigüedad según el atributo `pwdLastSet`. Esto significa que si establece que las contraseñas no expiren nunca y, a continuación, pasado más de 90 días según `pwdLastSet` y cambia `-PasswordNeverExpires $false`, todas las contraseñas que tengan `pwdLastSet` anteriores a 90 días tendrán que cambiar la próxima vez que se inicie sesión. Este cambio podría afectar a un gran número de usuarios. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

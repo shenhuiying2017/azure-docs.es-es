@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5481e9139f18cb88ce5152776fa18df3f9441c80
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Copias de seguridad del estado del sistema de Windows en la implementación de Resource Manager
 En este artículo se explica cómo realizar copias de seguridad del estado del sistema de Windows Server en Azure. Es un tutorial diseñado para guiarle por los aspectos básicos.
 
-Si desea más información acerca de Copia de seguridad de Azure, lea esta [introducción](backup-introduction-to-azure-backup.md).
+Si desea más información acerca de Azure Backup, lea esta [introducción](backup-introduction-to-azure-backup.md).
 
 Si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) que le permita acceder a todos los servicios de Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crear un almacén de Servicios de recuperación en la región donde desea almacenar los datos. También debe determinar cómo desea que se replique el almacenamiento.
+Para hacer una copia de seguridad del estado del sistema de Windows Server, debe crear un almacén de Recovery Services en la región en la que quiere almacenar los datos. También debe determinar cómo desea que se replique el almacenamiento.
 
-### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante su suscripción.
+### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción.
 2. En el menú central, haga clic en **Más servicios** y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
 
     Si hay almacenes de Recovery Services en la suscripción, estos aparecerán en una lista.
-3. En el menú **Almacenes de servicios de recuperación**, haga clic en **Agregar**.
+3. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
+    ![Creación del almacén de Recovery Services, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
     Se abre la hoja del almacén de Recovery Services, donde se le pide que especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
@@ -62,7 +62,7 @@ Para hacer una copia de seguridad de los archivos y las carpetas, tiene que crea
 
 8. En la parte inferior de la hoja de almacén de recovery Services, haga clic en **Create** (Crear).
 
-    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de servicios de recuperación. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
+    La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
 
     ![Clic en el botón Refresh (Actualizar)](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
@@ -135,6 +135,9 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
     Descargue las credenciales de almacén en la carpeta Descargas. Una vez que haya terminado de descargar las credenciales del almacén, aparecerá una ventana emergente en la que se le preguntará si desea abrirlas o guardarlas. Haga clic en **Guardar**. Si, accidentalmente, hace clic en **Abrir**, deje que el cuadro de diálogo intente abrir las credenciales de almacén. Se producirá un error. No se pueden abrir las credenciales de almacén. Siga con el paso siguiente. Las credenciales del almacén están en la carpeta de descargas.   
 
     ![finalizó la descarga de las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> Las credenciales del almacén deben guardarse únicamente en una ubicación que sea local en Windows Server en la que vaya a usar el agente. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Instalación y registro del agente
 
@@ -148,7 +151,7 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
     ![ejecutar las credenciales del instalador del agente de Recovery Services](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. Complete el asistente para la instalación del agente de Servicios de recuperación de Microsoft Azure. Para completar al asistente, tendrá que hacer lo siguiente:
+2. Complete el asistente para la instalación del agente de Microsoft Azure Recovery Services. Para completar al asistente, tendrá que hacer lo siguiente:
 
    * Elija una ubicación para la instalación y la carpeta de caché.
    * Proporcione la información del servidor proxy si usa un servidor proxy para conectarse a Internet.
@@ -163,48 +166,21 @@ Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad 
 
 Ahora está instalado el agente y el equipo está registrado en el almacén. Está listo para configurar y programar la copia de seguridad.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Copia de seguridad del estado del sistema de Windows Server (versión preliminar)
-La copia de seguridad inicial incluye tres tareas:
+## <a name="back-up-windows-server-system-state"></a>Copia de seguridad del estado del sistema de Windows Server 
+La copia de seguridad inicial incluye dos tareas:
 
-* Habilitación de la copia de seguridad del estado del sistema mediante el agente de Azure Backup
 * Programación de la copia de seguridad
-* Creación de copias de seguridad de archivos y carpetas por primera vez
+* Hacer una copia de seguridad del estado del sistema por primera vez
 
 Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Recovery Services.
 
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Para habilitar la copia de seguridad del estado del sistema mediante el agente de Azure Backup
-
-1. En una sesión de PowerShell, ejecute el siguiente comando para detener el motor de Azure Backup.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Abra el Registro de Windows.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Agregue la siguiente clave del Registro con el valor DWord especificado.
-
-  | Ruta de acceso del Registro | Clave del Registro | Valor DWord |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Reinicie el motor de Backup ejecutando el siguiente comando en un símbolo del sistema con privilegios elevados.
-
-  ```
-  PS C:\> Net start obengine
-  ```
-
 ### <a name="to-schedule-the-backup-job"></a>Programación de la copia de seguridad
 
-1. Abra el agente de Servicios de recuperación de Microsoft Azure. Para encontrarlo, busque **Copia de seguridad de Microsoft Azure**en la máquina.
+1. Abra el agente de Microsoft Azure Recovery Services. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
 
-    ![Iniciar el agente de los Servicios de recuperación de Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
+    ![Iniciar el agente de Azure Recovery Services](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
-2. En el agente de Servicios de recuperación, haga clic en **Programar copia de seguridad**.
+2. En el agente de Recovery Services, haga clic en **Programar copia de seguridad**.
 
     ![Programación de una copia de seguridad de Windows Server](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
@@ -216,11 +192,7 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
 
 6. Haga clic en **Siguiente**.
 
-7. La programación de retención y copia de seguridad del estado del sistema se establece automáticamente para hacer la copia de seguridad todos los domingos a las 9:00 p. m. (hora local) y el período de retención se establece en 60 días.
-
-   > [!NOTE]
-   > La directiva de retención y copia de seguridad del estado del sistema se configura automáticamente. Si la copia de seguridad también incluye archivos y carpetas, además del estado del sistema de Windows Server, especifique solamente la directiva de copia de seguridad y retención para copias de seguridad de archivos desde el asistente. 
-   >
+7. Seleccione la frecuencia de copia de seguridad necesaria y la directiva de retención para las copias de seguridad de estado del sistema en las páginas siguientes. 
 
 8. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 
@@ -230,92 +202,25 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
 
 1. Asegúrese de que no hay actualizaciones pendientes para Windows Server que requieran un reinicio.
 
-2. En el agente de Servicios de recuperación, haga clic en **Back Up Now** (Iniciar copia de seguridad) para completar la propagación inicial a través de la red.
+2. En el agente de Recovery Services, haga clic en **Back Up Now** (Iniciar copia de seguridad) para completar la propagación inicial a través de la red.
 
     ![Copia de seguridad de Windows Server ahora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
+3. Seleccione **Estado del sistema** en la pantalla **Seleccionar el elemento de copia de seguridad** que aparece y haga clic en **Siguiente**.
+
+4. En la página Confirmación, revise la configuración que el asistente para iniciar copia de seguridad usará para crear la copia de seguridad de la máquina. Luego, haga clic en **Crear copia de seguridad**.
 
 4. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice la copia de seguridad, el asistente se sigue ejecutando en segundo plano.
 
-5. Si realiza la copia de seguridad de archivos y carpetas en el servidor, además del estado del sistema de Windows Server, el asistente para copias de seguridad solo se centrará en los archivos. Para llevar a cabo una copia de seguridad del estado del sistema ad hoc, use el siguiente comando de PowerShell:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
+Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.
 
   ![IR completado](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-
-Las siguientes preguntas y respuestas proporcionan información complementaria.
-
-### <a name="what-is-the-staging-volume"></a>¿Qué es el volumen de almacenamiento provisional?
-
-El volumen de almacenamiento provisional representa la ubicación intermedia donde Copias de seguridad de Windows Server, disponible de forma nativa, almacena temporalmente la copia de seguridad del estado del sistema. Después, el agente de Azure Backup comprime y cifra esta copia de seguridad intermedia y la envía a través del protocolo HTTPS seguro al almacén de Recovery Services configurado. **Se recomienda encarecidamente establecer el volumen de almacenamiento provisional en un volumen con un SO que no sea Windows. Si observa problemas con las copias de seguridad del estado del sistema, la comprobación de la ubicación del volumen de almacenamiento provisional es el primer paso para solucionar problemas.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>¿Cómo se puede cambiar la ruta de acceso del volumen de almacenamiento provisional especificada en el agente de Azure Backup?
-
-El volumen de almacenamiento provisional se encuentra en la carpeta de caché de forma predeterminada. 
-
-1. Para cambiar esta ubicación, utilice el siguiente comando (en un símbolo del sistema con privilegios elevados):
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Después, actualice las siguientes entradas del Registro con la ruta de acceso a la nueva carpeta del volumen de almacenamiento provisional.
-
-  |Ruta de acceso del Registro|Clave del Registro|Valor|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | nueva ubicación del volumen de almacenamiento provisional |
-
-La ruta de acceso del almacenamiento provisional distingue mayúsculas de minúsculas y debe escribirse exactamente igual que la existente en el servidor. 
-
-3. Cuando cambie la ruta de acceso del volumen de almacenamiento provisional, reinicie el motor de Backup:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Para adquirir la ruta de acceso cambiada, abra el agente de Microsoft Azure Recovery Services y desencadene una copia de seguridad ad hoc del estado del sistema.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>¿Por qué se establece la retención predeterminada del estado del sistema en 60 días?
-
-La vida útil de una copia de seguridad del estado del sistema es la misma que el valor de "duración del marcador de exclusión" para el rol de Windows Server Active Directory. El valor predeterminado para la entrada de duración del marcador de exclusión es de 60 días. Este valor se puede establecer en el objeto de configuración del servicio de directorio (NTDS).
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>¿Cómo se cambia la directiva predeterminada de copia de seguridad y retención para el estado del sistema?
-
-Para cambiar la directiva predeterminada de copia de seguridad y retención para el estado del sistema:
-1. Detenga el motor de Backup. Ejecute el siguiente comando en un símbolo del sistema con privilegios elevados.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Agregue o actualice las siguientes entradas de clave del Registro en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Nombre en el Registro|Descripción|Valor|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Se utiliza para configurar la hora de la copia de seguridad. El valor predeterminado es 9 p. m. (hora local).|DWord: Formato HHMM (decimal), por ejemplo 2130 para 9:30 p. m. (hora local)|
-  |SSBScheduleDays|Se utiliza para configurar los días en los que se debe realizar la copia de seguridad del estado del sistema a la hora especificada. Los dígitos individuales especifican los días de la semana. 0 representa el domingo, 1 es el lunes y así sucesivamente. El día predeterminado para hacer la copia de seguridad es el domingo.|DWord: Días de la semana para ejecutar la copia de seguridad (decimal); por ejemplo, 1230 programa copias de seguridad para el lunes, martes, miércoles y domingo.|
-  |SSBRetentionDays|Se utiliza para configurar los días para conservar la copia de seguridad. El valor predeterminado es 60. El valor máximo permitido es 180.|DWord: Días que se conserva la copia de seguridad (decimal).|
-
-3. Utilice el siguiente comando para reiniciar el motor de Backup.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Abra el agente de Microsoft Recovery Services.
-
-5. Haga clic en **Programar copia de seguridad** y luego en **Siguiente** hasta que vea los cambios reflejados.
-
-6. Haga clic en **Finalizar** para aplicar los cambios.
-
 
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de cómo [realizar copias de seguridad de máquinas Windows](backup-configure-vault.md).
-* Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
+* Ahora que ha realizado una copia de seguridad del estado del sistema de Windows Server, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).
 * Si necesita restaurar una copia de seguridad, use este artículo: [Restaurar archivos en una máquina de Windows Server o del Cliente de Windows](backup-azure-restore-windows-server.md).

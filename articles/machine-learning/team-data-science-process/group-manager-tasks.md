@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 11/13/2017
 ms.author: bradsev;
-ms.openlocfilehash: cd73aed14f672351b72e09d682909a47c63b9026
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58cea8b0288469a76dd8c4eb967caa8e87cd3dd7
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="group-manager-tasks"></a>Tareas del administrador de grupo
 
@@ -252,7 +252,7 @@ Ahora puede ver qué archivos de los directorios LG1 y LG1 (excepto los archivos
     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
     bash tdsp_local_copy_linux.sh 1
 
-![20 |](./media/group-manager-tasks/copy-two-folder-to-group-folder-linux-2.PNG)
+![20](./media/group-manager-tasks/copy-two-folder-to-group-folder-linux-2.PNG)
         
 También puede ver que los archivos de las dos carpetas (excepto los archivos del directorio .git) se copian, respectivamente, en GroupProjectTemplate y GroupUtilities.
     

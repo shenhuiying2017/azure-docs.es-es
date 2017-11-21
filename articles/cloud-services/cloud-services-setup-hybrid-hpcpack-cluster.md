@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
-ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad5c13723eef352148a40e3e7f4f2ff616867296
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Configuración de un clúster híbrido de informática de alto rendimiento (HPC) con nodos de proceso de Azure a petición y Microsoft HPC Pack
 Use Microsoft HPC Pack 2012 R2 y Azure para configurar un pequeño clúster híbrido de informática de alto rendimiento (HPC). El clúster que se muestra en el artículo consta del nodo principal de un HPC Pack local y algunos nodos de ejecución que se implementan a petición en un servicio en la nube de Azure. A continuación, podrá ejecutar trabajos informáticos en el clúster híbrido.
@@ -87,7 +87,9 @@ HPC Pack instala un certificado autofirmado en el nodo principal, llamado Defaul
 
 2. Haga clic en **Suscripciones** > *nombre_de_la_suscripción*.
 
-3. Haga clic en **Certificados de administración** > **Cargar**.4. Busque el archivo C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer en el nodo principal. Luego, haga clic en **Cargar**.
+3. Haga clic en **Certificados de administración** > **Cargar**.
+
+4. Busque el archivo C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer en el nodo principal. Luego, haga clic en **Cargar**.
 
    
 El certificado **Administración de HPC de Azure predeterminado** aparece en la lista de certificados de administración.
@@ -200,7 +202,7 @@ Cuando quiera usar los recursos del clúster de Azure, use el administrador de c
 
 3. Después de unos minutos, los nodos de Azure terminan de aprovisionarse y pasan al estado **Sin conexión** . En este estado, las instancias de rol se ejecutan pero todavía no pueden aceptar trabajos de clúster.
 
-4. Para confirmar que las instancias de rol se ejecutan, en Azure Portal, haga clic en **Servicios en la nube (clásico)** > *nombre_del_servicio_en_la_nube*.
+4. Para confirmar que las instancias de rol se ejecutan, en Azure Portal, haga clic en **Cloud Services (clásico)** > *nombre_del_servicio_en_la_nube*.
    
    Debería ver dos instancias (nodos) de **HpcWorkerRole** en ejecución en el servicio. HPC Pack también implementa automáticamente dos instancias **HpcProxy** (tamaño medio) para controlar la comunicación entre el nodo principal y Azure.
 

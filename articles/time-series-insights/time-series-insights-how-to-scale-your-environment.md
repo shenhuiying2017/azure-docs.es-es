@@ -1,32 +1,31 @@
 ---
 title: Escalado del entorno de Azure Time Series Insights | Microsoft Docs
-description: "Este tutorial describe cómo escalar el entorno de Azure Time Series Insights"
-keywords: 
+description: "En este artículo se describe cómo escalar el entorno de Azure Time Series Insights. Use Azure Portal para agregar o restar capacidad en una SKU de precios."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: ba6bd1ab05bb7e24dd1bc307218e7a772fbde601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
 
-Este tutorial describe cómo escalar el entorno de Time Series Insights.
+En este artículo se describe cómo cambiar la capacidad de su entorno en el entorno de Azure Time Series Insights a través de Azure Portal. La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado con la SKU seleccionada. 
 
-> [!NOTE]
-> No se permite el escalado vertical entre los tipos de SKU. Un entorno con una SKU S1 no se puede convertir en un entorno de S2.
+Puede usar Azure Portal para aumentar o disminuir la capacidad en una SKU de precios determinada. 
+
+Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un entorno con una SKU de precios de S1 no se puede convertir en una de S2 o viceversa. 
+
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>Capacidades y tasas de entrada de SKU de S1
 
@@ -42,14 +41,22 @@ Este tutorial describe cómo escalar el entorno de Time Series Insights.
 | 1 | 10 GB (10 millones de eventos) | 300 GB (300 millones de eventos) al mes |
 | 10 | 100 GB (100 millones de eventos) | 3 TB (3 mil millones de eventos) al mes |
 
-Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2 admite una tasa de entrada de 2 GB (2 millones) de eventos al día y 60 GB (60 millones de eventos) al mes.
+Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2 admite una velocidad de entrada de 2 GB (2 millones) de eventos al día y 60 GB (60 millones de eventos) al mes.
 
-## <a name="changing-the-capacity-of-your-environment"></a>Cambio de la capacidad del entorno
+## <a name="change-the-capacity-of-your-environment"></a>Cambio de la capacidad del entorno
+1. En Azure Portal, localice y seleccione el entorno de Time Series Insights. 
 
-1. En Azure Portal, seleccione el entorno cuya capacidad desee cambiar.
-1. En Configuración, haga clic en Configurar.
-1. Utilice el control deslizante de la capacidad para seleccionar la capacidad que cumple los requisitos para las tarifas de entrada y la capacidad de almacenamiento.
+2. En el encabezado **Configuración**, haga clic en **Configurar**.
+
+   ![configure.png](media/scale-your-environment/configure.png)
+
+3. Utilice el control deslizante **Capacidad** para seleccionar la que cumpla los requisitos para la velocidad de entrada y la capacidad de almacenamiento. Tenga en cuenta la velocidad de entrada, la capacidad de almacenamiento y las actualizaciones de la estimación de costos dinámicamente para mostrar el efecto del cambio. 
+
+   ![Control deslizante](media/scale-your-environment/slider.png)
+
+   También puede escribir número del multiplicador de capacidad en el cuadro de texto de la derecha del control deslizante. 
+
+4. Seleccione **Guardar** para escalar el entorno. El indicador de progreso se muestra hasta que el cambio se confirma, un tiempo breve. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* Compruebe que la nueva capacidad sea suficiente para evitar la limitación. Para más información, vea la sección *Puede que se esté limitando el entorno* [aquí](time-series-insights-diagnose-and-solve-problems.md).
+Compruebe que la nueva capacidad sea suficiente para evitar la limitación. Para más información, consulte el artículo sobre la [limitación del entorno](time-series-insights-diagnose-and-solve-problems.md).

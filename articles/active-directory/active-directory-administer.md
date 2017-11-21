@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0ffb0b82acd002cb02adc6e82a447d2b788496f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Administración del directorio de Azure AD
 
@@ -121,4 +121,4 @@ Se comprueban las condiciones siguientes:
 * [Foro de Multi-Factor Authentication de Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
 * [Preguntas sobre Azure publicadas en Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
-* [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md)
+* [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles-azure-portal.md)

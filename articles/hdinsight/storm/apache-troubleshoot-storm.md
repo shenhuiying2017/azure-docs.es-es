@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 399ed17e997baf5dcf484f7798d3c4679522c633
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Solución de problemas de Storm mediante Azure HDInsight
 
 Obtenga información sobre los principales problemas y sus soluciones al trabajar con cargas útiles de Apache Storm en Apache Ambari.
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Acceso a la interfaz de usuario de Storm en un clúster
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>¿Cómo se accede a la interfaz de usuario de Storm en un clúster?
 Tiene dos opciones para acceder a la interfaz de usuario de Storm desde un explorador:
 
 ### <a name="ambari-ui"></a>Interfaz de usuario de Ambari
@@ -42,7 +42,7 @@ Ejemplo:
 
  https://stormcluster.azurehdinsight.net/stormui
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Transferencia de información del punto de control del spout del centro de eventos de Storm de una topología a otra
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>¿Cómo se transfiere información del punto de control del spout del centro de eventos de Storm de una topología a otra
 
 Cuando se desarrollan topologías que leen desde instancias de Azure Event Hubs mediante el archivo .jar del spout del centro de eventos Storm en HDInsight, debe implementar una topología que tenga el mismo nombre en un nuevo clúster. Sin embargo, debe conservar los datos del punto de control que se confirmaron en Apache ZooKeeper en el clúster antiguo.
 
@@ -86,14 +86,14 @@ El comando export escribe los metadatos en una ruta de acceso del Sistema de arc
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Cómo se buscan los archivos binarios de Storm en un clúster
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>¿Cómo se buscan los archivos binarios de Storm en un clúster?
 Los archivos binarios de Storm para la pila de HDP actual se encuentran en: /usr/hdp/current/storm-client. La ubicación es la misma para los nodos principales y para los nodos de trabajo.
  
 Puede haber varios archivos binarios para versiones específicas de HDP en /usr/hdp (por ejemplo, /usr/hdp/2.5.0.1233/storm). La carpeta /usr/hdp/current/storm-client tiene un vínculo simbólico a la versión más reciente que se ejecuta en el clúster.
 
 Para más información, consulte cómo [conectarse a un clúster de HDInsight a través de SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Storm](http://storm.apache.org/).
  
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Cómo se puede determinar la topología de implementación de un clúster de Storm
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>¿Cómo se determina la topología de implementación de un clúster de Storm?
 En primer lugar, identifique todos los componentes que se instalan con Storm de HDInsight. Un clúster de Storm consta de cuatro categorías de nodo:
 
 * Nodos de puerta de enlace
@@ -122,7 +122,7 @@ Los nodos de trabajo de Storm ejecutan los siguientes servicios:
 * Máquinas virtuales Java (JVM) de trabajo, para topologías en ejecución
 * Agente de Ambari
  
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Localización de los archivos binarios del spout del centro de eventos de Storm para el desarrollo
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>¿Cómo se buscan los archivos binarios del spout del centro de eventos de Storm para el desarrollo?
  
 Para más información sobre el uso de archivos .jar del centro de eventos de Storm con su topología, consulte los siguientes recursos.
  
@@ -138,7 +138,7 @@ Para obtener información sobre cómo usar el spout del centro de eventos de Sto
 ### <a name="source-code-examples"></a>Ejemplos de código fuente
 Consulte algunos [ejemplos](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) sobre cómo leer y escribir desde un centro de eventos de Azure Event Hubs mediante una topología de Apache Storm (escrita en Java) en un clúster de Azure HDInsight.
  
-## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>Cómo se pueden encontrar los archivos de configuración Log4J de Storm en clústeres
+## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>¿Cómo se buscan los archivos de configuración Log4J de Storm en clústeres
  
 Para identificar los archivos de configuración de Log4J de Apache para servicios de Storm.
  
@@ -152,3 +152,5 @@ El archivo de configuración Log4J de trabajo se lee de /usr/hdp/\<versión de H
  
 Ejemplos: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+### <a name="see-also"></a>Otras referencias
+[Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

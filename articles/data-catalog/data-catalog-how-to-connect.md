@@ -1,6 +1,6 @@
 ---
 title: "Conexión a orígenes de datos | Microsoft Docs"
-description: "Artículo de procedimientos que indica cómo conectarse a orígenes de datos que se detectan con el Catálogo de datos de Azure."
+description: "Artículo de procedimientos que indica cómo conectarse a orígenes de datos que se detectan con Azure Data Catalog."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: fd687bb74a22b0483225c509171edaa67f1c49d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8176a952107a630d42d557e568a230f1cdc840aa
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-to-connect-to-data-sources"></a>Conexión a orígenes de datos
 ## <a name="introduction"></a>Introducción
-**Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Un aspecto clave de este escenario es el uso de los datos: cuando un usuario detecta un origen de datos y comprende su propósito, el paso siguiente es la conexión al origen de datos para utilizar sus datos.
+**Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, **Azure Data Catalog** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Un aspecto clave de este escenario es el uso de los datos: cuando un usuario detecta un origen de datos y comprende su propósito, el paso siguiente es la conexión al origen de datos para utilizar sus datos.
 
 ## <a name="data-source-locations"></a>Ubicaciones de orígenes de datos
-Durante el registro del origen de datos, el **Catálogo de datos de Azure** recibe los metadatos sobre el origen de datos. Estos metadatos incluyen los detalles de la ubicación del origen de datos. Los detalles de la ubicación varían según el origen de datos, pero siempre contendrán la información necesaria para conectarse. Por ejemplo, la ubicación de una tabla de SQL Server incluye el nombre del servidor, el nombre de la base de datos, el nombre del esquema y el nombre de la tabla; mientras que la ubicación de un informe de SQL Server Reporting Services incluye el nombre del servidor y la ruta de acceso al informe. Otros tipos de orígenes de datos tendrán ubicaciones que reflejan la estructura y las capacidades del sistema de origen.
+Durante el registro del origen de datos, el **Azure Data Catalog** recibe los metadatos sobre el origen de datos. Estos metadatos incluyen los detalles de la ubicación del origen de datos. Los detalles de la ubicación varían según el origen de datos, pero siempre contendrán la información necesaria para conectarse. Por ejemplo, la ubicación de una tabla de SQL Server incluye el nombre del servidor, el nombre de la base de datos, el nombre del esquema y el nombre de la tabla; mientras que la ubicación de un informe de SQL Server Reporting Services incluye el nombre del servidor y la ruta de acceso al informe. Otros tipos de orígenes de datos tendrán ubicaciones que reflejan la estructura y las capacidades del sistema de origen.
 
 ## <a name="integrated-client-tools"></a>Herramientas de cliente integradas
 La manera más sencilla de conectarse a un origen de datos es usar el menú "Abrir en…" del portal de **Azure Data Catalog**. En este menú se muestra una lista de opciones para conectarse al recurso de datos seleccionado.
@@ -55,10 +55,10 @@ Las opciones disponibles en el menú dependerán del tipo de recurso de datos ac
 
  ![Información de conexión de una tabla de SQL Server](./media/data-catalog-how-to-connect/data-catalog-how-to-connect3.png)
 
-Los detalles de la información de conexión variarán según el tipo de origen de datos, pero la información incluida en el portal le proporcionará todo lo que necesita para conectarse al origen de datos en cualquier herramienta de cliente. Los usuarios pueden copiar los detalles de conexión de los orígenes de datos que hayan detectado con el **Catálogo de datos de Azure**, lo que les permite trabajar con los datos en su herramienta preferida.
+Los detalles de la información de conexión variarán según el tipo de origen de datos, pero la información incluida en el portal le proporcionará todo lo que necesita para conectarse al origen de datos en cualquier herramienta de cliente. Los usuarios pueden copiar los detalles de conexión de los orígenes de datos que hayan detectado con el **Azure Data Catalog**, lo que les permite trabajar con los datos en su herramienta preferida.
 
 ## <a name="connecting-and-data-source-permissions"></a>Permisos de origen de datos y conexión
-Aunque el **Catálogo de datos de Azure** permite que los orígenes de datos sean detectables, el control del acceso a los propios datos sigue siendo responsabilidad del administrador o propietario del origen de datos. La detección de un origen de datos en el **Catálogo de datos de Azure** no otorga al usuario ningún permiso para tener acceso al propio origen de datos.
+Aunque **Azure Data Catalog** permite que los orígenes de datos sean detectables, el control del acceso a los propios datos sigue siendo responsabilidad del administrador o propietario del origen de datos. La detección de un origen de datos en **Azure Data Catalog** no otorga al usuario ningún permiso para tener acceso al propio origen de datos.
 
 Con el objetivo de simplificar las cosas para los usuarios que detecten un origen de datos, pero no tengan permiso para obtener acceso a sus datos, dichos usuarios pueden proporcionar información en la propiedad de solicitud de acceso al anotar un origen de datos. La información que se incluye aquí (incluidos los vínculos al proceso o el punto de contacto para obtener acceso a los datos de origen) se presenta junto con la información de ubicación del origen de datos en el portal.
 

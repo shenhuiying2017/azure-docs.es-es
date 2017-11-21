@@ -88,15 +88,21 @@
       href: endorsed-distros.md
     - name: Mantenimiento y actualizaciones
       href: maintenance-and-updates.md
-    - name: Storage
-      href: azure-vm-storage-overview.md
+    - name: Almacenamiento en disco
+      href: about-disks-and-vhds.md
       items:
+        - name: Managed Disks
+          href: managed-disks-overview.md
         - name: Premium Storage
           href: premium-storage.md
         - name: Rendimiento de Premium Storage
           href: premium-storage-performance.md
         - name: Standard storage
           href: standard-storage.md
+        - name: Objetivos de escalabilidad para discos
+          href: disk-scalability-targets.md
+        - name: Copia de seguridad y recuperación ante desastres para discos
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Redes
       href: network-overview.md
     - name: Aplicaciones de escalado automático
@@ -133,7 +139,7 @@
           href: ../../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Uso de directivas
           href: policy.md
-        - name: Creación de un Almacén de claves
+        - name: Creación de un almacén de claves
           href: key-vault-setup.md
         - name: Creación y uso de claves SSH
           items:
@@ -143,8 +149,21 @@
               href: ssh-from-windows.md
             - name: Pasos detallados
               href: create-ssh-keys-detailed.md
+    - name: Protección de máquinas virtuales
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+        - name: Copia de seguridad de una sola máquina virtual
+          href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Copia de seguridad de varias máquinas virtuales
+          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Restauración de un disco
+          href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Restauración de archivos individuales
+          href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Administración de máquinas virtuales
       items:
+        - name: Pago por adelantado de instancias reservadas de máquina virtual
+          href: prepay-reserved-vm-instances.md
         - name: Tareas comunes de CLI
           href: cli-manage.md
         - name: Movimiento de una máquina virtual
@@ -301,8 +320,6 @@
               href: n-series-driver-setup.md
     - name: Administración del almacenamiento
       items:
-        - name: Más información sobre Managed Disks
-          href: managed-disks-overview.md
         - name: Preguntas más frecuentes de discos
           href: faq-for-disks.md
         - name: Agregar un disco
@@ -317,8 +334,6 @@
           href: expand-disks.md
         - name: Instantánea de un disco
           href: snapshot-copy-managed-disk.md
-        - name: Copia de seguridad y recuperación ante desastres para discos
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Copia de seguridad de discos no administrados
           href: incremental-snapshots.md
         - name: Conversión en Managed Disks

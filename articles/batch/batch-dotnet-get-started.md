@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf2b506c6d12e6337161aba889b23ad5eca83d96
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Introducción a la creación de soluciones con la biblioteca de cliente de Batch para .NET
 
@@ -40,7 +40,7 @@ En este artículo se asume que tiene conocimientos prácticos de C# y Visual Stu
 ### <a name="accounts"></a>Cuentas
 * **Cuenta de Azure**: si aún no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure][azure_free_account].
 * **Cuenta de Batch**: una vez que tenga una suscripción a Azure, [cree una cuenta de Azure Batch](batch-account-create-portal.md).
-* **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
+* **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md).
 
 > [!IMPORTANT]
 > Actualmente, Batch *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
@@ -80,7 +80,7 @@ El siguiente diagrama ilustra las operaciones principales que realiza la aplicac
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** A medida que se completan las tareas, cargan sus datos de salida en Azure Storage.<br/>
 [**Paso 7.**](#step-7-download-task-output) Descargar el resultado de la tarea de Storage
 
-Como se ha indicado, no todas las soluciones de Batch realizan estos mismos pasos y puede haber muchos otros; sin embargo, la aplicación de ejemplo *DotNetTutorial* muestra los procesos comunes que se encuentran en una solución de Batch.
+Como se ha indicado, no todas las soluciones de Batch realizan estos mismos pasos y se puede haber muchos otros; sin embargo, la aplicación de ejemplo *DotNetTutorial* muestra los procesos comunes que se encuentran en una solución de Batch.
 
 ## <a name="build-the-dotnettutorial-sample-project"></a>Creación del proyecto de ejemplo *DotNetTutorial*
 Para poder ejecutar correctamente el ejemplo, debe especificar las credenciales de las cuentas tanto de Batch como de Storage en el archivo `Program.cs` del proyecto *DotNetTutorial*. Si aún no lo ha hecho, abra la solución en Visual Studio, para lo que debe hacer doble clic en el archivo de solución `DotNetTutorial.sln` . También puede abrirla desde el propio Visual Studio haciendo clic en **Archivo > Abrir > Proyecto o solución**.
@@ -103,7 +103,7 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Como ya se ha mencionado, ahora debe especificar las credenciales de una cuenta de almacenamiento de **uso general** en Azure Storage. Las aplicaciones de Batch usan almacenamiento de blobs en la cuenta de almacenamiento de **uso general**. No especifique las credenciales de una cuenta de almacenamiento que se haya creado mediante la selección del tipo de cuenta *Blob storage*.
+> Como ya se ha mencionado, ahora debe especificar las credenciales de una cuenta de almacenamiento de **uso general** en Azure Storage. Las aplicaciones de Batch usan almacenamiento de blobs en la cuenta de almacenamiento de **uso general**. No especifique las credenciales de una cuenta de Storage que se haya creado mediante la selección del tipo de cuenta *Blob Storage*.
 >
 >
 
@@ -323,7 +323,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
             targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
-            virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
+            virtualMachineSize: "small",                                                // single-vCPU, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
         // Create and assign the StartTask that will be executed when compute nodes join the pool.
@@ -470,7 +470,7 @@ En el bucle `foreach` del fragmento de código anterior, puede ver que la línea
 
 1. El **primer argumento** es la ruta de acceso del archivo que se va a procesar. Se trata de la ruta de acceso local al archivo, tal como existe en el nodo. Cuando se creó el objeto ResourceFile de `UploadFileToContainerAsync` , se usó el nombre de archivo para esta propiedad (como un parámetro del constructor ResourceFile). Esto indica que el archivo puede encontrarse en el mismo directorio que *TaskApplication.exe*.
 2. El **segundo argumento** especifica que las *N* palabras más usadas deben escribirse en el archivo de salida. En el ejemplo, esto se codifica de forma rígida, con el fin de que las tres palabras más usadas se escriban en el archivo de salida.
-3. El **tercer argumento** es la firma de acceso compartido (SAS) que proporciona acceso de escritura al contenedor **output** de Azure Storage. *TaskApplication.exe* utiliza la dirección URL de esta firma de acceso compartido al cargar el archivo de salida en Almacenamiento de Azure. El código de este proceso se puede encontrar en el método `UploadFileToContainer` del archivo `Program.cs` del proyecto TaskApplication:
+3. El **tercer argumento** es la firma de acceso compartido (SAS) que proporciona acceso de escritura al contenedor **output** de Azure Storage. *TaskApplication.exe* utiliza la dirección URL de esta firma de acceso compartido al cargar el archivo de salida en Azure Storage. El código de este proceso se puede encontrar en el método `UploadFileToContainer` del archivo `Program.cs` del proyecto TaskApplication:
 
 ```csharp
 // NOTE: From project TaskApplication Program.cs

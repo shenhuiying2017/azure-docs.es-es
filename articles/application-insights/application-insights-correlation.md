@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: ea6e6c4044a0163ae36d6790755b67c5066251a8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -81,7 +81,7 @@ Aspecto de los modelos de datos de [Open Tracing](http://opentracing.io/) y Appl
 - `dependency` se asigna a **Span** con `span.kind = client`
 - `id` de un elemento `request` y `dependency` se asigna a **Span.Id**
 - `operation_Id` se asigna a **TraceId**
-- `operation_ParentId` se asigna a **Reference** de tipo `ChileOf`
+- `operation_ParentId` se asigna a **Reference** de tipo `ChildOf`
 
 Consulte [modelo de datos](application-insights-data-model.md) para los tipos y el modelo de datos de Application Insights.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 62d78e067e50183f25af84e547db2e11c0014f5d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="high-availability-ports-overview-preview"></a>Introducción a los puertos de alta disponibilidad (versión preliminar)
 
@@ -36,7 +36,7 @@ Los puertos de alta disponibilidad se configuran estableciendo los puertos de fr
 
 ## <a name="why-use-ha-ports"></a>¿Por qué usar puertos de alta disponibilidad?
 
-### <a name="network-virtual-appliances"></a>Aplicaciones virtuales de red
+### <a name="nva"></a>Aplicaciones virtuales de red
 
 Puede usar aplicaciones virtuales de red (NVA) para proteger la carga de trabajo de Azure frente a varios tipos de amenazas de seguridad. Cuando se utilizan NVA en estos escenarios, estas deben ser confiables, de alta disponibilidad y con escalabilidad horizontal a petición.
 
@@ -139,6 +139,8 @@ A continuación se indican las configuraciones o excepciones admitidas en puerto
 - Una única configuración IP de interfaz de red puede tener una o más reglas de equilibrio de carga DRS con puertos de alta disponibilidad, siempre y cuando todas sus configuraciones IP de front-end respectivas sean exclusivas.
 - Es posible la coexistencia de dos o más reglas que apunten al mismo grupo de back-end si todas las reglas de equilibrio de carga son puertos de alta disponibilidad (solo DSR) o no lo son (DSR y no DSR). Esta coexistencia de reglas de equilibrio de carga no es posible si hay una combinación de reglas de puertos de alta disponibilidad y puertos que no son de alta disponibilidad.
 - Los puertos de alta disponibilidad no están disponibles para IPv6.
+- La simetría de flujo para escenarios de NVA es compatible solo con una NIC única. Consulte la descripción y el diagrama de [Aplicaciones virtuales de red](#nva). 
+
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3aaf2b717937fdf62de423f5d9219be5ce0ad60
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -34,7 +34,7 @@ Azure Active Directory Identity Protection es una característica de Azure AD Pr
 
 ## <a name="getting-started"></a>Introducción
 
-Microsoft protege identidades basadas en la nube desde hace más de una década. Con Azure Active Directory Identity Protection en su entorno, puede usar los mismos sistemas de protección que Microsoft utiliza para proteger las identidades.
+Microsoft lleva más de una década con identidades basadas en la nube protegidas. Con Azure Active Directory Identity Protection en su entorno, puede usar los mismos sistemas de protección que Microsoft utiliza para proteger las identidades.
 
 La mayoría de las infracciones de seguridad tienen lugar cuando los atacantes obtienen acceso a un entorno mediante el robo de identidad de un usuario. Con los años, los atacantes son cada vez más eficaces al aprovechar las brechas de otros fabricantes y el uso de ataques de suplantación de identidad sofisticados. Una vez que un atacante obtiene acceso aunque sea a una cuenta de usuario con pocos privilegios, es relativamente sencillo para ellos obtener acceso a recursos importantes de la empresa mediante el desplazamiento lateral.
 

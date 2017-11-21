@@ -200,9 +200,9 @@
     - name: Aplicaciones SaaS multiinquilino
       items:
         - name: Patrones de diseño SaaS
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+          href: saas-tenancy-app-design-patterns.md
         - name: Seguridad de aplicaciones SaaS
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Desarrollo de bases de datos
       items:
         - name: Datos de JSON
@@ -309,6 +309,8 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Automation
           href: sql-database-manage-automation.md
+        - name: Supervisión de SQL Data Sync con OMS Log Analytics
+          href: sql-database-sync-monitor-oms.md
         - name: Procedimientos recomendados para SQL Data Sync
           href: sql-database-best-practices-data-sync.md
         - name: Solución de problemas de SQL Data Sync
@@ -335,24 +337,47 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: Aplicaciones SaaS multiinquilino
       items:
-        - name: Tutorial preliminar
-          href: sql-database-wtp-overview.md
-        - name: Implementación de una aplicación de ejemplo
-          href: sql-database-saas-tutorial.md
-        - name: Inquilinos de aprovisionamiento
-          href: sql-database-saas-tutorial-provision-and-catalog.md
-        - name: Supervisión del rendimiento de una base de datos
-          href: sql-database-saas-tutorial-performance-monitoring.md
-        - name: Supervisión con Log Analytics
-          href: sql-database-saas-tutorial-log-analytics.md
-        - name: Restauración de un solo inquilino
-          href: sql-database-saas-tutorial-restore-single-tenant.md
-        - name: Administración de esquemas de inquilino
-          href: sql-database-saas-tutorial-schema-management.md
-        - name: Ejecución de consultas ad hoc
-          href: sql-database-saas-tutorial-adhoc-analytics.md
-        - name: 'Extracción, transformación y carga de datos para análisis'
-          href: sql-database-saas-tutorial-tenant-analytics.md
+        - name: Bienvenido a Wingtips
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Aplicación independiente
+          items:
+            - name: Implementación de una aplicación de ejemplo
+              href: saas-standaloneapp-get-started-deploy.md
+        - name: Base de datos por inquilino
+          href: saas-dbpertenant-wingtip-app-overview.md
+          items:
+            - name: Tutorial preliminar
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: Guía de aplicaciones
+              href: saas-dbpertenant-wingtip-app-guidance-tips.md
+            - name: Implementación de una aplicación de ejemplo
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: Inquilinos de aprovisionamiento
+              href: saas-dbpertenant-provision-and-catalog.md
+            - name: Supervisión del rendimiento de una base de datos
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: Supervisión con Log Analytics
+              href: saas-dbpertenant-log-analytics.md
+            - name: Restauración de un inquilino
+              href: saas-dbpertenant-restore-single-tenant.md
+            - name: Administración de esquemas de inquilino
+              href: saas-tenancy-schema-management.md
+            - name: Ejecución de consultas ad hoc
+              href: saas-tenancy-adhoc-analytics.md
+            - name: 'Extracción, transformación y carga de datos para análisis'
+              href: saas-tenancy-tenant-analytics.md
+        - name: Base de datos multiinquilino
+          items:
+            - name: Implementación de una aplicación de ejemplo
+              href: saas-multitenantdb-get-started-deploy.md
+            - name: Inquilinos de aprovisionamiento
+              href: saas-multitenantdb-provision-and-catalog.md
+            - name: Supervisión del rendimiento de una base de datos
+              href: saas-multitenantdb-performance-monitoring.md
+            - name: Ejecución de consultas ad hoc
+              href: saas-multitenantdb-adhoc-reporting.md
+            - name: Administración de esquemas de inquilino
+              href: saas-multitenantdb-schema-management.md
     - name: Desarrollo de aplicaciones
       items:
         - name: C y C ++

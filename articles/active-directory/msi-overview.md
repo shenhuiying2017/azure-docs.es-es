@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service Identity (MSI) para recursos de Azure
 
@@ -50,12 +50,14 @@ Pruebe un tutorial de Managed Service Identity para obtener información sobre e
 <br><br>
 | Desde un recurso habilitado para MSI | Obtenga información sobre cómo |
 | ------- | -------- |
-| Máquina virtual de Azure (Windows) | [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-arm.md) |
+| Máquina virtual de Azure (Windows) | [Acceder a Azure Data Lake Store con una Identidad de servicio administrada de máquina virtual Windows](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Acceder a Azure SQL con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Acceder a Azure Storage mediante una clave de acceso con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Acceder a Azure Storage mediante SAS con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Acceder a Azure SQL con Managed Service Identity en una máquina virtual Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Acceso a un recurso ajeno a Azure AD con Managed Service Identity en una máquina virtual Windows y Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| Máquina virtual de Azure (Linux)   | [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-arm.md) |
+| Máquina virtual de Azure (Linux)   | [Acceder a Azure Data Lake Store con una Identidad de servicio administrada de máquina virtual Linux](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Acceso a Azure Resource Manager con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Acceder a Azure Storage mediante una clave de acceso con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Acceder a Azure Storage mediante SAS con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Acceder a un recurso ajeno a Azure AD con Managed Service Identity en una máquina virtual Linux y Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |

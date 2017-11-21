@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ Después de modificar el archivo template.json tal como se indicó, vuelva a pub
 
 A partir de la versión 5.4 de Service Fabric, los eventos de métricas de carga y estado de mantenimiento están disponibles para su recopilación. Estos eventos reflejan los eventos generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Esto permite agregar y ver el estado de mantenimiento del sistema en el tiempo, y generar alertas basadas en eventos de estado de mantenimiento o carga. Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
 
-Para recopilar los eventos, modifique la plantilla de Resource Manager para incluir lo siguiente:
+Para recopilar los eventos en el clúster, modifique `scheduledTransferKeywordFilter` en el WadCfg de la plantilla de Resource Manager a `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Para recopilar los eventos, modifique la plantilla de Resource Manager para incl
 
 ## <a name="collect-reverse-proxy-events"></a>Recopilación de eventos de proxy inverso
 
-A partir de la versión 5.7 de Service Fabric, los eventos de [proy inverso](service-fabric-reverseproxy.md) están disponibles para la recopilación.
-El proxy inverso emite eventos en dos canales, uno que contiene los eventos de error que reflejan los errores de procesamiento de solicitudes y el otro que contiene los eventos detallados de todas las solicitudes procesadas en el proxy inverso. 
+A partir de la versión 5.7 de Service Fabric, los eventos de [proxy inverso](service-fabric-reverseproxy.md) están disponibles para la recopilación a través de los canales de datos y mensajería. 
 
-1. Recopilación de eventos de error: para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000010" a la lista de proveedores de ETW.
-Para recopilar los eventos de los clústeres de Azure, modifique la plantilla de Resource Manager para incluir lo siguiente:
+El proxy inverso inserta solo eventos de error a través del canal principal de datos y mensajería, lo que refleja problemas críticos y errores de procesamiento de la solicitud. El canal detallado contiene eventos detallados de todas las solicitudes procesadas por el proxy inverso. 
+
+Para ver estos eventos de error en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000010" a la lista de proveedores de ETW. Para ver toda la telemetría de solicitud, actualice la entrada de Microsoft-ServiceFabric en la lista de proveedores de ETW a "Microsoft-ServiceFabric:4:0x4000000000000020".
+
+Para los clústeres que se ejecutan en Azure:
+
+Para recopilar los seguimientos en el canal de mensajería y datos principal, modifique el valor `scheduledTransferKeywordFilter` en el WadCfg de la plantilla de Resource Manager a `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Para recopilar los eventos de los clústeres de Azure, modifique la plantilla de
     }
 ```
 
-2. Recopilación de todos los eventos de procesamiento de solicitud: en el Visor de eventos de diagnóstico de Visual Studio, actualice la entrada Microsoft-ServiceFabric en la lista de proveedores de ETW a "Microsoft-ServiceFabric:4:0x4000000000000020".
-En los clústeres de Azure Service Fabric, modifique la plantilla de Resource Manager para incluir lo siguiente:
+Para recopilar todos los eventos de procesamiento de solicitudes, active el canal detallado de datos y mensajería cambiando el valor `scheduledTransferKeywordFilter` en el WadCfg de la plantilla de Resource Manager a `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ En los clústeres de Azure Service Fabric, modifique la plantilla de Resource Ma
       }
     }
 ```
-> Se recomienda habilitar con prudencia la recopilación de eventos de este canal ya que se recopila todo el tráfico a través del proxy inverso y puede consumir rápidamente la capacidad de almacenamiento.
 
-Para los clústeres de Azure Service Fabric, los eventos de todos los nodos se recopilan y se agregan en SystemEventTable.
+La habilitación de la recopilación de eventos desde este canal detallado provoca la generación rápida de muchos seguimientos, lo que puede consumir capacidad de almacenamiento. Solo active esta opción cuando sea absolutamente necesario.
 Para obtener información sobre solución de problemas de los eventos de proxy inverso, consulte la [Guía de diagnóstico de proxy inverso](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Recopilar desde canales EventSource nuevos
@@ -252,27 +254,9 @@ Para recopilar registros de eventos o contadores de rendimiento, modifique la pl
 
 ## <a name="collect-performance-counters"></a>Recopilar contadores de rendimiento
 
-Para recopilar métricas de rendimiento del clúster, agregue los contadores de rendimiento a "WadCfg > DiagnosticMonitorConfiguration" en la plantilla de Resource Manager para el clúster. Vea en [Service Fabric Performance Counters](service-fabric-diagnostics-event-generation-perf.md) (Contadores de rendimiento de Service Fabric) los contadores de rendimiento que se recomienda recopilar.
-
-Por ejemplo, aquí hemos establecido un contador de rendimiento que se muestrea cada 15 segundos (esto se puede cambiar y sigue el formato "PT\<tiempo>\<unidad>", por ejemplo, PT3M muestrea cada tres minutos) y se transfiere a la tabla de almacenamiento adecuada cada minuto.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Para recopilar métricas de rendimiento del clúster, agregue los contadores de rendimiento a "WadCfg > DiagnosticMonitorConfiguration" en la plantilla de Resource Manager para el clúster. Vea [Supervisión del rendimiento con WAD](service-fabric-diagnostics-perf-wad.md) para conocer los pasos acerca de cómo modificar `WadCfg` para recopilar contadores de rendimiento específicos. Consulte en [Service Fabric Performance Counters](service-fabric-diagnostics-event-generation-perf.md) (Contadores de rendimiento de Service Fabric) una lista de contadores de rendimiento que se recomienda recopilar.
   
-Si usa un receptor de Application Insights, como se describe en la siguiente sección, y quiere que estas métricas aparezcan en Application Insights, asegúrese de agregar el nombre del receptor en la sección "receptores", como se indicó anteriormente. Además, considere la posibilidad de crear una tabla independiente a la que enviar sus contadores de rendimiento, para que no sobrecarguen los datos procedentes de los demás canales de registro que ha habilitado.
+Si usa un receptor de Application Insights, como se describe en la siguiente sección, y quiere que estas métricas aparezcan en Application Insights, asegúrese de agregar el nombre del receptor en la sección "receptores", como se indicó anteriormente. Esto enviará automáticamente los contadores de rendimiento que se configuran individualmente para el recurso de Application Insights.
 
 
 ## <a name="send-logs-to-application-insights"></a>Enviar registros a Application Insights
@@ -281,7 +265,7 @@ Como parte de la configuración de WAD, puede enviar datos de supervisión y dia
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado correctamente los diagnósticos de Azure, verá los datos en las tablas de almacenamiento de los registros de ETW y EventSource. Si decide usar OMS, Kibana u otra plataforma de análisis y visualización de datos que no se configura directamente en la plantilla de Resource Manager, asegúrese de configurar la plataforma de su elección para leer los datos de estas tablas de almacenamiento. Es relativamente fácil hacerlo para OMS, como se explica en [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md) (Análisis de eventos y registro mediante OMS). Application Insights es un caso especial en este sentido, ya que puede configurarse como parte de la configuración de la extensión de Diagnostics, por lo que debe leer el [artículo correspondiente](service-fabric-diagnostics-event-analysis-appinsights.md) si opta por usar AI.
+Una vez que haya configurado correctamente Azure Diagnostics, verá los datos en las tablas de almacenamiento de los registros de ETW y EventSource. Si decide usar OMS, Kibana u otra plataforma de análisis y visualización de datos que no se configura directamente en la plantilla de Resource Manager, asegúrese de configurar la plataforma de su elección para leer los datos de estas tablas de almacenamiento. Es relativamente fácil hacerlo para OMS, como se explica en [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md) (Análisis de eventos y registro mediante OMS). Application Insights es un caso especial en este sentido, ya que puede configurarse como parte de la configuración de la extensión de Diagnostics, por lo que debe leer el [artículo correspondiente](service-fabric-diagnostics-event-analysis-appinsights.md) si opta por usar AI.
 
 >[!NOTE]
 >Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Actualmente, hay un ejemplo de un servicio de limpieza de datos en ejecución en el [ejemplo de guardián](https://github.com/Azure-Samples/service-fabric-watchdog-service). Se recomienda que escriba uno para sí mismo, a menos que tenga una buena razón para almacenar los registros durante más de 30 o 90 días.

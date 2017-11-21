@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3be12abaaedf5b0d66a484cbee48fe3df77f63fe
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1d26fb8caacdd775b62d704a4b474e68e2f5a3ec
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -63,7 +63,7 @@ Si no está seguro de qué componentes de Azure Backup vienen bien para sus nece
 | --- | --- | --- | --- |
 | Agente de Azure Backup (MARS) |<p>**Sí**</p> <p>El agente de Azure Backup se puede implementar en cualquier máquina virtual Windows que se ejecute en Azure.</p> |<p>**Sí**</p> <p>El agente de Backup se puede implementar en cualquier máquina física o virtual de Windows Server.</p> |<p>Almacén de Recovery Services</p> |
 | System Center DPM |<p>**Sí**</p><p>Más información [sobre cómo proteger las cargas de trabajo en Azure mediante System Center DPM](backup-azure-dpm-introduction.md).</p> |<p>**Sí**</p> <p>Más información sobre [cómo proteger cargas de trabajo y máquinas virtuales en su centro de datos](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager).</p> |<p>Disco conectado localmente</p> <p>Almacén de Recovery Services,</p> <p>Cinta (solo local)</p> |
-| Azure Backup Server |<p>**Sí**</p><p>Más información sobre [cómo proteger cargas de trabajo en Azure con el Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>**Sí**</p> <p>Más información sobre [cómo proteger cargas de trabajo en Azure con el Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>Disco conectado localmente</p> <p>Almacén de Recovery Services</p> |
+| Azure Backup Server |<p>**Sí**</p><p>Más información sobre [cómo proteger cargas de trabajo en Azure con Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>**Sí**</p> <p>Más información sobre [cómo proteger cargas de trabajo en Azure con Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>Disco conectado localmente</p> <p>Almacén de Recovery Services</p> |
 | Copia de seguridad de máquina virtual de IaaS de Azure |<p>**Sí**</p><p>Parte del tejido de Azure</p><p>Especializado para [copia de seguridad de máquinas virtuales de infraestructura como servicio (IaaS) de Azure](backup-azure-vms-introduction.md).</p> |<p>**No**</p> <p>Use System Center DPM para hacer copias de seguridad de máquinas virtuales en su centro de datos.</p> |<p>Almacén de Recovery Services</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>¿De qué aplicaciones y cargas de trabajo puedo hacer copias de seguridad?
@@ -71,16 +71,16 @@ En la tabla siguiente se proporciona una matriz de los datos y las cargas de tra
 
 | Datos o carga de trabajo | Entorno de origen | Solución de Azure Backup |
 | --- | --- | --- |
-| Archivos y carpetas |Windows Server |<p>[Agente de Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ el agente de Azure Backup)</p> <p>[Servidor de copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
-| Archivos y carpetas |Equipo de Windows |<p>[Agente de Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ el agente de Azure Backup)</p> <p>[Servidor de copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
-| Máquina virtual de Hyper-V (Windows) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Servidor de copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
-| Máquina virtual de Hyper-V (Linux) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Servidor de copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
-| Máquina virtual de VMware |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Servidor de copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
-| Microsoft SQL Server |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Servidor de copia de seguridad de Azure](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
+| Archivos y carpetas |Windows Server |<p>[Agente de Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
+| Archivos y carpetas |Equipo de Windows |<p>[Agente de Azure Backup](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
+| Máquina virtual de Hyper-V (Windows) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
+| Máquina virtual de Hyper-V (Linux) |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
+| Máquina virtual de VMware |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
+| Microsoft SQL Server |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
 | Microsoft SharePoint |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
 | Microsoft Exchange |Windows Server |<p>[System Center DPM](backup-azure-backup-sql.md) (+ el agente de Azure Backup)</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md) (incluye el agente de Azure Backup)</p> |
-| Máquinas virtuales de Azure IaaS (Windows) |Ejecución en Azure |[Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
-| Máquinas virtuales de IaaS de Azure (Linux) |Ejecución en Azure |[Copia de seguridad de Azure (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de Azure IaaS (Windows) |Ejecución en Azure |[Azure Backup (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
+| Máquinas virtuales de IaaS de Azure (Linux) |Ejecución en Azure |[Azure Backup (extensión de máquina virtual)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Linux Support
 En la siguiente tabla se muestran los componentes de Azure Backup que son compatibles con Linux.  
@@ -118,7 +118,7 @@ Azure Backup le permite restaurar una máquina virtual completa con discos admin
 ## <a name="what-are-the-features-of-each-backup-component"></a>¿Cuáles son las características de cada componente de Backup?
 En las secciones siguientes se proporcionan tablas que resumen la disponibilidad o la compatibilidad de diversas características de cada componente de Azure Backup. Consulte la siguiente información de cada tabla para obtener ayuda o información adicional.
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
 | Almacén de Recovery Services |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
@@ -224,7 +224,10 @@ Un almacén de Recovery Services es una entidad de almacenamiento en línea en A
 Los almacenes de Backup, que se basan en Azure Service Management, fueron la primera versión del almacén. Los almacenes de Recovery Services, que agregan características del modelo de Azure Resource Manager, son la segunda versión del almacén. Consulte el [artículo de introducción al almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md) para una descripción completa de las diferencias en cuanto a características. Los almacenes de Backup se siguen admitiendo, aunque ya no se pueda usar el portal para crearlos. Debe usar Azure Portal para administrar los almacenes de Backup.
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del **15 de octubre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/> Para el **1 de noviembre de 2017**, los almacenes de Backup restantes se habrán actualizado automáticamente a almacenes de Recovery Services.
+> Puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del **30 de noviembre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/>
+El 30 de noviembre de 2017:
+- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 
 
 
@@ -245,7 +248,7 @@ Los siguientes conceptos pueden ayudarle a tomar decisiones importantes en torno
 Use uno de los siguientes tutoriales para obtener instrucciones paso a paso para proteger los datos en Windows Server o proteger una máquina virtual (VM) en Azure:
 
 * [Realizar copias de seguridad de archivos y carpetas](backup-try-azure-backup-in-10-mins.md)
-* [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
+* [Copia de seguridad de Azure Virtual Machines](backup-azure-vms-first-look-arm.md)
 
 Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno de estos artículos:
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b179444738584e7033f0872d8ef5b721af1d3970
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad de Pig en Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -124,7 +124,7 @@ Para ejecutar este script de Pig en una canalización de Data Factory, tiene que
 1. Crear un servicio vinculado para registrar [su propio clúster de proceso de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o configurar un [clúster de proceso de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Llamaremos a este servicio vinculado **HDInsightLinkedService**.
 2. Crear un [servicio vinculado](data-factory-azure-blob-connector.md) para configurar la conexión al almacenamiento de blobs de Azure que hospeda los datos. Llamaremos a este servicio vinculado **StorageLinkedService**.
 3. Crear [conjuntos de datos](data-factory-create-datasets.md) que apuntan a los datos de entrada y salida. Llamaremos al conjunto de datos de entrada **PigSampleIn** y al conjunto de datos de salida **PigSampleOut**.
-4. Copie la consulta de Pig en un archivo de almacenamiento de blobs de Azure configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de almacenamiento de Azure independiente. Consulte el servicio vinculado en la configuración de la actividad. Use **scriptPath** para especificar la ruta de acceso al archivo de script de Pig y **scriptLinkedService**. 
+4. Copie la consulta de Pig en un archivo de Azure Blob Storage configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de Azure Storage independiente. Consulte el servicio vinculado en la configuración de la actividad. Use **scriptPath** para especificar la ruta de acceso al archivo de script de Pig y **scriptLinkedService**. 
    
    > [!NOTE]
    > También puede proporcionar el script de Pig en línea en la definición de actividad mediante la propiedad **script** . Sin embargo, no se recomienda este enfoque cuando todos los caracteres especiales del script tienen que ser caracteres de escape y pueden provocar problemas de depuración. La práctica recomendada es seguir el paso 4.
@@ -168,7 +168,7 @@ Para ejecutar este script de Pig en una canalización de Data Factory, tiene que
 7. Supervise la canalización mediante las vistas de supervisión y administración de Factoría de datos. Consulte el artículo [Supervisión y administración de las canalizaciones de Factoría de datos](data-factory-monitor-manage-pipelines.md) para obtener más información.
 
 ## <a name="specifying-parameters-for-a-pig-script"></a>Especificación de parámetros para un script de Pig
-Tenga en cuenta el siguiente ejemplo en el que los registros de juegos se introducen diariamente en el almacenamiento de blobs de Azure y se almacenan en una carpeta en función de la fecha y hora. Desea parametrizar el script de Pig y pasar la ubicación de la carpeta de entrada dinámicamente en tiempo de ejecución y también generar la salida dividida con fecha y hora.
+Tenga en cuenta el siguiente ejemplo en el que los registros de juegos se introducen diariamente en Azure Blob Storage y se almacenan en una carpeta en función de la fecha y hora. Desea parametrizar el script de Pig y pasar la ubicación de la carpeta de entrada dinámicamente en tiempo de ejecución y también generar la salida dividida con fecha y hora.
 
 Para usar un script de Pig parametrizado, haga lo siguiente:
 

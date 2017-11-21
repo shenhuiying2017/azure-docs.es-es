@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0519a9c60386f8fea0047a661e48f008d3141c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbe2f7cb1d843c5e4ec7bc00a7e7dc5a49b31896
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copia repetible en Azure Data Factory
 
@@ -107,7 +107,7 @@ La actividad de copia ejecutó el script de limpieza para eliminar los datos cor
 > [!IMPORTANT]
 > sliceIdentifierColumnName no se admite en este momento para Azure SQL Data Warehouse. 
 
-El segundo mecanismo para lograr la repetibilidad es tener una columna dedicada (sliceIdentifierColumnName) en la tabla de destino. Esta columna debe usarla Factoría de datos de Azure para asegurarse de que el origen y el destino estén sincronizados. Este enfoque funciona cuando hay flexibilidad para cambiar o definir el esquema de la tabla SQL de destino. 
+El segundo mecanismo para lograr la repetibilidad es tener una columna dedicada (sliceIdentifierColumnName) en la tabla de destino. Esta columna debe usarAzure Data Factory para asegurarse de que el origen y el destino estén sincronizados. Este enfoque funciona cuando hay flexibilidad para cambiar o definir el esquema de la tabla SQL de destino. 
 
 Azure Data Factory usa esta columna con fines de repetibilidad y, en el proceso, Azure Data Factory no realiza ningún cambio de esquema en la tabla. Forma de usar este enfoque:
 

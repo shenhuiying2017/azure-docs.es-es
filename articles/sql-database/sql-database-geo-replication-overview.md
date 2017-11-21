@@ -12,14 +12,14 @@ ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: NA
+ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 0b424e2b260ec527f33cdbfe49d1d981b14edfda
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Introducción: grupos de conmutación por error y replicación geográfica activa
 La replicación geográfica activa le permite configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos (regiones) o en otras. Las bases de datos secundarias están disponibles para la consulta y para la conmutación por error si hay una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal. La aplicación del usuario debe iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. 
@@ -116,6 +116,8 @@ Tenga en cuenta que la conmutación por error implica actualizar el registro DNS
 Tenga en cuenta que la aplicación de la región de DR no tiene que usar una cadena de conexión diferente.  
 - **Prepararse para la pérdida de datos**: si se detecta una interrupción, SQL desencadena automáticamente la conmutación por error de lectura-escritura si nos consta que hay cero pérdida de datos. De lo contrario, espera el período especificado por **GracePeriodWithDataLossHours**. Si especificó **GracePeriodWithDataLossHours**, prepárese para la pérdida de datos. Por lo general, durante las interrupciones, Azure favorece la disponibilidad. Si no puede permitirse perder datos, asegúrese de establecer **GracePeriodWithDataLossHours** en un número lo suficientemente grande, por ejemplo, 24 horas. 
 
+> [!IMPORTANT]
+> Los grupos elásticos con 800 o menos DTU y más de 250 bases de datos que utilizan la replicación geográfica pueden encontrar problemas, como conmutaciones por error planeadas más prolongadas y un menor rendimiento.  Es más probable que estos problemas sucedan con cargas de trabajo intensivas de escritura, cuando los puntos de conexión de replicación geográfica están separados por región geográfica, o cuando se utilizan varios puntos de conexión secundarias para cada base de datos.  Los síntomas de estos problemas aparecen si el intervalo de replicación geográfica aumenta con el tiempo.  Este retardo puede supervisarse con [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Si se producen estos problemas, entre las posibles soluciones está el aumento del número de DTU del grupo o la reducción del número de bases de datos con replicación geográfica en el mismo grupo.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Actualización o degradación de una base de datos principal
 Puede actualizar o degradar una base de datos principal a un nivel de rendimiento diferente (en el mismo nivel de servicio) sin desconectar las bases de datos secundarias. Al actualizar, se recomienda que actualice la base de datos secundaria en primer lugar y, a continuación, la principal. Al degradar, invierta el orden: degrade primero la base de datos principal y, después, la secundaria. Cuando actualiza la base de datos a un nivel de servicio diferente, o la cambia a una versión anterior, se aplica esta recomendación. 

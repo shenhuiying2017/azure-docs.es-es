@@ -3,7 +3,7 @@ title: "Administración de clústeres de Hadoop en HDInsight con el portal de Az
 description: "Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure."
 services: hdinsight
 documentationcenter: 
-author: ashishthaps
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: ashishtha
-ms.openlocfilehash: d08a9a7cc82095b0a90abd98bd4f6d13cdadb671
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jgao
+ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
@@ -163,7 +163,7 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
     >balancer
     ```
 
-    Para más información sobre el uso del shell de HBase, vea [Introducción a un ejemplo de Apache HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
+    Para más información sobre el uso del shell de HBase, vea [Introducción a un ejemplo de Apache HBase en HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
 
 * Storm
 
@@ -201,15 +201,15 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 
 ## <a name="pauseshut-down-clusters"></a>Pausa o apagado de clústeres
 
-La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan solo ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Almacenamiento de Azure, por lo que puede eliminar un clúster de forma segura cuando no está en uso.
+La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan solo ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no está en uso.
 También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
 
 Hay muchas maneras de programar el proceso:
 
-* Usar Factoría de datos de Azure. Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight a petición con Data Factory de Azure](hdinsight-hadoop-create-linux-clusters-adf.md) para crear servicios vinculados a HDInsight a petición.
+* Usar Azure Data Factory. Consulte [Creación de clústeres de Hadoop basados en Linux en HDInsight a petición con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) para crear servicios vinculados a HDInsight a petición.
 * Usar Azure PowerShell.  Vea [Análisis de datos de retrasos de vuelos](hdinsight-analyze-flight-delay-data.md).
 * Uso de CLI de Azure. Consulte [Administrar clústeres de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md).
-* Usar .NET SDK de HDInsight. Vea [Envío de trabajos de Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Usar .NET SDK de HDInsight. Vea [Envío de trabajos de Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Para información sobre precios, vea [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para eliminar un clúster desde el portal, vea [Eliminación de clústeres](#delete-clusters)
 
@@ -341,7 +341,7 @@ La sección **Uso** de la hoja del clúster de HDInsight muestra información so
 
 ## <a name="connect-to-a-cluster"></a>Conectarse a un clúster
 
-* [Uso de Hive con HDInsight](hdinsight-hadoop-use-hive-ambari-view.md)
+* [Uso de Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -353,10 +353,10 @@ En este artículo ha aprendido algunas funciones administrativas básicas. Para 
 * [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Lea más sobre el uso de la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Detalles sobre el uso de la API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Uso de Hive en HDInsight](hdinsight-use-hive.md)
-* [Uso de Pig en HDInsight](hdinsight-use-pig.md)
-* [Uso de Sqoop en HDInsight](hdinsight-use-sqoop.md)
-* [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Uso de Hive en HDInsight](hadoop/hdinsight-use-hive.md)
+* [Uso de Pig en HDInsight](hadoop/hdinsight-use-pig.md)
+* [Uso de Sqoop en HDInsight](hadoop/hdinsight-use-sqoop.md)
+* [Introducción a HDInsight de Azure](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [¿Qué versión de Hadoop tiene HDInsight de Azure?](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com

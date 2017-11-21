@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 02/28/2017
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: fd34fb135c76eed4041c29e00e98dde330dfe3f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: diseño de tablas escalables y eficientes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 Para diseñar tablas escalables y de rendimiento debe tener en cuenta una serie de factores, como el rendimiento, la escalabilidad y el coste. Si anteriormente ha diseñado esquemas de bases de datos relacionales, estas consideraciones le serán familiares, pero aunque hay algunas similitudes entre los modelos relacionales y el modelo de almacenamiento de Azure Table service, también existen muchas diferencias importantes. Normalmente, estas diferencias provocan diseños muy diferentes que pueden parecer no intuitivos o incorrectos a alguien que esté familiarizado con las bases de datos relacionales, pero que sí tienen sentido si va a diseñar un almacén de claves/valores de NoSQL como Azure Table service. Muchas de sus diferencias de diseño reflejarán el hecho de que Table service está diseñado para admitir aplicaciones de escala de nube que pueden contener miles de millones de entidades (filas en terminología de base de datos de relación) de datos o de conjuntos de datos que deben ser compatibles con volúmenes de transacciones muy elevadas: por lo tanto, tendrá que pensar cómo almacenar los datos de forma diferente y comprender cómo funciona Table service. Un almacén de datos NoSQL bien diseñado puede permitir a su solución escalar mucho más (y a un costo más bajo) que una solución que utiliza una base de datos relacional. Esta guía le ayuda con estos temas.  
 
 ## <a name="about-the-azure-table-service"></a>Acerca de Azure Table service
-En esta sección se resaltan algunas de las características clave de Table service que son especialmente importantes para obtener un diseño que confiera rendimiento y escalabilidad. Si no está familiarizado con Azure Storage y Table service, consulte primero [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md) e [Introducción a Azure Table Storage mediante .NET](table-storage-how-to-use-dotnet.md) antes de leer el resto de este artículo. Aunque esta guía se centra en Table service, incluirá información sobre los servicios Azure Queue y Blob, y cómo usarlos junto con Table service en una solución.  
+En esta sección se resaltan algunas de las características clave de Table service que son especialmente importantes para obtener un diseño que confiera rendimiento y escalabilidad. Si no está familiarizado con Azure Storage y Table service, consulte primero [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md) e [Introducción a Azure Table Storage mediante .NET](table-storage-how-to-use-dotnet.md) antes de leer el resto de este artículo. Aunque esta guía se centra en Table service, incluirá información sobre los servicios Azure Queue y Blob service, y cómo usarlos junto con Table service en una solución.  
 
 ¿Qué es Table service? Como cabría esperar por su nombre, Table service usa un formato tabular para almacenar los datos. En la terminología estándar, cada fila de la tabla representa una entidad y las columnas almacenan las distintas propiedades de la entidad. Cada entidad tiene un par de claves para identificar de forma exclusiva y una columna de marca de tiempo que Table service utiliza para realizar un seguimiento de cuando la entidad se ha actualizado por última vez (esto ocurre automáticamente y no se puede sobrescribir manualmente la marca de tiempo con un valor arbitrario). Table service usa esta última marca de tiempo modificada (LMT) para administrar la simultaneidad optimista.  
 
@@ -127,7 +127,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 
 Hasta ahora, parece muy similar a una tabla en una base de datos relacional, con las diferencias clave de las columnas obligatorias y la capacidad de almacenar varios tipos de entidad en la misma tabla. Además, cada una de las propiedades definidas por el usuario como **FirstName** o **Age** tienen un tipo de datos, como un número entero o una cadena, como una columna en una base de datos relacional. Aunque a diferencia de una base de datos relacional, la naturaleza sin esquema de Table service significa que una propiedad no necesita tener los mismos tipos de datos en cada entidad. Para almacenar tipos de datos complejos en una sola propiedad, debe utilizar un formato serializado como JSON o XML. Para obtener más información sobre Table service, como los tipos de datos admitidos, los intervalos de fechas admitidos, las reglas de nomenclatura y las restricciones de tamaño, consulte [Introducción al modelo de datos de Table service](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-Como puede ver, la elección del **PartitionKey** y **RowKey** es fundamental para el diseño de tabla válida. Todas las entidades almacenadas en una tabla deben tener una combinación única de **PartitionKey** y **RowKey**. Al igual que con las claves en una tabla de base de datos relacional, los valores **PartitionKey** y **RowKey** están indexados para crear un índice agrupado que permite búsquedas rápidas; sin embargo, Table Service no crea índices secundarios, por lo que estas son las dos únicas propiedades indexadas (algunos de los patrones descritos más adelante muestran cómo evitar esta limitación aparente).  
+Como puede ver, la elección del **PartitionKey** y **RowKey** es fundamental para el diseño de tabla válida. Todas las entidades almacenadas en una tabla deben tener una combinación única de **PartitionKey** y **RowKey**. Al igual que con las claves en una tabla de base de datos relacional, los valores **PartitionKey** y **RowKey** están indexados para crear un índice agrupado que permite búsquedas rápidas; sin embargo, Table service no crea índices secundarios, por lo que estas son las dos únicas propiedades indexadas (algunos de los patrones descritos más adelante muestran cómo evitar esta limitación aparente).  
 
 Una tabla está formada por una o varias particiones y, como podrá ver, muchas de las decisiones de diseño que tome estarán relacionadas con la elección de un **PartitionKey** y **RowKey** adecuado para optimizar la solución. Una solución puede constar de solo una única tabla que contenga todas las entidades que se organizan en particiones, pero normalmente las soluciones tendrán varias tablas. Tablas le ayuda a organizar las entidades de manera lógica, le ayudará a administrar el acceso a los datos mediante listas de control de acceso y puede quitar una tabla completa mediante una sola operación de almacenamiento.  
 
@@ -136,7 +136,7 @@ El nombre de la cuenta, el nombre de la tabla y **PartitionKey** juntos identifi
 
 En Table service, un nodo individual da servicio a una o más particiones completas y el servicio se escala equilibrando dinámicamente la carga de las particiones entre nodos. Si un nodo está bajo carga, Table Service puede *dividir* el intervalo de particiones atendidas por ese nodo en nodos diferentes; cuando el tráfico disminuye, el servicio puede *combinar* los intervalos de la partición de nodos silenciosos a un único nodo.  
 
-Para obtener más información acerca de los detalles internos de Table service y saber en particular cómo administra las particiones, consulte el artículo [Microsoft Azure Storage: Un servicio de almacenamiento en la nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obtener más información acerca de los detalles internos de Table service y saber en particular cómo administra las particiones, consulte el artículo [Microsoft Azure Storage: Un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Transacciones de grupo de entidad
 En Table service, las transacciones de grupo de entidad (EGT) son el único mecanismo integrado para realizar actualizaciones atómicas en varias entidades. Las EGT también se conocen como *transacciones por lotes* en algunos documentos. Las EGT funcionan únicamente en entidades almacenadas en la misma partición (comparten la misma clave de partición en una tabla determinada), por lo que siempre que necesite un comportamiento transaccional atómico a través de varias entidades, debe asegurarse de que las entidades se encuentren en la misma partición. Este suele ser un motivo para mantener varios tipos de entidad en la misma tabla (y partición) y no utilizar varias tablas para diferentes tipos de entidad. Una sola EGT puede operar en 100 entidades como máximo.  Si envía varias EGT simultáneas para procesamiento, es importante asegurarse de que esas EGT no funcionan en las entidades que son comunes en EGT, ya que de lo contrario se puede retrasar el procesamiento.
@@ -211,7 +211,7 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 | **Edad** |Entero |
 | **EmailAddress** |Cadena |
 
-En la sección [Descripción general de Table Service](#overview) se describen algunas de las características clave de Azure Table Service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST del Table Service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+En la sección [Descripción general de Table service](#overview) se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Una ***consulta de punto*** es la búsqueda más eficaz que puede usar y se recomienda para búsquedas de gran volumen o búsquedas que requieren menor latencia. Este tipo de consulta puede utilizar los índices para localizar una entidad individual con gran eficacia si se especifican los valores **PartitionKey** y **RowKey**. Por ejemplo: $filter=(PartitionKey eq 'Sales') y (RowKey eq '2')  
 * La segunda opción más eficaz es una ***Consulta por rango*** que use **PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
@@ -246,16 +246,16 @@ Un **PartitionKey** idóneo es el que permite utilizar consultas eficaces y que 
 Existen otros puntos adicionales que se tienen en cuenta al elegir **PartitionKey** y que están relacionados con la forma de insertar, actualizar y eliminar entidades: consulte la sección [Diseño de modificación de datos](#design-for-data-modification) .  
 
 ### <a name="optimizing-queries-for-the-table-service"></a>Optimización de consultas para Table service
-Table Service indexará automáticamente las entidades mediante los valores **PartitionKey** y **RowKey** en un índice agrupado único, por lo tanto, este es el motivo por el que las consultas de punto son las más eficaces. Sin embargo, no hay ningún índice distinto del índice agrupado en **PartitionKey** y **RowKey**.
+Table service indexará automáticamente las entidades mediante los valores **PartitionKey** y **RowKey** en un índice agrupado único, por lo tanto, este es el motivo por el que las consultas de punto son las más eficaces. Sin embargo, no hay ningún índice distinto del índice agrupado en **PartitionKey** y **RowKey**.
 
-Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de entidades según varios criterios. Por ejemplo, localizar las entidades employee en función de correo electrónico, Id. de empleado o apellido. Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan estos tipos de requisitos y describen las formas de solucionar el hecho de que Table Service no proporciona índices secundarios:  
+Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de entidades según varios criterios. Por ejemplo, localizar las entidades employee en función de correo electrónico, Id. de empleado o apellido. Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan estos tipos de requisitos y describen las formas de solucionar el hecho de que Table service no proporciona índices secundarios:  
 
 * [Patrón de índice secundario dentro de la partición](#intra-partition-secondary-index-pattern): almacenar varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**.  
 * [Patrón de índice secundario entre particiones](#inter-partition-secondary-index-pattern) : almacenar varias copias de cada entidad con diferentes valores RowKey en particiones o en tablas independientes para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey** .  
 * [Patrón de entidades de índice](#index-entities-pattern): mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordenación de los datos de Table service
-Table Service devuelve entidades ordenadas en orden ascendente según **PartitionKey** y, a continuación, por **RowKey**. Estas claves son valores de cadena y para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como **RowKey** es un valor entero, debe convertir el identificador de empleado **123** en **00000123**.  
+Table service devuelve entidades ordenadas en orden ascendente según **PartitionKey** y, a continuación, por **RowKey**. Estas claves son valores de cadena y para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como **RowKey** es un valor entero, debe convertir el identificador de empleado **123** en **00000123**.  
 
 Muchas aplicaciones tienen requisitos para utilizar datos ordenados en distintos órdenes: por ejemplo, ordenar los empleados por su nombre o por su fecha de contratación. Los patrones siguientes de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan cómo alternar órdenes de clasificación para sus entidades:  
 
@@ -419,7 +419,7 @@ La asignación de patrones anterior resalta algunas relaciones entre patrones (a
 Almacene varias copias de cada entidad con diferentes valores **RowKey** (en la misma partición) para habilitar búsquedas rápidas y eficaces y ordenaciones alternativas mediante el uso de diferentes valores **RowKey**. La coherencia de las actualizaciones entre copias se puede mantener mediante EGT.  
 
 #### <a name="context-and-problem"></a>Contexto y problema
-Table Service indexa automáticamente entidades mediante los valores **PartitionKey** y **RowKey**. Esto permite que una aplicación cliente recupere una entidad eficazmente con estos valores. Por ejemplo, si se usa la estructura de tabla que se muestra a continuación, una aplicación cliente puede utilizar una consulta puntual para recuperar una entidad de empleado individual mediante el uso del nombre del departamento y el identificador de empleado (los valores **PartitionKey** y **RowKey**). Un cliente también puede recuperar las entidades ordenadas por identificador de empleado dentro de cada departamento.
+Table service indexa automáticamente entidades mediante los valores **PartitionKey** y **RowKey**. Esto permite que una aplicación cliente recupere una entidad eficazmente con estos valores. Por ejemplo, si se usa la estructura de tabla que se muestra a continuación, una aplicación cliente puede utilizar una consulta puntual para recuperar una entidad de empleado individual mediante el uso del nombre del departamento y el identificador de empleado (los valores **PartitionKey** y **RowKey**). Un cliente también puede recuperar las entidades ordenadas por identificador de empleado dentro de cada departamento.
 
 ![][6]
 
@@ -440,7 +440,7 @@ Si consulta un intervalo de entidades de empleado, puede especificar un interval
 * Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de 000100 a 000199 use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por la letra 'a' use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'email_a') y (RowKey lt 'email_b')  
   
-  Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table Service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  
@@ -471,7 +471,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 Almacene varias copias de cada entidad con distintos valores de **RowKey** diferentes en particiones independientes o en tablas independientes para habilitar la realización de búsquedas rápidas y eficaces y órdenes alternativos utilizando valores **RowKey** diferentes.  
 
 #### <a name="context-and-problem"></a>Contexto y problema
-Table Service indexa automáticamente entidades mediante los valores **PartitionKey** y **RowKey**. Esto permite que una aplicación cliente recupere una entidad eficazmente con estos valores. Por ejemplo, si se usa la estructura de tabla que se muestra a continuación, una aplicación cliente puede utilizar una consulta puntual para recuperar una entidad de empleado individual mediante el uso del nombre del departamento y el identificador de empleado (los valores **PartitionKey** y **RowKey**). Un cliente también puede recuperar las entidades ordenadas por identificador de empleado dentro de cada departamento.  
+Table service indexa automáticamente entidades mediante los valores **PartitionKey** y **RowKey**. Esto permite que una aplicación cliente recupere una entidad eficazmente con estos valores. Por ejemplo, si se usa la estructura de tabla que se muestra a continuación, una aplicación cliente puede utilizar una consulta puntual para recuperar una entidad de empleado individual mediante el uso del nombre del departamento y el identificador de empleado (los valores **PartitionKey** y **RowKey**). Un cliente también puede recuperar las entidades ordenadas por identificador de empleado dentro de cada departamento.  
 
 ![][9]
 
@@ -494,7 +494,7 @@ Si consulta un intervalo de entidades de empleado, puede especificar un interval
 * Para buscar todos los empleados del departamento de ventas con un identificador de empleado en el rango de **000100** a **000199** ordenados en orden de identificador de empleado, use: $filter=(PartitionKey eq 'empid_Sales') y (RowKey ge '000100') y (RowKey le '000199')  
 * Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por 'a' ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email_Sales') y (RowKey ge 'a') y (RowKey lt 'b')  
 
-Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table Service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Tenga en cuenta que la sintaxis de filtro usada en los ejemplos anteriores corresponde a la API de REST de Table service. Para más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:  
@@ -542,7 +542,7 @@ Un cliente inicia la operación de almacenamiento mediante la colocación de un 
 En este ejemplo, el paso 4 inserta el empleado en la tabla **Archivo** . Puede añadir al empleado a un blob en Blob service o un archivo en un sistema de archivos.  
 
 #### <a name="recovering-from-failures"></a>Recuperación de errores
-Es importante que las operaciones de los pasos **4** y **5** sean *idempotentes*, por si el rol de trabajo necesita reiniciar la operación de archivo. Si va a utilizar Table Service para el paso **4**, debe utilizar una operación de "insertar o reemplazar"; en el paso **5** debe usar una operación de "eliminar si existe" en la biblioteca de cliente que vaya a usar. Si está utilizando otro sistema de almacenamiento, debe utilizar una operación idempotente adecuada.  
+Es importante que las operaciones de los pasos **4** y **5** sean *idempotentes*, por si el rol de trabajo necesita reiniciar la operación de archivo. Si va a utilizar Table service para el paso **4**, debe utilizar una operación de "insertar o reemplazar"; en el paso **5** debe usar una operación de "eliminar si existe" en la biblioteca de cliente que vaya a usar. Si está utilizando otro sistema de almacenamiento, debe utilizar una operación idempotente adecuada.  
 
 Si el rol de trabajo no completa el paso **6**, después de un tiempo de expiración el mensaje volverá a aparecer en la cola listo para que el rol de trabajo intente volver a procesarlo. El rol de trabajador puede comprobar cuántas veces se ha leído un mensaje de la cola y, si es necesario, marcarlo como mensaje "dudoso" para investigarlo mediante el envío a una cola independiente. Para obtener más información acerca de cómo leer mensajes de la cola y comprobar el número de eliminaciones de cola, consulte [Obtener mensajes](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
 
@@ -573,7 +573,7 @@ Los patrones y las directrices siguientes también pueden ser importantes a la h
 Mantenga entidades de índice para poder efectuar búsquedas eficaces que devuelvan listas de entidades.  
 
 #### <a name="context-and-problem"></a>Contexto y problema
-Table Service indexa automáticamente entidades mediante los valores **PartitionKey** y **RowKey**. Esto permite que una aplicación cliente recupere una entidad eficazmente mediante una consulta de punto. Por ejemplo, si se usa la estructura de tabla que se muestra a continuación, una aplicación cliente puede recuperar de manera eficiente una entidad de empleado individual mediante el uso del nombre del departamento y el identificador de empleado (los valores **PartitionKey** y **RowKey**).  
+Table service indexa automáticamente entidades mediante los valores **PartitionKey** y **RowKey**. Esto permite que una aplicación cliente recupere una entidad eficazmente mediante una consulta de punto. Por ejemplo, si se usa la estructura de tabla que se muestra a continuación, una aplicación cliente puede recuperar de manera eficiente una entidad de empleado individual mediante el uso del nombre del departamento y el identificador de empleado (los valores **PartitionKey** y **RowKey**).  
 
 ![][13]
 

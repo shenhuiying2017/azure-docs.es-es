@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solución de problemas y preguntas y respuestas sobre Application Insights para Java
 Preguntas o problemas relacionados con [Azure Application Insights en Java][java]. a continuación se incluyen algunas sugerencias.
@@ -124,6 +124,13 @@ En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico sali
 **¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?**
 
 Consulte [Privacidad y retención de los datos][data].
+
+## <a name="debug-logging"></a>Registro de depuración
+Application Insights usa `org.apache.http`. Se reubica en los archivos JAR principales de Application Insights en el espacio de nombres `com.microsoft.applicationinsights.core.dependencies.http`. Esto permite a Application Insights administrar los escenarios donde existen diferentes versiones del mismo módulo `org.apache.http` en un código base. 
+
+>[!NOTE]
+>Si habilita los registros a nivel de DEPURACIÓN para todos los espacios de nombres en la aplicación, se respetarán en todos los módulos de ejecución, incluido `org.apache.http`, cuyo nombre ha cambiado a `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights no podrá aplicar el filtrado a estas llamadas, porque la llamada de registro la realiza la biblioteca de Apache. Los registros a nivel de DEPURACIÓN producen un volumen considerable de datos de registro y no se recomiendan para las instancias de producción en vivo.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 **He configurado Application Insights para mi aplicación de servidor Java. ¿Qué más puedo hacer?**

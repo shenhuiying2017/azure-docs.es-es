@@ -1,5 +1,5 @@
 ---
-title: "Configuración de alta disponibilidad de SAP HANA en Azure (instancias grandes) | Microsoft Docs"
+title: "Configuración de alta disponibilidad con STONITH para SAP HANA en Azure (instancias grandes) | Microsoft Docs"
 description: Establecimiento de alta disponibilidad para SAP HANA en Azure (instancias grandes) en SUSE mediante STONITH
 services: virtual-machines-linux
 documentationcenter: 
@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6db4a9308ede1744081f114c61f1ca0c303706e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9122cbb66c6089009dccccea9b985e3521d45179
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="high-availability-setup-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
-Este documento proporciona las instrucciones paso a paso detalladas para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.
+# <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
+Este documento proporciona instrucciones paso a paso para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.
 
-**Declinación de responsabilidades:** *esta guía se obtiene como resultado de probar la configuración en el entorno de instancias grandes de Microsoft HANA que funciona correctamente. Puesto que el equipo de Microsoft Service Management para instancias grandes de HANA no admite el sistema operativo, deberá ponerse en contacto con SUSE para cualquier solución de problemas o aclaración adicionales sobre el nivel de sistema operativo. El equipo de Microsoft Service Management configurará el dispositivo STONITH y será totalmente compatible y podrá participar en la solución de problemas del dispositivo STONITH.*
+**Declinación de responsabilidades:** *esta guía se obtiene como resultado de probar la configuración en el entorno de instancias grandes de Microsoft HANA que funciona correctamente. Puesto que el equipo de Microsoft Service Management para instancias grandes de HANA no admite el sistema operativo, deberá ponerse en contacto con SUSE para cualquier solución de problemas o aclaración adicionales sobre el nivel de sistema operativo. El equipo de Microsoft Service Management configura el dispositivo STONITH y le presta soporte técnico completo, además de que puede intervenir en la solución de problemas de dicho dispositivo.*
 ## <a name="overview"></a>Información general
 Para configurar la alta disponibilidad con la agrupación en clústeres de SUSE, se deben cumplir los siguientes requisitos previos.
 ### <a name="pre-requisites"></a>Requisitos previos
@@ -31,27 +31,28 @@ Para configurar la alta disponibilidad con la agrupación en clústeres de SUSE,
 - Registro del sistema operativo
 - Servidores de instancias grandes de HANA conectados al servidor SMT para obtener las revisiones/los paquetes
 - Instalación de las revisiones más recientes en el sistema operativo
-- NTP (servidor horario)
+- Configuración de NTP (servidor horario)
 - Lectura y comprensión de la versión más reciente de la documentación de SUSE en la configuración de alta disponibilidad
 
-### <a name="setup-details"></a>Detalles de la configuración
-- En esta guía, hemos usado la siguiente configuración.
-- Sistema operativo: SUSE 12 SP1
-- Instancias grandes de HANA: 2xS192 (4 sockets, 2 TB)
+### <a name="set-up-details"></a>Configuración de los detalles
+- En esta guía, hemos usado la siguiente configuración:
+- Sistema operativo: SLES 12 SP1 para SAP
+- Instancias grandes de HANA: 2xS192 (cuatro sockets, 2 TB)
 - Versión de HANA: HANA 2.0 SP1
 - Nombres de servidor: sapprdhdb95 (nodo 1) y sapprdhdb96 (nodo 2)
 - Dispositivo STONITH: dispositivo STONITH basado en iSCSI
 - Configuración de NTP en uno de los nodos de instancia grande de HANA
 
-Cuando configura instancias grandes de HANA con HSR, puede solicitar al equipo de Microsoft Service Management que configure STONITH. Si ya es un cliente existen que dispone de instancias grandes de HANA aprovisionadas, y necesita la configuración del dispositivo STONITH para los blades existentes, necesita proporcionar la siguiente información al equipo de Microsoft Service Management en el formulario de solicitud de servicio (SRF). Puede solicitar el formulario SRF a través de su responsable técnico de cuenta o su contacto de Microsoft para la incorporación de instancias grandes de HANA. Los nuevos clientes pueden solicitar el dispositivo STONITH en el momento del aprovisionamiento. Las entradas están disponibles en el formulario de solicitud de aprovisionamiento.
+Cuando configura instancias grandes de HANA con HSR, puede solicitar al equipo de Microsoft Service Management que configure STONITH. Si ya es un cliente existente que dispone de instancias grandes de HANA aprovisionadas, y necesita la configuración del dispositivo STONITH para los blades existentes, necesita proporcionar la siguiente información al equipo de Microsoft Service Management en el formulario de solicitud de servicio (SRF). Puede solicitar el formulario SRF a través de su responsable técnico de cuenta o su contacto de Microsoft para la incorporación de instancias grandes de HANA. Los nuevos clientes pueden solicitar el dispositivo STONITH en el momento del aprovisionamiento. Las entradas están disponibles en el formulario de solicitud de aprovisionamiento.
 
-- Nombre del servidor y dirección IP del servidor (p. ej., myhanaserver1, 10.35.0.1)
+- Nombre del servidor y dirección IP del servidor (por ejemplo, myhanaserver1, 10.35.0.1)
 - Ubicación (por ejemplo, Este de EE. UU.)
 - Nombre del cliente (por ejemplo, Microsoft)
+- SID: identificador del sistema HANA (por ejemplo, H11)
 
 Una vez configurado el dispositivo STONITH, el equipo de Microsoft Service Management le proporciona el nombre de dispositivo SBD y la dirección IP del almacenamiento iSCSI que puede usar para establecer la configuración de STONITH. 
 
-Debe seguir los pasos siguientes para configurar la alta disponibilidad de un extremo a otro mediante STONITH:
+Para configurar la alta disponibilidad de un extremo a otro mediante STONITH, debe seguir los pasos siguientes:
 
 1.  Identificación del dispositivo SBD
 2.  Inicialización del dispositivo SBD
@@ -65,14 +66,18 @@ Debe seguir los pasos siguientes para configurar la alta disponibilidad de un ex
 ## <a name="1---identify-the-sbd-device"></a>1.   Identificación del dispositivo SBD
 Esta sección describe cómo determinar el dispositivo SBD para la configuración después de que el equipo de Microsoft Service Management haya configurado STONITH. **Esta sección solo se aplica al cliente existente**. Si es un cliente nuevo, el equipo de Microsoft Service Management le proporciona el nombre de dispositivo SBD y puede omitir esta sección.
 
-1.1 Modifique */etc/iscsi/initiatorname.isci* a *iqn.1996-04.de.suse:01: <Tenant><Location><SID><NodeNumber>*.  
-Microsoft Service Management no proporciona esta cadena. Esto debe hacerse en **ambos** nodos. Sin embargo, el número de nodo es distinto en cada nodo.
+1.1 Cambie */etc/iscsi/initiatorname.isci* por 
+``` 
+iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
+```
+
+Microsoft Service Management no proporciona esta cadena. Modifique el archivo en **ambos** nodos, aunque el número de nodos sea distinto en cada nodo.
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modifique */etc/iscsi/iscsid.conf*: establezca *node.session.timeo.replacement_timeout=5* y *node.startup = automatic*. Esto debe hacerse en **ambos** nodos.
+1.2 Modifique */etc/iscsi/iscsid.conf*: establezca *node.session.timeo.replacement_timeout=5* y *node.startup = automatic*. Modifique el archivo **ambos** nodos.
 
-1.3 Ejecute el comando de detección. Muestra cuatro sesiones. Esto debe realizarse en ambos nodos.
+1.3 Ejecute el comando de detección. Muestra cuatro sesiones. Ejecútelo en ambos nodos.
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -80,14 +85,14 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 Ejecute el comando para iniciar sesión en el dispositivo iSCSI. Muestra cuatro sesiones. Esto debe hacerse en **ambos** nodos.
+1.4 Ejecute el comando para iniciar sesión en el dispositivo iSCSI. Muestra cuatro sesiones. Ejecútelo en **ambos** nodos.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Ejecute el script de volver a examinar: *rescan-scsi-bus.sh*.  Esto muestra los nuevos discos creados para usted.  Ejecútelo en ambos nodos. Debería ver un número LUN superior a cero (por ejemplo: 1, 2 etc.)
+1.5 Ejecute el script de volver a examinar: *rescan-scsi-bus.sh*.  Este script muestra los nuevos discos creados para usted.  Ejecútelo en ambos nodos. Debería ver un número LUN superior a cero (por ejemplo: 1, 2 etc.)
 
 ```
 rescan-scsi-bus.sh
@@ -120,7 +125,7 @@ sbd -d <SBD Device Name> dump
 ## <a name="3---configuring-the-cluster"></a>3.   Configuración del clúster
 En esta sección se describen los pasos para configurar el clúster de alta disponibilidad de SUSE.
 ### <a name="31-package-installation"></a>3.1 Instalación del paquete
-3.1.1   Compruebe que los patrones ha_sles y SAPHanaSR-doc estén instalados. Si no es así, instálelos. Esto debe hacerse en **ambos** nodos.
+3.1.1   Compruebe que los patrones ha_sles y SAPHanaSR-doc estén instalados. Si no están instalado, instálelos. Hágalo en **ambos** nodos.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -158,7 +163,7 @@ La autenticación se realiza con las direcciones IP y las claves compartidas pre
 Haga clic en **Next** (Siguiente).
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-En la opción predeterminada, el arranque estaba desactivado. Actívelo para arrancar Pacemarker. Puede elegir según los requisitos de configuración.
+En la opción predeterminada, el arranque estaba desactivado. Actívelo para arrancar Pacemarker. Puede basar su elección en los requisitos de configuración.
 Haga clic en **Next** (Siguiente) y se completará la configuración del clúster.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Configuración del guardián Softdog
@@ -170,7 +175,7 @@ modprobe softdog
 ```
 ![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2 Actualice el archivo */etc/sysconfig/sbd* en **ambos** nodos como aparece a continuación.
+4.2 Actualice el archivo */etc/sysconfig/sbd* en **ambos** nodos de la manera siguiente:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
@@ -182,7 +187,7 @@ modprobe softdog
 ```
 ![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4.4 Asegúrese de que Softdog se esté ejecutando de la forma que aparece a continuación en **ambos** nodos.
+4.4 Asegúrese de que Softdog se esté ejecutando de la forma que aparece a continuación en **ambos** nodos:
 ```
 lsmod | grep dog
 ```
@@ -212,7 +217,7 @@ sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9 Para adoptar la configuración de sbd, actualice el archivo */etc/sysconfig/sbd* de la siguiente forma. Esto debe realizarse en **ambos** nodos.
+4.9 Para adoptar la configuración de sbd, actualice el archivo */etc/sysconfig/sbd* de la siguiente forma. Actualice el archivo en **ambos** nodos.
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -256,7 +261,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configuración de propiedades del clúster y recursos 
 Esta sección describe los pasos para configurar los recursos del clúster.
-En este ejemplo hemos realizado la configuración del siguiente recurso. El resto puede configurarse (si es necesario) dirigiéndose a la guía de alta disponibilidad de SUSE. Debe realizar esta configuración solo en **uno de los nodos**. Hágalo en el nodo principal
+En este ejemplo hemos realizado la configuración del siguiente recurso. El resto puede configurarse (si es necesario) tomando como referencia la guía de alta disponibilidad de SUSE. Realice la configuración en **uno de los nodos** solamente. Hágalo en el nodo principal
 
 - Arranque del clúster
 - Dispositivo STONITH
@@ -264,7 +269,7 @@ En este ejemplo hemos realizado la configuración del siguiente recurso. El rest
 
 
 ### <a name="71-cluster-bootstrap-and-more"></a>7.1 Arranque del clúster y mucho más
-Agregue el arranque del clúster. Cree el archivo y agregue el texto de la siguiente forma.
+Agregue el arranque del clúster. Cree el archivo y agregue el texto de la siguiente forma:
 ```
 sapprdhdb95:~ # vi crm-bs.txt
 # enter the following to crm-bs.txt
@@ -364,7 +369,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Escenario 2: yast2 no muestra la vista gráfica
-Hemos usado la pantalla gráfica de yast2 para configurar el clúster de alta disponibilidad en este documento. Si yast2 no se abre con la ventana gráfica como se muestra y genera el error Qt, siga los pasos siguientes. Si se abre con la ventana gráfica, puede omitir los pasos.
+Hemos usado la pantalla gráfica de yast2 para configurar el clúster de alta disponibilidad en este documento. Si yast2 no se abre con la ventana gráfica como se muestra y genera el error Qt, realice los pasos siguientes. Si se abre con la ventana gráfica, puede omitir los pasos.
 
 **Error**
 
@@ -376,7 +381,7 @@ Hemos usado la pantalla gráfica de yast2 para configurar el clúster de alta di
 
 Si yast2 no se abre con la vista gráfica, siga los pasos siguientes.
 
-Instale los paquetes requeridos. Debe iniciar sesión como usuario "raíz" y contar con la configuración SMT para descargar/instalar los paquetes.
+Instale los paquetes requeridos. Debe iniciar sesión como usuario "raíz" y contar con la configuración SMT para descargar e instalar los paquetes.
 
 Para instalar los paquetes, use yast>Software>Software Management (Administración de software)>Dependencies (Dependencias)> opción "Install recommended packages…" (Instalar paquetes recomendados). La siguiente captura de pantalla muestra las pantallas esperadas.
 >[!NOTE]

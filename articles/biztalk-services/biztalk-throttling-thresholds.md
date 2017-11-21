@@ -1,6 +1,6 @@
 ---
 title: "Información sobre la limitación en BizTalk Services | Microsoft Docs"
-description: "Obtenga información acerca de los umbrales de limitación y comportamientos en tiempo de ejecución resultantes para los Servicios de BizTalk. La limitación se basa en el uso de la memoria y el número de mensajes. MABS, WABS"
+description: "Obtenga información acerca de los umbrales de limitación y comportamientos en tiempo de ejecución resultantes para BizTalk Services. La limitación se basa en el uso de la memoria y el número de mensajes. MABS, WABS"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 145e7470bbc01c676a1fb5856c0f9a8726e667fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39fc5ef36bb581c3a81c9948fda048f6cb75eb7e
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="biztalk-services-throttling"></a>Servicios de BizTalk: limitaciones
+# <a name="biztalk-services-throttling"></a>BizTalk Services: limitaciones
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Los servicios de BizTalk de Azure implementan limitaciones del servicio según dos condiciones: uso de memoria y el número de mensajes simultáneos que se procesan. En este tema se enumeran los umbrales de limitación y se describe el comportamiento del tiempo de ejecución cuando se produce una condición de limitación.
+Azure BizTalk Services implementa limitaciones del servicio según dos condiciones: uso de memoria y el número de mensajes simultáneos que se procesan. En este tema se enumeran los umbrales de limitación y se describe el comportamiento del tiempo de ejecución cuando se produce una condición de limitación.
 
 ## <a name="throttling-thresholds"></a>Umbrales de limitación
 La siguiente tabla muestra los orígenes y umbrales de limitación:
@@ -34,12 +34,12 @@ La siguiente tabla muestra los orígenes y umbrales de limitación:
 | Memoria |% de memoria total del sistema disponible/PageFileBytes. <p><p>La cantidad total disponible de PageFileBytes es de aproximadamente 2 veces la memoria RAM del sistema. |60% |70% |
 | Procesamiento de mensajes |Número de mensajes que se procesan simultáneamente |40 * número de núcleos |100 * número de núcleos |
 
-Cuando se alcanza un umbral alto, Servicios de BizTalk de Azure empieza a limitarse. La limitación se detiene cuando se alcanza el umbral bajo. Por ejemplo, el servicio está utilizando un 65 % de la memoria del sistema. En esta situación, el servicio no se limita. El servicio empieza a usar un 70 % de la memoria del sistema. En esta situación, el servicio se limita y sigue limitándose hasta que el servicio utiliza un 60 % de la memoria del sistema (umbral bajo).
+Cuando se alcanza un umbral alto, Azure BizTalk Services empieza a limitarse. La limitación se detiene cuando se alcanza el umbral bajo. Por ejemplo, el servicio está utilizando un 65 % de la memoria del sistema. En esta situación, el servicio no se limita. El servicio empieza a usar un 70 % de la memoria del sistema. En esta situación, el servicio se limita y sigue limitándose hasta que el servicio utiliza un 60 % de la memoria del sistema (umbral bajo).
 
-Los servicios de BizTalk de Azure realizan un seguimiento del estado de las limitaciones (estado normal frente a estado limitado) y de la duración de la limitación.
+Azure BizTalk Services realizan un seguimiento del estado de las limitaciones (estado normal frente a estado limitado) y de la duración de la limitación.
 
 ## <a name="runtime-behavior"></a>Comportamiento del tiempo de ejecución
-Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocurre lo siguiente:
+Cuando Azure BizTalk Services entran en un estado de limitación, ocurre lo siguiente:
 
 * La limitación es por instancia de rol. Por ejemplo:<br/>
   RoleInstanceA se está limitando. RoleInstanceB no se está limitando. En esta situación, los mensajes en RoleInstanceB se procesan según lo esperado. Los mensajes en RoleInstanceA se descartan y producen el siguiente error:<br/><br/>
@@ -53,19 +53,18 @@ Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocu
 * La limitación no se puede deshabilitar.
 * Los umbrales de limitación no se pueden modificar.
 * La limitación está implementada en todo el sistema.
-* El servidor de Base de datos SQL de Azure también tiene limitaciones integradas.
+* El servidor de Azure SQL Database también tiene limitaciones integradas.
 
-## <a name="additional-azure-biztalk-services-topics"></a>Otros temas acerca de los servicios de BizTalk de Azure
+## <a name="additional-azure-biztalk-services-topics"></a>Otros temas acerca de Azure BizTalk Services
 * [Instalación del SDK de Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 * [Tutoriales: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Otras referencias
-* [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Servicios de BizTalk: gráfico del estado de aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Servicios de BizTalk: pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Servicios de BizTalk: copias de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Servicios de BizTalk: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [BizTalk Services: gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: gráfico del estado de aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: copias de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 

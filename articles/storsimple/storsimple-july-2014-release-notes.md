@@ -12,26 +12,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/18/2016
+ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 303cdffa15fdfe9b83d0612edecafc6943d218f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6e087ad61ee54fef3552895c00a478fa51e2072
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Notas de la versión de StorSimple 8000 Series - julio de 2014
-## <a name="overview"></a>Información general
-Las notas siguientes identifican los problemas críticos por resolver de la versión de disponibilidad general (GA) de julio de 2014 de StorSimple 8000 Series de Microsoft Azure StorSimple. Esta versión se corresponde con la versión de software 6.3.9600.17215.  
 
-A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Las notas se actualizan continuamente y, a medida que se descubren, se van agregando problemas críticos que requieren una solución alternativa. Antes de implementar la solución de Microsoft Azure StorSimple, tenga en cuenta la siguiente información.  
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
+## <a name="overview"></a>Información general
+
+Las notas siguientes identifican los problemas críticos por resolver de la versión de disponibilidad general (GA) de julio de 2014 de StorSimple 8000 Series de Microsoft Azure StorSimple. Esta versión se corresponde con la versión de software 6.3.9600.17215.
+
+A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Las notas se actualizan continuamente y, a medida que se descubren, se van agregando problemas críticos que requieren una solución alternativa. Antes de implementar la solución de Microsoft Azure StorSimple, tenga en cuenta la siguiente información.
 
 ## <a name="known-issues-in-this-release"></a>Problemas conocidos en esta versión
+
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.  
 
 | Nº | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
-| 1 |Restablecimiento de fábrica |En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple puede bloquearse y mostrar este mensaje: **Restablecimiento de fábrica en curso (fase 8)**. Esto sucede si presiona CTRL+C mientras el cmdlet está en curso. |No presione CTRL+C después de iniciar un restablecimiento de fábrica. Si ya está en este estado, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |No |
+| 1 |Restablecimiento de fábrica |En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple puede bloquearse y mostrar este mensaje: **Restablecimiento de fábrica en curso (fase 8)**. Esto sucede si presiona CTRL+C mientras el cmdlet está en curso. |No presione CTRL+C después de iniciar un restablecimiento de fábrica. Si ya está en este estado, póngase en contacto con el Soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |No |
 | 2 |Cuórum de disco |En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el bloque de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. |Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |No |
 | 3 |Errores de instantánea en la nube |En raras ocasiones, una instantánea en la nube puede producir el error **Se ha alcanzado el límite máximo de copia de seguridad**. Esto ocurre si se superan los 255 clones en línea en el mismo dispositivo, procedentes del mismo volumen original eliminado. | |Sí |Sí |
 | 4 |Identificador de controlador incorrecto |Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. |No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. |Sí |No |

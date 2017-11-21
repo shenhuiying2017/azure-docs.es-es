@@ -3,7 +3,7 @@ title: "Depuración de la aplicación de Azure Service Fabric en Eclipse | Micro
 description: "Mejore la confiabilidad y el rendimiento de los servicios mediante su desarrollo y depuración en Eclipse en un clúster de desarrollo local."
 services: service-fabric
 documentationcenter: .net
-author: vturecek
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2017
-ms.author: vturecek;mikhegn
-ms.openlocfilehash: f3bcee3794de35005bd387ecfae7e6707f3cb5ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/02/2017
+ms.author: suhuruli;mikhegn
+ms.openlocfilehash: 023b878706abf524b5a7939492937a92151f6035
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depuración de la aplicación de Service Fabric para Java con Eclipse
 > [!div class="op_single_selector"]

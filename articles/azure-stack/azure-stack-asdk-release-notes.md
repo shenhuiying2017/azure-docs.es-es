@@ -1,9 +1,9 @@
 ---
 title: "Notas de la versión de Microsoft Azure Stack Development Kit | Microsoft Docs"
-description: 
+description: Mejoras, correcciones y problemas conocidos de Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: 
-author: heathl17
+author: twooley
 manager: byronr
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,55 +12,127 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
-ms.author: helaw
-ms.openlocfilehash: 5ee2f8164d13e61f9a43abcbda729298f2168518
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.date: 11/02/2017
+ms.author: twooley
+ms.openlocfilehash: 95f63bc65491e56832b2c473d539cc702c38e584
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión de Azure Stack Development Kit
 
 *Se aplica a: Azure Stack Development Kit*
 
-Estas notas de la versión proporcionan información sobre las nuevas características y los problemas conocidos en el kit de desarrollo de Azure Stack. Si no está seguro de qué versión se está ejecutando, puede usar el [portal de administración](azure-stack-updates.md#determine-the-current-version).
+Estas notas de la versión proporcionan información sobre las mejoras, correcciones y problemas conocidos en Azure Stack Development Kit. Si no está seguro de qué versión se está ejecutando, puede usar el [portal de administración](azure-stack-updates.md#determine-the-current-version).
 
-## <a name="release-build-201709283"></a>Compilación de versión 20170928.3
+## <a name="build-201710201"></a>Compilación 20171020.1
+
+### <a name="improvements-and-fixes"></a>Mejoras y correcciones
+
+Para ver la lista de mejoras y correcciones de la compilación 20171020.1, vea la sección [Mejoras y correcciones](azure-stack-update-1710.md#improvements-and-fixes) de las notas de la versión 1710 para los sistemas integrados de Azure Stack. Algunos de los elementos que aparecen en la sección "Correcciones y mejoras de calidad adicionales" solo son importantes para los sistemas integrados.
+
+También se han realizado las siguientes correcciones:
+- Se ha solucionado un problema en el que el proveedor de recursos de Compute mostraba un estado desconocido.
+- Se ha corregido un problema en el que las cuotas podía no aparecer en el portal del administrador después de crearlas y luego intentar ver los detalles del plan.
 
 ### <a name="known-issues"></a>Problemas conocidos
 
 #### <a name="powershell"></a>PowerShell
-
-- La versión del módulo de PowerShell AzureRM 1.2.11 incluye una lista de los últimos cambios. Para información sobre cómo actualizar la versión 1.2.10, consulte la guía de migración en [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
-
-
+- La versión del módulo de PowerShell AzureRM 1.2.11 incluye una lista de los últimos cambios. Para información sobre cómo actualizar la versión 1.2.10, consulte la [guía de migración](https://aka.ms/azspowershellmigration).
+ 
 #### <a name="deployment"></a>Implementación
-* Debe especificar un servidor de hora mediante una dirección IP durante la implementación.  
+- Debe especificar un servidor de hora mediante una dirección IP durante la implementación.
 
+#### <a name="infrastructure-management"></a>Administración de la infraestructura
+- No habilite la copia de seguridad de la infraestructura en la hoja **Infrastructure backup** (Copia de seguridad de la infraestructura).
+- La dirección IP del controlador de administración de placa base (BMC) y el modelo no se muestran en la información esencial de un nodo de unidad de escala. Este comportamiento es el esperado en Azure Stack Development Kit.
 
 #### <a name="portal"></a>Portal
-* Puede ver un panel en blanco en el portal.  Para recuperar el panel, seleccione el icono de engranaje en la esquina superior derecha del portal y seleccione "Restaurar configuración predeterminada".
-* Los inquilinos podrán examinar toda la plataforma Marketplace sin ninguna suscripción y verán elementos administrativos como planes y ofertas.  Estos elementos no funcionan para los inquilinos.
-* El botón "Mover" está deshabilitado en el Grupo de recursos.  El comportamiento esperado es el botón deshabilitado, porque el movimiento de grupos de recursos entre suscripciones no se admite actualmente.
-* No es posible ver los permisos para la suscripción con los portales de Azure Stack.  Como solución alternativa, se pueden comprobar los permisos con Powershell.
-* Verá una alerta que avisa de que registre el kit de desarrollo de Azure Stack.  El comportamiento esperado es esta alerta.  
+- Puede ver un panel en blanco en el portal. Para recuperar el panel, seleccione el icono de engranaje en la esquina superior derecha del portal y, a continuación, seleccione **Restaurar configuración predeterminada**.
+- El botón **Mover** está deshabilitado cuando se visualizan las propiedades de un grupo de recursos. Este comportamiento es normal. El movimiento de grupos de recursos entre suscripciones no se admite actualmente.
+-  Para cualquier flujo de trabajo donde seleccione una suscripción, un grupo de recursos o una ubicación en una lista desplegable, puede experimentar uno o varios de los siguientes problemas:
+
+   - Puede que vea una fila en blanco en la parte superior de la lista. Debería poder seleccionar un elemento según lo previsto.
+   - Si la lista de elementos de la lista desplegable es breve, es posible que no se vean los nombres de los elementos.
+   - Si tiene varias suscripciones de usuario, la lista desplegable de grupos de recursos podría estar vacía. 
+
+   Para evitar los dos últimos problemas, puede escribir el nombre de la suscripción o el grupo de recursos (si lo conoce), o puede usar PowerShell en su lugar.
+
+- Verá una altera de advertencia **Activación necesaria** que le informa de que debe registrar Azure Stack Development Kit. Este comportamiento es normal.
+- En los detalles de alerta de advertencia de **Activación necesaria**, no haga clic en el vínculo al componente **AzureBridge**. Si lo hace, la hoja **Información general** intentará cargarse sin éxito y no se agotará el tiempo de espera.
+- En el portal de administrador, puede ver un error **Error al capturar los inquilinos** en el área **Notificaciones**. Puede omitir este error sin problemas.
+- La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
+- No es posible ver los permisos para la suscripción con los portales de Azure Stack. Como solución alternativa, se pueden comprobar los permisos con PowerShell.
+ 
+#### <a name="marketplace"></a>Marketplace
+- Al intentar agregar elementos al Marketplace de Azure Stack mediante la opción **Add from Azure** (Agregar desde Azure), es posible que no todos los elementos estén visibles para su descarga.
+- Los usuarios pueden examinar toda la plataforma Marketplace sin ninguna suscripción y ver elementos administrativos, como planes y ofertas. Estos elementos no funcionan para los usuarios.
+ 
+#### <a name="compute"></a>Proceso
+- Los usuarios tienen la opción de crear una máquina virtual con almacenamiento con redundancia geográfica. Esta configuración hace que no se puedan crear máquinas virtuales. 
+- Puede configurar un conjunto de disponibilidad de la máquina virtual con un dominio de error de uno y un dominio de actualización de uno.
+- No hay ninguna experiencia del Marketplace para crear conjuntos de escalado de máquinas virtuales. Puede crear un conjunto de escalado mediante una plantilla.
+- Los valores de escalado para conjuntos de escalas de máquina virtual no están disponibles en el portal. Como alternativa, puede usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Debido a diferencias en la versión de PowerShell, debe usar el parámetro `-Name` en lugar de `-VMScaleSetName`.
+
+#### <a name="networking"></a>Redes
+- No puede crear un equilibrador de carga con una dirección IP pública mediante el portal. Como alternativa, puede usar PowerShell para crear el equilibrador de carga.
+- Debe crear una regla de traducción de direcciones de red (NAT) cuando cree un equilibrador de carga de red. Si no lo hace, recibirá un error al intentar agregar una regla NAT después de crear el equilibrador de carga.
+- En **Red**, si hace clic en **Conexión** para configurar una conexión VPN, **VNet a VNet** aparece como un tipo de conexión posible. No seleccione esta opción. Actualmente, solo se admite la opción **De sitio a sitio (IPsec)**.
+- No se puede desasociar una dirección IP pública de una máquina virtual después de que la máquina virtual se haya creado y asociado a esa dirección IP. La desasociación parecerá funcionar, pero la dirección IP pública asignada previamente permanecerá asociada a la máquina virtual original. Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que normalmente se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva. Actualmente, solo debe usar direcciones IP públicas nuevas para la creación de máquinas virtuales.
+ 
+#### <a name="sqlmysql"></a>SQL/MySQL 
+- Puede pasar una hora antes de que los inquilinos puedan crear bases de datos en una nueva SKU SQL o MySQL. 
+- La creación de elementos directamente en servidores de hospedaje SQL y MySQL que no realice el proveedor de recursos no se admite y puede provocar un estado de error de coincidencia.
+
+#### <a name="app-service"></a>App Service
+- Un usuario debe registrar el proveedor de recursos de almacenamiento antes de crear su primera función de Azure en la suscripción.
+ 
+#### <a name="usage-and-billing"></a>Uso y facturación
+- Los datos del medidor de uso de la dirección IP pública muestran el mismo valor *EventDateTime* para cada registro en lugar de la marca *TimeDate* que muestra cuándo se creó el registro. Actualmente, no puede usar estos datos para realizar un recuento adecuado del uso de la dirección IP pública.
+
+## <a name="build-201709283"></a>Compilación 20170928.3
+
+### <a name="known-issues"></a>Problemas conocidos
+
+#### <a name="powershell"></a>PowerShell
+- La versión del módulo de PowerShell AzureRM 1.2.11 incluye una lista de los últimos cambios. Para información sobre cómo actualizar la versión 1.2.10, consulte la [guía de migración](https://aka.ms/azspowershellmigration).
+
+#### <a name="deployment"></a>Implementación
+- Debe especificar un servidor de hora mediante una dirección IP durante la implementación.
+
+ #### <a name="infrastructure-management"></a>Administración de la infraestructura
+- No habilite la copia de seguridad de la infraestructura en la hoja **Infrastructure backup** (Copia de seguridad de la infraestructura).
+- El proveedor de recursos de Compute muestra un estado desconocido.
+- La dirección IP del controlador de administración de placa base (BMC) y el modelo no se muestran en la información esencial de un nodo de unidad de escala. Este comportamiento es el esperado en Azure Stack Development Kit. 
+   
+#### <a name="portal"></a>Portal
+- Puede ver un panel en blanco en el portal. Para recuperar el panel, seleccione el icono de engranaje en la esquina superior derecha del portal y, a continuación, seleccione **Restaurar configuración predeterminada**.
+- El botón **Mover** está deshabilitado cuando se visualizan las propiedades de un grupo de recursos. Este comportamiento es normal. El movimiento de grupos de recursos entre suscripciones no se admite actualmente.
+- Verá una altera de advertencia **Activación necesaria** que le informa de que debe registrar Azure Stack Development Kit. Este comportamiento es normal.
+- En los detalles de alerta de advertencia de **Activación necesaria**, no haga clic en el vínculo al componente **AzureBridge**. Si lo hace, la hoja **Información general** intentará cargarse sin éxito y no se agotará el tiempo de espera.
+- Puede que las cuentas no se muestren en el portal del administrador después de crearlas e intentar ver luego los detalles del plan. Como solución alternativa, en **Servicios y cuotas**, haga clic en **Agregar**, y agregue una nueva entrada.
+- La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
+- No es posible ver los permisos para la suscripción con los portales de Azure Stack. Como solución alternativa, puede comprobar los permisos con PowerShell.
   
+#### <a name="marketplace"></a>Marketplace
+- Los usuarios pueden examinar toda la plataforma Marketplace sin ninguna suscripción y ver elementos administrativos, como planes y ofertas. Estos elementos no funcionan para los usuarios.
+ 
+#### <a name="compute"></a>Proceso
+- Los usuarios tienen la opción de crear una máquina virtual con almacenamiento con redundancia geográfica. Esta configuración hace que no se puedan crear máquinas virtuales.
+- Puede configurar un conjunto de disponibilidad de la máquina virtual con un dominio de error de uno y un dominio de actualización de uno.
+- No hay ninguna experiencia del Marketplace para crear conjuntos de escalado de máquinas virtuales. Puede crear un conjunto de escalado mediante una plantilla.
 
-#### <a name="services"></a>Services
-* No hay ninguna experiencia de Marketplace para crear conjuntos de escalado de máquinas virtuales, aunque se pueden crear mediante una plantilla.
-* No es posible crear un equilibrador de carga con una dirección IP pública mediante el portal.  Como alternativa, puede usar PowerShell para crear el equilibrador de carga.
-* Los conjuntos de disponibilidad de la máquina virtual solo pueden configurarse con un dominio de error de uno y un dominio de actualización de uno.  
-* Un inquilino debe registrar el proveedor de recursos de almacenamiento antes de crear su primera función de Azure en la suscripción.
-* La eliminación de las suscripciones del inquilino da como resultado recursos huérfanos.  Como alternativa, elimine primero los recursos del inquilino o todo grupo de recursos y, a continuación, elimine las suscripciones del inquilino. 
-* Debe crear una regla NAT cuando crea un equilibrador de carga de red. Si no lo hace, recibirá un error al intentar agregar una regla NAT después de crear el equilibrador de carga.
-* Los inquilinos tienen la opción de crear una máquina virtual con almacenamiento con redundancia geográfica.  Esta configuración hace que no se puedan crear máquinas virtuales.
-* Puede pasar una hora antes de que los inquilinos puedan crear bases de datos en una nueva SKU SQL o MySQL. 
-* La creación de elementos directamente en servidores de hospedaje SQL y MySQL que no realice el proveedor de recursos no se admite y puede provocar un estado de error de coincidencia.
-* No debe usarse la hoja de copia de seguridad de la infraestructura.
+#### <a name="networking"></a>Redes
+- No puede crear un equilibrador de carga con una dirección IP pública mediante el portal. Como alternativa, puede usar PowerShell para crear el equilibrador de carga.
+- Debe crear una regla de traducción de direcciones de red (NAT) cuando cree un equilibrador de carga de red. Si no lo hace, recibirá un error al intentar agregar una regla NAT después de crear el equilibrador de carga.
+- En **Red**, si hace clic en **Conexión** para configurar una conexión VPN, **VNet a VNet** aparece como un tipo de conexión posible. No seleccione esta opción. Actualmente, solo se admite la opción **De sitio a sitio (IPsec)**.
+- No se puede desasociar una dirección IP pública de una máquina virtual después de que la máquina virtual se haya creado y asociado a esa dirección IP. La desasociación parecerá funcionar, pero la dirección IP pública asignada previamente permanecerá asociada a la máquina virtual original. Este comportamiento se producirá incluso si vuelve a asignar la dirección IP a una nueva máquina virtual (lo que en ocasiones se conoce como *intercambio de VIP*). Todos los intentos futuros de conectarse a través de esta dirección IP tendrán como resultado una conexión a la máquina virtual asociada originalmente, y no a la nueva. Actualmente, solo debe usar direcciones IP públicas nuevas para la creación de máquinas virtuales.
 
 
-#### <a name="fabric"></a>Fabric
-* El proveedor de recursos de Compute muestra un estado desconocido.
-* La dirección IP y el modelo de BMC no se muestran en la información esencial de un nodo de unidad de escala.  Este comportamiento es el esperado en Azure Stack Development Kit.
+#### <a name="sqlmysql"></a>SQL/MySQL
+- Puede pasar una hora antes de que los inquilinos puedan crear bases de datos en una nueva SKU SQL o MySQL. 
+- La creación de elementos directamente en servidores de hospedaje SQL y MySQL que no realice el proveedor de recursos no se admite y puede provocar un estado de error de coincidencia.
 
+#### <a name="app-service"></a>App Service
+- Un usuario debe registrar el proveedor de recursos de almacenamiento antes de crear su primera función de Azure en la suscripción.

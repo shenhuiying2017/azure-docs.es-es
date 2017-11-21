@@ -1,6 +1,6 @@
 ---
-title: API de tabla de Azure Cosmos DB para Python | Microsoft Docs
-description: "Conozca todo sobre el SDK de Python de Azure Cosmos DB para tablas premium, como las fechas de lanzamiento, las fechas de retirada y los cambios realizados entre cada versión."
+title: SDK de Azure Table Storage para Python | Microsoft Docs
+description: "Obtenga información sobre el SDK de Azure Table Storage para Python, incluidos las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/04/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 8a52032c1f406b7bcaab59f6ba19bee0784d20eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="azure-cosmos-db-table-api-for-python-release-notes-and-resources"></a>API de tabla de Azure Cosmos DB para Python: notas de la versión y recursos
+# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>SDK de Azure Table Storage para Python: notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [Python](table-sdk-python.md)

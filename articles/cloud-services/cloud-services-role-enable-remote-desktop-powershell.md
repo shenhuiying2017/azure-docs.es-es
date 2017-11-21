@@ -1,5 +1,5 @@
 ---
-title: "Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell"
+title: "Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante PowerShell"
 description: "Configuración de la aplicación de servicios en la nube de Azure con PowerShell para permitir conexiones a Escritorio remoto"
 services: cloud-services
 documentationcenter: 
@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 171f27c92ee9de14301ebb664e9ba3bcd98c394d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab99eaa10d232e244b17325188e83128c651caf6
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante PowerShell
 > [!div class="op_single_selector"]
 > * [Portal de Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [Portal de Azure clásico](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
->
->
 
 Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta en Azure. Puede usar la conexión de Escritorio remoto para solucionar y diagnosticar problemas con su aplicación mientras se ejecuta.
 
@@ -108,5 +105,5 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-[How to Configure Cloud Services](cloud-services-how-to-configure.md) (Configuración de Cloud Services)
+[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md) (Configuración de Cloud Services)
 [Cloud services FAQ - Remote Desktop](cloud-services-faq.md) (Preguntas frecuentes sobre Cloud Services &gt; Escritorio remoto)

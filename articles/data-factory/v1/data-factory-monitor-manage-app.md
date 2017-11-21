@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración
 > [!div class="op_single_selector"]
@@ -27,6 +27,9 @@ ms.lasthandoff: 10/11/2017
 > * [Uso de la aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
 >
 >
+
+> [!NOTE]
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [la supervisión y administración de canalizaciones en Data Factory en la versión 2](../monitor-visually.md).
 
 En este artículo se describe cómo usar la aplicación de supervisión y administración para supervisar, administrar y depurar las canalizaciones de Data Factory. También proporciona información acerca de cómo crear alertas para recibir notificaciones cuando se produzcan errores. Para empezar a usar la aplicación, vea el vídeo siguiente:
 

@@ -1,6 +1,6 @@
 ---
-title: "Aplicación web con Table Storage (Node.js) | Microsoft Docs"
-description: "Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Almacenamiento de Azure y el módulo de Azure."
+title: "Azure Table Storage: compilación de una aplicación web con Node.js | Microsoft Docs"
+description: "Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Azure Storage y el módulo de Azure."
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,19 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Aplicación web Node.js con almacenamiento
+# <a name="azure-table-storage-nodejs-web-application"></a>Azure Table Storage: compilación de una aplicación web con Node.js
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Información general
 En este tutorial, la aplicación que creó en el tutorial [Aplicación web Node.js con Express] se amplía mediante el uso de las bibliotecas Microsoft Azure Client para Node.js a fin de trabajar con los servicios de administración de datos. Va a ampliar su aplicación creando una aplicación de lista de tareas basada en web que se puede implementar en Azure. La lista de tareas permite al usuario recuperar tareas, agregar tareas nuevas y marcar tareas como completadas.
 
-Los elementos de tarea se almacenan en el almacenamiento de Azure. El almacenamiento de Azure ofrece almacenamiento de datos no estructurados que es tolerante a errores y tiene una alta disponibilidad. Azure Storage incluye varias estructuras de datos donde puede almacenar y tener acceso a datos. Puede usar los servicios de almacenamiento de las API que se incluyen en el SDK de Azure para Node.js o a través de las API de REST. Para más información, consulte [Almacenamiento de Azure].
+Los elementos de tarea se almacenan en Azure Storage. Azure Storage ofrece almacenamiento de datos no estructurados que es tolerante a errores y tiene una alta disponibilidad. Azure Storage incluye varias estructuras de datos donde puede almacenar y tener acceso a datos. Puede usar los servicios de almacenamiento de las API que se incluyen en el SDK de Azure para Node.js o a través de las API de REST. Para más información, consulte [Almacenamiento de Azure].
 
 En este tutorial se supone que ha completado los tutoriales de [Aplicación web Node.js] y [Node.js con Express][Aplicación web Node.js con Express].
 
@@ -105,7 +107,7 @@ Siga estos pasos para recuperar las credenciales de la cuenta de almacenamiento 
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
   ```
 
-## <a name="using-the-table-service-in-a-node-application"></a>Uso del servicio Tabla en una aplicación Node
+## <a name="using-the-table-service-in-a-node-application"></a>Uso de Table service en una aplicación Node
 En esta sección, la aplicación básica creada por el comando **express** se amplía agregando un archivo **task.js** que contiene el modelo para sus tareas. Modifique el archivo **app.js** existente y cree un archivo **tasklist.js** nuevo que utilice el modelo.
 
 ### <a name="create-the-model"></a>Crear el modelo

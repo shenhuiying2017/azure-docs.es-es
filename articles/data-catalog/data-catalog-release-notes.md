@@ -1,6 +1,6 @@
 ---
 title: "Notas de la versión de Azure Data Catalog | Microsoft Docs"
-description: "Las notas de la versión del Catálogo de datos de Azure."
+description: "Las notas de la versión de Azure Data Catalog."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -13,31 +13,31 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: d3db9bee0558cac5fb4f5b8fb4ab67a35ce0f141
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba79bf465fc7775c44b370de287bfca5e29beccd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="azure-data-catalog-release-notes"></a>Notas de la versión del Catálogo de datos de Azure
-## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notas de la versión del 20 de noviembre de 2015 del Catálogo de datos de Azure
+# <a name="azure-data-catalog-release-notes"></a>Notas de la versión de Azure Data Catalog
+## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notas de la versión del 20 de noviembre de 2015 de Azure Data Catalog
 ### <a name="opening-data-sources-in-power-bi-desktop"></a>Apertura de orígenes de datos en Power BI Desktop
-Al usar la opción "Abrir en Power BI Desktop" del portal de **Catálogo de datos de Azure** , es posible que los usuarios se encuentren uno o dos problemas en la aplicación Power BI Desktop:
+Al usar la opción "Abrir en Power BI Desktop" del portal de **Azure Data Catalog** , es posible que los usuarios se encuentren uno o dos problemas en la aplicación Power BI Desktop:
 
 * Se mostrará un cuadro de diálogo con el título "No se puede abrir el documento"
 * A continuación, se abre la aplicación Power BI Desktop, pero el archivo parece vacío
 
 Para cada situación, se puede resolver el problema descargando e instalando la versión más reciente de Power BI Desktop de [PowerBI.com](https://powerbi.com).
 
-## <a name="notes-for-the-november-13-2015-release-of-azure-data-catalog"></a>Notas de la versión del 13 de noviembre de 2015 del Catálogo de datos de Azure
+## <a name="notes-for-the-november-13-2015-release-of-azure-data-catalog"></a>Notas de la versión del 13 de noviembre de 2015 de Azure Data Catalog
 ### <a name="registering-and-connecting-to-teradata"></a>Registro y conexión a Teradata
 Para conectarse a orígenes de datos de Teradata, los usuarios deben tener instalados los controladores ODBC de Teradata correctos que coinciden con el valor de bits (32 bits o 64 bits) del software que se va a usar.
 
 A partir de esta fecha de lanzamiento de ADC, el [Controlador ODBC de Teradata para Windows (versión 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) más reciente será compatible con Office 2013, pero no con Office 2016.
 
-## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Notas de la versión del 13 de julio de 2015 del Catálogo de datos de Azure
+## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Notas de la versión del 13 de julio de 2015 de Azure Data Catalog
 ### <a name="registering-and-connecting-to-oracle-database"></a>Registro y conexión a Oracle Database
 Para conectarse a orígenes de datos de Oracle Database, los usuarios deben tener instalados los controladores de Oracle correctos que coinciden con el valor de bits (32 bits o 64 bits) del software que se va a usar.
 
@@ -55,7 +55,7 @@ Al abrir recursos de datos en Microsoft Excel desde el portal **Azure Data Catal
 Para obtener más información, vea [Habilitación o deshabilitación de alertas de seguridad sobre vínculos y archivos de sitios web sospechosos](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### <a name="proxy-and-policy-configuration-and-data-source-registration"></a>Configuración de proxy y directiva, y registro de orígenes de datos
-Es posible que los usuarios se encuentren en una situación en la que puedan iniciar sesión en el portal del Catálogo de datos de Azure, pero cuando intenten iniciar sesión en la herramienta de registro de orígenes de datos se encuentren un mensaje de error que les impida iniciar sesión.
+Es posible que los usuarios se encuentren en una situación en la que puedan iniciar sesión en el portal de Azure Data Catalog, pero cuando intenten iniciar sesión en la herramienta de registro de orígenes de datos se encuentren un mensaje de error que les impida iniciar sesión.
 
 Hay dos causas posibles para este comportamiento del problema:
 

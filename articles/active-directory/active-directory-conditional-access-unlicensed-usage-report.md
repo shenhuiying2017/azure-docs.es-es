@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 0f5f0eb79d8924ebe7e5848e1d8b761ea2e4983d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="unlicensed-usage-report"></a>Informe de uso sin licencia
 El informe de uso sin licencia ayuda a identificar usuarios sin licencia que utilizan características de Azure AD de pago, lo que permite hacer un mejor uso de las licencias que se han adquirido e identificar en qué momento se necesitan más licencias. 
@@ -42,6 +42,6 @@ A los usuarios sin licencia se les marcará cuando accedan a un servicio al que 
 Esto se aplica a las directivas de MFA/ubicación, así como a las directivas de dispositivos que usan Intune.
 
 ## <a name="see-also"></a>Consulte también
-* [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
-* [Introducción al acceso condicional a Azure AD](active-directory-conditional-access-azuread-connected-apps.md) 
+* [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access-azure-portal.md)
+* [Introducción al acceso condicional a Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 

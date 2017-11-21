@@ -1,5 +1,5 @@
 ---
-title: Tutorial de REST de Service Bus mediante Azure Relay | Microsoft Docs
+title: Tutorial de REST mediante Azure Relay | Microsoft Docs
 description: "Cree una sencilla aplicación host de Azure Service Bus Relay que expone una interfaz basada en REST."
 services: service-bus-relay
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2017
+ms.date: 11/06/2017
 ms.author: sethm
-ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a5a2916514a125d0b7443ced42e5ec600c68857
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST de Azure WCF Relay
 
-En este tutorial se describe cómo compilar una sencilla aplicación host de Azure Relay que expone una interfaz basada en REST. REST permite a un cliente web, como un explorador web, tener acceso a la API de Bus de servicio a través de solicitudes HTTP.
+En este tutorial se describe cómo compilar una sencilla aplicación host de Azure Relay que expone una interfaz basada en REST. REST permite a un cliente web, como un explorador web, tener acceso a la API de Service Bus a través de solicitudes HTTP.
 
-En este tutorial se usa el modelo de programación REST de Windows Communication Foundation (WCF) para construir un servicio REST de Service Bus. Para obtener más información, vea [Modelo de programación REST de WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) y [Diseño e implementación de servicios](/dotnet/framework/wcf/designing-and-implementing-services) en la documentación de WCF.
+En este tutorial se usa el modelo de programación REST de Windows Communication Foundation (WCF) para construir un servicio REST en Azure Relay. Para obtener más información, vea [Modelo de programación REST de WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) y [Diseño e implementación de servicios](/dotnet/framework/wcf/designing-and-implementing-services) en la documentación de WCF.
 
 ## <a name="step-1-create-a-namespace"></a>Paso 1: Crear un espacio de nombres
 
@@ -32,9 +32,9 @@ Para comenzar a usar las características de Relay en Azure, primero debe crear 
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Paso 2: Definir un contrato de servicio de WCF basado en REST para utilizar con Azure Relay
 
-Cuando se crea un servicio WCF de tipo REST, debe definir el contrato. El contrato especifica qué operaciones admite el host. Una operación de servicio puede considerarse como un método de servicio web. Los contratos se crean mediante la definición de una interfaz de C++, C# o Visual Basic. Cada método de la interfaz corresponde a una operación de servicio específica. El atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) se debe aplicar a cada interfaz, y el atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) se debe aplicar a cada operación. Si un método en una interfaz que tiene [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) no tiene [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), ese método no se expone. El código utilizado para estas tareas se muestra en el ejemplo que sigue al procedimiento.
+Cuando se crea un servicio WCF de tipo REST, debe definir el contrato. El contrato especifica qué operaciones admite el host. Una operación de servicio puede considerarse como un método de servicio web. Los contratos se crean mediante la definición de una interfaz de C++, C# o Visual Basic. Cada método de la interfaz corresponde a una operación de servicio específica. El atributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) se debe aplicar a cada interfaz, y el atributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) se debe aplicar a cada operación. Si un método en una interfaz que tiene [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) no tiene [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), ese método no se expone. El código utilizado para estas tareas se muestra en el ejemplo que sigue al procedimiento.
 
-La diferencia principal entre un contrato de WCF y un contrato de estilo REST es la adición de una propiedad a [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Esta propiedad permite asignar un método de la interfaz a un método en el otro lado de la interfaz. En este caso, usaremos [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) para vincular un método a HTTP GET. Esto permite al Bus de servicio recuperar e interpretar con precisión los comandos enviados a la interfaz.
+La diferencia principal entre un contrato de WCF y un contrato de estilo REST es la adición de una propiedad a [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute): [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute). Esta propiedad permite asignar un método de la interfaz a un método en el otro lado de la interfaz. En este ejemplo, se usa el atributo [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) para vincular un método a solicitudes HTTP GET. Esto permite a Service Bus recuperar e interpretar con precisión los comandos enviados a la interfaz.
 
 ### <a name="to-create-a-contract-with-an-interface"></a>Para crear un contrato con una interfaz
 
@@ -56,7 +56,7 @@ La diferencia principal entre un contrato de WCF y un contrato de estilo REST es
     using System.IO;
     ```
    
-    [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) es el espacio de nombres que permite el acceso mediante programación a las características básicas de WCF. WCF Relay utiliza muchos de los objetos y atributos de WCF para definir contratos de servicio. Usará este espacio de nombres en la mayoría de las aplicaciones de Relay. De forma similar, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) ayuda a definir el canal, que es el objeto a través del cual se comunica con Azure Relay y el explorador web del cliente. Por último, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contiene los tipos que permiten crear aplicaciones basadas en web.
+    [System.ServiceModel](/dotnet/api/system.servicemodel) es el espacio de nombres que permite el acceso mediante programación a las características básicas de WCF. WCF Relay utiliza muchos de los objetos y atributos de WCF para definir contratos de servicio. Usará este espacio de nombres en la mayoría de las aplicaciones de Relay. De forma similar, [System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels) ayuda a definir el canal, que es el objeto a través del cual se comunica con Azure Relay y el explorador web del cliente. Por último, [System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) contiene los tipos que permiten crear aplicaciones basadas en web.
 7. Cambie el nombre del espacio de nombres `ImageListener` a **Microsoft.ServiceBus.Samples**.
    
     ```csharp
@@ -72,7 +72,7 @@ La diferencia principal entre un contrato de WCF y un contrato de estilo REST es
     {
     }
     ```
-9. Dentro de la interfaz `IImageContract`, declare un método para la operación sencilla que el contrato `IImageContract` expone en la interfaz y aplique el atributo `OperationContractAttribute` al método que desea exponer como parte del contrato público del Bus de servicio.
+9. Dentro de la interfaz `IImageContract`, declare un método para la operación sencilla que el contrato `IImageContract` expone en la interfaz y aplique el atributo `OperationContractAttribute` al método que desea exponer como parte del contrato público de Service Bus.
    
     ```csharp
     public interface IImageContract
@@ -135,12 +135,12 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Paso 3: Implementar un contrato de servicio de WCF basado en REST para usar el Bus de servicio
+## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Paso 3: Implementar un contrato de servicio de WCF basado en REST para usar Service Bus
 La creación de un servicio WCF Relay de estilo REST requiere que se cree primero el contrato, que se define mediante una interfaz. El siguiente paso es implementar la interfaz. Esto implica la creación de una clase denominada **ImageService** que implementa la interfaz **IImageContract** definida por el usuario. Después de implementar el contrato, a continuación se configura la interfaz usando un archivo App.config. El archivo de configuración contiene la información necesaria para la aplicación, como el nombre del servicio, el nombre del contrato y el tipo de protocolo que se utiliza para comunicarse con el servicio Relay. El código utilizado para estas tareas se proporciona en el ejemplo que sigue al procedimiento.
 
 Al igual que con los pasos anteriores, hay muy pocas diferencias entre implementar un contrato de estilo REST y un contrato de WCF Relay.
 
-### <a name="to-implement-a-rest-style-service-bus-contract"></a>Para implementar un contrato de Bus de servicio de estilo REST
+### <a name="to-implement-a-rest-style-service-bus-contract"></a>Para implementar un contrato de Service Bus de estilo REST
 1. Cree una nueva clase denominada **ImageService** directamente después de la definición de la interfaz **IImageContract**. La clase **ImageService** implementa la interfaz **IImageContract**.
    
     ```csharp
@@ -149,7 +149,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
     }
     ```
     Al igual que otras implementaciones de interfaz, puede implementar la definición en un archivo diferente. Sin embargo, para este tutorial, la implementación aparece en el mismo archivo que la definición de interfaz y el método `Main()`.
-2. Aplique el atributo [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) a la clase **IImageService** para indicar que la clase es una implementación de un contrato de WCF.
+2. Aplique el atributo [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) a la clase **IImageService** para indicar que la clase es una implementación de un contrato de WCF.
    
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
@@ -158,7 +158,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
     }
     ```
    
-    Como se mencionó anteriormente, este espacio de nombres no es un espacio de nombres tradicional. Más bien, forma parte de la arquitectura de WCF que identifica el contrato. Para más información, vea el tema [Nombres de contratos de datos](https://msdn.microsoft.com/library/ms731045.aspx) en la documentación de WCF.
+    Como se mencionó anteriormente, este espacio de nombres no es un espacio de nombres tradicional. Más bien, forma parte de la arquitectura de WCF que identifica el contrato. Para más información, vea el artículo [Nombres de contratos de datos](https://msdn.microsoft.com/library/ms731045.aspx) en la documentación de WCF.
 3. Agregue una imagen .jpg al proyecto.  
    
     Se trata de una imagen que el servicio muestra en el explorador de recepción. Haga clic con el botón derecho en el proyecto y, después, haga clic en **Agregar**. A continuación, haga clic en **Elemento existente**. Utilice el cuadro de diálogo **Agregar elemento existente** para buscar un .jpg adecuado y después haga clic en **Agregar**.
@@ -206,7 +206,7 @@ Al igual que con los pasos anteriores, hay muy pocas diferencias entre implement
     Esta implementación usa **MemoryStream** para recuperar la imagen y prepararla para el streaming al explorador. Este inicia la posición de la secuencia en cero, declara el contenido de la secuencia como jpeg y transmite la información.
 8. En el menú **Compilar**, haga clic en **Compilar solución**.
 
-### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Para definir la configuración para ejecutar el servicio web en el Bus de servicio
+### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Para definir la configuración para ejecutar el servicio web en Service Bus
 1. En el **Explorador de soluciones**, haga doble clic en **App.config** para abrirlo en el editor de Visual Studio.
    
     El archivo **App.config** incluye el nombre del servicio, el punto de conexión (es decir, la ubicación que Azure Relay expone para que clientes y hosts se comuniquen entre sí) y el enlace (el tipo de protocolo que se usa para la comunicación). La principal diferencia aquí es que el punto de conexión de servicio configurado hace referencia a un enlace [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding).
@@ -438,7 +438,7 @@ Este paso describe cómo ejecutar un servicio web mediante una aplicación de co
     ```csharp
     string serviceNamespace = "yourNamespace";
     ```
-    El Bus de servicio utiliza el nombre del espacio de nombres para crear un URI único.
+    Service Bus utiliza el nombre del espacio de nombres para crear un URI único.
 2. Cree una instancia `Uri` para la dirección base del servicio que se basa en el espacio de nombres.
    
     ```csharp
@@ -558,7 +558,7 @@ Después de compilar la solución, haga lo siguiente para ejecutar la aplicació
 3. Cuando haya terminado, presione **ENTRAR** en la ventana del símbolo del sistema para cerrar la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha creado una aplicación que utiliza el servicio Service Bus Relay, consulte los artículos siguientes para obtener más información sobre Azure Relay:
+Ahora que ha creado una aplicación que utiliza el servicio Azure Relay, consulte los artículos siguientes para obtener más información:
 
 * [Información general sobre la arquitectura de Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Introducción a Azure Relay](relay-what-is-it.md)

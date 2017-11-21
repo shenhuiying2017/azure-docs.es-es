@@ -15,7 +15,7 @@
   items:
     - name: Creación de un clúster de máquina virtual con módulos de Terraform
       href: terraform-create-vm-cluster-module.md
-    - name: Creación de un clúster de máquina virtual con Cloud Shell
+    - name: Creación de un clúster de máquina virtual con Terraform y HCL
       href: terraform-create-vm-cluster-with-infrastructure.md
     - name: Aprovisionamiento de un conjunto de escalado de máquinas virtuales con infraestructura
       href: terraform-create-vm-scaleset-network-disks-hcl.md

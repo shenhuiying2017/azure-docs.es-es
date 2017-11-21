@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: df1ee5089a0af6ffce1431b658843fcb34a66ce5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso del codificador Premium con varios archivos de entrada y propiedades de los componentes
 ## <a name="overview"></a>Información general
@@ -305,9 +305,9 @@ El nuevo flujo de trabajo muestra tres elementos:
 * Clip List XML (XML de la lista de clips)
 * Output File/Asset (Recurso/Archivo de salida)  
 
-![Nuevo flujo de trabajo de codificación](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
+![Nuevo flujo de trabajo de Encoding](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
-*Nuevo flujo de trabajo de codificación*
+*Nuevo flujo de trabajo de Encoding*
 
 Para aceptar el archivo multimedia de entrada, debe empezar con la incorporación de un componente de entrada de archivo multimedia. Para agregar un componente al flujo de trabajo, busque en el cuadro de búsqueda del repositorio y arrastre la entrada deseada al panel del diseñador.
 
@@ -372,9 +372,9 @@ Debe establecer el nombre del archivo de salida. Haga clic en el componente **Fi
 
 Puede ejecutar el flujo de trabajo en la máquina para comprobar que lo hace correctamente.
 
-Al finalizar, puede ejecutarlo en Servicios multimedia de Azure.
+Al finalizar, puede ejecutarlo en Azure Media Services.
 
-Primero, prepare un recurso de Servicios multimedia de Azure con dos archivos: el archivo de vídeo y el logotipo. Puede hacerlo mediante .NET o la API de REST. También puede hacerlo con el Portal de Azure o el [Explorador de Servicios multimedia de Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
+Primero, prepare un recurso de Azure Media Services con dos archivos: el archivo de vídeo y el logotipo. Puede hacerlo mediante .NET o la API de REST. También puede hacerlo con Azure Portal o el [Explorador de Azure Media Services](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
 Este tutorial muestra cómo administrar recursos con AMSE. Hay dos maneras de agregar archivos a un recurso:
 
@@ -465,14 +465,14 @@ Para realizar la codificación, siga estos pasos:
 * El recurso codificado contendrá pistas de audio en varios idiomas que podrán seleccionarse en Azure Media Player.
 
 ## <a name="see-also"></a>Consulte también
-* [Introducción de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Uso de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Introducción de la codificación Premium en Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [Uso de la codificación Premium en Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Codificación de contenido a petición con Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Códecs y formatos de flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md)
-* [Archivos de flujo de trabajo de ejemplo](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
-* [Explorador de Servicios multimedia de Azure](http://aka.ms/amse)
+* [Archivos de flujo de trabajo de ejemplo](https://github.com/Azure/azure-media-services-samples)
+* [Explorador de Azure Media Services](http://aka.ms/amse)
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

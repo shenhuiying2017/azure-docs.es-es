@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e4524704c6db0d21388ea407870c65d4f69a6323
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -31,7 +31,7 @@ Tras la implementación, muchas organizaciones desean saber cómo se usa realmen
 Las siguientes preguntas se pueden responder mediante informes existentes en [Azure Portal] (https://portal.azure.com/).
 
 > [!NOTE]
-> Debe ser [un administrador global](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) y debe seleccionar la opción para que estos datos se recopilen en nombre de la organización; para ello, vaya a la pestaña de creación de informes o consulte los registros de auditoría al menos una vez. Los datos de su organización no se recopilarán hasta que lo haga.
+> Debe ser [un administrador global](active-directory-assign-admin-roles-azure-portal.md) y debe seleccionar la opción para que estos datos se recopilen en nombre de la organización; para ello, vaya a la pestaña de creación de informes o consulte los registros de auditoría al menos una vez. Los datos de su organización no se recopilarán hasta que lo haga.
 
 * ¿Cuántas personas se han registrado para el restablecimiento de contraseña?
 * ¿Quién se ha registrado para el restablecimiento de contraseña?
@@ -78,13 +78,7 @@ Actualmente, la API de eventos e informes de Azure AD recupera hasta **75 000 ev
 
 Si necesita recuperar o almacenar datos más allá de este período, se sugiere mantenerlos en una base de datos externa y usar la API para consultar las diferencias que se generen. Se recomienda comenzar a recuperar estos datos cuando empiece a usar SSPR en la organización, mantenerlos en una base de datos externa y, luego, hacer seguimiento de las diferencias a partir de este momento.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Descarga rápida de los eventos de registro de restablecimiento de contraseña con PowerShell
-
-Además de usar directamente la API de eventos e informes de Azure AD, también puede usar el siguiente script de PowerShell para consultar los eventos de registro recientes en el directorio. Esto resulta útil si desea ver quién se registró recientemente o si quisiera asegurarse de que la implementación del restablecimiento de contraseña se ejecuta según lo esperado.
-
-* [Script de PowerShell para la actividad de registro de SSPR de Azure AD](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Descripción de las columnas del informe en Azure Portal
+## <a name="description-of-report-columns-in-azure-portal"></a>Descripción de las columnas del informe en Azure Portal
 
 La siguiente lista explica en detalle cada una de las columnas del informe:
 
@@ -93,7 +87,7 @@ La siguiente lista explica en detalle cada una de las columnas del informe:
 * **Fecha y hora** : fecha y hora del intento.
 * **Datos registrados** : datos de autenticación que el usuario proporcionó durante el registro de restablecimiento de contraseña.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Descripción de los valores del informe en Azure Portal
+## <a name="description-of-report-values-in-azure-portal"></a>Descripción de los valores del informe en Azure Portal
 
 En la tabla siguiente se describen los distintos valores permitidos para cada columna:
 

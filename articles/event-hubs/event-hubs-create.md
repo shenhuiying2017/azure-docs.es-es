@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 11/07/2017
 ms.author: sethm
-ms.openlocfilehash: 816bf1426704d3391550e80c0700f1b011683a94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e444c4505d4744c95e08c4ef0d33566356785c81
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal
 
 ## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
-1. Inicie sesión en [Azure Portal][Azure portal] y haga clic en **Nuevo** en la parte superior izquierda de la pantalla.
+1. Inicie sesión en [Azure Portal][Azure portal] y haga clic en **Crear un recurso** en la parte superior izquierda de la pantalla.
 1. Haga clic en **Internet de las cosas** y, luego, en **Event Hubs**.
    
     ![](./media/event-hubs-create/create-event-hub9.png)
-1. En la hoja **Crear espacio de nombres** , especifique el nombre del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+1. En **Crear espacio de nombres**, especifique el nombre del espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
    
     ![](./media/event-hubs-create/create-event-hub1.png)
 1. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el plan de tarifa (Básico o Estándar). Elija también una suscripción de Azure, un grupo de recursos y la ubicación en la que se va a crear el recurso. 
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/11/2017
    
     ![](./media/event-hubs-create/create-event-hub2.png) 
 
-2. En la hoja del espacio de nombres, haga clic en **Centros de eventos**.
+2. En la hoja del espacio de nombres, haga clic en **Event Hubs**.
    
     ![](./media/event-hubs-create/create-event-hub3.png)
 

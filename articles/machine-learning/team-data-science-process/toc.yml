@@ -29,12 +29,18 @@
       href: project-ic-tasks.md
 - name: Estructura del proyecto
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Ejecución de proyectos
-  href: project-execution.md
+- name: Planeación y ejecución del proyecto
+  items:
+    - name: Planeación del proyecto
+      href: team-data-science-process-project-templates.md
+    - name: Ejecución de proyectos
+      items:
+        - name: Proyectos de ciencia de datos
+          href: project-execution.md
 - name: Ejemplos
   href: walkthroughs.md
   items:
-    - name: Aprendizaje automático de Azure
+    - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
         - name: Clasificación de ingresos de EE. UU.

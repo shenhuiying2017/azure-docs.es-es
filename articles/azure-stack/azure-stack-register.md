@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/27/2017
 ms.author: erikje
-ms.openlocfilehash: 3282b9d4cdf67035d966cf934a7d8574eae6ae34
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 24cde66a132ae2e1ba0eb9b1564915746e5ca448
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registro de Azure Stack con una suscripción de Azure
 
@@ -72,7 +72,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 4. Desde el script RegisterWithAzure.psm1, ejecute el módulo Add-AzsRegistration. Reemplace los marcadores de posición siguientes: 
     - *YourCloudAdminCredential* es un objeto de PowerShell que contiene las credenciales de dominio local para domain\cloudadmin (para el kit de desarrollo, es azurestack\cloudadmin).
     - *YourAzureSubscriptionID* es el identificador de la suscripción de Azure que desea usar para registrar Azure Stack.
-    - *YourAzureDirectoryTenantName* es el nombre del directorio del inquilino de Azure en el que desea crear el recurso de registro.
+    - *YourAzureDirectoryTenantName* es el nombre del directorio del inquilino de Azure asociado a su suscripción de Azure. El recurso de registro se creará en este inquilino de directorio. 
     - *YourPrivilegedEndpoint* es el nombre del [punto final con privilegios](azure-stack-privileged-endpoint.md).
 
     ```powershell

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Procedimiento para solucionar problemas y supervisar SAP HANA en Azure (instancias grandes)
 
@@ -41,6 +41,16 @@ Al igual que con Azure Virtual Machines, debe averiguar si las clases de recurso
 **Ancho de banda de red:** la puerta de enlace de red virtual de Azure tiene una limitación en el ancho de banda de los datos que se transfieren a la red virtual de Azure, por lo que es útil supervisar los datos recibidos por todas las máquinas virtuales de Azure dentro de una red virtual para averiguar si está cerca de los límites de la SKU de puerta de enlace de Azure que seleccionó. En la unidad de Instancias grandes de HANA, tiene sentido supervisar también el tráfico de red de entrada y de salida, así como realizar un seguimiento de los volúmenes que se administran a lo largo del tiempo.
 
 **Espacio en disco:** normalmente su uso aumenta a lo largo del tiempo. Hay muchas razones para ello, pero las principales son: aumenta el volumen de datos, la ejecución de copias de seguridad de los registros de transacciones, el almacenamiento de los archivos de seguimiento y la realización de instantáneas de almacenamiento. Por lo tanto, es importante supervisarlo y administrar el espacio en disco asociado a la unidad de Instancias grandes de HANA.
+
+En las **SKU de tipo II** de las instancias grandes de HANA, el servidor viene ya con las herramientas de diagnóstico del sistema cargadas. Puede usar estas herramientas de diagnóstico para realizar la comprobación de mantenimiento del sistema. Ejecute el siguiente comando para generar el archivo de registro de comprobación de mantenimiento en /var/log/health_check.
+```
+/opt/sgi/health_check/microsoft_tdi.sh
+```
+Cuando trabaje con el equipo de Soporte técnico de Microsoft para solucionar un problema, también se le pedirá que proporcione los archivos de registro mediante el uso de esta herramienta de diagnóstico. Puede comprimir el archivo con el comando siguiente.
+```
+tar  -czvf health_check_logs.tar.gz /var/log/health_check
+```
+
 
 ## <a name="monitoring-and-troubleshooting-from-hana-side"></a>Supervisión y solución de problemas en el lado HANA
 

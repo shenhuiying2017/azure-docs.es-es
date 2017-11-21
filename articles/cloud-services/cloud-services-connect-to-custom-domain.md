@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2aadf6a103e92a4fbb11223a449280a36dea6b4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conexión de los roles de Servicios en la nube de Azure a un controlador de dominio de AD personalizado que se hospeda en Azure
+# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conexión de los roles de Azure Cloud Services a un controlador de dominio de AD personalizado que se hospeda en Azure
 En primer lugar, vamos a configurar una red virtual en Azure. A continuación, agregaremos un controlador de dominio de Active Directory (hospedado en una máquina virtual de Azure) a la red virtual. Después, agregaremos los roles de servicios en la nube existentes a la red virtual creada previamente y los conectaremos al controlador de dominio.
 
 Antes de empezar, debemos tener en cuenta un par de cosas:
@@ -128,7 +128,7 @@ A continuación, es preciso que agregue la implementación del servicio en la nu
 </ServiceConfiguration>
 ```
 
-A continuación, compile el proyecto de servicios en la nube e impleméntelo en Azure. Para obtener ayuda con la implementación del paquete de servicios en la nube en Azure, consulte [Creación e implementación de un servicio en la nube](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+A continuación, compile el proyecto de servicios en la nube e impleméntelo en Azure. Para obtener ayuda con la implementación del paquete de servicios en la nube en Azure, consulte [Creación e implementación de un servicio en la nube](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>Conexión de roles de web y de trabajo al dominio
 Una vez implementado el proyecto de servicio en la nube en Azure, conecte las instancias de rol al dominio de AD personalizado mediante la extensión de dominio de AD. Para agregar la extensión de dominio de AD a la implementación existente de servicios en la nube y unirse al dominio personalizado, ejecute los siguientes comandos en PowerShell:

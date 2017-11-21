@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e1ca5bd3abd66eb7a7b8e802dc193c1993a78afb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee0564ad3eae3cc902ce596aceb5c218efabd43e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Movimiento de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -124,7 +124,7 @@ Este servicio vinculado vincula su instancia de SAP HANA a la factoría de datos
 
 ```
 
-### <a name="azure-storage-linked-service"></a>Servicio vinculado de Almacenamiento de Azure
+### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
 Este servicio vinculado vincula una cuenta de Azure Storage a la factoría de datos. La propiedad type se establece en **AzureStorage**. La sección typeProperties proporciona información de conexión para la cuenta de Azure Storage.
 
 ```json

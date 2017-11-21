@@ -14,6 +14,9 @@
 ### [Límites de servicio](key-vault-service-limits.md)
 ### [Claves protegidas con HSM](key-vault-hsm-protected-keys.md)
 ### [Migración a .NET 2.0](key-vault-dotnet2api-release-notes.md)
+### [Guardar secretos de Web Apps](vs-secure-secret-appsettings.md)
+### [Autenticación del servicio mediante .NET](service-to-service-authentication.md)
+
 ### Introducciones
 #### [Espacios de seguridad](key-vault-ovw-security-worlds.md)
 #### [Eliminación temporal](key-vault-ovw-soft-delete.md)

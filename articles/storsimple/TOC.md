@@ -2,8 +2,9 @@
 
 ## Información general
 ### [¿Cuál es la solución?](storsimple-ova-overview.md)
+### [Disponibilidad en regiones](storsimple-regions.md)
 
-## Primeros pasos
+## Introducción
 ### Plan
 #### [Revisión de los requisitos](storsimple-ova-system-requirements.md)
 #### [Conocimiento de los límites](storsimple-ova-limits.md)
@@ -59,6 +60,7 @@
 ### [¿Cuál es la solución?](storsimple-overview.md)
 ### [Mapa de aprendizaje de StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Consideraciones sobre la seguridad](storsimple-8000-security.md)
+### [Disponibilidad en regiones](storsimple-regions.md)
 ### [Preguntas más frecuentes: realizar la transición a Azure Portal](storsimple-8000-move-azure-portal-faq.md)
 
 ## Introducción

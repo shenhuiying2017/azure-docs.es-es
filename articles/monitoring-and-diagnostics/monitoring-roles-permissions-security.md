@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
@@ -37,12 +37,12 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 * Consultar la configuración de escalado automático.
 * Consultar la configuración y actividad de alertas.
 * Acceder a datos de Application Insights y ver los datos en AI Analytics.
-* Buscar datos en el área de trabajo de Log Analytics (OMS), incluidos los datos de uso del área de trabajo.
-* Ver grupos de administración de Log Analytics (OMS).
-* Recuperar el esquema de búsqueda de Log Analytics (OMS).
-* Enumerar los Intelligence Pack de Log Analytics (OMS).
-* Recuperar y ejecutar las búsquedas guardadas en Log Analytics (OMS).
-* Recuperar la configuración de almacenamiento de Log Analytics (OMS).
+* Buscar datos del área de trabajo de Log Analytics, incluidos los datos de uso del área de trabajo.
+* Ver grupos de administración de Log Analytics.
+* Recuperar el esquema de búsqueda de Log Analytics.
+* Enumerar los Intelligence Pack de Log Analytics.
+* Recuperar y ejecutar las búsquedas guardadas en Log Analytics.
+* Recuperar la configuración de almacenamiento de Log Analytics.
 
 > [!NOTE]
 > Este rol no otorga acceso de lectura a los datos de registro que se han transmitido a un centro de eventos o que están almacenados en una cuenta de almacenamiento. [Vea la información a continuación](#security-considerations-for-monitoring-data) para saber cómo configurar el acceso a estos recursos.
@@ -57,10 +57,10 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 * Establecer el [perfil de registro](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) de una suscripción.*
 * Definir la configuración y actividad de alertas.
 * Crear componentes y pruebas web de Application Insights.
-* Mostrar las claves compartidas del área de trabajo de Log Analytics (OMS).
-* Habilitar o deshabilitar Intelligence Pack de Log Analytics (OMS).
-* Crear y eliminar y ejecutar las búsquedas guardadas en Log Analytics (OMS).
-* Crear y eliminar la configuración de almacenamiento de Log Analytics (OMS).
+* Mostrar las claves compartidas del área de trabajo de Log Analytics.
+* Habilitar o deshabilitar Intelligence Pack de Log Analytics.
+* Crear y eliminar y ejecutar las búsquedas guardadas en Log Analytics.
+* Crear y eliminar la configuración de almacenamiento de Log Analytics.
 
 *Al usuario también se le debe conceder el permiso ListKeys por separado en el recurso de destino (cuenta de almacenamiento o espacio de nombres del centro de eventos) para definir la configuración del diagnóstico o el perfil de registros.
 

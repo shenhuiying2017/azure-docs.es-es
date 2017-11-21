@@ -13,22 +13,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 3fdef7bb58a5cd5dfbe4d37d9baf9c8e392ebe42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d4ed0cc06e8b218b2b63c1d899701ba2eafd648
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="azure-data-catalog-prerequisites"></a>Requisitos previos de Catálogo de datos de Azure
+# <a name="azure-data-catalog-prerequisites"></a>Requisitos previos de Azure Data Catalog
 
 Hay algunas cosas de las que debe encargarse para poder configurar Azure Data Catalog. No se preocupe, este proceso lleva poco tiempo.
 
 ## <a name="azure-subscription"></a>Suscripción de Azure
 Para configurar Data Catalog, debe ser propietario o copropietario de una suscripción de Azure.
 
-Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Data Catalog. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago independiente, por lo que puede tener suscripciones y planes que varían según el departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar Data Catalog. Para más información, consulte [Administración de cuentas, suscripciones y roles administrativos](../active-directory/active-directory-assign-admin-roles.md).
+Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Data Catalog. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago independiente, por lo que puede tener suscripciones y planes que varían según el departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar Data Catalog. Para más información, consulte [Administración de cuentas, suscripciones y roles administrativos](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Para configurar Data Catalog, debe haber iniciado sesión con una cuenta de usuario de Azure Active Directory (Azure AD).

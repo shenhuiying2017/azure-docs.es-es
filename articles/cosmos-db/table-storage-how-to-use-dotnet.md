@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/10/2017
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: fadad88be94552dd1db061146d8dfab86d797f61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ae7fb32814c8eb607d7a3aa33963deb4621a997
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introducción al Almacenamiento de tablas de Azure mediante .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,7 @@ En este tutorial se muestra cómo usar la [biblioteca del cliente de Azure Stora
 Necesitará lo siguiente para completar este tutorial correctamente:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Biblioteca de cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Administrador de configuración Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -63,7 +63,7 @@ using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 ### <a name="parse-the-connection-string"></a>Análisis de la cadena de conexión
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### <a name="create-the-table-service-client"></a>Creación del cliente del servicio Tabla
+### <a name="create-the-table-service-client"></a>Creación del cliente de Table service
 La clase [CloudTableClient][dotnet_CloudTableClient] le permite recuperar tablas y entidades almacenadas en Table Storage. Esta es una forma de crear el cliente de Table service:
 
 ```csharp
@@ -233,7 +233,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(rangeQuery))
 ```
 
 ## <a name="retrieve-a-single-entity"></a>una sola entidad
-Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente utiliza [TableOperation][dotnet_TableOperation] para especificar el cliente "Ben Smith". Este método devuelve solo una entidad, en lugar de una colección, y el valor devuelto en [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result] es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad del servicio Tabla es especificar claves tanto de partición como de fila en las consultas.
+Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente utiliza [TableOperation][dotnet_TableOperation] para especificar el cliente "Ben Smith". Este método devuelve solo una entidad, en lugar de una colección, y el valor devuelto en [TableResult][dotnet_TableResult].[Result][dotnet_TableResult_Result] es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad de Table service es especificar claves tanto de partición como de fila en las consultas.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -264,7 +264,7 @@ else
 ```
 
 ## <a name="replace-an-entity"></a>una entidad
-Para actualizar una entidad, recupérela del servicio Tabla, modifique su objeto y, a continuación, guarde los cambios de nuevo en el servicio Tabla. El código siguiente cambia el número de teléfono de un cliente. En lugar de llamar a [Insert][dotnet_TableOperation_Insert], este código utiliza [Replace][dotnet_TableOperation_Replace]. [Replace][dotnet_TableOperation_Replace] hace que la entidad se reemplace por completo en el servidor, a menos que la entidad del servidor cambiara desde que se recuperó, en cuyo caso la operación dará error. Este error evita que la aplicación sobrescriba accidentalmente un cambio realizado entre la recuperación y la actualización por otro componente de la misma. La manera correcta de actuar ante este error es recuperar de nuevo la entidad, hacer los cambios oportunos (si siguen siendo válidos) y, a continuación, realizar otra operación [Replace][dotnet_TableOperation_Replace]. En la siguiente sección se muestra cómo invalidar este comportamiento.
+Para actualizar una entidad, recupérela de Table service, modifique su objeto y, luego, guarde los cambios de nuevo en Table service. El código siguiente cambia el número de teléfono de un cliente. En lugar de llamar a [Insert][dotnet_TableOperation_Insert], este código utiliza [Replace][dotnet_TableOperation_Replace]. [Replace][dotnet_TableOperation_Replace] hace que la entidad se reemplace por completo en el servidor, a menos que la entidad del servidor cambiara desde que se recuperó, en cuyo caso la operación dará error. Este error evita que la aplicación sobrescriba accidentalmente un cambio realizado entre la recuperación y la actualización por otro componente de la misma. La manera correcta de actuar ante este error es recuperar de nuevo la entidad, hacer los cambios oportunos (si siguen siendo válidos) y, a continuación, realizar otra operación [Replace][dotnet_TableOperation_Replace]. En la siguiente sección se muestra cómo invalidar este comportamiento.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -465,10 +465,10 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de Ta
 
 * El [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 * Consulte más ejemplos de uso de Almacenamiento de tablas en [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* Consulte la documentación de referencia del servicio de tabla para obtener información detallada acerca de las API disponibles:
+* Consulte la documentación de referencia de Table service para obtener información detallada acerca de las API disponibles:
 * [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
-* Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante [SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/wiki)
+* Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
 * [Introducción al Almacenamiento de blobs de Azure mediante .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
 * Para almacenar datos relacionales, consulte [Conexión a SQL Database mediante .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md).

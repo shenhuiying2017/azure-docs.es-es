@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 0971959fb168d92096531d1c081666cf301608cf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Compatibilidad con la fuente de cambios en Azure Cosmos DB
 
@@ -72,7 +72,7 @@ Por ejemplo, con una fuente de cambios, puede realizar las siguientes tareas de 
 * Implementar análisis por lotes sobre los datos mediante [Apache Hadoop](run-hadoop-with-hdinsight.md).
 * Realizar migraciones con cero tiempo de inactividad a otra cuenta de Azure Cosmos DB con otro esquema de partición.
 * Implementar [canalizaciones Lambda en Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) con Azure Cosmos DB. Azure Cosmos DB proporciona una solución de base de datos escalable que puede hacer frente tanto a la ingesta como a la consulta, e implementar arquitecturas Lambda con un bajo TCO. 
-* Recibir y almacenar datos de eventos de dispositivos, sensores, infraestructura y aplicaciones, y luego procesarlos en tiempo real con [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+* Recibir y almacenar datos de eventos de dispositivos, sensores, infraestructura y aplicaciones, y luego procesarlos en tiempo real con [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/storm/apache-storm-overview.md) o [Apache Spark](../hdinsight/spark/apache-spark-overview.md). 
 
 La imagen siguiente muestra cómo las canalizaciones lambda que tanto ingieren como consultan Azure Cosmos DB pueden usar la compatibilidad con fuentes de cambios: 
 
@@ -157,7 +157,7 @@ Esta sección explica cómo usar el SDK de DocumentDB para trabajar con una fuen
 
 Si tiene varios lectores, puede usar **ChangeFeedOptions** para distribuir la carga de lectura en subprocesos o clientes distintos.
 
-Y eso es todo, con estas pocas líneas de código puede empezar a leer la fuente de cambios. Puede obtener el código completo que se usa en este artículo desde el [repositorio de GitHub azure-cosmos-db-DocumentFeed](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed).
+Y eso es todo, con estas pocas líneas de código puede empezar a leer la fuente de cambios. Puede obtener el código completo que se usa en este artículo desde el [repositorio de GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
 
 En el código del paso 4 anterior, el fragmento **ResponseContinuation** de la última línea tiene el último número de secuencia lógica (LSN) del documento, que se usará la próxima vez que lea documentos nuevos tras este número de secuencia. Mediante el uso del valor **StartTime** de **ChangeFeedOption** puede ampliar la red para obtener los documentos. Por lo tanto, si el valor de **ResponseContinuation** es null, pero **StartTime** vuelve atrás en el tiempo, se le devolverán todos los documentos que cambiaron desde el momento que indica **StartTime**. Pero, si **ResponseContinuation** tiene un valor, el sistema le ayudará a obtener todos los documentos desde ese LSN.
 
@@ -278,7 +278,7 @@ Para más información sobre cómo utilizar la biblioteca de procesadores de fue
 
 * [Página de información](documentdb-sdk-dotnet-changefeed.md) 
 * [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Código de ejemplo que muestra los pasos del 1 al 6 anterior](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [Código de ejemplo que muestra los pasos del 1 al 6 anterior](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Ejemplos adicionales en GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Para más información sobre cómo utilizar la fuente de cambios mediante el SDK, use los siguientes recursos:

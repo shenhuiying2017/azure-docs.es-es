@@ -12,17 +12,18 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 11/15/2017
 ms.author: rajanaki
-ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc832d06611c10901d4370dc7467f0b681d89cbd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>Replicación de máquinas virtuales de Hyper-V de nubes de VMM en Azure con PowerShell y Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Portal de Azure](site-recovery-vmm-to-azure.md)
+> * 
+            [Azure Portal](site-recovery-vmm-to-azure.md)
 > * [PowerShell: administrador de recursos](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Portal clásico](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell: clásico](site-recovery-deploy-with-powershell.md)
@@ -36,15 +37,15 @@ En este artículo se muestra cómo usar PowerShell para automatizar tareas comun
 
 El artículo incluye los requisitos previos para el escenario y muestra
 
-* Configuración del almacén de Servicios de recuperación
+* Configuración del almacén de Recovery Services
 * Instalación del proveedor de Azure Site Recovery en un servidor VMM
 * Registro del servidor en el almacén e incorporación de una cuenta de almacenamiento de Azure
-* Instalación del agente de Servicios de recuperación de Azure en servidores host de Hyper-V
+* Instalación del agente de Azure Recovery Services en servidores host de Hyper-V
 * Configuración de las opciones de protección para nubes VMM, que se aplicarán a todas las máquinas virtuales protegidas
 * Habilite la protección para esas máquinas virtuales.
 * Compruebe la conmutación por error para asegurarse de que todo funciona según lo esperado.
 
-Si tiene problemas al configurar este escenario, publique sus preguntas en el [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Si tiene problemas al configurar este escenario, publique sus preguntas en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 > [!NOTE]
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
@@ -55,9 +56,9 @@ Si tiene problemas al configurar este escenario, publique sus preguntas en el [F
 Asegúrese de que tiene preparados estos requisitos previos:
 
 ### <a name="azure-prerequisites"></a>Requisitos previos de Azure
-* Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/) . Si no tiene una, comience con un [cuenta gratuita](https://azure.microsoft.com/free). También puede leer sobre [los precios del Administrador de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+* Necesitará una cuenta de [Microsoft Azure](https://azure.microsoft.com/) . Si no tiene una, comience con un [cuenta gratuita](https://azure.microsoft.com/free). También puede leer sobre [los precios de Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Si prueba la replicación en un escenario de suscripción de CSP, necesitará una suscripción de CSP. Más información sobre el programa CSP en [Inscríbete en el programa CSP](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx).
-* Necesitará una cuenta de almacenamiento de Azure v2 (Resource Manager) para almacenar los datos replicados en Azure. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción o a la suscripción de CSP. Para más información sobre la configuración del almacenamiento de Azure, vea [Introducción a Almacenamiento de Microsoft Azure](../storage/common/storage-introduction.md) como referencia.
+* Necesitará una cuenta de almacenamiento de Azure v2 (Resource Manager) para almacenar los datos replicados en Azure. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción o a la suscripción de CSP. Para más información sobre la configuración de Azure Storage, vea [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md) como referencia.
 * Tendrá que asegurarse de que las máquinas virtuales que quiere proteger cumplen los [requisitos previos de máquina virtual de Azure](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
 
 > [!NOTE]
@@ -121,15 +122,15 @@ Para ver sugerencias que puedan ayudarlo a usar los cmdlets —por ejemplo, cóm
 
         Set-AzureRmContext –SubscriptionID <subscriptionId>
 
-## <a name="step-2-create-a-recovery-services-vault"></a>Paso 2: Creación de un almacén de Servicios de recuperación
+## <a name="step-2-create-a-recovery-services-vault"></a>Paso 2: Creación de un almacén de Recovery Services
 1. Cree un grupo de recursos en Azure Resource Manager si todavía no lo ha hecho.
 
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
-2. Cree un almacén de Servicios de recuperación y guarde el objeto de almacén de ASR creado en una variable (se utilizará más adelante). También puede recuperar el objeto de almacén de ASR tras la creación con el cmdlet Get-AzureRMRecoveryServicesVault:-
+2. Cree un almacén de Recovery Services y guarde el objeto de almacén de ASR creado en una variable (se utilizará más adelante). También puede recuperar el objeto de almacén de ASR tras la creación con el cmdlet Get-AzureRMRecoveryServicesVault:-
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Paso 3: Configuración del contexto de almacén de Servicios de recuperación
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Paso 3: Configuración del contexto de almacén de Recovery Services
 
 Establezca el contexto de almacén mediante la ejecución del comando siguiente.
 
@@ -174,8 +175,8 @@ Si no tiene una cuenta de almacenamiento de Azure, cree una cuenta habilitada pa
 
 Tenga en cuenta que la cuenta de almacenamiento debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción.
 
-## <a name="step-6-install-the-azure-recovery-services-agent"></a>Paso 6: Instalación del agente de los Servicios de recuperación de Azure
-1. Descargue el agente de Servicios de recuperación de Azure en [http:/aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) e instálelo en cada servidor host de Hyper-V situado en las nubes de VMM que desea proteger.
+## <a name="step-6-install-the-azure-recovery-services-agent"></a>Paso 6: Instalación del agente de Azure Recovery Services
+1. Descargue el agente de Azure Recovery Services en [http:/aka.ms/latestmarsagent](http://aka.ms/latestmarsagent) e instálelo en cada servidor host de Hyper-V situado en las nubes de VMM que desea proteger.
 2. Ejecute el siguiente comando en todos los hosts de VMM:
 
        marsagentinstaller.exe /q /nu

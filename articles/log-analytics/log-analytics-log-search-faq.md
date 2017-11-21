@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Problemas conocidos y preguntas frecuentes sobre la nueva búsqueda de registros de Log Analytics
 
@@ -38,13 +38,6 @@ No, hay algunos cambios en las acciones de webhook y runbook que podrían requer
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Pregunta: Obtengo errores al intentar usar grupos de equipos.  ¿Se ha modificado su sintaxis?
 Sí, la sintaxis para usar grupos de equipos cambian cuando se actualiza el área de trabajo.  Consulte [Grupos de equipos en búsquedas de registros en Log Analytics](log-analytics-computer-groups.md) para obtener información detallada.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Problema conocido: Grupos importados desde Active Directory
-Actualmente no puede crear una consulta que use un grupo de equipos importados desde Active Directory.  Como solución temporal hasta que se corrija este problema, cree un grupo de equipos con el grupo importado desde Active Directory y después use el grupo nuevo en la consulta.
-
-A continuación se indica una consulta de ejemplo para crear un grupo de equipos que incluye un grupo importado de Active Directory:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Paneles
@@ -76,11 +69,6 @@ La minificación es una característica que proporciona una vista resumida de lo
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema conocido: Los resultados de la búsqueda de una lista pueden incluir propiedades sin datos
-Los resultados de la búsqueda de registros de una lista pueden mostrar propiedades sin datos.  Antes de la actualización, estas propiedades no se incluirían.  Este problema se corregirá para que no se muestren las propiedades vacías.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Problema conocido: Al seleccionar el valor de un gráfico, no se muestran resultados detallados
-Antes de la actualización, cuando se seleccionaba un valor en un gráfico, se devolvía una lista detallada de los registros que coincidían con el valor seleccionado.  Después de la actualización, solo se devuelve la única línea resumida.  Actualmente se está investigando este problema.
 
 ## <a name="log-search-api"></a>API de búsqueda de registros
 
@@ -109,11 +97,9 @@ El explorador requiere acceso a las direcciones siguientes para ejecutar las con
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Pregunta: ¿Hay algún cambio en la integración con Power BI?
-Sí.  Una vez que se haya actualizado el área de trabajo, el proceso de exportación de datos de Log Analytics a Power BI dejará de funcionar.  Se deshabilitarán las programaciones existentes creadas antes de actualizar.  Después de la actualización, Azure Log Analytics usa la misma plataforma que Application Insights y el usuario utilizará el mismo proceso para exportar las consultas de Log Analytics a Power BI que se describe en [el proceso de exportación de consultas de Application Insights a Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Sí.  Una vez que se haya actualizado el área de trabajo, el proceso de exportación de datos de Log Analytics a Power BI dejará de funcionar.  Se deshabilitarán las programaciones existentes creadas antes de actualizar.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Problema conocido: Límite de tamaño de solicitud de Power BI
-Actualmente hay un límite de tamaño de 8 MB para una consulta de Log Analytics que se puede exportar a Power BI.  Este límite se a aumentará próximamente.
-
+Después de la actualización, Azure Log Analytics usa la misma plataforma que Application Insights y el usuario utilizará el mismo proceso para exportar las consultas de Log Analytics a Power BI que se describe en [el proceso de exportación de consultas de Application Insights a Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  La exportación a Power BI ahora llama directamente al punto de conexión de API. Esto le permite obtener hasta 500.000 filas o 64.000.000 bytes de datos, exportar consultas largas y personalizar el tiempo de espera de la consulta (el tiempo de espera predeterminado es 3 minutos, y el tiempo de espera máximo es de 10 minutos).
 
 ## <a name="powershell-cmdlets"></a>Cmdlets de PowerShell
 
@@ -153,14 +139,11 @@ Sí.  Debe usar una versión de API de 2017-03-15-preview e incluir una sección
 ### <a name="question-will-my-solutions-continue-to-work"></a>Pregunta: ¿Mis soluciones continuarán funcionando?
 Todas las soluciones continuarán funcionando en un área de trabajo actualizada, aunque su rendimiento mejorará si se migran al nuevo lenguaje de consulta.  Existen problemas conocidos con algunas soluciones existentes que se describen en esta sección.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Problema conocido: Solución Capacity and Performance
-Algunas de las partes de la vista [Capacity and Performance](log-analytics-capacity.md) pueden estar vacías.  Una corrección para este problema estará disponible pronto.
-
-### <a name="known-issue-application-insights-connector"></a>Problema conocido: Application Insights Connector
-Las perspectivas de la [solución Application Insights Connector](log-analytics-app-insights-connector.md) no se admiten actualmente en un área de trabajo actualizada.  En estos momentos se está analizando una corrección para este problema.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Problema conocido: perspectivas en Application Insights Connector
+Las perspectivas de la [solución Application Insights Connector](log-analytics-app-insights-connector.md) ya no se admiten en la solución de conector de Application Insights.  Puede utilizar el Diseñador de vistas para crear vistas personalizadas con datos de Application Insights.
 
 ### <a name="known-issue-backup-solution"></a>Problema conocido: Solución de copia de seguridad
-La solución de copia de seguridad no recopilará datos en un área de trabajo actualizada. En breve, se anunciará una nueva solución de copia de seguridad que funcionará con el área de trabajo actualizada.
+La solución de copia de seguridad no puede recopilar datos si se instaló antes de actualizar un área de trabajo. Desinstale la solución y, a continuación, instale la versión más reciente.  La nueva versión de la solución no es compatible con los almacenes de Backup clásicos, por lo que también debe actualizar a almacenes de Recovery Services para seguir usando la solución.
 
 ## <a name="upgrade-process"></a>Proceso de actualización
 
@@ -182,9 +165,6 @@ Antes de la disponibilidad general, podía revertir el área de trabajo después
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pregunta: ¿Cómo puedo crear una vista con el Diseñador de vistas?
 Antes de la actualización, podría crear una vista con el Diseñador de vistas de algún elemento del panel principal.  Cuando se actualiza el área de trabajo, este elemento se elimina.  Puede crear una vista con el Diseñador de vistas en el portal de OMS; para ello, haga clic en el botón + de color verde en el menú de la izquierda.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Problema conocido: La opción Ver todo para los gráficos de líneas de las vistas no genera un gráfico de líneas
-Al hacer clic en la opción *Ver todo* en la parte inferior de una parte del gráfico de líneas de una vista, se le presentará una tabla.  Antes de la actualización, se le presentaría un gráfico de líneas.  Este problema se está analizando para una posible modificación.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa00f176ff56c13033907e134fc236c291308028
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicación y administración de una oferta en Azure Marketplace
 Este artículo sirve de ayuda a los desarrolladores para crear, implementar y administrar sus soluciones incluidas en Azure Marketplace para que otros asociados y clientes de Azure las compren y usen.
@@ -32,7 +32,7 @@ Lo primero que le convendría hacer como publicador es definir el tipo de soluci
 
 |Tipo de solución|Máquina virtual|Plantilla de solución|
 |---|---|---|
-|**Definición**|Imágenes preconfiguradas con un sistema operativo completamente instalado y una o varias aplicaciones. Una imagen de máquina virtual proporciona la información necesaria para crear e implementar máquinas virtuales en el servicio Máquinas virtuales de Azure.|Una estructura de datos que puede hacer referencia a uno o más servicios de Azure distintos, incluidos los servicios publicados por otros vendedores. Los suscriptores de Azure pueden usarla para implementar una o más ofertas de forma única y coordinada.|
+|**Definición**|Imágenes preconfiguradas con un sistema operativo completamente instalado y una o varias aplicaciones. Una imagen de máquina virtual proporciona la información necesaria para crear e implementar máquinas virtuales en el servicio Azure Virtual Machines.|Una estructura de datos que puede hacer referencia a uno o más servicios de Azure distintos, incluidos los servicios publicados por otros vendedores. Los suscriptores de Azure pueden usarla para implementar una o más ofertas de forma única y coordinada.|
 |**Ejemplo**|Como publicador de Azure, ha creado y validado una máquina virtual con un servicio de base de datos innovador. Otros suscriptores de Azure desean obtener e implementar esta máquina virtual en sus entornos de servicios en la nube.|Como publicador de Azure, ha agrupado un conjunto de servicios de Azure que facilitan la implementación rápida de servicios en la nube con equilibrio de carga, seguridad mejorada y alta disponibilidad. Otros suscriptores de Azure pueden ahorrar tiempo si obtienen la plantilla de solución que cumpla su objetivo. No tienen que buscar, adquirir, implementar y configurar manualmente servicios de Azure iguales o similares.|
 
 > [!NOTE]
@@ -99,9 +99,6 @@ Administre la solución con la ayuda de los recursos siguientes:
 * [Reversión del precio de lista a los valores de producción](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Reversión del modelo de facturación a los valores de producción](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Reversión de la configuración de visibilidad de una SKU activa al valor de producción](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)
-* [Cambio del incentivo de revendedores para proveedores de soluciones en la nube](marketplace-publishing-csp-incentive.md)
-* [Descripción de los informes de pago](marketplace-publishing-report-payout.md)
-* [Obtención de soporte técnico como publicador](marketplace-publishing-get-publisher-support.md)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 [Configuración de Azure PowerShell](marketplace-publishing-powershell-setup.md)

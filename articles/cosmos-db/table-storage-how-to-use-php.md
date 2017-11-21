@@ -1,6 +1,6 @@
 ---
 title: Uso de Table Storage en PHP | Microsoft Docs
-description: Aprenda a utilizar el servicio Tabla de Azure de PHP para crear y eliminar una tabla e insertar, eliminar y consultar la tabla.
+description: Aprenda a utilizar Table service de PHP para crear y eliminar una tabla e insertar, eliminar y consultar la tabla.
 services: cosmos-db
 documentationcenter: php
 author: mimig1
@@ -12,35 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: 7a48446a11c5c6db0c9f4fdd8872b1e3c12e85c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cfdfc814d1dfc15149d7b100ba1f6b68e90bb36
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="how-to-use-table-storage-from-php"></a>Uso del almacenamiento de tablas de PHP
+# <a name="how-to-use-azure-table-storage-from-php"></a>Uso de Azure Table Storage desde PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Información general
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Tabla de Azure. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP][download]. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, y la inserción, eliminación y consulta de entidades de una tabla**. Para obtener más información acerca del servicio Tabla de Azure, vea la sección [Pasos siguientes](#next-steps) .
+Esta guía muestra cómo realizar algunas tareas comunes a través de Azure Table service. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP][download]. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, y la inserción, eliminación y consulta de entidades de una tabla**. Para obtener más información acerca de Azure Table service, vea la sección [Pasos siguientes](#next-steps) .
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Creación de una aplicación PHP
-El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio Tabla de Azure es que el código haga referencia a clases del SDK de Azure para PHP. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso a Azure Table service es que el código haga referencia a clases del SDK de Azure para PHP. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
 
-En esta guía, utilizará características del servicio Tabla a las que se puede llamar desde una aplicación PHP localmente, o bien mediante código que se ejecuta en un rol web, rol de trabajo o sitio web de Azure.
+En esta guía, utilizará características de Table service a las que se puede llamar desde una aplicación PHP localmente, o bien mediante código que se ejecuta en un rol web, rol de trabajo o sitio web de Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Obtención de las bibliotecas de clientes de Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-access-the-table-service"></a>Configuración de la aplicación para obtener acceso al servicio Tabla
-Para utilizar las API del servicio Tabla de Azure, necesita:
+## <a name="configure-your-application-to-access-the-table-service"></a>Configuración de la aplicación para obtener acceso a Table service
+Para utilizar las API de Azure Table service, necesita:
 
 1. Hacer referencia al archivo autocargador mediante la instrucción [require_once][require_once] y
 2. Hacer referencia a todas las clases que utilice.
@@ -60,7 +60,7 @@ use WindowsAzure\Common\ServicesBuilder;
 En los ejemplos que aparecen a continuación, la instrucción `require_once` aparecerá siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Configuración de una conexión de Almacenamiento de Azure
-Para crear una instancia de un cliente del servicio Tabla de Azure, primero debe disponer de una cadena de conexión válida. El formato de las cadenas de conexión del servicio Tabla es:
+Para crear una instancia de un cliente de Azure Table service, primero debe disponer de una cadena de conexión válida. El formato de las cadenas de conexión de Table service es:
 
 Para obtener acceso a un servicio en directo:
 
@@ -92,7 +92,7 @@ $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connection
 ```
 
 ## <a name="create-a-table"></a>Creación de una tabla
-Puede crear una tabla con un objeto A **TableRestProxy** con el método **createTable**. Al crear una tabla, puede establecer un tiempo de espera para el servicio Tabla. (Para obtener más información sobre el tiempo de espera de Table Service, consulte [Establecer los tiempos de espera para las operaciones de Table Service][table-service-timeouts]).
+Puede crear una tabla con un objeto A **TableRestProxy** con el método **createTable**. Al crear una tabla, puede establecer un tiempo de espera para Table service. (Para obtener más información sobre el tiempo de espera de Table service, consulte [Establecer los tiempos de espera para las operaciones de Table service][table-service-timeouts]).
 
 ```php
 require_once 'vendor\autoload.php';

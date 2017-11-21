@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: d44e43dd8ae01c93050de199f7d72c8ac92bcad9
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 7a05836be4a0879fa7103d070c683f45c06cd741
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko y CSI utilizan Azure para acelerar su ciclo de desarrollo, aumentar su rendimiento y mejorar sus servicios de atención al cliente
 ![Logotipo de Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -56,7 +56,7 @@ Después de configurar y probar el entorno, CSI Software empezó a migrar los cl
 En lo que respecta a los nuevos clientes, el personal de TI de CSI Software empleó el siguiente proceso para migrarlos a Azure:
 
 1. Los scripts de Azure PowerShell se utilizaron para poner en marcha una nueva base de datos para el cliente; todos los clientes empiezan en un nivel Premium para garantizar que obtengan el rendimiento inicial suficiente como para respaldar la transición.
-2. Cuando es posible, CSI Software usa al Asistente para la migración de Azure SQL con el fin de mover los datos existentes a una instancia de Azure SQL Database.
+2. Cuando es posible, CSI Software usa Azure SQL Database Migration Wizard con el fin de mover los datos existentes a una instancia de Azure SQL Database.
 3. Finalmente, se utilizó Microsoft SQL Server Integration Services (SSIS) para resolver cualquier discrepancia en los datos o realizar todas las tareas de limpieza de datos que fuesen necesarios.
 
 En la actualidad, el 99 % de los clientes de CSI Software están hospedados en cuatro centros de datos regionales de Azure (centro-norte, centro-sur, este y oeste de EE. UU.). Al tener los centros de datos en la región geográfica de cada cliente, la latencia es mínima.
@@ -93,5 +93,5 @@ Azure SQL Database no solamente es una ventaja para los clientes de SpectrumNG, 
 * Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).
 * Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
-* Si quiere saber más sobre el escalado automático, revise [este artículo](../cloud-services/cloud-services-how-to-scale.md).
+* Si quiere saber más sobre el escalado automático, revise [este artículo](../cloud-services/cloud-services-how-to-scale-portal.md).
 

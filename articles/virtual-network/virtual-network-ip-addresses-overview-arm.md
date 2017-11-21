@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -110,7 +110,7 @@ Puede asociar una dirección IP pública con una máquina virtual [Windows](../v
 
 ### <a name="internet-facing-load-balancers"></a>Equilibradores de carga accesibles desde Internet
 
-Puede asociar una dirección IP pública creada con una [SKU](#SKU) o con una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. La dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip.md?toc=%2fazure%2fvirtual-network%2ftoc.json), como un entorno multiinquilino con sitios web basados en SSL. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
+Puede asociar una dirección IP pública creada con una [SKU](#SKU) o con una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. La dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), como un entorno multiinquilino con sitios web basados en SSL. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
 
 ### <a name="vpn-gateways"></a>Puertas de enlace de VPN
 
@@ -145,29 +145,22 @@ Las direcciones IP privadas se crean con una dirección IPv4 o IPv6. Las direcci
 
 ### <a name="allocation-method"></a>Método de asignación
 
-Se asigna una dirección IP privada del intervalo de direcciones de la subred a la que está conectado el recurso. El intervalo de direcciones de la propia subred forma parte del intervalo de direcciones de la red virtual.
+Se asigna una dirección IP privada del intervalo de direcciones de la subred de la red virtual en la que se implementa un recurso. Hay dos métodos de asignación de direcciones IP privadas:
 
-Hay dos métodos de asignación de direcciones IP privadas: *dinámico* o *estático*. El predeterminado es el *dinámico*, en el que la dirección IP se asigna automáticamente desde la subred del recurso (mediante DHCP). Esta dirección IP puede cambiar cando detenga e inicie el recurso.
-
-Puede establecer el método de asignación en *estático* para asegurarse de que la dirección IP siga siendo igual. Si especifica *estática*, debe proporcionar una dirección IP válida que forme parte de la subred del recurso.
-
-Las direcciones IP privadas estáticas se suelen usar para:
-
-* Máquinas virtuales que actúan como controladores de dominio o servidores DNS.
-* Recursos que requieren reglas de firewall que usan direcciones IP.
-* Recursos a los que se accede desde otras aplicaciones o recursos a través de una dirección IP.
+- **Dinámica**: Azure reserva las cuatro primeras direcciones en cada intervalo de direcciones de subred y no las asigna. Azure asigna la siguiente dirección disponible a un recurso del intervalo de direcciones de subred. Por ejemplo, si el intervalo de direcciones de la subred es 10.0.0.0/16 y ya están asignadas las direcciones 10.0.0.0.4-10.0.0.14 (.0 a .3 están reservados), Azure asigna 10.0.0.15 al recurso. Este es el método de asignación predeterminado. Una vez asignadas, las direcciones IP dinámicas solo se liberan si se elimina una interfaz de red y se asigna a otra subred diferente de la misma red virtual, o bien el método de asignación se cambia a estática y se especifica otra dirección IP. De forma predeterminada, cuando se cambia el método de asignación de Dinámica a Estática Azure asigna la anterior dirección asignada dinámicamente anterior como dirección estática.
+- **Estática**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente la dirección IP estática asignada anteriormente como dirección dinámica, aunque la dirección no sea la siguiente disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
 
-Se asigna una dirección IP privada a la **interfaz de red** de una máquina virtual [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si la máquina virtual tiene varias interfaces de red, se asigna una dirección IP privada para cada una de ellas. Puede especificar el método de asignación como estático o dinámico para una interfaz de red.
+Se asignan una o varias direcciones IP privadas a una o varias **interfaces de red** de una máquina virtual [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). En todas las direcciones IP privadas se puede especificar el método de asignación como estática o dinámica.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Resolución de nombres de host DNS internos (para máquinas virtuales)
 
 Todas las máquinas virtuales de Azure se configuran con [servidores DNS administrados por Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) de forma predeterminada, a menos que se configuren explícitamente servidores DNS personalizados. Estos servidores DNS proporcionan la resolución de nombres internos para las máquinas virtuales que residen en la misma red virtual.
 
-Cuando se crea una máquina virtual, se agrega a los servidores DNS administrados por Azure una asignación para el nombre de host a su dirección IP privada. Si una máquina virtual tiene varias interfaces de red, el nombre de host se asigna a la dirección IP privada de la interfaz de red principal.
+Cuando se crea una máquina virtual, se agrega a los servidores DNS administrados por Azure una asignación para el nombre de host a su dirección IP privada. Si una máquina virtual tiene varias interfaces de red o varias configuraciones de IP para una interfaz de red, el nombre de host se asigna a la dirección IP privada de la configuración de IP principal de la interfaz de red principal.
 
-Las máquinas virtuales que se configuran con servidores DNS administrados por Azure podrán resolver los nombres de host de todas las máquinas virtuales de su red virtual como sus direcciones IP privadas.
+Las máquinas virtuales que se configuran con servidores DNS administrados por Azure podrán resolver los nombres de host de todas las máquinas virtuales de su red virtual como sus direcciones IP privadas. Para resolver los nombres de host de las máquinas virtuales en redes virtuales conectadas, es preciso usar un servidor DNS personalizado.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Equilibradores de carga internos (ILB) y puertas de enlace de aplicaciones
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e1820033e051b72601291c5206772192e68769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Introducción y arquitectura de SAP HANA en Azure (instancias grandes)
 
@@ -62,6 +62,10 @@ En la Guía de implementación técnica y arquitectura, se utilizan con frecuenc
 - **SAP HANA en Azure (Instancias grandes):** nombre oficial de la oferta de Azure para ejecutar instancias de HANA en hardware con certificación SAP HANA TDI que se implementa en sellos de instancias grandes en diferentes regiones de Azure. El término relacionado **Instancia grande de HANA** es la versión abreviada de SAP HANA en Azure (instancias grandes) y se usa con frecuencia en esta guía de implementación técnica.
 - **Entre locales:** describe un escenario donde se implementan máquinas virtuales en una suscripción de Azure con conexión de sitio a sitio, entre varios sitios o de ExpressRoute entre los centros de datos locales y Azure. En la documentación habitual de Azure, este tipo de implementaciones se denominan "escenarios entre locales". La razón tras la conexión es extender los dominios locales, Active Directory/OpenLDAP locales y DNS local a Azure. La infraestructura local se extiende a los recursos de Azure de las suscripciones de Azure. Con esta extensión, las máquinas virtuales pueden formar parte del dominio local. Los usuarios del dominio local pueden tener acceso a los servidores y ejecutar servicios en esas máquinas virtuales (por ejemplo, servicios de DBMS). Es posible la comunicación y resolución de nombres entre máquinas virtuales implementadas de forma local y en Azure. Se trata del escenario típico en que se implementan la mayoría de los recursos de SAP. Vea las guías de [Planeamiento y diseño de VPN Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) y [Creación de una red virtual con una conexión de sitio a sitio mediante Azure Portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más detalles.
 - **Inquilino:** un cliente implementado en la marca de instancias grandes de HANA se aísla en un "inquilino". Un inquilino se aísla en el nivel de redes, almacenamiento y proceso de otros inquilinos. Por tanto, las unidades de almacenamiento y proceso asignadas a los distintos inquilinos no pueden verse ni comunicarse entre sí a nivel de la marca de instancia grande de HANA. Un cliente puede elegir que las implementaciones se realicen en diferentes inquilinos. Aún así, no hay ninguna comunicación entre los inquilinos a nivel de la marca de la instancia grande HANA.
+- **Categoría de SKU:** para las instancias grandes de HANA, se ofrecen las siguientes dos categorías de SKU.
+    - **Clase de tipo I:** S72, S72m, S144, S144m, S192 y S192m
+    - **Clase de tipo II:** S384, S384m, S384xm, S576, S768 y S960
+
 
 Además, se han publicado varios recursos adicionales sobre el tema de la implementación de la carga de trabajo de SAP en la nube pública de Microsoft Azure. Es muy recomendable que quien planee y ejecute una implementación de SAP HANA en Azure tenga conocimientos y experiencia con los principios de IaaS de Azure y la implementación de cargas de trabajo de SAP en IaaS de Azure. En los siguientes recursos se proporciona más información, que se debe consultar antes de continuar:
 
@@ -122,7 +126,7 @@ Dentro de la infraestructura multiinquilino del sello de instancias grandes, los
 
 Al igual que con las máquinas virtuales de Azure, SAP HANA en Azure (Instancias grandes) se ofrece en varias regiones de Azure. A fin de ofrecer funcionalidades de recuperación ante desastres, puede elegir participar. Los diferentes sellos de instancia grande en una región geopolítica están conectados entre sí. Por ejemplo, los sellos de instancia grande de HANA en el oeste y este de EE. UU. se conectan a través de una conexión de red dedicada para la replicación de recuperación ante desastres. 
 
-Al igual que puede elegir entre diferentes tipos de máquinas virtuales con Azure Virtual Machines, también puede elegir entre diferentes SKU de Instancias grandes de HANA que se adapten a distintos tipos de carga de trabajo de SAP HANA. SAP aplica una relación de memoria a sockets de procesador para diferentes cargas de trabajo en función de la generación de procesadores Intel. Se ofrecen cuatro tipos diferentes de SKU:
+Al igual que puede elegir entre diferentes tipos de máquinas virtuales con Azure Virtual Machines, también puede elegir entre diferentes SKU de Instancias grandes de HANA que se adapten a distintos tipos de carga de trabajo de SAP HANA. SAP aplica una relación de memoria a sockets de procesador para diferentes cargas de trabajo en función de la generación de los procesadores Intel. En la tabla siguiente muestra los tipos de SKU que se ofrecen.
 
 A partir de julio de 2017, SAP HANA en Azure (instancias grandes) está disponible en varias configuraciones en las regiones de Azure Oeste y Este de EE. UU., Este de Australia, Sudeste de Australia, Europa Occidental y Europa del Norte:
 
@@ -355,7 +359,7 @@ Como cliente puede elegir usar las instantáneas de almacenamiento para fines de
 ### <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 El almacenamiento usado para instancias grandes de HANA permite un cifrado transparente de los datos tal y como se almacenan en los discos. Durante el período de implementación de una unidad de instancia grande de HANA, tiene la opción de tener este tipo de cifrado habilitado. También puede optar por cambiar los volúmenes cifrados después de que se complete la implementación. El movimiento de volúmenes no cifrados a cifrados es transparente y no requiere ningún tiempo de inactividad. 
 
-Con las SKU de clase de tipo I, se cifra el volumen en el que está almacenado el LUN de arranque. En el caso de las SKU de clase de tipo II de instancias grandes de HANA, tendrá que cifrar el LUN de arranque con los métodos del sistema operativo. 
+Con las SKU de clase de tipo I, se cifra el volumen en el que está almacenado el LUN de arranque. En el caso de las SKU de clase de tipo II de instancias grandes de HANA, tendrá que cifrar el LUN de arranque con los métodos del sistema operativo. Para más información, póngase en contacto con el equipo de Microsoft Service Management.
 
 
 ## <a name="networking"></a>Redes

@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/06/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 55e1cd90df0e4413ce027361c636257d823a50d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 673da6a9202fedba4ce3fb8fe54ee89a3502bb02
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>Software de StorSimple, alta disponibilidad y requisitos de red
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Software de StorSimple, alta disponibilidad y requisitos de red](storsimple-8000-system-requirements.md). Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Información general
 Bienvenido a Microsoft Azure StorSimple. Este artículo describe los requisitos del sistema importantes y las prácticas recomendadas para el dispositivo StorSimple y para los clientes de almacenamiento que acceden al dispositivo. Es recomendable que revise cuidadosamente la siguiente información antes de implementar el sistema StorSimple y que luego la consulte según sea necesario durante la implementación y el funcionamiento posterior.
 
@@ -79,7 +82,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 > 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Patrones de URL para reglas de firewall
-Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo StorSimple y el servicio de StorSimple Manager dependen de otras aplicaciones de Microsoft, como el Bus de servicio de Microsoft Azure, el Servicio de control de acceso de Microsoft Azure AD, las cuentas de almacenamiento y los servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Esta realidad, a su vez, requiere que el administrador de red supervise y actualice las reglas de firewall de su StorSimple de forma pertinente y oportuna.
+Con frecuencia, los administradores de red pueden configurar reglas avanzadas de firewall de acuerdo con los patrones de URL para filtrar el tráfico saliente y entrante. El dispositivo StorSimple y el servicio de StorSimple Manager dependen de otras aplicaciones de Microsoft, como Azure Service Bus, Azure Active Directory Access Control, las cuentas de almacenamiento y los servidores de Microsoft Update. Es posible usar los patrones de URL asociados a estas aplicaciones para configurar las reglas de firewall. Es importante entender que los patrones de URL asociados a estas aplicaciones pueden cambiar. Esta realidad, a su vez, requiere que el administrador de red supervise y actualice las reglas de firewall de su StorSimple de forma pertinente y oportuna.
 
 Se recomienda que establezca las reglas de firewall para el tráfico saliente, basándose en las direcciones IP fijas de StorSimple, de forma generosa en la mayoría de los casos. Sin embargo, puede utilizar la información siguiente con el objetivo de establecer las reglas avanzadas de firewall que se necesitan para crear entornos seguros.
 
@@ -91,7 +94,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 #### <a name="url-patterns-for-azure-portal"></a>Patrones de dirección URL del Portal de Azure
 | Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Bus de servicio<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.com` |Registro de dispositivos |Solo DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |
@@ -102,7 +105,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 #### <a name="url-patterns-for-azure-government-portal"></a>Patrones de dirección URL para el Portal de Azure Government
 | Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Bus de servicio<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` <br>`https://login-us.microsoftonline.com` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.us` |Registro de dispositivos |Solo DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |

@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: architecture
-ms.date: 10/23//2017
+ms.date: 11/15/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 39092028d8317f8881b4e0772dcb87b05c064b6a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse: Arquitectura de procesamiento paralelo masivo (MPP)
 Obtenga información acerca de cómo Azure SQL Data Warehouse combina procesamiento paralelo masivo (MPP) con el almacenamiento de Azure para lograr un alto rendimiento y escalabilidad. 
@@ -26,7 +26,7 @@ Obtenga información acerca de cómo Azure SQL Data Warehouse combina procesamie
 ## <a name="mpp-architecture-components"></a>Componentes de la arquitectura de MPP
 SQL Data Warehouse aprovecha una arquitectura de escalado horizontal para distribuir el procesamiento de cálculo de datos en varios nodos. La unidad de escalado es una abstracción de la eficacia del proceso que se conoce como una unidad de almacenamiento de datos. SQL Data Warehouse separa los procesos del almacenamiento, lo que permite escalar los procesos independientemente de los datos en el sistema.
 
-![Arquitectura de Almacenamiento de datos SQL](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
+![Arquitectura de SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
 SQL Data Warehouse usa una arquitectura basada en nodos. Las aplicaciones conectan y emiten comandos de T-SQL para un nodo de control, que es el único punto de entrada para el almacenamiento de datos. El nodo de control ejecuta el motor de MPP que optimiza las consultas para el procesamiento en paralelo y, después, pasa las operaciones a los nodos de ejecución para hacer su trabajo en paralelo. Los nodos de ejecución almacenan todos los datos del usuario en Azure Storage y ejecutan las consultas en paralelo. El servicio de movimiento de datos (DMS) es un servicio interno de nivel de sistema que mueve datos entre los nodos según sea necesario para ejecutar consultas en paralelo y devolver resultados precisos. 
 

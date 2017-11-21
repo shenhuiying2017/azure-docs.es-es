@@ -15,15 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 Con Azure puede utilizar una máquina virtual para controlar tareas de proceso intensivo. Por ejemplo, una máquina virtual puede controlar tareas y ofrecer los resultados a equipos cliente o a aplicaciones móviles. Después de leer este artículo, sabrá cómo crear una máquina virtual que ejecute una aplicación Java de proceso intensivo que otra aplicación Java puede supervisar.
 
@@ -79,10 +80,10 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 4. Haga clic en **Conectar**.
 5. Siga las indicaciones, según sea necesario, para conectarse a la máquina virtual. Cuando se le pida el nombre y la contraseña del administrador, utilice los valores que proporcionó cuando creó la máquina virtual.
 
-Tenga en cuenta que la funcionalidad del bus de servicio de Azure requiere que se instale el certificado Baltimore CyberTrust Root como parte de su almacén **cacerts** de JRE. Este certificado se incluye automáticamente en el Java Runtime Environment (JRE) que se usa en este tutorial. Si no tiene este certificado en su almacén **cacerts**, consulte[Incorporación de un certificado al almacén de certificados CA de Java][add_ca_cert] para obtener más información sobre cómo agregarlo (así como información sobre la visualización de certificados en el almacén cacerts).
+Tenga en cuenta que la funcionalidad de Azure Service Bus requiere que se instale el certificado Baltimore CyberTrust Root como parte de su almacén **cacerts** de JRE. Este certificado se incluye automáticamente en el Java Runtime Environment (JRE) que se usa en este tutorial. Si no tiene este certificado en su almacén **cacerts**, consulte[Incorporación de un certificado al almacén de certificados CA de Java][add_ca_cert] para obtener más información sobre cómo agregarlo (así como información sobre la visualización de certificados en el almacén cacerts).
 
 ## <a name="how-to-create-a-service-bus-namespace"></a>Creación de un espacio de nombres del bus de servicio
-Para comenzar a usar colas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación.
+Para comenzar a usar colas de Service Bus en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos de Service Bus en la aplicación.
 
 Para crear un nombre de espacio de servicio:
 

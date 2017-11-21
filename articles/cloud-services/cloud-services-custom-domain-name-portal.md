@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: f5d244fc747b923989407afd50927cda2b8d4a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
-> [!div class="op_single_selector"]
-> * [Portal de Azure](cloud-services-custom-domain-name-portal.md)
-> * [Portal de Azure clásico](cloud-services-custom-domain-name.md)
-> 
-> 
-
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como http://contoso.cloudapp.net. Azure también asigna una dirección IP virtual.
 
 Sin embargo, también puede exponer su aplicación en su propio nombre de dominio, como **contoso.com**. En este artículo se explica cómo reservar o configurar un nombre de dominio personalizado para los roles web de servicio en la nube.
@@ -34,14 +28,14 @@ Sin embargo, también puede exponer su aplicación en su propio nombre de domini
 ¿Ya entiende qué son los registros CNAME y D? [Omita la explicación](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Los procedimientos de esta tarea se aplican a los servicios en la nube de Azure. Para Servicios de aplicaciones, consulte [este artículo](../app-service/app-service-web-tutorial-custom-domain.md). Para las cuentas de almacenamiento, consulte [este artículo](../storage/blobs/storage-custom-domain-name.md).
+> Los procedimientos de esta tarea se aplican a Azure Cloud Services. Para Servicios de aplicaciones, consulte [este artículo](../app-service/app-service-web-tutorial-custom-domain.md). Para las cuentas de almacenamiento, consulte [este artículo](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 
 <p/>
 
 > [!TIP]
-> Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804)de Azure.  Con este tutorial, asociar un nombre de dominio personalizado y proteger las comunicaciones (SSL) con los servicios en la nube de Azure o Sitios web Azure es facilísimo.
+> Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804)de Azure.  Con este tutorial, asociar un nombre de dominio personalizado y proteger las comunicaciones (SSL) con Azure Cloud Services o Azure Websites es facilísimo.
 > 
 > 
 
@@ -62,7 +56,7 @@ El registro *D* asigna un dominio, como **contoso.com** o **www.contoso.com**, *
 > [!NOTE]
 > Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su servicio en la nube. La dirección IP que usa el Servicio en la nube se asigna la primera vez que se implementa en una ranura vacía (producción o ensayo). Si elimina la implementación para la ranura, Azure libera la dirección IP y a toda implementación posterior en la ranura se le podrá dar una dirección IP nueva.
 > 
-> De manera conveniente, la dirección IP de una ranura de implementación dada (producción o ensayo) se mantiene cuando se realiza un intercambio entre las implementaciones de ensayo y producción o se realiza una actualización local de una implementación existente. Para obtener más información sobre la realización de estas acciones, consulte [Administración de servicios en la nube](cloud-services-how-to-manage.md).
+> De manera conveniente, la dirección IP de una ranura de implementación dada (producción o ensayo) se mantiene cuando se realiza un intercambio entre las implementaciones de ensayo y producción o se realiza una actualización local de una implementación existente. Para obtener más información sobre la realización de estas acciones, consulte [Administración de servicios en la nube](cloud-services-how-to-manage-portal.md).
 > 
 > 
 
@@ -139,7 +133,7 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Administración de servicios en la nube](cloud-services-how-to-manage.md)
+* [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Asignación del contenido de la red CDN a un dominio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).

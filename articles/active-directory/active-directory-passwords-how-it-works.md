@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -88,6 +88,23 @@ Esta opción determina el número mínimo de métodos de autenticación disponib
 Los usuarios pueden elegir proporcionar más métodos de autenticación si el administrador los administra.
 
 Si un usuario no tiene los métodos necesarios mínimos registrados, verá una página de error que le insta al solicitar un administrador que restablezca su contraseña.
+
+#### <a name="changing-authentication-methods"></a>Cambio de métodos de autenticación
+
+¿Qué sucede si empieza con una directiva que tiene registrado solo un método de autenticación necesario para restablecer o desbloquear y cambia a dos métodos?
+
+| Número de métodos registrados | Número de métodos requeridos | Resultado |
+| :---: | :---: | :---: |
+| 1 o más | 1 | **Permite** restablecer o desbloquear |
+| 1 | 2 | **No permite** restablecer o desbloquear |
+| 2 o más | 2 | **Permite** restablecer o desbloquear |
+
+Si cambia los tipos de métodos de autenticación que un usuario puede usar, puede impedir sin darse cuenta que los usuarios puedan usar SSPR si no tienen la cantidad mínima de datos disponibles.
+
+Ejemplo: 
+1. Directiva original configurada con dos métodos de autenticación necesarios solo mediante preguntas de seguridad y el teléfono del trabajo. 
+2. El administrador cambia la directiva para no usar más preguntas de seguridad, pero permite el uso del teléfono móvil y de un correo electrónico alternativo.
+3. Los usuarios que no hayan completado los campos de teléfono móvil y correo electrónico alternativo no podrán restablecer sus contraseñas.
 
 ### <a name="how-secure-are-my-security-questions"></a>Nivel de protección de las cuestiones de seguridad
 
@@ -169,6 +186,7 @@ Cuando está deshabilitada, los usuarios pueden registrar manualmente su informa
 > [!NOTE]
 > Para descartar el Portal de registro de restablecimiento de contraseña, los usuarios deben hace clic en Cancelar o cerrar la ventana, algo que se les solicita cada vez que inician sesión hasta que completan el registro.
 >
+> Esto no interrumpirá la conexión del usuario si ya ha iniciado sesión.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación
 
@@ -190,7 +208,7 @@ Ejemplo: hay cuatro administradores en un entorno. El administrador "A" restable
 
 ## <a name="on-premises-integration"></a>Integración local
 
-Si ha instalado, configurado y habilitado Azure AD Connect, tendrá las opciones adicionales siguientes para integraciones locales.
+Si ha instalado, configurado y habilitado Azure AD Connect, tendrá las opciones adicionales siguientes para integraciones locales. Si estas opciones aparecen atenuadas, la reescritura no se ha configurado correctamente. Para más información, vea [Configuración de la escritura diferida de contraseñas](active-directory-passwords-writeback.md#configuring-password-writeback).
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Escritura diferida de contraseñas en un directorio local
 
@@ -214,6 +232,9 @@ El restablecimiento y cambio de contraseña son totalmente compatibles con todas
 3. **Usuarios de B2B**: los nuevos usuarios de B2B creados mediante las nuevas [funcionalidades de B2B de Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
 
 Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Siempre que tengan un correo electrónico alternativo o un correo electrónico de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
+
+> [!NOTE]
+> Las cuentas de Microsoft a las que se ha concedido acceso de invitado al inquilino de Azure AD, como las de Hotmail.com, Outlook.com y otras direcciones de correo electrónico personal no pueden utilizar el autoservicio de restablecimiento de contraseña de Azure AD y tendrán que restablecer la contraseña con la información detectada en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

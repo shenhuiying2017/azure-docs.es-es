@@ -1,6 +1,6 @@
 ---
 title: "Documentación de los orígenes de datos | Microsoft Docs"
-description: "En este artículo de procedimientos se resalta cómo documentar recursos de datos en el Catálogo de datos de Azure."
+description: "En este artículo de procedimientos se resalta cómo documentar recursos de datos en Azure Data Catalog."
 services: data-catalog
 documentationcenter: 
 author: spelluru
@@ -13,28 +13,28 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.date: 11/01/2017
 ms.author: spelluru
-ms.openlocfilehash: ffe951f60afb57524568fe1ed3b3668d0088e124
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea17dc0914966b9c3ca611c3d359635216ecf1ca
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="document-data-sources"></a>Orígenes de datos de documentos
 ## <a name="introduction"></a>Introducción
-**Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** ayuda a las personas a detectar, *comprender*y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos.
+**Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Azure Data Catalog** ayuda a las personas a detectar, *comprender*y usar orígenes de datos, así como ayudar a las organizaciones a obtener un mayor valor de sus datos.
 
-Cuando un origen de datos se registra en el **Catálogo de datos de Azure**, el servicio copia e indexa sus metadatos, pero eso no es todo. **Catálogo de datos de Azure** también permite a los usuarios proporcionar su propia documentación completa, que puede describir el uso y los escenarios comunes para el origen de datos.
+Cuando un origen de datos se registra en **Azure Data Catalog**, el servicio copia e indexa sus metadatos, pero eso no es todo. **Azure Data Catalog** también permite a los usuarios proporcionar su propia documentación completa, que puede describir el uso y los escenarios comunes para el origen de datos.
 
-En [Anotación de orígenes de datos](data-catalog-how-to-annotate.md), sabrá que los expertos que conocen el origen de datos pueden anotarlo con etiquetas y una descripción. El portal del **Catálogo de datos de Azure** incluye un editor de texto enriquecido para que los usuarios puedan documentar completamente contenedores y recursos de datos. El editor incluye el formato de párrafo, como los títulos, formato de texto, listas con viñetas, listas numeradas y tablas.
+En [Anotación de orígenes de datos](data-catalog-how-to-annotate.md), sabrá que los expertos que conocen el origen de datos pueden anotarlo con etiquetas y una descripción. El portal del **Azure Data Catalog** incluye un editor de texto enriquecido para que los usuarios puedan documentar completamente contenedores y recursos de datos. El editor incluye el formato de párrafo, como los títulos, formato de texto, listas con viñetas, listas numeradas y tablas.
 
 Las etiquetas y descripciones son excelentes para anotaciones simples. Sin embargo, para ayudar a los consumidores de datos a comprender mejor el uso de un origen de datos y los escenarios empresariales para un origen de datos, un experto puede proporcionar documentación completa y detallada. Es fácil documentar un origen de datos. Simplemente, seleccione un recurso de datos o un contenedor y elija **Documentación**.
 
 ![](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Documentación de los recursos de datos
-La ventaja del **Catálogo de datos de Azure** es que la documentación le permite usar el Catálogo de datos como un repositorio de contenido para crear una descripción completa de los recursos de datos. Puede explorar el contenido detallado que describe los contenedores y las tablas. Si ya tiene contenido en otro repositorio de contenido, como SharePoint o un recurso compartido de archivos, puede agregar los vínculos de documentación de recursos para hacer referencia a este contenido existente. Esta característica hace que los documentos existentes sean más detectables.
+La ventaja del **Azure Data Catalog** es que la documentación le permite usar Data Catalog como un repositorio de contenido para crear una descripción completa de los recursos de datos. Puede explorar el contenido detallado que describe los contenedores y las tablas. Si ya tiene contenido en otro repositorio de contenido, como SharePoint o un recurso compartido de archivos, puede agregar los vínculos de documentación de recursos para hacer referencia a este contenido existente. Esta característica hace que los documentos existentes sean más detectables.
 
 > [!NOTE]
 > La documentación no se incluye en el índice de búsqueda.
@@ -50,4 +50,4 @@ El nivel de documentación puede oscilar desde describir las características y 
 * Documentar contenedores y tablas: el enfoque más completo, pero puede incluir un mayor mantenimiento de los documentos.
 
 ## <a name="summary"></a>Resumen
-La documentación de orígenes de datos con el **Catálogo de datos de Azure** puede crear una descripción de los recursos de datos con el detalle que sea necesario.  Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.
+La documentación de orígenes de datos con **Azure Data Catalog** puede crear una descripción de los recursos de datos con el detalle que sea necesario.  Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.

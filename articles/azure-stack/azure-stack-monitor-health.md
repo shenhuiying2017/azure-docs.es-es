@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Supervisar el estado y las alertas en Azure Stack
 
@@ -36,7 +36,7 @@ Azure Stack incluye funciones de supervisión de infraestructura que le permiten
  
  Como operador de Azure Stack, puede ver el estado de mantenimiento de los componentes en el portal de administración y a través de la API de REST y PowerShell.
  
-Para ver el estado de mantenimiento en el portal, haga clic en la región que quiera ver en la ventana **Region management** (Administración de regiones). Puede ver el estado de mantenimiento de los roles de infraestructura y de los proveedores de recursos. En esta versión, el proveedor de recursos de Compute no informa del estado de mantenimiento.
+Para ver el estado de mantenimiento en el portal, haga clic en la región que quiera ver en la ventana **Region management** (Administración de regiones). Puede ver el estado de mantenimiento de los roles de infraestructura y de los proveedores de recursos.
 
 ![Lista de roles de infraestructura](media/azure-stack-monitor-health/image2.png)
 

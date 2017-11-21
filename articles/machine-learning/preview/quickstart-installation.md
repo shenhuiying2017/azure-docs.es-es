@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Creación de cuentas de la versión preliminar de Azure Machine Learning e instalación de Azure Machine Learning Workbench
 Azure Machine Learning es una solución de análisis avanzado y ciencia de datos integrada y completa. Ayuda a los científicos de datos profesionales a preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -74,7 +74,7 @@ Use Azure Portal para aprovisionar cuentas de Azure Machine Learning:
 
 Ahora, en función del sistema operativo que use en el equipo local, siga una de las dos secciones siguientes para instalar Azure Machine Learning Workbench. 
 
-## <a name="install-azure-machine-learning-workbench-on-windows"></a>Instalación de Azure Machine Learning Workbench en Windows
+## <a name="install-azure-machine-learning-workbench-on-windows"></a>Instalar Azure Machine Learning Workbench en Windows
 Instale Azure Machine Learning Workbench en un equipo con Windows 10, Windows Server 2016, o cualquier versión posterior.
 
 1. Descargue el instalador más reciente de Azure Machine Learning Workbench, [AmlWorkbenchSetup.msi](https://aka.ms/azureml-wb-msi).
@@ -93,33 +93,20 @@ Instale Azure Machine Learning Workbench en un equipo con Windows 10, Windows Se
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>Instalación de Azure Machine Learning Workbench en macOS
-Instale Azure Machine Learning Workbench en un equipo con macOS Sierra.
+Instale Azure Machine Learning Workbench en un equipo con macOS Sierra o versiones posteriores.
 
-1. Instale la biblioteca openssl mediante [Homebrew](http://brew.sh). Para más información, consulte [Requisitos previos para .NET Core en Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites) .
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. Descargue el instalador más reciente de Azure Machine Learning Workbench, [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
+1. Descargue el instalador más reciente de Azure Machine Learning Workbench, [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
 
    >[!IMPORTANT]
    >Descargue el instalador por completo en el disco y ejecútelo desde allí. No lo ejecute directamente desde el widget de descarga del explorador.
 
-3. Haga doble clic en el instalador descargado **AmlWorkbench.dmg** desde Finder.
+2. Haga doble clic en el instalador descargado **AmlWorkbench.dmg** desde Finder.
 
-4. Siga las instrucciones en pantalla para finalizar la instalación.
+3. Siga las instrucciones en pantalla para finalizar la instalación.
 
    El instalador descarga todos los componentes dependientes necesarios, como Python, Miniconda y otras bibliotecas relacionadas. La instalación puede tardar, aproximadamente, media hora en finalizar todos los componentes. 
 
-5. Ahora, Azure Machine Learning Workbench ya está instalado en el directorio siguiente: 
+4. Ahora, Azure Machine Learning Workbench ya está instalado en el directorio siguiente: 
 
    `/Applications/AmlWorkbench.app`
 
@@ -135,7 +122,7 @@ Instale Azure Machine Learning Workbench en un equipo con macOS Sierra.
 
 Para obtener información acerca de la creación de un entorno para la implementación de los servicios web, consulte [Instalación de Administración de modelos](deployment-setup-configuration.md).
 
-## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
+## <a name="create-a-new-project"></a>Crear un nuevo proyecto
 1. Inicie la aplicación Azure Machine Learning Workbench e inicie sesión. 
 
 2. Haga clic en **Archivo** > **Nuevo proyecto** (o haga clic en el signo **+**del panel **PROJECTS**). 
@@ -150,7 +137,7 @@ Para obtener información acerca de la creación de un entorno para la implement
     >[!TIP]
     >También puede abrir el proyecto en Visual Studio Code u otros editores. Para ello, solo tiene que configurar un vínculo de entorno de desarrollo integrado (IDE ) y, después, abrir el directorio del proyecto desde este. [Más información](how-to-configure-your-IDE.md). 
 
-## <a name="run-a-python-script"></a>Ejecución de un script de Python
+## <a name="run-a-python-script"></a>Ejecutar un script de Python
 Ejecutaremos un script en el equipo local. 
 
 1. Cada proyecto se abre en su propia página **Panel del proyecto**. Seleccione **local** como destino de ejecución en la barra de comandos que hay cerca de la parte superior de la aplicación y seleccione el script **iris_sklearn.py** que se va ejecutar. El ejemplo incluye otros archivos que se pueden extraer del repositorio más adelante. 
@@ -169,7 +156,7 @@ Ejecutaremos un script en el equipo local.
 
 6. Repita los pasos 2 a 4 varias veces. Utilice cada vez valores de argumento diferentes que oscilen entre **10** y **0,001**.
 
-## <a name="view-run-history"></a>Visualización del historial de ejecución
+## <a name="view-run-history"></a>Ver historial de ejecución
 1. Navegue hasta la vista **Ejecuciones** y seleccione **iris_sklearn.py** en la lista de ejecuciones. Se abre el panel del historial de ejecución para **iris_sklearn.py**. Muestra todas las ejecuciones que se realizaron en **iris_sklearn.py**. 
 
    ![Panel del historial de ejecución](media/quickstart-installation/run_view.png)

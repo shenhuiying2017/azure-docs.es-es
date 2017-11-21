@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Configuración de puertos de alta disponibilidad para el equilibrador de carga interno
 
@@ -30,7 +30,7 @@ En este artículo se proporciona un ejemplo de implementación de puertos de alt
 
 En la figura 1 se muestra la configuración del ejemplo de implementación siguiente que se describe en este artículo:
 - Los dispositivos virtuales de red se implementan en el grupo back-end de un equilibrador de carga interno detrás de la configuración de los puertos de alta disponibilidad. 
-- El enrutamiento definido por el usuario aplicado en las rutas de la subred DMZ enruta todo el tráfico a <?> al realizar el salto siguiente como IP virtual del equilibrador de carga interno. 
+- El enrutamiento definido por el usuario aplicado en las rutas de la subred DMZ enruta todo el tráfico a dispositivos virtuales de red al realizar el salto siguiente como IP virtual del equilibrador de carga interno. 
 - El equilibrador de carga interno distribuye el tráfico a uno de los dispositivos virtuales de red activos según el algoritmo de equilibrado de carga.
 - El dispositivo virtual de red procesa el tráfico y lo reenvía al destino original en la subred de back-end.
 - La ruta de devolución también puede ser la misma, si se configura el enrutamiento definido por el usuario correspondiente en la subred de back-end. 
@@ -41,19 +41,13 @@ Figura 1: Dispositivos virtuales de red implementados detrás de un equilibrador
 
 ## <a name="preview-sign-up"></a>Registro en versión preliminar
 
-Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en la SKU estándar de Load Balancer, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0.
+Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en Load Balancer estándar, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0.  Puede registrar una suscripción para
 
-- Registro con PowerShell
+1. [la versión preliminar de Load Balancer estándar](https://aka.ms/lbpreview#preview-sign-up) y 
+2. [la versión preliminar de Puertos HA](https://aka.ms/haports#preview-sign-up).
 
-   ```powershell
-   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-
-- Registro con la CLI de Azure 2.0
-
-    ```cli
-  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
-    ```
+>[!NOTE]
+>Para usar esta característica, es necesario registrarse en la versión preliminar de Load Balancer [estándar](https://aka.ms/lbpreview#preview-sign-up) además de para los puertos de alta disponibilidad. El registro de las versiones preliminares de los puertos de alta disponibilidad o Load Balancer estándar puede tardar hasta una hora.
 
 ## <a name="configuring-ha-ports"></a>Configuración de puertos de alta disponibilidad
 
@@ -68,6 +62,39 @@ En Azure Portal se incluye la opción **Puertos HA** con una casilla para esta c
 ![configuración de los puertos de alta disponibilidad mediante Azure Portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
 Figura 2: Configuración de los puertos mediante el portal
+
+### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Configuración de la regla del equilibrador de carga de puertos de alta disponibilidad mediante la plantilla de Resource Manager
+
+Puede configurar puertos de alta disponibilidad con la versión de API 2017-08-01 para Microsoft.Network/loadBalancers en el recurso de Load Balancer. El siguiente fragmento JSON muestra los cambios en la configuración de Load Balancer para puertos de alta disponibilidad puertos a través de la API de REST.
+
+```json
+    {
+        "apiVersion": "2017-08-01",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        "sku":
+        {
+            "name": "Standard"
+        },
+        ...
+        "properties": {
+            "frontendIpConfigurations": [...],
+            "backendAddressPools": [...],
+            "probes": [...],
+            "loadBalancingRules": [
+             {
+                "properties": {
+                    ...
+                    "protocol": "All",
+                    "frontendPort": 0,
+                    "backendPort": 0
+                }
+             }
+            ],
+       ...
+       }
+    }
+```
 
 ### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Configuración de la regla del equilibrador de carga para los puertos de alta disponibilidad mediante PowerShell
 

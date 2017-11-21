@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/12/2017
+ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3b11dc6afac716ef391976093839547e8fd37a91
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e821c0369c6f01a7f09361c1093259429a79fa6
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Error RequestDisallowedByPolicy con la directiva de recursos de Azure
 
@@ -64,4 +64,4 @@ Para resolver este problema, trabaje con el departamento de TI para revisar las 
 Para más información, consulte los siguientes artículos.
 
 - [Información general sobre las directivas de recursos](resource-manager-policy.md)
-- [Visualización de asignaciones de directiva a través de Azure Portal](resource-manager-policy-portal.md#view-policy-assignments)
+- [Visualización de asignaciones de directiva a través de Azure Portal](resource-manager-policy-portal.md)

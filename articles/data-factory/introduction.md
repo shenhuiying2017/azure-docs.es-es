@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="introduction-to-azure-data-factory"></a>Introducción a la Azure Data Factory 
+# <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-introduction.md)
 > * [Versión 2: Versión preliminar](introduction.md)
@@ -87,7 +87,7 @@ Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la i
 - Flujo de control:
     - Encadenamiento de actividades en una secuencia dentro de una canalización
     - Bifurcación de actividades dentro de una canalización
-    - Parámetros
+    - parameters
         - Los parámetros se pueden definir en la canalización y los argumentos se pueden pasar al invocar la canalización a petición o desde un desencadenador.
         - Las actividades pueden consumir los argumentos que se pasan a la canalización.
     - Paso a estado personalizado
@@ -172,11 +172,11 @@ Para más información sobre los conceptos de Data Factory, consulte los siguien
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Actualmente, puede crear factorías de datos en las regiones del este de EE. UU. y este de EE. UU. 2. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso.
+Actualmente, se pueden crear factorías de datos en las regiones del este de EE. UU., este de EE. UU. 2 y Europa Occidental. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso.
 
 Azure Data Factory no almacena ningún dato. Permite crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los almacenes de datos admitidos y organizar el procesamiento de los datos mediante servicios de proceso en otras regiones o en entornos locales. También permite supervisar y administrar flujos de trabajo mediante mecanismos de programación y de interfaz de usuario.
 
-Aunque Data Factory solamente está disponible en las regiones del este de EE. UU. y este de EE. UU. 2, el servicio que atiende el movimiento de datos en Data Factory está disponible globalmente en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Data Management Gateway instalada en el entorno local la que mueva los datos en su lugar.
+Aunque Data Factory solamente está disponible en las regiones del este de EE. UU., este de EE. UU. 2 y Europa Occidental, el servicio que atiende el movimiento de datos en Data Factory está disponible mundialmente en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Data Management Gateway instalada en el entorno local la que mueva los datos en su lugar.
 
 Por ejemplo, supongamos que sus entornos de proceso, tales como el clúster de Azure HDInsight y Azure Machine Learning, se ejecutan fuera de la región de Europa Occidental. Puede crear y usar una instancia de Azure Data Factory en Europa del Norte y usarla para programar trabajos en los entornos de proceso en Europa Occidental. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
 

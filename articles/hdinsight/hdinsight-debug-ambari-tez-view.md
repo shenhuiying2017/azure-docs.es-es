@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/04/2017
 ms.author: larryfr
-ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar vistas de Ambari para depurar trabajos de Tez en HDInsight
 
@@ -30,7 +30,7 @@ La interfaz de usuario de Ambari Web para HDInsight contiene una vista de Tez qu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un clúster de HDInsight basado en Linux Para conocer la forma de crear un clúster, consulte el [artículo de introducción al uso de HDInsight basado en Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
+* Un clúster de HDInsight basado en Linux Para conocer la forma de crear un clúster, consulte el [artículo de introducción al uso de HDInsight basado en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Un explorador web moderno que sea compatible con HTML5.
 
 ## <a name="understanding-tez"></a>Descripción de Tez
@@ -106,7 +106,7 @@ Siga estos pasos para ejecutar una consulta de Hive que utilice Tez:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido a usar la vista de Tez, obtenga más información sobre el [Uso de Hive en HDInsight](hdinsight-use-hive.md).
+Ahora que ha aprendido a usar la vista de Tez, obtenga más información sobre el [Uso de Hive en HDInsight](hadoop/hdinsight-use-hive.md).
 
 Para obtener información técnica más detallada sobre Tez, consulte la [página de Tez en Hortonworks](http://hortonworks.com/hadoop/tez/).
 

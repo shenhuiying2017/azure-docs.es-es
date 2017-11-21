@@ -1,5 +1,5 @@
 ---
-title: "Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure"
+title: "Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service"
 description: "Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure."
 services: app-service
 documentationcenter: .net
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 42644bd97443e827b523503989b0b25d3d48028c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure
+# <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
 ## <a name="overview"></a>Información general
-Azure integra diagnósticos para ayudar a depurar [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
+Azure integra diagnósticos para ayudar a depurar [Aplicaciones web de App Service](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
 
-En este artículo se usa el [Portal de Azure](https://portal.azure.com), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+En este artículo se usa [Azure Portal](https://portal.azure.com), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
-Aplicaciones web del Servicio de aplicaciones ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. De forma lógica, estos diagnósticos se dividen en **diagnósticos del servidor web** y **diagnóstico de aplicaciones**.
+Aplicaciones web de App Service ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. De forma lógica, estos diagnósticos se dividen en **diagnósticos del servidor web** y **diagnóstico de aplicaciones**.
 
 ### <a name="web-server-diagnostics"></a>Diagnósticos del servidor web
 Puede habilitar o deshabilitar los siguientes tipos de registros:
@@ -45,7 +45,7 @@ El diagnóstico de aplicaciones le permite capturar información generada por un
 
 En tiempo de ejecución puede recuperar estos registros para ayudar a solucionar problemas. Para obtener más información, consulte [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-Las aplicaciones web del Servicio de aplicaciones también registran información de implementación al publicar contenido en una aplicación web. Esta acción se lleva a cabo automáticamente, por lo que no es necesario realizar ninguna configuración para el registro de implementaciones. El registro de implementaciones le permite determinar por qué se ha producido un error con la implementación. Por ejemplo, si usa un script de implementación personalizado, puede usar el registro de implementaciones para determinar por qué se ha producido un error con el script.
+Las aplicaciones web de App Service también registran información de implementación al publicar contenido en una aplicación web. Esta acción se lleva a cabo automáticamente, por lo que no es necesario realizar ninguna configuración para el registro de implementaciones. El registro de implementaciones le permite determinar por qué se ha producido un error con la implementación. Por ejemplo, si usa un script de implementación personalizado, puede usar el registro de implementaciones para determinar por qué se ha producido un error con el script.
 
 ## <a name="enablediag"></a>Habilitación de diagnósticos
 Para habilitar diagnósticos en [Azure Portal](https://portal.azure.com), vaya a la hoja de la aplicación web y haga clic en **Configuración > Registros de diagnóstico**.
@@ -65,8 +65,8 @@ En el [Portal clásico](https://manage.windowsazure.com), en la pestaña **Confi
 En el [Portal clásico](https://manage.windowsazure.com) , la pestaña **Configurar** de la aplicación web también tiene una configuración adicional para el diagnóstico de aplicaciones:
 
 * **Sistema de archivos** : almacena la información de diagnóstico de aplicaciones en el sistema de archivos de la aplicación web. Es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP con la utilización de Azure PowerShell o de la interfaz de la línea de comandos de Azure (CLI de Azure).
-* **Almacenamiento de tablas** : almacena la información de diagnóstico de aplicaciones en el nombre de la tabla y en la cuenta de almacenamiento de Azure.
-* **Almacenamiento de blobs** : almacena la información de diagnóstico de aplicaciones en el contenedor de blobs y en la cuenta de almacenamiento de Azure.
+* **Table Storage**: almacena la información de diagnóstico de aplicaciones en el nombre de la tabla y en la cuenta de Azure Storage.
+* **Blob Storage**: almacena la información de diagnóstico de aplicaciones en el contenedor de blobs y en la cuenta de Azure Storage.
 * **Período de retención**: de manera predeterminada, los registros no se eliminan automáticamente del **almacenamiento de blobs**. Seleccione **Establecer retención** y escriba el número de días durante los cuales desea que se conserven los registros si desea que estos se eliminen automáticamente.
 
 > [!NOTE]
@@ -82,7 +82,7 @@ Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos
 Si bien las tres ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **table storage** y **blob storage** registran información adicional como el identificador de instancia, el identificador de subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que el registro en **file system**.
 
 > [!NOTE]
-> Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al almacenamiento de Azure mediante algunos de los [SDK de Azure](/downloads/#).
+> Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de Storage que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso a Azure Storage mediante algunos de los [SDK de Azure](/downloads/#).
 >
 > [!NOTE]
 > Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite** . Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
@@ -140,7 +140,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 2. Agregue el paquete del agente de escucha.
    * Haga clic con el botón secundario en el proyecto y elija Administrar paquetes de NuGet. Seleccione `Microsoft.ApplicationInsights.TraceListener` [Más información](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
-4. En el [Portal de Azure](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
+4. En el [Azure Portal](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
 
 [Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
@@ -180,17 +180,17 @@ Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
 ### <a name="streaming-with-azure-command-line-interface"></a>Transmisión con la interfaz de la línea de comandos de Azure
 Para transmitir información de registro, abra una nueva sesión del símbolo del sistema, PowerShell, Bash o Terminal y escriba el siguiente comando:
 
-    azure site log tail webappname
+    az webapp log tail --name webappname --resource-group myResourceGroup
 
 Este comando establecerá conexión con la aplicación web denominada "webappname" y comenzará a transmitir información a la ventana a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmitirá a la consola local.
 
 Para filtrar eventos específicos, como errores, use el parámetro **--Filter** . Por ejemplo:
 
-    azure site log tail webappname --filter Error
+    az webapp log tail --name webappname --resource-group myResourceGroup --filter Error
 
 Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--Path** . Por ejemplo:
 
-    azure site log tail webappname --path http
+    az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
 > Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../cli-install-nodejs.md).
@@ -274,15 +274,15 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 >
 
 ## <a name="nextsteps"></a> Pasos siguientes
-* [Supervisión de aplicaciones web](web-sites-monitor.md)
+* [Supervisión de Web Apps](web-sites-monitor.md)
 * [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Análisis de registros de aplicación web en HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 >
 >
 
 ## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio de portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715)

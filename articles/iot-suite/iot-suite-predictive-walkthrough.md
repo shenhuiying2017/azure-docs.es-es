@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 4a430fb250b9145166a3a212d416a4f1c754473f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Tutorial de la solución preconfigurada de mantenimiento predictivo
 
@@ -33,13 +33,13 @@ El diagrama siguiente describe los componentes lógicos de la solución preconfi
 
 Los elementos de color azul son servicios de Azure que se aprovisionan en la región en la que se implementó la solución preconfigurada. La lista de regiones donde puede implementar la solución preconfigurada se muestra en la [página de aprovisionamiento][lnk-azureiotsuite].
 
-El elemento verde es un dispositivo simulado que representa un motor de avión. Puede obtener más información acerca de estos dispositivos simulados en la sección siguiente.
+El elemento verde es un dispositivo simulado que representa un motor de avión. Más información acerca de estos dispositivos simulados en la sección [Dispositivos simulados](#simulated-devices).
 
 Los elementos de color gris representan los componentes que implementan funcionalidades de *administración de dispositivos*. La versión actual de la solución preconfigurada de mantenimiento predictivo no aprovisiona estos recursos. Para más información sobre la administración de dispositivos, consulte la [solución preconfigurada de supervisión remota][lnk-remote-monitoring].
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 
-En la solución preconfigurada, un dispositivo simulado representa un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 proporcionan los datos necesarios para el modelo de Machine Learning a fin de calcular la vida útil restante (RUL) del motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría al Centro de IoT:
+En la solución preconfigurada, un dispositivo simulado representa un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 proporcionan los datos necesarios para el modelo de Machine Learning a fin de calcular la vida útil restante (RUL) del motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría a IoT Hub:
 
 *Recuento de ciclos*. Un ciclo representa un vuelo completo con una duración de entre dos y diez horas. Durante el vuelo, se capturan datos de telemetría cada media hora.
 
@@ -52,9 +52,9 @@ Los dispositivos simulados también pueden controlar los siguientes comandos env
 | StartTelemetry |Controla el estado de la simulación.<br/>Inicia el envío de telemetría del dispositivo. |
 | StopTelemetry |Controla el estado de la simulación.<br/>Detiene el envío de telemetría del dispositivo. |
 
-Centro de IoT proporciona la confirmación de los comandos del dispositivo.
+IoT Hub proporciona la confirmación de los comandos del dispositivo.
 
-## <a name="azure-stream-analytics-job"></a>Trabajo de Análisis de transmisiones de Azure
+## <a name="azure-stream-analytics-job"></a>Trabajo de Azure Stream Analytics
 
 **Trabajo: telemetría** opera en la transmisión entrante de la telemetría del dispositivo mediante dos instrucciones:
 
@@ -64,8 +64,8 @@ Centro de IoT proporciona la confirmación de los comandos del dispositivo.
 ## <a name="event-processor"></a>procesador de eventos
 El **host de procesador de eventos** se ejecuta en un trabajo web de Azure. El **procesador de eventos** toma los valores promedio de los sensores para un ciclo completado. Luego, pasa esos valores a una API que expone el modelo entrenado para calcular la vida útil restante (RUL) de un motor. La API se expone un área de trabajo de Machine Learning que se aprovisiona como parte de la solución.
 
-## <a name="machine-learning"></a>Aprendizaje automático
-El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede navegar al área de trabajo de Machine Learning desde el icono de la página [azureiotsuite.com][lnk-azureiotsuite] de la solución de aprovisionamiento. El icono está disponible cuando la solución se encuentra en el estado **Listo**.
+## <a name="machine-learning"></a>Machine Learning
+El componente de Machine Learning usa un modelo que se deriva de los datos recopilados de los motores de avión reales. Puede navegar al área de trabajo de Machine Learning desde el icono de solución de la página [azureiotsuite.com][lnk-azureiotsuite]. El icono está disponible cuando la solución se encuentra en el estado **Listo**.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -78,10 +78,10 @@ También puede explorar algunas de las demás características y funcionalidades
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 
-[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-remote-monitoring]: iot-suite-v1-remote-monitoring-sample-walkthrough.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-faq]: iot-suite-v1-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

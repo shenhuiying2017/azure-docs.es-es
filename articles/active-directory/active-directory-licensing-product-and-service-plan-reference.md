@@ -1,6 +1,6 @@
 ---
-title: Referencia de productos y planes de servicio de Azure Active Directory | Microsoft Docs
-description: Referencia de productos y planes de servicio
+title: Nombres de productos e identificadores del plan de servicio para licencias en Azure Active Directory | Microsoft Docs
+description: "Asignación de identificadores para administrar licencias de Azure AD en Azure Portal, el portal de Office 365, PowerShell o Microsoft Graph"
 services: active-directory
 keywords: Planes de servicio de licencias de Azure Active Directory
 documentationcenter: 
@@ -13,33 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/26/2017
 ms.author: piotrci
-ms.openlocfilehash: e796c03f4477b431907d8b5fbd6065239bb1d40e
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: b2c540c69a95f0912a71c25ddc70061fa8043aa4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="reference-for-products-and-service-plans-in-azure-active-directory"></a>Referencia de productos y planes de servicio de Azure Active Directory
+# <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nombres de productos e identificadores del plan de servicio para licencias
 
-En este artículo se proporciona información de referencia que puede resultarle útil a la hora de administrar licencias de Microsoft Online Services.
+Al administrar licencias en [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) o el portal de Office 365, verá nombres de productos del tipo *Office 365 Enterprise E3*. Al usar los cmdlets de PowerShell v1.0, el mismo producto se identifica con un nombre específico pero menos descriptivo: *ENTERPRISEPACK*. Y si utiliza los cmdlets de PowerShell v2.0 o Microsoft Graph, el mismo producto se identifica con un valor GUID: *6fd2c87f-b296-42f0-b197-1e91e994b900*. En la tabla siguiente se enumeran los productos de Microsoft Online Services más usados y se proporcionan los distintos valores de identificador:
 
-## <a name="product-names-and-identifiers-used-in-azure-ad"></a>Nombres de productos e identificadores usados en Azure AD
-
-Al administrar licencias en [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) o portales de Office, se muestran nombres descriptivos de los productos, como *Office 365 Enterprise E3*. Sin embargo, al usar los cmdlets de PowerShell v1.0, el mismo producto se identifica con un nombre menos descriptivo: *ENTERPRISEPACK*. Y si utiliza PowerShell v2.0 o Microsoft Graph, el mismo producto se identifica con un valor GUID: *6fd2c87f-b296-42f0-b197-1e91e994b900*. Lo mismo sucede con los planes de servicio que incluye el producto.
-
-En la tabla siguiente se enumeran los productos de Microsoft Online Services más usados y se proporcionan los distintos valores de identificador.
-
-- **Nombre de producto**: estos valores son los que se muestran en los portales de administración.
-- **Identificador de cadena**: los utilizan los cmdlets de PowerShell v1.0 al realizar operaciones en licencias.
-- **Identificador de GUID**: Azure AD Graph y Microsoft Graph utilizan estos valores.
-- **Planes de servicio incluidos**: una lista de planes de servicio del producto. Se muestran los identificadores de cadena y de GUID.
+- **Nombre de producto**: usado en los portales de administración
+- **Identificador de cadena**: usados por los cmdlets de PowerShell v1.0 al realizar operaciones en licencias
+- **Identificador de GUID**: GUID usado por Azure AD Graph y Microsoft Graph
+- **Planes de servicio incluidos**: una lista de planes de servicio del producto que corresponden al identificador de cadena y al GUID
 
 >[!NOTE]
->Esta información es correcta a partir del 11 de octubre de 2017. La tabla contiene una selección de los productos más utilizados.
+>Esta información es correcta a partir del 11 de octubre de 2017.
 
-| Nombre de producto | Identificador de cadena | Identificador de GUID| Planes de servicio incluidos |
+| Nombre de producto | Identificador de cadena | GUID | Planes de servicio incluidos |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)
@@ -103,7 +97,7 @@ En la tabla siguiente se enumeran los productos de Microsoft Online Services má
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>Planes de servicio que no se pueden asignar a la vez
 
-Algunos productos contienen planes de servicio que se excluyen mutuamente; es decir, no se pueden asignar al mismo usuario a la vez. Por ejemplo, si tiene *Office 365 Enterprise E1* y *Office 365 Enterprise E3* en su inquilino y trata de asignar ambas licencias al mismo usuario, la operación no se completará correctamente. Esto se debe a que el producto E3 contiene los siguientes planes de servicio que entran en conflicto con sus equivalentes de E1:
+Algunos productos contienen planes de servicio que no se pueden asignar al mismo usuario a la vez. Por ejemplo, si tiene *Office 365 Enterprise E1* y *Office 365 Enterprise E3* en su inquilino y trata de asignar ambas licencias al mismo usuario, la operación no se completará correctamente. Esto se debe a que el producto E3 contiene los siguientes planes de servicio que entran en conflicto con sus equivalentes de E1:
 
 -   SharePoint Online (Plan 2) entra en conflicto con SharePoint Online (Plan 1).
 -   Exchange Online (Plan 2) entra en conflicto con Exchange Online (Plan 1).
@@ -121,7 +115,7 @@ En esta sección, se enumeran los planes de servicio más comunes que se excluye
 
 Los siguientes planes de servicio no se pueden asignar a la vez:
 
-| Nombre del plan de servicio | Identificador de GUID |
+| Nombre del plan de servicio | GUID |
 | --- | --- |
 | CRMIUR    | c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
 | CRMPLAN1  | 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
@@ -137,7 +131,7 @@ Los siguientes planes de servicio no se pueden asignar a la vez:
 
 Los siguientes planes de servicio no se pueden asignar a la vez:
 
-| Nombre del plan de servicio | Identificador de GUID |
+| Nombre del plan de servicio | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD   | 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD   | d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -152,7 +146,7 @@ Los siguientes planes de servicio no se pueden asignar a la vez:
 
 Los siguientes planes de servicio no se pueden asignar a la vez:
 
-| Nombre del plan de servicio | Identificador de GUID |
+| Nombre del plan de servicio | GUID |
 | --- | --- |
 | INTUNE_A  | c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -162,7 +156,7 @@ Los siguientes planes de servicio no se pueden asignar a la vez:
 
 Los siguientes planes de servicio no se pueden asignar a la vez:
 
-| Nombre del plan de servicio | Identificador de GUID |
+| Nombre del plan de servicio | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE    | afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -178,7 +172,7 @@ Los siguientes planes de servicio no se pueden asignar a la vez:
 
 Los siguientes planes de servicio no se pueden asignar a la vez:
 
-| Nombre del plan de servicio | Identificador de GUID |
+| Nombre del plan de servicio | GUID |
 | --- | --- |
 | MCOIMP    | afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET | b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -187,7 +181,7 @@ Los siguientes planes de servicio no se pueden asignar a la vez:
 
 Los siguientes planes de servicio no se pueden asignar a la vez:
 
-| Nombre del plan de servicio | Identificador de GUID |
+| Nombre del plan de servicio | GUID |
 | --- | --- |
 | MCOPSTN1  | 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2  | 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -196,7 +190,7 @@ Los siguientes planes de servicio no se pueden asignar a la vez:
 
 Los siguientes planes de servicio no se pueden asignar a la vez:
 
-| Nombre del plan de servicio | Identificador de GUID |
+| Nombre del plan de servicio | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE | 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |
