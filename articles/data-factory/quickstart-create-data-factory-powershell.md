@@ -1,6 +1,6 @@
 ---
-title: "Creación de una instancia de Azure Data Factory con PowerShell | Microsoft Docs"
-description: "Cree una instancia de Azure Data Factory para copiar datos desde una ubicación de Azure Blob Storage a otra de la misma instancia de Blob Storage."
+title: Copia de datos en Blob Storage mediante Azure Data Factory | Microsoft Docs
+description: "Cree una factoría de datos de Azure para copiar datos desde una carpeta de Azure Blob Storage a otra de la misma instancia de Blob Storage."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Creación de una instancia de Azure Data Factory y una canalización con PowerShell
+# <a name="create-an-azure-data-factory-using-powershell"></a>Creación de una factoría de datos de Azure con PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión 2: Versión preliminar](quickstart-create-data-factory-powershell.md)
 
-En esta guía de inicio rápido se describe cómo usar PowerShell para crear una instancia de Azure Data Factory. La canalización que se crea en esta factoría de datos copia los datos de una ubicación a otra de una instancia de Azure Blob Storage. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Transformación de datos mediante la actividad de Spark en Azure Data Factory](transform-data-using-spark.md). 
+En esta guía de inicio rápido se describe cómo usar PowerShell para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos copia datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Transformación de datos mediante la actividad de Spark en Azure Data Factory](transform-data-using-spark.md). 
 
 En este artículo no se ofrece una introducción detallada al servicio Data Factory. Para ver una introducción al servicio Azure Data Factory, consulte [Introducción al servicio Azure Data Factory](introduction.md).
 
