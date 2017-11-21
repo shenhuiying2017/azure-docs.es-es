@@ -1,5 +1,5 @@
 ---
-title: Copia de datos del entorno local a la nube con Azure Data Factory | Microsoft Docs
+title: Copia de datos de SQL Server a Blob Storage mediante Azure Data Factory | Microsoft Docs
 description: "Averigüe cómo puede copiar datos desde un almacén de datos local a la nube de Azure mediante el uso del entorno de ejecución de integración autohospedado en Azure Data Factory."
 services: data-factory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 24a4255a23f0b9b9da5d8c3cefeefb8fe250f2f1
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: afd7735712d03110a67509a7e94d336219a65b34
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="tutorial-copy-data-between-on-premises-and-cloud"></a>Tutorial: Copia de datos entre un entorno local y la nube
+# <a name="tutorial-copy-data-from-on-premises-sql-server-to-azure-blob-storage"></a>Tutorial: Copia de datos de un servidor SQL Server local a Azure Blob Storage
 En este tutorial, usará Azure PowerShell para crear una canalización de Data Factory que copia los datos de una base de datos de SQL Server local a Azure Blob Storage. Creará y usará una instancia de Integration Runtime (IR) autohospedada de Azure Data Factory, que permite la integración de almacenes de datos locales y almacenes de datos en la nube.  Para obtener información sobre el uso de otras herramientas o SDK para crear una factoría de datos, consulte la sección [Inicios rápidos](quickstart-create-data-factory-dot-net.md).
 
 En este artículo no se ofrece una introducción detallada al servicio Data Factory. Para ver una introducción al servicio Azure Data Factory, consulte [Introducción al servicio Azure Data Factory](introduction.md). 
@@ -31,7 +31,7 @@ En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
-> * Creación de una instancia de Integration Runtime autohospedada.
+> * Cree una instancia de Integration Runtime autohospedada.
 > * Creación de los servicios vinculados SQL Server y Azure Storage. 
 > * Creación de los conjuntos de datos de SQL Server y Azure Blob.
 > * Creación de una canalización con una actividad de copia para mover los datos.
