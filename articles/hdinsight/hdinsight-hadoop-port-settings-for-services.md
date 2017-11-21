@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 11/13/2017
 ms.author: larryfr
-ms.openlocfilehash: 1ad536a53d64b0144f6396393830bc0c5cbe4fb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55180b5d65b268d7c9b51307581a5fe777a26fe
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Hadoop en HDInsight
 
@@ -29,17 +29,17 @@ En este documento se proporciona una lista de puertos que se usan con los servic
 
 Los clústeres de HDInsight basados en Linux solo exponen tres puertos públicamente en Internet: 22, 23 y 443. Estos puertos se usan para el acceso seguro al clúster mediante SSH y a los servicios expuestos a través del protocolo HTTPS seguro.
 
-Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (los nodos del clúster) que se ejecutan en una red virtual de Azure. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
+Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (los nodos del clúster) que se ejecutan en una instancia de Azure Virtual Network. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
 
 > [!IMPORTANT]
-> Si no especifica una red virtual de Azure como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
+> Si no especifica una instancia de Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
 
 
-Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Extensión de las funcionalidades de HDInsight con Red virtual de Azure](hdinsight-extend-hadoop-virtual-network.md)
+Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Extensión de las funcionalidades de HDInsight con Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="public-ports"></a>Puertos públicos
 
-Todos los nodos de un clúster de HDInsight se encuentran en una red virtual de Azure y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
+Todos los nodos de un clúster de HDInsight se encuentran en una instancia de Azure Virtual Network y no son accesibles directamente desde Internet. Una puerta de enlace pública proporciona acceso desde Internet a los puertos siguientes, que son comunes a todos los tipos de clúster de HDInsight.
 
 | Servicio | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
@@ -48,17 +48,17 @@ Todos los nodos de un clúster de HDInsight se encuentran en una red virtual de 
 | sshd |23 |SSH |Conecta los clientes a sshd en el nodo primario secundario. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Interfaz de usuario web de Ambari. Consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API de REST de Ambari. Consulte [Administración de clústeres de HDInsight con la API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |API de REST de HCatalog. Consulte [Uso de Hive con Curl](hdinsight-hadoop-use-pig-curl.md), [Uso de Pig con Curl](hdinsight-hadoop-use-pig-curl.md) y [Uso de MapReduce con Curl](hdinsight-hadoop-use-mapreduce-curl.md). |
-| HiveServer2 |443 |ODBC |Conecta a Hive mediante ODBC. Consulte [Conexión de Excel en HDInsight con el controlador ODBC de Microsoft](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Conecta a Hive mediante JDBC. Consulte [Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive](hdinsight-connect-hive-jdbc-driver.md) |
+| WebHCat |443 |HTTPS |API de REST de HCatalog. Consulte [Uso de Hive con Curl](hadoop/apache-hadoop-use-pig-curl.md), [Uso de Pig con Curl](hadoop/apache-hadoop-use-pig-curl.md) y [Uso de MapReduce con Curl](hadoop/apache-hadoop-use-mapreduce-curl.md). |
+| HiveServer2 |443 |ODBC |Conecta a Hive mediante ODBC. Consulte [Conexión de Excel en HDInsight con el controlador ODBC de Microsoft](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Conecta a Hive mediante JDBC. Consulte [Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Las siguientes opciones están disponibles para determinados tipos de clúster:
 
 | Servicio | Port | Protocol | Tipo de clúster | Description |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción al uso de HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |API de REST de Spark. Consulte [Envío de trabajos de Spark remotamente a un clúster de Apache Spark en HDInsight Linux mediante Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción al uso de HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |API de REST de Spark. Consulte [Envío de trabajos de Spark remotamente a un clúster de Apache Spark en HDInsight Linux mediante Livy](spark/apache-spark-livy-rest-interface.md) |
+| Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Autenticación
 
@@ -169,8 +169,8 @@ Ejemplos:
 | Servicio | Nodos | Port | Protocol | Ruta de acceso URL | Descripción |
 | --- | --- | --- | --- | --- | --- |
 | Servidores Thrift de Spark |Nodos principales |10002 |Thrift | &nbsp; | Servicio para conectarse a Spark SQL (Thrift/JDBC) |
-| Servidor Livy | Nodos principales | 8998 | HTTP | /lotes | Servicio para ejecutar instrucciones, trabajos y aplicaciones |
+| Servidor Livy | Nodos principales | 8998 | HTTP | &nbsp; | Servicio para ejecutar instrucciones, trabajos y aplicaciones |
 
 Ejemplos:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. En este ejemplo, `10.0.0.11` es la dirección IP del nodo principal que hospeda el servicio Livy.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. En este ejemplo, `10.0.0.11` es la dirección IP del nodo principal que hospeda el servicio Livy.

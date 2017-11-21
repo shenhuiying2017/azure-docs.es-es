@@ -37,7 +37,7 @@
       items:
         - name: Aplicaciones web de Azure
           href: app-insights-azure-web-apps.md
-        - name: Servicios en la nube de Azure
+        - name: Azure Cloud Services
           href: app-insights-cloudservices.md
     - name: Supervisión de aplicaciones de ASP.NET
       items:
@@ -91,6 +91,8 @@
       items:
         - name: Azure
           items:
+            - name: Agregar supervisión continua
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Generador de perfiles
               href: app-insights-profiler.md
             - name: Habilitación de Profiler

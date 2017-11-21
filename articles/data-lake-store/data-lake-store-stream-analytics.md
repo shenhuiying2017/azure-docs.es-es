@@ -1,6 +1,6 @@
 ---
 title: "Transmisión de datos de Stream Analytics a Data Lake Store| Microsoft Docs"
-description: "Uso de Análisis de transmisiones para transmitir datos en el Almacén de Azure Data Lake"
+description: "Uso de Stream Analytics para transmitir datos en el Almacén de Azure Data Lake"
 services: data-lake-store,stream-analytics
 documentationcenter: 
 author: nitinme
@@ -12,35 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 11/01/2017
 ms.author: nitinme
-ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35b737cf5b53f0ad0dbe4a50772fdcaa2e14ca5e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Transmisión de datos del blob de Almacenamiento de Azure al Almacén de Data Lake mediante el Análisis de transmisiones
-En este artículo aprenderá a utilizar el Almacén de Azure Data Lake como salida para un trabajo de Análisis de transmisiones de Azure. Este artículo muestra un escenario simple que lee datos desde un blob de Almacenamiento de Azure (entrada) y los escribe en el Almacén de Data Lake (salida).
-
-> [!NOTE]
-> En este momento, la creación y la configuración de salidas de Data Lake Store para Análisis de transmisiones solo se admiten en el [Portal de Azure clásico](https://manage.windowsazure.com). Por lo tanto, algunas partes de este tutorial usarán el Portal de Azure clásico.
->
->
+# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Transmisión de datos de Azure Storage Blob a Data Lake Store mediante Stream Analytics
+En este artículo aprenderá a utilizar el Almacén de Azure Data Lake como salida para un trabajo de Azure Stream Analytics. Este artículo muestra un escenario simple que lee datos desde una instancia de Azure Storage Blob (entrada) y los escribe en Data Lake Store (salida).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Cuenta de Almacenamiento de Azure**. Usará un contenedor de blobs desde esta cuenta para introducir datos en un trabajo de Análisis de transmisiones. En este tutorial, se asume que tiene una cuenta de almacenamiento denominada **storageforasa** y un contenedor dentro de la cuenta denominado **storageforasacontainer**. Una vez creado el contenedor, va a cargar un archivo de datos de ejemplo en él. 
+* **Cuenta de Azure Storage**. Usará un contenedor de blobs desde esta cuenta para introducir datos en un trabajo de Stream Analytics. En este tutorial, se asume que tiene una cuenta de almacenamiento denominada **storageforasa** y un contenedor dentro de la cuenta denominado **storageforasacontainer**. Una vez creado el contenedor, va a cargar un archivo de datos de ejemplo en él. 
   
-* **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md). Supongamos que tiene una cuenta de Data Lake Store llamada **asadatalakestore**. 
+* **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción a Azure Data Lake Store mediante Azure Portal](data-lake-store-get-started-portal.md). Supongamos que tiene una cuenta de Data Lake Store llamada **asadatalakestore**. 
 
-## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
-Primero debe crear un trabajo de Análisis de transmisiones que incluya un origen de entrada y un destino de salida. Para este tutorial, el origen es un contenedor de blobs de Azure y el destino es el Almacén de Data Lake.
+## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
+Primero debe crear un trabajo de Stream Analytics que incluya un origen de entrada y un destino de salida. Para este tutorial, el origen es un contenedor de blobs de Azure y el destino es el Almacén de Data Lake.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 2. En el panel izquierdo, haga clic en **Trabajos de Stream Analytics** y luego haga clic en **Agregar**.
 
@@ -101,7 +96,7 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
     
     Haga clic en **Crear**. El portal ahora agrega la salida y prueba la conexión a ella.
     
-## <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Análisis de transmisiones
+## <a name="run-the-stream-analytics-job"></a>Ejecución del trabajo de Stream Analytics
 
 1. Para ejecutar un trabajo de Stream Analytics, debe ejecutar una consulta desde la pestaña **Consulta**. En este tutorial, puede ejecutar la consulta de ejemplo mediante el reemplazo de los marcadores de posición con los alias de entrada y salida del trabajo, tal como se muestra en la captura de pantalla siguiente.
 
@@ -113,7 +108,7 @@ Primero debe crear un trabajo de Análisis de transmisiones que incluya un orige
 
     Haga clic en **Iniciar** para iniciar el trabajo. Puede tardar unos minutos en iniciarse el trabajo.
 
-3. Para desencadenar el trabajo que selecciona los datos del blob, copie un archivo de datos de ejemplo en el contenedor de blobs. Puede obtener un archivo de datos de ejemplo en el [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). En este tutorial, vamos a copiar el archivo **vehicle1_09142014.csv**. Puede utilizar varios clientes, como el [explorador de Almacenamiento de Azure](http://storageexplorer.com/), para cargar datos en un contenedor de blobs.
+3. Para desencadenar el trabajo que selecciona los datos del blob, copie un archivo de datos de ejemplo en el contenedor de blobs. Puede obtener un archivo de datos de ejemplo en el [repositorio Git de Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). En este tutorial, vamos a copiar el archivo **vehicle1_09142014.csv**. Puede utilizar varios clientes, como el [explorador de Azure Storage](http://storageexplorer.com/), para cargar datos en un contenedor de blobs.
 
 4. En la pestaña **Overview** (Introducción), en **Monitoring** (Supervisión), consulte cómo se han procesado los datos.
 

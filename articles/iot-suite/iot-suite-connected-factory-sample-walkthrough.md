@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: 675a3b0fb59e449f0f76f8201d62768c03144818
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Tutorial de la solución de fábrica preconfigurada conectada
 
@@ -101,7 +101,7 @@ IoT Hub proporciona un origen de eventos a Azure TSI. TSI almacena los datos dur
 
 Actualmente, el TSI no permite que los clientes personalicen el tiempo que desean conservar los datos.
 
-TSI realiza consultas en los datos del nodo mediante SearchSpan (Time.From, Time.To) y los agrega mediante OPC UA ApplicationUri, OPC UA NodeId u OPC UA DisplayName.
+TSI realiza consultas en los datos del nodo mediante **SearchSpan** (**Time.From**, **Time.To**) y los agrega mediante **OPC UA ApplicationUri**, **OPC UA NodeId** u **OPC UA DisplayName**.
 
 Para recuperar los datos de los medidores de OEE y KPI, y los gráficos de la serie temporal, los datos se agregan mediante funciones de recuento de eventos, suma, promedio, mínimo y máximo.
 
@@ -238,9 +238,9 @@ Puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectu
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: iot-suite-permissions.md
+[lnk-permissions]: iot-suite-v1-permissions.md

@@ -34,32 +34,21 @@
 #### [Uso de una tarea para instalar .NET en un rol de servicio en la nube](cloud-services-dotnet-install-dotnet.md)
 
 ### Configuración de Escritorio remoto
-#### [Portal de Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
-#### [Portal clásico](cloud-services-role-enable-remote-desktop.md)
-#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Implementación
-### Creación e implementación de un servicio en la nube en el portal
-#### [Portal de Azure](cloud-services-how-to-create-deploy-portal.md)
-#### [Portal clásico](cloud-services-how-to-create-deploy.md)
+### [Creación e implementación de un servicio en la nube en el portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Creación de un contenedor de servicios en la nube vacío en PowerShell](cloud-services-powershell-create-cloud-container.md)
-### Configurar un nombre de dominio personalizado
-#### [Portal](cloud-services-custom-domain-name-portal.md)
-#### [Portal clásico](cloud-services-custom-domain-name.md)
+### [Configuración de un nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md)
 ### [Ensayo de una implementación de servicios en la nube (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Conexión a un controlador de dominio personalizado](cloud-services-connect-to-custom-domain.md)
 
 ## Administración de servicios
-### Tareas comunes de administración
-#### [Portal de Azure](cloud-services-how-to-manage-portal.md)
-#### [Portal clásico](cloud-services-how-to-manage.md)
-### Configuración de un servicio en la nube
-#### [Portal de Azure](cloud-services-how-to-configure-portal.md)
-#### [Portal clásico](cloud-services-how-to-configure.md)
+### [Tareas comunes de administración](cloud-services-how-to-manage-portal.md)
+### [Configuración de un servicio en la nube](cloud-services-how-to-configure-portal.md)
 ### [Administración de un servicio en la nube con Azure Automation](automation-manage-cloud-services.md)
-### Configuración de escalado automático
-#### [Portal de Azure](cloud-services-how-to-scale-portal.md)
-#### [Portal clásico](cloud-services-how-to-scale.md)
+### [Configuración de escalado automático](cloud-services-how-to-scale-portal.md)
 ### [Uso de Python para administrar recursos de Azure](cloud-services-python-how-to-use-service-management.md)
 
 ### [Revisiones del SO invitado](cloud-services-guestos-msrc-releases.md)
@@ -71,9 +60,7 @@
 
 ## Administración de certificados
 ### [Cloud Services y certificados de administración](cloud-services-certs-create.md)
-### Configuración de SSL 
-#### [Portal](cloud-services-configure-ssl-certificate-portal.md)
-#### [Portal clásico](cloud-services-configure-ssl-certificate.md)
+### [Configuración de SSL](cloud-services-configure-ssl-certificate-portal.md)
 
 ## Supervisión
 ### [Supervisión de los servicios en la nube](cloud-services-how-to-monitor.md)
@@ -100,7 +87,7 @@
 ### [Problemas comunes de implementación](cloud-services-troubleshoot-deployment-problems.md)
 ### [Error al iniciar el rol](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Guía de recuperación](cloud-services-disaster-recovery-guidance.md)
-### P+F de Servicios en la nube
+### P+F de Cloud Services
 #### [Preguntas más frecuentes sobre la disponibilidad de aplicaciones y servicios](cloud-services-application-and-service-availability-faq.md)
 #### [Preguntas más frecuentes sobre la configuración y administración](cloud-services-configuration-and-management-faq.md)
 #### [Preguntas más frecuentes sobre conectividad y redes](cloud-services-connectivity-and-networking-faq.md)

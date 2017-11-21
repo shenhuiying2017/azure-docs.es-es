@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b537595fd8224536f67989d7529f6030347bfab
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creación de un clúster de Hadoop con cuentas de almacenamiento de transferencia segura en Azure HDInsight
 
@@ -50,7 +50,7 @@ En esta sección, se crea un clúster de Hadoop en HDInsight mediante una [plant
     - Escriba el nombre corto para la cuenta de almacenamiento.
     - La cuenta de almacenamiento y el contenedor de blobs deben crearse con antelación. 
 
-    Para obtener las instrucciones, consulte [Crear un clúster](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+    Para obtener las instrucciones, consulte [Crear un clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
 Si se usa la acción de scrpt para proporcionar sus propios archivos de configuración, debe usar wasbs en la siguiente configuración:
 
@@ -74,7 +74,7 @@ Para más información sobre el análisis de datos con HDInsight, consulte los s
 * Para más información sobre el uso de Hive con HDInsight, incluida la forma de realizar consultas de Hive desde Visual Studio, consulte [Uso de Hive con HDInsight][hdinsight-use-hive].
 * Para más información sobre Pig, un lenguaje usado para transformar datos, consulte [Uso de Pig con HDInsight][hdinsight-use-pig].
 * Para más información sobre MapReduce, una manera de escribir programas que procesan datos en Hadoop, consulte [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce].
-* Para más información sobre el uso de las herramientas de HDInsight para Visual Studio para analizar datos en HDInsight, consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Para más información sobre el uso de las herramientas de HDInsight para Visual Studio para analizar datos en HDInsight, consulte [Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 Para aprender más sobre cómo HDInsight almacena datos o cómo insertar datos en HDInsight, consulte los artículos siguientes:
 
@@ -91,12 +91,12 @@ Para aprender más sobre la creación o administración de un clúster de HDInsi
   * La ubicación de los archivos y ejemplos de Hadoop en el sistema de archivos local
   * El uso de Azure Storage (WASB) en lugar de HDFS como el almacén de datos predeterminado
 
-[1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
+[1]: ../HDInsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
 

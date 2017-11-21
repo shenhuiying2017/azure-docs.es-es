@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-dotren
-ms.openlocfilehash: 3c62bff7ba37f7e45d73fa2cf67a4aee3b4a7a38
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: f34647afc600b72704859952d0a40edad4a3b40f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creación de un grupo de Azure Batch en una red virtual
 
@@ -62,7 +62,12 @@ Para asegurarse de que sus nodos de proceso del grupo de Azure Batch funcionan e
 * El servicio Batch debe comunicarse con los nodos de proceso de grupo para programar tareas. Para permitir esta comunicación, agregue una ruta definida por el usuario para cada dirección IP utilizada por el servicio Batch en la región donde existe su cuenta de Batch. Para obtener la lista de direcciones IP del servicio de Batch, póngase en contacto con el soporte técnico de Azure.
 
 * Asegúrese de que el tráfico saliente hacia Azure Storage (en concreto, las direcciones URL del formulario `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, y `<account>.blob.core.windows.net`) no está bloqueado mediante el dispositivo de red local.
-    
+
+Cuando se agregueuna ruta definida por el usuario, defina la ruta para cada prefijo de dirección IP de Batch relacionada y establezca **Tipo de próximo salto** en **Internet**. Consulte el ejemplo siguiente:
+
+![Ruta definida por el usuario](./media/batch-virtual-network/user-defined-route.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información general más detallada acerca de Batch, consulte [Desarrollo de soluciones de procesos paralelos a gran escala con Batch](batch-api-basics.md).
+- Para más información sobre cómo crear una ruta definida por el usuario, consulte [Creación de una ruta definida por el usuario - Azure Portal](../virtual-network/create-user-defined-route-portal.md).

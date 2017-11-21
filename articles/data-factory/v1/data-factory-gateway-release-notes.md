@@ -11,16 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/15/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5b677990efe49b666396728767ee59587a280efe
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 3cc96b22b45e5c741991b11e1bbee758a569bed9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
+> [!NOTE]
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [Integration Runtime autohospedado en V2](../create-self-hosted-integration-runtime.md).
+
 Uno de los desafíos de la integración de datos moderna es la migración de datos entre la ubicación local y la nube. Data Factory realiza la integración con Data Management Gateway, un agente que se puede instalar de forma local para permitir la migración de datos híbridos.
 
 En los siguientes artículos se proporciona información detallada sobre Data Management Gateway y cómo utilizarlo:

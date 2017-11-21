@@ -3,8 +3,8 @@ title: "Requisitos previos de implementación de Azure Stack Development Kit | M
 description: Consulte el entorno y los requisitos de hardware de Azure Stack Development Kit (operador en la nube).
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Requisitos previos de implementación de Azure Stack
 
@@ -40,7 +40,7 @@ Antes de implementar [Azure Stack Development Kit](azure-stack-poc.md), asegúre
 
 \*Necesitará más de esta capacidad recomendada si tiene previsto agregar muchos de los [elementos de Marketplace](azure-stack-download-azure-marketplace-item.md) desde Azure.
 
-**Configuración de unidad de disco de datos:** todas las unidades de datos deben ser del mismo tipo (todas SAS o todas SATA) y capacidad. Si se usan unidades de disco SAS, las unidades de disco debe estar conectadas a través de una ruta de acceso única (no se proporciona compatibilidad con MPIO ni con rutas de acceso múltiples).
+**Configuración de unidad de disco de datos:** todas las unidades de datos deben ser del mismo tipo (todas SAS, SATA o NVMe) y capacidad. Si se usan unidades de disco SAS, las unidades de disco debe estar conectadas a través de una ruta de acceso única (no se proporciona compatibilidad con MPIO ni con rutas de acceso múltiples).
 
 **Opciones de configuración HBA**
 
@@ -56,6 +56,7 @@ Antes de implementar [Azure Stack Development Kit](azure-stack-poc.md), asegúre
 * SSD RAID (si no se especifica el tipo de medios o es desconocido\*)
 * SATA SSD + SATA HDD
 * SAS SSD + SAS HDD
+* NVMe
 
 \* Las controladoras RAID sin la funcionalidad pass-through no reconocen el tipo de medio. Estos controladores marcarán tanto HDD como SSD como No especificado. En ese caso, se usará una unidad SSD como almacenamiento persistente en lugar de dispositivos de almacenamiento en caché. Por lo tanto, puede implementar el kit de desarrollo en esas SSD.
 

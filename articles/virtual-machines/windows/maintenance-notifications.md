@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: fec64b3c499577af6b1d6eddb1c761ee0af73772
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 80c029866f3d28712be823692f3bf4ce6e210405
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Windows
 
@@ -72,7 +72,7 @@ Las siguientes propiedades se devuelven en MaintenanceRedeployStatus:
 También puede obtener el estado de mantenimiento de todas las máquinas virtuales en un grupo de recursos mediante el uso de [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) sin especificar una máquina virtual.
  
 ```powershell
-Get-AzureRmVM -ResourceGroupName rgName --Status
+Get-AzureRmVM -ResourceGroupName rgName -Status
 ```
 
 La siguiente función de PowerShell toma el identificador de la suscripción e imprime una lista de máquinas virtuales que están programadas para su mantenimiento.
@@ -87,8 +87,7 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]
-        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -110,6 +109,23 @@ Con la información de la función de la sección anterior, lo siguiente inicia 
 ```powershell
 Restart-AzureRmVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceGroupName 
 ```
+
+## <a name="classic-deployments"></a>Implementaciones clásicas
+
+Si todavía tiene máquinas virtuales heredadas que se han implementado según el modelo de implementación clásico, puede usar PowerShell para consultar las máquinas virtuales e iniciar el mantenimiento.
+
+Para obtener el estado de mantenimiento de una máquina virtual, escriba lo siguiente:
+
+```
+Get-AzureVM -ServiceName <Service name> -Name <VM name>
+```
+
+Para iniciar el mantenimiento de la máquina virtual clásica, escriba lo siguiente:
+
+```
+Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
+```
+
 
 ## <a name="faq"></a>P+F
 

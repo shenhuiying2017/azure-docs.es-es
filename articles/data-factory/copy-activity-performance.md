@@ -1,6 +1,6 @@
 ---
 title: "Guía de optimización y rendimiento de la actividad de copia en Azure Data Factory | Microsoft Docs"
-description: "Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Data Factory de Azure cuando se usa la actividad de copia."
+description: "Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Azure Data Factory cuando se usa la actividad de copia."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ Como referencia, la tabla siguiente muestra la cantidad de procesamiento de copi
 ![Matriz de rendimiento](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->En la versión 2 de Azure Data Factory, cuando la actividad de copia se ejecuta en una instancia de Azure Integration Runtime, la cantidad mínima de unidades de movimiento de datos de nube es dos.
+>En la versión 2 de Azure Data Factory, cuando la actividad de copia se ejecuta en una instancia de Azure Integration Runtime, la cantidad mínima permitida de unidades de movimiento de datos de nube es dos. Si no se especifica, vea las unidades de movimiento de datos predeterminadas usadas en [Unidades de movimiento de datos de nube](#cloud-data-movement-units).
 
 Puntos a tener en cuenta:
 
@@ -84,13 +84,12 @@ Puntos a tener en cuenta:
 
 Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una **DMU solo se aplica a [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, pero no a [Integration Runtime autohospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**La cantidad mínima de unidades de movimiento de datos de nube para impulsar la ejecución de la actividad de copia es dos**. En la tabla siguiente se muestran las DMU predeterminadas que se usan en distintos escenarios de copia.
+**La cantidad mínima de unidades de movimiento de datos de nube para impulsar la ejecución de la actividad de copia es dos**. Si no se especifica, en la tabla siguiente se muestran las DMU predeterminadas que se usan en distintos escenarios de copia:
 
 | Escenario de copia | DMU predeterminadas que determina el servicio |
 |:--- |:--- |
-| Copia de datos entre almacenes basados en archivos | Entre 2 y 16 según el número y el tamaño de los archivos. |
-| Copia de datos de Salesforce/Dynamics | 4 |
-| Todos los demás escenarios de copia | 2 |
+| Copia de datos entre almacenes basados en archivos | Entre 4 y 16 según el número y el tamaño de los archivos. |
+| Todos los demás escenarios de copia | 4 |
 
 Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 2, 4, 8, 16, 32. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
 
@@ -171,9 +170,9 @@ Puntos a tener en cuenta:
 
 Al copiar datos de un almacén de datos de origen a un almacén de datos receptor, podría elegir usar Almacenamiento de blobs como almacenamiento provisional. El almacenamiento provisional es especialmente útil en los siguientes casos:
 
-- **Quiere realizar la ingesta de datos de varios almacenes de datos en SQL Data Warehouse mediante PolyBase**. Almacenamiento de datos SQL emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Almacenamiento de datos SQL. Sin embargo, los datos de origen deben estar en Blob Storage o Azure Data Lake Store y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Blob Storage o Azure Data Lake Store, puede activar la copia de datos mediante Blob Storage de almacenamiento provisional. En ese caso, Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. A continuación, se usa PolyBase para cargar datos en SQL Data Warehouse de manera eficaz. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Quiere realizar la ingesta de datos de varios almacenes de datos en SQL Data Warehouse mediante PolyBase**. SQL Data Warehouse emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en SQL Data Warehouse. Sin embargo, los datos de origen deben estar en Blob Storage o Azure Data Lake Store y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Blob Storage o Azure Data Lake Store, puede activar la copia de datos mediante Blob Storage de almacenamiento provisional. En ese caso, Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. A continuación, se usa PolyBase para cargar datos en SQL Data Warehouse de manera eficaz. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 - **En ocasiones, realizar un movimiento de datos híbridos lleva tiempo (es decir, copiar desde un almacén de datos local a un almacén de datos en la nube) a través de una conexión de red lenta**. Para mejorar el rendimiento, puede usar la copia almacenada provisionalmente para comprimir localmente los datos para que el proceso de mover los datos al almacén de datos provisional en la nube tarde menos tiempo que descomprimir los datos en el almacén provisional antes de cargarlos en el almacén de datos de destino.
-- **No quiere abrir otros puertos que no sean el 80 y el 443 en el firewall, debido a las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Base de datos SQL de Azure o a un receptor de Almacenamiento de datos SQL de Azure, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En este escenario, la copia almacenada provisionalmente usa Integration Runtime autohospedado para copiar primero los datos en una instancia provisional de Blob Storage a través de HTTP o HTTPS en el puerto 443 y, luego, cargar los datos en SQL Database o SQL Data Warehouse desde el almacenamiento provisional de Blob Storage. En este flujo, no es necesario habilitar el puerto 1433.
+- **No quiere abrir otros puertos que no sean el 80 y el 443 en el firewall, debido a las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Azure SQL Database o a un receptor de Azure SQL Data Warehouse, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En este escenario, la copia almacenada provisionalmente usa Integration Runtime autohospedado para copiar primero los datos en una instancia provisional de Blob Storage a través de HTTP o HTTPS en el puerto 443 y, luego, cargar los datos en SQL Database o SQL Data Warehouse desde el almacenamiento provisional de Blob Storage. En este flujo, no es necesario habilitar el puerto 1433.
 
 ### <a name="how-staged-copy-works"></a>Funcionamiento de las copias almacenadas provisionalmente
 
@@ -187,12 +186,12 @@ Actualmente, no se pueden copiar datos entre dos almacenes de datos locales medi
 
 ### <a name="configuration"></a>Configuración
 
-Configure la opción **enableStaging** de la actividad de copia para especificar si quiere que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Cuando establezca **enableStaging** en `TRUE`, especifique las propiedades adicionales que se muestran en la tabla siguiente. Si no tiene un servicio vinculado a la firma de acceso compartido de Almacenamiento o de Almacenamiento de Azure para el almacenamiento provisional, deberá crear uno.
+Configure la opción **enableStaging** de la actividad de copia para especificar si quiere que los datos se almacenen provisionalmente en Blob Storage antes de cargarlos en un almacén de datos de destino. Cuando establezca **enableStaging** en `TRUE`, especifique las propiedades adicionales que se muestran en la tabla siguiente. Si no tiene un servicio vinculado a la firma de acceso compartido de Almacenamiento o de Azure Storage para el almacenamiento provisional, deberá crear uno.
 
 | Propiedad | Description | Valor predeterminado | Obligatorio |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
-| **linkedServiceName** |Especifique el nombre de un servicio vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la instancia de Storage que se usa como almacenamiento provisional. <br/><br/> No puede usar Almacenamiento con una firma de acceso compartido para cargar datos en Almacenamiento de datos SQL mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
+| **linkedServiceName** |Especifique el nombre de un servicio vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) que haga referencia a la instancia de Storage que se usa como almacenamiento provisional. <br/><br/> No puede usar Storage con una firma de acceso compartido para cargar datos en SQL Data Warehouse mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
 | **path** |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
 | **enableCompression** |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |No |
 
@@ -272,7 +271,7 @@ Asegúrese de que el almacén de datos subyacente no esté saturado con otras ca
 
 Para almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) específicos de los almacenes de datos que le ayuden a comprender las características de rendimiento del almacén de datos, a reducir los tiempos de respuesta y a maximizar la capacidad de proceso.
 
-* Si copia datos **de Blob Storage a SQL Data Warehouse**, considere el uso de **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
+* Si copia datos **de Blob Storage a SQL Data Warehouse**, considere el uso de **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
 * Si copia datos **de HDFS a Azure Blob o Azure Data Lake Store**, considere el uso de **DistCp** para mejorar el rendimiento. Consulte [Uso de DistCp para copiar datos desde HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs) para más detalles.
 * Si copia datos **de Redshift a Azure SQL Data Warehouse, Azure Blob o Azure Data Lake Store**, considere el uso de **UNLOAD** para mejorar el rendimiento. Consulte [Uso de UNLOAD para copiar datos de Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) para más detalles.
 
@@ -294,7 +293,7 @@ Asegúrese de que el almacén de datos subyacente no esté saturado con otras ca
 
 Para información sobre los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) que son específicos de los almacenes de datos. Estos temas pueden ayudarle a comprender las características de rendimiento de los almacenes de datos y a saber cómo reducir los tiempos de respuesta y aumentar la capacidad de proceso.
 
-* Si copia datos **de Blob Storage a SQL Data Warehouse**, considere el uso de **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
+* Si copia datos **de Blob Storage a SQL Data Warehouse**, considere el uso de **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
 * Si copia datos **de HDFS a Azure Blob o Azure Data Lake Store**, considere el uso de **DistCp** para mejorar el rendimiento. Consulte [Uso de DistCp para copiar datos desde HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs) para más detalles.
 * Si copia datos **de Redshift a Azure SQL Data Warehouse, Azure Blob o Azure Data Lake Store**, considere el uso de **UNLOAD** para mejorar el rendimiento. Consulte [Uso de UNLOAD para copiar datos de Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift) para más detalles.
 
@@ -390,8 +389,8 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:
 
 * Azure Storage (que incluyeBlob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/common/storage-performance-checklist.md)
-* Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
-* Almacenamiento de datos SQL de Azure: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure SQL Database: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
+* Azure SQL Data Warehouse: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Niveles de rendimiento de Azure Cosmos DB](../cosmos-db/performance-levels.md)
 * Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)

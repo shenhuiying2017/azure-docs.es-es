@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: bd9289ea528c3a80f63380daf52161d2477a6771
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8c936163e8e0880d3518f44dba107a0393fd11f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover datos a un servidor SQL Server en una máquina virtual de Azure
 En este tema se describen las opciones para mover datos desde archivos planos (formatos CSV o TSV) o desde un servidor SQL Server local hasta un servidor SQL Server en una máquina virtual de Azure. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
 
-Para ver un tema que describa las opciones para mover datos a una base de datos SQL de Azure para Aprendizaje automático, vea [Mover datos a una base de datos SQL de Azure para Aprendizaje automático de Azure](move-sql-azure.md).
+Para ver un tema que describa las opciones para mover datos a una base de datos SQL de Azure para Machine Learning, vea [Mover datos a una base de datos SQL de Azure para Azure Machine Learning](move-sql-azure.md).
 
 El **menú** siguiente redirige a temas en los que se describe cómo introducir datos en otros entornos de destino en que se pueden almacenar y procesar datos durante el proceso de ciencia de datos en equipos (TDSP).
 
@@ -39,7 +39,7 @@ En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL
 Tenga en cuenta que en este documento se da por supuesto que los comandos SQL se ejecutan desde SQL Server Management Studio o el Explorador de bases de datos de Visual Studio.
 
 > [!TIP]
-> Como alternativa, puede usar [factoría de datos de Azure](https://azure.microsoft.com/services/data-factory/) para crear y programar una canalización de datos se moverá a una máquina virtual de SQL Server en Azure. Para obtener más información, consulte [Copia de datos con Factoría de datos de Azure (actividad de copia)](../../data-factory/v1/data-factory-data-movement-activities.md)
+> Como alternativa, puede usar [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para crear y programar una canalización de datos se moverá a una máquina virtual de SQL Server en Azure. Para obtener más información, consulte [Copia de datos con Azure Data Factory (actividad de copia)](../../data-factory/v1/data-factory-data-movement-activities.md)
 >
 >
 
@@ -56,7 +56,7 @@ Si los datos se encuentran en un archivo plano (organizado en un formato de fila
 
 1. [Utilidad de copia masiva (BCP) de la línea de comandos](#insert-tables-bcp)
 2. [Consulta SQL de inserción masiva ](#insert-tables-bulkquery)
-3. [Utilidades integradas gráficas de SQL Server (importación/exportación, SSIS)](#sql-builtin-utilities)
+3. [Utilidades integradas gráficas de SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Utilidad de copia masiva (BCP) de la línea de comandos
 BCP es una utilidad de línea de comandos instalada con SQL Server y es una de las maneras más rápidas de mover datos. Funciona en las tres variantes de SQL Server (SQL Server local, SQL Azure y máquina virtual SQL Server en Azure).
@@ -165,7 +165,7 @@ También puede usar las siguientes estrategias de migración:
 
 1. [Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
 2. [Exportación a un archivo plano](#export-flat-file)
-3. [Asistente para migración de Base de datos SQL](#sql-migration)
+3. [SQL Database Migration Wizard](#sql-migration)
 4. [Copia de seguridad y restauración de una base de datos](#sql-backup)
 
 Describimos cada una de estas opciones:
@@ -191,8 +191,8 @@ Se pueden usar diversos métodos para la exportación masiva de datos desde un s
         bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
 4. Utilice cualquiera de los métodos descritos en la sección [Mover datos desde el origen de archivo](#filesource_to_sqlonazurevm) para mover los datos de los archivos planos a un servidor SQL Server.
 
-### <a name="sql-migration"></a>Asistente para migración de Base de datos SQL
-[Asistente para migración de Base de datos SQL](http://sqlazuremw.codeplex.com/) proporciona una manera fácil de mover datos entre dos instancias de SQL server. Permite al usuario asignar el esquema de datos entre orígenes y tablas de destino, elegir los tipos de columna y otras funcionalidades. Utiliza la copia masiva (BCP) en segundo plano. A continuación se muestra una captura de la pantalla de bienvenida del Asistente para migración de base de datos de SQL.  
+### <a name="sql-migration"></a>SQL Database Migration Wizard
+[Asistente para migración de Base de datos SQL](http://sqlazuremw.codeplex.com/) proporciona una manera fácil de mover datos entre dos instancias de SQL server. Permite al usuario asignar el esquema de datos entre orígenes y tablas de destino, elegir los tipos de columna y otras funcionalidades. Utiliza la copia masiva (BCP) en segundo plano. A continuación se muestra una captura de la pantalla de bienvenida de SQL Database Migration Wizard.  
 
 ![Asistente para migración de SQL Server][2]
 

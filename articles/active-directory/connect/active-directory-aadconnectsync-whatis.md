@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: 4edac05325ad12596d982d113df0db7461124b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00f756fdbd059b917ac7d28f24b1a0ec22594a9
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronización de Azure AD Connect: comprender y personalizar la sincronización
 Los servicios de sincronización de Azure Active Directory Connect (sincronización de Azure AD Connect) es un componente principal de Azure AD Connect. Se encargan de todas las operaciones relacionadas con la sincronización de datos de identidad entre el entorno local y Azure AD. Sincronización de Azure AD Connect es el sucesor de DirSync, Sincronización de Azure AD y Forefront Identity Manager con Conector Azure Active Directory configurado.
 
 Este tema es la principal referencia sobre la **sincronización de Azure AD Connect** (que también se conoce como **motor de sincronización**) y en el que se muestran vínculos a todos los otros demás temas relacionados con ella. Para obtener vínculos para Azure AD Connect, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-El servicio de sincronización consta de dos componentes, el componente de **sincronización de Azure AD Connect** local y el lado del servicio en Azure AD llamado **servicio de sincronización de Azure AD Connect**. El servicio es común para DirSync, Sincronización de Azure AD y Azure AD Connect.
+El servicio de sincronización consta de dos componentes, el componente de **sincronización de Azure AD Connect** local y el lado del servicio en Azure AD llamado **servicio de sincronización de Azure AD Connect**. 
 
 ## <a name="azure-ad-connect-sync-topics"></a>Temas de sincronización de Azure AD Connect
 | Tema. | ¿Qué aspectos cubre y cuándo debe leerlo? |
@@ -45,7 +45,8 @@ El servicio de sincronización consta de dos componentes, el componente de **sin
 | [Configuración del filtrado](active-directory-aadconnectsync-configure-filtering.md) |Describe las distintas opciones para limitar qué objetos se sincronizan con Azure AD y cómo configurar estas opciones paso a paso. |
 | **Características y escenarios** | |
 | [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |En él se describe la característica para *evitar eliminaciones accidentales* y se explica cómo configurarla. |
-| [Programador](active-directory-aadconnectsync-feature-scheduler.md) |En él se describe el programador integrado que permite importar, sincronizar y exportar datos. |
+| 
+            [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) |En él se describe el programador integrado que permite importar, sincronizar y exportar datos. |
 | [Implementación de la sincronización de contraseñas](active-directory-aadconnectsync-implement-password-synchronization.md) |Describe cómo funciona la sincronización de contraseñas, cómo implementarla y cómo utilizarla y solucionar problemas. |
 | [Escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md) |Describe cómo funciona la reescritura de dispositivos en Azure AD Connect. |
 | [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md) |Describe cómo extender el esquema de Azure AD con sus propios atributos personalizados. |

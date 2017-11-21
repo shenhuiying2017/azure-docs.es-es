@@ -1,5 +1,6 @@
 Si la máquina virtual de Azure se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual pueda arrancar correctamente. En este artículo se describe cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual para solucionar errores y, posteriormente, volver a crear la máquina virtual original.
 
+
 ## <a name="recovery-process-overview"></a>Introducción al proceso de recuperación
 El proceso de solución de problemas es el siguiente:
 

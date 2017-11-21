@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Uso de una imagen personalizada de Docker para Web App for Containers
 
@@ -279,7 +279,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para que 
     > [!NOTE]
     > Esta configuración no permite realizar conexiones externas al contenedor. SSH solo está disponible en el sitio de Kudu/SCM. El sitio de Kudu/SCM se autentica con las credenciales de publicación.
 
-* Una instrucción [COPY](https://docs.docker.com/engine/reference/builder/#copy) que indica al motor Docker que copie el archivo [sshd_config](http://man.openbsd.org/sshd_config) en el directorio */etc/ssh/*. El archivo de configuración debe basarse en [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* Una instrucción [COPY](https://docs.docker.com/engine/reference/builder/#copy) que indica al motor Docker que copie el archivo [sshd_config](http://man.openbsd.org/sshd_config) en el directorio */etc/ssh/*. El archivo de configuración debe basarse en [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -290,7 +290,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para que 
     > * `Ciphers` debe incluir al menos un elemento de esta lista: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` debe incluir al menos un elemento de esta lista: `hmac-sha1,hmac-sha1-96`.
 
-* Una instrucción [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) que expone el puerto 2222 en el contenedor. Aunque se conozca la contraseña raíz, no es posible acceder al puerto 2222 desde Internet. Se trata de un puerto interno al que solo pueden acceder los contenedores que se encuentren en el puente de una red privada virtual. Después de eso, los comandos copian los detalles de la configuración de SSH e inician el servicio `ssh`.
+* Una instrucción [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) que expone el puerto 2222 en el contenedor. Aunque se conozca la contraseña raíz, no es posible acceder al puerto 2222 desde Internet. Se trata de un puerto interno al que solo pueden acceder los contenedores que se encuentren en el puente de una red privada virtual. Después de eso, los comandos copias los detalles de la configuración de SSH e inician el servicio `ssh`.
 
     ```docker
     EXPOSE 8000 2222
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-En Cloud Shell, ejecute el comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) comando para asignar la imagen de Docker personalizada a la aplicación web. Reemplace *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_ y _<password>_. En el caso de Azure Container Registry,  *\<docker-registry-server-url >* tiene el formato `https://<azure-container-registry-name>.azurecr.io`. 
+En Cloud Shell, ejecute el comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) comando para asignar la imagen de Docker personalizada a la aplicación web. Reemplace *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ y _\<password>_. En el caso de Azure Container Registry,  *\<docker-registry-server-url >* tiene el formato `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ El comando revela una salida similar a la cadena JSON siguiente, lo que muestra 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Peguntas más frecuentes sobre Azure App Service en Linux](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Compilación de una aplicación web Docker Python con PostgreSQL en Azure](tutorial-docker-python-postgresql-app.md)

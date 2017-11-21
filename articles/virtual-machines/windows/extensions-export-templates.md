@@ -3,7 +3,7 @@ title: "Exportación de grupos de recursos de Azure que contienen extensiones de
 description: "Exportar plantillas de Resource Manager que incluyen extensiones de máquina virtual."
 services: virtual-machines-windows
 documentationcenter: 
-author: neilpeterson
+author: danielsollondon
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
-ms.author: nepeters
-ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danis
+ms.openlocfilehash: 739ae7995fca41fe8abb7cd54ccb72ff3bc43854
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportación de grupos de recursos que contienen extensiones de VM
 
@@ -29,7 +29,7 @@ En este documento se detalla cómo funciona el proceso de exportación del grupo
 
 ## <a name="supported-virtual-machine-extensions"></a>Extensiones de máquina virtual admitidas
 
-Hay muchas extensiones de máquina virtual disponibles. No todas las extensiones se pueden exportar a una plantilla de Resource Manager mediante la característica de “Script de automatización”. Si no se admite una extensión de máquina virtual, debe volverse a colocar manualmente en la plantilla exportada.
+Hay muchas extensiones de máquina virtual disponibles. No todas las extensiones se pueden exportar a una plantilla de Resource Manager mediante la característica de “Script de Automation”. Si no se admite una extensión de máquina virtual, debe volverse a colocar manualmente en la plantilla exportada.
 
 Las siguientes extensiones se pueden exportar con la característica de script de automatización.
 

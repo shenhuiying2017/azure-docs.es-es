@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6121a447acec69d354f5c1fbc7499561f471197
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c57904b7789f632d105b21c459fa1c53a8c73d04
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Creación de un clúster de HDInsight con Data Lake Store mediante las plantillas de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -138,4 +138,5 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en e
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Copia de datos de blobs de Azure Storage en Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
+* [Copiar datos de los blobs de Azure Storage en el Almacén Data Lake](data-lake-store-copy-data-wasb-distcp.md)
+* [Uso de Data Lake Store con clústeres de Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

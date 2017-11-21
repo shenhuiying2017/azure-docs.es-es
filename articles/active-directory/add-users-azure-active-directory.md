@@ -1,6 +1,6 @@
 ---
-title: "Incorporación de nuevos usuarios en Azure Active Directory | Microsoft Docs"
-description: Describe como agregar usuarios nuevos en Azure Active Directory.
+title: "Adición o eliminación de usuarios en Azure Active Directory | Microsoft Docs"
+description: Describe como agregar usuarios nuevos o eliminar usuarios existentes en Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 11/07/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e46ff82c4177de6b33e5df8714318bff83fbb34
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>Inicio rápido: incorporación de nuevos usuarios a Azure Active Directory
 En este artículo se explica cómo agregar nuevos usuarios de su organización en Azure Active Directory (Azure AD) de uno en uno mediante Azure Portal o mediante la sincronización de los datos de las cuentas de usuario de Windows Server AD locales. 
@@ -31,7 +31,7 @@ En este artículo se explica cómo agregar nuevos usuarios de su organización e
    ![Selección del comando Agregar](./media/add-users-azure-active-directory/add-user.png)
 4. Especifique los detalles del usuario, como el **nombre** y el **nombre de usuario**. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio del nombre de dominio predeterminado inicial "[nombre de dominio].onmicrosoft.com" o un [nombre de dominio personalizado](add-custom-domain.md) comprobado y no federado, como "contoso.com".
 5. Copie o anote la contraseña de usuario generada para poder proporcionársela al usuario cuando finalice este proceso.
-6. También puede abrir y rellenar la información de **Perfil**, **Grupos** o **Rol del directorio** del usuario. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
+6. También puede abrir y rellenar la información de **Perfil**, **Grupos** o **Rol del directorio** del usuario. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 7. En **Usuario**, seleccione **Crear**.
 8. Distribuya de manera segura la contraseña generada al nuevo usuario para que pueda iniciar sesión.
 
@@ -47,7 +47,7 @@ En este artículo se explica cómo agregar nuevos usuarios de su organización e
 
 
 ### <a name="learn-more"></a>Más información 
-* [Agregar un usuario externo](active-directory-users-create-external-azure-portal.md)
+* [Adición de usuarios invitados de otro directorio](active-directory-b2b-what-is-azure-ad-b2b.md) 
 
 * [Asignar a un usuario a un rol de Azure AD](active-directory-users-assign-role-azure-portal.md)
 

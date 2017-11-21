@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 3b8038b716266326967e2cf178efe4d36f4badc5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
@@ -69,7 +69,7 @@ Uno de los problemas existentes a la hora de administrar una red es el de proteg
 
 En el proceso de autenticación, un cliente TLS/SSL envía un mensaje a un servidor TLS/SSL y el servidor responde con la información que necesita para autenticarse a sí mismo. El cliente y el servidor efectúan un intercambio adicional de claves de sesión y se cierra el cuadro de diálogo de autenticación. Una vez concluida la autenticación, se puede iniciar la comunicación protegida por SSL entre el servidor y el cliente mediante las claves de cifrado simétrico que se establecen durante el proceso de autenticación.
 
-Todas las conexiones a Azure SQL database requieren cifrado (SSL/TLS) siempre que haya datos "en tránsito" hacia y desde la base de datos. SQL Azure usa TLS/SSL para autenticar servidores y clientes y después lo usa para cifrar mensajes entre las partes autenticadas. En la cadena de conexión de su aplicación, debe especificar los parámetros para cifrar la conexión y no confiar en el certificado de servidor (esto se hace automáticamente si copia la cadena de conexión en el Portal de Azure clásico). De lo contrario, la conexión no comprobará la identidad del servidor y será vulnerable a los ataques de tipo "Man in the middle". Por ejemplo, en el caso del controlador de ADO.NET, los parámetros de la cadena de conexión son Encrypt=True y TrustServerCertificate=False.
+Todas las conexiones a Azure SQL database requieren cifrado (SSL/TLS) siempre que haya datos "en tránsito" hacia y desde la base de datos. SQL Azure usa TLS/SSL para autenticar servidores y clientes y después lo usa para cifrar mensajes entre las partes autenticadas. En la cadena de conexión de su aplicación, debe especificar los parámetros para cifrar la conexión y no confiar en el certificado de servidor (esto se hace automáticamente si copia la cadena de conexión en Azure Portal). De lo contrario, la conexión no comprobará la identidad del servidor y será vulnerable a los ataques de tipo "Man in the middle". Por ejemplo, en el caso del controlador de ADO.NET, los parámetros de la cadena de conexión son Encrypt=True y TrustServerCertificate=False.
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 Puede tomar varias precauciones para ayudar a proteger la base de datos, como diseñar un sistema seguro, cifrar los recursos confidenciales e instalar un firewall alrededor de los servidores de base de datos. Pero en un escenario en que se roban medios físicos (como unidades o cintas de copias de seguridad), un tercero malintencionado puede restaurar o asociar la base de datos y examinar los datos.

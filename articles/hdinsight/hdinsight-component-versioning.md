@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?
 
@@ -174,7 +174,7 @@ Azure HDInsight proporciona las ofertas de macrodatos en la nube en dos categor�
 
 | Característica de HDInsight Premium | Description |
 | --- | --- |
-| Usuarios de clústeres de HDInsight unidos a dominio |Una clústeres de HDInsight a dominios de Azure Active Directory (Azure AD) para obtener una seguridad de nivel empresarial. En HDInsight Premium, puede configurar una lista de empleados de su empresa que pueden autenticarse a través de Azure AD para iniciar sesión en un clúster de HDInsight. El administrador de la empresa puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/) y restringir el acceso a datos para usar solo los que sean necesarios. Finalmente, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de Access Control, con lo que se consigue un alto grado de control de los recursos corporativos. Para obtener más información, consulte [Configure domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a dominio). |
+| Usuarios de clústeres de HDInsight unidos a dominio |Una clústeres de HDInsight a dominios de Azure Active Directory (Azure AD) para obtener una seguridad de nivel empresarial. En HDInsight Premium, puede configurar una lista de empleados de su empresa que pueden autenticarse a través de Azure AD para iniciar sesión en un clúster de HDInsight. El administrador de la empresa puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/) y restringir el acceso a datos para usar solo los que sean necesarios. Finalmente, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de Access Control, con lo que se consigue un alto grado de control de los recursos corporativos. Para obtener más información, consulte [Configure domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a dominio). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Tipos de clúster compatibles con HDInsight Premium
 En la tabla siguiente se enumeran los tipos de clúster que se admiten en HDInsight Premium.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,7 @@ Data Factory admite tres tipos de actividades: [actividades de movimiento de dat
 
 ![Relación entre el conjunto de datos, la actividad y la canalización](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
-Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Después de crear un conjunto de datos, puede usarlo con las actividades de una canalización. Por ejemplo, un conjunto de datos puede ser un conjunto de datos de entrada y salida de una actividad de copia o una actividad de HDInsightHive. Para obtener más información sobre los conjuntos de datos, vea el artículo [Conjuntos de datos en Data Factory de Azure](concepts-datasets-linked-services.md).
+Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad. Los conjuntos de datos identifican datos en distintos almacenes de datos, como tablas, archivos, carpetas y documentos. Después de crear un conjunto de datos, puede usarlo con las actividades de una canalización. Por ejemplo, un conjunto de datos puede ser un conjunto de datos de entrada y salida de una actividad de copia o una actividad de HDInsightHive. Para obtener más información sobre los conjuntos de datos, vea el artículo [Conjuntos de datos en Azure Data Factory](concepts-datasets-linked-services.md).
 
 ## <a name="data-movement-activities"></a>Actividades de movimiento de datos
 Copiar actividad en Data Factory realiza una copia de los datos de un almacén de datos de origen a uno receptor. Data Factory admite los almacenes de datos que se muestran en la tabla de esta sección. Se pueden escribir datos desde cualquier origen en todos los tipos de receptores. Haga clic en un almacén de datos para obtener información sobre cómo copiar datos a un almacén como origen o destino.
@@ -60,7 +60,7 @@ Actividad de transformación de datos | Entorno de procesos
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](transform-data-using-machine-learning.md) | MV de Azure
-[Procedimiento almacenado](transform-data-using-stored-procedure.md) | SQL Azure, Almacenamiento de datos SQL de Azure o SQL Server
+[Procedimiento almacenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
 
 Para obtener más información, consulte el artículo sobre las [actividades de transformación de datos](transform-data.md). 
@@ -75,11 +75,12 @@ Actividad de control | Descripción
 [Actividad Web](control-flow-web-activity.md) | La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso. 
 [Actividad Lookup](control-flow-lookup-activity.md) | La actividad Lookup puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida. 
 [Actividad GetMetadata](control-flow-get-metadata-activity.md) | La actividad GetMetadata se puede usar para recuperar metadatos de cualquier dato en Azure Data Factory. 
-Actividad Do Until | Implementa el bucle Do-Until, que es similar a la estructura de bucle Do-Until de los lenguajes de programación.
-Actividad If Condition | La actividad If Condition puede usarse basada en rama en la condición que puede ser true o false. 
+[Actividad Until](control-flow-until-activity.md) | Implementa el bucle Do-Until, que es similar a la estructura de bucle Do-Until de los lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory.
+[Actividad If Condition](control-flow-if-condition-activity.md) | La condición If puede usarse para crear una rama basada en una condición que evalúa como true o false. La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false`.
+[Actividad Wait](control-flow-wait-activity.md) | Cuando use una actividad Wait en una canalización, esta espera durante el período de tiempo especificado antes de continuar con la ejecución de actividades sucesivas. 
 
 ## <a name="pipeline-json"></a>JSON de canalización
-Vamos a fijarnos un poco más en cómo se define una canalización en formato JSON. La estructura genérica de una canalización tiene el aspecto siguiente:
+Aquí encontrará cómo se define una canalización en formato JSON: 
 
 ```json
 {
@@ -175,7 +176,7 @@ retry | Número máximo de reintentos | Entero | No. El valor predeterminado es 
 retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es de 20 segundos.
 
 ### <a name="control-activity"></a>Actividad de control
-Las actividades de control tienen la siguiente estructura de nivel superior.
+Las actividades de control tienen la siguiente estructura de nivel superior:
 
 ```json
 {
@@ -358,7 +359,7 @@ Puede encadenar dos actividades con la [dependencia de actividades](#activity-de
 ## <a name="scheduling-pipelines"></a>Programación de canalizaciones
 Las canalizaciones se programan mediante desencadenadores. Hay diferentes tipos de desencadenadores (desencadenador de programador, que permiten que las canalizaciones se desencadenen según una programación de reloj, así como desencadenadores manuales, que desencadenan canalizaciones a petición). Para obtener más información sobre los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md). 
 
-Para hacer que el desencadenador dé inicio a una ejecución de canalización, debe incluir una referencia de canalización de la canalización en particular en la definición del desencadenador. Las canalizaciones y los desencadenadores tienen una relación “de n a m”. Varios desencadenadores pueden dar comienzo a una única canalización y el mismo desencadenador puede iniciar varias canalizaciones. Una vez definido el desencadenador, debe iniciar el desencadenador para que comience a desencadenar la canalización. Para obtener más información sobre los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md). 
+Para hacer que el desencadenador dé inicio a una ejecución de canalización, debe incluir una referencia de canalización de la canalización en particular en la definición del desencadenador. Las canalizaciones y los desencadenadores tienen una relación "de n a m". Varios desencadenadores pueden dar comienzo a una única canalización y el mismo desencadenador puede iniciar varias canalizaciones. Una vez definido el desencadenador, debe iniciar el desencadenador para que comience a desencadenar la canalización. Para obtener más información sobre los desencadenadores, consulte el artículo [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md). 
 
 Por ejemplo, supongamos que tiene un desencadenador de programador, “TriggerA” que va a iniciar desde la canalización, “MyCopyPipeline”. Define el desencadenador tal como se muestra en el ejemplo siguiente:
 

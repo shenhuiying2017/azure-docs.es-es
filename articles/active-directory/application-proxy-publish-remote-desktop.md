@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/03/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5eb681e5f5c3b5944ff2d101056ae7c7cd60fac2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -49,9 +49,6 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 - Ya debe tener [RDS implementados](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](active-directory-application-proxy-enable.md).
 
 - En este escenario se da por hecho que los usuarios finales acceden a través de Internet Explorer en escritorios de Windows 7 y Windows 10 que se conectan a través de la página Acceso web de Escritorio remoto. Si necesita compatibilidad con otros sistemas operativos, consulte [Compatibilidad con otras configuraciones de cliente](#support-for-other-client-configurations).
-
-  >[!NOTE]
-  >La actualización del creador de Windows 10 no se admite actualmente.
 
 - En Internet Explorer, habilite el complemento ActiveX de RDS.
 

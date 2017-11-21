@@ -9,14 +9,6 @@
 ## [Extensión de VS Code para plantillas](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Muestras
-## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Implementación de la plantilla](resource-manager-samples-powershell-deploy.md)
-
-## CLI de Azure
-### [Implementación de la plantilla](resource-manager-samples-cli-deploy.md)
-
 # Procedimientos
 ## Crear plantillas
 ### [Secciones de plantilla](resource-group-authoring-templates.md)
@@ -69,12 +61,6 @@
 ### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)
 
-## Establecimiento de directivas de recursos
-### [¿Qué son las directivas de recursos?](resource-manager-policy.md)
-### Ejemplos
-#### [Etiquetas](resource-manager-policy-tags.md)
-#### [Convenciones de nomenclatura](resource-manager-policy-naming-convention.md)
-
 ## Auditoría
 ### [Visualización de registros de actividad](resource-group-audit.md)
 ### [Ver operaciones de implementación](resource-manager-deployment-operations.md)
@@ -89,6 +75,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Errores de implementación de máquinas virtuales

@@ -3,7 +3,7 @@ title: "Guía de introducción a Node.js | Microsoft Docs"
 description: "Aprenda a crear una sencilla aplicación web de Node.js e impleméntela en un servicio en la nube de Azure."
 services: cloud-services
 documentationcenter: nodejs
-author: TomArcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: b1e08e79c7fe2acbdb9c17607641612ffa2934ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 02aa75824bab4e33f1cd73ab1053d64a20956a0a
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
-En este tutorial se muestra cómo crear una aplicación de Node.js simple con Servicio en la nube de Azure. Los Servicios en la nube son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal.  Los Servicios en la nube proporcionan una máquina virtual dedicada y robusta para hospedar cada rol de forma fiable.
+En este tutorial se muestra cómo crear una aplicación de Node.js simple con Servicio en la nube de Azure. Cloud Services son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal.  Cloud Services proporciona una máquina virtual dedicada y robusta para hospedar cada rol de forma fiable.
 
-Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Máquinas virtuales, consulte [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales].
+Para obtener más información sobre Cloud Services y sobre su comparación con Azure Websites y Azure Virtual Machines, consulte [Comparación entre Azure Websites, Cloud Services y Azure Virtual Machines].
 
 > [!TIP]
 > ¿Desea compilar un sitio web sencillo? Si el escenario solo requiere un sencillo front-end para sitios web, considere la posibilidad de [utilizar una aplicación web ligera]. Puede actualizar a un Servicio en la nube más adelante, cuando su aplicación web sea más grande y sus requisitos cambien.
@@ -163,7 +163,7 @@ Para más información, vea el [Centro para desarrolladores de Node.js].
 
 <!-- URL List -->
 
-[Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales]: ../app-service/choose-web-site-cloud-service-vm.md
+[Comparación entre Azure Websites, Cloud Services y Azure Virtual Machines]: ../app-service/choose-web-site-cloud-service-vm.md
 [utilizar una aplicación web ligera]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [SDK de Azure para .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

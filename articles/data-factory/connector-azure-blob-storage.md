@@ -9,11 +9,11 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: jingwang
-ms.openlocfilehash: c0fd6db570a91eeb1ddcc8a0dcade009b8179f2c
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 76b44766780a730092b31a0c44396f9851dd411a
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ En este artículo se resume el uso de la actividad de copia en Azure Data Factor
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Blog Storage](v1/data-factory-azure-blob-connector.md).
 
 
-## <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
 Puede copiar datos desde cualquier almacén de datos de origen compatible a Azure Blob Storage o desde Azure Blob Storage a cualquier almacén de datos de receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
@@ -90,7 +90,7 @@ Para usar la autenticación de SAS de servicio, se admiten las siguientes propie
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AzureStorage** |Sí |
-| sasUri | Especifique el URI de Firma de acceso compartido a los recursos de Almacenamiento de Azure como blob, contenedor o tabla. Marque este campo como SecureString. |Sí |
+| sasUri | Especifique el URI de Firma de acceso compartido a los recursos de Azure Storage como blob, contenedor o tabla. Marque este campo como SecureString. |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 **Ejemplo:**

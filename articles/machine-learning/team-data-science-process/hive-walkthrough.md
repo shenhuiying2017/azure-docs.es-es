@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
 En este tutorial se describe cómo utilizar el [proceso de ciencia de datos en equipos (TDSP)](overview.md) en un escenario completo con un clúster de [Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Aprendizaje automático de Azure para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
@@ -59,15 +59,15 @@ A continuación presentamos tres ejemplos de problemas de predicción que aborda
 
 1. **Clasificación binaria**: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Clasificación con múltiples clases**: permite predecir el rango de importes de propina pagados por la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Tarea de regresión**: permite predecir el importe pagado como propina en una carrera.  
 
 ## <a name="setup"></a>Configuración de un clúster de Hadoop de HDInsight para el análisis avanzado
@@ -78,7 +78,7 @@ A continuación presentamos tres ejemplos de problemas de predicción que aborda
 
 Puede configurar un entorno de Azure para análisis avanzado que emplee un clúster de HDInsight en tres pasos:
 
-1. [Cree una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en el almacenamiento de blobs de Azure. Los datos utilizados en los clústeres de HDInsight también se encuentran aquí.
+1. [Cree una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight también se encuentran aquí.
 2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la tecnología y procesos de análisis avanzado](customize-hadoop-cluster.md). Este paso crea un clúster de Hadoop de HDInsight de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay dos pasos importantes que debe recordar al personalizar el clúster de HDInsight.
    
    * Recuerde vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de crearlo. Esta cuenta de almacenamiento se utiliza para tener acceso a datos que se procesan en el clúster.
@@ -91,7 +91,7 @@ Puede configurar un entorno de Azure para análisis avanzado que emplee un clús
 > 
 > 
 
-Para obtener el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) de su ubicación pública, puede usar cualquiera de los métodos descritos en [Mover datos hacia y desde el almacenamiento de blobs de Azure](move-azure-blob.md) para copiar los datos en su máquina.
+Para obtener el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) de su ubicación pública, puede usar cualquiera de los métodos descritos en [Mover datos hacia y desde Azure Blob Storage](move-azure-blob.md) para copiar los datos en su máquina.
 
 Aquí se describe cómo utilizar AzCopy para transferir los archivos que contienen datos. Para descargar e instalar AzCopy, siga las indicaciones de [Introducción a la utilidad de línea de comandos AzCopy](../../storage/common/storage-use-azcopy.md).
 
@@ -124,7 +124,7 @@ Este comando permite cargar los datos de tarifa en el directorio ***nyctaxifarer
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 
-Los datos deben estar ahora en el almacenamiento de blobs de Azure, listos para usarse dentro del clúster de HDInsight.
+Los datos deben estar ahora en Azure Blob Storage, listos para usarse dentro del clúster de HDInsight.
 
 ## <a name="#download-hql-files"></a>Inicio de sesión en el nodo principal del clúster de Hadoop y preparación para el análisis de exploración de datos
 > [!NOTE]
@@ -132,7 +132,7 @@ Los datos deben estar ahora en el almacenamiento de blobs de Azure, listos para 
 > 
 > 
 
-Para tener acceso al nodo principal del clúster para el análisis de exploración de datos y la reducción de estos, siga el procedimiento descrito en [Acceso al nodo principal del clúster de Hadoop](customize-hadoop-cluster.md#headnode).
+Para tener acceso al nodo principal del clúster para el análisis de exploración de datos y la reducción de estos, siga el procedimiento descrito en [Acceso al nodo principal del clúster de Hadoop](customize-hadoop-cluster.md).
 
 En este tutorial se usan principalmente las consultas escritas en [Hive](https://hive.apache.org/), un lenguaje de consultas de tipo SQL, para realizar exploraciones preliminares de los datos. Las consultas de Hive se almacenan en archivos .hql. A continuación, se reducen estos datos para su uso en Aprendizaje automático de Azure con el fin de generar modelos.
 
@@ -413,7 +413,7 @@ Aquí se muestra el contenido del archivo *sample\_hive\_trip\_count\_by\_medall
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-Desde el símbolo de sistema del directorio de Hive, emita el siguiente comando:
+Desde el símbolo del sistema del directorio de Hive, emita el siguiente comando:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -523,7 +523,7 @@ Ejecute el siguiente comando desde la consola de la línea de comandos de Hadoop
 
 Tener una medida de la distancia directa nos permite averiguar la discrepancia entre ella y la distancia real de la carrera. Esta característica se justifica por el hecho de que es probable que un pasajero sea más remiso a dar propina si sospecha que el conductor le lleva intencionadamente por un recorrido mucho más largo.
 
-Para ver la comparación entre la distancia real de la carrera y la [distancia Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre dos puntos de longitud-latitud (la distancia del "círculo máximo"), usamos las funciones trigonométricas disponibles dentro de Hive, así:
+Para ver la comparación entre la distancia real de la carrera y la [distancia Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre dos puntos de longitud-latitud (la distancia del "círculo máximo"), usamos las funciones trigonométricas disponibles en Hive, así:
 
     set R=3959;
     set pi=radians(180);
@@ -731,20 +731,20 @@ A continuación se indican algunos detalles del módulo [Importar datos][import-
 
 **Ubicación de datos de salida** : este valor se elige como Azure.
 
-**Nombre de la cuenta de almacenamiento de Azure** : nombre de la cuenta de almacenamiento predeterminada asociada al clúster.
+**Nombre de la cuenta de almacenamiento de Azure**: nombre de la cuenta de almacenamiento predeterminada asociada al clúster.
 
-**Nombre de contenedor de Azure** : este es el nombre del contenedor predeterminado para el clúster y suele ser el mismo que el nombre del clúster. En un clúster denominado "abc123", es abc123.
+**Nombre de contenedor de Azure**: es el nombre del contenedor predeterminado para el clúster, y suele ser el mismo que el nombre del clúster. En un clúster denominado "abc123", es abc123.
 
 > [!IMPORTANT]
 > **Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Azure Machine Learning debe ser una tabla interna.** Una manera de determinar si una tabla T en una base de datos D.db es una tabla interna es la siguiente.
 > 
 > 
 
-Desde el símbolo de sistema del directorio de Hive, emita el siguiente comando:
+Desde el símbolo del sistema del directorio de Hive, emita el siguiente comando:
 
     hdfs dfs -ls wasb:///D.db/T
 
-Si la tabla es una tabla interna y está rellena, su contenido se debe mostrar aquí. Otro modo de determinar si una tabla es una tabla interna es utilizar Explorador de almacenamiento de Azure. Úselo para navegar al nombre del contenedor predeterminado del clúster y, después, filtre por el nombre de tabla. Si se muestran la tabla y su contenido, se confirma que es una tabla interna.
+Si la tabla es una tabla interna y está rellena, su contenido se debe mostrar aquí. Otro modo de determinar si una tabla es una tabla interna es utilizar Explorador de Azure Storage. Úselo para navegar al nombre del contenedor predeterminado del clúster y, después, filtre por el nombre de tabla. Si se muestran la tabla y su contenido, se confirma que es una tabla interna.
 
 A continuación, se muestra una instantánea de la consulta de Hive y el módulo [Importar datos][import-data]:
 
@@ -761,7 +761,7 @@ Ya se puede pasar a la creación del modelo y la implementación del mismo en [A
 
 **Lector usado** : regresión logística de dos clases
 
-a. En este problema la etiqueta de destino (o clase) es "tipped". El conjunto de datos reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de tip\_class, tip\_amount, and total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+a. En este problema la etiqueta de destino (o clase) es "tipped". El conjunto de datos reducido original incluye algunas columnas que no contienen datos para el experimento de clasificación. Se trata, en concreto, de tip\_class, tip\_amount y total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 La siguiente instantánea muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada.
 
@@ -783,7 +783,7 @@ Como resultado, obtenemos un área bajo la curva de 0,987 tal como se muestra en
 
 a. En este problema, la etiqueta de destino (o clase) es "tip\_class", que puede adoptar uno de cinco valores (0,1,2,3,4). Como en el caso de clasificación binaria, tenemos algunas columnas que son pérdidas de destino para este experimento. Se trata, en concreto, de: tipped, tip\_amount y total\_amount, que dan información sobre la etiqueta de destino que no está disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
-La siguiente instantánea muestra nuestro experimento para predecir en qué ubicación es probable que se incluya una propina (clase 0: propina = 0 $, clase 1: propina > 0 $ y < = 5 $, clase 2: propina > 5 $ y < = 10 $, clase 3: propina > 10 $ y < = 20 $, clase 4: propina > 20 $)
+La siguiente instantánea muestra nuestro experimento para predecir en qué ubicación es probable que se incluya una propina (clase 0: propina = 0 $, clase 1: propina > 0 $ y <= 5 $, clase 2: propina > 5 $ y <= 10 $, clase 3: propina > 10 $ y <= 20 $, clase 4: propina > 20 $)
 
 ![Instantánea del experimento](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -801,7 +801,7 @@ Observe que, aunque la precisión para las clases frecuentes es bastante buena, 
 
 **Lector usado** : árbol de decisión incrementado
 
-a. En este problema la etiqueta de destino (o clase) es "tip\_amount". En este caso las pérdidas de destino son: tipped, tip\_class, total\_amount; todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
+a. En este problema la etiqueta de destino (o clase) es "tip\_amount". En este caso, las pérdidas de destino son: tipped, tip\_class y total\_amount; todas estas variables ofrecen información sobre el importe de la propina, que no suele estar disponible en el momento de la prueba. Quitaremos estas columnas mediante el módulo [Seleccionar columnas de conjunto de datos][select-columns].
 
 La instantánea siguiente muestra nuestro experimento para predecir el importe de una propina determinada.
 
@@ -814,12 +814,12 @@ b. En los problemas de regresión se mide la precisión de nuestra predicción m
 Vemos que el coeficiente de determinación es 0,709, lo que implica que aproximadamente el 71% de la varianza se explica por nuestros coeficientes de modelo.
 
 > [!IMPORTANT]
-> Para obtener más información sobre Azure Machine Learning y cómo acceder a él y usarlo, consulte [¿Qué es el Aprendizaje automático de Microsoft Azure?](../studio/what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Azure Machine Learning es la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Aprendizaje automático de Azure.
+> Para obtener más información sobre Azure Machine Learning y cómo obtener acceso a él y usarlo, vea [¿Qué es Machine Learning en Azure?](../studio/what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Azure Machine Learning es la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Aprendizaje automático de Azure.
 > 
 > 
 
 ## <a name="license-information"></a>Información de licencia
-Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licencia MIT. Consulte el archivo LICENSE.txt que se encuentra en el directorio del código de ejemplo en GitHub para obtener más detalles.
+Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licencia MIT. Vea el archivo LICENSE.txt que se encuentra en el directorio del código de ejemplo en GitHub para obtener más detalles.
 
 ## <a name="references"></a>Referencias
 •   [Página de descarga de NYC Taxi Trips de Andrés Monroy](http://www.andresmh.com/nyctaxitrips/)  

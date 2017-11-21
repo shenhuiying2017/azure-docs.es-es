@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: f6d7c2a1a3e3bf78b568f2f6b079476e403b9911
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e96d0a68c2ebd2c05887c71a4054e0ec35b7bc9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="manage-programs-and-their-controls"></a>Administración de programas y de sus controles 
 
-Azure AD incluye las revisiones del acceso de los miembros del grupo y del acceso a las aplicaciones, que son ejemplos de controles que garantizan la vigilancia de quién tiene acceso. Estos controles permiten a las organizaciones abordar eficazmente sus requisitos de cumplimiento de normas, administración de riesgos y regulación.  
+Azure Active Directory (Azure AD) incluye revisiones de acceso de los miembros del grupo y acceso a la aplicación. Estos ejemplos de controles garantizan la vigilancia de quién dispone de acceso a sus aplicaciones y pertenencias a grupos de la organización. Las organizaciones pueden usar estos controles para abordar eficazmente sus requisitos de cumplimiento de normas, administración de riesgos y regulación.
 
-## <a name="how-to-manage-programs-and-their-controls"></a>Administración de programas y de sus controles
-Puede simplificar el seguimiento y la recopilación de revisiones de acceso para distintos fines organizándolos en programas.  Cada revisión de acceso se puede vincular a un programa, para que, cuando se preparen los informes para un auditor, solos sean visibles esas revisiones de acceso en el ámbito de una iniciativa determinada.
+## <a name="create-and-manage-programs-and-their-controls"></a>Creación y administración de programas y de sus controles
+Puede simplificar el seguimiento y la recopilación de revisiones de acceso para distintos fines organizándolos en programas. Cada revisión de acceso se puede vincular a un programa. Por lo tanto, cuando prepare los informes para un auditor, solo podrá ver las revisiones de acceso en el ámbito de una iniciativa determinada.
 
-Para ver una lista de programas, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) y cambie a la pestaña **Programas**.
+Para ver una lista de programas, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) y seleccione **Programas**.
 
-Hay un programa siempre presente: "Programa predeterminado".  Si tiene el rol de administrador global, puede crear programas adicionales.  Por ejemplo, puede elegir tener un programa cada para iniciativa de cumplimiento de normas u objetivo empresarial.
+El **programa predeterminado** siempre está presente. Si tiene el rol de administrador global, puede crear programas adicionales. Por ejemplo, puede elegir tener un programa cada para iniciativa de cumplimiento de normas u objetivo empresarial.
 
 Si ya no necesita un programa y no tiene ningún control vinculado a él, puede eliminarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Crear una revisión de acceso para los miembros de un grupo o el acceso a una aplicación](active-directory-azure-ad-controls-create-access-review.md)
+[Crear una revisión de acceso para los miembros de un grupo o el acceso a una aplicación](active-directory-azure-ad-controls-create-access-review.md)
 

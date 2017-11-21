@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -176,6 +176,11 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   > **R.:** La duración de la sesión de restablecimiento de contraseña es de 15 minutos. Desde el principio de la operación de restablecimiento de contraseña, el usuario tiene 15 minutos para restablecer la contraseña. El código de acceso de un solo uso que recibe por correo electrónico o mensaje SMS no es válido después de este período de tiempo.
   >
   >
+* **P: ¿Puedo impedir que los usuarios restablezcan su contraseña?**
+
+  > **R:** Sí, si está utilizando un grupo para habilitar el restablecimiento de contraseña de autoservicio puede quitarlos del grupo que le permite esta capacidad.
+  >
+  >
 
 ## <a name="password-change"></a>Cambio de contraseña
 
@@ -187,6 +192,11 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * **P: ¿Los usuarios pueden recibir una notificación en el Portal de Office cuando expira la contraseña local?**
 
   > **R:** esto es posible actualmente si usa ADFS y sigue estas instrucciones: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) (Envío de notificaciones de directiva de contraseña con ADFS). Esto no es posible hoy si usa la sincronización de hash de contraseña. Esto se debe a que no sincronizamos las directivas de contraseña en el entorno local, por lo que no es posible publicar notificaciones de expiración en las experiencias en la nube. En cualquier caso, también es posible [notificar a los usuarios cuyas contraseñas están a punto de expirar a través de PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **P: ¿Puedo impedir que los usuarios cambien su contraseña?**
+
+  > **R:** No se puede impedir para usuarios solo en la nube. Para los usuarios locales puede activar `User cannot change password` y los usuarios no podrán cambiar su contraseña.
   >
   >
 

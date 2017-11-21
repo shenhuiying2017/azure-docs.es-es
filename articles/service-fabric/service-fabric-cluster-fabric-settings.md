@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -596,7 +596,7 @@ PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 | PeriodicApiSlowTraceInterval | Tiempo en segundos, el valor predeterminado es 5 minutos. |Dinámica| Especifique el intervalo de tiempo en segundos. PeriodicApiSlowTraceInterval define el intervalo por encima del cual el monitor de API vuelve a rastrear las llamadas de API lentas. |
 | NodeDeactivationMaxReplicaCloseDuration | Tiempo en segundos, el valor predeterminado es 900. |Dinámica|Especifique el intervalo de tiempo en segundos. Tiempo que esperará el sistema antes de finalizar los hosts de servicio que tienen réplicas detenidas al cerrarse durante la desactivación del nodo. |
 | FabricUpgradeMaxReplicaCloseDuration | Tiempo en segundos, el valor predeterminado es 900. |Dinámica| Especifique el intervalo de tiempo en segundos. Tiempo que esperará el sistema antes de finalizar los hosts de servicio que tienen réplicas detenidas al cerrarse durante la actualización de Fabric. |
-|GracefulReplicaShutdownMaxDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica|Especifique el intervalo de tiempo en segundos. La duración que espera el sistema antes de terminar los hosts de servicio que tienen réplicas que están detenidas al cerrarse.|
+|GracefulReplicaShutdownMaxDuration|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica|Especifique el intervalo de tiempo en segundos. La duración que espera el sistema antes de terminar los hosts de servicio que tienen réplicas que están detenidas al cerrarse. Si este valor se establece en 0, no se indicará a las réplicas que se cierren.|
 |ReplicaChangeRoleFailureRestartThreshold|int, el valor predeterminado es 10|Dinámica| Entero. Especifica el número de errores de la API durante la promoción principal después del cual se aplicará la acción de mitigación automática (reiniciar réplica). |
 |ReplicaChangeRoleFailureWarningReportThreshold|int, el valor predeterminado es 2147483647|Dinámica| Entero. Especifica el número de errores de la API durante la promoción principal después del cual se generará un informe de mantenimiento de advertencia.|
 

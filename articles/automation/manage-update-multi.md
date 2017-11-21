@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Administración de actualizaciones para varias máquinas virtuales de Azure
+# <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
-Update Management permite administrar las actualizaciones y las revisiones para las máquinas virtuales de Azure.
-Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede incorporar rápidamente máquinas virtuales, evaluar el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en todas las máquinas virtuales para las que se ha habilitado Update Management.
+Update Management permite administrar las actualizaciones y las revisiones para las máquinas Windows y Linux.
+Desde la cuenta de [Azure Automation](automation-offering-get-started.md), puede incorporar máquinas rápidamente, evaluar el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar si las actualizaciones se aplicaron correctamente en todas las máquinas virtuales en las que se habilitó Update Management.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para usar Update Management, necesita:
 
-* Una cuenta de Automatización de Azure Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo [Introducción a Azure Automation](automation-offering-get-started.md).
+* Una cuenta de Azure Automation Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo [Introducción a Azure Automation](automation-offering-get-started.md).
 
 * Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
 

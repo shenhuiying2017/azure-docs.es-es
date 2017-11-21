@@ -11,13 +11,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 > [!div class="op_single_selector"]
@@ -164,10 +164,11 @@ Las entradas se dividen en dos categorías Azure Functions: una es la entrada de
 package com.example;
 
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import java.util.Optional;
 
 public class MyClass {
-    public static String echo(String in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
+        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
     }
 
     private static class MyObject {
@@ -210,7 +211,7 @@ La anotación `@BindingName` acepta una propiedad `String` que representa el nom
 }
 ```
 
-Por lo tanto, cuando se invoca esta función, la carga de la solicitud HTTP pasa `String` para el argumento `in` y un tipo `MyObject` de Azure Table Storage para el argumento `obj`.
+Por lo tanto, cuando se invoca esta función, la carga de la solicitud HTTP pasa un `String` opcional para el argumento `in` y un tipo `MyObject` de Azure Table Storage para el argumento `obj`. Use el tipo `Optional<T>` para controlar entradas en las funciones que pueden ser nulas.
 
 ## <a name="outputs"></a>Salidas
 
@@ -271,11 +272,34 @@ En ocasiones, es posible que una función deba controlar minuciosamente las entr
 
 | Tipo especializado      |       Destino        | Uso típico                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage`  |    Desencadenador HTTP     | Método get, encabezados o consultas |
-| `HttpResponseMessage` | Enlace de salida HTTP | Estado de retorno distinto de 200   |
+| `HttpRequestMessage<T>`  |    Desencadenador HTTP     | Método get, encabezados o consultas |
+| `HttpResponseMessage<T>` | Enlace de salida HTTP | Estado de retorno distinto de 200   |
 
 > [!NOTE] 
 > También puede usar la anotación `@BindingName` para obtener encabezados y consultas HTTP. Por ejemplo, `@Bind("name") String query` recorre en iteración los encabezados de solicitud y las consultas HTTP, y pasa ese valor al método. Por ejemplo, `query` será `"test"` si la dirección URL de solicitud es `http://example.org/api/echo?name=test`.
+
+### <a name="metadata"></a>Metadatos
+
+Los metadatos proceden de orígenes diferentes, como los encabezados HTTP, las consultas HTTP, y los [metadatos de desencadenador](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties). Use la anotación `@BindingName` junto con el nombre de metadatos para obtener el valor.
+
+Por ejemplo, `queryValue` en el siguiente fragmento de código será `"test"` si la dirección URL solicitada es `http://{example.host}/api/metadata?name=test`.
+
+```Java
+package com.example;
+
+import java.util.Optional;
+import com.microsoft.azure.serverless.functions.annotation.*;
+
+public class MyClass {
+    @FunctionName("metadata")
+    public static String metadata(
+        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @BindingName("name") String queryValue
+    ) {
+        return body.orElse(queryValue);
+    }
+}
+```
 
 ## <a name="functions-execution-context"></a>Contexto de ejecución de las funciones
 
@@ -294,7 +318,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
-            context.getLogger().warning("Empty request body received in " + context.getInvocationId());
+            context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
         return String.format(req);
     }
@@ -305,5 +329,6 @@ public class Function {
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
-* [Azure Functions developer reference](functions-reference.md)
-* [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
+* 
+            [Referencia para desarrolladores de Azure Functions](functions-reference.md)
+* [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)

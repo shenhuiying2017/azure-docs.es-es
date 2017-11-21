@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e816f151ea1f71770f00d6d77b65395fe080da3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 Las soluciones de administración de la identidad y el acceso de Microsoft permiten al departamento de TI proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Además, esto posibilita que existan más niveles de validación, como la autenticación multifactor y las directivas de acceso condicional. La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) proporciona un inicio de sesión único para miles de aplicaciones en la nube (SaaS) y acceso a aplicaciones web que se ejecutan de forma local.
@@ -57,7 +57,7 @@ Más información:
 
 * [Información general de inicio de sesión único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
-* [Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS](../active-directory/active-directory-sso-integrate-saas-apps.md)
+* [Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso
 El proxy de aplicación de Azure AD permite publicar aplicaciones locales (como sitios de [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US), [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx) y aplicaciones basadas en [IIS](http://www.iis.net/)) en la red privada y proporciona un acceso seguro a los usuarios externos a la red. El proxy de aplicación proporciona acceso remoto e inicio de sesión único (SSO) para muchos tipos de aplicaciones web locales, junto con las miles de aplicaciones SaaS que Azure AD admite. Los empleados pueden iniciar sesión en sus aplicaciones desde casa, en sus propios dispositivos, y autenticarse a través de este proxy basado en la nube.
@@ -67,7 +67,7 @@ Más información:
 * [Habilitación del proxy de la aplicación de Azure AD](../active-directory/active-directory-application-proxy-enable.md)
 * [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](../active-directory/active-directory-application-proxy-publish.md)
 * [Inicio de sesión único con el Proxy de aplicación](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Uso de acceso condicional](../active-directory/active-directory-application-proxy-conditional-access.md)
+* [Uso de acceso condicional](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Azure Multi-factor Authentication (MFA) es un método de autenticación que requiere el uso de más de un método de verificación y agrega un segundo nivel de seguridad crítico a las transacciones e inicios de sesión del usuario. MFA ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante una gran variedad de opciones de verificación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.

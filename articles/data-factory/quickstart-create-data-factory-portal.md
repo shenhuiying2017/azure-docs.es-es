@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 9f49fbff9f66dc081e94b35e1318a2c9aee60dc0
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 851477331c5990f2e950b2aa83ef1d61e6174326
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-data-factory-using-the-azure-portal"></a>Crear una factoría de datos mediante Azure Portal
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Estos son los pasos que se realizan en esta guía de inicio rápido:
          
       En algunos de los pasos de esta guía de inicio rápido se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Seleccione **V2 (versión preliminar)** como **versión**.
-5. Seleccione la **ubicación** de Data Factory. Actualmente, puede crear factorías de datos V2 únicamente en la región **oriental de EE. UU**. Sin embargo, los almacenes de datos y procesos que se usan en las factorías de datos pueden estar en otras regiones. 
+5. Seleccione la **ubicación** de Data Factory. Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Crear**.
       
@@ -65,7 +65,7 @@ Estos son los pasos que se realizan en esta guía de inicio rápido:
 3. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
 
     ![icono implementando factoría de datos](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
-1. Una vez completada la creación, puede ver la hoja **Data Factory**, tal como se muestra en la imagen.
+1. Una vez completada la creación, puede ver la hoja **Data Factory** , tal como se muestra en la imagen.
    
    ![Página principal de Factoría de datos](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
 

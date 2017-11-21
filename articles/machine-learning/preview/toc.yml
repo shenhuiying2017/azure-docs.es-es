@@ -41,6 +41,8 @@
           href: roaming-and-collaboration.md
     - name: Uso de herramientas de Visual Studio Code para AI
       href: quickstart-visual-studio-tools.md
+    - name: Uso de Azure IoT Edge AI Toolkit
+      href: use-azure-iot-edge-ai-toolkit.md
     - name: Configuración de entornos de proceso
       items:
         - name: Configuración de la experimentación
@@ -88,6 +90,8 @@
           href: how-to-scale-clusters.md
         - name: Implementación de un servicio web
           href: model-management-service-deploy.md
+        - name: Implementación en un dispositivo de IoT Edge
+          href: deploy-to-iot-edge-device.md
         - name: Consumo de un servicio web
           href: model-management-consumption.md
         - name: Recopilación de datos del modelo
@@ -118,6 +122,8 @@
           href: scenario-tdsp-biomedical-recognition.md
         - name: 'Clasificación de ingresos de EE. UU.: Proyecto TDSP'
           href: scenario-tdsp-classifying-us-incomes.md
+        - name: Clasificación de imágenes mediante CNTK
+          href: scenario-image-classification-using-cntk.md
 - name: Referencia
   items:
     - name: Preparación de los datos
@@ -162,6 +168,8 @@
       items:
         - name: 'Sprint 0: octubre de 2017'
           href: release-notes-sprint-0.md
+        - name: 'Sprint 1: noviembre de 2017'
+          href: release-notes-sprint-1.md
 - name: Recursos
   items:
     - name: Preguntas más frecuentes

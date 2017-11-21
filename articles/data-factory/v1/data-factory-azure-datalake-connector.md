@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 811a2538f0a138074feea1bd4608a7ba00660fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copia de datos hacia y desde Data Lake Store mediante Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,9 +84,11 @@ Para usar la autenticación de la entidad de servicio, registre una entidad de a
 * Clave de la aplicación 
 * Id. de inquilino
 
-> [!IMPORTANT]
-> Si va a usar el Asistente para copia para crear canalizaciones de datos, asegúrese de conceder a la entidad de servicio al menos un rol de **lectura** en el control de acceso (administración de identidades y acceso) para la cuenta de Data Lake Store. Además, conceda a la entidad de servicio al menos un permiso de **lectura y ejecución** para la raíz de Data Lake Store ("/") y sus elementos secundarios. De lo contrario, puede que aparezca el mensaje "Las credenciales proporcionadas no son válidas".<br/><br/>
-Después de crear o actualizar una entidad de servicio en AAD, pueden transcurrir unos minutos hasta que se aplican los cambios. Compruebe las configuraciones de la entidad de servicio y de la lista de control de acceso (ACL) de Data Lake Store. Si el mensaje anteriormente mencionado sigue apareciendo, espere unos instantes e inténtelo de nuevo.
+> [!TIP]
+> Asegúrese de que concede el permiso adecuado principal del servicio en Azure Data Lake Store:
+>- Si utiliza el Asistente para copia para crear canalizaciones, conceda al menos el permiso de **lector** en el control de acceso de cuentas (IAM). Además, conceda al menos el permiso de **lectura y ejecución** para la raíz de Data Lake Store ("/") y sus elementos secundarios. De lo contrario, puede que aparezca el mensaje "Las credenciales proporcionadas no son válidas".
+>- Para usar Data Lake Store como origen, conceda al menos permiso de acceso de datos **Lectura + Ejecución** para enumerar y copiar el contenido de una carpeta o un permiso de **lectura** para copiar un único archivo. No hay ningún requisito en el control de acceso de nivel de cuenta.
+>- Para usar Data Lake Store como receptor, garantice al menos permiso de acceso de datos **Escritura + Ejecución** para crear elementos secundarios en la carpeta. Además, si usa Azure IR para autorizar la copia (tanto el origen como el receptor están en la nube), para permitir a Data Factory detectar la región de Data Lake Storage, conceda al menos el rol de **lector** en el control de acceso de cuenta (IAM). Si desea evitar este rol IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) con la ubicación de Data Lake Store en la actividad de copia.
 
 Para usar la autenticación de la entidad de servicio, especifique las siguientes propiedades:
 

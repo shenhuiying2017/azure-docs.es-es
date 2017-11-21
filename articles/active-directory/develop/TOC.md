@@ -61,6 +61,7 @@
 ### [Introducción a WebApi](vs-active-directory-webapi-getting-started.md)
 ### [¿Qué le ha ocurrido a mi proyecto de Web API?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
+## [Migración de ACS](active-directory-acs-migration.md)
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Bibliotecas de autenticación (ADAL)](active-directory-authentication-libraries.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 266985c5602b835c710a74f1736fb51eade5c707
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.reviewer: richagi
+ms.openlocfilehash: 18d5cd8f3904a0c6ea89df440d917785510409cb
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Elección de la solución de Azure Multi-Factor Authentication más adecuada
 Puesto que existen varios modelos de Azure Multi-Factor Authentication (MFA), se debe responder primero a algunas preguntas para descubrir cuál es el más adecuado para usar.  Estas preguntas son:
@@ -57,7 +57,7 @@ En la tabla siguiente se comparan las características disponibles en Multi-Fact
 | Característica | MFA en la nube | Servidor MFA |
 | --- |:---:|:---:|
 | Notificación de aplicación móvil como segundo factor | ● | ● |
-| Código de comprobación de aplicación móvil como segundo factor | ● | ● |
+| Código de verificación de aplicación móvil como segundo factor | ● | ● |
 | Llamada de teléfono como segundo factor | ● | ● |
 | SMS unidireccional como segundo factor | ● | ● |
 | SMS bidireccional como segundo factor | | ● |

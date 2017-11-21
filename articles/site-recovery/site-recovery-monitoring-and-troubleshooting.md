@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.openlocfilehash: 5bcb5dcb6afc3909e34dde31f845e014e7c539e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad1e0bcb2e2c073c8fb186f5a9d8bcb0bac588a0
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-and-troubleshoot-protection-for-virtual-machines-and-physical-servers"></a>Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos
 Con esta guía de supervisión y solución de problemas aprenderá a realizar el seguimiento del estado de mantenimiento de la replicación y técnicas de solución de problemas de Azure Site Recovery.
 
 ## <a name="understand-the-components"></a>Descripción de los componentes
 ### <a name="vmware-virtual-machine-or-physical-server-site-deployment-for-replication-between-on-premises-and-azure"></a>Implementación de sitios de servidores físicos o máquinas virtuales de VMware para su replicación entre una ubicación local y Azure.
-Para configurar la recuperación de bases de datos entre un servidor físico o una máquina virtual de VMware local y Azure, debe configurar el servidor de configuración, el servidor de destino maestro y los componentes del servidor de procesos en su máquina virtual o servidor. Cuando se habilitar la protección del servidor de origen, Azure Site Recovery instala la característica Mobile Apps de Microsoft Azure App Service. En caso de interrupción local, tan pronto como el servidor de origen efectúa la conmutación por error en Azure, el cliente debe configurar un servidor de procesos en Azure y un servidor de destino maestro local para que el servidor de origen se reconstruya localmente.
+Para configurar la recuperación de bases de datos entre un servidor físico o una máquina virtual de VMware local y Azure, debe configurar el servidor de configuración, el servidor de destino maestro y los componentes del servidor de procesos en su máquina virtual o servidor. Al habilitar la protección del servidor de origen, Azure Site Recovery instala Mobility Service desde el servidor de proceso elegido si todavía no se ha implementado una versión actualizada. En caso de interrupción local, tan pronto como el servidor de origen efectúa la conmutación por error en Azure, el cliente debe configurar un servidor de procesos en Azure y un servidor de destino maestro local para que el servidor de origen se reconstruya localmente.
 
 ![Implementación del sitio de VMware o físico para la replicación entre una ubicación local y Azure](media/site-recovery-monitoring-and-troubleshooting/image18.png)
 
@@ -55,7 +55,7 @@ Los detalles del error lo ayudarán a identificar la causa posible y la recomend
 
 ![Cuadro de diálogo que muestra los detalles del error para un trabajo específico](media/site-recovery-monitoring-and-troubleshooting/image5.png)
 
-En el ejemplo anterior, hay otra operación en curso que parece ser la causante del error en la configuración de protección. Siga la recomendación para solucionar el problema y, a continuación, haga clic en **REINICIAR** para volver a iniciar la operación.
+En el ejemplo anterior, hay otra operación en curso que parece ser la causante del error en la configuración de protección. Siga la recomendación para solucionar el problema y, después, haga clic en **REINICIAR** para volver a iniciar la operación.
 
 ![Botón de REINICIO de la pestaña TRABAJOS](media/site-recovery-monitoring-and-troubleshooting/image6.png)
 
@@ -151,7 +151,7 @@ A continuación, se muestran los errores comunes y sus soluciones. Cada uno de l
 
 ### <a name="setup"></a>Configuración
 * [El servidor Virtual Machine Manager no se puede registrar debido a un error interno. Consulte la vista de trabajos en el portal de Site Recovery para obtener más detalles sobre el error. Vuelva a ejecutar la configuración para registrar el servidor.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
-* [No se puede establecer una conexión con el almacén del Administrador de recuperación de Hyper-V. Compruebe la configuración de proxy o inténtelo de nuevo más tarde.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+* [No se puede establecer una conexión con el almacén de Hyper-V Recovery Manager. Compruebe la configuración de proxy o inténtelo de nuevo más tarde.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### <a name="configuration"></a>Configuración
 * [No se puede crear el grupo de protección: hubo un error al recuperar la lista de servidores.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)

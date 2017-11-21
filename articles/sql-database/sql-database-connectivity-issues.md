@@ -1,6 +1,6 @@
 ---
 title: "Corrección de un error de conexión de SQL, error transitorio | Microsoft Docs"
-description: "Aprenda a solucionar problemas, diagnosticar y evitar un error de conexión de SQL o un error transitorio en la Base de datos SQL de Azure. "
+description: "Aprenda a solucionar problemas, diagnosticar y evitar un error de conexión de SQL o un error transitorio en Azure SQL Database. "
 keywords: "conexión de sql, cadena de conexión, problemas de conectividad, error transitorio, error de conexión"
 services: sql-database
 documentationcenter: 
@@ -14,23 +14,23 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 06/13/2017
+ms.date: 11/03/2017
 ms.author: daleche
-ms.openlocfilehash: 0d2d187ca55ca6e7723139423b4b28783f256704
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/04/2017
 ---
-# <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en Base de datos SQL
-En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Base de datos SQL de Azure. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
+# <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en SQL Database
+En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Azure SQL Database. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## <a name="transient-errors-transient-faults"></a>Errores transitorios
-Un error transitorio es un error que tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. La mayoría de estos eventos de reconfiguración a menudo se completan en menos de 60 segundos. Durante este período de tiempo de reconfiguración, puede tener problemas de conexión con Base de datos SQL de Azure. Las aplicaciones que se conectan a Base de datos SQL de Azure se deben compilar en previsión de estos errores transitorios y de modo que sean capaces de controlarlos implementando una lógica de reintento en el código en lugar de exponerlos a los usuarios como errores de aplicación.
+Un error transitorio es un error que tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. La mayoría de estos eventos de reconfiguración a menudo se completan en menos de 60 segundos. Durante este período de tiempo de reconfiguración, puede tener problemas de conexión con Azure SQL Database. Las aplicaciones que se conectan a Azure SQL Database se deben compilar en previsión de estos errores transitorios y de modo que sean capaces de controlarlos implementando una lógica de reintento en el código en lugar de exponerlos a los usuarios como errores de aplicación.
 
-Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas cliente de Base de datos SQL](sql-database-develop-error-messages.md).
+Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**. La propiedad **Number** se puede comparar con la lista de errores transitorios, que se encuentra cerca de la parte superior del tema: [Mensajes de error para los programas cliente de SQL Database](sql-database-develop-error-messages.md).
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -45,7 +45,7 @@ Vuelva a intentar la conexión de SQL o establézcala de nuevo, dependiendo de l
 ### <a name="retry-logic-for-transient-errors"></a>Lógica de reintento para errores transitorios.
 Los programas cliente que encuentran ocasionalmente un error transitorio son más sólidos cuando contienen lógica de reintento.
 
-Si el programa se comunica con la Base de datos SQL de Azure a través de un middleware de otros fabricantes, consulte con el proveedor si el middleware contiene lógica de reintento para errores transitorios.
+Si el programa se comunica con Azure SQL Database a través de un middleware de otros fabricantes, consulte con el proveedor si el middleware contiene lógica de reintento para errores transitorios.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
@@ -74,7 +74,7 @@ También puede establecer un número máximo de reintentos antes de que el progr
 #### <a name="code-samples-with-retry-logic"></a>Ejemplos de código con lógica de reintento
 Los ejemplos de código con lógica de reintento, en una variedad de lenguajes de programación, están disponibles en:
 
-* [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md)
+* [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md)
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -151,24 +151,24 @@ Supongamos que su aplicación tiene una lógica de reintento personalizada. Pued
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-azure-sql-database"></a>Conexiones a una Base de datos SQL de Azure
+## <a name="connections-to-azure-sql-database"></a>Conexiones a una instancia de Azure SQL Database
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>Conexión: cadena de conexión
-La cadena de conexión necesaria para conectarse a Base de datos SQL de Azure es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en [Azure Portal](https://portal.azure.com/).
+La cadena de conexión necesaria para conectarse a Azure SQL Database es ligeramente diferente de la cadena de conexión a Microsoft SQL Server. Puede copiar la cadena de conexión para la base de datos en [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
 ### <a name="connection-ip-address"></a>Conexión: Dirección IP
-Debe configurar el servidor de Base de datos SQL para que acepte la comunicación de la dirección IP del equipo que hospeda el programa cliente. Para ello, edite la configuración del firewall a través de [Azure Portal](https://portal.azure.com/).
+Debe configurar el servidor de SQL Database para que acepte la comunicación de la dirección IP del equipo que hospeda el programa cliente. Para ello, edite la configuración del firewall a través de [Azure Portal](https://portal.azure.com/).
 
 Si olvida configurar la dirección IP, el programa fallará con un mensaje de error que indica la dirección IP necesaria.
 
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-Para obtener más información, consulte [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
+Para obtener más información, consulte [Configuración del firewall en SQL Database](sql-database-configure-firewall-settings.md)
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
@@ -187,16 +187,16 @@ Por ejemplo, cuando el programa cliente está hospedado en un equipo con Windows
 
 Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, debe leer:<br/>[Puertos más allá del 1433 para ADO.NET 4.5 y SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-Para obtener información general acerca de la configuración de puertos y la dirección IP, consulte: [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md)
+Para obtener información general acerca de la configuración de puertos y la dirección IP, consulte: [Firewall de Azure SQL Database](sql-database-firewall-configure.md)
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
 ### <a name="connection-adonet-461"></a>Conexión: ADO.NET 4.6.1
-Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a Base de datos SQL de Azure, le recomendamos que use .NET Framework 4.6.1 o una versión posterior.
+Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a Azure SQL Database, le recomendamos que use .NET Framework 4.6.1 o una versión posterior.
 
 ADO.NET 4.6.1:
 
-* Con Base de datos SQL de Azure, hay mayor confiabilidad si abre una conexión con el método **SqlConnection.Open** . Ahora, el método **Open** incorpora los mejores mecanismos de reintento de esfuerzo en respuesta a errores transitorios o para determinados errores dentro del período de tiempo de espera de conexión.
+* Con Azure SQL Database, hay mayor confiabilidad si abre una conexión con el método **SqlConnection.Open** . Ahora, el método **Open** incorpora los mejores mecanismos de reintento de esfuerzo en respuesta a errores transitorios o para determinados errores dentro del período de tiempo de espera de conexión.
 * Admite la agrupación de conexiones. Esto incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
 
 Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda que el programa cierre temporalmente la conexión cuando no la está usando inmediatamente. Volver a abrir una conexión no es tan costoso como crear una nueva conexión.
@@ -211,7 +211,7 @@ Si está usando ADO.NET 4.0 o versiones anteriores, se recomienda que lo actuali
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: Probar si las utilidades pueden conectarse
-Si el programa no puede conectarse a la Base de datos SQL de Azure, una opción de diagnóstico es intentar conectarse con una utilidad. Lo ideal es que la utilidad se conecte mediante la misma biblioteca que usa el programa.
+Si el programa no puede conectarse a Azure SQL Database, una opción de diagnóstico es intentar conectarse con una utilidad. Lo ideal es que la utilidad se conecte mediante la misma biblioteca que usa el programa.
 
 En cualquier equipo con Windows, puede probar estas utilidades:
 
@@ -231,7 +231,7 @@ En Linux, las utilidades siguientes pueden resultar útiles:
 * `nmap -sS -O 127.0.0.1`
   * (Cambie el valor de ejemplo para que sea su dirección IP).
 
-En Windows la utilidad [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) resulta útil. Esta es una ejecución de ejemplo que consultó la situación del puerto en un servidor de Base de datos SQL de Azure y que se ejecutó en un equipo portátil:
+En Windows la utilidad [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) resulta útil. Esta es una ejecución de ejemplo que consultó la situación del puerto en un servidor de Azure SQL Database y que se ejecutó en un equipo portátil:
 
 ```
 [C:\Users\johndoe\]
@@ -256,7 +256,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 ### <a name="diagnostics-log-your-errors"></a>Diagnóstico: Registrar los errores
 A veces un problema intermitente se diagnostica mejor mediante la detección de un patrón general durante varios días o semanas.
 
-El cliente puede ayudar al diagnóstico mediante el registro de todos los errores que encuentra. Puede entonces correlacionar las entradas del registro con los datos de error que registra internamente la propia Base de datos SQL de Azure.
+El cliente puede ayudar al diagnóstico mediante el registro de todos los errores que encuentra. Puede entonces correlacionar las entradas del registro con los datos de error que registra internamente la propia Azure SQL Database.
 
 Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar con el registro:
 
@@ -274,8 +274,8 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Buscar eventos de problema en el registro de la Base de datos SQL
-Puede buscar entradas sobre los eventos de problema en el registro de Base de datos SQL de Azure. Pruebe la siguiente instrucción SELECT de Transact-SQL en la base de datos **principal** :
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Buscar eventos de problema en el registro de SQL Database
+Puede buscar entradas sobre los eventos de problema en el registro de Azure SQL Database. Pruebe la siguiente instrucción SELECT de Transact-SQL en la base de datos **principal** :
 
 ```
 SELECT
@@ -316,7 +316,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
-Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio de Base de datos SQL de Azure. Puede buscar temas dedicados a cada área en la que puede ayudar EntLib60 en:
+Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es el servicio Azure SQL Database. Puede buscar temas dedicados a cada área en la que puede ayudar EntLib60 en:
 
 * [Enterprise Library 6: abril de 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)
 
@@ -443,7 +443,7 @@ public bool IsTransient(Exception ex)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para solucionar otros problemas comunes de la conexión de Base de datos SQL de Azure, visite [Solución de problemas de conexión de Base de datos SQL de Azure](sql-database-troubleshoot-common-connection-issues.md).
+* Para solucionar otros problemas comunes de la conexión de Azure SQL Database, visite [Solución de problemas de conexión de Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 * [Agrupación de conexiones de SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 * [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en **Python**, para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.](https://pypi.python.org/pypi/retrying)
 

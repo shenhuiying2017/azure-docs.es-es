@@ -11,22 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d8ad132ec47a81971a3405970eeddab3b1598ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3b34921168661089946b5c5dd9e6d489880733b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
 
 > [!NOTE]
-> Para más información sobre la puerta de enlace, vea el artículo [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md). En el artículo [Mover datos entre implementaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) puede ver un tutorial sobre cómo mover datos entre una base de datos de SQL Server local a Microsoft Azure Blob Storage con la puerta de enlace.
->
->
+> Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [Integration Runtime autohospedado en Data Factory, versión 2](../create-self-hosted-integration-runtime.md).
+
+Para más información sobre la puerta de enlace, vea el artículo [Puerta de enlace de administración de datos](data-factory-data-management-gateway.md). En el artículo [Mover datos entre implementaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) puede ver un tutorial sobre cómo mover datos entre una base de datos de SQL Server local a Microsoft Azure Blob Storage con la puerta de enlace.
 
 ## <a name="failed-to-install-or-register-gateway"></a>Error al instalar o registrar la puerta de enlace
 ### <a name="1-problem"></a>1. Problema

@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Guías de procedimientos
   items:
-    - name: Mover datos
+    - name: Copia de datos
       items:
-        - name: Información general de la actividad de copia
+        - name: Copia de datos de orígenes admitidos en destinos
           href: copy-activity-overview.md
+        - name: Lectura o escritura de datos con particiones
+          href: how-to-read-write-partitioned-data.md
         - name: Conectores
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Almacén de Azure Data Lake
               href: connector-azure-data-lake-store.md
+            - name: Azure Database for MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Azure File Storage
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -168,6 +172,8 @@
       items:
         - name: Actividad If Condition
           href: control-flow-if-condition-activity.md
+        - name: Actividad Until
+          href: control-flow-until-activity.md
         - name: Actividad web
           href: control-flow-web-activity.md
         - name: Actividad de búsqueda
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Para cada actividad
           href: control-flow-for-each-activity.md
+        - name: Actividad Wait
+          href: control-flow-wait-activity.md
         - name: Lenguaje de expresiones
           href: control-flow-expression-language-functions.md
         - name: Variables del sistema
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Cifrado de credenciales para Integration Runtime autohospedado
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Identidad de servicio de la factoría de datos
+          href: data-factory-service-identity.md
     - name: Supervisión y administración
       items:
         - name: Uso de SDK

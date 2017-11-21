@@ -1,6 +1,6 @@
 ---
 title: Conceptos para desarrolladores de Data Catalog | Microsoft Docs
-description: "Introducción a los conceptos clave en el modelo conceptual del Catálogo de datos de Azure, como se expone mediante la API de REST del catálogo."
+description: "Introducción a los conceptos clave en el modelo conceptual de Azure Data Catalog, como se expone mediante la API de REST del catálogo."
 services: data-catalog
 documentationcenter: 
 author: spelluru
@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/03/2017
+ms.date: 10/15/2017
 ms.author: spelluru
-ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3c26c2358c15d18c71b82fe1f389c039ecbd97b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="azure-data-catalog-developer-concepts"></a>Conceptos para desarrolladores del Catálogo de datos de Azure
-**Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que proporciona capacidades de detección de origen de datos y para metadatos de origen de datos de micromecenazgo. Los desarrolladores pueden usar el servicio a través de sus API de REST. Comprender los conceptos que se implementa en el servicio es importante para los desarrolladores para integrarse correctamente con **Catálogo de datos de Azure**.
+# <a name="azure-data-catalog-developer-concepts"></a>Conceptos para desarrolladores de Azure Data Catalog
+**Microsoft Azure Data Catalog** es un servicio en la nube totalmente administrado que proporciona capacidades de detección de origen de datos y para metadatos de origen de datos de micromecenazgo. Los desarrolladores pueden usar el servicio a través de sus API de REST. Comprender los conceptos que se implementa en el servicio es importante para los desarrolladores para integrarse correctamente con **Azure Data Catalog**.
 
 ## <a name="key-concepts"></a>Conceptos clave
 El modelo conceptual **Azure Data Catalog** se basa en cuatro conceptos clave: el **catálogo**, los **usuarios**, los **recursos** y las **anotaciones**.
 
 ![concepto][1]
 
-*Figura 1: Modelo conceptual simplificado del Catálogo de datos de Azure*
+*Figura 1: Modelo conceptual simplificado de Azure Data Catalog*
 
 ### <a name="catalog"></a>Catálogo
 Un **catálogo** es el contenedor de nivel superior para todos los metadatos almacenados por una organización. Se permite un **catálogo** por cuenta de Azure. Los catálogos están vinculados a una suscripción de Azure, pero solo se puede crear un **catálogo** para una sola cuenta de Azure, aunque una cuenta puede tener varias suscripciones.
@@ -43,7 +43,7 @@ Existen diferentes roles que un usuario puede tener. Para más información sobr
 
 Se pueden agregar usuarios individuales y grupos de seguridad.
 
-Catálogo de datos de Azure usa Azure Active Directory para la administración de identidades y acceso. Cada usuario de catálogo debe ser un miembro de Active Directory para la cuenta.
+Azure Data Catalog usa Azure Active Directory para la administración de identidades y acceso. Cada usuario de catálogo debe ser un miembro de Active Directory para la cuenta.
 
 ### <a name="assets"></a>recursos
 Un **catálogo** contiene recursos de datos. **recursos** son la unidad de granularidad que administra el catálogo.
@@ -60,7 +60,7 @@ Las anotaciones son elementos que representan los metadatos acerca de los recurs
 Ejemplos de las anotaciones incluyen descripciones, etiquetas, esquemas, documentación, etc. Una lista completa de los tipos de recursos y de anotaciones se encuentra en la sección Modelo de objeto de recurso.
 
 ## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Anotaciones de micromecenazgo y perspectiva del usuario (multiplicidad de opinión)
-Un aspecto clave del Catálogo de datos de Azure es cómo admite el micromecenazgo de los metadatos en el sistema. En contraposición con un enfoque de wiki (en el que solo hay una opinión y el último escritor es el que gana), el modelo del Catálogo de datos de Azure permite escribir varias opiniones en el sistema.
+Un aspecto clave de Azure Data Catalog es cómo admite el micromecenazgo de los metadatos en el sistema. En contraposición con un enfoque de wiki (en el que solo hay una opinión y el último escritor es el que gana), el modelo de Azure Data Catalog permite escribir varias opiniones en el sistema.
 
 Este enfoque refleja el mundo real de los datos empresariales, en el que distintos usuarios pueden tener distintas perspectivas en un recurso:
 
@@ -68,7 +68,7 @@ Este enfoque refleja el mundo real de los datos empresariales, en el que distint
 * Un administrador de datos puede proporcionar información sobre los procesos de negocio a los que se aplica el recurso, o las clasificaciones que la empresa le ha aplicado
 * Un analista financiero puede proporcionar información acerca de cómo se usan los datos durante las tareas de informes de final de período
 
-Para admitir este ejemplo, cada usuario (el DBA, el ddministrador de datos y el analista) puede agregar una descripción a una única tabla que se ha registrado en el catálogo. Todas las descripciones se mantienen en el sistema y en el portal del Catálogo de datos de Azure se muestran todas las descripciones.
+Para admitir este ejemplo, cada usuario (el DBA, el ddministrador de datos y el analista) puede agregar una descripción a una única tabla que se ha registrado en el catálogo. Todas las descripciones se mantienen en el sistema y en el portal de Azure Data Catalog se muestran todas las descripciones.
 
 Este patrón se aplica a la mayoría de los artículos en el modelo de objetos, por lo que los tipos de objetos de la carga de JSON son a menudo matrices de las propiedades en las que se puede esperar un singleton.
 
@@ -76,12 +76,12 @@ Por ejemplo, en la raíz del recurso se encuentra una matriz de objetos de descr
 
 A continuación, la experiencia de usuario puede elegir cómo mostrar la combinación. A continuación se muestran tres modelos diferentes para mostrar.
 
-* El modelo más simple es "Show All". En este patrón, se muestran todos los objetos en una vista de lista. El portal del Catálogo de datos de Azure UX utiliza este patrón para la descripción.
-* Otro patrón es "Merge". En este patrón, todos los valores de los distintos usuarios se combinan, y se eliminan los duplicados. Ejemplos de este patrón en la experiencia del usuario del portal de Catálogo de datos de Azure son las etiquetas y las propiedades de expertos.
+* El modelo más simple es "Show All". En este patrón, se muestran todos los objetos en una vista de lista. El portal de Azure Data Catalog UX utiliza este patrón para la descripción.
+* Otro patrón es "Merge". En este patrón, todos los valores de los distintos usuarios se combinan, y se eliminan los duplicados. Ejemplos de este patrón en la experiencia del usuario del portal de Azure Data Catalog son las etiquetas y las propiedades de expertos.
 * Un tercer patrón es "el último escritor gana". En este patrón, solo se muestra el valor más reciente escrito. friendlyName es un ejemplo de este patrón.
 
 ## <a name="asset-object-model"></a>Modelo de objeto de recurso
-Como se mencionó en la sección Conceptos clave, el modelo de objetos **Catálogo de datos de Azure** incluye elementos, que pueden ser recursos o anotaciones. Los elementos tienen propiedades, que pueden ser optional o required. Algunas propiedades se aplican a todos los elementos. Algunas propiedades se aplican a todos los recursos. Algunas propiedades se aplican solo a tipos de recursos específicos.
+Como se mencionó en la sección Conceptos clave, el modelo de objetos **Azure Data Catalog** incluye elementos, que pueden ser recursos o anotaciones. Los elementos tienen propiedades, que pueden ser optional o required. Algunas propiedades se aplican a todos los elementos. Algunas propiedades se aplican a todos los recursos. Algunas propiedades se aplican solo a tipos de recursos específicos.
 
 ### <a name="system-properties"></a>Propiedades del sistema
 <table><tr><td><b>Nombre de la propiedad</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>La última vez que se modificó el elemento. El servidor genera este campo cuando se inserta un elemento y cada vez que se actualiza. El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>id</td><td>Identificador URI</td><td>Dirección URL absoluta del elemento (solo lectura). Es el identificador URI direccionable único para el elemento.  El valor de esta propiedad se omite en la entrada de las operaciones de publicación.</td></tr><tr><td>type</td><td>String</td><td>El tipo de recurso (solo lectura).</td></tr><tr><td>ETag</td><td>Cadena</td><td>Una cadena correspondiente a la versión del elemento que puede utilizarse para el control de simultaneidad optimista al realizar operaciones que actualizan elementos en el catálogo. "*" puede usarse para coincidir con cualquier valor.</td></tr></table>
@@ -212,9 +212,9 @@ Tipos comunes pueden usarse como tipos de propiedades, pero no son elementos.
 </table>
 
 ## <a name="asset-identity"></a>Identidad de recursos
-Catálogo de datos de Azure utiliza las propiedades de identidad y "protocolo" desde el contenedor de propiedades "address" de la propiedad "dsl" DataSourceLocation para generar la identidad del recurso que se usa para dirigir el recurso dentro del Catálogo.
+Azure Data Catalog utiliza las propiedades de identidad y "protocolo" desde el contenedor de propiedades "address" de la propiedad "dsl" DataSourceLocation para generar la identidad del recurso que se usa para dirigir el recurso dentro del Catálogo.
 Por ejemplo, el protocolo "tds" tiene las propiedades de identidad "server", "database", "schema" y "object". Las combinaciones de las propiedades de identidad y protocolo se utilizan para generar la identidad del recurso de la tabla de SQL Server.
-Catálogo de datos de Azure proporciona varios protocolos de origen de datos integrados que se enumeran en [Especificación de referencia de origen de datos: estructura de DSL](data-catalog-dsr.md).
+Azure Data Catalog proporciona varios protocolos de origen de datos integrados que se enumeran en [Especificación de referencia de origen de datos: estructura de DSL](data-catalog-dsr.md).
 El conjunto de protocolos admitidos se puede extender mediante programación (consulte la referencia de API de REST de Catálogo de datos). Los administradores del Catálogo pueden registrar los protocolos de orígenes de datos personalizados. En la tabla siguiente se describen las propiedades necesarias para registrar un protocolo personalizado.
 
 ### <a name="custom-data-source-protocol-specification"></a>Especificación del protocolo de orígenes de datos personalizados
@@ -240,10 +240,10 @@ El conjunto de protocolos admitidos se puede extender mediante programación (co
 </table>
 
 ## <a name="roles-and-authorization"></a>Roles y autorización
-Catálogo de datos de Microsoft Azure proporciona capacidades de autorización para las operaciones CRUD en recursos y anotaciones.
+Microsoft Azure Data Catalog proporciona capacidades de autorización para las operaciones CRUD en recursos y anotaciones.
 
 ## <a name="key-concepts"></a>Conceptos clave
-El Catálogo de datos de Azure usa dos mecanismos de autorización:
+Azure Data Catalog usa dos mecanismos de autorización:
 
 * Autorización basada en roles
 * Autorización basada en permisos

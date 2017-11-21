@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
@@ -43,7 +43,7 @@ Una dirección IP pública se asocia a los siguientes tipos de recursos:
 * Puertas de enlace de aplicaciones
 
 ### <a name="allocation-method"></a>Método de asignación
-Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. En el caso de un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, lo que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte [Servicios en la nube](#Cloud-services)).
+Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. En el caso de un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, lo que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte [Cloud Services](#Cloud-services)).
 
 > [!NOTE]
 > La lista de intervalos IP desde la que se asignan direcciones IP públicas a recursos de Azure está publicada en [Intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -141,9 +141,8 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 | Recurso | Dinámica | estática | Varias direcciones IP |
 | --- | --- | --- | --- |
-| Máquina virtual (en un servicio en la nube *independiente* ) |Sí |Sí |Sí |
-| Instancia de rol PaaS (en un servicio en la nube *independiente* ) |Sí |No |Sí |
-| Instancia de rol PaaS o VM (en una red virtual) |Sí |Sí |Sí |
+| Máquina virtual (en una VNet o servicio en la nube *independiente*) |Sí |Sí |Sí |
+| Instancia de rol PaaS (en una VNet o servicio en la nube *independiente*) |Sí |No |No |
 | Front-end de equilibrador de carga interno |Sí |Sí |Sí |
 | Front-end de Puerta de enlace de aplicaciones |Sí |Sí |Sí |
 

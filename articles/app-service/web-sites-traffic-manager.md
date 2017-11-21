@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Control del tráfico de aplicaciones web de Azure con el Administrador de tráfico de Azure
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 > 
 
 ## <a name="introduction"></a>Introducción
-Puede utilizar el Administrador de tráfico de Azure para controlar la manera en que se distribuyen solicitudes de clientes web a aplicaciones web del Servicio de aplicaciones de Azure. Cuando se agregan puntos de conexión de una aplicación web a un perfil de Azure Traffic Manager, este hace un seguimiento del estado de las aplicaciones web (en ejecución, detenidas o eliminadas) para decidir cuáles de esos puntos de conexión debe recibir tráfico.
+Puede utilizar el Administrador de tráfico de Azure para controlar la manera en que se distribuyen solicitudes de clientes web a aplicaciones web de Azure App Service. Cuando se agregan puntos de conexión de una aplicación web a un perfil de Azure Traffic Manager, este hace un seguimiento del estado de las aplicaciones web (en ejecución, detenidas o eliminadas) para decidir cuáles de esos puntos de conexión debe recibir tráfico.
 
 ## <a name="routing-methods"></a>Métodos de enrutamiento
 Azure Traffic Manager utiliza tres métodos de enrutamiento distintos. Estos métodos se describen en la siguiente lista según su relación con Azure Web Apps.
@@ -40,16 +40,16 @@ Azure Traffic Manager utiliza tres métodos de enrutamiento distintos. Estos mé
 
 Para más información, consulte [Métodos de enrutamiento de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 
-## <a name="web-apps-and-traffic-manager-profiles"></a>Aplicaciones web y perfiles del Administrador de tráfico
+## <a name="web-apps-and-traffic-manager-profiles"></a>Web Apps y perfiles de Traffic Manager
 Para configurar el control del tráfico de aplicación web, puede crear un perfil en el Administrador de tráfico de Azure que utilice uno de los tres métodos de equilibrio de carga anteriormente descritos y, a continuación, agregar los extremos (en este caso, las aplicaciones web) para los que desea controlar el tráfico al perfil. El estado de la aplicación web (en ejecución, detenido o eliminado) se comunica con frecuencia al perfil para que Azure Traffic Manager dirija el tráfico en consecuencia.
 
 Cuando utilice el Administrador de tráfico de Azure con Azure, tenga en cuenta los siguientes puntos:
 
-* Para las implementaciones de solo aplicación web dentro de la misma región, Aplicaciones web de Azure ya proporciona la funcionalidad de conmutación por error y de round-robin independientemente del modo de la aplicación web.
-* En el caso de las implementaciones en la misma región que utilizan aplicaciones web en conjunto con otro servicio en la nube de Azure, puede combinar ambos tipos de extremos para habilitar escenarios híbridos.
+* Para las implementaciones de solo aplicación web dentro de la misma región, Azure Web Apps ya proporciona la funcionalidad de conmutación por error y de round-robin independientemente del modo de la aplicación web.
+* En el caso de las implementaciones en la misma región que utilizan Web Apps en conjunto con otro servicio en la nube de Azure, puede combinar ambos tipos de extremos para habilitar escenarios híbridos.
 * Solo puede especificar un extremo de aplicación web por región en un perfil. Cuando selecciona una aplicación web como un extremo para una región, las aplicaciones web restantes de esa región dejan de estar disponibles para su selección para ese perfil.
 * Los puntos de conexión de aplicación web que especifica en un perfil del Azure Traffic Manager aparecen en la sección **Nombres de dominio** de la página Configuración de la aplicación web del perfil, pero no se configuran ahí.
-* Después de agregar una aplicación web a un perfil, la **URL del sitio** del panel de la página del portal de la aplicación web muestra la dirección URL del dominio personalizado de la aplicación web si ha configurado alguna. De lo contrario, muestra la del perfil de Traffic Manager (por ejemplo, `contoso.trafficmgr.com`). Tanto el nombre de dominio directo de la aplicación web como la dirección URL de Traffic Manager se ven en la página Configuración de la aplicación web, en la sección **Nombres de dominio**.
+* Después de agregar una aplicación web a un perfil, la **URL del sitio** del panel de la página del portal de la aplicación web muestra la dirección URL del dominio personalizado de la aplicación web si ha configurado alguna. De lo contrario, muestra la del perfil de Traffic Manager (por ejemplo, `contoso.trafficmanager.net`). Tanto el nombre de dominio directo de la aplicación web como la dirección URL de Traffic Manager se ven en la página Configuración de la aplicación web, en la sección **Nombres de dominio**.
 * Los nombres de dominio personalizado funcionan según lo previsto, pero además de agregarlos a las aplicaciones web, también debe configurar la asignación de DNS para que apunte a la dirección URL de Traffic Manager. Para información sobre cómo configurar un dominio personalizado para un sitio web de Azure, consulte el artículo sobre la [configuración de un nombre de dominio personalizado para un sitio web de Azure](app-service-web-tutorial-custom-domain.md).
 * Solo puede agregar aplicaciones web que estén en modo estándar o premium a un perfil de Azure Traffic Manager.
 

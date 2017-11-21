@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Cómo y por qué se agregan aplicaciones a Azure AD
 Una de las cosas desconcierta inicialmente al ver una lista de aplicaciones en la instancia de Azure Active Directory es comprender la procedencia de las aplicaciones y por qué existen.  Este artículo ofrecerá una introducción de alto nivel de cómo se representan las aplicaciones en el directorio y le proporcionan un contexto que le ayudará a comprender cómo una aplicación llega a estar en el directorio.
@@ -84,8 +84,8 @@ Las aplicaciones que agrega usted mismo incluyen:
   * Reclama las reglas de transformación
   * Asignaciones de atributos (aprovisionamiento de usuarios)
 * Para obtener más información sobre los objetos de aplicación y de la entidad de seguridad de servicio, consulte la documentación de referencia de API de REST de Azure AD Graph.  *Sugerencia*: la documentación de Graph API de Azure AD es lo más parecido a una referencia de esquema de Azure AD disponible actualmente.  
-  * [Aplicación](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Entidad de seguridad de servicio](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Aplicación](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Entidad de seguridad de servicio](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>¿Cómo se agregan aplicaciones a mi instancia de Azure AD?
 Hay muchas maneras de que una aplicación puede agregarse a Azure AD:

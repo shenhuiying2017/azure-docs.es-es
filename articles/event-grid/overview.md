@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
 
@@ -25,6 +25,30 @@ En la versión preliminar, Event Grid admite las ubicaciones **westus2** y **wes
 Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).
 
 ![Modelo funcional de Event Grid](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Publicadores de eventos
+
+Actualmente, los siguientes servicios de Azure tienen compatibilidad de publicador integrada para Event Grid:
+
+* Grupos de recursos (operaciones de administración)
+* Suscripciones de Azure (operaciones de administración)
+* Event Hubs
+* Storage Blob
+* Temas personalizados
+
+Otros servicios de Azure se agregarán este año.
+
+## <a name="event-handlers"></a>Controladores de eventos
+
+Actualmente, los siguientes servicios de Azure tienen compatibilidad de controlador integrada para Event Grid: 
+
+* Azure Functions
+* Logic Apps
+* Azure Automation
+* WebHooks
+* Microsoft Flow
+
+Otros servicios de Azure se agregarán este año.
 
 ## <a name="concepts"></a>Conceptos
 
@@ -51,33 +75,7 @@ Estas son algunas características clave de Azure Event Grid:
 * **Eventos integrados**: desarrolle y ejecute rápidamente con eventos integrados definidos por el recurso.
 * **Eventos personalizados**: use la ruta, el filtrado y la entrega confiable de eventos personalizados de Event Grid en su aplicación.
 
-## <a name="built-in-publisher-and-handler-integration"></a>Integración incorporada del publicador y el controlador
-
-Azure ofrece compatibilidad de eventos integrada con numerosos servicios, incluidos tanto publicadores como controladores.
-
-### <a name="publishers"></a>Publicadores
-
-Actualmente, los siguientes servicios de Azure tienen compatibilidad de publicador integrada para Event Grid:
-
-* Grupos de recursos (operaciones de administración)
-* Suscripciones de Azure (operaciones de administración)
-* Centros de eventos
-* Storage Blob
-* Temas personalizados
-
-Otros servicios de Azure se agregarán este año.
-
-### <a name="handlers"></a>Controladores
-
-Actualmente, los siguientes servicios de Azure tienen compatibilidad de controlador integrada para Event Grid: 
-
-* Funciones de Azure
-* Logic Apps
-* Azure Automation
-* WebHooks
-* Microsoft Flow
-
-Otros servicios de Azure se agregarán este año.
+Para obtener una comparación de Event Grid, Event Hubs y Service Bus, vea [Choose between Azure services that deliver message](compare-messaging-services.md) (Elección entre servicios de Azure de envío mensajes).
 
 ## <a name="what-can-i-do-with-event-grid"></a>¿Qué puedo hacer con Event Grid?
 
@@ -100,14 +98,6 @@ Event Grid permite agilizar la automatización y simplificar el cumplimiento de 
 ![Integración de aplicaciones](./media/overview/app_integration.png)
 
 Event Grid conecta su aplicación con otros servicios. Por ejemplo, cree un tema personalizado para enviar los datos de eventos de su aplicación a Event Grid y aprovechar la entrega confiable, el enrutamiento avanzado y la integración directa con Azure que ofrece. También puede usar Event Grid con Logic Apps para procesar datos en cualquier parte, sin necesidad de escribir código. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>¿En qué se diferencia Event Grid de otros servicios de integración de Azure?
-
-Event Grid es un panel posterior de eventos que habilita la programación orientada a eventos y reactiva. Está totalmente integrado con los servicios de Azure y puede integrarse con servicios de terceros. El mensaje del evento contiene la información que necesita para reaccionar a los cambios en los servicios y aplicaciones. Event Grid no es una canalización de datos y no entrega el objeto real que se ha actualizado.
-
-Service Bus se adapta perfectamente a aplicaciones empresariales tradicionales que requieren transacciones, ordenación, detección de duplicados y coherencia inmediata. Event Grid está diseñado para la velocidad, la escala, la amplitud y el bajo costo en un modelo reactivo. Se adapta perfectamente a una arquitectura sin servidor.
-
-Event Grid complementa otros servicios de Azure como Logic Apps y Event Hubs. Event Grid desencadena el comienzo del flujo de trabajo de la aplicación lógica. Event Hubs trabaja con Event Grid permitiéndole reaccionar a eventos de Event Hubs Capture y crear canalizaciones de entrada y transformación de datos.
 
 ## <a name="how-much-does-event-grid-cost"></a>¿Cuánto cuesta Event Grid?
 

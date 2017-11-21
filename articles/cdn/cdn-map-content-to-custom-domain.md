@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 8c5dd3ddd03b3531e4ffb7b622110a2ea997f9ae
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Adición de un dominio personalizado al punto de conexión de CDN
-Después de crear un perfil, normalmente también creará uno o más puntos de conexión de CDN (un subdominio de azureedge.net) para entregar el contenido mediante HTTP y HTTPS. De forma predeterminada, este punto de conexión se incluye en todas las direcciones URL, por ejemplo, `http(s)://contoso.azureedge.net/photo.png`). Para su comodidad, Azure CDN proporciona la opción de asociar un dominio personalizado (por ejemplo, `www.contoso.com`) al punto de conexión. Con esta opción, usará un dominio personalizado para entregar el contenido, en lugar del punto de conexión. Esta opción es útil si, por ejemplo, desea que su propio nombre de dominio sea visibles para sus clientes con fines de personalización de marca.
+Después de crear un perfil, normalmente también creará uno o más [puntos de conexión](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) de CDN (un subdominio de `azureedge.net`) para entregar el contenido mediante HTTP y HTTPS. De forma predeterminada, este punto de conexión se incluye en todas las direcciones URL (por ejemplo, `https://contoso.azureedge.net/photo.png`). Para su comodidad, Azure CDN le permite asociar un dominio personalizado (por ejemplo, `www.contoso.com`) al punto de conexión. Con esta opción, usará un dominio personalizado para entregar el contenido, en lugar del punto de conexión. Esta opción es útil si, por ejemplo, desea que su propio nombre de dominio sea visibles para sus clientes con fines de personalización de marca.
 
 Si no dispone ya de un dominio personalizado, primero debe adquirir uno con un proveedor de dominios. Después de haber obtenido un dominio personalizado, siga estos pasos:
 1. [Acceda a los registros DNS de su proveedor de dominios](#step-1-access-dns-records-by-using-your-domain-provider).

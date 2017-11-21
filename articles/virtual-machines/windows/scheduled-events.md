@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76179b6a8eb7066c90828d33729b557f5e37c17a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Servicio Azure Metadata: eventos programados (versión preliminar) para VM Windows
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 Scheduled Events es uno de los subservicios de Azure Metadata Service. Se encarga de mostrar información relacionada con eventos próximos (por ejemplo, un reinicio) para que la aplicación pueda prepararse para ellos y limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluso para IaaS y PaaS. Scheduled Events permite que la máquina virtual tenga tiempo para realizar tareas de prevención y minimizar el efecto de un evento. 
 
-Scheduled Events está disponible para máquinas virtuales Linux y Windows. Para más información acerca de Scheduled Events en Linux, consulte [Scheduled Events para máquinas virtuales Linux](../windows/scheduled-events.md).
+Scheduled Events está disponible para máquinas virtuales Linux y Windows. Para más información acerca de Scheduled Events en Linux, consulte [Scheduled Events para máquinas virtuales Linux](../linux/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>¿Por qué Scheduled Events?
 

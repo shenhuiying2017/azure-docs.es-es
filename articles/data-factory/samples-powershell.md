@@ -10,26 +10,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/31/2017
 ms.author: spelluru
-ms.openlocfilehash: e25bdc04f5436e2f9c48aebe868538f22ef80bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f223cd8efbff77b02598293afd3b30a662d3abf3
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Ejemplos de Azure PowerShell para Azure Data Factory
 
 En la tabla siguiente se incluyen vínculos a scripts de ejemplo de Azure PowerShell para Azure Data Factory.
 
+> [!NOTE]
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte los [ejemplos de Data Factory, versión 1](v1/data-factory-samples.md).
+
 | |  |
 |---|---|
 |**Copia de datos**||
 |[Copia de blobs de una carpeta a otra carpeta en Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell copia blobs desde una carpeta de Azure Blob Storage a otra carpeta de la misma ubicación. |
+|[Copia de datos de un servidor SQL Server local a Azure Blob Storage](scripts/hybrid-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| El script de PowerShell copia datos de la base de datos SQL Server local en una instancia de Azure Blob Storage. |
+|[Copia masiva](scripts/bulk-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell de ejemplo copia los datos de varias tablas en una Azure SQL Database en un Azure SQL Data Warehouse. |
+|[Copia incremental](scripts/incremental-copy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell de ejemplo carga solo los registros nuevos o actualizados desde un almacén de datos de origen a un almacén de datos del receptor después de la copia completa inicial de datos del origen al receptor. |
 |**Transformación de datos**||
 |[Transformación de datos usando un clúster de Spark](scripts/transform-data-spark-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell transforma datos mediante la ejecución de un programa en un clúster de Spark. |
 |**Migración "Levantar y mover" de paquetes SSIS a Azure**||
-|[Creación de un runtime de integración Azure-SSIS](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell aprovisiona un runtime de integración Azure-SSIS que ejecuta paquetes de SQL Server Integration Services (SSIS) en Azure. |
+|[Crear una instancia de Integration Runtime de Azure SSIS](scripts/deploy-azure-ssis-integration-runtime-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell aprovisiona un runtime de integración Azure-SSIS que ejecuta paquetes de SQL Server Integration Services (SSIS) en Azure. |
 
 
 

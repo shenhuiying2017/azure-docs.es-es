@@ -1,6 +1,6 @@
 ---
 title: "Caso de uso de Factoría de datos: recomendaciones del producto"
-description: "Obtenga información acerca de un caso de uso que se implementan mediante Factoría de datos de Azure junto con otros servicios."
+description: "Obtenga información acerca de un caso de uso que se implementan mediante Azure Data Factory junto con otros servicios."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 578ccb162e91d3ec7befb53b09400fc49c5ba37a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e72dd426f7af3d1539aad6a3499d2ce5f792c152
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso: recomendaciones de productos
-Data Factory de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Data Factory de Azure y otros servicios del componente Cortana Intelligence.
+Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Consulte la página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Azure Data Factory y otros servicios del componente Cortana Intelligence.
 
 ## <a name="scenario"></a>Escenario
 Los distribuidores en línea normalmente desean conseguir que sus clientes compren los productos presentando los productos que probablemente más les interesen y, por tanto, es más probable que compren. Para lograr esto, los distribuidores en línea deben personalizar la experiencia en línea de sus usuarios mediante recomendaciones de productos personalizadas para ese usuario concreto. Estas recomendaciones personalizadas se van a realizar en función de los datos de su comportamiento de compra actual e histórico, la información de productos, las marcas recién introducidas y los datos de segmentación de productos y clientes.  Además, se pueden proporcionar recomendaciones de productos a usuarios basadas en el análisis del comportamiento de uso general de todos los usuarios combinados.

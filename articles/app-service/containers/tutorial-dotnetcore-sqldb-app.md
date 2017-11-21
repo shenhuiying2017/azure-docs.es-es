@@ -16,21 +16,21 @@ ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación web .NET Core y SQL Database en Azure App Service en Linux
 
-[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones mediante el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web .NET Core y conectarla a una instancia de SQL Database. Cuando termine, tendrá una aplicación .NET Core con MVC en ejecución en App Service en Linux.
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En este tutorial se muestra cómo crear una aplicación web .NET Core y conectarla a una instancia de SQL Database. Cuando termine, tendrá una aplicación .NET Core con MVC en ejecución en App Service en Linux.
 
 ![aplicación que se ejecuta en App Service en Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una base de datos SQL en Azure
+> * Crear una base de datos Azure SQL Database
 > * Conectar una aplicación .NET Core a SQL Database
 > * Implementación de la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación
@@ -370,7 +370,7 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 ¿Qué ha aprendido?
 
 > [!div class="checklist"]
-> * Crear una base de datos SQL en Azure
+> * Crear una base de datos Azure SQL Database
 > * Conectar una aplicación .NET Core a SQL Database
 > * Implementación de la aplicación en Azure
 > * Actualizar el modelo de datos y volver a implementar la aplicación

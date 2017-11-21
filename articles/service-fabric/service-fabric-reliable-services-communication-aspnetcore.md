@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/02/2017
+ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 8ac4d409f7363e8b4ae98be659a627ac8db8d787
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a98e9ad891fcfaf02ca7df5d10d5b310445c9d34
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Service Fabric
 
@@ -55,20 +55,20 @@ Por lo general, las aplicaciones ASP.NET Core autohospedadas crean un elemento W
 
 Sin embargo, el punto de entrada de la aplicación no es el lugar adecuado para crear un elemento WebHost en una instancia de Reliable Services, porque el punto de entrada de la aplicación solo se usa para registrar un tipo de servicio con el sistema en tiempo de ejecución de Service Fabric, para que pueda crear instancias de ese tipo de servicio. El elemento WebHost debe crearse en una instancia de Reliable Services. Dentro del proceso de host de servicio, las instancias o réplicas de servicio pueden pasar por varios ciclos de vida. 
 
-Una instancia de Reliable Services se representa mediante la clase de servicio derivada de `StatelessService` o `StatefulService`. La pila de comunicación de un servicio se encuentra en una implementación `ICommunicationListener` en la clase de servicio. Los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` contienen implementaciones de `ICommunicationListener` que inician y administran el elemento WebHost de ASP.NET Core para Kestrel o WebListener en una instancia de Reliable Services.
+Una instancia de Reliable Services se representa mediante la clase de servicio derivada de `StatelessService` o `StatefulService`. La pila de comunicación de un servicio se encuentra en una implementación `ICommunicationListener` en la clase de servicio. Los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` contienen implementaciones de `ICommunicationListener` que inician y administran el elemento WebHost de ASP.NET Core para Kestrel o HttpSys en una instancia de Reliable Services.
 
 ![Hospedaje de ASP.NET Core en una instancia de Reliable Services][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners en ASP.NET Core
-Las implementaciones de `ICommunicationListener` para Kestrel y WebListener en los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` tienen patrones de uso parecidos pero realizan acciones ligeramente diferentes, específicas de cada servidor web. 
+Las implementaciones de `ICommunicationListener` para Kestrel y HttpSys en los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` tienen patrones de uso parecidos pero realizan acciones ligeramente diferentes, específicas de cada servidor web. 
 
 Ambos agentes de escucha de comunicación proporcionan un constructor que acepta los argumentos siguientes:
  - **`ServiceContext serviceContext`**: el objeto `ServiceContext` que contiene información sobre el servicio en ejecución.
- - **`string endpointName`**: el nombre de una configuración `Endpoint` en ServiceManifest.xml. Es en este aspecto en lo que se diferencian principalmente ambos agentes de escucha de comunicación: WebListener **requiere** una configuración `Endpoint`, pero Kestrel no.
+ - **`string endpointName`**: el nombre de una configuración `Endpoint` en ServiceManifest.xml. Es en este aspecto en lo que se diferencian principalmente ambos agentes de escucha de comunicación: HttpSys **requiere** una configuración `Endpoint`, pero Kestrel no.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: expresión lambda que se implementa para crear y devolver `IWebHost`. Esto permite configurar `IWebHost` tal como lo haría normalmente en una aplicación de ASP.NET Core. La lambda proporciona una dirección URL que se genera automáticamente en función de las opciones de integración de Service Fabric que use y la configuración `Endpoint` que proporcione. Esa dirección URL se puede modificar o utilizar tal cual para iniciar el servidor web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware de integración de Service Fabric
-El paquete NuGet `Microsoft.ServiceFabric.Services.AspNetCore` incluye el método de extensión `UseServiceFabricIntegration` en `IWebHostBuilder` que agrega middleware compatible con Service Fabric. Este middleware configura la implementación `ICommunicationListener` de Kestrel o WebListener para que registre una dirección URL de servicio única con el servicio de nomenclatura de Service Fabric y después valida las solicitudes de cliente para asegurarse de que los clientes se conecten al servicio adecuado. Esto es necesario en un entorno de host compartido como Service Fabric, donde varias aplicaciones web se pueden ejecutar en la misma máquina física o virtual pero no utilizan nombres de host únicos, para evitar que los clientes se conecten por error al servicio incorrecto. Este escenario se describe con más detalle en la sección siguiente.
+El paquete NuGet `Microsoft.ServiceFabric.Services.AspNetCore` incluye el método de extensión `UseServiceFabricIntegration` en `IWebHostBuilder` que agrega middleware compatible con Service Fabric. Este middleware configura la implementación `ICommunicationListener` de Kestrel o HttpSys para que registre una dirección URL de servicio única con el servicio de nomenclatura de Service Fabric y después valida las solicitudes de cliente para asegurarse de que los clientes se conecten al servicio adecuado. Esto es necesario en un entorno de host compartido como Service Fabric, donde varias aplicaciones web se pueden ejecutar en la misma máquina física o virtual pero no utilizan nombres de host únicos, para evitar que los clientes se conecten por error al servicio incorrecto. Este escenario se describe con más detalle en la sección siguiente.
 
 ### <a name="a-case-of-mistaken-identity"></a>Un caso de identidad equivocada
 Las réplicas de servicio, con independencia del protocolo, escuchan en una combinación IP:puerto única. Una vez que una réplica de servicio ha comenzado a escuchar en un punto de conexión IP:puerto, notifica esa dirección de punto de conexión al servicio de nomenclatura de Service Fabric, donde los clientes u otros servicios pueden detectarla. Si los servicios utilizan puertos de aplicación asignados de forma dinámica, una réplica de servicio podría casualmente utilizar el mismo punto de conexión IP:puerto que otro servicio que se encontraba antes en la misma máquina física o virtual. Esto puede hacer que un cliente se conecte por error al servicio incorrecto. Esto puede ocurrir si se produce la siguiente secuencia de eventos:
@@ -95,19 +95,19 @@ En el siguiente diagrama se muestra el flujo de la solicitud con el middleware h
 
 ![Integración de ASP.NET Core de Service Fabric][2]
 
-Tanto las implementaciones `ICommunicationListener` de Kestrel como las de WebListener utilizan este mecanismo exactamente de la misma manera. Aunque WebListener puede diferenciar internamente las solicitudes basadas en rutas de acceso de dirección URL únicas mediante la característica subyacente para compartir puertos *http.sys*, esa funcionalidad *no* se usa en la implementación `ICommunicationListener` de WebListener, ya que se producirían códigos de estado de error HTTP 503 y HTTP 404 en el escenario descrito antes. A su vez, esto hace muy difícil que los clientes determinen la intención del error, ya que HTTP 503 y HTTP 404 ya se usan habitualmente para indicar otros errores. Por lo tanto, las implementaciones `ICommunicationListener` de Kestrel y WebListener se normalizan en el middleware proporcionado por el método de extensión `UseServiceFabricIntegration` para que los clientes solo necesiten repetir la acción de resolución del punto de conexión de servicio con las respuestas HTTP 410.
+Tanto las implementaciones `ICommunicationListener` de HttpSys como las de WebListener utilizan este mecanismo exactamente de la misma manera. Aunque HttpSys puede diferenciar internamente las solicitudes basadas en rutas de acceso de dirección URL únicas mediante la característica subyacente para compartir puertos *http.sys*, esa funcionalidad *no* se usa en la implementación `ICommunicationListener` de HttpSys, ya que se producirían códigos de estado de error HTTP 503 y HTTP 404 en el escenario descrito antes. A su vez, esto hace muy difícil que los clientes determinen la intención del error, ya que HTTP 503 y HTTP 404 ya se usan habitualmente para indicar otros errores. Por lo tanto, las implementaciones `ICommunicationListener` de Kestrel y HttpSys se normalizan en el middleware proporcionado por el método de extensión `UseServiceFabricIntegration` para que los clientes solo necesiten repetir la acción de resolución del punto de conexión de servicio con las respuestas HTTP 410.
 
-## <a name="weblistener-in-reliable-services"></a>WebListener en Reliable Services
-WebListener puede utilizarse en una instancia de Reliable Services si se importa el paquete NuGet **Microsoft.ServiceFabric.AspNetCore.WebListener**. Este paquete contiene `WebListenerCommunicationListener`, una implementación de `ICommunicationListener`, que le permite crear un elemento WebHost de ASP.NET Core dentro de una instancia de Reliable Services con WebListener como servidor web.
+## <a name="httpsys-in-reliable-services"></a>HttpSys en Reliable Services
+HttpSys puede usarse en una instancia de Reliable Services si se importa el paquete NuGet **Microsoft.ServiceFabric.AspNetCore.HttpSys**. Este paquete contiene `HttpSysCommunicationListener`, una implementación de `ICommunicationListener`, que le permite crear un elemento WebHost de ASP.NET Core dentro de una instancia de Reliable Services con HttpSys como servidor web.
 
-WebListener se basa en la [API de servidor HTTP de Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Utiliza el controlador de kernel *http.sys* que IIS usa para procesar solicitudes HTTP y enrutarlas a procesos que ejecutan aplicaciones web. Esto permite que varios procesos en la misma máquina física o virtual hospeden aplicaciones web en el mismo puerto, eliminando la ambigüedad con un nombre de host o una ruta de acceso de dirección URL únicos. Estas características son útiles en Service Fabric para hospedar varios sitios web en el mismo clúster.
+HttpSys se basa en la [API de servidor HTTP de Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Utiliza el controlador de kernel *http.sys* que IIS usa para procesar solicitudes HTTP y enrutarlas a procesos que ejecutan aplicaciones web. Esto permite que varios procesos en la misma máquina física o virtual hospeden aplicaciones web en el mismo puerto, eliminando la ambigüedad con un nombre de host o una ruta de acceso de dirección URL únicos. Estas características son útiles en Service Fabric para hospedar varios sitios web en el mismo clúster.
 
-En el siguiente diagrama se muestra cómo WebListener usa el controlador de kernel *http.sys* en Windows para compartir puertos:
+En el siguiente diagrama se muestra cómo HttpSys usa el controlador de kernel *http.sys* en Windows para compartir puertos:
 
 ![http.sys][3]
 
-### <a name="weblistener-in-a-stateless-service"></a>WebListener en un servicio sin estado
-Para usar `WebListener` en un servicio sin estado, invalide el método `CreateServiceInstanceListeners` y devuelva una instancia de `WebListenerCommunicationListener`:
+### <a name="httpsys-in-a-stateless-service"></a>HttpSys en un servicio sin estado
+Para usar `HttpSys` en un servicio sin estado, invalide el método `CreateServiceInstanceListeners` y devuelva una instancia de `HttpSysCommunicationListener`:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -115,9 +115,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
     return new ServiceInstanceListener[]
     {
         new ServiceInstanceListener(serviceContext =>
-            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
                 new WebHostBuilder()
-                    .UseWebListener()
+                    .UseHttpSys()
                     .ConfigureServices(
                         services => services
                             .AddSingleton<StatelessServiceContext>(serviceContext))
@@ -130,13 +130,13 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-### <a name="weblistener-in-a-stateful-service"></a>WebListener en un servicio con estado
+### <a name="httpsys-in-a-stateful-service"></a>HttpSys en un servicio con estado
 
-Actualmente, `WebListenerCommunicationListener` no está diseñado para usarse en servicios con estado a causa de las complicaciones con la característica subyacente para compartir puertos *http.sys*. Para más información, consulte la sección siguiente sobre la asignación dinámica de puertos con WebListener. Para los servicios con estado, Kestrel es el servidor web recomendado.
+Actualmente, `HttpSysCommunicationListener` no está diseñado para usarse en servicios con estado a causa de las complicaciones con la característica subyacente para compartir puertos *http.sys*. Para más información, consulte la sección siguiente sobre la asignación dinámica de puertos con HttpSys. Para los servicios con estado, Kestrel es el servidor web recomendado.
 
 ### <a name="endpoint-configuration"></a>Configuración del punto de conexión
 
-Se necesita una configuración `Endpoint` para los servidores web que usen la API de servidor HTTP de Windows, lo que incluye WebListener. Los servidores web que usan la API de servidor HTTP de Windows deben reservar en primer lugar su dirección URL con *http.sys* (normalmente con la herramienta [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx)). Esta acción requiere privilegios elevados de los que sus servicios carecen de forma predeterminada. Las opciones "http" o "https" para la propiedad `Protocol` de la configuración `Endpoint` en *ServiceManifest.xml* se utilizan específicamente para indicar al entorno de ejecución de Service Fabric que registre una dirección URL con *http.sys* en su nombre mediante un prefijo de URL con [*comodín seguro*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx).
+Se necesita una configuración `Endpoint` para los servidores web que usen la API de servidor HTTP de Windows, lo que incluye HttpSys. Los servidores web que usan la API de servidor HTTP de Windows deben reservar en primer lugar su dirección URL con *http.sys* (normalmente con la herramienta [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx)). Esta acción requiere privilegios elevados de los que sus servicios carecen de forma predeterminada. Las opciones "http" o "https" para la propiedad `Protocol` de la configuración `Endpoint` en *ServiceManifest.xml* se utilizan específicamente para indicar al entorno de ejecución de Service Fabric que registre una dirección URL con *http.sys* en su nombre mediante un prefijo de URL con [*comodín seguro*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx).
 
 Por ejemplo, si se quiere reservar `http://+:80` para un servicio, debe usarse la siguiente configuración en ServiceManifest.xml:
 
@@ -152,21 +152,21 @@ Por ejemplo, si se quiere reservar `http://+:80` para un servicio, debe usarse l
 </ServiceManifest>
 ```
 
-Y se debe pasar el nombre del punto de conexión al constructor `WebListenerCommunicationListener`:
+Y se debe pasar el nombre del punto de conexión al constructor `HttpSysCommunicationListener`:
 
 ```csharp
- new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+ new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
  {
      return new WebHostBuilder()
-         .UseWebListener()
+         .UseHttpSys()
          .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
          .UseUrls(url)
          .Build();
  })
 ```
 
-#### <a name="use-weblistener-with-a-static-port"></a>Uso de WebListener con un puerto estático
-Para usar un puerto estático con WebListener, proporcione el número de puerto en la configuración `Endpoint`:
+#### <a name="use-httpsys-with-a-static-port"></a>Uso de HttpSys con un puerto estático
+Para usar un puerto estático con HttpSys, proporcione el número de puerto en la configuración `Endpoint`:
 
 ```xml
   <Resources>
@@ -176,8 +176,8 @@ Para usar un puerto estático con WebListener, proporcione el número de puerto 
   </Resources>
 ```
 
-#### <a name="use-weblistener-with-a-dynamic-port"></a>Uso de WebListener con un puerto dinámico
-Para usar un puerto asignado de forma dinámica con WebListener, omita la propiedad `Port` en la configuración `Endpoint`:
+#### <a name="use-httpsys-with-a-dynamic-port"></a>Uso de HttpSys con un puerto dinámico
+Para usar un puerto asignado de forma dinámica con HttpSys, omita la propiedad `Port` en la configuración `Endpoint`:
 
 ```xml
   <Resources>
@@ -187,12 +187,12 @@ Para usar un puerto asignado de forma dinámica con WebListener, omita la propie
   </Resources>
 ```
 
-Tenga en cuenta que un puerto dinámico asignado por una configuración `Endpoint` proporciona solo un puerto *por cada proceso de host*. El modelo de hospedaje actual de Service Fabric permite que varias instancias o réplicas de servicio se hospeden en el mismo proceso, lo que significa que cada una compartirá el mismo puerto cuando se asigne por medio de la configuración `Endpoint`. Varias instancias de WebListener pueden compartir un puerto mediante la característica subyacente para compartir puertos *http.sys*, pero eso no es compatible con `WebListenerCommunicationListener` debido a las complicaciones que presenta para las solicitudes de cliente. Para el uso de puertos dinámicos, Kestrel es el servidor web recomendado.
+Tenga en cuenta que un puerto dinámico asignado por una configuración `Endpoint` proporciona solo un puerto *por cada proceso de host*. El modelo de hospedaje actual de Service Fabric permite que varias instancias o réplicas de servicio se hospeden en el mismo proceso, lo que significa que cada una compartirá el mismo puerto cuando se asigne por medio de la configuración `Endpoint`. Varias instancias de HttpSys pueden compartir un puerto mediante la característica subyacente para compartir puertos *http.sys*, pero eso no es compatible con `HttpSysCommunicationListener` debido a las complicaciones que presenta para las solicitudes de cliente. Para el uso de puertos dinámicos, Kestrel es el servidor web recomendado.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel en Reliable Services
 Kestrel puede utilizarse en una instancia de Reliable Services si se importa el paquete NuGet **Microsoft.ServiceFabric.AspNetCore.Kestrel**. Este paquete contiene `KestrelCommunicationListener`, una implementación de `ICommunicationListener`, que le permite crear un elemento WebHost de ASP.NET Core dentro de una instancia de Reliable Services con Kestrel como servidor web.
 
-Kestrel es un servidor web multiplataforma para ASP.NET Core basado en libuv, una biblioteca de E/S asincrónica multiplataforma. A diferencia de WebListener, Kestrel no utiliza un administrador centralizado de puntos de conexión como *http.sys*. Y, a diferencia de WebListener, Kestrel no es compatible con el uso compartido de puertos entre varios procesos. Cada instancia de Kestrel debe usar un puerto único.
+Kestrel es un servidor web multiplataforma para ASP.NET Core basado en libuv, una biblioteca de E/S asincrónica multiplataforma. A diferencia de HttpSys, Kestrel no utiliza un administrador centralizado de puntos de conexión como *http.sys*. Y, a diferencia de HttpSys, Kestrel no es compatible con el uso compartido de puertos entre varios procesos. Cada instancia de Kestrel debe usar un puerto único.
 
 ![kestrel][4]
 
@@ -254,7 +254,7 @@ Tenga en cuenta que **no** se proporciona un nombre de configuración `Endpoint`
 ### <a name="endpoint-configuration"></a>Configuración del punto de conexión
 No se requiere una configuración `Endpoint` para usar Kestrel. 
 
-Kestrel es un servidor web independiente simple; a diferencia de WebListener (o HttpListener), no necesita una configuración `Endpoint` en *ServiceManifest.xml* porque no requiere el registro de direcciones URL antes de comenzar. 
+Kestrel es un servidor web independiente simple; a diferencia de HttpSys (o HttpListener), no necesita una configuración `Endpoint` en *ServiceManifest.xml* porque no requiere el registro de direcciones URL antes de comenzar. 
 
 #### <a name="use-kestrel-with-a-static-port"></a>Uso de Kestrel con un puerto estático
 Se puede configurar un puerto estático en la configuración `Endpoint` de ServiceManifest.xml para usarlo con Kestrel. Aunque esto no es estrictamente necesario, ofrece dos ventajas potenciales:
@@ -302,28 +302,26 @@ Un servicio **solo interno** es aquel cuyo punto de conexión solo es accesible 
 > Los puntos de conexión de servicio con estado generalmente no se deberían exponer a Internet. Los clústeres que se encuentran tras equilibradores de carga que desconocen la resolución del servicio de Service Fabric, como Azure Load Balancer, no podrán exponer servicios con estado porque el equilibrador de carga no podrá localizar ni enrutar el tráfico hacia la réplica de servicio con estado adecuada. 
 
 ### <a name="externally-exposed-aspnet-core-stateless-services"></a>Servicios sin estado de ASP.NET Core expuestos al exterior
-WebListener es el servidor web recomendado para los servicios de front-end que exponen puntos de conexión HTTP externos orientados a Internet en Windows. Proporciona mejor protección frente a ataques y admite características incompatibles con Kestrel, como la autenticación de Windows y el uso compartido de puertos. 
-
-Kestrel no se admite como servidor perimetral (orientado a Internet) en este momento. Se debe usar un servidor proxy inverso, como IIS o Nginx, para administrar el tráfico procedente de la Internet pública.
+Kestrel es el servidor web recomendado para los servicios de front-end que exponen puntos de conexión HTTP externos orientados a Internet en HTTP. En Windows, HttpSys se puede usar para proporcionar la funcionalidad de uso compartido de puertos que permite hospedar varios servicios web en el mismo conjunto de nodos con el mismo puerto, diferenciados por nombre de host o ruta de acceso, sin basarse en una puerta de enlace o un proxy de front-end para brindar enrutamiento HTTP.
  
 Cuando se expone a Internet, un servicio sin estado debe usar un punto de conexión conocido y estable que sea accesible a través de un equilibrador de carga. Se trata de la dirección URL que va a proporcionar a los usuarios de la aplicación. Se recomienda la siguiente configuración:
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor web | WebListener | Si el servicio solo se expone a una red de confianza, como una intranet, se puede usar Kestrel. De lo contrario, WebListener es la opción preferida. |
+| Servidor web | Kestrel | Kestrel es el servidor web recomendado porque es compatible en Windows y Linux. |
 | Configuración de puerto | estática | Se debe configurar un puerto estático conocido en la configuración `Endpoints` de ServiceManifest.xml, como 80 para HTTP o 443 para HTTPS. |
 | ServiceFabricIntegrationOptions | None | La opción `ServiceFabricIntegrationOptions.None` se debe usar al configurar el middleware de integración de Service Fabric para que el servicio no intente validar solicitudes entrantes para un identificador único. Los usuarios externos de la aplicación no conocerán la información de identificación única utilizada por el middleware. |
 | Recuento de instancias | -1 | En casos de uso habituales, la configuración de recuento de instancias debe establecerse en "-1" para que una instancia esté disponible en todos los nodos que reciban tráfico de un equilibrador de carga. |
 
-Si varios servicios expuestos al exterior comparten el mismo conjunto de nodos, se debe usar una ruta de acceso de dirección URL única pero estable. Para lograr esto, se puede modificar la dirección URL proporcionada al configurar IWebHost. Tenga en cuenta que esto solo se aplica a WebListener.
+Si varios servicios expuestos al exterior comparten el mismo conjunto de nodos, se puede usar HttpSys con una ruta de acceso de dirección URL única pero estable. Para lograr esto, se puede modificar la dirección URL proporcionada al configurar IWebHost. Tenga en cuenta que esto solo se aplica a HttpSys.
 
  ```csharp
- new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+ new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
  {
      url += "/MyUniqueServicePath";
  
      return new WebHostBuilder()
-         .UseWebListener()
+         .UseHttpSys()
          ...
          .UseUrls(url)
          .Build();
@@ -335,7 +333,7 @@ Los servicios sin estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor web | Kestrel | Aunque WebListener puede utilizarse para servicios sin estado internos, Kestrel es el servidor recomendado para permitir que varias instancias de servicio compartan un host.  |
+| Servidor web | Kestrel | Aunque HttpSys puede usarse para servicios sin estado internos, Kestrel es el servidor recomendado para permitir que varias instancias de servicio compartan un host.  |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 | InstanceCount | cualquiera | La configuración de recuento de instancias se puede establecer en cualquier valor necesario para hacer funcionar el servicio. |
@@ -345,7 +343,7 @@ Los servicios con estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor web | Kestrel | `WebListenerCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
+| Servidor web | Kestrel | `HttpSysCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 

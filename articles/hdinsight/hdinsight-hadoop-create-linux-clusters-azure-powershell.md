@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 079a3d1c7f91477d641dbc65fe0f04e86a0dcd30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dab42d736745d268ae0bc15957c49a5e147f7c28
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Crear clústeres basados en Linux en HDInsight con Azure PowerShell
 
@@ -49,7 +49,7 @@ Antes de iniciar este procedimiento, debe tener lo siguiente:
 Para crear un clúster de HDInsight con Azure PowerShell, debe realizar los procedimientos siguientes:
 
 * Creación de un grupo de recursos de Azure
-* Creación de una cuenta de almacenamiento de Azure
+* Creación de una cuenta de Azure Storage
 * Creación de un contenedor de blobs de Azure
 * Creación de un clúster de HDInsight
 
@@ -98,26 +98,26 @@ Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes r
 
 ### <a name="hadoop-clusters"></a>Clústeres Hadoop
 
-* [Uso de Hive con HDInsight](hdinsight-use-hive.md)
-* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
-* [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de Hive con HDInsight](hadoop/hdinsight-use-hive.md)
+* [Uso de Pig con HDInsight](hadoop/hdinsight-use-pig.md)
+* [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="hbase-clusters"></a>Clústeres HBase
 
-* [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Introducción a HBase en HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [Desarrollo de aplicaciones de Java para HBase en HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clústeres Storm
 
-* [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Desarrollo de topologías de Java para Storm en HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Uso de componentes de Python en Storm en HDInsight](storm/apache-storm-develop-python-topology.md)
+* [Implementación y supervisión de topologías con Storm en HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
 ### <a name="spark-clusters"></a>Clústeres de Spark
 
-* [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
+* [Crear una aplicación independiente con Scala](spark/apache-spark-create-standalone-application.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](spark/apache-spark-livy-rest-interface.md)
+* [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](spark/apache-spark-use-bi-tools.md)
+* [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](spark/apache-spark-eventhub-streaming.md)
 

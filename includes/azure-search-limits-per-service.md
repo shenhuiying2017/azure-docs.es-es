@@ -11,7 +11,6 @@ El almacenamiento está limitado por el espacio en disco o e *número máximo* d
 | Indexadores máximos |3 |5 |50 |200 |200 |Indexador incompatible |
 | Orígenes de datos máximos |3 |5 |50 |200 |200 |Indexador incompatible |
 | Número máximo de documentos |10.000 |1 millón |15 millones por partición, 180 millones por servicio |60 millones por partición, 720 millones por servicio |120 millones por partición, 1400 millones por servicio |1 millón por índice, 200 millones por partición |
-| Consultas por segundo (QPS) estimadas |N/D |~ 3 por réplica |~ 15 por réplica |~ 60 por réplica |~ 60 por réplica |>60 por réplica |
 
 <sup>1</sup> Las versiones gratuitas y preliminares no incluyen contratos de nivel de servicio (SLA). Para todos los niveles facturables, los SLA tomarán efecto cuando se aprovisione suficiente redundancia para el servicio. Son necesarias dos o más réplicas para el SLA de consulta (lectura). Son necesarias tres o más réplicas para el SLA de consulta e indexación (lectura y escritura). El número de particiones no es una consideración del SLA. 
 

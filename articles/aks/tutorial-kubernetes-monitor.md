@@ -1,9 +1,9 @@
 ---
-title: "Tutorial de Kubernetes en Azure: supervisión de Kubernetes | Microsoft Docs"
+title: "Tutorial de Kubernetes en Azure: supervisión de Kubernetes"
 description: "Tutorial de AKS: supervisión de Kubernetes con Microsoft Operations Management Suite (OMS)"
 services: container-service
 documentationcenter: 
-author: dlepow
+author: neilpeterson
 manager: timlt
 editor: 
 tags: aks, azure-container-service
@@ -15,42 +15,60 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
-ms.author: danlep
+ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 199779d47b6b13ac1d426e64364b4b24fe5db3d5
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: a41f699291a65129906680cbb6719c2478c0d830
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Supervisión de Azure Container Service (AKS)
 
-La supervisión de su clúster de Kubernetes y de los contenedores es fundamental, sobre todo al administrar un clúster de producción a escala con varias aplicaciones. 
+La supervisión de su clúster de Kubernetes y de los contenedores es fundamental, sobre todo al ejecutar un clúster de producción, a escala, con varias aplicaciones.
 
-Puede sacar provecho de varias soluciones de supervisión de Kubernetes, tanto de Microsoft como de otros proveedores. En este tutorial, se supervisa un clúster de Kubernetes mediante la solución Containers de [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md), la solución de administración de TI en la nube de Microsoft (la solución Containers de OMS está en versión preliminar).
+En este tutorial, puede configurar la supervisión del clúster de AKS mediante la [solución Containers para Log Analytics](../log-analytics/log-analytics-containers.md).
 
 En este tutorial, la séptima parte de ocho, se tratan las siguientes tareas:
 
 > [!div class="checklist"]
-> * Obtener la configuración del área de trabajo de OMS
-> * Configurar agentes OMS en los nodos de Kubernetes
-> * Acceder a la información de supervisión en el Portal de OMS o en Azure Portal
+> * Configuración de la solución de supervisión de contenedores
+> * Configuración de los agentes de supervisión
+> * Obtener acceso a la información de supervisión en Azure Portal
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los tutoriales anteriores se empaquetaba una aplicación en imágenes de contenedor, se cargaban estas imágenes en Azure Container Registry y se creó un clúster de Kubernetes. 
+En los tutoriales anteriores se empaquetaba una aplicación en imágenes de contenedor, se cargaban estas imágenes en Azure Container Registry y se creó un clúster de Kubernetes.
 
-Si no ha realizado estos pasos, pero desea continuar, vuelva al tutorial [Create container images to be used with Azure Container Service](./tutorial-kubernetes-prepare-app.md) (Creación de las imágenes de contenedor que se usan con Azure Container Service). 
+Si no ha realizado estos pasos, pero desea continuar, vuelva al tutorial [Create container images to be used with Azure Container Service](./tutorial-kubernetes-prepare-app.md) (Creación de las imágenes de contenedor que se usan con Azure Container Service).
+
+## <a name="configure-the-monitoring-solution"></a>Configurar la solución de supervisión
+
+En Azure Portal, seleccione **Nuevo** y busque `Container Monitoring Solution`. Una vez que se encuentre, seleccione **Crear**.
+
+![Agregar solución](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
+
+Cree un área de trabajo de OMS o seleccione una existente. El área de trabajo de OMS le guía a través de este proceso.
+
+Al crear el área de trabajo, seleccione **Anclar al panel** para que la recuperación resulte sencilla.
+
+![Área de trabajo de OMS](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+
+Cuando haya terminado, seleccione **Aceptar**. Una vez que se haya completado la validación, seleccione **Crear** para crear la solución de supervisión de contenedores.
+
+Tras crearse el área de trabajo, se le presenta en Azure Portal.
 
 ## <a name="get-workspace-settings"></a>Obtener la configuración del área de trabajo
 
-Cuando pueda acceder al [Portal de OMS](https://mms.microsoft.com), vaya a **Configuración** > **Orígenes conectados** > **Servidores Linux**. Ahí puede encontrar el *identificador del área de trabajo* y una *clave del área de trabajo* principal o secundaria. Anote de estos valores, ya que se necesitan para configurar agentes de OMS en el clúster.
+La clave y el id. de área de trabajo de Log Analytics son necesarios para configurar el agente de solución en los nodos de Kubernetes.
 
-## <a name="set-up-oms-agents"></a>Configuración de agentes de OMS
+Para recuperar estos valores, seleccione **Área de trabajo de OMS** en el menú izquierdo de soluciones de contenedores. Seleccione **Configuración avanzada** y anote los valores de **WORKSPACE ID** (ID. DE ÁREA DE TRABAJO) y **PRIMARY KEY** (CLAVE PRINCIPAL).
 
-Este es un archivo YAML para configurar agentes de OMS en los nodos de clúster de Linux. Crea un recurso [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) de Kubernetes, que ejecuta un solo pod idéntico en cada nodo del clúster. El recurso DaemonSet es ideal para implementar a un agente de supervisión. 
+## <a name="configure-monitoring-agents"></a>Configurar los agentes de supervisión
 
-Guarde el siguiente texto en un archivo denominado `oms-daemonset.yaml` y reemplace los valores de marcador de posición de *myWorkspaceID* y *myWorkspaceKey* con la clave y el identificador del área de trabajo de OMS. (en producción, estos valores se pueden codificar como secretos).
+El siguiente archivo de manifiesto de Kubernetes se puede usar para configurar los agentes de supervisión de contenedores en un clúster de Kubernetes. Crea un recurso [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) de Kubernetes, que ejecuta un solo pod en cada nodo del clúster.
+
+Guarde el siguiente texto en un archivo denominado `oms-daemonset.yaml` y reemplace los valores de marcador de posición de `WSID` y `KEY` con la clave y el id. de área de trabajo de Log Analytics.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -62,31 +80,31 @@ spec:
   metadata:
    labels:
     app: omsagent
-    agentVersion: v1.3.4-127
+    agentVersion: 1.4.0-12
     dockerProviderVersion: 10.0.0-25
   spec:
    containers:
-     - name: omsagent 
+     - name: omsagent
        image: "microsoft/oms"
        imagePullPolicy: Always
        env:
        - name: WSID
-         value: myWorkspaceID
-       - name: KEY 
-         value: myWorkspaceKey
-       - name: DOMAIN
-         value: opinsights.azure.com
+         value: <WSID>
+       - name: KEY
+         value: <KEY>
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP 
+         protocol: TCP
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/log 
+        - mountPath: /var/opt/microsoft/omsagent/state/containerhostname
+          name: container-hostname
+        - mountPath: /var/log
           name: host-log
        livenessProbe:
         exec:
@@ -96,10 +114,21 @@ spec:
          - ps -ef | grep omsagent | grep -v "grep"
         initialDelaySeconds: 60
         periodSeconds: 60
+   nodeSelector:
+    beta.kubernetes.io/os: linux
+   # Tolerate a NoSchedule taint on master that ACS Engine sets.
+   tolerations:
+    - key: "node-role.kubernetes.io/master"
+      operator: "Equal"
+      value: "true"
+      effect: "NoSchedule"
    volumes:
-    - name: docker-sock 
+    - name: docker-sock
       hostPath:
        path: /var/run/docker.sock
+    - name: container-hostname
+      hostPath:
+       path: /etc/hostname
     - name: host-log
       hostPath:
        path: /var/log
@@ -107,36 +136,30 @@ spec:
 
 Cree el recurso DaemonSet con el siguiente comando:
 
-```azurecli
+```azurecli-interactive
 kubectl create -f oms-daemonset.yaml
 ```
 
 Para ver que se ha creado, ejecute:
 
-```azurecli
+```azurecli-interactive
 kubectl get daemonset
 ```
 
 La salida es similar a la siguiente:
 
-```azurecli
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR   AGE
-omsagent   3         3         3         0            3           <none>          5m
+```
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR                 AGE
+omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
 Una vez que se ejecutan los agentes, OMS tarda varios minutos en ingerir y procesar los datos.
 
 ## <a name="access-monitoring-data"></a>Acceso a los datos de supervisión
 
-Vea y analice los datos de supervisión del contenedor de OMS con la [solución Containers](../log-analytics/log-analytics-containers.md) en el Portal de OMS o en Azure Portal. 
+En Azure Portal, seleccione el área de trabajo de Log Analytics que se ha anclado al panel del portal. Haga clic en el icono **Solución de supervisión de contenedores**. Aquí encontrará información sobre el clúster de AKS y los contenedores del clúster.
 
-Para instalar dicha solución desde el [Portal de OMS](https://mms.microsoft.com), vaya a **Galería de soluciones**. A continuación, agregue **Solución de contenedor**. Como alternativa, agregue la solución Containers de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview).
-
-En el portal de OMS, busque un icono de resumen de **Containers** en el panel de OMS. Haga clic en el icono para obtener la siguiente información: eventos de contenedor, errores, estado, inventario de la imagen y uso de la CPU y la memoria. Para obtener información más detallada, haga clic en una fila de cualquier icono o realice una [búsqueda de registros](../log-analytics/log-analytics-log-searches.md).
-
-![Panel de contenedores en el Portal de OMS](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
-
-En Azure Portal, vaya a **Log Analytics** y seleccione el nombre de su área de trabajo. Para ver el icono de resumen de **Containers**, haga clic en **Soluciones** > **Containers**. Para ver los detalles, haga clic en el icono.
+![Panel](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 Consulte la [documentación de Azure Log Analytics](../log-analytics/index.yml) para obtener una guía detallada para consultar y analizar los datos de supervisión.
 
@@ -145,10 +168,9 @@ Consulte la [documentación de Azure Log Analytics](../log-analytics/index.yml) 
 En este tutorial, se ha supervisado el clúster de Kubernetes con OMS. Estas son las tareas que se han tratado:
 
 > [!div class="checklist"]
-> * Obtener la configuración del área de trabajo de OMS
-> * Configurar agentes OMS en los nodos de Kubernetes
-> * Acceder a la información de supervisión en el Portal de OMS o en Azure Portal
-
+> * Configuración de la solución de supervisión de contenedores
+> * Configuración de los agentes de supervisión
+> * Obtener acceso a la información de supervisión en Azure Portal
 
 Vaya al siguiente tutorial para aprender a actualizar Kubernetes a una nueva versión.
 

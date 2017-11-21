@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: e72dd7e84ce3961274cf312649cc679abc576aae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b71c7e7f1ea58a273beb58717102522ad0f8c4a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="security-in-azure-data-lake-store"></a>Seguridad en el Almacén de Azure Data Lake
 Muchas empresas están aprovechando el análisis de macrodatos para obtener conocimientos empresariales que les ayuden a tomar decisiones inteligentes. Es posible que una organización tenga un entorno regulado y complejo, con un número cada vez mayor de distintos tipos de usuarios. Es esencial para una empresa asegurarse de que los datos empresariales más importantes se almacenaron de la forma más segura, y que se concedió a los usuarios individuales el nivel adecuado de acceso. Azure Data Lake Store está diseñado para ayudar a cumplir estos requisitos de seguridad. En este artículo aprenderá las funcionalidades de seguridad de Data Lake Store, como:
@@ -65,7 +65,7 @@ Para ver instrucciones, consulte [Asignación de grupos de seguridad o usuarios 
 ### <a name="using-acls-for-operations-on-file-systems"></a>Uso de ACL para operaciones en sistemas de archivos
 Data Lake Store es un sistema de archivos jerárquico como el sistema de archivos distribuido de Hadoop (HDFS) que admite [POSIX ACL](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Controla los permisos de lectura (r), escritura (w) y ejecución (x) para los recursos del rol Propietario, para el grupo de propietarios y para otros usuarios y grupos. En la versión preliminar pública de Data Lake Store (la versión actual), las ACL se pueden habilitar en la carpeta raíz, en las subcarpetas y en los archivos individuales. Para más información sobre cómo funcionan las ACL en el contexto de Data Lake Store, consulte [Control de acceso en Data Lake Store](data-lake-store-access-control.md).
 
-Se recomienda definir las ACL para varios usuarios mediante [grupos de seguridad](../active-directory/active-directory-accessmanagement-manage-groups.md). Agregue usuarios a un grupo de seguridad y asigne las ACL de los archivos o carpetas a ese grupo de seguridad. Esto es útil cuando desea proporcionar acceso personalizado, porque está limitado a la adición de un máximo de nueve entradas de acceso personalizado. Para más información acerca de cómo proteger los datos almacenados en Data Lake Store mediante grupos de seguridad de Azure Active Directory, consulte [Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos de Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
+Se recomienda definir las ACL para varios usuarios mediante [grupos de seguridad](../active-directory/active-directory-groups-create-azure-portal.md). Agregue usuarios a un grupo de seguridad y asigne las ACL de los archivos o carpetas a ese grupo de seguridad. Esto es útil cuando desea proporcionar acceso personalizado, porque está limitado a la adición de un máximo de nueve entradas de acceso personalizado. Para más información acerca de cómo proteger los datos almacenados en Data Lake Store mediante grupos de seguridad de Azure Active Directory, consulte [Asignación de usuarios o grupos de seguridad como ACL al sistema de archivos de Azure Data Lake Store](data-lake-store-secure-data.md#filepermissions).
 
 ![Lista de accesos estándar y personalizados](./media/data-lake-store-security-overview/adl.acl.2.png "Lista de accesos estándar y personalizados")
 
@@ -92,7 +92,7 @@ Puede usar los registros de auditoría o diagnóstico en función de si desea co
 ### <a name="auditing-logs"></a>Registros de auditoría
 Para cumplir las normativas, las organizaciones pueden requerir trazas de auditoría adecuadas si necesitan profundizar en un incidente concreto. Data Lake Store integra la auditoría y la supervisión y registra todas las actividades de administración de cuentas.
 
-Para las trazas de auditoría de administración de cuentas, vea y elija las columnas que desea registrar. También puede exportar los registros de auditoría al Almacenamiento de Azure.
+Para las trazas de auditoría de administración de cuentas, vea y elija las columnas que desea registrar. También puede exportar los registros de auditoría a Azure Storage.
 
 ![Registros de auditoría](./media/data-lake-store-security-overview/audit-logs.png "Registros de auditoría")
 

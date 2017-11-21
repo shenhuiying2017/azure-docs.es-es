@@ -13,37 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b301ff06c01d51c02f7d7393801b35cd8965403c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Realización de una revisión de acceso de los miembros de un grupo o del acceso de un usuario a una aplicación con Azure AD
 
-Los administradores pueden solicitar una revisión de los miembros del grupo o los usuarios asignados a una aplicación [creando una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md). Azure AD envía automáticamente a los revisores un correo electrónico que les solicita que revisen el acceso. Si un usuario no recibió un correo electrónico, puede enviarle las instrucciones que se indican en el articulo sobre [cómo revisar el acceso](active-directory-azure-ad-controls-perform-access-review.md).  Una vez finalizado el período de revisión de acceso o cuando el administrador detenga la revisión de acceso, siga los pasos descritos en este artículo para ver los resultados y aplicarlos.
+Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación. Azure AD envía automáticamente a los revisores un correo electrónico en el que se les solicita que revisen el acceso. Si un usuario no recibió un correo electrónico, puede enviarle las instrucciones que aparecen en [Revisión del acceso](active-directory-azure-ad-controls-perform-access-review.md). Una vez finalizado el período de revisión de acceso o si el administrador detiene la revisión de acceso, siga los pasos de este artículo para ver los resultados y aplicarlos.
 
-## <a name="viewing-an-access-review-in-the-azure-portal"></a>Visualización de una revisión de acceso en Azure Portal
+## <a name="view-an-access-review-in-the-azure-portal"></a>Visualización de una revisión de acceso en Azure Portal
 
-1. Vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), cambie a la pestaña **Programas** y seleccione el programa que contenga el control de revisión de acceso.
-2. Haga clic en Administrar y seleccione el control de revisión de acceso.  Si hay varios controles en el programa, puede filtrar solo los controles de un tipo específico, ordenar por su estado o buscar por el nombre del control de la revisión de acceso o por el nombre para mostrar del propietario que lo creó. 
+1. Vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), seleccione **Programas** y seleccione el programa que contenga el control de revisión de acceso.
 
-## <a name="stopping-a-review-that-has-not-yet-completed"></a>Detención de una revisión que no se ha completado
+2. Seleccione **Administrar** y seleccione el control de revisión de acceso. Si hay muchos controles en el programa, puede filtrar para los controles de un tipo específico y ordenar por estado. También puede buscar por el nombre del control de revisión de acceso o el nombre para mostrar del propietario que lo creó. 
 
-Si la revisión aún no ha alcanzado la fecha de finalización programada, un administrador puede detenerla haciendo clic en el botón **Detener** para terminarla antes.  Si para entonces algunos de los usuarios no se han revisado, no podrán hacerlo una vez que se haya detenido la revisión. No se puede reiniciar una revisión después de que se ha detenido.
+## <a name="stop-a-review-that-hasnt-finished"></a>Detención de una revisión que aún no ha finalizado
 
-## <a name="applying-the-changes"></a>Aplicación de los cambios 
+Si la revisión no ha alcanzado la fecha final programada, un administrador puede seleccionar **Detener** para finalizar antes la revisión. Después de detener la revisión, no se podrán revisar más los usuarios. No puede reiniciar una revisión una vez detenida.
 
-Una vez completa una revisión de acceso, bien porque se haya llegado a la fecha de finalización o porque el administrador la haya detenido manualmente, el botón **Aplicar** implementa el resultado de la revisión, actualizando al grupo o la aplicación. Si el acceso de un usuario se denegó en la revisión, cuando un administrador haga clic en este botón, Azure AD quitará la asignación de pertenencia o de la aplicación. 
+## <a name="apply-the-changes"></a>Aplicación de cambios 
 
-Hacer clic en el botón Aplicar no tendrá efecto para un grupo que se origine en un directorio local o en un grupo dinámico.  Si desea cambiar un grupo que se origina en un directorio local, descargue los resultados y aplique esos cambios a la representación del grupo en ese directorio.
+Después de que se finalice una revisión de acceso, porque se alcanzó la fecha final o porque un administrador la detuvo manualmente, seleccione **Aplicar**. El resultado de la revisión se implementa actualizando el grupo o la aplicación. Si el acceso de un usuario se denegó en la revisión, cuando un administrador seleccione esta opción, Azure AD quitará la asignación de pertenencia o de la aplicación. 
 
-## <a name="downloading-the-results-of-the-review"></a>Descarga de los resultados de la revisión
+Seleccionar **Aplicar** no tiene ningún efecto en un grupo que se origina en un directorio local o en un grupo dinámico. Si desea cambiar un grupo que se origina en un directorio local, descargue los resultados y aplique esos cambios a la representación del grupo en ese directorio.
 
-Para recuperar los resultados de la revisión, cambie a la pestaña Aprobaciones y haga clic en el botón **Descargar**.  El archivo CSV resultante puede verse en Excel o en otros programas que abren archivos CSV.
+## <a name="download-the-results-of-the-review"></a>Descarga de los resultados de la revisión
 
-## <a name="optional-deleting-a-review"></a>Opcional: eliminación de una revisión
-Si ya no le interesa más la revisión, elimínela. El botón **Eliminar** quita la revisión de Azure AD.
+Para recuperar los resultados de la revisión, seleccione **Aprobaciones** y, luego, seleccione **Descargar**. El archivo CSV resultante puede verse en Excel o en otros programas que abren archivos CSV.
+
+## <a name="optional-delete-a-review"></a>Opcional: Eliminación de una revisión
+Si ya no está interesado en la revisión, puede eliminarla. Seleccione **Eliminar** para quitar la revisión de Azure AD.
 
 > [!IMPORTANT]
 > No se produce ninguna advertencia antes de la eliminación, así que asegúrese de que realmente quiere eliminar esa revisión.

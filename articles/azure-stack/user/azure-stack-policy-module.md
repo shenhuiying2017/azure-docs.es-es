@@ -3,7 +3,7 @@ title: "Uso del módulo de directivas de Azure Stack | Microsoft Docs"
 description: "Aprenda a restringir una suscripción de Azure para que se comporte como una suscripción de Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: HeathL17
+author: SnehaGunda
 manager: byronr
 editor: 
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e505c52a5e1897d5626ee2cacce9fa3eff12fbbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/08/2017
+ms.author: sngun
+ms.openlocfilehash: 030cb837dd2082f472275bcc42dbd39b7f8b30c0
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Administración de la directiva de Azure con el módulo de directivas de Azure Stack
 
@@ -41,8 +41,9 @@ El módulo de directivas de Azure Stack le permite configurar una suscripción d
 El comando siguiente puede utilizarse para aplicar una directiva predeterminada de Azure Stack con su suscripción de Azure. Antes de ejecutarla, reemplace *Azure Subscription Name* por el nombre de su suscripción de Azure.
 
 ```PowerShell
+Login-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzureStackRmPolicy)
+$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 $rgName = 'AzureStack'
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
@@ -53,9 +54,10 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Puede aplicar las directivas de una forma más específica.  Por ejemplo, puede tener otros recursos que se ejecuten en la misma suscripción.  Puede delimitar la aplicación de directivas a un grupo de recursos específico, lo que le permite probar sus aplicaciones para Azure Stack con recursos de Azure. Antes de ejecutarla, reemplace *Azure Subscription Name* por el nombre de su suscripción de Azure.
 
 ```PowerShell
+Login-AzureRmAccount
 $resourceGroupName = ‘myRG01’
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzureStackRmPolicy)
+$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 
 ```

@@ -3,9 +3,9 @@ title: P+F sobre Azure Multi-Factor Authentication | Microsoft Docs
 description: "Preguntas y respuestas más frecuentes relacionadas con Azure Multi-Factor Authentication. Multi-Factor Authentication es un método para comprobar la identidad de un usuario que requiere usar más de un nombre de usuario y contraseña. Proporciona una capa adicional de seguridad a los inicios de sesión y transacciones de los usuarios."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 023dee623ca6ec35ab77578c97e5bf197b4bfe75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 Este artículo de P+F da respuesta a las preguntas más frecuentes sobre Azure Multi-Factor Authentication y el uso del servicio Multi-Factor Authentication. Se divide en preguntas sobre el servicio en general, los modelos de facturación, las experiencias del usuario y la solución de problemas.
@@ -135,21 +135,21 @@ Si frecuentemente sus usuarios tienen problemas para recibir mensajes de texto d
 
 En la medida de lo posible, recomendamos usar SMS unidireccionales en lugar de bidireccionales si tiene que usar mensajes de texto. Esto se debe a que los SMS unidireccionales son más seguros y evitan que los usuarios incurran en cargos SMS globales como consecuencia de responder a un mensaje de texto enviado desde otro país.
 
-**P: ¿Puedo cambiar la cantidad de tiempo que los usuarios tienen para escribir el código de comprobación de un mensaje de texto antes de que se agote el tiempo de espera del sistema?**
+**P: ¿Puedo cambiar la cantidad de tiempo que los usuarios tienen para escribir el código de verificación de un mensaje de texto antes de que se agote el tiempo de espera del sistema?**
 
 En algunos casos, sí es posible. 
 
-Para SMS unidireccionales con el servidor Azure MFA v7.0 o superior, puede configurar el ajuste de tiempo de espera estableciendo una clave del registro. Una vez que el servicio de nube MFA envía el mensaje de texto, se devuelve el código de comprobación (o código de acceso de un solo uso) al servidor MFA. El servidor MFA almacena el código en la memoria durante 300 segundos de forma predeterminada. Si el usuario no escribe el código antes de que transcurran los 300 segundos, se denegará la autenticación. Siga estos pasos para cambiar la configuración de tiempo de espera predeterminada:
+Para SMS unidireccionales con el servidor Azure MFA v7.0 o superior, puede configurar el ajuste de tiempo de espera estableciendo una clave del registro. Una vez que el servicio de nube MFA envía el mensaje de texto, se devuelve el código de verificación (o código de acceso de un solo uso) al servidor MFA. El servidor MFA almacena el código en la memoria durante 300 segundos de forma predeterminada. Si el usuario no escribe el código antes de que transcurran los 300 segundos, se denegará la autenticación. Siga estos pasos para cambiar la configuración de tiempo de espera predeterminada:
 
 1. Vaya a HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor.
 2. Cree una clave del Registro DWORD llamada **pfsvc_pendingSmsTimeoutSeconds** y establezca el tiempo (en segundos) durante el cual desea que el Servidor Azure MFA almacene los códigos de acceso de un solo uso.
 
 >[!TIP] 
->Si tiene varios servidores MFA, solo el que procesó la solicitud de autenticación original conoce el código de comprobación que se envió al usuario. Cuando el usuario escribe el código, la solicitud de autenticación para validarlo tiene que enviarse al mismo servidor. Si la validación del código se envía a un servidor diferente, se deniega la autenticación. 
+>Si tiene varios servidores MFA, solo el que procesó la solicitud de autenticación original conoce el código de verificación que se envió al usuario. Cuando el usuario escribe el código, la solicitud de autenticación para validarlo tiene que enviarse al mismo servidor. Si la validación del código se envía a un servidor diferente, se deniega la autenticación. 
 
 Para SMS bidireccional con el servidor Azure MFA, puede configurar el ajuste de tiempo de espera en el Portal de administración de MFA. Si los usuarios no responden al SMS dentro del período de tiempo de espera definido, se deniega la autenticación. 
 
-Para SMS unidireccionales con Azure MFA en la nube (incluido el adaptador de AD FS o la extensión del Servidor de directivas de redes), no se puede configurar el ajuste de tiempo de espera. Azure AD almacena el código de comprobación durante 180 segundos. 
+Para SMS unidireccionales con Azure MFA en la nube (incluido el adaptador de AD FS o la extensión del Servidor de directivas de redes), no se puede configurar el ajuste de tiempo de espera. Azure AD almacena el código de verificación durante 180 segundos. 
 
 **P.: ¿Puedo utilizar tokens de hardware con Servidor Microsoft Azure Multi-Factor Authentication?**
 

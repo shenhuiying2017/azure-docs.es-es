@@ -12,15 +12,18 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 98892a0919b1ba49308fd3bc51c735977bbff437
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Implementar y administrar un dispositivo virtual StorSimple en Azure
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [Implementación y administración de un dispositivo virtual StorSimple en Azure](storsimple-8000-cloud-appliance-u2.md). Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Información general
 El dispositivo virtual de StorSimple de la serie 8000 es una funcionalidad adicional que se incluye con la solución de Microsoft Azure StorSimple. El dispositivo virtual de StorSimple se ejecuta en una máquina virtual en una red virtual de Microsoft Azure y se puede usar para realizar copias de seguridad y clonar los datos de los hosts. Este tutorial describe cómo implementar y administrar un dispositivo virtual en Azure y es aplicable a todos los dispositivos virtuales que ejecutan la versión del software Update 2 u otra inferior.
 
@@ -33,12 +36,12 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria) |Standard_DS3 (4 núcleos, 14 GB de memoria) |
 | **Compatibilidad de versión** |Ejecuta las versiones previas a la actualización 2 o posterior |Ejecuta las versiones de la actualización 2 o posterior |
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Todas las regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br> Use [esta lista](https://azure.microsoft.com/en-us/regions/services) para ver si las dos opciones *Virtual Machines > Serie DS* y *Storage > Almacenamiento en disco* están disponibles en su región. |
-| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../virtual-machines/windows/premium-storage.md) |
+| **Tipo de almacenamiento** |Azure Standard Storage para discos locales <br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/common/storage-premium-storage.md) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento  <br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup>*Anteriormente conocido como 1100*.
 
-<sup>2</sup>*8010 y 8020 usan el almacenamiento estándar de Azure para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
+<sup>2</sup>*8010 y 8020 usan Azure Standard Storage para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
 
 Este artículo describe paso a paso el proceso de implementación de un dispositivo virtual de StorSimple en Azure. Después de leer este artículo, habrá aprendido lo siguiente:
 
@@ -63,15 +66,15 @@ La tabla siguiente muestra algunas diferencias clave entre el dispositivo virtua
 | **Clave de cifrado de datos de servicio** |Vuelve a generar en el dispositivo físico y, a continuación, actualiza el dispositivo virtual con la clave nueva. |No se puede volver a generar desde el dispositivo virtual. |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>Requisitos previos para el dispositivo virtual
-Las siguientes secciones explican los requisitos previos de configuración para el dispositivo virtual de StorSimple. Antes de implementar un dispositivo virtual, consulte el artículo [Protección de datos y seguridad de StorSimple](storsimple-security.md).
+Las siguientes secciones explican los requisitos previos de configuración para el dispositivo virtual de StorSimple. Antes de implementar un dispositivo virtual, consulte el artículo [Protección de datos y seguridad de StorSimple](storsimple-8000-security.md#storsimple-cloud-appliance-security).
 
 #### <a name="azure-requirements"></a>Requisitos de Azure
 Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes preparativos en el entorno de Azure:
 
-* Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Las regiones Premium Storage son las que corresponden a la fila de *Almacenamiento en disco* de la lista de [servicios de Azure por región](https://azure.microsoft.com/en-us/regions/services).
+* Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Si usa Premium Storage, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Las regiones Premium Storage son las que corresponden a la fila de *Almacenamiento en disco* de la lista de [servicios de Azure por región](https://azure.microsoft.com/en-us/regions/services).
 * Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver las direcciones IP correctamente, no se podrá crear el dispositivo virtual.
 * Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados.
-* Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos:                             
+* Puede crear [Azure Virtual Machines](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos:                             
 
   * Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado.
   * Ejecutarse en la misma red virtual como el dispositivo virtual.
@@ -82,7 +85,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 Realice las siguientes actualizaciones en su servicio StorSimple de Azure antes de crear un dispositivo virtual:
 
 * Agregue [registros de control de acceso](storsimple-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores de host para el dispositivo virtual.
-* Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento estándar o premium con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../virtual-machines/windows/premium-storage.md).
+* Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de Standard o Premium Storage con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../storage/common/storage-premium-storage.md).
 * Para crear el dispositivo virtual use una cuenta diferente de la que usa para los datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
 Asegúrese de que tiene la siguiente información antes de empezar:
@@ -204,7 +207,7 @@ Si decide que desea empezar de nuevo con su dispositivo virtual, simplemente des
 La recuperación ante desastres (DR) es uno de los escenarios clave para los que se diseñó el dispositivo virtual de StorSimple. En este escenario, es posible que el dispositivo físico de StorSimple o todo el centro de datos no esté disponible. Afortunadamente, puede usar un dispositivo virtual para restaurar las operaciones en una ubicación alternativa. Durante la recuperación ante desastres, los contenedores de volúmenes del dispositivo de origen cambia la propiedad y se transfieren al dispositivo virtual. Los requisitos previos para la recuperación ante desastres son que haya creado y configurado el dispositivo virtual, todos los volúmenes en el contenedor de volúmenes se hayan desconectado y el contenedor de volúmenes tenga asociada una instantánea en la nube.
 
 > [!NOTE]
-> * Al utilizar un dispositivo virtual como el dispositivo secundario para recuperación ante desastres, tenga en cuenta que el 8010 tiene 30 TB de almacenamiento estándar y 8020 tiene 64 TB de almacenamiento premium. La mayor capacidad del 8020 puede resultar más adecuada para un escenario de recuperación ante desastres.
+> * Al utilizar un dispositivo virtual como el dispositivo secundario para recuperación ante desastres, tenga en cuenta que el 8010 tiene 30 TB de Standard Storage y 8020 tiene 64 TB de Premium Storage. La mayor capacidad del 8020 puede resultar más adecuada para un escenario de recuperación ante desastres.
 > * No se puede efectuar la conmutación por error ni clonar desde un dispositivo que ejecute la actualización 2 a un dispositivo que ejecute el software anterior a la actualización 1. Sin embargo puede conmutar por error un dispositivo que ejecuta la actualización 2 a un dispositivo que ejecuta la actualización 1 (1.1 o 1.2)
 >
 >

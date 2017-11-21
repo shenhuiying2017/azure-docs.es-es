@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Solución de problemas: El elemento "Active Directory" falta o no está disponible
 Muchas de las instrucciones para usar las características y los servicios de Azure Active Directory comienzan con "Vaya al Portal de administración de Azure y haga clic en **Active Directory**". Pero ¿qué hacer si el elemento de menú o la extensión Active Directory no aparecen o están marcados como **No disponible**? Este tema está diseñado para ayudarle en este caso. Describe las condiciones en que **Active Directory** no aparece o no está disponible y explica cómo proceder.
@@ -43,7 +43,7 @@ El elemento Active Directory se muestra en el menú de navegación izquierdo cua
 
 Para crear un espacio de nombres de Control de acceso o un proveedor de Multi-Factor Authentication, haga clic en **+Nuevo** > **App Services** > **Active Directory**.
 
-Para obtener derechos administrativos a un directorio, pida a un administrador que asigne un rol de administrador a su cuenta. Para obtener detalles, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md).
+Para obtener derechos administrativos a un directorio, pida a un administrador que asigne un rol de administrador a su cuenta. Para obtener detalles, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="active-directory-is-not-available"></a>Active Directory no está disponible
 Cuando se hace clic en **+Nuevo** > **App Services**, aparece el elemento **Active Directory**. En concreto, el elemento Active Directory aparece cuando cualquiera de las características de Active Directory, como Directorio, Control de acceso o el proveedor de Multi-Factor Authentication, están disponibles para el usuario actual.

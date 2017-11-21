@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aaf11636484fb6295c9522795b069839d2783ba9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ebb1d61f3fff85580fe4f616477c5084d1537a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Factoría de datos de Azure
+# <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-web-table-connector.md)
 > * [Versión 2: Versión preliminar](../connector-web-table.md)
@@ -129,7 +129,7 @@ El ejemplo siguiente muestra:
 
 El ejemplo copia los datos de una tabla web a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
-En el ejemplo siguiente se muestra cómo copiar datos de una tabla web a un blob de Azure. Sin embargo, los datos se pueden copiar directamente en cualquiera de los receptores indicados en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) mediante la actividad de copia de Data Factory de Azure.
+En el ejemplo siguiente se muestra cómo copiar datos de una tabla web a un blob de Azure. Sin embargo, los datos se pueden copiar directamente en cualquiera de los receptores indicados en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) mediante la actividad de copia de Azure Data Factory.
 
 **Servicio vinculado de tipo Web** : este ejemplo utiliza el servicio vinculado de tipo Web con la autenticación anónima. Consulte la sección [Propiedades del servicio vinculado de Web](#linked-service-properties) para conocer los diferentes tipos de autenticación que se pueden usar.
 
@@ -148,7 +148,7 @@ En el ejemplo siguiente se muestra cómo copiar datos de una tabla web a un blob
 }
 ```
 
-**Servicio vinculado de Almacenamiento de Azure**
+**Servicio vinculado de Azure Storage**
 
 ```json
 {

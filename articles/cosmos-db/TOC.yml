@@ -45,6 +45,22 @@
       items:
         - name: .NET
           href: create-table-dotnet.md
+        - name: Java
+          href: create-table-java.md
+        - name: Node.js
+          href: create-table-nodejs.md
+        - name: Python
+          href: create-table-python.md
+    - name: Cassandra
+      items:
+        - name: Node.js
+          href: create-cassandra-nodejs.md
+        - name: Java
+          href: create-cassandra-java.md
+        - name: .NET
+          href: create-cassandra-dotnet.md
+        - name: Python
+          href: create-cassandra-python.md
 - name: Tutoriales
   items:
     - name: 1 - Creación
@@ -61,12 +77,18 @@
           href: tutorial-develop-table-dotnet.md
         - name: Grafo
           href: tutorial-develop-graph-dotnet.md
+        - name: Cassandra
+          href: tutorial-develop-cassandra-java.md
     - name: 2 - Importación
       items:
         - name: DocumentDB
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
+        - name: Tabla
+          href: table-import.md
+        - name: Cassandra
+          href: cassandra-import-data.md
     - name: 3 - Consulta
       items:
         - name: DocumentDB
@@ -125,6 +147,8 @@
           href: table-introduction.md
         - name: Grafo
           href: graph-introduction.md
+        - name: Cassandra
+          href: cassandra-introduction.md
     - name: Seguridad
       href: database-security.md
     - name: TCO
@@ -222,6 +246,8 @@
               href: mongodb-mongochef.md
             - name: Uso de Robomongo
               href: mongodb-robomongo.md
+            - name: Compatibilidad con las características de MongoDB
+              href: mongodb-feature-support.md
             - name: Serie de tutoriales sobre Angular
               items:
                 - name: 'Parte 2: Creación de aplicaciones de nodo'
@@ -246,6 +272,8 @@
           items:
             - name: Desarrollo de tablas
               href: table-support.md
+            - name: Operaciones de Table API con PowerShell
+              href: table-powershell.md
             - name: Almacenamiento de tablas de Azure
               items:
                 - name: Información general de Table Storage
@@ -254,7 +282,7 @@
                   href: table-storage-design-guide.md
                 - name: API de REST de Table Storage
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Cómo
+                - name: Desarrollo
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -274,6 +302,8 @@
                       href: table-storage-how-to-use-python.md
                     - name: Ruby
                       href: table-storage-how-to-use-ruby.md
+                    - name: PowerShell
+                      href: table-storage-how-to-use-powershell.md
         - name: Fuente de cambios
           href: change-feed.md
         - name: Geoespaciales
@@ -370,6 +400,10 @@
       items:
         - name: .NET
           href: table-sdk-dotnet.md
+        - name: Java
+          href: table-sdk-java.md
+        - name: Node.js
+          href: table-sdk-nodejs.md
         - name: Python
           href: table-sdk-python.md
     - name: API Graph

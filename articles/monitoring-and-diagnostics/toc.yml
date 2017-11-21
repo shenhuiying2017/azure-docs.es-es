@@ -152,10 +152,10 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Solución de problemas
           href: azure-diagnostics-troubleshooting.md
-    - name: Uso del Explorador de métricas de Azure Monitor
-      items:
-        - name: Creación de gráficos de métricas
-          href: monitoring-metric-charts.md
+    - name: Creación de gráficos de métricas en el Explorador de métricas
+      href: monitoring-metric-charts.md
+    - name: Envío de métricas a Grafana
+      href: monitor-send-to-grafana.md
 - name: Referencia
   items:
     - name: CLI de Azure

@@ -1,6 +1,6 @@
 ---
 title: Movimiento de datos de Sybase mediante Azure Data Factory | Microsoft Docs
-description: "Obtenga información acerca de cómo mover los datos de la base de datos de Sybase mediante Factoría de datos de Azure."
+description: "Obtenga información acerca de cómo mover los datos de la base de datos de Sybase mediante Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 66997cd78f2663c0556d71952dcf12bcc46dba96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19a51c7456df698fa682fdecf1487730e282de19
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="move-data-from-sybase-using-azure-data-factory"></a>Movimiento de datos de Sybase mediante Factoría de datos de Azure
+# <a name="move-data-from-sybase-using-azure-data-factory"></a>Movimiento de datos de Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-onprem-sybase-connector.md)
 > * [Versión 2: Versión preliminar](../connector-sybase.md)
@@ -96,7 +96,7 @@ Cuando el origen es de tipo **RelationalSource** (lo que incluye Sybase), están
 
 
 ## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de Sybase a un blob de Azure
-En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Sybase al almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.   
+En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Sybase a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.   
 
 El ejemplo consta de las siguientes entidades de factoría de datos:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Un enfoque de varios niveles para la seguridad de contraseñas de Azure AD
 
@@ -37,7 +37,7 @@ Azure AD incorpora los siguientes enfoques comunes para proteger las contraseña
 * Requisitos de complejidad de contraseña
 * Expiración de contraseña normal y periódica
 
-Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](active-directory-passwords.md).
+Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Protección de contraseñas de Azure AD
 
@@ -74,7 +74,7 @@ Para otras cuentas de Microsoft, su pantalla tiene un aspecto similar al siguien
 
   ![Bloqueado en una cuenta de Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](active-directory-passwords.md).
+Para más información sobre el restablecimiento de contraseña en Azure Active Directory, consulte el tema [Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI](active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Los administradores de Azure AD pueden usar [Windows Hello](https://www.microsoft.com/windows/windows-hello) para evitar que los usuarios creen contraseñas tradicionales.

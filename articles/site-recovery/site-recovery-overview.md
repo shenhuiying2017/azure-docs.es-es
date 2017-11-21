@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 90f9fe5775f493298dad3b12f2be9d6da6cb480e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b4b39cd23557093edaec97f7ef7a3e354f1ecd03
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="about-site-recovery"></a>Acerca de Site Recovery
 
@@ -67,8 +67,7 @@ Site Recovery puede administrar la replicación de:
 **¿Qué regiones se admiten para Site Recovery?** | [Regiones admitidas](https://azure.microsoft.com/regions/services/) |
 **¿Qué sistemas operativos necesitan las máquinas replicadas?** | [Requisitos de máquina virtual de Azure](site-recovery-support-matrix-azure-to-azure.md#support-for-replicated-machine-os-versions)</br></br>[Requisitos de máquinas virtuales VMWare](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)<br/><br/> En el caso de las máquinas virtuales de Hyper-V, se admite cualquier [SO invitado](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) compatible con Hyper-V y Azure.<br/><br/> [Requisitos del servidor físico](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 **¿Qué hosts o servidores VMware necesito?** | Las máquinas virtuales de VMware se pueden ubicar en [hosts de vSphere/servidores de vCenter compatibles](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
-
-**¿Qué cargas de trabajo puedo replicar?** Puede replicar cualquier carga de trabajo que se ejecute en una máquina de replicación admitida. Además, el equipo de Site Recovery ha realizado pruebas específicas para [diversas aplicaciones](site-recovery-workload.md#workload-summary).
+**¿Qué cargas de trabajo puedo replicar?** | Puede replicar cualquier carga de trabajo que se ejecute en una máquina de replicación admitida. Además, el equipo de Site Recovery ha realizado pruebas específicas para [diversas aplicaciones](site-recovery-workload.md#workload-summary).
 
 
 

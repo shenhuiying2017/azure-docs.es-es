@@ -1,6 +1,6 @@
 ---
-title: "Factoría de datos de Azure: ejemplos"
-description: "Proporciona detalles sobre ejemplos que se distribuyen con el servicio Factoría de datos de Azure."
+title: 'Azure Data Factory: ejemplos'
+description: Proporciona detalles sobre ejemplos que se distribuyen con el servicio Azure Data Factory.
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -12,35 +12,35 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 10/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 046358644abb5a83d7b8f586006e8db7ee95a453
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="azure-data-factory---samples"></a>Factoría de datos de Azure: ejemplos
+# <a name="azure-data-factory---samples"></a>Azure Data Factory: ejemplos
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si utiliza la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte [Ejemplos de PowerShell en la versión 2 de Data Factory](../samples-powershell.md) y [ejemplos de código en la galería de ejemplos de código de Azure](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory).
 
 
 ## <a name="samples-on-github"></a>Ejemplos en GitHub
-El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Factoría de datos de Azure (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
+El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Azure Data Factory (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
 
 | Muestra | Description |
 |:--- |:--- |
 | [Tutorial de ADF](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Este ejemplo ofrece un tutorial exhaustivo para el procesamiento de archivos de registro mediante Azure Data Factory con el fin de convertir los datos de los archivos de registro en información útil. <br/><br/>En este tutorial, la canalización de Data Factory recopila registros de muestra, procesa y enriquece los datos de los registros con datos de referencia, y transforma los datos para evaluar la eficacia de una campaña de marketing lanzada recientemente. |
 | [Muestras de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Esta muestra ofrece ejemplos de JSON para escenarios comunes. |
-| [Muestra de descargador de datos HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Muestra la descarga de datos de un punto de conexión HTTP al Almacenamiento de blobs de Azure mediante una actividad .NET personalizada. |
+| [Muestra de descargador de datos HTTP](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |Muestra la descarga de datos de un punto de conexión HTTP a Azure Blob Storage mediante una actividad .NET personalizada. |
 | [Muestra de CrossAppDomainDotNetActivity](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Esta muestra le permite crear una actividad .NET personalizada que no esté restringida a las versiones de ensamblado utilizadas por el iniciador de ADF (por ejemplo, WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.). |
 | [Ejecutar script R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample) |Esta muestra incluye la actividad personalizada de Data Factory que puede usarse para invocar RScript.exe. Esta muestra solo funciona con su propio clúster de HDInsight (no a petición) que ya tiene R instalado. |
 | [Invocar trabajos de Spark en clústeres de Hadoop de HDInsight](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/Spark) |Este ejemplo muestra cómo utilizar la actividad MapReduce para invocar un programa Spark. El programa Spark se limita a copiar datos de un contenedor de blobs de Azure a otro. |
-| [Análisis de Twitter mediante actividad de puntuación de lotes de Aprendizaje automático de Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Este ejemplo muestra cómo utilizar AzureMLBatchScoringActivity para invocar un modelo de Aprendizaje automático de Azure que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
+| [Análisis de Twitter mediante actividad de puntuación de lotes de Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Este ejemplo muestra cómo utilizar AzureMLBatchScoringActivity para invocar un modelo de Aprendizaje automático de Azure que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
 | [Análisis de Twitter mediante actividad personalizada](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Este ejemplo muestra cómo usar una actividad de .NET personalizada para invocar un modelo de Aprendizaje automático de Azure que realiza análisis de opinión de Twitter, puntuaciones, predicciones, etc. |
 | [Canalizaciones con parámetros para el Aprendizaje automático de Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ParameterizedPipelinesForAzureML/) |Esta muestra ofrece un código C# de un extremo a otro a fin de implementar canalizaciones N para la puntuación y el reciclaje de cada una con un parámetro de una región distinta, donde la lista regiones procede de un archivo .txt de parámetros que se incluye con esta muestra. |
-| [Actualización de datos de referencia para los trabajos de Análisis de transmisiones de Azure](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |Este ejemplo muestra cómo aprovechar Azure Data Factory y Stream Analytics de Azure de forma conjunta para ejecutar las consultas con datos de referencia y configurar la actualización de dichos datos en un programa. |
+| [Actualización de datos de referencia para los trabajos de Azure Stream Analytics](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs) |Este ejemplo muestra cómo aprovechar Azure Data Factory y Stream Analytics de Azure de forma conjunta para ejecutar las consultas con datos de referencia y configurar la actualización de dichos datos en un programa. |
 | [Canalización híbrida con Hadoop Hortonworks local](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HybridPipelineWithOnPremisesHortonworksHadoop) |El ejemplo utiliza un clúster de Hadoop local como un destino de proceso para ejecutar trabajos en Data Factory del mismo modo en que agregaría otros destinos de proceso, como un clúster de Hadoop basado en HDInsight en la nube. |
 | [Herramienta de conversión de JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSONConversionTool) |Esta herramienta le permite convertir los archivos JSON de una versión anterior a la versión preliminar del 01-07-2015 a la más reciente o a la preliminar del 01-07-2015 (predeterminada). |
 | [Archivo de entrada de ejemplo de U-SQL](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/U-SQL%20Sample%20Input%20File) |Se trata de un archivo de ejemplo que utiliza una actividad U-SQL. |
@@ -83,7 +83,7 @@ Debe tener lo siguiente instalado en el equipo:
 
 * Visual Studio 2013 o Visual Studio 2015.
 * Descargue el SDK de Azure para Visual Studio 2013 o Visual Studio 2015. Vaya a la [página Descargas de Azure](https://azure.microsoft.com/downloads/) y haga clic en **VS 2013** o **VS 2015** en la sección **.NET**.
-* Descargue el último complemento de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si va a utilizar Visual Studio 2013, también puede actualizar el complemento, para lo que debe seguir estos pasos: en el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Factoría de datos de Microsoft Azure para Visual Studio** -> **Actualizar**.
+* Descargue el último complemento de Azure Data Factory para Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si va a utilizar Visual Studio 2013, también puede actualizar el complemento, para lo que debe seguir estos pasos: en el menú, haga clic en **Herramientas** -> **Extensiones y actualizaciones** -> **En línea** -> **Galería de Visual Studio** -> **Herramientas de Microsoft Azure Data Factory para Visual Studio** -> **Actualizar**.
 
 ### <a name="use-data-factory-templates"></a>Uso de plantillas de Data Factory
 1. Haga clic en **Archivo** en el menú, seleccione **Nuevo** y haga clic en **Proyecto**.

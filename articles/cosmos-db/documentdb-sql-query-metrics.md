@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f057ee80e8a26595c17e6610a2aaaad08d0346b5
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 Azure Cosmos DB proporciona una [API de SQL para consultar datos](documentdb-sql-query.md), sin necesidad de índices de esquema o secundarios. En este artículo se proporciona la siguiente información para los desarrolladores:
@@ -253,7 +253,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `documentLoadTimeInMs` | milisegundos | Tiempo invertido en la carga de documentos  | 
 | `systemFunctionExecuteTimeInMs` | milisegundos | Tiempo total invertido en ejecutar funciones del sistema (integradas), en milisegundos  | 
 | `userFunctionExecuteTimeInMs` | milisegundos | Tiempo total invertido en ejecutar funciones definidas por el usuario, en milisegundos | 
-| `retrievedDocumentCount` | milisegundos | Número total de documentos recuperados  | 
+| `retrievedDocumentCount` | count | Número total de documentos recuperados  | 
 | `retrievedDocumentSize` | bytes | Tamaño total de los documentos recuperados, en bytes  | 
 | `outputDocumentCount` | count | Número de documentos de salida | 
 | `writeOutputTimeInMs` | milisegundos | Tiempo de ejecución de consultas, en milisegundos | 

@@ -1,29 +1,37 @@
 ---
-title: "¿Cuáles son las novedades de Azure Active Directory? | Microsoft Docs"
-description: "Use estas notas de la versión para mantenerse al día de **versiones más recientes**, **problemas conocidos**, **correcciones de errores**, **funciones obsoletas** y **planes de cambios** en Azure Active Directory."
+title: "Novedades Notas de la versión de Azure Active | Microsoft Docs"
+description: "Conozca las novedades de Azure Active Directory (Azure AD), incluidas las notas de versión más recientes, los problemas conocidos, las correcciones de errores, las funcionalidades en desuso y los próximos cambios."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
 editor: 
+featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0361d5b48af876af2ccc522351484d369554bfca
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
-Estamos mejorando Azure Active Directory de forma continuada para usted. Para ayudarle a mantenerse al día con los avances más recientes, este tema le proporciona información acerca de:
+
+
+
+> Para estar al día de las novedades de Azure Active Directory, suscríbase a esta [fuente](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) en su lector de fuentes RSS favorito.
+
+
+
+Estamos mejorando Azure Active Directory de forma continuada. Para ayudarle a mantenerse al día con los avances más recientes, este tema le proporciona información acerca de:
 
 -   Versiones más recientes 
 -   Problemas conocidos 
@@ -32,6 +40,18 @@ Estamos mejorando Azure Active Directory de forma continuada para usted. Para ay
 -   Planes de cambios 
 
 Vuelva a visitar esta página con regularidad, ya que se actualiza mensualmente.
+
+## <a name="november-2017"></a>Noviembre de 2017
+
+**Tipo:** funciones obsoletas  
+**Categoría del servicio:** ACS  
+**Capacidad de producto:** Access Control Service 
+
+<a name="acs-retirement"></a>
+
+Microsoft Azure Active Directory Access Control (también conocido como Access Control Service o ACS) se retirará a finales de 2018.  En las próximas semanas ofreceremos más información, como una programación detallada y una guía de migración de alto nivel. Mientras tanto, si tiene cualquier pregunta relacionada con ACS, háganosla llegar a través de los comentarios de esta página y un miembro de nuestro equipo se pondrá en contacto con usted para darle la respuesta.
+
+---
 
 
 ## <a name="october-2017"></a>Octubre de 2017
@@ -76,6 +96,8 @@ En el mundo en que vivimos, la autenticación multifactor (MFA) es una parte ese
 
 Con esta versión preliminar pública, los informes y la administración de MFA forman parte de la experiencia de configuración principal de Azure AD, lo que le permite administrar la funcionalidad del portal de administración de MFA dentro de la experiencia de Azure AD.
 
+Para obtener más información, vea [Información de referencia para los informes de la autenticación multifactor en Azure Portal](active-directory-reporting-activity-sign-ins-mfa.md) 
+
 
 ---
 **Tipo:** nueva característica  
@@ -112,8 +134,6 @@ Para obtener más información, consulte [PIM para recursos de Azure](privileged
 **Categoría de servicio:** Revisiones de acceso  
 **Funcionalidad del producto:** gobierno  
 
-
-Novedades de Azure AD
 
 Las revisiones de acceso (versión preliminar) permiten a las organizaciones administrar de forma eficiente las pertenencias a grupos y el acceso a las aplicaciones empresariales: 
 

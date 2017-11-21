@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Uso del flujo estructurado de Spark con Kafka (versión preliminar) en HDInsight
 
@@ -29,7 +29,7 @@ El flujo estructurado de Spark es un motor de procesamiento de flujo basado en S
 > [!IMPORTANT]
 > En este ejemplo se utiliza Spark 2.1 en HDInsight 3.6. La versión de la funcionalidad de flujo estructurado se considera __alfa__ en Spark 2.1.
 >
-> Los pasos que se describen en este documento crean un grupo de recursos de Azure que contiene un clúster Spark de HDInsight y un clúster Kafka de HDInsight. Estos dos clústeres se encuentran en una red virtual de Azure, lo que permite al clúster Spark comunicarse directamente con el clúster Kafka.
+> Los pasos que se describen en este documento crean un grupo de recursos de Azure que contiene un clúster Spark de HDInsight y un clúster Kafka de HDInsight. Estos dos clústeres se encuentran en una instancia de Azure Virtual Network, lo que permite al clúster Spark comunicarse directamente con el clúster Kafka.
 >
 > Cuando haya terminado los pasos indicados en este documento, no olvide eliminar los clústeres para evitar gastos innecesarios.
 
@@ -54,7 +54,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
     * Un clúster de Kafka en HDInsight 3.5
     * Un clúster de Spark en HDInsight 3.6
-    * Una red virtual de Azure, que contiene los clústeres de HDInsight.
+    * Una instancia de Azure Virtual Network, que contiene los clústeres de HDInsight.
 
     > [!IMPORTANT]
     > El cuaderno de flujo estructurado que se utiliza en este ejemplo requiere Spark en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
@@ -158,4 +158,4 @@ En la página principal de Jupyter Notebook, seleccione la entrada __Spark-Struc
 Ahora que ha aprendido a usar el flujo estructurado de Spark, consulte los siguientes documentos para obtener más información sobre cómo trabajar con Spark y Kafka:
 
 * [Uso del flujo estructurado de Spark (DStream) con Kafka](hdinsight-apache-spark-with-kafka.md)
-* [Introducción a Jupyter Notebook y Spark en HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [Introducción a Jupyter Notebook y Spark en HDInsight](spark/apache-spark-jupyter-spark-sql.md)

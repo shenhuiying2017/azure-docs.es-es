@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Azure Cloud Services y ASP.NET | Microsoft Docs"
-description: "Aprenda a crear una aplicación de varios niveles utilizando ASP.NET MVC y Azure. La aplicación se ejecuta en un servicio en la nube, con un rol web y un rol de trabajo. Utiliza Entity Framework, Base de datos SQL y blobs y colas de Almacenamiento de Azure."
+description: "Aprenda a crear una aplicación de varios niveles utilizando ASP.NET MVC y Azure. La aplicación se ejecuta en un servicio en la nube, con un rol web y un rol de trabajo. Utiliza Entity Framework, SQL Database y blobs y colas de Azure Storage."
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cdafdb88604b8874a245751246d219e8df3813
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Servicios en la nube de Azure y ASP.NET
+# <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
 ## <a name="overview"></a>Información general
 En este tutorial se muestra cómo crear una aplicación .NET de múltiples niveles con un front-end ASP.NET MVC e implementarla en un [servicio en la nube de Azure](cloud-services-choose-me.md). La aplicación usa [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), el [servicio Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) y el [servicio Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Puede [descargar el proyecto de Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) desde la Galería de código de MSDN.
@@ -34,15 +34,15 @@ La aplicación es un tablón de anuncios publicitario. Los usuarios crean un anu
 
 La aplicación usa el [patrón de trabajo centrado en colas](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descargar el trabajo de uso intensivo de CPU de creación de miniaturas y pasarlo a un proceso back-end.
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>Arquitectura alternativa: sitios web y WebJobs
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/services/web-sites/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en versión preliminar) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Trabajos web de Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación entre Sitios web, Servicios en la nube y Máquinas virtuales de Azure](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-websites-and-webjobs"></a>Arquitectura alternativa: Websites y WebJobs
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/services/web-sites/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en versión preliminar) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación entre Azure Websites, Cloud Services y Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Temas que se abordarán
 * Habilitar su equipo para desarrollar contenido de Azure mediante la instalación del SDK de Azure.
 * Creación de un proyecto de servicio en la nube de Visual Studio con un rol web de ASP.NET MVC y un rol de trabajo
 * Prueba del proyecto de servicio en la nube localmente usando el emulador de almacenamiento de Azure.
 * Publicación del proyecto en la nube en un servicio en la nube de Azure y prueba usando una cuenta de almacenamiento de Azure.
-* Carga de archivos y almacenamiento de los mismos en el servicio Blob de Azure.
+* Carga de archivos y almacenamiento de los mismos en Azure Blob service.
 * Uso del servicio Cola de Azure para comunicación entre niveles.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -771,11 +771,11 @@ A continuación se muestran algunas aplicaciones de ejemplo de servicios en la n
 
 Para obtener información general sobre el desarrollo para la nube, consulte [Creación de aplicaciones del mundo real para la nube con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
-Para ver un vídeo introductorio de los procedimientos y modelos recomendados de Almacenamiento de Azure, consulte [Almacenamiento de Microsoft Azure: novedades, procedimientos y modelos recomendados](http://channel9.msdn.com/Events/Build/2014/3-628).
+Para ver un vídeo introductorio de los procedimientos y modelos recomendados de Azure Storage, consulte [Microsoft Azure Storage: novedades, procedimientos y modelos recomendados](http://channel9.msdn.com/Events/Build/2014/3-628).
 
 Para obtener más información, consulte los siguientes recursos:
 
-* [Servicios de nube de Azure, parte 1: Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Administración de servicios en la nube](cloud-services-how-to-manage.md)
-* [Almacenamiento de Azure](/documentation/services/storage/)
+* [Azure Cloud Services, parte 1: Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
+* [Azure Storage](/documentation/services/storage/)
 * [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

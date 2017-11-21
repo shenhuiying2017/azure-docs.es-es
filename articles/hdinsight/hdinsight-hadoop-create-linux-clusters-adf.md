@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creación de clústeres de Hadoop en HDInsight mediante Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -61,7 +61,7 @@ adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 ```
 
-Para obtener una lista de actividades de transformación de datos de Data Factory además de la actividad de Hive, vea [Transformar y analizar mediante Data Factory de Azure](../data-factory/transform-data.md).
+Para obtener una lista de actividades de transformación de datos de Data Factory además de la actividad de Hive, vea [Transformar y analizar mediante Azure Data Factory](../data-factory/transform-data.md).
 
 > [!NOTE]
 > Actualmente, solo se puede crear un clúster de HDInsight versión 3.2 desde Azure Data Factory.
@@ -85,7 +85,7 @@ Para simplificar el tutorial, utilizará una cuenta de almacenamiento para los 3
 
 1. Inicie sesión en Azure.
 2. Cree un grupo de recursos de Azure.
-3. Cree una cuenta de almacenamiento de Azure.
+3. Cree una cuenta de Azure Storage.
 4. Cree un contenedor de blobs en la cuenta de almacenamiento.
 5. Copie los dos archivos siguientes en el contenedor de blobs:
 
@@ -202,7 +202,7 @@ Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL prep
 7. Haga clic en el nombre de la factoría de datos (el valor que especificó en el parámetro **Nombre de factoría de datos**).
 8. En la hoja Data Factory, haga clic en el icono **Diagrama**. El diagrama muestra una actividad con un conjunto de datos de entrada y un conjunto de datos de salida:
 
-    ![Diagrama de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
+    ![Diagrama de la canalización de la actividad de Hive bajo demanda de HDInsight para Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
 
     Los nombres se definen en la plantilla de Resource Manager.
 9. Haga doble clic en **AzureBlobOutput**.
@@ -219,11 +219,11 @@ Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL prep
 2. Haga clic en **adfgetstarted**.
 3. Haga doble clic en **partitioneddata**. Se ve una carpeta **year=2014**, ya que todos los registros de web son del año 2014.
 
-    ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
+    ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
     Si profundiza en la lista, verá 3 carpetas de enero, febrero y marzo. Además, hay un registro para cada mes.
 
-    ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
+    ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
 ## <a name="data-factory-entities-in-the-template"></a>Entidades de Data Factory en la plantilla
 Este es el aspecto de la plantilla de Resource Manager de nivel superior para una factoría de datos:
@@ -270,13 +270,13 @@ dataFactoryName es el nombre de la factoría de datos que se especifica al imple
 ### <a name="defining-entities-within-the-data-factory"></a>Definición de entidades en la factoría de datos
 Las siguientes entidades de Data Factory se definen en la plantilla JSON:
 
-* [Servicio vinculado de Almacenamiento de Azure](#azure-storage-linked-service)
+* [Servicio vinculado de Azure Storage](#azure-storage-linked-service)
 * [Servicio vinculado a petición de HDInsight](#hdinsight-on-demand-linked-service)
 * [Conjunto de datos de entrada de blob de Azure:](#azure-blob-input-dataset)
 * [Conjunto de datos de salida de blob de Azure](#azure-blob-output-dataset)
 * [Canalización de datos con una actividad de copia](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Servicio vinculado de Almacenamiento de Azure
+#### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
 El servicio vinculado Azure Storage vincula una cuenta de Azure Storage a la factoría de datos. En este tutorial, la misma cuenta de almacenamiento se usa como la cuenta de almacenamiento para HDInsight predeterminada, el almacenamiento de datos de entrada y el almacenamiento de datos de salida. Por consiguiente, se define solo un servicio vinculado Azure Storage. En la definición del servicio vinculado, especifique el nombre y la clave de su cuenta de Azure Storage. Consulte [Servicio vinculado de Azure Storage](../data-factory/connector-azure-blob-storage.md) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage.
 
 ```json
@@ -332,7 +332,7 @@ Tenga en cuenta los siguientes puntos:
 Para más información, consulte la sección [Servicio vinculado a petición de HDInsight de Azure](../data-factory/compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 
 > [!IMPORTANT]
-> A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf**nombredefactoría dedatos**-**nombredelserviciovinculado**-marcadefechayhora". Use herramientas como el [Explorador de almacenamiento de Microsoft](http://storageexplorer.com/) para eliminar contenedores de Almacenamiento de blobs de Azure.
+> A medida que se procesen más segmentos, verá numerosos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf**nombredefactoría dedatos**-**nombredelserviciovinculado**-marcadefechayhora". Use herramientas como el [Explorador de Microsoft Storage](http://storageexplorer.com/) para eliminar contenedores de Azure Blob Storage.
 
 #### <a name="azure-blob-input-dataset"></a>Conjunto de datos de entrada de blob de Azure
 En la definición del conjunto de datos de entrada, especifique los nombres del contenedor de blobs, la carpeta y el archivo que contiene los datos de entrada. Consulte las [propiedades del conjunto de datos de Azure Blob](../data-factory/connector-azure-blob-storage.md) para más información sobre las propiedades JSON usadas para definir un conjunto de datos de Azure Blob.
@@ -424,7 +424,7 @@ La configuración de [disponibilidad del conjunto de datos](../data-factory/conc
 },
 ```
 
-En Data Factory de Azure, la disponibilidad del conjunto de datos de salida activa la canalización. En este ejemplo, el segmento se genera el último día de cada mes (EndOfInterval). 
+En Azure Data Factory, la disponibilidad del conjunto de datos de salida activa la canalización. En este ejemplo, el segmento se genera el último día de cada mes (EndOfInterval). 
 
 #### <a name="data-pipeline"></a>Canalización de datos
 Defina una canalización que transforme los datos mediante la ejecución de un script de Hive en un clúster de Azure HDInsight a petición. Consulte [JSON de canalización](../data-factory/concepts-pipelines-activities.md) para obtener descripciones de elementos JSON que se usan para definir una canalización en este ejemplo.
@@ -562,9 +562,9 @@ Si no desea eliminar la cuenta de almacenamiento al eliminar el grupo de recurso
     },            
     ```
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, ha aprendido cómo utilizar la Data Factory de Azure para crear el clúster de HDInsight bajo demanda para procesar los trabajos de Hive. Para obtener más información:
+En este artículo, ha aprendido cómo utilizar Azure Data Factory para crear el clúster de HDInsight bajo demanda para procesar los trabajos de Hive. Para obtener más información:
 
-* [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Documentación de HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Documentación de Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
@@ -594,4 +594,4 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-El nombre del contenedor es *adfgetstarted*. Déjelo como está. De lo contrario, tendrá que actualizar la plantilla de Resource Manager. Si necesita ayuda con este script de la CLI, vea [Uso de la CLI de Azure con Almacenamiento de Azure](../storage/common/storage-azure-cli.md).
+El nombre del contenedor es *adfgetstarted*. Déjelo como está. De lo contrario, tendrá que actualizar la plantilla de Resource Manager. Si necesita ayuda con este script de la CLI, vea [Uso de la CLI de Azure con Azure Storage](../storage/common/storage-azure-cli.md).

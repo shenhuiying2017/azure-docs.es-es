@@ -1,9 +1,9 @@
 ---
 title: "Ejecución de Cassandra con Linux en Azure | Microsoft Docs"
-description: "Ejecución de un clúster de Cassandra en Linux en las máquinas virtuales Azure desde la aplicación Node.js."
+description: "Ejecución de un clúster de Cassandra en Linux en Azure Virtual Machines desde la aplicación Node.js."
 services: virtual-machines-linux
 documentationcenter: nodejs
-author: tomarcher
+author: craigshoemaker
 manager: routlaw
 editor: 
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: tarcher
-ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: 28eb281d8d301fa5478afb0925c74349de92ca58
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Ejecución de Cassandra con Linux en Azure y acceso desde Node.js
 > [!IMPORTANT] 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Información general
 Microsoft Azure es una plataforma de nube abierta que ejecuta tanto software de Microsoft como ajeno a Microsoft que incluye sistemas operativos, servidores de aplicaciones, middleware de mensajería, así como bases de datos SQL y NoSQL tanto de modelos comerciales como de código abierto. Crear servicios resistentes en nubes públicas, incluido Azure, requiere una cuidadosa planeación y una arquitectura deliberada para ambos servidores de aplicaciones, así como capas de almacenamiento. La arquitectura de almacenamiento distribuido de Cassandra ayuda naturalmente a crear sistemas de alta disponibilidad que son tolerantes a errores de clúster. Cassandra es una base de datos NoSQL de escala de nube mantenida por Apache Software Foundation en cassandra.apache.org; Cassandra está escrita en Java y, por tanto, se ejecuta tanto en plataformas Windows como Linux.
 
-El enfoque de este artículo es mostrar la implementación de Cassandra en Ubuntu como un clúster único y de centro de múltiples datos que aproveche las máquinas virtuales y las redes virtuales de Microsoft Azure. La implementación del clúster para cargas de trabajo optimizadas de producción no se trata en este artículo, ya que requiere la configuración del nodo de múltiples discos, el diseño de la topología adecuada y el modelado de los datos para admitir la replicación, la coherencia de datos, el rendimiento y los requisitos de alta disponibilidad necesarios.
+El enfoque de este artículo es mostrar la implementación de Cassandra en Ubuntu como un clúster único y de centro de múltiples datos que aproveche instancias de Microsoft Azure Virtual Machines y de Virtual Network. La implementación del clúster para cargas de trabajo optimizadas de producción no se trata en este artículo, ya que requiere la configuración del nodo de múltiples discos, el diseño de la topología adecuada y el modelado de los datos para admitir la replicación, la coherencia de datos, el rendimiento y los requisitos de alta disponibilidad necesarios.
 
 Este artículo se centra fundamentalmente en mostrar lo relacionado con la compilación del clúster de Cassandra en comparación con Docker, Chef o Puppet, por lo que la implementación de la infraestructura se vuelve mucho más sencilla.  
 
@@ -76,7 +76,7 @@ Configuración de clúster de Cassandra de una sola región:
 | Estrategia de replicación |NetworkTopologyStrategy vea la [replicación de datos](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) en la documentación de Cassandra para obtener más información |Comprende la topología de implementación y sitúa las réplicas en los nodos para que todas las réplicas no terminen en el mismo bastidor. |
 | Snitch |GossipingPropertyFileSnitch. Vea [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) en la documentación de Cassandra para más información |NetworkTopologyStrategy usa un concepto de snitch para entender la topología. GossipingPropertyFileSnitch proporciona un mejor control en la asignación de cada nodo al centro de datos y al bastidor. El clúster utiliza gossip para propagar esta información. Esto es mucho más sencillo en la configuración de IP dinámica en relación con PropertyFileSnitch |
 
-**Consideraciones de Azure para el clúster de Cassandra**: La funcionalidad Microsoft Azure Virtual Machines usa Azure Blob Storage para la persistencia de disco; Azure Storage guarda tres réplicas de cada disco que proporcionan gran durabilidad. Esto significa que cada fila de datos que se inserta en una tabla de Cassandra ya está almacenada en tres réplicas y, por tanto, la consistencia de los datos ya está controlada incluso si el Factor de replicación (RF) es 1. El principal problema con el Factor de replicación 1 es que la aplicación experimentará un tiempo de inactividad, incluso si se produce un error en un único nodo de Cassandra. Sin embargo, si un nodo está inactivo para los problemas (por ejemplo, errores de hardware y de software del sistema) reconocidos por el controlador de tejido de Azure, se proporcionará un nuevo nodo en su lugar utilizando las mismas unidades de almacenamiento. El aprovisionamiento de un nuevo nodo para reemplazar el antiguo puede tardar unos minutos.  De forma similar para las actividades de mantenimiento planeado, como los cambios en el SO invitado, Cassandra actualiza y la aplicación cambia. El controlador de tejido de Azure realiza actualizaciones sucesivas en los nodos del clúster.  Las actualizaciones sucesivas también pueden hacer que haya varios nodos inactivos a la vez y, por tanto, el clúster puede experimentar breves períodos de inactividad para algunas particiones. Sin embargo, los datos no se perderán debido a la redundancia integrada de Almacenamiento de Azure.  
+**Consideraciones de Azure para el clúster de Cassandra**: La funcionalidad Microsoft Azure Virtual Machines usa Azure Blob Storage para la persistencia de disco; Azure Storage guarda tres réplicas de cada disco que proporcionan gran durabilidad. Esto significa que cada fila de datos que se inserta en una tabla de Cassandra ya está almacenada en tres réplicas y, por tanto, la consistencia de los datos ya está controlada incluso si el Factor de replicación (RF) es 1. El principal problema con el Factor de replicación 1 es que la aplicación experimentará un tiempo de inactividad, incluso si se produce un error en un único nodo de Cassandra. Sin embargo, si un nodo está inactivo para los problemas (por ejemplo, errores de hardware y de software del sistema) reconocidos por el controlador de tejido de Azure, se proporcionará un nuevo nodo en su lugar utilizando las mismas unidades de almacenamiento. El aprovisionamiento de un nuevo nodo para reemplazar el antiguo puede tardar unos minutos.  De forma similar para las actividades de mantenimiento planeado, como los cambios en el SO invitado, Cassandra actualiza y la aplicación cambia. El controlador de tejido de Azure realiza actualizaciones sucesivas en los nodos del clúster.  Las actualizaciones sucesivas también pueden hacer que haya varios nodos inactivos a la vez y, por tanto, el clúster puede experimentar breves períodos de inactividad para algunas particiones. Sin embargo, los datos no se perderán debido a la redundancia integrada de Azure Storage.  
 
 Para los sistemas implementados en Azure que no requieren alta disponibilidad (por ejemplo, 99,9 aproximadamente, lo que equivale a 8,76 horas por año; consulte [Alta disponibilidad](http://en.wikipedia.org/wiki/High_availability) para obtener más detalles), es posible que puedan ejecutarse con RF = 1 y nivel de coherencia = uno.  Para las aplicaciones con requisitos de alta disponibilidad, RF = 3 y el nivel de coherencia = QUÓRUM tolerarán el tiempo de inactividad de uno de los nodos de las réplicas. El RF = 1 en implementaciones tradicionales (por ejemplo, locales) no se puede utilizar debido a la posible pérdida de datos resultante de problemas como errores de disco.   
 
@@ -489,7 +489,7 @@ Una red local en la red virtual de Azure es un espacio de direcciones de proxy q
 
 Cree dos redes locales con los siguientes detalles:
 
-| Nombre de red | Dirección de puerta de enlace VPN | Espacio de direcciones | Comentarios |
+| Nombre de red | Dirección de VPN Gateway | Espacio de direcciones | Comentarios |
 | --- | --- | --- | --- |
 | hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Al crear la red local, proporcione una dirección de puerta de enlace de marcador de posición. La dirección de puerta de enlace real se completará una vez creada la puerta de enlace. Asegúrese de que el espacio de direcciones coincide exactamente con la red virtual remota correspondiente; en este caso, la red virtual se ha creado en la región Este de EE. UU. |
 | hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Al crear la red local, proporcione una dirección de puerta de enlace de marcador de posición. La dirección de puerta de enlace real se completará una vez creada la puerta de enlace. Asegúrese de que el espacio de direcciones coincide exactamente con la red virtual remota correspondiente; en este caso, la red virtual se ha creado en la región Oeste de EE. UU. |
@@ -497,7 +497,7 @@ Cree dos redes locales con los siguientes detalles:
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Paso 3: Asignación de red "Local" a las redes virtuales respectivas
 Desde el Portal de Azure clásico, seleccione cada red virtual, haga clic en "Configurar", consulte "Conectarse a la red local" y seleccione las redes locales con los siguientes detalles:
 
-| Red virtual | Red local |
+| Virtual Network | Red local |
 | --- | --- |
 | hk-vnet-west-us |hk-lnet-map-to-east-us |
 | hk-vnet-east-us |hk-lnet-map-to-west-us |

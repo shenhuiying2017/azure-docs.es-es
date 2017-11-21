@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 88feffc13690a3a33f757a43972c5ef1fe967b7f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 02bb792ddc017efd3be6e14d951eca1d5671f719
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Preparar un registro de contenedor de Azure con replicación geográfica
 
@@ -208,8 +208,8 @@ docker images
 Salida:
 
 ```bash
-REPOSITORY                                     TAG                 IMAGE ID            CREATED              SIZE
-uniqueregistryname.azurecr.io/acr-helloworld   v1                  c9ca1763cfb1        About a minute ago   285MB
+REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
+uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
 ...
 ```
 
@@ -227,14 +227,14 @@ Salida:
 
 ```bash
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
-9716cfe18412: Pushed
-074867a942d5: Pushed
-a77666945b96: Pushed
-953ff32f2036: Pushed
-aa2e77726d3c: Pushed
-98b800c91d50: Pushed
+cd54739c444b: Pushed
+d6803756744a: Pushed
+b7b1f3a15779: Pushed
+a89567dff12d: Pushed
+59c7b561ff56: Pushed
+9a2f9413d9e4: Pushed
 a75caa09eb1f: Pushed
-v1: digest: sha256:c515bcebf249b591b558318e2d0ec21d1320340dbf335730eb32372ff7d34255 size: 1792
+v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -247,10 +247,10 @@ En este tutorial, creó un registro de contenedor privado con replicación geogr
 > * Compilar una imagen de contenedor de Docker desde el origen de la aplicación
 > * Insertar la imagen de contenedor en el registro
 
-Vaya al siguiente tutorial para aprender a implementar el contenedor en varias instancias de Azure App Service mediante la replicación geográfica y así poder servir las imágenes de forma local.
+Vaya al siguiente tutorial para aprender a implementar el contenedor en varias instancias de Web App for Containers mediante la replicación geográfica y así poder atender las imágenes de forma local.
 
 > [!div class="nextstepaction"]
-> [Implementar contenedores en Azure App Services](container-registry-tutorial-deploy-app.md)
+> [Implementación de una aplicación web desde Azure Container Registry](container-registry-tutorial-deploy-app.md)
 
 <!-- IMAGES -->
 [tut-portal-01]: ./media/container-registry-tutorial-prepare-registry/tut-portal-01.png

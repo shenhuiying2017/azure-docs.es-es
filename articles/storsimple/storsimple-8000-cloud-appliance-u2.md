@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -44,12 +44,12 @@ StorSimple Cloud Appliance está disponible en dos modelos, el 8010 estándar (a
 | **Capacidad máxima** |30 TB |64 TB |
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria)| Standard_DS3 (4 núcleos, 14 GB de memoria)|
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Regiones de Azure que admiten Premium Storage y máquinas virtuales de Azure DS3<br></br>Use [esta lista](https://azure.microsoft.com/regions/services/) para ver si las dos opciones **Virtual Machines > Serie DS** y **Storage > Almacenamiento en disco** están disponibles en su región. |
-| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/common/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../virtual-machines/windows/premium-storage.md) |
+| **Tipo de almacenamiento** |Azure Standard Storage para discos locales <br></br> Infórmese de cómo [crear una cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) |Usa Azure Premium Storage para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../virtual-machines/windows/premium-storage.md) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas de la nube <br></br>Baja latencia y cargas de trabajo de rendimiento más elevado<br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup>*Anteriormente conocido como 1100*.
 
-<sup>2</sup>*8010 y 8020 usan el almacenamiento estándar de Azure para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
+<sup>2</sup>*8010 y 8020 usan Azure Standard Storage para el nivel de nube. La diferencia solo existe en el nivel local del dispositivo*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Diferencias entre el dispositivo de nube y el dispositivo físico
 
@@ -78,10 +78,10 @@ En las siguientes secciones se explican los requisitos previos de configuración
 Antes de aprovisionar el dispositivo de nube, debe realizar los siguientes preparativos en el entorno de Azure:
 
 * Asegúrese de que tiene un dispositivo físico StorSimple 8000 series (modelo 8100 o 8600) implementado y en ejecución en el centro de datos. Registre este dispositivo con el mismo servicio de StorSimple Device Manager para el que va a crear un StorSimple Cloud Appliance.
-* Para el dispositivo de nube, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Las regiones Premium Storage son las que corresponden a la fila de almacenamiento en disco de la [lista de servicios de Azure por región](https://azure.microsoft.com/regions/services/).
+* Para el dispositivo de nube, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). Si usa Premium Storage, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Las regiones Premium Storage son las que corresponden a la fila de almacenamiento en disco de la [lista de servicios de Azure por región](https://azure.microsoft.com/regions/services/).
 * Se recomienda usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre de servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver direcciones IP correctamente, la creación del dispositivo de nube dará error.
 * Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados.
-* Puede crear [máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo de nube. Estos servidores deben cumplir los siguientes requisitos:
+* Puede crear [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo de nube. Estos servidores deben cumplir los siguientes requisitos:
 
   * Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado.
   * Estar ejecutándose en la misma red virtual que el dispositivo de nube.
@@ -93,7 +93,7 @@ Antes de aprovisionar el dispositivo de nube, debe realizar los siguientes prepa
 Realice las siguientes actualizaciones de su servicio StorSimple Device Manager antes de crear un dispositivo de nube:
 
 * Agregue [registros de control de acceso](storsimple-8000-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores host para el dispositivo de nube.
-* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento Estándar o Premium con el dispositivo de nube. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../virtual-machines/windows/premium-storage.md).
+* Use una [cuenta de almacenamiento](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) de la misma región que el dispositivo de nube. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de Standard Storage o Premium Storage con el dispositivo de nube. Obtenga más información sobre cómo crear una [cuenta de Standard Storage](../storage/common/storage-create-storage-account.md) o una [cuenta de Premium Storage](../virtual-machines/windows/premium-storage.md).
 * Use una cuenta de almacenamiento diferente para la creación del dispositivo de nube a partir de la que ha usado para sus datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
 Asegúrese de que tiene la siguiente información antes de empezar:
@@ -183,6 +183,18 @@ Realice los pasos siguientes para crear un punto de conexión público en el dis
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 Se recomienda conectarse desde otra máquina virtual dentro de la misma red virtual, ya que esta práctica minimiza el número de puntos de conexión públicos de la red virtual. En este caso, conéctese a la máquina virtual mediante una sesión de escritorio remoto y, a continuación, configure esa máquina virtual para su uso como haría con cualquier otro cliente de Windows en una red local. No es necesario anexar el número de puerto público porque ya se conoce el puerto.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Obtención de una IP privada para el dispositivo en la nube
+
+Para que el dispositivo en la nube se conecte conectarse al servidor de host de la misma red virtual, se necesita la dirección IP interna o la dirección IP privada del dispositivo en la nube. Realice los pasos siguientes para obtener la dirección IP privada de la aplicación en la nube
+
+1. Vaya a la máquina virtual subyacente del dispositivo en la nube. La máquina virtual tiene el mismo nombre que el dispositivo en la nube. Vaya a **Todos los recursos**, especifique el nombre del dispositivo en la nube y la suscripción, y seleccione el tipo como máquinas virtuales. En la lista de máquinas virtuales que se presentan, seleccione la máquina virtual correspondiente al dispositivo en la nube y haga clic en ella.
+
+     ![Seleccione la máquina virtual del dispositivo en la nube](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Vaya a **Configuración > Redes**. En el panel derecho, verá la dirección IP privada del dispositivo en la nube. Anótela.
+
+    ![Obtenga la dirección IP privada del dispositivo en la nube](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Uso de StorSimple Cloud Appliance
 

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -41,7 +41,7 @@ Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando 
 |Valor predeterminado|10.0.0.0/8                                              |Ninguna           |
 |Valor predeterminado|172.16.0.0/12                                           |None           |
 |Valor predeterminado|192.168.0.0/16                                          |None           |
-|Valor predeterminado|100.64.0.0/10                                           |Ninguna           |
+|Valor predeterminado|100.64.0.0/10                                           |None           |
 
 Los tipos de próximo salto enumerados en la tabla anterior representan la forma en que Azure enruta el tráfico destinado al prefijo de dirección enumerado. Estas son las explicaciones de los tipos de próximo salto:
 
@@ -84,7 +84,7 @@ Puede especificar los siguientes tipos de próximo salto al crear una ruta defin
 
 - **Aplicación virtual**: una aplicación virtual es una máquina virtual que habitualmente ejecuta una aplicación de red como, por ejemplo, un firewall. Para más información acerca de las aplicaciones virtuales de red preconfiguradas que se pueden implementar en una red, consulte [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Al crear una ruta con el tipo de salto de **aplicación virtual**, especifique también una dirección IP del próximo salto. La dirección IP puede ser:
 
-    - La [dirección IP privada](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) de una interfaz de red conectada a una máquina virtual. Cualquier interfaz de red conectada a una máquina virtual que reenvíe el tráfico de red a una dirección que no sea la suya propia debe tener la opción *Habilitar reenvío de IP* habilitada. El valor deshabilita la comprobación que realiza Azure del origen y destino en una interfaz de red. Obtenga más información acerca de cómo [habilitar el reenvío IP en una interfaz de red](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Aunque *Habilitar reenvío de IP* es un valor de Azure, es posible que también necesite habilitar el reenvío IP en el sistema operativo de la máquina virtual para que la máquina virtual reenvíe el tráfico entre las interfaces de red. Para determinar la configuración necesaria en la máquina virtual, consulte la documentación del sistema operativo o la aplicación de red.
+    - La [dirección IP privada](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) de una interfaz de red conectada a una máquina virtual. Cualquier interfaz de red conectada a una máquina virtual que reenvíe el tráfico de red a una dirección que no sea la suya propia debe tener la opción *Habilitar reenvío de IP* habilitada. El valor deshabilita la comprobación que realiza Azure del origen y destino en una interfaz de red. Obtenga más información acerca de cómo [habilitar el reenvío IP en una interfaz de red](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Aunque *Habilitar reenvío de IP* es un valor de Azure, es posible que también necesite habilitar el reenvío IP en el sistema operativo de la máquina virtual para que el dispositivo desvíe el tráfico entre las direcciones IP privadas asignadas a interfaces de red de Azure. Si el dispositivo debe enrutar el tráfico a una dirección IP pública, debe hacer de proxy ante el tráfico o traducir la dirección IP privada del origen a su propia dirección IP privada y Azure la traducirá a una dirección IP pública antes de enviar el tráfico a Internet. Para determinar la configuración necesaria en la máquina virtual, consulte la documentación del sistema operativo o la aplicación de red. Para obtener información acerca de las conexiones salientes en Azure, consulte [Información acerca de las conexiones salientes](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Implemente una aplicación virtual en una subred diferente la que se encuentran los recursos que enrutan a través de la aplicación virtual. La implementación de la aplicación virtual en la misma subred y la posterior aplicación de una tabla de rutas en la subred que enruta el tráfico a través de la aplicación virtual pueden provocar bucles de enrutamiento, en los que el tráfico nunca sale de la subred.
@@ -202,8 +202,8 @@ La tabla de rutas de *Subnet1* en la imagen contiene las rutas siguientes:
 
 |ID  |Origen |Estado  |Prefijos de dirección    |Tipo de próximo salto          |Dirección IP de siguiente salto|Nombre de ruta definida por el usuario| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |Predeterminada|No válida|10.0.0.0/16         |Red virtual        |                   |              |
-|2   |Usuario   |Activa |10.0.0.0/16         |Aplicación virtual      |10.0.100.4         |Within-VNet1  |
+|1   |Valor predeterminado|No válida|10.0.0.0/16         |Red virtual        |                   |              |
+|2   |Usuario   |Active |10.0.0.0/16         |Aplicación virtual      |10.0.100.4         |Within-VNet1  |
 |3   |Usuario   |Active |10.0.0.0/24         |Red virtual        |                   |Within-Subnet1|
 |4   |Valor predeterminado|No válida|10.1.0.0/16         |Emparejamiento de VNET           |                   |              |
 |5   |Valor predeterminado|No válida|10.2.0.0/16         |Emparejamiento de VNET           |                   |              |
@@ -242,7 +242,7 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 |Valor predeterminado |Active |10.10.0.0/16        |Puerta de enlace de red virtual   |[X.X.X.X]          |
 |Valor predeterminado |Active |0.0.0.0/0           |Internet                  |                   |
 |Valor predeterminado |Active |10.0.0.0/8          |None                      |                   |
-|Valor predeterminado |Active |100.64.0.0/10       |Ninguna                      |                   |
+|Valor predeterminado |Active |100.64.0.0/10       |None                      |                   |
 |Valor predeterminado |Active |172.16.0.0/12       |Ninguna                      |                   |
 |Valor predeterminado |Active |192.168.0.0/16      |None                      |                   |
 

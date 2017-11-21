@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 65a149b0d291bc650e0937c7ef3f90600f54c669
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configuración de Azure Multi-Factor Authentication (versión preliminar pública)
 
@@ -29,6 +29,7 @@ Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora
 
 | Característica | Descripción | 
 |:--- |:--- |
+| [Bloqueo y desbloqueo de usuarios](#block/unblock-users) |La acción de bloquear y desbloquear usuarios puede impedirles recibir solicitudes de autenticación. |
 | [Alerta de fraude](#fraud-alert) |Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de acceso a sus recursos. |
 | [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez omitiendo la autenticación multifactor. |
 | [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. |
@@ -37,6 +38,23 @@ Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora
 | [Contraseñas de aplicación](#app-passwords) |Las contraseñas de aplicación permiten omitir la autenticación multifactor en aplicaciones no compatibles con esta funcionalidad sin que por ello dejen de funcionar. |
 | [Recordar la autenticación multifactor para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA. |
 | [Métodos de verificación seleccionables](#selectable-verification-methods) |Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen. |
+
+## <a name="blockunblock-users"></a>Bloqueo y desbloqueo de usuarios
+La acción de bloquear y desbloquear usuarios puede usarse para impedirles recibir solicitudes de autenticación. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios bloqueados permanecerán en este estado durante 90 días a partir del momento en que se bloqueen.
+
+### <a name="block-a-user"></a>Bloquear a un usuario
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
+2. Vaya a **Azure Active Directory** > **MFA Server (Servidor MFA)** > **Bloquear o desbloquear usuarios**.
+3. Haga clic en **Agregar** para bloquear a un usuario.
+4. Seleccione el **grupo de replicación**, escriba el nombre de usuario bloqueado como **username@domain.com** y agregue un comentario en el campo **Motivo**.
+5. Haga clic en **Agregar** para acabar de bloquear al usuario.
+
+### <a name="unblock-a-user"></a>Desbloquear a un usuario
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
+2. Vaya a **Azure Active Directory** > **MFA Server (Servidor MFA)** > **Bloquear o desbloquear usuarios**.
+3. Haga clic en **Desbloquear** en la columna **Acción** situada junto al usuario que quiere desbloquear.
+4. Escriba un comentario en el campo **Motivo para desbloquear**.
+5. Haga clic en **Desbloquear** para acabar de desbloquear al usuario.
 
 ## <a name="fraud-alert"></a>Alerta de fraude
 Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de acceso a sus recursos.  Los usuarios pueden informar del fraude con la aplicación móvil o a través de su teléfono.
@@ -160,7 +178,10 @@ Independientemente de que IP de confianza esté habilitado, se requiere la verif
 5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
 6. En la página Configuración del servicio, en IP de confianza, hay dos opciones:
    
-   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS.
+   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Debe crear la siguiente regla en AD FS si aún no existe: "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+
+
+
    * **Para solicitudes de un intervalo de IP públicas específico**: escriba las direcciones IP en el cuadros de texto proporcionado y use para ello la notación CIDR. Por ejemplo: xxx.xxx.xxx.0/24 para direcciones IP en el intervalo de xxx.xxx.xxx.1 – xxx.xxx.xxx.254, o xxx.xxx.xxx.xxx/32 para una única dirección IP. Puede especificar hasta 50 intervalos de direcciones IP. Los usuarios que inician sesión desde estas direcciones IP omiten la comprobación en dos pasos.
 7. Haga clic en **Guardar**.
 8. Una vez que se hayan aplicado las actualizaciones, haga clic en **Cerrar**.

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472c3f35e2ae32550be62826407689f93101041f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -250,7 +250,7 @@ A continuación se indican los aspectos específicos de esta arquitectura:
 * La instancia de SAP (A)SCS se encuentra en un clúster y se puede obtener acceso a ella mediante el nombre de host virtual **<(A)SCSVirtualHostName>**.
 * Los archivos del HOST GLOBAL DE SAP se colocan en el recurso compartido de archivos SMB y son accesibles mediante el <SAPGLOBALHost> nombre de host \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
 * La instancia de SAP (A)SCS está instalada en un disco local en ambos nodos del clúster.
-* El nombre de red **<(A)SCSVirtualHostName>** es diferente de **<SAPGLOBALHost>**.
+* El nombre de red **<(A)SCSVirtualHostName>** es diferente de **&lt;SAPGLOBALHost&gt;**
 
 ![Figura 2: nueva arquitectura de alta disponibilidad de SAP (A)SCS con un recurso compartido de archivos SMB][sap-ha-guide-figure-8004]
 

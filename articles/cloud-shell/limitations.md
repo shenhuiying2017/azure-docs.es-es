@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 92c8e4c205043f6c5c2925d9197270fb720969a3
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitaciones de Azure Cloud Shell
 
@@ -75,6 +75,9 @@ PowerShell en Azure Cloud Shell podría tardar hasta 60 segundos en inicializars
 ### <a name="no-home-directory-persistence"></a>El directorio $Home no persiste
 
 Los datos que cualquier aplicación (como git, vim y otras) escriben en `$Home` no se conservan entre las sesiones de PowerShell. [Consulte aquí](troubleshooting.md#powershell-resolutions) para ver una solución alternativa.
+
+### <a name="default-file-location-when-created-from-azure-drive"></a>Ubicación del archivo predeterminada cuando se crea a partir de la unidad de Azure:
+Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unidad de Azure. Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en la carpeta C:\Users. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -12,16 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e4f7bfd117696ddb25156e027e29c0d21f27804
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adefbe89108bc5a807b7413e821f8fcd0f3f325
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>¿Cuáles son los límites del sistema de StorSimple serie 8000?
+> [!NOTE]
+> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Para ver la versión de este artículo para el nuevo Azure Portal, vaya a [¿Cuáles son los límites del sistema de StorSimple serie 8000?](storsimple-8000-limits.md) Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
+
 ## <a name="overview"></a>Información general
 StorSimple proporciona almacenamiento escalable y flexible para su centro de datos. Sin embargo, hay algunas limitaciones que debe tener en cuenta durante la planificación, implementación y utilización de su solución StorSimple. En la tabla siguiente se describen estos límites y se ofrecen algunas recomendaciones para que pueda obtener el máximo provecho a su solución StorSimple.
 
@@ -33,7 +36,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 | Número máximo de volúmenes anclados localmente |32 | |
 | Número máximo de programaciones por plantilla de ancho de banda |168 |Una programación para cada hora y cada día de la semana (24*7). |
 | Tamaño máximo de un volumen en capas en dispositivos físicos |64 TB para 8100 y 8600 |8100 y 8600 son dispositivos físicos. |
-| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan el almacenamiento estándar y premium respectivamente. |
+| Tamaño máximo de un volumen en capas en dispositivos virtuales de Azure |30 TB para 8010  <br></br> 64 TB para 8020 |8010 y 8020 son dispositivos virtuales de Azure que utilizan Standard y Premium Storage respectivamente. |
 | Tamaño máximo de un volumen anclado localmente en dispositivos físicos |8,5 TB para 8100 <br></br> 22,5 TB para 8600 |8100 y 8600 son dispositivos físicos. |
 | Número máximo de conexiones iSCSI |512 | |
 | Número máximo de conexiones de iSCSI de iniciadores |512 | |

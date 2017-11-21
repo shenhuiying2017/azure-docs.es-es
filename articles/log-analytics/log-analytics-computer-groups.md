@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de equipos en búsquedas de registros en Log Analytics
 
@@ -109,13 +109,29 @@ Haga clic en la **x** de la columna **Quitar** para eliminar el grupo de equipos
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Uso de un grupo de equipos de una búsqueda de registros
-Puede utilizar un grupo de equipos en una consulta tratando su alias como una función, normalmente con la sintaxis siguiente:
+Puede utilizar un grupo de equipos creado a partir de una búsqueda de registro en una consulta tratando su alias como una función, normalmente con la sintaxis siguiente:
 
   `Table | where Computer in (ComputerGroup)`
 
 Por ejemplo, podría usar lo siguiente para devolver registros UpdateSummary solo para los equipos de un grupo de equipos llamado mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Los grupos de equipos importados y sus equipos incluidos se almacenan en la tabla **ComputerGroup**.  Por ejemplo, la siguiente consulta devolvería una lista de equipos en el grupo Equipos del dominio de Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+La siguiente consulta devolvería registros UpdateSummary solo para equipos del grupo Equipos del dominio.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Si el área de trabajo sigue usando el [lenguaje de consulta de Log Analytics heredado](log-analytics-log-search-upgrade.md), use la siguiente sintaxis para hacer referencia a un grupo de equipos en una búsqueda de registros.  La **Categoría** es opcional y solo se necesita si tiene grupos de equipos con el mismo nombre en diferentes categorías. 

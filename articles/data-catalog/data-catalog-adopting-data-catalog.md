@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 06/15/2017
+ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5349b0a72dd2bad348ab301745e00065bac310e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
 Este artículo le ayudará a empezar a adoptar **Azure Data Catalog** en su organización. Para adoptar correctamente **Azure Data Catalog**, es aconsejable que se centre en tres elementos clave: definir la visión, identificar los principales casos de uso empresariales de la organización y elegir un proyecto piloto.
@@ -29,7 +29,7 @@ En el mundo del trabajo, han cambiado las expectativas que se tiene de cómo se 
 
 Este artículo presenta un método para empezar a usar **Azure Data Catalog**. El artículo describe un plan típico de adopción de Data Catalog por parte de una empresa ficticia llamada Adventure Works.
 
-**¿Qué es el Catálogo de datos de Azure?**
+**¿Qué es Azure Data Catalog?**
 
 **Azure Data Catalog** es un servicio de Azure totalmente administrado y un catálogo de información (metadatos) de toda la empresa que permite la detección automática de orígenes de datos. Con Data Catalog, es posible registrar, detectar, anotar y conectarse a recursos de datos. Data Catalog se ha diseñado para administrar recursos de información dispares y facilitar la búsqueda de recursos de datos, su comprensión y la conexión a ellos. Reduce el tiempo necesario para obtener información a partir de datos disponibles y aumenta el valor para las organizaciones. Para más información, consulte [Microsoft Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/).
 
@@ -44,7 +44,7 @@ Un plan de adopción le ayuda a comunicar lo que es crítico para que la gente t
 * **Plan de comunicaciones y tendencias**: ayuda a los usuarios a conocer cómo Data Catalog puede ayudarles y puede fomentar la adopción orgánica dentro de los equipos y, en última instancia, en toda la organización.
 * **Plan de formación** : una formación exhaustiva suele llevar al éxito de la adopción y la obtención de resultados favorables.
 
-Estas son algunas sugerencias para definir un plan de adopción de **Azure Data Catalog**.
+Estas son algunas sugerencias para definir un plan de adopción del **Azure Data Catalog** .
 
 ## <a name="define-your-data-catalog-project-vision"></a>Definición de la visión del proyecto de Data Catalog
 El primer paso para definir un plan de adopción de **Azure Data Catalog** es escribir una descripción ambiciosa de lo que intenta realizar. Lo mejor es mantener una visión bastante amplia, pero a la vez lo suficientemente concisa como para definir objetivos específicos a corto y largo plazo.
@@ -96,7 +96,7 @@ Cuando elija el proyecto piloto, seleccione el equipo que tenga los escenarios m
 ### <a name="identify-data-heroes"></a>Identificación de los héroes de los datos
 El primer proyecto piloto debe tener algunas personas que generen y consuman datos, con el fin de que el equipo tenga una representación equilibrada.
 
-**productores de datos** son personas con conocimientos acerca de los orígenes de datos. Por ejemplo, David, que esté en otro equipo, ha trabajado exhaustivamente con los principales orígenes de datos de Adventure Works. Antes de la adopción de **Azure Data Catalog**, David creó un libro de Excel para capturar información acerca de los orígenes de datos de Adventure Works.
+**productores de datos** son personas con conocimientos acerca de los orígenes de datos. Por ejemplo, David, que esté en otro equipo, ha trabajado exhaustivamente con los principales orígenes de datos de Adventure Works. Antes de la adopción del **Azure Data Catalog**, David creó un libro de Excel para capturar información acerca de los orígenes de datos de Adventure Works.
 
 **consumidores de datos** son personas con conocimientos en el uso de los datos para resolver problemas empresariales. Por ejemplo, Nancy es que un analista de negocios que utiliza orígenes de datos de SQL Server de Adventure Works para analizar datos.
 
@@ -106,7 +106,7 @@ Uno de los problemas empresariales que **Azure Data Catalog** afronta es conecta
 * Para más información acerca de cómo detectar orígenes de datos, consulte [Detección de recursos de datos registrados](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Inicio a pequeña escala y centrado
-En la mayoría de los proyectos piloto de la empresa, debe propagar el catálogo con orígenes de datos de gran valor, con el fin de que los usuarios empresariales puedan ver rápidamente el valor de Data Catalog. TI es un buen lugar para empezar a identificar los orígenes de datos comunes que podrían ser de interés para el grupo piloto. Para los orígenes de datos compatibles, como SQL Server, se recomienda utilizar la herramienta de registro de orígenes de datos de **Azure Data Catalog**. Con la herramienta de registro de orígenes de datos puede registrar un amplio rango de orígenes de datos, que incluye las bases de datos de SQL Server y Oracle, y los informes de SQL Server Reporting Services. Para obtener una lista completa de los orígenes de datos actuales, consulte [Orígenes de datos compatibles con Azure Data Catalog](data-catalog-dsr.md).
+En la mayoría de los proyectos piloto de la empresa, debe propagar el catálogo con orígenes de datos de gran valor, con el fin de que los usuarios empresariales puedan ver rápidamente el valor de Data Catalog. TI es un buen lugar para empezar a identificar los orígenes de datos comunes que podrían ser de interés para el grupo piloto. Para los orígenes de datos compatibles, como SQL Server, se recomienda utilizar la herramienta de registro de orígenes de datos del **Azure Data Catalog** . Con la herramienta de registro de orígenes de datos puede registrar un amplio rango de orígenes de datos, que incluye las bases de datos de SQL Server y Oracle, y los informes de SQL Server Reporting Services. Para obtener una lista completa de los orígenes de datos actuales, consulte [Orígenes de datos compatibles con Azure Data Catalog](data-catalog-dsr.md).
 
 Una vez identificados y registrados los principales orígenes de datos, es posible importar también las descripciones de los orígenes de datos almacenadas en otras ubicaciones. La API de Data Catalog permite a los desarrolladores cargar las descripciones y anotaciones desde otra ubicación, como el libro de Excel que David creó y mantiene.
 
@@ -156,7 +156,7 @@ Una vez que el equipo piloto funcione sin problemas y que haya logrado los objet
 
 Los usuarios pioneros que participaron en el proyecto piloto pueden resultar útiles para correr la voz acerca de las ventajas de adoptar Data Catalog. Pueden compartir con otros equipos la forma en que Data Catalog ayudó a su equipo a resolver problemas empresariales, detectar los orígenes de datos más fácilmente y compartir información acerca de los orígenes de datos que usa. Por ejemplo, los usuarios pioneros del equipo del proyecto piloto de Adventure Works podrían mostrar a otros lo fácil que es encontrar información sobre los activos de datos de Adventure Works que antes eran difíciles de encontrar y entender.
 
-Este artículo versa sobre cómo empezar con **Azure Data Catalog** en su organización. Esperamos que haya podido iniciar un proyecto piloto de Data Catalog y expandir Data Catalog por toda la organización.
+Este artículo versa sobre cómo empezar con el **Azure Data Catalog** en su organización. Esperamos que haya podido iniciar un proyecto piloto de Data Catalog y expandir Data Catalog por toda la organización.
 
 ## <a name="more-information-about-azure-data-catalog"></a>Más información acerca de Azure Data Catalog
 * [Página de producto de Azure Data Catalog](https://azure.microsoft.com/services/data-catalog/)

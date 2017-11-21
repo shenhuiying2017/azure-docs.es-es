@@ -12,23 +12,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 11/14/2017
 ms.author: yurid
-ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Security Center
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos, los registros de eventos y los archivos de volcado de memoria, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
 
 En este artículo se explica cómo se administran y protegen los datos en Azure Security Center.
-
->[!NOTE] 
->Desde primeros de junio de 2017, Security Center usará Microsoft Monitoring Agent para recopilar y almacenar datos. Consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md) para más información. La información de este artículo representa la funcionalidad de Security Center después de la transición a Microsoft Monitoring Agent.
->
-
 
 ## <a name="data-sources"></a>Orígenes de datos
 Azure Security Center analiza los datos de los orígenes siguientes para proporcionar visibilidad de su estado de seguridad, identificar vulnerabilidades y recomendar mitigaciones y detectar amenazas activas:
@@ -62,7 +57,7 @@ Las instantáneas del disco de máquina virtual se almacenan en la misma cuenta 
  
 Para máquinas virtuales y servidores que se ejecutan en otros entornos, por ejemplo, de forma local, puede especificar el área de trabajo y la región donde almacenar los datos recopilados. 
 
-**Almacenamiento de Azure Security Center**: la información acerca de las alertas de seguridad, incluidas las alertas de los asociados, se almacena a nivel regional según la ubicación del recurso de Azure, mientras que la información sobre el estado de mantenimiento de seguridad y la recomendación se almacenan centralmente, ya sea en Estados Unidos o en Europa, en función de la ubicación del cliente.
+**Azure Storage Security Center**: la información acerca de las alertas de seguridad, incluidas las alertas de los asociados, se almacena a nivel regional según la ubicación del recurso de Azure, mientras que la información sobre el estado de mantenimiento de seguridad y la recomendación se almacenan centralmente, ya sea en Estados Unidos o en Europa, en función de la ubicación del cliente.
 Azure Security Center recopila copias efímeras de los archivos de volcado de memoria y las analiza para buscar pruebas de intentos de vulnerabilidad y de riesgos ciertos. Azure Security Center realiza este análisis en la misma geoárea en la que se encuentra el área de trabajo y elimina las copias efímeras una vez que el análisis se completa.
 
 Los artefactos de la máquina se almacenan de forma centralizada en la misma región que la máquina virtual. 
@@ -70,7 +65,7 @@ Los artefactos de la máquina se almacenan de forma centralizada en la misma reg
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Administración de recolección de datos de máquinas virtuales
 
-Al habilitar Security Center en Azure, la recopilación de datos se activa para todas las suscripciones de Azure. También se puede activar la recopilación de datos para las suscripciones en la sección "Directivas de seguridad" de Azure Security Center. Cuando se activa la recopilación de datos, Azure Security Center aprovisiona el Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles existentes y en las que se crean. Microsoft Monitoring Agent busca diversos eventos y configuraciones relacionados con la seguridad y los envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo generará eventos del registro de eventos mientras la máquina se ejecute. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. Microsoft Monitoring Agent lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en las áreas de trabajo para el análisis. Microsoft Monitoring Agent también copia los archivos de volcado de memoria en las áreas de trabajo.
+Al habilitar Security Center en Azure, la recopilación de datos se activa para todas las suscripciones de Azure. También se puede activar la recopilación de datos para las suscripciones en la sección "Directivas de seguridad" de Azure Security Center. Cuando se activa la recopilación de datos, Azure Security Center aprovisiona el Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles existentes y en las que se crean. Microsoft Monitoring Agent busca diversos eventos y configuraciones relacionados con la seguridad y los envía a [Seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Además, el sistema operativo generará eventos del registro de eventos mientras la máquina se ejecute. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. Microsoft Monitoring Agent lee las entradas de los registros de eventos y los seguimientos de ETW y los copia en las áreas de trabajo para el análisis. Microsoft Monitoring Agent también copia los archivos de volcado de memoria en las áreas de trabajo y habilita los eventos de creación de procesos y la auditoría de línea de comandos.
 
 Si utiliza Azure Security Center gratis, también puede deshabilitar la recopilación de datos de las máquinas virtuales en las directivas de seguridad. La recopilación de datos es necesaria para las suscripciones del nivel estándar. Las instantáneas de disco de máquina virtual y la recolección de artefactos continuará habilitada aunque la recopilación de datos se deshabilite.
 

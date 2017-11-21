@@ -1,6 +1,6 @@
 ---
 title: "Uso de la extensión de máquina virtual Docker para Linux | Microsoft Docs"
-description: "Describe Docker y las extensiones de máquinas virtuales de Azure y cómo crear máquinas virtuales en Azure que son host de Docker mediante la CLI de Azure en el modelo de implementación clásico."
+description: "Describe Docker y las extensiones de Azure Virtual Machines y cómo crear instancias de Azure Virtual Machines que son host de Docker mediante la CLI de Azure en el modelo de implementación clásico."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,25 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Uso de la extensión de máquina virtual de Docker con el Portal de Azure clásico
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de máquina virtual Docker que administra el [agente Linux de Azure] para crear una máquina virtual Docker que hospede un número cualquiera de contenedores para sus aplicaciones en Azure.
 
 > [!NOTE]
-> En este tema se describe cómo crear una máquina virtual de Docker desde el Portal de Azure clásico. Para ver cómo crear una máquina virtual de Docker en la línea de comandos, consulte [Uso de la extensión de VM Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)]. Para ver un análisis de alto nivel de los contenedores y sus ventajas, consulte [Documento de alto nivel de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> En este tema se describe cómo crear una máquina virtual de Docker desde Azure Portal. Para ver cómo crear una máquina virtual de Docker en la línea de comandos, consulte [Uso de la extensión de VM Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)]. Para ver un análisis de alto nivel de los contenedores y sus ventajas, consulte [Documento de alto nivel de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
 ## <a name="create-a-new-vm-from-the-image-gallery"></a>Creación de una nueva máquina virtual desde la galería de imágenes
-El primer paso requiere una máquina virtual de Azure de una imagen de Linux que admita la extensión de VM Docker, usando una imagen Ubuntu 14.04 LTS de la galería de imágenes como imagen de servidor de ejemplo y el escritorio Ubuntu 14.04 como cliente. En el portal, haga clic en **+ Nuevo** en la esquina inferior izquierda para crear una nueva instancia de máquina virtual y seleccione una imagen Ubuntu 14.04 LTS entre las selecciones disponibles o en la galería de imágenes completa, tal y como se muestra a continuación.
+El primer paso requiere una máquina virtual de Azure de una imagen de Linux que admita la extensión de VM Docker, usando una imagen Ubuntu 14.04 LTS de la galería de imágenes como imagen de servidor de ejemplo y el escritorio Ubuntu 14.04 como cliente. En el portal, haga clic en **+ Nuevo** para crear una instancia de máquina virtual y seleccione una imagen Ubuntu 14.04 LTS entre las selecciones disponibles o en la galería de imágenes completa, tal y como se muestra a continuación.
 
 > [!NOTE]
 > Actualmente, solo las imágenes Ubuntu 14.04 LTS posteriores a julio de 2014 admiten la extensión de VM Docker.
@@ -67,11 +68,6 @@ En la línea de comandos, use **`base64`** u otra herramienta de codificación q
 
 ## <a name="add-the-docker-vm-extension"></a>Adición de la extensión de VM Docker
 Para agregar la extensión de VM Docker, busque la instancia de máquina virtual que creó, desplácese hacia abajo hasta **Extensiones** y haga clic en ella para mostrar extensiones de VM, como se muestra a continuación.
-
-> [!NOTE]
-> Esta funcionalidad solo se admite en el Portal de vista previa: https://portal.azure.com/
-> 
-> 
 
 ![](media/portal-use-docker/ClickExtensions.png)
 

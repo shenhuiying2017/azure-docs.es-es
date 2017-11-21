@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Rol administrativo diferente en Azure Active Directory PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -29,7 +29,7 @@ En su organización, puede asignar a usuarios a roles administrativos diferentes
 > [!IMPORTANT]
 > Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo.
 
-Un administrador global puede actualizar qué usuarios están **permanentemente** asignados a roles en Azure AD, mediante cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`, o a través del portal clásico, tal como se describe en [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles.md).
+Un administrador global puede actualizar qué usuarios están **permanentemente** asignados a roles en Azure AD, mediante cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`, o a través del portal clásico, tal como se describe en [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Privileged Identity Management (PIM) de Azure AD administra las directivas de acceso con privilegios para los usuarios en Azure AD. PIM asigna a usuarios a uno o varios roles de Azure AD y puede asignar una persona para que esté permanentemente en el rol o sea apta para el rol. Cuando un usuario se asigna permanentemente a un rol o activa una asignación de rol apta, puede administrar Azure Active Directory, Office 365 y otras aplicaciones con los permisos asignados a su rol.
 
@@ -53,7 +53,7 @@ Privileged Identity Management (PIM) permite asignar usuarios a roles de adminis
 * **administrador de SharePoint** tiene acceso administrativo a SharePoint Online a través del Centro de administración de SharePoint Online y puede realizar casi cualquier tarea en SharePoint Online.
 * **administrador de Skype Empresarial** tiene acceso administrativo a Skype Empresarial a través del Centro de administración de Skype Empresarial y puede realizar casi cualquier tarea en Skype Empresarial Online.
 
-Consulte estos artículos para más información sobre la [asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md) y de roles de administrador en [Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Consulte estos artículos para más información sobre la [asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles-azure-portal.md) y de roles de administrador en [Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

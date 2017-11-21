@@ -1,6 +1,6 @@
 ---
 title: Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS | Microsoft Docs
-description: Movimiento de datos desde o hacia el almacenamiento de blobs de Azure con conectores SSIS.
+description: Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS.
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 53570d3bd92712e96090ee995bcb5f7483a6d498
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS
 El [Feature Pack de SQL Server Integration Services para Azure](https://msdn.microsoft.com/library/mt146770.aspx) ofrece componentes para conectarse a Azure, transferir datos entre Azure y orígenes de datos locales y procesar datos almacenados en Azure.
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Una vez que los clientes movieron los datos locales a la nube, pueden tener acceso a ellos desde cualquier servicio de Azure para aprovechar al máximo el conjunto de tecnologías de Azure. Por ejemplo, se pueden usar en Aprendizaje automático de Azure o en un clúster de HDInsight.
+Una vez que los clientes movieron los datos locales a la nube, pueden tener acceso a ellos desde cualquier servicio de Azure para aprovechar al máximo el conjunto de tecnologías de Azure. Por ejemplo, se pueden usar en Azure Machine Learning o en un clúster de HDInsight.
 
 Generalmente, este será el primer paso de los tutoriales de [SQL](sql-walkthrough.md) y [HDInsight](hive-walkthrough.md).
 
@@ -68,7 +68,7 @@ A continuación, se describen los parámetros que usa la tarea:
 
 | Campo | Description |
 | --- | --- |
-| **AzureStorageConnection** |Especifica un Administrador de conexiones de almacenamiento de Azure existente o crea uno nuevo que hace referencia a una cuenta de almacenamiento de Azure que apunta adonde se almacenan los archivos de blob. |
+| **AzureStorageConnection** |Especifica un Administrador de conexiones de Azure Storage existente o crea uno nuevo que hace referencia a una cuenta de Azure Storage que apunta adonde se almacenan los archivos de blob. |
 | **BlobContainer** |Especifica el nombre del contenedor de blobs que mantiene los archivos cargados como blobs. |
 | **BlobDirectory** |Especifica el directorio de blobs donde se almacena el archivo cargado como un blob en bloques. El directorio de blobs es una estructura jerárquica virtual. Si el blob ya existe, se reemplaza. |
 | **LocalDirectory** |Especifica el directorio local que contiene los archivos que se cargarán. |

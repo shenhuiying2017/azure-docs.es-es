@@ -1,6 +1,6 @@
 ---
 title: Mover datos hacia y desde Azure Blob Storage con Python | Microsoft Docs
-description: Mover datos hacia y desde el almacenamiento de blobs de Azure con Python
+description: Mover datos hacia y desde Azure Blob Storage con Python
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: d7847f695a77ad469f56a20518cb979c41384d1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e325f70a37200552832b9c0ac38f6c56471f2c
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Movimiento de datos hacia y desde Azure Blob Storage de Azure con Python
 En este tema se describe cómo enumerar, cargar y descargar blobs usando la API de Python. Con la API de Python proporcionada en el SDK de Azure, puede:
@@ -29,7 +29,7 @@ En este tema se describe cómo enumerar, cargar y descargar blobs usando la API 
 * Enumerar los blobs de un contenedor
 * Eliminar un blob
 
-Para obtener más información sobre el uso de la API de Python, consulte [Uso del servicio de almacenamiento de blobs desde Python](../../storage/blobs/storage-python-how-to-use-blob-storage.md).
+Para obtener más información sobre el uso de la API de Python, consulte [Uso del servicio Blob Storage desde Python](../../storage/blobs/storage-python-how-to-use-blob-storage.md).
 
 [!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -48,7 +48,7 @@ En este documento se supone que tiene una suscripción de Azure y una cuenta de 
 * Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-create-storage-account.md).
 
 ## <a name="upload-data-to-blob"></a>Cargar datos en blob
-Agregue el siguiente fragmento de código cerca de la parte superior de cualquier código de Python en el que desee obtener acceso mediante programación al almacenamiento de Azure:
+Agregue el siguiente fragmento de código cerca de la parte superior de cualquier código de Python en el que desee obtener acceso mediante programación a Azure Storege:
 
     from azure.storage.blob import BlobService
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Uso de la solución Service Map de Operations Management Suite
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -224,11 +224,26 @@ La imagen siguiente es una vista detallada de un evento ConfigurationChange que 
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Integración de rendimiento de Operations Management Suite
-En el panel **Rendimiento de la máquina** se muestran las métricas de rendimiento estándar del servidor seleccionado. Las métricas incluyen uso de la CPU, uso de la memoria, bytes de red enviados y recibidos y una lista de los principales procesos por bytes de red enviados y recibidos. Para obtener los datos de rendimiento de red, también debe haber habilitado la solución Wire Data 2.0 en Operations Management Suite.
+En el panel **Rendimiento de la máquina** se muestran las métricas de rendimiento estándar del servidor seleccionado. Las métricas incluyen uso de la CPU, uso de la memoria, bytes de red enviados y recibidos y una lista de los principales procesos por bytes de red enviados y recibidos.
 
 ![Panel Rendimiento de la máquina](media/oms-service-map/machine-performance.png)
 
+Para ver los datos de rendimiento, puede que necesite [habilitar los contadores de rendimiento adecuados de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Los contadores que probablemente le interese habilitar son los siguientes:
 
+Windows:
+- Procesador(*)\% Tiempo de procesador
+- Memoria\% de bytes confirmados en uso
+- Adaptador de red(*)\Bytes enviados por segundo
+- Adaptador de red(*) \Bytes recibidos por segundo
+
+Linux:
+- Procesador(*)\% Tiempo de procesador
+- Memoria(*)\% Memoria usada
+- Adaptador de red(*)\Bytes enviados por segundo
+- Adaptador de red(*) \Bytes recibidos por segundo
+
+Para obtener los datos de rendimiento de red, también debe haber habilitado la solución Wire Data 2.0 en Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Integración de Operations Management Suite Security
 La integración de Service Map con Security and Audit es automática si ambas soluciones están habilitadas y configuradas en el área de trabajo de Operations Management Suite.
 

@@ -17,16 +17,16 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 937f20d7c52bef12b7aa9451944515262a099bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d8a26945be05ac0131148b5c0ffdd5f8053bcd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Aprenda a usar Apache Oozie para definir un flujo de trabajo y a ejecutarlo en HDInsight. Para conocer el coordinador de Oozie, consulte [Uso del coordinador de Oozie de tiempo con HDInsight][hdinsight-oozie-coordinator-time]. Para obtener información sobre Data Factory de Azure, consulte [Uso de Pig y Hive con Data Factory][azure-data-factory-pig-hive].
+Aprenda a usar Apache Oozie para definir un flujo de trabajo y a ejecutarlo en HDInsight. Para conocer el coordinador de Oozie, consulte [Uso del coordinador de Oozie de tiempo con HDInsight][hdinsight-oozie-coordinator-time]. Para obtener información sobre Azure Data Factory, consulte [Uso de Pig y Hive con Data Factory][azure-data-factory-pig-hive].
 
 Oozie de Apache es un sistema de coordinación o flujo de trabajo que administra trabajos de Hadoop. Se integra con la pila de Hadoop y es compatible con los trabajos de Hadoop para MapReduce, Pig, Hive y Sqoop de Apache. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java.
 
@@ -160,7 +160,7 @@ La acción de Hive en el flujo de trabajo llama a un archivo de script de HiveQL
 
 1. **La instrucción DROP TABLE** elimina la tabla de Hive log4j en caso de que exista.
 2. **La instrucción CREATE TABLE** crea una tabla externa de Hive log4j Hive que apunta a la ubicación del archivo de registro log4j. El delimitador de campo es ",". El delimitador de línea predeterminado es "\n". Una tabla externa de Hive se usa para evitar que el archivo de datos se quite de la ubicación original si desea ejecutar el flujo de trabajo de Oozie varias veces.
-3. **La instrucción INSERT OVERWRITE** cuenta las apariciones de cada tipo de nivel de registro desde la tabla de Hive log4j y guarda el resultado en un blob del almacenamiento de Azure.
+3. **La instrucción INSERT OVERWRITE** cuenta las apariciones de cada tipo de nivel de registro desde la tabla de Hive log4j y guarda el resultado en un blob de Azure Storage.
 
 Existen tres variables que se usan en el script:
 
@@ -179,7 +179,7 @@ El script de PowerShell de esta sección lleva a cabo los siguientes pasos:
 
 1. Conéctese a Azure.
 2. Cree un grupo de recursos de Azure. Para más información, vea [Usar Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-3. Cree un servidor de Base de datos SQL de Azure, una base de datos SQL de Azure y dos tablas. Se usan por la acción Sqoop en el flujo de trabajo.
+3. Cree un servidor de Azure SQL Database, una instancia de Azure SQL Database y dos tablas. Se usan por la acción Sqoop en el flujo de trabajo.
    
     El nombre de la tabla es *log4jLogCount*.
 4. Cree un clúster de HDInsight usado para ejecutar trabajos de Oozie.
@@ -194,7 +194,7 @@ El script de PowerShell de esta sección lleva a cabo los siguientes pasos:
    * Copie el archivo de datos (/example/data/sample.log) en wasb:///tutorials/useoozie/data/sample.log.
 6. Envíe un trabajo de Oozie.
    
-    Para examinar los resultados del trabajo de OOzie, use Visual Studio u otras herramientas para conectarse a la Base de datos SQL de Azure.
+    Para examinar los resultados del trabajo de OOzie, use Visual Studio u otras herramientas para conectarse a Azure SQL Database.
 
 Este es el script.  Puede ejecutar el script desde Windows PowerShell ISE. Solo necesita configurar las 7 primeras variables.
 
@@ -638,20 +638,20 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
-[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
+[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
+[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
+[hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md

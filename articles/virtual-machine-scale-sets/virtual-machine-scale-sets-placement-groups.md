@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 9/1/2017
+ms.date: 11/9/2017
 ms.author: guybo
-ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3679ca32af5cee82660bbfda70046a0202d47c3e
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
@@ -37,7 +37,7 @@ Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de esc
 - Los conjuntos de escalado grandes necesitan Azure Managed Disks. Los conjuntos de escalado grandes que no se crean con Managed Disks requieren varias cuentas de almacenamiento (una por cada 20 máquinas virtuales). Los conjuntos de escalado grandes están diseñados para trabajar exclusivamente con Managed Disks para reducir la sobrecarga de administración del almacenamiento y para evitar el riesgo de alcanzar los límites de suscripción de las cuentas de almacenamiento. Si no usa Managed Disks, el conjunto de escalado está limitado a 100 máquinas virtuales.
 - Los conjuntos de escalado creados a partir de imágenes de Azure Marketplace pueden escalar a un máximo de 1000 máquinas virtuales.
 - Los conjuntos de escalado creados a partir de imágenes personalizadas (imágenes de máquina virtual creadas y cargadas por el usuario) actualmente pueden escalar a 300 máquinas virtuales, como máximo.
-- Aún no se admite el equilibrio de carga de nivel 4 con Azure Load Balancer para conjuntos de escalado compuestos por varios grupos de selección de ubicación. Si necesita usar Azure Load Balancer, asegúrese de que el conjunto de escalado esté configurado para usar un único grupo de selección de ubicación, que es la configuración predeterminada.
+- El equilibrio de carga de nivel 4 con conjuntos de escalado compuestos por varios grupos de selección de ubicación necesita la [SKU estándar de Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). La SKU estándar de Load Balancer proporciona ventajas adicionales, como la capacidad de equilibrar la carga entre varios conjuntos de escalado. La SKU estándar también necesita que el conjunto de escalado tenga un grupo de seguridad de red asociado a ella, en caso contrario, los grupos NAT no funcionarán correctamente. Si necesita usar la SKU básica de Azure Load Balancer, asegúrese de que el conjunto de escalado está configurado para usar un único grupo de selección de ubicación, que es el valor predeterminado.
 - Se admite el equilibrio de carga de nivel 7 con Azure Application Gateway para todos los conjuntos de escalado.
 - Un conjunto de escalado se define con una sola subred; asegúrese de que la subred tenga suficiente espacio de direcciones para todas las máquinas virtuales que necesita. De forma predeterminada, un conjunto de escalado se aprovisiona en exceso (crea máquinas virtuales adicionales durante la implementación o durante el escalado horizontal, que no se le cobran) para mejorar el rendimiento y la confiabilidad de la implementación. Deje un 20 % más de espacio que el número de máquinas virtuales al que tiene pensado escalar.
 - Si planea implementar muchas máquinas virtuales, quizás tenga que aumentar los límites de cuota de los núcleos de proceso.
@@ -83,6 +83,6 @@ Para ver un ejemplo completo de una plantilla de conjunto de escalado grande, co
 Para que un conjunto de escalado de máquinas virtuales existente pueda escalar a más de 100 máquinas virtuales, debe cambiar la propiedad _singplePlacementGroup_ a _false_ en el modelo del conjunto de escalado. Puede probar a cambiar esta propiedad con el [Explorador de recursos de Azure](https://resources.azure.com/). Buscar un conjunto de escalado existente, seleccione _Editar_ y cambie la propiedad _singlePlacementGroup_. Si no ve esta propiedad, quizás esté viendo el conjunto de escalado con una versión anterior de la API Microsoft.Compute.
 
 >[!NOTE] 
-Puede cambiar un conjunto de escalado para que admita más de un grupo de selección de ubicación, pero no al revés. Por lo tanto, asegúrese de que comprende las propiedades de los conjuntos de escalado grandes antes de convertirlos. En concreto, asegúrese de que no necesita el equilibrio de carga de nivel 4 con Azure Load Balancer.
+Puede cambiar un conjunto de escalado para que admita más de un grupo de selección de ubicación, pero no al revés. Por lo tanto, asegúrese de que comprende las propiedades de los conjuntos de escalado grandes antes de convertirlos.
 
 

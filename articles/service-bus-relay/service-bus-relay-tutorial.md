@@ -1,6 +1,6 @@
 ---
 title: Tutorial de Azure Service Bus WCF Relay | Microsoft Docs
-description: "Cree un servicio y una aplicación cliente de Service Bus con Relay WCF."
+description: "Compile una aplicación cliente y servicio con WCF Relay."
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial de Azure WCF Relay
 
-En este tutorial se describe cómo crear un servicio y una aplicación cliente de WCF Relay sencillos mediante Azure Relay. Para ver un tutorial parecido donde se usa [mensajería de Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consulte [Introducción a las colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+En este tutorial se describe cómo crear un servicio y una aplicación cliente de WCF Relay sencillos mediante Azure Relay. Para ver un tutorial parecido donde se usa [Mensajería de Service Bus](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), consulte [Introducción a las colas de Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Al trabajar con este tutorial adquirirá unos conocimientos sobre los pasos necesarios para crear una aplicación cliente y de servicio de WCF Relay. Como sus homólogos WCF originales, un servicio es una construcción que expone uno o varios puntos de conexión, cada uno de los cuales expone una o varias operaciones de servicio. El extremo de un servicio especifica una dirección donde se puede encontrar el servicio, un enlace que contiene la información que un cliente debe comunicar al servicio y un contrato que define la funcionalidad que ofrece el servicio a sus clientes. La diferencia principal entre WCF y WCF Relay es que el punto de conexión se expone en la nube en lugar de localmente en su equipo.
 
@@ -52,9 +52,9 @@ El contrato de servicio especifica las operaciones (la terminología del servici
 
     ![][2]
 
-3. Instale el paquete NuGet del Bus de servicio. Este paquete agrega automáticamente referencias a las bibliotecas de Service Bus, así como a **System.ServiceModel** de WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) es el espacio de nombres que permite el acceso mediante programación a las características básicas de WCF. Bus de servicio utiliza muchos de los objetos y atributos de WCF para definir contratos de servicio.
+3. Instale el paquete NuGet de Service Bus. Este paquete agrega automáticamente referencias a las bibliotecas de Service Bus, así como a **System.ServiceModel** de WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) es el espacio de nombres que permite el acceso mediante programación a las características básicas de WCF. Service Bus utiliza muchos de los objetos y atributos de WCF para definir contratos de servicio.
 
-    En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, luego, en **Administrar paquetes NuGet**. Haga clic en la pestaña **Examinar** y luego busque `Microsoft Azure Service Bus`. Asegúrese de que el nombre del proyecto está seleccionado en el cuadro **Versiones**. Haga clic en **Instalar**y acepte las condiciones de uso.
+    En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y, luego, en **Administrar paquetes NuGet**. Haga clic en la pestaña **Examinar** y, después, busque **WindowsAzure.ServiceBus**. Asegúrese de que el nombre del proyecto está seleccionado en el cuadro **Versiones**. Haga clic en **Instalar**y acepte las condiciones de uso.
 
     ![][3]
 4. En el Explorador de soluciones, haga doble clic en el archivo Program.cs para abrirlo en el editor en caso de que no esté ya abierto.
@@ -255,13 +255,13 @@ Este paso describe cómo ejecutar un servicio de Azure Relay.
 
 ### <a name="create-a-base-address-for-the-service"></a>Creación de una dirección base para el servicio
 
-Siguiendo el código que agregó en el último paso, cree una instancia de `Uri` para la dirección base del servicio. Este identificador URI especifica el esquema del Bus de servicio, el espacio de nombres y la ruta de acceso de la interfaz del servicio.
+Siguiendo el código que agregó en el último paso, cree una instancia de `Uri` para la dirección base del servicio. Este identificador URI especifica el esquema de Service Bus, el espacio de nombres y la ruta de acceso de la interfaz del servicio.
 
 ```csharp
 Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
 ```
 
-"sb" es una abreviatura para el esquema de Bus de servicio e indica que se usa TCP como protocolo. Esto también se indicó anteriormente en el archivo de configuración, cuando se especificó [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) como el enlace.
+"sb" es una abreviatura para el esquema de Service Bus e indica que se usa TCP como protocolo. Esto también se indicó anteriormente en el archivo de configuración, cuando se especificó [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) como el enlace.
 
 Para este tutorial, el identificador URI es `sb://putServiceNamespaceHere.windows.net/EchoService`.
 

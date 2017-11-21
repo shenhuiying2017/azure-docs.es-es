@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure IoT Edge
+metadata:
+  document_id: null
+  title: 'Azure IoT Edge: Tutoriales, referencia de API'
+  meta.description: Use Azure IoT Edge to deploy Azure services and custom business logic to devices at the edge.
+  services: iot-edge
+  author: kgremban
+  manager: timlt
+  ms.service: iot-edge
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/08/2017
+  ms.author: kgremban
+abstract:
+  description: 'Azure IoT Edge es un servicio de Internet de las cosas (IoT) que se basa en IoT Hub. Este servicio está pensado para los clientes que desean analizar datos en dispositivos, situación también conocida como "en el perímetro", en lugar de en la nube. Al mover elementos de la carga de trabajo al perímetro, los dispositivos pueden dedicar menos tiempo a enviar mensajes a la nube y reaccionan más rápidamente a los cambios de estado.'
+sections:
+  - title: Inicios rápidos en 5 minutos
+    items:
+      - type: paragraph
+        text: 'Implemente el primer módulo de IoT Edge y procese los datos en un dispositivo simulado:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Windows
+            href: /azure/iot-edge/quickstart
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Linux
+            href: /azure/iot-edge/quickstart-linux
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: 'Aprenda a instalar y configurar IoT Edge, a implementar módulos y a utilizar servicios de Azure como Stream Analytics en el perímetro.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/iot-edge/tutorial-simulate-device-windows">Simulación de un dispositivo de IoT Edge en Windows</a>
+          - html: <a href="/azure/iot-edge/tutorial-simulate-device-Linux">Simulación de un dispositivo de IoT Edge en Linux</a>
+          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Desarrollo e implementación de un módulo de C#</a>'
+          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Implementación de Azure Stream Analytics como un módulo</a>
+          - html: <a href="/azure/iot-edge/tutorial-deploy-function">Implementación de Azure Functions como un módulo</a>

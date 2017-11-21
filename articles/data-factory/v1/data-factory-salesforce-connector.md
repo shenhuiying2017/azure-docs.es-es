@@ -1,6 +1,6 @@
 ---
 title: Movimiento de datos de Salesforce mediante el uso de Data Factory | Microsoft Docs
-description: Aprenda a mover datos de Salesforce usando Data Factory de Azure.
+description: Aprenda a mover datos de Salesforce usando Azure Data Factory.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d0b597cb734518ed8cc55d52e33f6f88917ec09d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29f4c5e8998331cc48dac694512766a5b3cd4a30
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
-# <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Data Factory de Azure
+# <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Movimiento de datos de Salesforce mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](data-factory-salesforce-connector.md)
 > * [Versión 2: Versión preliminar](../connector-salesforce.md)
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 En este artículo se describe cómo puede usar la actividad de copia en Data Factory de Azure para copiar datos de Salesforce en cualquier almacén de datos que aparezca en la columna Receptores en la tabla de [orígenes y receptores admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Este artículo se basa en el artículo sobre [movimiento de datos y actividad de copia](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones de almacén de datos admitidas.
 
-Actualmente, Data Factory de Azure solo admite mover datos de Salesforce a [almacenes de datos receptores compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats), pero no de otros almacenes de datos a Salesforce.
+Actualmente, Azure Data Factory solo admite mover datos de Salesforce a [almacenes de datos receptores compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats), pero no de otros almacenes de datos a Salesforce.
 
 ## <a name="supported-versions"></a>Versiones compatibles
 Este conector es compatible con las siguientes ediciones de Salesforce: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition. Y admite la copia del dominio personalizado, producción y espacio aislado de Salesforce.
@@ -126,7 +126,7 @@ Para consultar los registros eliminados temporalmente de papelera de reciclaje d
 * Para consultar todos los registros, tanto existentes como eliminados, especifique "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Ejemplo de JSON: Copia de datos de Salesforce a un blob de Azure
-En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización usando [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Salesforce al almacenamiento de blobs de Azure. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.   
+En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización usando [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos desde la base de datos Salesforce a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.   
 
 Aquí tiene los artefactos de Data Factory que necesita crear para implementar el escenario. Las secciones que siguen a la lista proporcionan detalles acerca de estos pasos.
 
@@ -155,7 +155,7 @@ Este ejemplo usa el servicio vinculado de **Salesforce** . Consulte la sección 
     }
 }
 ```
-**Servicio vinculado de Almacenamiento de Azure**
+**Servicio vinculado de Azure Storage**
 
 ```json
 {
@@ -313,4 +313,4 @@ Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
-Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Data Factory de Azure y las diversas formas de optimizarlo.
+Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

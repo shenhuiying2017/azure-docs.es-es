@@ -4,23 +4,26 @@ description: "La API de búsqueda de registros de Log Analytics permite que cual
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Recuperación de datos desde Log Analytics con un script de Python
 La [API de búsqueda de registros de Log Analytics](log-analytics-log-search-api.md) permite que cualquier cliente de API de REST recupere datos de un área de trabajo de Log Analytics.  En este artículo se presenta un script de Python de ejemplo que usa la API de búsqueda de registros de Log Analytics.  
+
+>[!NOTE]
+> En este artículo se utiliza la API de búsqueda de registros para el lenguaje de consulta heredado en Log Analytics.  Se proporcionará una actualización para este artículo destinada a las áreas de trabajo que se han actualizado al [nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Autenticación
 Este script usa una entidad de servicio en Azure Active Directory para autenticarse en el área de trabajo.  Las entidades de servicio permiten que una aplicación cliente solicite que el servicio autentique una cuenta incluso si el cliente no tiene el nombre de la cuenta. Antes de ejecutar este script, debe crear una entidad de servicio mediante el proceso que aparece en [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md).  Deberá proporcionar el identificador de aplicación, el identificador de inquilino y la clave de autenticación en el script. 
