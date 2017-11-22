@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Clasificación de imágenes con Azure Machine Learning Workbench
 
@@ -52,9 +52,11 @@ Los requisitos previos para ejecutar este ejemplo son los siguientes:
 4. No se necesita una GPU dedicada para ejecutar el entrenamiento de SVM en la parte 1, pero sí para el proceso de perfeccionamiento de la DNN descrito en la parte 2. Si no tiene una GPU en condiciones, quiere entrenar en varias GPU o no tiene un equipo con Windows, considere la posibilidad de usar máquina de virtual de aprendizaje profundo de Azure con un sistema operativo Windows. Vaya [aquí](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) para obtener una guía de implementación con un solo clic. Una vez implementada, conéctese a la máquina virtual a través de una conexión de Escritorio remoto, instale Workbench y ejecute el código localmente en ella.
 5. Es necesario instalar varias bibliotecas de Python, como OpenCV. Haga clic en *Abrir símbolo del sistema* en el menú *Archivo* de Workbench y ejecute los siguientes comandos para instalar estas dependencias:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` después de descargar OpenCV de http://www.lfd.uci.edu/~gohlke/pythonlibs/ (la versión y el nombre de archivo exactos pueden variar)
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` después de descargar OpenCV de http://www.lfd.uci.edu/~gohlke/pythonlibs/ (la versión y el nombre de archivo exactos pueden variar)
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>Solución de problemas/Errores conocidos
 - Se necesita una GPU para la parte 2. Si no hay una, cuando trate de perfeccionar la DNN aparecerá un error que indica que el aprendizaje de normalización por lotes todavía no se ha implementado.
@@ -94,9 +96,7 @@ El script `0_downloadData.py` descarga todas las imágenes en el directorio *DAT
 En la siguiente ilustración se muestran ejemplos de los atributos de lunares (izquierda), a rayas (centro) y leopardo (derecha). Se realizaron las anotaciones pertinentes en función de la prenda de ropa.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

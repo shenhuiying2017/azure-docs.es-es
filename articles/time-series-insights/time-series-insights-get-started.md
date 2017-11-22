@@ -1,56 +1,67 @@
 ---
 title: "Creación de un entorno de Azure Time Series Insights | Microsoft Docs"
-description: "En este tutorial, aprenderá a crear un entorno de Time Series Insights, conectarse a un origen de eventos y estar listo para analizar los datos del evento en minutos."
-keywords: 
+description: "Este artículo se describe cómo usar Azure Portal para crear un nuevo entorno de Time Series Insights."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: op-ravi
-manager: santoshb
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/18/2017
 ms.author: omravi
-ms.openlocfilehash: d8a3f79630868c83cd9fde6ea0c414e334a58e22
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 6dba703851161a1eebce0101be8076682f09c76f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Creación de un nuevo entorno de Time Series Insights en Azure Portal
+En este artículo se describe cómo crear un nuevo entorno de Time Series Insights mediante Azure Portal.
 
-Un entorno de Time Series Insights es un recurso de Azure con funcionalidades de incorporación y almacenamiento. Los clientes aprovisionan los entornos mediante Azure Portal con la capacidad necesaria.
+Time Series Insights permite empezar a visualizar y consultar en cuestión de minutos los datos que fluyen en centros de Azure IoT Hub y Event Hubs, de modo que se pueden consultar grandes volúmenes de datos de series temporales de consulta en segundos.  Se diseñó para la escala de Internet de las cosas (IoT) y puede controlar terabytes de datos.
 
 ## <a name="steps-to-create-the-environment"></a>Pasos para crear el entorno
-
-Siga estos pasos para crear el entorno:
+Siga estos pasos para crear un entorno:
 
 1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2.  Haga clic en el signo más ("+") en la esquina superior izquierda.
-3.  Busque "Time Series Insights" en el cuadro de búsqueda.
 
-  ![Creación del entorno de Time Series Insights](media/get-started/getstarted-create-environment1.png)
+2.  Seleccione el botón **+ Nuevo**.
 
-4.  Seleccione "Time Series Insights" y haga clic en "Crear".
+3.  Seleccione la categoría **Internet de las cosas** y elija **Time Series Insights**.
 
-  ![Creación del grupo de recursos de Time Series Insights](media/get-started/getstarted-create-environment2.png)
+   ![Creación del entorno de Time Series Insights](media/time-series-insights-get-started/1-new-tsi.png)
 
-5.  Especifique el nombre del entorno. Este nombre representará al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).
-6.  Seleccione una suscripción. Elija una que contenga el origen de eventos. Time Series Insights puede detectar automáticamente los recursos de Azure IoT Hub y Event Hubs existentes en la misma suscripción.
-7.  Seleccione o cree un grupo de recursos. Un grupo de recursos es una colección de recursos de Azure que se usan juntos.
-8.  Selección de una ubicación de hospedaje. Para evitar mover datos entre centros de datos, elija la ubicación que contiene el origen de eventos.
-9.  Seleccione un plan de tarifa.
-10. Seleccione la capacidad. Puede cambiar la capacidad de un entorno después de su creación.
-11. Cree el entorno. También puede anclar el entorno en el panel para facilitar el acceso siempre que inicie sesión.
+4.  En la página **Time Series Insights**, seleccione **Crear**.
 
-  ![Anclaje de Time Series Insights al panel](media/get-started/getstarted-create-environment3.png)
+5. Rellene todos los campos obligatorios. La siguiente tabla explica cada parámetro:
+   
+   ![Creación del grupo de recursos de Time Series Insights](media/time-series-insights-get-started/2-create-tsi.png)
+   
+   Configuración|Valor sugerido|Descripción
+   ---|---|---
+   Nombre del entorno | Un nombre único | Este nombre representará al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).
+   La suscripción | Su suscripción | Si tiene varias suscripciones, elija la suscripción que contiene el origen de eventos si es posible. Time Series Insights puede detectar automáticamente los recursos de Azure IoT Hub y Event Hubs existentes en la misma suscripción.
+   Grupos de recursos | Cree uno o use uno existente | Un grupo de recursos es una colección de recursos de Azure que se usan juntos. Puede elegir un grupo de recursos existente, por ejemplo, la carpeta que contenga el centro de eventos o IoT Hub. También puede crear un disco si este recurso no está relacionado con los otros recursos.
+   Ubicación | La más cercana al origen de su evento | Si es posible, elija la misma ubicación del centro de datos que contiene los datos de origen de eventos para evitar costos adicionales de ancho de banda entre regiones y zonas, y un aumento de la latencia cuando se mueven datos fuera de la región.
+   Plan de tarifa  | S1 | Elija el rendimiento requerido. Para costos más bajos y una capacidad de inicio menor, seleccione S1.
+   Capacity | 1 | La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado con la SKU seleccionada.  Puede cambiar la capacidad de un entorno después de su creación. Para costos más bajo, seleccione una capacidad de 1. 
+  
+6. Marque **Anclar al panel** para acceder más fácilmente a su entorno de Time Series Insights en el futuro.
+
+   ![Anclaje de Time Series Insights al panel](media/time-series-insights-get-started/3-pin-create.png)
+
+7. Haga clic en **Crear** para comenzar el proceso de aprovisionamiento. Este proceso tardará unos minutos.
+
+8. Seleccione el símbolo de **Notificaciones** (icono de campana) para supervisar el proceso de implementación.
+
+   ![Visualización de notificaciones](media/time-series-insights-get-started/4-notifications.png)
+
+Cuando la implementación se realiza correctamente, puede seleccionar **Ir al recurso** para configurar otras propiedades, establecer la seguridad con directivas de acceso de datos, agregar orígenes de eventos y otras acciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Definición de las directivas de acceso de datos](time-series-insights-data-access.md) para tener acceso al entorno en el [portal de Time Series Insights](https://insights.timeseries.azure.com)
-* [Creación de un origen de eventos](time-series-insights-add-event-source.md)
-* [Envío de eventos](time-series-insights-send-events.md) al origen de eventos
+* [Defina directivas de acceso de datos](time-series-insights-data-access.md) para proteger su entorno.
+* [Agregue un origen de eventos de Event Hubs](time-series-insights-how-to-add-an-event-source-eventhub.md) al entorno de Azure Time Series Insights. 
+* [Envíe eventos](time-series-insights-send-events.md) al origen de eventos.
+* Vea el entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

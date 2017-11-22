@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Prueba de la solución con dispositivos simulados
 
@@ -39,6 +39,10 @@ La tabla siguiente muestra los datos que la bombilla informe a la nube como fluj
 | Nombre   | Valores      |
 | ------ | ----------- |
 | Estado | "on", "off" |
+| online (en línea) | true, false |
+
+> [!NOTE]
+> El valor de telemetría **online** (en línea) es obligatorio para todos los tipos simulados.
 
 *Métodos*
 
@@ -173,13 +177,13 @@ El archivo `lightbulb-01.json` define las características del tipo, como la tel
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
 1. Guarde el archivo `lightbulb-01.json`.
 
-### <a name="simulate-custom-device-behavior"></a>Simulación del comportamiento de un dispositivo personalizado
+### <a name="simulate-custom-device-behavior"></a>Simular el comportamiento de un dispositivo personalizado
 
 El archivo `scripts/lightbulb-01-state.js` define el comportamiento de la simulación del tipo **Bombilla**. Los pasos siguientes actualizan el archivo `scripts/lightbulb-01-state.js` para definir el comportamiento del dispositivo **Bombilla**:
 
@@ -267,7 +271,11 @@ Para probar el tipo de dispositivo **Bombilla**, puede probar primero si el tipo
 
 Para probar y depurar localmente los cambios, consulte la [información general sobre la simulación de dispositivos](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md).
 
-Configure el proyecto para copiar los nuevos archivos del dispositivo **Bombilla** en el directorio de salida.
+Configure el proyecto para copiar los nuevos archivos del dispositivo **Bombilla** en el directorio de salida:
+
+* Si utiliza Visual Studio, asegúrese de agregar los tres nuevos archivos de bombilla que creó en la sección anterior para el proyecto **Servicios** de la solución. A continuación, utilice el **Explorador de soluciones** para marcarlos para que se copien en el directorio de salida.
+
+* Si usa Visual Studio Code, abra el archivo **Services.csproj** y agregue los tres nuevos archivos de bombilla que creó en la sección anterior. Consulte las entradas de archivo de modelo de dispositivo existentes en el archivo **Services.csproj** como ejemplos.
 
 Para probar el dispositivo nuevo en una solución implementada, consulte uno de los siguientes recursos:
 
@@ -299,12 +307,12 @@ En los pasos siguientes se muestra cómo encontrar los archivos que definen el d
 1. Si todavía no lo ha hecho, use el comando siguiente para clonar el repositorio **device-simulation** de GitHub en la máquina local:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+    git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-1. Cada tipo de dispositivo tiene un archivo de modelo JSON y los scripts asociados en la carpeta `data/devicemodels`. Los archivos que define el tipo de dispositivo **Refrigerador** simulado son:
-    * `data/devicemodels/chiller-01.json`
-    * `data/devicemodels/scripts/chiller-01-state.js`
+1. Cada tipo de dispositivo tiene un archivo de modelo JSON y los scripts asociados en la carpeta `Services/data/devicemodels`. Los archivos que define el tipo de dispositivo **Refrigerador** simulado son:
+    * `Services/data/devicemodels/chiller-01.json`
+    * `Services/data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Especificación de un tipo de telemetría nuevo
 

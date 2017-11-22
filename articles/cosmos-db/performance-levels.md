@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
 
@@ -71,7 +71,7 @@ Nada, Cosmos DB se ocupa de la migración por usted. Si tiene una colección de 
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>¿Cómo cambiará mi colección después de la migración?
 
-Si tiene una colección de S1, se migrará a una colección de partición única con un rendimiento de 400 RU/s. 400 RU/s es el rendimiento más bajo disponible con colecciones de partición única. Sin embargo, el coste de 400 RU/s en la colección de partición única es aproximadamente el mismo que con la colección de S1 y 250 RU/s: por lo que no va a pagar por las 150 RU/s extra disponibles.
+Si tiene una colección de S1, se migrará a una colección de partición única con un rendimiento de 400 RU/s. 400 RU/s es el rendimiento más bajo disponible con colecciones de partición única. Sin embargo, el costo de 400 RU/s en la colección de partición única es aproximadamente el mismo que con la colección de S1 y 250 RU/s, por lo que no pagará las 150 RU/s extra disponibles.
 
 Si tiene una colección de S2, se migrará a una colección de partición única con 1000 RU/s. No verá ningún cambio en su nivel de rendimiento.
 
@@ -119,29 +119,29 @@ Puede migrar de los niveles de rendimiento S1, S2 y S3 a colecciones de partici�
 
 1. En [**Azure Portal**](https://portal.azure.com), haga clic en **Azure Cosmos DB** y seleccione la cuenta de Cosmos DB que se va a modificar. 
  
-    Si **Azure Cosmos DB** no está en la barra de accesos, haga clic en >, vaya a **Bases de datos**, seleccione **Azure Cosmos DB** y luego seleccione la cuenta de DocumentDB.  
+    Si **Azure Cosmos DB** no está en la barra de accesos, haga clic en >, vaya a **Bases de datos**, seleccione **Azure Cosmos DB** y luego seleccione la cuenta.  
 
-2. En el menú de recursos, en **Contenedores**, haga clic en **Escala**, seleccione la colección que desea modificar en la lista desplegable y luego haga clic en **Plan de tarifa**. Las cuentas con un rendimiento predefinido tienen un plan de tarifa de S1, S2 o S3.  En la hoja **Elegir su nivel de precios**, haga clic en **Estándar** para cambiar la capacidad de proceso definida por el usuario y luego haga clic en **Seleccionar** para guardar el cambio.
+2. En el menú de recursos, en **Contenedores**, haga clic en **Escala**, seleccione la colección que desea modificar en la lista desplegable y luego haga clic en **Plan de tarifa**. Las cuentas con un rendimiento predefinido tienen un plan de tarifa de S1, S2 o S3.  En la página **Elegir un plan de tarifa**, haga clic en **Estándar** para cambiar la capacidad de rendimiento definida por el usuario y en **Seleccionar** para guardar el cambio.
 
-    ![Captura de pantalla de la hoja Configuración que muestra dónde cambiar el valor de rendimiento](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Captura de pantalla de la página Configuración que muestra dónde cambiar el valor de rendimiento](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. En la hoja **Escala**, el **plan de tarifa** cambia a **Estándar** y el cuadro **Procesamiento (RU/s)** se muestra con un valor predeterminado de 400. Establezca el rendimiento entre 400 y 10 000 [unidades de solicitud](request-units.md)/segundo (RU/s). La opción **Factura mensual estimada** en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual. 
+3. En la página **Escala**, el **plan de tarifa** cambia a **Estándar** y el cuadro **Rendimiento (unidades de solicitud por segundo)** se muestra con un valor predeterminado de 400. Establezca el rendimiento entre 400 y 10 000 [unidades de solicitud](request-units.md)/segundo (RU/s). La opción **Factura mensual estimada** en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual. 
 
     >[!IMPORTANT] 
     > Cuando haya guardado los cambios y cambiado al plan de tarifa Estándar, no podrá revertir a los niveles de rendimiento S1, S2 o S3.
 
 4. Haga clic en **Guardar** para guardar los cambios.
 
-    Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para migrar una colección de partición única a una colección con particiones, consulte [Migración desde colecciones de partición única a colecciones con varias particiones](documentdb-partition-data.md#migrating-from-single-partition).
+    Si cree que necesita más rendimiento (más de 10 000 RU/s) o espacio de almacenamiento (más de 10 GB), puede crear una colección con particiones. Para migrar una colección de partición única a una colección con particiones, consulte [Migración desde colecciones de partición única a colecciones con varias particiones](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > El cambiar de S1, S2 o S3 a Estándar puede tardar hasta 2 minutos.
+    > El cambio de S1, S2 o S3 a Estándar puede tardar hasta dos minutos.
     > 
     > 
 
 **Para migrar a colecciones de partición única con el SDK de .NET**
 
-Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de nuestros SDK. En esta sección solo se trata el cambio del nivel de rendimiento de una colección mediante la [API de .NET de DocumentDB](documentdb-sdk-dotnet.md), pero el proceso es similar para otros SDK.
+Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de los SDK de Azure Cosmos DB. En esta sección solo se trata el cambio del nivel de rendimiento de una colección mediante [.NET API de DocumentDB](documentdb-sdk-dotnet.md), pero el proceso es similar para los demás SDK.
 
 A continuación se muestra un fragmento de código para cambiar el rendimiento de la colección a 5 000 unidades de solicitud por segundo:
     

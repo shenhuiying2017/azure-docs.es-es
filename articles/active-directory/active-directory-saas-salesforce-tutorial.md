@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integración de Azure Active Directory con Salesforce
 
@@ -121,9 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Haga clic en el botón **Guardar** de ![Configurar inicio de sesión único](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. En la sección **Configuración de Salesforce**, haga clic en **Configurar Salesforce** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**. 
 
@@ -154,7 +152,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     a. En el campo **Nombre** , escriba un nombre descriptivo para esta configuración. Si se proporciona un valor para **Name** (Nombre), se completa automáticamente el cuadro de texto **API Name** (Nombre de API).
 
-    b. Pegue el valor **SMAL Entity ID** (Id. de entidad de SAML) en el campo **Issuer** (Emisor) de Salesforce.
+    b. Pegue el valor **SAML Entity ID** (Id. de entidad de SAML) en el campo **Issuer** (Emisor) de Salesforce.
 
     c. En el **Cuadro de texto de identificador de entidades**, escriba el nombre de dominio de Salesforce con el siguiente patrón:
       

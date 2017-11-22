@@ -1,5 +1,5 @@
 ---
-title: "Información general sobre Durable Functions en Azure"
+title: "Información general sobre Durable Functions: Azure (versión preliminar)"
 description: "Introducción a la extensión Durable Functions de Azure Functions."
 services: functions
 author: cgillum
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Información general sobre Durable Functions (Azure Functions)
+# <a name="durable-functions-overview-preview"></a>Información general sobre Durable Functions (versión preliminar)
 
-*Durable Functions* es una extensión de [Azure Functions](functions-overview.md) y [WebJobs de Azure](../app-service/web-sites-create-web-jobs.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre.
+*Durable Functions* es una extensión de [Azure Functions](functions-overview.md) y [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) que le permite escribir funciones con estado en un entorno sin servidor. La extensión administra el estado, establece puntos de control y reinicia en su nombre.
 
 La extensión le permite definir los flujos de trabajo con estado en un nuevo tipo de función que se llama una *función del orquestador*. Estas son algunas de las ventajas de las funciones del orquestador:
 
@@ -31,7 +31,7 @@ La extensión le permite definir los flujos de trabajo con estado en un nuevo ti
 * Establecen automáticamente puntos de control en su progreso cuando la función espera. El estado local nunca se pierde si el proceso se recicla o se reinicia la máquina virtual.
 
 > [!NOTE]
-> Durable Functions es una extensión avanzada para Azure Functions que no es adecuada para todas las aplicaciones. El resto de este artículo da por supuesto que está muy familiarizado con los conceptos de [Azure Functions](functions-overview.md) y los desafíos que implica el desarrollo de aplicaciones sin servidor.
+> Durable Functions se encuentra en versión preliminar y es una extensión avanzada de Azure Functions que no es adecuada para todas las aplicaciones. El resto de este artículo da por supuesto que está muy familiarizado con los conceptos de [Azure Functions](functions-overview.md) y los desafíos que implica el desarrollo de aplicaciones sin servidor.
 
 El caso de uso principal para Durable Functions es simplificar los problemas de coordinación con estado complejos en las aplicaciones sin servidor. Las siguientes secciones describen algunos patrones de aplicación típicos que se pueden beneficiar de Durable Functions.
 
@@ -229,7 +229,7 @@ El temporizador durable se crea mediante una llamada a `ctx.CreateTimer`. `ctx.W
 
 ## <a name="the-technology"></a>La tecnología
 
-En segundo plano, las extensiones de Durable Functions se crean a partir de [Durable Task Framework](https://github.com/Azure/durabletask), una biblioteca de código abierto en GitHub para la creación de orquestaciones de tarea durables. Muy similar a como Azure Functions es la evolución sin servidor de WebJobs de Azure, Durable Function es la evolución sin servidor de Durable Task Framework. Durable Task Framework se usa mucho dentro de Microsoft y fuera también para automatizar los procesos críticos. Es una opción natural para el entorno de Azure Functions sin servidor.
+En segundo plano, las extensiones de Durable Functions se crean a partir de [Durable Task Framework](https://github.com/Azure/durabletask), una biblioteca de código abierto en GitHub para la creación de orquestaciones de tarea durables. Muy similar a como Azure Functions es la evolución sin servidor de Azure WebJobs, Durable Function es la evolución sin servidor de Durable Task Framework. Durable Task Framework se usa mucho dentro de Microsoft y fuera también para automatizar los procesos críticos. Es una opción natural para el entorno de Azure Functions sin servidor.
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Abastecimiento de eventos, puntos de control y reproducción
 

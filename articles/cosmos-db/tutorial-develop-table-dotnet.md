@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: desarrollo con Table API en .NET
 
@@ -30,7 +30,7 @@ En este tutorial se describen las tareas siguientes:
 > [!div class="checklist"] 
 > * Creación de una cuenta de Azure Cosmos DB 
 > * Habilitación de la funcionalidad en el archivo app.config 
-> * Creación de una tabla con [Table API](table-introduction.md) (versión preliminar)
+> * Creación de una tabla con [Table API](table-introduction.md)
 > * Adición de una entidad a una tabla 
 > * Inserción de un lote de entidades 
 > * una sola entidad 
@@ -41,11 +41,29 @@ En este tutorial se describen las tareas siguientes:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Tablas en Azure Cosmos DB 
 
-Azure Cosmos DB proporciona [Table API](table-introduction.md) (versión preliminar) para las aplicaciones que necesitan un almacén de pares clave-valor con un diseño sin esquema y que tienen altos requisitos de rendimiento. Las API de REST y los SDK de [Azure Table Storage](../storage/common/storage-introduction.md) se pueden usar para trabajar tablas en Azure Cosmos DB.   
+Azure Cosmos DB proporciona [Table API](table-introduction.md) para las aplicaciones que necesitan un almacén de pares clave-valor con un diseño sin esquema. Tanto Table API de Azure Cosmos DB como [Azure Table Storage](../storage/common/storage-introduction.md) ahora admiten los mismos SDK y API de REST. Puede usar Azure Cosmos DB para crear tablas con requisitos de alto rendimiento.
 
 Este tutorial está dirigido a desarrolladores que conocen el SDK de Azure Table Storage y que quieran usar las características premium disponibles con Azure Cosmos DB. Se basa en [Introducción a Azure Table Storage mediante .NET](table-storage-how-to-use-dotnet.md) y muestra cómo aprovechar funcionalidades adicionales, como índices secundarios, rendimiento aprovisionado y hospedaje múltiple. En este tutorial se explica cómo usar Azure Portal para crear una cuenta de Azure Cosmos DB y, luego, compilar e implementar una aplicación con Table API. También analizaremos ejemplos de .NET para crear y eliminar una tabla, además de insertar, actualizar, eliminar y consultar datos de tabla. 
 
-## <a name="prerequisites"></a>Requisitos previos
+Si actualmente usa Azure Table Storage, obtendrá las siguientes ventajas con Table API de Azure Cosmos DB:
+
+- [Distribución global](distribute-data-globally.md) llave en mano con hospedaje múltiple y [conmutaciones por error manuales y automáticas](regional-failover.md)
+- Compatibilidad con el indexado automático independiente del esquema con respecto a todas las propiedades ("índices secundarios") y consultas rápidas 
+- Compatibilidad con el [escalado independiente de proceso y almacenamiento](partition-data.md), en cualquier número de regiones
+- Compatibilidad con [rendimiento dedicado por tabla](request-units.md) que se puede escalar de cientos a millones de solicitudes por segundo
+- Compatibilidad con [cinco niveles de coherencia bien definidos](consistency-levels.md) para compensar la disponibilidad, la latencia y la coherencia en función de lo que necesita la aplicación
+- Disponibilidad del 99,99 % dentro de una única región y la capacidad de agregar más regiones para tener una mayor disponibilidad, además de [Acuerdos de Nivel de Servicio completos líderes en el sector](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sobre la disponibilidad general
+- Trabajo con el SDK de .NET para Azure Storage, sin cambios de código en la aplicación
+
+Este tutorial trata sobre Table API de Azure Cosmos DB usando el SDK de .NET. Puede descargar el [SDK de versión preliminar de Azure Storage](https://aka.ms/tableapinuget) desde NuGet.
+
+Para más información sobre las tareas complejas de Azure Table Storage, consulte:
+
+* [Introducción a Table API de Azure Cosmos DB](table-introduction.md)
+* Consulte la documentación de referencia de Table service para obtener información detallada acerca de las API disponibles: [SDK de .NET de Table API de Azure Cosmos DB](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
+
+### <a name="about-this-tutorial"></a>Acerca de este tutorial
+Este tutorial está dirigido a desarrolladores que conocen el SDK de Azure Table Storage y que quieran usar las características premium disponibles con Azure Cosmos DB. Se basa en [Introducción a Azure Table Storage mediante .NET](table-storage-how-to-use-dotnet.md) y muestra cómo aprovechar funcionalidades adicionales, como índices secundarios, rendimiento aprovisionado y hospedaje múltiple. Se explica cómo usar Azure Portal para crear una cuenta de Azure Cosmos DB y, luego, compilar e implementar una aplicación de Table. También analizaremos ejemplos de .NET para crear y eliminar una tabla, además de insertar, actualizar, eliminar y consultar datos de tabla. 
 
 Si todavía no tiene instalado Visual Studio 2017, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
@@ -59,67 +77,67 @@ Para comenzar, creemos una cuenta de Azure Cosmos DB en Azure Portal.
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
-Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena de conexión y ejecutarla.
+Ahora vamos a clonar una aplicación de Table desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
-1. Abra una ventana de terminal de Git, como Git Bash, y `cd` en un directorio de trabajo.  
-
-2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. 
+1. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a una carpeta para instalar la aplicación de ejemplo. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started
+    cd "C:\git-samples"
     ```
 
-3. Después, abra el archivo de solución en Visual Studio.
+2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo. 
+
+    ```bash
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    ```
+
+3. Después, abra el archivo de solución en Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
 
-Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
+Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 
-1. En [Azure Portal](http://portal.azure.com/), en la cuenta de Azure Cosmos DB, en el panel de navegación izquierdo, haga clic en **Claves** y en **Claves de lectura y escritura**. Deberá usar los botones de copia que se encuentran al lado derecho de la pantalla para copiar la cadena de conexión en el archivo app.config en el paso siguiente.
+1. En [Azure Portal](http://portal.azure.com/), haga clic en **Cadena de conexión**. 
+
+    Use los botones de copia en el lado derecho de la pantalla para copiar la cadena de conexión (CONNECTION STRING).
+
+    ![Visualización y copia de la cadena de conexión (CONNECTION STRING) en el panel Cadena de conexión](./media/create-table-dotnet/connection-string.png)
 
 2. En Visual Studio, abra el archivo app.config. 
 
-3. Copie el valor del URI del portal (con el botón de copia) y conviértalo en el valor de la clave de la cuenta en app.config. Use el nombre de la cuenta que se creó anteriormente en nombre de cuenta de app.config.
-  
-```
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;TableEndpoint=https://account-name.documents.azure.com" />
-```
+3. Pegue el valor de la cadena de conexión (CONNECTION STRING) en el archivo app.config como el valor de CosmosDBStorageConnectionString. 
 
-> [!NOTE]
-> Para usar esta aplicación con Azure Table Storage, debe cambiar la cadena de conexión en `app.config file`. Use el nombre de contraseña como el nombre de la cuenta de tabla y la clave como la clave principal de Azure Storage. <br>
->`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-> 
->
+    `<add key="CosmosDBStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
 
-## <a name="build-and-deploy-the-app"></a>Compilación e implementación de la aplicación
-1. En Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
+    > [!NOTE]
+    > Para usar esta aplicación con Azure Table Storage, debe cambiar la cadena de conexión en `app.config file`. Use el nombre de contraseña como el nombre de la cuenta de tabla y la clave como la clave principal de Azure Storage. <br>
+    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
+    > 
+    >
 
-2. En el cuadro **Examinar** de NuGet, escriba ***WindowsAzure.Storage-PremiumTable***. Active **Incluir versiones preliminares**.
+4. Guarde el archivo app.config.
 
-3. Desde los resultados, instale **WindowsAzure.Storage-PremiumTable** y elija la versión preliminar `0.0.1-preview`. Con esta acción se instala el paquete de Azure Table Storage y todas las dependencias.
-
-4. Haga clic en CTRL + F5 para ejecutar la aplicación. 
-
-Ahora puede volver al Explorador de datos y ver, consultar, modificar y trabajar con estos datos de tabla. 
-
-> [!NOTE]
-> Para usar esta aplicación con un emulador de Azure Cosmos DB, solo debe cambiar la cadena de conexión en `app.config file`. Use el valor siguiente para el emulador. <br>
->`<add key="StorageConnectionString" value=DefaultEndpointsProtocol=https;AccountName=localhost;AccountKey=<insertkey>==;TableEndpoint=https://localhost -->`
-> 
->
+Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
 
 ## <a name="azure-cosmos-db-capabilities"></a>Funcionalidades de Azure Cosmos DB
-Table API de Azure Cosmos DB admite una serie de funcionalidades que no están disponibles en Azure Table Storage. La funcionalidad nueva se puede habilitar a través de los siguientes valores de configuración de `appSettings`. No se han agregado a Table API firmas o sobrecargas nuevas que no estuvieran en el SDK de Azure Storage. Esto le permite conectarse con tablas tanto en Azure Table Storage como en Azure Cosmos DB, además de trabajar con otros servicios de Azure Storage, como Blobs y Queues. 
+Azure Cosmos DB admite una serie de funcionalidades que no están disponibles en la API de Azure Table Storage. 
 
+Se tiene acceso a determinadas funcionalidades a través de las nuevas sobrecargas para el elemento CreateCloudTableClient que permiten especificar el nivel de directiva de conexión y de coherencia.
+
+| Configuración de conexión de la tabla | Descripción |
+| --- | --- |
+| Modo de conexión  | Azure Cosmos DB admite dos modos de conectividad. En el modo `Gateway`, las solicitudes siempre se hacen a la puerta de enlace de Azure Cosmos DB, que las reenvía a las particiones de datos correspondientes. En el modo de conectividad `Direct`, el cliente recupera la asignación de tablas a particiones y las solicitudes se hacen directamente en las particiones de datos. Se recomienda el valor predeterminado, `Direct`.  |
+| Protocolo de la conexión | Azure Cosmos DB admite dos protocolos de conexión: `Https` y `Tcp`. El valor predeterminado es`Tcp` que es, además, el valor recomendado porque es más ligero. |
+| Ubicaciones preferidas | Lista separada por comas de las ubicaciones preferidas (hospedaje múltiple) para las lecturas. Cada cuenta de Azure Cosmos DB se puede asociar con entre 1 y 30 regiones más. Cada instancia de cliente puede especificar un subconjunto de estas regiones en el orden de preferencia para las lecturas de latencia baja. Estas regiones se deben denominar según sus [nombres para mostrar](https://msdn.microsoft.com/library/azure/gg441293.aspx), por ejemplo, `West US`. Consulte también las [API de hospedaje múltiple](tutorial-global-distribution-table.md). |
+| Nivel de coherencia | Puede compensar entre la latencia, la coherencia y la disponibilidad si elige entre cinco niveles de coherencia bien definidos: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` y `Eventual`. El valor predeterminado es `Session`. La elección del nivel de coherencia marca una diferencia importante en el rendimiento en las configuraciones con varias regiones. Consulte [Niveles de coherencia](consistency-levels.md) para obtener detalles. |
+
+Otras funcionalidades se pueden habilitar a través de los siguientes valores de configuración de `appSettings`.
 
 | Clave | Descripción |
 | --- | --- |
-| TableConnectionMode  | Azure Cosmos DB admite dos modos de conectividad. En el modo `Gateway`, las solicitudes siempre se hacen a la puerta de enlace de Azure Cosmos DB, que las reenvía a las particiones de datos correspondientes. En el modo de conectividad `Direct`, el cliente recupera la asignación de tablas a particiones y las solicitudes se hacen directamente en las particiones de datos. Se recomienda el valor predeterminado, `Direct`.  |
-| TableConnectionProtocol | Azure Cosmos DB admite dos protocolos de conexión: `Https` y `Tcp`. El valor predeterminado es`Tcp` que es, además, el valor recomendado porque es más ligero. |
-| TablePreferredLocations | Lista separada por comas de las ubicaciones preferidas (hospedaje múltiple) para las lecturas. Cada cuenta de Azure Cosmos DB se puede asociar con entre 1 y 30 regiones más. Cada instancia de cliente puede especificar un subconjunto de estas regiones en el orden de preferencia para las lecturas de latencia baja. Estas regiones se deben denominar según sus [nombres para mostrar](https://msdn.microsoft.com/library/azure/gg441293.aspx), por ejemplo, `West US`. Consulte también las [API de hospedaje múltiple](tutorial-global-distribution-table.md).
-| TableConsistencyLevel | Puede compensar entre la latencia, la coherencia y la disponibilidad si elige entre cinco niveles de coherencia bien definidos: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` y `Eventual`. El valor predeterminado es `Session`. La elección del nivel de coherencia marca una diferencia importante en el rendimiento en las configuraciones con varias regiones. Consulte [Niveles de coherencia](consistency-levels.md) para obtener detalles. |
 | TableThroughput | Rendimiento reservado para la tabla expresado en unidades de solicitud (RU) por segundo. Las tablas únicas puede admitir cientos de millones de RU/s. Consulte [Unidades de solicitud](request-units.md). El valor predeterminado es `400` |
-| TableIndexingPolicy | Indexado secundario coherente y automático de todas las columnas dentro de las tablas | Cadena JSON en conformidad con la especificación de la directiva de indexación. Consulte [Directiva de indexación](indexing-policies.md) para ver cómo puede cambiar la directiva de indexación para incluir o excluir columnas específicas. | Indexado automático de todas las propiedades (hash para cadenas e intervalo para números) |
+| TableIndexingPolicy | Cadena JSON en conformidad con la especificación de la directiva de indexación. Consulte [Directiva de indexación](indexing-policies.md) para ver cómo puede cambiar la directiva de indexación para incluir o excluir columnas específicas. |
 | TableQueryMaxItemCount | Configure el número máximo de elementos devueltos por consulta de tabla en un solo recorrido de ida y vuelta. El valor predeterminado es `-1`, que permite que Azure Cosmos DB determine el valor en runtime de manera dinámica. |
 | TableQueryEnableScan | Si la consulta no puede usar el índice para algún filtro, ejecútela de todas maneras a través de un examen. El valor predeterminado es `false`.|
 | TableQueryMaxDegreeOfParallelism | El grado de paralelismo para la ejecución de una consulta entre particiones. `0` es un valor en serie sin captura previa, `1` es un valor en serie con captura previa y los valores más altos aumentan el índice de paralelismo. El valor predeterminado es `-1`, que permite que Azure Cosmos DB determine el valor en runtime de manera dinámica. |
@@ -128,16 +146,12 @@ Para cambiar el valor predeterminado, abra el archivo `app.config` del Explorado
 
 ```xml
 <configuration>
-    <startup> 
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-    </startup>
+    ...
     <appSettings>
       <!-- Client options -->
+      <add key="CosmosDBStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
       <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-      <add key="TableConnectionMode" value="Direct"/>
-      <add key="TableConnectionProtocol" value="Tcp"/>
-      <add key="TablePreferredLocations" value="East US, West US, North Europe"/>
-      <add key="TableConsistencyLevel" value="Eventual"/>
 
       <!--Table creation options -->
       <add key="TableThroughput" value="700"/>
@@ -153,7 +167,7 @@ Para cambiar el valor predeterminado, abra el archivo `app.config` del Explorado
 </configuration>
 ```
 
-Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `Program.cs` y observe que estas líneas de código crean los recursos de Table. 
+Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `Program.cs` y observará que estas líneas de código crean los recursos de Table. 
 
 ## <a name="create-the-table-client"></a>Creación del cliente de Table
 Inicializa un elemento `CloudTableClient` para conectarse a la cuenta de Table.
@@ -162,7 +176,7 @@ Inicializa un elemento `CloudTableClient` para conectarse a la cuenta de Table.
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
 El cliente se inicializa a través de los valores de configuración `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` y `TablePreferredLocations` si se especifican en la configuración de la aplicación.
-    
+
 ## <a name="create-a-table"></a>Creación de una tabla
 Luego, se crea una tabla con `CloudTable`. Las tablas en Azure Cosmos DB pueden escalar de manera independiente en términos de almacenamiento y rendimiento, y el servicio controla automáticamente la creación de particiones. Azure Cosmos DB admite tanto tablas ilimitadas como de tamaño fijo. Consulte [Creación de particiones en Azure Cosmos DB](partition-data.md) para obtener detalles. 
 
@@ -172,17 +186,11 @@ CloudTable table = tableClient.GetTableReference("people");
 table.CreateIfNotExists();
 ```
 
-Existe una diferencia importante en la manera de crear las tablas. Azure Cosmos DB reserva rendimiento, a diferencia del modelo basado en consumo de Azure Storage para las transacciones. El modelo de reserva tiene dos ventajas principales:
-
-* El rendimiento es dedicado/reservado, por lo que nunca se verá limitado si la velocidad de solicitudes se encuentra en el rendimiento aprovisionado o está por debajo de este
-* El modelo de reserva es más [rentable para las cargas de trabajo de alto uso de rendimiento](key-value-store-cost.md)
+Existe una diferencia importante en la manera de crear las tablas. Azure Cosmos DB reserva rendimiento, a diferencia del modelo basado en consumo de Azure Storage para las transacciones. El rendimiento es dedicado/reservado, por lo que nunca se verá limitado si la velocidad de solicitudes se encuentra en el rendimiento aprovisionado o está por debajo de este.
 
 Puede configurar el rendimiento predeterminado si configura los ajustes para `TableThroughput` en términos de RU (unidades de solicitud) por segundo. 
 
-Una lectura de una entidad de 1 KB se normaliza como 1 RU y otras operaciones se normalizan como un valor de RU fijo basado en el consumo de CPU, memoria e IOPS. Más información sobre [Unidades de solicitud en Azure Cosmos DB](request-units.md).
-
-> [!NOTE]
-> Si bien el SDK de Table Storage no admite actualmente la modificación del rendimiento, este se puede cambiar inmediatamente en cualquier momento con Azure Portal o la CLI de Azure.
+Una lectura de una entidad de 1 KB se normaliza como 1 RU y otras operaciones se normalizan como un valor de RU fijo basado en el consumo de CPU, memoria e IOPS. Obtenga más información sobre [Unidades de solicitud en Azure Cosmos DB](request-units.md) y específicamente sobre [almacenes de pares clave-valor](key-value-store-cost.md).
 
 A continuación, analizaremos las operaciones simples de lectura y escritura (CRUD) mediante el SDK de Azure Table Storage. En este tutorial se muestran las consultas rápidas y las latencias bajas predecibles de milisegundos de un solo dígito que proporciona Azure Cosmos DB.
 
@@ -210,7 +218,6 @@ El fragmento de código siguiente muestra cómo insertar una entidad con el SDK 
 
 Las escrituras completan <15 ms en p99 y ~6 ms en p50 en el caso de las aplicaciones que se ejecutan en la misma región que la cuenta de Azure Cosmos DB. Además, esta duración explica el hecho de que las escrituras se reconocen en el cliente solo una vez que se replican de forma sincrónica, se confirman de forma duradera y se indexa todo el contenido.
 
-Table API para Azure Cosmos DB está en su versión preliminar. Cuando esté disponible a nivel general, las garantías de la latencia de p99 están respaldadas por los Acuerdos de Nivel de Servicio del mismo modo que las otras API de Azure Cosmos DB. 
 
 ```csharp
 // Create a new customer entity.
@@ -226,7 +233,7 @@ table.Execute(insertOperation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Inserción de un lote de entidades
-Azure Table Storage admite una API de operación por lotes que le permite combinar actualizaciones, eliminaciones e inserciones en la misma operación por lotes. Azure Cosmos DB no tiene en la API de lote algunas de las limitaciones que tiene Azure Table Storage. Por ejemplo, puede realizar varias lecturas dentro de un lote, realizar varias escrituras en la misma entidad dentro de un lote y no existe el límite de 100 operaciones por lote. 
+Azure Table Storage admite una API de operación por lotes que le permite combinar actualizaciones, eliminaciones e inserciones en la misma operación por lotes.
 
 ```csharp
 // Create the batch operation.
@@ -282,7 +289,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-En la versión preliminar, Azure Cosmos DB admite la misma funcionalidad de consulta que Azure Table Storage para Table API. Azure Cosmos DB también admite ordenación, agregados, consulta geoespacial, jerarquía y una amplia variedad de funciones integradas. Una futura actualización de servicio de Table API ofrecerá funcionalidades adicionales. En [Consulta de Azure Cosmos DB](documentdb-sql-query.md) puede encontrar información general sobre esas funcionalidades. 
+Azure Cosmos DB admite la misma funcionalidad de consulta que Azure Table Storage para Table API. Azure Cosmos DB también admite ordenación, agregados, consulta geoespacial, jerarquía y una amplia variedad de funciones integradas. Una futura actualización de servicio de Table API ofrecerá funcionalidades adicionales. En [Consulta de Azure Cosmos DB](documentdb-sql-query.md) puede encontrar información general sobre esas funcionalidades. 
 
 ## <a name="replace-an-entity"></a>una entidad
 Para actualizar una entidad, recupérela de Table service, modifique su objeto y, luego, guarde los cambios de nuevo en Table service. El código siguiente cambia el número de teléfono de un cliente. 

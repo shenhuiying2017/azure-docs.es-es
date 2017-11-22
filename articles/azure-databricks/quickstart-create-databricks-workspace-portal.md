@@ -1,6 +1,6 @@
 ---
-title: "Guía de inicio rápido: Creación de un área de trabajo de Azure Databricks con Azure Portal | Microsoft Docs"
-description: "La guía de inicio rápido muestra cómo usar Azure Portal para crear un área de trabajo de Azure Databricks y un clúster de Apache Spark."
+title: "Guía de inicio rápido: Ejecución de un primer trabajo de Spark en Azure Databricks mediante Azure Portal | Microsoft Docs"
+description: "La guía de inicio rápido muestra cómo usar Azure Portal para crear un área de trabajo de Azure Databricks y un clúster de Apache Spark, además de ejecutar un trabajo de Spark."
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 9d4ee88cf3788071ba6b1eca909c1fe5e6044d03
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="quickstart-get-started-with-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: Introducción a Azure Databricks con Azure Portal
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 
 Esta guía de inicio rápido muestra cómo crear un área de trabajo de Azure Databricks y un clúster de Apache Spark dentro de esa área de trabajo. Por último, aprenderá a ejecutar un trabajo de Spark en el clúster de Databricks. Para obtener más información sobre Azure Databricks, consulte [¿Qué es Azure Databricks?](what-is-azure-databricks.md)
 
@@ -31,7 +31,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 
 En esta sección, creará un área de trabajo de Azure Databricks mediante Azure Portal. 
 
-1. En Azure Portal, haga clic en  **+**, haga clic en **Datos y análisis** y, a continuación, haga clic en **Azure Databricks (versión preliminar)**. En **Azure Databricks**, haga clic en **Crear**.
+1. En Azure Portal, haga clic en  **+**, haga clic en **Datos y análisis** y, a continuación, haga clic en **Azure Databricks (versión preliminar)**. 
+
+    ![Databricks en Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks en Azure Portal")
+
+2. En **Azure Databricks (versión preliminar)**, haga clic en **Crear**.
 
     > [!NOTE]
     > Azure Databricks está ahora en versión preliminar limitada. Si desea que su suscripción de Azure se considere para la creación de listas de permitidos para la versión preliminar, debe rellenar el [formulario de registro](https://databricks.azurewebsites.net/).

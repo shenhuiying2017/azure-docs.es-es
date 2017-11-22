@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: alexwun
-ms.openlocfilehash: 49003c16c262180afcdba22c5557c91297cb2840
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 723cf7d98022e8bbb4f1e3c8c0836a4c53c6a078
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Descripción del valor ImageStoreConnectionString
 
@@ -44,7 +44,7 @@ El hospedaje del almacén de imágenes en un servicio de sistema dentro del prop
 
 El proveedor del sistema de archivos se utiliza en lugar del servicio de almacén de imágenes para los clústeres one-box locales durante el desarrollo para arrancar el clúster un poco más rápido. La diferencia es generalmente pequeña, pero es una optimización útil para la mayoría de la gente durante el desarrollo. Es posible implementar también un clúster one-box local con los otros tipos de proveedor de almacenamiento, pero normalmente no hay ninguna razón para hacerlo ya que el flujo de trabajo de desarrollo y pruebas sigue siendo el mismo independientemente del proveedor. Aparte de este uso, los proveedores de sistema de archivos y de Azure Storage solo existen para la compatibilidad heredada.
 
-Por lo tanto, aunque ImageStoreConnectionString se puede configurar, generalmente solo se usa el valor predeterminado. Al publicar en Azure a través de [Visual Studio][12], el parámetro se establece automáticamente en consecuencia. Para la implementación mediante programación en clústeres hospedados en Azure, la cadena de conexión siempre es "fabric:ImageStore". Sin embargo, en caso de duda, su valor siempre se puede comprobar recuperando el manifiesto de clúster mediante [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Tanto los clústeres de producción como de prueba locales siempre deben configurarse para usar también el proveedor de servicio de almacén de imágenes.
+Por lo tanto, aunque ImageStoreConnectionString se puede configurar, generalmente solo se usa el valor predeterminado. Al publicar en Azure a través de Visual Studio, el parámetro se establece automáticamente en consecuencia. Para la implementación mediante programación en clústeres hospedados en Azure, la cadena de conexión siempre es "fabric:ImageStore". Sin embargo, en caso de duda, su valor siempre se puede comprobar recuperando el manifiesto de clúster mediante [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) o [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Tanto los clústeres de producción como de prueba locales siempre deben configurarse para usar también el proveedor de servicio de almacén de imágenes.
 
 ### <a name="next-steps"></a>Pasos siguientes
 [Implementación y eliminación de aplicaciones con PowerShell][10]
@@ -55,4 +55,4 @@ Por lo tanto, aunque ImageStoreConnectionString se puede configurar, generalment
 
 [10]: service-fabric-deploy-remove-applications.md
 [11]: service-fabric-cluster-creation-via-portal.md
-[12]: service-fabric-publish-app-remote-cluster.md
+

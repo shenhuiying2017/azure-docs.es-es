@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Administración de precios y volúmenes de datos de Application Insights
 
@@ -39,7 +39,7 @@ Consulte la [página de precios de Application Insights][pricing] para ver los p
 El plan Básico es el predeterminado cuando se crea un nuevo recurso de Application Insights y bastará para la mayoría de los clientes.
 
 * En el plan Básico, se le cobrará por volumen de datos: el número de bytes de telemetría que reciba Application Insights. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que reciba Application Insights de su aplicación.
-Para [los datos tabulares importados en Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), el volumen de datos se mide como el tamaño descomprimido de los archivos enviados a Application Insights.  
+Para [los datos tabulares importados en Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), el volumen de datos se mide como el tamaño descomprimido de los archivos enviados a Application Insights.  
 * El primer GB de cada aplicación es gratuito, por lo que si solo está experimentando o desarrollando, lo más probable es que no tenga que pagar nada.
 * Los datos de la [secuencia de métricas en directo](app-insights-live-stream.md) no cuentan para calcular los precios.
 * La [exportación continua](app-insights-export-telemetry.md) se encuentra disponible a cambio de un cargo adicional por cada GB en el plan Básico.
@@ -110,7 +110,7 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 Hay tres formas en que se limita el volumen de envío de datos:
 
 * **Muestreo:** este mecanismo se puede usar para reducir la cantidad de telemetría enviada desde las aplicaciones de servidor y de cliente, con mínima distorsión de las métricas. Se trata de la principal herramienta de la que dispone para ajustar la cantidad de datos. Obtenga más información sobre las [características de muestreo](app-insights-sampling.md). 
-* **Límite diario:** al crear un recurso de Application Insights desde Azure Portal, este recurso se establece en 500 GB/día. La capacidad predeterminada al crear un recurso de Application Insights desde Visual Studio, es pequeña (solo 32,3 MB/día), cuya finalidad no es más que facilitar las pruebas. En este caso, el objetivo es que el usuario aumente el límite diario antes de implementar la aplicación en producción. El límite máximo es de 500 GB/día, a menos que haya solicitado un máximo superior para una aplicación con mucho tráfico. Actúe con precaución al establecer el límite diario, ya que su intención debería ser **no alcanzarlo nunca**, pues en ese caso perderá datos durante el resto del día y no podrá supervisar la aplicación. Para cambiarlo, use la hoja Límite de volumen diario, vinculada desde la hoja Administración de datos (consúltese a continuación). Tenga en cuenta que algunos tipos de suscripción disponen de un crédito que no se puede usar para Application Insights. Si la suscripción tiene un límite de gasto, la hoja Límite diario contará con instrucciones sobre cómo quitarlo y habilitarlo para que supere los 32,3 MB/día.  
+* **Límite diario:** al crear un recurso de Application Insights desde Azure Portal, este se establece en 100 GB/día. La capacidad predeterminada al crear un recurso de Application Insights desde Visual Studio, es pequeña (solo 32,3 MB/día), cuya finalidad no es más que facilitar las pruebas. En este caso, el objetivo es que el usuario aumente el límite diario antes de implementar la aplicación en producción. El límite máximo es de 1000 GB/día, a menos que haya solicitado un máximo superior para una aplicación con mucho tráfico. Actúe con precaución al establecer el límite diario, ya que su intención debería ser **no alcanzarlo nunca**, pues en ese caso perderá datos durante el resto del día y no podrá supervisar la aplicación. Para cambiarlo, use la hoja Límite de volumen diario, vinculada desde la hoja Administración de datos (consúltese a continuación). Tenga en cuenta que algunos tipos de suscripción disponen de un crédito que no se puede usar para Application Insights. Si la suscripción tiene un límite de gasto, la hoja Límite diario contará con instrucciones sobre cómo quitarlo y habilitarlo para que supere los 32,3 MB/día.  
 * **Limitación**: esta restringe la velocidad de datos a 32 000 eventos por segundo, promediados durante 1 minuto. 
 
 
@@ -169,7 +169,7 @@ Para conocer la frecuencia de muestreo real independientemente de dónde se ha a
 En cada registro retenido, `itemCount` indica el número de registros originales que representa, equivale a 1 + el número de registros descartados anteriores. 
 
 
-## <a name="automation"></a>Automatización
+## <a name="automation"></a>Automation
 
 Puede escribir un script para establecer el plan de precios con la administración de recursos de Azure. [Más información](app-insights-powershell.md#price).
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -42,9 +42,9 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 
 Para poder realizar una copia de seguridad de Windows Server, debe crear una ubicación para almacenar las copias de seguridad o los puntos de restauración. Un [almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md) es un contenedor de Azure que almacena las copias de seguridad de Windows Server. Realice los pasos siguientes para crear un almacén de Recovery Services en Azure Portal. 
 
-1. En el menú izquierdo, seleccione **Más servicios** y, en la lista de servicios, escriba **Recovery Services**. Haga clic en **Almacenes de Recovery Services**.
+1. En el menú izquierdo, seleccione **Todos los servicios** y, en la lista de servicios, escriba **Recovery Services**. Haga clic en **Almacenes de Recovery Services**.
 
-   ![abrir el almacén de Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![abrir el almacén de Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
 
@@ -134,7 +134,7 @@ La programación está establecida cuando se ejecutan los trabajos de copia de s
 
 1.  En la consola del agente de Microsoft Azure Recovery Services, haga clic en **Hacer Copia Ahora**.
 
-    ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  En el **Asistente para iniciar copia de seguridad**, seleccione uno de los **archivos y carpetas** o el **estado del sistema** del que quiera realizar una copia de seguridad y haga clic en **Siguiente**. 
 3. En la página **Confirmación**, revise la configuración que usa el Asistente de **Hacer Copia Ahora** para crear la copia de seguridad del servidor. Luego, haga clic en **Crear copia de seguridad**.

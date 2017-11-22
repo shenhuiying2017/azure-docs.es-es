@@ -1,6 +1,6 @@
 ---
 title: "¿Qué son las Unidades de almacenamiento de datos (DWU y cDWU) en Azure SQL Data Warehouse? | Microsoft Docs"
-description: Funcionalidades de escalado horizontal del rendimiento en Almacenamiento de datos SQL de Azure. Realice el escalado horizontal ajustando las DWU o cDWU, o pause y reanude los recursos de proceso para ahorrar costos.
+description: Funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Realice el escalado horizontal ajustando las DWU o cDWU, o pause y reanude los recursos de proceso para ahorrar costos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 10/23/2017
+ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: 93f0d21c7214487ffa0c2c5e27bd6e468920418c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02998c48dcab5d3ed191b168665c9e47bbfbd232
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de almacenamiento de datos (DWU) y Unidades de almacenamiento de datos de proceso (cDWU)
 En este artículo se explica que son las Unidades de almacenamiento de datos (DWU) y las Unidades de almacenamiento de datos de proceso (cDWU) en Azure SQL Data Warehouse. Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos y cómo cambiar su número. 
@@ -52,16 +52,8 @@ Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertica
 A medida que aumente unidades de almacenamiento de datos, también se aumentan linealmente los recursos informáticos. El nivel de rendimiento optimizado para procesos proporciona el mejor rendimiento de consultas y mayor escalabilidad, pero tiene un precio de entrada superior. Está diseñado para empresas que demandan constantemente rendimiento. Estos sistemas hacen el mayor uso de la memoria caché. 
 
 ### <a name="capacity-limits"></a>Límites de capacidad
-De forma predeterminada, cada servidor (por ejemplo, myserver.database.windows.net) tiene una cuota que limita el tamaño y la escalabilidad de las bases de datos en esa instancia. Un servidor puede hospedar bases de datos SQL DW y SQL DB, y todas deben ajustarse a la cuota. Esta cuota se mide en unidades de transacción de base de datos (DTU) y, de forma predeterminada, se establece en 54 000 para permitir hasta 6000 cDWU. Esta cuota es simplemente un límite de seguridad. Puede aumentar su cuota mediante la creación de una incidencia de soporte técnico y la selección de "Cuota" como el tipo de solicitud. 
+Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una cuota de [unidad de transacción de base de datos (DTU)](../sql-database/sql-database-what-is-a-dtu.md) que permite un número específico de unidades de almacenamiento de datos. Para más información, consulte los [límites de capacidad de administración de cargas de trabajo](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-Para calcular el requisito de DTU, se aplican los multiplicadores siguientes para el cálculo de DTU:
-
-| Nivel de rendimiento | Unidad de medida | Multiplicador de DTU | Ejemplo                   |
-|:----------------:|----------------:|---------------:|--------------------------:|
-| Elasticidad       |  DWU            | 7.5            | DW6000 x 7,5 = 45 000 DTU |
-| Proceso          | cDWU            | 9              | DW6000 x 7,5 = 54 000 DTU |
-
-Puede ver el consumo de DTU actual en las propiedades del servidor SQL en el portal.
 
 ## <a name="how-many-data-warehouse-units-do-i-need"></a>¿Cuántas unidades de almacenamiento de datos necesito?
 El número ideal de unidades de almacenamiento de datos depende en gran medida de la carga de trabajo y la cantidad de datos que cargó en el sistema.
@@ -88,7 +80,7 @@ Para cambiar las unidades de almacenamiento de datos es necesario disponer de lo
 Para ver la configuración actual de DWU:
 
 1. Abra el Explorador de objetos de SQL Server en Visual Studio.
-2. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
+2. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
 3. Seleccione en la vista de administración dinámica sys.database_service_objectives. Aquí tiene un ejemplo: 
 
 ```sql
@@ -123,7 +115,7 @@ Con T-SQL puede ver la configuración actual de DWU o cDWU, modificarla y compro
 
 Para cambiar DWU o cDWU:
 
-1. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
+1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
 2. Use la instrucción TSQL [ALTER DATABASE][ALTER DATABASE]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW. 
 
 ```Sql
@@ -158,7 +150,7 @@ No se puede comprobar el estado de la base de datos para las operaciones de esca
 
 Para comprobar el estado de los cambios de DWU:
 
-1. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
+1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
 2. Envíe la consulta siguiente para comprobar el estado de la base de datos.
 
 

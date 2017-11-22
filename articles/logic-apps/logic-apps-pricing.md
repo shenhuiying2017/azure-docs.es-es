@@ -12,49 +12,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/11/2017
 ms.author: LADocs; klam
-ms.openlocfilehash: 63784c5e3af360b2f3f8cb330a9df8b27a85d859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2a92e45b8a759d2d8193ac188efdcfc694a3e6d
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="logic-apps-pricing-model"></a>Modelo de precios de Logic Apps
-Azure Logic Apps le permite escalar y ejecutar flujos de trabajo de integración en la nube.  A continuación se detallan los planes de facturación y precios de Logic Apps.
-## <a name="consumption-pricing"></a>Precios de consumo
-Las aplicaciones lógicas recién creadas usan un plan de consumo. Con el modelo de precios de consumo de Logic Apps, solo paga por lo que utiliza.  Las aplicaciones lógicas no se limitan cuando se utiliza un plan de consumo.
-Se miden todas las acciones que se ejecutan durante la ejecución de una instancia de aplicación lógica.
+Puede crear y ejecutar flujos de trabajo de integración escalable automatizados en la nube con Azure Logic Apps. Estos son los detalles sobre cómo funcionan los precios y facturación para Logic Apps.
+## <a name="consumption-pricing-model"></a>Modelo de precios de consumo
+Con las aplicaciones lógicas recién creadas, solo paga por lo que utiliza. Las nuevas aplicaciones lógicas usan un plan de consumo y un modelo de precios, lo que significa que todas las ejecuciones realizadas por una instancia de aplicación lógica son limitadas.
 ### <a name="what-are-action-executions"></a>¿Cuáles son las ejecuciones de acción?
-Cada paso de una definición de aplicación lógica es una acción, que incluye desencadenadores, pasos del flujo de control, como condiciones, ámbitos, bucles for each, bucles do until, llamadas a conectores y llamadas a acciones nativas.
-Los desencadenadores son acciones especiales diseñadas para crear una nueva instancia de aplicación lógica cuando se produce un evento determinado.  Existen varios comportamientos diferentes para desencadenadores que podrían afectar al modo en que se mide la aplicación lógica.
-* **Desencadenador de sondeo**: este desencadenador sondea continuamente un punto de conexión hasta que recibe un mensaje que satisface los criterios para crear una instancia de una aplicación lógica.  El intervalo de sondeo se puede configurar en el desencadenador en el Diseñador de aplicación lógica.  Cada solicitud de sondeo, incluso si no crea una instancia de una aplicación lógica, cuenta como una ejecución de acción.
-* **Desencadenador de webhook** : este desencadenador espera a que un cliente envíe una solicitud en un punto de conexión determinado.  Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. El desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook.
-* **Desencadenador de periodicidad**: este desencadenador crea una instancia de la aplicación lógica según el intervalo de periodicidad configurado en el desencadenador.  Por ejemplo, un desencadenador de periodicidad puede configurarse para que se ejecute cada tres días o incluso cada minuto.
+Cada paso de una definición de aplicación lógica es una acción, que incluye desencadenadores, pasos del flujo de control, llamadas a acciones integradas y llamadas a conectores.
+### <a name="triggers"></a>Desencadenadores
+Los desencadenadores son acciones especiales que crean una instancia de aplicación lógica cuando se produce un evento específico. Los desencadenadores tienen varios comportamientos diferentes, que podrían afectar al modo en que se mide la aplicación lógica.
+* **Desencadenador de sondeo**: sondea continuamente un punto de conexión hasta que recibe un mensaje que satisface los criterios para crear una nueva instancia de una aplicación lógica a fin de iniciar el flujo de trabajo. Puede configurar el intervalo de sondeo en el desencadenador a través del Diseñador de aplicación lógica. Cada solicitud de sondeo cuenta como una ejecución, incluso cuando no se crea ninguna instancia de aplicación lógica.
+* **Desencadenador de webhook**: este desencadenador espera a que un cliente envíe una solicitud a un punto de conexión determinado. Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. Por ejemplo, el desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook.
+* **Desencadenador de periodicidad**: este desencadenador crea una instancia de la aplicación lógica según el intervalo de periodicidad configurado en el desencadenador. Por ejemplo, puede establecer un desencadenador de periodicidad que se ejecute cada tres días o según una programación más compleja.
 
-Las ejecuciones de desencadenadores se pueden ver en la hoja de recursos de Logic Apps en la parte Historial de desencadenadores.
+Puede encontrar ejecuciones de desencadenadores en el panel Información general de la aplicación lógica, en la sección Historial de desencadenadores.
 
-Todas las acciones que se ejecutaron, tanto si tuvieron éxito como si no, se miden como ejecuciones de acción.  Las acciones omitidas debido a condiciones que no se cumplieron o acciones que no se ejecutaron porque la aplicación lógica terminó antes de que se completara no se cuentan como ejecuciones de acción.
+### <a name="actions"></a>Acciones
+Las acciones integradas, por ejemplo, las acciones que llaman a HTTP, Azure Functions o API Management, así como los pasos de flujo de control, se miden como acciones nativas y tienen sus tipos respectivos. Las acciones que llaman a [conectores](https://docs.microsoft.com/connectors) tienen el tipo "ApiConnection". Los conectores se clasifican como standard o enterprise y se mide ncon sus [precios][pricing] respectivos.
+Todas las acciones ejecutadas correcta o incorrectamente se cuentan y se miden como ejecuciones de acción. Sin embargo, las acciones omitidas debido a condiciones que no se cumplieron o a acciones que no se ejecutaron porque la aplicación lógica terminó antes de que se completaran, no se cuentan como ejecuciones de acción. Las aplicaciones lógicas deshabilitadas no pueden crear instancias nuevas, por lo que no se cobran mientras estén deshabilitadas.
 
-Las acciones ejecutadas dentro de bucles se cuentan por cada iteración del bucle.  Por ejemplo, una sola acción en un bucle for each que interacciona mediante una lista de 10 elementos se contará como el número de elementos de la lista (10) multiplicado por el número de acciones del bucle (1) más uno por la iniciación del bucle que, en este ejemplo, sería (10 * 1) + 1 = 11 ejecuciones de acción.
-Si Logic Apps está deshabilitada, no puede tener nuevas instancias iniciadas y, por tanto, mientras las aplicaciones lógicas están deshabilitadas, no se cobrarán.  Tenga en cuenta que después de deshabilitar una aplicación lógica, las instancias pueden tardar un tiempo en pasar al modo inactivo antes de deshabilitarse completamente.
+> [!NOTE]
+> Después de deshabilitar una aplicación lógica, sus instancias que se estén ejecutando pueden tardar un tiempo antes de detenerse por completo.
+
+Las acciones que se ejecutan dentro de los bucles se cuentan por cada ciclo del bucle. Por ejemplo, una sola acción de un bucle "for each" que procesa una lista de 10 elementos se cuenta multiplicando el número de elementos de lista (10) por el número de acciones en el bucle (1) más uno para iniciar el bucle. Por lo tanto, en este ejemplo, el cálculo es (10 * 1) + 1, lo que da como resultado 11 ejecuciones de acción.
+
 ### <a name="integration-account-usage"></a>Uso de la cuenta de integración
-En el uso basado en el consumo se incluye una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) a efectos de exploración, desarrollo y pruebas, que permite usar las características [B2B/EDI](logic-apps-enterprise-integration-b2b.md) y [procesamiento XML](logic-apps-enterprise-integration-xml.md) de Logic Apps sin costo adicional. Es posible crear un máximo de una cuenta por región y almacenar hasta 10 contratos y 25 mapas. Los esquemas, certificados y asociados no tienen ningún límite, y puede cargar tantos como necesite.
+En el uso basado en el consumo se incluye una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) en la que puede explorar, desarrollar y realizar pruebas de las características [B2B/EDI](logic-apps-enterprise-integration-b2b.md) y [procesamiento XML](logic-apps-enterprise-integration-xml.md) de Logic Apps sin costo adicional. Puede tener una de estas cuentas de integración por región y almacenar hasta 10 acuerdos y 25 mapas. Puede tener y cargar un número ilimitado de partners, esquemas y certificados.
 
-Además de incluir cuentas de integración con consumo, también puede crear cuentas de integración estándar sin estos límites y con el Acuerdo de Nivel de Servicio estándar de Logic Apps. Para obtener más información, consulte [Precios de Azure](https://azure.microsoft.com/pricing/details/logic-apps).
+Azure Logic Apps también ofrece cuentas de integración básicas y estándar con Acuerdos de Nivel de Servicio de Logic Apps admitidos. Puede utilizar cuentas de integración básicas cuando desee utilizar solo el control de mensajes, o actuar como un partner de pequeña empresa que tenga una relación de partners comerciales con una entidad empresarial mayor. Las cuentas de integración estándar admiten relaciones más complejas entre empresas y permiten aumentar el número de entidades que se pueden administrar. Para obtener más información, consulte [Precios de Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="app-service-plans"></a>Planes del Servicio de aplicaciones
-Las aplicaciones lógicas creadas anteriormente conforme al plan de App Service se seguirán comportando como antes. Según el plan elegido, se establecen limitaciones cuando se superan las ejecuciones diarias prescritas, pero se factura con el medidor de ejecuciones de acciones.
-Los clientes EA con un plan de App Service en su suscripción, que no tiene que asociarse de manera explícita con la aplicación lógica, obtienen la ventaja de cantidades incluidas.  Por ejemplo, si tiene un plan de App Service estándar en su suscripción de EA y una aplicación lógica en la misma suscripción, no se cobra por 10000 ejecuciones de acciones al día (vea la siguiente tabla). 
-
-Planes del Servicio de aplicaciones y sus ejecuciones de acción diarias permitidas:
-|  | Libre, Compartido o Básico | Estándar | Premium |
-| --- | --- | --- | --- |
-| Ejecuciones de acción por día |200 |10.000 |50.000 |
-### <a name="convert-from-app-service-plan-pricing-to-consumption"></a>Cambio en el precio desde un plan del Servicio de aplicaciones a la opción de pago según lo consumido
-Para cambiar una aplicación lógica que tiene un plan de App Service asociado a un modelo de consumo, quite la referencia al plan de App Service en la definición de aplicación lógica.  Este cambio puede hacerse con una llamada a un cmdlet de PowerShell: `Set-AzureRmLogicApp -ResourceGroupName ‘rgname’ -Name ‘wfname’ –UseConsumptionModel -Force`
 ## <a name="pricing"></a>Precios
-Para obtener información sobre precios, vea [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+Para más información, consulte [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Logic Apps][whatis]

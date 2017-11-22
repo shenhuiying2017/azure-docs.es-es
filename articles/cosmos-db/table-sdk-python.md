@@ -1,6 +1,6 @@
 ---
-title: SDK de Azure Table Storage para Python | Microsoft Docs
-description: "Obtenga información sobre el SDK de Azure Table Storage para Python, incluidos las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
+title: API de tabla de Azure Cosmos DB para Python | Microsoft Docs
+description: "Obtenga toda la información acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 11/15/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a68b24fe91d3acb0f18d3d06d6252317bd671be4
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>SDK de Azure Table Storage para Python: notas de la versión y recursos
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK de Table API de Azure Cosmos DB para Python: notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [Java](table-sdk-java.md)
+> * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
  
 
@@ -37,6 +39,10 @@ ms.lasthandoff: 11/06/2017
 
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Versión de disponibilidad general
+
 ### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
 * SDK de versión preliminar
 
@@ -49,6 +55,7 @@ Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK a
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |15 de noviembre de 2017 |--- |
 | [0.37.1](#0.37.1) |5 de octubre de 2017 |--- |
 
 

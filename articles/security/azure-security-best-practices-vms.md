@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedimientos recomendados de seguridad para las máquinas virtuales de Azure
 
@@ -47,7 +47,7 @@ En el artículo se examinan los siguientes de seguridad para las máquinas virtu
 
 ## <a name="vm-authentication-and-access-control"></a>Autenticación de la máquina virtual y control de acceso
 
-El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan aprovisionar nuevas máquinas virtuales. Puede usar [las directivas de Azure Resource Manager](../azure-resource-manager/resource-manager-policy.md) con el fin de establecer convenciones para los recursos de su organización, crear directivas personalizadas y aplicarlas a recursos, como un [grupo de recursos](../azure-resource-manager/resource-group-overview.md).
+El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan aprovisionar nuevas máquinas virtuales. Puede usar las [directivas de Azure](../azure-policy/azure-policy-introduction.md) con el fin de establecer convenciones para los recursos de su organización, crear directivas personalizadas y aplicarlas a recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
 
 Las máquinas virtuales que pertenecen a un grupo de recursos heredan de forma natural sus directivas. Aunque se recomienda este enfoque para administrar las máquinas virtuales, también puede controlar el acceso a directivas de máquinas virtuales individuales mediante el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md).
 

@@ -1,5 +1,5 @@
 ---
-title: "Administración de dispositivos con Azure Portal (versión preliminar) | Microsoft Docs"
+title: "Administración de dispositivos con Azure Portal | Microsoft Docs"
 description: Aprenda a usar Azure Portal para administrar dispositivos.
 services: active-directory
 documentationcenter: 
@@ -12,19 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4b46e1627a229b0649d9ccd2550cd28fda9849f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="managing-devices-using-the-azure-portal---preview"></a>Administración de dispositivos con Azure Portal (versión preliminar)
-
->[!NOTE]
->Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica está disponible en cualquier suscripción de Azure Active Directory (Azure AD) durante el período de versión preliminar pública. Pero cuando ya esté disponible con carácter general, algunos aspectos de ella podrían requerir una suscripción Premium de Azure Active Directory.
+# <a name="managing-devices-using-the-azure-portal"></a>Administración de dispositivos con Azure Portal
 
 
 Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. 
@@ -36,50 +33,45 @@ En este tema:
 - Se proporciona información sobre la administración de dispositivos mediante Azure Portal
 
 
-Para administrar dispositivos en Azure Portal, debe hacer clic en **Dispositivos** en la sección **Administrar** de la hoja **Azure Active Directory**.
-
-![Administración de un dispositivo de Intune](./media/device-management-azure-portal/11.png)
-
-
-
 
 ## <a name="configure-device-settings"></a>Configuración de dispositivo
 
-Para administrar los dispositivos mediante Azure Portal, estos deben estar registrados o unidos a Azure AD. Como administrador, puede ajustar el proceso de registro y unión de dispositivos al configurar los valores del dispositivo.
+Para administrar dispositivos mediante Azure Portal, estos deben estar [registrados o unidos](device-management-introduction.md#getting-devices-under-the-control-of-azure-ad) a Azure AD. Como administrador, puede ajustar el proceso de registro y unión de dispositivos al configurar los valores del dispositivo. 
 
-![Administración de un dispositivo de Intune](./media/device-management-azure-portal/22.png)
+![Configuración de dispositivo](./media/device-management-azure-portal/22.png)
+
+La página de configuración del dispositivo le permite configurar:
+
+![Administración de un dispositivo de Intune](./media/device-management-azure-portal/21.png)
 
 
-La hoja de configuración de dispositivo permite configurar:
-
-- **Los usuarios pueden inscribir dispositivos en Azure AD**: esta opción permite seleccionar los usuarios que pueden unir dispositivos a Azure AD. El valor predeterminado es **Todos**.
+- **Los usuarios pueden unir sus dispositivos a Azure AD**: esta opción le permite seleccionar los usuarios que pueden [unir dispositivos](device-management-introduction.md#azure-ad-joined-devices) a Azure AD. El valor predeterminado es **Todos**.
 
 - **Administradores locales adicionales en dispositivos unidos a Azure AD**: puede seleccionar a qué usuarios se conceden derechos de administrador local en un dispositivo. Los usuarios agregados aquí se agregan al rol *Administradores de dispositivos* de Azure AD. De forma predeterminada, a los administradores globales de Azure AD y a los propietarios de dispositivos se les conceden derechos de administrador local. Esta opción es una capacidad de la edición Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS). 
 
-- **Los usuarios pueden registrar sus dispositivos con Azure AD**: debe configurar esta opción para permitir que los dispositivos se registren en Azure AD. Si selecciona **Ninguno**, no se permite a los dispositivos registrarse si no están unidos a Azure AD o a Azure AD híbrido. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Office 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
+- **Los usuarios pueden registrar sus dispositivos con Azure AD**: debe configurar esta opción para permitir que los dispositivos se [registren](device-management-introduction.md#azure-ad-registered-devices) en Azure AD. Si selecciona **Ninguno**, no se permite a los dispositivos registrarse si no están unidos a Azure AD o a Azure AD híbrido. La inscripción en Microsoft Intune o Administración de dispositivos móviles (MDM) para Office 365 exige registrarse. Si ha configurado alguno de estos servicios, se selecciona **TODOS** y **NINGUNO** no está disponible.
 
-- **Requerir Multi-factor Auth para conectar dispositivos**: puede decidir si se exige a los usuarios proporcionar un segundo factor de autenticación para unir su dispositivo a Azure AD. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para más información sobre los distintos servicios de Azure Multi-Factor Authentication, vea [Introducción a Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
+- **Requerir Multi-Factor Authentication para unir dispositivos**: puede decidir si se exige a los usuarios proporcionar una segunda fase de autenticación para [unir](device-management-introduction.md#azure-ad-joined-devices) su dispositivo a Azure AD. El valor predeterminado es **No**. Se recomienda exigir Multi-Factor Authentication al registrar un dispositivo. Antes de habilitar Multi-Factor Authentication para este servicio, debe asegurarse de que está configurado para los usuarios que registran sus dispositivos. Para más información sobre los distintos servicios de Azure Multi-Factor Authentication, vea [Introducción a Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started.md). 
 
 - **Número máximo de dispositivos**: esta opción permite seleccionar el número máximo de dispositivos que puede tener un usuario en Azure AD. Si un usuario alcanza esta cuota, no puede agregar dispositivos adicionales hasta que se quitan uno o varios de los dispositivos existentes. La cuota de dispositivos cuenta todos los dispositivos unidos a Azure AD o registrados en Azure AD hoy. El valor predeterminado es **20**.
 
 - **Los usuarios pueden sincronizar la configuración y los datos de aplicaciones en distintos dispositivos**: de forma predeterminada, esta opción se establece en **NINGUNO**. La selección de usuarios o grupos concretos o de TODOS permite sincronizar la configuración y los datos de aplicación del usuario en sus dispositivos Windows 10. Más información sobre cómo funciona la sincronización en Windows 10.
 Esta opción es una capacidad Premium disponible en productos como Azure AD Premium o Enterprise Mobility Suite (EMS).
  
-    ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/21.png)
 
 
 
 
 ## <a name="locate-devices"></a>Búsqueda de dispositivos
 
-Como administrador, en Azure Portal tiene dos opciones para buscar dispositivos registrados y unidos:
+Tiene dos opciones para buscar dispositivos registrados y unidos:
 
-- **Todos los dispositivos** en la sección **Administrar** de la hoja **Dispositivos**  
+- **Todos los dispositivos** en la sección **Administrar** de la página **Dispositivos**.  
 
     ![Todos los dispositivos](./media/device-management-azure-portal/41.png)
 
 
-- **Dispositivos** en la sección **Administrar** de la hoja **Usuarios**
+- **Dispositivos** en la sección **Administrar** de la página **Usuarios**.
  
     ![Todos los dispositivos](./media/device-management-azure-portal/43.png)
 
@@ -103,45 +95,73 @@ Con ambas opciones, puede ir a una vista que:
 Como administrador, puede administrar los dispositivos registrados o unidos. En esta sección se proporciona información sobre las tareas comunes de administración de dispositivos.
 
 
-**Administrar un dispositivo de Intune**: si es administrador de Intune, puede administrar los dispositivos marcados como **Microsoft Intune**. Un administrador puede ver dispositivos adicionales 
+### <a name="manage-an-intune-device"></a>Administración de un dispositivo de Intune
+
+Si es administrador de Intune, puede administrar los dispositivos marcados como **Microsoft Intune**. Un administrador puede ver dispositivos adicionales 
 
 ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/31.png)
 
 
-**Habilitar o deshabilitar un dispositivo de Azure AD**
+### <a name="enable--disable-an-azure-ad-device"></a>Habilitar o deshabilitar un dispositivo de Azure AD
 
-Para habilitar o deshabilitar un dispositivo, debe ser administrador global en Azure AD. Al deshabilitar un dispositivo se evita que acceda a los recursos de Azure AD.  Para deshabilitar el dispositivo, puede hacer clic en *...* o hacer clic en el dispositivo para obtener más detalles.
+Para habilitar o deshabilitar un dispositivo, tiene dos opciones:
+
+- En el menú de tareas ("...") en la página **Todos los dispositivos**.
+
+    ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/71.png)
+
+- La barra de herramientas en la página **Dispositivos**.
+
+    ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/32.png)
+
+
+**Comentarios:**
+
+- Para habilitar o deshabilitar un dispositivo, debe ser administrador global en Azure AD. 
+- Al deshabilitar un dispositivo se evita que acceda a los recursos de Azure AD. 
+
+
+
+### <a name="delete-an-azure-ad-device"></a>Eliminar un dispositivo de Azure AD
+
+Para eliminar un dispositivo, tiene dos opciones:
+
+- En el menú de tareas ("...") en la página **Todos los dispositivos**.
+
+    ![Administración de un dispositivo de Intune](./media/device-management-azure-portal/72.png)
+
+- La barra de herramientas en la página **Dispositivos**.
+
+    ![Eliminar un dispositivo](./media/device-management-azure-portal/34.png)
+
+
+**Comentarios:**
+
+- Debe ser administrador global de Azure AD para eliminar un dispositivo.  
+
+- La eliminación de un dispositivo:
+ 
+    - Evita que un dispositivo acceda a los recursos de Azure AD. 
+
+    - Quita todos los detalles asociados al dispositivo como, por ejemplo, las claves de BitLocker de los dispositivos Windows.  
+
+    - Representa una actividad no recuperable y no se recomienda a menos que sea necesaria.
+
+Si es otra entidad de administración la que administra un dispositivo (por ejemplo, Microsoft Intune), asegúrese de que el dispositivo se haya borrado o retirado antes de eliminarlo de Azure AD.
 
  
-![Administración de un dispositivo de Intune](./media/device-management-azure-portal/33.png)
-
-Al deshabilitar un dispositivo, el estado de la columna **HABILITADO** cambia a **No**.
-
-![Deshabilitación de un dispositivo](./media/device-management-azure-portal/32.png)
 
 
-**Eliminar un dispositivo de Azure AD**: para eliminar un dispositivo, debe ser administrador global en Azure AD.  
-La eliminación de un dispositivo:
- 
-- Evita que un dispositivo acceda a los recursos de Azure AD 
+### <a name="view-or-copy-device-id"></a>Ver o copiar el id. del dispositivo
 
-- Quita todos los detalles asociados al dispositivo, por ejemplo, las claves de BitLocker de dispositivos Windows  
-
-- Representa una actividad no recuperable y no se recomienda a menos que sea necesaria
-
-Si un dispositivo está administrado por otra entidad de administración (por ejemplo, Microsoft Intune), asegúrese de que el dispositivo se haya borrado o retirado antes de eliminarlo de Azure AD.
-
-Puede seleccionar "..." para eliminar el dispositivo o hacer clic en él para obtener más detalles
- 
-![Eliminar un dispositivo](./media/device-management-azure-portal/34.png)
-
-
-**Ver o copiar el identificador de dispositivo**: puede usar un identificador de dispositivo para comprobar los detalles del identificador de dispositivo en el dispositivo o usar PowerShell durante la solución de problemas. Para acceder a la opción de copia, haga clic en el dispositivo.
+Puede usar un id. de dispositivo para verificar los detalles del id.de dispositivo en ese dispositivo o usar PowerShell durante la solución de problemas. Para acceder a la opción de copia, haga clic en el dispositivo.
 
 ![Visualización de identificador de dispositivo](./media/device-management-azure-portal/35.png)
   
 
-**Ver o copiar las claves de BitLocker**: si es administrador, puede ver y copiar las claves de BitLocker para ayudar a los usuarios a recuperar su unidad cifrada. Estas claves solo están disponibles para dispositivos Windows cifrados y con las claves almacenadas en Azure AD. Puede copiar estas claves al acceder a los detalles del dispositivo.
+### <a name="view-or-copy-bitlocker-keys"></a>Ver o copiar las claves de BitLocker
+
+Si es administrador, puede ver y copiar las claves de BitLocker para ayudar a otros usuarios a recuperar su unidad cifrada. Estas claves solo están disponibles para dispositivos Windows cifrados y con las claves almacenadas en Azure AD. Puede copiar estas claves al acceder a los detalles del dispositivo.
  
 ![Visualización de claves de BitLocker](./media/device-management-azure-portal/36.png)
 
@@ -150,28 +170,28 @@ Puede seleccionar "..." para eliminar el dispositivo o hacer clic en él para ob
 ## <a name="audit-logs"></a>Registros de auditoría
 
 
-Las actividades de un dispositivo están disponibles a través de los registros de actividad. Esto incluye actividades desencadenadas por el servicio de registro de dispositivos o por el usuario:
+Las actividades de un dispositivo están disponibles a través de los registros de actividad. Esto incluye actividades que desencadena el servicio de registro de dispositivos y los usuarios:
 
-- Creación de dispositivos e incorporación de propietarios o usuarios al dispositivo
+- Creación de dispositivos y adición de propietarios o usuarios al dispositivo.
 
 - Cambios en la configuración de un dispositivo
 
 - Operaciones de dispositivo como eliminar o actualizar un dispositivo
  
-El punto de entrada a los datos de auditoría es **Registros de auditoría**, en la sección **Actividad** de la hoja **Dispositivos*.
+El punto de entrada a los datos de auditoría está en **Registros de auditoría**, que se encuentra en la sección **Actividad** de la página **Dispositivos**.
 
 ![Registros de auditoría](./media/device-management-azure-portal/61.png)
 
 
 Un registro de auditoría tiene una vista de lista predeterminada que muestra:
 
-- la fecha y hora de la repetición
+- La fecha y hora de la repetición
 
-- los destinos
+- Los destinos
 
-- el iniciador o actor (quién) de una actividad
+- El iniciador o actor (quién) de una actividad
 
-- la actividad (qué)
+- La actividad (qué)
 
 ![Registros de auditoría](./media/device-management-azure-portal/63.png)
 

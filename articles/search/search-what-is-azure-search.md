@@ -3,7 +3,7 @@ title: "Qué es Azure Search | Microsoft Docs"
 description: "Azure Search es un servicio de búsqueda completamente administrado hospedado en la nube. Conozca más en la información general de esta característica."
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
-Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y las herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en las aplicaciones web, para dispositivos móviles y empresariales.
+Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y las herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida sobre el contenido en las aplicaciones web, para dispositivos móviles y empresariales.
 
-La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) o [SDK de .NET](search-howto-dotnet-sdk.md) sencillos que enmascaran la complejidad inherente de la tecnología de búsqueda. Además de las API, Azure Portal proporciona ofrece administración y compatibilidad con la creación de prototipos. La infraestructura y la disponibilidad las administra Microsoft.
+La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) o [SDK de .NET](search-howto-dotnet-sdk.md) sencillos que enmascaran la complejidad inherente de la recuperación de información. Además de las API, Azure Portal proporciona soporte administrativo y de administración de contenido, con herramientas para la creación de prototipos y la consulta de índices. Como el servicio se ejecuta en la nube, Microsoft administra la infraestructura y la disponibilidad.
 
 <a name="feature-drilldown"></a>
 
@@ -70,7 +70,7 @@ Los clientes a menudo preguntan cuáles son las diferencias de Azure Search con 
 
 | En comparación con | Principales diferencias |
 |--|--|
-|Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) busca en los índices de Bing.com aquellos términos que coincidan con lo que envía. Los índices se compilan a partir de HTML, XML y otro tipo de contenido web en sitios públicos. [Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) ofrece la misma tecnología de rastreador (crawler) para tipos de contenido web, destinada a sitios web individuales.<br/><br/>Azure Search busca un índice que usted defina, completado con datos y documentos de su propiedad, a menudo procedentes de diversas fuentes. Azure Search tiene capacidades de rastreo para algunos orígenes de datos a través de [indexadores](search-indexer-overview.md), pero puede insertar cualquier documento JSON que conforme su esquema de índice en un recurso sencillo y consolidado en el que se puedan realizar búsquedas. |
+|Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) busca en los índices de Bing.com aquellos términos que coincidan con lo que envía. Los índices se compilan a partir de HTML, XML y otro tipo de contenido web en sitios públicos. [Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) ofrece la misma tecnología de rastreador (crawler) para tipos de contenido web, destinada a sitios web individuales.<br/><br/>Azure Search busca un índice que usted defina, completado con datos y documentos de su propiedad, a menudo procedentes de diversas fuentes. Azure Search tiene funcionalidades de rastreo para algunos orígenes de datos a través de [indexadores](search-indexer-overview.md), pero puede insertar cualquier documento JSON que se ajuste a su esquema de índice en un recurso sencillo y consolidado en el que se puedan realizar búsquedas. |
 |Búsqueda de bases de datos | La [búsqueda de texto completo de SQL Server](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) es para el contenido interno de DBMS, en tablas SQL. <br/><br/>Azure Search almacena el contenido de orígenes heterogéneos y ofrece características de procesamiento de texto especializadas, como el análisis lingüístico y personalizado. El [motor de búsqueda de texto completo](search-lucene-query-architecture.md) en Azure Search está compilado en Apache Lucene, un estándar del sector en cuanto a recuperación de información. <br/><br/>El uso de recursos es otro punto de inflexión. La búsqueda en lenguaje natural requiere a menudo un proceso intensivo. La descarga de la búsqueda en una solución dedicada conserva los recursos para el procesamiento de transacciones. Al externalizar la búsqueda, puede ajustar fácilmente la escala para que se adapte al volumen de consultas.|
 |Solución de búsqueda dedicada | Las soluciones de servicio local o en la nube son soluciones de búsqueda dedicada con una funcionalidad de espectro completo. Las tecnologías de búsqueda normalmente ofrecen control sobre el indexado y las canalizaciones de consultas, acceso a una sintaxis de filtrado y consultas más completa, control sobre la clasificación y la pertinencia y características para la búsqueda inteligente y autodirigida. <br/><br/>Puede encontrar soluciones de búsqueda dedicada que se ofrecen como un servicio en la nube o un servidor independiente hospedado de manera local o en una máquina virtual. Un servicio en la nube es la opción adecuada si desea una [solución llave en mano con costes generales y un mantenimiento mínimos, y una escala ajustable](#cloud-service-advantage). <br/><br/>Dentro del paradigma de la nube, varios proveedores ofrecen características de línea base similares, con búsqueda de texto completo, búsqueda geográfica y capacidad de controlar cierto nivel de ambigüedad en entradas de búsqueda. Normalmente, es una [característica especializada](#feature-drilldown) o la facilidad y sencillez general de las API, las herramientas y la administración, lo que determina la solución que mejor se ajusta a nuestras necesidades. |
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Ejemplos de implementación de plantillas scaffold empresariales de Azure
 En este tema se ofrecen ejemplos de cómo una empresa puede implementar las recomendaciones de una [plantilla scaffold empresarial de Azure](resource-manager-subscription-governance.md). Se usa una compañía ficticia denominada "Contoso" con el objetivo de ilustrar las prácticas recomendadas para escenarios comunes.
@@ -68,7 +68,7 @@ David tiene los siguientes requisitos para administrar recursos de la suscripci�
 * Además, le preocupan los costos. Por lo tanto, quiere impedir que los propietarios de la aplicación creen máquinas virtuales innecesariamente costosas.  
 * Como esta aplicación la utilizan desarrolladores de muchas unidades de negocio, quiere etiquetar cada recurso con el propietario de la aplicación y la unidad de negocio. Mediante el uso de estas etiquetas, la unidad ETS puede emitir las facturas a los equipos adecuados.
 
-Para ello, crea las siguientes [directivas de Resource Manager](resource-manager-policy.md):
+Además, crea las siguientes [directivas de Azure](../azure-policy/azure-policy-introduction.md):
 
 | Campo | Efecto | Descripción |
 | --- | --- | --- |

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: b8df9623bf3826807ba066d4e625c3138c80c5b7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: herramienta de migración de datos
 
@@ -210,7 +210,7 @@ Este es un ejemplo de línea de comandos para la importación CSV:
 ## <a id="AzureTableSource"></a>Importación de almacenamiento de tablas de Azure
 La opción del importador de código fuente de Azure Table Storage permite importar desde una tabla individual de Azure Table Storage. Si lo desea, puede filtrar las entidades de tabla que se van a importar. 
 
-Los datos importados desde Azure Table Storage pueden ser dirigidos a las tablas y entidades de Azure Cosmos DB, para usarse con Table API; o a colecciones y documentos, para usarse con la API de DocumentDB.  
+Los datos importados desde Azure Table Storage pueden ser dirigidos a las tablas y entidades de Azure Cosmos DB, para usarse con Table API; o a colecciones y documentos, para usarse con la API de DocumentDB. Sin embargo, Table API solo está disponible como destino en la utilidad de línea de comandos, no se puede exportar a API Table mediante la interfaz de usuario de la Herramienta de migración de datos. Para más información, consulte [Importación de datos para su uso con Table API de Azure Cosmos DB](table-import.md). 
 
 ![Screenshot of Azure Table storage source options](./media/import-data/azuretablesource.png)
 
@@ -522,20 +522,6 @@ Opcionalmente, puede optar por adornar el JSON resultante, lo que aumentará el 
       }
     ]
     }]
-
-## <a id="tableapibulkexport"></a>Exportación a Table API (importación en bloque)
-
-El exportador de Table API de Azure Cosmos DB permite exportar información de un origen de Azure Table Storage a una base de datos de Table API de Azure Cosmos DB. 
-
-La cadena de conexión para la cuenta de Table API de Azure Cosmos DB en el que se va a exportar se puede recuperar desde Azure Portal, en la página Cadena de conexión. Use el botón Copiar ![Captura de pantalla de la cadena de conexión en Azure Portal](./media/import-data/copy-button.png) en el lado derecho de la pantalla para copiar la cadena completa.
-
-![Captura de pantalla de la cadena de conexión en Azure Portal](./media/import-data/connection-string.png)
-
-## <a id="tableapiseqtarget"></a>Exportación a Table API (importación de registros secuencial)
-
-El exportador de Table API de Azure Cosmos DB permite exportar información de un origen de Azure Table Storage a una base de datos de Table API de Azure Cosmos DB.
-
-La cadena de conexión para la cuenta de Table API de Azure Cosmos DB en la que se va a exportar, se puede recuperar desde Azure Portal, en la página Cadena de conexión, según se muestra en la imagen [Exportación a Table API (importación en bloque)](#tableapibulkexport) anterior.
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
 En la pantalla Configuración avanzada, especifique la ubicación del archivo de registro en que desee que se escriban los errores. Las siguientes reglas se aplican a esta página:

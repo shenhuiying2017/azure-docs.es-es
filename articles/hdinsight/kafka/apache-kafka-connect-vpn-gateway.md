@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Conexión a Kafka en HDInsight (versión preliminar) mediante una instancia de Azure Virtual Network
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network
 
 Aprenda a conectarse directamente a Kafka en HDInsight mediante una instancia de Azure Virtual Network. En este documento se proporciona información sobre la conexión a Kafka mediante las siguientes configuraciones:
 
@@ -32,7 +32,7 @@ Aprenda a conectarse directamente a Kafka en HDInsight mediante una instancia de
 
 HDInsight no permite la conexión directa a Kafka a través de la red pública de Internet. Los clientes de Kafka (productores y consumidores) deben usar uno de los siguientes métodos de conexión:
 
-* Ejecutar el cliente en la misma red virtual que Kafka en HDInsight. Esta configuración se usa en el documento [Start with Apache Kafka (preview) on HDInsight (Introducción a Apache Kafka (versión preliminar) en HDInsight)](apache-kafka-get-started.md). El cliente se ejecuta directamente en los nodos del clúster de HDInsight o en otra máquina virtual de la misma red.
+* Ejecutar el cliente en la misma red virtual que Kafka en HDInsight. Esta configuración se usa en el documento [Introducción a Apache Kafka en HDInsight](apache-kafka-get-started.md). El cliente se ejecuta directamente en los nodos del clúster de HDInsight o en otra máquina virtual de la misma red.
 
 * Conectar una red privada, como la red local, a la red virtual. Esta configuración permite a los clientes de la red local trabajar directamente con Kafka. Para habilitar esta configuración, realice las siguientes tareas:
 

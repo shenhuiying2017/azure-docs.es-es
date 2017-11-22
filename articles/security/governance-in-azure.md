@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Sistema de gobierno en Azure
 
@@ -133,7 +133,7 @@ Esta jerarquía controla lo siguiente:
 
   - límites
 
-  - Red virtual
+  - Virtual Network
 
 - Recursos conectados a una cuenta de Azure Active Directory (debe estar asociada a varias suscripciones)
 
@@ -225,14 +225,14 @@ Los recursos no tienen que residir en el mismo grupo de recursos para compartir 
 Las directivas de recursos le permiten crear reglas estándar para su organización. Puede crear directivas que se aseguren de que los recursos están etiquetados con los valores adecuados.
 
 > [!Note]
-> Para más información, consulte [Aplicación de directivas de recursos para etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Para más información, consulte [Iniciativa de directiva de etiquetas de facturación](../azure-policy/scripts/billing-tags-policy-init.md).
 
 También puede ver recursos etiquetados mediante Azure Portal.
 
 El [informe de uso](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) de la suscripción incluye los nombres y los valores de las etiquetas, lo que permite desglosar los costos por etiquetas.
 
 > [!Note]
-> Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> Para más información sobre las etiquetas, consulte [Iniciativa de directiva de etiquetas de facturación](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Se aplican las siguientes limitaciones a las etiquetas:
 
@@ -263,7 +263,7 @@ A medida que su organización agrega servicios básicos a la suscripción, cada 
 
 Además, en estos momentos, admiten dos valores: CanNotDelete y ReadOnly. CanNotDelete significa que los usuarios (con los derechos adecuados) todavía pueden leer o modificar un recurso, pero no eliminarlo. ReadOnly significa que los usuarios autorizados no pueden eliminar o modificar un recurso.
 
-Los bloqueos de Resource Manager solo se aplican a las operaciones que se producen en el plano de la administración, que consta de las operaciones enviadas a <https://management.azure.com>. Los bloqueos no restringen cómo los recursos realizan sus propias funciones. Los cambios de recursos están restringidos, pero no así las operaciones de recursos. Por ejemplo, un bloqueo de solo lectura de una base de datos SQL evita tener que eliminar o modificar dicha base de datos, pero no podrá crear, actualizar o eliminar los datos de ella.
+Los bloqueos de Resource Manager solo se aplican a las operaciones que se producen en el plano de la administración, que consta de las operaciones enviadas a <https://management.azure.com>. Los bloqueos no restringen cómo los recursos realizan sus propias funciones. Los cambios de recursos están restringidos, pero no así las operaciones de recursos. Por ejemplo, un bloqueo de solo lectura de SQL Database evita tener que eliminar o modificar dicha base de datos, pero no podrá crear, actualizar o eliminar los datos de ella.
 
 Al aplicar **ReadOnly**, pueden producirse resultados inesperados, ya que algunas operaciones que parecen ser similares a operaciones de lectura requieren acciones adicionales. Por ejemplo, al colocar un bloqueo **ReadOnly** en una cuenta de almacenamiento, evita que se muestren las claves a todos los usuarios. La operación de visualización claves se administra mediante solicitudes POST debido a que las claves devueltas están disponibles para las operaciones de escritura.
 
@@ -329,11 +329,11 @@ Las [redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-n
 
 Una red virtual es una representación de su propia red en la nube. Una red virtual es un aislamiento lógico de la nube de Azure dedicada a su suscripción. También puede conectar redes virtuales a la red local.
 
-A continuación, se muestran las funcionalidades de las redes virtuales de Azure:
+A continuación, se muestran las funcionalidades de Azure Virtual Network:
 
 - **Aislamiento**: las redes virtuales están completamente aisladas entre sí. Puede crear redes virtuales independientes para el desarrollo, la prueba y la producción que usan los mismos bloques de direcciones de CIDR. Por el contrario, puede crear varias redes virtuales que usan diferentes bloques de direcciones CIDR y que conectan redes entre sí. También puede segmentar una red virtual en varias subredes. Azure proporciona resolución de nombres interna para máquinas virtuales e instancias de rol de Cloud Services conectadas a una red virtual. Si lo desea, puede configurar una red virtual para usar sus propios servidores DNS, en lugar de utilizar la resolución de nombres interna Azure.
 
-- **Conectividad a Internet**: todas las máquinas virtuales de Azure y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
+- **Conectividad a Internet**: todas las instancias de Azure Virtual Machines y de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
 
 - **Conectividad de los recursos de Azure**: los recursos de Azure, como Cloud Services y las máquinas virtuales, se pueden conectar a la misma red virtual. Los recursos pueden conectarse entre sí mediante direcciones IP privadas, aunque estén en subredes diferentes. Azure proporciona el enrutamiento predeterminado entre subredes, redes virtuales y redes locales, por lo que no tendrá que configurar ni administrar rutas.
 
@@ -349,7 +349,7 @@ A continuación, se muestran las funcionalidades de las redes virtuales de Azure
 
 Los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) son similares a los firewalls y proporcionan reglas de cómo un recurso puede comunicarse a través de la red. Proporcionan un control granular sobre cómo o bajo qué condición una subred (o máquina virtual) puede conectarse a Internet o a otras subredes de la misma red virtual.
 
-Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a redes virtuales de Azure (VNet). Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager).
+Un grupo de seguridad de red (NSG) contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a Azure Virtual Network (VNet). Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager).
 
 Cuando un grupo de seguridad de red está asociado a una subred, las reglas se aplican a todos los recursos conectados a la subred. El tráfico se puede restringir aún más si se asocia también un grupo de seguridad de red a una máquina virtual o interfaz de red.
 
@@ -404,7 +404,7 @@ Azure Security Center supervisa los siguientes recursos de Azure:
 
 - Máquinas virtuales (se incluye Cloud Services)
 
-- Redes virtuales de Azure
+- Instancias de Azure Virtual Network
 
 - Servicio de SQL Azure
 

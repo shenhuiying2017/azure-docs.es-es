@@ -1,5 +1,5 @@
 ---
-title: "Actualización de Media Services después de revertir las claves de acceso de almacenamiento | Microsoft Docs"
+title: "Actualización de Media Services después de sustituir las claves de acceso de almacenamiento | Microsoft Docs"
 description: "En este artículo se proporcionan instrucciones sobre cómo actualizar Servicios multimedia tras rotar las claves de acceso de almacenamiento."
 services: media-services
 documentationcenter: 
@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>Actualización de Media Services después de revertir las claves de acceso de almacenamiento
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>Actualización de Media Services después de sustituir las claves de acceso de almacenamiento
 
 Cuando crea una nueva cuenta de Azure Media Services (AMS), también se le pide que seleccione una cuenta de Azure Storage que se usa para almacenar el contenido multimedia. Puede agregar más de una cuenta de almacenamiento a su cuenta de Media Services. En este tema se explica cómo rotar las claves de almacenamiento. También se explica cómo agregar cuentas de almacenamiento a una cuenta multimedia. 
 

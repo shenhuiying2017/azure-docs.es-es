@@ -1,6 +1,6 @@
 ---
-title: "Introducción a SQL Data Sync de Azure (versión preliminar) | Microsoft Docs"
-description: "Este tutorial le ayuda a comenzar a usar SQL Data Sync de Azure (versión preliminar)."
+title: "Configuración de Azure SQL Data Sync (versión preliminar) | Microsoft Docs"
+description: "Este tutorial muestra cómo configurar Azure SQL Data Sync (versión preliminar)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -13,16 +13,16 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Introducción a SQL Data Sync de Azure (versión preliminar)
+# <a name="set-up-sql-data-sync-preview"></a>Configuración de SQL Data Sync (versión preliminar)
 En este tutorial, obtendrá información sobre cómo configurar Azure SQL Data Sync mediante la creación de un grupo de sincronización híbrido que contiene instancias de Azure SQL Database y de SQL Server. El nuevo grupo de sincronización está configurado completamente y se sincroniza según el programa establecido.
 
 En este tutorial se asume que tiene al menos alguna experiencia previa con SQL Database y con SQL Server. 
@@ -110,7 +110,7 @@ En la página **Configurar base de datos de Azure**, haga lo siguiente:
 
     ![Se ha agregado el nuevo miembro de sincronización de SQL Database](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Adición de una base de datos local de SQL Server
+### <a name="add-on-prem"></a> Adición de una base de datos local de SQL Server
 
 En la sección **Base de datos de miembros**, tiene la opción de agregar una instancia local de SQL Server al grupo de sincronización; para ello, seleccione **Agregar una base de datos local**. Se abre la página **Configurar localmente**.
 
@@ -193,13 +193,91 @@ Una vez que se han creado e implementado los nuevos miembros del grupo de sincro
 
 4.  Por último, seleccione **Guardar**.
 
+## <a name="faq-about-setup-and-configuration"></a>Preguntas frecuentes sobre configuración
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>¿Con qué frecuencia puede sincronizar mis datos Data Sync? 
+La frecuencia mínima es cada cinco minutos.
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>¿SQL Data Sync crea y aprovisiona tablas completamente?
+
+Si las tablas del esquema de sincronización no se han creado en la base de datos de destino, SQL Data Sync (versión preliminar) las crea con las columnas que haya seleccionado. Sin embargo, este comportamiento no genera un esquema de total fidelidad por las razones siguientes:
+
+-   Solo las columnas seleccionadas se crean en la tabla de destino. Si algunas columnas de las tablas de origen no forman parte del grupo de sincronización, estas columnas no se aprovisionan en las tablas de destino.
+
+-   Los índices se crean únicamente para las columnas seleccionadas. Si el índice de la tabla de origen tiene columnas que no forman parte del grupo de sincronización, estos índices no se aprovisionan en las tablas de destino.
+
+-   Los índices en las columnas de tipo XML no se aprovisionan.
+
+-   Las restricciones CHECK no se aprovisionan.
+
+-   Los desencadenadores existentes en las tablas de origen no se aprovisionan.
+
+-   No se crean vistas ni procedimientos almacenados en la base de datos de destino.
+
+Debido a estas limitaciones, se recomienda lo siguiente:
+-   Para entornos de producción, aprovisione el esquema de total fidelidad personalmente.
+-   Para probar el servicio, la característica de aprovisionamiento automático de SQL Data Sync (versión preliminar) funciona correctamente.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>¿Por qué veo tablas que no he creado?  
+Data Sync crea tablas laterales en su base de datos para hacer un seguimiento de los cambios. No las elimine, ya que Data Sync dejaría de funcionar.
+
+### <a name="is-my-data-convergent-after-a-sync"></a>¿Son los datos homogéneos después de una sincronización?
+
+No necesariamente. En un grupo de sincronización con un concentrador y tres radios (A, B y C), se sincroniza el concentrador con A, con B y con C. Si se realiza un cambio en la base de datos A *después* de que se haya sincronizado el concentrador con A, ese cambio no se aplica en las bases de datos B o C hasta la siguiente tarea de sincronización.
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>¿Cómo se realizan cambios de esquema en un grupo de sincronización?
+
+Tendrá que realizar manualmente los cambios de esquema.
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>¿Cómo se exporta e importa una base de datos con la sincronización de datos?
+Después de exportar una base de datos como un archivo `.bacpac` e importar dicho archivo para crear una base de datos, debe realizar los dos pasos siguientes para usar Data Sync en la nueva base de datos:
+1.  Limpie los objetos de sincronización de datos y las tablas auxiliares en la **nueva base de datos** mediante [este script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Este script elimina todos los objetos de sincronización de datos necesarios de la base de datos.
+2.  Vuelva a crear el grupo de sincronización con la nueva base de datos. Si ya no necesita el grupo de sincronización antiguo, elimínelo.
+
+## <a name="faq-about-the-client-agent"></a>Preguntas frecuentes sobre el agente cliente
+
+### <a name="why-do-i-need-a-client-agent"></a>¿Por qué se necesita un agente cliente?
+
+El servicio SQL Data Sync (versión preliminar) se comunica con bases de datos de SQL Server a través del agente cliente. Esta función de seguridad evita la comunicación directa con las bases de datos detrás de un firewall. Cuando el servicio SQL Data Sync (versión preliminar) se comunica con el agente, lo hace mediante conexiones cifradas y un token o *clave del agente* únicos. Las bases de datos de SQL Server autentican el agente mediante la cadena de conexión y la clave del agente. Este diseño proporciona un alto nivel de seguridad para los datos.
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>¿Cuántas instancias de la interfaz de usuario del agente local pueden ejecutarse?
+
+Solo se puede ejecutar una instancia de la interfaz de usuario.
+
+### <a name="how-can-i-change-my-service-account"></a>¿Cómo puedo cambiar mi cuenta de servicio?
+
+Después de instalar un agente cliente, la única manera de cambiar la cuenta de servicio es desinstalarlo e instalar un nuevo agente cliente con la nueva cuenta de servicio.
+
+### <a name="how-do-i-change-my-agent-key"></a>¿Cómo puedo cambiar la clave del agente?
+
+Un agente solo puede usar una clave del agente una vez. No se puede reutilizar si se quita el agente y se instala uno nuevo, ni tampoco puede ser utilizada por varios agentes. Si necesita crear una nueva clave para un agente existente, debe asegurarse de que la misma clave esté registrada con el agente cliente y el servicio SQL Data Sync (versión preliminar).
+
+### <a name="how-do-i-retire-a-client-agent"></a>¿Cómo se puede retirar un agente cliente?
+
+Para invalidar o retirar un agente inmediatamente, vuelva a generar su clave en el portal pero no la envíe en la interfaz de usuario del agente. Al regenerar una clave, se invalida la clave anterior, independientemente de si el agente correspondiente está conectado o desconectado.
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>¿Cómo muevo un agente cliente a otro equipo?
+
+Si desea ejecutar el agente local desde otro equipo distinto al equipo en el que está actualmente, haga lo siguiente:
+
+1. Instale el agente en el equipo deseado.
+
+2. Inicie sesión en el portal de SQL Data Sync (versión preliminar) y vuelva a generar una clave del agente para el nuevo agente.
+
+3. Use la interfaz de usuario del nuevo agente para enviar la nueva clave del agente.
+
+4. Espere mientras el agente cliente descarga la lista de bases de datos locales que se registraron anteriormente.
+
+5. Proporcione las credenciales de todas las bases de datos que se muestren como inaccesibles. Estas bases de datos deben ser accesibles desde el nuevo equipo en el que está instalado el agente.
+
 ## <a name="next-steps"></a>Pasos siguientes
 ¡Enhorabuena! Ha creado un grupo de sincronización que incluye una instancia de SQL Database y un servidor de SQL Database.
 
 Para más información sobre SQL Data Sync, consulte:
 
--   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync de Azure](sql-database-sync-data.md)
+-   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md)
 -   [Procedimientos recomendados para SQL Data Sync de Azure](sql-database-best-practices-data-sync.md)
+-   [Supervisión de Azure SQL Data Sync con Log Analytics de OMS](sql-database-sync-monitor-oms.md)
 -   [Solución de problemas de SQL Data Sync de Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:

@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparación de los planes de hospedaje de Azure Functions
 
-## <a name="introduction"></a>Introducción
-
 Azure Functions se puede ejecutar de dos formas diferentes: plan de consumo y plan de Azure App Service. El plan de consumo asigna automáticamente capacidad de proceso cuando se ejecuta el código, se amplía horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. Por lo tanto, no tiene que pagar por máquinas virtuales inactivas y no tiene que reservar capacidad de antemano. Este artículo se centra en el plan de consumo, un modelo de aplicación [sin servidor](https://azure.microsoft.com/overview/serverless-computing/). Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> El hospedaje de Linux solo está disponible en un plan de App Service.
 
 Si todavía no está familiarizado con Azure Functions, vea la [Información general sobre Azure Functions](functions-overview.md).
 
@@ -55,7 +56,7 @@ El plan de consumo es el plan de hospedaje predeterminado y ofrece las siguiente
 
 ## <a name="app-service-plan"></a>Plan de App Service
 
-En el plan de App Service, las aplicaciones de función se ejecutan en máquinas virtuales dedicadas de los niveles Básico, Estándar y Premium, y en las SKU aisladas, de un modo similar a Web Apps, API Apps y Mobile Apps. Se asignan máquinas virtuales dedicadas a las aplicaciones de App Service, lo que significa que el host de Functions siempre está en ejecución.
+En el plan de App Service, las aplicaciones de función se ejecutan en máquinas virtuales dedicadas de los niveles Básico, Estándar y Premium, y en las SKU aisladas, de un modo similar a Web Apps, API Apps y Mobile Apps. Se asignan máquinas virtuales dedicadas a las aplicaciones de App Service, lo que significa que el host de Functions siempre está en ejecución. Los planes de App Service admiten Linux.
 
 Considere el plan de App Service en los casos siguientes:
 - Tiene máquinas virtuales infrautilizadas que ya ejecutan otras instancias de App Service.
@@ -63,12 +64,13 @@ Considere el plan de App Service en los casos siguientes:
 - Necesita más opciones de CPU o memoria que las que proporciona el plan de consumo.
 - Necesita ejecuciones que superan el tiempo de ejecución máximo permitido en el plan de consumo (10 minutos).
 - Necesita características que solo están disponibles en un plan de App Service, como la compatibilidad con el entorno de App Service, la conectividad VNET/VPN y mayores tamaños de máquina virtual. 
+- Quiere ejecutar la aplicación de función en Linux o quiere proporcionar una imagen personalizada en la cual ejecutar las funciones.
 
 Una máquina virtual separa el coste del número de ejecuciones, el tiempo de ejecución y el uso de la memoria. Como resultado, no tendrá que pagar más que el coste de la instancia de máquina virtual que asigna. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Con un plan de App Service, se puede escalar horizontalmente de forma manual mediante la incorporación de más instancias de máquina virtual o se puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/web-sites-scale.md) para obtener más información. 
 
-Si va a ejecutar funciones de JavaScript en un plan de App Service, debería elegir un plan con menos núcleos. Para obtener más información, consulte la [referencia de JavaScript relativa a las funciones](functions-reference-node.md#choose-single-core-app-service-plans).  
+Si va a ejecutar funciones de JavaScript en un plan de App Service, le recomendamos que elija un plan con menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +95,7 @@ Al usar el plan de hospedaje de consumo, los archivos de código de función se 
 > [!NOTE]
 > Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Después de que la aplicación de función se ejecute, los blobs se procesan inmediatamente. Para evitar este retraso inicial, considere una de las siguientes opciones:
 > - Hospede la aplicación de función en un plan de App Service con Siempre activado habilitado.
-> - Usar otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob Para obtener un ejemplo, vea [Desencadenador de cola con enlace de entrada de blob](functions-bindings-storage-blob.md#input-sample).
+> - Usar otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob Para obtener un ejemplo, consulte [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example) (Ejemplos de C# y JavaScript para los enlaces de entrada y salida de blob).
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 

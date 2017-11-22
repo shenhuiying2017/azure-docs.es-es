@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffolding empresarial de Azure: gobierno de suscripción preceptivo
 Cada vez son más las empresas que adoptan la tecnología de nube pública para ganar agilidad y flexibilidad. Aprovechan los puntos fuertes de la nube para generar ingresos u optimizar los recursos de la empresa. Microsoft Azure proporciona un gran número de servicios que las empresas pueden ensamblar como bloques de creación con el objetivo de abordar diversas aplicaciones y cargas de trabajo. 
@@ -89,7 +89,7 @@ El primer pilar de una plantilla scaffold son los estándares de nomenclatura. C
 > Las sugerencias anteriores lo ayudan a implementar una convención de nomenclatura coherente.
 
 ## <a name="policies-and-auditing"></a>Directivas y auditoría
-El segundo pilar implica la creación de [directivas de Azure Resource Manager](resource-manager-policy.md) y un [registro de actividades de auditoría](resource-group-audit.md). Las directivas de Resource Manager ofrecen la posibilidad de administrar riesgos en Azure. Puede definir directivas que garanticen la soberanía de datos restringiendo, aplicando o auditando determinadas acciones. 
+El segundo pilar de scaffolding implica la creación de [directivas de Azure](../azure-policy/azure-policy-introduction.md) y la [auditoría del registro de actividades](resource-group-audit.md). Las directivas de Resource Manager ofrecen la posibilidad de administrar riesgos en Azure. Puede definir directivas que garanticen la soberanía de datos restringiendo, aplicando o auditando determinadas acciones. 
 
 * Las directivas son un sistema de **permisos** predeterminado. Las acciones se controlan mediante la definición y asignación de directivas a los recursos que deniegan o auditan acciones en los recursos.
 * Las directivas se describen a través de las definiciones de directiva en un lenguaje de definición de directivas (condiciones If-Then).
@@ -159,7 +159,7 @@ Consulte [Recommended naming conventions for Azure resources](../guidance/guidan
 > Considere la posibilidad de utilizar una directiva que exija etiquetar los siguientes recursos:
 > 
 > * Grupos de recursos
-> * Almacenamiento
+> * Storage
 > * Máquinas virtuales
 > * Servidores web y entornos de servicios de aplicaciones
 > 
@@ -207,7 +207,7 @@ Entre los roles integrados, solamente se conceden esas acciones al propietario y
 > [!TIP]
 > Las opciones de red principales deben protegerse con bloqueos. La eliminación accidental de una puerta de enlace o una VPN de sitio a sitio podría resultar desastroso para una suscripción de Azure. Azure no permite eliminar una red virtual que se esté utilizando, pero, por preocupación, recomendamos aplicar más restricciones. 
 > 
-> * Red virtual: CanNotDelete
+> * Virtual Network: CanNotDelete
 > * Grupo de seguridad de red: CanNotDelete
 > * Directivas: CanNotDelete
 > 

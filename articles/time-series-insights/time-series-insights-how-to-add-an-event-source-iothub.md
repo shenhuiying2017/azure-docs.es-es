@@ -1,73 +1,101 @@
 ---
 title: "Adición de un origen de eventos de IoT Hub al entorno de Azure Time Series Insights | Microsoft Docs"
-description: "Este tutorial describe cómo agregar un origen de eventos que está conectado a un IoT Hub para su entorno de Time Series Insights."
-keywords: 
+description: "En este artículo se describe cómo agregar un origen de evento que está conectado a un centro de IoT Hub a su entorno de Time Series Insights."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: 3b98728ced81256d05b1bed2c92fc66c5ca61b98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-add-an-iot-hub-event-source"></a>Adición de un origen de eventos de IoT Hub
-
-Este tutorial describe cómo usar Azure Portal para agregar un origen de eventos que se lea desde un IoT Hub a su entorno de Time Series Insights.
+# <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Adición de un origen de eventos de IoT Hub al entorno de Time Series Insights
+Este tutorial describe cómo usar Azure Portal para agregar un origen de eventos que se lea desde un centro de IoT Hub a su entorno de Time Series Insights.
 
 ## <a name="prerequisites"></a>Requisitos previos
+- Cree el entorno de Time Series Insights. Para obtener más información, consulte [Creación de un entorno de Azure Time Series Insights](time-series-insights-get-started.md). 
+- Cree un centro de IoT Hub. Para obtener más información sobre los centros de IoT Hub, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
+- El centro de IoT Hub debe tener eventos de mensajes activos en proceso de envío.
+- Cree un grupo de consumidores dedicado en el centro de IoT Hub para que el entorno de Time Series Insight los consuma. Cada origen del evento de Time Series Insights tiene que tener su propio grupo de consumidores dedicado que no se comparte con ningún otro consumidor. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores vean errores. Para más información, vea la [Guía para desarrolladores de IoT Hub](../iot-hub/iot-hub-devguide.md).
 
-Ha creado un IoT Hub y escribe eventos en él. Para más información sobre IoT Hubs, vea <https://azure.microsoft.com/services/iot-hub/>
+## <a name="add-a-new-event-source"></a>Adición de un nuevo origen del evento
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-> [Grupos de consumidores] Cada origen de eventos de Time Series Insights tiene que tener su propio grupo de consumidores dedicado que no se comparte con otros consumidores. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores vean errores. Para más información, vea la [Guía para desarrolladores de IoT Hub](../iot-hub/iot-hub-devguide.md).
+2. Busque su entorno existente de Time Series Insights. Haga clic en **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
 
-## <a name="choose-an-import-option"></a>Selección de un opción de importación
+3. En el encabezado **Environment Topology** (Topología del entorno), haga clic en **Orígenes de eventos**.
+   ![Orígenes de eventos + Agregar](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
 
-La configuración del origen de eventos puede especificarse manualmente o se puede seleccionar un IoT Hub desde los IoT Hub disponibles.
-En el selector **Opción de importación**, elija una de las siguientes opciones:
+4. Haga clic en **+ Agregar**.
 
-* Proporcionar configuración de IoT Hub de forma manual
-* Usar IoT Hub desde suscripciones disponibles
+5. Proporcione un **nombre de origen de evento** único para este entorno de Time Series Insights, como **flujo de eventos**.
 
-### <a name="select-an-available-iot-hub"></a>Seleccionar un IoT Hub disponible
+   ![Rellene los tres primeros parámetros del formulario.](media/time-series-insights-how-to-add-an-event-source-iothub/2-import-option.png)
 
-La siguiente tabla explica cada opción en la pestaña Nuevo origen de eventos con su descripción al seleccionar un IoT Hub disponible como un origen de eventos:
+6. En **Origen**, seleccione **IoT Hub**.
 
-| Nombre de propiedad | Description |
-| --- | --- |
-| Nombre de origen de eventos | El nombre del origen de eventos. Este nombre debe ser único dentro del entorno de Time Series Insights.
-| Origen | Seleccione **IoT Hub** para crear un origen de eventos de IoT Hub.
-| Id. de suscripción | Seleccione la suscripción en la que se creó IoT Hub.
-| Nombre de IoT Hub | Seleccione el nombre del IoT Hub.
-| Nombre de la directiva de IoT Hub | Seleccione la directiva de acceso compartido, que puede encontrarse en la pestaña Configuración de IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
-| Grupo de consumidores de IoT Hub | El grupo de consumidores para leer eventos desde IoT Hub. Se recomienda fehacientemente usar un grupo de consumidores dedicado para el origen del evento.
+7. Seleccione la **opción de importación** adecuada. 
+   - Elija **Use IoT Hub from available subscriptions** (Usar el centro de IoT Hub de las suscripciones disponibles) cuando ya tenga un centro de eventos existente en una de sus suscripciones. Este es el enfoque más sencillo.
+   - Elija **Indicar manualmente la configuración del centro de IoT Hub** cuando el centro de IoT Hub sea externo a sus suscripciones o si quiere elegir opciones avanzadas. 
 
-### <a name="provide-iot-hub-settings-manually"></a>Proporcionar configuración de IoT Hub de forma manual
+8. Si ha seleccionado la opción **Use IoT Hub from available subscriptions** (Usar el centro de IoT Hub de las suscripciones disponibles), en la siguiente tabla se explica cada propiedad necesaria:
 
-La siguiente tabla explica cada propiedad en la pestaña Nuevo origen de eventos con su descripción al escribir los ajustes manualmente:
+   ![Detalles del centro de evento y la suscripción](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-| Nombre de propiedad | Description |
-| --- | --- |
-| Nombre de origen de eventos | El nombre del origen de eventos. Este nombre debe ser único dentro del entorno de Time Series Insights.
-| Origen | Seleccione **IoT Hub** para crear un origen de eventos de IoT Hub.
-| Id. de suscripción | La suscripción en la que se creó este IoT Hub.
-| Grupos de recursos | La suscripción en la que se creó este IoT Hub.
-| Nombre de IoT Hub | El nombre de IoT Hub. Cuando creó IoT Hub, también le asignó un nombre específico.
-| Nombre de la directiva de IoT Hub | La directiva de acceso compartido, que puede crearse en la pestaña Configuración de IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
-| Clave de la directiva de IoT Hub | La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Bus de servicio. Escriba la clave principal o secundaria aquí.
-| Grupo de consumidores de IoT Hub | El grupo de consumidores para leer eventos desde IoT Hub. Se recomienda fehacientemente usar un grupo de consumidores dedicado para el origen del evento.
+   | Propiedad | Descripción |
+   | --- | --- |
+   | Id. de suscripción | Seleccione la suscripción en la que se creó IoT Hub.
+   | Nombre de IoT Hub | Seleccione el nombre del IoT Hub.
+   | Nombre de la directiva de IoT Hub | Seleccione la directiva de acceso compartido, que puede encontrarse en la pestaña Configuración de IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
+   | Clave de la directiva de IoT Hub | La clave se rellena previamente.
+   | Grupo de consumidores de IoT Hub | El grupo de consumidores para leer eventos desde IoT Hub. Se recomienda fehacientemente usar un grupo de consumidores dedicado para el origen del evento.
+   | Formato de serialización de eventos | Por el momento, JSON es la única serialización disponible. Los mensajes de eventos deben estar en este formato, o bien no se podrá leer ningún dato. |
+   | Nombre de la propiedad de marca de tiempo | Para determinar este valor, debe comprender el formato de mensaje de los datos del mensaje enviados al centro de IoT Hub. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
+
+9. Si ha seleccionado la opción **Indicar manualmente la configuración del centro de IoT Hub**, en la tabla siguiente se explica cada propiedad necesaria:
+
+   | Propiedad | Descripción |
+   | --- | --- |
+   | Id. de suscripción | La suscripción en la que se creó este IoT Hub.
+   | Grupos de recursos | El nombre del grupo de recursos en el que se creó este centro de IoT Hub.
+   | Nombre de IoT Hub | El nombre de IoT Hub. Cuando creó IoT Hub, también le asignó un nombre específico.
+   | Nombre de la directiva de IoT Hub | La directiva de acceso compartido, que puede crearse en la pestaña Configuración de IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **conexión de servicios**.
+   | Clave de la directiva de IoT Hub | La clave de acceso compartido usada para autenticar el acceso al espacio de nombres de Service Bus. Escriba la clave principal o secundaria aquí.
+   | Grupo de consumidores de IoT Hub | El grupo de consumidores para leer eventos desde IoT Hub. Se recomienda fehacientemente usar un grupo de consumidores dedicado para el origen del evento.
+   | Formato de serialización de eventos | Por el momento, JSON es la única serialización disponible. Los mensajes de eventos deben estar en este formato, o bien no se podrá leer ningún dato. |
+   | Nombre de la propiedad de marca de tiempo | Para determinar este valor, debe comprender el formato de mensaje de los datos del mensaje enviados al centro de IoT Hub. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
+
+10. Seleccione **Crear** para agregar el nuevo origen del evento.
+
+   ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+
+   Tras la creación del origen de eventos, Time Series Insights iniciará automáticamente la transmisión de datos al entorno.
+
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adición de un grupo de consumidores a IoT Hub
+Las aplicaciones usan grupos de consumidores para extraer datos de Azure IoT Hub. Proporcione un grupo de consumidores dedicado, solo para su uso en este entorno de Time Series Insights, para leer datos de manera confiable del centro de IoT Hub.
+
+Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
+1. En Azure Portal, busque y abra el centro de IoT Hub.
+
+2. En el encabezado **Mensajería**, seleccione **Puntos de conexión**. 
+
+   ![Adición de un grupo de consumidores](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
+
+3. Seleccione el punto de conexión **Eventos** y se abrirá la página **Propiedades**.
+
+4. En el encabezado **Grupos de consumidores**, especifique un nuevo nombre único para el grupo de consumidores. Use este mismo nombre en el entorno de Time Series Insights al crear un nuevo origen de eventos.
+
+5. Seleccione **Guardar** para guardar el nuevo grupo de consumidores.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-1. Adición de un directiva de acceso de datos al entorno [Definir directivas de acceso de datos](time-series-insights-data-access.md)
-1. Acceso al entorno en el [Portal de Time Series Insights](https://insights.timeseries.azure.com)
+- [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
+- [Envíe eventos](time-series-insights-send-events.md) al origen de eventos.
+- Acceso al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

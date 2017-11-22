@@ -3,7 +3,7 @@ title: "Creación de Integration Runtime autohospedado en Azure Data Factory | M
 description: "Aprenda a crear un entorno Integration Runtime autohospedado en Azure Data Factory, lo que permite a las factorías de datos tener acceso a almacenes de datos en una red privada."
 services: data-factory
 documentationcenter: 
-author: spelluru
+author: nabhishek
 manager: jhubbard
 editor: monicar
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: spelluru
-ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.author: abnarain
+ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Creación y configuración de una instancia de Integration Runtime autohospedado
 Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para obtener más información acerca del tiempo de ejecución de integración, consulte [Integration Runtime Overview](concepts-integration-runtime.md) (Información general de Integration Runtime).
@@ -107,7 +107,7 @@ Un entorno Integration Runtime autohospedado puede asociarse a varias máquinas 
 1. Mayor disponibilidad del entorno Integration Runtime autohospedado para que ya no sea el único punto de error de la solución de Big Data o la integración de datos en la nube con Azure Data Factory, garantizando la continuidad con un máximo de 4 nodos.
 2. Rendimiento mejorado durante el movimiento de datos entre almacenes de datos locales y en la nube. Obtenga más información sobre las [comparaciones de rendimiento](copy-activity-performance.md).
 
-Puede asociar varios nodos con simplemente instalar el software Integration Runtime autohospedado desde el [Centro de descarga de](https://www.microsoft.com/download/details.aspx?id=39717) y registrarlo con las Claves de autenticación obtenidas con el cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, como se describe en el [Tutorial](tutorial-hybrid-copy-powershell.md).
+Para asociar varios nodos, basta con instalar el software Integration Runtime autohospedado desde el [Centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) y registrarlo con las claves de autenticación obtenidas con el cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, como se describe en el [Tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > No es necesario crear un nuevo entorno Integration Runtime autohospedado para asociar cada nodo.

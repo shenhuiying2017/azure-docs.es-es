@@ -1,6 +1,6 @@
 ---
-title: "Agrupación de la instancia de SAP (A)SCS en el clúster de conmutación por error de Windows con el recurso compartido de archivos en Azure | Microsoft Docs"
-description: "Agrupación de la instancia de SAP (A)SCS en el clúster de conmutación por error de Windows con el recurso compartido de archivos"
+title: "Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure | Microsoft Docs"
+description: "Aprenda a agrupar una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure."
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 8cb339c9ecffbbc711aa6ea55d6f357fe0f4cfd0
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/14/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -201,179 +201,162 @@ ms.lasthandoff: 10/27/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
+[1869038]:https://launchpad.support.sap.com/#/notes/1869038 
 
-# <a name="clustering-sap-ascs-instance-on-windows-failover-cluster-using-file-share-on-azure"></a>Agrupación de la instancia de SAP (A)SCS en el clúster de conmutación por error de Windows con el recurso compartido de archivos en Azure
+# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure
 
 > ![Windows][Logo_Windows] Windows
 >
 
-Clústeres de conmutación por error de Windows Server es la base de una instalación de ASCS/SCS de SAP de alta disponibilidad y DBMS en Windows.
+Los clústeres de conmutación por error de Windows Server son la base de una instalación de ASCS/SCS de SAP de alta disponibilidad y DBMS en Windows.
 
-Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, Clústeres de conmutación por error de Windows Server calcula el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
+Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisite"></a>Requisito previo
-Asegúrese de revisar estos documentos antes de empezar con este otro:
+## <a name="prerequisites"></a>Requisitos previos
+Antes de comenzar las tareas que se describen en este artículo, consulte este otro artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
 
 > [!IMPORTANT]
->La agrupación en clústeres de instancias de SAP (A)SCS con el recurso compartido de archivos es compatible con los productos **SAP NetWeaver 7.40 y versiones posteriores**, con el **kernel de SAP 7.49 y versiones posteriores**.
+> La agrupación en clústeres de instancias de ASCS/SCS de SAP con un recurso compartido de archivos es compatible con SAP NetWeaver 7.40 (y versiones posteriores), con el kernel de SAP 7.49 (y versiones posteriores).
 >
 
 
 ## <a name="windows-server-failover-clustering-in-azure"></a>Clústeres de conmutación por error de Windows Server en Azure
 
-En comparación con las implementaciones de nube privada o sin sistema operativo, Azure Virtual Machines requiere pasos adicionales para configurar Clústeres de conmutación por error de Windows Server. Al compilar un clúster, deberá establecer varias direcciones IP y nombres de host virtual para la instancia de SAP ASCS/SCS.
+En comparación con las implementaciones de nube privada o físicas, Azure Virtual Machines requiere pasos adicionales para configurar clústeres de conmutación por error de Windows Server. Al crear un clúster, debe establecer varias direcciones IP y nombres de host virtual para la instancia de ASCS/SCS de SAP.
 
-### <a name="name-resolution-in-azure-and-cluster-virtual-host-name"></a>Resolución de nombres en Azure y nombre de host virtual en el clúster
+### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Resolución de nombres en Azure y el nombre de host virtual del clúster
 
-La plataforma en la nube de Azure no ofrece la opción de configurar direcciones IP virtuales, como direcciones IP flotantes. Necesita una solución alternativa para configurar una dirección IP virtual que se comunique con el recurso de clúster en la nube. Azure tiene un **equilibrador de carga interno** en el servicio Azure Load Balancer. Con el equilibrador de carga interno, los clientes se comunican con el clúster a través de la dirección IP virtual del clúster. Necesita implementar el equilibrador de carga interno en el grupo de recursos que contiene los nodos del clúster. Luego, configure todas las reglas de enrutamiento de puerto necesarias con los puertos de sondeo del equilibrador de carga interno. Los clientes se pueden conectar por medio del nombre de host virtual. El servidor DNS resuelve la dirección IP del clúster y el equilibrador de carga interno controla el enrutamiento de puerto al nodo activo del clúster.
+La plataforma en la nube de Azure no ofrece la opción de configurar direcciones IP virtuales, como direcciones IP flotantes. Necesita una solución alternativa para configurar una dirección IP virtual que se comunique con el recurso de clúster en la nube. 
+
+El servicio Azure Load Balancer proporciona un *equilibrador de carga interno* para Azure. Con el equilibrador de carga interno, los clientes se comunican con el clúster a través de la dirección IP virtual del clúster. 
+
+Implemente el equilibrador de carga interno en el grupo de recursos que contiene los nodos del clúster. A continuación, configure todas las reglas de reenvío de puertos necesarias utilizando los puertos de sondeo del equilibrador de carga interno. Los clientes se pueden conectar por medio del nombre de host virtual. El servidor DNS resuelve la dirección IP del clúster. El equilibrador de carga interno controla el reenvío de puertos al nodo activo del clúster.
 
 ![Figura 1: configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido][sap-ha-guide-figure-1001]
 
-_**Figura 1:** configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
+_**Figura 1:** Configuración de clústeres de conmutación por error de Windows Server en Azure sin un disco compartido_
 
-## <a name="sap-ascs-ha-with-file-share"></a>Alta disponibilidad de SAP (A)SCS con el recurso compartido de archivos
+## <a name="sap-ascsscs-ha-with-file-share"></a>Alta disponibilidad de ASCS/SCS de SAP con recurso compartido de archivos
 
-SAP ha desarrollado un nuevo enfoque y alternativas para agrupar en clústeres los discos compartidos, a fin de agrupar la instancia de SAP (A)SCS en el clúster de conmutación por error de Windows.
-
-Aquí se usa un **recurso compartido de archivos SMB** como opción para implementar **archivos de HOST GLOBAL DE SAP**.
+SAP ha desarrollado un nuevo enfoque y alternativas para agrupar en clústeres los discos compartidos, a fin de agrupar una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows. En lugar de utilizar discos compartidos de clúster, puede usar un recurso compartido de archivos SMB para implementar los archivos del host global de SAP.
 
 > [!NOTE]
->El recurso compartido de archivos SMB es una opción adicional para agrupar en clústeres discos compartidos a fin de agrupar en clústeres instancias de SAP (A)SCS.  
+> Un recurso compartido de archivos SMB es una alternativa al uso de discos compartidos de clúster para agrupar en clústeres instancias de ASCS/SCS de SAP.  
 >
 
-A continuación se indican los aspectos específicos de esta arquitectura:
+Esta arquitectura es específica de las maneras siguientes:
 
-* **Los servicios centrales de SAP (con su propia estructura de archivos y procesos de mensajería y puesta en cola) están separados de los archivos del HOST GLOBAL DE SAP**.
-* **Los servicios centrales de SAP se ejecutan en la instancia de SAP (A)SCS**.
-* La instancia de SAP (A)SCS se encuentra en un clúster y se puede obtener acceso a ella mediante el nombre de host virtual **<(A)SCSVirtualHostName>**.
-* Los archivos del HOST GLOBAL DE SAP se colocan en el recurso compartido de archivos SMB y son accesibles mediante el <SAPGLOBALHost> nombre de host \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
-* La instancia de SAP (A)SCS está instalada en un disco local en ambos nodos del clúster.
-* El nombre de red **<(A)SCSVirtualHostName>** es diferente de **&lt;SAPGLOBALHost&gt;**
+* Los servicios centrales de SAP (con su propia estructura de archivos y procesos de mensajería y puesta en cola) están separados de los archivos del host global de SAP.
+* Los servicios centrales de SAP se ejecutan en una instancia de ASCS/SCS de SAP.
+* La instancia de ASCS/SCS de SAP está en clúster y es accesible mediante el nombre de host virtual \<nombre de host virtual ASCS/SCS\>.
+* Los archivos globales de SAP se colocan en el recurso compartido de archivos SMB y son accesibles mediante \<host global de SAP\> nombre de host: \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\...
+* La instancia de ASCS/SCS de SAP está instalada en un disco local en ambos nodos del clúster.
+* El nombre de red \<nombre de host virtual ASCS/SCS\> es diferente del &lt;host global de SAP&gt;.
 
-![Figura 2: nueva arquitectura de alta disponibilidad de SAP (A)SCS con un recurso compartido de archivos SMB][sap-ha-guide-figure-8004]
+![Figura 2: Arquitectura de alta disponibilidad de ASCS/SCS de SAP con recurso compartido de archivos SMB][sap-ha-guide-figure-8004]
 
-_**Figura 2:** nueva arquitectura de alta disponibilidad de SAP (A)SCS con un recurso compartido de archivos SMB_
+_**Figura 2:** Arquitectura de alta disponibilidad de ASCS/SCS de SAP con recurso compartido de archivos SMB_
 
-Requisitos previos para el recurso compartido de archivos SMB:
+Requisitos previos para un recurso compartido de archivos SMB:
 
-* Protocolo SMB 3.0 (o superior).
-* Capacidad de establecer listas de control de acceso (ACL) de Active Directory (AD) para **grupos de usuarios de AD** y el **objeto de equipo computer$**.
-* El recurso compartido de archivos debe estar habilitado para la alta disponibilidad:
+* Protocolo SMB 3.0 (o posterior).
+* Capacidad de establecer listas de control de acceso (ACL) de Active Directory para grupos de usuarios de Active Directory y el objeto de equipo `computer$`.
+* El recurso compartido de archivos debe estar habilitado para alta disponibilidad:
     * Los discos usados para almacenar archivos no deben ser un único punto de error.
-    * Debe asegurarse de que el tiempo de inactividad de los servidores o las máquinas virtuales no provoca tiempo de inactividad en el recurso compartido de archivos.
+    * El tiempo de inactividad del servidor o de la máquina virtual no provoca tiempo de inactividad en el recurso compartido de archivos.
 
-Ahora, el rol de clúster **SAP &lt;SID&gt;** no contiene discos compartidos por el clúster ni el recurso de clúster compartido Recurso compartido de archivos genérico.
-
-
-![Figura 3: recursos del rol de clúster SAP <SID> cuando se usa el recurso compartido de archivos][sap-ha-guide-figure-8005]
-
-_**Figura 3:** recursos del rol de clúster **SAP &lt;SID&gt;** cuando se usa el recurso compartido de archivos_
+El rol de clúster \<SID\> de SAP no contiene discos compartidos de clúster ni un recurso compartido de archivos de clúster genérico.
 
 
-## <a name="scale-out-file-share-sofs-with-storage-spaces-direct-s2d-on-azure-as-sapmnt-file-share"></a>Recurso compartido de archivos de escalado horizontal (SOFS) con Espacios de almacenamiento directo (S2D) en Azure como recurso compartido de archivos SAPMNT
+![Figura 3: Recursos del rol de clúster \<SID\> de SAP cuando se usa un recurso compartido de archivos][sap-ha-guide-figure-8005]
 
-Puede usar SOFS para hospedar y proteger archivos del HOST GLOBAL DE SAP y para ofrecer el servicio de recurso compartido de archivos SAPMNT de alta disponibilidad.
+_**Figura 3:** Recursos del rol de clúster &lt;SID&gt; de SAP cuando se usa un recurso compartido de archivos_
 
-![Figura 4: recurso compartido de archivos SOFS usado para proteger los archivos del HOST GLOBAL DE SAP][sap-ha-guide-figure-8006]
 
-_**Figura 4:** recurso compartido de archivos SOFS usado para proteger los archivos del HOST GLOBAL DE SAP_
+## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Recursos compartidos de archivos de escalabilidad horizontal con espacios de almacenamiento directo en Azure como un recurso compartido de archivos SAPMNT
 
-> [!IMPORTANT]
->El recurso compartido de archivos SOFS es totalmente compatible con Microsoft Azure Cloud, así como con entornos locales.
->
+Puede usar un recurso compartido de archivos de escalabilidad horizontal para hospedar y proteger los archivos del host global de SAP. Un recurso compartido de archivos de escalabilidad horizontal también ofrece un servicio de recurso compartido de archivos SAPMNT de alta disponibilidad.
 
-**SOFS** ofrece un recurso compartido de archivos SAPMNT de alta disponibilidad y escalado horizontal.
+![Figura 4: Recurso compartido de archivos de escalabilidad horizontal utilizado para proteger los archivos del host global de SAP][sap-ha-guide-figure-8006]
 
-**Espacios de almacenamiento directo (S2D)** se usa como **disco compartido** para SOFS, lo que permite la creación de almacenamiento escalable y de alta disponibilidad mediante servidores con almacenamiento local. Por lo tanto, el almacenamiento compartido que se usa para SOFS, por ejemplo, para archivos del HOST GLOBAL DE SAP, no es un único punto de error (SPOF).
+_**Figura 4:** Recurso compartido de archivos de escalabilidad horizontal utilizado para proteger los archivos del host global de SAP_
 
 > [!IMPORTANT]
->Si planea configurar la recuperación ante desastres, SOFS es la solución recomendada para el recurso compartido de archivos de alta disponibilidad en Azure.
+> Los recursos compartidos de archivos de escalabilidad horizontal son totalmente compatibles con la nube de Microsoft Azure y en entornos locales.
 >
 
-### <a name="sap-prerequisites-for-sofs-in-azure"></a>Requisitos previos de SAP para SOFS en Azure
+Un recurso compartido de archivos de escalabilidad horizontal ofrece un recurso compartido de archivos SAPMNT de alta disponibilidad y escalado horizontal.
 
-Para SOFS se necesita lo siguiente:
+Los espacios de almacenamiento directo se usan como un disco compartido para un recurso compartido de archivos de escalabilidad horizontal. Puede usar espacios de almacenamiento directo para crear almacenamiento de alta disponibilidad y escalabilidad utilizando servidores con almacenamiento local. El almacenamiento compartido que se utiliza para un recurso compartido de archivos de escalabilidad horizontal, al igual que para los archivos del host global de SAP, no es un punto único de error.
 
-* Al menos dos nodos de clúster para SOFS.
+> [!IMPORTANT]
+>Si *no* planea configurar la recuperación ante desastres, se recomienda usar un recurso compartido de archivos de escalabilidad horizontal como una solución para un recurso compartido de archivos de alta disponibilidad en Azure.
+>
 
+### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Requisitos previos de SAP para recursos compartidos de archivos de escalabilidad horizontal en Azure
+
+Para usar un recurso compartido de archivos de escalabilidad horizontal, el sistema debe cumplir los siguientes requisitos:
+
+* Al menos dos nodos del clúster para un recurso compartido de archivos de escalabilidad horizontal.
 * Cada nodo debe tener al menos dos discos locales.
-
-* Por razones de rendimiento, debe usar la **resistencia de creación de reflejo**:
-    * Creación de reflejo **bidireccional** para SOFS con dos nodos de clúster.
-    * Creación de reflejo **tridireccional** para SOFS con dos nodos de clúster.
-
-
-* Es **recomendable que haya tres nodos de clúster (o más) para SOFS con la creación de reflejo tridireccional**.
-Esta instalación ofrece más escalabilidad y resistencia de almacenamiento que la instalación de SOFS con dos nodos de clúster y la creación de reflejo de bidireccional.
-
-* Debe usar un **disco Premium de Azure**.
-
-* Se **recomienda** usar **discos administrados de Azure**.
-
-* Se **recomienda** formatear los volúmenes con el nuevo **Sistema de archivos resistente (ReFS)**.
-    * [Nota de SAP 1869038: Compatibilidad de SAP con el sistema de archivos ReFs] [1869038].
-    * Vea el capítulo [Elegir el sistema de archivos][planning-volumes-s2d-choosing-filesystem] de Planificar volúmenes en Espacios de almacenamiento directo.
-    * Asegúrese de instalar esta [actualización acumulativa **KB4025334** de MS][kb4025334].
-
-
-* Puede usar los tamaños de máquina virtual de Azure de la **serie DS** o la **serie DSv2**.
-
-* Para tener el rendimiento óptimo entre las redes de máquinas virtuales que se requiere para la sincronización de discos de Espacios de almacenamiento directo, debe usar un tipo de máquina virtual que tenga al menos un **ancho de banda de red "alto"**.
-Para obtener más información, vea las especificaciones de la [serie DSv2][dv2-series] y la [serie DS][ds-series].
-
-* Se **recomienda** **reservar cierta capacidad sin asignar en el bloque de almacenamiento**. De este modo, se proporciona a los volúmenes espacio para realizar la reparación "locamente" después de que se produzca un error en las unidades, lo que mejora el rendimiento y la seguridad de los datos.
-
- Para obtener más información, vea [Elegir el tamaño de los volúmenes][choosing-the-size-of-volumes-s2d].
-
-
-* Las máquinas virtuales SOFS de Azure deben implementarse en el **propio conjunto de disponibilidad de Azure**.
-
-* No es necesario configurar Azure Load Balancer interno para el nombre de red del recurso compartido de archivos SOFS, por ejemplo, <SAPGlobalHostName>, como se hace para <(A)SCSVirtualHostname> de la instancia de SAP (A)SCS o para el DBMS. SOFS escala horizontalmente la carga en todos los nodos del clúster, por lo que <SAPGlobalHostName> usa la dirección IP local de todos los nodos del clúster.
+* Por razones de rendimiento, debe usar la *resistencia de creación de reflejo*:
+    * Creación de reflejo bidireccional para un recurso compartido de archivos de escalabilidad horizontal con dos nodos del clúster.
+    * Creación de reflejo triple para un recurso compartido de archivos de escalabilidad horizontal con tres (o más) nodos del clúster.
+* Se recomiendan tres (o más) nodos del clúster para un recurso compartido de archivos de escalabilidad horizontal con creación de reflejo triple.
+    Esta configuración ofrece más escalabilidad y resistencia de almacenamiento que la configuración de recurso compartido de archivos de escalabilidad horizontal con dos nodos del clúster y creación de reflejo bidireccional.
+* Debe usar discos Premium de Azure.
+* Se recomienda utilizar Azure Managed Disks.
+* Se recomienda dar formato a los volúmenes con el sistema de archivos resistente (ReFS).
+    * Para más información, consulte la [Nota de SAP 1869038: compatibilidad de SAP para el sistema de archivos ReFs][1869038] y el capítulo [Elección del sistema de archivos][planning-volumes-s2d-choosing-filesystem] de artículo Planificación de volúmenes en espacios de almacenamiento directo.
+    * Asegúrese de que ha instalado la [actualización acumulativa de Microsoft KB4025334][kb4025334].
+* Puede usar los tamaños de máquina virtual de Azure de la serie DS o la serie DSv2.
+* Para un buen rendimiento de red entre las máquinas virtuales, lo cual es necesario para la sincronización de disco de los espacios de almacenamiento directo, utilice un tipo de máquina virtual con un ancho de banda de red "alto" como mínimo.
+    Para más información, consulte las especificaciones de la [serie DSv2][dv2-series] y la [serie DS][ds-series].
+* Se recomienda reservar cierta capacidad sin asignar en el grupo de almacenamiento. Dejar cierta capacidad sin asignar en el grupo de almacenamiento da espacio a los volúmenes para una reparación "in situ" si se produce un error en una unidad. Esto mejora el rendimiento y seguridad de los datos.  Para más información, consulte [Elección del tamaño del volumen][choosing-the-size-of-volumes-s2d].
+* Las máquinas virtuales del recurso compartido de archivos de escalabilidad horizontal de Azure deben implementarse en su propio conjunto de disponibilidad de Azure.
+* No es necesario configurar el equilibrador de carga interno de Azure para el nombre de red del recurso compartido de archivos de escalabilidad horizontal, como para el \<host global de SAP\>. Esto se hace para el \<nombre de host virtual ASCS/SCS\> de la instancia de ASCS/SCS de SAP o para el DBMS. Un recurso compartido de archivos de escalabilidad horizontal escala horizontalmente la carga entre todos los nodos del clúster. El \<host global de SAP\> usa la dirección IP local para todos los nodos del clúster.
 
 
 > [!IMPORTANT]
->No se puede cambiar el recurso compartido de archivos SAPMNT que apunta a SAPGLOBALHOST. SAP no es compatible con un nombre de recurso compartido diferente, como sapmnt.
->[Nota de SAP 2492395: ¿Se puede cambiar el nombre de recurso compartido sapmnt?][2492395]
+> No se puede cambiar el nombre del recurso compartido de archivos SAPMNT, que apunta al \<host global de SAP\>. SAP admite únicamente el nombre de recurso compartido "sapmnt."
 
-### <a name="configuring-sap-ascs-instances-and-sofs-in-two-clusters"></a>Configuración de instancias de SAP (A)SCS y SOFS en dos clústeres
+> Para más información, consulte [Nota de SAP 2492395: ¿Se puede cambiar el nombre de recurso compartido sapmnt?][2492395]
 
-Tiene la posibilidad de implementar instancias de SAP (A)SCS en un clúster, con su propio rol de clúster <SID> de SAP. El recurso compartido de archivos SOFS está configurado en otro clúster con otro rol de clúster.
+### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configuración de instancias de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal en dos clústeres
 
-> [!IMPORTANT]
->En este escenario, la instancia de SAP (A)SCS se configura para tener acceso al HOST GLOBAL DE SAP mediante la ruta de acceso UNC \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\...
->
-
-![Figura 5: instancia de SAP (A)SCS y SOFS implementados en DOS clústeres][sap-ha-guide-figure-8007]
-
-_**Figura 5:** instancia de SAP (A)SCS y SOFS implementados en DOS clústeres_
+Puede implementar instancias de ASCS/SCS de SAP en un clúster, con su propio rol de clúster \<SID\> de SAP. En este caso, configure el recurso compartido de archivos de escalabilidad horizontal en otro clúster con otro rol de clúster.
 
 > [!IMPORTANT]
->En Azure Cloud, cada clúster usado para SAP y para recursos compartidos de archivos SOFS debe implementarse en su propio conjunto de disponibilidad de Azure, para garantizar la colocación distribuida de esas máquinas virtuales de clúster por la infraestructura subyacente de Azure.
+>En este escenario, la instancia de ASCS/SCS de SAP se configura para tener acceso al host global de SAP mediante la ruta de acceso UNC \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\.
 >
 
-## <a name="generic-file-share-with-sios-as-cluster-shared-disks"></a>Recurso compartido de archivos genérico con SIOS como discos compartidos de clúster
+![Figura 5: Instancia de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal implementados en dos clústeres][sap-ha-guide-figure-8007]
+
+_**Figura 5:** Instancia de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal implementados en dos clústeres_
+
+> [!IMPORTANT]
+> En la nube de Azure, los clústeres que se usan para SAP y los recursos compartidos de archivos de escalabilidad horizontal deben implementarse en su propio conjunto de disponibilidad de Azure. Esto garantiza la selección de ubicación distribuida de las máquinas virtuales del clúster a través de la infraestructura subyacente de Azure.
+>
+
+## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Recurso compartido de archivos genérico con SIOS DataKeeper como discos compartidos de clúster
 
 
 > [!IMPORTANT]
->SOFS es la solución recomendada para el recurso compartido de archivos de alta disponibilidad.
+> Se recomienda una solución de recurso compartido de archivos de escalabilidad horizontal para un recurso compartido de archivos de alta disponibilidad.
 >
->Pero si va a establecer también la **recuperación ante desastres** para el recurso compartido de archivos de alta disponibilidad, tendrá que usar el recurso compartido de archivos genérico y SISO como tecnología para los discos compartidos de clúster.
+> Si va a establecer también la recuperación ante desastres para el recurso compartido de archivos de alta disponibilidad, debe usar un recurso compartido de archivos genérico y SIOS DataKeeper para los discos compartidos de clúster.
 >
 
-Otra opción para lograr el recurso compartido de archivos de alta disponibilidad es el Recurso compartido de archivos genérico.
+Otra opción para conseguir un recurso compartido de archivos de alta disponibilidad es un recurso compartido de archivos genérico.
 
-En este caso, como disco compartido de clúster puede usar una solución SIOS de terceros.
+En este caso, puede usar una solución SIOS de terceros como un disco compartido de clúster.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con el clúster de conmutación por error de Windows y el recurso compartido de archivos para la instancia (A)SCS de SAP][sap-high-availability-infrastructure-wsfc-file-share]
-
-* [Instalación de alta disponibilidad para SAP NetWeaver en el clúster de conmutación por error de Windows y el recurso compartido de archivos para la instancia de SAP (A)SCS][sap-high-availability-installation-wsfc-shared-disk]
-
+* [Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un recurso compartido de archivos para una instancia de ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-file-share]
+* [Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para una instancia de ASCS/SCS de SAP][sap-high-availability-installation-wsfc-shared-disk]
 * [Implementar un servidor de archivos de escalado horizontal de Espacios de almacenamiento directo de dos nodos para el almacenamiento UPD en Azure][deploy-sofs-s2d-in-azure]
-
 * [Espacios de almacenamiento directo en Windows Server 2016][s2d-in-win-2016]
-
-* [Profundización: volúmenes en Espacios de almacenamiento directo][deep-dive-volumes-in-s2d]
+* [En profundidad: volúmenes en espacios de almacenamiento directo][deep-dive-volumes-in-s2d]

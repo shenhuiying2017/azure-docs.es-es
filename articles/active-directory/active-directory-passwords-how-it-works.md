@@ -1,5 +1,5 @@
 ---
-title: "¿Cómo funciona? SSPR de Azure AD | Microsoft Docs"
+title: "Cómo funciona SSPR de Azure AD | Microsoft Docs"
 description: "Profundización del autoservicio de restablecimiento de contraseña de Azure AD"
 services: active-directory
 keywords: 
@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
-Funcionamiento de SSPR ¿Qué significa la opción en la interfaz? Siga leyendo para más información acerca del autoservicio de restablecimiento de contraseña de Azure AD.
+¿Cómo funciona el autoservicio de restablecimiento de contraseña (SSPR)? ¿Qué significa la opción en la interfaz? Siga leyendo para obtener más información acerca de SSPR de Azure Active Directory (Azure AD).
 
-## <a name="how-does-the-password-reset-portal-work"></a>Funcionamiento del portal de restablecimiento de contraseñas
+## <a name="how-does-the-password-reset-portal-work"></a>¿Cómo funciona el portal de restablecimiento de contraseñas?
 
-Cuando un usuario navega al portal de restablecimiento de contraseñas, se inicia un flujo de trabajo para determinar:
+Cuando un usuario visita el portal de restablecimiento de contraseña, se inicia un flujo de trabajo para determinar:
 
    * ¿Cómo se debe localizar la página?
    * ¿Es válida la cuenta de usuario?
@@ -36,28 +36,27 @@ Cuando un usuario navega al portal de restablecimiento de contraseñas, se inici
    * ¿Dónde se administra la contraseña del usuario?
    * ¿Tiene el usuario licencia para usar la característica?
 
+Lea los pasos siguientes para obtener información sobre la lógica de la página de restablecimiento de contraseña:
 
-Lea los pasos siguientes para obtener información sobre la lógica de la página de restablecimiento de contraseña.
-
-1. El usuario hace clic en el vínculo ¿No puede acceder a su cuenta? o va directamente a [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
-2. Según la configuración regional del explorador la experiencia se representa en el idioma adecuado. La experiencia de restablecimiento de contraseña se localiza en los idiomas que admite Office 365.
-3. El usuario escribe un identificador de usuario y pasa un captcha.
-4. Azure AD comprueba si el usuario puede utilizar esta característica; para ello, hace las siguientes comprobaciones:
-   * Comprueba que el usuario tiene esta característica habilitada y una licencia de Azure AD asignada.
-     * Si el usuario no tiene esta característica habilitada o una licencia asignada, se solicita al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+1. El usuario selecciona el vínculo **No se puede tener acceso a la cuenta** o visita directamente [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
+   * Según la configuración regional del explorador, la experiencia se representa en el idioma correspondiente. La experiencia de restablecimiento de contraseña está localizada en los mismos idiomas que admite Office 365.
+2. El usuario escribe un identificador de usuario y pasa un CAPTCHA.
+3. Azure AD comprueba que el usuario pueda utilizar esta característica y, para ello, hace las siguientes comprobaciones:
+   * Comprueba que el usuario tenga esta característica habilitada y una licencia de Azure AD asignada.
+     * Si el usuario no tiene esta característica habilitada o una licencia asignada, se le solicita que se ponga en contacto con el administrador para restablecer la contraseña.
    * Comprueba que el usuario tiene los datos de comprobación correctos definidos en la cuenta según la directiva del administrador.
-     * Si la directiva requiere solo una comprobación, se garantiza que el usuario tiene los datos correspondientes definidos para al menos una de las comprobaciones habilitadas por la directiva del administrador.
-       * Si el usuario no está configurado, se le recomienda que se ponga en contacto con el administrador para restablecer la contraseña.
-     * Si la directiva requiere dos comprobaciones, se garantiza que el usuario tiene los datos correspondientes definidos para al menos dos de las comprobaciones habilitadas por la directiva del administrador.
-       * Si el usuario no está configurado, se le recomienda que se ponga en contacto con el administrador para restablecer la contraseña.
-   * Comprueba si la contraseña del usuario se administra de forma local (federada o sincronizada con hash de contraseña).
-     * Si la escritura diferida está implementada y la contraseña del usuario se administra de forma local, se le permite continuar con la autenticación y restablecer la contraseña.
-     * Si la escritura diferida de contraseñas no está implementada y la contraseña del usuario se administra de forma local, se le pide que se ponga en contacto con el administrador para restablecer la contraseña.
-5. Si se determina que el usuario puede restablecer correctamente la contraseña, se le guiará a través del proceso de restablecimiento.
+     * Si la directiva solo requiere una comprobación, significa que garantiza que el usuario tiene los datos correspondientes definidos para al menos una de las comprobaciones habilitadas por la directiva del administrador.
+       * Si la comprobación del usuario no está configurada, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+     * Si la directiva requiere dos comprobaciones, esta garantiza que el usuario tiene los datos correspondientes definidos para al menos dos de las comprobaciones habilitadas por la directiva del administrador.
+       * Si la comprobación del usuario no está configurada, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+   * Comprueba si la contraseña del usuario se administra en un entorno local (federado o sincronizado con hash de contraseña).
+     * Si la escritura diferida está implementada y la contraseña del usuario se administra en un entorno local, el usuario puede continuar con la autenticación y restablecer la contraseña.
+     * Si la escritura diferida no está implementada y la contraseña del usuario se administra en un entorno local, se pide al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+4. Si se determina que el usuario puede restablecer correctamente la contraseña, se le guiará a través del proceso de restablecimiento.
 
 ## <a name="authentication-methods"></a>Métodos de autenticación
 
-Si Autoservicio de restablecimiento de contraseña (SSPR) está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. En ocasiones, es posible que oiga hablar de estas opciones como puertas. Se recomienda encarecidamente elegir al menos dos métodos de autenticación para que los usuarios tengan más flexibilidad.
+Si SSPR está habilitado, tiene que seleccionar al menos una de las opciones siguientes para los métodos de autenticación. En ocasiones, se hace referencia a estas opciones como "puertas". Le recomendamos encarecidamente que elija al menos dos métodos de autenticación para que los usuarios tengan más flexibilidad.
 
 * Email
 * Teléfono móvil
@@ -66,32 +65,32 @@ Si Autoservicio de restablecimiento de contraseña (SSPR) está habilitado, tien
 
 ![Autenticación][Authentication]
 
-### <a name="what-fields-are-used-in-the-directory-for-authentication-data"></a>Qué campos se usan en el directorio para los datos de autenticación
+### <a name="what-fields-are-used-in-the-directory-for-the-authentication-data"></a>¿Qué campos se usan en el directorio para los datos de autenticación?
 
-* Teléfono de la oficina corresponde al teléfono de la oficina
-    * Los usuarios no pueden establecer este campo, lo debe definir un administrador
-* Teléfono móvil corresponde al teléfono de autenticación (no visible públicamente) o teléfono móvil (visible públicamente)
-    * El servicio busca primero el teléfono de autenticación y, a continuación, revierte al teléfono móvil si no está presente
-* Dirección de correo electrónico alternativa corresponde al correo electrónico de autenticación (no visible públicamente) o al correo electrónico alternativo
-    * El servicio busca primero el correo electrónico de autenticación y, después, revierte al correo electrónico alternativo
+* **Teléfono de la oficina**: corresponde al teléfono de la oficina.
+    * Los usuarios no pueden establecer este campo. Debe definirlo un administrador.
+* **Teléfono móvil**: corresponde al teléfono de autenticación (no visible públicamente) o al teléfono móvil (visible públicamente).
+    * El servicio primero busca el teléfono de autenticación y, si no está, recurre al teléfono móvil.
+* **Dirección de correo electrónico alternativa**: corresponde al correo electrónico de autenticación (no visible públicamente) o al correo electrónico alternativo.
+    * El servicio primero busca el correo electrónico de autenticación y, después, recurre al correo electrónico alternativo.
 
-De forma predeterminada, solo los atributos de la nube Teléfono de la oficina y Teléfono móvil se sincronizan con su directorio en la nube desde el directorio local para los datos de autenticación.
+De forma predeterminada, solo los atributos de la nube del teléfono de la oficina y del teléfono móvil se sincronizan con su directorio en la nube desde el directorio local para los datos de autenticación.
 
 Los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado y requiera.
 
-Si los usuarios no desea que su número de teléfono móvil esté visible en el directorio, pero desean usarlo para el restablecimiento de la contraseña, los administradores no deben rellenarlo en el directorio y el usuario debe rellenar su atributo **Teléfono de autenticación** a través del [portal de registro de restablecimiento de contraseña](http://aka.ms/ssprsetup). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar.
+Si los usuarios no quieren que su número de teléfono móvil sea visible en el directorio, pero quieren seguir usándolo para restablecer la contraseña, los administradores no deben rellenar este campo en el directorio. Los usuarios deberían rellenar el atributo **Teléfono de autenticación** mediante el [portal de registro del restablecimiento de contraseña](http://aka.ms/ssprsetup). Los administradores pueden ver esta información en el perfil del usuario, pero no se publica en ningún otro lugar.
 
-### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
+### <a name="the-number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 
-Esta opción determina el número mínimo de métodos de autenticación disponibles o puertas que un usuario debe superar para restablecer o desbloquear su contraseña y se puede establecer en 1 o 2.
+Esta opción determina el número mínimo de métodos de autenticación disponibles o puertas que un usuario debe pasar para restablecer o desbloquear su contraseña. Se puede establecer en uno o dos.
 
-Los usuarios pueden elegir proporcionar más métodos de autenticación si el administrador los administra.
+Los usuarios pueden elegir proporcionar más métodos de autenticación si el administrador los habilita.
 
-Si un usuario no tiene los métodos necesarios mínimos registrados, verá una página de error que le insta al solicitar un administrador que restablezca su contraseña.
+Si un usuario no tiene los métodos necesarios mínimos registrados, verá una página de error que le redirigirá a solicitar que un administrador restablezca su contraseña.
 
-#### <a name="changing-authentication-methods"></a>Cambio de métodos de autenticación
+#### <a name="change-authentication-methods"></a>Cambio de métodos de autenticación
 
-¿Qué sucede si empieza con una directiva que tiene registrado solo un método de autenticación necesario para restablecer o desbloquear y cambia a dos métodos?
+¿Qué sucede si empieza con una directiva que solo tiene registrado un método de autenticación requerido para el restablecimiento o el desbloqueo y cambia a dos métodos?
 
 | Número de métodos registrados | Número de métodos requeridos | Resultado |
 | :---: | :---: | :---: |
@@ -99,16 +98,16 @@ Si un usuario no tiene los métodos necesarios mínimos registrados, verá una p
 | 1 | 2 | **No permite** restablecer o desbloquear |
 | 2 o más | 2 | **Permite** restablecer o desbloquear |
 
-Si cambia los tipos de métodos de autenticación que un usuario puede usar, puede impedir sin darse cuenta que los usuarios puedan usar SSPR si no tienen la cantidad mínima de datos disponibles.
+Si cambia los tipos de métodos de autenticación que puede usar un usuario, es posible que impida sin darse cuenta que los usuarios puedan usar SSPR si no tienen la cantidad mínima de datos disponibles.
 
 Ejemplo: 
-1. Directiva original configurada con dos métodos de autenticación necesarios solo mediante preguntas de seguridad y el teléfono del trabajo. 
-2. El administrador cambia la directiva para no usar más preguntas de seguridad, pero permite el uso del teléfono móvil y de un correo electrónico alternativo.
-3. Los usuarios que no hayan completado los campos de teléfono móvil y correo electrónico alternativo no podrán restablecer sus contraseñas.
+1. La directiva original se configura con dos métodos de autenticación necesarios. Solo usa el número de teléfono de la oficina y las preguntas de seguridad. 
+2. El administrador cambia la directiva para dejar de usar las preguntas de seguridad, pero permite el uso de un teléfono móvil y de un correo electrónico alternativo.
+3. Los usuarios que no rellenen los campos de teléfono móvil y correo electrónico alternativo no podrán restablecer sus contraseñas.
 
-### <a name="how-secure-are-my-security-questions"></a>Nivel de protección de las cuestiones de seguridad
+### <a name="how-secure-are-my-security-questions"></a>¿Cuál es el nivel de seguridad de mis preguntas de seguridad?
 
-Si usa preguntas de seguridad, se recomienda que se usen con otro método, ya que pueden ser menos seguras que otros métodos puesto que algunas personas pueden conocer las respuestas a las preguntas de otros usuarios.
+Si usa preguntas de seguridad, le recomendamos que las use junto con otro método. Las preguntas de seguridad pueden ser menos seguras que otros métodos porque es posible que algunas personas sepan las respuestas de las preguntas de otro usuario.
 
 > [!NOTE] 
 > Las preguntas de seguridad se almacenan de manera privada y segura en un objeto de usuario del directorio y solo las pueden responder los usuarios durante el registro. No hay forma de que un administrador lea o modifique las preguntas o respuestas de un usuario.
@@ -116,7 +115,7 @@ Si usa preguntas de seguridad, se recomienda que se usen con otro método, ya qu
 
 ### <a name="security-question-localization"></a>Localización de preguntas de seguridad
 
-Todas las preguntas predefinidas que se indican a continuación están localizadas en el conjunto completo de idiomas de Office 365 en función de la configuración regional del explorador del usuario.
+Todas las preguntas predefinidas que se indican a continuación están localizadas en el conjunto completo de idiomas de Office 365 y se basan en la configuración regional del explorador del usuario:
 
 * ¿En qué ciudad conoció a su cónyuge o pareja?
 * ¿En qué ciudad se conocieron sus padres?
@@ -156,24 +155,24 @@ Todas las preguntas predefinidas que se indican a continuación están localizad
 
 ### <a name="custom-security-questions"></a>Preguntas de seguridad personalizadas
 
-Las preguntas de seguridad personalizadas no se localizan para diferentes configuraciones regionales. Todas las preguntas personalizadas se muestran en el mismo idioma en que se escriben en la interfaz de usuario administrativa, aunque la configuración regional del explorador del usuario sea diferente. Si necesita preguntas localizadas, use las preguntas predefinidas.
+Las preguntas de seguridad personalizadas no se localizan para diferentes configuraciones regionales. Todas las preguntas personalizadas se muestran en el mismo idioma en el que se escriben en la interfaz de usuario administrativa, aunque la configuración regional del explorador del usuario sea diferente. Si necesita preguntas localizadas, debería usar las preguntas predefinidas.
 
 La longitud máxima de una pregunta de seguridad personalizada es 200 caracteres.
 
 ### <a name="security-question-requirements"></a>Requisitos de las preguntas de seguridad
 
-* El límite mínimo de caracteres de las respuestas es de 3 caracteres
-* El límite máximo de caracteres de las respuestas es de 40 caracteres
-* Los usuarios no pueden responder a la misma pregunta más de una vez
-* Los usuarios no pueden proporcionar la misma respuesta a más de una pregunta
-* Se puede usar cualquier juego de caracteres para definir las preguntas y respuestas, incluidos los caracteres Unicode
-* El número de preguntas que se definen debe ser mayor o igual que el número de preguntas necesarias para registrarse
+* El límite mínimo de caracteres de las respuestas es de tres.
+* El límite máximo de caracteres de las respuestas es de 40.
+* Los usuarios no pueden responder a la misma pregunta más de una vez.
+* Los usuarios no pueden proporcionar la misma respuesta a más de una pregunta.
+* Se puede usar cualquier juego de caracteres para definir las preguntas y respuestas, incluidos los caracteres Unicode.
+* El número de preguntas que se definen debe ser mayor o igual que el número de preguntas que fueron necesarias para registrarse.
 
 ## <a name="registration"></a>Registro
 
-### <a name="require-users-to-register-when-signing-in"></a>Exigir a los usuarios que se registren al iniciar sesión
+### <a name="require-users-to-register-when-they-sign-in"></a>Exigir a los usuarios que se registren al iniciar sesión
 
-La habilitación de esta opción requiere que un usuario que tenga habilitado el restablecimiento de la contraseña complete el registro de restablecimiento de la contraseña si inicia sesión en aplicaciones mediante Azure AD para iniciarla desde los siguientes lugares:
+Para habilitar esta opción, un usuario que tenga habilitado el restablecimiento de contraseña tiene que completar el registro de restablecimiento de contraseña si inicia sesión en aplicaciones mediante Azure AD. Aquí se incluye lo siguiente:
 
 * Office 365
 * Azure Portal
@@ -181,68 +180,68 @@ La habilitación de esta opción requiere que un usuario que tenga habilitado el
 * Aplicaciones federadas
 * Aplicaciones personalizadas mediante Azure AD
 
-Cuando está deshabilitada, los usuarios pueden registrar manualmente su información de contacto de dos formas diferentes: visitando [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) o haciendo clic en el vínculo de **registro para el restablecimiento de contraseña**, que se encuentra en la pestaña del perfil del panel de acceso.
+Cuando se deshabilita la opción para requerir el registro, los usuarios todavía pueden registrar manualmente su información de contacto. Pueden visitar [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) o seleccionar el vínculo **Registrarme para restablecer la contraseña** en la pestaña **Perfil** en el Panel de acceso.
 
 > [!NOTE]
-> Para descartar el Portal de registro de restablecimiento de contraseña, los usuarios deben hace clic en Cancelar o cerrar la ventana, algo que se les solicita cada vez que inician sesión hasta que completan el registro.
+> Para descartar el portal de registro de restablecimiento de contraseña, los usuarios pueden seleccionar **Cancelar** o cerrar la ventana. Sin embargo, se les pedirá que se registren cada vez que inicien sesión hasta que completen el registro.
 >
-> Esto no interrumpirá la conexión del usuario si ya ha iniciado sesión.
+> Esto no interrumpe la conexión del usuario si ya ha iniciado sesión.
 
-### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación
+### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Establecer el número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación
 
-Esta opción determina el período que transcurre entre el establecimiento y la confirmación de la información de autenticación, y solo está disponible si se habilita la opción **¿Desea exigir a los usuarios que se registren al iniciar sesión?**
+Esta opción determina el período que transcurre entre el establecimiento y la reconfirmación de la información de autenticación, y solo está disponible si se habilita la opción **¿Desea exigir a los usuarios que se registren al iniciar sesión?**
 
-Los valores válidos son 0 - 730 días, 0 significa que no se pide a los usuarios que vuelvan a confirmar su información de autenticación
+Los valores válidos son desde 0 hasta 730 días. 0 significa que no se pide a los usuarios que vuelvan a confirmar su información de autenticación.
 
 ## <a name="notifications"></a>Notificaciones
 
 ### <a name="notify-users-on-password-resets"></a>¿Quiere notificar a los usuarios los restablecimientos de contraseña?
 
-Si esta opción está establecida en Sí, el usuario que restablece la contraseña recibe un correo electrónico que le informa de que la contraseña se ha cambiado a través del portal de SSPR a sus direcciones de correo electrónico principal y alternativa en el archivo de Azure AD. A ningún otro usuario se le informa de este evento de restablecimiento.
+Si esta opción está establecida en **Sí**, el usuario que restablece la contraseña recibe un correo electrónico que le informa de que la contraseña se ha cambiado. El correo electrónico se envía a través del portal de SSPR a las direcciones de correo electrónico principal y alternativa registradas en Azure AD. A ningún otro usuario se le informa de este evento de restablecimiento.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Notificación a todos los administradores cuando otros administradores restablecen sus contraseñas
 
-Si esta opción está establecida en Sí, **todos los administradores** reciben un correo electrónico en su dirección de correo electrónico principal del archivo de Azure AD en el que se les notifica que otro administrador ha cambiado su contraseña mediante SSPR.
+Si esta opción está establecida en **Sí**, *todos los administradores* reciben un correo electrónico en la dirección de correo electrónico principal que tienen registrada en Azure AD. En el correo electrónico se les notifica que otro administrador ha cambiado su contraseña mediante SSPR.
 
-Ejemplo: hay cuatro administradores en un entorno. El administrador "A" restablece su contraseña mediante SSPR. Los administradores B, C y D reciben un correo electrónico que les alertan de que esto ocurre.
+Ejemplo: hay cuatro administradores en un entorno. El administrador A restablece su contraseña mediante SSPR. Los administradores B, C y D reciben un correo electrónico que les alerta del restablecimiento de contraseña.
 
 ## <a name="on-premises-integration"></a>Integración local
 
-Si ha instalado, configurado y habilitado Azure AD Connect, tendrá las opciones adicionales siguientes para integraciones locales. Si estas opciones aparecen atenuadas, la reescritura no se ha configurado correctamente. Para más información, vea [Configuración de la escritura diferida de contraseñas](active-directory-passwords-writeback.md#configuring-password-writeback).
+Si instala, configura y habilita Azure AD Connect, tiene las opciones adicionales siguientes para integraciones locales. Si estas opciones están atenuadas, significa que la escritura diferida no se ha configurado correctamente. Para obtener más información, consulte [Configuración de la escritura diferida de contraseñas](active-directory-passwords-writeback.md#configuring-password-writeback).
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Escritura diferida de contraseñas en un directorio local
 
-Controla si la escritura diferida de contraseñas está habilitada en este directorio y, si lo está, indica el estado del servicio de escritura diferida local. Esto es útil si desea deshabilitar temporalmente la escritura diferida de contraseñas sin volver a configurar Azure AD Connect.
+Este control determina si la escritura diferida de contraseñas está habilitada para este directorio. Si lo está, indica el estado del servicio de escritura diferida local. Esto es útil si desea deshabilitar temporalmente la escritura diferida de contraseñas sin tener que volver a configurar Azure AD Connect.
 
-* Si el modificador se establece en Sí, se habilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña pueden restablecer sus contraseñas.
-* Si el modificador se establece en No, se deshabilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña no pueden restablecer sus contraseñas.
+* Si el modificador se establece en **Sí**, se habilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña pueden restablecer sus contraseñas.
+* Si el modificador se establece en **No**, se deshabilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña no pueden restablecer sus contraseñas.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña
 
-Designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin restablecer su contraseña. De forma predeterminada, Azure AD desbloquea las cuentas al realizar un restablecimiento de contraseña; esta opción le permite separar esas dos operaciones. 
+Este control designa si los usuarios que visitan el portal de restablecimiento de contraseña tendrán la opción de desbloquear sus cuentas de Active Directory locales sin tener que restablecer su contraseña. De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un restablecimiento de contraseña. Use esta opción para separar esas dos operaciones. 
 
-* Si se establece en "sí", los usuarios tienen la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin restablecer la contraseña.
-* Si se establece en "no", los usuarios solo pueden realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
+* Si se establece en **Sí**, los usuarios tienen la opción de restablecer su contraseña y desbloquear la cuenta, o de desbloquear la cuenta sin tener que restablecer la contraseña.
+* Si se establece en **No**, los usuarios solo pueden realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>¿Cómo funciona el restablecimiento de contraseña para usuarios B2B?
-El restablecimiento y cambio de contraseña son totalmente compatibles con todas las configuraciones de B2B. Los tres casos siguientes se admiten para el restablecimiento la de contraseña de usuario de B2B.
+El restablecimiento y el cambio de contraseña son totalmente compatibles con todas las configuraciones negocio a negocio (B2B). Se admiten los tres casos siguientes para el restablecimiento de contraseña de usuario B2B:
 
-1. **Usuarios de una organización asociada con un inquilino de Azure AD existente**: si la organización con la que se asocia tiene un inquilino de Azure AD existente, **respetamos todas las directivas de restablecimiento de contraseña habilitadas en dicho inquilino**. Para que el restablecimiento de contraseña funcione, la organización del asociado simplemente necesita asegurarse de que la función SSPR de Azure AD esté habilitada, lo que no supone un cargo adicional para los clientes de Office 365. Se puede habilitar siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-2. **Usuarios registrados mediante el [registro de autoservicio](active-directory-self-service-signup.md)**: si la organización con la que se asocia usaba la característica de [registro de autoservicio](active-directory-self-service-signup.md) para acceder a un inquilino, les permitimos el restablecimiento con el correo electrónico que registraron.
-3. **Usuarios de B2B**: los nuevos usuarios de B2B creados mediante las nuevas [funcionalidades de B2B de Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
+   * **Usuarios de una organización asociada con un inquilino de Azure AD existente**: si la organización con la que se asocia tiene un inquilino de Azure AD existente, *respetamos todas las directivas de restablecimiento de contraseña habilitadas en dicho inquilino*. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No hay ningún cargo adicional para los clientes de Office 365 y puede habilitarse siguiendo los pasos descritos en nuestra guía [Introducción a la administración de contraseñas](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+   * **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que se asocia usó la característica de [registro de autoservicio](active-directory-self-service-signup.md) para acceder a un inquilino, le permitimos el restablecimiento de contraseña con el correo electrónico que registró.
+   * **Usuarios B2B**: los nuevos usuarios B2B creados mediante las nuevas [funcionalidades B2B de Azure AD](active-directory-b2b-what-is-azure-ad-b2b.md) también podrán restablecer sus contraseñas con el correo electrónico que registraron durante el proceso de invitación.
 
-Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Siempre que tengan un correo electrónico alternativo o un correo electrónico de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
+Para probar este escenario, vaya a http://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
 
 > [!NOTE]
-> Las cuentas de Microsoft a las que se ha concedido acceso de invitado al inquilino de Azure AD, como las de Hotmail.com, Outlook.com y otras direcciones de correo electrónico personal no pueden utilizar el autoservicio de restablecimiento de contraseña de Azure AD y tendrán que restablecer la contraseña con la información detectada en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+> Las cuentas de Microsoft a las que se ha concedido acceso de invitado para su inquilino de Azure AD, como las de Hotmail.com, Outlook.com u otras direcciones de correo electrónico personales, no pueden usar SSPR de Azure AD. Para restablecer su contraseña, se debe usar la información que se encuentra en el artículo [Cuando no puedes iniciar sesión en tu cuenta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
+En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
-* [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).
-* [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md).
+* [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
+* [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)
 * [¿Tiene alguna pregunta acerca de las licencias?](active-directory-passwords-licensing.md)
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](active-directory-passwords-data.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](active-directory-passwords-how-it-works.md#authentication-methods)

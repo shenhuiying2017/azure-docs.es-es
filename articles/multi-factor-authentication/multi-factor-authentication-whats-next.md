@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.reviewer: richagi
+ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configuración de Azure Multi-Factor Authentication (versión preliminar pública)
 
@@ -29,7 +29,7 @@ Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora
 
 | Característica | Descripción | 
 |:--- |:--- |
-| [Bloqueo y desbloqueo de usuarios](#block/unblock-users) |La acción de bloquear y desbloquear usuarios puede impedirles recibir solicitudes de autenticación. |
+| [Bloqueo y desbloqueo de usuarios](#block-and-unblock) |La acción de bloquear y desbloquear usuarios puede impedirles recibir solicitudes de autenticación. |
 | [Alerta de fraude](#fraud-alert) |Se puede instalar y configurar la alerta de fraude para que los usuarios puedan informar sobre intentos fraudulentos de acceso a sus recursos. |
 | [Omisión por única vez](#one-time-bypass) |Una omisión por única vez permite a un usuario autenticarse una sola vez omitiendo la autenticación multifactor. |
 | [Mensajes de voz personalizados](#custom-voice-messages) |Los mensajes de voz personalizados permiten utilizar sus propias grabaciones o saludos con la autenticación multifactor. |
@@ -39,7 +39,7 @@ Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora
 | [Recordar la autenticación multifactor para exploradores y dispositivos recordados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite recordar dispositivos durante un número determinado de días después de que un usuario inicie sesión correctamente mediante MFA. |
 | [Métodos de verificación seleccionables](#selectable-verification-methods) |Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen. |
 
-## <a name="blockunblock-users"></a>Bloqueo y desbloqueo de usuarios
+## <a name="block-and-unblock"></a>Bloqueo y desbloqueo
 La acción de bloquear y desbloquear usuarios puede usarse para impedirles recibir solicitudes de autenticación. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios bloqueados permanecerán en este estado durante 90 días a partir del momento en que se bloqueen.
 
 ### <a name="block-a-user"></a>Bloquear a un usuario
@@ -70,7 +70,7 @@ Se puede instalar y configurar la alerta de fraude para que los usuarios puedan 
 
 ### <a name="configuration-options"></a>Opciones de configuración
 
-- **Bloquear usuario al notificarse fraudes**: si se informa de que un usuario ha cometido un fraude, se bloquea su cuenta.
+- **Bloquear al usuario al notificarse fraudes**: si se informa de que un usuario ha cometido fraude, su cuenta se bloquea durante 90 días o hasta que un administrador la desbloquee. Un administrador puede revisar los inicios de sesión usando el informe de inicio de sesión y tomar las medidas adecuadas para prevenir el fraude en el futuro. El administrador puede, a continuación, [desbloquear](#unblock-a-user) la cuenta de usuario.
 - **Código para notificar fraudes durante el saludo inicial**: cuando los usuarios reciben una llamada telefónica al realizar la comprobación de dos pasos, normalmente presionan # para confirmar el inicio de sesión. Si desean notificar un fraude, especifican un código antes de presionar #. De manera predeterminada, dicho código es **0**, pero se puede personalizar.
 
 > [!NOTE]
@@ -295,9 +295,9 @@ Cuando los usuarios inscriben sus cuentas para MFA, deciden su método de compro
 | Método | Descripción |
 |:--- |:--- |
 | Llamada al teléfono |Hace una llamada de voz automática. El usuario responde a la llamada y pulsa la # del teclado del teléfono para autenticarse. Este número de teléfono no se sincroniza con Active Directory local. |
-| Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se le pide al usuario que o bien conteste al mensaje de texto con el código de comprobación o que escriba el código de verificación en la interfaz de inicio de sesión. |
+| Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se le pide al usuario que o bien conteste al mensaje de texto con el código de verificación o que escriba el código de verificación en la interfaz de inicio de sesión. |
 | Notificación a través de aplicación móvil |Envía una notificación push a su teléfono o dispositivo registrado. El usuario ve la notificación y selecciona **Comprobar** para completar la comprobación. <br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de comprobación desde aplicación móvil |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada treinta segundos. El usuario escribe dicho código en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificación desde aplicación móvil |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada treinta segundos. El usuario escribe dicho código en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Habilitación/deshabilitación de los métodos de autenticación
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).

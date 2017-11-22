@@ -13,13 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 9caea4191a2ca99e6e98cc8ce7ca9ca0c7b8dc87
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versión 1: Disponibilidad general](v1/data-factory-data-movement-security-considerations.md)
+> * [Versión 2: Versión preliminar](data-movement-security-considerations.md)
+
 En este artículo se describe la infraestructura de seguridad básica que utilizan los servicios de movimiento de datos en Azure Data Factory para proteger los datos. Los recursos de administración de Azure Data Factory están integrados en la infraestructura de seguridad de Azure y aplican todas las medidas de seguridad que ofrece Azure.
 
 > [!NOTE]
@@ -27,7 +31,7 @@ En este artículo se describe la infraestructura de seguridad básica que utiliz
 
 En una solución de Data Factory, se crean una o varias [canalizaciones](concepts-pipelines-activities.md)de datos. Una canalización es una agrupación lógica de actividades que realizan una tarea. Estas canalizaciones residen en la región donde se creó la factoría de datos. 
 
-Aunque Data Factory solamente está disponible en las regiones **este de EE. UU.** y **este de EE. UU. 2** (vista previa de la versión 2), el servicio de movimiento de datos está disponible [globalmente en varias regiones](concepts-integration-runtime.md#azure-ir). Si el servicio de movimiento de datos no se ha implementado todavía en esa región, el servicio de Data Factory garantiza que los datos no abandonan un área geográfica o región, a menos que se indique explícitamente al servicio que utilice una región alternativa. 
+Aunque Data Factory solo está disponible en las regiones del **Este de EE. UU.**, del **Este de EE. UU. 2** y de **Europa Occidental** (versión preliminar de la versión 2), el servicio de movimiento de datos está disponible [de forma global en varias regiones](concepts-integration-runtime.md#azure-ir). Si el servicio de movimiento de datos no se ha implementado todavía en esa región, el servicio de Data Factory garantiza que los datos no abandonan un área geográfica o región, a menos que se indique explícitamente al servicio que utilice una región alternativa. 
 
 Azure Data Factory en sí no almacena datos, excepto las credenciales de servicio vinculadas de los almacenes de datos en la nube, que se cifran mediante certificados. Permite crear flujos de trabajo controlados por datos para orquestar el movimiento de los datos entre los [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats) y organizar el procesamiento de los datos mediante [servicios de proceso](compute-linked-services.md) en otras regiones o en entornos locales. También le permite supervisar y administrar flujos de trabajo mediante SDK y Azure Monitor.
 
@@ -65,10 +69,10 @@ Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las tran
 ### <a name="data-encryption-at-rest"></a>Cifrado de datos en reposo
 Algunos almacenes de datos admiten el cifrado de datos en reposo. Se recomienda habilitar el mecanismo de cifrado de datos para estos almacenes. 
 
-#### <a name="azure-sql-data-warehouse"></a>Almacenamiento de datos SQL de Azure
+#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para más información, consulte [Proteger una base de datos en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Base de datos SQL de Azure
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Transparent Data Encryption with Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Cifrado de datos transparente con Azure SQL Database). 
 
 #### <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake

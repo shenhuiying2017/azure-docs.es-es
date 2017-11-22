@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -85,20 +85,14 @@ La máquina virtual del servidor de configuración debe ser una máquina virtual
 En la máquina virtual del servidor de configuración, asegúrese de que el reloj del sistema esté sincronizado con un servidor horario.
 La hora debe estar sincronizada en 15 minutos. Si la diferencia horaria es superior a 15 minutos, se produce un error de instalación.
 
-Asegúrese de que la máquina virtual del servidor de configuración pueda acceder a estas direcciones URL:
+Asegúrese de que el servidor de configuración pueda acceder a estas direcciones URL:
 
-- *.accesscontrol.windows.net. Se utiliza para la administración de identidades y de control de acceso.
-- *.backup.windowsazure.com. Se usa para la transferencia de datos de replicación y coordinación.
-- *.blob.core.windows.net. Se usa para tener acceso a la cuenta de almacenamiento que almacena los datos replicados.
-- *.hypervrecoverymanager.windowsazure.com. Se usa para las operaciones de administración de replicación y coordinación.
-- time.nist.gov y time.windows.com. Se usan para comprobar la sincronización de la hora entre el sistema y la hora global.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Todas las reglas de firewall basadas en direcciones IP deben permitir la comunicación con Azure.
 
-Direcciones URL para Azure Government Cloud:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).
+    - Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
 
 Las reglas de firewall basadas en direcciones IP deben permitir la comunicación con los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y los puertos 443 (HTTPS) y 9443 (replicación de datos). Asegúrese de permitir los intervalos de direcciones IP correspondientes a la región de Azure de la suscripción y de Oeste de EE. UU. (se usan para el control de acceso y la administración de identidades).
 

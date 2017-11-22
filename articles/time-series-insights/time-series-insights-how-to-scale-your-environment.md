@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
 
@@ -50,7 +50,7 @@ Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. Utilice el control deslizante **Capacidad** para seleccionar la que cumpla los requisitos para la velocidad de entrada y la capacidad de almacenamiento. Tenga en cuenta la velocidad de entrada, la capacidad de almacenamiento y las actualizaciones de la estimación de costos dinámicamente para mostrar el efecto del cambio. 
+3. Utilice el control deslizante **Capacidad** para seleccionar la que cumpla los requisitos para la velocidad de entrada y la capacidad de almacenamiento. Tenga en cuenta la **velocidad de entrada**, **la capacidad de almacenamiento** y las actualizaciones de la **estimación de costos** dinámicamente para mostrar el efecto del cambio. 
 
    ![Control deslizante](media/scale-your-environment/slider.png)
 
@@ -59,4 +59,5 @@ Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2
 4. Seleccione **Guardar** para escalar el entorno. El indicador de progreso se muestra hasta que el cambio se confirma, un tiempo breve. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Compruebe que la nueva capacidad sea suficiente para evitar la limitación. Para más información, consulte el artículo sobre la [limitación del entorno](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Compruebe que la nueva capacidad sea suficiente para evitar la limitación](time-series-insights-diagnose-and-solve-problems.md).

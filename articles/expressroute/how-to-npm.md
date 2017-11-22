@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: aff54b86da6a8a062a3f1c76aa69e32c60008274
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configuración de Network Performance Monitor para ExpressRoute (versión preliminar)
 
@@ -39,21 +39,27 @@ Puede:
 
 * Ver el estado del sistema ExpressRoute desde un momento dado anterior
 
-**¿Cómo funciona?**
+## <a name="regions"></a>Regiones admitidas
+
+Puede supervisar circuitos ExpressRoute en cualquier parte del mundo mediante un área de trabajo que se hospeda en una de las siguientes regiones:
+
+* Europa occidental 
+* Este de EE. UU. 
+* Sudeste de Asia 
+
+## <a name="workflow"></a>Flujo de trabajo
 
 Se instalan agentes de supervisión en varios servidores, tanto en el entorno local como en Azure. Los agentes se comunican entre sí, pero no envían datos, envían paquetes de protocolo de enlace TCP. La comunicación entre los agentes permite a Azure asignar la topología de red y la ruta de acceso que puede tomar el tráfico.
 
-**Workflow**
-
-1. Cree un área de trabajo de Network Performance Monitor en la región Centro occidental de EE. UU. Actualmente, se trata de la única región donde se admite esta versión preliminar.
+1. Cree un área de trabajo de Network Performance Monitor en una de las [regiones admitidas](#regions).
 2. Instalación y configuración de agentes de software: 
     * Instale agentes de supervisión en los servidores locales y las máquinas virtuales de Azure.
     * Configure las opciones en los servidores de agente de supervisión para permitir que estos agentes se comuniquen. (Por ejemplo, abrir puertos del firewall).
 3. Configure las reglas de grupo de seguridad de red (NSG) para permitir que el agente de supervisión instalado en las máquinas virtuales de Azure se comuniquen con agentes de supervisión locales.
-4. Solicitud de incorporar el área de trabajo de Network Performance Monitor a la lista blanca
+4. Solicitud de incorporar el área de trabajo de Network Performance Monitor a la lista blanca.
 5. Configure la supervisión de la detección automática y administre las redes que están visibles en Network Performance Monitor.
 
-Si ya usa Network Performance Monitor para supervisar otros servicios u objetos y ya dispone de un área de trabajo en la región Centro occidental de EE. UU., puede omitir el paso 1 y 2 y empezar la configuración en el paso 3.
+Si ya usa Network Performance Monitor para supervisar otros servicios u objetos y ya dispone de un área de trabajo en una de las regiones admitidas, puede omitir el paso 1 y 2 y empezar la configuración en el paso 3.
 
 ## <a name="configure"></a>Paso 1: Creación de un área de trabajo
 
@@ -66,8 +72,13 @@ Si ya usa Network Performance Monitor para supervisar otros servicios u objetos 
   * Área de trabajo de OMS: escriba un nombre para el área de trabajo.
   * Suscripción : si tiene varias suscripciones, elija la que desea asociar con el área de trabajo nueva.
   * Grupo de recursos: cree un grupo de recursos o use uno existente.
-  * Ubicación: debe seleccionar que Centro occidental de EE. UU. de esta versión preliminar
+  * Ubicación: debe seleccionar una [región admitida](#regions).
   * Plan de tarifa: seleccione "Gratis"
+  
+  >[!NOTE]
+  >El circuito ExpressRoute podría estar en cualquier parte del mundo y no tiene que estar en la misma región que el área de trabajo.
+  >
+
 
   ![área de trabajo](.\media\how-to-npm\4.png)<br><br>
 4. Haga clic en **Aceptar** para guardar e implementar la plantilla de configuración. Una vez validada la plantilla, haga clic en **Crear** para implementar el área de trabajo.
@@ -88,7 +99,7 @@ Si ya usa Network Performance Monitor para supervisar otros servicios u objetos 
   >El agente de Linux no se admite para la supervisión de ExpressRoute en estos momentos.
   >
   >
-2. Después, copie y pegue los valores de **Id. de área de trabajo** y **Clave principal** en el Bloc de notas.
+2. Después, copie los valores de **Id. de área de trabajo** y **Clave principal** en el Bloc de notas.
 3. En la sección **Configurar agentes**, descargue el script de PowerShell. El script de PowerShell le ayuda a abrir el puerto de firewall pertinente para las transacciones TCP.
 
   ![Script de PowerShell](.\media\how-to-npm\7.png)
@@ -116,7 +127,7 @@ Si ya usa Network Performance Monitor para supervisar otros servicios u objetos 
 
 ### <a name="proxy"></a>2.3: Configuración de los valores de proxy (opcional)
 
-Si está utilizando un proxy web para acceder a Internet, siga estos pasos para configurar el proxy para Microsoft Monitoring Agent. Tiene que realizar estos pasos para cada servidor. Si tiene muchos servidores que necesite configurar, le resultará más fácil usar un script para automatizar este proceso. Si es así, consulte [Para configurar el proxy para Microsoft Monitoring Agent mediante un script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Si está utilizando un proxy web para acceder a Internet, siga estos pasos para configurar el proxy para Microsoft Monitoring Agent. Realice estos pasos para cada servidor. Si tiene muchos servidores que necesite configurar, le resultará más fácil usar un script para automatizar este proceso. Si es así, consulte [Para configurar el proxy para Microsoft Monitoring Agent mediante un script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
 Para configurar el proxy para Microsoft Monitoring Agent mediante el Panel de control:
 
@@ -140,7 +151,7 @@ Puede comprobar fácilmente si los agentes se están comunicando.
 
 ### <a name="firewall"></a>2.5: Apertura de los puertos de firewall en los servidores de agente de supervisión
 
-Para usar el protocolo TCP, tiene que abrir los puertos de firewall a fin de asegurarse de que los agentes de supervisión puedan comunicarse.
+Para usar el protocolo TCP, debe abrir los puertos de firewall a fin de asegurarse de que los agentes de supervisión puedan comunicarse.
 
 Puede ejecutar un script de PowerShell que crea las claves del Registro que necesita Network Performance Monitor, así como crear las reglas del firewall de Windows para permitir que los agentes de supervisión establezcan conexiones TCP entre sí. Las claves del Registro que crea el script también especifican si se deben escribir los registros de depuración y la ruta del archivo de registro. Asimismo, define el puerto TCP del agente empleado para establecer la comunicación. El script establece automáticamente los valores de estas claves, por lo que no debe cambiarlas manualmente.
 
@@ -168,8 +179,7 @@ Para más información, consulte [Grupos de seguridad de red](../virtual-network
 >
 >
 
-Antes de empezar a usar la característica de supervisión de ExpressRoute de Network Performance Monitor, debe solicitar que el área de trabajo esté en la lista blanca. [Haga clic aquí para ir a la página y rellene el formulario de solicitud](https://go.microsoft.com/fwlink/?linkid=862263). (Sugerencia: Puede que desee abrir este vínculo en una nueva ventana o pestaña). El proceso de creación de listas blancas puede tardar un día laborable o más. Le enviaremos un correo electrónico cuando se complete la creación de listas blancas.
-
+Antes de empezar a usar la característica de supervisión de ExpressRoute de Network Performance Monitor, debe solicitar que el área de trabajo esté en la lista blanca. [Haga clic aquí para ir a la página y rellene el formulario de solicitud](https://aka.ms/npmcohort). (Sugerencia: Puede que desee abrir este vínculo en una nueva ventana o pestaña). El proceso de creación de listas blancas puede tardar un día laborable o más. Cuando se complete la creación de listas blancas, recibirá un correo electrónico.
 
 ## <a name="setupmonitor"></a>Paso 5: Configuración de Network Performance Monitor para la supervisión de ExpressRoute
 
@@ -189,7 +199,7 @@ Después de completar las secciones anteriores y de comprobar que ha estado en l
 3. En la página de configuración, navegue a la pestaña "Emparejamientos de ExpressRoute", ubicada en el panel del lado izquierdo. Haga clic en **Detectar ahora**.
 
   ![detectar](.\media\how-to-npm\13.png)
-4. Cuando se completa la detección, verá las reglas para el nombre único del circuito y el nombre de la red virtual. Inicialmente, estas reglas están deshabilitadas. Debe habilitar las reglas, después, seleccione los agentes de supervisión y los valores de umbral.
+4. Cuando se completa la detección, verá las reglas para el nombre único del circuito y el nombre de la red virtual. Inicialmente, estas reglas están deshabilitadas. Habilite las reglas, después, seleccione los agentes de supervisión y los valores de umbral.
 
   ![reglas](.\media\how-to-npm\14.png)
 5. Después de habilitar las reglas y de seleccionar los valores y los agentes que desea supervisar, hay una espera entre 30 y 60 minutos aproximadamente para que los valores que se va a empezar a llenarse y los iconos de **Supervisión de ExpressRoute** están disponibles. Cuando se vean los iconos de supervisión, los circuitos ExpressRoute y los recursos de conexión van a estar supervisados por Network Performance Monitor.
@@ -229,6 +239,7 @@ Para aumentar el nivel de visibilidad para incluir saltos locales, mueva el cont
 
 ![filters](.\media\how-to-npm\topology.png)
 
-#### <a name="detailed-topology-view-of-a-particular-expressroute-circuit---with-vnet-connections"></a>Vista detallada de la topología de un circuito ExpressRoute determinado, con conexiones de red virtual
+#### <a name="detailed-topology-view-of-a-circuit"></a>Vista de topología detallada de un circuito
 
+Esta vista muestra conexiones de red virtual.
 ![topología detallada](.\media\how-to-npm\17.png)

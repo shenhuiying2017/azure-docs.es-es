@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: 21b474e37ef0a6037e05ee1fe8e5088cb3e3601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc959f763e9a84199130bae845cb62c493676977
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics-preview"></a>Adición de soluciones de administración de clústeres de HDInsight a Log Analytics (versión preliminar)
+# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Incorporación de soluciones de administración de clústeres de HDInsight en Log Analytics
 
 HDInsight proporciona soluciones de administración específicas de clúster que se pueden agregar a Azure Log Analytics. Las [soluciones de administración](../log-analytics/log-analytics-add-solutions.md) agregan funcionalidad a OMS, que proporcionan datos y herramientas de análisis adicionales a Log Analytics. Estas soluciones recopilan importantes métricas de rendimiento de los clústeres de HDInsight y proporcionan las herramientas para buscar las métricas. También proporcionan visualizaciones y paneles para la mayoría de los tipos de clúster admitidos en HDInsight. Mediante el uso de las métricas que se recopilan con la solución, puede crear alertas y reglas de supervisión personalizadas. 
 
@@ -33,25 +33,29 @@ En este artículo, aprenderá a agregar soluciones de administración específic
 
 ## <a name="add-cluster-specific-management-solutions"></a>Adición de soluciones de administración específicas de clúster
 
-En esta sección, agregará una solución de administración de clúster de HBase a un área de trabajo de OMS existente. Próximamente estarán disponibles soluciones similares para otros tipos de clúster de HDInsight.
+En esta sección, agregará una solución de administración de clúster de HBase a un área de trabajo de OMS existente.
 
-1. Abra el panel de OMS. En Azure Portal, abra la hoja del clúster de HDInsight que ha asociado con Azure Log Analytics, haga clic en la pestaña Supervisión y haga clic en **Abrir el panel de OMS**.
+1. Haga clic en un clúster de HDInsigt en Azure Portal, haga clic en **Supervisión** y en **Abrir el panel de OMS**.
 
     ![Abrir el panel de OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "Open OMS dashboard")
 
-1. En el panel de OMS, haga clic en **Galería de soluciones** o en el icono del Diseñador de vistas en el panel izquierdo.
+1. En el panel de OMS, haga clic en **Galería de soluciones** o en el icono del **Diseñador de vistas** del panel izquierdo.
 
     ![Agregar la solución de administración en OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "Add management solution in OMS")
 
-2. En la Galería de soluciones, busque **HDInsight HBase Monitoring** y, luego, haga clic en el icono.
+2. En la Galería de soluciones, haga clic en uno de los iconos siguientes:
 
-    ![Buscar la solución de administración de HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/find-hbase-management-solution.png "find HBase management solution")
+    - Supervisión de HDInsight Hadoop
+    - HDInsight HBase Monitoring (versión preliminar)
+    - Supervisión de HDInsight Kafka
+    - Supervisión de HDInsight Storm
+    - Supervisión de HDInsight Spark
 
-3. En la siguiente pantalla, haga clic en **Agregar**.
+3. En la siguiente pantalla, haga clic en **Agregar**.  La captura de pantalla siguiente muestra el botón Agregar para HBase Monitoring.
 
      ![Agregar la solución de administración de HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "Add HBase management solution")
 
-4. Ahora debería ver un icono en el panel de OMS correspondiente a la solución de administración de HBase. Si el clúster asociado OMS (como parte de los requisitos previos de este artículo) es un clúster de HBase, el icono muestra el nombre del clúster y el número de nodos del clúster.
+4. Ahora verá un icono en el panel de OMS correspondiente a la solución de administración de HBase. Si el clúster asociado OMS (como parte de los requisitos previos de este artículo) es un clúster de HBase, el icono muestra el nombre del clúster y el número de nodos del clúster.
 
     ![Solución de administración de HBase agregada](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "HBase management solution added")
 

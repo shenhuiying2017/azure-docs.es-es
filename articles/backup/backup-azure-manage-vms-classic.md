@@ -12,16 +12,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3d3de79c7f2465791ec68f850df2fc6317880f9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Administración de trabajos comunes de copia de seguridad de Azure y desencadenado de alertas en el Portal clásico
+# <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>Administración de trabajos comunes de Azure Backup y desencadenado de alertas en el Portal clásico
 > [!div class="op_single_selector"]
 > * [Administrar copias de seguridad de máquina virtual de Azure](backup-azure-manage-vms.md)
 > * [Administrar copias de seguridad de máquina virtual clásica](backup-azure-manage-vms-classic.md)
@@ -36,7 +36,7 @@ Este artículo proporciona información acerca de las tareas de administración 
 > [!IMPORTANT]
 >A partir de marzo de 2017, ya no podrá usar el portal clásico para crear almacenes de Backup.
 >
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 15 de octubre de 2017, no podrá usar PowerShell para crear almacenes de Backup. **El 1 de noviembre de 2017**:
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 30 de noviembre de 2017, ya no podrá usar PowerShell para crear almacenes de Backup. A partir del **30 de noviembre de 2017**:
 >- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 
@@ -91,7 +91,7 @@ Para realizar una copia de seguridad a petición de una máquina virtual:
 ## <a name="stop-protecting-virtual-machines"></a>Detener la protección de máquinas virtuales
 Puede detener las futuras copias de seguridad de una máquina virtual con las siguientes opciones:
 
-* Conservar los datos de copia de seguridad asociados a la máquina virtual en el almacén de copia de seguridad de Azure
+* Conservar los datos de copia de seguridad asociados a la máquina virtual en el almacén de Azure Backup
 * Eliminación de datos de copia de seguridad asociados a la máquina virtual
 
 Si ha seleccionado la opción de conservar los datos de copia de seguridad asociados a la máquina virtual, puede usar estos datos para restaurar la máquina virtual. Para obtener más detalles sobre el precio de estas máquinas virtuales, haga clic [aquí](https://azure.microsoft.com/pricing/details/backup/).
@@ -104,7 +104,7 @@ Para detener la protección de una máquina virtual:
 2. Elija la máquina virtual y haga clic en **Detener protección** , en la parte inferior de la página.
 
     ![Detener protección](./media/backup-azure-manage-vms/stop-protection.png)
-3. De forma predeterminada, la copia de seguridad de Azure no elimina los datos de copia de seguridad asociados a la máquina virtual.
+3. De forma predeterminada, Azure Backup no elimina los datos de copia de seguridad asociados a la máquina virtual.
 
     ![Confirmación de la detención de la protección](./media/backup-azure-manage-vms/confirm-stop-protection.png)
 
@@ -112,12 +112,12 @@ Para detener la protección de una máquina virtual:
 
     ![Casilla de verificación](./media/backup-azure-manage-vms/checkbox.png)
 
-    Especifique un motivo para detener la copia de seguridad. Aunque esto es opcional, proporcionar un motivo ayudará a Copia de seguridad de Azure a trabajar en los comentarios y dar prioridad a los escenarios del cliente.
+    Especifique un motivo para detener la copia de seguridad. Aunque esto es opcional, proporcionar un motivo ayudará a Azure Backup a trabajar en los comentarios y dar prioridad a los escenarios del cliente.
 4. Haga clic en el botón **Enviar** para enviar el trabajo **Detener protección**. Haga clic en **Ver trabajo** para ver el trabajo correspondiente en la página **Trabajos**.
 
     ![Detener protección](./media/backup-azure-manage-vms/stop-protect-success.png)
 
-    Si no ha elegido la opción **Eliminar datos de copia de seguridad asociados** en el asistente **Detener protección**, publique los cambios del estado de protección y la finalización del trabajo en **Protección detenida**. Los datos permanecen en Copia de seguridad de Azure hasta que se eliminen explícitamente. Para eliminar los datos, seleccione la máquina virtual en la página **Elementos protegidos** y haga clic en **Eliminar**.
+    Si no ha elegido la opción **Eliminar datos de copia de seguridad asociados** en el asistente **Detener protección**, publique los cambios del estado de protección y la finalización del trabajo en **Protección detenida**. Los datos permanecen en Azure Backup hasta que se eliminen explícitamente. Para eliminar los datos, seleccione la máquina virtual en la página **Elementos protegidos** y haga clic en **Eliminar**.
 
     ![Protección detenida](./media/backup-azure-manage-vms/protection-stopped-status.png)
 
@@ -146,7 +146,7 @@ Si desea quitar la máquina virtual del almacén de copia de seguridad:
 
     ![Deshabilitar protección](./media/backup-azure-manage-vms/confirm-unregister.png)
 
-## <a name="delete-backup-data"></a>Eliminación de datos de copia de seguridad
+## <a name="delete-backup-data"></a>Eliminar datos de copia de seguridad
 Los datos de copia de seguridad asociados a una máquina virtual se pueden eliminar en los siguientes momentos:
 
 * Durante el trabajo de detención de la protección
@@ -204,7 +204,7 @@ Para ver los registros de operación correspondientes a un almacén de copia de 
 1. Vaya a **Servicios de administración** en Azure Portal y, a continuación, haga clic en la pestaña **Registros de operaciones**.
 
     ![Registros de operaciones](./media/backup-azure-manage-vms/ops-logs.png)
-2. En los filtros, seleccione **Copia de seguridad** como *Tipo*, especifique el nombre del almacén de copia de seguridad en *Nombre de servicio* y haga clic en **Enviar**.
+2. En los filtros, seleccione **Copia de seguridad** como *Tipo*, especifique el nombre del almacén de Backup en *Nombre de servicio* y haga clic en **Enviar**.
 
     ![Filtro de registros de operaciones](./media/backup-azure-manage-vms/ops-logs-filter.png)
 3. En los registros de operaciones, seleccione cualquier operación y haga clic en **Detalles** para ver los detalles correspondientes a una operación.
