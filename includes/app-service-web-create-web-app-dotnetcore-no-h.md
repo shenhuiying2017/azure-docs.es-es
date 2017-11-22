@@ -1,6 +1,6 @@
-En Cloud Shell, cree una [aplicación web](../articles/app-service/containers/app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). No olvide reemplazar `<app_name>` por un nombre de aplicación único.
+En Cloud Shell, cree una [aplicación web](../articles/app-service/containers/app-service-linux-intro.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). 
 
-En el siguiente comando, el entorno de tiempo de ejecución se establece en `dotnetcore|1.1`. Para ver todos los entornos de tiempo de ejecución admitidos, ejecute [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `dotnetcore|1.1`. Para ver todos los entornos de tiempo de ejecución admitidos, ejecute [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "dotnetcore|1.1" --deployment-local-git
@@ -24,7 +24,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-Ha creado una nueva aplicación web vacía en un contenedor de Linux, con la implementación de Git habilitada.
+Ha creado una aplicación web vacía en un contenedor de Linux, con la implementación de Git habilitada.
 
 > [!NOTE]
 > La dirección URL del repositorio de Git remoto se muestra en la propiedad `deploymentLocalGitUrl`, con el formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Guarde esta dirección URL porque la necesitará más adelante.

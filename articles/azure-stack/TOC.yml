@@ -63,6 +63,8 @@
           href: azure-stack-integrate-identity.md
         - name: Publicación de puntos de conexión
           href: azure-stack-integrate-endpoints.md
+        - name: Supervisión externa
+          href: azure-stack-integrate-monitor.md
         - name: Seguridad
           href: azure-stack-integrate-security.md
     - name: Administrar
@@ -155,10 +157,10 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: Implementación de un proveedor de recursos de SQL
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Creación de bases de datos SQL
-              href: azure-stack-sql-resource-provider-databases.md
             - name: Adición de servidores de hospedaje
               href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: Creación de bases de datos SQL
+              href: azure-stack-sql-resource-provider-databases.md
         - name: Oferta de App Service como PaaS
           items:
             - name: Introducción a App Service en Azure Stack

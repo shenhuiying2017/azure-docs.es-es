@@ -1,8 +1,8 @@
-En Cloud Shell, cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan#create).
+En Cloud Shell, cree un plan de App Service en el grupo de recursos con el comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
-[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
+<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-En el ejemplo siguiente se crea un plan de App Service denominado `myAppServicePlan` en el plan de precios **Estándar** y en un contenedor Linux:
+En el ejemplo siguiente se crea un plan de App Service denominado `myAppServicePlan` en el plan de tarifa **Estándar** (`--sku S1`) y en un contenedor Linux (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
