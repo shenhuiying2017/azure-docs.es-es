@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>¿Cómo ver los recursos de datos relacionados en Azure Data Catalog?
 Azure Data Catalog permite ver los recursos de datos relacionados con un recurso de datos seleccionado, así como ver las relaciones entre ellos. 
@@ -30,6 +30,9 @@ Al registrar los recursos de datos de los siguientes orígenes de datos, Azure D
 - Azure SQL Database
 - MySQL
 - Oracle
+
+> [!NOTE]
+> Para que Data Catalog importe la relación entre dos recursos de datos, debe registrar ambos recursos a la vez. Si ha agregado uno de ellos por separado, vuelva a agregarlo, junto con el otro recurso de datos, para importar la relación entre ellos.
 
 ## <a name="view-related-data-assets"></a>Visualización de los recursos de datos relacionados
 Para ver los recursos de datos que están relacionados con un conjunto de datos seleccionado, utilice la pestaña **Relaciones**, tal como se muestra en la imagen siguiente: 

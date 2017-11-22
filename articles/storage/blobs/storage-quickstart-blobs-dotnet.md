@@ -3,33 +3,30 @@ title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob S
 description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante .NET"
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferencia de objetos a y desde Azure Blob Storage mediante .NET
 
-En este tutorial de inicio rápido, aprenderá a usar C#.NET para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage en Windows.
+En este tutorial de inicio rápido, aprenderá a usar la biblioteca de cliente de .NET para que Azure Storage pueda cargar, descargar y enumerar blobs en bloques en un contenedor.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta guía de inicio rápido:
-
-* Instale [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con la carga de trabajo siguiente:
+Para completar este tutorial de inicio rápido, instale [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con la carga de trabajo siguiente:
+    
     - **Desarrollo de Azure**
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -86,7 +83,11 @@ También puede usar una herramienta como [Explorador de Azure Storage](http://st
 
 Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo Program.cs para examinar el código. 
 
-## <a name="get-references-to-the-storage-objects"></a>Obtención de referencias a los objetos de almacenamiento
+## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
+
+A continuación, explicaremos el código de ejemplo para ayudarle a comprender saber cómo funciona.
+
+### <a name="get-references-to-the-storage-objects"></a>Obtención de referencias a los objetos de almacenamiento
 
 Lo primero que hay que hacer es crear las referencias a los objetos usados para acceder a Blob Storage y administrarlo. Estos objetos dependen unos de otros: cada uno es utilizado por el siguiente de la lista.
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
+### <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son los que se usan con más frecuencia y serán los que utilicemos en este tutorial de inicio rápido. 
 
@@ -148,7 +149,7 @@ Existen varios métodos de carga que puede usar con Blob Storage. Por ejemplo, s
 
 Los blobs en bloques pueden ser cualquier tipo de archivo de texto o binario. Los blobs en páginas se utilizan principalmente para los archivos VHD usados para respaldar VM IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
 
-## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
+### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
 Puede obtener una lista de archivos del contenedor mediante [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). El código siguiente recupera la lista de blobs, luego los recorre y se muestran los URI de los blobs encontrados. Puede copiar el URI desde la ventana de comandos y pegarlo en un explorador para ver el archivo.
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Descargar blobs
+### <a name="download-blobs"></a>Descargar blobs
 
 Descargue blobs al disco local mediante [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
+### <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si ya no necesita los blobs cargados en este tutorial de inicio rápido, puede eliminar todo el contenedor mediante [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Elimine también los archivos creados si ya no son necesarios.
 
@@ -200,5 +201,7 @@ En este tutorial de inicio rápido aprendió a transferir archivos entre un disc
 
 > [!div class="nextstepaction"]
 > [Procedimientos de las operaciones de Blob Storage](storage-dotnet-how-to-use-blobs.md)
+
+Para obtener ejemplos de código de Azure Storage adicionales que se puedan descargar y ejecutar, consulte la lista de [Ejemplos de Azure Storage con .NET](../common/storage-samples-dotnet.md).
 
 Para más información sobre el Explorador de Storage y los blobs, consulte [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

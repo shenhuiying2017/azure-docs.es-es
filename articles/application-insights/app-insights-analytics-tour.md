@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Un paseo por Analytics de Application Insights
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Log Analytics.
@@ -54,7 +54,7 @@ Expanda cualquier elemento para ver los detalles:
 ![Seleccione Table (Tabla) y use Configure Columns (Configurar columnas).](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Haga clic en el encabezado de una columna para cambiar el orden de los resultados disponibles en el explorador web. Tenga en cuenta que, para un conjunto grande de resultados, el número de filas que se descargan en el explorador es limitado. Esta forma de ordenación no siempre muestra los elementos mayores o menores reales. Para ordenar los elementos de forma confiable, use el operador `top` o `sort`.
+> Haga clic en el encabezado de una columna para cambiar el orden de los resultados disponibles en el explorador web. Tenga en cuenta que, para un conjunto grande de resultados, el número de filas que se descargan en el explorador es limitado. Esta forma de ordenación simplemente ordena el conjunto de resultados devuelto y no siempre muestra los elementos mayores o menores reales. Para ordenar los elementos de forma confiable, use el operador `top` o `sort`.
 >
 >
 
@@ -92,7 +92,7 @@ Muéstrame las primeras n filas, ordenadas por una columna en particular:
 
 El resultado sería el mismo, pero se ejecutaría un poco más lento. (También podría escribir `order`, que es un alias de `sort`).
 
-Los encabezados de columna en la vista de tabla también pueden utilizarse para ordenar los resultados en la pantalla. Pero por supuesto, si ha usado `take` o `top` para recuperar solo parte de una tabla, solamente reordenará los registros que ha recuperado.
+Los encabezados de columna en la vista de tabla también pueden utilizarse para ordenar los resultados en la pantalla. Pero por supuesto, si ha usado `take` o `top` para recuperar solo parte de una tabla, al hacer clic en el encabezado de la columna solamente reordenará los registros que ha recuperado.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrado de una condición.
 
@@ -115,8 +115,9 @@ El operador `where` acepta una expresión booleana. He aquí algunos puntos clav
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Obtención del tipo correcto
-Buscar solicitudes incorrectas:
+### <a name="find-unsuccessful-requests"></a>Buscar solicitudes incorrectas
+
+Convertir un valor de cadena en un entero para usar la comparación mayor que:
 
 ```AIQL
 
@@ -240,7 +241,7 @@ O bien, podríamos separar el resultado en solicitudes de nombres diferentes:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` recopila los puntos de datos de la transmisión en grupos que la cláusula `by` calcula por igual. Cada valor de la expresión `by` (cada nombre de la operación en el ejemplo anterior) da como resultado una fila de la tabla de resultados.
+`Summarize` recopila los puntos de datos de la transmisión en grupos que la cláusula `by` calcula por igual. Cada valor de la expresión `by` (cada nombre de operación único en el ejemplo anterior) da como resultado una fila de la tabla de resultados.
 
 O bien, podríamos agrupar los resultados en función de la hora del día:
 

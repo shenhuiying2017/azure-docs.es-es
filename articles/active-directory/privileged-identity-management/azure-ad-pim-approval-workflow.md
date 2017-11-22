@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Aprobaciones (versión preliminar)
+# <a name="approvals"></a>Aprobaciones
 
 ## <a name="overview"></a>Información general
 
 Con las aprobaciones de Privileged Identity Management, puede configurar roles para requerir la aprobación para la activación y elegir uno o varios usuarios o grupos como aprobadores delegados. Siga leyendo para obtener información sobre cómo configurar roles y seleccionar aprobadores.
 
->[!NOTE]
-Tenga en cuenta que esta característica está aún en desarrollo, por lo que puede encontrar errores. La funcionalidad, incluidas las convenciones de nomenclatura y de texto, está sujeta a modificaciones, por lo que no se puede considerar como definitiva.
 
-
-## <a name="key-terminology"></a>Terminología clave
+## <a name="new-terminology"></a>Nueva terminología
 
 *Usuario de rol apto*: se trata de un usuario de la organización asignado a un rol de Azure AD como apto (el rol requiere activación).
 
-*Aprobador delegado*: se trata de una o varias personas o grupos de Azure AD responsables de la aprobación de las solicitudes de activación de roles.
+*Aprobador delegado*: se trata de una o varias personas o grupos de Azure AD responsables de la aprobación de las solicitudes para activar roles.
 
 ## <a name="scenarios"></a>Escenarios
 

@@ -14,23 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
-El modo de redes predeterminado que se ofrece en el clúster de Service Fabric para servicios de contenedor es el modo de redes `nat`. Con el modo de redes `nat`, tener más de un servicio de contenedores que escucha en el mismo puerto provoca errores de implementación. Para ejecutar varios servicios que escuchan en el mismo puerto, Service Fabric admite el modo de redes `open` (versión 5.7 o superior). Con el modo de redes `open`, cada servicio de contenedor obtiene una dirección IP asignada de manera dinámica internamente que permite que varios servicios escuchen en el mismo puerto.   
+El modo de redes predeterminado que se ofrece en el clúster de Service Fabric para servicios de contenedor es el modo de redes `nat`. Con el modo de redes `nat`, tener más de un servicio de contenedores que escucha en el mismo puerto provoca errores de implementación. Para ejecutar varios servicios que escuchan en el mismo puerto, Service Fabric admite el modo de redes `Open` (versión 5.7 o superior). Con el modo de redes `Open`, cada servicio de contenedor obtiene una dirección IP asignada de manera dinámica internamente que permite que varios servicios escuchen en el mismo puerto.   
 
-Por lo tanto, con un solo tipo de servicio con un punto de conexión estático definido en el manifiesto del servicio, se pueden crear y eliminar nuevos servicios sin errores de implementación utilizando el modo de redes `open`. De igual forma, uno puede utilizar el mismo archivo `docker-compose.yml` con asignaciones de puerto estáticas para crear varios servicios.
+Por lo tanto, con un solo tipo de servicio con un punto de conexión estático definido en el manifiesto del servicio, se pueden crear y eliminar nuevos servicios sin errores de implementación utilizando el modo de redes `Open`. De igual forma, uno puede utilizar el mismo archivo `docker-compose.yml` con asignaciones de puerto estáticas para crear varios servicios.
 
 El uso de la dirección IP asignada dinámicamente para detectar servicios no es aconsejable porque la dirección IP cambia cuando el servicio se reinicia o se mueve a otro nodo. Utilice únicamente el **servicio de nombres de Service Fabric** o el **servicio DNS** para detección de servicios. 
 
 
 > [!WARNING]
-> Solo se permiten 4096 direcciones IP en total por red virtual en Azure. Por lo tanto, la suma del número de nodos y el número de instancias de servicio de contenedor (con redes `open`) no puede superar la cifra de 4096 dentro de una red virtual. Para estos escenarios de alta densidad, se recomienda el modo de redes `nat`.
+> Solo se permiten 4096 direcciones IP en total por red virtual en Azure. Por lo tanto, la suma del número de nodos y el número de instancias de servicio de contenedor (con redes `Open`) no puede superar la cifra de 4096 dentro de una red virtual. Para estos escenarios de alta densidad, se recomienda el modo de redes `nat`.
 >
 
 ## <a name="setting-up-open-networking-mode"></a>Configuración del modo de redes abierto
@@ -183,7 +183,7 @@ El uso de la dirección IP asignada dinámicamente para detectar servicios no es
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | PERMITIR  |
 
 
-4. Especifique el modo de redes en el manifiesto de aplicación para cada servicio `<NetworkConfig NetworkType="open">`.  El modo `open` hace que el servicio obtenga una dirección IP dedicada. Si no se especifica un modo, se utiliza el valor predeterminado del modo `nat` básico. Por lo tanto, en el siguiente ejemplo de manifiesto, `NodeContainerServicePackage1` y `NodeContainerServicePackage2` pueden escuchar en el mismo puerto (ambos servicios escuchan en `Endpoint1`).
+4. Especifique el modo de redes en el manifiesto de aplicación para cada servicio `<NetworkConfig NetworkType="Open">`.  El modo `Open` hace que el servicio obtenga una dirección IP dedicada. Si no se especifica un modo, se utiliza el valor predeterminado del modo `nat` básico. Por lo tanto, en el siguiente ejemplo de manifiesto, `NodeContainerServicePackage1` y `NodeContainerServicePackage2` pueden escuchar en el mismo puerto (ambos servicios escuchan en `Endpoint1`). Si el modo de redes `Open` está especificado, no se pueden especificar las configuraciones de `PortBinding`.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ El uso de la dirección IP asignada dinámicamente para detectar servicios no es
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ El uso de la dirección IP asignada dinámicamente para detectar servicios no es
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-Puede mezclar y combinar diferentes modos de redes en todos los servicios dentro de una aplicación para un clúster de Windows. Por lo tanto, puede tener algunos servicios en modo `open` y otros en modo de redes `nat`. Cuando un servicio se configura con `nat`, el puerto que está escuchando debe ser único. La combinación de modos de redes para los diferentes servicios no se admite en clústeres de Linux. 
+Puede mezclar y combinar diferentes modos de redes en todos los servicios dentro de una aplicación para un clúster de Windows. Por lo tanto, puede tener algunos servicios en modo `Open` y otros en modo de redes `nat`. Cuando un servicio se configura con `nat`, el puerto que está escuchando debe ser único. La combinación de modos de redes para los diferentes servicios no se admite en clústeres de Linux. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

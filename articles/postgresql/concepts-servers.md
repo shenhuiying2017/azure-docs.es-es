@@ -1,6 +1,6 @@
 ---
 title: Conceptos de servidor en Azure Database for PostgreSQL | Microsoft Docs
-description: En este tema se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for PostgreSQL.
+description: En este tema se incluyen consideraciones e instrucciones para configurar y administrar servidores de Azure Database for PostgreSQL.
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Servidores de Azure Database for PostgreSQL
 En este artículo se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for PostgreSQL.
@@ -30,7 +30,7 @@ Un servidor de Azure Database for PostgreSQL:
 - Coloca recursos en una región.
 - Proporciona un punto de conexión para el acceso a la base de datos y al servidor (.postgresql.database.azure.com).
 - Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicio de sesión, firewall, usuarios, roles, configuración, etc.
-- Está disponible en varias versiones. Para más información, vea la información sobre [versiones de base de datos admitidas de PostgreSQL](concepts-supported-versions.md).
+- Está disponible en varias versiones. Para más información, consulte las [versiones de base de datos admitidas de PostgreSQL](concepts-supported-versions.md).
 - Es ampliable por los usuarios. Para más información, consulte la información sobre [extensiones de PostgreSQL](concepts-extensions.md).
 
 Dentro del servidor de Azure Database for PostgreSQL, puede crear una o varias bases de datos. Puede optar por crear una sola base de datos por servidor para que se usen todos los recursos, o bien crear varias bases de datos para compartir los recursos. El precio está estructurado por servidor y se basa en la configuración del plan de tarifa, las unidades de proceso y el almacenamiento (GB). Para más información, consulte [Planes de tarifa](./concepts-service-tiers.md).
@@ -47,9 +47,16 @@ Los elementos siguientes ayudan a garantizar el acceso seguro a la base de datos
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>¿Cómo se administra un servidor?
-Puede administrar servidores de Azure Database for PostgreSQL en Azure Portal o con la [CLI de Azure](/cli/azure/postgres).
+Puede administrar servidores de Azure Database for PostgreSQL en [Azure Portal](https://portal.azure.com) o con la [CLI de Azure](/cli/azure/postgres).
+
+## <a name="server-parameters"></a>Parámetros del servidor
+Los parámetros de servidor de PostgreSQL determinan la configuración del servidor. En Azure Database for PostgreSQL, la lista de parámetros puede verse y editarse mediante Azure Portal o la CLI de Azure. 
+
+Como servicio administrado para Postgres, los parámetros configurables en Azure Database for PostgreSQL son un subconjunto de los parámetros en una instancia local de Postgres (para obtener más información sobre los parámetros de Postgres, consulte la [documentación de PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). El servidor de Azure Database for PostgreSQL está habilitado con los valores predeterminados para cada parámetro en el momento de la creación. El usuario no puede configurar los parámetros que requieren un reinicio del servidor o acceso de superusuario para que los cambios se apliquen.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener una visión general del servicio, consulte [Introducción a Azure Database for PostgreSQL](overview.md).
 - Para obtener información sobre las cuotas y las limitaciones aplicables a recursos específicos en función de su **nivel de servicio**, consulte [Niveles de servicio](concepts-service-tiers.md).
 - Para obtener información sobre cómo conectarse al servicio, vea la información sobre [bibliotecas de conexión de Azure Database for PostgreSQL](concepts-connection-libraries.md).
+- Vea y edite los parámetros del servidor a través de [Azure Portal](howto-configure-server-parameters-using-portal.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md).

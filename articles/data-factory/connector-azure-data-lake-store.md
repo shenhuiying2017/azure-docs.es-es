@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 6ef76763859482d24c088f58fe361882cc4a619b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: daba616debcf445e092697575465311f39e9466f
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Store como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Puede copiar datos desde cualquier almacén de datos de origen compatible a Azur
 
 En concreto, este conector de Azure Data Lake Store admite las siguientes funcionalidades:
 
-- Copia de archivos mediante autenticación de **entidad de servicio**.
+- Copia de los archivos mediante la autenticación de **entidad de servicio** o **identidad de servicio administrada (MSI)**.
 - Copia de archivos tal cual, o bien análisis o generación de archivos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>Introducción
@@ -44,7 +44,23 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
-Puede crear un servicio vinculado de Azure Data Lake Store mediante autenticación de entidad de servicio.
+Las siguientes propiedades son compatibles con el servicio vinculado de Azure Data Lake Store:
+
+| Propiedad | Descripción | Obligatorio |
+|:--- |:--- |:--- |
+| type | La propiedad type debe establecerse en: **AzureDataLakeStore**. | Sí |
+| dataLakeStoreUri | Información sobre la cuenta de Azure Data Lake Store. Esta información adopta uno de los siguientes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sí |
+| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
+| subscriptionId | Id. de suscripción de Azure al que pertenece la cuenta de Data Lake Store. | Necesario para el receptor |
+| resourceGroupName | Nombre del grupo de recursos de Azure al que pertenece la cuenta de Data Lake Store. | Necesario para el receptor |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+
+Consulte en las secciones siguientes más propiedades y ejemplos de JSON para los distintos tipos de autenticación, respectivamente:
+
+- [Uso de la autenticación de entidad de servicio](#using-service-principal-authentication)
+- [Uso de la autenticación de identidades de servicio administradas](#using-managed-service-identitiy-authentication)
+
+### <a name="using-service-principal-authentication"></a>Uso de la autenticación de entidad de servicio
 
 Para usar la autenticación de entidad de servicio, registre una entidad de aplicación en Azure Active Directory (AAD) y concédale acceso a Data Lake Store. Consulte [Autenticación entre servicios](../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
 
@@ -54,21 +70,15 @@ Para usar la autenticación de entidad de servicio, registre una entidad de apli
 
 >[!TIP]
 > Asegúrese de que concede el permiso adecuado principal del servicio en Azure Data Lake Store:
->- Como origen, conceda al menos permiso de acceso de datos **Lectura + Ejecución** para enumerar y copiar el contenido de una carpeta o un permiso de **lectura** para copiar un único archivo. No hay ningún requisito en el control de acceso de nivel de cuenta.
->- Como receptor, garantice al menos permiso de acceso de datos **Escritura + Ejecución** para crear elementos secundarios en la carpeta. Además, si usa Azure IR para autorizar la copia (tanto el origen como el receptor están en la nube), para permitir a Data Factory detectar la región de Data Lake Storage, conceda al menos el rol de **lector** en el control de acceso de cuenta (IAM). Si desea evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) con la ubicación de Data Lake Storage y realice la asociación en el servicio de Data Lake Storage vinculado como en el siguiente ejemplo.
+>- Como origen, conceda al menos permiso de acceso de datos **Lectura + Ejecución** para enumerar y copiar el contenido de una carpeta o un permiso de **lectura** para copiar un único archivo. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
+>- Como receptor, garantice al menos permiso de acceso de datos **Escritura + Ejecución** para crear elementos secundarios en la carpeta. Además, si usa Azure IR para autorizar la copia (tanto el origen como el receptor están en la nube), para permitir a Data Factory detectar la región de Data Lake Storage, conceda al menos el rol de **lector** en el control de acceso de cuenta (IAM). Si desea evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) explícitamente con la ubicación de Data Lake Storage y realice la asociación en el servicio de Data Lake Storage vinculado como en el siguiente ejemplo.
 
 Se admiten las siguientes propiedades:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **AzureDataLakeStore**. | Sí |
-| dataLakeStoreUri | Información sobre la cuenta de Azure Data Lake Store. Esta información adopta uno de los siguientes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString. | Sí |
-| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
-| subscriptionId | Id. de suscripción de Azure al que pertenece la cuenta de Data Lake Store. | Necesario para el receptor |
-| resourceGroupName | Nombre del grupo de recursos de Azure al que pertenece la cuenta de Data Lake Store. | Necesario para el receptor |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
 
 **Ejemplo:**
 
@@ -84,6 +94,43 @@ Se admiten las siguientes propiedades:
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<subscription of ADLS>",
+            "resourceGroupName": "<resource group of ADLS>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="using-managed-service-identitiy-authentication"></a>Uso de la autenticación de identidades de servicio administradas
+
+Una factoría de datos puede asociarse con una [identidad de servicio administrada](data-factory-service-identity.md), que representa esta factoría de datos específica. Puede utilizar directamente esta identidad de servicio para la autenticación en Data Lake Store, de manera similar a usar su propio servicio principal. Permite que esta fábrica designada tenga acceso y copie los datos desde y hacia Data Lake Store.
+
+Para usar la autenticación de identidades de servicio administradas (MSI):
+
+1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del "id. de la aplicación de identidad de servicio" que se genera con la factoría.
+2. Conceda a la identidad de servicio acceso a Data Lake Store de la misma manera que lo hace para la entidad de servicio. Para conocer los pasos detallados, consulte [Autenticación entre servicios: Asignación de la aplicación de Azure AD al archivo o la carpeta de la cuenta de Azure Data Lake Store](../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder).
+
+>[!TIP]
+> Asegúrese de conceder el permiso adecuado de la identidad de servicio de la fábrica de datos en Azure Data Lake Store:
+>- Como origen, conceda al menos permiso de acceso de datos **Lectura + Ejecución** para enumerar y copiar el contenido de una carpeta o un permiso de **lectura** para copiar un único archivo. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
+>- Como receptor, garantice al menos permiso de acceso de datos **Escritura + Ejecución** para crear elementos secundarios en la carpeta. Además, si usa Azure IR para autorizar la copia (tanto el origen como el receptor están en la nube), para permitir a Data Factory detectar la región de Data Lake Storage, conceda al menos el rol de **lector** en el control de acceso de cuenta (IAM). Si desea evitar este rol de IAM, [cree un Azure IR](create-azure-integration-runtime.md#create-azure-ir) explícitamente con la ubicación de Data Lake Storage y realice la asociación en el servicio de Data Lake Storage vinculado como en el siguiente ejemplo.
+
+En Azure Data Factory, no es necesario especificar ninguna propiedad además de la información general de Data Lake Store en el servicio vinculado.
+
+**Ejemplo:**
+
+```json
+{
+    "name": "AzureDataLakeStoreLinkedService",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<subscription of ADLS>",
             "resourceGroupName": "<resource group of ADLS>"

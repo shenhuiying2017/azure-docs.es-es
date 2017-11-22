@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se habla sobre los pasos para configurar informes de Azure Backup con el almacén de Recovery Services y para acceder a estos informes mediante Power BI. Después de realizar estos pasos, puede ir directamente a Power BI para ver todos los informes, personalizarlos y crearlos. 
@@ -29,6 +29,7 @@ En este artículo se habla sobre los pasos para configurar informes de Azure Bac
 2. Los informes de Azure SQL, DPM y Azure Backup Server no se admiten en este momento.
 3. Puede ver los informes de los almacenes y las suscripciones, en caso de que la misma cuenta de Storage esté configurada para cada uno de los almacenes. La cuenta de Storage seleccionada debe estar en la misma región que el almacén de Recovery Services.
 4. La frecuencia de actualización programada para los informes es de 24 horas en Power BI. También puede realizar una actualización ad hoc de los informes en Power BI, en cuyo caso, se usan los últimos datos de la cuenta de Storage del cliente para informes de representación. 
+5. Los informes de Azure Backup no se admiten en las nubes nacionales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 1. Cree una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account) para informes. Esta cuenta de Storage se usa para almacenar datos relacionados de informes.
@@ -37,7 +38,7 @@ En este artículo se habla sobre los pasos para configurar informes de Azure Bac
 
 ## <a name="configure-storage-account-for-reports"></a>Configuración de la cuenta de Storage para los informes
 Use los pasos siguientes para configurar la cuenta de Storage para el almacén de Recovery Services mediante Azure Portal. Se trata de una única configuración y, una vez que se configura la cuenta de Storage, puede ir a Power BI directamente para ver el paquete de contenido y aprovechar los informes.
-1. Si ya tiene abierto un almacén de Recovery Services, vaya al siguiente paso. Si no tiene abierto un almacén de Recovery Services, pero está en Azure Portal, en el menú del concentrador, haga clic en **Examinar**.
+1. Si ya tiene abierto un almacén de Recovery Services, vaya al siguiente paso. Si no tiene abierto un almacén de Recovery Services pero está en Azure Portal, en el menú del centro, haga clic en **Examinar**.
 
    * En la lista de recursos, escriba **Recovery Services**.
    * Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Recovery Services**cuando lo vea.
@@ -50,19 +51,26 @@ Use los pasos siguientes para configurar la cuenta de Storage para el almacén d
 2. En la lista de elementos que aparece en el almacén, haga clic en **Informes de copia de seguridad** en la sección Supervisión e informes para configurar la cuenta de Storage para los informes.
 
       ![Selección del elemento de menú Informes de copia de seguridad, paso 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. En la hoja Informes de copia de seguridad, haga clic en el botón **Configurar**. Se abrirá la hoja de Azure Application Insights que se utiliza para insertar datos en la cuenta de Storage del cliente.
+3. En la hoja Informes de Backup, haga clic en el vínculo **Configuración de diagnóstico**. Se abrirá la interfaz de usuario de Configuración de diagnóstico, que se utiliza para insertar datos en la cuenta de almacenamiento del cliente.
 
-      ![Configuración de la cuenta de Storage, paso 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Establezca el botón de alternancia de estado en **Activado** y seleccione la casilla **Archivar en una cuenta de almacenamiento**, para que los datos de los informes puedan empezar a fluir en la cuenta de Storage.
+      ![Habilitación de diagnósticos, paso 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. A continuación, haga clic en el vínculo **Activar diagnósticos**. Se abrirá la interfaz de usuario para configurar la cuenta de almacenamiento. 
 
-      ![Habilitación de diagnósticos, paso 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. Haga clic en el selector de Cuenta de Storage y seleccione la cuenta de almacenamiento en la lista para almacenar los datos de informes y haga clic en **Aceptar**.
+      ![Activación de diagnósticos, paso 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. Escriba el nombre de la configuración en el campo **Nombre** y seleccione la casilla **Archivar en una cuenta de almacenamiento** para que los datos de los informes puedan empezar a fluir en la cuenta de almacenamiento.
 
-      ![Selección de cuenta de Storage, paso 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. Seleccione la casilla **AzureBackupReport** y mueva también el control deslizante para seleccionar el período de retención para estos datos de informes. Los datos de informes de la cuenta de Storage se mantienen durante el período seleccionado con este control deslizante.
+      ![Habilitación de diagnósticos, paso 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Haga clic en el selector de Cuenta de almacenamiento y seleccione la cuenta de almacenamiento y la suscripción correspondientes en la lista para almacenar los datos de informes. A continuación, haga clic en **Aceptar**.
 
-      ![Selección de cuenta de Storage, paso 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. Revise todos los cambios y haga clic en el botón **Guardar** situado en la parte superior, como se muestra en la ilustración anterior. Esta acción garantiza que todos los cambios se guardan, y la cuenta de Storage está ahora configurada para almacenar datos de informes.
+      ![Selección de cuenta de Storage, paso 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. Seleccione la casilla **AzureBackupReport** bajo la sección Registro y mueva el control deslizante para seleccionar el período de retención para estos datos de informes. Los datos de informes de la cuenta de Storage se mantienen durante el período seleccionado con este control deslizante.
+
+      ![Guardar la cuenta de almacenamiento, paso 7](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. Revise todos los cambios y haga clic en el botón **Guardar** situado en la parte superior, como se muestra en la ilustración anterior. Esta acción garantiza que todos los cambios se guardan, y la cuenta de Storage está ahora configurada para almacenar datos de informes.
+
+9. La tabla Configuración de diagnóstico ahora debe mostrar la nueva configuración habilitada para el almacén. Si no aparece, actualice la tabla para ver la configuración actualizada.
+
+      ![Ver la configuración de diagnóstico, paso 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > Cuando haya configurado los informes al guardar la cuenta de almacenamiento, debe **esperar 24 horas** para que finalice la inserción de datos iniciales. Debe importar el paquete de contenido de Azure Backup en Power BI solo después de ese tiempo. Consulte la [sección de preguntas frecuentes](#frequently-asked-questions) para más información. 

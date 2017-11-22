@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK de .NET Core para Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -57,6 +57,12 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 > [!NOTE] 
 > El SDK de .NET Core para Azure Cosmos DB aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Si quiere que el SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * Cambio de personalización de marca de Azure DocumentDB a Azure Cosmos DB en la documentación de referencia de API, la información de metadatos de los ensamblados y el paquete NuGet. 
+ * Exposición de la información de diagnóstico y la latencia de la respuesta de las solicitudes enviadas con el modo de conexión directa. Los nombres de propiedad son RequestDiagnosticsString y RequestLatency en la clase ResourceResponse.
+ * Esta versión del SDK requiere la versión más reciente del emulador de Azure Cosmos DB disponible para su descarga desde https://aka.ms/cosmosdb-emulator.
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * Se han agregado varias mejoras y correcciones que aumentan la confiabilidad.
@@ -144,6 +150,7 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.7.0](#1.7.0) |10 de noviembre de 2017 |--- |
 | [1.6.0](#1.6.0) |17 de octubre de 2017 |--- |
 | [1.5.1](#1.5.1) |02 de octubre de 2017 |--- |
 | [1.5.0](#1.5.0) |10 de agosto de 2017 |--- | 

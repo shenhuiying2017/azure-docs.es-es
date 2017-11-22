@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 > [!div class="op_single_selector"]
 > * [Almacén de Servicios de recuperación](backup-azure-vms-troubleshoot.md)
-> * [Almacén de copia de seguridad](backup-azure-vms-troubleshoot-classic.md)
+> * [Almacén de Backup](backup-azure-vms-troubleshoot-classic.md)
 >
 >
 
@@ -32,6 +32,11 @@ Puede solucionar los errores detectados al usar Azure Backup con la información
 ## <a name="backup"></a>Backup
 
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Error: No se admite la configuración de disco especificada
+
+> [!NOTE]
+> Tenemos una vista previa privada para admitir las copias de seguridad para las VM con discos no administrados de más de 1 TB. Para obtener más información, consulte la [vista previa privada para compatibilidad de copias de seguridad de VM con discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+>
+>
 
 Azure Backup no admite actualmente tamaños de disco [mayores que 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - Si tiene discos de más de 1 TB, [conecte discos nuevos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) de menos de 1 TB. <br>

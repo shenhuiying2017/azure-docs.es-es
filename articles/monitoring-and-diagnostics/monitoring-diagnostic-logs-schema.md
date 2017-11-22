@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -42,7 +42,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | IoT Hub | [Operaciones de IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registro de Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log Analytics para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
-| Aplicaciones lógicas |[Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protección contra DDOS | Esquema no disponible. |
 | Recovery Services | Esquema no disponible.|
@@ -51,25 +51,41 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Service Bus |[Registros de diagnóstico de Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registro de diagnóstico de Azure SQL Database](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Registros de diagnósticos de trabajos](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Redes virtuales | Esquema no disponible. |
+| Virtual Networks | Esquema no disponible. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 |Tipo de recurso|Categoría|Nombre para mostrar de categoría|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Motor|Motor|
+|Microsoft.AnalysisServices/servers|Servicio|Servicio|
 |Microsoft.ApiManagement/service|GatewayLogs|Registros relacionados con la puerta de enlace de ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Registros de trabajo|
 |Microsoft.Automation/automationAccounts|JobStreams|Flujos de trabajo|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Estado del nodo de DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Registros de servicios|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtiene las métricas del punto de conexión; por ejemplo, ancho de banda, salida, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|ActivityRuns|Registro de ejecuciones de actividad de canalización|
+|Microsoft.DataFactory/factories|PipelineRuns|Registro de ejecuciones de canalización|
+|Microsoft.DataFactory/factories|TriggerRuns|Registro de ejecuciones de desencadenador|
 |Microsoft.DataLakeAnalytics/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeAnalytics/accounts|Solicitudes|Registros de solicitud|
 |Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeStore/accounts|Solicitudes|Registros de solicitud|
+|Microsoft.Devices/IotHubs|Conexiones|Conexiones|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetría de dispositivo|
+|Microsoft.Devices/IotHubs|C2DCommands|Comandos C2D|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operaciones de identidad de dispositivos|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Operaciones de carga de archivos|
+|Microsoft.Devices/IotHubs|Rutas|Rutas|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Operaciones gemelas C2D|
+|Microsoft.Devices/IotHubs|TwinQueries|Consultas gemelas|
+|Microsoft.Devices/IotHubs|JobsOperations|Operaciones de trabajos|
+|Microsoft.Devices/IotHubs|DirectMethods|Métodos directos|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operaciones de dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operaciones del servicio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Registros de archivo|
 |Microsoft.EventHub/namespaces|OperationalLogs|Registros operativos|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Registros de escalado automático|
@@ -78,6 +94,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventos de seguimiento de la cuenta de integración|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Evento de grupo de seguridad de red|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de reglas de grupo de seguridad de red|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de flujo de reglas de grupo de seguridad de red|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta de equilibrador de carga|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Estado de mantenimiento de sondeo de equilibrador de carga|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notificaciones de protección contra DDoS|
@@ -85,6 +102,11 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Registro de acceso de Application Gateway|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Registro de rendimiento de Application Gateway|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Registro de Firewall de Application Gateway|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Registros de diagnóstico de puerta de enlace|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Registros de diagnóstico de túnel|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Registros de diagnóstico de ruta|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de resultados de estado de sondeo de Traffic Manager|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabla de contadores GWM|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Datos de informes de Azure Backup|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabajos de Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos de Azure Site Recovery|
@@ -93,7 +115,6 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Puntos de recuperación de Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Registros de operaciones|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Registros operativos|
-|Microsoft.Sql/servers/databases|QueryStore|Almacén de consultas|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estadísticas de tiempo de ejecución del Almacén de consultas|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estadísticas de espera del Almacén de consultas|
 |Microsoft.Sql/servers/databases|Errors|Errors|

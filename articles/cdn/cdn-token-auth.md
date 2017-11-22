@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Protección de recursos de Azure Content Delivery Network con la autenticación por tokens
 
@@ -30,7 +30,7 @@ La autenticación por tokens es un mecanismo que permite impedir que Azure Conte
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-La autenticación por tokens verifica que las solicitudes las genera un sitio de confianza, para lo que se requiere que contengan un valor de token con información codificada sobre el solicitante. El contenido solo se proporciona al solicitante cuando la información codificada cumple los requisitos; de lo contrario, las solicitudes se deniegan. Puede configurar los requisitos mediante el uso de uno o varios de los siguientes parámetros:
+La autenticación por tokens verifica que un sitio de confianza genere las solicitudes, para lo que se requiere que contengan un valor de token con información codificada sobre el solicitante. El contenido solo se proporciona al solicitante cuando la información codificada cumple los requisitos; de lo contrario, las solicitudes se deniegan. Puede configurar los requisitos mediante el uso de uno o varios de los siguientes parámetros:
 
 - País: permitir o denegar las solicitudes que se originan en los países especificados con su [código de país](https://msdn.microsoft.com/library/mt761717.aspx).
 - Dirección URL: permitir solo las solicitudes que coinciden con el recurso o la ruta de acceso especificados.
@@ -41,8 +41,6 @@ La autenticación por tokens verifica que las solicitudes las genera un sitio de
 - Fecha de expiración: asignar un período de fecha y hora para asegurarse de que un vínculo solo es válido durante un tiempo limitado.
 
 Para obtener más información, vea los ejemplos de configuración detallados para cada parámetro en [Configuración de la autenticación por tokens](#setting-up-token-authentication).
-
-Después de generar un token cifrado, anéxelo como una cadena de consulta al final de la ruta de acceso de la dirección URL del archivo. Por ejemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Arquitectura de referencia
 
@@ -64,15 +62,21 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida la solicitu
 
 2. Mantenga el mouse sobre **HTTP Large** (HTTP grandes) y haga clic en **Token Auth** (Autenticación por tokens) en el control flotante. Después puede configurar la clave y los parámetros de cifrado como sigue:
 
-    1. Escriba una clave de cifrado única en el cuadro **Clave principal** y, opcionalmente, escriba una clave de copia de seguridad en el cuadro **Clave de copia de seguridad**.
-
-        ![Clave de configuración de autenticación por tokens de la red CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Cree una o varias claves de cifrado. Una clave de cifrado distingue mayúsculas de minúsculas y puede contener cualquier combinación de caracteres alfanuméricos. No se permite ningún otro tipo de caracteres, incluidos espacios. La longitud máxima es de 250 caracteres. Para asegurarse de que las claves de cifrado sean aleatorias, se recomienda crearlas en la herramienta OpenSSL. La herramienta OpenSSL tiene la sintaxis siguiente: `rand -hex <key length>`. Por ejemplo: `OpenSSL> rand -hex 32`. Para evitar el tiempo de inactividad, cree un elemento principal y una clave de copia de seguridad. Una clave de copia de seguridad proporciona un acceso ininterrumpido a su contenido cuando se actualiza la clave principal.
     
-    2. Configure los parámetros de cifrado con la herramienta de cifrado. Con la herramienta de cifrado, puede permitir o denegar las solicitudes según la fecha de expiración, el país, el origen de referencia, el protocolo y la dirección IP del cliente (con cualquier combinación). 
+    2. Escriba una clave de cifrado única en el cuadro **Clave principal** y, opcionalmente, escriba una clave de copia de seguridad en el cuadro **Clave de copia de seguridad**.
 
-        ![Herramienta de cifrado de la red CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Seleccione la versión de cifrado mínima para cada clave de la lista desplegable **Minimum Encryption Version** (Versión mínima de cifrado) y, a continuación, haga clic en **Actualizar**:
+       - **V2**: indica que la clave se puede utilizar para generar tokens de versión 2.0 y 3.0. Use esta opción solo si está realizando la transición de una clave de cifrado de la versión 2.0 heredada a una clave de la versión 3.0.
+       - **V3**: (recomendada) indica que la clave solo se puede utilizar para generar tokens de la versión 3.0.
 
-       Escriba los valores para uno o varios de los siguientes parámetros de cifrado en el área **Encrypt Tool** (Herramienta de cifrado):  
+    ![Clave de configuración de autenticación por tokens de la red CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Use la herramienta de cifrado para configurar los parámetros de cifrado y generar un token. Con la herramienta de cifrado, puede permitir o denegar las solicitudes según la fecha de expiración, el país, el origen de referencia, el protocolo y la dirección IP del cliente (con cualquier combinación). Aunque no hay ningún límite en el número y la combinación de parámetros que se pueden combinar para formar un token, la longitud total de un token está limitada a 512 caracteres. 
+
+       ![Herramienta de cifrado de la red CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Escriba los valores para uno o varios de los siguientes parámetros de cifrado en la sección **Encrypt Tool** (Herramienta de cifrado):  
 
        - **ec_expire**: asigna una fecha de expiración a un token, tras la cual el token expira. Las solicitudes que se presenten después de la fecha de expiración se deniegan. Este parámetro utiliza una marca de tiempo UNIX, que se basa en el número de segundos transcurridos desde la época estándar de `1/1/1970 00:00:00 GMT`. (Puede usar herramientas en línea para la conversión entre la hora estándar y la hora UNIX). Por ejemplo, si desea que el token expire en la fecha `12/31/2016 12:00:00 GMT`, utilice el valor de marca de tiempo UNIX, `1483185600`, como se indica a continuación. 
     
@@ -98,7 +102,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida la solicitu
     
        - **ec_ref_allow**: solo se permiten solicitudes del origen de referencia especificado. Un origen de referencia identifica la dirección URL de la página web vinculada al recurso que se solicita. No incluya el protocolo en el valor del parámetro del origen de referencia. Se permiten los siguientes tipos de entrada para el valor del parámetro:
            - Un nombre de host o un nombre de host y una ruta de acceso.
-           - Varios orígenes de referencia. Para agregar varios orígenes de referencia, sepárelos por comas. Si especifica un valor para el origen de referencia, pero no se envía la información de este en la solicitud debido a alguna configuración del explorador, estas solicitudes se deniegan de forma predeterminada. 
+           - Varios orígenes de referencia. Para agregar varios orígenes de referencia, sepárelos por comas. Si especifica un valor para el origen de referencia, pero no se envía la información de este en la solicitud debido a alguna configuración del explorador, la solicitud se deniega de forma predeterminada. 
            - Solicitudes en las que falta información sobre el origen de referencia. Para permitir estos tipos de solicitudes, escriba el texto "falta" o escriba un valor en blanco. 
            - Subdominios. Para permitir subdominios, escriba un asterisco (\*). Por ejemplo, para permitir todos los subdominios de `consoto.com`, escriba `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida la solicitu
             
          ![Ejemplo de ec_clientip de la red CDN](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. Cuando termine de especificar los valores de los parámetros de cifrado, seleccione el tipo de clave para cifrar (si ha creado una clave principal y una clave de copia de seguridad) en la lista **Key To Encrypt** (Clave para cifrar), una versión de cifrado en la lista **Encryption Version** (Versión de cifrado) y después haga clic en **Cifrar**.
+    5. Cuando termine de especificar los valores de los parámetros de cifrado, seleccione una clave para cifrar (si ha creado una clave principal y una clave de copia de seguridad) en la lista **Key To Encrypt** (Clave para cifrar).
+    
+    6. Seleccione una versión de cifrado de la lista **Encryption Version** (Versión de cifrado ): **V2** para la versión 2 o **V3** para la versión 3 (recomendado). A continuación, haga clic en **Cifrar** para generar el token.
+
+    Una vez generado el token, se muestra en el cuadro **Generated Token** (Token generado). Para usar el token, anéxelo como una cadena de consulta al final del archivo en la ruta de acceso de la dirección URL. Por ejemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. También tiene la opción de probar el token con la herramienta de descifrado. Pegue el valor del token en el cuadro **Token to Decrypt** (Token para descifrar). Seleccione el tipo de clave de cifrado para descifrar en la lista desplegable **Key To Decrypt** (Clave para descifrar) y después haga clic en **Descifrar**.
+    7. También tiene la opción de probar el token con la herramienta de descifrado. Pegue el valor del token en el cuadro **Token to Decrypt** (Token para descifrar). Seleccione la clave de cifrado que se usará en la lista desplegable **Key To Decrypt** (Clave para descifrar) y, después, haga clic en **Descifrar**.
 
-    5. También puede personalizar el tipo de código de respuesta que se devuelve cuando se deniega una solicitud. Seleccione el código en la lista desplegable **Código de respuesta** y haga clic en **Guardar**. El código de respuesta **403** (Prohibido) está seleccionado de forma predeterminada. Para determinados códigos de respuesta, también puede especificar la dirección URL de la página de error en el cuadro **Valor de encabezado**. 
+    Una vez descifrado el token, sus parámetros se muestran en el cuadro **Parámetros originales**.
 
-    6. Después de generar un token cifrado, anéxelo como una cadena de consulta al final del archivo en la ruta de acceso de la dirección URL. Por ejemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. También puede personalizar el tipo de código de respuesta que se devuelve cuando se deniega una solicitud. Seleccione el código en la lista desplegable **Código de respuesta** y haga clic en **Guardar**. El código de respuesta **403** (Prohibido) está seleccionado de forma predeterminada. Para determinados códigos de respuesta, también puede especificar la dirección URL de la página de error en el cuadro **Valor de encabezado**. 
 
 3. En **HTTP Large** (HTTP grandes), haga clic en **Motor de reglas**. Utilice el motor de reglas para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación por tokens y habilitar otras funcionalidades relacionadas con la autenticación por tokens. Para más información, vea [Referencia del motor de reglas](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ Idiomas disponibles:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Precios de las características y los proveedores de Azure CDN
 
-Para obtener información, vea [Información general sobre Azure CDN](cdn-overview.md).
+Para obtener información sobre las características, consulte [Información general de la red CDN](cdn-overview.md). Para obtener información sobre los precios, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).

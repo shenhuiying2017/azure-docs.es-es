@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: adfcf53f9fca0efafb538edfd65b95313dcf1559
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>Crear una ruta definida por el usuario: CLI de Azure
 
@@ -293,6 +293,12 @@ Los comandos de la CLI de Azure son los mismos, con independencia de que se ejec
         - **Ubuntu**: ejecute el comando `tracepath myvm-private`.
       El tráfico pasa a través de 10.0.2.4 (la NVA) antes de llegar a 10.0.1.4 (la máquina virtual de la subred privada). 
     - Complete los pasos anteriores conectándose a la máquina virtual *myVm-Private* y haciendo ping en la máquina virtual *myVm-Public*. En la ruta de seguimiento se muestra la circulación de la comunicación a través de 10.0.2.4 antes de llegar a 10.0.0.4 (la máquina virtual de la subred pública).
+      
+      > [!NOTE]
+      > Los pasos anteriores le permiten confirmar el enrutamiento entre direcciones IP privadas de Azure. Si desea reenviar, o transmitir, el tráfico a direcciones IP públicas a través de una aplicación virtual de red:
+      > - El dispositivo debe proporcionar la traducción de direcciones de red o la funcionalidad del proxy. En el caso de la traducción de direcciones de red, el dispositivo debe trasladar la dirección IP de origen a la suya propia y, después, reenviar esa solicitud a la dirección IP pública. Si el dispositivo tiene una dirección de red trasladada a la dirección de origen, o se está transmitiendo, Azure traslada la dirección IP privada de la aplicación virtual de red a una dirección IP pública. Para obtener más información acerca de los distintos métodos que Azure usa para trasladar direcciones IP privadas a direcciones IP públicas, consulte [Comprender las conexiones salientes](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Una ruta adicional en la tabla de rutas, como el prefijo: 0.0.0.0/0, tipo de próximo salto VirtualAppliance y dirección IP del próximo salto 10.0.2.4 (en el script del ejemplo anterior).
+      >
     - **Opcional**: para validar el próximo salto entre dos máquinas virtuales de Azure, use la funcionalidad de próximo salto de Azure Network Watcher. Antes de usar Network Watcher, primero debe [crear una instancia de Azure Network Watcher](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para la región donde desea utilizarla. En este tutorial, se usa la región de Este de EE. UU. Una vez que haya habilitado una instancia de Network Watcher para la región, escriba el siguiente comando para ver la información del próximo salto entre las máquinas virtuales de las subredes pública y privada:
      
         ```azurecli-interactive

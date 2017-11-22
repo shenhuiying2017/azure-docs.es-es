@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copia de datos con Azure File Storage como origen o destino mediante Azure Data Factory
 
@@ -48,11 +48,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Fi
 | host | Especifica el punto de conexión de Azure File Storage como `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sí |
 | userid | Especifique el usuario para acceder a Azure File Storage como `"userid": "AZURE\\<storage name>"`. | Sí |
 | Contraseña | Especifique la clave de acceso de almacenamiento. Marque este campo como SecureString.<br/> | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No para el origen, sí para el receptor |
 
->[!TIP]
-> - Para copiar en Azure File Storage con Azure Integration Runtime, [cree una instancia de Azure IR](create-azure-integration-runtime.md#create-azure-ir) de forma explícita con la ubicación de File Storage y asóciela con el servicio vinculado como en el ejemplo siguiente.
-> - Para copiar con Azure File Storage como origen o destino mediante Integration Runtime autohospedado fuera de Azure, recuerde abrir el puerto TCP 445 saliente en la red local.
+>[!IMPORTANT]
+> - Para copiar datos en Azure File Storage con Azure Integration Runtime, [cree una instancia de Azure IR](create-azure-integration-runtime.md#create-azure-ir) de forma explícita con la ubicación de File Storage y asóciela con el servicio vinculado como en el ejemplo siguiente.
+> - Para copiar datos con Azure File Storage como origen o destino mediante Integration Runtime autohospedado fuera de Azure, recuerde abrir el puerto TCP 445 saliente en la red local.
 
 **Ejemplo:**
 

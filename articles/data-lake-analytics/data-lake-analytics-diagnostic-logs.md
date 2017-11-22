@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ Los registros de diagnóstico le permiten recopilar seguimientos de auditoría d
 
     ![Activar los diagnósticos para recopilar registros de solicitudes y auditoría](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. En __Configuración de diagnóstico__, establezca el estado en __Activado__ y seleccione las opciones de registro.
+3. En __Configuración de diagnóstico__, escriba un __Nombre__ para esta configuración de registro y, a continuación, seleccione las opciones de registro.
 
     ![Activar los diagnósticos para recopilar registros de solicitudes y auditoría](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Habilitar registros de diagnósticos")
-
-   * Establezca el **Estado** en **Activado** para habilitar el registro de diagnóstico.
 
    * Puede optar por almacenar o procesar los datos de tres maneras diferentes.
 
@@ -58,34 +56,14 @@ Los registros de diagnóstico le permiten recopilar seguimientos de auditoría d
         > [!NOTE]
         > Tiene que seleccionar __Archivar en una cuenta de almacenamiento__, __Transmitir a un centro de eventos__ o __Enviar a Log Analytics__ antes de hacer clic en el botón __Guardar__.
 
-Una vez habilitada la configuración de diagnóstico, puede volver a la hoja __Registros de diagnósticos__ para ver los registros.
-
-## <a name="view-logs"></a>Ver registros
-
-### <a name="use-the-data-lake-analytics-view"></a>Uso de la vista de Data Lake Analytics
-
-1. En la hoja de la cuenta de Data Lake Analytics, en **Supervisión** seleccione **Registros de diagnóstico** y luego seleccione la entrada para la que se van a mostrar los registros.
-
-    ![Ver registro de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Ver registros de diagnóstico")
-
-2. Hay dos categorías de registros: **Registros de auditoría** y **Registros de solicitudes**.
-
-    ![entradas del registro](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Analytics.
-   * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones. Por ejemplo, una llamada de API de carga única en un registro de solicitud podría producir varias operaciones "Append" en el registro de auditoría correspondiente.
-
-3. Haga clic en el vínculo **Descargar** para que una entrada de registro descargue ese registro.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Uso de la cuenta de Azure Storage que contiene los datos de registro
 
-1. Abra la hoja de la cuenta de Azure Storage asociada a Data Lake Analytics para el registro y luego haga clic en __Blobs__. La hoja **Servicio Blob** muestra dos contenedores.
-
-    ![Ver registro de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Ver registros de diagnóstico")
+1. Para mostrar los contenedores de blobs que contienen datos de registro, abra la cuenta Azure Storage usada para Data Lake Analytics para el registro y, a continuación, haga clic en __Blobs__.
 
    * El contenedor **insights-logs-audit** contiene los registros de auditoría.
    * El contenedor **insights-logs-requests** contiene los registros de solicitudes.
-2. Dentro de estos contenedores, los registros se almacenan con la siguiente estructura:
+
+2. Dentro de los contenedores, los registros se almacenan con la siguiente estructura de archivo:
 
         resourceId=/
           SUBSCRIPTIONS/

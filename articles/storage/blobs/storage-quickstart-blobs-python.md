@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Python
 En este tutorial de inicio rápido, aprenderá a usar Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
@@ -73,7 +73,11 @@ También puede usar una herramienta como [Explorador de Azure Storage](http://st
 
 Después de haber comprobado los archivos, presione cualquier tecla para finalizar la demostración y eliminar los archivos de prueba. Ahora que sabe lo que hace el ejemplo, abra el archivo example.py para examinar el código. 
 
-## <a name="get-references-to-the-storage-objects"></a>Obtención de referencias a los objetos de almacenamiento
+## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
+
+A continuación, explicaremos el código de ejemplo para ayudarle a comprender saber cómo funciona.
+
+### <a name="get-references-to-the-storage-objects"></a>Obtención de referencias a los objetos de almacenamiento
 Lo primero que hay que hacer es crear las referencias a los objetos usados para acceder a Blob Storage y administrarlo. Estos objetos dependen unos de otros, y cada uno es utilizado por el siguiente de la lista.
 
 * Cree una instancia del objeto **BlockBlobService**, que apunta a Blob service en la cuenta de almacenamiento. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
+### <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los blobs en bloques son los que se usan con más frecuencia y serán los que utilicemos en este tutorial de inicio rápido.  
 
@@ -128,7 +132,7 @@ Existen varios métodos de carga que puede usar con Blob Storage. Por ejemplo, s
 
 Los blobs en bloques pueden tener un tamaño de hasta 4,7 TB y pueden ser cualquier cosa, desde hojas de cálculo de Excel a archivos de vídeo grandes. Los blobs en páginas se utilizan principalmente para los archivos VHD usados para respaldar VM IaaS. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los objetos almacenados en Blob Storage son blobs en bloques.
 
-## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
+### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
 Obtenga una lista de archivos del contenedor con el método **list_blobs**. Este método devuelve un generador. El código siguiente recupera la lista de blobs, luego los recorre y se muestran los nombres de los blobs encontrados en un contenedor.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Descarga de los blobs
+### <a name="download-the-blobs"></a>Descarga de los blobs
 
 Descargue blobs en el disco local con el método **get\_blob\_to\_path**. El código siguiente descarga el blob cargado en una sección anterior. "_DOWNLOADED" se agrega como un sufijo al nombre de blob para que pueda ver ambos archivos en el disco local. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
+### <a name="clean-up-resources"></a>Limpieza de recursos
 Si ya no necesita los blobs cargados en este tutorial de inicio rápido, puede eliminar todo el contenedor mediante **delete\_container**. Si ya no necesita los archivos creados, use el método **delete\_blob** para eliminarlos.
 
 ```python

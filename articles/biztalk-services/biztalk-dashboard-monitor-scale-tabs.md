@@ -1,6 +1,6 @@
 ---
 title: "Panel, Monitor, Escala, Configurar y Conexiones híbridas en BizTalk Services | Microsoft Docs"
-description: "Obtenga información acerca de los controles y la supervisión del rendimiento en las pestañas del Portal de Azure clásico para Servicios de BizTalk: Panel, Monitor, Escala, Configurar y Conexiones híbridas. MABS, WABS"
+description: "Obtenga información sobre los controles y la supervisión del rendimiento de BizTalk Services"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Revise las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas
 
@@ -26,24 +26,24 @@ ms.lasthandoff: 10/11/2017
 
 Después de crear su servicio de  BizTalk e implementar su aplicación, puede cambiar algunas de las configuraciones del servicio de  BizTalk y supervisar el rendimiento de la aplicación. 
 
-Al abrir el Portal de Azure clásico, entrará automáticamente en la pestaña **TODOS LOS ELEMENTOS** . Para ver el servicio de BizTalk Services, selecciónelo en la pestaña **TODOS LOS ELEMENTOS** o acceda a la pestaña **BIZTALK SERVICES** y haga clic en el nombre del servicio de BizTalk Services.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 De este modo se abre una nueva ventana con las pestañas siguientes. En el tema se describen estas pestañas.
 
 ## <a name="quickstart-quickstartquickstart"></a>Guía de inicio rápido![Guía de inicio rápido][Quickstart])
-En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas. 
+En función de la edición de BizTalk Services, puede que no estén disponibles todas las opciones mostradas. 
 
 <table border="1">
     <tr>
         <td><strong>Obtener las herramientas</strong></td>
-        <td>Descargue el SDK de los servicios de BizTalk para instalar las plantillas del proyecto de Visual Studio en su equipo de desarrollo local. Estas plantillas crean los proyectos de Visual Studio <strong>BizTalk Services</strong> (puente) y <strong>Artefactos de BizTalk Services</strong> (transformación), que se implementan en el servicio de BizTalk Services.
+        <td>Descargue el SDK de BizTalk Services para instalar las plantillas del proyecto de Visual Studio en su equipo de desarrollo local. Estas plantillas crean los proyectos de Visual Studio <strong>BizTalk Services</strong> (puente) y <strong>Artefactos de BizTalk Services</strong> (transformación), que se implementan en el servicio de BizTalk Services.
         <br/><br/>En 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Introducción al uso del SDK de Azure BizTalk Services</a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalación del SDK de Azure BizTalk Services</a>, se incluyen los pasos para empezar.
         </td>
     </tr>
     <tr>
         <td><strong>Crear acuerdos de asociados comerciales</strong></td>
-        <td>Abre el Portal de los servicios de BizTalk de Azure hospedados en Azure, donde se agregan socios y se crean los acuerdos X12, AS2 y EDIFACT EDI.
+        <td>Abre el Portal de Azure BizTalk Services hospedados en Azure, donde se agregan socios y se crean los acuerdos X12, AS2 y EDIFACT EDI.
         <br/><br/>En 
         <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuración de los componentes de mensajería EDI en el portal de BizTalk Services</a>, se incluyen los pasos para empezar.
         </td>
@@ -62,7 +62,7 @@ En la barra de tareas de la parte inferior, puede:
 
 <tr>
 <td><strong>Administrar</strong> la implementación de la aplicación</td>
-<td>Abre el portal de Servicios de BizTalk de Azure. El Portal de Servicios de BizTalk es la entrada a la configuración EDI, incluyendo la incorporación de socios y la creación de los acuerdos X12, AS2 y EDIFACT.
+<td>Abre el portal de Azure BizTalk Services. El Portal de BizTalk Services es la entrada a la configuración EDI, incluyendo la incorporación de socios y la creación de los acuerdos X12, AS2 y EDIFACT.
 <br/><br/>
 La operación es la misma que si selecciona <strong>Crear acuerdos de asociado</strong> en la pestaña <strong>Inicio rápido</strong>.
 <br/><br/>En 
@@ -84,9 +84,9 @@ Por ejemplo, en caso de que desee que el servicio de BizTalk use una nueva clave
 <br/><br/>
 <ol>
 <li>Seleccione el servicio de BizTalk y después <strong>Sincronizar claves</strong>. Seleccione la clave secundaria. Al hacer esto, el servicio de BizTalk se inicia usando la clave secundaria.</li>
-<li>En el Portal de Azure clásico, seleccione la cuenta de almacenamiento y Regenerar la clave principal. Recuerde que su servicio de BizTalk usa la clave secundaria.</li>
+<li>Seleccione la cuenta de almacenamiento y regenere la clave principal. Recuerde que su servicio de BizTalk usa la clave secundaria.</li>
 <li>Seleccione el servicio de BizTalk y después <strong>Sincronizar claves</strong>. Ahora, seleccione la clave principal. Esta es la nueva clave principal que ha regenerado.</li>
-<li>En el Portal de Azure clásico, seleccione la cuenta de almacenamiento y Regenerar la clave secundaria.</li>
+<li>Seleccione la cuenta de almacenamiento y regenere la clave secundaria.</li>
 </ol>
 <br/>
 Este proceso se llama "claves de sustitución". Su finalidad es permitir al usuario alternar entre la clave principal y la clave secundaria sin interrumpir el servicio de BizTalk.</td>
@@ -100,7 +100,7 @@ Este proceso se llama "claves de sustitución". Su finalidad es permitir al usua
 
 
 ## <a name="dashboard"></a>Panel
-En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas. 
+En función de la edición de BizTalk Services, puede que no estén disponibles todas las opciones mostradas. 
 
 Al seleccionar el nombre de su servicio de BizTalk, aparece la pestaña Panel. En el Panel, existen las siguientes opciones:
 
@@ -157,19 +157,19 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 </tr>
 <tr>
 <td><strong>Tracking Database</strong></td>
-<td>El nombre de la base de datos SQL de Azure que almacena las tablas de seguimiento usadas por su servicio de BizTalk. 
+<td>El nombre de Azure SQL Database que almacena las tablas de seguimiento usadas por su servicio de BizTalk. 
 <br/><br/>En esta 
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">explicación de los requisitos</a>, encontrará más información sobre la base de datos de seguimiento.</td>
 </tr>
 <tr>
 <td><strong>Monitoring/Archiving Storage</strong></td>
-<td>La cuenta de almacenamiento de Azure que almacena el resultado de supervisión del servicio de BizTalk.
+<td>La cuenta de Azure Storage que almacena el resultado de supervisión del servicio de BizTalk.
 <br/><br/>En esta 
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">explicación de los requisitos</a>, encontrará más información sobre la cuenta de almacenamiento.</td>
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
-<td>Muestra la suscripción que hospeda el Servicio de BizTalk. La suscripción rige el acceso al Portal de Azure clásico.</td>
+<td>Muestra la suscripción que hospeda el Servicio de BizTalk. La suscripción rige el acceso.</td>
 </tr>
 <tr>
 <td><strong>Subscription ID</strong></td>
@@ -177,14 +177,14 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 </tr>
 </table>
 
-[Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](http://go.microsoft.com/fwlink/p/?LinkID=302280) incluye los pasos para crear un servicio de BizTalk.
+[BizTalk Services: aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=302280) incluye los pasos para crear un servicio de BizTalk.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Administrar, Información de conexión, Sincronizar claves y Eliminar en la barra de tareas:
 <table border="1">
 
 <tr>
 <td><strong>Administrar</strong> la implementación de la aplicación</td>
-<td>Abre el portal de Servicios de BizTalk de Azure. El Portal de Servicios de BizTalk es la entrada a la configuración EDI, incluyendo la incorporación de socios y la creación de los acuerdos X12, AS2 y EDIFACT.
+<td>Abre el portal de Azure BizTalk Services. El Portal de BizTalk Services es la entrada a la configuración EDI, incluyendo la incorporación de socios y la creación de los acuerdos X12, AS2 y EDIFACT.
 <br/><br/>
 La operación es la misma que si selecciona <strong>Crear acuerdos de asociado</strong> en la pestaña <strong>Inicio rápido</strong>.
 <br/><br/>En 
@@ -206,9 +206,9 @@ Por ejemplo, en caso de que desee que el servicio de BizTalk use una nueva clave
 <br/><br/>
 <ol>
 <li>Seleccione el servicio de BizTalk y después <strong>Sincronizar claves</strong>. Seleccione la clave secundaria. Al hacer esto, el servicio de BizTalk se inicia usando la clave secundaria.</li>
-<li>En el Portal de Azure clásico, seleccione la cuenta de almacenamiento y Regenerar la clave principal. Recuerde que su servicio de BizTalk usa la clave secundaria.</li>
+<li>Seleccione la cuenta de almacenamiento y regenere la clave principal. Recuerde que su servicio de BizTalk usa la clave secundaria.</li>
 <li>Seleccione el servicio de BizTalk y después <strong>Sincronizar claves</strong>. Ahora, seleccione la clave principal. Esta es la nueva clave principal que ha regenerado.</li>
-<li>En el Portal de Azure clásico, seleccione la cuenta de almacenamiento y Regenerar la clave secundaria.</li>
+<li>Seleccione la cuenta de almacenamiento y regenere la clave secundaria.</li>
 </ol>
 <br/>
 Este proceso se llama "claves de sustitución". Su finalidad es permitir al usuario alternar entre la clave principal y la clave secundaria sin interrumpir el servicio de BizTalk.</td>
@@ -315,37 +315,37 @@ En un escenario de respuesta de solicitud, la métrica se incrementa cuando el d
 ## <a name="scale"></a>Escala
 En la pestaña Escala puede sumar o restar el número de unidades usadas por su servicio de BizTalk. De forma predeterminada, hay una unidad configurada. Se pueden agregar unidades adicionales para escalar su servicio de BizTalk. Cuando se incrementa la escala, se aumenta el rendimiento. La cantidad de recursos también aumenta, incluyendo los puentes implementados, los acuerdos, las conexiones de LOB y la eficacia de procesamiento. Por ejemplo, si aumenta la escala de 1 unidad a 2. En esta situación, puede implementar el doble de puentes, acuerdos, conexiones de LOB y eficacia de procesamiento.
 
-Algunas ediciones de BizTalk no ofrecen la opción de escala. En esta situación, se admite una unidad. A fin de determinar cuántas unidades puede escalar su edición, consulte [Servicios de BizTalk: Gráfico de ediciones](biztalk-editions-feature-chart.md).
+Algunas ediciones de BizTalk no ofrecen la opción de escala. En esta situación, se admite una unidad. A fin de determinar cuántas unidades puede escalar su edición, consulte [BizTalk Services: Gráfico de ediciones](biztalk-editions-feature-chart.md).
 
 El aumento del número de unidades podría afectar al precio. Si aumenta las unidades, al seleccionar **Guardar** aparece un mensaje que le indica si la facturación se ve afectada. A continuación, seleccione Continue. Cuando aumente el número de unidades, el estado del servicio de BizTalk cambia de Activo a Actualizando. En el estado Actualizando, su servicio de BizTalk continúa ejecutándose.
 
-[Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md) define una unidad.
+[BizTalk Services: gráfico de ediciones](biztalk-editions-feature-chart.md) define una unidad.
 
 ## <a name="configure"></a>Configuración
 No se aplica a conexiones híbridas.
 
 Establezca Estado de copia de seguridad en Ninguno o Automático. Cuando se establezca en Ninguno, no se creará ninguna copia de seguridad automáticamente. Cuando se establece en Automático, configure la ubicación de la copia de seguridad, la frecuencia de la misma y cuánto tiempo quiere conservar los archivos de copia de seguridad. 
 
-[Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md) proporciona los detalles. 
+[BizTalk Services: copias de seguridad y restauración](biztalk-backup-restore.md) proporciona los detalles. 
 
 ## <a name="HybridConnections"></a>Conexiones híbridas
-Las conexiones híbridas conectan una aplicación de Azure, como Web Apps o Mobile Apps de Azure App Service, a un recurso local que usa un puerto TCP estático (por ejemplo, SQL Server, MySQL, HTTP Web API y la mayoría de los servicios web personalizados). Las conexiones híbridas se administran en BizTalk Services mediante el Portal de Azure clásico.
+Las conexiones híbridas conectan una aplicación de Azure, como Web Apps o Mobile Apps de Azure App Service, a un recurso local que usa un puerto TCP estático (por ejemplo, SQL Server, MySQL, HTTP Web API y la mayoría de los servicios web personalizados). Las conexiones híbridas se administran en BizTalk Services.
 
-Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, consulte [Conexiones híbridas](integration-hybrid-connection-overview.md).
+Para crear o administrar conexiones híbridas en Azure BizTalk Services, consulte [Conexiones híbridas](integration-hybrid-connection-overview.md).
 
 ## <a name="next"></a>Pasos siguientes
-Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener más información acerca de las características de los servicios de BizTalk de Azure:
+Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener más información acerca de las características de Azure BizTalk Services:
 
-* [Servicios de BizTalk: limitaciones](biztalk-throttling-thresholds.md)  
-* [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)  
-* [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md)
+* [BizTalk Services: limitaciones](biztalk-throttling-thresholds.md)  
+* [BizTalk Services: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)  
+* [BizTalk Services: copias de seguridad y restauración](biztalk-backup-restore.md)
 
 ## <a name="see-also"></a>Otras referencias
 * [Conexiones híbridas](integration-hybrid-connection-overview.md)  
-* [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](biztalk-editions-feature-chart.md)  
-* [Servicios de BizTalk: aprovisionamiento con el Portal de Azure clásico](biztalk-provision-services.md)  
-* [Servicios de BizTalk: gráfico de estado del servicio de BizTalk](biztalk-service-state-chart.md)  
-* [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk Services: gráfico de las ediciones Developer, Basic, Standard y Premium](biztalk-editions-feature-chart.md)  
+* [BizTalk Services: aprovisionamiento](biztalk-provision-services.md)  
+* [BizTalk Services: gráfico de estado del servicio de BizTalk](biztalk-service-state-chart.md)  
+* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [Quickstart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png

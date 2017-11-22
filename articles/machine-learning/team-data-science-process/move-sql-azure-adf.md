@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8f0186900caf6bff19e15ef6b99c1f49fbf90a81
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: bbf969927e96053df055ac6e347bb8fb746054c8
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Movimiento de datos desde un servidor SQL Server local hasta SQL Azure con Azure Data Factory
 En este tema se muestra cómo mover datos desde una base de datos local de SQL Server hasta una base de datos de SQL Azure a través de Azure Blob Storage mediante Azure Data Factory (ADF).
@@ -26,7 +26,7 @@ En este tema se muestra cómo mover datos desde una base de datos local de SQL S
 Para ver una tabla que resuma varias opciones para mover datos a Azure SQL Database, vea [Mover datos a Azure SQL Database para Azure Machine Learning](move-sql-azure.md).
 
 ## <a name="intro"></a>Introducción: ¿qué es la ADF y cuándo se debe usar para migrar datos?
-La Factoría de datos de Azure es un servicio de integración de datos totalmente administrado basado en la nube que organiza y automatiza el movimiento y la transformación de datos. El concepto clave en el modelo de ADF es la canalización. Una canalización es una agrupación lógica de actividades, cada una de las cuales define las acciones que se deben realizar en los datos incluidos en los conjuntos de datos. Los servicios vinculados se usan para definir la información necesaria para que la Factoría de datos se conecte a los recursos de datos.
+La Azure Data Factory es un servicio de integración de datos totalmente administrado basado en la nube que organiza y automatiza el movimiento y la transformación de datos. El concepto clave en el modelo de ADF es la canalización. Una canalización es una agrupación lógica de actividades, cada una de las cuales define las acciones que se deben realizar en los datos incluidos en los conjuntos de datos. Los servicios vinculados se usan para definir la información necesaria para que la Factoría de datos se conecte a los recursos de datos.
 
 Con la ADF, los servicios de procesamiento de datos existentes se pueden componer en canalizaciones de datos altamente disponibles y administradas en la nube. Estas canalizaciones de datos se pueden programar para ingerir, preparar, transformar, analizar y publicar datos, mientras que ADF administra y organiza los datos complejos y las dependencias de procesamiento. Las soluciones se pueden generar e implementar rápidamente en la nube. Para ello, se conecta una cantidad en aumento de orígenes de datos locales y de nube.
 
@@ -35,13 +35,13 @@ Considere el uso de ADF en estos casos:
 * Cuando los datos deban migrarse continuamente en un escenario híbrido que tiene acceso a recursos locales y en la nube.
 * cuando los datos se transfieren o deben modificarse o tener lógica empresarial agregada mientras se migran.
 
-La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas. Para obtener más información sobre la ADF, vea la documentación de [Factoría de datos de Azure (ADF)](https://azure.microsoft.com/services/data-factory/).
+La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas. Para obtener más información sobre la ADF, vea la documentación de [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Escenario
 Configuramos una canalización ADF que se compone de dos actividades de migración de datos. En conjunto, mueven datos a diario entre una instancia de SQL Database local y otra instancia de Azure SQL Database en la nube. Las dos actividades son:
 
 * copiar datos de una base de datos SQL Server local a una cuenta de Azure Blob Storage.
-* copiar datos de la cuenta de almacenamiento de blobs de Azure a una base de datos SQL de Azure.
+* copiar datos de la cuenta de Azure Blob Storage a una Azure SQL Database.
 
 > [!NOTE]
 > Los pasos que aparecen aquí se han adaptado de un tutorial más detallado que ofrece el equipo de ADF: [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md). Las referencias a las secciones pertinentes de ese tema se darán cuando corresponda.
@@ -53,7 +53,7 @@ En este tutorial se asume que dispone de:
 
 * Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Administración de las claves de acceso de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
-* Acceso a una **base de datos SQL de Azure**. Si debe configurar una instancia de Azure SQL Database, la [introducción a Azure SQL Database](../../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva instancia de Azure SQL Database.
+* Acceso a **Azure SQL Database**. Si debe configurar una instancia de Azure SQL Database, la [introducción a Azure SQL Database](../../sql-database/sql-database-get-started.md) proporciona información sobre cómo aprovisionar una nueva instancia de Azure SQL Database.
 * **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -80,32 +80,14 @@ Data Management Gateway serializa y deserializa los datos de origen y receptor e
 Para obtener instrucciones de instalación e información detallada sobre Data Management Gateway, consulte [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
 
 ## <a name="adflinkedservices"></a>Crear servicios vinculados para conectarse a los recursos de datos
-Un servicio vinculado define la información necesaria para que la Factoría de datos de Azure se conecte a un recurso de datos. El procedimiento paso a paso para crear servicios vinculados se proporciona en [Crear servicios vinculados](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+Un servicio vinculado define la información necesaria para que Azure Data Factory se conecte a un recurso de datos. Tenemos tres recursos en este escenario para los que se necesitan servicios vinculados:
 
-Tenemos tres recursos en este escenario para los que se necesitan servicios vinculados.
+1. SQL Server local
+2. Azure Blob Storage
+3. Azure SQL Database
 
-1. [Servicio vinculado para SQL Server local](#adf-linked-service-onprem-sql)
-2. [Servicio vinculado para el almacenamiento de blobs de Azure](#adf-linked-service-blob-store)
-3. [Servicio vinculado para la base de datos SQL de Azure](#adf-linked-service-azure-sql)
+El procedimiento paso a paso para crear servicios vinculados se proporciona en [Crear servicios vinculados](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
 
-### <a name="adf-linked-service-onprem-sql"></a>Servicio vinculado para la base de datos SQL Server local
-Para crear un servicio vinculado para la instancia de SQL Server local:
-
-* Haga clic en **Almacén de datos** en la página de aterrizaje de ADF en el Portal de Azure clásico.
-* Seleccione **SQL** y escriba las credenciales de *nombre de usuario* y *contraseña* para SQL Server local. Debe especificar el nombre del servidor como **nombre de la instancia de la barra diagonal inversa del nombre de servidor completo (nombre de servidor\nombre de instancia)**. Nombre del servicio vinculado *adfonpremsql*.
-
-### <a name="adf-linked-service-blob-store"></a>Servicio vinculado de blob
-Para crear el servicio vinculado para la cuenta de Azure Blob Storage:
-
-* Haga clic en **Almacén de datos** en la página de aterrizaje de ADF en el Portal de Azure clásico.
-* Seleccione **Azure Storage Account**
-* Escriba la clave de la cuenta de Azure Blob Storage y el nombre del contenedor. Ponga un nombre al servicio vinculado *adfds*.
-
-### <a name="adf-linked-service-azure-sql"></a>Servicio vinculado para la base de datos SQL de Azure
-Para crear el servicio vinculado para Azure SQL Database:
-
-* Haga clic en **Almacén de datos** en la página de aterrizaje de ADF en el Portal de Azure clásico.
-* Seleccione **Azure SQL** y escriba las credenciales de *nombre de usuario* y *contraseña* para Azure SQL Database. El *nombre de usuario* debe ser *user@servername*.   
 
 ## <a name="adf-tables"></a>Definir y crear tablas para especificar cómo tener acceso a los conjuntos de datos
 Cree tablas que especifiquen la estructura, la ubicación y la disponibilidad de los conjuntos de datos con los siguientes procedimientos de scripts. Los archivos JSON se usan para definir las tablas. Para obtener más información sobre la estructura de estos archivos, vea [Conjuntos de datos](../../data-factory/v1/data-factory-create-datasets.md).
@@ -118,7 +100,7 @@ Cree tablas que especifiquen la estructura, la ubicación y la disponibilidad de
 Las definiciones basadas en JSON de las tablas usan los siguientes nombres:
 
 * el **nombre de la tabla** de SQL Server local es *nyctaxi_data*
-* el **nombre del contenedor** de la cuenta de almacenamiento de blobs de Azure es *containername*  
+* el **nombre del contenedor** de la cuenta de Azure Blob Storage es *containername*  
 
 Se necesitan tres definiciones de tabla para esta canalización de ADF:
 
@@ -311,9 +293,6 @@ Copie esta definición de JSON de la canalización en un archivo denominado *pip
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Confirme que puede ver la canalización en ADF en Portal de Azure clásico de la siguiente manera (al hacer clic en el diagrama).
-
-![Canalización de ADF](./media/move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="adf-pipeline-start"></a>Inicio de la canalización
 La canalización ya se puede ejecutar mediante el comando siguiente:

@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrarse con el programa de asociados de CSP y ver los datos de costo
 
@@ -22,7 +22,13 @@ Como asociado de CSP, puede registrarse en Administración de costos de Azure de
 
 
 >[!NOTE]
->Para completar el registro, debe ser administrador del programa de asociados con acceso a Partner Center API. Se requiere la configuración de Partner Center API para la autenticación y el acceso a datos. Para más información, consulte [cómo conectarse a Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Además, los usuarios de CSP indirecto solo pueden usar Cloudyn cuando su revendedor de CSP directo se registra con Cloudyn para proporcionar acceso a sus clientes y suscripciones.
+
+>Solo los asociados directos de CSP y los proveedores indirectos de CSP pueden completar el registro de Cloudyn.
+>
+>Se requiere la configuración de Partner Center API para la autenticación y el acceso a datos. Se necesita una cuenta de administrador global de Partner Center para proporcionar acceso a la API.
+Para más información, consulte [cómo conectarse a Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>El acceso a Cloudyn se puede a disposición de los distribuidores indirectos de CSP después de que su proveedor indirect de CSP se registre en Cloudyn. Posteriormente, los distribuidores indirectos de CSP pueden proporcionar acceso de Cloudyn para suscripciones y clientes de Azure.
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
