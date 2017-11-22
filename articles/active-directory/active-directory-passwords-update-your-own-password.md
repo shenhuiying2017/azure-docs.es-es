@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Ayuda, he olvidado mi contraseña de Azure AD
+# <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
 
-Si ha olvidado la contraseña, nunca ha recibido ninguna de su equipo de TI, está bloqueada fuera de su cuenta o si desea cambiarla, podemos ayudarle. Si conoce la contraseña y solo necesita cambiarla, vaya a la sección [Cambio de mi contraseña](#change-my-password).
+Si ha olvidado la contraseña, nunca ha recibido ninguna del soporte técnico de su empresa, está bloqueado fuera de su cuenta o si desea cambiarla, podemos ayudarle. Si conoce la contraseña y solo necesita cambiarla, vaya a la sección [Cambio de mi contraseña](#change-my-password).
 
    > [!NOTE]
    > Si quiere volver a su cuenta personal como Xbox, hotmail.com o outlook.com, pruebe las [sugerencias que se encuentran en este artículo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
@@ -64,7 +64,7 @@ Siga los pasos siguientes para obtener acceso al autoservicio de restablecimient
    ![Compruebe los datos de autenticación][Verification].
 
 4. Es posible que el personal de TI necesite realizar otra comprobación y tenga que repetir el paso 3 de nuevo con una opción diferente.
-5. En la página **Elegir una nueva contraseña**, escriba la nueva contraseña, confírmela y luego haga clic en **Finalizar**. Se recomienda que la contraseña contenga entre 8 y 16 caracteres, caracteres en mayúsculas y minúsculas, números y caracteres especiales.
+5. En la página **Elegir una nueva contraseña**, escriba la nueva contraseña, confírmela y luego haga clic en **Finalizar**. Es posible que su contraseña profesional o educativa tenga ciertos requisitos; le recomendamos que la contraseña contenga entre 8 y 16 caracteres, con caracteres en mayúsculas y minúsculas, números y caracteres especiales.
 6. Cuando vea el mensaje **Se ha restablecido la contraseña**, puede iniciar sesión con la nueva contraseña.
 
     ![Se ha restablecido la contraseña][Complete]
@@ -95,6 +95,27 @@ Utilice este método si accede normalmente a las aplicaciones mediante el panel 
 3. Haga clic en **Cambiar contraseña**.
 4. Escriba la contraseña anterior y establezca y confirme la nueva contraseña, y finalmente haga clic en **Enviar**.
 
+## <a name="reset-password-at-login"></a>Restablecimiento de contraseñas en el inicio de sesión
+
+Si el administrador habilitó la funcionalidad, es posible que ahora pueda ver un vínculo a **Restablecer contraseña** en la pantalla de inicio de sesión de Windows 10 Fall Creators Update.
+
+![LoginScreen][LoginScreen]
+
+Al hacer clic en el vínculo **Restablecer contraseña**, se abrirá la experiencia de SSPR en la pantalla de inicio de sesión para que pueda restablecer su contraseña sin tener que iniciar sesión para acceder a la experiencia normal basada en web.
+
+1. Confirme su id. de usuario y haga clic en **Siguiente**
+2. Elija y confirme un método de contacto para la verificación. Es posible que el personal de TI necesite realizar otra verificación y tenga que repetir este paso de nuevo con una opción diferente.
+
+   ![ContactMethod][ContactMethod]
+
+3. En la página **Crear una nueva contraseña**, escriba la nueva contraseña, confírmela y luego haga clic en **Siguiente**. Se recomienda que la contraseña contenga entre 8 y 16 caracteres, caracteres en mayúsculas y minúsculas, números y caracteres especiales.
+
+   ![ResetPassword][ResetPassword]
+
+4. Cuando vea **La contraseña se ha restablecido**, haga clic en **Finalizar**
+
+Ahora ya debería tener acceso a su cuenta. En caso contrario, debe ponerse en contacto con el personal de TI de su organización para obtener más ayuda.
+
 ## <a name="common-problems-and-their-solutions"></a>problemas comunes y sus soluciones
 
  A continuación se presentan algunos casos terror comunes y sus soluciones:
@@ -116,3 +137,6 @@ Utilice este método si accede normalmente a las aplicaciones mediante el panel 
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Compruebe los datos de autenticación"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Cambio de la contraseña"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "Se ha restablecido la contraseña"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Vínculo para el restablecimiento de la contraseña en la página de inicio de sesión de Windows 10 Fall Creators Update"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Compruebe los datos de autenticación"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Cambio de la contraseña"

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web
 
@@ -48,7 +48,7 @@ Si usa las acciones de script para personalizar el clúster, todos los servicios
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un cliente SSH. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un cliente SSH. La mayoría de los sistemas operativos proporcionan un cliente SSH a través del comando `ssh`. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Un explorador web que se puede configurar para usar un proxy SOCKS5.
 
@@ -74,9 +74,9 @@ Este comando crea una conexión que enruta el tráfico al puerto local 9876 al c
 * **C** : comprimir todos los datos, debido a que el tráfico web es principalmente texto.
 * **2** : forzar a SSH a que intente solo la versión 2 del protocolo.
 * **q** : modo silencioso.
-* **T** : deshabilitar la asignación seudotty, debido a que solo estamos desviando un puerto.
-* **n** : evitar la lectura de STDIN, debido a que solo estamos desviando un puerto.
-* **N** : no ejecutar un comando remoto, debido a que solo estamos desviando un puerto.
+* **T**: deshabilitar la asignación seudotty, ya que solo está desviando un puerto.
+* **n**: evitar la lectura de STDIN, ya que solo está desviando un puerto.
+* **N**: no ejecutar un comando remoto, ya que solo está desviando un puerto.
 * **f** : ejecutar en segundo plano.
 
 Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la máquina local se enruta al nodo principal del cluster.

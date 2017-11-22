@@ -4,7 +4,7 @@ description: "Describe las nuevas características, problemas y soluciones alter
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 5
 
@@ -31,6 +31,7 @@ Update 5 puede aplicarse a cualquier dispositivo de StorSimple que ejecute las a
 Revise la información contenida en las notas de la versión antes de implementar la actualización de la solución de StorSimple.
 
 > [!IMPORTANT]
+> * Update 5 es una actualización obligatoria y debe instalarse inmediatamente. Para más información, consulte cómo [aplicar Update 5](storsimple-8000-install-update-5.md).
 > * Update 5 tiene software de dispositivo, firmware del disco, seguridad del sistema operativo y otras actualizaciones del sistema operativo. Para instalar esta actualización, se necesitan en torno a unas cuatro horas. La actualización del firmware de disco es una actualización perjudicial y provoca un tiempo de inactividad en el dispositivo. Se recomienda aplicar Update 5 para mantener actualizado el dispositivo.
 > * Para las nuevas versiones, no podrán ver las actualizaciones de inmediato porque hacemos una implementación por fases de las actualizaciones. Espere unos días y luego busque actualizaciones de nuevo, ya que estas estarán disponibles pronto.
 

@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: compilación de una aplicación de Node.js mediante API Graph
 
@@ -75,9 +75,23 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `a
         });
     ```
 
-  Las configuraciones están todas en `config.js`, que podemos editar en la sección siguiente.
+  Las configuraciones están todas en `config.js`, que podemos editar en la [sección siguiente](#update-your-connection-string).
 
-* Se ejecuta una serie de pasos de Gremlin con el método `client.execute`.
+* Se definen una serie de funciones para ejecutar distintas operaciones de Gremlin. Este es una de ellas:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Cada función ejecuta un método `client.execute` con un parámetro de cadena de consulta de Gremlin. Este es un ejemplo de cómo se ejecuta `g.V().count()`:
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `a
     });
     ```
 
-## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
+* Al final del archivo, todos los métodos se invocan con el método `async.waterfall()`. Se ejecutarán sucesivamente:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
+## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
 
 1. Abra el archivo config.js. 
 
-2. En config.js, rellene la clave config.endpoint con el valor del **Identificador URI de Gremlin** de la página **Información general** de Azure Portal. 
+2. En config.js, rellene la clave `config.endpoint` con el valor de **URI de Gremlin** de la página **Información general** de Azure Portal. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

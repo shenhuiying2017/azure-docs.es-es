@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 295d3b8983484b33c69ebb5d0d68c451211102a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8ab132a3e90032c4d70c310a2dd88f7441c4f0a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación web de API DocumentDB con .NET y Azure Portal
 
@@ -95,28 +95,33 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo DocumentDBRepository.cs y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
 
-* DocumentClient se inicializa en la línea 73.
+* DocumentClient se inicializa en la línea 78.
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);`
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* Se crea una nueva base de datos en la línea 88.
+* Se crea una nueva base de datos en la línea 93.
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* Se crea una nueva colección en la línea 107.
+* Se crea una nueva colección en la línea 112.
 
     ```csharp
     await client.CreateDocumentCollectionAsync(
         UriFactory.CreateDatabaseUri(DatabaseId),
         new DocumentCollection { Id = CollectionId },
+        new DocumentCollection
+            {
+               Id = CollectionId,
+               PartitionKey = new PartitionKeyDefinition() { Paths = new Collection<string>() { "/category" } }
+            },
         new RequestOptions { OfferThroughput = 1000 });
     ```
 
-## <a name="update-your-connection-string"></a>Actualización de la cadena de conexión
+## <a name="update-your-connection-string"></a>Actualizar la cadena de conexión
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 

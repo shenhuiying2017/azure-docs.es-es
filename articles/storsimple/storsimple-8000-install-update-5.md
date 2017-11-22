@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/02/2017
+ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 9f5b5cc597da714369d4c452edce42ea7fe205dd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalación de Update 5 en el dispositivo StorSimple
 
@@ -29,6 +29,7 @@ En este tutorial se explica cómo instalar Update 5 en un dispositivo StorSimple
 Update 5 incluye actualizaciones de software de dispositivo, firmware de USM, firmware y controlador LSI, Storport y Spaceport, seguridad del sistema operativo y varias otras actualizaciones de SO.  Las actualizaciones de software de dispositivo, Spaceport, Storport, seguridad y otras actualizaciones del sistema operativo no provocan interrupciones. Las actualizaciones normales o que no provocan interrupciones se pueden aplicar a través de Azure Portal o mediante el método de revisión. Las actualizaciones del firmware del disco son actualizaciones que provocan interrupciones y pueden aplicarse cuando el dispositivo está en modo de mantenimiento a través del método de revisión con la interfaz de Windows PowerShell del dispositivo.
 
 > [!IMPORTANT]
+> * Update 5 es una actualización obligatoria y debe instalarse inmediatamente. Para más información, consulte [Notas de la versión de Update 5](storsimple-update5-release-notes.md).
 > * En esta actualización se incluye un conjunto de comprobaciones previas que se hace antes de la instalación para determinar el estado del dispositivo en cuanto a la conectividad de red y el estado del hardware. Estas comprobaciones previas solo se realizan si aplica las actualizaciones desde Azure Portal.
 > * Se recomienda encarecidamente que cuando se actualice un dispositivo que ejecuta versiones anteriores a Update 3, instale las actualizaciones con el método de revisión. Si encontró algún problema, [registre una incidencia de soporte técnico](storsimple-8000-contact-microsoft-support.md).
 > * Se recomienda instalar las actualizaciones de software y otras actualizaciones normales a través de Azure portal. Solo debe ir a la interfaz de Windows PowerShell del dispositivo (para instalar actualizaciones) si, en el Portal, se produce un error en las comprobaciones de la puerta de enlace anteriores a la actualización. En función de la versión de origen, las actualizaciones pueden demorar 4 horas (o más) en instalarse. Las actualizaciones en modo de mantenimiento deben instalarse mediante la interfaz de Windows PowerShell del dispositivo. Como las actualizaciones en modo de mantenimiento generan interrupciones, provocan un tiempo de inactividad en el dispositivo.

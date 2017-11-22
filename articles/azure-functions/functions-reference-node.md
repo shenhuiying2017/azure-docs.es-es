@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 Cuando se trabaja con las funciones de JavaScript, tenga en cuenta las consideraciones de las dos secciones siguientes.
 
-### <a name="choose-single-core-app-service-plans"></a>Elección de los planes de App Service de un solo núcleo
+### <a name="choose-single-vcpu-app-service-plans"></a>Elección de los planes de App Service de una sola vCPU
 
-Al crear una Function App que usa el plan de App Service, se recomienda que seleccione un plan de un solo núcleo en lugar de un plan con varios núcleos. En la actualidad, Functions ejecuta funciones de JavaScript con más eficacia en máquina virtuales con un solo núcleo; el uso de máquinas virtuales más grandes no produce las mejoras de rendimiento esperadas. Cuando sea necesario, puede escalar horizontalmente de forma manual mediante la adición de más instancias de máquina virtual de un solo núcleo, o bien puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Al crear una aplicación de función que usa el plan de App Service, se recomienda que seleccione un plan de una sola vCPU, en lugar de un plan con varias vCPU. En la actualidad, Functions ejecuta funciones de JavaScript con más eficacia en VM con una sola vCPU; el uso de máquinas virtuales más grandes no produce las mejoras de rendimiento esperadas. Cuando sea necesario, puede escalar horizontalmente de forma manual mediante la adición de más instancias de VM de una sola vCPU o bien puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Compatibilidad con TypeScript y CoffeeScript
 Como no hay compatibilidad directa con la compilación automática de TypeScript o CoffeeScript a través del tiempo de ejecución, dicha compatibilidad debe controlarse fuera del tiempo de ejecución, en tiempo de implementación. 
@@ -328,6 +328,7 @@ Como no hay compatibilidad directa con la compilación automática de TypeScript
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
-* [Azure Functions developer reference](functions-reference.md)
-* [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
+* 
+            [Referencia para desarrolladores de Azure Functions](functions-reference.md)
+* [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
 

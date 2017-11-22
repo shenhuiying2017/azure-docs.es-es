@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creación de una API sin servidor mediante Azure Functions
 
@@ -67,7 +67,7 @@ A continuación, pruebe la función para verla en acción con la nueva superfici
 
 ## <a name="proxies-overview"></a>Introducción a Servidores proxy
 
-En la siguiente sección, expondrá la API a través de un servidor proxy. Servidores proxy de Azure Functions es una característica en versión preliminar que permite reenviar solicitudes a otros recursos. Se define un punto de conexión HTTP al igual que con el desencadenador HTTP pero, en lugar de escribir código que se ejecute cuando se llame a ese punto de conexión, se proporciona una dirección URL a una implementación remota. Esto le permite crear varios orígenes de API dentro de una sola superficie de API que es fácil de consumir para los clientes. Esto resulta especialmente útil si desea compilar su API como microservicio.
+En la siguiente sección, expondrá la API a través de un servidor proxy. Azure Functions Proxies le permite reenviar solicitudes a otros recursos. Se define un punto de conexión HTTP al igual que con el desencadenador HTTP pero, en lugar de escribir código que se ejecute cuando se llame a ese punto de conexión, se proporciona una dirección URL a una implementación remota. Esto le permite crear varios orígenes de API dentro de una sola superficie de API que es fácil de consumir para los clientes. Esto resulta especialmente útil si desea compilar su API como microservicio.
 
 Un servidor proxy puede apuntar a cualquier recurso HTTP, como:
 - Azure Functions 
@@ -75,7 +75,7 @@ Un servidor proxy puede apuntar a cualquier recurso HTTP, como:
 - Contenedores de Docker en [App Service en Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Cualquier otra API hospedada
 
-Para aprender más sobre los servidores proxy, consulte [Uso de Servidores proxy de Azure Functions (versión preliminar)].
+Para obtener más información sobre Proxies, consulte [Uso de Azure Functions Proxies].
 
 ## <a name="create-your-first-proxy"></a>Creación de su primer proxy
 
@@ -97,7 +97,7 @@ Repita los pasos de [Creación de una aplicación de función](https://docs.micr
 ### <a name="creating-a-proxy-on-the-frontend"></a>Creación de un proxy en el front-end
 
 1. Vuelva a la aplicación de función de front-end en el portal.
-1. En el panel de navegación izquierdo, haga clic en el signo más "+" junto a "Servidores proxy (versión preliminar)".
+1. En el panel de navegación izquierdo, haga clic en el signo más "+" junto a "Proxies".
     ![Creación de un proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Use la configuración de proxy como se especifica en la tabla. 
 
@@ -187,9 +187,9 @@ En este tutorial, ha aprendido a compilar y personalizar una API en Azure Functi
 Las siguientes referencias pueden serle de ayuda a medida que sigue desarrollando su API:
 
 - [Enlaces HTTP y webhook en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Uso de Servidores proxy de Azure Functions (versión preliminar)]
+- [Uso de Azure Functions Proxies]
 - [Documentación de una API de Azure Functions (versión preliminar)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Uso de Servidores proxy de Azure Functions (versión preliminar)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Uso de Azure Functions Proxies]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

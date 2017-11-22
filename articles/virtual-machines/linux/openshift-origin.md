@@ -15,22 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1a40c4cc064b32aced7e976f40f6ed6a57e62204
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Implementación de OpenShift Origin en Azure
 
-Existen varias maneras de implementar OpenShift Origin en Azure. Puede implementar manualmente todos los componentes de infraestructura de Azure necesarios y, a continuación, seguir la [documentación](https://docs.openshift.org/3.6/welcome/index.html) de OpenShift Origin.
-También puede usar una plantilla de administrador de recursos que simplifique la implementación del clúster de OpenShift Origin. Cuando dicha plantilla se encuentre [aquí](https://github.com/Microsoft/openshift-origin).
+Existen dos maneras de implementar OpenShift Origin en Azure:
 
-## <a name="deploy-using-the-openshift-origin-template"></a>Implementación mediante la plantilla de OpenShift Origin
+- Puede implementar manualmente todos los componentes de infraestructura de Azure necesarios y, después, seguir la [documentación](https://docs.openshift.org/3.6/welcome/index.html) de OpenShift Origin.
+- También puede usar una [plantilla de Resource Manager](https://github.com/Microsoft/openshift-origin) que simplifique la implementación del clúster de OpenShift Origin.
+
+## <a name="deploy-by-using-the-openshift-origin-template"></a>Implementación mediante el uso de la plantilla de OpenShift Origin
 
 Use el valor `appId` de la entidad de servicio que creó anteriormente para el parámetro `aadClientId`.
 
-En el ejemplo siguiente se crea un archivo de parámetros denominado **azuredeploy.parameters.json** con todas las entradas necesarias.
+En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.parameters.json con todas las entradas necesarias.
 
 ```json
 {
@@ -92,13 +94,13 @@ En el ejemplo siguiente se crea un archivo de parámetros denominado **azuredepl
 }
 ```
 
-### <a name="deploy-using-azure-cli"></a>Implementación mediante la CLI de Azure
+### <a name="deploy-by-using-azure-cli"></a>Implementación con la CLI de Azure
 
 
 > [!NOTE] 
-> El comando siguiente requiere CLI de Azure 2.0.8 o una versión posterior. Puede comprobar la versión de az CLI con el comando `az --version`. Para actualizar la versión de la CLI, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+> El comando siguiente requiere la CLI de Azure 2.0.8 o una versión posterior. Puede comprobar la versión de la CLI con el comando `az --version`. Para actualizar la versión de la CLI, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-En el ejemplo siguiente se implementa el clúster de OpenShift y todos los recursos relacionados en un grupo de recursos denominado myResourceGroup con el nombre de implementación myOpenShiftCluster. Se hace referencia a la plantilla directamente desde el repositorio de GitHub y se usa un archivo de parámetros local denominado **azuredeploy.parameters.json**.
+En el ejemplo siguiente se implementa el clúster de OpenShift y todos los recursos relacionados en un grupo de recursos llamado myResourceGroup, con el nombre de implementación myOpenShiftCluster. Se hace referencia a la plantilla directamente desde el repositorio de GitHub mediante el uso de un archivo de parámetros local denominado azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -106,7 +108,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-La implementación tarda al menos 25 minutos en completarse, según el número total de nodos implementados. La dirección URL de la consola de OpenShift y el nombre DNS del maestro OpenShift se imprime en el terminal cuando se haya completado la implementación.
+La implementación tarda al menos 25 minutos en completarse, según el número total de nodos implementados. La dirección URL de la consola de OpenShift y el nombre DNS del maestro de OpenShift se imprime en el terminal cuando concluye la implementación.
 
 ```json
 {
@@ -117,7 +119,7 @@ La implementación tarda al menos 25 minutos en completarse, según el número t
 
 ## <a name="connect-to-the-openshift-cluster"></a>Conexión con el clúster de OpenShift
 
-Cuando se haya completado la implementación, conéctese a la consola de OpenShift con el explorador usando `OpenShift Console Uri`. También puede conectarse al maestro de OpenShift mediante el siguiente comando:
+Cuando concluya la implementación, conéctese a la consola de OpenShift con el explorador mediante el uso de `OpenShift Console Uri`. Como alternativa, puede conectarse al maestro de OpenShift con el siguiente comando:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com

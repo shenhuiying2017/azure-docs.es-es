@@ -1,25 +1,21 @@
 ---
-title: Directivas de acceso a datos de Azure Time Series Insights | Microsoft Docs
-description: "En este tutorial, aprenderá a administrar las directivas de acceso de datos de Time Series Insights"
-keywords: 
+title: "Configuración de la seguridad para acceder a Time Series Insights y administrarlo | Microsoft Docs"
+description: "En este artículo se describe cómo configurar la seguridad y los permisos como directivas de acceso de administración y directivas de acceso a datos para proteger Azure Time Series Insights."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal
 
@@ -28,7 +24,7 @@ Los entornos de Time Series Insights tienen dos tipos independientes de directiv
 * Directivas de acceso de administración
 * Directivas de acceso a datos
 
-Ambas directivas conceden a las entidades de Azure Active Directory (usuarios y aplicaciones) distintos permisos en un entorno concreto. Las entidades (usuarios y aplicaciones) deben pertenecer al directorio activo (o "inquilino de Azure") asociado a la suscripción que contiene el entorno.
+Ambas directivas conceden a las entidades de Azure Active Directory (usuarios y aplicaciones) distintos permisos en un entorno concreto. Las entidades de seguridad (usuarios y aplicaciones) deben pertenecer al directorio activo (conocido como inquilino de Azure) asociado a la suscripción que contiene el entorno.
 
 Las directivas de acceso de administración conceden permisos relacionados con la configuración del entorno, tales como:
 *   La creación y eliminación del entorno, orígenes de eventos, conjuntos de datos de referencia.
@@ -36,41 +32,41 @@ Las directivas de acceso de administración conceden permisos relacionados con l
 
 Las directivas de acceso a datos conceden permisos para emitir consultas de datos, manipular datos de referencia en el entorno y compartir consultas guardadas y perspectivas asociadas con el entorno.
 
-Los dos tipos de directivas permiten una separación clara entre el acceso a la administración del entorno y el acceso a los datos dentro del entorno. Por ejemplo, es posible configurar un entorno de modo que el propietario o creador del entorno no disponga de acceso a los datos. Del mismo modo que se permite a los usuarios y servicios leer los datos del entorno, podrían no tener acceso a la configuración del entorno.
+Los dos tipos de directivas permiten una separación clara entre el acceso a la administración del entorno y el acceso a los datos dentro del entorno. Por ejemplo, es posible configurar un entorno de modo que su propietario o creador no disponga de acceso a los datos. Además, los usuarios y servicios que tienen permiso para leer los datos del entorno, podrían no tener acceso a la configuración del entorno.
 
 ## <a name="grant-data-access"></a>Concesión de acceso a datos
-Los pasos siguientes muestran cómo conceder acceso a datos a una entidad de usuario:
+Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usuario:
 
-1.  Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2.  Escriba "Time Series" en la ventana de búsqueda.
-3.  Haga clic en el entorno de Time Series.
-4.  Seleccione el entorno de Time Series Insights de la lista.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-  ![Administración del origen de Time Series Insights: entorno](media/data-access/getstarted-grant-data-access1.png)
+2. Busque el entorno de Time Series Insights. Escriba **Time Series** en el cuadro de **búsqueda**. Seleccione **Entorno de Time Series** en los resultados de búsqueda. 
 
-4.  Seleccione "Data Access Policies" (Directivas de acceso de datos) y haga clic en "Agregar".
+3. Seleccione el entorno de Time Series Insights de la lista.
+   
+4. Seleccione **Data Access Policies** (Directivas de acceso a datos) y, luego, **+ Agregar**.
+  ![Administración del entorno del origen de Time Series Insights: entorno](media/data-access/getstarted-grant-data-access1.png)
 
-  ![Administración del origen de Time Series Insights: agregar](media/data-access/getstarted-grant-data-access2.png)
+5. Seleccione **Seleccionar usuario**.  Busque el nombre de usuario o la dirección de correo para encontrar al usuario que quiere agregar. Haga clic en **Seleccionar** para confirmar la selección. 
 
-5.  Haga clic en "Seleccionar usuario".
-6.  Busque y seleccione el usuario por correo electrónico.
-7.  Haga clic en "Seleccionar" en la hoja "Seleccionar usuarios".
+   ![Administración del origen de Time Series Insights: agregar](media/data-access/getstarted-grant-data-access2.png)
 
-  ![Administración del origen de Time Series Insights: seleccionar usuario](media/data-access/getstarted-grant-data-access3.png)
+6. Seleccione **Seleccionar rol**. Elija el rol de acceso adecuado para el usuario:
+   - Seleccione **Colaborador** si desea permitir al usuario cambiar los datos de referencia y compartir las consultas almacenadas y las perspectivas con otros usuarios del entorno. 
+   - En caso contrario, seleccione **Lector** para permitir al usuario consultar los datos del entorno y guardar consultas personales (no compartidas) en el entorno.
 
-8.  Haga clic en "Seleccionar rol".
-9.  Seleccione "Colaborador" si desea permitir al usuario cambiar los datos de referencia y compartir las consultas almacenadas y las perspectivas con otros usuarios del entorno. En caso contrario, seleccione "Lector" para permitir al usuario consultar los datos del entorno y guardar consultas personales (no compartidas) en el entorno.
-10. Haga clic en "Aceptar" en la hoja "Seleccionar rol".
+   Seleccione **Aceptar** para confirmar la elección del rol.
 
-  ![Administración del origen de Time Series Insights: seleccionar rol](media/data-access/getstarted-grant-data-access4.png)
+   ![Administración del origen de Time Series Insights: seleccionar usuario](media/data-access/getstarted-grant-data-access3.png)
 
-11. Haga clic en "Aceptar" en la hoja "Seleccionar rol de usuario".
-12. Debería ver lo siguiente:
+8. Seleccione **Aceptar** en la página **Select User Role** (Seleccionar rol de usuario).
 
-  ![Administración del origen de Time Series Insights: resultados](media/data-access/getstarted-grant-data-access5.png)
+   ![Administración del origen de Time Series Insights: seleccionar rol](media/data-access/getstarted-grant-data-access4.png)
+
+9. En la página **Data Access Policies** (Directivas de acceso a datos) se muestran los usuarios y los roles de cada uno.
+
+   ![Administración del origen de Time Series Insights: resultados](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Creación de un origen de eventos](time-series-insights-add-event-source.md)
-* [Envío de eventos](time-series-insights-send-events.md) al origen de eventos
-* Vea el entorno en el [portal de Time Series Insights](https://insights.timeseries.azure.com)
+* Aprenda a [agregar un origen del evento del centro de eventos al entorno de Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
+* Vea el entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

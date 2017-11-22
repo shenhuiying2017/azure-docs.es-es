@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 11/09/2017
 ms.author: trinadhk; jimpark;
-ms.openlocfilehash: fc52c909df5e91741ec1fa21fb911487be039fdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6e5dd9d4fb96376762300856b594d772d84af8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>Restauración de máquinas virtuales en Azure
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 10/11/2017
 Restaure una máquina virtual en una nueva máquina virtual desde las copias de seguridad almacenadas en el almacén de Azure Backup; para ello, siga estos pasos.
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> **15 de octubre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/> **A partir del 1 de noviembre de 2017**:
->- Los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services. Después <br/> A partir del **30 de noviembre de 2017**, ya no podrá usar PowerShell para crear almacenes de Backup. <br/> A partir del **30 de noviembre de 2017**:
+>- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
 
@@ -69,7 +69,7 @@ Restaure una máquina virtual en una nueva máquina virtual desde las copias de 
         El nombre del servicio en la nube que se seleccione debe ser único global. Por lo general, el nombre del servicio en la nube está asociado a una dirección URL pública, que tiene el siguiente formato: [servicioEnLaNube].cloudapp.net. Azure no permite crear un servicio en la nube si ya se ha utilizado el nombre. Si decide crear un nuevo servicio en la nube, se le dará el mismo nombre que a la máquina virtual, en cuyo caso el nombre de la máquina virtual seleccionado debe ser suficientemente exclusivo como para aplicarlo al servicio en la nube asociado.
 
         Solo se muestran servicios en la nube y redes virtuales que no están asociados con ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
+2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de Azure Backup. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
 
     Si no hay ninguna cuenta de almacenamiento con configuración compatible, cree una cuenta de almacenamiento de configuración admitida antes de iniciar la operación de restauración.
 
@@ -85,7 +85,7 @@ Restaure una máquina virtual en una nueva máquina virtual desde las copias de 
 5. Haga clic en el icono **Enviar** en el asistente para enviar los detalles y crear un trabajo de restauración.
 
 ## <a name="track-the-restore-operation"></a>Seguimiento de la operación de restauración
-Una vez que ha especificado toda la información en el Asistente de restauración y lo ha enviado, la Copia de seguridad de Azure intentará crear un trabajo para realizar un seguimiento de la operación de restauración.
+Una vez que ha especificado toda la información en el Asistente de restauración y lo ha enviado, Azure Backup intentará crear un trabajo para realizar un seguimiento de la operación de restauración.
 
 ![Creación de un trabajo de restauración](./media/backup-azure-restore-vms/create-restore-job.png)
 
@@ -106,10 +106,10 @@ Si utiliza una distribución de Linux basada en cloud-init, como Ubuntu, la cont
 Si ha restaurado la máquina virtual en el mismo servicio en la nube con el mismo nombre con el que originalmente se hizo copia de seguridad de ella, la copia de seguridad continuará en la máquina virtual después de la restauración. Si ha restaurado la máquina virtual en un servicio en la nube diferente o ha especificado un nombre diferente para la VM restaurada, esta se trata como nueva, por lo que deberá configurar su copia de seguridad.
 
 ## <a name="restoring-a-vm-during-azure-datacenter-disaster"></a>Restauración de una máquina virtual en caso de desastre de centro de datos de Azure
-Copia de seguridad de Azure permite restaurar copias de seguridad de máquinas virtuales en el centro de datos asociado, en caso de que el centro de datos principal donde se ejecutan las máquinas virtuales experimente una situación de desastre y haya configurado el almacén de copia de seguridad para que tenga redundancia geográfica. En estos casos, deberá seleccionar una cuenta de almacenamiento que esté presente en el centro de datos asociado. El resto del proceso de restauración permanece igual. Copia de seguridad de Azure usa el servicio de proceso de la zona geográfica asociada para crear la máquina virtual restaurada. Más información sobre la [resistencia del centro de datos de Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
+Azure Backup permite restaurar copias de seguridad de máquinas virtuales en el centro de datos asociado, en caso de que el centro de datos principal donde se ejecutan las máquinas virtuales experimente una situación de desastre y haya configurado el almacén de Backup para que tenga redundancia geográfica. En estos casos, deberá seleccionar una cuenta de almacenamiento que esté presente en el centro de datos asociado. El resto del proceso de restauración permanece igual. Azure Backup usa el servicio Compute de la zona geográfica asociada para crear la máquina virtual restaurada. Más información sobre la [resistencia del centro de datos de Azure](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md)
 
 ## <a name="restoring-domain-controller-vms"></a>Restauración de máquinas virtuales de controlador de dominio
-Copia de seguridad de las máquinas virtuales de controlador de dominio (DC) es un escenario admitido con Copia de seguridad de Azure. Sin embargo, se debe tener cuidado durante el proceso de restauración. El proceso de restauración correcto depende de la estructura del dominio. El caso más simple es tener un único DC en un solo dominio. El caso más común en las cargas de producción es tener un solo dominio con varios DC y, quizás, algún DC local. Por último, puede tener un bosque con varios dominios.
+Copia de seguridad de las máquinas virtuales de controlador de dominio (DC) es un escenario admitido con Azure Backup. Sin embargo, se debe tener cuidado durante el proceso de restauración. El proceso de restauración correcto depende de la estructura del dominio. El caso más simple es tener un único DC en un solo dominio. El caso más común en las cargas de producción es tener un solo dominio con varios DC y, quizás, algún DC local. Por último, puede tener un bosque con varios dominios.
 
 Desde la perspectiva de Active Directory, una VM de Azure es como cualquier otra VM de un hipervisor admitido moderno. La principal diferencia respecto a los hipervisores locales es que no hay ninguna consola de VM disponible en Azure. Es necesaria una consola para determinados escenarios, como para una recuperación mediante una copia de seguridad de reconstrucción completa (BMR). Sin embargo, la restauración de una VM desde el almacén de Backup es una sustitución completa para una BMR. El modo de restauración de Active Directory (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. Para obtener más información general, consulte [Consideraciones relacionadas con la copia de seguridad y la restauración para controladores de dominio virtualizados](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) y [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx) (Planificación de la recuperación de bosques de Active Directory).
 
@@ -134,7 +134,7 @@ Read more about the [USN rollback problem](https://technet.microsoft.com/library
 --->
 
 ## <a name="restoring-vms-with-special-network-configurations"></a>Restauración de máquinas virtuales con configuraciones de red especiales
-Copia de seguridad de Azure es compatible con copia de seguridad para las siguientes configuraciones de red especiales de máquinas virtuales.
+Azure Backup es compatible con copia de seguridad para las siguientes configuraciones de red especiales de máquinas virtuales.
 
 * Máquinas virtuales en el equilibrador de carga (interno y externo)
 * Máquinas virtuales con varias direcciones IP reservadas

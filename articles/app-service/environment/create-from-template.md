@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: b3829f0e1b87451bf0706edc268359be5c4480bc
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creación de una instancia de ASE mediante el uso de una plantilla de Azure Resource Manager
 
@@ -49,7 +49,7 @@ En GitHub, encontrará [un ejemplo][quickstartasev2create] de plantilla de Resou
 Si desea crear un ASE con un ILB, use estos [ejemplos][quickstartilbasecreate] de plantillas de Resource Manager. Son específicas a dicho caso de uso. La mayoría de los parámetros del archivo *azuredeploy.parameters.json* son comunes para la creación de los ASE con un ILB y de los ASE externos. La siguiente lista llama a los parámetros especiales o únicos cuando crea un ASE con ILB:
 
 * *interalLoadBalancingMode*: en la mayoría de los casos, se establece en 3, lo que significa que tanto el tráfico HTTP/HTTPS de los puertos 80 y 443 como los puertos de los canales de control o de datos a los que escucha el servicio FTP en el ASE estarán enlazados a una dirección de red virtual interna asignada a ILB. Si esta propiedad se establece en 2, solo los puertos relacionados con el servicio FTP (los canales de control y de datos) estarán enlazados a una dirección de ILB. El tráfico HTTP/HTTPS permanece en la VIP pública.
-* *dnsSuffix*: este parámetro define el dominio raíz predeterminado que se asigna al ASE. En la variación pública del Servicio de aplicaciones de Azure, el dominio raíz predeterminado de todas las aplicaciones web es *azurewebsites.net*. Dado que un ASE con ILB está dentro de la red virtual de un cliente, no tiene sentido utilizar el dominio raíz predeterminado del servicio público. En su lugar, un ASE de ILB debe tener un dominio raíz predeterminado que tenga sentido usar en la red virtual interna de una compañía. Por ejemplo, Contoso Corporation podría usar el dominio raíz predeterminado *interno contoso.com* para aquellas aplicaciones que se pretende que se puedan resolver en la red virtual de Contoso, y a las que solo se pueda acceder desde ella. 
+* *dnsSuffix*: este parámetro define el dominio raíz predeterminado que se asigna al ASE. En la variación pública de Azure App Service, el dominio raíz predeterminado de todas las aplicaciones web es *azurewebsites.net*. Dado que un ASE con ILB está dentro de la red virtual de un cliente, no tiene sentido utilizar el dominio raíz predeterminado del servicio público. En su lugar, un ASE de ILB debe tener un dominio raíz predeterminado que tenga sentido usar en la red virtual interna de una compañía. Por ejemplo, Contoso Corporation podría usar el dominio raíz predeterminado *interno contoso.com* para aquellas aplicaciones que se pretende que se puedan resolver en la red virtual de Contoso, y a las que solo se pueda acceder desde ella. 
 * *ipSslAddressCount*: automáticamente, el valor predeterminado de este parámetro es 0 en el archivo *azuredeploy.json*, ya que los ASE con ILB solo tienen una dirección de ILB individual. No hay direcciones IP-SSL explícitas para un ASE con ILB. Por lo tanto, el grupo de direcciones IP-SSL para un ASE con ILB debe establecerse en cero. En caso contrario, se produce un error de aprovisionamiento. 
 
 Después de que se llene el archivo *azuredeploy.parameters.json*, cree el ASE mediante el fragmento de código de PowerShell. Cambie las rutas del archivo para que coincidan con las ubicaciones en las que se encuentran los archivos de plantilla de Resource Manager. Recuerde especificar sus propios valores para el nombre de implementación y el nombre del grupo de recursos de Resource Manager:
@@ -150,7 +150,7 @@ App Service Environment tiene dos versiones: ASEv1 y ASEv2. La información ante
 
 En ASEv1, administra todos los recursos de forma manual. Esto incluye los front-end, los trabajos y las direcciones IP utilizadas para SSL basada en IP. Antes de escalar horizontalmente el plan de App Service, debe escalar horizontalmente el grupo de trabajo en el que desea hospedarlo.
 
-ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cada núcleo asignado. Esto incluye los núcleos que usan para los servidores front-end y trabajos que no hospedan ninguna carga de trabajo. En ASEv1, el tamaño de escala máxima predeterminada de una instancia de ASE es de 55 hosts en total. Esto incluye servidores front-end y trabajos. Una ventaja de ASEv1 es que se puede implementar en una red virtual clásica y en una red virtual de Resource Manager. Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro].
+ASEv1 utiliza un modelo de precios diferente al de ASEv2. En ASEv1, paga por cada vCPU asignada. Esto incluye las vCPU que se usan para los servidores front-end y trabajos que no hospedan ninguna carga de trabajo. En ASEv1, el tamaño de escala máxima predeterminada de una instancia de ASE es de 55 hosts en total. Esto incluye servidores front-end y trabajos. Una ventaja de ASEv1 es que se puede implementar en una red virtual clásica y en una red virtual de Resource Manager. Para más información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro].
 
 Para crear un ASEv1 mediante una plantilla de Resource Manager, consulte [Creación de un ASE v1 con un ILB con una plantilla de Resource Manager][ILBASEv1Template].
 

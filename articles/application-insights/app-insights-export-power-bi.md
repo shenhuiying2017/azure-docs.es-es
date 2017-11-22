@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](http://www.powerbi.com/) es un conjunto de herramientas de análisis de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Hay tres métodos recomendados para exportar datos de Application Insights a Power BI. Se pueden utilizar por separado o conjuntamente.
 
 * [**Adaptador de Power BI**](#power-pi-adapter): configure un panel completo de telemetría desde la aplicación. El conjunto de gráficos está predefinido, pero puede agregar sus propias consultas de cualquier otro origen.
-* [**Exportar consultas de Analytics**](#export-analytics-queries): escriba las consultas que quiera con Analytics y expórtelas a Power BI. Puede colocar esta consulta en un panel junto con otros datos.
+* [**Exportar consultas de Analytics**](#export-analytics-queries): escriba las consultas que quiera mediante Analytics o desde los embudos de uso y expórtelas a Power BI. Puede colocar esta consulta en un panel junto con otros datos.
 * [**Exportación continua y Stream Analytics**](app-insights-export-stream-analytics.md): esto implica más trabajo de configuración. Es útil si desea conservar los datos durante largos períodos. De lo contrario, se recomiendan los otros métodos.
 
 ## <a name="power-bi-adapter"></a>Adaptador de Power BI
@@ -48,7 +48,7 @@ Puede modificar el panel, combinando los gráficos de Application Insights con l
 Después de la importación inicial, el panel y los informes seguirán actualizándose a diario. Puede controlar la programación de la actualización en el conjunto de datos.
 
 ## <a name="export-analytics-queries"></a>Exportación de consultas de Analytics
-Esta ruta le permite escribir las consultas de Analytics que quiera y, después, exportarlas a un panel de Power BI. (Puede agregar al panel creado por el adaptador).
+Esta ruta le permite escribir las consultas de Analytics que quiera o exportarlas desde los embudos de uso y, a continuación, exportarlas a un panel de Power BI. (Puede agregar al panel creado por el adaptador).
 
 ### <a name="one-time-install-power-bi-desktop"></a>Una vez: instalar Power BI Desktop
 Para importar la consulta de Application Insights, utilice la versión de escritorio de Power BI. Después, puede publicarla en la web o en el área de trabajo de nube de Power BI. 
@@ -82,10 +82,32 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Seleccionar la visualización](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Actualice el informe manualmente a intervalos o configure una actualización programada en la página Opciones.
 
+### <a name="export-a-funnel"></a>Exportar un embudo
+1. [Cree un embudo.](usage-funnels.md)
+2. Haga clic en el botón de Power BI. 
+
+   ![Botón de Power BI](./media/app-insights-export-power-bi/button.png)
+   
+3. En Power BI Desktop, seleccione **Obtener datos, Consulta en blanco** y, a continuación, en el editor de consultas vaya a **Ver** y seleccione **Editor de consultas avanzadas**.
+
+   ![Consulta en blanco](./media/app-insights-export-power-bi/blankquery.png)
+
+   Pegue el script del lenguaje M exportado en el editor de consultas avanzadas. 
+
+   ![Editor de consultas avanzadas](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Seleccione elementos de la consulta y elija la visualización de embudo.
+
+   ![Seleccionar la secuencia y el embudo](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Cambie el título para que sea descriptivo y publique el informe en el área de trabajo en la nube de Power BI. 
+
+   ![Cambiar el título](./media/app-insights-export-power-bi/changetitle.png)
+
 ## <a name="troubleshooting"></a>Solución de problemas
 
 ### <a name="401-or-403-unauthorized"></a>401 o 403 No autorizado 
-Esto puede ocurrir si no se ha actualizado su token de actualización. Pruebe estos pasos para asegurarse de que todavía tiene acceso. Si tiene acceso pero la actualización de las credenciales no funciona, abra una incidencia de soporte técnico.
+Esto puede ocurrir si no se ha actualizado el token de actualización. Pruebe estos pasos para asegurarse de que todavía tiene acceso. Si tiene acceso, pero la actualización de las credenciales no funciona, abra una incidencia de soporte técnico.
 
 1. Inicie sesión en Azure Portal y asegúrese de que pueda acceder al recurso
 2. Intente actualizar las credenciales en el panel

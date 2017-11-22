@@ -2,8 +2,6 @@
 title: Comprender el esquema de webhook usado en las alertas del registro de actividad | Microsoft Docs
 description: "Obtenga información acerca del esquema del archivo JSON que se publica en una dirección URL de webhook cuando se activa una alerta del registro de actividad."
 author: johnkemnetz
-manager: orenr
-editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 
@@ -14,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 75c71bcd16573d4f4dd3377c623aa9b414aa3906
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -90,37 +88,46 @@ La carga útil JSON incluida en la operación POST difiere según el campo data.
 ###<a name="servicehealth"></a>ServiceHealth
 ```json
 {
-    "schemaId": "unknown",
+    "schemaId": "Microsoft.Insights/activityLogs",
     "data": {
-        "status": "Activated",
-        "context": {
-            "activityLog": {
-                "properties": {
-                    "title": "...",
-                    "service": "...",
-                    "region": "...",
-                    "communication": "...",
-                    "incidentType": "Incident",
-                    "trackingId": "...",
-                    "groupId": "...",
-                    "impactStartTime": "3/29/2017 3:43:21 PM",
-                    "impactMitigationTime": "3/29/2017 3:43:21 PM",
-                    "eventCreationTime": "3/29/2017 3:43:21 PM",
-                    "impactedServices": "[{...}]",
-                    "defaultLanguageTitle": "...",
-                    "defaultLanguageContent": "...",
-                    "stage": "Active",
-                    "communicationId": "...",
-                    "version": "0.1"
-                }
-            }
+    "status": "Activated",
+    "context": {
+        "activityLog": {
+        "channels": "Admin",
+        "correlationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+        "description": "Active: Virtual Machines - Australia East",
+        "eventSource": "ServiceHealth",
+        "eventTimestamp": "2017-10-18T23:49:25.3736084+00:00",
+        "eventDataId": "6fa98c0f-334a-b066-1934-1a4b3d929856",
+        "level": "Informational",
+        "operationName": "Microsoft.ServiceHealth/incident/action",
+        "operationId": "bbac944f-ddc0-4b4c-aa85-cc7dc5d5c1a6",
+        "properties": {
+            "title": "Virtual Machines - Australia East",
+            "service": "Virtual Machines",
+            "region": "Australia East",
+            "communication": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "incidentType": "Incident",
+            "trackingId": "0NIH-U2O",
+            "impactStartTime": "2017-10-18T02:48:00.0000000Z",
+            "impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"}],\"ServiceName\":\"Virtual Machines\"}]",
+            "defaultLanguageTitle": "Virtual Machines - Australia East",
+            "defaultLanguageContent": "Starting at 02:48 UTC on 18 Oct 2017 you have been identified as a customer using Virtual Machines in Australia East who may receive errors starting Dv2 Promo and DSv2 Promo Virtual Machines which are in a stopped &quot;deallocated&quot; or suspended state. Customers can still provision Dv1 and Dv2 series Virtual Machines or try deploying Virtual Machines in other regions, as a possible workaround. Engineers have identified a possible fix for the underlying cause, and are exploring implementation options. The next update will be provided as events warrant.",
+            "stage": "Active",
+            "communicationId": "636439673646212912",
+            "version": "0.1.1"
         },
-        "properties": {}
+        "status": "Active",
+        "subscriptionId": "45529734-0ed9-4895-a0df-44b59a5a07f9",
+        "submissionTimestamp": "2017-10-18T23:49:28.7864349+00:00"
+        }
+    },
+    "properties": {}
     }
 }
 ```
 
-Para obtener detalles del esquema específico sobre alertas del registro de actividad de notificaciones de mantenimiento del servicio, consulte [Notificaciones de mantenimiento del servicio](monitoring-service-notifications.md).
+Para obtener detalles del esquema específico sobre alertas del registro de actividad de notificaciones de mantenimiento del servicio, consulte [Notificaciones de mantenimiento del servicio](monitoring-service-notifications.md). Además, puede obtener información acerca de cómo [configurar notificaciones webhook del estado del servicio con las soluciones de administración de problemas existentes](../service-health/service-health-alert-webhook-guide.md).
 
 Para obtener información del esquema específico en todas las otras alertas del registro de actividad, consulte [Información general sobre el registro de actividad de Azure](monitoring-overview-activity-logs.md).
 

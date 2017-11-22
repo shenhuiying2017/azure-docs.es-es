@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Asignación de red entre dos regiones de Azure
 
@@ -30,7 +30,7 @@ Antes de asignar redes, asegúrese de haber creado [redes virtuales de Azure](..
 
 ## <a name="map-networks"></a>Asignar redes
 
-Para asignar una red virtual de Azure de una región de Azure a otra red virtual de otra región, vaya a Infraestructura de Site Recovery -> Asignación de red (para máquinas virtuales de Azure) y cree una asignación de red.
+Para asignar una red virtual de Azure de una región de Azure a otra red virtual de otra región, vaya a Infraestructura de Site Recovery -> Asignación de red (para Azure Virtual Machines) y cree una asignación de red.
 
 ![Asignación de red](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
@@ -83,7 +83,7 @@ La dirección IP de cada una de las interfaces de red de la máquina virtual de 
 Si la interfaz de red de la máquina virtual de origen usa DHCP, la interfaz de red de la máquina virtual de destino también se establece como DHCP.
 
 ### <a name="static-ip"></a>IP estática
-Si la interfaz de red de la máquina virtual de origen usa IP estática, la interfaz de red de la máquina virtual de destino también se establece en IP estática. La IP estática se elige como se indica a continuación:
+Si la interfaz de red de la máquina virtual de origen usa la IP estática, la interfaz de red de la máquina virtual de destino también se establece en IP estática. La IP estática se elige como se indica a continuación:
 
 #### <a name="same-address-space"></a>Mismo espacio de direcciones
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Uso de máquinas virtuales de prioridad baja con Batch
 
@@ -71,7 +71,7 @@ Azure Batch ofrece varias funcionalidades que facilitan el consumo y que se bene
 
 -   Cuando se interrumpen las tareas, Batch lo detecta y vuelve a poner las tareas en cola para que se ejecuten nuevamente.
 
--   Las máquinas virtuales de prioridad baja tienen una cuota de núcleos separada que difiere de la de las máquinas virtuales dedicadas. 
+-   Las VM de prioridad baja tienen una cuota de vCPU separada que difiere de la de las VM dedicadas. 
     La cuota para las máquinas virtuales de prioridad baja es mayor que la de las máquinas virtuales dedicadas, ya que las primeras tienen un precio inferior. Para más información, consulte [Límites y cuotas del servicio Batch](batch-quota-limit.md#resource-quotas).    
 
 
@@ -183,5 +183,5 @@ Para ver métricas en Azure Portal:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Información general de las características de Lote para desarrolladores](batch-api-basics.md), donde encontrará información esencial para cualquier persona que vaya a utilizar Lote. El artículo contiene información más detallada acerca de los recursos del servicio de Lote, como grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Lote.
+* Consulte [Información general de las características de Batch para desarrolladores](batch-api-basics.md), donde encontrará información esencial para cualquier persona que vaya a utilizar Batch. El artículo contiene información más detallada acerca de los recursos del servicio Batch, como grupos, nodos, trabajos y tareas, así como las numerosas características de API que se pueden usar al compilar cualquier aplicación de Batch.
 * Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.

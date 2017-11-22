@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 11/09/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 59790185c4603eac99032dd77a79bd8315402538
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -70,11 +70,11 @@ Para instalar los controladores de NVIDIA GRID en máquinas virtuales NV, realic
 5. Descargue e instale el controlador de GRID:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 
 6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
@@ -139,11 +139,11 @@ Para instalar los controladores de NVIDIA GRID en máquinas virtuales NV, realic
 5. Descargue e instale el controlador de GRID:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-367.106-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-367.106-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-367.106-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
   ``` 
 6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
 
@@ -165,7 +165,7 @@ Para instalar los controladores de NVIDIA GRID en máquinas virtuales NV, realic
 
 Para consultar el estado del dispositivo de GPU, acceda mediante SSH a la máquina virtual y ejecute la utilidad de línea de comandos [smi nvidia](https://developer.nvidia.com/nvidia-system-management-interface) que se instala con el controlador. 
 
-Verá un resultado similar al siguiente:
+Verá una salida similar a la siguiente. La versión del controlador y los detalles de GPU pueden ser diferentes de los que se muestran.
 
 ![Estado del dispositivo de NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  
@@ -229,7 +229,7 @@ Luego, ejecute los comandos de instalación específicos de su distribución.
 
 1. Descargue e instale los controladores de CUDA.
   ```bash
-  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -352,7 +352,7 @@ Implemente máquinas virtuales NC24r desde una de las imágenes siguientes en Az
 
 * Hay un problema conocido con los controladores CUDA en las máquinas virtuales serie N de Azure que ejecutan el kernel de Linux 4.4.0-75 en Ubuntu 16.04 LTS. Si va a actualizar desde una versión anterior del kernel, actualice al menos a la versión 4.4.0-77.
 
-* Puede establecer el modo de persistencia mediante nvidia-smi para que la salida del comando sea más rápida cuando necesite tarjetas de consulta. Para establecer el modo de persistencia, ejecute `nvidia-smi -pm 1`. Tenga en cuenta que, si se reinicia la máquina virtual, la configuración de modo desaparecerá. Siempre puede crear un script de la configuración de modo para ejecutarla al inicio.
+* Puede establecer el modo de persistencia mediante `nvidia-smi` para que la salida del comando sea más rápida cuando necesita consultar tarjetas. Para establecer el modo de persistencia, ejecute `nvidia-smi -pm 1`. Tenga en cuenta que, si se reinicia la máquina virtual, la configuración de modo desaparecerá. Siempre puede crear un script de la configuración de modo para ejecutarla al inicio.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

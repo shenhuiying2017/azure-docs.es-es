@@ -4,7 +4,7 @@ description: "El primer tutorial para implementar la matriz virtual de StorSimpl
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
@@ -42,7 +42,7 @@ Para implementar StorSimple Virtual Array, consulte los artículos siguientes en
 | **#** | **En este paso** | **Se hace lo siguiente…** | **Y use estos documentos.** |
 | --- | --- | --- | --- |
 | 1. |**Configurar Azure Portal** |Crear y configurar el servicio StorSimple Device Manager antes de aprovisionar StorSimple Virtual Array. |[Deploy StorSimple Virtual Array - Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md) (Implementación de StorSimple Virtual Array: preparar el portal) |
-| 2. |**Aprovisionar la matriz virtual** |En Hyper-V, aprovisionar StorSimple Virtual Array en un sistema host que ejecuta Hyper-V en Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 y conectarse a él. <br></br> <br></br> En VMware, aprovisionar StorSimple Virtual Array en un sistema host que ejecuta VMware ESXi 5.5, y las versiones posteriores, y conectarse a él.<br></br> |[Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) (Implementación de StorSimple Virtual Array: aprovisionamiento de una matriz virtual en Hyper-V) <br></br> <br></br> [Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) (Implementación de StorSimple Virtual Array: aprovisionamiento de una matriz virtual en VMware) |
+| 2. |**Aprovisionar la matriz virtual** |En Hyper-V, aprovisionar StorSimple Virtual Array en un sistema host que ejecuta Hyper-V en Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 y conectarse a él. <br></br> <br></br> En VMware, aprovisionar StorSimple Virtual Array en un sistema host que ejecuta VMware ESXi 5.0, 5.5 o 6.0 y conectarse a él.<br></br> |[Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) (Implementación de StorSimple Virtual Array: aprovisionamiento de una matriz virtual en Hyper-V) <br></br> <br></br> [Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) (Implementación de StorSimple Virtual Array: aprovisionamiento de una matriz virtual en VMware) |
 | 3. |**Configurar la matriz virtual** |Para el servidor de archivos, realice la instalación inicial, registre el servidor de archivos de StorSimple y complete la instalación del dispositivo. A continuación, puede aprovisionar los recursos compartidos de SMB. <br></br> <br></br> Para el servidor iSCSI, realice la configuración inicial, registre el servidor iSCSI de StorSimple y complete la configuración del dispositivo. A continuación, puede aprovisionar los volúmenes iSCSI. |[Deploy StorSimple Virtual Array - Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md) (Implementación de StorSimple Virtual Array: configurar como servidor de archivos)<br></br> <br></br>[Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server](storsimple-virtual-array-deploy3-iscsi-setup.md) (Implementación de StorSimple Virtual Array: configurar un dispositivo virtual como servidor iSCSI) |
 
 Ya puede empezar a configurar Azure Portal.
@@ -70,7 +70,7 @@ Antes de comenzar, asegúrese de que:
 
 Antes de implementar una matriz virtual, asegúrese de que:
 
-* Tenga acceso a un sistema host que ejecuta Hyper-V en Windows Server 2008 R2 o posterior o VMware (ESXi 5.5 o posterior) que puede utilizarse para aprovisionar un dispositivo.
+* Tenga acceso a un sistema host que ejecuta Hyper-V en Windows Server 2008 R2 o posterior o VMware (ESXi 5.0, 5.5 o 6.0) que puede utilizarse para aprovisionar un dispositivo.
 * El sistema host es capaz de dedicar los recursos siguientes para aprovisionar su dispositivo virtual:
   
   * Un mínimo de 4 núcleos.
@@ -136,7 +136,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/).
    
    * VHDX para Hyper-V en Windows Server 2012 y versiones posteriores
    * VHD para Hyper-V en Windows Server 2008 R2 y versiones posteriores
-   * VMDK para VMWare ESXi 5.5 y versiones posteriores
+   * VMDK para VMWare ESXi 5.0, 5.5 o 6.0
 5. Descargue y descomprima el archivo en una unidad local y tome nota de dónde se encuentra el archivo sin comprimir.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Paso opcional: Configurar una cuenta de almacenamiento nueva para el servicio

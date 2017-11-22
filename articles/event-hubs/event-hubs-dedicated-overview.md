@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: db8b119178de0e565b2064e9a52d5e9989d60d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613ea691e38b6f0bcd8873fc2ec6bcafb3cc6c78
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -32,9 +32,9 @@ En la tabla siguiente se comparan niveles de servicio disponibles de Event Hubs.
 | Unidad de rendimiento (entrada de 1 MB/seg., salida de 2 MB/seg.) | Pago por hora | Se incluye |
 | Tamaño de los mensajes | 256 KB | 1 MB |
 | Directivas de publicadores | Sí | Sí |   
-| Grupos de consumidores | 20 | | 20 | |
+| Grupos de consumidores | 20 | 20 | |
 | Redifusión de mensajes | Sí | Sí |
-| Unidades de rendimiento máximo | 20 (flexible a 100)   | 1 CU≈200 |
+| Unidades de rendimiento máximo | 20 (flexible a 100)   | 1 CU ≈ 50 |
 | Conexiones asincrónicas | 1000 incluidos | 100 000 incluidos |
 | Conexiones desacopladas adicionales | Sí | Sí |
 | Retención de mensajes | 1 día incluido | Hasta 7 días incluidos |
@@ -48,18 +48,25 @@ Dispone de las siguientes ventajas cuando utiliza Event Hubs con capacidad dedic
 * El tamaño de los mensajes aumenta a 1 MB frente a los 256 KB del nivel Estándar.
 * Rendimiento repetible cada vez.
 * Capacidad garantizada para satisfacer sus necesidades de ráfagas.
-* Escalable entre 1 y 8 unidades de capacidad: proporciona un máximo de 2 millones de eventos de entrada por segundo.
-  * Las unidades de capacidad administran la escala de Event Hubs dedicado, donde cada unidad puede proporcionar aproximadamente el equivalente de 200 unidades de rendimiento.
+* Incluye la función [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) de Azure Event Hubs, para proporcionar integración con retención a largo plazo y de microlotes.
 * Cero mantenimiento: nosotros administramos el equilibrio de carga, las actualizaciones del sistema operativo, las revisiones de seguridad y la creación de particiones.
-* Precio fijo mensual.
+* Precio por hora fijo.
+* Retención de mensajes hasta siete días sin cargo adicional.
 
 Event Hubs dedicado también elimina algunas de las limitaciones de rendimiento de la oferta Estándar. Las unidades de procesamiento del nivel Estándar proporcionan 1000 eventos por segundo o 1 MB por segundo de entrada por unidad de procesamiento, así como el doble de esa cantidad de salida. La oferta de escala Dedicado no tiene ninguna restricción en la cantidad de eventos de entrada y de salida. Estos límites solo se rigen por la capacidad de procesamiento de los centros de eventos adquiridos.
+
+Este entorno reservado y dedicado proporciona otras funciones exclusivas para este nivel, como las siguientes:
+
+* Controlar el número de espacios de nombres en el clúster
+* Especificar los límites de rendimiento en cada espacio de nombres
+* Configurar el número de instancias de Event Hubs de cada espacio de nombres
+* Determinar el límite del número de particiones
 
 Este servicio está dirigido a los usuarios de telemetría más grandes y está disponible para los clientes con un contrato Enterprise.
 
 ## <a name="how-to-onboard"></a>¿Cómo incorporarlo?
 
-La plataforma de Event Hubs dedicado se ofrece al público a través de un contrato Enterprise con distintos tamaños de unidades de capacidad. Cada unidad de capacidad proporciona aproximadamente el equivalente a 200 unidades de procesamiento. Puede aumentar o reducir verticalmente su capacidad a lo largo del mes para satisfacer sus necesidades agregando o quitando unidades de rendimiento. El plan dedicado es único en el sentido de que tendrá más ayuda del equipo del producto Event Hubs en el proceso de incorporación con el fin de obtener la implementación flexible adecuada. 
+Puede aumentar o reducir verticalmente su capacidad a lo largo del mes para satisfacer sus necesidades agregando o quitando unidades de rendimiento. El plan dedicado es único en el sentido de que tendrá más ayuda del equipo del producto Event Hubs en el proceso de incorporación con el fin de obtener la implementación flexible adecuada. Para incorporar este SKU, póngase en contacto con (soporte de facturación) [https://ms.portal.azure.com/#create/Microsoft.Support] o con su representante de Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Póngase en contacto con su representante de ventas de Microsoft o el Servicio de soporte técnico de Microsoft para obtener detalles adicionales sobre la capacidad Event Hubs Dedicado. Para más información acerca de Event Hubs, visite los vínculos siguientes:

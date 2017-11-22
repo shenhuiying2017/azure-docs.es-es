@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 6d0f85a839171c43d226741f54e0dc954b85601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a1279ba9626ece30491c8fc899054873f6359e2
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Implementación y eliminación de aplicaciones con PowerShell
 > [!div class="op_single_selector"]
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-> * [API de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 > * [CLI de Service Fabric](service-fabric-application-lifecycle-sfctl.md)
+> * [API de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 <br/>
 
@@ -41,7 +41,7 @@ Después de que se ha implementado una aplicación y una instancia está en func
 2. Anular el registro del tipo de aplicación si ya no lo necesita
 3. Quitar el paquete de aplicación del almacén de imágenes
 
-Si usa [Visual Studio para implementar y depurar aplicaciones](service-fabric-publish-app-remote-cluster.md) en el clúster de desarrollo local, todos los pasos anteriores se controlan automáticamente mediante un script de PowerShell,  que se encuentra en la carpeta *Scripts* del proyecto de la aplicación. En este artículo se ofrece información sobre lo que hace ese script para que pueda realizar las mismas operaciones fuera de Visual Studio. 
+Si usa Visual Studio para implementar y depurar aplicaciones en el clúster de desarrollo local, todos los pasos anteriores se controlan automáticamente mediante un script de PowerShell.  que se encuentra en la carpeta *Scripts* del proyecto de la aplicación. En este artículo se ofrece información sobre lo que hace ese script para que pueda realizar las mismas operaciones fuera de Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 Antes de ejecutar los comandos de PowerShell en este artículo, empiece siempre usando [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) para conectarse al clúster de Service Fabric. Para conectarse al clúster de desarrollo local, ejecute lo siguiente:
@@ -184,7 +184,7 @@ DefaultParameters      : { "Stateless1_InstanceCount" = "-1" }
 ```
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Eliminación de un paquete de aplicación del almacén de imágenes
-Se recomienda que quite el paquete de aplicación después de que la aplicación se haya registrado correctamente.  Al eliminar los paquetes de aplicación del almacén de imágenes se liberan recursos del sistema.  Mantener los paquetes de aplicación sin usar consume almacenamiento en disco y conduce a problemas de rendimiento de la aplicación.
+Se recomienda que quite el paquete de aplicación después de que la aplicación se haya registrado correctamente.  Al eliminar los paquetes de aplicación del almacén de imágenes, se liberan recursos del sistema.  Mantener los paquetes de aplicación sin usar consume almacenamiento en disco y conduce a problemas de rendimiento de la aplicación.
 
 ```powershell
 PS C:\>Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore MyApplicationV1

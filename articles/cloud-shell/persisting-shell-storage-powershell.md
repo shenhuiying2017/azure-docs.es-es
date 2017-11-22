@@ -1,5 +1,5 @@
 ---
-title: "Persistencia de archivos en Azure Cloud Shell (versión preliminar) | Microsoft Docs"
+title: "Almacenar archivos en PowerShell en Azure Cloud Shell (versión preliminar) | Microsoft Docs"
 description: "Tutorial de cómo Azure Cloud Shell persiste archivos."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Cómo funciona Cloud Shell
-Cloud Shell conserva los archivos a través del método siguiente: 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Cómo funciona PowerShell en Azure Cloud Shell (versión preliminar)
+PowerShell en Cloud Shell (versión preliminar) conserva los archivos a través del método siguiente: 
 * Montaje del recurso compartido de archivos especificado como `clouddrive` en el directorio `$Home` para la interacción directa del recurso compartido de archivos.
 
 ## <a name="list-cloud-drive-file-shares"></a>Enumeración de los recursos compartidos de archivos de Cloud Drive

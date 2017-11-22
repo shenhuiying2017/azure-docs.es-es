@@ -2,19 +2,19 @@
 title: "Cómo usar Jupyter Notebooks de Azure Machine Learning Workbench | Microsoft Docs"
 description: "Guía para utilizar la función Jupyter Notebooks de Azure Machine Learning Workbench"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Cómo usar Jupyter Notebooks de Azure Machine Learning Workbench
 
@@ -36,7 +36,7 @@ Para obtener más información, consulte la [documentación oficial de Jupyter](
 ![arquitectura del bloc de notas](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## <a name="kernels-in-azure-ml-workbench-notebook"></a>Kernels del bloc de notas de Azure Machine Learning Workbench
-Puede tener acceso a diferentes kernels en Azure Machine Learning Workbench solo configurando las ejecuciones y los destinos de proceso en la carpeta `aml_config` del proyecto. La adición de un nuevo destino de proceso mediante la emisión del comando `az ml computetarget attach` es equivalente a la adición de un kernel nuevo.
+Puede tener acceso a diferentes kernels en Azure Machine Learning Workbench mediante la configuración de las ejecuciones y los destinos de proceso en la carpeta `aml_config` del proyecto. La adición de un nuevo destino de proceso mediante la emisión del comando `az ml computetarget attach` es equivalente a la adición de un kernel nuevo.
 
 >[!NOTE]
 >Revise [Configurar ejecución](experimentation-service-configuration.md) para obtener más información acerca de las configuraciones de ejecución y los destinos de proceso.
@@ -48,6 +48,9 @@ Actualmente, Workbench admite los siguientes tipos de kernels.
 
 ### <a name="local-python-kernel"></a>Kernel de Python local
 Este kernel de Python admite la ejecución en el equipo local. Se integra con el soporte técnico del historial de ejecución de Azure Machine Learning. El nombre del kernel suele ser "my_project_name local".
+
+>[!NOTE]
+>No use el kernel "Python 3". Se trata de un kernel independiente que proporciona Jupyter de forma predeterminada. No se integra con las funcionalidades de Azure Machine Learning.
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Kernel de Python en Docker (local o remoto)
 Este kernel de Python se ejecuta en un contenedor de Docker en el equipo local o en una VM remota de Linux. El nombre del kernel suele ser "my_project docker". El archivo `docker.runconfig` asociado tiene el campo `Framework` establecido en `Python`.
@@ -104,6 +107,33 @@ El explorador predeterminado se inicia automáticamente con el servidor de Jupyt
 Ahora puede hacer clic en un archivo del bloc de notas `.ipynb`, abrirlo y establecer el kernel (si no se ha establecido) e iniciar una sesión interactiva.
 
 ![panel de proyecto](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>Usar comandos mágicos para administrar experimentos
+
+Puede usar los [comandos mágicos](http://ipython.readthedocs.io/en/stable/interactive/magics.html) de las celdas del bloc de notas para realizar un seguimiento del historial de ejecución y guardar los resultados, como modelos o conjuntos de datos.
+
+Para realizar un seguimiento de las ejecuciones individuales de las celdas del bloc de notas, use el comando mágico "%azureml history on". Después de activar el historial, cada ejecución de celda aparecerá como una entrada en el historial de ejecución.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+Para desactivar el seguimiento de las ejecuciones de las celdas, use el comando mágico "%azureml history off".
+
+Puede usar el comando mágico "%azureml upload" para guardar los archivos de datos y el modelo de la ejecución. Los objetos guardados se muestran como resultados en la vista del historial de ejecuciones de una determinada ejecución.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>Los resultados deben guardarse en una carpeta denominada "outputs".
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para obtener información acerca de cómo usar Jupyter Notebook, consulte la [documentación oficial de Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    

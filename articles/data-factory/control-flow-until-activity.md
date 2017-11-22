@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
 La actividad Until proporciona la misma funcionalidad que una estructura de bucle Do-Until en lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory. 
@@ -60,7 +60,7 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 name | Nombre de la actividad `Until`. | String | Sí
 type | Debe establecerse en **Until**. | String | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | Sí
-timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. | No
+timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es 90 días. | No
 Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Sí
 
 ## <a name="example-1"></a>Ejemplo 1

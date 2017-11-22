@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Azure Search es un servicio basado en la nube totalmente administrado que se uti
 * Ajustar la capacidad de servicio, mediante el cambio de la asignación de particiones y réplicas.
 * Supervisar el uso de recursos, en relación con los límites máximos de su nivel de servicio.
 
-**Fuera del ámbito** 
+Tenga en cuenta que *actualizar* no aparece como una tarea administrativa. Dado que los recursos se asignan cuando se aprovisiona el servicio, mover a otro nivel requiere un nuevo servicio. Consulte [Creación de un servicio Azure Search](search-create-service-portal.md) para más información.
 
-*Administración del contenido* (o administración de índices) hace referencia a operaciones tales como el análisis del tráfico de búsqueda para entender el volumen de consultas, la detección de los términos que se buscan y lo satisfactorios que son los resultados de las búsquedas para guiar a los clientes a documentos concretos del índice. Para obtener ayuda en esta área, visite [Análisis de tráfico de búsqueda para Azure Search](search-traffic-analytics.md).
-
-*rendimiento de las consultas* también está fuera del ámbito de este artículo. Para más información, vea [Supervisar el uso y las métricas de consultas](search-monitor-usage.md) y [Rendimiento y optimización](search-performance-optimization.md).
-
-La *actualización* no es una tarea administrativa. Dado que los recursos se asignan cuando se aprovisiona el servicio, mover a otro nivel requiere un nuevo servicio. Consulte [Creación de un servicio Azure Search](search-create-service-portal.md) para más información.
+> [!Tip]
+> ¿Busca ayuda acerca de cómo analizar el rendimiento de consultas o el tráfico de búsqueda? Obtenga información acerca del volumen de las consultas, qué términos buscan los usuarios y la eficacia de los resultados de búsqueda a la hora de guiar a los clientes a determinados documentos del índice. Para obtener instrucciones, consulte [Análisis de tráfico de búsqueda](search-traffic-analytics.md), [Supervisión de un servicio de Azure Search](search-monitor-usage.md) y [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -64,7 +61,7 @@ En Azure Search, los permisos RBAC determinan las siguientes tareas administrati
 | Colaborador |El mismo nivel de acceso que Propietario, menos el administración de roles RBAC. Por ejemplo, un usuario con el rol Colaborador puede ver y regenerar `api-key`, pero no puede modificar pertenencias a roles. |
 | Lector |Ver las claves de estado y consulta de servicio. Los miembros de este rol no pueden cambiar la configuración de un servicio, ni pueden ver claves de administrador. |
 
-Los roles no otorgan derechos de acceso al punto de conexión de servicio. Las operaciones del servicio de búsqueda, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Para más información, consulte "Autorización para administración frente a operaciones de datos" en [¿Qué es el control de acceso basado en roles?](../active-directory/role-based-access-control-what-is.md)
+Los roles no otorgan derechos de acceso al punto de conexión de servicio. Las operaciones del servicio Search, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Para más información, consulte "Autorización para administración frente a operaciones de datos" en [¿Qué es el control de acceso basado en roles?](../active-directory/role-based-access-control-what-is.md)
 
 <a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Registro e información del sistema
@@ -113,15 +110,10 @@ Otra forma de ver los permisos de acceso es hacer clic en **Roles** en la hoja U
 ## <a name="monitor-resource-usage"></a>Supervisar el uso de recursos
 En el panel, la supervisión de recursos se limita a la información que se muestra en el panel de servicios y algunas métricas que puede obtener al consultar el servicio. En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación.
 
-Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Para más información, consulte [Límites de servicio en Azure Search](search-limits-quotas-capacity.md). 
+Al usar la API de REST del servicio de búsqueda, podrá obtener una recuento de los documentos e índices mediante programación: 
 
 * [Obtención de estadísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Recuento de documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Los comportamientos de Almacenamiento en caché pueden sobrevalorar un límite temporalmente. Por ejemplo, al usarse el servicio compartido, es posible que vea un recuento de documentos sobre el límite máximo de 10.000 documentos. La sobrevaloración es temporal y se detectará en la próxima comprobación de aplicación de límite. 
-> 
-> 
+* [Documentos de recuento](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interrupciones de servicio y recuperación ante desastres
 

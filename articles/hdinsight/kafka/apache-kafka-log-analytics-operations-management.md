@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/11/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 856314cafde6059c35963b067287b66c566364a2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 440133da32f4565aa247b273984b3affe18379ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="analyze-logs-for-apache-kafka-preview-on-hdinsight"></a>Análisis de registros para Apache Kafka (versión preliminar) en HDInsight
+# <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
 Obtenga información acerca de cómo usar Microsoft Operations Management Suite para analizar los registros generados por Apache Kafka en HDInsight.
 

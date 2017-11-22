@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Integración de empresas con transformaciones XML
 ## <a name="overview"></a>Información general
@@ -50,6 +50,11 @@ Ahora que ha tenido en cuenta los requisitos previos, tendrá que crear la Aplic
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Seleccione la acción **Transform XML** (Transformar XML)   
 6. Agregue el **CONTENIDO** XML que vaya a transformar. Puede usar cualquier dato XML que reciba en la solicitud HTTP como valor de **CONTENIDO**. En este ejemplo, seleccione el cuerpo de la solicitud HTTP que desencadenó la Aplicación lógica.
+
+   > [!NOTE]
+   > Asegúrese de que el contenido de **Transformar XML** sea XML. Si el contenido no está en formato XML o está codificado en base 64, debe especificar una expresión que procese el contenido. Por ejemplo, puede usar [funciones](logic-apps-workflow-definition-language.md#functions), como ```@base64ToBinary```, para descodificar el contenido o ```@xml``` para procesar el contenido como XML.
+ 
+
 7. Seleccione el nombre de la **ASIGNACIÓN** que quiera usar para realizar la transformación. La asignación ya debe estar en la cuenta de integración. En el paso anterior, ya concedió a la Aplicación lógica acceso a la cuenta de integración que contiene la asignación.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Guarde el trabajo  

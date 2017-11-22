@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-configure-cloud-services"></a>Configuración de servicios en la nube
-> [!div class="op_single_selector"]
-> * [Portal de Azure](cloud-services-how-to-configure-portal.md)
-> * [Portal de Azure clásico](cloud-services-how-to-configure.md)
->
->
-
+# <a name="how-to-configure-cloud-services"></a>Configuración de Cloud Service
 Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de Azure. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
 
 También puede administrar las instancias de los roles de servicio en la nube o conectarse mediante Escritorio remoto a ellas.
@@ -77,9 +71,9 @@ En lugar de usar **Configuración** > **Reglas de alerta**, puede hacer clic en 
 Desde aquí puede personalizar el gráfico que se usa con el icono o agregar una regla de alerta.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Reinicio, restablecimiento de imagen inicial o conexión mediante Escritorio remoto
-En este momento no se puede configurar el Escritorio remoto con el **Portal de Azure**. Sin embargo, se puede configurar a través del [Portal de Azure clásico](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o mediante [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Puede configurar el Escritorio remoto a través de [Azure Portal (configuración del Escritorio remoto)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) o [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Primero, haga clic en la instancia de servicio en la nube.
+Para reiniciar, restablecer la imagen inicial o establecer el acceso remoto en un servicio de nube, haga clic en la instancia de servicio en la nube.
 
 ![Instancia del servicio en la nube](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

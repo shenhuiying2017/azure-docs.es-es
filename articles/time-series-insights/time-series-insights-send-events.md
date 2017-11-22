@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envío de eventos a un entorno de Time Series Insights mediante un centro de eventos
-En este artículo se explica cómo crear y configurar el centro de eventos, y cómo ejecutar una aplicación de ejemplo para insertar eventos. Si tiene un centro de eventos existente con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Time Series Insights](https://insights.timeseries.azure.com).
+En este artículo se explica cómo crear y configurar el centro de eventos, y cómo ejecutar una aplicación de ejemplo para insertar eventos. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Configuración de un centro de eventos
 1. Para crear un centro de eventos, siga las instrucciones de la [documentación](../event-hubs/event-hubs-create.md) de Event Hubs.
@@ -28,7 +28,7 @@ En este artículo se explica cómo crear y configurar el centro de eventos, y c�
 
 3. Haga clic en el nombre del centro de eventos para seleccionarlo.
 
-4. En Entidades de la ventana de configuración central, haga clic en **Event Hubs** de nuevo.
+4. En **Entidades**, en la ventana de configuración central, haga clic en **Event Hubs** de nuevo.
 
 5. Seleccione el nombre del centro de eventos para configurarlo.
 
@@ -244,4 +244,5 @@ Un objeto JSON con una matriz JSON anidada que contiene dos objetos JSON. Esta e
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea el entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).
+> [!div class="nextstepaction"]
+> [Vea el entorno en el explorador de Time Series Insights](https://insights.timeseries.azure.com).

@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Características y herramientas para PowerShell en Azure Cloud Shell
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Características y herramientas para PowerShell en Azure Cloud Shell (versión preliminar)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > También hay disponible un artículo sobre las características y herramientas para [Bash](features.md).
 
-PowerShell en Cloud Shell se ejecuta en `Windows Server 2016`.
+PowerShell en Cloud Shell (versión preliminar) se ejecuta en `Windows Server 2016`.
 
 ## <a name="features"></a>Características
 
 ### <a name="secure-automatic-authentication"></a>Protección de la autenticación automática
 
-PowerShell en Cloud Shell autentica segura y automáticamente el acceso a la cuenta para Azure PowerShell.
+PowerShell en Cloud Shell (versión preliminar) autentica segura y automáticamente el acceso a la cuenta para Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>Persistencia de archivos entre sesiones
 
@@ -45,7 +45,7 @@ Dado que cada solicitud para Cloud Shell asigna una máquina temporal, los archi
 
 ### <a name="azure-drive-azure"></a>Unidad de Azure (Azure):
 
-PowerShell en Cloud Shell se inicia en la unidad de Azure (`Azure:`).
+PowerShell en Cloud Shell (versión preliminar) se inicia en la unidad de Azure (`Azure:`).
 La unidad de Azure permite una fácil detección y navegación de los recursos de Azure, como proceso, red, almacenamiento, etc., de manera similar a la navegación del sistema de archivos.
 Puede seguir usando los [cmdlets de Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) que ya conoce para administrar estos recursos.
 Cualquier cambio que se haga en los recursos de Azure, ya sea directamente en Azure Portal o mediante los cmdlets de Azure PowerShell, se reflejan de manera inmediata en la unidad de Azure.
@@ -109,6 +109,6 @@ Estos comandos se basan en la supervisión de PowerShell y requieren la conectiv
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md)
+[Guía de inicio rápido de PowerShell en Cloud Shell (versión preliminar)](quickstart-powershell.md)
 
 [Información acerca de Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

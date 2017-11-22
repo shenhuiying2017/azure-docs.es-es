@@ -13,16 +13,16 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync de Azure (versión preliminar)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)
 
 SQL Data Sync es un servicio basado en Azure SQL Database que permite sincronizar los datos seleccionados de manera bidireccional entre varias bases de datos SQL e instancias de SQL Server.
 
@@ -44,7 +44,7 @@ Data Sync usa una topología de concentrador y radio para sincronizar los datos.
 -   La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
 
 > [!NOTE]
-> Si usa una base de datos local, debe [configurar un agente local](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync).
+> Si usa una base de datos local, debe [configurar un agente local](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sincronización de datos entre bases de datos](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -78,38 +78,11 @@ Data Sync no es adecuado para los escenarios siguientes:
     -   Si selecciona *Prevalece la base de datos central*, los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
     -   Si selecciona *Prevalece el cliente*, los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
 
-## <a name="common-questions"></a>Preguntas frecuentes
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>¿Con qué frecuencia puede sincronizar mis datos Data Sync? 
-La frecuencia mínima es cada cinco minutos.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>¿Puedo usar Data Sync para realizar la sincronización solo bases de datos locales de SQL Server? 
-No directamente. Sin embargo, es posible realizar una sincronización indirecta entre bases de datos locales de SQL Server, mediante la creación de una base de datos central en Azure y la posterior incorporación de bases de datos locales al grupo de sincronización.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>¿Puedo usar Data Sync para propagar datos de mi base de datos de producción a una base de datos vacía y, después, mantenerlos sincronizados? 
-Sí. Cree el esquema manualmente en la base de datos nueva mediante la generación de scripts del original. Después de crear el esquema, agregue las tablas a un grupo de sincronización para copiar los datos y mantenerlos sincronizados.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>¿Por qué veo tablas que no he creado?  
-Data Sync crea tablas laterales en su base de datos para hacer un seguimiento de los cambios. No las elimine, ya que Data Sync dejaría de funcionar.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>He recibido el mensaje de error "No se puede insertar el valor NULL en la columna \<columna\>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir el error? 
-Este mensaje de error indica que uno de los dos problemas siguientes:
-1.  Puede haber una tabla sin una clave principal. Para corregir este problema, agregue una clave principal a todas las tablas que va a sincronizar.
-2.  Puede haber una cláusula WHERE en la instrucción CREATE INDEX. La sincronización no controla esta condición. Para solucionar este problema, quite la cláusula WHERE o realice los cambios manualmente en todas las bases de datos. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y sigue cambiando como resultado?
-Data Sync no controla las referencias circulares, así que asegúrese de no usarlas. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>¿Cómo se exporta e importa una base de datos con la sincronización de datos?
-Después de exportar una base de datos como un archivo `.bacpac` e importar dicho archivo para crear una base de datos, debe realizar los dos pasos siguientes para usar Data Sync en la nueva base de datos:
-1.  Limpie los objetos de sincronización de datos y las tablas auxiliares en la **nueva base de datos** mediante [este script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Este script elimina todos los objetos de sincronización de datos necesarios de la base de datos.
-2.  Vuelva a crear el grupo de sincronización con la nueva base de datos. Si ya no necesita el grupo de sincronización antiguo, elimínelo.
-
 ## <a name="sync-req-lim"></a> Requisitos y limitaciones
 
 ### <a name="general-requirements"></a>Requisitos generales
 
--   Cada tabla debe tener una clave principal. No cambie el valor de la clave principal de ninguna fila. Si tiene que hacerlo, elimine la fila y vuelva a crearla con el nuevo valor de clave principal. 
+-   Cada tabla debe tener una clave principal. No cambie el valor de la clave principal de ninguna fila. Si tiene que cambiar un valor de clave principal, elimine la fila y vuelva a crearla con el nuevo valor de clave principal. 
 
 -   Una tabla no puede tener una columna de identidad que no sea la clave principal.
 
@@ -151,12 +124,51 @@ Data Sync usa desencadenadores de inserción, actualización y eliminación para
 | Intervalo de sincronización mínimo                                           | 5 minutos              |                             |
 |||
 
+## <a name="faq-about-sql-data-sync"></a>Preguntas frecuentes sobre SQL Data Sync
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>¿Cuánto cuesta el servicio SQL Data Sync (versión preliminar)?
+
+Durante este periodo de versión preliminar, el servicio SQL Data Sync (versión preliminar) se ofrece sin coste alguno.  Sin embargo, sí se acumularán los cargos de transferencia de datos por la entrada y salida de datos de su instancia de SQL Database. Para más información, consulte [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>¿En qué regiones se admite Data Sync?
+
+SQL Data Sync (versión preliminar) está disponible en todas las regiones de la nube pública.
+
+### <a name="is-a-sql-database-account-required"></a>¿Es necesaria una cuenta de SQL Database? 
+
+Sí. Debe tener una cuenta de SQL Database para hospedar la base de datos central.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>¿Puedo usar Data Sync para realizar la sincronización solo bases de datos locales de SQL Server? 
+No directamente. Sin embargo, es posible realizar una sincronización indirecta entre bases de datos locales de SQL Server, mediante la creación de una base de datos central en Azure y la posterior incorporación de bases de datos locales al grupo de sincronización.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>¿Puedo usar Data Sync para propagar datos de mi base de datos de producción a una base de datos vacía y, después, mantenerlos sincronizados? 
+Sí. Cree el esquema manualmente en la base de datos nueva mediante la generación de scripts del original. Después de crear el esquema, agregue las tablas a un grupo de sincronización para copiar los datos y mantenerlos sincronizados.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>¿Se debe usar SQL Data Sync para realizar una copia de seguridad de las bases de datos y restaurarlas?
+
+No se recomienda usar SQL Data Sync (versión preliminar) para crear una copia de seguridad de los datos. No se puede realizar una copia de seguridad y restaurar a un momento específico porque las sincronizaciones de SQL Data Sync (versión preliminar) no tienen asignada una versión. Además, SQL Data Sync (versión preliminar) no realiza una copia de seguridad de otros objetos SQL, como procedimientos almacenados, ni hace el equivalente a una operación de restauración rápidamente.
+
+Consulte [Copiar una base de datos Azure SQL Database](sql-database-copy.md) para ver una técnica de copia de seguridad recomendada.
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>¿Se admite la intercalación en SQL Data Sync?
+
+Sí. SQL Data Sync admite intercalación en los escenarios siguientes:
+
+-   Si las tablas del esquema de sincronización seleccionadas no están ya en sus bases de datos centrales o bases de datos miembro, al implementar el grupo de sincronización, el servicio crea automáticamente las tablas y columnas correspondientes con la configuración de intercalación seleccionada en las bases de datos de destino vacías.
+
+-   Si las tablas que se van a sincronizar ya existen tanto en las bases de datos centrales como en las bases de datos miembro, SQL Data Sync requiere que las columnas de clave principal tengan la misma intercalación entre las bases de datos centrales y las bases de datos miembro para implementar correctamente el grupo de sincronización. No hay restricciones de intercalación para columnas distintas a las columnas de clave principal.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>¿Se admite la federación en SQL Data Sync?
+
+La base de datos raíz de federación puede utilizarse en el servicio SQL Data Sync (versión preliminar) sin limitaciones. No se puede añadir el punto de conexión de la base de datos federada a la versión actual de SQL Data Sync (versión preliminar).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre SQL Data Sync, consulte:
 
--   [Introducción a SQL Data Sync de Azure](sql-database-get-started-sql-data-sync.md)
+-   [Configuración de Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
 -   [Procedimientos recomendados para SQL Data Sync de Azure](sql-database-best-practices-data-sync.md)
+-   [Supervisión de Azure SQL Data Sync con Log Analytics de OMS](sql-database-sync-monitor-oms.md)
 -   [Solución de problemas de SQL Data Sync de Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:

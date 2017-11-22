@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
 ## <a name="overview"></a>Información general
-Azure integra diagnósticos para ayudar a depurar [Aplicaciones web de App Service](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
+Azure integra diagnósticos para ayudar a depurar [Aplicaciones web de App Service](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnóstico, agregar instrumentación a la aplicación y obtener acceso a la información que registra Azure.
 
 En este artículo se usa [Azure Portal](https://portal.azure.com), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -48,19 +48,19 @@ En tiempo de ejecución puede recuperar estos registros para ayudar a solucionar
 Las aplicaciones web de App Service también registran información de implementación al publicar contenido en una aplicación web. Esta acción se lleva a cabo automáticamente, por lo que no es necesario realizar ninguna configuración para el registro de implementaciones. El registro de implementaciones le permite determinar por qué se ha producido un error con la implementación. Por ejemplo, si usa un script de implementación personalizado, puede usar el registro de implementaciones para determinar por qué se ha producido un error con el script.
 
 ## <a name="enablediag"></a>Habilitación de diagnósticos
-Para habilitar diagnósticos en [Azure Portal](https://portal.azure.com), vaya a la hoja de la aplicación web y haga clic en **Configuración > Registros de diagnóstico**.
+Para habilitar el diagnóstico en [Azure Portal](https://portal.azure.com), vaya a la página de la aplicación web y haga clic en **Configuración > Registros de diagnóstico**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de los registros](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. Esta configuración le permite filtrar la información capturada como **informativa**, **advertencia** o **error**. Si establece esta opción en **detallado** , registrará toda la información generada por la aplicación.
+Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. Esta configuración le permite filtrar la información capturada como **informativa**, **advertencia** o **error**. Si establece esta opción en **Registros detallados**, se registrará toda la información que genere la aplicación.
 
 > [!NOTE]
 > Al contrario de lo que ocurre al cambiar el archivo web.config, habilitar Diagnóstico de aplicaciones o cambiar los niveles del registro de diagnóstico no recicla el dominio de la aplicación en el que esta se ejecuta.
 >
 >
 
-En el [Portal clásico](https://manage.windowsazure.com), en la pestaña **Configurar** de la aplicación web, puede seleccionar **almacenamiento** o **sistema de archivos** para el **registro de servidor web**. Si selecciona **almacenamiento** , tiene la opción de seleccionar una cuenta de almacenamiento y, a continuación, un contenedor de blobs en el que se escribirán los registros. Todos los demás registros de **diagnósticos del sitio** se escriben solo en el sistema de archivos.
+En el [Portal clásico](https://manage.windowsazure.com), en la pestaña **Configurar** de la aplicación web, puede seleccionar **almacenamiento** o **sistema de archivos** para el **registro de servidor web**. Si selecciona **almacenamiento**, tiene la opción de seleccionar una cuenta de almacenamiento y, después, un contenedor de blobs en el que se escribirán los registros. Todos los demás registros de **diagnósticos del sitio** se escriben solo en el sistema de archivos.
 
 En el [Portal clásico](https://manage.windowsazure.com) , la pestaña **Configurar** de la aplicación web también tiene una configuración adicional para el diagnóstico de aplicaciones:
 
@@ -113,7 +113,7 @@ Para descargar los archivos de registro, inicie una nueva instancia de Azure Pow
 
     Save-AzureWebSiteLog -Name webappname
 
-Este comando guardará los registros de la aplicación web que especifica el parámetro **-Name** en un archivo con nombre **logs.zip** en el directorio actual.
+Este comando guarda los registros de la aplicación web que especifica el parámetro **-Name** en un archivo denominado **logs.zip** en el directorio actual.
 
 > [!NOTE]
 > Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
@@ -125,7 +125,7 @@ Para descargar los archivos de registro mediante la interfaz de la línea de com
 
     azure site log download webappname
 
-Este comando guardará los registros en la aplicación web denominada "webappname" en un archivo con nombre **diagnostics.zip** en el directorio actual.
+Este comando guarda los registros de la aplicación web denominada "webappname" en un archivo denominado **diagnostics.zip** en el directorio actual.
 
 > [!NOTE]
 > Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../cli-install-nodejs.md).
@@ -136,11 +136,11 @@ Este comando guardará los registros en la aplicación web denominada "webappnam
 Visual Studio Application Insights proporciona herramientas para filtrar y buscar registros y para correlacionar los registros con solicitudes y otros eventos.
 
 1. Incorporación del SDK de Application Insights al proyecto de Visual Studio
-   * En el Explorador de soluciones, haga clic con el botón secundario en el proyecto y elija Agregar Application Insights. Se le guiará a través de pasos que incluyen la creación de un recurso de Application Insights. [Más información](../application-insights/app-insights-asp-net.md)
+   * En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y elija Agregar Application Insights. La interfaz le guiará a través de pasos que incluyen la creación de un recurso de Application Insights. [Más información](../application-insights/app-insights-asp-net.md)
 2. Agregue el paquete del agente de escucha.
-   * Haga clic con el botón secundario en el proyecto y elija Administrar paquetes de NuGet. Seleccione `Microsoft.ApplicationInsights.TraceListener` [Más información](../application-insights/app-insights-asp-net-trace-logs.md)
+   * Haga clic con el botón derecho en el proyecto y elija Administrar paquetes NuGet. Seleccione `Microsoft.ApplicationInsights.TraceListener` [Más información](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
-4. En el [Azure Portal](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otra telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
+4. En [Azure Portal](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otros datos de telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../application-insights/app-insights-diagnostic-search.md)
 
 [Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
@@ -151,7 +151,7 @@ Al implementar una aplicación, suele resultar útil ver la información de regi
 > Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
 >
 > [!NOTE]
-> La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles\\**.
+> La transmisión de registros también transmite información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles\\**.
 >
 >
 
@@ -160,7 +160,7 @@ Para transmitir información de registro, inicie una nueva instancia de Azure Po
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-Este comando establecerá conexión con la aplicación web especificada por el parámetro **-Name** y comenzará a transmitir información a la ventana de PowerShell a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmitirá a la consola local.
+Este comando establecerá conexión con la aplicación web especificada por el parámetro **-Name** y comenzará a transmitir información a la ventana de PowerShell a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmite a la consola local.
 
 Para filtrar eventos específicos, como errores, use el parámetro **-Message** . Por ejemplo:
 
@@ -182,7 +182,7 @@ Para transmitir información de registro, abra una nueva sesión del símbolo de
 
     az webapp log tail --name webappname --resource-group myResourceGroup
 
-Este comando establecerá conexión con la aplicación web denominada "webappname" y comenzará a transmitir información a la ventana a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmitirá a la consola local.
+Este comando establece conexión con la aplicación web denominada "webappname" y comenzará a transmitir información a la ventana a medida que se produzcan los eventos de registro en la aplicación web. Toda la información escrita en archivos terminados en .txt, .log o .htm almacenados en el directorio /LogFiles (d:/home/logfiles) se transmite a la consola local.
 
 Para filtrar eventos específicos, como errores, use el parámetro **--Filter** . Por ejemplo:
 
@@ -205,7 +205,7 @@ El diagnóstico de aplicaciones almacena información con un formato específico
 
 Cada línea registrada en el sistema de archivos o recibida mediante transmisión presentará el siguiente formato:
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 Por ejemplo, un evento de error presentaría un formato similar al siguiente:
 
@@ -258,7 +258,7 @@ Los datos almacenados en un blob serían similares a los siguientes:
 >
 
 ### <a name="failed-request-traces"></a>Seguimientos de solicitudes con error
-El seguimiento de solicitudes con error se almacena en archivos XML con nombre **fr######.xml**. Para facilitar la visualización de la información registrada, se proporciona una hoja de estilo XSL con nombre **freb.xsl** en el mismo directorio que los archivos XML. Al abrir uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento. El formato será similar al siguiente:
+El seguimiento de solicitudes con error se almacena en archivos XML con nombre **fr######.xml**. Para facilitar la visualización de la información registrada, se proporciona una hoja de estilo XSL con nombre **freb.xsl** en el mismo directorio que los archivos XML. Si abre uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento. El resultado es similar al siguiente:
 
 ![solicitud con error visualizada en el explorador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -282,7 +282,3 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 >
 >
-
-## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio de portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715)

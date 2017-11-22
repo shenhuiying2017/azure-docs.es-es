@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Arquitectura de la solución preconfigurada de supervisión remota
 
@@ -141,5 +141,6 @@ Si desea examinar el código fuente y la documentación para desarrolladores, co
 
 * [Solución preconfigurada de supervisión remota con Azure IoT (. NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Solución preconfigurada de supervisión remota con Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Solución preconfigurada para arquitectura de supervisión remota](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Para más información acerca de la solución preconfigurada de supervisión remota, consulte [Personalizar la solución preconfigurada](iot-suite-remote-monitoring-customize.md).

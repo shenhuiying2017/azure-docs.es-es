@@ -8,7 +8,7 @@ Un registro de *vértice* es un registro DNS en la raíz (o *vértice*) de una z
 
 Cada registro DNS tiene un nombre y un tipo. Los registros se organizan en distintos tipos según los datos que contengan. El tipo más común es un registro "A", que asigna un nombre a una dirección IPv4. Otro tipo común es un registro "MX", que asigna un nombre a un servidor de correo.
 
-DNS de Azure es compatible con todos los tipos de registro DNS comunes: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV y TXT. Tenga en cuenta que [los registros de SPF se representan mediante registros TXT](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS es compatible con todos los tipos de registro DNS comunes: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV y TXT. Tenga en cuenta que [los registros de SPF se representan mediante registros TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Conjuntos de registros
 

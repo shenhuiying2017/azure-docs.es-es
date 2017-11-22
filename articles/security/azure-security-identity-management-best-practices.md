@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 Muchos consideran que la identidad es la nueva capa límite de la seguridad, asumiendo ese papel desde la perspectiva tradicional centrada en la red. Esta evolución del eje principal de la atención y las inversiones en materia de seguridad procede del hecho de que los perímetros de red se han vuelto cada vez más porosos y que la defensa perimetral no puede ser tan eficaz como en su día lo fue, antes de la explosión de los dispositivos [BYOD](http://aka.ms/byodcg) y las aplicaciones de nube.
@@ -115,7 +115,7 @@ Utilizan [Azure Resource Manager](../azure-resource-manager/resource-group-overv
 
 Las organizaciones que no controlan cómo se crean los recursos son más susceptibles a que los usuarios puedan hacer un mal uso del servicio y crear más recursos de los necesarios. Endurecer el proceso de creación de recursos es un paso importante para proteger escenarios en los que intervienen varios inquilinos.
 
-Puede aprender más sobre la creación de directivas con Azure Resource Manager en el artículo [Uso de directivas para administrar los recursos y controlar el acceso](../azure-resource-manager/resource-manager-policy.md).
+Para aprender más sobre la creación de directivas con Azure Resource Manager, lea el artículo [¿Qué es Azure Policy?](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Guía para los desarrolladores para aprovechar las funcionalidades de identidad para aplicaciones para SaaS
 La identidad de los usuarios se aprovechará en muchos escenarios cuando los usuarios accedan a [aplicaciones para SaaS](https://azure.microsoft.com/marketplace/active-directory/all/) que se puedan integrar con directorios locales o en la nube. Lo primero y más importante, recomendamos que los desarrolladores usen una metodología segura para desarrollar estas aplicaciones, como [Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft](https://www.microsoft.com/sdl/default.aspx). Azure AD simplifica la autenticación para los desarrolladores, ya que ofrece identificación como servicio, con compatibilidad con protocolos genéricos estándar del sector como [OAuth 2.0](http://oauth.net/2/) y [OpenID Connect](http://openid.net/connect/), además de bibliotecas de código abierto para distintas plataformas.

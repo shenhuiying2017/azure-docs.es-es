@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 523b3608c242a8041a2ea2806543e882de0e492e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
 De forma predeterminada, Azure Container Instances no tiene estado. Si el contenedor se bloquea o se detiene, se pierde todo su estado. Para conservar el estado más allá de la duración del contenedor, debe montar un volumen desde un almacén externo. Este artículo muestra cómo montar un recurso compartido de archivos de Azure para su uso con Azure Container Instances.
 
@@ -55,26 +55,26 @@ Para montar un recurso compartido de archivos de Azure como un volumen en Azure 
 Si ha usado el script anterior, el nombre de la cuenta de almacenamiento se creó con un valor aleatorio al final. Para consultar la cadena final (incluida la parte aleatoria), use los siguientes comandos:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 El nombre del recurso compartido ya se conoce (es *acishare* en el script anterior), por lo que todo lo que queda es la clave de cuenta de almacenamiento, que puede encontrarse con el siguiente comando:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Almacenamiento de los detalles de acceso de la cuenta de almacenamiento con un almacén de claves de Azure
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Almacenamiento de los detalles de acceso de la cuenta de almacenamiento con Azure Key Vault
 
-Las claves de cuenta de almacenamiento protegen el acceso a los datos, por lo que recomendamos almacenarlas en un almacén de claves de Azure.
+Las claves de cuenta de almacenamiento protegen el acceso a los datos, por lo que recomendamos almacenarlas en Azure Key Vault.
 
 Cree un almacén de claves con la CLI de Azure:
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
+az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
 ```
 
 El conmutador `enabled-for-template-deployment` permite a Azure Resource Manager extraer secretos del almacén de claves durante la implementación.
@@ -185,16 +185,16 @@ Inserte los valores en el archivo de parámetros:
 Con la plantilla definida, puede crear el contenedor y montar el volumen de este mediante la CLI de Azure. Suponiendo que el archivo de plantilla y el archivo de parámetros se denominan *azuredeploy.json* y *azuredeploy.parameters.json*, respectivamente, la línea de comandos es:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Una vez que se inicie el contenedor, puede usar la aplicación web simple que se implementó mediante la imagen **seanmckenna/aci-hellofiles**, para administrar los archivos en el recurso compartido de archivos de Azure en la ruta de montaje que especificó. Obtenga la dirección IP de la aplicación web mediante lo siguiente:
+Una vez que se inicie el contenedor, puede usar la aplicación web sencilla que se implementó mediante la imagen **seanmckenna/aci-hellofiles** para administrar los archivos en el recurso compartido de archivos de Azure en la ruta de montaje que especificó. Obtenga la dirección IP de la aplicación web con el comando [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Puede usar una herramienta como el [Explorador de Microsoft Azure Storage](http://storageexplorer.com) para recuperar e inspeccionar el archivo escrito en el recurso compartido de archivos.
+Puede usar una herramienta como el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para recuperar e inspeccionar el archivo escrito en el recurso compartido de archivos.
 
 >[!NOTE]
 > Para más información sobre el uso de plantillas de Azure Resource Manager, archivos de parámetros y la implementación con la CLI de Azure, consulte [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6386678bdac3630f3e003187ff3d12c0ce053b90
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedimientos recomendados para mejorar el rendimiento de SQL Server en Máquinas virtuales de Azure
+# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedimientos recomendados para mejorar el rendimiento de SQL Server en Azure Virtual Machines
 
 ## <a name="overview"></a>Información general
 
-En este tema se ofrecen prácticas recomendadas para optimizar el rendimiento de SQL Server en máquina virtual de Microsoft Azure. Mientras se ejecuta SQL Server en máquinas virtuales de Azure, se recomienda seguir usando las mismas opciones de ajuste de rendimiento de base de datos que son aplicables a SQL Server en el entorno de servidor local. Sin embargo, el rendimiento de una base de datos relacional en una nube pública depende de muchos factores como el tamaño de una máquina virtual y la configuración de los discos de datos.
+En este tema se ofrecen prácticas recomendadas para optimizar el rendimiento de SQL Server en máquina virtual de Microsoft Azure. Mientras se ejecuta SQL Server en Azure Virtual Machines, se recomienda seguir usando las mismas opciones de ajuste de rendimiento de base de datos que son aplicables a SQL Server en el entorno de servidor local. Sin embargo, el rendimiento de una base de datos relacional en una nube pública depende de muchos factores como el tamaño de una máquina virtual y la configuración de los discos de datos.
 
 Al crear imágenes de SQL Server, [considere la posibilidad de aprovisionar las VM en Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Las máquinas virtuales de SQL Server aprovisionadas en el portal con Resource Manager incorporan todas estas prácticas recomendadas, incluida la configuración del almacenamiento.
 
@@ -35,12 +35,12 @@ Este artículo se centra en cómo obtener el *mejor* rendimiento de SQL Server e
 
 ## <a name="quick-check-list"></a>Lista de comprobación rápida
 
-La siguiente es una lista de comprobación rápida para un rendimiento óptimo de SQL Server en máquinas virtuales de Azure:
+La siguiente es una lista de comprobación rápida para un rendimiento óptimo de SQL Server en Azure Virtual Machines:
 
 | Ámbito | Optimizaciones |
 | --- | --- |
 | [Tamaño de VM](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) o superior para la edición SQL Enterprise.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) o superior para las ediciones SQL Standard y Web. |
-| [Almacenamiento](#storage-guidance) |Use [Almacenamiento premium](../premium-storage.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/>Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la VM con SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
+| [Storage](#storage-guidance) |Use [Premium Storage](../premium-storage.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/>Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la VM con SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
 | [Discos](#disks-guidance) |Use un mínimo de 2 [discos P30](../premium-storage.md#scalability-and-performance-targets) (1 para archivos de registro; 1 para archivos de datos y TempDB).<br/><br/>Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.<br/><br/>Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y TempDB.<br/><br/>No habilite el almacenamiento en caché en discos que hospedan el archivo de registro.<br/><br/>Importante: Detenga el servicio de SQL Server cuando se cambie la configuración de caché para un disco de VM de Azure.<br/><br/>Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/>Formato con tamaños de asignación documentados. |
 | [E/S](#io-guidance) |Habilite la compresión de páginas de bases de datos.<br/><br/>Habilite la inicialización instantánea de archivos para archivos de datos.<br/><br/>Limite o deshabilite el crecimiento automático de la base de datos.<br/><br/>Deshabilite la reducción automática de la base de datos.<br/><br/>Mueva todas las bases de datos a discos de datos, incluidas bases de datos del sistema.<br/><br/>Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.<br/><br/>Configure ubicaciones predeterminadas para los archivos de base de datos y de copia de seguridad.<br/><br/>Habilite páginas bloqueadas.<br/><br/>Aplique correcciones de rendimiento de SQL Server. |
 | [Características específicas](#feature-specific-guidance) |Realice una copia de seguridad directamente en el almacenamiento de blobs. |
@@ -56,12 +56,12 @@ En aplicaciones sensibles al rendimiento, se recomienda usar los siguientes [tam
 
 ## <a name="storage-guidance"></a>Orientación sobre el almacenamiento
 
-Las máquinas virtuales de la serie DS (además de las series DSv2 y GS) admiten [Premium Storage](../premium-storage.md). Almacenamiento premium es aconsejable para cargas de trabajo de producción.
+Las máquinas virtuales de la serie DS (además de las series DSv2 y GS) admiten [Premium Storage](../premium-storage.md). Premium Storage es aconsejable para cargas de trabajo de producción.
 
 > [!WARNING]
-> El almacenamiento estándar presenta un ancho de banda y unas latencias variables, de modo que solo se recomienda para cargas de trabajo de desarrollo o de prueba. En las cargas de trabajo de producción conviene usar Almacenamiento premium.
+> Standard Storage presenta un ancho de banda y unas latencias variables, de modo que solo se recomienda para cargas de trabajo de desarrollo o de prueba. En las cargas de trabajo de producción conviene usar Premium Storage.
 
-Además, se recomienda crear su cuenta de almacenamiento de Azure en el mismo centro de datos que sus máquinas virtuales de SQL Server para reducir los retrasos en la transferencia. Al crear una cuenta de almacenamiento, deshabilite la replicación geográfica ya que no se garantiza el orden de escritura coherente entre varios discos. En su lugar, considere la posibilidad de configurar una tecnología de recuperación ante desastres de SQL Server entre dos centros de datos de Azure. Para más información, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
+Además, se recomienda crear su cuenta de almacenamiento de Azure en el mismo centro de datos que sus máquinas virtuales de SQL Server para reducir los retrasos en la transferencia. Al crear una cuenta de almacenamiento, deshabilite la replicación geográfica ya que no se garantiza el orden de escritura coherente entre varios discos. En su lugar, considere la posibilidad de configurar una tecnología de recuperación ante desastres de SQL Server entre dos centros de datos de Azure. Para obtener más información, vea [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="disks-guidance"></a>Orientación sobre los discos
 
@@ -89,7 +89,7 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 
 ### <a name="data-disks"></a>Discos de datos
 
-* **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB. Cada disco de almacenamiento Premium proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el siguiente artículo: [Uso de Almacenamiento Premium para discos](../premium-storage.md).
+* **Uso de discos de datos para los archivos de datos y de registro**: como mínimo, use dos [discos P30](../premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para contener los archivos de registro y otro para contener los archivos de datos y TempDB. Cada disco de Premium Storage proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el siguiente artículo: [Uso de Premium Storage para discos](../premium-storage.md).
 
 * **Seccionamiento de discos**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Observe que diferentes tamaños de máquinas virtuales tienen distintos límites en el número de IOPS y ancho de banda admitidos. Vea las tablas de IOPS por [tamaño de máquina virtual](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use estas directrices:
 
@@ -109,11 +109,11 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 
   * Para Windows 2008 R2 o versiones anteriores, puede usar discos dinámicos (volúmenes seccionados del SO) y el tamaño de la franja siempre es 64 KB. Tenga en cuenta que esta opción es obsoleta a partir de Windows 8/Windows Server 2012. Para obtener información, vea la declaración de soporte técnico en [Servicio de disco virtual está realizando la transición a la API de administración de almacenamiento de Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-  * Si su carga de trabajo no es intensiva de registro y no necesita IOP dedicadas, puede configurar solo un grupo de almacenamiento. De lo contrario, cree dos grupos de almacenamiento, uno para los archivos de registro y otro grupo de almacenamiento para los archivos de datos y TempDB. Determine el número de discos asociados a cada grupo de almacenamiento en función de sus expectativas de carga. Tenga en cuenta que diferentes tamaños de máquina virtual permiten diferentes números de discos de datos conectados. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+  * Si su carga de trabajo no es intensiva de registro y no necesita IOP dedicadas, puede configurar solo un grupo de almacenamiento. De lo contrario, cree dos grupos de almacenamiento, uno para los archivos de registro y otro grupo de almacenamiento para los archivos de datos y TempDB. Determine el número de discos asociados a cada grupo de almacenamiento en función de sus expectativas de carga. Tenga en cuenta que diferentes tamaños de máquina virtual permiten diferentes números de discos de datos conectados. Para obtener más información, consulte [Tamaños de máquinas virtuales](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
   * Si no usa Premium Storage (escenarios de desarrollo y pruebas), se recomienda agregar el número máximo de discos de datos admitidos por el [tamaño de la VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y usar el seccionamiento de discos.
 
-* **Directiva de almacenamiento en caché**: en los discos de datos de Premium Storage, habilite el almacenamiento en caché de lectura en los discos de datos que hospedan solo sus archivos de datos y TempDB. Si no usa el Almacenamiento premium, no habilite el almacenamiento en caché en los discos de datos. Para obtener instrucciones sobre la configuración del almacenamiento en caché de disco, vea los siguientes temas: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) y [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
+* **Directiva de almacenamiento en caché**: en los discos de datos de Premium Storage, habilite el almacenamiento en caché de lectura en los discos de datos que hospedan solo sus archivos de datos y TempDB. Si no usa Premium Storage, no habilite el almacenamiento en caché en los discos de datos. Para obtener instrucciones sobre la configuración del almacenamiento en caché de disco, consulte los siguientes temas. Para el modelo de implementación clásico (ASM), consulte: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) y [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Para el modelo de implementación de Azure Resource Manager, consulte: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) y [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
   > [!WARNING]
   > Detenga el servicio SQL Server al cambiar la configuración de la caché de los discos de máquina virtual de Azure para evitar la posibilidad de que se produzcan daños en la base de datos.
@@ -127,7 +127,7 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 
 ## <a name="io-guidance"></a>Orientación sobre E/S
 
-* Los mejores resultados con el Almacenamiento premium se logran al establecer paralelismos de su aplicación y solicitudes. El almacenamiento premium está diseñado para escenarios donde la profundidad de la cola de E/S es mayor que 1, por lo que verá poco o ningún aumento del rendimiento para las solicitudes de serie de subproceso único (incluso si son intensivas de almacenamiento). Por ejemplo, esto podría afectar a los resultados de pruebas de subproceso único de herramientas de análisis de rendimiento, como SQLIO.
+* Los mejores resultados con Premium Storage se logran al establecer paralelismos de su aplicación y solicitudes. Premium Storage está diseñado para escenarios donde la profundidad de la cola de E/S es mayor que 1, por lo que verá poco o ningún aumento del rendimiento para las solicitudes de serie de subproceso único (incluso si son intensivas de almacenamiento). Por ejemplo, esto podría afectar a los resultados de pruebas de subproceso único de herramientas de análisis de rendimiento, como SQLIO.
 
 * Recuerde que también puede usar la [compresión de páginas de bases de datos](https://msdn.microsoft.com/library/cc280449.aspx) , ya que puede ayudarle a mejorar el rendimiento de las cargas de trabajo intensivas de E/S. Sin embargo, la compresión de datos puede aumentar el consumo de la CPU en el servidor de bases de datos.
 
@@ -156,7 +156,7 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 
 Algunas implementaciones pueden lograr ventajas de rendimiento adicionales mediante técnicas de configuración más avanzadas. En la siguiente lista se destacan algunas características de SQL Server que pueden ayudarle a lograr un mejor rendimiento:
 
-* **Copia de seguridad para el almacenamiento de Azure**: al realizar copias de seguridad para SQL Server que se ejecutan en máquinas virtuales de Azure, puede usar [Copia de seguridad de SQL Server a URL](https://msdn.microsoft.com/library/dn435916.aspx). Esta característica está disponible a partir de SQL Server 2012 SP1 CU2 y se recomienda para las copias de seguridad en los discos de datos conectados. Al realizar copias de seguridad o restaurar en o desde el almacenamiento de Azure, siga las recomendaciones que se ofrecen en [Solución de problemas y prácticas recomendadas de copia de seguridad de SQL Server en URL y restauración a partir de copias de seguridad almacenadas en el Almacenamiento de Azure](https://msdn.microsoft.com/library/jj919149.aspx). También puede automatizar estas copias de seguridad con [copia de seguridad automatizada para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+* **Copia de seguridad para el almacenamiento de Azure**: al realizar copias de seguridad para SQL Server que se ejecutan en máquinas virtuales de Azure, puede usar [Copia de seguridad de SQL Server a URL](https://msdn.microsoft.com/library/dn435916.aspx). Esta característica está disponible a partir de SQL Server 2012 SP1 CU2 y se recomienda para las copias de seguridad en los discos de datos conectados. Al realizar copias de seguridad o restaurar en o desde el almacenamiento de Azure, siga las recomendaciones que se ofrecen en [Solución de problemas y prácticas recomendadas de copia de seguridad de SQL Server en URL y restauración a partir de copias de seguridad almacenadas en Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). También puede automatizar estas copias de seguridad con [Automated Backup para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
     Antes de SQL Server 2012, puede usar la [Herramienta de copia de seguridad de SQL Server a Azure](https://www.microsoft.com/download/details.aspx?id=40740). Esta herramienta puede ayudar a aumentar el rendimiento de la copia de seguridad con varios destinos de franjas de copia de seguridad.
 
@@ -166,4 +166,4 @@ Algunas implementaciones pueden lograr ventajas de rendimiento adicionales media
 
 Para ver prácticas recomendadas de seguridad, vea [Consideraciones de seguridad para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-Revise otros temas de la máquina virtual de SQL Server en [Información general de SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+Revise otros temas de la máquina virtual de SQL Server en [Información general sobre SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: "Guía de inicio rápido de Bash en Azure Cloud Shell (versión preliminar) | Microsoft Docs"
+title: "Guía de inicio rápido de Bash en Azure Cloud Shell | Microsoft Docs"
 description: "Guía de inicio rápido para Bash en Cloud Shell"
 services: 
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: bbad2735acf06ebefda020410731fb307c4ec614
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ed83b28fe5f0f1e9626115390f8697dfb2c8ead
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guía de inicio rápido para Bash en Azure Cloud Shell
 
@@ -30,7 +30,7 @@ En este documento se detalla cómo usar Bash en Azure Cloud Shell en [Azure Port
 ## <a name="start-cloud-shell"></a>Inicio de Cloud Shell
 1. Inicie **Cloud Shell** en la navegación superior de Azure Portal <br>
 ![](media/quickstart/shell-icon.png)
-2. Seleccione una suscripción para crear una cuenta de almacenamiento y un recurso compartido de archivos de Azure
+2. Seleccione una suscripción para crear una cuenta de almacenamiento y un recurso compartido de Microsoft Azure Files
 3. Seleccione "Create storage" (Creación de almacenamiento)
 
 > [!TIP]
@@ -59,7 +59,7 @@ Cree una máquina virtual con Ubuntu en su nuevo grupo de recursos. La CLI de Az
 `az vm create -n my_vm_name -g MyRG --image UbuntuLTS --generate-ssh-keys`
 
 > [!NOTE]
-> La CLI de Azure 2.0 coloca las claves públicas y privadas usadas para autenticar la máquina virtual en `/User/.ssh/id_rsa` y `/User/.ssh/id_rsa.pub` de forma predeterminada. La carpeta .ssh se conserva en la imagen de 5 GB adjunta del recurso compartido de archivos de Azure.
+> La CLI de Azure 2.0 coloca las claves públicas y privadas usadas para autenticar la máquina virtual en `/User/.ssh/id_rsa` y `/User/.ssh/id_rsa.pub` de forma predeterminada. La carpeta .ssh se conserva en la imagen de 5 GB adjunta del recurso compartido de Azure Files.
 
 Su nombre de usuario en esta máquina virtual será el nombre de usuario utilizado en Cloud Shell ($User@Azure:).
 
@@ -79,4 +79,4 @@ Ejecute `az group delete -n MyRG`
 ## <a name="next-steps"></a>Pasos siguientes
 [Información sobre la persistencia de los archivos para Bash en Cloud Shell](persisting-shell-storage.md) <br>
 [Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
-[Información sobre Azure File Storage](../storage/files/storage-files-introduction.md) <br>
+[Información sobre el almacenamiento de Azure Files](../storage/files/storage-files-introduction.md) <br>

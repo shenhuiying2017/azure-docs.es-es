@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 33a3474ed91194efbaf2ef96957ad268f43a717e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric con Linux en una instancia de Azure Virtual Network
 Este tutorial es la primera parte de una serie. Obtendrá información sobre cómo implementar un clúster de Service Fabric con Linux en una instancia existente de Azure Virtual Network (VNET) y en una subred mediante la CLI de Azure. Cuando haya terminado, tendrá un clúster que se ejecuta en la nube en el que puede implementar aplicaciones. Para crear un clúster con Windows mediante PowerShell, consulte la información sobre la [creación de un clúster con Windows seguro en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -35,6 +35,7 @@ En este tutorial, aprenderá a:
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Crear un clúster seguro en Azure
+> * [Escalado o reducción horizontal](/service-fabric-tutorial-scale-cluster.md)
 > * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Requisitos previos

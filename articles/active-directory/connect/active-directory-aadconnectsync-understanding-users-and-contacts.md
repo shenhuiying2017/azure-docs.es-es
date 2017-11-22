@@ -1,6 +1,6 @@
 ---
-title: "Sincronización de Azure AD Connect: descripción de usuarios y contactos | Microsoft Docs"
-description: Explica los usuarios y los contactos en Azure AD Connect Sync.
+title: "Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos | Microsoft Docs"
+description: "Explica los usuarios, grupos y contactos en la sincronización de Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,24 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 0ad3194a0827c4ef68267ce5e3e3fcbe225e8a3d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync: descripción de usuarios y contactos
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos
 Hay diversas razones por las que podría interesarle tener varios bosques de Active Directory y hay diversas topologías de implementación. Los modelos comunes incluyen una implementación cuenta-recurso y bosques sincronizados de lista global de direcciones tras una fusión y adquisición. Sin embargo, aunque existan modelos puros, los modelos híbridos también son comunes. La configuración predeterminada de Azure AD Connect no da por supuesto ningún modelo en particular, pero en función de cómo se haya seleccionado la coincidencia de usuarios en la guía de instalación, pueden observarse comportamientos diferentes.
 
 En este tema, veremos cómo se comporta la configuración predeterminada en ciertas topologías. Además analizaremos la configuración, que puede examinarse mediante el Editor de reglas de sincronización.
 
 Existen varias reglas generales que la configuración da por supuesto:
-
 * Independientemente del orden en el que importemos los directorios de Active Directory de origen, el resultado final siempre debe ser el mismo.
 * Una cuenta activa siempre aporta información de inicio de sesión, **userPrincipalName** y **sourceAnchor** incluidos.
 * Una cuenta deshabilitada aportará userPrincipalName y sourceAnchor, a menos que sea un buzón vinculado si no hay ninguna cuenta activa a encontrar.
 * Una cuenta con un buzón vinculado nunca se utilizará para userPrincipalName y sourceAnchor. Se da por supuesto que más adelante se encontrará una cuenta activa.
 * Podría aprovisionarse un objeto de contacto en Azure AD como contacto o como usuario. No se sabe con seguridad hasta que se han procesado todos los bosques de Active Directory de origen.
+
+## <a name="groups"></a>Grupos
+Puntos importantes para tener en cuenta durante la sincronización de grupos de Active Directory a Azure AD:
+
+* Azure AD Connect excluye los grupos de seguridad integrados de la sincronización de directorios.
+
+* Azure AD Connect no admite la sincronización de [pertenencias de grupo principal](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) a Azure AD.
+
+* Azure AD Connect no admite la sincronización de [pertenencias de grupo de distribución dinámico](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) a Azure AD.
+
+* Para sincronizar un grupo de Active Directory a Azure AD como un grupo habilitado para correo electrónico:
+
+    * Si el atributo del grupo *proxyAddress* está vacío, su atributo *mail* debe tener un valor, o 
+
+    * Si el atributo del grupo *proxyAddress* no está vacío, también debe contener un valor de dirección de proxy SMTP principal (tal y como indica el prefijo con mayúsculas **SMTP**). Estos son algunos ejemplos:
+    
+      * Un grupo de Active Directory cuyo atributo proxyAddress tiene el valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* no estará habilitado para correo electrónico en Azure AD. No tiene ninguna dirección SMTP principal.
+      
+      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* no estará habilitado para correo electrónico en Azure AD. Tiene una dirección SMTP pero no es principal.
+      
+      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* estará habilitado para correo electrónico en Azure AD.
 
 ## <a name="contacts"></a>Contactos
 Tras una fusión o una adquisición donde la solución GALSync actúa como puente entre dos o más bosques de Exchange, es habitual que los contactos representen a un usuario en un bosque diferente. El objeto de contacto siempre se une desde el espacio del conector al metaverso mediante el atributo de correo. Si ya existe un objeto de contacto o un objeto de usuario con la misma dirección de correo, los objetos se unen. Esto se configura en la regla **In from AD – Contact Join**. Existe también una regla llamada **In from AD – Contact Common** con un flujo de atributos al atributo de metaverso **sourceObjectType** con la constante **Contact**. Esta regla tiene una precedencia muy baja, por lo que si algún objeto de usuario se une al mismo objeto de metaverso, la regla **In from AD – User Common** aportará el valor User a este atributo. Con esta regla, este atributo tendrá el valor Contact si no se ha unido ningún usuario y el valor User si se ha encontrado por lo menos un usuario.

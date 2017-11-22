@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/20/2016
 ms.author: jonatul
-ms.openlocfilehash: 307b327e4c04a0461e39930114eb193791cbda9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76473349b2c6121d8f289a86b46c10a8b8697b34
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-dns-records-in-azure-dns-using-the-azure-cli-10"></a>Administración de registros de DNS en Azure DNS mediante la CLI de Azure 1.0
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](dns-operations-recordsets-portal.md)
+> * 
+            [Azure Portal](dns-operations-recordsets-portal.md)
 > * [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 > * [CLI de Azure 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
@@ -104,6 +105,14 @@ No se proporciona un ejemplo para crear un conjunto de registros SOA, dado que l
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com test-aaaa AAAA --ipv6-address 2607:f8b0:4009:1803::1005
+```
+
+### <a name="create-a-caa-record"></a>Creación de un registro CAA
+
+En el ejemplo siguiente se muestra cómo crear un registro CAA. 
+
+```azurecli
+azure network dns record-set add-record MyResourceGroup contoso.com ca1 CAA --caaflags 0 --caatag issue --caavalue "ca1.contoso.com"
 ```
 
 ### <a name="create-a-cname-record"></a>Creación de un registro CNAME

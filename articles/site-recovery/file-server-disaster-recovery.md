@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación de varias cargas de trabajo.
 
-En este artículo se describe cómo proteger un servidor de archivos mediante Azure Site Recovery y otras recomendaciones para adaptar distintos entornos. 
+En este artículo se describe cómo proteger un servidor de archivos mediante Azure Site Recovery y otras recomendaciones para adaptar distintos entornos.     
 
 - [Protección de las máquinas de servidor de archivos de IaaS de Azure](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [Protección de servidores de archivos locales](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -51,7 +51,7 @@ En la referencia anterior, varios servidores de archivos a los que se hace refer
 
 El diagrama siguiente proporciona una representación gráfica destinada a facilitar las decisiones de la estrategia que utilizar para su entorno de servidor de archivos.
 
-![árbol de decisión](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Factores que hay que tener en cuenta al tomar la decisión de recuperación ante desastres

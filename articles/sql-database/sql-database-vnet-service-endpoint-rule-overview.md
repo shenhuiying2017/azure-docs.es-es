@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -141,6 +141,9 @@ Para Azure SQL Database, la característica de las reglas de red virtual tiene l
 - Cada servidor de Azure SQL Database puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
 
 - Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
+
+- La activación de puntos de conexión de servicio de red virtual en Azure SQL Database también habilita los puntos de conexión para los servicios MySQL y PostGres de Azure. Sin embargo, con los puntos de conexión activados, se producirá un error al intentar conectarse desde los puntos de conexión con las instancias de MySQL o Postgres.
+    - El motivo subyacente es que MySQL y PostGres no admiten ACLing actualmente.
 
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
     - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]

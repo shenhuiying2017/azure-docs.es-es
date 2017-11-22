@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: denlee
 ms.custom: mvc
-ms.openlocfilehash: b1419e5aad9446b9d96450cfad79b200cda9a518
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 613956416d35687c5f2fe0123a9a59182390b440
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: desarrollo con API Graph en .NET
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
@@ -53,7 +53,6 @@ Para comenzar, creemos una cuenta de Azure Cosmos DB en Azure Portal.
 
 > [!TIP]
 > * ¿Ya tiene una cuenta de Azure Cosmos DB? Si es así, vaya a [Configuración de la solución de Visual Studio](#SetupVS)
-> * ¿Ya tenía una cuenta de Azure DocumentDB? Si es así, ahora es una cuenta de Azure Cosmos DB, por lo que puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS).  
 > * Si usa el Emulador de Azure Cosmos DB, siga los pasos que se indican en [Emulador de Azure Cosmos DB](local-emulator.md) para configurar el emulador y vaya directamente a [Configuración de la solución de Visual Studio](#SetupVS). 
 >
 > 
@@ -86,7 +85,7 @@ En Azure Portal, vaya a la cuenta de Azure Cosmos DB, haga clic en **Claves** y,
 
 Copie el URI desde el portal y péguelo en `Endpoint` en la propiedad de punto de conexión anterior. Luego copie la CLAVE PRINCIPAL del portal y péguela en la propiedad `AuthKey` anterior. 
 
-![Captura de pantalla de Azure Portal usada por el tutorial para crear una aplicación de C#. Muestra una cuenta de Azure Cosmos DB, con el botón CLAVES resaltado en la navegación de Azure Cosmos DB y los valores de URI y PRIMARY KEY resaltados en la hoja Claves][claves] 
+![Captura de pantalla de Azure Portal usada en el tutorial para crear una aplicación de C#. Muestra una cuenta de Azure Cosmos DB con el botón CLAVES resaltado en la navegación de Azure Cosmos DB y los valores del URI y la CLAVE PRINCIPAL resaltados en la hoja Claves](./media/tutorial-develop-graph-dotnet/keys.png) 
  
 ## <a id="instantiate"></a>Creación de instancia de DocumentClient 
 A continuación, cree una instancia nueva de **DocumentClient**.  

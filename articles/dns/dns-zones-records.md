@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -54,6 +54,16 @@ En DNS de Azure, el TTL se especifica para el conjunto de registros, no para cad
 DNS de Azure admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven como respuesta a cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín). Azure DNS admite los conjuntos de registros de carácter comodín para todos los tipos de registros, excepto NS y SOA.
 
 Para crear un conjunto de registros comodín, utilice el nombre de conjunto de registros "\*". Como alternativa, también puede utilizar un nombre con "\*" como su etiqueta a la izquierda, por ejemplo,"\*.foo".
+
+### <a name="caa-records"></a>Registros CAA
+
+Los registros CAA permiten a los propietarios especificar qué entidades de certificación (CA) están autorizadas para emitir certificados para su dominio. Esto permite a las entidades de certificación evitar certificados no emitidos en algunas circunstancias. Los registros CAA tienen tres propiedades:
+* **Marcas**: se trata de un número entero entre 0 y 255, que se utiliza para representar la marca crítica que tiene un significado especial según el [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Etiqueta**: una cadena ASCII que puede ser una de las siguientes:
+    * **issue**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (todos los tipos).
+    * **issuewild**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (solo certificados comodín)
+    * **iodef**: utilice esta etiqueta para especificar una dirección de correo electrónico o nombre de host a la que las entidades de certificación pueden notificar solicitudes de problemas de certificados no autorizados.
+* **Valor**: el valor de la etiqueta específica elegida.
 
 ### <a name="cname-records"></a>Registros CNAME
 

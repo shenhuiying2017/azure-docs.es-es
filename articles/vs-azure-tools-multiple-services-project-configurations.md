@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59492ccc64a70680d71ad1de0700ed30f9e45306
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>Configuración de su proyecto Azure mediante varias configuraciones de servicio
 Un proyecto de servicio en la nube de Azure incluye dos archivos de configuración: ServiceDefinition.csdef y ServiceConfiguration.cscfg. Estos archivos están empaquetados con la aplicación de servicio en la nube de Azure y se implementan en Azure.
@@ -30,7 +30,7 @@ Azure Tools para Microsoft Visual Studio proporciona páginas de propiedades que
 
 ![VS_Solution_Explorer_Roles_Properties](./media/vs-azure-tools-multiple-services-project-configurations/IC784076.png)
 
-Para obtener información acerca de los esquemas subyacentes para los archivos de configuración y definición de servicio, consulte [Referencia de esquemas](https://msdn.microsoft.com/library/azure/dd179398.aspx). Para obtener más información sobre la configuración del servicio, consulte [Configuración de Cloud Services](cloud-services/cloud-services-how-to-configure.md).
+Para obtener información acerca de los esquemas subyacentes para los archivos de configuración y definición de servicio, vea los artículos [Esquema XML de .csdef](cloud-services/schema-csdef-file.md) y [Esquema XML de .csdef](cloud-services/schema-cscfg-file.md). Para obtener más información sobre la configuración del servicio, consulte [Configuración de Cloud Services](cloud-services/cloud-services-how-to-configure-portal.md).
 
 ## <a name="configuring-role-properties"></a>Configuración de las propiedades de rol
 Las páginas de propiedades de un rol web y un rol de trabajo son similares, salvo por las diferencias que se indican en las secciones siguientes.
@@ -88,7 +88,7 @@ Puede usar la página de propiedades **Almacenamiento local** para reservar uno 
 ## <a name="certificates-page"></a>Página Certificados
 En la página **Certificados** , puede asociar certificados a un rol. Los certificados que agregue se pueden usar para configurar los extremos HTTPS en la página de propiedades **Extremos** .
 
-La página de propiedades **Certificados** agrega información sobre los certificados a la configuración del servicio. Tenga en cuenta que sus certificados no se incluyen con el servicio, debe cargarlos por separado en Azure mediante el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
+La página de propiedades **Certificados** agrega información sobre los certificados a la configuración del servicio. Tenga en cuenta que sus certificados no se incluyen con el servicio, debe cargarlos por separado en Azure mediante [Azure Portal](http://portal.azure.com).
 
 Para asociar un certificado a su rol, proporcione un nombre para el certificado. Usará este nombre para hacer referencia al certificado cuando configure un punto de conexión HTTPS en la página de propiedades **Puntos de conexión**. A continuación, especifique si el almacén de certificados es **Equipo local** o **Usuario actual**, así como el nombre del almacén. Por último, especifique la huella digital del certificado. Si el certificado está en el almacén Current User\Personal (My), para especificar la huella digital del certificado selecciónelo en una lista rellenada. Si se encuentra en otra ubicación, especifique el valor de la huella digital manualmente.
 

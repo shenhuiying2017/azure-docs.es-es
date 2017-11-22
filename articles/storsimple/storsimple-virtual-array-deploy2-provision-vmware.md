@@ -4,7 +4,7 @@ description: "En este segundo tutorial de la serie de implementación de matrice
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 495ef6a93ee06423495269306ad06e76dda13e10
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Información general
-En este tutorial se describe cómo aprovisionar y conectarse una matriz virtual de StorSimple en un sistema host que ejecuta VMware ESXi 5.5 y versiones posteriores. Este artículo se aplica a la implementación de instancias de StorSimple Virtual Array en Azure Portal, así como en la nube de administración pública de Microsoft Azure.
+En este tutorial se describe cómo aprovisionar y conectarse a una instancia de StorSimple Virtual Array en un sistema host que ejecuta VMware ESXi 5.0, 5.5 o 6.0. Este artículo se aplica a la implementación de instancias de StorSimple Virtual Array en Azure Portal, así como en la nube de administración pública de Microsoft Azure.
 
 Para aprovisionar un dispositivo virtual y conectarse a él se necesitan privilegios de administrador. El aprovisionamiento y la instalación inicial pueden tardar unos 10 minutos en completarse.
 
 ## <a name="provisioning-prerequisites"></a>Requisitos previos de aprovisionamiento
-Estos son los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que ejecuta VMware ESXi 5.5 y versiones posteriores.
+Estos son los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que ejecuta VMware ESXi 5.0, 5.5 o 6.0.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Para el servicio StorSimple Device Manager
 Antes de comenzar, asegúrese de que:
@@ -64,7 +64,7 @@ Para aprovisionar un dispositivo virtual y conectarse a él, es preciso que real
 ## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Paso 1: Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual
 Para crear un dispositivo virtual, necesitará:
 
-* Acceso a un sistema host que ejecute VMware ESXi Server 5.5 y versiones posteriores.
+* Acceso a un sistema host que ejecute VMware ESXi Server 5.0, 5.5 o 6.0.
 * Cliente VMware vSphere en el sistema para administrar el host ESXi.
 
   * Un mínimo de 4 núcleos.
@@ -183,6 +183,9 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
 Ahora la máquina virtual está aprovisionada. El paso siguiente es encender este equipo y obtener la dirección IP.
+
+> [!NOTE]
+> Se recomienda que no instale las herramientas de VMware en la matriz virtual (aprovisionada anteriormente). La instalación de las herramientas de VMware generará una configuración incompatible.
 
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Paso 3: Iniciar el dispositivo virtual y obtener la dirección IP
 Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a él.

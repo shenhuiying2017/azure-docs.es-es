@@ -12,22 +12,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/10/2017
 ms.author: markgal
-ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58080d0e045f1825e89287fc421b7e84db36331e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Supervisión y administración de almacenes y servidores de los Servicios de recuperación de Azure para máquinas Windows
-> [!div class="op_single_selector"]
-> * [Resource Manager](backup-azure-manage-windows-server.md)
-> * [Clásico](backup-azure-manage-windows-server-classic.md)
->
->
 
-En este artículo encontrará información general sobre las tareas de administración y supervisión de copias de seguridad que tiene disponibles en Azure Portal y en el agente de Microsoft Azure Backup. En este artículo se asume que ya tiene una suscripción de Azure y que ha creado al menos un almacén de Recovery Services.
+Este artículo incluye información general sobre las tareas de administración y supervisión de copias de seguridad disponibles en Azure Portal y en el agente de Microsoft Azure Backup. En este artículo se asume que ya tiene una suscripción de Azure y que ha creado al menos un almacén de Recovery Services.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -36,20 +31,20 @@ En este artículo encontrará información general sobre las tareas de administr
 
 El panel de almacén de Recovery Services muestra los detalles o los atributos de un almacén de Recovery Services.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante la suscripción de Azure.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) mediante la suscripción de Azure.
 2. En el menú central, haga clic en **Más servicios**.
 
     ![Apertura de la lista de almacenes de Recovery Services paso 1.](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
 
 3. Quiere abrir un almacén de Recovery Services. En el cuadro de diálogo, comience a escribir **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Recovery Services** para mostrar la lista de almacenes de Recovery Services de la suscripción.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
+    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults-2.png) <br/>
 
     Se abre la lista de almacenes de Recovery Services.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. En la lista de almacenes, seleccione el nombre del almacén de Recovery Services que quiere abrir. Se abre la hoja del panel del almacén de Servicios de recuperación.
+4. En la lista de almacenes, seleccione el nombre del almacén de Recovery Services que quiere abrir. Se abre el menú del panel del almacén de Recovery Services.
 
     ![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -57,7 +52,7 @@ El panel de almacén de Recovery Services muestra los detalles o los atributos d
 
 ## <a name="monitor-backup-jobs-and-alerts"></a>Supervisión de trabajos y alertas de copia de seguridad
 
-Puede supervisar los trabajos y alertas desde el panel del almacén de Servicios de recuperación, en el que encontrará:
+Puede supervisar los trabajos y alertas desde el panel del almacén de Recovery Services, en el que encontrará:
 
 * Detalles de las alertas de copia de seguridad
 * Archivos y carpetas, así como las máquinas virtuales de Azure protegidas en la nube
@@ -66,13 +61,13 @@ Puede supervisar los trabajos y alertas desde el panel del almacén de Servicios
 
 ![Copia de seguridad de las tareas del panel](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
-Si hace clic en la información de cada uno de estos iconos, se abrirá la hoja asociada en la que podrá administrar las tareas relacionadas.
+Si hace clic en la información de cada uno de estos iconos, se abrirá el menú asociado en el que podrá administrar las tareas relacionadas.
 
 En la parte superior del panel:
 
-* El icono de configuración proporciona acceso a las tareas de copia de seguridad disponibles.
-* El icono de copia de seguridad: ayuda a realizar la copia de seguridad de nuevos archivos y carpetas (o máquinas virtuales de Azure) en el almacén de Servicios de recuperación.
-* El icono de eliminación: en caso de que ya no se use un almacén de Servicios de recuperación, puede eliminarlo para liberar espacio de almacenamiento. Este icono solo estará habilitado después de que todos los servidores protegidos se hayan eliminado del almacén.
+* El icono de configuración: proporciona acceso a las tareas de copia de seguridad disponibles.
+* El icono de copia de seguridad: ayuda a realizar la copia de seguridad de nuevos archivos y carpetas (o máquinas virtuales de Azure) en el almacén de Recovery Services.
+* El icono de eliminación: en caso de que ya no se use un almacén de Recovery Services, elimínelo para liberar espacio de almacenamiento. Este icono solo estará habilitado después de que todos los servidores protegidos se hayan eliminado del almacén.
 
 ![Copia de seguridad de las tareas del panel](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
@@ -80,11 +75,11 @@ En la parte superior del panel:
 | Nivel de alerta | Alertas enviadas |
 | --- | --- |
 | Crítico |Error de copia de seguridad, error de recuperación |
-| Warning (Advertencia) |Copia de seguridad completada con advertencias (cuando menos de cien archivos no se copian debido a problemas de daños y más de un millón de archivos se copian correctamente) |
+| Warning (Advertencia) |Copia de seguridad completada con advertencias (cuando menos de 100 archivos no se copian debido a problemas de daños y más de un millón de archivos se copian correctamente) |
 | Informativo |None |
 
 ## <a name="manage-backup-alerts"></a>Administración de alertas de copia de seguridad
-Haga clic en el icono de **Alertas de copias de seguridad** para abrir la hoja **Alertas de copias de seguridad** y administrar las alertas.
+Haga clic en el icono de **Alertas de copias de seguridad** para abrir el menú **Alertas de copias de seguridad** y administrar las alertas.
 
 ![Alertas de copias de seguridad](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
 
@@ -93,23 +88,23 @@ El icono de alertas de copia de seguridad le muestra el número de:
 * alertas críticas sin resolver en las últimas 24 horas
 * alertas de advertencia sin resolver en las últimas 24 horas
 
-Si hace clic en cada uno de estos vínculos le llevarán a la hoja **Alertas de copias de seguridad** con una vista filtrada de estas alertas (críticas o de advertencia).
+Haga clic en el vínculo para ver el menú **Alertas de copias de seguridad**, con una vista filtrada de estas alertas (críticas o de advertencia).
 
-En la hoja Alertas de copias de seguridad, puede:
+En el menú Alertas de copias de seguridad, puede:
 
 * Elegir la información adecuada para incluir con sus alertas.
 
     ![Elegir columnas](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-* Filtrar alertas por gravedad, el estado y la hora de inicio y finalización.
+* Filtrar alertas por gravedad, estado, y hora de inicio y finalización.
 
     ![Filtrar alertas](./media/backup-azure-manage-windows-server/filter-alerts.png)
 * Configure las notificaciones según la gravedad, la frecuencia y los destinatarios, y active o desactive las alertas.
 
     ![Filtrar alertas](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
-Si está seleccionada la opción **Por alerta** como frecuencia en **Notificar** no se producirá ninguna agrupación ni reducción de los correos electrónicos. Cada alerta generará una notificación. Esta es la configuración predeterminada y el correo electrónico de resolución también se envía inmediatamente.
+Si está seleccionada la opción **Por alerta** como frecuencia en **Notificar**, no se producirá ninguna agrupación ni reducción de los correos electrónicos. Todas las alertas generan una notificación (configuración predeterminada) y se envía inmediatamente un correo electrónico de resolución.
 
-Si se selecciona la opción **Resumen cada hora** como frecuencia en **Notificar** se envía un correo electrónico al usuario indicándole que hay nuevas alertas sin resolver generadas en la última hora. Se envía un correo electrónico de resolución al final del período de una hora.
+Si se selecciona la opción **Resumen cada hora** como frecuencia en **Notificar**, se envía un correo electrónico al usuario explicándole las alertas sin resolver que se generaron en la última hora. Se envía un correo electrónico de resolución al final del período de una hora.
 
 Se pueden enviar alertas para los siguientes niveles de gravedad:
 
@@ -117,12 +112,12 @@ Se pueden enviar alertas para los siguientes niveles de gravedad:
 * Warning (Advertencia)
 * informativo
 
-Desactive la alerta con el botón **Desactivar** en la hoja de detalles del trabajo. Al hacer clic en Desactivar, puede proporcionar notas de resolución.
+Desactive la alerta con el botón **Desactivar** en el menú de detalles del trabajo. Al hacer clic en Desactivar, puede proporcionar notas de resolución.
 
 Elija las columnas que desea que aparezcan como parte de la alerta con el botón **Elegir columnas** .
 
 > [!NOTE]
-> En la hoja **Configuración**, puede administrar alertas de copias de seguridad seleccionando **Supervisión e informes > Alertas y eventos > Alertas de copias de seguridad** y haciendo clic en **Filtrar** o en **Configurar notificaciones**.
+> En el menú **Configuración**, puede administrar alertas de copias de seguridad seleccionando **Supervisión e informes > Alertas y eventos > Alertas de copias de seguridad** y haciendo clic en **Filtrar** o en **Configurar notificaciones**.
 >
 >
 
@@ -133,14 +128,14 @@ Haga clic en **Archivos y carpetas** en el icono Elementos de copia de seguridad
 
 ![Icono Elementos de copia de seguridad](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
-Se abre la hoja Elementos de copia de seguridad con el filtro establecido en Archivos y carpetas en el que podrá ver cada elemento de copia de seguridad específico en una lista.
+Se abre el menú Elementos de copia de seguridad con el filtro establecido en Archivos y carpetas, en el que podrá ver cada elemento de copia de seguridad específico en una lista.
 
 ![Elementos de copia de seguridad](./media/backup-azure-manage-windows-server/backup-item-list.png)
 
 Si selecciona un elemento de una copia de seguridad específica de la lista, podrá ver los detalles esenciales de ese elemento.
 
 > [!NOTE]
-> Desde la hoja **Configuración**, puede administrar los archivos y carpetas seleccionando **Elementos protegidos > Elementos de copia de seguridad** y, a continuación, **Archivos y carpetas** en el menú desplegable.
+> Desde el menú **Configuración**, puede administrar los archivos y carpetas seleccionando **Elementos protegidos > Elementos de copia de seguridad** y, después, **Archivos y carpetas** en el menú desplegable.
 >
 >
 
@@ -154,18 +149,18 @@ En la sección Copia de seguridad del panel, el icono Trabajo de copia de seguri
 * En curso
 * Con error en las últimas 24 horas.
 
-Para administrar los trabajos de copia de seguridad, haga clic en el icono **Trabajos de copia de seguridad** que permite abrir la hoja del mismo nombre.
+Para administrar los trabajos de copia de seguridad, haga clic en el icono **Trabajos de copia de seguridad**, que permite abrir el menú del mismo nombre.
 
 ![Elementos de copia de seguridad en la configuración](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
-Puede modificar la información disponible en la hoja Trabajos de copia de seguridad con el botón **Elegir columnas** situado en la parte superior de la página.
+Puede modificar la información disponible en el menú Trabajos de copia de seguridad con el botón **Elegir columnas** situado en la parte superior de la página.
 
 Use el botón **Filtrar** para seleccionar entre Archivos y carpetas y Copia de seguridad de la máquina virtual de Azure.
 
 Si no ve los archivos y carpetas de los que se ha realizado la copia de seguridad, haga clic en el botón **Filtrar** situado en la parte superior de la página y seleccione **Archivos y carpetas** en el menú Tipo de elemento.
 
 > [!NOTE]
-> En la hoja **Configuración**, puede administrar los trabajos de copia de seguridad mediante **Supervisión e informes > Trabajos > Trabajos de copia de seguridad** y, a continuación, seleccionando **Archivos y carpetas** en el menú desplegable.
+> En el menú **Configuración**, puede administrar los trabajos de copia de seguridad mediante **Supervisión e informes > Trabajos > Trabajos de copia de seguridad** y, después, seleccionar **Archivos y carpetas** en el menú desplegable.
 >
 >
 
@@ -180,7 +175,7 @@ Para administrar los servidores de producción, haga clic en **Configuración**.
 
 En Administrar, haga clic en **Infraestructura de copia de seguridad > Servidores de producción**.
 
-La hoja Servidores de producción muestra todos los servidores de producción disponibles. Haga clic en un servidor de la lista para abrir los detalles del servidor.
+El menú Servidores de producción muestra todos los servidores de producción disponibles. Haga clic en un servidor de la lista para abrir los detalles del servidor.
 
 ![Elementos protegidos](./media/backup-azure-manage-windows-server/production-server-list.png)
 

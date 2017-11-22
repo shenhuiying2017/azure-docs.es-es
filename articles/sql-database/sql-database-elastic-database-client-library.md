@@ -13,32 +13,32 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Creación de bases de datos escalables en la nube
-El escalado horizontal de bases de datos puede realizarse con facilidad mediante herramientas y características escalables de Base de datos SQL de Azure. En concreto, puede usar la **Biblioteca de cliente de Base de datos elástica** para crear y administrar bases de datos de escalado horizontal. Esta característica permite desarrollar fácilmente aplicaciones particionadas mediante cientos (o incluso miles) de bases de datos SQL de Azure. [trabajos elásticos](sql-database-elastic-jobs-powershell.md) para ayudar a facilitar la administración de estas bases de datos.
+El escalado horizontal de bases de datos puede realizarse con facilidad mediante herramientas y características escalables de Azure SQL Database. En concreto, puede usar la **Biblioteca de cliente de Elastic Database** para crear y administrar bases de datos de escalado horizontal. Esta característica permite desarrollar fácilmente aplicaciones particionadas mediante cientos (o incluso miles) de bases de datos SQL de Azure. [trabajos elásticos](sql-database-elastic-jobs-powershell.md) para ayudar a facilitar la administración de estas bases de datos.
 
-Para instalar la biblioteca, vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Para instalar la biblioteca, vaya a NuGet, en la dirección [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Documentación
-1. [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md)
-2. [Características de Base de datos elástica](sql-database-elastic-scale-introduction.md)
+1. [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md)
+2. [Características de Elastic Database](sql-database-elastic-scale-introduction.md)
 3. [Administración de mapas de particiones.](sql-database-elastic-scale-shard-map-management.md)
 4. [Migrate existing databases to scale-out (Migrar bases de datos existentes de escalado horizontal)](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Consultas en varias particiones](sql-database-elastic-scale-multishard-querying.md)
-7. [Incorporación de una partición con herramientas de bases de datos elásticas](sql-database-elastic-scale-add-a-shard.md)
+7. [Incorporación de una partición con herramientas de Elastic Database](sql-database-elastic-scale-add-a-shard.md)
 8. [Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 9. [Actualización de aplicaciones de la biblioteca de cliente](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [Información general de consultas elásticas](sql-database-elastic-query-overview.md)
 11. [Glosario de las herramientas de bases de datos elásticas](sql-database-elastic-scale-glossary.md)
-12. [Biblioteca de cliente de base de datos elástica con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
+12. [Biblioteca de cliente de Elastic Database con Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 13. [Biblioteca de cliente de Base de datos elástica con Dapper](sql-database-elastic-scale-working-with-dapper.md)
 14. [Herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md)
 15. [Creación de bases de datos escalables en la nube](sql-database-elastic-database-client-library.md) 
@@ -54,22 +54,32 @@ El escalado horizontal de aplicaciones mediante *particionamiento* presenta desa
 
 En general, los clientes que usan las herramientas de bases de datos elásticas pueden esperar obtener toda la funcionalidad de T-SQL al enviar las operaciones de partición local en lugar de las operaciones entre particiones que tienen su propia semántica.
 
+
+
 ## <a name="next-steps"></a>Pasos siguientes
-Pruebe la [aplicación de ejemplo](sql-database-elastic-scale-get-started.md) que muestra las funciones de cliente. 
 
-Para instalar la biblioteca, vaya a la [biblioteca de cliente de Base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Biblioteca de cliente de Elastic Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/): para **instalar** la biblioteca mediante NuGet.
 
-Para obtener instrucciones sobre cómo usar la herramienta de división y combinación, consulte la [información general de la herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md): para probar la **aplicación de ejemplo** que demuestra las funciones del cliente.
 
-[La biblioteca de cliente de bases de datos elásticas tiene ahora código abierto.](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Github, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools): la biblioteca es software de código abierto.
+    - La biblioteca de cliente de herramientas de Elastic Database permite a los desarrolladores de ADO.NET crear aplicaciones que implementan y utilizan el modelo conocido como particionamiento de base de datos en Azure SQL Database.
 
-Use [consultas elásticas](sql-database-elastic-query-overview.md).
+- [La biblioteca de cliente de bases de datos elásticas tiene ahora código abierto.](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) **Entrada de blog** acerca de la Biblioteca de cliente de Elastic Database, con fecha del 9 de septiembre de 2015.
 
-La biblioteca está disponible como software de código abierto en [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Información general sobre las consultas elásticas de Azure SQL Database](sql-database-elastic-query-overview.md): para usar consultas elásticas.
+
+- [Traslado de datos entre bases de datos escaladas horizontalmente en la nube](sql-database-elastic-scale-overview-split-and-merge.md): para obtener instrucciones sobre cómo utilizar la **herramienta de división y combinación**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
