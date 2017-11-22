@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Administración de esquemas de inquilino
               href: saas-multitenantdb-schema-management.md
+            - name: 'Extracción, transformación y carga de datos para análisis'
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Desarrollo de aplicaciones
       items:
         - name: C y C ++
