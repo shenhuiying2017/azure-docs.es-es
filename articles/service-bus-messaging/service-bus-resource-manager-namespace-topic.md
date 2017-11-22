@@ -1,6 +1,6 @@
 ---
 title: "Creación de un espacio de nombres de Azure Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager | Microsoft Docs"
-description: "Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción mediante una plantilla de Azure Resource Manager"
+description: "Creación de un espacio de nombres de Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 11/10/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: 8dd48787e7b788d249085b3110484de1a2c1d265
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f854b4f1331cf1272371e1cc7574d40b6b39efd
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción mediante una plantilla de Azure Resource Manager
+# <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema y una suscripción mediante una plantilla de Azure Resource Manager
 
-En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Service Bus con un tema y una suscripción dentro de un espacio de nombres. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Service Bus con un tema y una suscripción dentro de un espacio de nombres. En el artículo se explica cómo especificar los recursos que se implementan y cómo definir los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager).
 
@@ -31,18 +31,18 @@ Para ver la plantilla completa, consulte la plantilla de [espacio de nombres de 
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
 > 
-> * [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
-> * [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
-> * [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Creación de un espacio de nombres de Service Bus](service-bus-resource-manager-namespace.md)
+> * [Creación de un espacio de nombres de Service Bus con cola](service-bus-resource-manager-namespace-queue.md)
+> * [Creación de un espacio de nombres de Service Bus con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
 > 
-> Para buscar las últimas plantillas, visite la galería [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque "Service Bus".
+> Para buscar las plantillas más recientes, visite la galería de [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque **Service Bus**.
 > 
 > 
 
 ## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
 
-Con esta plantilla, implementará un espacio de nombres de Bus de servicio con un tema y una suscripción.
+Con esta plantilla, implementa un espacio de nombres de Service Bus con un tema y una suscripción.
 
 Los [temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) proporcionan una o varias formas de comunicación en un patrón *publicación/suscripción*.
 
@@ -52,12 +52,12 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 ## <a name="parameters"></a>Parámetros
 
-Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
+Con el Administrador de recursos de Azure, se definen los parámetros de los valores que desea especificar al implementar la plantilla. La plantilla incluye una sección denominada `Parameters` que contiene todos los valores de los parámetros. Debe definir un parámetro para esos valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que siempre permanezcan igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
 La plantilla define los parámetros siguientes.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-El nombre del espacio de nombres de Bus de servicio que crear.
+El nombre del espacio de nombres de Service Bus que crear.
 
 ```json
 "serviceBusNamespaceName": {
@@ -66,7 +66,7 @@ El nombre del espacio de nombres de Bus de servicio que crear.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-El nombre del tema creado en el espacio de nombres de Bus de servicio.
+El nombre del tema creado en el espacio de nombres de Service Bus.
 
 ```json
 "serviceBusTopicName": {
@@ -75,7 +75,7 @@ El nombre del tema creado en el espacio de nombres de Bus de servicio.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-El nombre de la suscripción creada en el espacio de nombres de Bus de servicio.
+El nombre de la suscripción creada en el espacio de nombres de Service Bus.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -84,15 +84,18 @@ El nombre de la suscripción creada en el espacio de nombres de Bus de servicio.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-La versión de la API de Bus de servicio de la plantilla.
+La versión de la API de Service Bus de la plantilla.
 
 ```json
-"serviceBusApiVersion": {
-"type": "string"
-}
+"serviceBusApiVersion": { 
+       "type": "string", 
+       "defaultValue": "2017-04-01", 
+       "metadata": { 
+           "description": "Service Bus ApiVersion used by the template" 
+       }
 ```
 ## <a name="resources-to-deploy"></a>Recursos para implementar
-Crea un espacio de nombres de Bus de servicio estándar de tipo **Mensajería**con tema y suscripción.
+Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**con tema y suscripción.
 
 ```json
 "resources ": [{
@@ -147,7 +150,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 Ahora que ha creado e implementado recursos con Azure Resource Manager, estos artículos le enseñarán como administrarlos:
 
 * [Administración de Service Bus con PowerShell](service-bus-manage-with-ps.md)
-* [Administración de recursos de Bus de servicio con el Explorador de Bus de servicio](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Administración de recursos de Service Bus con el Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

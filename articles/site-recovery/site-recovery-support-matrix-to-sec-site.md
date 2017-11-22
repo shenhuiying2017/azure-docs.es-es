@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matriz de compatibilidad de la replicación en un sitio secundario con Azure Site Recovery
 
@@ -28,7 +28,7 @@ En este artículo se resumen los elementos que se admiten cuando se usa el servi
 
 **Implementación** | **Detalles** 
 --- | ---
-**De VMware a VMware** | Recuperación ante desastres de máquinas virtuales VMware locales en un sitio secundario de VMware.<br/><br/> Descargue la [guía del usuario de InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf).
+**De VMware a VMware** | Recuperación ante desastres de máquinas virtuales VMware locales en un sitio secundario de VMware.<br/><br/> Descargue la [guía del usuario de InMage Scout](https://aka.ms/asr-scout-user-guide).
 **De Hyper-V a Hyper-V** | Recuperación ante desastres de máquinas virtuales de Hyper-V locales pertenecientes a nubes VMM en una nube VMM secundaria.<br></br> No se admite sin VMM.
 
 
@@ -39,7 +39,7 @@ En este artículo se resumen los elementos que se admiten cuando se usa el servi
 
 **Implementación** | **Soporte técnico**
 --- | ---
-**Servidor de máquina virtual de VMware o físico** | vCenter 5.5 o 6.0 (compatible solo con características de 5.5) 
+**Servidor de máquina virtual de VMware o físico** | vCenter 5.5, 6.0 y 6.5 (compatible solo con características de 5.5)
 **Hyper-V con VMM** | Windows Server 2016 y Windows Server 2012 R2 con las actualizaciones más recientes.<br/><br/> Los hosts de Windows Server 2016 deben administrarse mediante VMM 2016.<br/><br/> Actualmente, no se admiten las nubes VMM 2016 que combinan hosts de Windows Server 2016 y 2012 R2.<br/><br/> Actualmente no se admiten implementaciones que incluyan una actualización de una nube VMM 2012 R2 a System Center 2016.
 
 
@@ -49,7 +49,7 @@ En la tabla siguiente se resume la compatibilidad del sistema operativo con las 
 
 **Servidores físicos o de VMware** | **Hyper-V (con VMM)**
 --- | ---
-Windows Server 2012 R2 de 64 bits, Windows Server 2012, Windows Server 2008 R2 con al menos SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1 y 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 7.0, 7.1 y 7.2 <br/><br/> Oracle Enterprise Linux 6.4 o 6.5 que ejecuten el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Cualquier sistema operativo invitado [compatible con Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+Windows Server 2016 de 64 bits, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con SP1 como mínimo<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1 o 7.2 <br/><br/> CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1 o 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 o 6.8 que ejecuten el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 u 11 SP4  | Cualquier sistema operativo invitado [compatible con Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Almacenamiento de máquinas Linux
 
@@ -84,11 +84,11 @@ Dirección IP estática (Linux) | Sí | Sí
 Varias NIC | Sí | Sí
 
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
-**Almacenamiento (host)** | **Servidores físicos o de VMware** | **Hyper-V (con VMM)**
+**Storage (host)** | **Servidores físicos o de VMware** | **Hyper-V (con VMM)**
 --- | --- | ---
 NFS | Sí | N/D
 SMB 3.0 | N/D | Sí
@@ -104,15 +104,15 @@ VHD/VHDX | N/D | Sí (hasta 16 discos)
 VM de 2 generación | N/D | Sí
 Disco en clúster compartido | Sí  | No
 Disco cifrado | No | No
-UEFI| No | N/D
+UEFI| Sí | N/D
 NFS | No | No
 SMB 3.0 | No | No
 RDM | Sí | N/D
-Disco > 1 TB | No | Sí
+Disco > 1 TB | Sí | Sí
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí | Sí
 Espacios de almacenamiento | No | Sí
-Agregar/quitar disco en caliente | No | No
-Excluir el disco | No | Sí
+Agregar/quitar disco en caliente | Sí | No
+Excluir el disco | Sí | Sí
 Varias rutas (MPIO) | N/D | Sí
 
 ## <a name="vaults"></a>Almacenes

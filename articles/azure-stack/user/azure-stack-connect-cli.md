@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar y configurar la CLI para su uso con Azure Stack
 
@@ -204,6 +204,15 @@ az group create \
 Si el grupo de recursos se crea correctamente, el comando anterior da como resultado las siguientes propiedades del recurso recién creado:
 
 ![Resultado de creación del grupo de recursos](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Problemas conocidos
+Hay algunos problemas conocidos que debe tener en cuenta cuando use la CLI en Azure Stack:
+
+* El modo interactivo de la CLI, por ejemplo, el comando `az interactive` no se admite todavía en Azure Stack.
+* Para obtener la lista de imágenes de máquinas virtuales disponibles en Azure Stack, use el comando `az vm images list --all` en lugar del comando `az vm image list`. Al especificar la opción `--all`, se asegura de que la respuesta devuelve únicamente las imágenes que estén disponibles en el entorno de Azure Stack. 
+* Los alias de las imágenes de máquinas virtuales que están disponibles en Azure pueden no ser aplicables a Azure Stack. Al utilizar imágenes de máquinas virtuales, debe utilizar todo el parámetro URN (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) en lugar del alias de la imagen. Este URN debe coincidir con las especificaciones de la imagen como se derivan del comando `az vm images list`.
+* De forma predeterminada, CLI 2.0 utiliza "Standard_DS1_v2" como tamaño predeterminado de la imagen de máquina virtual. Sin embargo, este tamaño no está disponible todavía en Azure Stack, por lo tanto, debe especificar el parámetro `--size` explícitamente al crear una máquina virtual. Puede obtener la lista de tamaños de máquina virtual que están disponibles en Azure Stack con el comando `az vm list-sizes --location <locationName>`.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

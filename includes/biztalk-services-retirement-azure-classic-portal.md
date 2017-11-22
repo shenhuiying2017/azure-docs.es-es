@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> El portal está en desuso. Para administrar las instancias MABS, consulte [REST API for Managing BizTalk Services on Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx) (API de REST para administrar BizTalk Services en Azure).

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3df59afe595265fba88f7274154a36d42139859
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d59ef16de433ac9691f6996eab2bf56f056feb88
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -66,8 +66,7 @@ Dependiendo de lo complejo que sea el sistema, es posible que haya servicios de 
 
 Si ya se ha procesado un elemento de la cola, permita que la función sea no operativa.
 
-Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación del [desencadenador de cola de Azure Storage](functions-bindings-storage-queue.md#trigger).
- 
+Aproveche las medidas defensivas ya proporcionadas para los componentes que se usa en la plataforma de Azure Functions. Por ejemplo, vea la información sobre el **tratamiento de mensajes dudosos en la cola** en la documentación de [desencadenadores y enlaces de cola de Azure Storage](functions-bindings-storage-queue.md#trigger---poison-messages). 
 
 ## <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>No mezclar código de prueba y producción en la misma aplicación de función
 
@@ -97,4 +96,3 @@ Para obtener más información, consulte los siguientes recursos:
 
 Como Azure Functions usa Azure App Service, también debe conocer las guías de App Service.
 * [Patterns and Practices HTTP Performance Optimizations](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/) (Patrones y procedimientos de optimización del rendimiento de HTTP)
-

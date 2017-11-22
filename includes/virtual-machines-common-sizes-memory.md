@@ -1,4 +1,6 @@
 
+Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo se proporciona información sobre el número de vCPU, discos de datos y NIC, así como sobre el rendimiento de red y almacenamiento para cada tamaño de esta agrupación. 
+
 * La serie M ofrece el mayor número de vCPU (hasta 128 vCPU) y la memoria más grande (hasta 2.0 TiB) de todas las máquinas virtuales en la nube.  Es ideal para bases de datos extremadamente grandes u otras aplicaciones que se benefician de un elevado número de vCPU y grandes cantidades de memoria.
 
 * Las series Dv2, D, G y DS/GS son ideales para las aplicaciones que requieren vCPU más rápidas, mejor rendimiento del almacenamiento temporal o tienen mayor demanda de memoria.  Ofrecen una combinación eficaz para muchas aplicaciones de clase empresarial.
@@ -74,7 +76,7 @@ ACU: 180 - 240
 | Standard_GS4 |16 |224 |448 |32 |80 000 / 800 (2112) |40 000 / 1000 |8 / 6000 - 16000 &#8224; |
 | Standard_GS5** |32 |448 |896 |64 |160 000 / 1600 (4224) |80 000 / 2000 |8 / 20000 |
 
-*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie GS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/storage/common/storage-premium-storage.md). 
+*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie GS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados. Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
 **La instancia está aislada en el hardware dedicado a un solo cliente.
 
@@ -109,7 +111,7 @@ ACU: 210 - 250
 | Standard_DS14_v2 |16 |112 |224 |32 |64 000 / 512 (576) |51 200 / 768 |8 / 6000 - 12000 &#8224; |
 | Standard_DS15_v2** |20 | |140 |280 |40 |80 000 / 640 (720) |64 000 / 960 |8 / 20000***
 
-*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DSv2 puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/storage/common/storage-premium-storage.md)
+*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DSv2 puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/virtual-machines/windows/premium-storage.md)
 
 ** Una instancia es un nodo aislado que garantiza que la máquina virtual sea la única máquina virtual en su nodo Intel Haswell.
 
@@ -146,7 +148,7 @@ ACU: 160
 | Standard_DS13 |8 |56 |112 |16 |32 000 / 256 (288) |25 600 / 256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |32 |64 000 / 512 (576) |51 200 / 512 |8 / 6000 - 8000 &#8224; |
 
-*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/storage/common/storage-premium-storage.md).
+*El rendimiento de disco máx. (E/S por segundo o Mbps) posible con una VM de la serie DS puede estar limitado por el número, el tamaño y la fragmentación de los discos conectados.  Para obtener más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 
 ## <a name="d-series"></a>Serie D

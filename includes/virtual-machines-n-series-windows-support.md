@@ -4,8 +4,12 @@
 
 | SO | Controlador |
 | -------- |------------- |
-| Windows Server 2016 | [370.12](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
-| Windows Server 2012 R2 | [370.12](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+| Windows Server 2016 | [385.41](https://go.microsoft.com/fwlink/?linkid=836843) (.exe) |
+| Windows Server 2012 R2 | [385.41](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)  |
+
+> [!NOTE]
+> Microsoft redistribuye instaladores de controladores de NVIDIA GRID para máquinas virtuales de NV. Instale estos controladores de GRID solo en máquinas virtuales de Azure NV. Estos controladores incluyen licencias del software GRID Virtual GPU en Azure.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Instancias de NC - Controladores de NVIDIA Tesla
 

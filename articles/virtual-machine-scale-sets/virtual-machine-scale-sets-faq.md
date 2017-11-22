@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/8/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -577,7 +577,7 @@ Otra razón por la que podría crear un conjunto de escalado de máquinas virtua
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>¿Cómo se cambia el número de máquinas virtuales en un conjunto de escalado de máquinas virtuales?
 
-Para cambiar el número de máquinas virtuales en un conjunto de escalado de máquinas virtuales, consulte [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/) (Cambio del recuento de instancias de un conjunto de escalado de máquinas virtuales).
+Para cambiar el número de VM en un conjunto de escalado de File Storage en Azure Portal, en la sección de propiedades del conjunto de escalado de VM, haga clic en la hoja "Escala" y use el control deslizante. Para conocer otras maneras de cambiar el recuento de instancias, consulte [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/) (Cambio del recuento de instancias de un conjunto de escalado de máquinas virtuales).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>¿Cómo puedo definir alertas personalizadas para cuando se alcanzan determinados umbrales?
 

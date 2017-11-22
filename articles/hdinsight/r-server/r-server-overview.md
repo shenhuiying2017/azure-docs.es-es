@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 47896493fdaf651b8cf74a1ddf4fcffdd51d2972
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 57e28215124bc0330517c541e4cb74a66d939ff5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>Introducción a las funcionalidades de R de código abierto de R Server en HDInsight
 
@@ -44,7 +44,9 @@ Tiene la opción de agregar acceso a los almacenes de Data Lake y Blob Storage a
 También se puede usar [Archivos de Azure](../../storage/files/storage-how-to-use-files-linux.md) como opción de almacenamiento para emplearse en el nodo perimetral. Gracias a Azure Files, podrá montar en el sistema de archivos Linux un recurso compartido de archivos creado en el servicio Azure Storage. Para más información sobre estas opciones de almacenamiento de datos de R Server en un clúster de HDInsight, consulte [Opciones de Azure Storage para R Server en HDInsight](r-server-storage.md).
 
 ## <a name="access-r-server-on-the-cluster"></a>Acceso a R Server en el clúster
-Puede conectarse a R Server en el nodo perimetral mediante un explorador, siempre que haya optado por incluir RStudio Server durante el proceso de aprovisionamiento. Si no lo instaló al aprovisionar el clúster, puede agregarlo más adelante. Para información sobre cómo instalar RStudio Server una vez que se haya creado un clúster, consulte [Instalación de RStudio con R Server en HDInsight](r-server-install-r-studio.md). También puede conectarse a R Server mediante SSH/PuTTY para acceder a la consola de R. 
+Puede conectarse a R Server en el nodo perimetral mediante un explorador. Se instala de forma predeterminada durante la creación del clúster. Para obtener más información, consulte [Introducción al uso de R Server en HDInsight](r-server-get-started.md).
+
+También puede conectarse a R Server desde la línea de comandos mediante SSH/PuTTY para acceder a la consola de R. 
 
 ## <a name="develop-and-run-r-scripts"></a>Desarrollo y ejecución de scripts de R
 Los scripts de R que se crean y ejecutan pueden usar cualquiera de los más de 8000 paquetes de R de código abierto, además de las rutinas distribuidas y paralelizadas disponibles en la biblioteca ScaleR. En general, el script que se ejecuta con R Server en el nodo perimetral lo hace dentro del intérprete de R de ese nodo. Las excepciones son los pasos que necesitan llamar a una función ScaleR con un contexto de proceso establecido en Hadoop MapReduce (RxHadoopMR) o Spark (RxSpark). En este caso, la función se ejecuta de forma distribuida en esos nodos de datos (tarea) del clúster asociados a los datos a los que se hacen referencia. Para más información sobre las distintas opciones de contexto de proceso, consulte [Opciones de contexto de proceso para R Server en HDInsight](r-server-compute-contexts.md).
@@ -56,7 +58,7 @@ Cuando se complete el modelado de datos, podrá utilizar el modelo para realizar
 Para realizar puntuaciones en HDInsight, escriba una función de R que llame al modelo para realizar predicciones de un nuevo archivo de datos que se haya cargado en la cuenta de almacenamiento. Después, guarde las predicciones en la cuenta de almacenamiento. Puede ejecutar la rutina a petición en el nodo perimetral del clúster o mediante un trabajo programado.  
 
 ### <a name="score-in-azure-machine-learning-aml"></a>Puntuación en Azure Machine Learning (AML)
-Para puntuar mediante un servicio AML, use el paquete de R de Azure Machine Learning de código abierto conocido como [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) para publicar el modelo como servicio web de Azure. Para mayor comodidad, este paquete está preinstalado en el nodo perimetral. Después, utilice los recursos de Aprendizaje automático con el fin de crear una interfaz de usuario para el servicio web y, luego, según proceda, realice una llamada a dicho servicio web para efectuar puntuaciones.
+Para puntuar mediante un servicio AML, use el paquete de R de Azure Machine Learning de código abierto conocido como [AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) para publicar el modelo como servicio web de Azure. Para mayor comodidad, este paquete está preinstalado en el nodo perimetral. Después, utilice los recursos de Machine Learning con el fin de crear una interfaz de usuario para el servicio web y, luego, según proceda, realice una llamada a dicho servicio web para efectuar puntuaciones.
 
 Si elige esta opción, tendrá que convertir los objetos de modelo de ScaleR en objetos de modelo de código abierto equivalentes para poder usarlos con el servicio web. Para esta conversión, utilice las funciones de coerción de ScaleR, como `as.randomForest()`, para los modelos basados en conjuntos.
 
@@ -87,7 +89,7 @@ El mantenimiento para aplicar revisiones de SO y otras actualizaciones se realiz
 Como los nodos principales son redundantes y no todos los nodos de datos se ven afectados, es posible que se ralenticen los trabajos que se estén ejecutando durante ese tiempo. No obstante, deben seguir ejecutándose hasta que finalicen. Cualquier software personalizado o dato local que haya instalado se conserva a través de estos eventos de mantenimiento, salvo que se produzca un error irrecuperable que requiera recompilar el clúster.
 
 ## <a name="learn-about-ide-options-for-r-server-on-an-hdinsight-cluster"></a>Más información sobre las opciones del IDE de R Server en el clúster de HDInsight
-El nodo perimetral de Linux de un clúster de HDInsight es la zona de aterrizaje de los análisis basados en R. Las versiones recientes de HDInsight proporcionan una opción predeterminada para instalar la versión de comunidad de [RStudio Server](https://www.rstudio.com/products/rstudio-server/) en el nodo perimetral como un IDE basado en explorador. Puede ser más productivo usar RStudio Server como un IDE para desarrollar y ejecutar scripts de R que si se utiliza simplemente la consola de R. Si decide no agregar RStudio Server al crear el clúster, pero quiere hacerlo más adelante, consulte [Instalación de RStudio con R Server en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-install-r-studio).
+El nodo perimetral de Linux de un clúster de HDInsight es la zona de aterrizaje de los análisis basados en R. Las versiones recientes de HDInsight proporcionan una instalación predeterminada de RStudio Server en el nodo perimetral como un IDE basado en explorador. Puede ser más productivo usar RStudio Server como un IDE para desarrollar y ejecutar scripts de R que si se utiliza simplemente la consola de R.
 
 Otra opción de IDE completa consiste en instalar un IDE de escritorio y usarlo para acceder al clúster usando un contexto de proceso remoto de MapReduce o Spark. Las opciones incluyen [Herramientas de R para Visual Studio](https://www.visualstudio.com/features/rtvs-vs.aspx) (RTVS) de Microsoft, RStudio y [StatET](http://www.walware.de/goto/statet) basado en Eclipse de Walware.
 
@@ -100,6 +102,5 @@ Las tarifas asociadas a un clúster de HDInsight con R Server tienen una estruct
 Para más información sobre cómo usar R Server con clústeres de HDInsight, consulte los temas siguientes:
 
 * [Introducción al uso de R Server en HDInsight (versión preliminar)](r-server-get-started.md)
-* [Agregar R Server Studio a HDInsight (si no se ha instalado durante la creación del clúster)](r-server-install-r-studio.md)
 * [Opciones de contexto de proceso para R Server en HDInsight (versión preliminar)](r-server-compute-contexts.md)
 * [Opciones de Azure Storage para R Server en HDInsight](r-server-storage.md)

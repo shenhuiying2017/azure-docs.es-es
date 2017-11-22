@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático en Azure SQL Database
 
@@ -46,10 +46,7 @@ Las operaciones de ajuste aplicadas a bases de datos de Azure SQL Database son t
 
 Los mecanismos de ajuste automático están muy desarrollados y se han perfeccionado en cientos de miles de bases de datos ejecutadas en Azure. Las operaciones de ajuste automatizado aplicadas se comprueban automáticamente para asegurarse de que hay una mejora en el rendimiento de la carga de trabajo. Las recomendaciones de rendimiento con regresión se detectan de forma dinámica y se revierten rápidamente. A través del registro del historial de ajustes se lleva a cabo un seguimiento claro de las mejoras de ajuste realizadas en cada base de datos de Azure SQL Database. 
 
-Para obtener información general sobre cómo funciona el ajuste automático y los escenarios de uso habituales, vea el vídeo insertado:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![¿Cómo funciona el ajuste automático?](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 El ajuste automático de Azure SQL Database comparte su lógica básica con el motor de ajuste automático de SQL Server. Para obtener información técnica adicional sobre el mecanismo de inteligencia integrada, vea el artículo sobre el [ajuste automático de SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
 
@@ -60,6 +57,12 @@ El ajuste automático debe habilitarse manualmente en la suscripción. Para habi
 El ajuste automático puede funcionar de forma autónoma mediante la aplicación automática de las recomendaciones de ajuste, incluida la comprobación automática de las mejoras de rendimiento. 
 
 Para tener un mayor control, se puede desactivar la aplicación automática de las recomendaciones de ajuste para aplicarlas manualmente a través de Azure Portal. También es posible usar la solución que permite solo ver las recomendaciones de ajuste automático y aplicarlas manualmente a través de los scripts y las herramientas que prefiera. 
+
+Para obtener información general sobre cómo funciona el ajuste automático y los escenarios de uso habituales, vea el vídeo insertado:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Opciones de ajuste automático
 

@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/09/2017
 ms.author: saurse;markgal;nkolli;trinadhk
-ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 21e84d6dd7d5064908555a2f7c64f39816c2956f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 En este artículo se explica cómo usar PowerShell para realizar una copia de seguridad de Windows Server o de datos de la estación de trabajo de Windows en un almacén de Backup. Microsoft recomienda el uso de almacenes de Recovery Services para todas las implementaciones nuevas. Si es un nuevo usuario de Azure Backup y todavía no ha creado un almacén de Backup en su suscripción, use artículo [Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell](backup-client-automation.md) para almacenar los datos en un almacén de Recovery Services. 
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 15 de octubre de 2017, no podrá usar PowerShell para crear almacenes de Backup. **El 1 de noviembre de 2017**:
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 30 de noviembre de 2017, ya no podrá usar PowerShell para crear almacenes de Backup. **A partir del 30 de noviembre de 2017**:
 >- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
@@ -99,7 +99,7 @@ Las opciones disponibles incluyen:
 | /pw |Contraseña de proxy |- |
 
 ## <a name="registering-with-the-azure-backup-service"></a>Registro con el servicio de Azure Backup
-Para poder registrarse con el servicio Azure Backup, debe asegurarse de que se cumplen los [requisitos previos](backup-configure-vault.md) . Debe:
+Para poder registrarse con el servicio de Azure Backup, debe asegurarse de que se cumplen los [requisitos previos](backup-configure-vault.md) . Debe:
 
 * Disponer de una suscripción válida a Azure
 * Disponer de un almacén de copia de seguridad
@@ -194,7 +194,7 @@ PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### <a name="configuring-a-retention-policy"></a>Configuración de una directiva de retención
-La directiva de retención define cuánto tiempo se conservan los puntos de recuperación de los trabajos de copia de seguridad. Al crear una nueva directiva de retención mediante el cmdlet [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425), puede especificar el número de días que los puntos de recuperación de copia de seguridad deben conservarse con Azure Backup. En el ejemplo siguiente se establece una directiva de retención de 7 días.
+La directiva de retención define cuánto tiempo se conservan los puntos de recuperación de los trabajos de copia de seguridad. Al crear una nueva directiva de retención mediante el cmdlet [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) , puede especificar el número de días que los puntos de recuperación de copia de seguridad deben conservarse con Azure Backup. En el ejemplo siguiente se establece una directiva de retención de 7 días.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7

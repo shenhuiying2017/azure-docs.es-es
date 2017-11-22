@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
 > [!div class="op_single_selector"]
@@ -27,15 +27,15 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-Este artículo proporciona orientación acerca de cómo administrar copias de seguridad de máquinas virtuales y explica la información disponible sobre alertas de copia de seguridad en el panel del portal. La orientación de este artículo se aplica al uso de máquinas virtuales con almacenes de Servicios de recuperación. Este artículo no trata sobre la creación de máquinas virtuales ni explica cómo protegerlas. Para ver una introducción sobre la protección de las máquinas virtuales implementadas por Azure Resource Manager en Azure con un almacén de Servicios de recuperación, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md).
+Este artículo proporciona orientación acerca de cómo administrar copias de seguridad de máquinas virtuales y explica la información disponible sobre alertas de copia de seguridad en el panel del portal. La orientación de este artículo se aplica al uso de máquinas virtuales con almacenes de Recovery Services. Este artículo no trata sobre la creación de máquinas virtuales ni explica cómo protegerlas. Para ver una introducción sobre la protección de las máquinas virtuales implementadas por Azure Resource Manager en Azure con un almacén de Recovery Services, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md).
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Administración de almacenes y máquinas virtuales protegidas
-En el Portal de Azure, el panel Almacén de Servicios de recuperación proporciona acceso a información sobre el almacén, como:
+En Azure Portal, el panel Almacén de Recovery Services proporciona acceso a información sobre el almacén, como:
 
-* la instantánea de copia de seguridad más reciente, que también es el último punto de restauración <br\>
-* la directiva de copia de seguridad <br\>
-* el tamaño total de todas las instantáneas de copia de seguridad <br\>
-* número de máquinas virtuales que están protegidas con el almacén <br\>
+* La instantánea de copia de seguridad más reciente, que también es el último punto de restauración.
+* La directiva de copia de seguridad.
+* El tamaño total de todas las instantáneas de copia de seguridad.
+* El número de máquinas virtuales que están protegidas con el almacén.
 
 Muchas tareas de administración con una copia de seguridad de máquina virtual comienzan con la apertura del almacén en el panel. Sin embargo, dado que los almacenes sirven para proteger varios elementos (o varias máquinas virtuales), para ver los detalles sobre una máquina virtual determinada, abra el panel del elemento del almacén. El procedimiento siguiente muestra cómo abrir el *panel del almacén* y, después, pasar al *panel del elemento del almacén*. En ambos procedimientos, se ofrecen "sugerencias" sobre cómo agregar el almacén y el elemento del almacén al Panel de Azure con el comando Anclar al panel. La opción Anclar al panel es una manera de crear un acceso directo al almacén o al elemento. También puede ejecutar comandos habituales desde el acceso directo.
 
@@ -46,15 +46,15 @@ Muchas tareas de administración con una copia de seguridad de máquina virtual 
 
 ![Vista completa con control deslizante](./media/backup-azure-manage-vms/bottom-slider.png)
 
-### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Apertura de un almacén de Servicios de recuperación en el panel:
+### <a name="open-a-recovery-services-vault-in-the-dashboard"></a>Apertura de un almacén de Recovery Services en el panel:
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Servicios de recuperación**.
+2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Recovery Services**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
-    Se muestra la lista de almacenes de Servicios de recuperación.
+    Se muestra la lista de almacenes de Recovery Services.
 
-    ![Lista de almacenes de Servicios de recuperación ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Lista de almacenes de Recovery Services ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > Si ancla un almacén al Panel de Azure, ese almacén es accesible de inmediato cuando abra el Portal de Azure. Para anclar un almacén al panel, en la lista de almacenes, haga clic con el botón derecho en el almacén y seleccione **Anclar al panel**.
@@ -89,13 +89,13 @@ En el procedimiento anterior, abrió el panel del almacén. Para abrir el panel 
 
     En el panel del elemento del almacén, puede llevar a cabo muchas tareas de administración claves, como:
 
-   * cambiar de directiva o crear una directiva de copia de seguridad<br\>
-   * ver los puntos de restauración y su estado de coherencia <br\>
-   * copia de seguridad a petición de una máquina virtual <br\>
-   * detener la protección de máquinas virtuales <br\>
-   * reanudar la protección de una máquina virtual <br\>
-   * eliminar los datos de una copia de seguridad (o un punto de recuperación) <br\>
-   * [restore backup disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  &lt;br\>
+   * Cambio de directiva o creación de una directiva de copia de seguridad
+   * Visualización de los puntos de restauración y su estado de coherencia
+   * Copia de seguridad a petición de una máquina virtual
+   * Detener la protección de máquinas virtuales
+   * Reanudación de la protección de una máquina virtual
+   * Eliminación de los datos de una copia de seguridad (o un punto de recuperación)
+   * [Restauración de discos de copia de seguridad](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 Para los procedimientos siguientes, el punto de partida es el panel del elemento del almacén.
 
@@ -110,7 +110,7 @@ Para los procedimientos siguientes, el punto de partida es el panel del elemento
     ![Hoja Directiva de copia de seguridad](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. En el menú **Elegir directiva de copia de seguridad** :
 
-   * Para cambiar de directiva, seleccione una directiva diferente y haga clic en **Guardar**. La nueva directiva se aplica inmediatamente en el almacén. <br\>
+   * Para cambiar de directiva, seleccione una directiva diferente y haga clic en **Guardar**. La nueva directiva se aplica inmediatamente al almacén.
    * Para crear una directiva, seleccione **Crear nuevo**.
 
      ![Copia de seguridad de máquina virtual](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -125,7 +125,7 @@ Para los procedimientos siguientes, el punto de partida es el panel del elemento
 >
 
 ## <a name="on-demand-backup-of-a-virtual-machine"></a>Copia de seguridad a petición de una máquina virtual
-Puede realizar una copia de seguridad a petición de una máquina virtual una vez que esta esté configurada para la protección. Si está pendiente la copia de seguridad inicial, la copia de seguridad a petición creará una copia completa de la máquina virtual en el almacén de Servicios de recuperación. Si se ha completado la copia de seguridad inicial, una copia de seguridad a petición solo enviará los cambios respecto a la instantánea anterior al almacén de Servicios de recuperación. Es decir, las copias de seguridad posteriores siempre son incrementales.
+Puede realizar una copia de seguridad a petición de una máquina virtual una vez que esta esté configurada para la protección. Si está pendiente la copia de seguridad inicial, la copia de seguridad a petición creará una copia completa de la máquina virtual en el almacén de Recovery Services. Si se ha completado la copia de seguridad inicial, una copia de seguridad a petición solo enviará los cambios respecto a la instantánea anterior al almacén de Recovery Services. Es decir, las copias de seguridad posteriores siempre son incrementales.
 
 > [!NOTE]
 > La duración de retención para una copia de seguridad a petición es el valor de retención especificado para el punto de copia de seguridad diaria en la directiva. Si no se selecciona ningún punto de copia de seguridad diaria, se usa el semanal.
@@ -148,7 +148,7 @@ Para desencadenar la copia de seguridad a petición de una máquina virtual:
 Si opta por dejar de proteger una máquina virtual, se le pregunta si desea conservar los puntos de recuperación. Hay dos formas de dejar de proteger máquinas virtuales:
 
 * detener todos los trabajos futuros de copia de seguridad y eliminar todos los puntos de recuperación, o
-* detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación  <br/>
+* detener todos los trabajos futuros de copia de seguridad pero dejar los puntos de recuperación 
 
 Dejar los puntos de recuperación almacenados conlleva un costo. Sin embargo, la ventaja de dejarlos es que puede restaurar la máquina virtual más adelante, si lo desea. Para más información acerca del costo de dejar los puntos de recuperación, consulte la [información sobre precios](https://azure.microsoft.com/pricing/details/backup/). Si opta por eliminar todos los puntos de recuperación, no podrá restaurar la máquina virtual.
 
@@ -224,4 +224,4 @@ Para eliminar datos de copia de seguridad en una máquina virtual con la *copia 
     Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Para más información sobre la supervisión de eventos, consulte [Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure](backup-azure-monitor-vms.md).
+Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md). Para más información sobre la supervisión de eventos, consulte [Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure](backup-azure-monitor-vms.md).

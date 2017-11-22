@@ -1,6 +1,6 @@
 ---
-title: "Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásica | Microsoft Docs"
-description: Use este tutorial para aprender a administrar almacenes y servidores de Copia de seguridad de Azure.
+title: "Administración de almacenes y servidores de Azure Backup mediante el modelo de implementación clásica | Microsoft Docs"
+description: Use este tutorial para aprender a administrar almacenes y servidores de Azure Backup.
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -12,35 +12,35 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2017
+ms.date: 11/10/2017
 ms.author: markgal;
-ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc2eb996546810dad169dc25175ab10ebb164aa
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásica
+# <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Administración de almacenes y servidores de Azure Backup mediante el modelo de implementación clásica
 > [!div class="op_single_selector"]
 > * [Resource Manager](backup-azure-manage-windows-server.md)
 > * [Clásico](backup-azure-manage-windows-server-classic.md)
 >
 >
 
-En este artículo encontrará información general sobre las tareas de administración de copias de seguridad que tiene disponibles en el Portal de Azure clásico y el agente de Copia de seguridad de Microsoft Azure.
+En este artículo encontrará información general sobre las tareas de administración de copias de seguridad que tiene disponibles en el Portal de Azure clásico y el agente de Microsoft Azure Backup.
 
 > [!IMPORTANT]
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 15 de octubre de 2017, no podrá usar PowerShell para crear almacenes de Backup. **El 1 de noviembre de 2017**:
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 30 de noviembre de 2017, ya no podrá usar PowerShell para crear almacenes de Backup. **A partir del 30 de noviembre de 2017**:
 >- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
 
 ## <a name="management-portal-tasks"></a>Tareas del Portal de administración
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
-2. Haga clic en **Servicios de recuperación**y luego en el nombre del almacén de copia de seguridad para ver la página de inicio rápido.
+2. Haga clic en **Recovery Services** y luego en el nombre del almacén de copia de seguridad para ver la página de inicio rápido.
 
     ![Servicios de recuperación](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
 
@@ -94,9 +94,9 @@ Desde la pestaña **Configurar** , puede seleccionar la opción de redundancia d
 
 Consulte este artículo para más información sobre la [redundancia de almacenamiento](../storage/common/storage-redundancy.md).
 
-## <a name="microsoft-azure-backup-agent-tasks"></a>Tareas del agente de Copia de seguridad de Microsoft Azure
+## <a name="microsoft-azure-backup-agent-tasks"></a>Tareas del agente de Microsoft Azure Backup
 ### <a name="console"></a>Consola
-Abra el **agente de Copia de seguridad de Microsoft Azure** (puede encontrarlo si busca en su equipo *Copia de seguridad de Microsoft Azure*).
+Abra el **agente de Microsoft Azure Backup** (puede encontrarlo si busca en su equipo *Microsoft Azure Backup*).
 
 ![Agente de copia de seguridad](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
 
@@ -115,7 +115,7 @@ Con las **acciones** disponibles en la parte derecha de la consola del agente de
 >
 
 ### <a name="modify-an-existing-backup"></a>Modificación de una copia de seguridad existente
-1. En el agente de Copia de seguridad de Microsoft Azure, haga clic en **Programar copia de seguridad**.
+1. En el agente de Microsoft Azure Backup, haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 2. En el **Asistente para programar copias de seguridad**, deje activada la opción **Cambiar la hora o las horas de las copias de seguridad** y haga clic en **Siguiente**.
@@ -160,10 +160,10 @@ Para habilitar la limitación, siga estos pasos:
 4. Haga clic en **Aceptar**.
 
 ## <a name="exclusion-settings"></a>Configuración de exclusión
-1. Abra el **agente de Copia de seguridad de Microsoft Azure** (puede encontrarlo si busca en su equipo *Copia de seguridad de Microsoft Azure*).
+1. Abra el **agente de Microsoft Azure Backup** (puede encontrarlo si busca en su equipo *Microsoft Azure Backup*).
 
     ![Apertura del agente de copia de seguridad](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
-2. En el agente de Copia de seguridad de Microsoft Azure, haga clic en **Programar copia de seguridad**.
+2. En el agente de Microsoft Azure Backup, haga clic en **Programar copia de seguridad**.
 
     ![Programar una copia de seguridad de Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 3. En el Asistente para programar copias de seguridad deje activada la opción **Cambiar la hora o las horas de las copias de seguridad** y haga clic en **Siguiente**.

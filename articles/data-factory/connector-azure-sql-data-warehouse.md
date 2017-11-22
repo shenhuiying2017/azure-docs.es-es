@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: fa660dd72acb5b19a49fc0100c3c1e5fc8e87dee
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -223,7 +223,7 @@ Para copiar datos a Azure SQL Data Warehouse, establezca el tipo de receptor de 
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlDWSink**. | Sí |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlDWSink**. | Sí |
 | allowPolyBase |Indica si se usa PolyBase (si procede) en lugar del mecanismo BULKINSERT. <br/><br/> **El uso de PolyBase es el método recomendado para cargar datos en SQL Data Warehouse.** Consulte [Uso de PolyBase para cargar datos en SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para ver restricciones y más información.<br/><br/>Los valores permitidos son: **True** (valor predeterminado) y **False**.  |No |
 | polyBaseSettings |Un grupo de propiedades que se pueden especificar si el valor de la propiedad **allowPolybase** está establecido en **true**. |No |
 | rejectValue |Especifica el número o porcentaje de filas que se pueden rechazar antes de que se produzca un error en la consulta.<br/><br/>Más información sobre las opciones de rechazo de PolyBase en la sección **Argumentos** del tema [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) [CREAR UNA TABLA EXTERNA (Transact-SQL)]. <br/><br/>Los valores permitidos son: 0 (valor predeterminado), 1, 2,... |No |

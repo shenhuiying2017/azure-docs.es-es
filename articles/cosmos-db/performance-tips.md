@@ -15,8 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: mimig
-ms.openlocfilehash: a34c47efbe811bec2ebe2c43abb9516cdab492bd
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 64c01c1256e4bcb472ceea874ab3f3b17c0467d7
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/09/2017
@@ -165,7 +165,7 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     Cosmos DB ofrece un amplio conjunto de operaciones de base de datos, incluidas consultas relacionales y jerárquicas con funciones definidas por el usuario, procedimientos almacenados y desencadenadores. Todo funciona con los documentos dentro de una colección de base de datos. El costo asociado a cada una de estas operaciones variará en función de la CPU, la E/S y la memoria necesarias para completar la operación. En lugar de administrar y pensar sobre los recursos de hardware, puede pensar en una unidad de solicitud (RU) como una medida única para los recursos necesarios para realizar varias operaciones de la base de datos y dar servicio a una solicitud de la aplicación.
 
-    El rendimiento se aprovisiona en función de la cantidad de [unidades de solicitud](request-units.md) establecida para cada contenedor. El consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para su cuenta se limitarán hasta que la frecuencia caiga por debajo del nivel reservado para la cuenta. Si la aplicación requiere un mayor nivel de rendimiento, puede aumentar el rendimiento mediante el aprovisionamiento de unidades de solicitud adicionales. 
+    El rendimiento se aprovisiona en función de la cantidad de [unidades de solicitud](request-units.md) establecida para cada contenedor. El consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para su contenedor están limitadas hasta que la frecuencia cae por debajo del nivel aprovisionado del contenedor. Si la aplicación requiere un mayor nivel de rendimiento, puede aumentar el rendimiento mediante el aprovisionamiento de unidades de solicitud adicionales. 
 
     La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de predicados, la naturaleza de los predicados, el número de UDF y el tamaño del conjunto de datos de origen influyen en el costo de operaciones de consulta.
 

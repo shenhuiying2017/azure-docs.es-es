@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
-ms.openlocfilehash: f3195fa83479986a3e605abce618c78bcdb64dac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -67,6 +67,11 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [La extensión de la copia de seguridad no se puede actualizar ni cargar](#the-backup-extension-fails-to-update-or-load)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>No se admite la configuración de disco especificada
+
+> [!NOTE]
+> Tenemos una vista previa privada para admitir las copias de seguridad para las VM con discos no administrados de más de 1 TB. Para obtener más información, consulte la [vista previa privada para compatibilidad de copias de seguridad de VM con discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+>
+>
 
 Azure Backup no admite actualmente tamaños de disco [mayores que 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 
 - Si tiene discos de más de 1 TB, [conecte discos nuevos](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) de menos de 1 TB. <br>

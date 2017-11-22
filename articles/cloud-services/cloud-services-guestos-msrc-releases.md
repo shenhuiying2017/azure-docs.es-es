@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## <a name="october-guest-os"></a>SO invitado de octubre
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Versión 17-10 | [4041691] |Actualizaciones de Windows 10 |5.12 |10 de octubre de 2017 |
+| Versión 17-10 | [4041678], [4041679], [4041687] |Indicador de seguridad de Windows |2.67, 3.54, 4.47 |10 de octubre de 2017 |
+| Versión 17-10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10 de octubre de 2017 |
+| Versión 17-10 | [4041681], [4041690], [4041693] |Paquetes acumulativos mensuales de Windows |2.67, 3.54, 4.47 |10 de octubre de 2017 |
+| N/D | [4038777] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de septiembre |2.67 |12 de septiembre de 2017 |
+| N/D | [4038799] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de septiembre |3.54 |12 de septiembre de 2017 |
+| N/D | [4038792] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de septiembre |4.47 |12 de septiembre de 2017 |
+| N/D | [4040980] |Paquete acumulativo de actualizaciones de .NET no relacionadas con la seguridad de septiembre |2.67 |12 de septiembre de 2017 |
+| N/D | [4040979] |Paquete acumulativo de actualizaciones de .NET no relacionadas con la seguridad de septiembre |3.54 |12 de septiembre de 2017 |
+| N/D | [4040981] |Paquete acumulativo de actualizaciones de .NET no relacionadas con la seguridad de septiembre |4.47 |12 de septiembre de 2017 |
 
 ## <a name="september-guest-os"></a>SO invitado de septiembre
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -535,6 +549,20 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[2999802] |Se imprimen líneas sólidas en lugar de líneas de puntos en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 
+[4041691]: http://support.microsoft.com/kb/4041691 
+[4041678]: http://support.microsoft.com/kb/4041678 
+[4041679]: http://support.microsoft.com/kb/4041679
+[4041687]: http://support.microsoft.com/kb/4041687
+[4040685]: http://support.microsoft.com/kb/4040685
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041690]: http://support.microsoft.com/kb/4041690
+[4041693]: http://support.microsoft.com/kb/4041693
+[4038777]: http://support.microsoft.com/kb/4038777
+[4038799]: http://support.microsoft.com/kb/4038799
+[4038792]: http://support.microsoft.com/kb/4038792
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040979]: http://support.microsoft.com/kb/4040979
+[4040981]: http://support.microsoft.com/kb/4040981
 
 [4038782]: http://support.microsoft.com/kb/4038782
 [4038779]: http://support.microsoft.com/kb/4038779

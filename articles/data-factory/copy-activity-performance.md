@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa
 
 | Escenario de copia | DMU predeterminadas que determina el servicio |
 |:--- |:--- |
-| Copia de datos entre almacenes basados en archivos | Entre 4 y 16 según el número y el tamaño de los archivos. |
+| Copia de datos entre almacenes basados en archivos | Entre 4 y 32 según el número y el tamaño de los archivos. |
 | Todos los demás escenarios de copia | 4 |
 
 Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 2, 4, 8, 16, 32. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
@@ -133,7 +133,7 @@ Para cada ejecución de actividad de copia, Data Factory determina el número de
 
 | Escenario de copia | Recuento predeterminado de copias en paralelo determinado por servicio |
 | --- | --- |
-| Copia de datos entre almacenes basados en archivos |Entre 1 y 32. Depende del tamaño de los archivos y del número de unidades de movimiento de datos (DMU) de nube usadas para copiar datos entre dos almacenes de datos de nube, o de la configuración física de la máquina de Integration Runtime autohospedado. |
+| Copia de datos entre almacenes basados en archivos |Entre 1 y 64. Depende del tamaño de los archivos y del número de unidades de movimiento de datos (DMU) de nube usadas para copiar datos entre dos almacenes de datos de nube, o de la configuración física de la máquina de Integration Runtime autohospedado. |
 | Copia de datos desde cualquier almacén de datos a Azure Table Storage |4 |
 | Todos los demás escenarios de copia |1 |
 

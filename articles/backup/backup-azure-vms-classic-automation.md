@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/2/2017
+ms.date: 11/9/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88ca71f83696c5865405799cddc3645778261408
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>Uso de los cmdlets de AzureRM.Backup para realizar copias de seguridad de máquinas virtuales
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 En este artículo se muestra cómo usar Azure PowerShell para realizar copias de seguridad de máquinas virtuales de Azure y recuperarlas. Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: Resource Manager y el clásico. Este artículo trata el uso del modelo de implementación clásico para hacer copia de seguridad de datos en un almacén de Backup. Si no ha creado un almacén de Backup en su suscripción, consulte el artículo en el que se explica el uso del modelo de Resource Manager, [Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales](backup-azure-vms-automation.md). Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 > [!IMPORTANT]
-> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 15 de octubre de 2017, no podrá usar PowerShell para crear almacenes de Backup. **El 1 de noviembre de 2017**:
+> Ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte el artículo [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md). Microsoft anima a actualizar los almacenes de Backup a almacenes de Recovery Services.<br/> A partir del 30 de noviembre de 2017, ya no podrá usar PowerShell para crear almacenes de Backup.<br/> **A partir del 30 de noviembre de 2017**:
 >- Todos los almacenes de Backup restantes se actualizarán automáticamente a almacenes de Recovery Services.
 >- No podrá acceder a los datos de copia de seguridad en el portal clásico. En su lugar, utilice Azure Portal para tener acceso a los datos de copia de seguridad en los almacenes de Recovery Services.
 >
@@ -121,7 +121,7 @@ Al registrar una máquina virtual en el servicio Azure Backup, se crea un objeto
 PS C:\> $registerjob = Register-AzureRmBackupContainer -Vault $backupvault -Name "testvm" -ServiceName "testvm"
 ```
 
-## <a name="backup-azure-vms"></a>Copias de seguridad de máquinas virtuales de Azure
+## <a name="backup-azure-vms"></a>Copias de seguridad de Azure Virtual Machines
 ### <a name="create-a-protection-policy"></a>Creación de una directiva de protección
 Para empezar a realizar copias de seguridad de las máquinas virtuales no es obligatorio crear una nueva directiva de protección. El almacén incluye una "directiva predeterminada" que se puede usar para habilitar rápidamente la protección y que se puede editar posteriormente con los detalles adecuados. Para obtener una lista de las directivas disponibles en el almacén, use el cmdlet **Get-AzureRmBackupProtectionPolicy** :
 

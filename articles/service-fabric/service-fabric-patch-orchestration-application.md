@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -51,14 +51,6 @@ La aplicación de orquestación de revisiones consta de los siguientes subcompon
 > La aplicación de orquestación de revisiones usa el servicio de sistema de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por la aplicación de orquestación de revisiones sigue el progreso de Windows Update en cada nodo.
 
 ## <a name="prerequisites"></a>Requisitos previos
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Versión mínima admitida del runtime de Service Fabric
-
-#### <a name="azure-clusters"></a>Clústeres de Azure
-Se debe ejecutar la aplicación de orquestación de revisiones en clústeres de Azure que tengan la versión v5.5 o posterior del runtime de Service Fabric.
-
-#### <a name="standalone-on-premises-clusters"></a>Clústeres locales independientes
-Se debe ejecutar la aplicación de orquestación de revisiones en clústeres independientes que tengan la versión v5.6 o posterior del runtime de Service Fabric.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilitar el servicio de administrador de reparaciones (si no se está ejecutando ya)
 
@@ -135,59 +127,6 @@ Para habilitar el servicio de administrador de reparaciones:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Deshabilitar las actualizaciones automáticas de Windows en todos los nodos
 
 Es posible que las actualizaciones automáticas de Windows provoquen la pérdida de disponibilidad ya que varios nodos de clúster pueden reiniciarse al mismo tiempo. La aplicación de orquestación de revisiones intenta deshabilitar las actualizaciones automáticas de Windows en cada nodo del clúster de forma predeterminada. Pero en caso de que la configuración se administre por directivas de administrador o de grupo, se recomienda configurar explícitamente la directiva de Windows Update en "Notificar antes de descargar".
-
-### <a name="optional-enable-azure-diagnostics"></a>Opcional: habilitar Azure Diagnostics
-
-Los clústeres que ejecutan la versión `5.6.220.9494`, y versiones posteriores, del entorno en tiempo de ejecución de Service Fabric, recopilan registros de aplicación de orquestación de revisiones como parte de los registros de Service Fabric.
-Puede omitir este paso si el clúster se ejecuta en la versión `5.6.220.9494`, y versiones posteriores, del entorno en tiempo de ejecución de Service Fabric.
-
-Para los clústeres que ejecutan una versión del entorno en tiempo de ejecución de Service Fabric inferior a la `5.6.220.9494`, los registros de la aplicación de orquestación de revisiones se recopilan localmente en cada uno de los nodos del clúster.
-Se recomienda configurar Azure Diagnostics para cargar los registros de todos los nodos a una ubicación central.
-
-Para más información sobre Azure Diagnostics, vea [Recopilar de registros con Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Los registros de la aplicación de orquestación de revisiones se generan en los identificadores de proveedor siguientes:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-En la plantilla de Resource Manager, vaya a la sección `EtwEventSourceProviderConfiguration` en `WadCfg` y agregue las siguientes entradas:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Si el clúster de Service Fabric tiene varios tipos de nodo, se debe agregar la sección anterior a todas las secciones `WadCfg`.
 
 ## <a name="download-the-app-package"></a>Descargar el paquete de la aplicación
 
@@ -303,20 +242,16 @@ Para habilitar el proxy inverso en el clúster, siga los pasos descritos en [Pro
 
 ## <a name="diagnosticshealth-events"></a>Eventos de diagnóstico y mantenimiento
 
-### <a name="collect-patch-orchestration-app-logs"></a>Recopilar los registros de la aplicación de orquestación de revisiones
+### <a name="diagnostic-logs"></a>Registros de diagnóstico
 
-Los registros de aplicación de orquestación de revisiones se recopilan como parte de los registros de Service Fabric en la versión del runtime `5.6.220.9494` y versiones posteriores.
-Para los clústeres que ejecutan una versión del runtime de Service Fabric inferior a `5.6.220.9494`, los registros se pueden recopilar mediante uno de los métodos siguientes.
+Los registros de aplicación de orquestación de revisiones se recopilan como parte de los registros en tiempo de ejecución de Service Fabric.
 
-#### <a name="locally-on-each-node"></a>Localmente en cada nodo
+En caso de que desee capturar los registros a través de la canalización o herramienta de diagnóstico de su elección. La aplicación de orquestación de revisiones usa el id. de proveedor fijo siguiente para registrar eventos a través de [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Los registros se recopilan localmente en cada nodo de clúster de Service Fabric si la versión del entorno en tiempo de ejecución de Service Fabric es inferior a la `5.6.220.9494`. La ubicación para tener acceso a los registros es \[Unidad\_Instalación\_Service Fabric\]:\\PatchOrchestrationApplication\\logs.
-
-Por ejemplo, si se instaló Service Fabric en la unidad D, la ruta de acceso es D:\\PatchOrchestrationApplication\\logs.
-
-#### <a name="central-location"></a>Ubicación central
-
-Si Azure Diagnostics está configurado como parte de los pasos de requisitos previos, los registros de la aplicación de orquestación de revisiones están disponibles en Azure Storage.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Informes de mantenimiento
 

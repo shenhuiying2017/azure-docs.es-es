@@ -17,13 +17,13 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: f0729286afdf01ea0ce0e0060f4d7415fa122014
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="use-powershell-to-sync-between-an-azure-sql-database-and-a-sql-server-on-premises-database"></a>Utilice PowerShell para realizar la sincronización entre una base de datos Azure SQL Database y una base de datos SQL Server local.
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Uso de PowerShell para realizar la sincronización entre SQL Database y una base de datos de SQL Server local
 
 En este ejemplo de PowerShell se configura la sincronización de datos entre una base de datos Azure SQL Database y una base de datos SQL Server local. 
 
@@ -392,9 +392,10 @@ Encontrará más ejemplos de scripts de PowerShell de SQL Database en los [scrip
 
 Para más información sobre SQL Data Sync, consulte:
 
--   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync de Azure](../sql-database-sync-data.md)
--   [Introducción a SQL Data Sync de Azure](../sql-database-get-started-sql-data-sync.md)
+-   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](../sql-database-sync-data.md)
+-   [Configurar SQL Data Sync de Azure](../sql-database-get-started-sql-data-sync.md)
 -   [Procedimientos recomendados para SQL Data Sync de Azure](../sql-database-best-practices-data-sync.md)
+-   [Supervisión de SQL Data Sync de Azure con Log Analytics de OMS](../sql-database-sync-monitor-oms.md)
 -   [Solución de problemas de SQL Data Sync de Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:
