@@ -1,6 +1,6 @@
-En Cloud Shell, cree una aplicación web en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). No olvide reemplazar `<app_name>` por un nombre de aplicación único.
+En Cloud Shell, cree una aplicación web en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp#create). 
 
-En el siguiente comando, el entorno de tiempo de ejecución se establece en `PHP|7.0`. Para ver todos los entornos de tiempo de ejecución admitidos, ejecute [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
+En el siguiente ejemplo, reemplace `<app_name>` por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). El tiempo de ejecución se establece en `PHP|7.0`. Para ver todos los entornos de tiempo de ejecución admitidos, ejecute [az webapp list-runtimes](/cli/azure/webapp#list-runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git

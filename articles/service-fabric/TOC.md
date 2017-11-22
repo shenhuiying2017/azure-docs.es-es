@@ -16,9 +16,8 @@
 ### [4 - Supervisión y diagnóstico](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Inclusión de una aplicación .NET existente en un contenedor
-### [1- Creación de un clúster seguro en Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Implementación de una aplicación de .NET con Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3- Supervisión del contenedor](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Implementación de una aplicación .NET con Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2- Supervisión del contenedor](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Creación de una aplicación contenedor de Linux
 ### [1--Creación de imágenes de contenedor](service-fabric-tutorial-create-container-images.md)
@@ -284,7 +283,6 @@
 ## Creación y administración de clústeres
 ### Clústeres en Azure
 #### Crear
-##### [Creación del primer clúster en Azure](service-fabric-get-started-azure-cluster.md)
 ##### [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 ##### [Administrador de recursos de Azure](service-fabric-cluster-creation-via-arm.md)
 #### Escala
