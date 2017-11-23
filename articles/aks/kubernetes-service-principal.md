@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de servicio con Azure Container Service (AKS)
 
@@ -82,7 +82,7 @@ La salida es similar a la siguiente. Tome nota de `appId` y `password`. Estos va
 Si usa una entidad de servicio creada previamente, incluya `appId` y `password` como valores de los argumentos del comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-princal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
 ```
 
 Si se va a implementar un clúster de AKS desde Azure Portal, especifique estos valores en el formulario de configuración del clúster de AKS.

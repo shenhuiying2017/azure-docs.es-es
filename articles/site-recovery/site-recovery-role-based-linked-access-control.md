@@ -12,13 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 9dd74014bf05234a83c7678b67b42b96cd8b8d64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce579bc2844d321e4fbc70726b57120e17e4788d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Uso del control de acceso basado en roles para administrar las implementaciones de Azure Site Recovery
 
@@ -66,7 +66,7 @@ Un usuario necesita los siguientes permisos para completar la replicación de un
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Clásico | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Almacenamiento | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Clásico | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
@@ -76,7 +76,7 @@ Un usuario necesita los siguientes permisos para completar la replicación de un
 Considere el uso de los [roles integrados](../active-directory/role-based-access-built-in-roles.md) "Colaborador de la máquina virtual" y "Colaborador de la máquina virtual clásica" respectivamente para la implementación según el modelo de Resource Manager o el clásico.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
+* [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md): introducción a RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [CLI de Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)

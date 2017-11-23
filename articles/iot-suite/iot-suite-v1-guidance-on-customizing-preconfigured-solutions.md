@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Personalizar una solución preconfigurada
 
@@ -228,55 +228,6 @@ El valor predeterminado es 200. Puede cambiar este número en [TelemetryApiContr
 
 El valor predeterminado es 10 minutos. Puede cambiar este valor en [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
 
-## <a name="manually-set-up-application-roles"></a>Configuración manual de los roles de aplicación
-
-El siguiente procedimiento describe cómo agregar los roles de aplicación **Admin** y **ReadOnly** a una solución preconfigurada. Tenga en cuenta que las soluciones preconfiguradas aprovisionadas desde el sitio azureiotsuite.com ya incluyen los roles **Admin** y **ReadOnly**.
-
-Los miembros del rol **ReadOnly** pueden ver el panel y la lista de dispositivos, pero no tienen permiso para agregar dispositivos, cambiar atributos de dispositivo ni enviar comandos.  Los miembros del rol **Admin** tienen acceso total a todas las funciones de la solución.
-
-1. Vaya al [Portal de Azure clásico][lnk-classic-portal].
-2. Seleccione **Active Directory**.
-3. Haga clic en el nombre del inquilino de AAD que usó al aprovisionar la solución.
-4. Haga clic en **Aplicaciones**.
-5. Haga clic en el nombre de la aplicación que coincida con el nombre de la solución preconfigurada. Si no ve la aplicación en la lista, seleccione **Aplicaciones que tiene mi compañía** en la lista desplegable **Mostrar** y haga clic en la marca de verificación.
-6. En la parte inferior de la página, haga clic en **Administrar manifiesto** y, luego, en **Descargar manifiesto**.
-7. Este procedimiento permite descargar un archivo .json en la máquina local. Abra este archivo para editarlo en el editor de texto que quiera.
-8. En la tercera línea del archivo .json, verá:
-
-   ```json
-   "appRoles" : [],
-   ```
-   Reemplace esta línea por el código siguiente:
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. Guarde el archivo .json actualizado (puede sobrescribir el archivo existente).
-10. En el Portal de Azure clásico, en la parte inferior de la página, seleccione **Administrar manifiesto** y, después, **Cargar manifiesto** para cargar el archivo .json que guardó en el paso anterior.
-11. Ahora, los roles **Admin** y **ReadOnly** ya están agregados a la aplicación.
-12. Para asignar uno de estos roles a un usuario del directorio, consulte [Permisos en el sitio azureiotsuite.com][lnk-permissions].
-
 ## <a name="feedback"></a>Comentarios
 
 ¿Tiene una personalización que le gustaría que se tratara en este documento? Agregue las sugerencias de características a [User Voice](https://feedback.azure.com/forums/321918-azure-iot) o comente este artículo. 
@@ -300,6 +251,5 @@ Para obtener más información sobre las opciones para personalizar las solucion
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

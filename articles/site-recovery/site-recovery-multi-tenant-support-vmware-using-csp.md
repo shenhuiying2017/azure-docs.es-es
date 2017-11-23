@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Compatibilidad con multiinquilino en Azure Site Recovery para la replicación de máquinas virtuales de VMware en Azure mediante CSP
 
@@ -50,7 +50,7 @@ Tal como se muestra en el diagrama anterior, cada cliente tiene un servidor de a
 El requisito de aislamiento de datos precisa que toda la información confidencial de infraestructura (por ejemplo, credenciales de acceso) permanezca sin revelar para los inquilinos. Por este motivo, se recomienda que todos los componentes del servidor de administración permanecen bajo control exclusivo del asociado. Los componentes de servidor de administración son:
 * Servidor de configuración (CS)
 * Servidor de proceso (PS)
-* Servidor de destino maestro (MT) 
+* Servidor de destino maestro (MT)
 
 Un PS de escalado horizontal también está bajo el control del asociado.
 
@@ -82,7 +82,7 @@ El procedimiento de acceso a la cuenta de vCenter es el siguiente:
 
     * **Tareas**: crear tarea, actualizar tarea
 
-    * **Máquina virtual**: 
+    * **Máquina virtual**:
         * Configuración > Todos
         * Interacción > Responder a pregunta, Conexión de dispositivos, Configurar soporte de CD, Configurar soporte de disquete, Apagar, Encender, Instalación de herramientas de VMware
         * Inventario > Crear a partir de existente, Crear nuevo, Registrar, Anular registro
@@ -138,8 +138,8 @@ Los requisitos previos de la máquina virtual son los mismos que los descritos e
 
 ### <a name="step-1-create-a-tenant-account"></a>Paso 1: Creación de una cuenta de inquilino
 
-1. Mediante el [Centro de partners de Microsoft](https://partnercenter.microsoft.com/), inicie sesión en su cuenta de CSP. 
- 
+1. Mediante el [Centro de partners de Microsoft](https://partnercenter.microsoft.com/), inicie sesión en su cuenta de CSP.
+
 2. En el menú **Panel**, seleccione **Clientes**.
 
     ![El vínculo de los clientes al Centro de partners de Microsoft](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ Los requisitos previos de la máquina virtual son los mismos que los descritos e
 
     ![La página Revisar](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Después de haber creado la cuenta del inquilino, aparece una página de confirmación que muestra los detalles de la cuenta predeterminada y la contraseña de esa suscripción. 
+    Después de haber creado la cuenta del inquilino, aparece una página de confirmación que muestra los detalles de la cuenta predeterminada y la contraseña de esa suscripción.
 
 7. Guarde la información y cambie la contraseña más adelante si es necesario mediante la página de inicio de sesión de Azure Portal.  
- 
+
     Puede compartir esta información con el inquilino tal cual, o puede crear y compartir una cuenta independiente si es necesario.
 
 ### <a name="step-2-access-the-tenant-account"></a>Paso 2: Acceso a la cuenta de inquilino
 
-Puede acceder a la suscripción del inquilino mediante el panel del Centro de partners de Microsoft, como se describe en "Paso 1: Creación de una cuenta de inquilino". 
+Puede acceder a la suscripción del inquilino mediante el panel del Centro de partners de Microsoft, como se describe en "Paso 1: Creación de una cuenta de inquilino".
 
 1. Vaya a la página **Clientes** y, a continuación, haga clic en el nombre de la cuenta de inquilino.
 
 2. En la página **Suscripciones** de la cuenta de inquilino, puede supervisar las suscripciones existentes de la cuenta y agregar más suscripciones, según sea necesario. Para administrar las operaciones de recuperación ante desastres del inquilino, seleccione **Todos los recursos (Azure Portal)**.
 
     ![El vínculo Todos los recursos](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Al hacer clic en **Todos los recursos** se le concede acceso a las suscripciones de Azure del inquilino. Para comprobar el acceso, haga clic en el vínculo de Azure Active Directory en la parte superior derecha de Azure Portal.
 
     ![Vínculo de Azure Active Directory](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ Puede acceder a la suscripción del inquilino mediante el panel del Centro de pa
 Ahora puede realizar todas las operaciones de Site Recovery en el inquilino mediante Azure Portal y administrar las operaciones de recuperación ante desastres. Para acceder a la suscripción del inquilino mediante CSP para la recuperación ante desastres administrada, siga el proceso descrito anteriormente.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Paso 3: Implementación de recursos en la suscripción de inquilino
-1. En Azure Portal, cree un grupo de recursos e implemente un almacén de Recovery Services por el proceso habitual. 
- 
+1. En Azure Portal, cree un grupo de recursos e implemente un almacén de Recovery Services por el proceso habitual.
+
 2. Descargue la clave de registro del almacén.
 
 3. Registre el CS en el inquilino con la clave de registro del almacén.

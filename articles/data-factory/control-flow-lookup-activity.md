@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: spelluru
-ms.openlocfilehash: 30173f8eea2ccbbcd44018596cf34b3769a64b50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 La actividad de búsqueda puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida. 
@@ -53,6 +53,9 @@ Esta canalización contiene dos actividades: **búsqueda** y **copia**.
                 "name": "LookupActivity",
                 "type": "Lookup",
                 "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
                     "dataset": { 
                         "referenceName": "LookupDataset", 
                         "type": "DatasetReference" 
@@ -161,7 +164,7 @@ Con la actividad de copia se copian datos de la tabla SQL en el archivo filebylo
 }
 ```
 
-### <a name="azure-storage-linked-service"></a>Servicio vinculado de Almacenamiento de Azure
+### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
 Esta cuenta de almacenamiento contiene el archivo JSON con los nombres de las tablas SQL. 
 
 ```json

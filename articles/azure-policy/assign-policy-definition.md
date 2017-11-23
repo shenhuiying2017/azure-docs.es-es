@@ -3,17 +3,17 @@ title: "Creación de una asignación de directiva para identificar recursos no c
 description: "Este artículo lo guiará por los pasos para crear una definición de directiva para identificar los recursos no compatibles."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
+author: bandersmsft
+ms.author: banders
 ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
 El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos con los que ya cuenta. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.

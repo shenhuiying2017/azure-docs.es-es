@@ -1,6 +1,6 @@
 ---
 title: Copia o movimiento de datos a Azure Storage con AzCopy en Linux | Microsoft Docs
-description: "Use la utilidad AzCopy en Linux para mover o copiar datos hacia contenido de blobs y archivos o desde ellos. Copie datos a Almacenamiento de Azure desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Almacenamiento de Azure."
+description: "Use la utilidad AzCopy en Linux para mover o copiar datos hacia contenido de blobs y archivos o desde ellos. Copie datos a Azure Storage desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Azure Storage."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferencia de datos con AzCopy en Linux
 AzCopy en Linux es una utilidad de la línea de comandos diseñada para copiar datos hacia almacenamiento de archivos y blobs de Microsoft Azure o desde estos mediante comandos sencillos con un rendimiento óptimo. También puede copiar datos de un objeto a otro dentro de la cuenta de almacenamiento o entre cuentas de almacenamiento.
@@ -496,7 +496,7 @@ azcopy \
     --sync-copy
 ```
 
-Al realizar la copia del Almacenamiento de archivos al Almacenamiento de blobs, el tipo de blob predeterminado es el blob en bloques, por lo tanto, el usuario puede especificar la opción `--blob-type page` para cambiar el tipo de blob de destino. Los tipos disponibles son `page | block | append`.
+Al realizar la copia de File Storage a Blob Storage, el tipo de blob predeterminado es el blob en bloques, por lo tanto, el usuario puede especificar la opción `--blob-type page` para cambiar el tipo de blob de destino. Los tipos disponibles son `page | block | append`.
 
 Tenga en cuenta que `--sync-copy` podría generar un costo de salida adicional en comparación con la copia asincrónica. El enfoque recomendado es usar esta opción en una máquina virtual de Azure que se encuentre en la misma región que la cuenta de almacenamiento de origen, para evitar el costo de salida.
 
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-Tenga en cuenta que AzCopy actualmente admite solo [SAS de cuenta](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+Tenga en cuenta que AzCopy actualmente admite solo [SAS de cuenta](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Carpeta de archivo de diario
 Cada vez que emite un comando a AzCopy, comprueba si existe un archivo de diario en la carpeta predeterminada o si existe una carpeta que especificó a través de esta opción. Si el archivo de diario no existe en ningún lugar, AzCopy trata la operación como una nueva y genera un nuevo archivo de diario.
@@ -670,19 +670,19 @@ AzCopy está diseñado para maximizar el uso de los recursos del equipo para ace
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre Azure Storage y AzCopy, consulte los recursos siguientes:
 
-### <a name="azure-storage-documentation"></a>Documentación de Almacenamiento de Azure:
-* [Introducción a Almacenamiento de Azure](../storage-introduction.md)
+### <a name="azure-storage-documentation"></a>Documentación de Azure Storage:
+* [Introducción a Azure Storage](../storage-introduction.md)
 * [Cree una cuenta de almacenamiento](../storage-create-storage-account.md)
-* [Administración de blobs con el Explorador de Storage](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [Administración de blobs con el Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Uso de la CLI de Azure 2.0 con Azure Storage](../storage-azure-cli.md)
 * [Uso del almacenamiento de blobs en C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Uso del almacenamiento de blobs de Java](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Uso de almacenamiento de blobs en Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
 * [Uso del almacenamiento de blobs de Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
-### <a name="azure-storage-blog-posts"></a>Publicaciones en blobs de Almacenamiento de Azure
+### <a name="azure-storage-blog-posts"></a>Publicaciones en blobs de Azure Storage
 * [Anuncio de AzCopy en Linux (versión preliminar)](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
-* [Introducción a la versión de vista previa de la biblioteca de movimiento de datos de Almacenamiento de Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [Introducción a la versión de vista previa de la biblioteca de movimiento de datos de Azure Storage](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introducción a la copia sincrónica y el tipo de contenido personalizado](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Presentación de la disponibilidad general de AzCopy 3.0 y de la versión de vista previa de AzCopy 4.0 compatible con tablas y archivos](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: Optimizada para escenarios de copia a gran escala](http://go.microsoft.com/fwlink/?LinkId=507682)

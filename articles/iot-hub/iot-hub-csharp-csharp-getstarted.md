@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 24b75e4021d9d16aed317b48c2f963ff9dea04ac
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Conexión del dispositivo en IoT Hub con .NET
 
@@ -67,7 +67,7 @@ En esta sección, creará una aplicación de consola de .NET que lee los mensaje
 
 3. En la ventana **Administrador de paquetes NuGet**, busque **WindowsAzure.ServiceBus**, seleccione **Instalar** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia a [Azure Service Bus][lnk-servicebus-nuget], con todas sus dependencias. Este paquete permite que la aplicación para se conecte al punto de conexión compatible con centros de eventos en su centro de IoT.
 
-4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs**:
+4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
@@ -146,7 +146,7 @@ En esta sección, creará una aplicación de consola de .NET que simula un dispo
     using Newtonsoft.Json;
     ```
 
-5. Agregue los campos siguientes a la clase **Program**. Sustituya `{iot hub hostname}` por el nombre de host del centro de IoT que obtuvo en la sección "Creación de un centro de IoT". Sustituya `{device key}` por la clave de dispositivo que obtuvo en la sección "Creación de una identidad de dispositivo".
+5. Agregue los campos siguientes a la clase **Program** . Sustituya `{iot hub hostname}` por el nombre de host del centro de IoT que obtuvo en la sección "Creación de un centro de IoT". Sustituya `{device key}` por la clave de dispositivo que obtuvo en la sección "Creación de una identidad de dispositivo".
 
     ```csharp
     static DeviceClient deviceClient;
@@ -260,5 +260,5 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

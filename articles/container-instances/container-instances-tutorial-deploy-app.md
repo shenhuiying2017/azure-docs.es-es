@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 11/20/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 2858f20cd9da469d5983e2bef9176f5922349196
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5222c43fe381c93527ec6c8b927d723f75dd58f9
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implementación de un contenedor en Azure Container Instances
 
@@ -34,7 +34,7 @@ Esta es la tercera parte de un tutorial de tres. En las secciones anteriores, [s
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para realizar este tutorial es necesario que ejecute la versión 2.0.20 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
+Para realizar este tutorial es necesario que ejecute la versión 2.0.21 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
 
 Para completar este tutorial, se necesita un entorno de desarrollo de Docker. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) o [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -59,7 +59,7 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 Para implementar una imagen de contenedor desde el registro de contenedor con una solicitud de recurso de 1 núcleo de CPU y 1 GB de memoria, ejecute el comando siguiente. Reemplace `<acrLoginServer>` y `<acrPassword>` por los valores obtenidos en los dos comandos anteriores.
 
 ```azurecli
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
+az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public --ports 80 -g myResourceGroup
 ```
 
 En pocos segundos, debería recibir una respuesta inicial de Azure Resource Manager. Para ver el estado de la implementación, use [az container show](/cli/azure/container#az_container_show):

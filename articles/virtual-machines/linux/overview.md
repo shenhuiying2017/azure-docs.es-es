@@ -1,6 +1,6 @@
 ---
 title: "Introducción a las máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "Describe los servicios de proceso, almacenamiento y red de Azure con máquinas virtuales de Linux."
+description: "Describe los servicios Azure Compute, Storage y Network con máquinas virtuales de Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: ae4b8f423489bf417f1086368db9b1043cd7f396
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: cef9abddf980c695040e99995eb325eeb182fad4
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
 Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web, ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
@@ -40,7 +40,7 @@ El servicio Managed Disks controla la creación y administración de las cuentas
 
 También puede administrar sus imágenes personalizadas en una cuenta de almacenamiento por región de Azure y utilizarlas para crear cientos de máquinas virtuales en la misma suscripción. Para obtener más información sobre Managed Disks, consulte [Información general de Managed Disks](../windows/managed-disks-overview.md).
 
-## <a name="azure-virtual-machines--instances"></a>Máquinas virtuales e instancias de Azure
+## <a name="azure-virtual-machines--instances"></a>Azure Virtual Machines e instancias
 Microsoft Azure permite ejecutar varias de las distribuciones de Linux más populares proporcionadas y mantenidas por diversos asociados.  Entre otras cosas, encontrará distribuciones como Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS y FreeBSD en Azure Marketplace. Trabajamos activamente con distintas comunidades de Linux para agregar aún más tipos a la lista de [distribuciones de Linux aprobadas para Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 Si su distribución de Linux favorita no está en la galería, puede usar su propia máquina virtual Linux [creando y actualizando un VHD de Linux en Azure](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -53,7 +53,7 @@ Cuando se implementa una máquina virtual en Azure, se selecciona un tamaño de 
 Estas son algunas directrices básicas para seleccionar un tamaño de máquina virtual desde una de nuestras series (A, D, DS, G y GS).
 * Las máquinas virtuales de la serie A son las más económicas para empezar con cargas de trabajo ligeras y escenarios de desarrollo y pruebas. Están ampliamente disponibles en todas las regiones y puede conectarse a todos los recursos estándar disponibles para máquinas virtuales, y usarlos.
 * Los tamaños de la serie A (A8 - A11) son configuraciones especiales para procesos intensivos adecuadas para aplicaciones de clúster de proceso de alto rendimiento.
-* Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal.
+* Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a vCPU y una unidad de estado sólido (SSD) para el disco temporal.
 * La serie Dv2 es la versión más reciente de la serie D y cuenta con una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haskwell) de 2,4 GHz de última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,2 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 * Las máquinas virtuales de la serie G ofrecen la mayor cantidad de memoria y se ejecutan en hosts con procesadores de la familia Intel Xeon E5 V3.
 
@@ -61,7 +61,7 @@ Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Premium Stor
 
 * [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../windows/premium-storage.md)
 
-## <a name="automation"></a>Automatización
+## <a name="automation"></a>Automation
 Para instaurar una cultura de DevOps adecuada, la infraestructura al completa debe ser código.  Cuando toda la infraestructura reside en el código, puede volver a crearse con facilidad (servidores de Phoenix).  Azure funciona con todas las principales herramientas de automatización, como Ansible, Chef, SaltStack y Puppet.  Asimismo, tiene sus propias herramientas de automatización:
 
 * [Plantillas de Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -118,7 +118,7 @@ Una forma sencilla de crear una máquina virtual Linux en el portal web de Azure
 Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesión en ella.  Usar contraseñas para iniciar sesión a través de SSH no es un proceso rápido ni seguro.  La forma más segura y rápida de iniciar sesión es utilizar claves SSH.  Al crear una máquina virtual Linux mediante el portal o la CLI, tiene dos opciones de autenticación.  Si elige una contraseña para SSH, Azure configurará la máquina virtual para permitir los inicios de sesión mediante contraseñas.  Si decide utilizar una clave pública SSH, Azure configurará la máquina virtual para permitir que solo se pueda iniciar sesión a través de claves SSH y deshabilitará los inicios de sesión con contraseñas. Para proteger la máquina virtual Linux al permitir que solo se inicie sesión con claves de SSH, utilice la opción de claves públicas SSH durante la creación de las máquinas virtuales en el portal o la CLI.
 
 ## <a name="related-azure-components"></a>Componentes de Azure relacionados
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 * [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Incorporación de un disco a una máquina virtual con Linux mediante la CLI de Azure](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Incorporación de un disco de datos a una máquina virtual con Linux en Azure Portal](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

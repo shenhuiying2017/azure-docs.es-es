@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
 El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog.  Una vez recopilada la información, puede analizar cada entrada del registro en campos individuales mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
@@ -56,10 +56,6 @@ Para empezar, cargue una muestra del registro personalizado.  El Asistente anali
 
 Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenada en OMS se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Log Analytics recopila la entrada.
 
-> [!NOTE]
-> Actualmente, Log Analytics trata la fecha y hora recopilada en un registro con un delimitador de marca de tiempo como una hora UTC.  Esto se cambiará pronto a utilizar la zona horaria del agente.
->
->
 
 1. Haga clic en **Browse** (Examinar) y vaya a un archivo de ejemplo.  Tenga en cuenta que este botón puede llamarse **Choose File** (Elegir archivo) en algunos exploradores.
 2. Haga clic en **Siguiente**.

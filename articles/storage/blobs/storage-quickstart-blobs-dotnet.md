@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: ca4cb2dea9cdd2e46c3aef042e525acdfc09de8e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferencia de objetos a y desde Azure Blob Storage mediante .NET
 
@@ -26,8 +26,8 @@ En este tutorial de inicio rápido, aprenderá a usar la biblioteca de cliente d
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial de inicio rápido, instale [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con la carga de trabajo siguiente:
-    
-    - **Desarrollo de Azure**
+
+- **Desarrollo de Azure**
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

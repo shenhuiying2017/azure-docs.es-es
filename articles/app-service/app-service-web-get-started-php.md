@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 929c8e3bd8e180148897c4a7808a90f5ca614c4e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 2f5c295468e5bb54d14b81d52b9ad4b41fcafa81
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creación de una aplicación web de PHP en Azure
 
@@ -33,8 +33,8 @@ Estos pasos se pueden realizar con un equipo Mac, Windows o Linux. Una vez insta
 
 Para completar esta guía de inicio rápido:
 
-* [Instalación de Git](https://git-scm.com/)
-* [Instalación de PHP](https://php.net)
+* <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
+* <a href="https://php.net" target="_blank">Instalación de PHP</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

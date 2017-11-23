@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e5193460bf46c2b826cad371e4549a9690180f17
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
@@ -36,8 +36,8 @@ Estos pasos se pueden realizar con un equipo Mac, Windows o Linux. Una vez insta
 
 Para completar esta guía de inicio rápido:
 
-* [Instalación de Git](https://git-scm.com/)
-* [Instalación de Node.js y NPM](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
+* <a href="https://nodejs.org/" target="_blank">Instalación de Node.js y NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

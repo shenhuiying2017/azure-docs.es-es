@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 ## <a name="introduction"></a>Introducción
@@ -151,7 +151,7 @@ Seguridad y auditoría es un ejemplo de solución de este tipo.
 
 Azure Automation automatiza los procesos administrativos con runbooks basados en PowerShell que se ejecutan en la nube de Azure. Los runbooks pueden ejecutarse en un servidor en el centro de datos local para administrar recursos locales. Azure Automation proporciona administración de configuración con DSC de PowerShell (Configuración de estado deseada).
 
-![Automatización de Azure](./media/azure-threat-detection/azure-threat-detection-fig7.png)
+![Azure Automation](./media/azure-threat-detection/azure-threat-detection-fig7.png)
 
 Puede crear y administrar recursos de DSC hospedados en Azure y aplicarlos a los sistemas de nube y locales para definir y aplicar automáticamente su configuración u obtener informes de la desviación para ayudar a garantizar que las configuraciones de seguridad cumplen siempre las directivas.
 

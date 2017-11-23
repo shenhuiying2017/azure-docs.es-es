@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: bf4f0b64d1230395bf5dacc467d09debecdef559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -95,7 +95,7 @@ En una estación de trabajo protegida, el administrador ejecuta una cuenta de us
 Para aplicar todo esto, puede usar [objetos de directiva de grupo](https://www.microsoft.com/download/details.aspx?id=2612) (GPO) en Active Directory Domain Services (AD DS) y aplicarlos mediante su dominio de administración (local) a todas las cuentas de administración.
 
 ### <a name="managing-services-applications-and-data"></a>Administración de servicios, aplicaciones y datos
-La configuración de servicios en la nube de Azure se realiza mediante el Portal de Azure o SMAPI, mediante la interfaz de línea de comandos de Windows PowerShell o mediante una aplicación personalizada que aprovecha estas interfaces de RESTful. Los servicios que usan estos mecanismos son Azure Active Directory (Azure AD), Almacenamiento de Azure, Sitios web de Azure y Red virtual de Azure, entre otros.
+La configuración de servicios en la nube de Azure se realiza mediante el Portal de Azure o SMAPI, mediante la interfaz de línea de comandos de Windows PowerShell o mediante una aplicación personalizada que aprovecha estas interfaces de RESTful. Los servicios que usan estos mecanismos son Azure Active Directory (Azure AD), Azure Storage, Azure Websites y Azure Virtual Network, entre otros.
 
 Máquina virtual: las aplicaciones implementadas proporcionan sus propias herramientas e interfaces de cliente según sea necesario, como Microsoft Management Console (MMC), una consola de administración empresarial (Microsoft System Center o Windows Intune) u otra aplicación de administración (Microsoft SQL Server Management Studio, por ejemplo). Estas herramientas suelen residir en una red de cliente o en un entorno empresarial. Pueden depender de protocolos de red específicos, como el Protocolo de escritorio remoto (RDP), que requiere conexiones directas con estado. Algunos pueden tener interfaces habilitadas para web que no se deben publicar ni ser accesibles a través de Internet.
 
@@ -104,7 +104,7 @@ Puede restringir el acceso a la administración de los servicios de infraestruct
 ### <a name="management-gateway"></a>Puerta de enlace de administración
 Para centralizar todo el acceso administrativo y simplificar la supervisión y el registro, puede implementar un servidor de [Puerta de enlace de Escritorio remoto](https://technet.microsoft.com/library/dd560672) dedicado en su red local, conectado a su entorno de Azure.
 
-Puerta de enlace de Escritorio remoto es un servicio de proxy RDP basado en directivas que aplica requisitos de seguridad. La implementación de Puerta de enlace de Escritorio remoto junto con Windows Server Network Access Protection (NAP) ayuda a garantizar que solo podrán conectarse los clientes que cumplen los criterios de mantenimiento de seguridad específicos establecidos por Servicios de dominio de Active Directory (AD DS) y Objetos de directiva de grupo (GPO). Además:
+Puerta de enlace de Escritorio remoto es un servicio de proxy RDP basado en directivas que aplica requisitos de seguridad. La implementación de Puerta de enlace de Escritorio remoto junto con Windows Server Network Access Protection (NAP) ayuda a garantizar que solo podrán conectarse los clientes que cumplen los criterios de mantenimiento de seguridad específicos establecidos por Active Directory Domain Services (AD DS) y Objetos de directiva de grupo (GPO). Además:
 
 * Aprovisione un [certificado de administración de Azure](http://msdn.microsoft.com/library/azure/gg551722.aspx) en Puerta de enlace de Escritorio remoto para que sea el único host con permiso para acceder a Azure Portal.
 * Una Puerta de enlace de Escritorio remoto al mismo [dominio de administración](http://technet.microsoft.com/library/bb727085.aspx) que las estaciones de trabajo de administrador. Esto es necesario cuando se usa una VPN IPsec de sitio a sitio o ExpressRoute dentro de un dominio que tenga una confianza unidireccional con Azure AD, o si federa las credenciales entre su instancia de AD DS local y Azure AD.
@@ -124,7 +124,7 @@ Algunas aplicaciones o servicios que se implementan en Azure pueden tener sus pr
 ### <a name="connectivity"></a>Conectividad
 Existen varios mecanismos para ayudar a proteger las conexiones de cliente de las redes virtuales de Azure. Dos de estos mecanismos, [VPN de sitio a sitio](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) y [VPN de punto a sitio](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S), permiten usar el estándar del sector IPsec (S2S) o el [Protocolo de túnel de sockets seguros](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) para el cifrado y la tunelización. Cuando Azure se conecta a la administración de servicios de Azure accesibles desde Internet, como Azure Portal, requiere el protocolo HTTPS.
 
-Una estación de trabajo protegida independiente que no se conecta a Azure mediante Puerta de enlace de Escritorio remoto debe usar VPN de punto a sitio basada en SSTP para crear la conexión inicial a la Red virtual de Azure y, después, establecer la conexión RDP a las máquinas virtuales individuales desde el túnel VPN.
+Una estación de trabajo protegida independiente que no se conecta a Azure mediante Puerta de enlace de Escritorio remoto debe usar VPN de punto a sitio basada en SSTP para crear la conexión inicial a Azure Virtual Network y, después, establecer la conexión RDP a las máquinas virtuales individuales desde el túnel VPN.
 
 ### <a name="management-auditing-vs-policy-enforcement"></a>Auditoría de administración y aplicación de directivas 
 Normalmente, hay dos enfoques para proteger los procesos de administración: auditoría y aplicación de directivas. Ambos proporcionarán controles completos, pero que pueden no ser posibles en todas las situaciones. Además, cada método tiene distintos niveles de riesgo, costo y esfuerzo asociados con la administración de la seguridad, especialmente en relación con el nivel de confianza en las personas y las arquitecturas del sistema.
@@ -156,7 +156,7 @@ Para los entornos de TI que carecen de infraestructura local (por ejemplo, sin a
 ### <a name="stand-alone-hardened-workstation-for-management"></a>Estación de trabajo protegida independiente para administración
 Con una estación de trabajo protegida independiente, los administradores tienen un equipo o un portátil que usan para las tareas administrativas, y otro equipo o portátil diferente para las tareas no administrativas. Una estación de trabajo dedicada para administrar los servicios de Azure no necesita tener otras aplicaciones instaladas. Además, el uso de estaciones de trabajo que admiten un [Módulo de plataforma segura](https://technet.microsoft.com/library/cc766159) (TPM) o una tecnología de criptografía de nivel de hardware similar ayuda a autenticar dispositivos e impedir ciertos ataques. TPM también admite la protección del volumen completo de la unidad del sistema mediante [Cifrado de unidad BitLocker](https://technet.microsoft.com/library/cc732774.aspx).
 
-En el escenario de la estación de trabajo protegida independiente (se muestra a continuación), la instancia local de Firewall de Windows (o un firewall de cliente no sea de Microsoft) está configurada para bloquear las conexiones entrantes, como RDP. El administrador puede iniciar sesión en la estación de trabajo protegida e iniciar una sesión de RDP que se conecta a Azure después de establecer una conexión de VPN con una Red virtual de Azure, pero no puede iniciar sesión en un equipo corporativo ni usar RDP para conectarse a la propia estación de trabajo protegida.
+En el escenario de la estación de trabajo protegida independiente (se muestra a continuación), la instancia local de Firewall de Windows (o un firewall de cliente no sea de Microsoft) está configurada para bloquear las conexiones entrantes, como RDP. El administrador puede iniciar sesión en la estación de trabajo protegida e iniciar una sesión de RDP que se conecta a Azure después de establecer una conexión de VPN con Azure Virtual Network, pero no puede iniciar sesión en un equipo corporativo ni usar RDP para conectarse a la propia estación de trabajo protegida.
 
 ![][2]
 

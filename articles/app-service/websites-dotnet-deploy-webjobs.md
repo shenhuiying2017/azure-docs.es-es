@@ -1,6 +1,6 @@
 ---
 title: "Desarrollo e implementación de WebJobs mediante Visual Studio - Azure"
-description: "Obtenga información sobre cómo desarrollar e implementar WebJobs de Azure en Azure App Service mediante Visual Studio."
+description: "Obtenga información sobre cómo desarrollar e implementar Azure WebJobs en Azure App Service mediante Visual Studio."
 services: app-service
 documentationcenter: 
 author: ggailey777
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
-ms.author: glenga
-ms.openlocfilehash: 59a453aab82d2f78bcc04774e26c8a557b8dbb26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: 8793485f2f1967e8c14ef335f14f81c9b946f974
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service
 
@@ -29,7 +29,7 @@ En este tema se explica cómo usar Visual Studio para implementar un proyecto de
 Cuando Visual Studio implementa un proyecto de aplicación de consola con funcionalidad WebJobs, realiza dos tareas:
 
 * Copia archivos de tiempo de ejecución a la carpeta apropiada en la aplicación web (*App_Data/jobs/continuous* para WebJobs continuos, *App_Data/jobs/triggered* para WebJobs programados y a petición).
-* Configura [trabajos del Programador de Azure](#scheduler) para WebJobs que se programan para ejecutarse en momentos concretos. (Esto no se necesita para WebJobs continuos.)
+* Configura [trabajos de Azure Scheduler](#scheduler) para WebJobs que se programan para ejecutarse en momentos concretos. (Esto no se necesita para WebJobs continuos.)
 
 Un proyecto con funcionalidad WebJobs tiene los siguientes elementos agregados:
 
@@ -121,7 +121,7 @@ El cuadro de diálogo **Agregar Azure WebJob** le permite escribir el nombre de 
 Los campos de este cuadro de diálogo corresponden a los campos del cuadro de diálogo **Agregar WebJob** de Azure Portal. Para obtener más información, consulte [Ejecución de tareas en segundo plano con WebJobs](web-sites-create-web-jobs.md).
 
 > [!NOTE]
-> * Para obtener información sobre la implementación de línea de comandos, consulte [Activación de la línea de comandos o de la entrega continua de WebJobs de Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+> * Para obtener información sobre la implementación de línea de comandos, consulte [Activación de la línea de comandos o de la entrega continua de Azure WebJobs](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 > * Si implementa un WebJob y, a continuación, decide que desea cambiar el tipo de WebJob y volver a implementarlo, deberá eliminar el archivo *webjobs-publish-settings.json*. Esto hará que Visual Studio muestre de nuevo las opciones de publicación para que pueda cambiar el tipo de WebJob.
 > * Si implementa un WebJob y más tarde cambia el modo de ejecución de continuo a no continuo o viceversa, Visual Studio crea un nuevo WebJob en Azure cuando vuelva a implementar. Si cambia otra configuración de programación pero deja el mismo modo de ejecución o cambia entre el modo Programado y Bajo demanda, Visual Studio actualiza el trabajo existente en lugar de crear uno nuevo.
 > 

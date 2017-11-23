@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6e4539be76449093de0587e43b0e97243602967
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Vídeos sobre seguridad de Azure de Channel 9
 [Channel 9](https://channel9.msdn.com/) es una comunidad que reúne a quienes se encuentran detrás de nuestros productos y los conecta con los clientes.
@@ -59,11 +59,11 @@ Como propietario del laboratorio, puede proteger el acceso al laboratorio a trav
 
 [Administración de secretos para las aplicaciones de Azure](https://channel9.msdn.com/events/Build/2016/P456)
 
-Cada aplicación grave que implemente en Azure tiene secretos críticos: cadenas de conexión, certificados y claves. Los errores tontos en la administración de estos secretos pueden provocar consecuencias graves: pérdidas, interrupciones e infracciones de cumplimiento. Como indican varias encuestas recientes, los errores tontos producen cuatro veces más filtraciones de datos que los rivales. En esta sesión, analizamos algunos procedimientos recomendados para administrar sus secretos de aplicación importantes. Estos procedimientos recomendados pueden parecer de sentido común, pero, de todos modos, muchos desarrolladores los ignoran. También analizamos cómo usar Almacén de claves de Azure para implementarlos. Como ventaja adicional, seguir estos procedimientos le ayudará a demostrar el cumplimiento con estándares como SOC. Los primeros 10 minutos de la sesión son de nivel 100 y se aplican a cualquier aplicación en la nube que desarrolle en cualquier plataforma. El resto es el nivel 200-300 y se centra en las aplicaciones que crea en la Plataforma de Azure.
+Cada aplicación grave que implemente en Azure tiene secretos críticos: cadenas de conexión, certificados y claves. Los errores tontos en la administración de estos secretos pueden provocar consecuencias graves: pérdidas, interrupciones e infracciones de cumplimiento. Como indican varias encuestas recientes, los errores tontos producen cuatro veces más filtraciones de datos que los rivales. En esta sesión, analizamos algunos procedimientos recomendados para administrar sus secretos de aplicación importantes. Estos procedimientos recomendados pueden parecer de sentido común, pero, de todos modos, muchos desarrolladores los ignoran. También analizamos cómo usar Azure Key Vault para implementarlos. Como ventaja adicional, seguir estos procedimientos le ayudará a demostrar el cumplimiento con estándares como SOC. Los primeros 10 minutos de la sesión son de nivel 100 y se aplican a cualquier aplicación en la nube que desarrolle en cualquier plataforma. El resto es el nivel 200-300 y se centra en las aplicaciones que crea en la Plataforma de Azure.
 
-[Protección de la red virtual de Azure mediante grupos de seguridad de red con Narayan Annamalai](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
+[Protección de la instancia de Azure Virtual Network mediante grupos de seguridad de red con Narayan Annamalai](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
 
-El administrador jefe de programas, Narayan Annamalai, enseña a Scott a usar los grupos de seguridad de red en una red virtual de Azure. Puede crear acceso de control a objetos dentro de Azure mediante la subred y la red. Aprende a controlar el acceso y a crear grupos en Azure con PowerShell.
+El administrador jefe de programas, Narayan Annamalai, enseña a Scott a usar los grupos de seguridad de red en una instancia de Azure Virtual Network. Puede crear acceso de control a objetos dentro de Azure mediante la subred y la red. Aprende a controlar el acceso y a crear grupos en Azure con PowerShell.
 
 [Azure AD Privileged Identity Management: Asistente de seguridad, alertas y revisiones](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
 
@@ -75,6 +75,6 @@ Azure Active Directory (AD) Privileged Identity Management es una funcionalidad 
 * Supervisión y corrección de las conclusiones de seguridad.
 * Revisión de quién debe conservar los roles con privilegios para los flujos de trabajo de una nueva certificación periódica.
 
-[Almacén de claves con Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
+[Azure Key Vault con Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
-Amit Bapat presenta a Scott Almacén de claves de Azure. Con Almacén de claves de Azure puede cifrar claves y pequeños secretos como contraseñas con claves almacenadas en módulos de seguridad de hardware (HSM). Se trata de una administración de secretos basada en hardware y en la nube para Microsoft Azure.
+Amit Bapat presenta a Scott Azure Key Vault. Con Azure Key Vault puede cifrar claves y pequeños secretos como contraseñas con claves almacenadas en módulos de seguridad de hardware (HSM). Se trata de una administración de secretos basada en hardware y en la nube para Microsoft Azure.

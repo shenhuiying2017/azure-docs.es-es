@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0aafdade2cbf293cf70f09721102ae8ceaef6303
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2097aa1c158f88a06ab93123f4e374b4245430d6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación de Cassandra con Java y Azure Cosmos DB
 
@@ -28,9 +28,9 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Acceda a la versión preliminar del programa de la API de Cassandra de Azure Cosmos DB. Si no ha solicitado el acceso aún, [regístrese ahora](https://aka.ms/cosmosdb-cassandra-signup).
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
+
+Acceda a la versión preliminar del programa de la API de Cassandra de Azure Cosmos DB. Si no ha solicitado el acceso aún, [regístrese ahora](cassandra-introduction.md#sign-up-now).
 
 Además: 
 
@@ -41,6 +41,8 @@ Además:
     * En Ubuntu, puede ejecutar `apt-get install maven` para instalar Maven.
 * [Git](https://www.git-scm.com/)
     * En Ubuntu, puede ejecutar `sudo apt-get install git` para instalar Git.
+
+
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 

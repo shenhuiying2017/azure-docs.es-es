@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 62c7b6706268e3c6e329f90651125fe299f61d67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Protección de aplicaciones web y móviles PaaS con Azure Storage
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
@@ -26,7 +26,7 @@ En este artículo se explican una serie de procedimientos recomendados de seguri
 La [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) es una excelente fuente para obtener información detallada sobre Azure Storage y la seguridad.  Este artículo aborda de forma resumida algunos de los conceptos de la Guía de seguridad. Además, se ofrecen vínculos a dicha guía y otras fuentes de información.
 
 ## <a name="azure-storage"></a>Azure Storage
-Azure permite implementar y usar el almacenamiento de formas inauditas con un entorno local. Gracias a Azure Storage, se pueden alcanzar altos niveles de escalabilidad y disponibilidad con relativamente poco esfuerzo. Azure Storage no solo constituye la base de las máquinas virtuales de Azure con Windows y Linux, sino que también puede admitir aplicaciones distribuidas de gran tamaño.
+Azure permite implementar y usar el almacenamiento de formas inauditas con un entorno local. Gracias a Azure Storage, se pueden alcanzar altos niveles de escalabilidad y disponibilidad con relativamente poco esfuerzo. Azure Storage no solo constituye la base de Azure Virtual Machines con Windows y Linux, sino que también puede admitir aplicaciones distribuidas de gran tamaño.
 
 Azure Storage proporciona los cuatro servicios siguientes: Blob Storage, Table Storage, Queue Storage y File Storage. Para obtener más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md).
 
@@ -41,7 +41,7 @@ En este artículo se explican los siguientes procedimientos recomendados:
 - Cifrado de almacenamiento:
    - Cifrado del lado cliente para datos de gran valor
    - Azure Disk Encryption para máquinas virtuales (VM)
-   - Cifrado del servicio de almacenamiento
+   - Cifrado del servicio Storage
 
 ## <a name="access-protection"></a>Protección de acceso
 ### <a name="use-shared-access-signature-instead-of-a-storage-account-key"></a>Uso de la firma de acceso compartido en lugar de una clave de cuenta de almacenamiento
@@ -97,11 +97,11 @@ El cifrado del lado cliente también permite controlar de forma exclusiva las cl
 El cifrado del lado cliente se integra en las bibliotecas de cliente de almacenamiento. de Java y .NET.  Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](../storage/storage-client-side-encryption.md) para obtener información sobre cómo cifrar los datos en las aplicaciones cliente, y generar y administrar claves de cifrado.
 
 ### <a name="azure-disk-encryption-for-vms"></a>Azure Disk Encryption para máquinas virtuales
-Azure Disk Encryption es una funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS con Windows y Linux. Cifrado de discos de Azure aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo. La solución se integra con Azure Key Vault para ayudarlo a controlar y administrar los secretos y las claves de cifrado de discos en la suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
+Azure Disk Encryption es una funcionalidad que permite cifrar los discos de las máquinas virtuales IaaS con Windows y Linux. Azure Disk Encryption aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo. La solución se integra con Azure Key Vault para ayudarlo a controlar y administrar los secretos y las claves de cifrado de discos en la suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
 
 Consulte [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](azure-security-disk-encryption.md).
 
-### <a name="storage-service-encryption"></a>Cifrado del servicio de almacenamiento
+### <a name="storage-service-encryption"></a>Cifrado del servicio Storage
 Cuando el [cifrado del servicio Storage](../storage/storage-service-encryption.md) está habilitado en File Storage, los datos se cifran automáticamente con el cifrado AES-256. Microsoft controla todo el proceso de cifrado, descifrado y administración de claves. Esta característica está disponible en los tipos de redundancia LRS y GRS.
 
 ## <a name="next-steps"></a>Pasos siguientes

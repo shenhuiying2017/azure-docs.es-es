@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: c7ee06a00488b3f958127f6d7f57324c7ed14ab4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
@@ -49,7 +49,7 @@ Cree una conexión a Escritorio remoto en la máquina virtual.
 Puede configurar estos ajustes de manera manual o usar el script de PowerShell que se proporciona para automatizar la configuración.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opción 1: Usar un script de PowerShell para configurar la virtualización anidada
-Hay un script de PowerShell para habilitar la virtualización anidada en un host de Windows Server 2016 disponible en [GitHub](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/Nested). El script comprueba los requisitos previos y, luego, configura la virtualización anidada en la máquina virtual de Azure. Es necesario realizar un reinicio de la máquina virtual de Azure para completar la configuración. Este script puede funcionar en otros entornos, pero no está garantizado. Consulte la entrada de blog de Azure que incluye una demostración de vídeo en directo sobre la virtualización anidada en Azure. https://aka.ms/AzureNVblog.
+Hay un script de PowerShell para habilitar la virtualización anidada en un host de Windows Server 2016 disponible en [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). El script comprueba los requisitos previos y, luego, configura la virtualización anidada en la máquina virtual de Azure. Es necesario realizar un reinicio de la máquina virtual de Azure para completar la configuración. Este script puede funcionar en otros entornos, pero no está garantizado. Consulte la entrada de blog de Azure que incluye una demostración de vídeo en directo sobre la virtualización anidada en Azure. https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Opción 2: Configurar manualmente la virtualización anidada
 

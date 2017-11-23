@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: 10c0dd2156e850b421d80901b6f0b40c7d384cef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 183880d2225c1dcc628349733c4fcaa8ddefe6eb
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
 La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
@@ -34,7 +34,10 @@ Las propiedades se describen más adelante en este artículo. La propiedad items
    "type":"ForEach",
    "typeProperties":{  
       "isSequential":"true",
-      "items":"@pipeline().parameters.mySinkDatasetFolderPathCollection",
+        "items": {
+            "value": "@pipeline().parameters.mySinkDatasetFolderPathCollection",
+            "type": "Expression"
+        },
       "activities":[  
          {  
             "name":"MyCopyActivity",
@@ -98,7 +101,10 @@ En la actividad ForEach, proporcione una matriz que se iterará para la propieda
                 "type": "ForEach",
                 "typeProperties": {
                     "isSequential": "true",
-                    "items": "@pipeline().parameters.mySinkDatasetFolderPath",
+                    "items": {
+                        "value": "@pipeline().parameters.mySinkDatasetFolderPath",
+                        "type": "Expression"
+                    },
                     "activities": [
                         {
                             "name": "MyCopyActivity",

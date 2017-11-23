@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
-Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para más información sobre Premium Storage, consulte [Premium Storage de alto rendimiento y máquinas virtuales de Azure](../articles/storage/common/storage-premium-storage.md).
+Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para más información sobre Premium Storage, consulte [Premium Storage de alto rendimiento y máquinas virtuales de Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 Azure admite el formato VHD de disco fijo. El formato fijo coloca el disco lógico linealmente dentro del archivo, de manera que el desplazamiento de disco X se almacena en el desplazamiento de blob X. Un pequeño pie de página al final del blob describe las propiedades del VHD. El formato fijo a menudo desaprovecha el espacio porque la mayoría de discos contienen grandes rangos sin utilizar. Sin embargo, Azure almacena los archivos .vhd en un formato disperso; así pues, se beneficia de las ventajas de los discos fijos y dinámicos al mismo tiempo. Para obtener más información, consulte [Introducción a los discos duros virtuales](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -24,13 +24,13 @@ Hay dos niveles de rendimiento para el almacenamiento que puede elegir al crear 
 
 ### <a name="standard-storage"></a>Standard Storage 
 
-El almacenamiento estándar está respaldado por unidades de disco duro y ofrece un almacenamiento rentable al mismo tiempo que tiene un rendimiento superior. El almacenamiento estándar se puede replicar de forma local en un centro de datos, o tener redundancia geográfica con centros de datos principales y secundarios. Para más información sobre la replicación almacenamiento, consulte [Replicación de Azure Storage](../articles/storage/common/storage-redundancy.md). 
+Standard Storage está respaldado por unidades de disco duro y ofrece un almacenamiento rentable al mismo tiempo que tiene un rendimiento superior. El almacenamiento estándar se puede replicar de forma local en un centro de datos, o tener redundancia geográfica con centros de datos principales y secundarios. Para más información sobre la replicación almacenamiento, consulte [Replicación de Azure Storage](../articles/storage/common/storage-redundancy.md). 
 
-Para más información sobre el uso del almacenamiento estándar con discos de máquina virtual, consulte el artículo sobre [Almacenamiento estándar y discos](../articles/storage/common/storage-standard-storage.md).
+Para más información sobre el uso de Standard Storage con discos de máquina virtual, consulte el artículo sobre [Standard Storage y discos](../articles/virtual-machines/windows/standard-storage.md).
 
 ### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage está respaldado por discos SSD y ofrece compatibilidad con discos de alto rendimiento y baja latencia para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede usar Premium Storage con máquinas virtuales de Azure de las series DS, DSv2, GS, Ls o FS. Para más información, consulte [Premium Storage](../articles/storage/common/storage-premium-storage.md).
+Premium Storage está respaldado por discos SSD y ofrece compatibilidad con discos de alto rendimiento y baja latencia para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede usar Premium Storage con máquinas virtuales de Azure de las series DS, DSv2, GS, Ls o FS. Para más información, consulte [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos no administrados
 

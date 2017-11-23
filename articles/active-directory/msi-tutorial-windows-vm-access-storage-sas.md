@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: a2138d0b99ed57cb78b99e3785f7192c1a323ba5
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: f43ec5bdbf32c3f7c4c1fb3a5aae8367bd050fc9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Uso de Managed Service Identity en una máquina virtual Windows para tener acceso a Azure Storage a través de una credencial SAS
 
@@ -33,7 +33,11 @@ Una credencial SAS de servicio permite conceder acceso limitado a los objetos de
 > * Conceder acceso a la máquina virtual a una SAS de cuenta de almacenamiento en Resource Manager 
 > * Obtener un token de acceso mediante la identidad de la máquina virtual y utilizarlo para recuperar la credencial SAS desde Resource Manager 
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -100,7 +104,7 @@ Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obsta
 3. Haga clic en **+ Agregar** en la parte superior de la página para agregar una nueva asignación de roles para la máquina virtual.
 4. Establezca **Rol** en "Colaborador de la cuenta de almacenamiento", en el lado derecho de la página.  
 5. En el menú desplegable siguiente, establezca **Asignar acceso a** en el recurso "Máquina virtual".  
-6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y, a continuación, establezca **Grupo de recursos** en "Todos los grupos de recursos".  
+6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y después, establezca **Grupo de recursos** en "Todos los grupos de recursos".  
 7. Por último, en **Seleccionar**, elija la máquina virtual Windows en el menú desplegable y haga clic en **Guardar**. 
 
     ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
@@ -109,7 +113,7 @@ Azure Storage no admite la autenticación de Azure AD de forma nativa.  No obsta
 
 En el resto del tutorial, vamos a trabajar desde la máquina virtual que se creó anteriormente.
 
-Deberá usar los cmdlets de PowerShell de Azure Resource Manager en esta parte.  Si no lo tiene instalado, [descargue la versión más reciente](https://docs.microsoft.com/powershell/azure/overview) antes de continuar.
+En esta parte tendrá que usar los cmdlets de PowerShell de Azure Resource Manager.  Si no lo tiene instalado, [descargue la versión más reciente](https://docs.microsoft.com/powershell/azure/overview) antes de continuar.
 
 1. En Azure Portal, vaya a **Máquinas virtuales**, vaya a la máquina virtual Windows y, a continuación, desde la página **Información general**, haga clic en **Conectar** en la parte superior.
 2. Escriba su **nombre de usuario** y **contraseña** que agregó cuando creó la máquina virtual Windows. 

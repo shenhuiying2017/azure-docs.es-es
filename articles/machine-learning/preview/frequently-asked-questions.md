@@ -9,17 +9,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Preguntas más frecuentes de Azure Machine Learning
 
 ## <a name="general-product-questions"></a>Preguntas generales sobre el producto
 
-**¿Qué es el Aprendizaje automático de Azure?**
+**¿Qué es Azure Machine Learning?**
 
 Azure Machine Learning es un servicio de Azure totalmente administrado que le permite crear, probar, administrar e implementar modelos de aprendizaje automático y de inteligencia artificial. Nuestros nuevos servicios y la aplicación descargable ofrecen un enfoque de Code First que aprovecha la nube, el entorno local y el borde para proporcionar el entrenamiento, la implementación, la administración y la supervisión de los modelos con eficacia, velocidad y flexibilidad. Como alternativa, Azure Machine Learning Studio ofrece un entorno visual de creación basado en explorador, de arrastrar y colocar, donde no se requiere ningún código. 
 
@@ -165,7 +165,6 @@ Las herramientas de preparación de datos de Workbench admiten actualmente la in
 Para la versión preliminar pública, Workbench admite la ingesta de datos de: 
 - Unidad de disco duro local o ubicación de almacenamiento de red asignada
 - Azure Blob o Azure Storage (requiere una suscripción a Azure)
-- Azure Data Lake o Azure Data Lake Storage (requiere una suscripción a Azure)
 - Azure SQL Server
 - Microsoft SQL Server
 
@@ -213,7 +212,7 @@ Las facturas se crean a diario. En términos de facturación, un día comienza a
 - HDInsight
 - Azure Container Service
 - Azure Container Registry 
-- Almacenamiento de blobs de Azure
+- Azure Blob Storage
 - Application Insights
 - Azure Key Vault
 - Visual Studio Team Services
@@ -222,10 +221,10 @@ Las facturas se crean a diario. En términos de facturación, un día comienza a
 
 ## <a name="support-and-training"></a>Soporte técnico y entrenamiento
 
-**¿Dónde puedo recibir entrenamiento para Aprendizaje automático de Azure?**
+**¿Dónde puedo recibir entrenamiento para Azure Machine Learning?**
 
 El [Centro de documentación de Azure Machine Learning](./overview-what-is-azure-ml.md) hospeda tutoriales en vídeo y guías de procedimientos. Estas guías paso a paso presentan los servicios y explican el ciclo de vida de la ciencia de datos. Agregamos continuamente nuevo material al Centro de Machine Learning. Puede solicitar material de aprendizaje adicional en el foro de comentarios de los usuarios.
 
-**¿Dónde puedo recibir soporte técnico para Aprendizaje automático de Azure?**
+**¿Dónde puedo recibir soporte técnico para Azure Machine Learning?**
 
 Para recibir soporte técnico, visite el servicio de soporte técnico de Azure y seleccione Machine Learning. Azure Machine Learning también tiene una comunidad activa en [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) etiquetada con “Azure-Machine-Learning”, supervisada por el equipo.  Se pueden enviar sugerencias y solicitudes de características al sitio de [comentarios de Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). 

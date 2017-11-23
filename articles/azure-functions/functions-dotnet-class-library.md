@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Utilizar bibliotecas de clases de .NET con Azure Functions
 
@@ -37,7 +37,7 @@ Este artículo tiene los siguientes requisitos previos:
 
 En Visual Studio, cree un nuevo proyecto de Azure Functions. La nueva plantilla de proyecto crea los archivos *host.json* y *local.settings.json*. Puede [personalizar la configuración en tiempo de ejecución de Azure Functions en host.json](functions-host-json.md). 
 
-El archivo *local.settings.json* almacena la configuración de la aplicación, las cadenas de conexión y la configuración de Azure Functions Core Tools. Para más información acerca de su estructura, consulte [Codificar y probar Azure Functions localmente](functions-run-local.md#local-settings).
+El archivo *local.settings.json* almacena la configuración de la aplicación, las cadenas de conexión y la configuración de Azure Functions Core Tools. Para más información acerca de su estructura, consulte [Codificar y probar Azure Functions localmente](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>Atributo FunctionName
 

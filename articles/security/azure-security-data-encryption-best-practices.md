@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0cebc7ae5279b720e8fd0d6c986e1706d944476f
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
 Uno de los elementos clave para la protección de datos en la nube consiste en tener en cuenta los posibles estados en que se pueden producir datos y qué controles hay disponibles para ese estado. Como parte de los procedimientos recomendados de cifrado y seguridad de datos en Azure, se ofrecen recomendaciones relacionadas con los estados de datos siguientes:
@@ -69,10 +69,10 @@ Es posible que las organizaciones que no apliquen el control de acceso a los dat
 
 Puede aprender más sobre Azure RBAC en el artículo [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
 
-## <a name="encrypt-azure-virtual-machines"></a>Cifrado de máquinas virtuales de Azure
-Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Cifrado de discos de Azure permite que los administradores de TI cifren discos de máquina virtual IaaS con Windows y Linux. Cifrado de discos de Azure aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo.
+## <a name="encrypt-azure-virtual-machines"></a>Cifrado de Azure Virtual Machines
+Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Azure Disk Encryption permite que los administradores de TI cifren discos de máquina virtual IaaS con Windows y Linux. Azure Disk Encryption aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo.
 
-Puede aprovechar Cifrado de discos de Azure para proteger sus datos y así satisfacer los requisitos de cumplimiento y seguridad de la organización. Además, las organizaciones deberían pensar en usar cifrado como ayuda para mitigar los riesgos relacionados con el acceso no autorizado a los datos. También se recomienda cifrar las unidades antes de escribir datos confidenciales en ellas.
+Puede aprovechar Azure Disk Encryption para proteger sus datos y así satisfacer los requisitos de cumplimiento y seguridad de la organización. Además, las organizaciones deberían pensar en usar cifrado como ayuda para mitigar los riesgos relacionados con el acceso no autorizado a los datos. También se recomienda cifrar las unidades antes de escribir datos confidenciales en ellas.
 
 Asegúrese de cifrar los volúmenes de datos y el volumen de arranque de la máquina virtual para proteger los datos en reposo en su cuenta de almacenamiento de Azure. Proteja las claves de cifrado y los secretos mediante [Azure Key Vault](../key-vault/key-vault-whatis.md).
 
@@ -89,7 +89,7 @@ Puede obtener más información sobre Azure Disk Encryption en el artículo [Azu
 ## <a name="use-hardware-security-modules"></a>Uso de módulos de seguridad de hardware
 Las soluciones de cifrado del sector usan claves secretas para cifrar los datos. Por lo tanto, es fundamental que estas claves se almacenen de forma segura. La administración de claves se convierte en una parte integral de la protección de datos, ya que se encargará de almacenar las claves secretas que sirven para cifrar datos.
 
-Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para ayudarle a controlar y administrar las claves y los secretos de cifrado de discos en su suscripción del almacén de claves. Además, garantiza que todos los datos de los discos de las máquinas virtuales se cifren en reposo en Azure Storage. Debería usar el Almacén de claves de Azure para auditar el uso de la directiva y las claves.
+Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para ayudarle a controlar y administrar las claves y los secretos de cifrado de discos en su suscripción del almacén de claves. Además, garantiza que todos los datos de los discos de las máquinas virtuales se cifren en reposo en Azure Storage. Debería usar Azure Key Vault para auditar el uso de la directiva y las claves.
 
 Existen muchos riesgos inherentes a la carencia de controles de seguridad adecuados para proteger las claves secretas que se usaron para cifrar los datos. Si los atacantes obtienen acceso a las claves secretas, podrán descifrar los datos y acceder a información confidencial.
 
@@ -135,7 +135,7 @@ Si la organización necesita proteger el acceso a Azure desde una estación de t
 
 Los conjuntos de datos más grandes se pueden mover por medio de un vínculo WAN dedicado de alta velocidad como [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Si decide usar ExpressRoute, también puede cifrar los datos en el nivel de aplicación mediante [SSL/TLS](https://support.microsoft.com/kb/257591) u otros protocolos para una mayor protección.
 
-Si interactúa con el Almacenamiento de Azure a través del Portal de Azure, todas las transacciones se realizan a través de HTTPS. También se puede usar la [API de REST de almacenamiento](https://msdn.microsoft.com/library/azure/dd179355.aspx) a través de HTTPS para interactuar con [Azure Storage](https://azure.microsoft.com/services/storage/) y [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+Si interactúa con Azure Storage a través de Azure Portal, todas las transacciones se realizan a través de HTTPS. También se puede usar la [API de REST de almacenamiento](https://msdn.microsoft.com/library/azure/dd179355.aspx) a través de HTTPS para interactuar con [Azure Storage](https://azure.microsoft.com/services/storage/) y [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
 Las organizaciones que no protegen los datos en tránsito son más susceptibles a los [ataques del tipo "Man in the middle"](https://technet.microsoft.com/library/gg195821.aspx), a la [interceptación](https://technet.microsoft.com/library/gg195641.aspx) y al secuestro de sesión. Estos ataques pueden ser el primer paso para obtener acceso a datos confidenciales.
 
