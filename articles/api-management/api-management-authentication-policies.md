@@ -29,8 +29,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 -   [Autenticar con certificado de cliente](api-management-authentication-policies.md#ClientCertificate) : autenticar con un servicio de back-end mediante certificados de cliente.  
   
-##  <a name="Basic"></a> Authenticate with Basic  
- Use la directiva `authentication-basic` para realizar la autenticación con upolicy to authenticate with a n servicio de back-end mediante autenticación Básica. Esta directiva establece eficazmente el encabezado de autorización HTTP en el valor correspondiente a las credenciales proporcionadas en la directiva.  
+##  <a name="Basic"></a> Autenticación con Basic  
+ Use la directiva `authentication-basic` para realizar la autenticación con un servicio de back-end mediante autenticación Básica. Esta directiva establece eficazmente el encabezado de autorización HTTP en el valor correspondiente a las credenciales proporcionadas en la directiva.  
   
 ### <a name="policy-statement"></a>Declaración de directiva  
   
@@ -60,7 +60,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
--   **Secciones de la directiva:** inbound  
+-   **Secciones de la directiva:** inbound (entrada)  
   
 -   **Ámbitos de la directiva:** API  
   
@@ -94,7 +94,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
--   **Secciones de la directiva:** inbound  
+-   **Secciones de la directiva:** inbound (entrada)  
   
 -   **Ámbitos de la directiva:** API  
   
