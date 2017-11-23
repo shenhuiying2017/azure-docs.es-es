@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
 Azure Storage es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes. Azure Storage proporciona un conjunto completo de funcionalidades de seguridad:
@@ -28,7 +28,7 @@ Azure Storage es la solución de almacenamiento en la nube para las aplicaciones
 * Se puede establecer una configuración para que los datos se cifren automáticamente cuando se escriben en Azure Storage mediante el cifrado del servicio Storage.
 * Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por máquinas virtuales mediante el Azure Disk Encryption.
 * Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las Firmas de acceso compartido.
-* El método de autenticación usado por alguien cuando accede a Almacenamiento puede seguirse mediante el análisis de almacenamiento.
+* El método de autenticación usado por alguien cuando accede a almacenamiento puede seguirse mediante Storage Analytics.
 
 Para obtener más información sobre la seguridad en Azure Storage, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md). Esta guía proporciona una profundización en las características de seguridad de Azure Storage, como las claves de cuenta de almacenamiento, el cifrado de datos en tránsito y en reposo y el análisis de almacenamiento.
 
@@ -39,7 +39,7 @@ Estas son las características principales que se tratan en este artículo:
 * Control de acceso basado en roles
 * Acceso delegado a objetos de almacenamiento
 * Cifrado en tránsito
-* Cifrado en reposo/Cifrado del servicio de Almacenamiento
+* Cifrado en reposo/Cifrado del servicio Storage
 * Azure Disk Encryption
 * Azure Key Vault
 
@@ -67,7 +67,7 @@ Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a 
 
 Más información acerca del cifrado de cliente:
 
-* [Cifrado del lado cliente para el Almacenamiento de Microsoft Azure (vista previa)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
+* [Cifrado del lado cliente para Microsoft Azure Storage (vista previa)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
 * [Cloud security controls series: Encrypting Data in Transit (Serie de controles de seguridad en la nube: cifrado de datos en tránsito)](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Cifrado en reposo
@@ -77,15 +77,15 @@ Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.mi
 * [Cifrado de cliente](../storage/common/storage-security-guide.md#client-side-encryption) también proporciona la característica de cifrado en reposo.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 
-Más información acerca del Cifrado de servicio de almacenamiento:
+Más información acerca del Cifrado de servicio Storage
 
 * [Cifrado del servicio Azure Storage](https://azure.microsoft.com/services/storage/) está disponible para [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Para más información sobre otros tipos de almacenamiento de Azure, consulte [File Storage](https://azure.microsoft.com/services/storage/files/), [Premium Storage (disco)](https://azure.microsoft.com/services/storage/premium-storage/), [Table Storage](https://azure.microsoft.com/services/storage/tables/) y [Queue Storage](https://azure.microsoft.com/services/storage/queues/).
 * [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption
-Azure Disk Encryption para máquinas virtuales (VM) le ayuda a solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de arranque y de datos) con claves y directivas que usted controla en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Azure Disk Encryption para máquinas virtuales le ayuda a solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de arranque y de datos) con claves y directivas que usted controla en el [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-Cifrado de discos para máquinas virtuales funciona en sistemas operativos Linux y Windows. También utiliza el Almacén de claves para ayudarle a proteger, administrar y auditar el uso de las claves de cifrado del disco. Todos los datos de los discos de máquinas virtuales se cifran en reposo con tecnología de cifrado estándar del sector en sus cuentas de almacenamiento de Azure. La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+Cifrado de discos para máquinas virtuales funciona en sistemas operativos Linux y Windows. También utiliza Key Vault para ayudarle a proteger, administrar y auditar el uso de las claves de cifrado del disco. Todos los datos de los discos de máquinas virtuales se cifran en reposo con tecnología de cifrado estándar del sector en sus cuentas de Azure Storage. La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 Más información:
 
@@ -96,5 +96,5 @@ Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services
 
 Más información:
 
-* [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
-* [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md)
+* [¿Qué es Azure Key Vault?](../key-vault/key-vault-whatis.md)
+* [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md)

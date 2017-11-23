@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma Azure
 
@@ -87,7 +87,7 @@ Los precios, créditos y términos relacionados aplicables a una suscripción de
 Consulte la página [Detalles de las ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-El portal web seguro que se usa para implementar y administrar servicios de Azure.  Hay dos portales: [Azure Portal](http://portal.azure.com/) y el [portal clásico](http://manage.windowsazure.com/). Algunos servicios están disponibles en los dos portales, mientras que otros solo están disponibles en uno u otro. La [Tabla de disponibilidad de los portales de Azure](https://azure.microsoft.com/features/azure-portal/availability/) enumera los servicios que están disponibles en cada uno de los portales.
+El portal web seguro que se usa para implementar y administrar servicios de Azure.
 
 ## <a name="region"></a>region
 Un área dentro de una geoárea que no traspasa las fronteras nacionales y contiene uno o varios centros de datos. Los precios, los servicios regionales y los tipos de ofertas se exponen a nivel de región. Una región se empareja normalmente con otra, que puede estar a cientos de kilómetros de distancia. Las parejas regionales pueden utilizarse como un mecanismo para escenarios de alta disponibilidad y recuperación ante desastres. Además, este concepto está relacionado con la *ubicación*.  
@@ -118,7 +118,8 @@ El contrato que describe los compromisos de Microsoft en cuanto a tiempo de acti
 Vea [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>firma de acceso compartido (SAS)
-Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave de cuenta. Por ejemplo, [Azure Storage usa SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) para conceder acceso de cliente a objetos como blobs. [ usa SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder a los dispositivos permiso para enviar telemetría.
+Firma que le permite otorgar acceso limitado a un recurso, sin exponer su clave de cuenta. Por ejemplo, [Azure Storage usa SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) para conceder acceso de cliente a objetos como blobs. 
+            [IoT Hub usa SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) para conceder a los dispositivos permiso para enviar telemetría.
 
 ## <a name="storage-account"></a>Cuenta de almacenamiento
 Cuenta que proporciona acceso a los servicios de Azure Blob, Queue, Table y File en Azure Storage. El nombre de la cuenta de almacenamiento define el espacio de nombres exclusivo para los objetos de datos de Azure Storage.  
@@ -146,7 +147,7 @@ Un recurso que implementa comportamientos o características que cooperan en el 
 Consulte [Acerca de las características y extensiones de las máquinas virtuales (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Acerca de las características y extensiones de las máquinas virtuales (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>red virtual
-Una red que proporciona conectividad entre los recursos de Azure que se encuentra aislada del resto de inquilinos de Azure. Una [puerta de enlace de VPN de Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) le permite establecer conexiones entre redes virtuales y [entre una red virtual y una red local](vpn-gateway/vpn-gateway-plan-design.md). Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de una red virtual.  
+Una red que proporciona conectividad entre los recursos de Azure que se encuentra aislada del resto de inquilinos de Azure. Una instancia de [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) le permite establecer conexiones entre redes virtuales y [entre una red virtual y una red local](vpn-gateway/vpn-gateway-plan-design.md). Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de una red virtual.  
 Consulte [Información general sobre redes virtuales](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Aplicación web

@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
-ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Administración de aplicaciones de Azure Service Fabric mediante la CLI de Azure Service Fabric
 
@@ -67,7 +67,7 @@ El valor de `application-type-build-path` es el nombre del directorio donde carg
 
 ### <a name="delete-the-application-package"></a>Eliminación del paquete de aplicación
 
-Se recomienda que quite el paquete de aplicación después de que la aplicación se haya registrado correctamente.  Al eliminar los paquetes de aplicación del almacén de imágenes se liberan recursos del sistema.  Mantener los paquetes de aplicación sin usar consume almacenamiento en disco y conduce a problemas de rendimiento de la aplicación. 
+Se recomienda que quite el paquete de aplicación después de que la aplicación se haya registrado correctamente.  Al eliminar los paquetes de aplicación del almacén de imágenes, se liberan recursos del sistema.  Mantener los paquetes de aplicación sin usar consume almacenamiento en disco y conduce a problemas de rendimiento de la aplicación. 
 
 Para eliminar el paquete de aplicación del almacén de imágenes, use el comando siguiente:
 
@@ -133,7 +133,7 @@ sfctl application delete --application-id TestEdApp
 Después de eliminar la aplicación, puede deshacer el aprovisionamiento del tipo de aplicación si ya no lo necesita. Para anular el aprovisionamiento del tipo de aplicación, use el siguiente comando:
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 El nombre de tipo y la versión de tipo deben coincidir con el nombre y la versión del manifiesto de aplicación aprovisionado anteriormente.

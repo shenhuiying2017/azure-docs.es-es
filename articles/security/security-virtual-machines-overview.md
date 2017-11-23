@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d10b9fde99867a218c4368f0be6bee00bc44dc1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Azure Virtual Machines permite implementar una amplia gama de soluciones informáticas con agilidad. Gracias a la compatibilidad con Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP y Azure BizTalk Services, puede implementar cualquier carga de trabajo y cualquier idioma en casi cualquier sistema operativo.
@@ -49,13 +49,13 @@ En este artículo se tratan las principales funcionalidades de seguridad de máq
 ## <a name="antimalware"></a>Antimalware
 Con Azure, puede usar software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas. Consulte más abajo la sección Más información para ver artículos sobre soluciones de asociados.
 
-Microsoft Antimalware para servicios en la nube y máquinas virtuales de Azure es una funcionalidad de protección en tiempo real que permite identificar y eliminar virus, spyware y otro software malintencionado.  Microsoft Antimalware activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure.
+Microsoft Antimalware para Azure Cloud Services y Virtual Machines es una funcionalidad de protección en tiempo real que permite identificar y eliminar virus, spyware y otro software malintencionado.  Microsoft Antimalware activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure.
 
 Microsoft Antimalware es una solución de un único agente dirigida a entornos de aplicaciones e inquilinos, concebida para ejecutarse en segundo plano sin intervención humana. Puede implementar la protección en función de las necesidades de sus cargas de trabajo de aplicaciones, con configuración de protección básica o personalizada avanzada que incluye supervisión antimalware.
 
 Al implementar y habilitar Microsoft Antimalware, están disponibles las siguientes características principales:
 
-* Protección en tiempo real: supervisa la actividad en los servicios en la nube y las máquinas virtuales para detectar y bloquear la ejecución de malware.
+* Protección en tiempo real: supervisa la actividad en Cloud Services y Virtual Machines para detectar y bloquear la ejecución de malware.
 * Análisis programado: realiza periódicamente exámenes dirigidos para detectar malware, lo que incluye programas que se ejecutan activamente.
 * Corrección de malware: actúa automáticamente sobre el malware detectado y elimina o pone en cuarentena los archivos malintencionados y limpia las entradas del Registro malintencionadas.
 * Actualizaciones de firmas: instala automáticamente las últimas firmas de protección (definiciones de virus) para garantizar que la protección está actualizada con una frecuencia determinada previamente.
@@ -64,24 +64,24 @@ Al implementar y habilitar Microsoft Antimalware, están disponibles las siguien
 * Protección nativa: envía a Azure metadatos de telemetría sobre las amenazas detectadas y los recursos sospechosos para garantizar una respuesta rápida y permitir la entrega sincrónica de firmas en tiempo real a través de Microsoft Active Protection System (MAPS).
 * Informes de ejemplos: proporciona informes de ejemplos al servicio Microsoft Antimalware que ayudan a mejorar el servicio y permiten la solución de problemas.
 * Exclusiones: permite a los administradores de aplicaciones y servicios configurar determinados archivos, procesos y unidades para que se excluyan de la protección y el examen por motivos de rendimiento o de otro tipo.
-* Recopilación de eventos antimalware: registra el estado del servicio antimalware, las actividades sospechosas y las acciones de corrección adoptadas en el registro de eventos del sistema operativo y los recopila en la cuenta de almacenamiento de Azure del cliente.
+* Recopilación de eventos antimalware: registra el estado del servicio antimalware, las actividades sospechosas y las acciones de corrección adoptadas en el registro de eventos del sistema operativo y los recopila en la cuenta de Azure Storage del cliente.
 
 Más información: para saber más sobre el software antimalware y cómo proteger las máquinas virtuales, consulte:
 
 * [Microsoft Antimalware para Cloud Services y Virtual Machines de Azure](azure-security-antimalware.md)
-* [Implementación de soluciones antimalware en máquinas virtuales de Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
+* [Implementación de soluciones antimalware en Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure](../virtual-machines/windows/classic/install-trend.md)
 * [Instalación y configuración de Endpoint Protection en una máquina virtual de Azure](../virtual-machines/windows/classic/install-symantec.md)
 * [Soluciones de seguridad en Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware
-Las protecciones del cifrado y la autenticación se pueden mejorar si se mejora de la clave de seguridad. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en Azure Key Vault. El Almacén de claves permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en el Almacén de claves con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Las protecciones del cifrado y la autenticación se pueden mejorar si se mejora de la clave de seguridad. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en Azure Key Vault. Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en Key Vault con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Más información:
 
-* [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
+* [¿Qué es Azure Key Vault?](../key-vault/key-vault-whatis.md)
 * [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md)
-* [Blog del Almacén de claves de Azure](https://blogs.technet.microsoft.com/kv/)
+* [Blog de Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Cifrado de discos de máquinas virtuales
 Azure Disk Encryption es una nueva funcionalidad que permite cifrar los discos de máquinas virtuales de Azure de Windows y Linux. Azure Disk Encryption usa la característica [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) estándar del sector de Windows y la característica [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos.
@@ -101,7 +101,7 @@ Más información:
 
 * [¿Qué es Azure Backup?](../backup/backup-introduction-to-azure-backup.md)
 * [Azure Backup](https://azure.microsoft.com/documentation/learning-paths/backup/)
-* [P+F del servicio Azure Backup](../backup/backup-azure-backup-faq.md)
+* [P+F de servicio Azure Backup](../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 Una parte importante de la estrategia de BCDR de su organización es averiguar cómo mantener las aplicaciones y cargas de trabajo corporativas listas para su funcionamiento cuando se producen interrupciones planificadas e imprevistas. Azure Site Recovery ayuda a coordinar la replicación, la conmutación por error y la recuperación de aplicaciones y cargas de trabajo para que estén disponibles desde una ubicación secundaria si la ubicación principal deja de funcionar.
@@ -121,7 +121,7 @@ Más información:
 * [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Redes virtuales
-Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que las máquinas virtuales de Azure estén conectadas a una red virtual de Azure. Una red virtual de Azure es una construcción lógica creada encima del tejido de red físico de Azure. Cada red virtual lógica de Azure está aislada de todas las demás redes virtuales de Azure. Este aislamiento contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
+Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que Azure Virtual Machines esté conectado a una instancia de Azure Virtual Network. Azure Virtual Network es una construcción lógica creada encima del tejido de red físico de Azure. Cada instancia lógica de Azure Virtual Network está aislada de todas las demás redes virtuales de Azure. Este aislamiento contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
 
 Más información:
 

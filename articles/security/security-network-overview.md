@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security-overview"></a>Azure Network Security Overview (Información general sobre Azure Network Security)
 Microsoft Azure incluye una sólida infraestructura de red que respalda sus requisitos de conectividad de aplicaciones y servicios. Es posible la conectividad de red entre recursos ubicados en Azure, entre recursos locales y hospedados en Azure y entre Internet y Azure.
@@ -37,7 +37,7 @@ Este artículo de información general sobre la seguridad de red en Azure se cen
 
 
 ## <a name="azure-networking"></a>Redes de Azure
-Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que las máquinas virtuales de Azure estén conectadas a una red virtual de Azure. Una red virtual de Azure es una construcción lógica creada encima del tejido de red físico de Azure. Cada red virtual lógica de Azure está aislada de todas las demás redes virtuales de Azure. Esto contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
+Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que Azure Virtual Machines esté conectado a una instancia de Azure Virtual Network. Azure Virtual Network es una construcción lógica creada encima del tejido de red físico de Azure. Cada instancia lógica de Azure Virtual Network está aislada de todas las demás redes virtuales de Azure. Esto contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
 
 Más información:
 
@@ -45,7 +45,7 @@ Más información:
 
 
 ## <a name="network-access-control"></a>Control de acceso de red
-El control de acceso de red es el acto de limitar la conectividad entre subredes o dispositivos específicos dentro de una red virtual de Azure. El objetivo del control de acceso de red es limitar el acceso a las máquinas virtuales y los servicios a los usuarios y dispositivos aprobados. Los controles de acceso se basan en decisiones de permiso o denegación a y desde la máquina virtual o el servicio.
+El control de acceso de red es el acto de limitar la conectividad entre subredes o dispositivos específicos dentro de una instancia de Azure Virtual Network. El objetivo del control de acceso de red es limitar el acceso a las máquinas virtuales y los servicios a los usuarios y dispositivos aprobados. Los controles de acceso se basan en decisiones de permiso o denegación a y desde la máquina virtual o el servicio.
 
 Azure admite varios tipos de controles de acceso de red, como:
 
@@ -63,11 +63,11 @@ Más información:
 * [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Control de ruta y tunelización forzada
-La posibilidad de controlar el comportamiento de enrutamiento en las redes virtuales de Azure es una funcionalidad crítica del control de acceso y la seguridad de red. Si el enrutamiento no está configurado correctamente, las aplicaciones y los servicios hospedados en la máquina virtual podrían conectarse a dispositivos no autorizados, incluidos los sistemas que son propiedad de atacantes potenciales u operados por ellos.
+La posibilidad de controlar el comportamiento de enrutamiento en Azure Virtual Network es una funcionalidad crítica del control de acceso y la seguridad de red. Si el enrutamiento no está configurado correctamente, las aplicaciones y los servicios hospedados en la máquina virtual podrían conectarse a dispositivos no autorizados, incluidos los sistemas que son propiedad de atacantes potenciales u operados por ellos.
 
-Las redes de Azure ofrecen la posibilidad de personalizar el comportamiento de enrutamiento del tráfico de red en las redes virtuales de Azure. Por ejemplo, puede modificar las entradas de tabla de enrutamiento predeterminadas en la red virtual de Azure. El control del comportamiento de enrutamiento ayuda a garantizar que todo el tráfico procedente de un determinado dispositivo o grupo de dispositivos entra o sale de la red virtual a través de una ubicación específica.
+Las redes de Azure ofrecen la posibilidad de personalizar el comportamiento de enrutamiento del tráfico de red en Azure Virtual Network. Por ejemplo, puede modificar las entradas de tabla de enrutamiento predeterminadas en la instancia de Azure Virtual Network. El control del comportamiento de enrutamiento ayuda a garantizar que todo el tráfico procedente de un determinado dispositivo o grupo de dispositivos entra o sale de la red virtual a través de una ubicación específica.
 
-Por ejemplo, suponga que tiene un dispositivo de seguridad de red virtual en la red virtual de Azure. Quiere asegurarse de que todo el tráfico que entra y sale de la red virtual de Azure pase por el dispositivo de seguridad virtual. Para ello, puede configurar [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) en Azure.
+Por ejemplo, suponga que tiene un dispositivo de seguridad de red virtual en la instancia de Azure Virtual Network. Quiere asegurarse de que todo el tráfico que entra y sale de la instancia de Azure Virtual Network pase por el dispositivo de seguridad virtual. Para ello, puede configurar [rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md) en Azure.
 
 [tunelización forzada](https://www.petri.com/azure-forced-tunneling) es un mecanismo que puede usar para tener la seguridad de que no se permite que sus servicios inicien una conexión con dispositivos en Internet. Tenga en cuenta que este proceso no es lo mismo que aceptar conexiones entrantes y luego responder a ellas. En este caso, los servidores web front-end tienen que responder a las solicitudes de los hosts de Internet, así que se permite que el tráfico cuyo origen es Internet entre en estos servidores web y que dichos servidores respondan.
 
@@ -100,46 +100,47 @@ La instalación, la configuración y la administración de los recursos de Azure
 
 Las redes de Azure admiten los siguientes escenarios de acceso remoto seguro:
 
-* Conexión de estaciones de trabajo individuales a una red virtual de Azure
-* Conexión de la red local a una red virtual de Azure con una VPN
-* Conexión de la red local a una red virtual de Azure con un vínculo WAN dedicado
+* Conexión de estaciones de trabajo individuales a una instancia de Azure Virtual Network
+* Conexión de la red local a una instancia de Azure Virtual Network con una VPN
+* Conexión de la red local a Azure Virtual Network con un vínculo WAN dedicado
 * Conexión de redes virtuales de Azure entre sí
 
-### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>Conexión de estaciones de trabajo individuales a una red virtual de Azure
-Puede haber ocasiones en que quiera que determinados desarrolladores o miembros del personal de operaciones administren máquinas virtuales y servicios en Azure. Por ejemplo, quizás necesite acceso a una máquina virtual en una red virtual de Azure y la directiva de seguridad no permite acceso remoto RDP o SSH a máquinas virtuales individuales. En este caso, puede usar una conexión VPN de punto a sitio.
+### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>Conexión de estaciones de trabajo individuales a una instancia de Azure Virtual Network
+Puede haber ocasiones en que quiera que determinados desarrolladores o miembros del personal de operaciones administren máquinas virtuales y servicios en Azure. Por ejemplo, quizás necesite acceso a una máquina virtual en una instancia de Azure Virtual Network y la directiva de seguridad no permite acceso remoto RDP o SSH a máquinas virtuales individuales. En este caso, puede usar una conexión VPN de punto a sitio.
 
-La conexión VPN de punto a sitio emplea el protocolo [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) para permitirle configurar una conexión privada y segura entre el usuario y la red virtual de Azure. Después de que se ha establecido la conexión VPN, el usuario podrá usar el protocolo RDP o SSH mediante el vínculo VPN para conectarse a cualquier máquina virtual de la red virtual de Azure (suponiendo que el usuario pueda autenticarse y esté autorizado).
+La conexión VPN de punto a sitio emplea el protocolo [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) para permitirle configurar una conexión privada y segura entre el usuario y la instancia de Azure Virtual Network. Después de que se ha establecido la conexión VPN, el usuario podrá usar el protocolo RDP o SSH mediante el vínculo VPN para conectarse a cualquier máquina virtual de Azure Virtual Network (suponiendo que el usuario pueda autenticarse y esté autorizado).
 
 Más información:
 
 * [Configuración de una conexión punto a sitio a una red virtual mediante PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>Conexión de la red local a una red virtual de Azure con una VPN
-Quizás quiera conectar la red corporativa completa, o algunas de sus partes, a una red virtual de Azure. Esto es habitual en escenarios de TI híbridos donde las empresas [amplían su centro de datos local a Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). En muchos casos, las empresas hospedarán partes de un servicio en Azure y partes en el entorno local, como cuando una solución incluye servidores web front-end en Azure y bases de datos de back-end en local. Estos tipos de conexiones "entre locales" también hacen que la administración de recursos ubicados en Azure sea más segura y permiten escenarios como la ampliación de controladores de dominio de Active Directory a Azure.
+### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>Conexión de la red local a una instancia de Azure Virtual Network con una VPN
+Quizás quiera conectar la red corporativa completa, o algunas de sus partes, a una instancia de Azure Virtual Network. Esto es habitual en escenarios de TI híbridos donde las empresas [amplían su centro de datos local a Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). En muchos casos, las empresas hospedarán partes de un servicio en Azure y partes en el entorno local, como cuando una solución incluye servidores web front-end en Azure y bases de datos de back-end en local. Estos tipos de conexiones "entre locales" también hacen que la administración de recursos ubicados en Azure sea más segura y permiten escenarios como la ampliación de controladores de dominio de Active Directory a Azure.
 
-Una manera de lograr esto es usar una [VPN de sitio a sitio](https://www.techopedia.com/definition/30747/site-to-site-vpn). La diferencia entre una VPN de sitio a sitio y una VPN de punto a sitio es que la segunda conecta un único dispositivo a una red virtual de Azure, mientras que la primera conecta una red entera (por ejemplo, la red local) a una red virtual de Azure. Las VPN de sitio a sitio a una red virtual de Azure emplean el protocolo VPN de modo de túnel IPsec de alta seguridad.
+Una manera de lograr esto es usar una [VPN de sitio a sitio](https://www.techopedia.com/definition/30747/site-to-site-vpn). La diferencia entre una VPN de sitio a sitio y una VPN de punto a sitio es que la segunda conecta un único dispositivo a Azure Virtual Network, mientras que la primera conecta una red entera (por ejemplo, la red local) a Azure Virtual Network. Las VPN de sitio a sitio a una instancia de Azure Virtual Network emplean el protocolo VPN de modo de túnel IPsec de alta seguridad.
 
 Más información:
 
-* [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure y Azure Resource Manager](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* 
+            [Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Portal y Azure Resource Manager](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Planeamiento y diseño de puerta de enlace de VPN](../vpn-gateway/vpn-gateway-plan-design.md)
 
-### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-dedicated-wan-link"></a>Conexión de la red local a una red virtual de Azure con un vínculo WAN dedicado
+### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-dedicated-wan-link"></a>Conexión de la red local a una instancia de Azure Virtual Network con un vínculo WAN dedicado
 Las conexiones VPN de punto a sitio y de sitio a sitio son eficaces para permitir la conectividad entre locales. Sin embargo, algunas organizaciones consideran que presentan las siguientes desventajas:
 
 * Las conexiones VPN mueven los datos a través de Internet; como consecuencia, estas conexiones se exponen a potenciales problemas de seguridad relacionados con el movimiento de los datos a través de una red pública. Además, no se puede garantizar la confiabilidad y disponibilidad de las conexiones a Internet.
-* Las conexiones VPN a redes virtuales de Azure se pueden considerar de ancho de banda limitado en algunas aplicaciones y para algunos fines, ya que agotan el límite en torno a 200 Mbps.
+* Las conexiones VPN a instancias de Azure Virtual Networks se pueden considerar de ancho de banda limitado en algunas aplicaciones y para algunos fines, ya que agotan el límite en torno a 200 Mbps.
 
-Las organizaciones que necesitan el más alto nivel de seguridad y disponibilidad para sus conexiones entre locales, suelen usar vínculos WAN dedicados para la conexión a sitios remotos. Azure ofrece la posibilidad de usar un vínculo WAN dedicado que se puede emplear para conectar la red local a una red virtual de Azure. Para ello se utiliza ExpressRoute de Azure.
+Las organizaciones que necesitan el más alto nivel de seguridad y disponibilidad para sus conexiones entre locales, suelen usar vínculos WAN dedicados para la conexión a sitios remotos. Azure ofrece la posibilidad de usar un vínculo WAN dedicado que se puede emplear para conectar la red local a una instancia de Azure Virtual Network. Para ello se utiliza ExpressRoute de Azure.
 
 Más información:
 
 * [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md)
 
 ### <a name="connect-azure-virtual-networks-to-each-other"></a>Conexión de redes virtuales de Azure entre sí
-Es posible utilizar varias redes virtuales de Azure en sus implementaciones. Hay muchas razones para hacer esto. Quizás quiera simplificar la administración, o sus motivos podrían estar relacionados con la seguridad. Con independencia de los motivos o razones para colocar los recursos en redes virtuales de Azure diferentes, puede haber ocasiones en que quiera que los recursos de cada una de las redes se conecten entre sí.
+Es posible utilizar varias instancias de Azure Virtual Networks en sus implementaciones. Hay muchas razones para hacer esto. Quizás quiera simplificar la administración, o sus motivos podrían estar relacionados con la seguridad. Con independencia de los motivos o razones para colocar los recursos en redes virtuales de Azure diferentes, puede haber ocasiones en que quiera que los recursos de cada una de las redes se conecten entre sí.
 
-Una opción sería conectar los servicios de una red virtual de Azure con los servicios de otra creando un "bucle de retroceso" a través de Internet. La conexión comenzaría en una red virtual de Azure, pasaría por Internet y volvería a la red virtual de destino. Esta opción expone la conexión a los problemas de seguridad inherentes a toda comunicación basada en Internet.
+Una opción sería conectar los servicios de una instancia de Azure Virtual Network con los servicios de otra creando un "bucle de retroceso" a través de Internet. La conexión comenzaría en una instancia de Azure Virtual Network, pasaría por Internet y volvería a la red virtual de destino. Esta opción expone la conexión a los problemas de seguridad inherentes a toda comunicación basada en Internet.
 
 Una opción mejor podría ser crear una VPN de sitio a sitio entre redes virtuales de Azure. Esta VPN usa el mismo protocolo de [modo de túnel IPsec](https://technet.microsoft.com/library/cc786385.aspx) que la conexión VPN de sitio a sitio entre locales mencionada anteriormente.
 
@@ -207,13 +208,13 @@ La resolución de nombres es una función crítica para todos los servicios hosp
 
 Hay dos tipos de resolución de nombres que debe abordar:
 
-* Resolución de nombres interna: la resolución de nombres interna la usan los servicios en las redes virtuales de Azure, las redes locales o ambas. Los nombres usados para la resolución de nombres interna no son accesibles a través de Internet. Para lograr una seguridad óptima, es importante que el esquema de la resolución de nombres interna no sea accesible a usuarios externos.
+* Resolución de nombres interna: la resolución de nombres interna la usan los servicios en la instancia de Azure Virtual Network, las redes locales o ambas. Los nombres usados para la resolución de nombres interna no son accesibles a través de Internet. Para lograr una seguridad óptima, es importante que el esquema de la resolución de nombres interna no sea accesible a usuarios externos.
 * Resolución de nombres externa: la resolución de nombres externa la utilizan las personas y los dispositivos fuera de las redes locales y virtuales de Azure. Son los nombres que son visibles en Internet y se usan para dirigir la conexión a los servicios basados en la nube.
 
 Para la resolución de nombres interna, tiene dos opciones:
 
-* Un servidor DNS de red virtual de Azure: cuando se crea una nueva red virtual de Azure, un servidor DNS se crea automáticamente. Este servidor DNS puede resolver los nombres de los equipos ubicados en esa red virtual de Azure. Dicho servidor no es configurable y está administrado por el administrador de tejido de Azure, lo que hace que sea una solución de resolución de nombres segura.
-* Traer su propio servidor DNS: tiene la opción de colocar un servidor DNS de su elección en la red virtual de Azure. Podría ser un servidor DNS integrado de Active Directory o una solución de servidor DNS dedicada proporcionada por un socio de Azure, que puede obtener en Azure Marketplace.
+* Un servidor DNS de Azure Virtual Network: cuando se crea una nueva instancia de Azure Virtual Network, un servidor DNS se crea automáticamente. Este servidor DNS puede resolver los nombres de los equipos ubicados en esa instancia de Azure Virtual Network. Dicho servidor no es configurable y está administrado por el administrador de tejido de Azure, lo que hace que sea una solución de resolución de nombres segura.
+* Traer su propio servidor DNS: tiene la opción de colocar un servidor DNS de su elección en Azure Virtual Network. Podría ser un servidor DNS integrado de Active Directory o una solución de servidor DNS dedicada proporcionada por un socio de Azure, que puede obtener en Azure Marketplace.
 
 Más información:
 
@@ -242,7 +243,7 @@ Existen algunas variaciones en el diseño de una red perimetral, y la decisión 
 
 Más información:
 
-* [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md)
+* [Cloud Services de Microsoft y seguridad de red](../best-practices-network-security.md)
 
 
 ## <a name="monitoring-and-threat-detection"></a>Detección de amenazas y supervisión

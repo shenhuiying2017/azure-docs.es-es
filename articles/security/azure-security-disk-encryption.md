@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 15ed35ab3a082db3376890992be3a29b6e042a2f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows
-Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Cifrado de disco de Azure para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.
+# <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows
+Microsoft Azure está muy comprometido a garantizar la privacidad y soberanía de los datos, y permite controlar los datos hospedados en Azure datos mediante varias tecnologías avanzadas que cifran, controlan y administran las claves de cifrado, y controlan y auditan el acceso de los datos. Esto proporciona a los clientes de Azure la flexibilidad necesaria para elegir la solución que mejor cubra sus necesidades empresariales. En este artículo, le presentaremos a una nueva solución de tecnología, "Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows", que le ayudara a proteger sus datos para que cumplan los compromisos de seguridad y compatibilidad de su organización. Ofrece información detalladas sobre cómo usar las características de cifrado de disco de Azure, incluidos los escenarios admitidos y las experiencias de los usuarios.
 
 > [!NOTE]
 > Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones.
@@ -32,7 +32,7 @@ Azure Disk Encryption es una nueva funcionalidad que permite cifrar los discos d
 Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux ahora tiene **disponibilidad general** en todas las regiones públicas de Azure y regiones de AzureGov para VM estándares y VM con Premium Storage.
 
 ### <a name="encryption-scenarios"></a>Escenarios de cifrado
-La solución Cifrado de discos de Azure admite los tres escenarios de cliente siguientes:
+La solución Azure Disk Encryption admite los tres escenarios de cliente siguientes:
 
 * Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de un VHD precifrado y las claves de cifrado
 * Habilitación del cifrado en las nuevas máquinas virtuales IaaS creadas a partir de imágenes compatibles de la Galería de Azure
@@ -45,7 +45,7 @@ La solución Cifrado de discos de Azure admite los tres escenarios de cliente si
 
 La solución admite los siguientes escenarios para las máquinas virtuales IaaS cuando se habilitan en Microsoft Azure:
 
-* Integración con el Almacén de claves de Azure
+* Integración con Azure Key Vault
 * Máquinas virtuales de nivel estándar: [máquinas virtuales IaaS de las series A, D, DS, G, GS, F, etc.](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Habilitación del cifrado en las máquinas virtuales IaaS Windows y Linux y las máquinas virtuales de disco administradas a partir de imágenes compatibles de la Galería de Azure
 * Deshabilitación del cifrado en sistemas operativos y unidades de datos para máquinas virtuales IaaS de Windows y máquinas virtuales de discos administrados
@@ -149,6 +149,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 | Ubuntu | 14.04.5-DAILY-LTS | Sistema operativo y disco de datos |
 | Ubuntu | 12.10 | Disco de datos |
 | Ubuntu | 12.04 | Disco de datos |
+| RHEL | 7.4 | Sistema operativo y disco de datos |
 | RHEL | 7.3 | Sistema operativo y disco de datos |
 | RHEL | LVM 7.3 | Sistema operativo y disco de datos |
 | RHEL | 7,2 | Sistema operativo y disco de datos |
@@ -200,7 +201,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
   >
   >Para configurar y obtener acceso al Azure Key Vault detrás de un firewall (https://docs.microsoft.com/en-us/azure/key-vault/key-vault-access-behind-firewall)
 
-* Utilice la versión más reciente del SDK de Azure PowerShell para configurar Cifrado de discos de Azure. Descargue la versión más reciente de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+* Utilice la versión más reciente del SDK de Azure PowerShell para configurar Azure Disk Encryption. Descargue la versión más reciente de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
  > [!NOTE]
   > En el [SDK de Azure PowerShell (versión 1.1.0)](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016) no se admite Azure Disk Encryption. Si recibe un error relacionado con el uso de Azure PowerShell 1.1.0, vea [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Error de Azure Disk Encryption relacionado con Azure PowerShell 1.1.0).
@@ -252,19 +253,19 @@ También puede configurar el identificador y el secreto de cliente de Azure AD m
 
 1. Haga clic en la pestaña **Active Directory**.
 
- ![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
 
 2. Haga clic en **Agregar aplicación** y escriba el nombre de la aplicación.
 
- ![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
 
 3. Haga clic en el botón de flecha y, a continuación, configure las propiedades de la aplicación.
 
- ![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
 
 4. Haga clic en la marca de verificación de la esquina inferior izquierda para finalizar. Aparece la página de configuración de la aplicación y el identificador de cliente de Azure AD se muestra en la parte inferior de la página.
 
- ![Cifrado de disco de Azure](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
+ ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
 
 5. Guarde el secreto de cliente de Azure AD haciendo clic en el botón **Guardar**. Observe el secreto de cliente de Azure AD en el cuadro de texto de las claves. Protéjalo adecuadamente.
 
@@ -377,7 +378,7 @@ Para comprender algunos de los términos comunes que usa esta tecnología, utili
 | Terminología | Definición |
 | --- | --- |
 | Azure AD | Azure AD es [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/). Una cuenta de Azure AD es un requisito previo para autenticar, almacenar y recuperar secretos del almacén de claves. |
-| Almacén de claves de Azure | Key Vault es un servicio de administración de claves criptográficas basado en módulos de seguridad de hardware validados por el Estándar federal de procesamiento de información (FIPS), que ayuda a proteger las claves criptográficas y los secretos confidenciales. Para obtener más información, consulte la documentación de [Key Vault](https://azure.microsoft.com/services/key-vault/). |
+| Azure Key Vault | Key Vault es un servicio de administración de claves criptográficas basado en módulos de seguridad de hardware validados por el Estándar federal de procesamiento de información (FIPS), que ayuda a proteger las claves criptográficas y los secretos confidenciales. Para obtener más información, consulte la documentación de [Key Vault](https://azure.microsoft.com/services/key-vault/). |
 | ARM | Administrador de recursos de Azure |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) es una tecnología de cifrado de volúmenes de Windows reconocida por el sector que se usa para habilitar el cifrado de disco en máquinas virtuales IaaS con Windows. |
 | BEK | Las claves de cifrado de BitLocker se usan para cifrar el volumen de arranque del sistema operativo y los volúmenes de datos. Las claves de BitLocker están protegidas en un almacén de claves como secretos. |
@@ -400,7 +401,7 @@ Para crear un almacén de claves, use una de las siguientes opciones:
 > [!NOTE]
 > Si ya ha configurado un almacén de claves para su suscripción, vaya a la sección siguiente.
 
-![Almacén de claves de Azure](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig1.png)
 
 #### <a name="set-up-a-key-encryption-key-optional"></a>Configuración de una clave de cifrado de claves (KEK) (opcional)
 Si desea usar una KEK para una brindar una capa adicional de seguridad para las claves de cifrado de BitLocker, agregue una KEK a su almacén de claves. Use el cmdlet [`Add-AzureKeyVaultKey`](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) para crear una clave de cifrado de claves en el almacén de claves. También puede importar una KEK en el HSM de administración de claves local. Para obtener más información, consulte la [documentación de Key Vault](https://azure.microsoft.com/documentation/services/key-vault/).
@@ -409,7 +410,7 @@ Si desea usar una KEK para una brindar una capa adicional de seguridad para las 
 
 Para agregar la KEK, vaya a Azure Resource Manager o use la interfaz del almacén de claves.
 
-![Almacén de claves de Azure](./media/azure-security-disk-encryption/keyvault-portal-fig2.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig2.png)
 
 #### <a name="set-key-vault-permissions"></a>Configuración de los permisos del almacén de claves
 La plataforma Azure necesita acceso a las claves de cifrado o secretos del almacén de claves para ponerlos a disposición de la máquina virtual para el proceso de arranque y descifrado de los volúmenes. Para conceder permisos a la plataforma Azure, establezca la propiedad **EnabledForDiskEncryption** en el almacén de claves mediante el cmdlet de PowerShell del almacén de claves:
@@ -422,9 +423,9 @@ Como se indicó anteriormente, debe establecer la propiedad **EnabledForDiskEncr
 
 Puede configurar las directivas de acceso para la aplicación de Azure AD desde la interfaz de almacén de claves, como se muestra aquí:
 
-![Almacén de claves de Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Almacén de claves de Azure](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 En la pestaña **Directivas de acceso avanzado**, asegúrese de que el almacén de claves está habilitado para Azure Disk Encryption:
 

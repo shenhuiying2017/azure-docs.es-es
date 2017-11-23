@@ -12,19 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Agregar autenticación a su aplicación de Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Resumen
-En este tutorial podrá agregar la autenticación al proyecto de inicio rápido todolist en Android con un proveedor de identidades admitido. Este tutorial está basado en el tutorial [Introducción a Mobile Apps] , que debe completar primero.
+En este tutorial podrá agregar la autenticación al proyecto de inicio rápido todolist en Android con un proveedor de identidades admitido. Este tutorial está basado en el tutorial [Introducción a Mobile Apps], que debe completar primero.
 
 ## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de Azure App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -33,7 +33,7 @@ En este tutorial podrá agregar la autenticación al proyecto de inicio rápido 
 
 La autenticación segura requiere que se defina un nuevo esquema de dirección URL para la aplicación. Esto permite que el sistema de autenticación se redirija a la aplicación una vez completado el proceso de autenticación. En este tutorial, se usará el esquema de dirección URL _appname_. Sin embargo, puede utilizar cualquier otro esquema de dirección URL que elija. Debe ser único para la aplicación móvil. Para habilitar la redirección en el lado de servidor:
 
-1. En [Azure Portal], seleccione App Service.
+1. En [Azure Portal], seleccione el servicio App Service.
 
 2. Haga clic en la opción de menú **Autenticación/autorización**.
 
@@ -50,7 +50,7 @@ La autenticación segura requiere que se defina un nuevo esquema de dirección U
 
      Esta excepción produce porque la aplicación intenta obtener acceso al back-end como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
-A continuación, actualice la aplicación para autenticar usuarios antes de solicitar recursos del back-end de Mobile Apps. 
+A continuación, actualice la aplicación para autenticar usuarios antes de solicitar recursos del back-end de Mobile Apps.
 
 ## <a name="add-authentication-to-the-app"></a>Incorporación de autenticación a la aplicación
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Ahora que ha completado este tutorial de autenticación básica, considere la po
 
 <!-- URLs. -->
 [Introducción a Mobile Apps]: app-service-mobile-android-get-started.md
+[Azure Portal]: https://portal.azure.com/

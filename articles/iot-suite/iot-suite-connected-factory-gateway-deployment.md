@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: f6a69ecbeb09dc042eff7c1f95ee518e701b0507
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 32a62be9578ac802ee8fff1b0aa48e2d39362e63
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada de fábrica conectada
 
@@ -65,9 +65,9 @@ También puede realizar este paso después de instalar docker desde el menú **C
 
 1. Configure la puerta de enlace de la instancia de IoT Hub mediante la ejecución de los dos módulos de puerta de enlace **una vez** desde un símbolo del sistema con:
 
-    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+    `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** es el nombre del publicador de agente de usuario de OPC con el formato **publisher.&lt;nombre de dominio completo&gt;**. Por ejemplo, si la red de fábrica se denomina **myfactorynetwork.com**, el valor de **ApplicationName** es **publisher.myfactorynetwork.com**.
     * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita en los pasos siguientes:
@@ -78,9 +78,9 @@ También puede realizar este paso después de instalar docker desde el menú **C
 
 1. Use estos comandos para reiniciar la puerta de enlace:
 
-    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
 
-    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
+    `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
 
 1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta D:\\docker contienen la clave privada. Limite el acceso a esta carpeta con las credenciales (habitualmente, **Administradores**) que se usan para ejecutar el contenedor Docker. Haga clic con el botón derecho en la carpeta D:\\docker, elija **Propiedades**, **Seguridad** y, luego, **Editar**. Conceda a los **administradores** el control total y quite a todos los demás:
 
@@ -117,9 +117,9 @@ También puede realizar este paso después de instalar docker desde el menú **C
 
 1. Configure la puerta de enlace de la instancia de IoT Hub mediante la ejecución de los dos módulos de puerta de enlace **una vez** desde un shell con:
 
-    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
+    `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
-    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
+    `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** es el nombre de la aplicación OPC UA que la puerta de enlace crea con formato **publisher.&lt;nombre de dominio completo&gt;**. Por ejemplo, **publisher.microsoft.com**.
     * **&lt;IoTHubOwnerConnectionString&gt;** es la cadena de conexión **iothubowner** que se copió en el paso anterior. Esta cadena de conexión solo se usa en este paso y no la necesita en los pasos siguientes:
@@ -130,9 +130,9 @@ También puede realizar este paso después de instalar docker desde el menú **C
 
 1. Use estos comandos para reiniciar la puerta de enlace:
 
-    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
+    `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 --rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:2.1.1 <ApplicationName>`
 
-    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
+    `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:1.0.2 -D /mapped/cs.db`
 
 1. Por motivos de seguridad, los dos certificados X.509 que se conservan en la carpeta **/shared** contienen la clave privada. Limite el acceso a esta carpeta con las credenciales que se usan para ejecutar el contenedor Docker. Para establecer los permisos solo para **raíz**, use el comando de shell `chmod` en la carpeta.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
 ms.openlocfilehash: 80f65e8e7fe562030c1e39787b910e2564969882
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -36,11 +36,12 @@ Encontrará más información sobre los mensajes de nube a dispositivo en la [Gu
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 
-* **SimulatedDevice**, versión modificada de la aplicación creada en [Introducción a Iot Hub], que se conecta al Centro de IoT y recibe mensajes de nube a dispositivo.
+* 
+            **SimulatedDevice**, versión modificada de la aplicación creada en [Introducción a Iot Hub], que se conecta a IoT Hub y recibe mensajes de nube a dispositivo.
 * **SendCloudToDeviceMessage**, que envía un mensaje de la nube a la aplicación de dispositivo simulado mediante IoT Hub y, luego, recibe su confirmación de entrega.
 
 > [!NOTE]
-> El Centro de IoT ofrece compatibilidad con el SDK en muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Visite el [Centro para desarrolladores de IoT de Azure]para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, al Centro de IoT de Azure.
+> IoT Hub ofrece compatibilidad con el SDK en muchas plataformas de dispositivos y lenguajes (incluido C, Java y Javascript), mediante los SDK de dispositivos IoT de Azure. Visite el [Centro para desarrolladores de IoT de Azure]para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al código de este tutorial y, en general, a Azure IoT Hub.
 > 
 > 
 
@@ -53,7 +54,7 @@ Para completar este tutorial, necesitará lo siguiente:
 En esta sección, modificará la aplicación de dispositivo simulado que creó en el tutorial [Introducción a Iot Hub] para recibir mensajes de nube a dispositivo desde el centro de IoT.
 
 1. Con un editor de texto, abra el archivo SimulatedDevice.js.
-2. Modifique la función **connectCallback** para controlar los mensajes enviados desde Centro de IoT. En este ejemplo, el dispositivo siempre invoca la función **complete** para notificar al Centro de IoT que ha procesado el mensaje. La nueva versión de la función **connectCallback** tiene un aspecto similar al fragmento siguiente:
+2. Modifique la función **connectCallback** para controlar los mensajes enviados desde IoT Hub. En este ejemplo, el dispositivo siempre invoca la función **complete** para notificar a IoT Hub que ha procesado el mensaje. La nueva versión de la función **connectCallback** tiene un aspecto similar al fragmento siguiente:
    
     ```javascript
     var connectCallback = function (err) {
@@ -179,7 +180,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. 
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usen el Centro de IoT, consulte [Documentación del Conjunto de aplicaciones de IoT].
+Para ver ejemplos de soluciones completas de un extremo a otro que usen IoT Hub, consulte [Documentación del Conjunto de aplicaciones de Azure IoT].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 
@@ -189,7 +190,8 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 
 <!-- Links -->
 
-[Introducción a Iot Hub]: iot-hub-node-node-getstarted.md
+
+            [Introducción a Iot Hub]: iot-hub-node-node-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Guía del desarrollador de IoTHub de Azure]: iot-hub-devguide.md
 [Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
@@ -197,4 +199,4 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://portal.azure.com
-[Documentación del Conjunto de aplicaciones de IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Documentación del Conjunto de aplicaciones de Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

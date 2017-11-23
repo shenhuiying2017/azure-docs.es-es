@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b22ad29e593a9293a98acebca065f19ab2d9d5be
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -117,14 +117,14 @@ Si prefiere realizar sus propias pruebas de penetración o desea usar otro conju
 ### <a name="web-application-firewall"></a>Firewall de aplicaciones web
 El firewall de aplicaciones web (WAF) de [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) protege las aplicaciones web ante ataques web habituales, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones. Viene preconfigurado con protección frente a las amenazas identificadas por el [Proyecto abierto de seguridad de aplicaciones web (OWASP) como las 10 vulnerabilidades más comunes](https://msdn.microsoft.com/library/).
 
-### <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en el Servicio de aplicaciones de Azure
+### <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 La [autenticación/autorización de App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) es una característica que proporciona una forma para que la aplicación lleve a cabo el inicio de sesión de usuarios sin necesidad de cambiar el código en el back-end de aplicación. Ofrece una forma fácil de proteger su aplicación y trabajar con datos por usuario.
 
 ### <a name="layered-security-architecture"></a>Arquitectura de seguridad por niveles
 Como los [entornos de App Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) proporcionan un entorno en tiempo de ejecución aislado que está implementado en una [instancia de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), los desarrolladores pueden crear una arquitectura de seguridad por niveles que proporcione diferentes niveles de acceso a la red para cada capa de aplicación. Un objetivo común es ocultar los back-ends de API al acceso general desde Internet y permitir que solo las aplicaciones web ascendentes puedan llamar a las API. Los [grupos de seguridad de red (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) pueden usarse en subredes de Azure Virtual Network que contengan entornos de App Service para restringir el acceso público a aplicaciones API.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
-Aplicaciones web del Servicio de aplicaciones ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. De forma lógica, estos diagnósticos se dividen en [diagnósticos del servidor web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) y [diagnóstico de aplicaciones](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). El servidor web incluye dos avances importantes para el diagnóstico y la solución de problemas de sitios y aplicaciones.
+Aplicaciones web de App Service ofrece la funcionalidad de diagnóstico para registrar información del servidor web y de la aplicación web. De forma lógica, estos diagnósticos se dividen en [diagnósticos del servidor web](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) y [diagnóstico de aplicaciones](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). El servidor web incluye dos avances importantes para el diagnóstico y la solución de problemas de sitios y aplicaciones.
 
 La primera característica nueva es la información de estado en tiempo real sobre grupos de aplicaciones, procesos de trabajo, sitios, dominios de aplicación y solicitudes en ejecución. La segunda ventaja nueva son los eventos de seguimiento detallados que siguen una solicitud a lo largo del proceso completo de solicitud y respuesta.
 
@@ -148,7 +148,7 @@ En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguient
 -   Errores de aplicación (muestra eventos de excepción)
 -   Rendimiento (muestra eventos de rendimiento)
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad del almacenamiento de Azure y un resumen de estas funcionalidades.
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
@@ -159,7 +159,7 @@ Una [firma de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Azure Storage, puede proteger los datos mediante:
--   [Cifrado de nivel de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS para transferir datos a Almacenamiento de Azure o desde este servicio.
+-   [Cifrado de nivel de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS para transferir datos a Azure Storage o desde este servicio.
 
 -   [Cifrado en el cable](https://docs.microsoft.com/azure/storage/storage-security-guide#using-encryption-during-transit-with-azure-file-shares), como el [cifrado SMB 3.0](https://docs.microsoft.com/azure/storage/storage-security-guide) para [recursos compartidos de Azure File](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-files).
 
@@ -168,14 +168,14 @@ Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 Para muchas organizaciones, el cifrado de los datos en reposo es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de seguridad del almacenamiento de Azure que proporcionan cifrado de datos "en reposo":
 
--   [Cifrado del servicio de almacenamiento](https://docs.microsoft.com/azure/storage/storage-service-encryption) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Almacenamiento de Azure.
+-   [Cifrado del servicio de almacenamiento](https://docs.microsoft.com/azure/storage/storage-service-encryption) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
 
 -   [Cifrado de cliente](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) también proporciona la característica de cifrado en reposo.
 
--   [Cifrado de discos de Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
+-   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 
 ### <a name="storage-analytics"></a>Storage Analytics
-[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento. El análisis de almacenamiento registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción. Se registran los siguientes tipos de solicitudes autenticadas:
+[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) realiza el registro y proporciona datos de métricas para una cuenta de almacenamiento. Puede usar estos datos para hacer un seguimiento de solicitudes, analizar tendencias de uso y diagnosticar problemas con la cuenta de almacenamiento. Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción. Se registran los siguientes tipos de solicitudes autenticadas:
 -   Solicitudes correctas
 
 -   Solicitudes erróneas, incluyendo errores de tiempo de espera, de limitación, de red, de autorización, etc
@@ -198,7 +198,7 @@ El control de acceso de red es el acto de limitar la conectividad entre subredes
 Un [grupo de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) es un firewall de filtrado de paquetes básico con estado que le permite controlar el acceso basado en una [5-tupla](https://www.techopedia.com/definition/28190/5-tuple). Los NSG no proporcionan inspección de nivel de aplicación ni controles de acceso autenticados. Se pueden usar para controlar el tráfico que se mueve entre subredes dentro de una instancia de Azure Virtual Network y el tráfico entre una instancia de Azure Virtual Network e Internet.
 
 #### <a name="route-control-and-forced-tunneling"></a>Control de ruta y tunelización forzada
-La posibilidad de controlar el comportamiento de enrutamiento en las redes virtuales de Azure es una funcionalidad crítica del control de acceso y la seguridad de red. Por ejemplo, si desea asegurarse de que todo el tráfico que entre en su instancia de Azure Virtual Network y salga de ella pase por ese dispositivo de seguridad virtual, debe ser capaz de controlar y personalizar el comportamiento de enrutamiento. Para ello, puede configurar rutas definidas por el usuario en Azure.
+La posibilidad de controlar el comportamiento de enrutamiento en Azure Virtual Network es una funcionalidad crítica del control de acceso y la seguridad de red. Por ejemplo, si desea asegurarse de que todo el tráfico que entre en su instancia de Azure Virtual Network y salga de ella pase por ese dispositivo de seguridad virtual, debe ser capaz de controlar y personalizar el comportamiento de enrutamiento. Para ello, puede configurar rutas definidas por el usuario en Azure.
 
 Las [rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) le permiten personalizar rutas de acceso entrantes y salientes para el tráfico que entra y sale de máquinas virtuales individuales o subredes para garantizar la ruta más segura posible. [tunelización forzada](https://www.petri.com/azure-forced-tunneling) es un mecanismo que puede usar para tener la seguridad de que no se permite que sus servicios inicien una conexión con dispositivos en Internet.
 
@@ -209,7 +209,7 @@ La tunelización forzada normalmente se usa para forzar que el tráfico saliente
 #### <a name="virtual-network-security-appliances"></a>Dispositivos de seguridad de red virtual
 Aunque los grupos de seguridad de red, las rutas definidas por el usuario y la tunelización forzada proporcionan un nivel de seguridad en las capas de red y transporte del [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), habrá ocasiones en las que desee habilitar la seguridad en niveles más altos de la pila. Puede acceder a estas características mejoradas de seguridad de red mediante una solución de dispositivo de seguridad de red de asociados de Azure. Para encontrar las soluciones de seguridad de red de asociados más actuales de Azure, visite [Azure Marketplace](https://azure.microsoft.com/marketplace/) y busque "seguridad" y "seguridad de la red".
 
-### <a name="azure-virtual-network"></a>Red virtual
+### <a name="azure-virtual-network"></a>Azure Virtual Network
 
 Una red virtual de Azure (VNet) es una representación de su propia red en la nube. Es un aislamiento lógico del tejido de red de Azure dedicado a su suscripción. Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de esta red. Puede segmentar la red virtual en subredes y colocar máquinas virtuales de IaaS de Azure o [servicios en la nube (instancias de rol de PaaS)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) en instancias de Azure Virtual Network.
 
@@ -314,10 +314,10 @@ En esta sección se proporciona información adicional acerca de característica
 Con IaaS de Azure, puede usar software antimalware de proveedores de seguridad como Microsoft, Symantec, Trend Micro, McAfee y Kaspersky, para proteger las máquinas virtuales de archivos malintencionados, adware y otras amenazas. [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para Azure Cloud Services y Virtual Machines es una funcionalidad de protección que permite identificar y eliminar virus, spyware y otro software malintencionado. Microsoft Antimalware activa alertas configurables cuando software no deseado o malintencionado intenta instalarse o ejecutarse en los sistemas de Azure. Microsoft Antimalware también puede implementarse mediante Azure Security Center.
 
 ### <a name="hardware-security-module"></a>Módulo de seguridad de hardware
-La autenticación y el cifrado no mejoran la seguridad a menos que las propias claves estén protegidas. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en el Almacén de claves con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+La autenticación y el cifrado no mejoran la seguridad a menos que las propias claves estén protegidas. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en Key Vault con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ### <a name="virtual-machine-backup"></a>Copia de seguridad de máquina virtual
-[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) es una solución que protege los datos de su aplicación sin necesidad de realizar ninguna inversión y afrontando unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones que conlleven problemas de seguridad. Con Copia de seguridad de Azure, las máquinas virtuales que ejecutan Windows y Linux están protegidas.
+[Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) es una solución que protege los datos de su aplicación sin necesidad de realizar ninguna inversión y afrontando unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones que conlleven problemas de seguridad. Con Azure Backup, las máquinas virtuales que ejecutan Windows y Linux están protegidas.
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 Una parte importante de la estrategia de [continuidad empresarial/recuperación ante desastres (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) de su organización es averiguar cómo mantener las aplicaciones y cargas de trabajo corporativas en funcionamiento cuando se produzcan interrupciones planeadas e imprevistas. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ayuda a coordinar la replicación, la conmutación por error y la recuperación de aplicaciones y cargas de trabajo para que estén disponibles desde una ubicación secundaria si la ubicación principal deja de funcionar.
@@ -325,7 +325,7 @@ Una parte importante de la estrategia de [continuidad empresarial/recuperación 
 ### <a name="sql-vm-tde"></a>TDE de máquina virtual de SQL
 El [cifrado de datos transparente (TDE)](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault) y cifrado de nivel de columna (CLE) son características de cifrado de SQL Server. Esta forma de cifrado requiere que los clientes administren y almacenen las claves criptográficas que se usan para el cifrado.
 
-El servicio de Almacén de claves de Azure (AKV) está diseñado para mejorar la seguridad y la administración de estas claves en una ubicación segura y con gran disponibilidad. El Conector de SQL Server permite que SQL Server use estas claves desde Azure Key Vault.
+El servicio Azure Key Vault (AKV) está diseñado para mejorar la seguridad y la administración de estas claves en una ubicación segura y con gran disponibilidad. El Conector de SQL Server permite que SQL Server use estas claves desde Azure Key Vault.
 
 Si ejecuta SQL Server con máquinas locales, hay una serie de pasos que puede seguir para acceder a Azure Key Vault desde la máquina de SQL Server local. Pero para SQL Server en las máquinas virtuales de Azure, puede ahorrar tiempo si usa la característica Integración de Azure Key Vault. Con algunos cmdlets de Azure PowerShell para habilitar esta característica, puede automatizar la configuración necesaria para que una máquina virtual de SQL tenga acceso a su Almacén de claves.
 
@@ -333,7 +333,7 @@ Si ejecuta SQL Server con máquinas locales, hay una serie de pasos que puede se
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) es una nueva funcionalidad que permite cifrar los discos de las máquinas virtuales de IaaS Windows y Linux. Usa la característica BitLocker estándar del sector de Windows y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para el sistema operativo y los discos de datos. La solución se integra con Azure Key Vault para ayudarle a controlar y administrar los secretos y las claves de cifrado de discos en su suscripción de Key Vault. La solución también garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
 
 ### <a name="virtual-networking"></a>Redes virtuales
-Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que las máquinas virtuales de Azure estén conectadas a una red virtual de Azure. Una red virtual de Azure es una construcción lógica creada encima del tejido de red físico de Azure. Cada instancia de [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) lógica está aislada de todas las demás instancias de Azure Virtual Network. Este aislamiento contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
+Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que Azure Virtual Machines esté conectado a una instancia de Azure Virtual Network. Azure Virtual Network es una construcción lógica creada encima del tejido de red físico de Azure. Cada instancia de [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) lógica está aislada de todas las demás instancias de Azure Virtual Network. Este aislamiento contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
 
 ### <a name="patch-updates"></a>Actualizaciones de revisiones
 Las actualizaciones de revisiones proporcionan la base para encontrar y corregir posibles problemas y simplificar el proceso de administración de actualizaciones de software al reducir el número de actualizaciones de software que debe implementar en su empresa y aumentar la capacidad de supervisar el cumplimiento.

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f15378c50dbf80863305ed4d1f31ae75f46a7789
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="application-architecture-on-azure"></a>Arquitectura de aplicaciones en Azure
 Para ayudar a proteger sus soluciones basadas en la nube en Microsoft Azure, es esencial contar con unos sólidos fundamentos en materia de arquitectura. De un buen conocimiento de la arquitectura de aplicaciones y servicios pueden sacar provecho arquitectos, diseñadores e implementadores. Estos conocimientos básicos lo ayudarán a comprender todos los componentes de sus soluciones basadas en la nube y facilitarán la integración de características de seguridad en todos los aspectos del diseño y la implementación.
@@ -34,7 +34,7 @@ Los siguientes recursos pueden resultarle útiles para sus investigaciones y dis
 Microsoft publica varios pósteres e infografías relacionados con la arquitectura. Entre ellos se incluyen los siguientes:
 
 * [Creación de aplicaciones en la nube para el mundo real](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Escalación de aplicaciones con Servicios en la nube](https://azure.microsoft.com/documentation/infographics/cloud-services/)
+* [Escalación de aplicaciones con Cloud Services](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Proyectos de arquitectura
 Microsoft publica un conjunto de [proyectos de arquitectura](http://aka.ms/azblueprints) de alto nivel que muestran cómo crear tipos específicos de sistemas con productos de Microsoft.

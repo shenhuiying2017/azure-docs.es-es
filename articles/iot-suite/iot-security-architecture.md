@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
 ms.openlocfilehash: 2482dade7d17d05b2fc90fbf22b0466227a5983b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitectura de seguridad de Internet de las cosas
 Cuando se diseña un sistema, es importante conocer las posibles amenazas a las que puede estar expuesto y agregar las defensas adecuadas según corresponda durante su diseño y arquitectura. Es especialmente importante diseñar el producto desde el principio teniendo en cuenta la seguridad, ya que conocer la forma en que un atacante podría poner en peligro un sistema ayuda a tomar las medidas pertinentes desde el principio. 
@@ -140,7 +140,7 @@ El siguiente diagrama proporciona una vista simplificada de la arquitectura de I
 
 ![Modelado de riesgos para IoT de Azure mediante la herramienta de modelado de riesgos de MS](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-Es importante tener en cuenta que la arquitectura separa las funcionalidades del dispositivo y de la puerta de enlace. Esto permite al usuario sacar provecho de los dispositivos de puerta de enlace que sean más seguros: son capaces de comunicarse con la puerta de enlace en la nube mediante protocolos seguros, lo que normalmente requiere mayor sobrecarga de procesamiento de la que un dispositivo nativo (como un termostato) podría proporcionar por sí mismo. En la zona de servicios de Azure, se asume que el servicio Centro de IoT de Azure representa la puerta de enlace en la nube.
+Es importante tener en cuenta que la arquitectura separa las funcionalidades del dispositivo y de la puerta de enlace. Esto permite al usuario sacar provecho de los dispositivos de puerta de enlace que sean más seguros: son capaces de comunicarse con la puerta de enlace en la nube mediante protocolos seguros, lo que normalmente requiere mayor sobrecarga de procesamiento de la que un dispositivo nativo (como un termostato) podría proporcionar por sí mismo. En la zona de servicios de Azure, se asume que el servicio Azure IoT Hub representa la puerta de enlace en la nube.
 
 ### <a name="device-and-data-sourcesdata-transport"></a>Dispositivo y orígenes de datos o transporte de datos
 En esta sección se explora la arquitectura esbozada anteriormente a través de la lente del modelado de riesgos y ofrece una visión general de la forma en que trataremos algunos de los problemas inherentes. Nos centraremos en los elementos principales de un modelo de riesgos:
@@ -206,7 +206,7 @@ Las amenazas existentes en ta ruta de acceso de comunicación entre los disposit
 
 | **Componente** | **Amenaza** | **Mitigación** | **Riesgo** | **Implementación** |
 | --- | --- | --- | --- | --- |
-| Centro de IoT de dispositivo |TID |(D)TLS (PSK/RSA) para cifrar el tráfico |La interceptación o interferencia de la comunicación entre el dispositivo y la puerta de enlace |Seguridad en el nivel de protocolo. En el caso de los protocolos personalizados, es preciso averiguar cómo protegerlos. En la mayoría de los casos, la comunicación se establece desde el dispositivo al Centro de IoT (el dispositivo inicia la conexión). |
+| IoT Hub de dispositivo |TID |(D)TLS (PSK/RSA) para cifrar el tráfico |La interceptación o interferencia de la comunicación entre el dispositivo y la puerta de enlace |Seguridad en el nivel de protocolo. En el caso de los protocolos personalizados, es preciso averiguar cómo protegerlos. En la mayoría de los casos, la comunicación se establece desde el dispositivo a IoT Hub (el dispositivo inicia la conexión). |
 | Dispositivo Dispositivo |TID |(D)TLS (PSK/RSA) para cifrar el tráfico. |Lectura de los datos en tránsito entre dispositivos. Manipulación de los datos. Sobrecarga del dispositivo con nuevas conexiones |Seguridad en el nivel de protocolo (MQTT/AMQP/HTTP/CoAP). En el caso de los protocolos personalizados, es preciso averiguar cómo protegerlos. La mitigación de la amenaza de denegación de servicio es emparejar los dispositivos a través de una puerta de enlace de campo o en la nube, y que actúen solo como clientes hacia la red. El emparejamiento puede dar lugar a una conexión directa entre los homólogos después de que la puerta de enlace haya intermediado |
 | Entidad externa Dispositivo |TID |Emparejamiento seguro de la entidad externa con el dispositivo |Interceptación de la conexión con el dispositivo. Interferencia de la comunicación con el dispositivo |Emparejamiento seguro de la entidad externa con el dispositivo LE NFC o Bluetooth. Control del panel operativo del dispositivo (físico) |
 | Puerta de enlace de campo Puerta de enlace en la nube |TID |TLS (PSK/RSA) para cifrar el tráfico. |La interceptación o interferencia de la comunicación entre el dispositivo y la puerta de enlace |Seguridad en el nivel de protocolo (MQTT/AMQP/HTTP/CoAP). En el caso de los protocolos personalizados, es preciso averiguar cómo protegerlos. |
@@ -224,7 +224,7 @@ Estos son algunos ejemplos de las amenazas de esta categoría:
 
 **Divulgación de información**: un atacante puede interceptar una difusión y obtener información sin autorización. **Denegación de servicio**: un atacante puede bloquear la señal de difusión y denegar la distribución de la información.
 
-#### <a name="storage"></a>Almacenamiento
+#### <a name="storage"></a>Storage
 Todos los dispositivos y puertas de enlace de campo tienen algún tipo de almacenamiento (temporal para poner en cola los datos, almacenamiento de imágenes del sistema operativo).
 
 | **Componente** | **Amenaza** | **Mitigación** | **Riesgo** | **Implementación** |

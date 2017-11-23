@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 2501113fe75f20602059927a4e0a50cecd86b187
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 552a4c9565bef62bb1aa7071b88473feb21a05f8
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Uso de GPU en Azure Machine Learning
 La unidad de procesamiento gráfico (GPU) es comúnmente usada para procesar tareas que consumen muchos recursos informáticos que se pueden producir normalmente al entrenar determinados modelos de redes neuronales. Mediante las GPU, puede reducir considerablemente el tiempo de entrenamiento de los modelos. En este documento, aprenderá a configurar Azure ML Workbench para usar [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) equipada con GPU como destino de ejecución. 
@@ -88,7 +88,7 @@ Abra `my_dsvm.compute`. Cambiar `baseDockerImage` por `microsoft/mmlspark:plus-g
  
 ```yaml
 ...
-baseDockerImage: microsoft/mmlspark:plus-gpu-0.7.91
+baseDockerImage: microsoft/mmlspark:plus-gpu-0.9.9
 nvidiaDocker: true
 ```
  

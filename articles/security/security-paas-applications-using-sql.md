@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 18509b3fc3a73118f67583a0b087c58f0e51993c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed15ff750e73179f6979d13e45ab27aeee5c82ab
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="securing-paas-databases-in-azure"></a>Protección de bases de datos de PaaS en Azure
 
@@ -51,12 +51,12 @@ Entre las ventajas de utilizar la autenticación de Azure AD en lugar de la aute
 - Usa usuarios de base de datos independiente para autenticar las identidades en el nivel de base de datos.
 - Admite la autenticación basada en token para las aplicaciones que se conectan a SQL Database.
 - Es compatible con ADFS (federación de dominios) o la autenticación nativa de usuario y contraseña para una instancia de Azure AD local sin sincronización de dominios.
-- Admite conexiones de SQL Server Management Studio que usan la autenticación universal de Active Directory, lo cual incluye [Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA incluye una sólida autenticación con una gama de sencillas opciones de comprobación: llamada de teléfono, mensaje de texto, tarjetas inteligentes con PIN o notificación de aplicación móvil. Para obtener más información, consulte [Compatibilidad de SSMS con Azure AD MFA con Base de datos SQL y Almacenamiento de datos SQL](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Admite conexiones de SQL Server Management Studio que usan la autenticación universal de Active Directory, lo cual incluye [Multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md). MFA incluye una sólida autenticación con una gama de sencillas opciones de comprobación: llamada de teléfono, mensaje de texto, tarjetas inteligentes con PIN o notificación de aplicación móvil. Para obtener más información, consulte [Compatibilidad de SSMS con Azure AD MFA con SQL Database y SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Para obtener más información sobre la autenticación de Azure AD, vea:
 
-- [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../sql-database/sql-database-aad-authentication.md)
-- [Autenticación a Almacenamiento de datos SQL de Azure](../sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [Conexión a SQL Database o a SQL Data Warehouse mediante autenticación de Azure Active Directory](../sql-database/sql-database-aad-authentication.md)
+- [Autenticación a Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Token-based authentication support for Azure SQL DB using Azure AD authentication](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/) (Compatibilidad de la autenticación basada en tokens para Azure SQL DB mediante la autenticación de Azure AD)
 
 > [!NOTE]

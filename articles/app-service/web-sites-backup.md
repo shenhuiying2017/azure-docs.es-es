@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: b6047528b56c220a410a602422604c1453024903
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](app-service-web-overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación. 
@@ -38,7 +38,6 @@ Las siguientes soluciones de base de datos son compatibles con la característic
    - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
    - [Azure Database for MySQL (versión preliminar)](https://azure.microsoft.com/en-us/services/mysql)
    - [Azure Database for PostgreSQL (versión preliminar)](https://azure.microsoft.com/en-us/services/postgres)
-   - [ClearDB MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SuccessBricksInc.ClearDBMySQLDatabase?tab=Overview)
    - [MySQL en aplicación](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

@@ -3,7 +3,7 @@ title: Tutorial sobre PolyBase en SQL Data Warehouse | Microsoft Docs
 description: "Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos."
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 03/01/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: 1a26fe127448f794bbad11043aa3c8770bc2ac8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: barbkess
+ms.openlocfilehash: 47a2f48a1eef0c138875fbc079724b8d631abc54
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Carga de datos con PolyBase en Almacenamiento de datos SQL
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Carga de datos con PolyBase en SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Redgate](sql-data-warehouse-load-with-redgate.md)  
 > * [Factoría de datos](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
@@ -43,14 +43,14 @@ Este tutorial muestra cómo cargar datos en SQL Data Warehouse mediante AzCopy y
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita
 
-* Una base de datos de Almacenamiento de datos SQL.
-* Una cuenta de almacenamiento de Azure del tipo Almacenamiento con redundancia local estándar (LRS estándar), Almacenamiento con redundancia geográfica estándar (GRS estándar) o Almacenamiento con redundancia geográfica de acceso de lectura estándar  (RAGRS estándar).
+* Una base de datos de SQL Data Warehouse.
+* Una cuenta de Azure Storage del tipo Almacenamiento con redundancia local estándar (LRS estándar), Almacenamiento con redundancia geográfica estándar (GRS estándar) o Almacenamiento con redundancia geográfica de acceso de lectura estándar  (RAGRS estándar).
 * La utilidad de línea de comandos AzCopy. Descargue e instale la [versión más reciente de AzCopy][latest version of AzCopy], que se instala con las herramientas de Microsoft Azure Storage.
   
-    ![Herramientas de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
+    ![Herramientas de Azure Storage](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Paso 1: Adición de datos de ejemplo a Almacenamiento de blobs de Azure
-Para cargar los datos, es preciso poner incluir algunos datos de ejemplo en un almacenamiento de blobs de Azure. En este paso, se rellena un almacenamiento de blobs de Azure con datos de ejemplo. Más adelante, se usará PolyBase para cargar estos datos de ejemplo en la base de datos de Almacenamiento de datos SQL.
+Para cargar los datos, es preciso poner incluir algunos datos de ejemplo en un almacenamiento de blobs de Azure. En este paso, se rellena una instancia de Azure Blob Storage con datos de ejemplo. Más adelante, se usará PolyBase para cargar estos datos de ejemplo en la base de datos de SQL Data Warehouse.
 
 ### <a name="a-prepare-a-sample-text-file"></a>A. Preparación de un archivo de texto de ejemplo
 Para preparar un archivo de texto de ejemplo:
@@ -82,7 +82,7 @@ Para buscar el punto de conexión del servicio BLOB:
     ![Haga clic en Blobs](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 4. Guardar la dirección URL del punto de conexión del servicio BLOB para usarla más adelante.
    
-    ![Punto de conexión del servicio BLOB](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
+    ![Punto de conexión de Blob service](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### <a name="c-find-your-azure-storage-key"></a>C. Búsqueda de la clave de almacenamiento de Azure
 Para buscar la clave de almacenamiento de Azure:
@@ -113,7 +113,7 @@ Consulte también [Introducción a la utilidad de línea de comandos de AzCopy][
 ### <a name="e-explore-your-blob-storage-container"></a>E. Exploración del contenedor de almacenamiento de blobs
 Para ver el archivo cargado en el almacenamiento de blobs:
 
-1. Vuelva a la hoja del servicio BLOB.
+1. Vuelva a la hoja de Blob service.
 2. En Contenedores, haga doble clic en **datacontainer**.
 3. Para explorar la ruta de acceso a los datos, haga clic en la carpeta **datedimension** y verá el archivo cargado, **DimDate2.txt**.
 4. Para ver sus propiedades, haga clic en **DimDate2.txt**.
@@ -124,7 +124,7 @@ Para ver el archivo cargado en el almacenamiento de blobs:
 ## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Paso 2: Creación de una tabla externa para los datos de ejemplo
 En esta sección se creará una tabla externa que defina los datos de ejemplo.
 
-PolyBase emplea tablas externas para acceder a los datos en Almacenamiento de blobs de Azure. Dado que los datos no se almacenan en Almacenamiento de datos SQL, PolyBase controla la autenticación de los datos externos mediante una credencial cuyo ámbito es la base de datos.
+PolyBase emplea tablas externas para acceder a los datos en Almacenamiento de blobs de Azure. Dado que los datos no se almacenan en SQL Data Warehouse, PolyBase controla la autenticación de los datos externos mediante una credencial cuyo ámbito es la base de datos.
 
 El ejemplo de este paso usa estas instrucciones Transact-SQL para crear una tabla externa.
 
@@ -134,7 +134,7 @@ El ejemplo de este paso usa estas instrucciones Transact-SQL para crear una tabl
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)] para especificar el formato de los datos.
 * [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)] para especificar la definición de la tabla y la ubicación de los datos.
 
-Ejecute esta consulta en la base de datos de Almacenamiento de datos SQL. Se creará una tabla externa denominada DimDate2External en el esquema dbo que apunta a los datos de ejemplo de DimDate2.txt del almacenamiento de blobs de Azure.
+Ejecute esta consulta en la base de datos de SQL Data Warehouse. Se creará una tabla externa denominada DimDate2External en el esquema dbo que apunta a los datos de ejemplo de DimDate2.txt del almacenamiento de blobs de Azure.
 
 ```sql
 -- A: Create a master key.
@@ -209,7 +209,7 @@ En el Explorador de objetos de SQL Server de Visual Studio, se puede ver el form
 
 ![Vea la tabla externa](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3-load-data-into-sql-data-warehouse"></a>Paso 3: Carga de datos en Almacenamiento de datos SQL
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Paso 3: Carga de datos en SQL Data Warehouse
 Una vez creada la tabla externa, puede cargar los datos en una tabla nueva o insertarlos en una tabla existente.
 
 * Para cargar los datos en una tabla nueva, ejecute la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. La nueva tabla hereda las columnas designadas en la consulta. Los tipos de datos de las columnas coincidirán con los tipos de datos de la definición de la tabla externa.
@@ -229,7 +229,7 @@ SELECT * FROM [dbo].[DimDate2External];
 ```
 
 ## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Paso 4: Crear estadísticas de los datos recién cargados
-Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
+SQL Data Warehouse no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 
 En este ejemplo se crean estadísticas con una sola columna de la nueva tabla DimDate2.
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementación rápida del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 El autoservicio de restablecimiento de contraseña (SSPR) ofrece un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan o desbloqueen sus cuentas o contraseñas. El sistema incluye informes detallados del seguimiento de acceso de los usuarios al sistema, además de notificaciones de alerta de posibles abusos o usos indebidos.
 
-En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Directory (Azure AD) con licencia o una prueba operativa. Si necesita ayuda para configurar Azure AD, consulte el artículo de [introducción a Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
+En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Directory (Azure AD) con licencia o una prueba operativa. Si necesita ayuda para configurar Azure AD, consulte el artículo de [introducción a Azure AD](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitación de SSPR para el inquilino de Azure AD
 
@@ -73,7 +73,7 @@ Para habilitar la sincronización de identidades local con Azure AD, debe instal
 
 * [Actualización desde DirSync o Azure AD Sync a Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Introducción a Azure AD Connect mediante la configuración rápida](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configuración de la escritura diferida de contraseñas](active-directory-passwords-writeback.md#configuring-password-writeback) para escribir contraseñas de Azure AD en su directorio local
+* [Configuración de la escritura diferida de contraseñas](active-directory-passwords-writeback.md#configure-password-writeback) para escribir contraseñas de Azure AD en su directorio local
 
 ### <a name="on-premises-policy-change"></a>Cambio de la directiva local
 
@@ -92,7 +92,7 @@ Esta configuración de seguridad determina el período de tiempo (en días) que 
 Deshabilitar el autoservicio de restablecimiento de contraseña es fácil. Abra el inquilino de Azure AD y vaya a **Restablecimiento de contraseña** > **Propiedades** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**.
 
 ### <a name="learn-more"></a>Más información
-En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseñas con Azure AD:
+En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)

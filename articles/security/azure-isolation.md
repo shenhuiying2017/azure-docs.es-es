@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33cd461c61db5f3f6aa9f68fc655ace94c30611a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -92,7 +92,7 @@ RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de
 
 ![Control de acceso basado en rol de Azure](./media/azure-isolation/azure-isolation-fig3.png)
 
-El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la red virtual de Azure ni a la subred a la que se conecta la máquina virtual.
+El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la instancia de Azure Virtual Network ni a la subred a la que se conecta la máquina virtual.
 
 [Roles integrados para el control de acceso basado en rol](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) enumera los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)(Roles personalizados en RBAC de Azure).
 
@@ -172,7 +172,7 @@ De forma predeterminada, cuando se crea una máquina virtual, se bloquea todo el
 
 Se programan dos categorías de reglas:
 
--   **Reglas de configuración de la máquina o la infraestructura**: de forma predeterminada, se bloquea toda la comunicación. Existen excepciones para permitir que una máquina virtual envíe y reciba tráfico DHCP y DNS. Las máquinas virtuales también pueden enviar tráfico a la Internet "pública" y a otras máquinas virtuales de la red virtual de Azure y al servidor de activación del sistema operativo. La lista de destinos de salida permitidos de las máquinas virtuales no incluye subredes de enrutador de Azure, administración de Azure y otras propiedades de Microsoft.
+-   **Reglas de configuración de la máquina o la infraestructura**: de forma predeterminada, se bloquea toda la comunicación. Existen excepciones para permitir que una máquina virtual envíe y reciba tráfico DHCP y DNS. Las máquinas virtuales también pueden enviar tráfico a la Internet "pública" y a otras máquinas virtuales de la instancia de Azure Virtual Network y al servidor de activación del sistema operativo. La lista de destinos de salida permitidos de las máquinas virtuales no incluye subredes de enrutador de Azure, administración de Azure y otras propiedades de Microsoft.
 
 -   **Archivo de configuración de roles**: define las listas de control de acceso (ACL) de entrada según el modelo de servicio del inquilino.
 
@@ -191,7 +191,7 @@ Hay tres redes VLAN en cada clúster:
 Se permite la comunicación desde la VLAN FC a la VLAN principal, pero no se puede iniciar desde la VLAN principal hacia la VLAN FC. La comunicación también está bloqueada desde la VLAN principal hacia la VLAN de dispositivo. Esto asegura que incluso si un nodo que ejecuta código del cliente se ve comprometido, no puede atacar nodos ni de la VLAN FC ni de las VLAN de dispositivo.
 
 ## <a name="storage-isolation"></a>Aislamiento de almacenamiento
-### <a name="logical-isolation-between-compute-and-storage"></a>Aislamiento lógico entre proceso y almacenamiento
+### <a name="logical-isolation-between-compute-and-storage"></a>Aislamiento lógico entre Compute y Storage
 Como parte fundamental de su diseño, Microsoft Azure separa las máquinas virtuales de proceso y las de almacenamiento. Esta separación permite escalar la computación y el almacenamiento de forma independiente, facilitando así el multiinquilinato y el aislamiento.
 
 Por tanto, Azure Storage se ejecuta en hardware independiente sin conectividad de red con Azure Compute, excepto en el nivel lógico. [Esto](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) significa que, cuando se crea un disco virtual, no se asigna espacio en disco para toda su capacidad. En su lugar, se crea una tabla que asigna direcciones en el disco virtual a las áreas en el disco físico y la tabla está inicialmente vacía. **La primera vez que un cliente escribe datos en el disco virtual, se asigna espacio en el disco físico y se coloca un puntero a este en la tabla.**
@@ -218,7 +218,7 @@ Azure ofrece los siguientes tipos de cifrado para proteger los datos:
 #### <a name="encryption-in-transit"></a>Cifrado en tránsito
 Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Con Azure Storage, puede proteger los datos mediante:
 
--   [Cifrado de nivel de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS para transferir datos a Almacenamiento de Azure o desde este servicio.
+-   [Cifrado de nivel de transporte](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), como HTTPS para transferir datos a Azure Storage o desde este servicio.
 
 -   [Cifrado en el cable](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como el cifrado SMB 3.0 para recursos compartidos de Azure File.
 
@@ -231,15 +231,15 @@ Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.mi
 
 -   [Cifrado de cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) también proporciona la característica de cifrado en reposo.
 
--   [Cifrado de discos de Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
+-   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de IaaS.
 
-#### <a name="azure-disk-encryption"></a>Cifrado de disco de Azure
+#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para máquinas virtuales le ayuda solucionar los aspectos de seguridad y cumplimiento normativo de su organización, ya que cifra los discos de las máquinas virtuales (incluidos los discos de inicio y de datos) con claves y directivas que se controlan en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 La solución admite los siguientes escenarios para las máquinas virtuales IaaS cuando se habilitan en Microsoft Azure:
--   Integración con el Almacén de claves de Azure
+-   Integración con Azure Key Vault
 
 -   Máquinas virtuales de nivel estándar: máquinas virtuales IaaS de las series A, D, DS, G, GS, etc.
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 168b2ab3676d3f3e2830966f850e14adbe579f85
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>Cómo usar Managed Service Identity (MSI) de una máquina virtual de Azure para el inicio de sesión y la adquisición de tokens 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]Después de habilitar MSI en una máquina virtual de Azure, puede usar MSI para el inicio de sesión y para solicitar un token de acceso. En este artículo se muestran varias maneras de utilizar una [entidad de servicio](develop/active-directory-dev-glossary.md#service-principal-object) de MSI para el inicio de sesión y para adquirir un [token de acceso de solo aplicación](develop/active-directory-dev-glossary.md#access-token) para tener acceso a otros recursos, incluidos:
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/17/2017
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Si planea usar los ejemplos de PowerShell de este artículo, asegúrese de instalar [Azure PowerShell versión 4.3.1](https://www.powershellgallery.com/packages/AzureRM) o superior. Si tiene previsto utilizar los ejemplos de la CLI de Azure de este artículo, tiene tres opciones:
 - Usar [Azure Cloud Shell](../cloud-shell/overview.md) desde Azure Portal.

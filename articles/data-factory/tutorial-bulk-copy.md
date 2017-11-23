@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: be23cd6b500fd186fdcbe6f5c2371f84e075e3e8
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 
@@ -68,7 +68,7 @@ Siga el artículo [Creación de una instancia de Azure SQL Database](../sql-data
 
 **Preparación de la instancia de Azure SQL Data Warehouse receptora**:
 
-1. Si no tiene ninguna instancia de Azure SQL Data Warehouse, consulte el artículo [Creación de una instancia de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) para ver los pasos para su creación.
+1. Si no tiene ninguna instancia de Azure SQL Data Warehouse, consulte el artículo [Creación de una instancia de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) para ver los pasos para su creación.
 
 2. Cree esquemas de tablas correspondientes en SQL Data Warehouse. Puede usar la [utilidad de migración ](https://www.microsoft.com/download/details.aspx?id=49100) para **migrar el esquema** de Azure SQL Database a Azure SQL Data Warehouse. Debe usar Azure Data Factory para migrar o copiar datos en un paso posterior.
 

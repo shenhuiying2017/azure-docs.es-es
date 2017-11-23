@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: ad7434efcead9a250bda9958ade74e798609a25d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 701a7296368cd8150eedf8cc50b989fdf6112101
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Administración del esquema para varios inquilinos en una aplicación multiinquilino que usa Azure SQL Database
 
@@ -63,7 +63,7 @@ Hay una nueva versión de Trabajos elásticos que ahora es una característica i
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
-Los scripts y el código fuente de la aplicación Wingtip Tickets SaaS Database Per Tenant están disponibles en el repositorio [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) de GitHub. [Pasos para descargar los scripts de Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+Los scripts y el código fuente de la aplicación Wingtip Tickets SaaS Database Per Tenant están disponibles en el repositorio [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) de GitHub. [Pasos para descargar los scripts de Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Creación de una base de datos de cuentas de trabajo y una nueva cuenta de trabajo
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
-ms.author: glenga
-ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
+ms.openlocfilehash: 91839d8f547340d55f6badb3350a393a48a13c7d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -27,7 +27,7 @@ WebJobs es una característica de [Azure App Service](https://docs.microsoft.com
 
 En este artículo se muestra cómo implementar WebJobs con [Azure Portal](https://portal.azure.com) para cargar un ejecutable o un script. Para información sobre cómo desarrollar e implementar WebJobs mediante Visual Studio, consulte [Implementación de WebJobs con Visual Studio](websites-dotnet-deploy-webjobs.md).
 
-El SDK de WebJobs de Azure se puede usar con WebJobs para simplificar muchas tareas de programación. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](https://github.com/Azure/azure-webjobs-sdk/wiki)
+El SDK de Azure WebJobs se puede usar con WebJobs para simplificar muchas tareas de programación. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](https://github.com/Azure/azure-webjobs-sdk/wiki)
 
 Azure Functions proporciona otra manera de ejecutar programas y scripts. Para una comparación entre WebJobs y Functions, consulte [Elección entre Flow, Logic Apps, Functions y WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
@@ -213,4 +213,4 @@ Puede escribir la expresión CRON en el portal o incluir un archivo `settings.jo
    
 ## <a name="NextSteps"></a> Pasos siguientes
 
-El SDK de WebJobs de Azure se puede usar con WebJobs para simplificar muchas tareas de programación. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](https://github.com/Azure/azure-webjobs-sdk/wiki)
+El SDK de Azure WebJobs se puede usar con WebJobs para simplificar muchas tareas de programación. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](https://github.com/Azure/azure-webjobs-sdk/wiki)

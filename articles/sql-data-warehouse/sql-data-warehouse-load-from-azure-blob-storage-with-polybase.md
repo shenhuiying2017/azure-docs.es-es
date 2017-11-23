@@ -1,9 +1,9 @@
 ---
 title: Carga desde blob de Azure a un almacenamiento de datos de Azure | Microsoft Docs
-description: "Aprenda a usar PolyBase para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL. Cargue algunas tablas de datos públicos en el esquema Contoso Retail Data Warehouse."
+description: "Aprenda a usar PolyBase para cargar datos de Azure Blob Storage en SQL Data Warehouse. Cargue algunas tablas de datos públicos en el esquema Contoso Retail Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: barbkess
 editor: 
 ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: cakarst;barbkess
-ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: barbkess
+ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Load data from Azure blob storage into SQL Data Warehouse (PolyBase) [Carga de datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL (PolyBase)]
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Use PolyBase y comandos de T-SQL para cargar datos de Almacenamiento de blobs de Azure en Almacenamiento de datos SQL. 
+Use PolyBase y comandos de T-SQL para cargar datos de Azure Blob Storage en SQL Data Warehouse. 
 
-Para no complicarlo, este tutorial carga dos tablas de un Blob de almacenamiento de Azure público en el esquema Contoso Retail Data Warehouse. Para cargar el conjunto de datos completo, ejecute el ejemplo [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] (Carga del esquema Contoso Retail Data Warehouse completo) del repositorio de ejemplos de Microsoft SQL Server.
+Para no complicarlo, este tutorial carga dos tablas de un Blob de Azure Storage público en el esquema Contoso Retail Data Warehouse. Para cargar el conjunto de datos completo, ejecute el ejemplo [Load the full Contoso Retail Data Warehouse][Load the full Contoso Retail Data Warehouse] (Carga del esquema Contoso Retail Data Warehouse completo) del repositorio de ejemplos de Microsoft SQL Server.
 
 En este tutorial, aprenderá lo siguiente:
 
@@ -39,10 +39,10 @@ En este tutorial, aprenderá lo siguiente:
 3. Realización de optimizaciones una vez finalizada la carga
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con una base de datos de Almacenamiento de datos SQL. Si todavía no la tiene, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse].
+Para ejecutar este tutorial, necesita una cuenta de Azure que cuente ya con una base de datos de SQL Data Warehouse. Si todavía no la tiene, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse].
 
 ## <a name="1-configure-the-data-source"></a>1. Configuración del origen de datos
-PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objeto externo se almacenan en Almacenamiento de datos SQL. Los propios datos se almacenan externamente.
+PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos de los datos externos. Las definiciones de objeto externo se almacenan en SQL Data Warehouse. Los propios datos se almacenan externamente.
 
 ### <a name="11-create-a-credential"></a>1.1. Creación de una credencial
 **Omita este paso** si va a cargar los datos públicos de Contoso. No es necesario un acceso seguro a los datos públicos, pues ya son accesibles para cualquier persona.
@@ -128,7 +128,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Creación de la tablas externas
-Ejecute este script para crear las tablas externas DimProduct y FactOnlineSales. Todo lo que hacemos aquí es definir nombres de columna y tipos de datos, que enlazamos a la ubicación y formato de los archivos de Almacenamiento de blobs de Azure. La definición se almacena en Almacenamiento de datos SQL y los datos siguen en el Blob de almacenamiento de Azure.
+Ejecute este script para crear las tablas externas DimProduct y FactOnlineSales. Todo lo que hacemos aquí es definir nombres de columna y tipos de datos, que enlazamos a la ubicación y formato de los archivos de Almacenamiento de blobs de Azure. La definición se almacena en SQL Data Warehouse y los datos siguen en Azure Storage Blob.
 
 El parámetro **LOCATION** es la carpeta situada bajo la carpeta raíz en Azure Blob Storage. Cada tabla está en una carpeta diferente.
 
@@ -278,7 +278,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Optimización de compresión de almacén de columnas
-De forma predeterminada, Almacenamiento de datos SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen varios motivos por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
+De forma predeterminada, SQL Data Warehouse almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen varios motivos por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
 
 Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas. 
 
@@ -342,7 +342,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>Logro conseguido.
-Ha cargado correctamente datos públicos en Almacenamiento de datos SQL de Azure. Buen trabajo.
+Ha cargado correctamente datos públicos en Azure SQL Data Warehouse. Buen trabajo.
 
 Ya puede empezar a consultar las tablas mediante consultas como las siguientes:
 

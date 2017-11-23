@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88782515b28de361338879a209e483f4fc7ab648
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 4b78179a5e7c7eaab7a18a1937aeb25c99b2789a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>Conexión del dispositivo en IoT Hub con Java
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -58,7 +58,7 @@ En esta sección, creará una aplicación de consola Java que crea una identidad
 
 2. En el símbolo del sistema, vaya a la nueva carpeta create-device-identity.
 
-3. Con un editor de texto, abra el archivo pom.xml en la carpeta create-device-identity y agregue la siguiente dependencia al nodo **dependencies**. Esta dependencia le permite usar el paquete iot-service-client en su aplicación:
+3. Con un editor de texto, abra el archivo pom.xml en la carpeta create-device-identity y agregue la siguiente dependencia al nodo **dependencies** . Esta dependencia le permite usar el paquete iot-service-client en su aplicación:
 
     ```xml
     <dependency>
@@ -100,7 +100,7 @@ En esta sección, creará una aplicación de consola Java que crea una identidad
     public static void main( String[] args ) throws IOException, URISyntaxException, Exception
     ```
 
-9. Agregue el siguiente código como cuerpo del método **main**. Este código crea un dispositivo denominado *javadevice* en el registro de identidades de IoT Hub, si no existe. Después muestra el identificador de dispositivo y la clave que necesitará más adelante:
+9. Agregue el siguiente código como cuerpo del método **main** . Este código crea un dispositivo denominado *javadevice* en el registro de identidades de IoT Hub, si no existe. Después muestra el identificador de dispositivo y la clave que necesitará más adelante:
 
     ```java
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
@@ -290,7 +290,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
 
 2. En el símbolo del sistema, vaya a la nueva carpeta simulated-device.
 
-3. Con un editor de texto, abra el archivo pom.xml de la carpeta simulated-device y agregue las siguientes dependencias al nodo **dependencies**. Esta dependencia le permite usar el paquete iothub-java-client en la aplicación para comunicarse con la instancia de IoT Hub y serializar los objetos de Java a JSON:
+3. Con un editor de texto, abra el archivo pom.xml de la carpeta simulated-device y agregue las siguientes dependencias al nodo **dependencies** . Esta dependencia le permite usar el paquete iothub-java-client en la aplicación para comunicarse con la instancia de IoT Hub y serializar los objetos de Java a JSON:
 
     ```xml
     <dependency>
@@ -325,7 +325,7 @@ En esta sección, creará una aplicación de consola de Java que simula un dispo
     import java.util.concurrent.ExecutorService;
     ```
 
-7. Agregue las siguientes variables de nivel de clase a la clase **App**. Reemplace **{youriothubname}** por el nombre de la instancia de IoT Hub y **{yourdevicekey}** por el valor de la clave de dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
+7. Agregue las siguientes variables de nivel de clase a la clase **App** . Reemplace **{youriothubname}** por el nombre de la instancia de IoT Hub y **{yourdevicekey}** por el valor de la clave de dispositivo que ha generado en la sección *Creación de una identidad de dispositivo*:
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
@@ -493,7 +493,7 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22
 [lnk-maven-device-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

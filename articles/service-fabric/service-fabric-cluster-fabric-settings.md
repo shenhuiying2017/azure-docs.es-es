@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -340,8 +340,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ### <a name="section-name-faultanalysisservice"></a>Nombre de sección: FaultAnalysisService
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, el valor predeterminado es 0. |No permitida|NOT_PLATFORM_UNIX_START. El valor de TargetReplicaSetSize para FaultAnalysisService. |
-| MinReplicaSetSize |Int, el valor predeterminado es 0. |No permitida|MinReplicaSetSize para FaultAnalysisService. |
+| TargetReplicaSetSize |Int, el valor predeterminado es 0. |estática|NOT_PLATFORM_UNIX_START. El valor de TargetReplicaSetSize para FaultAnalysisService. |
+| MinReplicaSetSize |Int, el valor predeterminado es 0. |estática|MinReplicaSetSize para FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Tiempo en segundos, el valor predeterminado es 60 minutos.|estática|Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para FaultAnalysisService. |
 | QuorumLossWaitDuration | Tiempo en segundos, el valor predeterminado es MaxValue. |estática|Especifique el intervalo de tiempo en segundos. QuorumLossWaitDuration para FaultAnalysisService. |
 | StandByReplicaKeepDuration| Tiempo en segundos, el valor predeterminado es (60*24*7) minutos. |estática|Especifique el intervalo de tiempo en segundos. StandByReplicaKeepDuration para FaultAnalysisService. |
@@ -390,8 +390,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
 | Enabled |Bool, el valor predeterminado es false. |estática|La marca "Enabled" para ImageStoreService. Valor predeterminado: false |
-| TargetReplicaSetSize | Int, el valor predeterminado es 7. |No permitida|TargetReplicaSetSize para ImageStoreService. |
-| MinReplicaSetSize | Int, el valor predeterminado es 3. |No permitida|MinReplicaSetSize para ImageStoreService. |
+| TargetReplicaSetSize | Int, el valor predeterminado es 7. |estática|TargetReplicaSetSize para ImageStoreService. |
+| MinReplicaSetSize | Int, el valor predeterminado es 3. |estática|MinReplicaSetSize para ImageStoreService. |
 | ReplicaRestartWaitDuration | Tiempo en segundos, el valor predeterminado es 60.0 * 30. |estática|Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para ImageStoreService. |
 | QuorumLossWaitDuration | Tiempo en segundos, el valor predeterminado es MaxValue. |estática| Especifique el intervalo de tiempo en segundos. QuorumLossWaitDuration para ImageStoreService. |
 | StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es 3600.0 * 2. |estática| Especifique el intervalo de tiempo en segundos. StandByReplicaKeepDuration para ImageStoreService. |
@@ -414,8 +414,8 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ### <a name="section-name-upgradeorchestrationservice"></a>Nombre de sección: UpgradeOrchestrationService
 | **Parámetro** | **Valores permitidos** | **Directiva de actualización** | **Orientación o breve descripción** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, el valor predeterminado es 0. |No permitida|TargetReplicaSetSize para UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, el valor predeterminado es 0. |No permitida|MinReplicaSetSize para UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, el valor predeterminado es 0. |estática |TargetReplicaSetSize para UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, el valor predeterminado es 0. |estática |MinReplicaSetSize para UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Tiempo en segundos, el valor predeterminado es 60 minutos.|estática| Especifique el intervalo de tiempo en segundos. ReplicaRestartWaitDuration para UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Tiempo en segundos, el valor predeterminado es MaxValue. |estática| Especifique el intervalo de tiempo en segundos. QuorumLossWaitDuration para UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Tiempo en segundos, el valor predeterminado es 60*24*7 minutos. |estática| Especifique el intervalo de tiempo en segundos. StandByReplicaKeepDuration para UpgradeOrchestrationService. |

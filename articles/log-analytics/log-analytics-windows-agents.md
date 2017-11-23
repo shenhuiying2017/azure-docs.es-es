@@ -3,7 +3,7 @@ title: "Conexión de equipos Windows a Azure Log Analytics | Microsoft Docs"
 description: "En este artículo, se explican los pasos necesarios para conectar los equipos Windows de la infraestructura local directamente al servicio Log Analytics a través de una versión personalizada de Microsoft Monitoring Agent (MMA)."
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf3e596f8c287c60531a6911c5797b3de26e570
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 
 En este artículo, se explican los pasos necesarios para conectar los equipos Windows de la infraestructura local a áreas de trabajo de OMS a través de una versión personalizada de Microsoft Monitoring Agent (MMA). Deberá instalar y conectar agentes en todos los equipos que quiera incorporar para que puedan enviar datos al servicio Log Analytics, así como ver esos datos y actuar sobre ellos. Cada agente puede informar a varias áreas de trabajo.
 
-Puede instalar los agentes a través del programa de instalación, a través de la línea de comandos o utilizando Configuración de estado deseado (DSC) en Automatización de Azure.  
+Puede instalar los agentes a través del programa de instalación, a través de la línea de comandos o utilizando Configuración de estado deseado (DSC) en Azure Automation.  
 
 >[!NOTE]
-Para las máquinas virtuales que se ejecutan en Azure, puede simplificar la instalación con la [extensión de máquina virtual](log-analytics-azure-vm-extension.md).
+Para las máquinas virtuales que se ejecutan en Azure, puede simplificar la instalación con la [extensión de máquina virtual](../virtual-machines/windows/extensions-oms.md).
 
 En los equipos que tengan conectividad a Internet, el agente usa esta conexión para enviar datos a OMS. En los equipos que no tengan conectividad a Internet, puede usar un proxy o la [puerta de enlace de OMS](log-analytics-oms-gateway.md).
 
@@ -94,7 +94,7 @@ En la siguiente tabla se muestran los recursos necesarios para la comunicación.
 
 6. En la página Preparado para instalar, revise las opciones seleccionadas y haga clic en **Instalar**.
 7. En la página La configuración finalizó correctamente, haga clic en **Finalizar**.
-8. Una vez completado el proceso, el **Agente de administración de Microsoft** aparece en el **Panel de control**. Allí puede revisar la configuración y comprobar que el agente esté conectado a Visión operativa (OMS). Cuando se conecta a OMS, el agente muestra un mensaje similar al siguiente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite.**
+8. Una vez completado el proceso, el **Agente de administración de Microsoft** aparece en el **Panel de control**. Allí puede revisar la configuración y comprobar que el agente esté conectado a Operational Insights (OMS). Cuando se conecta a OMS, el agente muestra un mensaje similar al siguiente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite.**
 
 ## <a name="configure-proxy-settings"></a>Configuración de los valores de proxy
 
@@ -199,7 +199,7 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 Si ha usado la línea de comandos o el script anteriormente para instalar o configurar el agente, `EnableAzureOperationalInsights` se ha reemplazado por `AddCloudWorkspace`.
 
-## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalación del agente utilizando DSC en Automatización de Azure
+## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalación del agente utilizando DSC en Azure Automation
 
 Puede usar el siguiente script de ejemplo para instalar el agente mediante DSC en Azure Automation. En el ejemplo se instala el agente de 64 bits, identificado por el valor `URI`. También puede utilizar la versión de 32 bits si se reemplaza el valor del identificador URI. Estos son los identificadores URI para ambas versiones:
 
@@ -210,10 +210,10 @@ Puede usar el siguiente script de ejemplo para instalar el agente mediante DSC e
 >[!NOTE]
 Este ejemplo de script y procedimiento no actualizará un agente existente.
 
-1. Importe el módulo de DSC xPSDesiredStateConfiguration desde [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) en Automatización de Azure.  
+1. Importe el módulo de DSC xPSDesiredStateConfiguration desde [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) en Azure Automation.  
 2.  En Azure Automation, cree los recursos de variable *OPSINSIGHTS_WS_ID* y *OPSINSIGHTS_WS_KEY*. Establezca *OPSINSIGHTS_WS_ID* en el identificador del área de trabajo de Log Analytics de OMS y *OPSINSIGHTS_WS_KEY* en la clave principal del área de trabajo.
 3.  Use el siguiente script y guárdelo como MMAgent.ps1.
-4.  Después de modificar el ejemplo, úselo para instalar el agente utilizando DSC en Automatización de Azure. Importe MMAgent.ps1 en Automatización de Azure a través de la interfaz o el cmdlet de Automatización de Azure.
+4.  Después de modificar el ejemplo, úselo para instalar el agente utilizando DSC en Azure Automation. Importe MMAgent.ps1 en Azure Automation a través de la interfaz o el cmdlet de Azure Automation.
 5.  Asigne un nodo a la configuración. Durante los 15 minutos siguientes, el nodo comprueba la configuración y MMA se inserta en el nodo.
 
 ```PowerShell

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1848e15a2be8d89315657a6eabdb94617bd1b5bf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementación y uso de Azure Container Registry
 
@@ -56,7 +56,7 @@ Cree una instancia de Azure Container Registry con el comando [az acr create](/c
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-En el resto de este tutorial, se usa `<acrname>` como un marcador de posición del nombre del registro de contenedor.
+En el resto de este tutorial, se usa `<acrName>` como un marcador de posición del nombre del registro de contenedor.
 
 ## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 

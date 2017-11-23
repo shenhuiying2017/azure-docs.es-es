@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.contentlocale: es-es
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introducción a la informática en la nube y Microsoft Azure
 
 Esta guía presenta los conceptos básicos relacionados con la implementación y administración de una infraestructura de Microsoft Azure. Si no tiene experiencia con la informática en la nube o Azure, esta guía le ayuda a rápidamente empezar con los conceptos, implementación y detalles de administración. Varias secciones de esta guía presentan una operación, como la implementación de una máquina virtual y, después, se proporciona un vínculo a información técnica más detallada.
@@ -74,13 +72,13 @@ Un proveedor en la nube de IaaS ejecuta y administra todos los recursos de proce
 
 Azure ofrece varias soluciones de IaaS que incluyen máquinas virtuales, conjuntos de escalado de máquinas virtuales y la infraestructura de red relacionada. Las máquinas virtuales son una elección popular para la migración inicial de los servicios a Azure porque posibilitan un modelo de migración "levantar y mover". Puede configurar una máquina virtual similar a la infraestructura que ejecuta los servicios actualmente en su centro de datos y, a continuación, migrar el software a la nueva máquina virtual. Tendrá que realizar cambios de configuración, como las direcciones URL para otros servicios o almacenamiento, pero puede migrar muchas aplicaciones de esta manera.
 
-Los conjuntos de escalado de máquinas virtuales se crean sobre máquinas virtuales de Azure y proporcionan una manera fácil de implementar clústeres de máquinas virtuales idénticas. Los conjuntos de escalado de máquinas virtuales también admiten el escalado automático para que se pueden implementar automáticamente nuevas máquinas virtuales cuando sea necesario. Esto hace de los conjuntos de escalado de máquinas virtuales una plataforma ideal para hospedar clústeres de proceso de microservicios del más alto nivel como, por ejemplo, Azure Service Fabric y Azure Container Service.
+Los conjuntos de escalado de máquinas virtuales se crean sobre Azure Virtual Machines y proporcionan una manera fácil de implementar clústeres de máquinas virtuales idénticas. Los conjuntos de escalado de máquinas virtuales también admiten el escalado automático para que se pueden implementar automáticamente nuevas máquinas virtuales cuando sea necesario. Esto hace de los conjuntos de escalado de máquinas virtuales una plataforma ideal para hospedar clústeres de proceso de microservicios del más alto nivel como, por ejemplo, Azure Service Fabric y Azure Container Service.
 
 ## <a name="azure-services"></a>Servicios de Azure
 
 Azure ofrece muchos servicios en su plataforma de informática en la nube. Estos servicios incluyen los siguientes.
 
-### <a name="compute-services"></a>Servicios de proceso
+### <a name="compute-services"></a>Compute Services
 
 Servicios para hospedar y ejecutar cargas de trabajo de aplicación:
 
@@ -100,13 +98,13 @@ Servicios para almacenar y administrar datos:
 
 -   Azure Storage (consta de los servicios Azure Blob, Queue, Table y File)
 
--   Base de datos SQL de Azure
+-   Azure SQL Database
 
 -   DocumentDB de Azure
 
 -   Microsoft Azure StorSimple
 
--   Caché en Redis de Azure
+-   Azure Redis Cache
 
 ### <a name="application-services"></a>Servicios de aplicación
 
@@ -120,13 +118,13 @@ Servicios para la creación y operación de aplicaciones:
 
 -   Azure Scheduler
 
--   Servicios multimedia de Azure
+-   Azure Media Services
 
 ### <a name="network-services"></a>Servicios de red
 
 Servicios de red dentro de Azure y entre los centros de datos de Azure y locales:
 
--   Red virtual
+-   Azure Virtual Network
 
 -   Azure ExpressRoute
 
@@ -327,7 +325,7 @@ Estos son algunos ejemplos de roles integrados en Azure:
 
 Para más información, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../../active-directory/role-based-access-control-configure.md).
 
-## <a name="azure-virtual-machines"></a>Máquinas virtuales de Azure
+## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Azure Virtual Machines es uno de los servicios centrales de IaaS en Azure. Azure Virtual Machines permite la implementación de máquinas virtuales de Windows o Linux en un centro de datos de Microsoft Azure. Con Azure Virtual Machines, tiene control total sobre la configuración de la máquina virtual y es responsable de la instalación, configuración y mantenimiento de todo el software.
 
@@ -370,7 +368,7 @@ El acceso a la máquina virtual por la dirección IP pública se administra util
 
 Por último, al igual que con la administración de cualquier sistema informático, debe proporcionar seguridad para una máquina virtual de Azure en el sistema operativo mediante el uso de credenciales de seguridad y firewalls de software.
 
-## <a name="azure-storage"></a>Almacenamiento de Azure
+## <a name="azure-storage"></a>Azure Storage
 
 Azure Storage es un servicio administrado por Microsoft que proporciona almacenamiento redundante, escalable y duradero. Puede agregar una cuenta de Azure Storage como un recurso a cualquier grupo de recursos mediante cualquier método de implementación de recursos. Azure incluye cuatro tipos de almacenamiento: Blob Storage, File Storage, Table Storage y Queue Storage. Al implementar una cuenta de almacenamiento, están disponibles dos tipos de cuenta, de propósito general y de almacenamiento de blobs. Una cuenta de almacenamiento de propósito general proporciona acceso a los cuatro tipos de almacenamiento. Las cuentas de almacenamiento de blobs son similares a las cuentas de uso general, pero contienen blobs especializados que incluyen niveles de acceso activos e inactivos. Para más información sobre el almacenamiento de blobs, consulte [Azure Blob Storage](../../storage/blobs/storage-blob-storage-tiers.md).
 
@@ -388,7 +386,7 @@ Cada tipo de almacenamiento tiene un caso de uso diferente.
 
 **Blob storage** 
 
-La palabra *blob* es un acrónimo de *objeto binario grande*. Los blobs son archivos no estructurados, como los que se almacenan en el equipo. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos". Azure Blob Storage también contiene los discos de datos de las máquinas virtuales de Azure.
+La palabra *blob* es un acrónimo de *objeto binario grande*. Los blobs son archivos no estructurados, como los que se almacenan en el equipo. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos". Azure Blob Storage también contiene los discos de datos de Azure Virtual Machines.
 
 Azure Storage admite tres tipos de blobs:
 
@@ -468,7 +466,7 @@ Cada cuenta de almacenamiento tiene dos claves de autenticación, una principal 
 
 Si necesita un acceso controlado de los usuarios a los recursos de almacenamiento, puede crear una firma de acceso compartido. Una firma de acceso compartido es un token que se puede anexar a una dirección URL que permite el acceso delegado a un recurso de almacenamiento. Cualquier usuario que tenga el token puede obtener acceso al recurso correspondiente con los permisos que especifica durante el plazo válido correspondiente. Consulte [Uso de firmas de acceso compartido](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) para más información.
 
-## <a name="azure-virtual-network"></a>Red virtual
+## <a name="azure-virtual-network"></a>Azure Virtual Network
 
 
 Las redes virtuales son necesarias para las comunicaciones entre máquinas virtuales. Puede definir subredes, direcciones IP personalizadas, configuración de DNS, filtrado de seguridad y equilibrio de carga. Mediante una puerta de enlace de VPN o un circuito de ExpressRoute, puede conectar redes virtuales de Azure a sus redes locales.
@@ -517,4 +515,3 @@ Puede ayudar a proteger las redes virtuales Azure mediante el uso de un grupo de
 
 - [Creación de una máquina virtual Windows](/virtual-machines/windows/quick-create-portal.md)
 - [Creación de una máquina virtual Linux](../../virtual-machines/linux/quick-create-portal.md)
-
