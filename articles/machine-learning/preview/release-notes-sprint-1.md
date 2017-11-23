@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1: noviembre de 2017 
 
@@ -122,7 +122,7 @@ Esta es una lista de actualizaciones detalladas de cada área de componente de A
 
 ### <a name="operationalization"></a>Operacionalización
 - Los servicios web que tengan "score" en el nombre ya no generan errores.
-- Ahora, los usuarios con acceso de propietario en únicamente un grupo de recursos de Azure pueden crear un entorno de implementación. Ya no es necesario tener acceso de propietario en toda la suscripción.
+- Ahora, los usuarios pueden crear un entorno de implementación solo con acceso de colaborador a un grupo de recursos de Azure o a la suscripción. Ya no es necesario tener acceso de propietario en toda la suscripción.
 - Ahora, la CLI de operacionalización incluye la finalización automática de pestañas en Linux.
 - Ahora, el servicio de creación de imágenes permite crear imágenes para servicios y dispositivos de IoT de Azure.
 
