@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Parte 2 de la clasificación de Iris: compilación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
@@ -213,7 +213,7 @@ Con Machine Learning puede configurar fácilmente entornos de ejecución adicion
 
 5. Ahora, vamos probar Spark. La imagen base de Docker contiene una instancia de Spark preinstalada y configurada. Por este motivo, puede ejecutar un script de PySpark en ella. Se trata de una manera fácil de desarrollar y probar un programa Spark sin que tenga que dedicar nada de tiempo a instalarlo y configurarlo. 
 
-   Abra el archivo `iris_spark.py`. Este script carga el archivo de datos `iris.csv` y usa el algoritmo de regresión logística de la biblioteca de aprendizaje automático de Spark para clasificar el conjunto de datos Iris. Ahora, cambie el entorno de ejecución a **docker-spark**, el script a **iris_spark.py** y vuelva a ejecutarlo. Este proceso tarda un poco más porque se tiene que crear e iniciar una sesión de Spark en el contenedor de Docker. También puede ver que la propiedad StdOut es diferente que la propiedad StdOut de `iris_spark.py`.
+   Abra el archivo `iris_spark.py` . Este script carga el archivo de datos `iris.csv` y usa el algoritmo de regresión logística de la biblioteca de aprendizaje automático de Spark para clasificar el conjunto de datos Iris. Ahora, cambie el entorno de ejecución a **docker-spark**, el script a **iris_spark.py** y vuelva a ejecutarlo. Este proceso tarda un poco más porque se tiene que crear e iniciar una sesión de Spark en el contenedor de Docker. También puede ver que la propiedad StdOut es diferente que la propiedad StdOut de `iris_spark.py`.
 
 6. Realice algunas ejecuciones más y experimente con distintos argumentos. 
 
@@ -291,7 +291,7 @@ Con Machine Learning puede configurar fácilmente entornos de ejecución adicion
    Cuando `run.py` finaliza, se ve un grafo en la vista de listas del historial de ejecución de Workbench.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Ejecución en un contenedor de Docker en una máquina remota
-Para ejecutar el script en un contenedor de Docker de una máquina remota de Linux, debe tener acceso a SSH (nombre de usuario y contraseña) en esa máquina remota. Además, dicha máquina remota debe tener instalado un motor de Docker y este debe de estar en ejecución. La manera más fácil de obtener una máquina Linux consiste en crear una imagen [Data Science Virtual Machine (DSVM) basada en Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) en Azure. 
+Para ejecutar el script en un contenedor de Docker de una máquina remota de Linux, debe tener acceso a SSH (nombre de usuario y contraseña) en esa máquina remota. Además, dicha máquina remota debe tener instalado un motor de Docker y este debe de estar en ejecución. La manera más fácil de obtener una máquina Linux es crear en Azure una imagen de Data Science Virtual Machine (DSVM) basada en Ubuntu. Aprenda a [crear una DSVM de Ubuntu para usarla en Azure Machine Learning Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >La DSVM basada en CentOS *no* se admite.
@@ -343,7 +343,9 @@ Para ejecutar el script en un contenedor de Docker de una máquina remota de Lin
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Ejecución del script en un clúster de HDInsight
-También puede ejecutar este script en un clúster real de Spark. 
+También puede ejecutar este script en un clúster de HDInsight Spark. Aprenda a [crear el clúster de HDInsight Spark para usarlo en Azure Machine Learning Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![NOTA] El clúster de HDInsight debe utilizar Azure Blobs como almacenamiento principal. El almacenamiento de Azure Data Lake no se admite todavía.
 
 1. Si tiene acceso a un proyecto de Spark para el clúster de Azure HDInsight, genere un comando de configuración de ejecución de HDInsight como se muestra aquí. Especifique el nombre del clúster de HDInsight y su nombre de usuario y contraseña de HDInsight como parámetros. Use el comando siguiente:
 

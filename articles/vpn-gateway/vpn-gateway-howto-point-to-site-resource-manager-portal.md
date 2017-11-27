@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: fbb3bb5f538d1d26b6fe8d653724d80faf96e277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 35c9da37a3e21a0b98928f6c1a7c6df1630e69c1
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
 
-En este artículo se muestra cómo se crea una red virtual con una conexión de punto a sitio en el modelo de implementación de Resource Manager desde PowerShell. Esta configuración usa certificados para la autenticación. En esta configuración, la instancia de Azure VPN Gateway realiza la validación del certificado, en lugar de un servidor RADIUS. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+En este artículo se muestra cómo se crea una red virtual con una conexión de punto a sitio en el modelo de implementación de Resource Manager desde Azure Portal. Esta configuración usa certificados para la autenticación. En esta configuración, la instancia de Azure VPN Gateway realiza la validación del certificado, en lugar de un servidor RADIUS. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -38,7 +38,7 @@ Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando 
 |-------|---------                                               |---------      |
 |Valor predeterminado|Único para la red virtual                           |Red virtual|
 |Valor predeterminado|0.0.0.0/0                                               |Internet       |
-|Valor predeterminado|10.0.0.0/8                                              |Ninguna           |
+|Valor predeterminado|10.0.0.0/8                                              |None           |
 |Valor predeterminado|172.16.0.0/12                                           |None           |
 |Valor predeterminado|192.168.0.0/16                                          |None           |
 |Valor predeterminado|100.64.0.0/10                                           |None           |
@@ -118,7 +118,7 @@ El nombre que se muestra y al que hace referencia en los tipos de próximo salto
 
 Una puerta de enlace de red local puede intercambiar rutas con una puerta de enlace de red virtual de Azure mediante el protocolo Border Gateway Protocol (BGP). El uso de BGP con una puerta de enlace de red virtual de Azure depende del tipo seleccionado al crear la puerta de enlace. Si el tipo seleccionado es:
 
-- **ExpressRoute**: debe usar BGP para anunciar rutas para el enrutador perimetral de Microsoft. Si implementa una puerta de enlace de red virtual como del tipo ExpressRoute, no podrá crear rutas definidas por el usuario.
+- **ExpressRoute**: debe usar BGP para anunciar rutas locales para el enrutador perimetral de Microsoft. Si implementa una puerta de enlace de red virtual como del tipo ExpressRoute, no puede crear rutas definidas por el usuario para forzar el tráfico a la puerta de enlace de red virtual ExpressRoute. Puede usar las rutas definidas por el usuario para forzar el tráfico de Express Route a, por ejemplo, un dispositivo virtual de red. 
 - **VPN**: opcionalmente, puede usar BGP. Para más información, consulte [Información general de BGP con puertas de enlace de VPN de Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Al intercambiar rutas con Azure mediante BGP, se agrega una ruta independiente a la tabla de rutas de todas las subredes de una red virtual para cada prefijo anunciado. La ruta se agrega con *Puerta de enlace de red virtual* como origen y tipo de próximo salto. 
@@ -207,7 +207,7 @@ La tabla de rutas de *Subnet1* en la imagen contiene las rutas siguientes:
 |3   |Usuario   |Active |10.0.0.0/24         |Red virtual        |                   |Within-Subnet1|
 |4   |Valor predeterminado|No válida|10.1.0.0/16         |Emparejamiento de VNET           |                   |              |
 |5   |Valor predeterminado|No válida|10.2.0.0/16         |Emparejamiento de VNET           |                   |              |
-|6   |Usuario   |Active |10.1.0.0/16         |Ninguna                   |                   |ToVNet2-1-Drop|
+|6   |Usuario   |Active |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
 |7   |Usuario   |Active |10.2.0.0/16         |None                   |                   |ToVNet2-2-Drop|
 |8   |Valor predeterminado|No válida|10.10.0.0/16        |Puerta de enlace de red virtual|[X.X.X.X]          |              |
 |9   |Usuario   |Active |10.10.0.0/16        |Aplicación virtual      |10.0.100.4         |To-On-Prem    |
@@ -243,8 +243,8 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 |Valor predeterminado |Active |0.0.0.0/0           |Internet                  |                   |
 |Valor predeterminado |Active |10.0.0.0/8          |None                      |                   |
 |Valor predeterminado |Active |100.64.0.0/10       |None                      |                   |
-|Valor predeterminado |Active |172.16.0.0/12       |Ninguna                      |                   |
-|Valor predeterminado |Active |192.168.0.0/16      |None                      |                   |
+|Valor predeterminado |Active |172.16.0.0/12       |None                      |                   |
+|Valor predeterminado |Active |192.168.0.0/16      |Ninguna                      |                   |
 
 La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas por Azure y el emparejamiento de VNet opcional y las rutas opcionales de la puerta de enlace de red virtual. Azure ha agregado las rutas opcionales a todas las subredes de la red virtual cuando tanto la puerta de enlace como el emparejamiento se han agregado a la red virtual. Azure ha quitado las rutas de los prefijos de dirección 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 y 100.64.0.0/10 de la tabla de rutas de *Subnet1* cuando la ruta definida por el usuario del prefijo de dirección 0.0.0.0/0 se ha agregado a *Subnet1*.  
 

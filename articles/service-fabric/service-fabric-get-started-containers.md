@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > El modo de aislamiento de HyperV está disponible en las SKU Ev3 y Dv3 de Azure que tienen compatibilidad con la virtualización anidada. 
-   >
+   > El modo de aislamiento de HyperV está disponible en las SKU Ev3 y Dv3 de Azure que tienen compatibilidad con la virtualización anidada. Asegúrese de que el rol de hyperv está instalado en los hosts. Conéctese a los hosts para comprobar esto.
    >
 
 ## <a name="configure-resource-governance"></a>Configuración de la regulación de recursos
@@ -325,7 +324,7 @@ La aplicación está lista cuando está en el estado ```Ready```: ![Ready][2]
 Abra un explorador y navegue hasta http://containercluster.westus2.cloudapp.azure.com:8081. Debería ver que el título "¡Hola mundo!" se muestra en el explorador.
 
 ## <a name="clean-up"></a>Limpieza
-Mientras el clúster esté en ejecución seguirá generando cargos, así que debería considerar la posibilidad de [eliminar el clúster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  Los [clústeres de la entidad](https://try.servicefabric.azure.com/) se eliminan automáticamente a las pocas horas.
+Mientras el clúster esté en ejecución seguirá generando cargos, así que debería considerar la posibilidad de [eliminar el clúster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  Los [clústeres de la entidad](https://try.servicefabric.azure.com/) se eliminan automáticamente a las pocas horas.
 
 Después de insertar la imagen en el registro de contenedor puede eliminar la imagen local del equipo de desarrollo:
 

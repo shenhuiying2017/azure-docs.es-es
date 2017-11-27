@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 1aabcf6e469eb550a9af3dc5f85b9933ba892a39
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 27acacacb4a5af77b0218a30b8ae0163aaa5b5d9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
@@ -82,6 +82,7 @@ Ahora que ha terminado la configuración del entorno de desarrollo, puede empeza
 
 * [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Introducción a la implementación y actualización de aplicaciones en un clúster local](service-fabric-get-started-with-a-local-cluster.md)
+* [Preparación del entorno de desarrollo Linux en Windows](service-fabric-local-linux-cluster-windows.md)
 * [Más información sobre los modelos de programación: Reliable Services y Reliable Actors](service-fabric-choose-framework.md)
 * [Consulta de los ejemplos de código de Service Fabric en GitHub](https://aka.ms/servicefabricsamples)
 * [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)

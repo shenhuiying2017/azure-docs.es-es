@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Puntos de conexión del servicio Virtual Network (versión preliminar)
 
@@ -28,7 +28,7 @@ Los puntos de conexión del servicio Virtual Network (red virtual) extienden el 
 Esta característica está disponible en versión preliminar para los servicios y regiones de Azure siguientes:
 
 - **Azure Storage**: todas las regiones de la nube pública de Azure.
-- **Azure SQL Database**: WestCentralUS, WestUS2 y EastUS.
+- **Azure SQL**: todas las regiones de la nube pública de Azure.
 
 Para las notificaciones más actualizadas sobre la versión preliminar, revise la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -122,4 +122,5 @@ Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage),
 - Obtenga información sobre cómo [proteger una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Database para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre la [integración del servicio de Azure en redes virtuales](virtual-network-for-azure-services.md)
+-  Guía de inicio rápido: [plantilla de Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para establecer el punto de conexión de servicio en una subred de la red virtual y una cuenta segura de Azure Storage para esa subred.
 

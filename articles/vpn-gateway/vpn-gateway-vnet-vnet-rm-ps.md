@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 
@@ -59,13 +59,17 @@ Para más información acerca de las conexiones de red virtual a red virtual, co
 
 ## <a name="which-set-of-steps-should-i-use"></a>¿Qué serie de pasos debo seguir?
 
-En este artículo, verá dos conjuntos de pasos diferentes. Un conjunto de pasos para [redes virtuales que residen en la misma suscripción](#samesub) y otro para [redes virtuales que residen en suscripciones diferentes](#difsub). La diferencia clave entre ambos conjuntos es si se pueden crear y configurar todos los recursos de red virtual y puerta de enlace en la misma sesión de PowerShell.
-
-Los pasos de este artículo utilizan variables que se declaran al principio de cada sección. Si ya trabaja con redes virtuales existentes, modifique las variables para reflejar la configuración de su propio entorno. Si desea disponer de resolución de nombres en las redes virtuales, consulte [Resolución de nombres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
+En este artículo, verá dos conjuntos de pasos diferentes. Un conjunto de pasos para [redes virtuales que residen en la misma suscripción](#samesub). En los pasos para esta configuración se utilizan TestVNet1 y TestVNet4.
 
 ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Hay otro artículo para las [redes virtuales que residen en suscripciones distintas](#difsub). En los pasos para esta configuración se utilizan TestVNet1 y TestVNet5.
+
+![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+La diferencia clave entre ambos conjuntos es si se pueden crear y configurar todos los recursos de red virtual y puerta de enlace en la misma sesión de PowerShell. Debe utilizar sesiones de PowerShell independientes al configurar las conexiones de redes virtuales que residen en distintas suscripciones. Puede combinar las configuraciones si lo prefiere o solo elegir con la que desea trabajar.
+
+## <a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
 
 ### <a name="before-you-begin"></a>Antes de empezar
 
@@ -90,7 +94,7 @@ En los ejemplos usamos los siguientes valores:
 * Dirección IP pública: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (para las redes virtuales en distintas suscripciones)
 * ConnectionType: VNet2VNet
 
 **Valores para TestVNet4:**
@@ -280,13 +284,11 @@ Una vez que haya configurado TestVNet1, cree TestVNet4. Siga los pasos a continu
 
 ## <a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
 
-![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
-
 En este escenario, conectaremos TestVNet1 y TestVNet5. TestVNet1 y TestVNet5 residen en suscripciones diferentes. Las suscripciones no necesitan estar asociadas con el mismo inquilino de Active Directory. La diferencia entre estos pasos y el conjunto anterior es que parte de los pasos de configuración se deben realizar en una sesión de PowerShell distinta en el contexto de la segunda suscripción. Especialmente cuando las dos suscripciones pertenecen a distintas organizaciones.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Paso 5: Creación y configuración de TestVNet1
 
-Tiene que completar el [paso 1](#Step1) y el [paso 2](#Step2) de la sección anterior para crear y configurar TestVNet1 y la puerta de enlace de VPN para TestVNet1. Para esta configuración, no se necesita crear TestVNet4 de la sección anterior, aunque, si la creó, no entrará en conflicto con estos pasos. Cuando haya completado el paso 1 y el 2, continúe con el paso 6 para crear TestVNet5. 
+Tiene que completar el [paso 1](#Step1) y el [paso 2](#Step2) de la sección anterior para crear y configurar TestVNet1 y VPN Gateway para TestVNet1. Para esta configuración, no se necesita crear TestVNet4 de la sección anterior, aunque, si la creó, no entrará en conflicto con estos pasos. Cuando haya completado el paso 1 y el 2, continúe con el paso 6 para crear TestVNet5. 
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a>Paso 6: Comprobación de los intervalos de direcciones IP
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Característica Términos de uso de Azure Active Directory (versión preliminar)
 Términos de uso de Azure AD proporciona un método sencillo que las organizaciones pueden usar para presentar la información a los usuarios finales.  Esto garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes para los requisitos legales o de cumplimiento.
@@ -43,7 +43,8 @@ Siga estos pasos para configurar los Términos de uso de Azure AD:
 2. Asegúrese de que el directorio tiene una suscripción de Azure AD Premium P1, P2, EMS E3 o EMS E5.  Si no es así [obtenga Azure AD Premium](active-directory-get-started-premium.md) o [inicie una evaluación gratuita](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Ver el panel de Términos de uso de Azure AD en [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>Los controles de la directiva de acceso condicional (incluidos los términos de uso) no admiten el cumplimiento en las cuentas de servicio.  Se recomienda excluir todas las cuentas de servicio de la directiva de acceso condicional.
 
 ## <a name="add-company-terms-of-use"></a>Adición de los Términos de uso de la empresa
 Una vez que haya finalizado los Términos de uso, utilice el procedimiento siguiente para agregarlas.
@@ -92,7 +93,6 @@ Los usuarios que están dentro del ámbito apropiado, verán lo siguiente una ve
 
 ## <a name="additional-information"></a>Información adicional
 La siguiente información es algo a tener en cuenta y puede ayudarle con los términos de uso.
-
 
 Los usuarios dentro del ámbito necesitarán cerrar sesión y volver a iniciarla para satisfacer una directiva nueva si:
  - se ha habilitado una directiva de acceso condicional en los términos de uso

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
-ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -221,6 +221,7 @@ sudo apt-get install -f
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con el complemento de Eclipse para Service Fabric](service-fabric-get-started-eclipse.md)
 * [Creación de su primera aplicación de CSharp en Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+* [Preparación del entorno de desarrollo Linux en Windows](service-fabric-local-linux-cluster-windows.md)
 * [Uso de la CLI de Service Fabric para administrar las aplicaciones](service-fabric-application-lifecycle-sfctl.md)
 * [Diferencias entre Service Fabric para Windows y para Linux](service-fabric-linux-windows-differences.md)
 * [Introducción a la CLI de Service Fabric](service-fabric-cli.md)

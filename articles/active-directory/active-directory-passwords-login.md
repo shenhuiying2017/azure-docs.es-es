@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
 Ya ha implementado el restablecimiento de contraseña de autoservicio de Azure AD (SSPR), pero los usuarios siguen llamando al departamento de soporte técnico cuando olvidan la contraseña. Llaman porque no llegan a un explorador web para acceder a SSPR.
 
-Con la nueva actualización Windows 10 Fall Creators Update, los usuarios con dispositivos unidos a Azure AD verán un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados 
+Con la nueva actualización Windows 10 Fall Creators Update, los usuarios con dispositivos unidos a Azure AD verán un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados.
 
 Para permitir a los usuarios restablecer su contraseña de Azure AD desde la pantalla de inicio de sesión de Windows 10, deben cumplirse los siguientes requisitos:
 
-* Windows 10, versión 1709 o un cliente posterior, unido a un dominio de Azure AD.
+* Windows 10, versión 1709 o un cliente posterior que se ha [unido a Azure AD](device-management-azure-portal.md).
 * El autoservicio de restablecimiento de contraseña de Azure AD debe estar habilitado.
 * Configure e implemente los valores para habilitar el vínculo de restablecimiento de contraseña a través de uno de los métodos siguientes:
    * [Perfil de configuración de dispositivo de Intune](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Ahora ha creado y asignado una directiva de configuración de dispositivo para h
 
 Se recomienda usar este método solo para probar el cambio de configuración.
 
-1. Inicie sesión en el dispositivo unido al dominio de Azure AD con credenciales administrativas
+1. Inicie sesión en el dispositivo unido a Azure AD con credenciales administrativas
 2. Ejecute **regedit** como administrador
 3. Establezca la siguiente clave del Registro
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Ahora que la directiva está configurada y asignada, ¿qué cambia para el usuar
 
 Cuando los usuarios intenten iniciar sesión, verán ahora un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
 
-Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md#reset-password-at-login)
+Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## <a name="common-issues"></a>Problemas comunes
 
