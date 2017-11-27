@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -36,7 +36,7 @@ Utilizará muchos de los recursos y las características que se describen en est
 El siguiente flujo de trabajo general es típico de casi todas las aplicaciones y los servicios que usan el servicio Batch para procesar cargas de trabajo paralelas:
 
 1. Cargue los **archivos de datos** que desee procesar en una cuenta de [Azure Storage][azure_storage]. Batch incluye compatibilidad integrada con el acceso a Azure Blob Storage y, cuando se ejecutan, las tareas pueden descargar estos archivos a [nodos de proceso](#compute-node).
-2. Cargue los **archivos de la aplicación** que las tareas ejecutarán. Estos archivos pueden ser binarios o scripts y sus dependencias, y los ejecutan las tareas de los trabajos. Las tareas pueden descargar estos archivos desde la cuenta de Storage, o bien puede usar la característica de [paquetes de aplicación](#application-packages) en Batch para la implementación y la administración de aplicaciones.
+2. Cargue los **archivos de la aplicación** que las tareas ejecutarán. Estos archivos pueden ser binarios o scripts y sus dependencias, y los ejecutan las tareas de los trabajos. Las tareas pueden descargar estos archivos desde la cuenta de Almacenamiento, o bien puede usar la característica de [paquetes de aplicación](#application-packages) en Batch para la implementación y la administración de aplicaciones.
 3. Cree un [grupo](#pool) de nodos de proceso. Cuando cree un grupo, especifique el número de nodos de proceso para el grupo, su tamaño y el sistema operativo. Cuando se ejecutan las tareas de su trabajo, estas se asignan para que se ejecuten en uno de los nodos del grupo.
 4. Creación de un [trabajo](#job). Un trabajo administra una colección de tareas. Se asocia cada trabajo a un grupo específico donde se ejecutarán las tareas de dicho trabajo.
 5. Agregue [tareas](#task) al trabajo. Cada tarea ejecuta la aplicación o el script que haya cargado para procesar los archivos de datos que descarga de la cuenta de almacenamiento. A medida que se complete cada tarea, puede cargar su resultado a Azure Storage.
@@ -53,7 +53,7 @@ Las secciones siguientes tratan estos, y otros, recursos de Batch que permitirá
 Algunos de los siguientes recursos son necesarios para todas las soluciones que usan el servicio Batch: cuentas, nodos de proceso, grupos, trabajos, tareas. Otros, como las programaciones de los trabajos y los paquetes de aplicación, son características útiles, pero opcionales.
 
 * [Cuenta](#account)
-* [Nodo de ejecución](#compute-node)
+* [Nodo de proceso](#compute-node)
 * [Grupo](#pool)
 * [Trabajo](#job)
 
@@ -70,23 +70,23 @@ Algunos de los siguientes recursos son necesarios para todas las soluciones que 
 ## <a name="account"></a>Cuenta
 Una cuenta de Batch es una entidad identificada de forma exclusiva en el servicio Batch. Todo el procesamiento se asocia con una cuenta de Batch.
 
-Puede crear una cuenta de Azure Batch mediante [Azure Portal](batch-account-create-portal.md) o mediante programación, como con la [biblioteca .NET de administración de lotes](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de Azure Storage para almacenar los datos o aplicaciones de entrada y salida relacionados con los trabajos.
+Puede crear una cuenta de Azure Batch mediante [Azure Portal](batch-account-create-portal.md) o mediante programación, como con la [biblioteca Batch Management .NET](batch-management-dotnet.md). Al crear la cuenta, puede asociar una cuenta de Azure Storage para almacenar los datos o aplicaciones de entrada y salida relacionados con los trabajos.
 
 Se pueden ejecutar varias cargas de trabajo de Batch en una sola cuenta de Batch, o bien distribuir las cargas de trabajo entre cuentas de Batch que se encuentren en la misma suscripción, pero en diferentes regiones de Azure.
 
 > [!NOTE]
-> Cuando se crea una cuenta de Batch, por lo general debería elegir el modo de **servicio Batch** predeterminado, en el que los grupos se asignan en segundo plano en suscripciones administradas por Azure. En el modo de **Suscripción de usuario** alternativo, que no se recomienda, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo. Para crear una cuenta de Batch en modo de suscripción de usuario, también debe asociar la cuenta a una instancia de Azure Key Vault.
+> Cuando se crea una cuenta de Batch, por lo general debería elegir el modo de **servicio Batch** predeterminado, en el que los grupos se asignan en segundo plano en suscripciones administradas por Azure. En el modo de **suscripción de usuario** alternativo, que no se recomienda en la mayor parte de los escenarios, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo. Para crear una cuenta de Batch en modo de suscripción de usuario, también debe registrar su suscripción a Azure Batch y asociar la cuenta a una instancia de Azure Key Vault.
 >
 
 
-## <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
+## <a name="azure-storage-account"></a>Cuenta de Azure Storage
 
 La mayoría de las soluciones de Batch usan Azure Storage para almacenar los archivos de recursos y los archivos de salida.  
 
 Actualmente, Batch solo admite el tipo de cuenta de almacenamiento de uso general, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). Las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan en cuentas de almacenamiento de uso general.
 
 
-## <a name="compute-node"></a>Nodo de proceso
+## <a name="compute-node"></a>Nodo de ejecución
 Un nodo de proceso es una máquina virtual de Azure o una máquina virtual de servicio en la nube dedicada al proceso de una parte de la carga de trabajo de la aplicación. El tamaño de un nodo determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asignan al nodo. Puede crear grupos de nodos de Windows o Linux mediante Azure Cloud Services, imágenes de [Azure Virtual Machines Marketplace][vm_marketplace] o imágenes personalizadas que prepare. Consulte la sección [Grupo](#pool) a continuación para más información sobre estas opciones.
 
 Los nodos pueden ejecutar cualquier archivo ejecutable o script compatible con el entorno de sistema operativo del nodo. Esto incluye scripts \*.exe, \*.cmd, \*.bat y de PowerShell para Windows, además de archivos binarios y scripts de shell y de Python para Linux.
@@ -150,7 +150,9 @@ Para conocer los requisitos y pasos de manera detallada, consulte [Uso de una im
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Compatibilidad con contenedores en grupos de máquinas virtuales
 
-Al crear un grupo de configuración de máquinas virtuales mediante las API de Batch, puede configurar el grupo para ejecutar tareas en contenedores de Docker. Actualmente, debe crear el grupo usando Windows Server 2016 Datacenter con la imagen de contenedores de Azure Marketplace, o proporcionar una imagen de máquina virtual personalizada que incluya Docker Community Edition y los controladores necesarios. La configuración del grupo debe incluir una [configuración de contenedor](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie las imágenes del contenedor en las máquinas virtuales cuando se crea el grupo. De esta forma, las tareas que se ejecutan en el grupo pueden hacer referencia a las imágenes y a las opciones de ejecución del contenedor.
+Al crear un grupo de configuración de máquinas virtuales mediante las API de Batch, puede configurar el grupo para ejecutar tareas en contenedores de Docker. Actualmente, debe crear el grupo con una imagen que admita contenedores de Docker. Use Windows Server 2016 Datacenter con la imagen Containers de Azure Marketplace, o proporcione una imagen de máquina virtual personalizada que incluya Docker Community Edition o Enterprise y los controladores necesarios. La configuración del grupo debe incluir una [configuración de contenedor](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie las imágenes del contenedor en las máquinas virtuales cuando se crea el grupo. De esta forma, las tareas que se ejecutan en el grupo pueden hacer referencia a las imágenes y a las opciones de ejecución del contenedor.
+
+Para más información, vea [Ejecución de aplicaciones de contenedor de Docker en Azure Batch](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo de nodo de proceso y número de nodos de destino
 
@@ -315,7 +317,7 @@ El servicio Batch proporciona la tarea de preparación del trabajo para la confi
 
 Tanto para la tarea de preparación del trabajo como para las de liberación, puede especificar una línea de comandos que se ejecute cuando se invoque la tarea. Las tareas ofrecen características tales como descarga de archivos, ejecución con elevación de privilegios, variables de entorno personalizadas, duración máxima de ejecución, número de reintentos y tiempo de retención de archivo.
 
-Para obtener más información sobre las tareas de preparación y liberación del trabajo, consulte [Ejecución de las tareas de preparación y realización de trabajos en los nodos de proceso de Azure Batch](batch-job-prep-release.md).
+Para obtener más información sobre las tareas de preparación y liberación del trabajo, consulte [Ejecución de las tareas de preparación y realización de trabajos en los nodos de ejecución de Azure Batch](batch-job-prep-release.md).
 
 ### <a name="multi-instance-task"></a>Tarea de instancias múltiples
 Una [tarea de instancias múltiples](batch-mpi.md) es aquella que está configurada para ejecutarse simultáneamente en varios nodos de proceso. Con tareas de instancias múltiples, puede habilitar escenarios de informática de alto rendimiento que requieren tener un grupo de nodos de proceso asignados juntos para procesar una carga de trabajo única como, por ejemplo, la interfaz de paso de mensajes (MPI).
@@ -411,7 +413,7 @@ Una fórmula de escalado puede basarse en las siguientes métricas:
 
 Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Batch proporciona una *opción de desasignación de nodos* que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato y se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo.
 
-Para obtener más información sobre cómo escalar automáticamente una aplicación, consulte [Escalado automático de nodos de proceso en un grupo de Azure Batch](batch-automatic-scaling.md).
+Para obtener más información sobre cómo escalar automáticamente una aplicación, consulte [Escalado automático de nodos de ejecución en un grupo de Azure Batch](batch-automatic-scaling.md).
 
 > [!TIP]
 > Para maximizar el uso de los recursos de proceso, establezca en cero el número objetivo de nodos al final de un trabajo, pero permita que las tareas en ejecución finalicen.

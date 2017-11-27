@@ -35,4 +35,5 @@
 | &nbsp; |[OData genérico](../articles/data-factory/connector-odata.md) |✓ | |✓  |✓  |
 | &nbsp; |[ODBC genérico](../articles/data-factory/connector-odbc.md) |✓ |✓  | |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
+| &nbsp; |[Servicio de Salesforce en la nube](../articles/data-factory/connector-salesforce.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Tabla web (tabla HTML)](../articles/data-factory/connector-web-table.md) |✓ | |✓  |✓  |

@@ -11,34 +11,36 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/14/2017
+ms.date: 11/16/2017
 ms.author: jingwang
-ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 254dcb6642afc19f434df837c9073d2dd7314313
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Creación de una factoría de datos de Azure con PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión 2: Versión preliminar](quickstart-create-data-factory-powershell.md)
 
-En esta guía de inicio rápido se describe cómo usar PowerShell para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos copia datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Transformación de datos mediante la actividad de Spark en Azure Data Factory](transform-data-using-spark.md). 
-
-En este artículo no se ofrece una introducción detallada al servicio Data Factory. Para ver una introducción al servicio Azure Data Factory, consulte [Introducción al servicio Azure Data Factory](introduction.md).
+En esta guía de inicio rápido se describe cómo usar PowerShell para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Introducción a la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
+>
+> En este artículo no se ofrece una introducción detallada al servicio Data Factory. Para ver una introducción al servicio Azure Data Factory, consulte [Introducción al servicio Azure Data Factory](introduction.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
+### <a name="azure-roles"></a>Roles de Azure
+Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure. En Azure Portal, haga clic en el **nombre de usuario**, en la esquina superior derecha, y seleccione **Permisos** para ver los permisos que tiene en la suscripción. Si tiene acceso a varias suscripciones, elija la correspondiente. Para obtener instrucciones de ejemplo sobre cómo agregar un usuario a un rol, consulte el artículo sobre la [adición de roles](../billing/billing-add-change-azure-subscription-administrator.md).
+
 ### <a name="azure-storage-account"></a>Cuenta de Azure Storage
-En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de **origen** y **receptor o de destino**. Si no dispone de una cuenta de Azure Storage de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account), donde se indica cómo crearla. 
+En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de **origen** y **destino**. Si no dispone de una cuenta de Azure Storage de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account), donde se indica cómo crearla. 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obtener un nombre y una clave de cuenta de Storage
 En esta guía de inicio rápido use el nombre y la clave de su cuenta de Azure Storage. El siguiente procedimiento especifica los pasos necesarios para obtener el nombre y la clave de una cuenta de Storage. 
@@ -54,44 +56,42 @@ En esta guía de inicio rápido use el nombre y la clave de su cuenta de Azure S
 5. Copie los valores de los campos **Nombre de cuenta de almacenamiento** y **clave1** en el Portapapeles. Péguelos en el Bloc de notas o en cualquier otro editor y guárdelo.  
 
 #### <a name="create-input-folder-and-files"></a>Creación de archivos y carpetas de entrada
-En esta sección se crea un contenedor de blobs denominado: adftutorial en Azure Blob Storage. Luego, cree una carpeta denominada: de entrada en el contenedor y, luego, cargar un archivo de ejemplo en la carpeta de entrada. 
+En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Azure Blob Storage. Luego, cree una carpeta denominada **entrada** en el contenedor y cargue un archivo de ejemplo en la carpeta de entrada. 
 
-1. Instale el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) si no lo tiene en su equipo. 
-2. Inicie el **Explorador de Microsoft Azure Storage** en el equipo.   
-3. En la ventana **Conectar a Azure Storage**, seleccione **Use a storage account name and key** (Usar un nombre y una clave de cuenta de almacenamiento) y haga clic en **Siguiente**. Si no ve la ventana **Conectar a Azure Storage**, haga clic con el botón derecho en **Cuentas de almacenamiento** en la vista de árbol y haga clic en **Conectar a Azure Storage**. 
+1. En la página **Cuenta de almacenamiento**, cambie a **Información general** y, a continuación, haga clic en **Blobs**. 
 
-    ![Conectar a Azure Storage](media/quickstart-create-data-factory-powershell/storage-explorer-connect-azure-storage.png)
-4. En la ventana **Attach using Name and Key** (Adjuntar mediante nombre y clave), pegue el **nombre de la cuenta** y la **clave de la cuenta** que guardó en el paso anterior. A continuación, haga clic en **Siguiente**. 
-5. En la ventana **Resumen de conexiones**, haga clic en **Conectar**.
-6. Confirme que ve la cuenta de almacenamiento en la vista de árbol en **(locales y adjuntas)** -> **Cuentas de almacenamiento**. 
-7. Expanda **Contenedores de blob** y confirme que la contenedor de blob **adftutorial** no existe. Si ya existe. omita los pasos siguientes para crear el contenedor. 
-8. Haga clic con el botón derecho en **Contenedores de blob** y seleccione 
-**Crear contenedor de blobs**.
+    ![Selección de la opción Blobs](media/quickstart-create-data-factory-powershell/select-blobs.png)
+2. En la página **Blob service**, haga clic en **+ Contenedor** en la barra de herramientas. 
 
-    ![Creación de un contenedor de blobs](media/quickstart-create-data-factory-powershell/stroage-explorer-create-blob-container-menu.png)
-9. Escriba **adftutorial** como nombre y presione **ENTRAR**. 
-10. Confirme que el contenedor **adftutorial** está seleccionado en la vista de árbol. 
-11. Haga clic en **Nueva carpeta** en la barra de herramientas. 
+    ![Botón Agregar contenedor](media/quickstart-create-data-factory-powershell/add-container-button.png)    
+3. En el cuadro de diálogo **Nuevo contenedor**, escriba **adftutorial** para el nombre y haga clic en **Aceptar**. 
 
-    ![Botón Crear carpeta](media/quickstart-create-data-factory-powershell/stroage-explorer-new-folder-button.png)
-12. En la ventana **Crear nuevo directorio virtual**, escriba **input** en **Nombre** y haga clic en **Aceptar**. 
+    ![Especificación de un nombre de contenedor](media/quickstart-create-data-factory-powershell/new-container-dialog.png)
+4. Haga clic en **adftutorial** en la lista de contenedores. 
 
-    ![Cuadro de diálogo Crear directorio](media/quickstart-create-data-factory-powershell/storage-explorer-create-new-directory-dialog.png)
-13. Inicie el **Bloc de notas** y cree un archivo denominado **emp.txt** con el siguiente contenido: 
+    ![Selección del contenedor](media/quickstart-create-data-factory-powershell/seelct-adftutorial-container.png)
+1. En la página **Contenedor**, haga clic en **Cargar** en la barra de herramientas.  
+
+    ![Botón Cargar](media/quickstart-create-data-factory-powershell/upload-toolbar-button.png)
+6. En la página **Cargar blob**, haga clic en **Avanzado**.
+
+    ![Hacer clic en el vínculo Avanzado](media/quickstart-create-data-factory-powershell/upload-blob-advanced.png)
+7. Inicie **Bloc de notas** y cree un archivo denominado **emp.txt** con el contenido siguiente. Luego guárdelo en la carpeta **c:\ADFv2QuickStartPSH**. Cree la carpeta **ADFv2QuickStartPSH** si aún no existe.
     
     ```
     John, Doe
     Jane, Doe
     ```    
-    Guárdelo en la carpeta **c:\ADFv2QuickStartPSH**: cree la carpeta **ADFv2QuickStartPSH** si aún no existe. 
-14. Haga clic en el botón **Cargar** de la barra de herramientas y seleccione **Cargar archivos**. 
+8. En Azure Portal, en la página **Cargar blob**, busque y seleccione el archivo **emp.txt** para el campo **Archivos**. 
+9. Escriba **entrada** como valor de **Cargar en carpeta**. 
 
-    ![Botón Cargar](media/quickstart-create-data-factory-powershell/storage-explorer-upload-button.png)
-15. En la ventana **Cargar archivos**, en **Archivos**, seleccione `...`. 
-16. En la ventana **Select folder to upload** (Seleccionar la carpeta que se carga), navegue hasta la carpeta con **emp.txt**y seleccione el archivo. 
+    ![Carga de la configuración del blob](media/quickstart-create-data-factory-powershell/upload-blob-settings.png)    
+10. Confirme que la carpeta es **entrada** y el archivo es **emp.txt**, y haga clic en **Cargar**.
+11. Debería ver el archivo **emp.txt** y el estado de la carga en la lista. 
+12. Cierre la página **Cargar blob** haciendo clic en **X**, en la esquina. 
 
-    ![Cuadro de diálogo Cargar archivos](media/quickstart-create-data-factory-powershell/storage-explorer-upload-files-dialog.png)
-17. En la ventana **Cargar archivos**, haga clic en **Cargar**. 
+    ![Cierre de la página de carga del blob](media/quickstart-create-data-factory-powershell/close-upload-blob.png)
+1. Mantenga abierta la página **Contenedor**. Úsela para comprobar la salida al final de esta guía de inicio rápido. 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -105,9 +105,11 @@ Instale la versión más reciente de Azure PowerShell si no lo tiene en el equip
 Para obtener instrucciones detalladas, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 #### <a name="log-in-to-azure-powershell"></a>Iniciar sesión en Azure PowerShell
-Inicie **PowerShell** en su equipo. Mantenga Azure PowerShell abierto hasta el final de esta guía de inicio rápido. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
 
-1. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña de Azure que utiliza para iniciar sesión en Azure Portal:
+1. Inicie **PowerShell** en su equipo. Mantenga Azure PowerShell abierto hasta el final de esta guía de inicio rápido. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
+
+    ![Inicie PowerShell](media/quickstart-create-data-factory-powershell/search-powershell.png)
+1. Ejecute el siguiente comando y escriba los mismos nombre de usuario y contraseña de Azure que utiliza para iniciar sesión en Azure Portal:
        
     ```powershell
     Login-AzureRmAccount
@@ -124,12 +126,12 @@ Inicie **PowerShell** en su equipo. Mantenga Azure PowerShell abierto hasta el f
     ```
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
-1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) entre comillas dobles y ejecute el comando. 
+1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) entre comillas dobles y ejecute el comando. Por ejemplo: `"adfrg"`.
    
      ```powershell
     $resourceGroupName = "<Specify a name for the Azure resource group>";
     ```
-2. Defina una variable para el nombre de la factoría de datos que pueda usar en los comandos de PowerShell más adelante. 
+2. Defina una variable para el nombre de la factoría de datos. 
 
     ```powershell
     $dataFactoryName = "<Specify a name for the data factory. It must be globally unique.>";
@@ -144,7 +146,7 @@ Inicie **PowerShell** en su equipo. Mantenga Azure PowerShell abierto hasta el f
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` e inténtelo de nuevo. Si desea compartir el grupo de recursos con otro usuario, vaya al paso siguiente. 
+    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y ejecute el comando de nuevo. 
 5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzureRmDataFactoryV2**: 
     
     ```powershell       
@@ -158,13 +160,12 @@ Tenga en cuenta los siguientes puntos:
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
-
-* Para crear instancias de Data Factory, hay que ser **colaborador** o **administrador** de la suscripción de Azure.
+* Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
 * Actualmente, la versión 2 de Data Factory permite crear factorías de datos solo en las regiones Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ## <a name="create-a-linked-service"></a>Creación de un servicio vinculado
 
-Cree servicios vinculados en una factoría de datos para vincular los almacenes de datos y los servicios de proceso a la factoría de datos. En esta guía de inicio rápido, basta con crear un servicio vinculado de Azure Storage para usarlo como almacén de origen y receptor. En el ejemplo, se denomina "AzureStorageLinkedService".
+Cree servicios vinculados en una factoría de datos para vincular los almacenes de datos y los servicios de proceso a la factoría de datos. En esta guía de inicio rápido, creará un servicio vinculado de Azure Storage que se utiliza para ambos almacenes: de origen y de recepción. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory en el entorno de tiempo de ejecución para conectarse a él.
 
 1. Cree un archivo JSON llamado **AzureStorageLinkedService.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido: (cree la carpeta ADFv2QuickStartPSH si aún no existe). 
 
@@ -178,7 +179,7 @@ Cree servicios vinculados en una factoría de datos para vincular los almacenes 
             "type": "AzureStorage",
             "typeProperties": {
                 "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
                     "type": "SecureString"
                 }
             }
@@ -204,8 +205,7 @@ Cree servicios vinculados en una factoría de datos para vincular los almacenes 
     ```
 
 ## <a name="create-a-dataset"></a>Crear un conjunto de datos
-
-Se define un conjunto de datos que representa los datos que se copian de un origen a un receptor. En este ejemplo, este conjunto de datos de blob hace referencia al servicio vinculado de Azure Storage que creó en el paso anterior. En el conjunto de datos se usa un parámetro cuyo valor se establece en una actividad que consume el conjunto de datos. El parámetro se usa para construir el elemento **folderPath** que apunta a la ubicación de los datos.
+En este paso, define un conjunto de datos que representa los datos que se copian de un origen a un receptor. El conjunto de datos es de tipo **AzureBlob**. Hace referencia al **servicio vinculado de Azure Storage** que creó en el paso anterior. Toma un parámetro para construir la propiedad **folderPath**. Para un conjunto de datos de entrada, la actividad de copia de la canalización pasa la ruta de acceso de entrada como un valor para este parámetro. De forma similar, para un conjunto de datos de salida, la actividad de copia pasa la ruta de acceso de salida como un valor para este parámetro. 
 
 1. Cree un archivo JSON llamado **BlobDataset.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
 
@@ -251,7 +251,7 @@ Se define un conjunto de datos que representa los datos que se copian de un orig
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
   
-En este ejemplo, esta canalización contiene una actividad y se usan dos parámetros: ruta de acceso de blob de entrada y de salida. Los valores para estos parámetros se establecen cuando se desencadena/ejecuta la canalización. La actividad de copia usa el mismo conjunto de datos de blob creado en el paso anterior como entrada y salida. Cuando se usa el conjunto de datos como conjunto de datos de entrada, se especifica una ruta de acceso de entrada. Cuando se usa el conjunto de datos como conjunto de datos de salida, se especifica una ruta de acceso de salida. 
+En esta guía de inicio rápido, creará una canalización con una actividad que admita dos parámetros: ruta de acceso de blob de entrada y de salida. Los valores para estos parámetros se establecen cuando se desencadena/ejecuta la canalización. La actividad de copia usa el mismo conjunto de datos de blob creado en el paso anterior como entrada y salida. Cuando se usa el conjunto de datos como conjunto de datos de entrada, se especifica una ruta de acceso de entrada. Cuando se usa el conjunto de datos como conjunto de datos de salida, se especifica una ruta de acceso de salida. 
 
 1. Cree un archivo JSON llamado **Adfv2QuickStartPipeline.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
 
@@ -325,24 +325,21 @@ En este paso, define los valores para los parámetros de canalización: **inputP
 
 1. Cree un archivo JSON llamado **BlobDataset.json** en la carpeta **C:\ADFv2QuickStartPSH** con el siguiente contenido:
 
-    Si va a usar distintos contenedores y carpetas, reemplace el valor de **inputPath** y **outputPath** por la ruta de acceso del blob de origen y del receptor.
-
     ```json
     {
         "inputPath": "adftutorial/input",
         "outputPath": "adftutorial/output"
     }
     ```
-
-2. Ejecute el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** para crear una ejecución de canalización y pasar los valores de parámetro. También se captura el id. de ejecución de canalización para la futura supervisión.
+2. Ejecute el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** para crear una ejecución de canalización y pasar los valores de parámetro. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
 
     ```powershell
     $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
     ```
 
-## <a name="monitor-a-pipeline-run"></a>Supervisar una ejecución de canalización
+## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
-1. Ejecute el script siguiente para comprobar continuamente el estado de ejecución de la canalización hasta que termine de copiar los datos.
+1. Ejecute el script de PowerShell siguiente para comprobar continuamente el estado de ejecución de la canalización hasta que termine de copiar los datos. Copie y pegue el siguiente script en la ventana de PowerShell y presione ENTRAR. 
 
     ```powershell
     while ($True) {
@@ -357,7 +354,7 @@ En este paso, define los valores para los parámetros de canalización: **inputP
             Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
         }
 
-        Start-Sleep -Seconds 30
+        Start-Sleep -Seconds 10
     }
     ```
 
@@ -380,7 +377,26 @@ En este paso, define los valores para los parámetros de canalización: **inputP
     Message           :
     ```
 
-2. Ejecute el script siguiente para recuperar detalles de la ejecución de la actividad de copia, como el tamaño de los datos leídos o escritos.
+    Si ve el error:
+    ```
+    Activity CopyFromBlobToBlob failed: Failed to detect region of linked service 'AzureStorage' : 'AzureStorageLinkedService' with error '[Region Resolver] Azure Storage failed to get address for DNS. Warning: System.Net.Sockets.SocketException (0x80004005): No such host is known
+    ```
+    siga estos pasos: 
+    1. En el archivo AzureStorageLinkedService.json, confirme que el nombre y la clave de la cuenta de Azure Storage son correctos. 
+    2. Compruebe que el formato de la cadena de conexión es correcto. Las propiedades, por ejemplo, AccountName y AccountKey, están separadas por el carácter de punto y coma (`;`). 
+    3. Si el nombre y la clave de la cuenta están entre corchetes, quítelos. 
+    4. A continuación, se muestra una cadena de conexión de ejemplo: 
+
+        ```json
+        "connectionString": {
+            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageacountkey;EndpointSuffix=core.windows.net",
+            "type": "SecureString"
+        }
+        ```
+    5. Vuelva a crear el servicio vinculado siguiendo los pasos de la sección [Creación de un servicio vinculado](#create-a-linked-service). 
+    6. Vuelva a ejecutar la canalización siguiendo los pasos de la sección [Creación de una ejecución de canalización ](#create-a-pipeline-run). 
+    7. Ejecute el comando de supervisión actual para supervisar la nueva ejecución de canalización. 
+1. Ejecute el script siguiente para recuperar detalles de la ejecución de la actividad de copia, como el tamaño de los datos leídos o escritos.
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
@@ -422,17 +438,25 @@ En este paso, define los valores para los parámetros de canalización: **inputP
     ```
 
 ## <a name="verify-the-output"></a>Comprobación del resultado
-El conducto crea automáticamente la carpeta de salida en el contenedor de blob adftutorial. A continuación, copia el archivo emp.txt de la carpeta de entrada a la carpeta de salida. Use el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para comprobar que los blobs de inputBlobPath se copian en outputBlobPath. 
+El conducto crea automáticamente la carpeta de salida en el contenedor de blob adftutorial. A continuación, copia el archivo emp.txt de la carpeta de entrada a la carpeta de salida. 
+
+1. En Azure Portal, en la página de contenedor **adftutorial**, haga clic en **Actualizar** para ver la carpeta de salida. 
+    
+    ![Actualizar](media/quickstart-create-data-factory-powershell/output-refresh.png)
+2. Haga clic en **output** en la lista de carpetas. 
+2. Confirme que **emp.txt** se ha copiado en la carpeta de salida. 
+
+    ![Actualizar](media/quickstart-create-data-factory-powershell/output-file.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Hay dos forma de eliminar los recursos que ha creado en la guía de inicio rápido. Puede eliminar el [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md), lo que incluye todos los recursos del grupo de recursos. Si quiere mantener intacto el resto de recursos, elimine solo la factoría de datos que creó en este tutorial.
 
-Ejecute el comando siguiente para eliminar el grupo de recursos completo: 
+Al eliminar un grupo de recursos, se eliminan todos los recursos incluidas las factorías de datos. Ejecute el comando siguiente para eliminar el grupo de recursos completo: 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
-Ejecute el comando siguiente para eliminar solo la factoría de datos: 
+Si desea eliminar solo la factoría de datos, no el grupo de recursos completo, ejecute el siguiente comando: 
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName

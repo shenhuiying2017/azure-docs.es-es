@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Creación de cuentas de la versión preliminar de Azure Machine Learning e instalación de Azure Machine Learning Workbench
-Azure Machine Learning es una solución de análisis avanzado y ciencia de datos integrada y completa. Ayuda a los científicos de datos profesionales a preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
+Los servicios de Azure Machine Learning (versión preliminar) solo son una solución de análisis avanzado y ciencia de datos integrada y completa. Ayuda a los científicos de datos profesionales a preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
 
 Esta guía de inicio rápido muestra cómo crear cuentas de administración de modelos y experimentación en la versión preliminar de Azure Machine Learning. También muestra cómo instalar las herramientas de CLI y la aplicación de escritorio de Azure Machine Learning Workbench. A continuación, realizará un rápido recorrido por las características de la versión preliminar de Azure Machine Learning mediante el uso del [conjunto de datos "iris flower"](https://en.wikipedia.org/wiki/iris_flower_data_set) para compilar un modelo que predice el tipo de iris en función de sus características físicas.  
 
@@ -108,7 +108,7 @@ Instale Azure Machine Learning Workbench en un equipo con macOS Sierra o version
 
 4. Ahora, Azure Machine Learning Workbench ya está instalado en el directorio siguiente: 
 
-   `/Applications/AmlWorkbench.app`
+   `/Applications/Azure ML Workbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-sign-in-for-the-first-time"></a>Ejecución de Azure Machine Learning Workbench para iniciar sesión por primera vez
 1. Una vez que finalice el proceso de instalación, haga clic en el botón **Launch Workbench** (Iniciar Workbench) de la última pantalla del instalador. Si ha cerrado el instalador, busque el acceso directo a Machine Learning Workbench en el escritorio y abra el menú **Azure Machine Learning Workbench** para iniciar la aplicación.

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
 Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado están diseñados para admitir el escalado automático verdadero y no es necesario aprovisionar las máquinas virtuales antes. Esto facilita la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
@@ -124,7 +124,7 @@ En esta sección se enumeran algunos escenarios típicos de conjuntos de escalad
 * Un conjunto de escalado admite un máximo de 1.000 máquinas virtuales. Si crea y carga sus propias imágenes de máquina virtual personalizadas, el límite es 300. Para ver todo lo que se debe saber al usar conjuntos de escalado grandes, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md).
 * Para usar los conjuntos de escalado no necesita crear antes cuentas de almacenamiento de Azure. Los conjuntos de escalado admiten Azure Managed Disks, lo que evita problemas de rendimiento relacionados con el número de discos por cuenta de almacenamiento. Para más información, consulte [Conjuntos de escalado de máquinas virtuales y discos administrados](virtual-machine-scale-sets-managed-disks.md).
 * Considere la posibilidad de usar Azure Premium Storage, en lugar de Azure Storage, para lograr unos tiempos de aprovisionamiento de máquinas virtuales menores y más predecibles, y mejorar el rendimiento de E/S.
-* La cuota de núcleos en la región en la que realiza la implementación limita el número de máquinas virtuales que puede crear. Aunque disponga de un límite alto de núcleos que se pueden usar con Azure Cloud Services, es posible que necesite ponerse en contacto con el servicio de asistencia al cliente para aumentarlo. Para consultar la cuota, ejecute este comando de la CLI de Azure: `azure vm list-usage`. O bien, ejecute este comando de PowerShell: `Get-AzureRmVMUsage`.
+* La cuota de vCPU en la región en la que realiza la implementación limita el número de máquinas virtuales que puede crear. Aunque disponga de un límite alto de vCPU que se pueden usar con Azure Cloud Services, es posible que necesite ponerse en contacto con el servicio de soporte técnico al cliente para aumentarlo. Para consultar la cuota, ejecute este comando de la CLI de Azure: `azure vm list-usage`. O bien, ejecute este comando de PowerShell: `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Preguntas más frecuentes acerca de los conjuntos de escalado
 **P.** ¿Cuántas máquinas virtuales puede contener un conjunto de escalado?

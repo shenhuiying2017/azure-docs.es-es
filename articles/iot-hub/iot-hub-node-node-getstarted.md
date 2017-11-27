@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3398e38cf7d3d28d9ca4edef5a9bca96aeaf2ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b360d5a08abed7d65d8c39f7a957412656f7825
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Conexión del dispositivo simulado en el centro de IoT con Node
 
@@ -165,7 +165,7 @@ En esta sección, creará una aplicación de consola de Node.js que lee los mens
     };
     ```
 
-7. Agregue el siguiente código para crear **EventHubClient**, abra la conexión a IoT Hub y cree un receptor para cada partición. Esta aplicación utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados al Centro de IoT después de que el receptor comience a ejecutarse. Este filtro es útil en un entorno de prueba, porque puede ver solo el conjunto actual de mensajes. En un entorno de producción, el código debe asegurarse de que este procesa todos los mensajes. Para más información, consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub][lnk-process-d2c-tutorial]:
+7. Agregue el siguiente código para crear **EventHubClient**, abra la conexión a IoT Hub y cree un receptor para cada partición. Esta aplicación utiliza un filtro cuando crea el receptor para que este solo lea los mensajes enviados a IoT Hub después de que el receptor comience a ejecutarse. Este filtro es útil en un entorno de prueba, porque puede ver solo el conjunto actual de mensajes. En un entorno de producción, el código debe asegurarse de que este procesa todos los mensajes. Para más información, consulte el [Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub][lnk-process-d2c-tutorial]:
 
     ```nodejs
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -254,7 +254,7 @@ En esta sección, creará una aplicación de consola de Node.js que simula un di
     };
     ```
 
-8. Abra la conexión al su Centro de IoT y empiece a enviar mensajes:
+8. Abra la conexión al su centro de IoT y empiece a enviar mensajes:
 
     ```nodejs
     client.open(connectCallback);
@@ -297,7 +297,7 @@ Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, co
 
 * [Conexión del dispositivo][lnk-connect-device]
 * [Introducción a la administración de dispositivos][lnk-device-management]
-* [Introducción a Azure IoT Edge][lnk-iot-edge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iot-edge]
 
 Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositivo a la nube a escala, consulte [Tutorial: procesamiento de mensajes de dispositivo a la nube][lnk-process-d2c-tutorial].
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
@@ -322,5 +322,5 @@ Para aprender a ampliar su solución IoT y cómo procesar mensajes de dispositiv
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

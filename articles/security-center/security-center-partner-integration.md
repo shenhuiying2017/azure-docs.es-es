@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 0c0029d2dea293e71c6e3daf74b85f0234bfdffd
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 42cbc442d03cdca04d380d05d9e904355476099e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -44,7 +44,7 @@ La experiencia de integración de Endpoint Protection puede variar según la sol
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, se integra en el sistema operativo.           | Sí                       |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Mediante extensión                | Sí                       |
 | Trend Micro: todas las versiones         | Familia de Windows Server                 | Mediante extensión                | Sí                       |
-| Symantec v12 +                     | Familia de Windows Server                 | No                           | Sí                        |
+| Symantec v12.1.1100+                     | Familia de Windows Server                 | No                           | Sí                        |
 | MacAfee                           | Familia de Windows Server                 | No                           | No                        |
 | Kaspersky                         | Familia de Windows Server                 | No                           | No                        |
 | Sophos                            | Familia de Windows Server                 | No                           | No                        |
@@ -92,7 +92,7 @@ En este documento, ha aprendido a integrar soluciones de asociados en Security C
 
 * [Guía de planeamiento y operaciones de Security Center](security-center-planning-and-operations-guide.md)
 * [Connecting Microsoft Advanced Threat Analytics to Azure Security Center](security-center-ata-integration.md) (Conexión de Microsoft Advanced Threat Analytics con Azure Security Center)
-* [Connecting Azure Active Directory Identity Protection to Azure Security Center](security-center-aadip-integration.md) (Conexión de Azure AD Identity Protection con Azure Security Center)
+* [Conexión de Azure Active Directory Identity Protection con Azure Security Center](security-center-aadip-integration.md)
 * [Supervisión del estado de seguridad en Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.
 * [Supervise las soluciones de asociados con Security Center](security-center-partner-solutions.md). Aprenda cómo supervisar el estado de mantenimiento de las soluciones de sus asociados.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Obtenga respuestas a preguntas frecuentes acerca del uso de Security Center.

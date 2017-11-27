@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/15/2017
 ms.author: marsma
-ms.openlocfilehash: c37fc0b701b668ab6bb9213a487ec8baa33fe663
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e99793d45b90411a068dd44a981cf24aa67d43
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="perform-blob-storage-operations-with-azure-cli"></a>Realización de operaciones de Blob Storage con la CLI de Azure
 
@@ -163,6 +163,18 @@ az storage blob delete \
     --name blobName
 ```
 
+## <a name="set-the-content-type"></a>Establecimiento del tipo de contenido
+
+El tipo de contenido, también conocido como el tipo MIME, identifica el formato de los datos en el blob. Los exploradores y otro software usan el tipo de contenido para determinar cómo procesar los datos. En el ejemplo siguiente se establece el tipo de contenido en `image/png`.
+
+```azurecli-interactive
+# Set the content type
+az storage blob update
+    --container-name mystoragecontainer 
+    --name blobName 
+    --content-type image/png
+```
+
 ## <a name="display-and-modify-blob-properties-and-metadata"></a>Ver y editar propiedades y metadatos de blob
 
 Cada blob tiene varias propiedades definidas por el servicio que puede mostrar con el comando [az storage blob show](/cli/azure/storage/blob#show), que incluye su nombre, tipo, longitud y otros. También puede configurar un blob con sus propias propiedades y sus valores mediante el comando [az storage blob metadata update](/cli/azure/storage/blob/metadata#update).
@@ -279,5 +291,5 @@ Los siguientes recursos proporcionan información adicional acerca de cómo trab
 * CLI de Azure
   * [Inicie sesión con Azure CLI 2.0](/cli/azure/authenticate-azure-cli): obtenga información sobre los distintos métodos de autenticación con la CLI, incluido el inicio de sesión no interactivo a través de [entidad de servicio](/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal) para ejecutar scripts de la CLI de Azure desatendidos.
   * [Referencia de comandos de la CLI de Azure 2.0](/cli/azure/)
-* Explorador de almacenamiento de Microsoft Azure
+* Explorador de Microsoft Azure Storage
   * El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.

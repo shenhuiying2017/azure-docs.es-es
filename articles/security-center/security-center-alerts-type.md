@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
 Este artículo ayuda a comprender los distintos tipos de alertas de seguridad y aspectos relacionados disponibles en Azure Security Center. Para más información sobre cómo administrar las alertas y los incidentes, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ Los siguientes campos son comunes a los ejemplos de alerta de volcado de memoria
 * DUMPFILE (ARCHIVO DE VOLCADO): nombre del archivo de volcado
 * PROCESSNAME (NOMBRE DEL PROCESO): nombre del proceso de bloqueo
 * PROCESSVERSION (VERSIÓN DEL PROCESO): versión del proceso de bloqueo
+
+### <a name="code-injection-discovered"></a>Inserción de código detectada
+La inserción de código es la inserción de módulos ejecutables en subprocesos o procesos de ejecución.  Esta técnica se utiliza por malware para tener acceso a datos, ocultar o impedir su eliminación (por ejemplo: persistencia). Esta alerta indica que un módulo insertado está presente en el volcado de memoria. Los desarrolladores de software legítimo realizan cada cierto tiempo una inserción de código por razones no malintencionadas, como modificar o extender una aplicación existente o un componente de sistema operativo.  Para ayudar a diferenciar entre módulos insertados malintencionados y no malintencionados, Security Center comprueba si el módulo insertado se ajusta a un perfil de comportamiento sospechoso. El resultado de esta comprobación se indica en el campo "SIGNATURE" (FIRMA) de la alerta y se refleja en la gravedad de la alerta, su descripción y los pasos de corrección. 
+
+Esta alerta proporciona los siguientes campos adicionales:
+
+- ADDRESS: La ubicación en la memoria del módulo insertado
+- IMAGENAME: El nombre del módulo insertado. Tenga en cuenta que esto puede estar en blanco si no se proporciona el nombre de la imagen dentro de la imagen.
+- SIGNATURE: Indica si el módulo insertado se ajusta a un perfil de comportamiento sospechoso. 
+
+En la tabla siguiente se muestran ejemplos de resultados y sus descripciones:
+
+| Valor de la firma                      | Descripción                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Vulnerabilidad de seguridad de cargador reflexivo sospechoso | Este comportamiento sospechoso a menudo se ponen en correlación con cargar código insertado independientemente del cargador del sistema operativo |
+| Vulnerabilidad de seguridad insertada sospechosa          | Significa vulneraciones malintencionadas que a menudo se ponen en correlación para insertar código en memoria                                       |
+| Vulnerabilidad de seguridad de la inserción sospechosa         | Significa vulneraciones malintencionadas que a menudo se ponen en correlación para usar código insertado en memoria                                   |
+| Vulnerabilidad de seguridad del depurador insertado sospechoso | Significa vulneraciones malintencionadas que a menudo se ponen en correlación con la detección o elusión de un depurador                         |
+| Vulnerabilidad de seguridad remota insertada sospechosa   | Significa vulneraciones malintencionadas que a menudo se ponen en correlación con escenarios de control n (C2)                                 |
+
+Este es un ejemplo de este tipo de alerta:
+
+![Alerta de inyección de código](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Segmento de código sospechoso
+El segmento de código sospechoso indica que se han asignado segmentos de código con métodos no estándar, como los usados por el vaciado de proceso y la inserción reflexiva.  Además, esta alerta procesa características adicionales del segmento de código para proporcionar un contexto en cuanto a las funcionalidades y los comportamientos del segmento de código del que se ha informado.
+
+Esta alerta proporciona los siguientes campos adicionales:
+
+- ADDRESS: La ubicación en la memoria del módulo insertado
+- SIZE: El tamaño del segmento de código sospechoso
+- STRINGSIGNATURES: En este campo se enumeran las funcionalidades de las API cuyos nombres de función se encuentran en el segmento de código. Las funcionalidades de ejemplo podrían incluir:
+    - Descriptores de sección de imagen, ejecución de código dinámico para x64, asignación de memoria y funcionalidad del cargador, funcionalidad de inserción de código remoto, funcionalidad de control interceptado, variables de entorno de lectura, memoria arbitraria de proceso de lectura, consulta o modificación de los privilegios del token, comunicación de red HTTP/HTTPS y comunicación de socket de red.
+- IMAGEDETECTED: Este campo indica si se ha insertado una imagen PE en el proceso donde se detectó el segmento de código sospechoso y en qué dirección inicia el módulo insertado.
+- SHELLCODE: Este campo indica la presencia de comportamiento utilizada habitualmente por cargas malintencionados para obtener acceso a las funciones confidenciales de sistema operativo de seguridad adicional. 
+
+Este es un ejemplo de este tipo de alerta:
+
+![Alerta de segmento de código sospechoso](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Detectado shellcode
 Shellcode es la carga que se ejecuta después de que un malware haya aprovechado una vulnerabilidad en el software. Esta alerta indica que el análisis del volcado de memoria ha detectado código ejecutable que muestra un comportamiento normalmente realizado mediante cargas malintencionadas. Aunque el software no malintencionado puede tener este comportamiento, no es típico en las prácticas de desarrollo de software normal.
