@@ -243,6 +243,7 @@
 ### [Depuración de un servicio .NET en VS](service-fabric-debugging-your-application.md)
 ### [Errores y excepciones habituales](service-fabric-errors-and-exceptions.md)
 ### [Supervisión y diagnóstico local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Configuración de un clúster de Linux en Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Trabajo en un entorno de desarrollo de Linux
 ### [Introducción al complemento de Eclipse para el desarrollo de Java](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Uso de escenarios de prueba](service-fabric-testability-scenarios.md)
 ##### [Uso de las API Node Transition](service-fabric-node-transition-apis.md)
 
-### [Implementación de una aplicación de Java para Linux con Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Configuración de integración continua
+#### [Configuración de integración continua con VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Implementación de aplicaciones Linux con Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Creación y administración de clústeres
 ### Clústeres en Azure
