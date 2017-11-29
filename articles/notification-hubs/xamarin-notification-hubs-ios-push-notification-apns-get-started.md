@@ -74,10 +74,10 @@ Su centro de notificaciones está ahora configurado para funcionar con APNS, y t
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Conexión de la aplicación al Centro de notificaciones
 #### <a name="create-a-new-project"></a>Crear un nuevo proyecto
-1. En Xamarin Studio, cree un nuevo proyecto iOS y seleccione la plantilla **Unified API** > **Single View Application** (API unificada > Aplicación de vista simple).
+1. En Xamarin Studio, cree un nuevo proyecto iOS y seleccione la plantilla  **API unificada**  > **Aplicación de vista simple** .
    
      ![Xamarin Studio: Selección del tipo de aplicación][31]
-2. Agregue una referencia al componente de mensajería de Azure. En la vista de soluciones, haga clic con el botón derecho en la carpeta **Components** del proyecto y elija **Get More Components** (Obtener más componentes). Busque el componente **Azure Messaging** (Mensajería de Azure) y agréguelo a su proyecto.
+2. Agregue una referencia al componente de mensajería de Azure. En la vista de soluciones, haga clic con el botón derecho en la carpeta **Components** del proyecto y elija **Obtener más componentes** . Busque el componente **Mensajería de Azure** y agréguelo a su proyecto.
 3. En **AppDelegate.cs**, agregue la siguiente instrucción using:
    
         using WindowsAzure.Messaging;

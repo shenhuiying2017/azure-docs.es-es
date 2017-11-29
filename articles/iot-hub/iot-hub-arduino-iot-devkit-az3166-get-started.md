@@ -224,11 +224,11 @@ Asegúrese de que el DevKit no está conectado. Primero, inicie VS Code y conect
 
 ### <a name="open-the-arduino-examples-folder"></a>Apertura de la carpeta de ejemplos de Arduino
 
-Expanda la sección de la izquierda **ARDUINO EXAMPLES** (EJEMPLOS DE ARDUINO), vaya a **Examples for MXCHIP AZ3166 > AzureIoT** (Ejemplos para MXCHIP AZ3166 > AzureIoT) y seleccione **GetStarted** (Introducción). Se abrirá una nueva ventana de VS Code que contendrá la carpeta de proyecto.
+Expanda la sección de la izquierda **EJEMPLOS DE ARDUINO**, vaya a **Ejemplos para MXCHIP AZ3166 > AzureIoT** y seleccione **Introducción** . Se abrirá una nueva ventana de VS Code que contendrá la carpeta de proyecto.
 
 ![Pestaña Ejemplos de Arduino](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
 
-Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: Examples** (Arduino: ejemplos).
+Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
 
 ## <a name="provision-azure-services"></a>Aprovisionamiento de los servicios de Azure
 
@@ -242,9 +242,9 @@ En el terminal de VS Code, una línea de comandos interactiva le guía durante e
 
 ### <a name="install-the-required-library"></a>Instalación de la biblioteca necesaria
 
-1. Presione `F1` o `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y busque y seleccione **Arduino: Library Manager** (Arduino: administrador de bibliotecas).
+1. Presione `F1` o `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y busque y seleccione **Arduino: administrador de bibliotecas**.
 
-2. Busque la biblioteca **ArduinoJson** y seleccione **Install**:![Install Arduino library](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png) (Instalar:Instalar biblioteca de Arduino).
+2. Busque la biblioteca **ArduinoJson** y seleccione **Instalar**:![Instalar biblioteca de Arduino](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png) 
 
 ### <a name="build-and-upload-the-device-code-windows"></a>Compilación y carga del código del dispositivo (Windows)
 1. Use `Ctrl+P` para ejecutar `task device-upload`.
@@ -277,7 +277,7 @@ En VS Code, siga estos pasos para abrir y configurar Serial Monitor (Monitor de 
 
 1. Haga clic en la palabra `COM[X]` de la barra de estado para establecer el puerto COM correcto con `STMicroelectronics`: ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png).
 
-2. Haga clic en el icono de interruptor de alimentación de la barra de estado para abrir Serial Monitor (Monitor de serie): ![monitor-serie](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png).
+2. Haga clic en el icono de interruptor de alimentación de la barra de estado para abrir Serial Monitor: ![Monitor de serie](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
 
 3. En la barra de estado, haga clic en el número que representa la velocidad en baudios y configúrelo en `115200`: ![velocidad-baudios](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
 

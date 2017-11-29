@@ -78,7 +78,7 @@ Esta es una consulta de ejemplo en la que se muestra cómo filtrar por propiedad
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities) (Consulta de tablas y entidades).
+Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Consulta de tablas y entidades](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
 
 **Resultados**
 
@@ -109,7 +109,7 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 En este tutorial, ha hecho lo siguiente:
 
 > [!div class="checklist"]
-> * Ha aprendido a realizar consultas mediante Table API.
+> * Ha aprendido a realizar consultas mediante Table API
 
 Ahora puede continuar con el tutorial siguiente para obtener información sobre cómo distribuir sus datos globalmente.
 

@@ -49,7 +49,7 @@ Existen diferentes formas de obtener CPython:
 A menos que tenga una necesidad específica, recomendamos las dos primeras opciones.
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Instalación del SDK en Windows, Linux y MacOS (solo bibliotecas de cliente)
-Si ya tiene instalado Python, puede usar pip para instalar una agrupación de todas las bibliotecas de cliente en su entorno de Python 2.7 o Python 3.3+ existente. De este modo, se descargan los paquetes del repositorio [Python Package Index][Python Package Index] (índice de paquetes de Python, PyPI).
+Si ya tiene instalado Python, puede usar pip para instalar una agrupación de todas las bibliotecas de cliente en su entorno de Python 2.7 o Python 3.3+ existente. De este modo, se descargan los paquetes del repositorio [índice de paquetes de Python, PyPI][Python Package Index].
 
 Puede que necesite derechos de administrador:
 

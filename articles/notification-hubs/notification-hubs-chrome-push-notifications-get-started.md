@@ -40,20 +40,20 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 * [Funcionalidades y funciones adicionales](#next-steps)
 
 > [!NOTE]
-> Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Chrome Apps Overview] (Información general sobre las aplicaciones de Chrome) para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
+> Las notificaciones push de las aplicaciones de Chrome no son notificaciones en el explorador genéricas, son específicas del modelo de extensibilidad del explorador (consulte [Información general sobre las aplicaciones de Chrome] para más información). Además del explorador de escritorio, las aplicaciones de Chrome se ejecutan en dispositivos móviles (iOS y Android) mediante Apache Cordova. Vea [Aplicaciones de Chrome en dispositivos móviles] para obtener más información.
 > 
 > 
 
 La configuración de GCM y de Centros de notificaciones de Azure es idéntica a la configuración para Android ya que el [Servicio de mensajería en la nube de Google para Chrome] está en desuso y el mismo GCM ahora admite dispositivos Android e instancias de Chrome.
 
 ## <a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
-1. Diríjase al sitio web de la [consola en la nube de Google] , inicie sesión con las credenciales de su cuenta de Google y, luego, haga clic en botón **Create Project** (Crear proyecto). Proporcione un **nombre de proyecto** adecuado y, luego, haga clic en el botón **Create** (Crear).
+1. Diríjase al sitio web de la [consola en la nube de Google] , inicie sesión con las credenciales de su cuenta de Google y luego, haga clic en botón **Crear proyecto**. Proporcione un **nombre de proyecto** adecuado y, luego, haga clic en el botón **Crear**.
    
        ![Google Cloud Console - Create Project][1]
 2. Tome nota del **número del proyecto** en la página de **proyectos** para el proyecto que acaba de crear. Úselo como **id. de remitente de GCM** en la aplicación Chrome para registrarse con GCM.
    
        ![Google Cloud Console - Project Number][2]
-3. En el panel de la izquierda, haga clic en **APIs & auth** (API y autenticación), y luego desplácese hacia abajo y haga clic en el botón de alternancia para habilitar **Google Cloud Messaging for Android** (Servicio de mensajería en la nube de Google para Android). No es necesario habilitar el **servicio de mensajería en la nube de Google para Chrome**.
+3. En el panel de la izquierda, haga clic en **API y autenticación**, y luego desplácese hacia abajo y haga clic en el botón de alternancia para habilitar **Servicio de mensajería en la nube de Google para Android**. No es necesario habilitar el **servicio de mensajería en la nube de Google para Chrome**.
    
        ![Google Cloud Console - Server Key][3]
 4. En el panel izquierdo, haga clic en **Credenciales** > **Crear nueva clave** > **Clave de servidor** > **Crear**.
@@ -364,16 +364,16 @@ La estructura general de las carpetas de este proyecto debe ser similar a esta: 
 1. Abra el explorador Chrome. Abra las **extensiones de Chrome** y habilite el **modo de desarrollador**.
    
        ![Google Chrome - Enable Developer Mode][16]
-2. Haga clic en **Load unpacked extension** (Cargar extensión descomprimida) y vaya a la carpeta donde creó los archivos. Opcionalmente, también puede usar la **herramienta para desarrolladores de aplicaciones y extensiones Chrome**. Esta herramienta es una aplicación Chrome en sí misma (se instala desde el almacén web de Chrome) y proporciona las capacidades de depuración avanzadas para el desarrollo de aplicaciones Chrome.
+2. Haga clic en **Cargar extensión descomprimida** y vaya a la carpeta donde creó los archivos. Opcionalmente, también puede usar la **herramienta para desarrolladores de aplicaciones y extensiones Chrome**. Esta herramienta es una aplicación Chrome en sí misma (se instala desde el almacén web de Chrome) y proporciona las capacidades de depuración avanzadas para el desarrollo de aplicaciones Chrome.
    
        ![Google Chrome - Load Unpacked Extension][17]
 3. Si la aplicación Chrome se crea sin errores, verá que aparece.
    
        ![Google Chrome - Chrome App Display][18]
-4. Escriba el **número de proyecto** que obtuvo anteriormente de la **consola en la nube de Google**, como el identificador del remitente, y haga clic en **Register with GCM** (Registrar con GCM). Debe ver el mensaje **Registration with GCM succeeded**
+4. Escriba el **número de proyecto** que obtuvo anteriormente de la **consola en la nube de Google**, como el identificador del remitente, y haga clic en **egistrar con GCM**. Debe ver el mensaje **Registration with GCM succeeded**
    
        ![Google Chrome - Chrome App Customization][19]
-5. Escriba su **nombre del centro de notificaciones** y el valor de **DefaultListenSharedAccessSignature** obtenido anteriormente del Portal y haga clic en **Register with Azure Notification Hub** (Registrarse en el Centro de notificaciones de Azure). Debe ver el mensaje **Notification Hub Registration succesful!** (El registro en el centro de notificaciones se realizó correctamente) y los detalles de la respuesta de registro, que contienen el identificador de registro de Centros de notificaciones de Azure.
+5. Escriba su **nombre del centro de notificaciones** y el valor de **DefaultListenSharedAccessSignature** obtenido anteriormente del Portal y haga clic en **Registrarse en el Centro de notificaciones de Azure**. Debe ver el mensaje **El registro en el centro de notificaciones se realizó correctamente!** y los detalles de la respuesta de registro, que contienen el identificador de registro de Centros de notificaciones de Azure.
    
        ![Google Chrome - Specify Notification Hub Details][20]  
 
@@ -386,7 +386,7 @@ Para las pruebas, enviaremos notificaciones push de Chrome mediante la aplicaci�
 > 
 
 1. En Visual Studio, en el menú **Archivole**, seleccione **Nuevo** y, luego, **Proyecto**. En **Visual C#**, haga clic en **Windows** y **Aplicación de consola** y, luego, haga clic en **Aceptar**.  Esto crea un nuevo proyecto de aplicación de consola.
-2. En el menú **Tools** (Herramientas), haga clic en **Library Package Manager** (Administrador de paquetes de biblioteca) y, luego, en **Package Manager Console** (Consola del Administrador de paquetes). Esto muestra la Consola del Administrador de paquetes.
+2. En el menú **Herramientas**, haga clic en **Administrador de paquetes de biblioteca** y, luego, en **Consola del Administrador de paquetes**. Esto muestra la Consola del Administrador de paquetes.
 3. En la ventana de la consola, ejecute el siguiente comando:
    
         Install-Package Microsoft.Azure.NotificationHubs
@@ -462,7 +462,7 @@ Si desea segmentar los usuarios por grupos de interés, puede leer [Uso de los C
 [consola en la nube de Google]: http://cloud.google.com/console
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Introducción a los centros de notificaciones]: notification-hubs-push-notification-overview.md
-[Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
+[Información general sobre las aplicaciones de Chrome]: https://developer.chrome.com/apps/about_apps
 [ejemplo de GCM de la aplicación de Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [Aplicaciones de Chrome en dispositivos móviles]: https://developer.chrome.com/apps/chrome_apps_on_mobile

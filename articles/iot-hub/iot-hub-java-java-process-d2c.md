@@ -107,7 +107,7 @@ En esta sección, se modifica la aplicación de dispositivo que creó en el tuto
 2. Guarde y cierre el archivo simulated-device\src\main\java\com\mycompany\app\App.java.
 
     > [!NOTE]
-    > Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](Control de errores transitorios).
+    > Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios].
 
 3. Para compilar la aplicación **simulated-device** con Maven, ejecute el siguiente comando en el símbolo del sistema en la carpeta simulated-device:
 
@@ -121,19 +121,19 @@ En esta sección, se crea una cola de Service Bus, se conecta con el IoT Hub y s
 
 1. Cree una cola de Service Bus como se describe en [Introducción a las colas][lnk-sb-queues-java]. Tome nota del espacio de nombres y del nombre de la cola.
 
-2. En Azure Portal, abra el centro de IoT y haga clic en **Endpoints** (Puntos de conexión).
+2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión**.
 
     ![Puntos de conexión en IoT Hub][30]
 
-3. En la hoja **Endpoints** (Puntos de conexión), haga clic en **Add** (Agregar) en la parte superior para agregar la cola al centro de IoT. Ponga al punto de conexión el nombre **CriticalQueue** y use las listas desplegables para seleccionar **Cola de Service Bus**, el espacio de nombres de Service Bus en el que reside la cola y el nombre de la cola. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
+3. En la hoja **Puntos de conexión**, haga clic en **Agregar** en la parte superior para agregar la cola al centro de IoT. Ponga al punto de conexión el nombre **CriticalQueue** y use las listas desplegables para seleccionar **Cola de Service Bus**, el espacio de nombres de Service Bus en el que reside la cola y el nombre de la cola. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
 
     ![Adición de un punto de conexión][31]
 
-4. Ahora haga clic en **Routes** (Rutas) en IoT Hub. Haga clic en **Add** (Agregar) en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **DeviceTelemetry** como origen de los datos. Escriba `level="critical"` como condición y elija la cola que acaba de agregar como punto de conexión personalizado como punto de conexión de regla de enrutamiento. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
+4. Ahora haga clic en **Rutas** en IoT Hub. Haga clic en **Agregar** en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **DeviceTelemetry** como origen de los datos. Escriba `level="critical"` como condición y elija la cola que acaba de agregar como punto de conexión personalizado como punto de conexión de regla de enrutamiento. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
 
     ![Adición de una ruta][32]
 
-    Asegúrese de que la ruta de reserva se establece en **ON** (Activado). Esta es la configuración predeterminada del centro de IoT.
+    Asegúrese de que la ruta de reserva se establece en **Activado**. Esta es la configuración predeterminada del centro de IoT.
 
     ![Ruta de reserva][33]
 
@@ -203,7 +203,7 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Introducción a IoT Hub]: iot-hub-java-java-getstarted.md
 [Centro para desarrolladores de Azure IoT]: https://azure.microsoft.com/develop/iot
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh675232.aspx
+[Control de errores transitorios]: https://msdn.microsoft.com/library/hh675232.aspx
 
 <!-- Links -->
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

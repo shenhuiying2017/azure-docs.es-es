@@ -31,7 +31,7 @@ La migración de su servicio móvil de Azure convierte dicho servicio en [Azure 
 ## <a name="why-migrate"></a>Por qué debe migrar el sitio
 Microsoft recomienda migrar el servicio móvil de Azure para aprovechar las características del Servicio de aplicaciones de Azure, como por ejemplo:
 
-* las nuevas características de host, como [WebJobs] y [nombres de dominio personalizados].
+* Las nuevas características de host, como [WebJobs] y [nombres de dominio personalizados].
 * Supervisión y solución de problemas con New Relic o [Application Insights].
 * Herramientas integradas de DevOps, entre las que se incluyen [ranuras de ensayo], reversión y pruebas en producción.
 * [Escalado automático], equilibrio de carga y [supervisión del rendimiento].
@@ -95,7 +95,7 @@ Los trabajos del Programador no estarán visibles hasta unos 30 minutos después
 Para ver los trabajos programados cuando vuelven a estar visibles:
 
 1. Inicie sesión en el [Azure Portal].
-2. Seleccione **Examinar >**, escriba **Programación** en el cuadro *Filtro* y luego seleccione **Scheduler Collections** (Colecciones de Scheduler).
+2. Seleccione **Examinar >**, escriba **Programación** en el cuadro *Filtro* y luego seleccione **Colecciones de Scheduler**.
 
 Existe un número limitado de trabajos de Programador gratuitos que están disponibles después de la migración.  Revise su uso y los [planes de Azure Scheduler].
 
@@ -216,7 +216,7 @@ Desde la nueva hoja, puede ajustar los permisos y editar los scripts de la API.
 Todos los trabajos de Programador están disponibles a través de la sección de colecciones de trabajo de Programador.  Para acceder a los trabajos de Programador:
 
 1. Inicie sesión en el [Azure Portal].
-2. Seleccione **Examinar >**, escriba **Programación** en el cuadro *Filtro* y luego seleccione **Scheduler Collections** (Colecciones de Scheduler).
+2. Seleccione **Examinar >**, escriba **Programación** en el cuadro *Filtro* y luego seleccione **Colecciones de Scheduler**.
 3. Seleccione la colección de trabajos para su sitio.  Se denomina *nombre_del_sitio*-Jobs.
 4. Haga clic en **Configuración**.
 5. Haga clic en **Trabajos del Programador** en ADMINISTRAR.
@@ -348,7 +348,7 @@ Si tiene un sitio de ASP.NET, los cambios realizados en el archivo `Web.config` 
 </configuration>
 ```
 
-Para más información, consulte el documento [XDT Transform Samples] (Ejemplos de transformación de XDT) en GitHub.
+Para más información, consulte el documento [Ejemplos de transformación de XDT] en GitHub.
 
 ### <a name="migrated-mobile-services-cannot-be-added-to-traffic-manager"></a>Los Servicios móviles migrados no se pueden agregar al Administrador de tráfico
 Cuando se crea un perfil de Traffic Manager, no se puede elegir directamente un servicio móvil migrado para el perfil.  Use un "punto de conexión externo".  El punto de conexión externo solo puede agregarse a través de PowerShell.  Para más información, consulte el [tutorial de Traffic Manager](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
@@ -395,5 +395,5 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 [Postman]: http://www.getpostman.com/
 [ranuras de ensayo]: ../app-service/web-sites-staged-publishing.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
-[XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
+[Ejemplos de transformación de XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functions]: ../azure-functions/functions-overview.md

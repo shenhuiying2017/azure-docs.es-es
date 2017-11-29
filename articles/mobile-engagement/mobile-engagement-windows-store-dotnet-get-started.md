@@ -130,7 +130,7 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 En las secciones siguientes se instala la aplicación para recibirlos.
 
 ### <a name="enable-your-app-to-receive-wns-push-notifications"></a>Habilitar la aplicación para recibir notificaciones de inserción de WNS
-1. En el archivo , en la pestaña `Package.appxmanifest`Aplicación**, en** Notificaciones**, seleccione** Sí**** en **Capacidad de aviso:**.
+1. En el archivo `Package.appxmanifest`, en la pestaña **Aplicación**, en **Notificaciones**, establezca **Capacidad de aviso:** en **Sí**.
 
     ![][5]
 

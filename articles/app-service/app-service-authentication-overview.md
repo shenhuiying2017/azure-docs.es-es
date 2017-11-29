@@ -67,7 +67,7 @@ Aunque puede conceder acceso a los usuarios a la aplicación, también puede con
 
 En los escenarios entre servicios, el Servicio de aplicaciones puede proteger la aplicación mediante Azure Active Directory. La aplicación de llamada solo debe proporcionar un token de autorización de una entidad de servicio de Azure Active Directory, obtenido al proporcionar el identificador y el secreto de cliente desde Azure Active Directory. Un ejemplo de este escenario que usa aplicaciones de API de ASP.NET puede encontrarse en el tutorial [Autenticación de entidad de servicio para API Apps][apia-service].
 
-Si desea usar la autenticación de Servicio de aplicaciones para controlar un escenario entre servicios, puede usar certificados de cliente o una autenticación básica. Para obtener información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](app-service-web-configure-tls-mutual-auth.md). Para más información sobre la autenticación básica en ASP.NET, consulte [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters)(Filtros de autenticación en ASP.NET Web API 2).
+Si desea usar la autenticación de Servicio de aplicaciones para controlar un escenario entre servicios, puede usar certificados de cliente o una autenticación básica. Para obtener información acerca de los certificados de cliente en Azure, consulte [Configuración de la autenticación mutua de TLS para una aplicación web](app-service-web-configure-tls-mutual-auth.md). Para más información sobre la autenticación básica en ASP.NET, consulte [Filtros de autenticación en ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
 La autenticación de cuentas de servicio desde una aplicación lógica de Servicio de aplicaciones en una aplicación de API es un caso especial que se explica detalladamente en [Uso de la API personalizada hospedada en Servicio de aplicaciones con aplicaciones lógicas](../logic-apps/logic-apps-custom-hosted-api.md).
 
@@ -116,11 +116,11 @@ Si quiere usar un sistema de identidades diferente a los proporcionados aquí, t
 Los siguientes tutoriales muestran cómo incorporar la autenticación a los clientes móviles con el flujo dirigido al servidor:
 
 * [Incorporación de la autenticación a la aplicación iOS][iOS]
-* [Add Authentication to your Android app][Android] (Adición de autenticación a una aplicación Android)
-* [Add Authentication to your Windows app][Windows] (Adición de autenticación a una aplicación Windows)
-* [Add authentication to your Xamarin.iOS app][Xamarin.iOS] (Adición de autenticación a una aplicación Xamarin.iOS)
-* [Add authentication to your Xamarin.Android app][Xamarin.Android] (Adición de autenticación a una aplicación Xamarin.Android)
-* [Add authentication to your Xamarin.Forms app][Xamarin.Forms] (Adición de autenticación a una aplicación Xamarin.Forms)
+* [Adición de autenticación a una aplicación Android][Android]
+* [Adición de autenticación a una aplicación Windows][Windows]
+* [Adición de autenticación a una aplicación Xamarin.iOS][Xamarin.iOS]
+* [Adición de autenticación a una aplicación Xamarin.Android][Xamarin.Android]
+* [Adición de autenticación a una aplicación Xamarin.Forms][Xamarin.Forms]
 * [Adición de la autenticación a la aplicación de Cordova][Cordova]
 
 Si desea usar el flujo dirigido al cliente para Azure Active Directory, use los siguientes recursos:

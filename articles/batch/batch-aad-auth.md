@@ -138,7 +138,7 @@ Para autenticarse con una entidad de servicio, debe asignar un rol RBAC a la apl
 
 1. En Azure Portal, vaya a la cuenta de Batch utilizada por la aplicación.
 2. En la hoja **Configuración** de la cuenta de Batch, seleccione **Control de acceso (IAM)**.
-3. Haga clic en el botón **Add** (Agregar). 
+3. Haga clic en el botón **Agregar**. 
 4. En el menú desplegable **Rol**, elija el rol _Colaborador_ o _Lector_ para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../active-directory/role-based-access-control-what-is.md).  
 5. Escriba el nombre de la aplicación en el campo **Seleccionar**. Seleccione la aplicación de la lista y haga clic en **Guardar**.
 

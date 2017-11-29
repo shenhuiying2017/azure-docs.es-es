@@ -264,7 +264,7 @@ La versión de la API de REST de Servicios multimedia es ahora la 2.9. A partir 
 
 ## <a id="january_changes_15"></a>Versión de enero de 2015
 ### <a name="general-media-services-updates"></a>Actualizaciones generales de Servicios multimedia
-Anuncio de disponibilidad General (GA) de protección de contenido con cifrado dinámico. Para más información, consulte [Azure Media Services enhances streaming security with General Availability of DRM technology](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/)(Servicios multimedia de Azure mejoran la seguridad de streaming con la disponibilidad general de tecnología DRM).
+Anuncio de disponibilidad General (GA) de protección de contenido con cifrado dinámico. Para más información, consulte [Servicios multimedia de Azure mejoran la seguridad de streaming con la disponibilidad general de tecnología DRM](https://azure.microsoft.com/blog/2015/01/29/azure-media-services-enhances-streaming-security-with-general-availability-of-drm-technology/).
 
 ### <a name="media-services-net-sdk-updates"></a>Actualizaciones del SDK .NET de Servicios multimedia
 Ahora la versión del SDK .NET de Servicios multimedia de Azure es la 3.1.0.1.
@@ -276,7 +276,7 @@ Esta versión marcó el constructor Microsoft.WindowsAzure.MediaServices.Client.
 
 ## <a id="december_changes_14"></a>Versión de diciembre de 2014
 ### <a name="general-media-services-updates"></a>Actualizaciones generales de Servicios multimedia
-* Se agregaron algunas actualizaciones y nuevas características al procesador multimedia del indizador de Azure. Para obtener más información, consulte [Azure Media Indexer Version 1.1.6.7 Release Notes](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/)(Notas de la versión de Azure Media Indexer versión 1.1.6.7).
+* Se agregaron algunas actualizaciones y nuevas características al procesador multimedia del indizador de Azure. Para obtener más información, consulte [Notas de la versión de Azure Media Indexer versión 1.1.6.7](https://azure.microsoft.com/blog/2014/12/03/azure-media-indexer-version-1-1-6-7-release-notes/).
 * Se agregó una nueva API de REST que permite actualizar unidades reservadas de codificación: [EncodingReservedUnitType con REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype).
 * Se agregó compatibilidad con CORS para el servicio de entrega de claves.
 * Se realizaron mejoras en el rendimiento de la directiva de autorización de consultas.
@@ -287,7 +287,7 @@ Esta versión marcó el constructor Microsoft.WindowsAzure.MediaServices.Client.
 * [SDK .NET de Servicios multimedia de Azure](http://www.nuget.org/packages/windowsazure.mediaservices/) es la 3.1.0.0.
 * Se ha actualizado la dependencia del SDK de .Net a .NET Framework 4.5.
 * Se agregó una nueva API que permite actualizar unidades reservadas de codificación. Para obtener más información, consulte [Actualización del tipo de unidad reservada y aumento de las unidades reservadas de codificación mediante .NET](media-services-dotnet-encoding-units.md).
-* Se agregó compatibilidad con JWT (token web de JSON) para la autenticación de token. Para obtener más información, consulte [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)(Autenticación de token JWD en Servicios multimedia y cifrado dinámico de Azure).
+* Se agregó compatibilidad con JWT (token web de JSON) para la autenticación de token. Para obtener más información, consulte [Autenticación de token JWD en Servicios multimedia y cifrado dinámico de Azure](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 * Se agregaron desplazamientos relativos para BeginDate y ExpirationDate en la plantilla de licencia de PlayReady.
 
 ## <a id="november_changes_14"></a>Versión de noviembre de 2014
@@ -313,7 +313,7 @@ Se han realizado los siguientes cambios:
 * Validación de la configuración al actualizar el canal y extremo de streaming.
 
 ### <a name="new-github-repository-to-host-media-services-samples"></a>Nuevo repositorio de GitHub para hospedar las muestras de Servicios multimedia
-Hay ejemplos en el [Azure Media Services samples GitHub repository](https://github.com/Azure/Azure-Media-Services-Samples)(repositorio de GitHub de ejemplo de Servicios multimedia de Azure).
+Hay ejemplos en el [repositorio de GitHub de ejemplo de Servicios multimedia de Azure](https://github.com/Azure/Azure-Media-Services-Samples).
 
 ## <a id="september_changes_14"></a>Versión de septiembre de 2014
 La versión de los metadatos de REST de Servicios multimedia es ahora la 2.7. Para obtener más información sobre las últimas actualizaciones de REST, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
@@ -355,7 +355,7 @@ Actualmente, cuenta con las dos opciones siguientes para resolver el problema.
 * Activos cifrados de almacenamiento de streaming. Para obtener más información, consulte [Streaming de contenido cifrado de almacenamiento].
 
 ## <a id="august_changes_14"></a>Versión de agosto de 2014
-Cuando se codifica un activo, se produce un activo de salida tras la finalización del trabajo de codificación. Hasta esta versión, el codificador de Servicios multimedia de Azure producía metadatos sobre activos de salida. A partir de esta versión, el codificador también produce metadatos sobre activos de entrada. Para más información, consulte los artículos [Input Metadata] (Metadatos de entrada) y [Output Metadata] (Metadatos de salida).
+Cuando se codifica un activo, se produce un activo de salida tras la finalización del trabajo de codificación. Hasta esta versión, el codificador de Servicios multimedia de Azure producía metadatos sobre activos de salida. A partir de esta versión, el codificador también produce metadatos sobre activos de entrada. Para más información, consulte los artículos [ Metadatos de entrada] y [ Metadatos de salida] .
 
 ## <a id="july_changes_14"></a>Versión de julio de 2014
 Se han corregido los siguientes errores para Azure Media Services Packager y Encryptor:
@@ -411,7 +411,7 @@ Se han realizado los siguientes cambios en la versión 3.0.0.3:
 
 La última versión del SDK de Servicios multimedia es ahora la 3.0.0.0. Puede descargar el último paquete de Nuget u obtener los bits de [GitHub].
 
-A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutilizar los tokens de [Servicio de control de acceso de Active Directory (ACS) de Azure] . Para más información, consulte la sección "Reusing Access Control Service Tokens" (Reutilización de los tokens de Access Control Service) del artículo [Connecting to Media Services with the Media Services SDK for .NET] (Conexión de Media Service con el SDK de Media Services para .NET).
+A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutilizar los tokens de [Servicio de control de acceso de Active Directory (ACS) de Azure] . Para más información, consulte la sección "Reusing Access Control Service Tokens" (Reutilización de los tokens de Access Control Service) del artículo [Conexión de Media Service con el SDK de Media Services para .NET] .
 
 ### <a name="dec_13_donnet_ext_changes"></a>Extensiones del SDK .NET de Servicios multimedia de Azure 2.0.0.0
 Las extensiones del SDK .NET de Servicios multimedia de Azure son un conjunto de métodos de extensión y funciones auxiliares que simplificarán su código y facilitarán el desarrollo con Servicios multimedia de Azure. Puede obtener los bits más recientes en [Extensiones del SDK .NET de Servicios multimedia de Azure].
@@ -559,8 +559,8 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [foro de MSDN de Servicios multimedia de Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Referencia de la API de REST de Servicios multimedia de Azure]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Detalles de precios de Servicios multimedia]: http://azure.microsoft.com/pricing/details/media-services/
-[Input Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[Output Metadata]: http://msdn.microsoft.com/library/azure/dn783217.aspx
+[ Metadatos de entrada]: http://msdn.microsoft.com/library/azure/dn783120.aspx
+[ Metadatos de salida]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [Entrega de contenido]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Indización de archivos multimedia con Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
@@ -581,7 +581,7 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Unión de segmentos de vídeo]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [SDK .NET de Servicios multimedia de Azure 3.0.0.1 y 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Servicio de control de acceso de Active Directory (ACS) de Azure]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Conexión de Media Service con el SDK de Media Services para .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Extensiones del SDK .NET de Servicios multimedia de Azure]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
