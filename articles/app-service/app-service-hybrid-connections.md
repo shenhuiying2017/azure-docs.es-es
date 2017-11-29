@@ -141,11 +141,11 @@ Cuando se inicia la interfaz de usuario de HCM, lo primero que se ve es una tabl
 Para agregar una o varias conexiones híbridas a HCM:
 
 1. Inicie la interfaz de usuario de HCM.
-1. Haga clic en Configure other hybrid connectio (Configurar otra conexión híbrida). ![Adición de una conexión híbrida al HCM][8]
+1. Haga clic en Configure other hybrid connectio (Configurar otra conexión híbrida). ![Agregar una conexión híbrida al HCM][8]
 
 1. Inicie sesión con su cuenta de Azure
 1. Elija una suscripción
-1. Haga clic en las conexiones híbridas que desea que retransmita el HCM. ![Selección de una HC][9].
+1. Haga clic en las conexiones híbridas que desea que retransmita el HCM. ![Seleccionar una HC][9]
 
 1. Haga clic en Guardar
 

@@ -49,7 +49,7 @@ Complete esta sección para habilitar las notificaciones push para el proyecto D
 ### <a name="add-push-notifications-to-the-android-project"></a>Incorporación de notificaciones push al proyecto de Android
 Con el back-end configurado con FCM, puede agregar componentes y códigos al cliente para registrar con FCM. También puede registrarse para notificaciones de inserción con Azure Notification Hubs a través del back-end de Mobile Apps y recibir notificaciones.
 
-1. En el proyecto **Droid**, haga clic con el botón derecho en la carpeta **Components** (Componentes) y haga clic en **Get More Components...** (Obtener más componentes...). Después, busque el componente **Google Cloud Messaging Client** (Cliente de mensajería en la nube de Google) y agréguelo al proyecto. Este componente es compatible con las notificaciones push para un proyecto de Xamarin para Android.
+1. En el proyecto **Droid**, haga clic con el botón derecho en la carpeta **Components** (Componentes) y haga clic en **Get More Components...** (Obtener más componentes...). Después, busque el componente **Google Cloud Messaging Client** (Cliente de Google Cloud Messaging) y agréguelo al proyecto. Este componente es compatible con las notificaciones push para un proyecto de Xamarin para Android.
 2. Abra el archivo de proyecto MainActivity.cs y agregue la siguiente instrucción al principio del archivo:
 
         using Gcm.Client;
