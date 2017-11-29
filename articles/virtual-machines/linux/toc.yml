@@ -83,7 +83,7 @@
         - name: Proceso de alto rendimiento
           href: sizes-hpc.md
         - name: Unidades de proceso de Azure (ACU)
-          href: sizes-general.md
+          href: acu.md
     - name: Distribuciones aprobadas
       href: endorsed-distros.md
     - name: Mantenimiento y actualizaciones
