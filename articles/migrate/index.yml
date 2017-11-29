@@ -1,0 +1,26 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure Migrate
+metadata:
+  title: 'Documentación de Azure Migrate: tutoriales y referencia de API | Microsoft Docs'
+  description: Aprenda a evaluar máquinas locales para la migración a Azure
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: Azure Migrate le ayuda a detectar y a evaluar la idoneidad de las máquinas locales para la migración a Azure y proporciona estimaciones de tamaño y de costo para ejecutar máquinas virtuales de Azure.
+sections:
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: Aprenda a evaluar máquinas virtuales de VMware para la migración a Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-assessment-vmware">Detección y evaluación de las máquinas virtuales locales de VMware</a>

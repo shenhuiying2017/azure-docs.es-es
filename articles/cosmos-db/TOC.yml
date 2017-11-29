@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Creación de particiones
       href: partition-data.md
+    - name: Claves únicas
+      href: unique-keys.md
     - name: Coherencia
       href: consistency-levels.md
     - name: Rendimiento

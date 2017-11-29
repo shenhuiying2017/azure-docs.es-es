@@ -62,7 +62,7 @@ Para comenzar, consulte [Conexión y consultas con SQLCMD][Connect and query wit
 ## <a name="scale-compute"></a>Escalado de proceso
 En Almacenamiento de datos SQL, puede escalar horizontalmente o de nuevo de forma rápida el rendimiento mediante el aumento o disminución de los recursos de proceso de la CPU, la memoria y el ancho de banda de E/S. Para escalar el rendimiento, todo lo que necesita hacer es ajustar el número de unidades de almacenamiento de datos (DWU) que asigna Almacenamiento de datos SQL. Almacenamiento de datos SQL realiza el cambio y controla todos los cambios subyacentes al hardware o software rápidamente.
 
-Para obtener más información sobre el escalado de DWU, consulte [Scale performance] (Escalado del rendimiento).
+Para obtener más información sobre el escalado de DWU, consulte [Escalado del rendimiento].
 
 ## <a name="pause-and-resume"></a>Pausa y reanudación
 Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por DWU mientras la base de datos se encuentre en pausa.
@@ -103,7 +103,7 @@ Unos buenos principios de diseño de base de datos le facilitarán la administra
 [Pause compute]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Restore from snapshot]: sql-data-warehouse-restore-database-overview.md
 [Resume compute]: sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale performance]: sql-data-warehouse-manage-compute-overview.md#scale-compute
+[Escalado del rendimiento]: sql-data-warehouse-manage-compute-overview.md#scale-compute
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SQL Data Warehouse Best Practices]: sql-data-warehouse-best-practices.md
 [SQL Data Warehouse system views]: sql-data-warehouse-reference-tsql-system-views.md

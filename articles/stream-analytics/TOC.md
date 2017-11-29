@@ -20,7 +20,7 @@
 
 ## Creación de trabajos
 ### [Creación de entradas](stream-analytics-define-inputs.md)
-### [Datos de entrada de ejemplo](stream-analytics-sample-data-input.md)
+### [Prueba de consultas y datos de entrada de ejemplo](stream-analytics-sample-data-input.md)
 ### [Patrones de consultas comunes](stream-analytics-stream-analytics-query-patterns.md)
 ### [Funciones de ventana](stream-analytics-window-functions.md)
 

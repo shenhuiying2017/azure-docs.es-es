@@ -29,6 +29,8 @@
           href: azure-stack-asdk-release-notes.md
         - name: Notas de la versión de los sistemas integrados
           items:
+            - name: Actualización 1711
+              href: azure-stack-update-1711.md
             - name: Actualización 1710
               href: azure-stack-update-1710.md
     - name: Características y conceptos principales
@@ -46,7 +48,7 @@
         - name: Implementación
           href: azure-stack-run-powershell-script.md
         - name: Instale PowerShell.
-          href: azure-stack-powershell-configure-quickstart.md
+          href: azure-stack-powershell-install.md
         - name: Registro
           href: azure-stack-register.md
         - name: Conexión a Azure Stack

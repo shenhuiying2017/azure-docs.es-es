@@ -1,0 +1,40 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure Location Based Services (versión preliminar)
+metadata:
+  document_id: null
+  title: Documentación de Azure Location Based Services (versión preliminar) | Microsoft Docs
+  meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
+  services: location-based-services
+  author: philmea
+  manager: timlt
+  ms.service: location-based-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: philmea
+abstract:
+  description: 'Azure Location Based Services (versión preliminar) ofrece a los desarrolladores de todos los sectores unas potentes funcionalidades geoespaciales, integradas con unos nuevos datos de asignación que son necesarios para proporcionar contexto geográfico a aplicaciones web y móviles. Este servicio es un conjunto de API de REST compatible con One API de Azure, acompañado de un control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios.'
+sections:
+  - title: Inicios rápidos en 5 minutos
+    items:
+      - type: paragraph
+        text: Inicie una aplicación de búsqueda de mapas mediante Azure Location Based Services (versión preliminar).
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Iniciar demostración de aplicación de mapas
+            href: /azure/location-based-services/quick-demo-map-app
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: Compile una aplicación web geoespacial que busque puntos de interés y rutas a ubicaciones mediante Azure Location Based Services (versión preliminar).
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/location-based-services/tutorial-search-location">Búsqueda de puntos de interés</a>
+          - html: <a href="/azure/location-based-services/tutorial-route-location">Ruta a un punto de interés</a>
+          - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Rutas por modo de viaje</a>
