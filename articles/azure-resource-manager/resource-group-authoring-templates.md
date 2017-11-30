@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 85fff4c8c5a68a4ebaa63b263e90d0220c273e23
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: b8d1988a8705e0708e412c24fb5b49f5ece31429
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
-En este tema se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para obtener instrucciones detalladas sobre cómo crear una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
+En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para obtener instrucciones detalladas sobre cómo crear una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de plantilla
 En la estructura más simple, una plantilla contiene los siguientes elementos:
@@ -66,11 +66,31 @@ Cada elemento contiene propiedades que pueden incluirse. En el ejemplo siguiente
             }
         }
     },
-    "variables": {  
+    "variables": {
         "<variable-name>": "<variable-value>",
-        "<variable-name>": { 
-            <variable-complex-type-value> 
-        }
+        "<variable-object-name>": {
+            <variable-complex-type-value>
+        },
+        "<variable-object-name>": {
+            "copy": [
+                {
+                    "name": "<name-of-array-property>",
+                    "count": <number-of-iterations>,
+                    "input": {
+                        <properties-to-repeat>
+                    }
+                }
+            ]
+        },
+        "copy": [
+            {
+                "name": "<variable-array-name>",
+                "count": <number-of-iterations>,
+                "input": {
+                    <properties-to-repeat>
+                }
+            }
+        ]
     },
     "resources": [
       {
@@ -117,7 +137,7 @@ Cada elemento contiene propiedades que pueden incluirse. En el ejemplo siguiente
 }
 ```
 
-Examinaremos las secciones de la plantilla con mayor detenimiento más adelante en este tema.
+En este artículo se describen las secciones de la plantilla con más detalle.
 
 ## <a name="expressions-and-functions"></a>Expresiones y funciones
 La sintaxis básica de la plantilla es JSON. Sin embargo, las expresiones y funciones amplían los valores JSON disponibles en la plantilla.  Las expresiones se escriben en los literales de cadena JSON cuyo primer y último caracteres son los corchetes `[` y `]`, respectivamente. El valor de la expresión se evalúa cuando se implementa la plantilla. Mientras se escribe como un literal de cadena, el resultado de evaluar la expresión puede ser de un tipo diferente de JSON, como una matriz o un entero, dependiendo de la expresión real.  Para que una cadena literal empiece con un corchete `[`, pero no se interprete como una expresión, agregue otro corchete para que la cadena comience con `[[`.
@@ -332,6 +352,33 @@ Puede usar la sintaxis **copy** para crear una variable con una matriz de varios
     }
   }
 }
+```
+
+También puede especificar más de un objeto cuando use la copia para crear variables. En el siguiente ejemplo se definen dos matrices como variables. Una se denomina **disks-top-level-array** y tiene cinco elementos. La otra se llama **a-different-array** y tiene tres elementos.
+
+```json
+"variables": {
+    "copy": [
+        {
+            "name": "disks-top-level-array",
+            "count": 5,
+            "input": {
+                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('disks-top-level-array')]"
+            }
+        },
+        {
+            "name": "a-different-array",
+            "count": 3,
+            "input": {
+                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
+                "diskSizeGB": "1",
+                "diskIndex": "[copyIndex('a-different-array')]"
+            }
+        }
+    ]
+},
 ```
 
 ## <a name="resources"></a>Recursos

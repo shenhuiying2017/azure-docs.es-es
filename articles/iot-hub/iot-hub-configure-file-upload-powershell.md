@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: a72bda794b2da3e044c46249559610d06b1f1843
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
 
@@ -99,7 +99,7 @@ Ahora puede configurar el centro de IoT para habilitar la [funcionalidad de carg
 
 La configuración requiere los siguientes valores:
 
-**Contenedor de almacenamiento:**: un contenedor de blobs en una cuenta de almacenamiento de Azure en la suscripción actual para asociar con su centro de IoT. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. IoT Hub genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
+**Contenedor de almacenamiento:**: un contenedor de blobs en una cuenta de Azure Storage en la suscripción actual para asociar con IoT Hub. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. IoT Hub genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
 
 **Receive notifications for uploaded files** (Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos.
 
@@ -136,7 +136,7 @@ Siga estos vínculos para más información sobre la administración de Azure Io
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simular un dispositivo con IoT Edge][lnk-iotedge]
+* [Implementación de AI en dispositivos perimetrales con Azure IoT Edge][lnk-iotedge]
 * [Protección total de la solución de IoT][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
@@ -146,7 +146,7 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/

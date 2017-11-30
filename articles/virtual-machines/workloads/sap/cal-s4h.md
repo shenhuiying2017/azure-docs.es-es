@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementación de SAP S/4HANA o BW/4HANA en Azure
 En este artículo se describe cómo implementar S/4HANA en Azure por medio de SAP Cloud Appliance Library (SAP CAL) 3.0. Para implementar otras soluciones basadas en SAP HANA, por ejemplo, BW/4HANA, siga los mismos pasos.
@@ -95,7 +95,7 @@ Ha creado correctamente una cuenta de SAP CAL que puede:
 Ya puede empezar a implementar S/4HANA en su suscripción de usuario en Azure.
 
 > [!NOTE]
-Antes de continuar, determine si dispone de cuotas de núcleos de Azure para máquinas virtuales de la serie H de Azure. En este momento, SAP CAL usa máquinas virtuales de la serie H de Azure para implementar algunas de las soluciones basadas en SAP HANA. Su suscripción de Azure podría no tener ninguna cuota de núcleos para la serie H. Si es así, tendrá que ponerse en contacto con el soporte técnico de Azure para obtener una cuota de al menos 16 núcleos de la serie H.
+Antes de continuar, determine si dispone de las cuotas de unidades vCPU de Azure para máquinas virtuales de la serie H de Azure. En este momento, SAP CAL usa máquinas virtuales de la serie H de Azure para implementar algunas de las soluciones basadas en SAP HANA. Es posible que su suscripción a Azure no tenga ninguna cuota de unidades vCPU para la serie H. Si es así, deberá ponerse en contacto con el soporte técnico de Azure para obtener una cuota de al menos 16 unidades vCPU de la serie H.
 
 > [!NOTE]
 Al implementar una solución de Azure en SAP CAL, es posible que solo pueda elegir una región de Azure. Para implementar en otras regiones de Azure distintas a la que sugiere SAP CAL, debe adquirir una suscripción de CAL desde SAP. Es posible que también necesite abrir un mensaje con SAP para habilitar su cuenta de CAL para entregar en regiones de Azure distintas de las que se sugirieron inicialmente.

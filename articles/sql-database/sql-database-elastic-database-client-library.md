@@ -15,22 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Creación de bases de datos escalables en la nube
 El escalado horizontal de bases de datos puede realizarse con facilidad mediante herramientas y características escalables de Azure SQL Database. En concreto, puede usar la **Biblioteca de cliente de Elastic Database** para crear y administrar bases de datos de escalado horizontal. Esta característica permite desarrollar fácilmente aplicaciones particionadas mediante cientos (o incluso miles) de bases de datos SQL de Azure. [trabajos elásticos](sql-database-elastic-jobs-powershell.md) para ayudar a facilitar la administración de estas bases de datos.
 
-Para instalar la biblioteca, vaya a NuGet, en la dirección [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Para descargar:
+* la versión de .NET de la biblioteca, consulte [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* la versión de Java de la biblioteca, consulte [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Documentación
 1. [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md)
 2. [Características de Elastic Database](sql-database-elastic-scale-introduction.md)
 3. [Administración de mapas de particiones.](sql-database-elastic-scale-shard-map-management.md)
-4. [Migrate existing databases to scale-out (Migrar bases de datos existentes de escalado horizontal)](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Migración de bases de datos existentes al escalado horizontal](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Consultas en varias particiones](sql-database-elastic-scale-multishard-querying.md)
 7. [Incorporación de una partición con herramientas de Elastic Database](sql-database-elastic-scale-add-a-shard.md)
@@ -50,7 +52,7 @@ El escalado horizontal de aplicaciones mediante *particionamiento* presenta desa
 - **Administración de Shard Map Manager**: se crea una base de datos especial llamada "Shard Map Manager". La administración de mapas de particiones es la capacidad que tiene una aplicación de administrar metadatos sobre sus particiones. Los desarrolladores pueden usar esta funcionalidad para registrar bases de datos como particiones, describir las asignaciones de claves de particionamiento individuales o intervalos de claves para esas bases de datos y mantener estos metadatos a medida que la cantidad y la composición de bases de datos evoluciona para reflejar los cambios en la capacidad. Sin la biblioteca de cliente de bases de datos flexible, necesitará dedicar mucho tiempo a escribir el código de administración al implementar el particionamiento. Para obtener más información, consulte [Administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md).
 
 - **Enrutamiento dependiente de los datos**: imagine que la aplicación recibe una solicitud. Según el valor de clave de particionamiento de la solicitud, la aplicación necesita determinar la base de datos correcta basada en el valor de clave. A continuación, abre una conexión a la base de datos para procesar la solicitud. El enrutamiento dependiente de los datos proporciona la capacidad de abrir conexiones con una sola llamada simple al mapa de particiones de la aplicación. El enrutamiento dependiente de los datos era otra área del código de infraestructura que ahora está cubierta por la funcionalidad de la biblioteca de cliente de bases de datos elásticas. Para obtener más información, consulte [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md).
-- **Consultas a través de particiones múltiples (MSQ)**: las consultas a través de particiones múltiples cuando una solicitud implica varias particiones (o todas). Una consulta a través de particiones múltiples ejecuta el mismo código T-SQL en todas las particiones o en un conjunto de particiones. Los resultados de las particiones implicadas se combinan en un conjunto de resultados global usando la semántica UNION ALL. La funcionalidad que se expone a través de la biblioteca de cliente gestiona muchas tareas, como: administración de conexiones, administración de subprocesos, gestión de errores y procesamiento de resultados intermedios. MSQ puede consultar hasta cientos de particiones. Para obtener más información, consulte [Consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md).
+- **Consultas a través de particiones múltiples (MSQ)**: las consultas a través de particiones múltiples cuando una solicitud implica varias particiones (o todas). Una consulta a través de particiones múltiples ejecuta el mismo código T-SQL en todas las particiones o en un conjunto de particiones. Los resultados de las particiones implicadas se combinan en un conjunto de resultados global usando la semántica UNION ALL. La funcionalidad que se expone a través de la biblioteca cliente controla muchas tareas, entre ellas: administración de conexiones, administración de subprocesos, control de errores y procesamiento de resultados intermedios. MSQ puede consultar hasta cientos de particiones. Para obtener más información, consulte [Consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md).
 
 En general, los clientes que usan las herramientas de bases de datos elásticas pueden esperar obtener toda la funcionalidad de T-SQL al enviar las operaciones de partición local en lugar de las operaciones entre particiones que tienen su propia semántica.
 
@@ -58,15 +60,11 @@ En general, los clientes que usan las herramientas de bases de datos elásticas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Biblioteca de cliente de Elastic Database](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/): para **instalar** la biblioteca mediante NuGet.
+- Biblioteca cliente de Elastic Database ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)): para **descargar** la biblioteca.
 
 - [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md): para probar la **aplicación de ejemplo** que demuestra las funciones del cliente.
 
-- [Github, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools): la biblioteca es software de código abierto.
-    - La biblioteca de cliente de herramientas de Elastic Database permite a los desarrolladores de ADO.NET crear aplicaciones que implementan y utilizan el modelo conocido como particionamiento de base de datos en Azure SQL Database.
-
-- [La biblioteca de cliente de bases de datos elásticas tiene ahora código abierto.](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) **Entrada de blog** acerca de la Biblioteca de cliente de Elastic Database, con fecha del 9 de septiembre de 2015.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)): para realizar contribuciones al código.
 - [Información general sobre las consultas elásticas de Azure SQL Database](sql-database-elastic-query-overview.md): para usar consultas elásticas.
 
 - [Traslado de datos entre bases de datos escaladas horizontalmente en la nube](sql-database-elastic-scale-overview-split-and-merge.md): para obtener instrucciones sobre cómo utilizar la **herramienta de división y combinación**.

@@ -1,6 +1,6 @@
 ---
-title: Desencadenador de temporizador de Azure Functions | Microsoft Docs
-description: "Descubra cómo utilizar desencadenadores de temporizador en funciones de Azure."
+title: Desencadenador de temporizador de Azure Functions
+description: "Descubra cómo utilizar desencadenadores de temporizador en Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -17,42 +17,159 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 12beb090a95a31c7e83ae03a920016bdfbf474e3
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Desencadenador de temporizador de funciones de Azure
+# <a name="azure-functions-timer-trigger"></a>Desencadenador de temporizador de Azure Functions
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
-
-En este artículo se explica cómo configurar y codificar desencadenadores de temporizador en Azure Functions. Azure Functions incluye un enlace a un desencadenador de temporizador que le permite ejecutar su código de función según una programación definida. 
-
-El desencadenador de temporizador admite varias instancias de escalado horizontal. Una sola instancia de una función de temporizador determinada se ejecuta en todas las instancias.
+En este artículo se explica cómo usar desencadenadores de temporizador en Azure Functions. Con un desencadenador de temporizador puede ejecutar una función de forma programada. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a id="trigger"></a>
+## <a name="example"></a>Ejemplo
 
-## <a name="timer-trigger"></a>Desencadenador de temporizador
-El desencadenador de temporizador de una función usa el siguiente objeto JSON en la matriz `bindings` de function.json:
+Vea el ejemplo específico del lenguaje:
+
+* [C# precompilado](#trigger---c-example)
+* [Script de C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="c-example"></a>Ejemplo de C#
+
+En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que se ejecuta cada cinco minutos:
+
+```cs
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+}
+```
+
+### <a name="c-script-example"></a>Ejemplo de script de C#
+
+En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada.
+
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
-    "schedule": "<CRON expression - see below>",
-    "name": "<Name of trigger parameter in function signature>",
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
     "type": "timerTrigger",
     "direction": "in"
 }
 ```
 
-El valor de `schedule` es una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que incluye estos seis campos: 
+Este es el código de script de C#:
 
-    {second} {minute} {hour} {day} {month} {day-of-week}
-&nbsp;
+```csharp
+public static void Run(TimerInfo myTimer, TraceWriter log)
+{
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+}
+```
+
+### <a name="f-example"></a>Ejemplo de F#
+
+En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de script de F#](functions-reference-fsharp.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Este es el código del script de F#:
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter ) =
+    if (myTimer.IsPastDue) then
+        log.Info("F# function is running late.")
+    let now = DateTime.Now.ToLongTimeString()
+    log.Info(sprintf "F# function executed at %s!" now)
+```
+
+### <a name="javascript-example"></a>Ejemplo de JavaScript
+
+En el ejemplo siguiente se muestra un enlace de desencadenador de temporizador en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un registro que indica si esta invocación de función se debe a una repetición de la programación no ejecutada.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+    "schedule": "0 */5 * * * *",
+    "name": "myTimer",
+    "type": "timerTrigger",
+    "direction": "in"
+}
+```
+
+Este es el código del script de F#:
+
+```JavaScript
+module.exports = function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    if(myTimer.isPastDue)
+    {
+        context.log('Node.js is running late!');
+    }
+    context.log('Node.js timer trigger function ran!', timeStamp);   
+
+    context.done();
+};
+```
+
+## <a name="attributes-for-precompiled-c"></a>Atributos para C# precompilado
+
+Para funciones de [C# precompilado](functions-dotnet-class-library.md), use [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
+
+El constructor del atributo toma una expresión CRON, tal como se muestra en el ejemplo siguiente:
+
+```csharp
+[FunctionName("TimerTriggerCSharp")]
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+ ```
+
+Puede especificar un `TimeSpan` en lugar de una expresión CRON si la aplicación de función se ejecuta en un plan de App Service (no en un plan de consumo).
+
+## <a name="configuration"></a>Configuración
+
+En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `TimerTrigger`.
+
+|Propiedad de function.json | Propiedad de atributo |Descripción|
+|---------|---------|----------------------|
+|**type** | N/D | Debe establecerse en "timerTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
+|**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**name** | N/D | Nombre de la variable que representa el objeto de temporizador en el código de la función. | 
+|**schedule**|**ScheduleExpression**|En el plan de consumo, puede definir programaciones con una expresión CRON. Si utiliza un plan de App Service, también puede usar una cadena `TimeSpan`. Las secciones siguientes explican las expresiones CRON. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en un valor encapsulado en signos **%**, como en este ejemplo: "%NameOfAppSettingWithCRONExpression%". Cuando desarrolla localmente, la configuración de aplicación pasa a los valores del [archivo local.settings.json](functions-run-local.md#local-settings-file).|
+
+### <a name="cron-format"></a>Formato CRON 
+
+Una [expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) para el desencadenador de temporizador de Azure Functions incluye estos seis campos: 
+
+```
+{second} {minute} {hour} {day} {month} {day-of-week}
+```
+
 >[!NOTE]   
->En muchas de las expresiones CRON que se encuentran en Internet se omite el campo `{second}`. Si copia alguna de ellas, deberá ajustarla para el campo `{second}` adicional. Para obtener ejemplos específicos, vea [Programación de ejemplos](#examples) a continuación.
+>En muchas de las expresiones CRON que se encuentran en Internet se omite el campo `{second}`. Si copia información de uno de ellos, agregue el campo que falta, `{second}`.
+
+### <a name="cron-time-zones"></a>Zonas horarias CRON
 
 La zona horaria predeterminada que se usa con las expresiones CRON es la Hora universal coordinada (UTC). Para que la expresión CRON se base en otra zona horaria, cree una nueva configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE`. Establezca el valor en el nombre de la zona horaria deseada como se muestra en [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx) (Índice de zona horaria de Microsoft). 
 
@@ -67,12 +184,9 @@ Si lo prefiere, puede agregar una nueva configuración de aplicación para la ap
 ```json
 "schedule": "0 0 10 * * *",
 ``` 
+### <a name="cron-examples"></a>Ejemplos CRON
 
-
-<a name="examples"></a>
-
-## <a name="schedule-examples"></a>Ejemplos de programación
-Estos son algunos ejemplos de expresiones CRON que puede utilizar para la propiedad `schedule`. 
+Estos son algunos ejemplos de expresiones CRON que puede usar para el desencadenador de temporizador en Azure Functions. 
 
 Para que se desencadene una vez cada cinco minutos:
 
@@ -110,9 +224,8 @@ Para desencadenar a 9:30 cada día comprendido entre lunes y viernes:
 "schedule": "0 30 9 * * 1-5",
 ```
 
-<a name="usage"></a>
+## <a name="usage"></a>Uso
 
-## <a name="trigger-usage"></a>Uso del desencadenador
 Cuando se invoca una función de desencadenador de temporizador, se pasa a esta el [objeto de temporizador](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs). La siguiente función JSON es un ejemplo que representa el objeto de temporizador. 
 
 ```json
@@ -127,68 +240,14 @@ Cuando se invoca una función de desencadenador de temporizador, se pasa a esta 
 }
 ```
 
-<a name="sample"></a>
+## <a name="scale-out"></a>Escalado horizontal
 
-## <a name="trigger-sample"></a>Ejemplo de desencadenador
-Supongamos que el siguiente desencadenador de temporizador se encuentra en la matriz `bindings` de function.json:
-
-```json
-{
-    "schedule": "0 */5 * * * *",
-    "name": "myTimer",
-    "type": "timerTrigger",
-    "direction": "in"
-}
-```
-
-Vea el ejemplo específico del lenguaje que lee el objeto de temporizador para comprobar si se retrasa.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Ejemplo de desencadenador en C# #
-```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
-{
-    if(myTimer.IsPastDue)
-    {
-        log.Info("Timer is running late!");
-    }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
-}
-```
-
-<a name="triggerfsharp"></a>
-
-### <a name="trigger-sample-in-f"></a>Ejemplo de desencadenador en F# #
-```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
-    if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
-    let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-sample-in-nodejs"></a>Ejemplo de desencadenador en Node.js
-```JavaScript
-module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
-
-    context.done();
-};
-```
+El desencadenador de temporizador admite varias instancias de escalado horizontal. Una sola instancia de una función de temporizador determinada se ejecuta en todas las instancias.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
 
+> [!div class="nextstepaction"]
+> [Ir a una guía de inicio rápido que use un desencadenador de temporizador](functions-create-scheduled-function.md)
+
+> [!div class="nextstepaction"]
+> [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuración del servicio Experimentación de Azure Machine Learning
 
@@ -79,7 +79,7 @@ EnvironmentVariables:
 "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Puede accederse a estas variables de entorno en el código. Por ejemplo, este fragmento de código de phyton imprime la variable de entorno denominada “EXAMPLE_ENV_VAR1”.
+Puede accederse a estas variables de entorno en el código. Por ejemplo, este fragmento de código de phyton imprime la variable de entorno denominada "EXAMPLE_ENV_VAR1".
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
@@ -220,6 +220,8 @@ _**Información general de ejecución de máquina virtual remota para un script 
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Ejecución de un script en un clúster de HDInsight
 HDInsight es una plataforma popular para el análisis de macrodatos compatibles con Apache Spark. Workbench permite la experimentación con macrodatos mediante clústeres de Spark en HDInsight. 
+
+>![NOTA] El clúster de HDInsight debe usar Azure Blob como almacenamiento principal. Aún no se admite el almacenamiento de Azure Data Lake.
 
 Puede crear un destino de proceso y configuración de ejecución para un clúster de Spark en HDInsight con el comando siguiente:
 

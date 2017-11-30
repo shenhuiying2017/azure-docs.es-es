@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -131,7 +131,7 @@ Nombre | Valor
 ---- | -----
 storageAccountName | Es el nombre de la cuenta de almacenamiento en la que la extensión escribe los datos.
 storageAccountEndPoint | (Opcional) es el punto de conexión que identifica la nube en la que existe la cuenta de almacenamiento. Si no hubiera configuración, LAD selecciona la nube pública de Azure (`https://core.windows.net`) de forma predeterminada. Para usar una cuenta de almacenamiento en Azure Alemania, Azure Government o Azure China, establezca este valor como corresponda.
-storageAccountSasToken | Es un [token de SAS de cuenta](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) para blob services y table services (`ss='bt'`) aplicable a contenedores y objetos (`srt='co'`), que otorga permisos, los crea, los enumera, los actualiza y los escribe (`sp='acluw'`). *No* incluya el signo de interrogación principal (?).
+storageAccountSasToken | Es un [token de SAS de cuenta](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) para Blob services y Table services (`ss='bt'`) aplicable a contenedores y objetos (`srt='co'`), que otorga permisos, los crea, los enumera, los actualiza y los escribe (`sp='acluw'`). *No* incluya el signo de interrogación principal (?).
 mdsdHttpProxy | (Opcional) es información del proxy HTTP necesaria para habilitar la extensión para conectarse a la cuenta de almacenamiento y el punto de conexión especificados.
 sinksConfig | (Opcional) es información sobre destinos alternativos a los que pueden enviarse métricas y eventos. La información específica de cada receptor de datos admitido por la extensión se trata en las siguientes secciones.
 
@@ -319,7 +319,7 @@ DisplayName | La etiqueta (en el idioma especificado por la configuración regio
 
 El elemento counterSpecifier es un identificador arbitrario. Los consumidores de métricas, como la característica de creación de grafos y desencadenamiento alertas de Azure Portal, usan counterSpecifier como "clave" para identificar una métrica o instancia de una métrica. Para las métricas de `builtin`, se recomienda usar valores counterSpecifier que empiecen por `/builtin/`. Si va a recopilar una instancia específica de una métrica, se recomienda adjuntar el identificador de la instancia al valor de counterSpecifier. Estos son algunos ejemplos:
 
-* `/builtin/Processor/PercentIdleTime`: tiempo de inactividad promediado en todos los núcleos
+* `/builtin/Processor/PercentIdleTime`: tiempo de inactividad promediado en todas las vCPU
 * `/builtin/Disk/FreeSpace(/mnt)`: espacio libre para el elemento /mnt filesystem
 * `/builtin/Disk/FreeSpace`: espacio libre promediado entre todos los elementos filesystem montados
 
@@ -424,7 +424,7 @@ El proveedor de métricas builtin es una fuente de métricas del máximo interé
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>Métricas builtin para la clase Processor
 
-La clase de métricas Processor proporciona información sobre el uso del procesador en la máquina virtual. Al agregar porcentajes, el resultado es el promedio de todas las CPU. En una máquina virtual de dos núcleos, si uno de ellos estaba activo al 100 % y el otro, inactivo al 100 %, el valor de PercentIdleTime sería de 50. Si la actividad de cada núcleo era del 50 % durante el mismo período, el resultado indicado sería de 50. En una máquina virtual de cuatro núcleos, si uno de ellos estaba activo al 100 % y todos los demás, inactivos, el valor de PercentIdleTime sería de 75.
+La clase de métricas Processor proporciona información sobre el uso del procesador en la máquina virtual. Al agregar porcentajes, el resultado es el promedio de todas las CPU. En una máquina virtual de dos vCPU, si una de ellas estaba activa al 100 % y la otra, inactiva al 100 %, el valor de PercentIdleTime sería de 50. Si la actividad de cada vCPU era del 50 % durante el mismo período, el resultado indicado también sería de 50. En una máquina virtual de cuatro vCPU, si una de ellas estaba activa al 100 % y todas las demás, inactivas, el valor de PercentIdleTime sería de 75.
 
 counter | Significado
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | Del tiempo no inactivo, el porcentaje empleado en modo p
 
 Los cuatro primeros contadores deberían sumar un 100 %. Los tres últimos contadores también suman 100 %. Subdividen la suma de PercentProcessorTime, PercentIOWaitTime y PercentInterruptTime.
 
-Para obtener un único agregado de métricas de todos los procesadores, establezca `"condition": "IsAggregate=TRUE"`. Para obtener una métrica para un procesador específico, como el segundo procesador lógico de una máquina virtual de cuatro núcleos, establezca `"condition": "Name=\\"1\\""`. Los números de procesador lógico se encuentran en el rango `[0..n-1]`.
+Para obtener un único agregado de métricas de todos los procesadores, establezca `"condition": "IsAggregate=TRUE"`. Para obtener una métrica para un procesador específico, como el segundo procesador lógico de una máquina virtual de cuatro vCPU, establezca `"condition": "Name=\\"1\\""`. Los números de procesador lógico se encuentran en el rango `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>Métricas builtin para la clase Memory
 

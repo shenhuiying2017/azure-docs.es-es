@@ -12,15 +12,15 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: edcd9561778998c4df09cc5014f8b8ba81c0e369
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
 
-En este artículo se describe cómo cambiar la capacidad de su entorno en el entorno de Azure Time Series Insights a través de Azure Portal. La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado con la SKU seleccionada. 
+En este artículo se describe cómo cambiar la capacidad de su entorno en el entorno de Azure Time Series Insights a través de Azure Portal. La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado a la SKU seleccionada. 
 
 Puede usar Azure Portal para aumentar o disminuir la capacidad en una SKU de precios determinada. 
 
@@ -46,7 +46,7 @@ Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2
 ## <a name="change-the-capacity-of-your-environment"></a>Cambio de la capacidad del entorno
 1. En Azure Portal, localice y seleccione el entorno de Time Series Insights. 
 
-2. En el encabezado **Configuración**, haga clic en **Configurar**.
+2. En el menú de su entorno de Time Series Insights, seleccione **Configurar**.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

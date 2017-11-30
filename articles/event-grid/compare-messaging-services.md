@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Elija entre los servicios de Azure de entrega de mensajes.
 
@@ -32,20 +32,16 @@ Hay una diferencia importante entre los servicios que ofrecen un evento y los qu
 
 Un evento es una notificación ligera de una acción o un cambio de estado. Los datos de evento contienen información acerca de lo que ha ocurrido, pero no tienen los datos que desencadenaron el evento. Por ejemplo, un evento notifica a los suscriptores que se ha creado un archivo. Puede contener información general sobre el archivo, pero no contiene el propio archivo. Por lo general, los eventos desencadenan que los controladores de eventos actúen en tiempo real.
 
-Event Grid es un servicio de eventos.
-
 ### <a name="message"></a>Message
 
-Un mensaje son datos sin procesar producidos por un servicio que se consumen o almacenan en otro lugar. El mensaje contiene los datos que desencadenó la canalización del mensaje. Este mensaje puede ser cualquier cosa, desde un pedido de comercio electrónico a telemetría de usuario. A diferencia de una notificación de eventos, el publicador de un mensaje puede esperar una respuesta. Por ejemplo, un mensaje contiene los datos sin procesar, pero espera que la siguiente parte del sistema cree un archivo de datos. 
-
-Event Hubs y Service Bus son servicios de mensajería.
+Un mensaje son datos sin procesar producidos por un servicio que se consumen o almacenan en otro lugar. El mensaje contiene los datos que desencadenó la canalización del mensaje. Este mensaje puede ser cualquier cosa, desde un pedido de comercio electrónico a telemetría de usuario. A diferencia de una notificación de eventos, el publicador de un mensaje puede esperar una respuesta. Por ejemplo, un mensaje contiene los datos sin procesar, pero espera que la siguiente parte del sistema cree un archivo de datos.
 
 ## <a name="comparison-of-services"></a>Comparación de servicios
 
 | Servicio | Propósito | Tipo | Cuándo se deben usar |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Programación reactiva | Evento | Reacción ante los cambios de estado |
-| Event Hubs | Canalización de macrodatos | Message | Streaming de datos distribuidos y telemetría |
+| Event Grid | Programación reactiva | Distribución de eventos | Reacción ante los cambios de estado |
+| Event Hubs | Canalización de macrodatos | Streaming de eventos | Streaming de datos distribuidos y telemetría |
 | Azure Service Bus | Mensajería empresarial de gran valor | Message | Procesamiento de pedidos y transacciones financieras |
 
 ### <a name="event-grid"></a>Event Grid
@@ -62,7 +58,7 @@ Tiene las siguientes características:
 
 ### <a name="event-hubs"></a>Event Hubs
 
-Azure Event Hubs es una canalización de macrodatos. Facilita la captura, la retención y la reproducción de los datos de streaming de eventos y telemetría. Los datos pueden proceder de distintos orígenes simultáneos. Event Hubs permite que los datos de telemetría y eventos estén disponibles para una variedad de servicios de análisis e infraestructuras de procesamiento de streaming. Está disponible como transmisiones de datos o lotes de eventos agrupados. Este servicio proporciona una solución única que permite una recuperación de datos rápida para el procesamiento en tiempo real, así como una reproducción repetida de los datos sin procesar almacenados.
+Azure Event Hubs es una canalización de macrodatos. Facilita la captura, la retención y la reproducción de los datos de streaming de eventos y telemetría. Los datos pueden proceder de distintos orígenes simultáneos. Event Hubs permite que los datos de telemetría y eventos estén disponibles para una variedad de servicios de análisis e infraestructuras de procesamiento de streaming. Está disponible como transmisiones de datos o lotes de eventos agrupados. Este servicio proporciona una solución única que permite una recuperación de datos rápida para el procesamiento en tiempo real, así como una reproducción repetida de los datos sin procesar almacenados. Puede capturar los datos de streaming en un archivo para su procesamiento y análisis.
 
 Tiene las siguientes características:
 
@@ -72,6 +68,8 @@ Tiene las siguientes características:
 ### <a name="service-bus"></a>Azure Service Bus
 
 Service Bus se ha diseñado para aplicaciones empresariales tradicionales. Estas aplicaciones empresariales requieren transacciones, ordenación, detección de duplicados y coherencia inmediata. Service Bus permite que las aplicaciones en la nube nativas proporcionen una administración de transición de estado de confianza para los procesos empresariales. Cuando se administran mensajes de gran valor que no se pueden perder o duplicarse, use Azure Service Bus. Service Bus también facilita la comunicación de alta seguridad en soluciones híbridas en la nube y pueden conectar sistema locales existentes a soluciones en la nube.
+
+Service Bus es un sistema de mensajería asincrónica. Almacena los mensajes en un "agente" (por ejemplo, una cola) hasta que la parte consumidora esté preparada para recibirlos.
 
 Tiene las siguientes características:
 

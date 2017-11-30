@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Ejecución de tareas en contenedores en Azure Container Instances
 
@@ -172,6 +172,8 @@ Salida:
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+### <a name="persist-task-output"></a>Conservar la salida de la tarea
 
 Para más información acerca de cómo conservar la salida de los contenedores que se ejecutan hasta completarse, consulte [Montaje de un recurso compartido de archivos de Azure en Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 

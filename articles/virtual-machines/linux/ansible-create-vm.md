@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.openlocfilehash: 07cb786e3053cb933fb87b2991cebb979a91ace0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee499b57733cd19dfe411e0e463dd3c65e82a52d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Creación de una máquina virtual básica en Azure con Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar máquinas virtuales (VM) en Azure al igual que podría hacerlo con cualquier otro recurso. En este artículo se muestra cómo crear una VM básica con Ansible. También puede obtener información sobre cómo [crear un entorno de máquina virtual completo con Ansible](ansible-create-complete-vm.md).
@@ -29,7 +29,7 @@ Ansible permite automatizar la implementación y la configuración de recursos e
 Para administrar recursos de Azure con Ansible, necesita lo siguiente:
 
 - Los módulos de Ansible y SDK de Python de Azure instalados en el sistema de host.
-    - Instale Ansible en [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) y [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2).
+    - Instalar Ansible en [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) y [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2).
 - Las credenciales de Azure y Ansible configurado para usarlas.
     - [Creación de credenciales de Azure y configuración de Ansible](ansible-install-configure.md#create-azure-credentials).
 - CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. 

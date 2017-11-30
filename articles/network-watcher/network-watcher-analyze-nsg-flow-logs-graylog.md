@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 
@@ -148,9 +148,9 @@ Logstash sirve para aplanar los registros de flujo con formato JSON a un nivel d
     ```
 El archivo de configuración de Logstash proporcionado consta de tres partes: la entrada, el filtro y la salida. La sección de entrada designa el origen de entrada de los registros que va a procesar Logstash; en este caso, vamos a usar un complemento de entrada de blog de Azure (instalado en los pasos siguientes) que permite tener acceso a los archivos JSON del registro de flujo de grupo de seguridad de red almacenados en el almacenamiento de blobs.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+La sección Filtro aplana, después, cada archivo de registro de flujo para que cada tupla flujo individual y sus propiedades asociadas se convierta en un evento de Logstash independiente.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+Por último, la sección de salida desvía cada evento de Logstash al servidor de Graylog. Modifique el archivo de configuración de Logstash según sea necesario de acuerdo con sus necesidades específicas.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.

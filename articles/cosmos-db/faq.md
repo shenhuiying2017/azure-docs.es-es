@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceptos básicos de Azure Cosmos DB
@@ -396,7 +396,7 @@ Si usa la especificación de rendimiento, puede cambiarla de forma elástica par
 
 Azure Cosmos DB se ha diseñado para ser un sistema basado en contratos de nivel de servicio distribuido globalmente con garantías de disponibilidad, latencia y rendimiento. A diferencia de otros sistemas, cuando se reserva rendimiento en Azure Cosmos DB está garantizado. Azure Cosmos DB ofrece funcionalidades adicionales que los clientes han solicitado, como índices secundarios y distribución global.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Nunca aparece una notificación de “cuota completa" (que indica que una partición está completa) cuando se ingieren datos en Azure Table Storage. Con Table API, recibo este mensaje. ¿Esta oferta me limita y me obliga a cambiar mi aplicación actual?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Nunca aparece una notificación de "cuota completa" (que indica que una partición está completa) cuando se ingieren datos en Azure Table Storage. Con Table API, recibo este mensaje. ¿Esta oferta me limita y me obliga a cambiar mi aplicación actual?
 
 Azure Cosmos DB es un sistema basado en contratos de nivel de servicio que ofrece escalado ilimitado con garantías de latencia, rendimiento, disponibilidad y coherencia. Para obtener el rendimiento premium garantizado, asegúrese de que el tamaño de los datos y el índice son administrables y escalables. El límite de 10 GB en el número de entidades o elementos por clave de partición tiene por objeto asegurar un excelente rendimiento de consultas y búsquedas. Para asegurarse de que la aplicación se escala correctamente, incluso con Azure Storage, es recomendable que *no* cree una partición muy activa almacenando toda la información en una partición y realizando consultas en ella. 
 
@@ -431,7 +431,7 @@ Azure Cosmos DB establece el rendimiento predeterminado para el contenedor en fu
 El concepto de rendimiento se explica en el artículo [Unidades de solicitud en Azure Cosmos DB](request-units.md). El rendimiento de una tabla se distribuye equitativamente entre las particiones físicas subyacentes.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>¿Cuál es la cantidad predeterminada de RU/s de una tabla cuando se crea mediante CQL? ¿Qué ocurre si deseo cambiarlo?
-Azure Cosmos DB utiliza unidades de solicitud por segundo (RU/s) como la medida para proporcionar el rendimiento. Las tablas creadas a través de CQL tienen 400 RU. Puede cambiar el RU desde el portal a 10 000 RU. Si necesita más de 10 000 RU en la versión preliminar privada, puede crearlo primero desde el portal. O bien, si desea esta funcionalidad para CQL, contacte con nosotros en [askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB utiliza unidades de solicitud por segundo (RU/s) como la medida para proporcionar el rendimiento. Las tablas creadas a través de CQL tienen 400 RU. Puede cambiar la RU en el portal. 
 
 CQL
 ```
@@ -457,7 +457,7 @@ Los registros de diagnóstico se explican en el artículo [Registro de diagnóst
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>¿Se corresponde la clave principal con el concepto de clave de partición de Azure Cosmos DB?
 Sí, la clave de partición se utiliza para colocar la entidad en la ubicación correcta. En Azure Cosmos DB, se usa para encontrar una partición lógica apropiada que se almacena en una partición física. El concepto de creación de particiones también se explica en el artículo [Partición y escalado en Azure Cosmos DB](partition-data.md). La lección esencial de esto es que una partición lógica no debe superar el límite de 10 GB en la actualidad. 
 
-### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>¿Qué ocurre cuando recibo una notificación de “cuota completa" que indica que una partición está llena?
+### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>¿Qué ocurre cuando recibo una notificación de "cuota completa" que indica que una partición está llena?
 Azure Cosmos DB es un sistema basado en Acuerdos de Nivel de Servicio que ofrece un escalado ilimitado con garantías de latencia, rendimiento, disponibilidad y coherencia. La API de Cassandra también permite un almacenamiento ilimitado de datos. Este almacenamiento ilimitado se basa en la ampliación horizontal de los datos mediante la creación de particiones como concepto clave. El concepto de creación de particiones también se explica en el artículo [Partición y escalado en Azure Cosmos DB](partition-data.md).
 
 El límite de 10 GB en el número de entidades o elementos por partición lógica que debe cumplir. Para asegurarse de que la aplicación se escala correctamente incluso con Azure Storage, le pedimos que *no* cree una partición muy activa almacenando toda la información en una partición y realizando consultas en ella. Este error solo puede producirse si los datos están sesgados (tiene gran cantidad de datos para una clave de partición): es decir, más de 10 GB. Puede encontrar la distribución de datos mediante el portal de almacenamiento. La manera de corregir este error consiste en volver a crear la tabla y elegir un principal granular (una clave de partición), lo que permite una mejor distribución de datos.

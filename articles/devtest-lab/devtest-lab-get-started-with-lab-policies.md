@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de directivas básicas para un laboratorio de Azure DevTest Labs
 
-Azure DevTest Labs permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. En este artículo, empezará a trabajar con las directivas. Aprenderá a establecer dos de las directivas más importantes: limitar el número de máquinas virtuales que puede crear o reclamar un solo usuario, y configurar el apagado automático. Para ver cómo establecer todas las directivas de laboratorio, consulte el artículo [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
+Azure DevTest Labs permite controlar los costos y desperdiciar lo mínimo posible en sus laboratorios gracias a la posibilidad de administrar políticas (configuración) en cada uno de ellos. En este artículo, empezará a trabajar con las directivas. Aprenderá a establecer dos de las directivas más importantes: limitar el número de máquinas virtuales que puede crear o reclamar un solo usuario, y configurar el apagado automático. Para ver cómo establecer cada una de las directivas de laboratorio, vea [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
 ## <a name="accessing-a-labs-policies-in-azure-devtest-labs"></a>Acceso a las directivas de laboratorio en Azure DevTest Labs
 Los siguientes pasos le guiarán a través de la configuración de directivas para un laboratorio en Azure DevTest Labs:
@@ -37,9 +37,9 @@ Para ver (y cambiar) las directivas de un laboratorio, siga estos pasos:
 
 1. Seleccione **Configuration and policies** (Directivas y configuración).
 
-    ![Hoja de configuración de directiva](./media/devtest-lab-set-lab-policy/policies-menu.png)
+    ![Panel de configuración de directivas](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
-1. La hoja **Configuration and policies** (Directivas y configuración) contiene un menú de configuración donde puede especificar parámetros. Este artículo trata solo la configuración de **máquinas virtuales por usuario** y el **apagado automático**. Para obtener información sobre las opciones restantes, vea [Definición de directivas de laboratorio en Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
+1. El panel **Configuración y directivas** contiene un menú de configuración en el que puede especificar parámetros. En este artículo solo se trata la configuración de las **máquinas virtuales por usuario**, el **apagado automático** y el **inicio automático**. Para obtener información sobre las opciones restantes, vea [Definición de directivas de laboratorio en Azure DevTest Labs](./devtest-lab-set-lab-policy.md). 
    
 ## <a name="set-virtual-machines-per-user"></a>Establecimiento de máquinas virtuales por usuario
 La directiva de **Máquinas virtuales por usuario** le permite especificar el número máximo de máquinas virtuales que puede crear un usuario individual. Si un usuario trata de crear o reclamar una máquina virtual una vez alcanzado el límite, aparece un mensaje de error que indica que la máquina virtual no se puede crear ni exigir. 
@@ -57,7 +57,7 @@ La directiva de **Máquinas virtuales por usuario** le permite especificar el n�
 ## <a name="set-auto-shutdown"></a>Establecimiento del apagado automático
 La directiva de apagado automático ayuda a minimizar la pérdida del laboratorio, ya que permite especificar la hora de apagado de la máquina virtual de este laboratorio.
 
-1. En la hoja **Configuration and Policies** (Directivas y configuración) del laboratorio, seleccione **Apagado automático**.
+1. En el panel **Configuración y directivas** del laboratorio, seleccione **Apagado automático**.
    
     ![Apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -65,16 +65,18 @@ La directiva de apagado automático ayuda a minimizar la pérdida del laboratori
 
 1. Si habilita esta directiva, especifique la hora local (y la zona horaria) para apagar todas las máquinas virtuales del laboratorio actual.
 
-1. Especifique **Sí** o **No** en la opción de enviar una notificación 15 minutos antes de la hora especificada para el apagado automático. Si selecciona **Sí**, escriba un punto de conexión de URL de webhooks para recibir la notificación. Para obtener más información sobre los webhooks, consulte [Creación de un webhook o una función de API de Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Especifique **Sí** o **No** en la opción de enviar una notificación 15 minutos antes de la hora especificada para el apagado automático. Si elige **Sí**, escriba un punto de conexión de URL del webhook o una dirección de correo electrónico para especificar dónde quiere que se publique o se envíe la notificación. El usuario recibe la notificación y se le ofrece la opción de retrasar el apagado.
+
+   Para obtener más información sobre los webhooks, consulte [Creación de un webhook o una función de API de Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Seleccione **Guardar**.
 
-    De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra la hoja de la máquina virtual y cambie la configuración de **Apagado automático** . 
+De manera predeterminada, una vez que se habilite, esta directiva se aplica a todas las máquinas virtuales del laboratorio actual. Para quitar esta configuración de una máquina virtual específica, abra el panel de administración de la máquina virtual y cambie la configuración de **Apagado automático**.
 
 ## <a name="set-auto-start"></a>Establecimiento del inicio automático
 La directiva de inicio automático le permite especificar cuándo se deben iniciar las máquinas virtuales del laboratorio actual.  
 
-1. En la hoja **Configuration and Policies** (Directivas y configuración) del laboratorio, seleccione **Inicio automático**.
+1. En el panel **Configuración y directivas** del laboratorio, seleccione **Inicio automático**.
    
     ![Inicio automático](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -84,8 +86,8 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 4. Seleccione **Guardar**.
 
-    Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual específica, abra la hoja de la máquina virtual y cambie su configuración de **Inicio automático** . 
+Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual existente, abra el panel de administración de la máquina virtual y cambie la configuración de **Inicio automático**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md) (información sobre cómo modificar otras directivas de laboratorio) 
+- [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md): obtenga información sobre cómo modificar otras directivas de laboratorio.

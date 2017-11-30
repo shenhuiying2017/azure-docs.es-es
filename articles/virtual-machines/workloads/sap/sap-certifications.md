@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: rclaus
 ms.custom: 
-ms.openlocfilehash: 1bfc95977634a41a23fc8bcfee22c44849a9cf04
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 865fa54c908481b3f4c211f12293538c617b6129
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configuraciones y certificaciones de SAP que se ejecutan en Microsoft Azure
 
@@ -64,3 +64,4 @@ Referencias:
 | SAP BPC 10.01 MS SP08 | Windows | | Todos los tipos de máquina virtual con certificado NetWeaver<br /> Nota de SAP 2451795 |
 | SAP Business Objects BI platform | Windows | | Nota de SAP 2145537 |
 | SAP Data Services 4.2 | | | Nota de SAP 2288344 |
+| Plataforma de comercio de Hybris SAP 5.x y 6.x | Windows | SQL Server, Oracle | Todos los tipos de máquina virtual con certificado NetWeaver<br /> [Wiki de Hybris](https://wiki.hybris.com/display/SUP/Using+the+hybris+Platform+with+the+Cloud) |

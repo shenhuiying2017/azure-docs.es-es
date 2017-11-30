@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Referencia de host.json para Azure Functions
 
@@ -137,23 +137,9 @@ Controla la [característica de muestreo de Application Insights](functions-moni
 
 ## <a name="eventhub"></a>eventHub
 
-Opción de configuración para los [desencadenadores y enlaces de Event Hubs](functions-bindings-event-hubs.md).
+Opciones de configuración para los [desencadenadores y enlaces del Centro de eventos](functions-bindings-event-hubs.md).
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Propiedad  |Valor predeterminado | Descripción |
-|---------|---------|---------| 
-|maxBatchSize|64|Número máximo de eventos recibido por cada bucle de recepción.|
-|prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el host de procesador de eventos subyacente.| 
-|batchCheckpointFrequency|1|Número de lotes de eventos que se va a procesar antes de crear un punto de comprobación de cursor de EventHub.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>functions
 
@@ -179,23 +165,7 @@ Indica la duración del tiempo de espera para todas las funciones. En los planes
 
 Opciones de configuración para los [desencadenadores y enlaces HTTP](functions-bindings-http-webhook.md).
 
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
-        "dynamicThrottlesEnabled": false
-    }
-}
-```
-
-|Propiedad  |Valor predeterminado | Descripción |
-|---------|---------|---------| 
-|routePrefix|api|Prefijo de ruta que se aplica a todas las rutas. Use una cadena vacía para quitar el prefijo predeterminado. |
-|maxOutstandingRequests|-1|Número máximo de solicitudes pendientes que se mantendrán en un momento dado (-1 significa sin enlazar). El límite incluye las solicitudes que están en cola pero no han empezado a ejecutarse, así como todas las ejecuciones en curso. Se rechazan todas las solicitudes entrantes que superen este límite con una respuesta 429 "Too Busy" (demasiado ocupado). Los autores de las llamadas pueden utilizar esa respuesta para emplear estrategias de reintento basadas en el tiempo. Esta opción de configuración controla solo los movimiento de la cola que se producen dentro de la ruta de ejecución del host de trabajo. Otras colas, como la cola de solicitudes ASP.NET, no se ven afectadas por esta opción de configuración. |
-|maxConcurrentRequests|-1|Número máximo de funciones HTTP que se ejecutarán en paralelo (-1 significa sin enlazar). Por ejemplo, podría establecer un límite si las funciones HTTP utilizan demasiados recursos del sistema cuando la simultaneidad es alta. O bien, si sus funciones realizan solicitudes de salida a un servicio de terceros, puede que haya que limitar la velocidad de dichas llamadas.|
-|dynamicThrottlesEnabled|false|Hace que la canalización de procesamiento de solicitudes compruebe periódicamente los contadores de rendimiento del sistema. Los contadores incluyen conexiones, subprocesos, procesos, memoria y CPU. Si alguno de los contadores supera un umbral predefinido (80 %), las solicitudes se rechazan con una respuesta 429 "Too Busy" (demasiado ocupado) hasta que los contadores vuelvan a los niveles normales.|
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 
@@ -260,21 +230,7 @@ Opciones de configuración para los [desencadenadores y enlaces de la cola de St
 
 Opción de configuración para los [desencadenadores y enlaces de Service Bus](functions-bindings-service-bus.md).
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|Propiedad  |Valor predeterminado | Descripción |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar. | 
-|prefetchCount|N/D|Valor predeterminado de PrefetchCount que utilizará el receptor de mensajes subyacente.| 
-|autoRenewTimeout|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>singleton
 

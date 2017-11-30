@@ -1,11 +1,11 @@
 ---
-title: "Creación de grupos de seguridad de red: CLI de Azure 2.0 | Microsoft Docs"
-description: Aprenda a crear e implementar grupos de seguridad de red mediante la CLI de Azure 2.0.
+title: "Creación de grupos de seguridad de red: CLI de Azure | Microsoft Docs"
+description: "Obtenga más información sobre cómo crear e implementar grupos de seguridad de red mediante la CLI de Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
@@ -16,28 +16,21 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc50a54feca6c3e9304821e0a5bdbb50708bd11
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-network-security-groups-using-the-azure-cli-20"></a>Creación de grupos de seguridad de red con la CLI de Azure 2.0
+# <a name="create-network-security-groups-using-the-azure-cli"></a>Creación de grupos de seguridad de red mediante la CLI de Azure
 
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea 
-
-Puede completar la tarea mediante una de las siguientes versiones de la CLI: 
-
-- [CLI de Azure 1.0](virtual-networks-create-nsg-cli-nodejs.md): la CLI para los modelos de implementación clásico y de Resource Manager 
-- [CLI de Azure 2.0](#Create-the-nsg-for-the-front-end-subnet): la CLI de última generación para el modelo de implementación de administración de recursos (este artículo).
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-En los siguientes comandos de CLI de Azure 2.0 de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. 
+En los siguientes comandos de ejemplo de la CLI de Azure se espera un entorno simple existente basado en el escenario anterior. 
 
 ## <a name="create-the-nsg-for-the-frontend-subnet"></a>Creación del grupo de seguridad de red para la subred `FrontEnd`
 

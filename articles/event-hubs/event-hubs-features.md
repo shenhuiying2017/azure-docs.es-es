@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 11/17/2017
 ms.author: sethm
-ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aa9fc3b03e24d0b4d1a7ecd9a945b67d8d182492
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="event-hubs-features-overview"></a>Introducción a las características de Event Hubs
 
 Azure Event Hubs es un servicio escalable de procesamiento de eventos que recopila y procesa grandes volúmenes de eventos y datos, con una baja latencia y una alta fiabilidad. Consulte [¿Qué es Event Hubs?](event-hubs-what-is-event-hubs.md) para obtener una introducción detallada del servicio.
 
-Este artículo se basa en la información de la [introducción](event-hubs-what-is-event-hubs.md) e incluye detalles técnicos y sobre la implementación de los componentes y las características de Event Hubs.
+Este artículo se basa en el contenido del [artículo de información general](event-hubs-what-is-event-hubs.md) e incluye detalles técnicos y de implementación de las características y los componentes de Event Hubs.
 
 ## <a name="event-publishers"></a>Publicadores de eventos
 
@@ -64,7 +64,7 @@ Una partición es una secuencia ordenada de eventos que se mantiene en un centro
 
 Event Hubs retiene datos durante un tiempo de retención configurado que se aplica a todas las particiones del centro de eventos. Los eventos expiran en función del tiempo; no se pueden eliminar explícitamente. Dado que las particiones son independientes y contienen sus propias secuencias de datos, a menudo crecen a velocidades diferentes.
 
-![Centros de eventos](./media/event-hubs-features/multiple_partitions.png)
+![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
 
 El número de particiones se especifica en el momento de la creación y debe estar comprendido entre 2 y 32. El número de particiones no es modificable, por lo que debería tener en cuenta la escala a largo plazo a la hora de configurar este número. Las particiones son un mecanismo de organización de datos relacionado con el paralelismo de bajada necesario para consumir las aplicaciones. El número de particiones de un centro de eventos está directamente relacionado con el número de lectores simultáneos que espera tener. Puede aumentar el número de particiones más allá de 32 poniéndose en contacto con el equipo de Event Hubs.
 
@@ -109,7 +109,7 @@ La siguiente ilustración muestra la arquitectura de procesamiento del flujo de 
 
 Un *desplazamiento* es la posición de un evento dentro de una partición. Puede pensar en un desplazamiento como un cursor de lado cliente. El desplazamiento es una numeración de byte del evento. Este desplazamiento permite que un consumidor de eventos (lector) especifique un punto en el flujo de eventos desde el que quiere empezar a leer los eventos. Puede especificar el desplazamiento como una marca de tiempo o como un valor de desplazamiento. Los consumidores son responsables de almacenar sus propios valores de desplazamiento fuera del servicio de los Centros de eventos. Dentro de una partición, cada evento incluye un desplazamiento.
 
-![Centros de eventos](./media/event-hubs-features/partition_offset.png)
+![Event Hubs](./media/event-hubs-features/partition_offset.png)
 
 ### <a name="checkpointing"></a>Puntos de control
 

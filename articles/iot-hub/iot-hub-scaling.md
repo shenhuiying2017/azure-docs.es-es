@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 10/13/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0050b620d1cdbe95f6cf53a8e6f65271865c9e0b
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 00043293eb57768f0117e912bb67f02d088934f3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="scale-your-iot-hub-solution"></a>Escalado de la solución de IoT Hub
-El Centro de IoT de Azure puede admitir hasta un millón de dispositivos conectados simultáneamente. Para obtener más información, vea [Precios de IoT Hub][lnk-pricing]. Cada unidad de IoT Hub permite un número determinado de mensajes diarios.
+Azure IoT Hub puede admitir hasta un millón de dispositivos conectados simultáneamente. Para obtener más información, vea [Precios de IoT Hub][lnk-pricing]. Cada unidad de IoT Hub permite un número determinado de mensajes diarios.
 
 Para escalar correctamente su solución, debe tener en cuenta el uso particular que haga de IoT Hub. En concreto, tenga en cuenta la capacidad de procesamiento máxima requerida para las siguientes categorías de operaciones:
 
@@ -33,7 +33,7 @@ Para escalar correctamente su solución, debe tener en cuenta el uso particular 
 Además de esta información sobre la capacidad de procesamiento, vea [Cuotas y limitaciones de IoT Hub][IoT Hub quotas and throttles] y diseñe su solución en consecuencia.
 
 ## <a name="device-to-cloud-and-cloud-to-device-message-throughput"></a>Capacidad de procesamiento para los mensajes de dispositivo a nube y de nube a dispositivo
-La mejor forma de dimensionar una solución de Centro de IoT es evaluar el tráfico en cada dispositivo.
+La mejor forma de dimensionar una solución de IoT Hub es evaluar el tráfico en cada dispositivo.
 
 Los mensajes de dispositivo a nube siguen estas directrices de capacidad de procesamiento sostenida.
 
@@ -55,10 +55,10 @@ Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a vec
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simular un dispositivo con Azure IoT Edge][lnk-iotedge]
+* [Implementación de AI en dispositivos perimetrales con Azure IoT Edge][lnk-iotedge]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

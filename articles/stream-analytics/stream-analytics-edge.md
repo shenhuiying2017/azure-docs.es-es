@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics en IoT Edge (versión preliminar)
 
 > [!IMPORTANT]
 > Esta funcionalidad está en versión preliminar. No es aconsejable usarlo en producción.
  
-Azure Stream Analytics (ASA) en IoT Edge permite a los desarrolladores desarrollar inteligencia analítica casi en tiempo real más próxima a los dispositivos IoT para que puedan desbloquear el valor total de los datos generados por los dispositivos. Diseñado para los clientes que requieren una latencia baja, resistencia, un uso eficaz del ancho de banda y el cumplimiento, las empresas ahora pueden implementar la lógica de control cerca de las operaciones industriales y complementar los análisis de macrodatos que se realizan en la nube.  
-Azure Stream Analytics en IoT Edge se ejecuta dentro del marco de [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) y la implementación y administración de los trabajos de ASA se puede realizar mediante IoT Hub una vez que el trabajo se crea en ASA.
+Azure Stream Analytics (ASA) en IoT Edge permite a los desarrolladores desarrollar inteligencia analítica casi en tiempo real más próxima a los dispositivos IoT para que puedan desbloquear el valor total de los datos generados por los dispositivos. Diseñado para una latencia baja, resistencia, un uso eficaz del ancho de banda y el cumplimiento, las empresas ahora pueden implementar la lógica de control cerca de las operaciones industriales y complementar los análisis de macrodatos que se realizan en la nube.  
+Azure Stream Analytics en IoT Edge se ejecuta en el marco de [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Una vez que el trabajo se cree en ASA, implemente y administre trabajos de ASA mediante IoT Hub.
 Esta característica está en versión preliminar y si tiene cualquier pregunta o comentario puede usar [esta encuesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) para ponerse en contacto con el equipo del producto. 
 
 ## <a name="scenarios"></a>Escenarios
-![Diagrama de alto nivel](media/stream-analytics-edge/ASAedge_highlevel.png): estos son algunos escenarios típicos en los que es especialmente interesante ejecutar ASA en el perímetro:
-* **Comando de baja latencia y control**: por ejemplo, los sistemas de seguridad en la fabricación son necesarios para responder a los datos operativos con una latencia muy baja. Con ASA en IoT Edge, puede analizar los datos de sensores casi en tiempo real y emitir comandos cuando detecte anomalías para detener una máquina o desencadenar alertas.
+![Diagrama de alto nivel](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **Comando de baja latencia y control**: por ejemplo, los sistemas de seguridad en la fabricación deben responder a los datos operativos con una latencia muy baja. Con ASA en IoT Edge, puede analizar los datos de sensores casi en tiempo real y emitir comandos cuando detecte anomalías para detener una máquina o desencadenar alertas.
 *   **Conectividad limitada a la nube**: los sistemas críticos, como un equipo de minería remoto, buques conectados o las perforaciones petrolífera en mar abierto necesitan analizar y reaccionar ante los datos, incluso cuando la nube conectividad sea intermitente. Con el ASA, la lógica de streaming funciona independientemente de la conectividad de red y puede elegir lo que envía a la nube para su posterior procesamiento o almacenamiento.
 * **Ancho de banda limitado**: el volumen de datos que generan los motores de jet o los automóviles conectados puede ser tan grande que los datos se deben filtrar o procesar con anterioridad antes de enviarlos a la nube. ASA puede filtrar o agregar los datos que se envían a la nube.
 * **Cumplimiento**: el cumplimiento de las normas puede requerir que se agreguen algunos datos o que se oculte su identidad localmente antes de enviarlos a la nube. Con ASA, 

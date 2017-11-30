@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
@@ -58,7 +58,7 @@ Seleccione **Cambiar plan de App Service** para iniciar el proceso.
 
 **Cambiar plan de App Service** abre el selector **plan de App Service**. Seleccione un plan existente al que mover esta aplicación. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > La página **Select App Service plan** (Seleccionar plan de App Service) se filtra por los siguientes criterios: 
 > - Existe en el mismo grupo de recursos 
 > - Existe en la misma región geográfica 

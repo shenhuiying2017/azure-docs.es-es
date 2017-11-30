@@ -3,41 +3,76 @@ title: Serie de SKU no disponibles | Microsoft Docs
 description: "Algunas series de SKU no están disponibles para la suscripción seleccionada para esta región."
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>Serie de SKU no disponibles
-En algunas regiones, ciertas SKU no están disponibles de forma automática en las nuevas suscripciones.  Esto puede ocurrir cuando [se presentan SKU más eficaces en una región](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) y disminuye la popularidad de las SKU heredadas.
-El mensaje "*Algunas series de SKU no están disponibles para la suscripción seleccionada para esta región*" aparece cuando se crea una solicitud de soporte técnico para aumentar la cuota de núcleos de proceso.
+# <a name="region-or-sku-unavailable"></a>Región o SKU no disponible
+En este artículo se describe cómo resolver el problema de que una suscripción a Azure no tenga acceso a una región o a la SKU de una máquina virtual.
 
-Puede revisar la disponibilidad de SKU en la página de [servicios por región de Azure](https://azure.microsoft.com/regions/#services) . 
+## <a name="symptoms"></a>Síntomas
 
-Para solicitar acceso a una SKU que se ha restringido de su suscripción, cree una solicitud de soporte técnico de "Administración de la suscripción".
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Al implementar una máquina virtual, recibirá uno de los siguientes mensajes de error:
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* En la página Aspectos básicos, seleccione "Administración de la suscripción" en Tipo de problema y haga clic en "Siguiente".
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Al comprar instancias reservadas de máquina virtual, recibirá uno de los siguientes mensajes de error:
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>Al crear una solicitud de soporte técnico para aumentar la cuota de núcleos de proceso, no se podrán seleccionar regiones ni familias de SKU.
+
+## <a name="solution"></a>Solución
+En primer lugar, le recomendamos que considere usar una región o SKU alternativa que se adapte sus necesidades empresariales. Si no encuentra una región o SKU que sea adecuada, cree una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) del tipo "Administración de la suscripción" siguiendo los pasos que se muestran a continuación:
+
+
+- En la página Aspectos básicos, seleccione "Administración de la suscripción" como tipo de problema, seleccione la suscripción y haga clic en "Siguiente".
 
 ![Hoja Básico](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* En la página Problema, seleccione "Otras preguntas generales" en Tipo de problema y escriba la región y la SKU exactas que no está viendo.
-  Así se ayuda a acelerar el proceso de soporte técnico.
+
+-   En la página Problema, seleccione "Otras cuestiones generales" como tipo de problema.
+- En la sección Detalles:
+  - Indique si quiere implementar máquinas virtuales o comprar instancias reservadas de máquina virtual.
+  - Especifique la región, la SKU y el número de instancias de máquina virtual que tiene previsto implementar o comprar.
+
 
 ![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* En la página Información de contacto, escriba los detalles de contacto y haga clic en "Siguiente".
+-   Escriba su información de contacto y haga clic en "Crear".
 
 ![Información de contacto](./media/SKU-series-unavailable/ContactInformation.png)
 

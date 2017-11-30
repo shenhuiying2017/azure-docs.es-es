@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Tutorial de la infraestructura de Azure de ejemplo para máquinas virtuales Windows
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, realmente, la implementación de sus máquinas virtuales (VM).
+Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, de hecho, la implementación de sus máquinas virtuales (VM).
 
 ## <a name="example-workload"></a>Carga de trabajo de ejemplo
-Adventure Works Cycles desea crear una aplicación de la tienda en línea en Azure que conste de:
+Adventure Works Cycles quiere compilar una aplicación de tienda en línea en Azure que conste de lo siguiente:
 
 * Dos servidores IIS que ejecuten el front-end de cliente en un nivel web
 * Dos servidores IIS que procesen datos y pedidos en un nivel de aplicación
@@ -55,7 +55,7 @@ El diseño resultante incluirá:
 Todo lo anterior seguirá estas convenciones de nomenclatura:
 
 * Adventure Works Cycles usa **[carga de trabajo de TI]-[ubicación]-[recurso de Azure]** como prefijo
-  * En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE. UU. 2") es la ubicación.
+  * En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE. UU. 2") es la ubicación.
 * Las redes virtuales usan AZOS-USE-VN**[número]**
 * Los conjuntos de disponibilidad usan azos-use-as-**[rol]**
 * Los nombres de máquinas virtuales usan azos-use-vm-**[vmname]**
@@ -63,7 +63,7 @@ Todo lo anterior seguirá estas convenciones de nomenclatura:
 ## <a name="azure-subscriptions-and-accounts"></a>Suscripciones y cuentas de Azure
 Adventure Works Cycles usa la suscripción Enterprise, denominada Adventure Works Enterprise Subscription, para proporcionar la facturación de esta carga de trabajo de TI.
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 Adventure Works Cycles determina que deben usar Azure Managed Disks. Al crear máquinas virtuales, se utilizan ambos niveles de almacenamiento disponible:
 
 * **Almacenamiento estándar** de los servidores web, los servidores de aplicaciones y los controladores de dominio y sus discos de datos.

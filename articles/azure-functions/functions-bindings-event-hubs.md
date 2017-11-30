@@ -1,5 +1,5 @@
 ---
-title: Enlaces de Event Hubs de Azure Functions | Microsoft Docs
+title: Enlaces de Event Hubs de Azure Functions
 description: "Descubra cómo usar los enlaces de Azure Event Hubs de Azure Functions."
 services: functions
 documentationcenter: na
@@ -14,57 +14,74 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 85eb6985ef3579b1b2313db3ce5f91c3471da72f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Enlaces de Event Hubs de Azure Functions
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-En este artículo se explica cómo configurar y usar enlaces de [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) para Azure Functions.
-Azure Functions admite enlaces de desencadenador y salida para Event Hubs.
+En este artículo se explica cómo usar enlaces de [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) para Azure Functions. Azure Functions admite enlaces de desencadenador y salida para Event Hubs.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Si no está familiarizado con Azure Event Hubs, consulte la [introducción a Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md).
+## <a name="event-hubs-trigger"></a>Desencadenador de Event Hubs
 
-<a name="trigger"></a>
-
-## <a name="event-hub-trigger"></a>Desencadenador de centro de eventos
 Use el desencadenador de Event Hubs para responder a un evento enviado a una secuencia de eventos de centro de eventos. Debe tener acceso de lectura al centro de eventos para configurar el desencadenador.
 
-El desencadenador de funciones de Event Hubs usa el siguiente objeto JSON en la matriz `bindings` de function.json:
+Cuando se activa una función de desencadenador de Event Hubs, el mensaje que la activa se pasa a la función como una cadena.
 
-```json
+## <a name="trigger---example"></a>Desencadenador: ejemplo
+
+Vea el ejemplo específico del lenguaje:
+
+* [C# precompilado](#trigger---c-example)
+* [Script de C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
+
+En el ejemplo siguiente se muestra un código [C# precompilado](functions-dotnet-class-library.md) que registra el cuerpo del mensaje del desencadenador del centro de eventos.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
 {
-    "type": "eventHubTrigger",
-    "name": "<Name of trigger parameter in function signature>",
-    "direction": "in",
-    "path": "<Name of the event hub>",
-    "consumerGroup": "Consumer group to use - see below",
-    "connection": "<Name of app setting with connection string - see below>"
+    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
-`consumerGroup` es una propiedad opcional que se utiliza para establecer el [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) utilizado para suscribirse a eventos en el concentrador. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`.  
-`connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos.
-Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.
+Para obtener acceso a los metadatos del evento, cree un enlace a un objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requiere una instrucción `using` para `Microsoft.ServiceBus.Messaging`).
 
-Se pueden proporcionar [opciones de configuración adicionales](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) en un archivo host.json para ajustar aún más los desencadenadores de Event Hubs.  
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+Para recibir eventos en un lote, convierta `string` o `EventData` en una matriz:
 
-<a name="triggerusage"></a>
+```cs
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
+}
+```
 
-## <a name="trigger-usage"></a>Uso del desencadenador
-Cuando se activa una función de desencadenador de Event Hubs, el mensaje que la activa se pasa a la función como una cadena.
+### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
 
-<a name="triggersample"></a>
+En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función registra el cuerpo del mensaje del desencadenador de centro de eventos.
 
-## <a name="trigger-sample"></a>Ejemplo de desencadenador
-Suponga que tiene el siguiente desencadenador de Event Hubs en la matriz `bindings` de function.json:
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -75,16 +92,7 @@ Suponga que tiene el siguiente desencadenador de Event Hubs en la matriz `bindin
   "connection": "myEventHubReadConnectionString"
 }
 ```
-
-Consulte el ejemplo de lenguaje específico que registra el cuerpo del mensaje del desencadenador del centro de eventos.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Ejemplo de desencadenador en C# #
+Este es el código de script de C#:
 
 ```cs
 using System;
@@ -95,7 +103,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-También puede recibir el evento como un objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata), que proporciona acceso a los metadatos de evento.
+Para obtener acceso a los metadatos del evento, cree un enlace a un objeto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (requiere el uso de una instrucción para `Microsoft.ServiceBus.Messaging`).
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -108,7 +116,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-Para recibir eventos en un lote, cambie la firma del método a `string[]` o `EventData[]`.
+Para recibir eventos en un lote, convierta `string` o `EventData` en una matriz:
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -120,18 +128,46 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-<a name="triggerfsharp"></a>
+### <a name="trigger---f-example"></a>Desencadenador: ejemplo de F#
 
-### <a name="trigger-sample-in-f"></a>Ejemplo de desencadenador en F# #
+En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de F#](functions-reference-fsharp.md) que usa el enlace. La función registra el cuerpo del mensaje del desencadenador de centro de eventos.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+Este es el código de F#:
 
 ```fsharp
 let Run(myEventHubMessage: string, log: TraceWriter) =
     log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
-<a name="triggernodejs"></a>
+### <a name="trigger---javascript-example"></a>Desencadenador: ejemplo de JavaScript
 
-### <a name="trigger-sample-in-nodejs"></a>Ejemplo de desencadenador en Node.js
+En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función registra el cuerpo del mensaje del desencadenador de centro de eventos.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+Este es el código de JavaScript:
 
 ```javascript
 module.exports = function (context, myEventHubMessage) {
@@ -140,39 +176,68 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-<a name="output"></a>
+## <a name="trigger---attributes-for-precompiled-c"></a>Desencadenador: atributos para C# precompilado
+
+Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+El constructor del atributo toma el nombre del centro de eventos, el nombre del grupo de consumidores y el nombre de una configuración de aplicación que contenga la cadena de conexión. Para obtener más información sobre estas configuraciones, vea la sección [Configuración de desencadenador](#trigger---configuration). Este es un ejemplo de atributo `EventHubTriggerAttribute`:
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+```
+
+## <a name="trigger---configuration"></a>Desencadenador: configuración
+
+En la siguiente tabla se explican las propiedades de configuración de enlace que se definen en el archivo *function.json* y el atributo `EventHubTrigger`.
+
+|Propiedad de function.json | Propiedad de atributo |Descripción|
+|---------|---------|----------------------|
+|**type** | N/D | Se debe establecer en `eventHubTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
+|**dirección** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**name** | N/D | Nombre de la variable que representa el elemento de evento en el código de la función. | 
+|**path** |**EventHubName** | El nombre del centro de eventos. | 
+|**consumerGroup** |**ConsumerGroup** | Una propiedad opcional que establece el [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) que se usará para suscribirse a los eventos del centro. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. | 
+|**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.<br/>Cuando desarrolla localmente, la configuración de aplicación pasa a los valores del [archivo local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="trigger---hostjson-properties"></a>Desencadenador: propiedades de host.json
+
+El archivo [host.json](functions-host-json.md#eventhub) contiene opciones de configuración que controlan el comportamiento de Event Hubs.
+
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="event-hubs-output-binding"></a>Enlace de salida de Event Hubs
-Use el enlace de salida de Event Hubs para escribir eventos en una secuencia de eventos de centro de eventos. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
-El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de function.json:
+Use el enlace de salida de Event Hubs para escribir eventos en una secuencia. Debe tener permiso de envío a un centro de eventos para escribir eventos en él.
 
-```json
+## <a name="output---example"></a>Salida: ejemplo
+
+Vea el ejemplo específico del lenguaje:
+
+* [C# precompilado](#output---c-example)
+* [Script de C#](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Salida: ejemplo de C#
+
+En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que escribe un mensaje en un centro de eventos usando el valor devuelto del método como resultado:
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
-    "type": "eventHub",
-    "name": "<Name of output parameter in function signature>",
-    "path": "<Name of event hub>",
-    "connection": "<Name of app setting with connection string - see below>"
-    "direction": "out"
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    return $"{DateTime.Now}";
 }
 ```
 
-`connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos.
-Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia de eventos.
+### <a name="output---c-script-example"></a>Salida: ejemplo de script de C#
 
-## <a name="output-usage"></a>Uso de salidas
-En esta sección se muestra cómo usar el enlace de salida de Event Hub en el código de función.
+En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función escribe un mensaje a un centro de eventos.
 
-Puede generar mensajes para el centro de eventos configurado con los siguientes tipos de parámetro:
-
-* `out string`
-* `ICollector<string>`( para generar varios mensajes)
-* `IAsyncCollector<string>` (versión asincrónica de `ICollector<T>`)
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Ejemplo de salida
-Suponga que tiene el siguiente enlace de salida de Event Hubs en la matriz `bindings` de function.json:
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json
 {
@@ -184,15 +249,7 @@ Suponga que tiene el siguiente enlace de salida de Event Hubs en la matriz `bind
 }
 ```
 
-Consulte el ejemplo de lenguaje específico que permite escribir un evento en la secuencia de eventos.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Ejemplo de salida en C# #
+Este es el código de script de C# que crea un mensaje:
 
 ```cs
 using System;
@@ -205,7 +262,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-O bien, cree varios mensajes:
+Este es el código de script de C# que crea varios mensajes:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -217,9 +274,23 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-<a name="outfsharp"></a>
+### <a name="output---f-example"></a>Salida: ejemplo de F#
 
-### <a name="output-sample-in-f"></a>Ejemplo de salida en F# #
+En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de F#](functions-reference-fsharp.md) que usa el enlace. La función escribe un mensaje a un centro de eventos.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+Este es el código de F#:
 
 ```fsharp
 let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
@@ -228,9 +299,23 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
     outputEventHubMessage <- msg;
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Salida: ejemplo de JavaScript
 
-### <a name="output-sample-for-nodejs"></a>Ejemplo de salida de Node.js
+En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función escribe un mensaje a un centro de eventos.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+Este es el código JavaScript que envía un mensaje:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -241,7 +326,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-O, para enviar varios mensajes,
+Este es el código JavaScript que envía varios mensajes:
 
 ```javascript
 module.exports = function(context) {
@@ -256,5 +341,37 @@ module.exports = function(context) {
 };
 ```
 
+## <a name="output---attributes-for-precompiled-c"></a>Salida: atributos para C# precompilado
+
+Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+El constructor del atributo toma el nombre del centro de eventos y el nombre de una configuración de aplicación que contenga la cadena de conexión. Para obtener más información sobre estas configuraciones, vea [Salida: configuración](#output---configuration). Este es un ejemplo de atributo `EventHub`:
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+```
+
+## <a name="output---configuration"></a>Salida: configuración
+
+En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `EventHub`.
+
+|Propiedad de function.json | Propiedad de atributo |Descripción|
+|---------|---------|----------------------|
+|**type** | N/D | Debe establecerse en "eventHub". |
+|**dirección** | N/D | Debe establecerse en "out". Este parámetro se establece automáticamente cuando se crea el enlace en Azure Portal. |
+|**name** | N/D | Nombre de la variable que se usa en el código de la función que representa el evento. | 
+|**path** |**EventHubName** | El nombre del centro de eventos. | 
+|**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia de eventos.<br/>Cuando desarrolla localmente, la configuración de aplicación pasa a los valores del [archivo local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="output---usage"></a>Uso de salidas
+
+En C# y scripts de C#, envíe mensajes mediante un parámetro de método, como `out string paramName`. En script de C#, `paramName` es el valor especificado en la propiedad `name` de *function.json*. Para escribir varios mensajes, puede usar `ICollector<string>` o `IAsyncCollector<string>` en lugar de `out string`.
+
+En JavaScript, puede obtener acceso al evento de salida usando `context.bindings.<name>`. `<name>` es el valor especificado en la propiedad `name` de *function.json*.
+
 ## <a name="next-steps"></a>Pasos siguientes
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

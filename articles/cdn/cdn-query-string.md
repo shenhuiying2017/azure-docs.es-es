@@ -1,5 +1,5 @@
 ---
-title: "Control del comportamiento del almacenamiento en caché de la red CDN de Azure con cadenas de consulta | Microsoft Docs"
+title: "Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con cadenas de consulta | Microsoft Docs"
 description: "El almacenamiento en caché de las cadenas de consulta de Azure CDN controla el modo en que los archivos se almacenan en caché cuando contienen cadenas de consulta."
 services: cdn
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 28e724f34c32edb0d5641b24f9ffedb7dc5f9680
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con cadenas de consulta
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>Información general
-Azure Content Delivery Network (CDN) le permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, la cadena de consulta es la parte de la solicitud que se produce después del carácter `?`. Una cadena de consulta puede contener uno o más parámetros, que están separados por un carácter `&`. Por ejemplo: `http://www.domain.com/content.mov?data1=true&data2=false`. Si hay más de un parámetro de cadena de consulta en una solicitud, el orden de los parámetros no importa. 
+Azure Content Delivery Network (CDN) le permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo: `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen. 
 
 > [!IMPORTANT]
 > Los productos estándar y premium de CDN ofrecen la misma funcionalidad de almacenamiento en caché de cadenas de consulta, pero la interfaz de usuario es distinta.  En este artículo se describe la interfaz de **Azure CDN Standard de Akamai** y **Azure CDN Standard de Verizon**. Para más información sobre el almacenamiento en caché de cadenas de consulta con la **red CDN premium de Azure de Verizon**, consulte [Control del comportamiento del almacenamiento en caché de las solicitudes de CDN con cadenas de consultas - Premium](cdn-query-string-premium.md).
