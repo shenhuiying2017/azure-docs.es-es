@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3973c7e529cd1d0ecd98ae17d4d979d0d458ef3
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 ## <a name="overview"></a>Información general
-Azure Storage pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores crear aplicaciones seguras. La propia cuenta de almacenamiento se puede proteger mediante el control de acceso basado en rol y Azure Active Directory. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](../storage-client-side-encryption.md), HTTPS o SMB 3.0. Los datos se pueden configurar para que se cifren automáticamente cuando se escriben en Azure Storage mediante el [cifrado del servicio Storage (SSE)](storage-service-encryption.md). Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por máquinas virtuales mediante el [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las [Firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1.md).
+Azure Storage pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores crear aplicaciones seguras. La propia cuenta de almacenamiento se puede proteger mediante el control de acceso basado en rol y Azure Active Directory. Los datos se pueden proteger en tránsito entre una aplicación y Azure usando [cifrado de cliente](../storage-client-side-encryption.md), HTTPS o SMB 3.0. Los datos se pueden configurar para que se cifren automáticamente cuando se escriben en Azure Storage mediante el [cifrado del servicio de almacenamiento (SSE)](storage-service-encryption.md). Se puede establecer el cifrado de los discos de datos y del sistema operativo utilizados por máquinas virtuales mediante el [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). Se puede conceder acceso delegado a los objetos de datos de Azure Storage mediante las [Firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1.md).
 
 Este artículo ofrece una visión general de cada una de estas características de seguridad que se pueden usar con Azure Storage. Se incluyen vínculos a artículos en los que se detalla cada una de ellas, así que puede examinar un tema determinado con mayor detalle si así lo desea.
 
 Estos son los temas que se tratarán en este artículo:
 
-* [Seguridad en el plano de la administración](#management-plane-security) : protección de la cuenta de almacenamiento
+* [Seguridad en el plano de la administración](#management-plane-security): protección de la cuenta de almacenamiento
 
   El plano de la administración está compuesto por los recursos que se usan para administrar la cuenta de almacenamiento. En esta sección, hablaremos sobre el modelo de implementación de Azure Resource Manager y cómo usar el control de acceso basado en roles (RBAC) para controlar el acceso a las cuentas de almacenamiento. También hablaremos acerca de cómo administrar las claves de cuenta de almacenamiento y cómo volver a generarlas.
 * [Seguridad en el plano de los datos](#data-plane-security) : protección del acceso a los datos
@@ -36,11 +36,11 @@ Estos son los temas que se tratarán en este artículo:
   En esta sección, analizaremos el modo de permitir el acceso a los objetos de datos reales de la cuenta de almacenamiento, como blobs, archivos, colas y tablas, y el uso de Firmas de acceso compartido y Directivas de acceso almacenadas. Nos fijaremos en las Firmas de acceso compartido tanto a nivel de servicio como a nivel de cuenta. También veremos cómo limitar el acceso a una dirección IP específica (o un intervalo de direcciones IP), cómo limitar el protocolo utilizado para HTTPS y cómo revocar una Firma de acceso compartido sin esperar a que expire.
 * [Cifrado en tránsito](#encryption-in-transit)
 
-  En esta sección se describe cómo proteger los datos cuando se transfieren a o desde Azure Storage. Hablaremos sobre el uso recomendado de HTTPS y el cifrado que usa SMB 3.0 para los recursos compartidos de archivos de Azure. También echaremos un vistazo al Cifrado de cliente, que permite cifrar los datos antes de transferirlos al Almacenamiento en una aplicación cliente y descifrarlos una vez transferidos desde este servicio.
+  En esta sección se describe cómo proteger los datos cuando se transfieren a o desde Azure Storage. Hablaremos sobre el uso recomendado de HTTPS y el cifrado que usa SMB 3.0 para los recursos compartidos de archivos de Azure. También echaremos un vistazo al Cifrado de cliente, que permite cifrar los datos antes de transferirlos a Storage en una aplicación cliente y descifrarlos una vez transferidos desde este servicio.
 * [Cifrado en reposo](#encryption-at-rest)
 
   Hablaremos acerca del cifrado del servicio Storage (SSE) y el modo de habilitarlo para una cuenta de almacenamiento, lo que conlleva que los blobs en bloques, los blobs en páginas y los blobs en anexos se cifren automáticamente al escribir en Azure Storage. También veremos cómo puede usar Azure Disk Encryption y exploraremos los casos y las diferencias básicas entre Disk Encryption, SSE y el cifrado del lado cliente. Asimismo, estudiaremos brevemente el cumplimiento de la norma FIPS para equipos del Gobierno de EE. UU.
-* Uso de [Storage Analytics](#storage-analytics) para auditar el acceso de Azure Storage
+* Uso de [Análisis de almacenamiento](#storage-analytics) para auditar el acceso de Azure Storage
 
   En esta sección se describe cómo buscar información en los registros de Storage Analytics para una solicitud. Echaremos un vistazo a datos de registro reales de Storage Analytics y aprenderemos a discernir si una solicitud se realiza con una clave de cuenta de Storage, una Firma de acceso compartido o de manera anónima, y si se pudo completar o no.
 * [Habilitación de clientes basados en explorador mediante el uso compartido de recursos entre orígenes](#Cross-Origin-Resource-Sharing-CORS)
@@ -95,7 +95,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 * [Administración del control de acceso basado en rol con la API de REST](../../active-directory/role-based-access-control-manage-access-rest.md)
 
   En este artículo se muestra cómo utilizar la API de REST para administrar el control de acceso basado en rol.
-* [Referencia de API de REST de proveedor de recursos de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+* [Referencia de API de REST de proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Esta es la referencia para las API que puede usar para administrar la cuenta de almacenamiento mediante programación.
 * [Developer’s guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/) (Guía del desarrollador para la autenticación con la API de Azure Resource Manager)
@@ -133,7 +133,7 @@ Si actualmente utiliza la Clave 2, siga este mismo proceso pero invierta los nom
 
 Puede migrar en un par de días, cambiando cada aplicación para que use la nueva clave y publicándola. Cuando lo haya hecho con todas, debe volver y generar de nuevo la clave antigua para que deje de funcionar.
 
-Otra opción consiste en poner la clave de la cuenta de almacenamiento en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) como un secreto y hacer que las aplicaciones recuperen la clave desde esa ubicación. Así, cuando vuelva a generar la clave y actualice Azure Key Vault, no será necesario volver a implementar las aplicaciones porque tomarán la nueva clave desde dicho almacén automáticamente. Tenga en cuenta que puede hacer que la aplicación lea la clave cada vez que la necesite, o bien puede almacenarla en la memoria caché y, si se produce un error al usarla, se recuperaría de nuevo desde Azure Key Vault.
+Otra opción consiste en poner la clave de la cuenta de almacenamiento en un [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) como un secreto y hacer que las aplicaciones recuperen la clave desde esa ubicación. Así, cuando vuelva a generar la clave y actualice Azure Key Vault, no será necesario volver a implementar las aplicaciones porque tomarán la nueva clave desde dicho almacén automáticamente. Tenga en cuenta que puede hacer que la aplicación lea la clave cada vez que la necesite, o bien puede almacenarla en la memoria caché y, si se produce un error al usarla, se recuperaría de nuevo desde Azure Key Vault.
 
 El uso de Azure Key Vault también agrega otro nivel de seguridad a las claves de almacenamiento. Si utiliza este método, nunca tendrá la clave de almacenamiento codificada de manera rígida en un archivo de configuración, lo que impide que alguien obtenga acceso a las claves sin permiso específico.
 
@@ -248,7 +248,7 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
 
 * Autenticación
 
-  * [Autenticación para los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+  * [Autenticación para los servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Tutorial de introducción a las Firmas de acceso compartido
 
   * [Getting Started with Shared Access Signatures (SAS) (Introducción a las Firmas de acceso compartido)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
@@ -354,7 +354,7 @@ La solución no admite los siguientes escenarios, características y tecnología
 Esta característica garantiza que todos los datos de los discos de máquinas virtuales se cifran en reposo en Azure Storage.
 
 #### <a name="resources"></a>Recursos
-* [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparación entre Azure Disk Encryption, SSE y cifrado del lado cliente
 #### <a name="iaas-vms-and-their-vhd-files"></a>Máquinas virtuales de IaaS y sus archivos VHD
@@ -437,7 +437,7 @@ Puede utilizar el Analizador de mensajes de Microsoft para ver y analizar estos 
 * [Storage Analytics](../storage-analytics.md)
 
   Este artículo ofrece una visión general de Storage Analytics y explica cómo habilitarlo.
-* [Formato del registro del análisis de almacenamiento](https://msdn.microsoft.com/library/azure/hh343259.aspx)
+* [Formato del registro de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343259.aspx)
 
   Este artículo ilustra el formato del registro de Storage Analytics y detalla los campos que incluye, como el tipo de autenticación, que indica el tipo de autenticación utilizado para la solicitud.
 * [Supervisión de una cuenta de almacenamiento en Azure Portal](../storage-monitor-storage-account.md)
@@ -494,7 +494,7 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
 * [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage en Azure.com](../storage-cors-support.md)
 
   Este artículo proporciona una visión general del uso compartido de recursos entre orígenes y explica cómo establecer las reglas para los diferentes servicios de Storage.
-* [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los servicios de Azure Storage en MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
+* [Compatibilidad con Uso compartido de recursos entre orígenes (CORS) para los Servicios de Azure Storage en MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Se trata de la documentación de referencia para la compatibilidad con el uso compartido de recursos entre orígenes para los servicios de Azure Storage. Contiene vínculos a artículos que se aplican a cada servicio de almacenamiento, se muestra un ejemplo y se explica cada elemento en el archivo del uso compartido de recursos entre orígenes.
 * [Microsoft Azure Storage: Introducing CORS (Almacenamiento de Microsoft Azure: Introducción a uso compartido de recursos entre orígenes)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)

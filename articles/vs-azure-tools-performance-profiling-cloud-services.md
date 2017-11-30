@@ -3,7 +3,7 @@ title: Probar el rendimiento de un servicio en la nube | Microsoft Docs
 description: Probar el rendimiento de un servicio en la nube mediante el generador de perfiles de Visual Studio
 services: visual-studio-online
 documentationcenter: n/a
-author: kraigb
+author: mikejo
 manager: ghogen
 editor: 
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: kraigb
-ms.openlocfilehash: eafcc2f9d53bcdae63036df070e5adec24cbc252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mikejo
+ms.openlocfilehash: 483b8b1c7c75c407cb55a1b3b027ae043c506ebb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>Probar el rendimiento de un servicio en la nube
 ## <a name="overview"></a>Información general
 Puede probar el rendimiento de un servicio en la nube de las maneras siguientes:
 
-* Use Diagnósticos de Azure para recopilar información acerca de solicitudes y conexiones y revisar estadísticas del sitio que muestran el rendimiento del servicio desde una perspectiva del cliente. Para comenzar, consulte [Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=623009).
-* Utilice el generador de perfiles de Visual Studio para obtener un análisis exhaustivo de los aspectos de cálculo de cómo se ejecuta el servicio. Como se describe en este tema, puede utilizar el generador de perfiles para medir el rendimiento a medida que un servicio se ejecuta en Azure. Para obtener información acerca de cómo usar el generador de perfiles para medir el rendimiento a medida que un servicio se ejecuta localmente en un emulador de proceso, consulte [Prueba del rendimiento de un servicio en la nube de manera local en el emulador de proceso de Azure con el generador de perfiles de Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=262845).
+* Use Diagnósticos de Azure para recopilar información acerca de solicitudes y conexiones y revisar estadísticas del sitio que muestran el rendimiento del servicio desde una perspectiva del cliente. Para comenzar, consulte [Configuración de Diagnósticos en Azure Cloud Services y Virtual Machines](http://go.microsoft.com/fwlink/p/?LinkId=623009).
+* Utilice el generador de perfiles de Visual Studio para obtener un análisis exhaustivo de los aspectos de cálculo de cómo se ejecuta el servicio. Como se describe en este tema, puede utilizar el generador de perfiles para medir el rendimiento a medida que un servicio se ejecuta en Azure. Para obtener información acerca de cómo usar el generador de perfiles para medir el rendimiento a medida que un servicio se ejecuta localmente en un emulador de proceso, consulte [Prueba del rendimiento de un servicio en la nube de manera local en el emulador de Azure Compute con el generador de perfiles de Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=262845).
 
 ## <a name="choosing-a-performance-testing-method"></a>Elección de un método de prueba de rendimiento
 ### <a name="use-azure-diagnostics-to-collect"></a>Use Diagnósticos de Azure para recopilar:
@@ -97,20 +97,20 @@ La ilustración siguiente muestra cómo configurar sus opciones de generación d
     Al publicar esta aplicación, esta configuración se usa para crear la sesión de generación de perfiles para cada rol.
 
 ## <a name="viewing-profiling-reports"></a>Vista de informes de generación de perfiles
-Se crea una sesión de generación de perfiles para cada instancia de un rol en su servicio en la nube. Para ver sus informes de generación de perfiles de cada sesión en Visual Studio, puede ver la ventana Explorador de servidores y, a continuación, elegir el nodo de proceso de Azure para seleccionar una instancia de un rol. Es entonces cuando puede ver el informe de generación de perfiles como se muestra en la siguiente ilustración.
+Se crea una sesión de generación de perfiles para cada instancia de un rol en su servicio en la nube. Para ver sus informes de generación de perfiles de cada sesión en Visual Studio, puede ver la ventana Explorador de servidores y, a continuación, elegir el nodo de Azure Compute para seleccionar una instancia de un rol. Es entonces cuando puede ver el informe de generación de perfiles como se muestra en la siguiente ilustración.
 
 ![Ver informe de generación de perfiles desde Azure](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
 
 ### <a name="to-view-profiling-reports"></a>Para ver informes de generación de perfiles
 1. Para ver la ventana Explorador de servidores en Visual Studio, en la barra de menús elija Ver, Explorador de servidores.
-2. Elija el nodo de proceso de Azure y, a continuación, elija el nodo de implementación de Azure para el servicio en la nube que seleccionó para generar perfiles cuando publicó desde Visual Studio.
+2. Elija el nodo de Azure Compute y, a continuación, elija el nodo de implementación de Azure para el servicio en la nube que seleccionó para generar perfiles cuando publicó desde Visual Studio.
 3. Para ver los informes de generación de perfiles para una instancia, elija el rol en el servicio, abra el menú contextual para una instancia específica y, a continuación, elija **Ver el informe de generación de perfiles**.
    
     El informe, un archivo .vsp, se descarga desde Azure y el estado de la descarga aparece en el registro de actividades de Azure. Al completarse la descarga, el informe de generación de perfiles aparece en una pestaña en el editor de Visual Studio denominada <Role name>*<Instance Number>*<identifier>.vsp. Aparecen datos de resumen del informe.
 4. Para mostrar diferentes vistas del informe, en la lista Vista actual, elija el tipo de vista que desee. Para obtener más información, consulte [Vistas de informes de las herramientas de generación de perfiles](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Depuración de Servicios en la nube](https://msdn.microsoft.com/library/azure/ee405479.aspx)
+[Depuración de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 

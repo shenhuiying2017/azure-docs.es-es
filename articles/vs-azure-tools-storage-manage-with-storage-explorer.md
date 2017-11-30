@@ -1,6 +1,6 @@
 ---
 title: "Introducción al Explorador de Storage (versión preliminar) | Microsoft Docs"
-description: "Administración de recursos de almacenamiento de Azure con el Explorador de almacenamiento (versión preliminar)"
+description: "Administración de recursos de Azure Storage con el Explorador de Storage (versión preliminar)"
 services: storage
 documentationcenter: na
 author: cawa
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 58ab8a9c5864ce0cb505b78fd087df2973a7e0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b263c69554c22978c854d2678ad7eeca91bc71f7
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>Introducción al Explorador de Storage (versión preliminar)
 ## <a name="overview"></a>Información general
 El Explorador de Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con datos de Azure Storage en Windows, macOS y Linux. En este artículo aprenderá las diferentes maneras de conectarse a cuentas de Azure Storage y de administrarlas.
 
-![Explorador de almacenamiento de Microsoft Azure (versión preliminar)][15]
+![Explorador de Microsoft Azure Storage (versión preliminar)][15]
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Descargue e instale el Explorador de Storage (versión preliminar)](http://www.storageexplorer.com)
@@ -50,7 +50,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 >
 >
 
-1. En el Explorador de almacenamiento (versión preliminar), seleccione **Configuración de la cuenta de Azure**.
+1. En el Explorador de Storage (versión preliminar), seleccione **Configuración de la cuenta de Azure**.
 
     ![Configuración de la cuenta de Azure][0]
 
@@ -74,7 +74,7 @@ Para más información sobre cómo conectarse a una suscripción de Azure Stack,
 Con el Explorador de Storage (versión preliminar), puede trabajar con el almacenamiento local mediante el Emulador de Azure Storage. Este enfoque le permite escribir código y realizar pruebas de almacenamiento sin necesidad de tener una cuenta de almacenamiento implementada en Azure (ya que el Emulador de Azure Storage emula dicha cuenta).
 
 > [!NOTE]
-> El Emulador de almacenamiento de Azure actualmente solo se admite para Windows.
+> El Emulador de Azure Storage actualmente solo se admite para Windows.
 >
 >
 
@@ -84,7 +84,7 @@ Con el Explorador de Storage (versión preliminar), puede trabajar con el almace
 
 2. Si aún no ha instalado el Emulador de Azure Storage, se le solicita que lo haga a través de una barra de información. Si se muestra la barra de información, seleccione **Descargar la última versión** e instale el emulador.
 
-    ![Mensaje para descargar el emulador de Almacenamiento de Azure][22]
+    ![Mensaje para descargar el emulador de Azure Storage][22]
 
 3. Después de que el emulador se ha instalado, puede crear tablas, colas y blobs locales, y trabajar con ellos. Para aprender a trabajar con cada tipo de cuenta de almacenamiento, seleccione uno de los siguientes vínculos:
 
@@ -118,7 +118,7 @@ Para compartir una cuenta de almacenamiento externa, su propietario debe obtener
 ### <a name="attach-to-an-external-storage-account"></a>Asociación de una cuenta de almacenamiento externo
 Para la asociación a una cuenta de almacenamiento externa, se necesitan el nombre y la clave de la misma. En la sección "Obtención de las credenciales de la cuenta de almacenamiento" se explica cómo obtener estos valores desde el portal de Azure. Sin embargo, en el portal, la clave de cuenta se denomina **key1**. Por tanto, cuando el Explorador de Storage (versión preliminar) solicite una clave de cuenta, escriba el valor **key1**.
 
-1. En el Explorador de almacenamiento (versión preliminar), seleccione **Connect to Azure storage**(Conectar con el almacenamiento de Azure).
+1. En el Explorador de Storage (versión preliminar), seleccione **Connect to Azure storage** (Conectar con Azure Storage).
 
     ![Opción de conexión a Almacenamiento de Azure][23]
 
@@ -179,7 +179,7 @@ Para ilustrar este escenario, supongamos que el Usuario A es administrador de un
 3. Junto a la **cadena de conexión**, seleccione **Copiar** para copiarla en el Portapapeles y, a continuación, seleccione **Cerrar**.
 
 ### <a name="attach-to-the-shared-account-by-using-the-sas"></a>Conexión a la cuenta compartida mediante la SAS
-1. En el Explorador de almacenamiento (versión preliminar), seleccione **Connect to Azure storage**(Conectar con el almacenamiento de Azure).
+1. En el Explorador de Storage (versión preliminar), seleccione **Connect to Azure storage** (Conectar con Azure Storage).
 
     ![Opción de conexión a Almacenamiento de Azure][23]
 
@@ -207,7 +207,7 @@ En este contexto, un servicio puede ser un contenedor de blobs, una cola o una t
 * Obtención de la SAS para una tabla; *próximamente*
 
 ### <a name="attach-to-the-shared-account-service-by-using-the-sas"></a>Conexión al servicio de la cuenta de almacenamiento mediante la SAS
-1. En el Explorador de almacenamiento (versión preliminar), seleccione **Connect to Azure storage**(Conectar con el almacenamiento de Azure).
+1. En el Explorador de Storage (versión preliminar), seleccione **Connect to Azure storage** (Conectar con Azure Storage).
 
     ![Opción de conexión a Almacenamiento de Azure][23]
 
@@ -230,7 +230,7 @@ Además de administrar cuentas de Azure Cosmos DB a través de una suscripción 
 
     ![Conexión a Azure Cosmos DB mediante una cadena de conexión][33]
 
-2. Elija la API de Azure Cosmos DB, pegue su **cadena de conexión** y, a continuación, haga clic en **Aceptar** para conectarse a la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, vea [Obtener la cadena de conexión](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Elija la API de Azure Cosmos DB, pegue su **cadena de conexión** y, a continuación, haga clic en **Aceptar** para conectarse a la cuenta de Azure Cosmos DB. Para más información sobre cómo recuperar la cadena de conexión, vea [Obtener la cadena de conexión](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![connection-string][32]
 

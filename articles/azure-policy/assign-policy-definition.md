@@ -9,11 +9,11 @@ ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
 El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos con los que ya cuenta. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
@@ -62,7 +62,7 @@ En este tutorial rápido, se crea una asignación de directiva y se le asigna la
 5. Proporcione un **Nombre** para mostrar para la asignación de directiva. En este caso, vamos a usar *Auditoría de máquinas virtuales que no usan discos administrados*. También puede agregar una **Descripción** opcional. La descripción proporciona detalles acerca de cómo identifica esta asignación de directiva todas las máquinas virtuales creadas en este entorno que no utilizan discos administrados.
 6. Cambie el plan de tarifa a **Standard** (Estándar) para asegurarse de que la directiva se aplique a los recursos existentes.
 
-   Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como se trata de la versión preliminar limitada, aún no se ha publicado el modelo de precios, por lo que no recibirá ninguna factura si selecciona el plan *Standard* (Estándar). Para más información sobre los precios, vea la página de [precios de Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como se trata de la versión preliminar limitada, aún no se ha publicado el modelo de precios, por lo que no recibirá ninguna factura si selecciona el plan *Standard* (Estándar). Para más información sobre los precios, vea la página de [precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Seleccione el **ámbito** al que desea que se aplique la directiva.  Un ámbito determina en qué recursos o agrupación de recursos se exige la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
 8. Seleccione la suscripción o el grupo de recursos que registró anteriormente cuando empezó a participar en Azure Policy. En este ejemplo, se usa la suscripción **Azure Analytics Capacity Dev**, pero sus opciones variarán.

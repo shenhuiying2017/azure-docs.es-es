@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -44,7 +44,7 @@ La métrica es un número de porcentaje que va de 0 % a 100 %. Para un trabajo d
 ## <a name="monitor-job-performance"></a>Supervisión del rendimiento del trabajo
 Mediante Azure Portal, puede realizar el seguimiento de la capacidad de procesamiento de un trabajo:
 
-![Trabajos de supervisión de Análisis de transmisiones de Azure][img.stream.analytics.monitor.job]
+![Trabajos de supervisión de Azure Stream Analytics][img.stream.analytics.monitor.job]
 
 Calcule la capacidad de procesamiento esperada de la carga de trabajo. Si la capacidad de procesamiento es inferior a la esperada, ajuste la partición de entrada, ajuste la consulta y agregue unidades de streaming al trabajo.
 
@@ -59,7 +59,6 @@ Para más información sobre cómo elegir el número correcto de SU, consulte es
 
 > [!Note]
 > La elección del número de unidades de streaming que se necesitan para un trabajo en concreto depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Puede seleccionar como máximo su cuota en unidades de streaming para un trabajo. De manera predeterminada, cada suscripción de Azure tiene una cuota máxima de 200 SU en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de sus suscripciones, contacte con [Soporte técnico de Microsoft](http://support.microsoft.com). Los valores válidos para unidades de streaming por trabajo son 1, 3, 6 y más en incrementos de 6.
-> Tenga en cuenta que no se recomienda usar 1 SU en los trabajos de producción. Habitualmente se recomienda usar trabajos de 1 SU solo para los trabajos de creación de prototipos y pruebas.
 
 
 
@@ -123,7 +122,7 @@ Cuando agrega una función UDF, Azure Stream Analytics carga el entorno de tiemp
 
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de consultas que se pueden paralelizar en Azure Stream Analytics](stream-analytics-parallelization.md)

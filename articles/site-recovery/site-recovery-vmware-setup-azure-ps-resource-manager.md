@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/29/2017
+ms.date: 11/23/2017
 ms.author: anoopkv
-ms.openlocfilehash: 2b9b31abd5d11d02935a74e47d26be9803cdc920
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Administración de un servidor de procesos que se ejecuta en Azure (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 > * [Clásico](./site-recovery-vmware-setup-azure-ps-classic.md)
 
-Durante la conmutación por recuperación, se recomienda implementar el servidor de procesos en Azure si hay una latencia elevada entre la red virtual de Azure y la red local. En este artículo se describe cómo instalar, configurar y administrar los servidores de procesos que se ejecutan en Azure.
+Durante la conmutación por recuperación, se recomienda implementar el servidor de procesos en Azure si hay una latencia elevada entre Azure Virtual Network y la red local. En este artículo se describe cómo instalar, configurar y administrar los servidores de procesos que se ejecutan en Azure.
 
 > [!NOTE]
 > Este artículo se utiliza si usa **Resource Manager** como modelo de implementación para las máquinas virtuales durante la conmutación por error. Si ha usado el modelo **clásico** para la implementación, siga los pasos descritos en [artículo sobre cómo instalar y configurar un servidor de procesos de conmutación por recuperación (clásico)](./site-recovery-vmware-setup-azure-ps-classic.md).
@@ -49,7 +49,7 @@ Durante la conmutación por recuperación, se recomienda implementar el servidor
 |La suscripción|Seleccione la suscripción de Azure donde ha conmutado por error las máquinas virtuales|
 |Grupo de recursos|Puede crear un grupo de recursos para implementar este servidor de procesos u optar por implementar el servidor de procesos en un grupo de recursos existente.|
 |Ubicación|Seleccione el centro de datos de Azure en donde se han conmutado por error las máquinas virtuales.|
-|Red de Azure|Seleccione la red virtual de Azure en donde se han conmutado por error las máquinas virtuales. Si ha conmutado por error máquinas virtuales en varias redes virtuales de Azure, necesita un servidor de proceso implementado por red virtual.|
+|Red de Azure|Seleccione la instancia de Azure Virtual Network en donde se han conmutado por error las máquinas virtuales. Si ha conmutado por error máquinas virtuales en varias redes virtuales de Azure, necesita un servidor de proceso implementado por red virtual.|
 
 4. Rellene el resto de las propiedades en el servidor de procesos.
 

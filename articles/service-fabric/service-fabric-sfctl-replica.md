@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 50d185294131e42aaf8b541ab17495fcb40c89dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="sfctl-replica"></a>réplica de sfctl
 Administre las réplicas que pertenecen a las particiones del servicio.
@@ -29,8 +29,7 @@ Administre las réplicas que pertenecen a las particiones del servicio.
 | --- | --- |
 |    deployed  | Obtiene los detalles de la réplica implementada en un nodo de Service Fabric.|
 |    deployed-list| Obtiene la lista de réplicas implementadas en un nodo de Service Fabric.|
-|    health    | Obtiene el mantenimiento de una réplica de servicio con estado o de una instancia de servicio sin estado de
-                   Service Fabric.|
+|    health    | Obtiene el mantenimiento de una réplica de servicio con estado o de una instancia de servicio sin estado de Service Fabric.|
 |    info      | Obtiene la información sobre una réplica de una partición de Service Fabric.|
 |    list      | Obtiene la información sobre las réplicas de una partición de servicio de Service Fabric.|
 |    remove    | Quita una réplica de servicio que se ejecuta en un nodo.|
