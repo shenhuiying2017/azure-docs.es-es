@@ -3,7 +3,7 @@ title: "Guía de inicio rápido de Azure: Creación de una cuenta de almacenamie
 description: "Aprenda rápidamente a crear una nueva cuenta de almacenamiento con la CLI de Azure."
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
 ms.author: marsma
-ms.openlocfilehash: b1fb2da4acf6e06219d790f2354cada4f1e34285
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7186c5e2ce94d06b21d95a557e960b82e268cdce
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-a-storage-account-using-the-azure-cli"></a>Creación de una cuenta de almacenamiento con la CLI de Azure
 
@@ -55,7 +55,7 @@ Existen varios tipos de cuentas de almacenamiento adecuadas para distintos escen
 
 |**Tipo de cuenta de almacenamiento**|**Uso general estándar**|**Uso general premium**|**Niveles de acceso frecuente y esporádico de Blob Storage**|
 |-----|-----|-----|-----|
-|**Servicios admitidos**| Blob service, File service, Table service y Queue service | Servicio BLOB | Servicio BLOB|
+|**Servicios admitidos**| Blob service, File service, Table service y Queue service | Blob service | Blob service|
 |**Tipos de blobs compatibles**|Blobs en bloques, en páginas y en anexos | Blobs en páginas | Blobs en bloques y blobs en anexos|
 
 Cree una cuenta de almacenamiento estándar de uso general con el comando [az storage account create](/cli/azure/storage/account#create).

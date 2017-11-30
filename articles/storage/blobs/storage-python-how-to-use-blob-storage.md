@@ -3,7 +3,7 @@ title: Uso de Azure Blob Storage (almacenamiento de objetos) en Python | Microso
 description: Almacene datos no estructurados en la nube con Almacenamiento de blobs (objetos) de Azure.
 services: storage
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: tamram
-ms.openlocfilehash: ae5ad68929a6779ed4944de82a609321a5c4b5ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94a0f95454f9243ef09ce37a62466bca4003a91
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>Uso del almacenamiento de blobs de Azure desde Python
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Información general
 Almacenamiento de blobs de Azure es un servicio que almacena datos no estructurados en la nube como objetos o blobs. El Almacenamiento de blobs puede almacenar cualquier tipo de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. El Almacenamiento de blobs a veces se conoce como "almacenamiento de objetos".
 
-Este artículo le muestra cómo realizar algunas tareas comunes con el almacenamiento de blobs. Los ejemplos están escritos en Python y usan el [SDK de Almacenamiento de Microsoft Azure para Python]. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs.
+Este artículo le muestra cómo realizar algunas tareas comunes con el almacenamiento de blobs. Los ejemplos están escritos en Python y usan el [SDK de Microsoft Azure Storage para Python]. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -157,9 +157,9 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 Ahora que está familiarizado con los aspectos básicos del Almacenamiento de blobs, siga estos vínculos para obtener más información.
 
 * [Centro para desarrolladores de Python](https://azure.microsoft.com/develop/python/)
-* [API de REST de servicios de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dd179355)
-* [Blog del equipo de almacenamiento de Azure]
-* [SDK de Almacenamiento de Microsoft Azure para Python]
+* [API de REST de servicios de Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
+* [Blog del equipo de Azure Storage]
+* [SDK de Microsoft Azure Storage para Python]
 
-[Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
+[Blog del equipo de Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+[SDK de Microsoft Azure Storage para Python]: https://github.com/Azure/azure-storage-python

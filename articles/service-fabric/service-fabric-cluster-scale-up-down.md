@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Escalado o reducción horizontal de un clúster de Service Fabric usando reglas de escalado automático
 Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuales independiente. Cada tipo de nodo se puede escalar o reducir horizontalmente de forma independiente. Cada uno cuenta con diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. Puede obtener más información al respecto en el documento [Relación entre los tipos de nodos de Service Fabric y los conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md). Dado que los tipos de nodo de Service Fabric del clúster están formados por conjuntos de escalado de máquinas virtuales en el back-end, tendrá que configurar reglas de escalado automático para cada tipo de nodo y conjunto de escalado de máquinas virtuales.
@@ -72,8 +72,8 @@ Siga las instrucciones o el ejemplo de la [galería de plantillas de inicio ráp
 
 Debe realizar los siguientes pasos en una instancia de máquina virtual cada vez. De este modo, los servicios del sistema (y los servicios con estado) se cerrarán correctamente en la instancia de máquina virtual que se va a quitar y en las nuevas réplicas creadas en otros nodos.
 
-1. Ejecute [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) con RemoveNode para deshabilitar el nodo que va a quitar (la instancia más alta de dicho tipo de nodo).
-2. Ejecute [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) para asegurarse de que el nodo vaya a deshabilitarse. Si no es así, espere hasta que se deshabilite. Este paso no puede saltarse.
+1. Ejecute [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) con RemoveNode para deshabilitar el nodo que va a quitar (la instancia más alta de dicho tipo de nodo).
+2. Ejecute [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para asegurarse de que el nodo vaya a deshabilitarse. Si no es así, espere hasta que se deshabilite. Este paso no puede saltarse.
 3. Siga las instrucciones o el ejemplo de la [galería de plantillas de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para cambiar el número de máquinas virtuales por uno de ese tipo de nodo. La instancia que se quita es la instancia de máquina virtual más alta. 
 4. repita los pasos del 1 al 3 según vea necesario, pero nunca apague las instancias del nodo principal ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. Consulte [la información sobre los niveles de confiabilidad aquí](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ Debe realizar los siguientes pasos en una instancia de máquina virtual cada vez
 
 Debe realizar los siguientes pasos en una instancia de máquina virtual cada vez. De este modo, los servicios del sistema (y los servicios con estado) se cerrarán correctamente en la instancia de máquina virtual que se va a quitar y en las nuevas réplicas creadas en otros nodos.
 
-1. Ejecute [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) con RemoveNode para deshabilitar el nodo que va a quitar (la instancia más alta de dicho tipo de nodo).
-2. Ejecute [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) para asegurarse de que el nodo vaya a deshabilitarse. Si no, espere hasta que se deshabilite. Este paso no puede saltarse.
+1. Ejecute [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) con RemoveNode para deshabilitar el nodo que va a quitar (la instancia más alta de dicho tipo de nodo).
+2. Ejecute [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para asegurarse de que el nodo vaya a deshabilitarse. Si no, espere hasta que se deshabilite. Este paso no puede saltarse.
 3. Siga las instrucciones o el ejemplo de la [galería de plantillas de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para cambiar el número de máquinas virtuales por uno de ese tipo de nodo. Esta acción quitará la instancia de máquina virtual más alta. 
 4. repita los pasos del 1 al 3 según vea necesario, pero nunca apague las instancias del nodo principal ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. Consulte [la información sobre los niveles de confiabilidad aquí](service-fabric-cluster-capacity.md).
 

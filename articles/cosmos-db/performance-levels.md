@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Retirada de los niveles de rendimiento S1, S2 y S3
 
@@ -93,7 +93,7 @@ Supongamos que tiene 10 colecciones S1 en la región Este de EE. UU. y 1 GB de a
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>¿Qué ocurre si necesito más de 10 GB de almacenamiento?
 
-Independientemente de si tiene una colección con un nivel de rendimiento S1, S2 o S3, o si tiene una colección de partición única, todos con 10 GB de almacenamiento disponibles, puede utilizar la herramienta de migración de datos de Cosmos DB para migrar los datos a una colección con particiones, con un almacenamiento prácticamente ilimitado. Para más información acerca de las ventajas de una colección con particiones, consulte el tema sobre [particiones y escalado en Azure Cosmos DB](documentdb-partition-data.md). Para más información sobre cómo migrar su colección de partición única o S1, S2, S3 a una colección con particiones, consulte [Migración desde colecciones de partición única a colecciones con varias particiones](documentdb-partition-data.md#migrating-from-single-partition). 
+Independientemente de si tiene una colección con un nivel de rendimiento S1, S2 o S3, o si tiene una colección de partición única, todos con 10 GB de almacenamiento disponibles, puede utilizar la herramienta de migración de datos de Cosmos DB para migrar los datos a una colección con particiones, con un almacenamiento prácticamente ilimitado. Para más información acerca de las ventajas de una colección con particiones, consulte el tema sobre [particiones y escalado en Azure Cosmos DB](documentdb-partition-data.md). 
 
 <a name="change-before"></a>
 

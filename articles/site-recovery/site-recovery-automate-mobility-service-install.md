@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 11/22/2017
 ms.author: krnese
-ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 118a2e775ae3d036f58989d9778104e372e8c701
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Implementación del servicio Mobility con DSC de Azure Automation para la replicación de VM
 En Operations Management Suite, le proporcionamos una completa solución de copia de seguridad y recuperación ante desastres que puede usar como parte de su plan de continuidad empresarial.
@@ -42,7 +42,7 @@ Cuando se trabaja hacia la continuidad empresarial, es importante comprender las
 
 De modo que, ¿cómo puede garantizar, de una forma optimizada, que dispone de una configuración protegida confiable con la ayuda de algunos componentes de Operations Management Suite?
 
-En este artículo se proporciona un ejemplo de cómo puede usar Configuración de estado deseado (DSC) de Automatización de Azure, en combinación con Site Recovery, para garantizar que:
+En este artículo se proporciona un ejemplo de cómo puede usar Configuración de estado deseado (DSC) de Azure Automation, en combinación con Site Recovery, para garantizar que:
 
 * Mobility Service y el agente de máquina virtual de Azure están implementados en las máquinas virtuales que quiere proteger.
 * Mobility Service y el agente de máquina virtual de Azure siempre se ejecutan cuando Azure es el destino de la replicación.
@@ -55,7 +55,7 @@ En este artículo se proporciona un ejemplo de cómo puede usar Configuración d
   > Se genera una frase de contraseña única para cada servidor de administración. Si va a implementar varios servidores de administración, tendrá que asegurarse de que se almacene la frase de contraseña correcta en el archivo passphrase.txt.
   >
   >
-* Windows Management Framework (WMF) 5.0 instalado en las máquinas virtuales en las que quiere habilitar la protección (un requisito para DSC de Automatización de Azure)
+* Windows Management Framework (WMF) 5.0 instalado en las máquinas virtuales en las que quiere habilitar la protección (un requisito para DSC de Azure Automation)
 
   > [!NOTE]
   > Si quiere usar DSC para máquinas Windows que tengan instalado WMF 4.0, consulte la sección [Uso de DSC en entornos desconectados](## Use DSC in disconnected environments).
@@ -208,7 +208,7 @@ Guarde la configuración como **ASRMobilityService**.
 >
 
 ## <a name="step-3-upload-to-automation-dsc"></a>Paso 3: Carga en DSC de automatización
-Puesto que la configuración de DSC que ha realizado va a importar un módulo de recursos de DSC necesario (xPSDesiredStateConfiguration), debe importar ese módulo en Automatización antes de cargar la configuración de DSC.
+Puesto que la configuración de DSC que ha realizado va a importar un módulo de recursos de DSC necesario (xPSDesiredStateConfiguration), debe importar ese módulo en Automation antes de cargar la configuración de DSC.
 
 Inicie sesión en su cuenta de Automation, vaya a **Recursos** > **Módulos** y haga clic en **Examinar la galería**.
 
@@ -219,7 +219,7 @@ Aquí puede buscar el módulo e importarlo en su cuenta.
 Cuando termine, vaya a la máquina donde tiene instalados los módulos de Azure Resource Manager y continúe para importar la configuración de DSC recién creada.
 
 ### <a name="import-cmdlets"></a>Cmdlets de importación
-En PowerShell, inicie sesión en su suscripción de Azure. Modifique los cmdlets para que reflejen el entorno y capturen la información de la cuenta de Automatización en una variable:
+En PowerShell, inicie sesión en su suscripción de Azure. Modifique los cmdlets para que reflejen el entorno y capturen la información de la cuenta de Automation en una variable:
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
@@ -257,7 +257,7 @@ Ahora ya ha publicado y cargado correctamente la configuración de DSC en DSC de
 >
 >
 
-Ahora creará una metaconfiguración de DSC que se aplicará a los nodos. Para hacerlo correctamente, se debe recuperar la dirección URL del punto de conexión y la clave principal para la cuenta de Automatización seleccionada en Azure. Puede encontrar estos valores en **Claves** en la hoja **Toda la configuración** de la cuenta de Automation.
+Ahora creará una metaconfiguración de DSC que se aplicará a los nodos. Para hacerlo correctamente, se debe recuperar la dirección URL del punto de conexión y la clave principal para la cuenta de Automation seleccionada en Azure. Puede encontrar estos valores en **Claves** en la hoja **Toda la configuración** de la cuenta de Automation.
 
 ![Valores clave](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
@@ -474,13 +474,13 @@ Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 Si quiere crear una instancia de su propio servidor de inserción de DSC en la red corporativa para imitar las funcionalidades que puede obtener en DSC de Automatización, consulte [Configuración de un servidor de extracción web de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
 
 ## <a name="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template"></a>Opcional: Implementación de una configuración de DSC mediante una plantilla de Azure Resource Manager
-Este artículo se ha centrado en cómo puede crear su propia configuración de DSC para implementar automáticamente Mobility Service y el agente de máquina virtual de Azure, y asegurarse de que se ejecutan en las máquinas que quiere proteger. También tenemos una plantilla de Azure Resource Manager que implementará esta configuración de DSC en una cuenta de Automatización de Azure nueva o existente. La plantilla usará parámetros de entrada para crear recursos de Automatización que contendrán las variables de su entorno.
+Este artículo se ha centrado en cómo puede crear su propia configuración de DSC para implementar automáticamente Mobility Service y el agente de máquina virtual de Azure, y asegurarse de que se ejecutan en las máquinas que quiere proteger. También tenemos una plantilla de Azure Resource Manager que implementará esta configuración de DSC en una cuenta de Azure Automation nueva o existente. La plantilla usará parámetros de entrada para crear recursos de Automation que contendrán las variables de su entorno.
 
 Después de implementar la plantilla, puede hacer referencia simplemente al paso 4 de esta guía para incorporar las máquinas.
 
 La plantilla hará lo siguiente:
 
-1. Usar una cuenta existente de Automatización o crear una nueva
+1. Usar una cuenta existente de Automation o crear una nueva
 2. Aceptar los parámetros de entrada de:
    * ASRRemoteFile: la ubicación donde se almacena la configuración de Mobility Service
    * ASRPassphrase: la ubicación donde ha almacenado el archivo passphrase.txt

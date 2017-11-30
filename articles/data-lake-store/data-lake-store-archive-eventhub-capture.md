@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: a9e69576958ae96d22a4eb03d0df429f0b307298
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 221ee6990fe0b5bfc9e745fc85543c4e04e41bd3
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Usar Azure Data Lake Store para capturar datos de Event Hubs
 
@@ -111,7 +111,7 @@ Ahora puede enviar datos a Azure Event Hubs para probar la solución. Siga las i
 ![Datos de ejemplo del centro de eventos en Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-eventhub-data-sample.png "Datos de ejemplo del centro de eventos en Data Lake Store")
 
 > [!NOTE]
-> Incluso si no tiene mensajes que lleguen a Event Hubs, este escribe archivos vacíos solo con los encabezados en la cuenta de Data Lake Store. Los archivos se escriben en el mismo intervalo de tiempo que ha proporcionado al crear los centros de eventos.
+> Incluso si no tiene mensajes que lleguen a Event Hubs, este escribe archivos vacíos solo con los encabezados en la cuenta de Data Lake Store. Los archivos se escriben en el mismo intervalo de tiempo que ha proporcionado al crear Event Hubs.
 > 
 >
 
@@ -122,4 +122,4 @@ Una vez que los datos están en Data Lake Store, puede ejecutar trabajos analít
 
 ## <a name="see-also"></a>Otras referencias
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
-* [Copiar datos de los blobs de almacenamiento de Azure en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
+* [Copiar datos de los blobs de Azure Storage en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)

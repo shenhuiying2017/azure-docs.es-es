@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: ganesr
-ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c940d2eab4d8e977b67b3553ab2e3d9110710956
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -70,7 +70,7 @@ Para poder conectarse correctamente a los servicios mediante el emparejamiento d
 
 Antes de comenzar la configuración, asegúrese de que cumple los siguientes criterios:
 
- - Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para más información, consulte [Install and Configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+ - Instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Para obtener más información, vea [Install and Configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
   > [!NOTE]
   > Descargue la versión más reciente desde la Galería de PowerShell, en lugar de usar el instalador. El instalador no admite actualmente los cmdlets necesarios.

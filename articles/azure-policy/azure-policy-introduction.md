@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -24,7 +24,7 @@ Azure Policy es un servicio de Azure que se usa para crear, asignar y administra
 
 ## <a name="how-is-it-different-from-rbac"></a>¿En qué se diferencia de RBAC?
 
-Hay algunas diferencias importantes entre una directiva y el control de acceso basado en rol (RBAC). RBAC se centra en las acciones del usuario en ámbitos diferentes. Por ejemplo, puede que se le agregue al rol de colaborador para un grupo de recursos en el ámbito deseado. El rol permite realizar cambios en ese grupo de recursos. La directiva se centra en las propiedades de los recursos durante la implementación y para todos los recursos existentes. Por ejemplo, a través de directivas, puede controlar los tipos de recursos que se pueden aprovisionar. O puede restringir las ubicaciones en las que se pueden aprovisionar los recursos. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente.
+Hay algunas diferencias importantes entre directiva y control de acceso basado en roles (RBAC). RBAC se centra en las acciones del usuario en ámbitos diferentes. Por ejemplo, puede que se le agregue al rol de colaborador para un grupo de recursos en el ámbito deseado. El rol permite realizar cambios en ese grupo de recursos. La directiva se centra en las propiedades de los recursos durante la implementación y para todos los recursos existentes. Por ejemplo, a través de directivas, puede controlar los tipos de recursos que se pueden aprovisionar. O puede restringir las ubicaciones en las que se pueden aprovisionar los recursos. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente.
 
 Para usar las directivas, debe autenticarse a través de RBAC. En concreto, la cuenta necesita:
 

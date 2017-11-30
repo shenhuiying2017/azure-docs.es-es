@@ -17,17 +17,17 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 8d021538b34c96c1d486c9508df9d4ee91404337
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 524193835bd5d350d6ac312fcc997f6c135abea1
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Uso de PowerShell para realizar la sincronización entre SQL Database y una base de datos de SQL Server local
 
 En este ejemplo de PowerShell se configura la sincronización de datos entre una base de datos Azure SQL Database y una base de datos SQL Server local. 
 
-En este ejemplo se requiere la versión 4.2 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+En este ejemplo se requiere la versión 4.2 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
  
 Ejecute `Login-AzureRmAccount` para crear una conexión con Azure.
 
@@ -393,9 +393,9 @@ Encontrará más ejemplos de scripts de PowerShell de SQL Database en los [scrip
 Para más información sobre SQL Data Sync, consulte:
 
 -   [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](../sql-database-sync-data.md)
--   [Configurar SQL Data Sync de Azure](../sql-database-get-started-sql-data-sync.md)
+-   [Configuración de Azure SQL Data Sync](../sql-database-get-started-sql-data-sync.md)
 -   [Procedimientos recomendados para SQL Data Sync de Azure](../sql-database-best-practices-data-sync.md)
--   [Supervisión de SQL Data Sync de Azure con Log Analytics de OMS](../sql-database-sync-monitor-oms.md)
+-   [Supervisión de Azure SQL Data Sync con Log Analytics de OMS](../sql-database-sync-monitor-oms.md)
 -   [Solución de problemas de SQL Data Sync de Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:

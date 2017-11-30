@@ -15,16 +15,16 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53867eb7ba13cdfc47e3e47a9212b3c6839281da
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Guía para definir los tipos de datos para las tablas en SQL Data Warehouse
 Siga estas recomendaciones para definir los tipos de datos para tablas compatibles con SQL Data Warehouse. Además de compatibilidad, minimizar el tamaño de los tipos de datos mejora el rendimiento de las consultas.
 
-Almacenamiento de datos SQL admite los tipos de datos usados más frecuentemente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) en la instrucción CREATE TABLE. 
+SQL Data Warehouse admite los tipos de datos usados más frecuentemente. Para obtener una lista de los tipos de datos admitidos, consulte [tipos de datos](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) en la instrucción CREATE TABLE. 
 
 
 ## <a name="minimize-row-length"></a>Minimizar la longitud de fila

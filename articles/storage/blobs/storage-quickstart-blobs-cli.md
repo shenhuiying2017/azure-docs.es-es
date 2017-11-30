@@ -3,7 +3,7 @@ title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob S
 description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante la CLI de Azure"
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 327639f49d27972548e4e8c243d1e349a9cb58bb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferencia de objetos a y desde Azure Blob Storage mediante la CLI de Azure
 
@@ -35,7 +35,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Los blobs siempre se cargan a un contenedor. Los contenedores permiten organizar grupos de blobs de la misma forma que se organizan archivos en directorios en el equipo.
+Los blobs siempre se cargan en un contenedor. Los contenedores permiten organizar grupos de blobs de la misma forma que se organizan archivos en directorios en el equipo.
 
 Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container#create).
 

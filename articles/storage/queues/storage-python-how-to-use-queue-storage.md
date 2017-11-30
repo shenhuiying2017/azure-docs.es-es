@@ -3,7 +3,7 @@ title: Uso de Queue Storage en Python | Microsoft Docs
 description: Aprenda a usar el servicio de colas de Azure de Python para crear y eliminar colas e insertar, obtener y eliminar mensajes.
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
-ms.openlocfilehash: 8311d8e29845f2801c4b33f994512113044fcbf7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: tamram
+ms.openlocfilehash: c7976c01436b1c30880bfd4c57cb97f72a4f48b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Uso del almacenamiento de colas de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Información general
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Python y usan el [SDK de Almacenamiento de Microsoft Azure para Python]. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes].
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Python y usan el [SDK de Microsoft Azure Storage para Python]. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes].
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -53,7 +53,7 @@ pip install azure-storage-queue
 Si quiere conocer métodos de instalación alternativos, consulte el [SDK de Azure Storage para Python en Github](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="how-to-create-a-queue"></a>Creación de una cola
-El objeto **QueueService** permite trabajar con colas. El siguiente código crea un objeto **QueueService** . Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso al almacenamiento de Azure mediante programación:
+El objeto **QueueService** permite trabajar con colas. El siguiente código crea un objeto **QueueService** . Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso a Azure Storage mediante programación:
 
 ```python
 from azure.storage.queue import QueueService
@@ -131,9 +131,9 @@ queue_service.delete_queue('taskqueue')
 Ahora que está familiarizado con los aspectos básicos del Almacenamiento en cola, siga estos vínculos para obtener más información.
 
 * [Centro para desarrolladores de Python](/develop/python/)
-* [API de REST de servicios de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dd179355)
-* [Blog del equipo de almacenamiento de Azure]
-* [SDK de Almacenamiento de Microsoft Azure para Python]
+* [API de REST de servicios de Azure Storage](http://msdn.microsoft.com/library/azure/dd179355)
+* [Blog del equipo de Azure Storage]
+* [SDK de Microsoft Azure Storage para Python]
 
-[Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[SDK de Almacenamiento de Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python
+[Blog del equipo de Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
+[SDK de Microsoft Azure Storage para Python]: https://github.com/Azure/azure-storage-python

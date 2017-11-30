@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
 
-En este artículo se explica la arquitectura de conectividad de Azure SQL Database y cómo funcionan los distintos componentes para dirigir el tráfico a una instancia de Azure SQL Database. La funcionalidad de estos componentes de la conectividad de Azure SQL Database consiste en dirigir el tráfico de red a la base de datos de Azure con clientes que se conectan desde dentro y desde fuera de Azure. En este artículo también se proporcionan ejemplos de script para cambiar cómo se establece la conectividad y, además, se incluyen consideraciones sobre la modificación de la configuración predeterminada de la conectividad. Si le surge alguna pregunta después de leer este artículo, póngase en contacto con Dhruv en dmalik@microsoft.com. 
+En este artículo se explica la arquitectura de conectividad de Azure SQL Database y cómo funcionan los distintos componentes para dirigir el tráfico a una instancia de Azure SQL Database. La funcionalidad de estos componentes de la conectividad de Azure SQL Database consiste en dirigir el tráfico de red a la base de datos de Azure con clientes que se conectan desde dentro y desde fuera de Azure. En este artículo también se proporcionan ejemplos de script para cambiar cómo se establece la conectividad y, además, se incluyen consideraciones sobre la modificación de la configuración predeterminada de la conectividad. 
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 
-En el siguiente diagrama se proporciona una descripción general de la arquitectura de conectividad de Azure SQL Database. 
+En el siguiente diagrama se proporciona una descripción general de la arquitectura de conectividad de Azure SQL Database.
 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | --- | --- |--- |
 | Australia Oriental | 191.238.66.109 | 13.75.149.87 |
 | Sudeste de Australia | 191.239.192.109 | 13.73.109.251 |
-| Sur de Brasil | 104.41.11.5 | |    
-| Centro de Canadá | 40.85.224.249 | |    
+| Sur de Brasil | 104.41.11.5 | |
+| Centro de Canadá | 40.85.224.249 | |
 | Este de Canadá | 40.86.226.166 | |
 | Central EE. UU.: | 23.99.160.139 | 13.67.215.62 |
 | Asia oriental | 191.234.2.139 | 52.175.33.150 |
 | Este de EE. UU. 1 | 191.238.6.43 | 40.121.158.30 |
 | Este de EE. UU. 2 | 191.239.224.107 | 40.79.84.180 |
-| India central | 104.211.96.159  | |   
+| India central | 104.211.96.159  | |
 | Sur de India | 104.211.224.146  | |
 | India occidental | 104.211.160.80 | |
 | Este de Japón | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | Centro-Sur de EE. UU | 23.98.162.75 | 13.66.62.124 |
 | Sudeste de Asia | 23.100.117.95 | 104.43.15.0 |
 | Norte del Reino Unido | 13.87.97.210 | |
-| Sur de Reino Unido 1 | 51.140.184.11 | |    
+| Sur de Reino Unido 1 | 51.140.184.11 | |
 | Sur del Reino Unido 2 | 13.87.34.7 | |
 | Oeste de Reino Unido | 51.141.8.11  | |
 | Centro occidental de EE.UU. | 13.78.145.25 | |
@@ -95,12 +95,12 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Cambio de la directiva de conexión de Azure SQL Database
 
-Para cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, use la [API de REST](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Para cambiar la directiva de conexión de Azure SQL Database de un servidor de Azure SQL Database, use la [API de REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Si la directiva de conexión se establece en **Proxy**, todos los paquetes de red fluyen a través de la puerta de enlace de Azure SQL Database. Para esta configuración, debe permitir el tráfico saliente solo a la dirección IP de la puerta de enlace de Azure SQL Database. El uso de la configuración de **proxy** ofrece más latencia que la de **redireccionamiento**. 
-- Si la configuración de la directiva de conexión está basada en el **redireccionamiento**, todos los paquetes de red fluyen directamente al proxy del middleware. Para esta configuración, debe permitir el tráfico saliente a varias direcciones IP. 
+- Si la directiva de conexión se establece en **Proxy**, todos los paquetes de red fluyen a través de la puerta de enlace de Azure SQL Database. Para esta configuración, debe permitir el tráfico saliente solo a la dirección IP de la puerta de enlace de Azure SQL Database. El uso de la configuración de **proxy** ofrece más latencia que la de **redireccionamiento**.
+- Si la configuración de la directiva de conexión está basada en el **redireccionamiento**, todos los paquetes de red fluyen directamente al proxy del middleware. Para esta configuración, debe permitir el tráfico saliente a varias direcciones IP.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Script para cambiar la configuración de la conexión a través de PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script para cambiar la configuración de la conexión a través de PowerShell
 
 > [!IMPORTANT]
 > Este script requiere el [módulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para cambiar la configuración de la conexión a través de CLI de Azure 2.0 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para cambiar la configuración de la conexión a través de CLI de Azure 2.0
 
 > [!IMPORTANT]
 > Este script requiere [CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 El siguiente script de CLI muestra cómo cambiar la directiva de conexión.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 
