@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -81,7 +81,7 @@ El servicio [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-net
 
 Teniendo en cuenta que usa máquinas virtuales para hospedar servidores en Azure, la cuestión es cómo se conectan esas máquinas virtuales a una red. La respuesta es que las máquinas virtuales se conectan a una instancia de [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
-Las instancias de Azure Virtual Network son similares a las redes virtuales que usa de forma local con sus propias soluciones de plataforma de virtualización, como Microsoft Hyper-V o VMware.
+Las redes virtuales de Azure son similares a las redes virtuales que usa de forma local con sus propias soluciones de plataforma de virtualización, como Microsoft Hyper-V o VMware.
 
 #### <a name="intra-vnet-connectivity"></a>Conectividad entre redes virtuales
 
@@ -128,11 +128,11 @@ Puede implementar varias redes virtuales dentro de cada [suscripción](https://d
 
 -   Segmentar la red virtual en una o varias subredes y asignar una parte del espacio de direcciones de redes virtuales para cada subred.
 
--   Utilizar la resolución de nombres que proporciona Azure o especificar su propio servidor DNS para su uso por recursos conectados a una red virtual. Para más información sobre la resolución de nombres de las redes virtuales, lea el artículo [Resolución de nombres para las máquinas virtuales y servicios en la nube](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+-   Utilizar la resolución de nombres que proporciona Azure o especificar su propio servidor DNS para su uso por recursos conectados a una red virtual. Para más información sobre la resolución de nombres de las redes virtuales, lea el artículo [Resolución de nombres para las máquinas virtuales y Cloud Services](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 **Conectividad de Internet**
 
-Todas las [máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/) y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso de entrada a recursos específicos, según sea necesario. Las máquinas virtuales y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
+Todas las instancias de roles de [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/) y Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso de entrada a recursos específicos, según sea necesario. Las máquinas virtuales y las instancias de rol de Cloud Services conectadas a una red virtual tienen acceso a Internet, de forma predeterminada. También puede habilitar el acceso entrante a recursos específicos, según sea necesario.
 
 Todos los recursos conectados a una red virtual tienen conectividad saliente a Internet de forma predeterminada. La dirección IP privada del recurso es la dirección de red de origen traducida (SNAT) a una dirección IP pública por la infraestructura de Azure. Puede cambiar la conectividad predeterminada mediante la implementación del enrutamiento personalizado y del filtrado de tráfico. Para más información acerca de la conectividad de Internet saliente, consulte el artículo de [Comprender las conexiones salientes en Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -142,7 +142,7 @@ Para la comunicación entrante con los recursos de Azure desde Internet, o para 
 
 Los [recursos de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) como Cloud Services y las máquinas virtuales se pueden conectar a la misma red virtual. Los recursos pueden conectarse entre sí mediante direcciones IP privadas, aunque estén en subredes diferentes. Azure proporciona el enrutamiento predeterminado entre subredes, redes virtuales y redes locales, por lo que no tendrá que configurar ni administrar rutas.
 
-Se pueden conectar varios recursos de Azure a una red virtual, como máquinas virtuales (VM), Cloud Services, entornos de App Service y conjuntos de escalado de máquinas virtuales. Las máquinas virtuales se conectan a una subred dentro de una red virtual a través de una interfaz de red (NIC). Para más información sobre las NIC, consulte [Interfaces de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
+Se pueden conectar varios recursos de Azure a una red virtual, como Virtual Machines (VM), Cloud Services, entornos de App Service Environment y conjuntos de escalado de máquinas virtuales. Las máquinas virtuales se conectan a una subred dentro de una red virtual a través de una interfaz de red (NIC). Para más información sobre las NIC, consulte [Interfaces de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
 
 **Conectividad de red virtual**
 
@@ -315,7 +315,7 @@ Muchas empresas tienen requisitos estrictos de seguridad y conformidad que requi
 
 La tunelización forzada en Azure se configura a través de rutas definidas por el usuario (UDR) de redes virtuales. La redirección del tráfico a un sitio local se expresa como una ruta predeterminada a la puerta de enlace de VPN de Azure.
 
-La sección siguiente muestra la limitación actual de la tabla de enrutamiento y las rutas de una red virtual de Azure:
+La sección siguiente muestra la limitación actual de la tabla de enrutamiento y las rutas de una instancia de Azure Virtual Network:
 
 -   Cada subred de la red virtual tiene una tabla de enrutamiento del sistema integrada. La tabla de enrutamiento del sistema tiene los siguientes tres grupos de rutas:
 
