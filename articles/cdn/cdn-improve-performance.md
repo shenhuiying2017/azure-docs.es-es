@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en la red CDN de Azure
 La compresión es un método sencillo y eficaz para mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página al reducir el tamaño del archivo antes de que se envíe desde el servidor. Este método reduce los costos de ancho de banda y proporciona una mayor capacidad de respuesta para los usuarios.
@@ -100,7 +100,7 @@ Estas tablas describen el comportamiento de la compresión CDN de Azure para cad
 > * Debe tener más de 128 bytes.
 > * Debe tener menos de 1 MB.
 > 
-> Estos perfiles admiten codificación **gzip** (GNU zip), **deflate**, **bzip2** o **br** (Brotli). En el caso de la codificación Brotli, la compresión se realiza únicamente en el servidor perimetral. El explorador o el cliente debe enviar la solicitud de codificación Brotli y el recurso comprimido debe haberse comprimido primero en el origen. 
+> Estos perfiles admiten codificación **gzip** (GNU zip), **deflate**, **bzip2** o **br** (Brotli). En el caso de la codificación Brotli, la compresión debe realizarse en el origen. El explorador o el cliente debe enviar la solicitud de codificación Brotli y el recurso comprimido debe haberse comprimido primero en el origen. 
 
 > [!IMPORTANT]
 > En el caso de los perfiles de la **red CDN de Azure de Akamai**, todos los archivos son válidos para la compresión. Sin embargo, un archivo debe tener un tipo MIME [configurado para compresión](#enabling-compression).

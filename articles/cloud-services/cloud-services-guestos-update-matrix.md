@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 11/16/2017
 ms.author: raiye
-ms.openlocfilehash: 90ce26733c7018e2cf9464470a65bd0539772c3b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -88,7 +88,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |8 de noviembre de 2017 |Publicación 5.14 |TBD |
+| WA-GUEST-OS-5.12_201710-02 |8 de noviembre de 2017 |Publicación 5.14 |TBD |
 | WA-GUEST-OS-5.11_201709-01 |6 de octubre de 2017 |Publicación 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |24 de agosto de 2017 |Publicación 5.12 |TBD |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 de agosto de 2017 |8 de noviembre de 2017 |TBD |
@@ -111,7 +111,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-01 |8 de noviembre de 2017 |Publicación 4.49 |TBD |
+| WA-GUEST-OS-4.47_201710-02 |8 de noviembre de 2017 |Publicación 4.49 |TBD |
 | WA-GUEST-OS-4.46_201709-01 |6 de octubre de 2017 |Publicación 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |24 de agosto de 2017 |Publicación 4.47 |TBD |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 de agosto de 2017 |8 de noviembre de 2017 |TBD |
@@ -134,7 +134,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |8 de noviembre de 2017 |Publicación 3.56 |TBD |
+| WA-GUEST-OS-3.54_201710-02 |8 de noviembre de 2017 |Publicación 3.56 |TBD |
 | WA-GUEST-OS-3.53_201709-01 |6 de octubre de 2017 |Publicación 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |24 de agosto de 2017 |Publicación 3.54 |TBD |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 de agosto de 2017 |8 de noviembre de 2017 |TBD |
@@ -157,7 +157,7 @@ Versión de .NET Framework instalada: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |8 de noviembre de 2017 |Publicación 2.69 |TBD |
+| WA-GUEST-OS-2.67_201710-02 |8 de noviembre de 2017 |Publicación 2.69 |TBD |
 | WA-GUEST-OS-2.66_201709-01 |6 de octubre de 2017 |Publicación 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |24 de agosto de 2017 |Publicación 2.67 |TBD |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 de agosto de 2017 |8 de noviembre de 2017 |TBD |

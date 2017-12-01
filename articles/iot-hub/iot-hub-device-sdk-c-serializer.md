@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-ms.openlocfilehash: aa03c29c54d75538b1fdf987cac5f09d5d344f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8b9e147b68d16c6c166e92cbabf5b5b63e23e8d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK de dispositivo IoT de Azure para C: más información sobre el serializador
 En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivo IoT de Azure**. A este le siguió un artículo que proporcionaba una descripción más detallada de [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). En este artículo terminaremos de analizar el SDK y proporcionaremos una descripción más detallada del componente que queda: la biblioteca de **serializador** .
 
-En el artículo de introducción se describía cómo usar la biblioteca de **serializador** para enviar eventos al Centro de IoT y recibir mensajes de él. En este artículo ampliaremos esta discusión con una explicación más completa de cómo modelar los datos con el macrolenguaje de **serializador** . También incluiremos en él más detalles sobre cómo la biblioteca serializa los mensajes (y, en algunos casos, cómo se puede controlar el comportamiento de serialización). Asimismo, describiremos algunos parámetros que se pueden modificar que determinan el tamaño de los modelos que se crean.
+En el artículo de introducción se describía cómo usar la biblioteca de **serializador** para enviar eventos a IoT Hub y recibir mensajes de él. En este artículo ampliaremos esta discusión con una explicación más completa de cómo modelar los datos con el macrolenguaje de **serializador** . También incluiremos en él más detalles sobre cómo la biblioteca serializa los mensajes (y, en algunos casos, cómo se puede controlar el comportamiento de serialización). Asimismo, describiremos algunos parámetros que se pueden modificar que determinan el tamaño de los modelos que se crean.
 
 Terminaremos examinando de nuevo algunos de los temas tratados en artículos anteriores, como el control de los mensajes y las propiedades. Como veremos, estas características funcionan del mismo modo con la biblioteca de **serializador** que con la biblioteca de **IoTHubClient**.
 
@@ -50,7 +50,7 @@ END_NAMESPACE(WeatherStation);
 
 Como puede observar, el lenguaje de modelado se basa en macros de C. La definición comienza siempre con **BEGIN\_NAMESPACE** y termina siempre con **END\_NAMESPACE**. Es habitual asignar un nombre al espacio de nombres de su compañía o, como en este ejemplo, al proyecto en el que trabaja.
 
-Lo que hay dentro del espacio de nombres son definiciones de modelo. En este caso, hay un único modelo para un anemómetro. Una vez más, el modelo puede tener cualquier nombre pero, normalmente, se denomina para el dispositivo o el tipo de datos que quiere intercambiar con el Centro de IoT.  
+Lo que hay dentro del espacio de nombres son definiciones de modelo. En este caso, hay un único modelo para un anemómetro. Una vez más, el modelo puede tener cualquier nombre pero, normalmente, se denomina para el dispositivo o el tipo de datos que quiere intercambiar con Azure IoT Hub.  
 
 Los modelos contienen una definición de los eventos que puede insertar en el IoT Hub (los *datos*), así como de los mensajes que puede recibir de él (las *acciones*). Como puede ver por el ejemplo, los eventos tienen un tipo y un nombre; las acciones tienen un nombre y parámetros opcionales (cada uno con un tipo).
 
@@ -108,7 +108,7 @@ WITH_DATA(TestType, Test)
 
 Nuestro modelo contiene un evento de datos único de tipo **TestType**. **TestType** es un tipo complejo que incluye varios miembros que, de forma colectiva, muestran los tipos primitivos admitidos por el lenguaje de modelado de **serializador**.
 
-Con un modelo como este podemos escribir código para enviar datos al Centro de IoT, que tendría este aspecto:
+Con un modelo como este podemos escribir código para enviar datos a IoT Hub, que tendría este aspecto:
 
 ```
 TestModel* testModel = CREATE_MODEL_INSTANCE(MyThermostat, TestModel);
@@ -139,7 +139,8 @@ testModel->Test.aBinary = binaryData;
 SendAsync(iotHubClientHandle, (const void*)&(testModel->Test));
 ```
 
-Básicamente, lo que hacemos es asignar un valor a todos los miembros de la estructura **Test** y, luego, llamar a **SendAsync** para enviar el evento de datos de **Test** a la nube. **SendAsync** es una función auxiliar que envía un solo evento de datos al Centro de IoT:
+Básicamente, lo que hacemos es asignar un valor a todos los miembros de la estructura **Test** y, luego, llamar a **SendAsync** para enviar el evento de datos de **Test** a la nube. 
+            **SendAsync** es una función auxiliar que envía un solo evento de datos a IoT Hub:
 
 ```
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
@@ -188,7 +189,7 @@ EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 }
 ```
 
-Si ejecuta este código, se envía el siguiente mensaje al Centro de IoT:
+Si ejecuta este código, se envía el siguiente mensaje a IoT Hub:
 
 ```
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
@@ -205,7 +206,7 @@ En la sección anterior se resalta un ejemplo de la salida generada por la bibli
 
 Para avanzar en la discusión sobre la serialización, trabajaremos con un nuevo modelo basado en un termostato. Primero vamos a proporcionar alguna información de contexto sobre el escenario que tratamos de abordar.
 
-Queremos modelar un termostato que mida la temperatura y la humedad. Cada fragmento de datos se va a enviar al Centro de IoT de una manera diferente. De forma predeterminada, el termostato introduce un evento de temperatura cada 2 minutos y un evento de humedad, cada 15 minutos. Cuando se introduce uno de estos eventos, se debe incluir una marca de tiempo que indique el tiempo durante el cual se midió la temperatura o humedad correspondientes.
+Queremos modelar un termostato que mida la temperatura y la humedad. Cada fragmento de datos se va a enviar a IoT Hub de una manera diferente. De forma predeterminada, el termostato introduce un evento de temperatura cada 2 minutos y un evento de humedad, cada 15 minutos. Cuando se introduce uno de estos eventos, se debe incluir una marca de tiempo que indique el tiempo durante el cual se midió la temperatura o humedad correspondientes.
 
 Dado este escenario, demostraremos dos formas diferentes de modelar los datos y explicaremos el efecto que tiene el modelado en el resultado serializado.
 
@@ -270,7 +271,7 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 
 Este código es un subconjunto de la aplicación auxiliar **SendAsync** descrita en la sección anterior, por lo que no volveremos aquí sobre ella de nuevo.
 
-Al ejecutar el código anterior para enviar el evento de temperatura, esta forma serializada del evento se envía al Centro de IoT:
+Al ejecutar el código anterior para enviar el evento de temperatura, esta forma serializada del evento se envía a IoT Hub:
 
 ```
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
@@ -289,7 +290,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 }
 ```
 
-La forma serializada que se envía al Centro de IoT tiene este aspecto:
+La forma serializada que se envía a IoT Hub tiene este aspecto:
 
 ```
 {"Humidity":45, "Time":"2015-09-17T18:45:56Z"}
@@ -329,7 +330,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature) == IOT_AG
 }
 ```
 
-Este código envía el siguiente evento serializado al Centro de IoT:
+Este código envía el siguiente evento serializado a IoT Hub:
 
 ```
 {"Temperature":75}
@@ -345,7 +346,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 }
 ```
 
-Este código envía esto al Centro de IoT:
+Este código envía esto a IoT Hub:
 
 ```
 {"Humidity":45}
@@ -362,7 +363,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 }
 ```
 
-Podría suponer que el resultado de este código es que dos eventos de datos se envían al Centro de IoT:
+Podría suponer que el resultado de este código es que dos eventos de datos se envían a IoT Hub:
 
 [
 
@@ -372,7 +373,7 @@ Podría suponer que el resultado de este código es que dos eventos de datos se 
 
 ]
 
-En otras palabras, puede esperar que este código sea lo mismo que enviar **Temperature** y **Humidity** por separado. Solo por comodidad se pasan ambos eventos a **SERIALIZE** en la misma llamada. Sin embargo, ese no es el caso. Por el contrario, el código anterior envía este único evento de datos al Centro de IoT:
+En otras palabras, puede esperar que este código sea lo mismo que enviar **Temperature** y **Humidity** por separado. Solo por comodidad se pasan ambos eventos a **SERIALIZE** en la misma llamada. Sin embargo, ese no es el caso. Por el contrario, el código anterior envía este único evento de datos a IoT Hub:
 
 {"Temperature":75, "Humidity":45}
 
@@ -422,7 +423,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 }
 ```
 
-Suponiendo que los valores de Temperature, Humidity y Time estén establecidos, veríamos que se envía un evento como éste al Centro de IoT:
+Suponiendo que los valores de Temperature, Humidity y Time estén establecidos, veríamos que se envía un evento como éste a IoT Hub:
 
 ```
 {"Temperature":75, "Humidity":45, "Time":"2015-09-17T18:45:56Z"}
@@ -445,7 +446,7 @@ Si piensa en su modelo como orientado a objetos, entonces el segundo enfoque pue
 Ningún enfoque es bueno ni malo. Lo importante es saber cómo funciona la biblioteca de **serializador** y seleccionar el enfoque de modelado que mejor se ajuste a sus necesidades.
 
 ## <a name="message-handling"></a>Administración de mensajes
-Hasta ahora solo hemos examinado en este artículo el envío de eventos al Centro de IoT y no hemos hablado de la recepción de mensajes. La razón de ello es que lo que necesitamos saber sobre la recepción de mensajes se ha tratado en gran medida en un [artículo anterior](iot-hub-device-sdk-c-intro.md). Como se explicaba en ese artículo, los mensajes se procesan mediante el registro de una función de devolución de llamada de mensaje:
+Hasta ahora solo hemos examinado en este artículo el envío de eventos a IoT Hub y no hemos hablado de la recepción de mensajes. La razón de ello es que lo que necesitamos saber sobre la recepción de mensajes se ha tratado en gran medida en un [artículo anterior](iot-hub-device-sdk-c-intro.md). Como se explicaba en ese artículo, los mensajes se procesan mediante el registro de una función de devolución de llamada de mensaje:
 
 ```
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
@@ -627,7 +628,7 @@ Hay un conjunto similar de API de nivel inferior.
 * IoTHubClient\_LL\_SetMessageCallback
 * IoTHubClient\_LL\_Destroy
 
-Tenga en cuenta que las API de nivel inferior funcionan exactamente como se describió en los artículos anteriores. Puede usar el primer conjunto de API, si quiere que un subproceso en segundo plano controle el envío de eventos y la recepción de mensajes. Si quiere un control explícito sobre cuándo envía y recibe datos del Centro de IoT, usará el segundo conjunto de API. Cualquier conjunto de API funciona igual de bien con la biblioteca de **serializador** .
+Tenga en cuenta que las API de nivel inferior funcionan exactamente como se describió en los artículos anteriores. Puede usar el primer conjunto de API, si quiere que un subproceso en segundo plano controle el envío de eventos y la recepción de mensajes. Si quiere un control explícito sobre cuándo envía y recibe datos de IoT Hub, usará el segundo conjunto de API. Cualquier conjunto de API funciona igual de bien con la biblioteca de **serializador** .
 
 Para ver un ejemplo de cómo se usan las API de nivel inferior con la biblioteca de **serializador**, vea la aplicación **simplesample\_http**.
 
@@ -663,7 +664,7 @@ serializer_deinit();
 Por lo demás, todas las demás características enumeradas anteriormente funcionan igual en la biblioteca de **serializador** que en la biblioteca **IoTHubClient**. Para más información sobre cualquiera de estos temas, consulte el [artículo anterior](iot-hub-device-sdk-c-iothubclient.md) de esta serie.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se describen en detalle los aspectos únicos de la biblioteca de **serializador** contenida en el **SDK de dispositivo IoT de Azure para C**. Con la información proporcionada, habrá comprendido perfectamente cómo usar los modelos para enviar eventos y recibir mensajes del Centro de IoT.
+En este artículo se describen en detalle los aspectos únicos de la biblioteca de **serializador** contenida en el **SDK de dispositivo IoT de Azure para C**. Con la información proporcionada, habrá comprendido perfectamente cómo usar los modelos para enviar eventos y recibir mensajes de IoT Hub.
 
 Con esto también concluye la serie de tres partes sobre cómo desarrollar aplicaciones con el **SDK de dispositivo IoT de Azure para C**. Esta información debería ser suficiente no solo para ayudarle en sus primeros pasos sino también para proporcionarle una comprensión profunda de cómo funcionan las API. Para obtener información adicional, existen algunos ejemplos en el SDK que no se tratan aquí. Por lo demás, la [documentación del SDK](https://github.com/Azure/azure-iot-sdk-c) es un buen recurso para conseguir información adicional.
 
@@ -671,8 +672,8 @@ Para más información acerca del desarrollo para IoT Hub, consulte los [SDK de 
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Simular un dispositivo con Azure IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

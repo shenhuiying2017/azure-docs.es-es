@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creación de reglas de pertenencia dinámica a grupos basadas en atributos en Azure Active Directory
 En Azure Active Directory (Azure AD), puede crear reglas avanzadas para habilitar la pertenencia dinámica a grupos basada en atributos complejos. En este artículo se detallan los atributos y la sintaxis para crear reglas de pertenencia dinámica para usuarios o dispositivos.
@@ -72,7 +72,7 @@ Para obtener una lista completa de los parámetros y los operadores de regla de 
 La longitud total del cuerpo de la regla avanzada no puede superar los 2048 caracteres.
 
 > [!NOTE]
-> Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. También puede realizar comprobaciones Null, usando $null como constante; por ejemplo, user.department -eq $null.
+> Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. También puede realizar comprobaciones Null, usando *null* como constante; por ejemplo, user.department -eq *null*.
 > Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Operadores de regla de expresión admitidos
@@ -158,31 +158,31 @@ Operadores permitidos
 
 | Propiedades | Valores permitidos | Uso |
 | --- | --- | --- |
-| city |Cualquier valor de cadena o $null |(user.city -eq "value") |
-| country |Cualquier valor de cadena o $null |(user.country -eq "value") |
-| companyName | Cualquier valor de cadena o $null | (user.companyName -eq "value") |
-| department |Cualquier valor de cadena o $null |(user.department -eq "value") |
+| city |Cualquier valor de cadena o *null* |(user.city -eq "value") |
+| country |Cualquier valor de cadena o *null* |(user.country -eq "value") |
+| companyName | Cualquier valor de cadena o *null* | (user.companyName -eq "value") |
+| department |Cualquier valor de cadena o *null* |(user.department -eq "value") |
 | DisplayName |Cualquier valor de cadena |(user.displayName -eq "value") |
-| facsimileTelephoneNumber |Cualquier valor de cadena o $null |(user.facsimileTelephoneNumber -eq "value") |
-| givenName |Cualquier valor de cadena o $null |(user.givenName -eq "value") |
-| jobTitle |Cualquier valor de cadena o $null |(user.jobTitle -eq "value") |
-| mail |Cualquier valor de cadena o $null (dirección SMTP del usuario) |(user.mail -eq "value") |
+| facsimileTelephoneNumber |Cualquier valor de cadena o *null* |(user.facsimileTelephoneNumber -eq "value") |
+| givenName |Cualquier valor de cadena o *null* |(user.givenName -eq "value") |
+| jobTitle |Cualquier valor de cadena o *null* |(user.jobTitle -eq "value") |
+| mail |Cualquier valor de cadena o *null* (dirección SMTP del usuario) |(user.mail -eq "value") |
 | mailNickName |Cualquier valor de cadena (alias de correo electrónico del usuario) |(user.mailNickName -eq "value") |
-| mobile |Cualquier valor de cadena o $null |(user.mobile -eq "value") |
+| mobile |Cualquier valor de cadena o *null* |(user.mobile -eq "value") |
 | objectId |GUID del objeto de usuario |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Identificador de seguridad local (SID) para los usuarios que se han sincronizado desde local a la nube. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Cualquier valor de cadena o $null |(user.physicalDeliveryOfficeName -eq "value") |
-| postalCode |Cualquier valor de cadena o $null |(user.postalCode -eq "value") |
+| physicalDeliveryOfficeName |Cualquier valor de cadena o *null* |(user.physicalDeliveryOfficeName -eq "value") |
+| postalCode |Cualquier valor de cadena o *null* |(user.postalCode -eq "value") |
 | preferredLanguage |Código ISO 639-1 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Cualquier valor de cadena o $null |(user.sipProxyAddress -eq "value") |
-| state |Cualquier valor de cadena o $null |(user.state -eq "value") |
-| streetAddress |Cualquier valor de cadena o $null |(user.streetAddress -eq "value") |
-| surname |Cualquier valor de cadena o $null |(user.surname -eq "value") |
-| telephoneNumber |Cualquier valor de cadena o $null |(user.telephoneNumber -eq "value") |
+| sipProxyAddress |Cualquier valor de cadena o *null* |(user.sipProxyAddress -eq "value") |
+| state |Cualquier valor de cadena o *null* |(user.state -eq "value") |
+| streetAddress |Cualquier valor de cadena o *null* |(user.streetAddress -eq "value") |
+| surname |Cualquier valor de cadena o *null* |(user.surname -eq "value") |
+| telephoneNumber |Cualquier valor de cadena o *null* |(user.telephoneNumber -eq "value") |
 | usageLocation |Código de país con dos letras |(user.usageLocation -eq "US") |
 | userPrincipalName |Cualquier valor de cadena |(user.userPrincipalName -eq "alias@domain") |
-| userType |miembro invitado $null |(user.userType -eq "Member") |
+| userType |miembro invitado *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propiedades de colección de cadenas de tipo
 Operadores permitidos
@@ -225,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Uso de valores nulos
 
-Para especificar un valor nulo en una regla, puede usar "null" o $null. Ejemplo:
+Para especificar un valor nulo en una regla, puede usar el valor *null*. Tenga cuidado de no usar comillas alrededor de la palabra *null*. Si lo hace, se interpretará como un valor de cadena literal. La manera correcta de hacer referencia al valor null es como sigue:
 ```
    user.mail –ne null
 ```
-equivale a
-```
-   user.mail –ne $null
-   ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensión y atributos personalizados
 Se admiten los atributos de extensión y los atributos personalizados en las reglas de pertenencia dinámica.

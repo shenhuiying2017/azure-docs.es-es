@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Sync: configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
@@ -66,7 +66,7 @@ Para deshabilitar el programador integrado que desencadena un ciclo de sincroniz
 Para deshabilitar la tarea programada que desencadena un ciclo de sincronización cada tres horas, siga estos pasos:
 
 1. Abra el **Programador de tareas** en el menú **Inicio**.
-2. Directamente bajo **Biblioteca del Programador de tareas**, busque la tarea **Programador de Sincronización de Azure AD**, haga clic con el botón derecho en ella y seleccione **Deshabilitar**.  
+2. Directamente en **Biblioteca del Programador de tareas**, busque la tarea **Programador de sincronización de Azure AD**, haga clic con el botón derecho en ella y seleccione **Deshabilitar**.  
    ![Programador de tareas](./media/active-directory-aadconnectsync-configure-filtering/taskscheduler.png)  
 3. Ahora podrá realizar cambios de configuración y ejecutar el motor de sincronización manualmente desde la consola de **Synchronization Service Manager**.
 
@@ -291,12 +291,19 @@ Cuando esté satisfecho, exporte los cambios a Azure AD.
 Ahora es el momento de volver a habilitar el programador.
 
 1. Abra el **Programador de tareas** en el menú **Inicio**.
-2. Directamente en **Biblioteca del Programador de tareas**, busque la tarea **Programador de Sincronización de Azure AD**, haga clic con el botón derecho en ella y seleccione **Habilitar**.
+2. Directamente en **Biblioteca del Programador de tareas**, busque la tarea **Programador de sincronización de Azure AD**, haga clic con el botón derecho en ella y seleccione **Habilitar**.
 
 ## <a name="group-based-filtering"></a>Filtrado basado en grupo
 Puede configurar el filtrado por grupo la primera vez que instale Azure AD Connect con la [instalación personalizada](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Se ha diseñado para una implementación piloto donde se vaya a sincronizar solo un pequeño conjunto de objetos. Cuando deshabilite el filtrado por grupo, no lo podrá volver a habilitar. El filtrado por grupo *no es compatible* con la configuración personalizada. Solo se admite para configurar esta característica con el Asistente para instalación. Cuando haya completado la prueba piloto, utilice una de las opciones de filtrado de este tema. Si se usa el filtrado por UO junto con el filtrado basado en grupo, se deben incluir las unidades organizativas donde se encuentran el grupo y sus miembros.
 
-Al sincronizar varios bosques de AD, puede configurar el filtrado basado en grupos mediante la especificación de un grupo diferente para cada conector de AD. Si desea sincronizar un usuario en un bosque de AD y el mismo usuario tiene uno o varios objetos de FSP (entidad de seguridad externa) en otros bosques de AD, debe asegurarse de que el objeto de usuario y todos sus objetos de FSP correspondientes se encuentran en el ámbito de filtrado basado en grupos. Si uno o varios objetos de FSP se excluyen mediante el filtrado basado en grupos, el objeto de usuario no se sincronizará con Azure AD.
+Al sincronizar varios bosques de AD, puede configurar el filtrado basado en grupos mediante la especificación de un grupo diferente para cada conector de AD. Si desea sincronizar un usuario en un bosque de AD y el mismo usuario tiene uno o varios objetos en otros bosques de AD, debe asegurarse de que el objeto de usuario y todos sus objetos correspondientes se encuentran en el ámbito de filtrado basado en grupos. Por ejemplo:
+
+* Tiene un usuario en un bosque que tiene un objeto de FSP (entidad de seguridad externa) correspondiente en otro bosque. Ambos objetos deben estar dentro del ámbito de filtrado basado en grupos. De lo contrario, el usuario no se sincronizará con Azure AD.
+
+* Tiene un usuario en un bosque que, a su vez, tiene una cuenta de recurso correspondiente (por ejemplo, un buzón vinculado) en otro bosque. Además, ha configurado Azure AD Connect para vincular el usuario con la cuenta del recurso. Ambos objetos deben estar dentro del ámbito de filtrado basado en grupos. De lo contrario, el usuario no se sincronizará con Azure AD.
+
+* Tiene un usuario en un bosque que tiene un contacto de correo correspondiente en otro bosque. Además, ha configurado Azure AD Connect para vincular el usuario con el contacto de correo. Ambos objetos deben estar dentro del ámbito de filtrado basado en grupos. De lo contrario, el usuario no se sincronizará con Azure AD.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).

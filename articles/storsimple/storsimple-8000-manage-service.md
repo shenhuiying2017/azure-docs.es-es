@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar el servicio Administrador de dispositivos de StorSimple para dispositivos de la serie StorSimple 8000
 
@@ -113,6 +113,7 @@ Realice los pasos siguientes para realizar la transición del servicio a Azure P
 
 Una vez completada la transición, puede administrar los dispositivos a través del servicio Administrador de dispositivos de StorSimple en Azure Portal. Si no ve una opción para migrar a Azure Portal, pero que desea realizar la migración, también puede [enviar una solicitud](https://aka.ms/ss8000-cx-signup).
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Operaciones admitidas en dispositivos que ejecutan versiones anteriores a Update 3.0
 En Azure Portal, solo se admiten los dispositivos de StorSimple que ejecuten Update 3.0 y versiones posteriores. Los dispositivos que ejecutan versiones anteriores tienen compatibilidad limitada. Después de haber migrado a Azure Portal, utilice la siguiente tabla para comprender las operaciones que se admiten en los dispositivos que ejecutan versiones anteriores a Update 3.0.
 
 | Operación                                                                                                                       | Compatible      |

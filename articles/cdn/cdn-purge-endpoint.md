@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de red CDN de Azure
 ## <a name="overview"></a>Información general
@@ -34,7 +34,7 @@ El procedimiento recomendado para asegurarse de que los usuarios siempre obtenga
 Este tutorial le guiará a través de purga de los recursos de todos los nodos perimetrales de un punto de conexión.
 
 ## <a name="walkthrough"></a>Tutorial
-1. En el [Portal de Azure](https://portal.azure.com), examine el perfil de red CDN que contiene el punto de conexión que quiera purgar.
+1. En el [Azure Portal](https://portal.azure.com), examine el perfil de red CDN que contiene el punto de conexión que quiera purgar.
 2. En la hoja Perfil de CDN, haga clic en el botón para purgar.
    
     ![Hoja del perfil de red CDN](./media/cdn-purge-endpoint/cdn-profile-blade.png)
@@ -68,11 +68,11 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
     ![Botón Purgar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Las solicitudes de purga tardan aproximadamente de 2 a 3 minutos en procesarse con la **red CDN de Azure de Verizon** (estándar y premium) y unos 7 minutos con la **red CDN de Azure de Akamai**.  La red CDN de Azure tiene un límite de 50 solicitudes de purga simultáneas en un momento dado. 
+> Las solicitudes de purga tardan aproximadamente de 2 a 3 minutos en procesarse con la **red CDN de Azure de Verizon** (estándar y premium) y unos 7 minutos con la **red CDN de Azure de Akamai**.  La red CDN de Azure tiene un límite de 50 solicitudes de purga simultáneas en un momento dado en el nivel de perfil. 
 > 
 > 
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Carga previa de activos en un punto de conexión de CDN de Azure](cdn-preload-endpoint.md)
 * [Referencia de la API de REST de red de CDN de Azure - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
 

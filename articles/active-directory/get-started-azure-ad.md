@@ -1,12 +1,12 @@
 ---
 title: "Introducción a Azure Active Directory | Microsoft Docs"
-description: 
+description: "Obtener licencias, añadir el nombre del dominio, crear una página de inicio de sesión personalizada y añadir el autoservicio de restablecimiento de contraseña en Azure Active Directory"
 keywords: 
-author: jeffgilb
-manager: femila
-ms.author: jeffgilb
+author: curtand
+manager: michael.tillman
+ms.author: curtand
 ms.reviewer: jsnow
-ms.date: 10/04/2017
+ms.date: 11/14/2017
 ms.topic: article
 ms.prod: 
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.technology: 
 ms.assetid: 
 services: active-directory
-custom: it-pro
-ms.openlocfilehash: 714f90155dbf53c5728e27995cee95f132fa452b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.custom: it-pro
+ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Introducción a Azure AD
 La administración de identidades moderna requiere confiabilidad escalable y coherente para garantizar la disponibilidad de las aplicaciones y servicios solo para los usuarios autenticados. Para admitir adecuadamente las necesidades de administración de identidad de los usuarios, el departamento de TI necesita una manera para proporcionar acceso a aplicaciones de software como servicio (SaaS) aprobadas y públicas, una manera de hospedar aplicaciones internas de línea de negocio e incluso formas de mejorar el desarrollo y uso de aplicaciones locales. Todos estos requisitos apuntan a la necesidad de una solución de administración de identidad basada en la nube.      
@@ -41,8 +41,8 @@ Para suscribirse a Active Directory Premium, cuenta con varias opciones:
 - Use un plan de licencias de Enterprise Mobility + Security
 - Use un plan de Licencias por volumen de Microsoft
 
-> ### <a name="verification-step"></a>Paso de comprobación
-> Después de activar la suscripción, asegúrese de que puede iniciar sesión en el servicio.
+### <a name="verification-step"></a>Paso de comprobación
+Después de activar la suscripción, asegúrese de que puede iniciar sesión en el servicio.
 
 ## <a name="add-a-custom-domain-name"></a>Adición de un dominio personalizado
 Cada directorio de Azure AD incluye un nombre de dominio inicial con el formato *nombre de dominio*.onmicrosoft.com. El nombre de dominio inicial no se puede cambiar ni eliminar, pero también se puede 	[agregar el nombre de dominio corporativo a Azure AD](add-custom-domain.md). Por ejemplo, puede que su organización tenga otros nombres de dominio que se usan para hacer negocios y usuarios que inician sesión con el nombre de dominio corporativo. La incorporación de nombres de dominio personalizados a Azure AD le permite asignar en el directorio nombres de usuario conocidos para sus usuarios, como "alice@contoso.com". en lugar de "alice@.onmicrosoft.com". El proceso es simple:
@@ -51,22 +51,22 @@ Cada directorio de Azure AD incluye un nombre de dominio inicial con el formato 
 2. Incorporación de la entrada DNS para el nombre de dominio en el registrador de nombres de dominio
 3. Comprobación del nombre de dominio personalizado en Azure AD
 
-> ### <a name="verification-step"></a>Paso de comprobación
-> Después de agregar un dominio personalizado, asegúrese de que el estado **Comprobado** aparece en la hoja **Nombres de dominio** del portal de Azure AD.
+### <a name="verification-step"></a>Paso de comprobación
+Después de agregar un dominio personalizado, asegúrese de que el estado **Comprobado** aparece en la hoja **Nombres de dominio personalizados** del portal de Azure AD.
 
 ## <a name="add-company-branding-to-your-sign-in-page"></a>Adición de personalización de marca a la página de inicio de sesión 
 Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory (Azure AD) ofrece esta funcionalidad, ya que permite [personalizar la apariencia de la página de inicio de sesión con el logotipo de la empresa y combinaciones de colores personalizadas](customize-branding.md). La página de inicio es la página que aparece al iniciar sesión en Office 365 u otras aplicaciones web que estén utilizando Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.
 
-> ### <a name="verification-step"></a>Paso de comprobación
-> Inicie sesión en Azure Portal y asegúrese de que la página de inicio de sesión personalizada y las personalizaciones de idioma adicionales se han configurado correctamente. 
+### <a name="verification-step"></a>Paso de comprobación
+Inicie sesión en Azure Portal y asegúrese de que la página de inicio de sesión personalizada y las personalizaciones de idioma adicionales se han configurado correctamente. 
 
 ## <a name="add-new-users"></a>Adición de nuevos usuarios
 Puede [agregar nuevos usuarios a la instancia de Azure AD de su organización](add-users-azure-active-directory.md) de uno en uno mediante Azure Portal o mediante la sincronización de los datos de los recursos de Windows Server AD local. Puede agregar usuarios en la nube directamente desde el portal de Azure AD o sincronizar la información de usuarios locales.
 
 Para habilitar la sincronización de identidades local con Azure AD, debe instalar y configurar [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) en un servidor de su organización. Esta aplicación administra la sincronización de usuarios y grupos de su origen de identidades existente con su inquilino de Azure AD.
 
-> ### <a name="verification-step"></a>Paso de comprobación
-> Después de crear o sincronizar usuarios nuevos, asegúrese de que están visibles en Azure AD.
+### <a name="verification-step"></a>Paso de comprobación
+Después de crear o sincronizar usuarios nuevos, asegúrese de que están visibles en Azure AD.
 
 ## <a name="assign-licenses"></a>Asignación de licencias
 Aunque para configurar las funcionalidades de pago todo lo que necesita es una suscripción, debe [asignar licencias a los usuarios](license-users-groups.md) para las características de pago de Azure AD Premium. Se debe asignar una licencia a los usuarios que deban disponer de acceso o que puedan administrarse a través de una característica de pago de Azure AD. Una asignación de licencia es una asignación entre un usuario y un servicio comprado, como Azure AD Premium, Basic o Enterprise Mobility + Security.
@@ -77,17 +77,17 @@ Puede usar asignación de licencias basada en grupos para configurar reglas como
 - Todos los usuarios con el puesto adecuado reciben una licencia
 - Puede delegar la decisión en otros administradores de la organización (mediante el uso de grupos de autoservicio)
 
-> ### <a name="verification-step"></a>Paso de comprobación
-> Revise las licencias asignadas y disponibles en **Azure Active Directory** > **Licencias** > **Todos los productos**.
+### <a name="verification-step"></a>Paso de comprobación
+Revise las licencias asignadas y disponibles en **Azure Active Directory** > **Licencias** > **Todos los productos**.
 
 ## <a name="configure-self-service-password-reset"></a>Configuración del autoservicio de restablecimiento de contraseña
 El [autoservicio de restablecimiento de contraseña (SSPR)](active-directory-passwords-getting-started.md) ofrece un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan o desbloqueen sus cuentas o contraseñas. El sistema incluye informes detallados para realizar un seguimiento de cuándo usan los usuarios el sistema, además de notificaciones para alertar de posibles abusos o usos indebidos.
 
-> ### <a name="verification-step"></a>Paso de comprobación
-> Revise las propiedades de SSPR habilitadas en **Azure Active Directory** > **Restablecimiento de contraseña** para asegurarse de que se han efectuado las asignaciones de grupo y usuario adecuadas. 
+### <a name="verification-step"></a>Paso de comprobación
+Revise las propiedades de SSPR habilitadas en **Azure Active Directory** > **Restablecimiento de contraseña** para asegurarse de que se han efectuado las asignaciones de grupo y usuario adecuadas. 
 
 
-### <a name="learn-more"></a>Más información
+## <a name="next-steps"></a>Pasos siguientes
 [Página de producto de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Página de información de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)

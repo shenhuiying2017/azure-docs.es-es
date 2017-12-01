@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 9f0ea741355c6403cde6f02d8263dd8bff7e553b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 6e64d2238c36c8f122bbe29b937eeea156df30e0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -314,13 +314,13 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 Esto libera los recursos asignados que previamente ha asignado la función **IoTHubClient\_CreateFromConnectionString**.
 
-Como puede ver, es fácil enviar y recibir mensajes con la biblioteca **IoTHubClient**. La biblioteca controla los detalles de la comunicación con el Centro de IoT, incluido el protocolo que debe usar (desde la perspectiva del desarrollador, es una opción de configuración simple).
+Como puede ver, es fácil enviar y recibir mensajes con la biblioteca **IoTHubClient**. La biblioteca controla los detalles de la comunicación con Azure IoT Hub, incluido el protocolo que debe usar (desde la perspectiva del desarrollador, es una opción de configuración simple).
 
 La biblioteca **IoTHubClient** también proporciona un control preciso sobre el modo de serializar los datos que el dispositivo envía a IoT Hub. En algunos casos este nivel de control es una ventaja, pero en otros es un detalle de la implementación por el que no desea preocuparse. En ese caso, puede considerar la posibilidad de usar la biblioteca **serializer**, que se describe en la sección siguiente.
 
 ## <a name="use-the-serializer-library"></a>Uso de la biblioteca serializer
 
-Conceptualmente, la biblioteca **serializer** se encuentra encima de la biblioteca **IoTHubClient** en el SDK. Usa la biblioteca **IoTHubClient** para la comunicación subyacente con el Centro de IoT, pero incorpora funcionalidades de modelado que eliminan la carga de tratar con la serialización de mensajes del desarrollador. Un ejemplo ilustra mejor el funcionamiento de esta biblioteca.
+Conceptualmente, la biblioteca **serializer** se encuentra encima de la biblioteca **IoTHubClient** en el SDK. Usa la biblioteca **IoTHubClient** para la comunicación subyacente con Azure IoT Hub, pero incorpora funcionalidades de modelado que eliminan la carga de tratar con la serialización de mensajes del desarrollador. Un ejemplo ilustra mejor el funcionamiento de esta biblioteca.
 
 Dentro de la carpeta **serializer**, en el repositorio [azure-iot-sdks](https://github.com/Azure/azure-iot-sdk-c), hay una carpeta llamada **samples** que contiene una aplicación denominada **simplesample\_mqtt**. La versión de Windows de este ejemplo incluye la solución de Visual Studio siguiente:
 
@@ -570,11 +570,11 @@ Para más información acerca del desarrollo para IoT Hub, consulte los [SDK de 
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Simular un dispositivo con Azure IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

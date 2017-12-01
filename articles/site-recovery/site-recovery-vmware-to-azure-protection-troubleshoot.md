@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/26/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: 6ebec2e06566b1e2d6834fdd81c0d8b2801b80b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a8cd09731ccdf7ad7385f7e707125c3902ebdf2
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Solucionar problemas de replicación de servidores locales VMware y físicos
 Puede recibir un mensaje de error específico al proteger sus máquinas virtuales de VMware o servidores físicos con Azure Site Recovery. Este artículo describe algunos de los mensajes de error más comunes que se pueden obtener, junto con los pasos de solución de problemas para resolverlos.
@@ -30,7 +30,7 @@ En la mayoría de los casos, puede solucionar estos problemas siguiendo los paso
 
 ###<a name="check-the-following-on-source-machine"></a>Compruebe lo siguiente en la máquina de origen
 * Desde la línea de comandos de la máquina del servidor de origen, utilice Telnet para hacer ping al servidor de proceso con el puerto https (el valor predeterminado es 9443) tal y como se muestra a continuación para ver si hay problemas de conectividad de red o problemas de bloqueo de puertos en el firewall.
-     
+
     `telnet <PS IP address> <port>`
 > [!NOTE]
     > Utilice Telnet, no use PING para probar la conectividad.  Si no está instalado Telnet, siga los pasos indicados [aquí](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
@@ -38,16 +38,16 @@ En la mayoría de los casos, puede solucionar estos problemas siguiendo los paso
 Si no se puede conectar, habilite el puerto de entrada 9443 en el servidor de proceso y compruebe si el problema todavía persiste. Ha habido algunos casos en los que el servidor de proceso está detrás de la DMZ y que fue la causa del problema.
 
 * Compruebe el estado del servicio `InMage Scout VX Agent – Sentinel/OutpostStart` si no está en ejecución y compruebe si el problema persiste.   
- 
+
 ###<a name="check-the-following-on-process-server"></a>Compruebe lo siguiente en el servidor de proceso
 
-* **Compruebe si el servidor de proceso inserta datos en Azure de un modo activo** 
+* **Compruebe si el servidor de proceso inserta datos en Azure de un modo activo**
 
-Desde el equipo del servidor de proceso, abra el Administrador de tareas (presione Ctrl-Mayús-Esc). Vaya a la pestaña Rendimiento y haga clic en el vínculo 'Abrir el Monitor de recursos'. En el Administrador de recursos, vaya a la pestaña Red. Compruebe en 'Procesos con actividad de red' si cbengine.exe está enviando activamente gran volumen (en MB) de datos.
+Desde el equipo del servidor de proceso, abra el Administrador de tareas (presione CTRL-MAYÚS-ESC). Vaya a la pestaña Rendimiento y haga clic en el vínculo 'Abrir el Monitor de recursos'. En el Administrador de recursos, vaya a la pestaña Red. Compruebe en 'Procesos con actividad de red' si cbengine.exe está enviando activamente gran volumen (en MB) de datos.
 
 ![Habilitar replicación](./media/site-recovery-protection-common-errors/cbengine.png)
 
-En caso negativo, siga los pasos indicados a continuación:
+En caso negativo, siga los pasos que se indican a continuación:
 
 * **Compruebe si el servidor de proceso es capaz de conectarse a Azure Blob**: seleccione y marque cbengine.exe para ver las conexiones TCP y ver si hay conectividad entre el servidor de proceso y la dirección URL del blob de Azure Storage.
 
@@ -60,7 +60,7 @@ En caso negativo vaya al Panel de Control > Servicios y compruebe si los siguien
      * Microsoft Azure Recovery Services Agent
      * Microsoft Azure Site Recovery Service
      * tmansvc
-     * 
+     *
 (Re)inicie cualquier servicio que no se esté ejecutando y compruebe si el problema persiste.
 
 * **Compruebe si el servidor de proceso es capaz de conectarse a través del puerto 443 a la dirección IP pública de Azure**
@@ -75,10 +75,10 @@ Si hay problemas, a continuación, desde la línea de comandos del servidor de p
 Si no puede conectarse, compruebe si el problema de acceso es debido al firewall o Proxy, como se describe en el paso siguiente.
 
 
-* **Compruebe si el firewall basado en direcciones IP en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en dirección IP en el servidor, a continuación, descargue la lista completa de los intervalos IP de Microsoft Azure Datacenter desde [aquí](https://www.microsoft.com/download/details.aspx?id=41653) y agréguelas a la configuración del firewall para asegurarse de que permiten la comunicación a Azure [y el puerto HTTPS (443)].  Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
+* **Compruebe si el firewall basado en direcciones IP en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en direcciones IP en el servidor, descargue la lista completa de los intervalos IP de Microsoft Azure Datacenter desde [aquí](https://www.microsoft.com/download/details.aspx?id=41653) y agréguelos a la configuración del firewall para asegurarse de que permiten la comunicación a Azure [y el puerto HTTPS (443)].  Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
 
-* **Compruebe si el firewall basado en dirección URL en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en dirección URL en el servidor, asegúrese de que las direcciones URL siguientes se agregan a la configuración del firewall. 
-     
+* **Compruebe si el firewall basado en direcciones URL en el servidor de proceso no está bloqueando el acceso**: si está usando reglas de firewall basadas en direcciones URL en el servidor, asegúrese de que las direcciones URL siguientes se agregan a la configuración del firewall.
+
   `*.accesscontrol.windows.net:` Se usa para el control de acceso y la administración de identidades
 
   `*.backup.windowsazure.com:` Se usa para la transferencia y orquestación de los datos de replicación
@@ -97,7 +97,7 @@ Direcciones URL para **Azure Government Cloud**:
 
 `* .ugi.hypervrecoverymanager.windowsazure.us`
 
-`* .ugi.backup.windowsazure.us` 
+`* .ugi.backup.windowsazure.us`
 
 * **Compruebe si la configuración del Proxy del servidor de proceso no está bloqueando el acceso**.  Si está utilizando un servidor Proxy, asegúrese de que el servidor DNS está resolviendo el nombre del servidor proxy.
 Para comprobar lo proporcionado en el momento de la instalación del servidor de configuración. Vaya a la clave del registro
@@ -105,7 +105,7 @@ Para comprobar lo proporcionado en el momento de la instalación del servidor de
     `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
 
 Ahora asegúrese de que el agente de Azure Site Recovery utiliza la misma configuración para el envío de datos.
-Busque Microsoft Azure Backup 
+Busque Microsoft Azure Backup
 
 ![Habilitar replicación](./media/site-recovery-protection-common-errors/mab.png)
 
@@ -116,4 +116,4 @@ Busque Microsoft Azure Backup
 * **Compruebe si la limitación de ancho de banda no está restringida en el servidor de proceso**: aumente el ancho de banda y compruebe si el problema persiste.
 
 ##<a name="next-steps"></a>Pasos siguientes
-Si necesita más ayuda, puede enviar una consulta al [foro de ASR](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Contamos con una comunidad activa y uno de nuestros ingenieros podrá ayudarle.
+Si necesita más ayuda, puede enviar una consulta al [foro de Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Contamos con una comunidad activa y uno de nuestros ingenieros podrá ayudarle.

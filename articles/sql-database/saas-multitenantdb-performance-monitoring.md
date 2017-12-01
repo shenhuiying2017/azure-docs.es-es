@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > * Simular el uso de una base de datos multiinquilino con particiones mediante la ejecución de un generador de carga proporcionado
 > * Supervisar la base de datos a medida que responde al aumento de carga
 > * Escalar verticalmente la base de datos en respuesta al aumento de la carga de esta
-> * Aprovisionar a un nuevo inquilino en su propia base de datos
+> * Aprovisionamiento de un inquilino en una base de datos de un único inquilino
 
 Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
 
@@ -71,7 +71,7 @@ Si ya ha aprovisionado un lote de inquilinos en un tutorial anterior, vaya direc
 1. Establezca **$DemoScenario** = **1**, _Aprovisionamiento de un lote de inquilinos_
 1. Presione **F5** para ejecutar el script.
 
-El script implementará 17 inquilinos en la base de datos multiinquilino en unos minutos. 
+El script implementa 17 inquilinos en la base de datos multiinquilino en unos minutos. 
 
 El script *New-TenantBatch* crea nuevos inquilinos con claves de inquilino exclusivas dentro de la base de datos multiinquilino con particiones y los inicializa con el nombre del inquilino y el tipo de ubicación. Esto es coherente con la manera en que la aplicación aprovisiona un nuevo inquilino. 
 
@@ -120,9 +120,9 @@ Establezca una alerta en la base de datos que se desencadene cuando el uso sea d
 1. Proporcione un nombre, como **High DTU**,
 1. Establezca los valores siguientes:
    * **Métrica = Porcentaje de DTU**
-   * **Condición = greater than**.
+   * **Condición = greater than**
    * **Umbral = 75**.
-   * **Período = Over the last 30 minutes**.
+   * **Período = Over the last 30 minutes**
 1. Agregue una dirección de correo al cuadro *Correos electrónicos adicionales del administrador* y haga clic en **Aceptar**.
 
    ![Establecer alerta](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -195,7 +195,7 @@ En este tutorial, aprenderá a:
 > * Simular el uso de una base de datos multiinquilino con particiones mediante la ejecución de un generador de carga proporcionado
 > * Supervisar la base de datos a medida que responde al aumento de carga
 > * Escalar verticalmente la base de datos en respuesta al aumento de la carga de esta
-> * Aprovisionar a un nuevo inquilino en su propia base de datos
+> * Aprovisionamiento de un inquilino en una base de datos de un único inquilino
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

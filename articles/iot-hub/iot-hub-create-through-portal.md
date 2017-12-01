@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: dobett
-ms.openlocfilehash: bca7eea5f44bbed3b784b56edaac235161b43e5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -94,7 +94,7 @@ La creación de IoT Hub puede tardar unos minutos, ya que la implementación bac
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>Cambio de la configuración del Centro de IoT
 
-Puede cambiar la configuración de un Centro de IoT después de crearlo desde la hoja Centro de IoT.
+Puede cambiar la configuración de un centro de IoT después de crearlo desde la hoja IoT Hub.
 
 ![][8]
 
@@ -171,7 +171,7 @@ Puede examinar el Centro de IoT que desea eliminar haciendo clic en **Examinar**
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:
+Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
 * [Administración masiva de dispositivos de IoT][lnk-bulk]
 * [Métricas de IoT Hub][lnk-metrics]
@@ -180,7 +180,7 @@ Siga estos vínculos para más información sobre la administración del Centro 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simular un dispositivo con IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
 * [Protección total de la solución de IoT][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -198,6 +198,6 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

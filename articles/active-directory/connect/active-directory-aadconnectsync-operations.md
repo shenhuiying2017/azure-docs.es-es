@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronización de Azure AD Connect: tareas y consideraciones operativas
 El objetivo de este tema es describir las tareas operativas de la sincronización de Azure AD Connect.
@@ -33,6 +33,11 @@ Se puede usar el modo provisional para distintos escenarios como:
 Con un servidor en modo provisional puede realizar cambios en la configuración y obtener una vista previa de los cambios antes de activar el servidor. También permite ejecutar una importación y sincronización completas para comprobar que se esperan todos los cambios antes de realizarlos en el entorno de producción.
 
 Durante la instalación puede seleccionar que el servidor esté en **modo provisional**. Esta acción activará el servidor para la importación y sincronización, pero no realizará ninguna exportación. Un servidor en modo provisional no ejecutará la sincronización de contraseñas ni habilitará la escritura diferida de contraseñas, aunque se seleccionen estas características durante la instalación. Cuando se deshabilita el modo provisional, el servidor iniciará la exportación, y habilitará la sincronización de contraseñas y la escritura diferida de contraseñas.
+
+> [!NOTE]
+> Suponga que tiene una instancia de Azure AD Connect con la característica de sincronización de hash de contraseña habilitada. Cuando se habilita el modo de almacenamiento provisional, el servidor deja de sincronizar los cambios de contraseña desde AD local. Cuando se deshabilita el modo de almacenamiento provisional, el servidor reanuda la sincronización de los cambios de contraseña desde AD local. Si el servidor se mantiene en modo de almacenamiento provisional durante un largo período de tiempo, el servidor puede tardar unos minutos en sincronizar todos los cambios de contraseña que se hubieran producido durante ese período de tiempo.
+>
+>
 
 Todavía puede forzar una exportación mediante el administrador del servicio de sincronización.
 

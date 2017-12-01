@@ -1,5 +1,5 @@
 ---
-title: "Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila"
+title: "Aplicaciones multiinquilino con RLS y herramientas de bases de datos elásticas | Microsoft Docs"
 description: "Use herramientas de bases de datos elásticas con seguridad de nivel de fila para crear una aplicación con una capa de datos altamente escalable."
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
@@ -13,38 +13,42 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 11/16/2017
 ms.author: thmullan;torsteng
-ms.openlocfilehash: b85673c7f0e8176a1700e55fe2ce33b7c191828a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: f874800e8647eac6ed94945d79e904df86207b0f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
-Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)](https://msdn.microsoft.com/library/dn765131) ofrecen un conjunto eficaz de funciones para el escalado de manera flexible y eficaz del nivel de datos de una aplicación de múltiples inquilinos con Azure SQL Database. Para más información, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](saas-tenancy-app-design-patterns.md). 
 
-En este artículo se muestra cómo usar estas tecnologías conjuntamente para crear una aplicación con un nivel de datos altamente escalable que admite particiones de múltiples inquilinos, con **ADO.NET SqlClient** o **Entity Framework**.  
+Las [herramientas de bases de datos elásticas](sql-database-elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)][rls] cooperan para permitir el escalado del nivel de datos de una aplicación multiinquilino con Azure SQL Database. Este conjunto de tecnologías le ayudan a crear una aplicación que tiene una capa de datos muy escalable. El nivel de datos admite particiones multiinquilino y usa **ADO.NET SqlClient** o **Entity Framework**. Para más información, consulte [Diseño de patrones para aplicaciones SaaS multiinquilino con Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
-* **Las herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos de una aplicación a través de las prácticas de particionamiento estándar del sector, mediante un conjunto de bibliotecas de .NET y plantillas de servicio de Azure. La administración de particiones con el uso de la biblioteca cliente de Elastic Database le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento. 
-* **seguridad de nivel de fila** permite a los desarrolladores almacenar datos para varios inquilinos en la misma base de datos con las directivas de seguridad para filtrar las filas que no pertenecen al inquilino mediante la ejecución de una consulta. La centralización de la lógica de acceso con RLS dentro de la base de datos, en lugar de en la aplicación, simplifica el mantenimiento y reduce el riesgo de error a medida que crece el código base de la aplicación. 
+- Las **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos con prácticas de particionamiento estándar, mediante el uso de bibliotecas de .NET y plantillas de servicios de Azure. La administración de particiones mediante la [Biblioteca de cliente de Elastic Database][s-d-elastic-database-client-library] le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento.
+- La **seguridad de nivel de fila** permite a los desarrolladores almacenar de forma segura los datos de varios inquilinos en la misma base de datos. Las directivas de seguridad RLS filtran y eliminan las filas que no pertenecen al inquilino que ejecuta una consulta. La centralización de la lógica de filtro en la propia base de datos simplifica el mantenimiento y reduce el riesgo de un error de seguridad. La alternativa de confiar en todo el código de cliente para reforzar la seguridad es arriesgada.
 
-Con todas estas características, una aplicación puede beneficiarse de mejoras de ahorro y la eficacia de costos al almacenar los datos para varios inquilinos en la misma base de datos de la partición. Al mismo tiempo, una aplicación todavía tiene la flexibilidad para ofrecer particiones aisladas de un único inquilino para los inquilinos "premium" que requieren garantías de rendimiento más estrictas ya que las particiones de varios inquilinos no garantizan la distribución equitativa de los recursos entre los inquilinos.  
+Si estas características se usan conjuntamente, una aplicación puede almacenar los datos para varios inquilinos en la misma base de datos de la partición. El costo por inquilino es menor cuando los inquilinos comparten una base de datos. La misma aplicación puede ofrecen también a sus inquilinos premium la opción de pagar su propia partición dedicada para un único inquilino. Una de las ventajas de este aislamiento es que aporta una mayor garantía de rendimiento. En una base de datos de un único inquilino, no hay otros inquilinos que compitan por los recursos.
 
-En resumen, las API de [enrutamiento dependiente de datos](sql-database-elastic-scale-data-dependent-routing.md) de la biblioteca cliente de la base de datos elástica conectan automáticamente los inquilinos a la base de datos de la partición correcta que contiene su clave de particionamiento (generalmente "TenantId"). Una vez conectado, una directiva de seguridad RLS dentro de la base de datos garantiza que los inquilinos solo pueden acceder a las filas que contienen su TenantId. Se supone que todas las tablas contienen una columna TenantId para indicar qué filas pertenecen a cada inquilino. 
+El objetivo es usar las API de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) de la Biblioteca de cliente de Elastic Database para conectar automáticamente cada inquilino dado a la base de datos de la partición correcta. Solo una partición contiene el valor de TenantId concreto para el inquilino determinado. El valor de TenantId es la *clave de particionamiento*. Una vez establecida la conexión, una directiva de seguridad de RLS dentro de la base de datos garantiza que el inquilino dado puede acceder solo a las filas de datos que contienen su TenantId.
+
+> [!NOTE]
+> El identificador del inquilino puede constar de más de una columna. Por comodidad, vamos a asumir de manera informal que el valor de TenantId tiene una sola columna.
 
 ![Arquitectura de la aplicación de creación de blogs][1]
 
 ## <a name="download-the-sample-project"></a>Descarga del proyecto de ejemplo
+
 ### <a name="prerequisites"></a>Requisitos previos
-* Uso de Visual Studio (2012 o posterior) 
-* Creación de tres instancias de Azure SQL Database 
-* Descargue el proyecto de ejemplo: [Herramientas de bases de datos elásticas para SQL de Azure - Particiones con varios inquilinos](http://go.microsoft.com/?linkid=9888163)
-  * Rellene la información para las bases de datos al comienzo de **Program.cs** 
 
-Este proyecto amplía el descrito en [Herramientas de bases de datos elásticas para SQL de Azure - Integración de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) mediante la adición de compatibilidad con bases de datos de partición de varios inquilinos. Genera una aplicación de consola sencilla para la creación de blogs y publicaciones, con cuatro inquilinos y dos bases de datos de partición multiinquilino, tal como se muestra en el diagrama anterior. 
+- Uso de Visual Studio (2012 o posterior) 
+- Creación de tres instancias de Azure SQL Database 
+- Descargue el proyecto de ejemplo: [Herramientas de bases de datos elásticas para SQL de Azure - Particiones con varios inquilinos](http://go.microsoft.com/?linkid=9888163)
+  - Rellene la información para las bases de datos al comienzo de **Program.cs** 
 
-Compile y ejecute la aplicación. Arranca el administrador de mapas de particiones de las herramientas de bases de datos elásticas y ejecuta las siguientes pruebas: 
+Este proyecto amplía el descrito en [Herramientas de bases de datos elásticas para SQL de Azure - Integración de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) mediante la adición de compatibilidad con bases de datos de partición de varios inquilinos. El proyecto compila una sencilla aplicación de consola para la creación de blogs y publicaciones. El proyecto incluye cuatro inquilinos y dos bases de datos de la partición multiinquilino. Esta configuración se ilustra en el diagrama anterior. 
+
+Compile y ejecute la aplicación. Esta ejecución arranca el administrador de mapas de particiones de las herramientas de Elastic Database y realiza las siguientes pruebas: 
 
 1. Con Entity Framework y LINQ, cree un nuevo blog y muestre todos los blogs para cada inquilino.
 2. Con ADO.NET SqlClient, muestre todos los blogs para un inquilino.
@@ -52,41 +56,58 @@ Compile y ejecute la aplicación. Arranca el administrador de mapas de particion
 
 Tenga en cuenta que como todavía no se ha habilitado RLS en las bases de datos de la partición, cada una de estas pruebas revela un problema: los inquilinos pueden consultar los blogs que no pertenecen a ellos y la aplicación no impide insertar un blog del inquilino incorrecto. El resto de este artículo describe cómo resolver estos problemas mediante la imposición de aislamiento de inquilinos con RLS. Hay dos pasos: 
 
-1. **Capa de aplicación**: modifique el código de aplicación para establecer siempre el TenantId actual en SESSION_CONTEXT después de abrir una conexión. El proyecto de ejemplo ya lo ha hecho. 
-2. **Capa de datos**: cree una directiva de seguridad RLS en cada base de datos de partición para filtrar las filas en función del TenantId almacenado en SESSION_CONTEXT. Debe hacerlo para cada una de las bases de datos de la partición; en caso contrario, no se filtran las filas en las particiones multiinquilino. 
+1. **Capa de aplicación**: modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo. 
+2. **Capa de datos**: cree una directiva de seguridad de RLS en cada base de datos de la partición para filtrar las filas en función del valor de TenantId almacenado en SESSION\_CONTEXT. Cree una directiva para cada una de las bases de datos de la partición, ya que si no lo hace, las filas de las particiones multiinquilino no se van a filtrar. 
 
-## <a name="step-1-application-tier-set-tenantid-in-the-sessioncontext"></a>Paso 1) Capa de aplicación: establezca TenantId en SESSION_CONTEXT
-Después de conectarse a una base de datos de particiones mediante la API de enrutamiento dependiente de datos de la biblioteca cliente de la base de datos elástica, la aplicación todavía necesita indicar a la base de datos el TenantId que utiliza esa conexión para que una directiva de seguridad RLS pueda filtrar las filas que pertenecen a otros inquilinos. El método recomendado para pasar esta información es almacenar el TenantId actual para esa conexión en [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Nota: como alternativa, podría usar [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125.aspx), pero SESSION_CONTEXT es mejor opción porque es más fácil de usar, devuelve NULL de manera predeterminada y admite pares clave-valor).
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Capa de aplicación: establezca TenantId en SESSION\_CONTEXT
+
+En primer lugar, conéctese a una base de datos de la partición mediante la API de enrutamiento dependiente de los datos de la Biblioteca de cliente de Elastic Database. La aplicación debe indicar a la base de datos que TenantId utiliza la conexión. El valor de TenantId indica a la directiva de seguridad de RLS qué filas se deben filtrar y eliminar, ya que pertenecen a otros inquilinos. Almacenar el valor de TenantId actual en el [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) de la conexión.
+
+Una alternativa a SESSION\_CONTEXT es usar [CONTEXT\_INFO](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Pero es mejor la opción de SESSION\_CONTEXT. SESSION\_CONTEXT es más fácil de usar, devuelve NULL de forma predeterminada y admite pares clave-valor.
 
 ### <a name="entity-framework"></a>Entity Framework
-Para las aplicaciones que usan Entity Framework, el enfoque más sencillo es establecer SESSION_CONTEXT dentro de la invalidación de ElasticScaleContext descrita en [Enrutamiento dependiente de datos con DbContext de EF](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Antes de devolver la conexión de intermediación a través de enrutamiento dependiente de datos, basta con crear y ejecutar un SqlCommand que establece "TenantId" en SESSION_CONTEXT en la shardingKey especificada para esa conexión. De este modo, solo deberá escribir el código una vez para establecer SESSION_CONTEXT. 
 
-```
+En el caso de las aplicaciones que usan Entity Framework, el enfoque más sencillo es establecer SESSION\_CONTEXT dentro de la invalidación de ElasticScaleContext descrita en [el enrutamiento dependiente de datos mediante DbContext de EF](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Cree y ejecute un objeto SqlCommand que establezca el valor de TenantId en SESSION\_CONTEXT en la clave de particionamiento especificada para la conexión. A continuación, devuelva la conexión desacoplada a través de enrutamiento dependiente de los datos. De este modo, solo hay que escribir el código una vez para establecer SESSION\_CONTEXT. 
+
+```csharp
 // ElasticScaleContext.cs 
-// ... 
-// C'tor for data-dependent routing. This call opens a validated connection routed to the proper 
-// shard by the shard map manager. Note that the base class c'tor call fails for an open connection 
-// if migrations need to be done and SQL credentials are used. This is the reason for the  
-// separation of c'tors into the DDR case (this c'tor) and the internal c'tor for new shards. 
+// Constructor for data-dependent routing.
+// This call opens a validated connection that is routed to the
+// proper shard by the shard map manager.
+// Note that the base class constructor call fails for an open connection 
+// if migrations need to be done and SQL credentials are used.
+// This is the reason for the separation of constructors.
+// ...
 public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
-    : base(OpenDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */)
+    : base(
+        OpenDDRConnection(shardMap, shardingKey, connectionStr),
+        true)  // contextOwnsConnection
 {
 }
 
-public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, string connectionStr)
+public static SqlConnection OpenDDRConnection(
+    ShardMap shardMap,
+    T shardingKey,
+    string connectionStr)
 {
-    // No initialization
+    // No initialization.
     Database.SetInitializer<ElasticScaleContext<T>>(null);
 
-    // Ask shard map to broker a validated connection for the given key
+    // Ask shard map to broker a validated connection for the given key.
     SqlConnection conn = null;
     try
     {
-        conn = shardMap.OpenConnectionForKey(shardingKey, connectionStr, ConnectionOptions.Validate);
+        conn = shardMap.OpenConnectionForKey(
+            shardingKey,
+            connectionStr,
+            ConnectionOptions.Validate);
 
-        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey
+        // to enable Row-Level Security filtering.
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
+        cmd.CommandText =
+            @"exec sp_set_session_context
+                @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", shardingKey);
         cmd.ExecuteNonQuery();
 
@@ -98,20 +119,20 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
         {
             conn.Dispose();
         }
-
         throw;
     }
 } 
 // ... 
 ```
 
-Ahora SESSION_CONTEXT se establece automáticamente con el TenantId especificado cada vez que se invoca ElasticScaleContext: 
+Ahora, SESSION\_CONTEXT se establece automáticamente con el valor de TenantId especificado cada vez que se invoca ElasticScaleContext: 
 
-```
+```csharp
 // Program.cs 
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
+    using (var db = new ElasticScaleContext<int>(
+        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
     {     
         var query = from b in db.Blogs
                     orderby b.Name
@@ -127,26 +148,33 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 ### <a name="adonet-sqlclient"></a>SqlClient de ADO.NET
-Para aplicaciones que usan SqlClient de ADO.NET, el enfoque recomendado es crear una función de contenedor alrededor de ShardMap.OpenConnectionForKey() que establezca automáticamente "TenantId" en SESSION_CONTEXT en el TenantId correcto antes de devolver una conexión. Para asegurarse de que SESSION_CONTEXT esté siempre establecido, debe abrir conexiones únicamente con esta función de contenedor.
 
-```
+En el caso de las aplicaciones que utilizan ADO.NET SqlClient, cree una función de contenedor alrededor del método ShardMap.OpenConnectionForKey. Establezca que el contenedor establezca TenantId automáticamente en SESSION\_CONTEXT en el valor actual de TenantId antes de devolver una conexión. Para asegurarse de que SESSION\_CONTEXT está siempre establecido, debe abrir conexiones únicamente con esta función de contenedor.
+
+```csharp
 // Program.cs
+// Wrapper function for ShardMap.OpenConnectionForKey() that
+// automatically sets SESSION_CONTEXT with the correct
+// tenantId before returning a connection.
+// As a best practice, you should only open connections using this method
+// to ensure that SESSION_CONTEXT is always set before executing a query.
 // ...
-
-// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets SESSION_CONTEXT with the correct
-// tenantId before returning a connection. As a best practice, you should only open connections using this 
-// method to ensure that SESSION_CONTEXT is always set before executing a query.
-public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenantId, string connectionStr)
+public static SqlConnection OpenConnectionForTenant(
+    ShardMap shardMap, int tenantId, string connectionStr)
 {
     SqlConnection conn = null;
     try
     {
-        // Ask shard map to broker a validated connection for the given key
-        conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
+        // Ask shard map to broker a validated connection for the given key.
+        conn = shardMap.OpenConnectionForKey(
+            tenantId, connectionStr, ConnectionOptions.Validate);
 
-        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey
+        // to enable Row-Level Security filtering.
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
+        cmd.CommandText =
+            @"exec sp_set_session_context
+                @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", tenantId);
         cmd.ExecuteNonQuery();
 
@@ -158,23 +186,25 @@ public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenan
         {
             conn.Dispose();
         }
-
         throw;
     }
 }
 
 // ...
 
-// Example query via ADO.NET SqlClient
-// If row-level security is enabled, only Tenant 4's blogs are listed
+// Example query via ADO.NET SqlClient.
+// If row-level security is enabled, only Tenant 4's blogs are listed.
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 {
-    using (SqlConnection conn = OpenConnectionForTenant(sharding.ShardMap, tenantId4, connStrBldr.ConnectionString))
+    using (SqlConnection conn = OpenConnectionForTenant(
+        sharding.ShardMap, tenantId4, connStrBldr.ConnectionString))
     {
         SqlCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"SELECT * FROM Blogs";
 
-        Console.WriteLine("--\nAll blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
+        Console.WriteLine(@"--
+All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
+
         SqlDataReader reader = cmd.ExecuteReader();
         while (reader.Read())
         {
@@ -185,75 +215,88 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ```
 
-## <a name="step-2-data-tier-create-row-level-security-policy"></a>Paso 2) Capa de datos: cree una directiva de seguridad de nivel de fila
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Capa de datos: cree una directiva de seguridad de nivel de fila
+
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Creación de una directiva de seguridad para filtrar las filas a las que puede acceder cada inquilino
-Ahora que la aplicación establece SESSION_CONTEXT con el TenantId actual antes de consultar, una directiva de seguridad RLS puede filtrar las consultas y excluir las filas que tengan un TenantId diferente.  
 
-RLS se implementa en T-SQL: una función definida por el usuario define la lógica de acceso y una directiva de seguridad enlaza esta función a cualquier número de tablas. Para este proyecto, la función simplemente comprueba que la aplicación (en lugar de otro usuario de SQL) está conectada a la base de datos y que el "TenantId" almacenado en SESSION_CONTEXT coincide con el TenantId de una fila determinada. Un predicado de filtro permite que las filas que cumplan estas condiciones pasen el filtro para consultas SELECT, UPDATE y DELETE; y un predicado de bloqueo impide que las filas que infringen estas condiciones se inserten o actualicen. Si no se estableció SESSION_CONTEXT, devuelve NULL y no hay filas visibles ni que puedan insertarse. 
+Ahora que la aplicación establece SESSION\_CONTEXT con el valor actual de TenantId antes de realizar consultas, una directiva de seguridad de RLS puede filtrar dichas consultas y excluir las filas que tengan otro valor de TenantId.  
 
-Para habilitar RLS, ejecute la siguiente instrucción T-SQL en todas las particiones con Visual Studio (SSDT), SSMS o el script de PowerShell incluido en el proyecto (o si está usando los [trabajos de Elastic Database](sql-database-elastic-jobs-overview.md), se pueden usar para automatizar la ejecución de este código T-SQL en todas las particiones): 
+RLS se implementa en Transact-SQL. Una función definida por el usuario define la lógica de acceso y una directiva de seguridad enlaza dicha función a cualquier número de tablas. Para este proyecto:
 
-```
-CREATE SCHEMA rls -- separate schema to organize RLS objects 
+1. La función simplemente comprueba que la aplicación está conectada a la base de datos y que el valor de TenantId almacenado en SESSION\_CONTEXT coincide con el valor de TenantId de una fila determinada.
+    - La aplicación está conectada, en lugar de otro usuario de SQL.
+
+2. Un predicado FILTER permite que las filas que pasen el filtro de TenantId atraviesen las consultas SELECT, UPDATE y DELETE.
+    - Un predicado BLOCK impide que las filas que no pasan el filtro se inserten o actualicen con INSERT o UPDATE.
+    - Si SESSION\_CONTEXT no se ha establecido, la función devuelve NULL y no hay filas visibles ni que puedan insertarse. 
+
+Para habilitar RLS en todas las particiones, ejecute la siguiente instrucción T-SQL con Visual Studio (SSDT), SSMS o el script de PowerShell incluido en el proyecto. O bien, si utiliza [trabajos de Elastic Database](sql-database-elastic-jobs-overview.md), puede automatizar la ejecución de esta instrucción T-SQL en todas las particiones.
+
+```sql
+CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
 GO
 
 CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)     
     RETURNS TABLE     
     WITH SCHEMABINDING
 AS
-    RETURN SELECT 1 AS fn_accessResult          
-        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
-        AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
+    RETURN SELECT 1 AS fn_accessResult
+        -- Use the user in your application’s connection string.
+        -- Here we use 'dbo' only for demo purposes!
+        WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo')
+        AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId;
 GO
 
 CREATE SECURITY POLICY rls.tenantAccessPolicy
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+    ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
-    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
+    ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts;
 GO 
 ```
 
 > [!TIP]
-> Para los proyectos más complejos que deben agregar el predicado en cientos de tablas, puede usar un procedimiento almacenado auxiliar que genera automáticamente una directiva de seguridad mediante la adición de un predicado en todas las tablas de un esquema. Para más información, consulte [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script)(Aplicación de la seguridad de nivel de fila a todas las tablas - script auxiliar (blog)).  
-> 
-> 
+> En un proyecto complejo, es posible que deba agregar el predicado a cientos de tablas, lo que puede resultar muy tedioso. Hay un procedimiento almacenado de la aplicación auxiliar que genera una directiva de seguridad y agrega un predicado a todas las tablas de un esquema. Para más información, consulte la entrada de blog [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script)(Aplicación de la seguridad de nivel de fila a todas las tablas - script de aplicación auxiliar).
 
-Ahora, si vuelve a ejecutar la aplicación de ejemplo, los inquilinos ven solamente las filas que les pertenecen. Además, la aplicación no puede insertar las filas que pertenezcan a inquilinos diferentes del que esté está conectado en ese momento a la base de datos de la partición, ni puede actualizar las filas visibles para cambiar a otro TenantId. Si la aplicación intenta una, se genera una excepción DbUpdateException.
+Ahora, si vuelve a ejecutar la aplicación de ejemplo, los inquilinos ven solamente las filas que les pertenecen. Además, la aplicación no puede insertar filas que pertenezcan a inquilinos que no sea el que está conectado en ese momento a la base de datos de la partición ni puede actualizar el valor de TenantId en las filas visibles. Si la aplicación intenta realizar cualquiera de las dos acciones, se genera una excepción DbUpdateException.
 
-Si agrega después una tabla nueva, modifique la directiva de seguridad y agregue predicados de bloqueo y de filtro en la nueva tabla: 
+Si agrega después una tabla nueva más adelante, modifique la directiva de seguridad y agregue predicados FILTER y BLOCK a la tabla nueva.
 
-```
+```sql
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
-    ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
+    ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable;
 GO 
 ```
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Adición de restricciones DEFAULT para rellenar automáticamente el TenantId para las inserciones
-Puede colocar una restricción predeterminada en cada tabla para rellenar automáticamente el TenantId con el valor almacenado actualmente en SESSION_CONTEXT al insertar filas. Por ejemplo: 
 
-```
--- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
+Puede colocar una restricción predeterminada en cada tabla para rellenar automáticamente TenantId con el valor almacenado actualmente en SESSION\_CONTEXT al insertar filas. A continuación, encontrará un ejemplo. 
+
+```sql
+-- Create default constraints to auto-populate TenantId with the
+-- value of SESSION_CONTEXT for inserts.
 ALTER TABLE Blogs     
     ADD CONSTRAINT df_TenantId_Blogs      
-    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
 GO
 
 ALTER TABLE Posts     
     ADD CONSTRAINT df_TenantId_Posts      
-    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
+    DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
 GO 
 ```
 
 Ahora la aplicación no necesita especificar un TenantId al insertar filas: 
 
-```
+```csharp
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
 {   
-    using (var db = new ElasticScaleContext<int>(sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
+    using (var db = new ElasticScaleContext<int>(
+        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
     {
-        var blog = new Blog { Name = name }; // default constraint sets TenantId automatically     
+        // The default constraint sets TenantId automatically!
+        var blog = new Blog { Name = name };
         db.Blogs.Add(blog);     
         db.SaveChanges();   
     } 
@@ -261,15 +304,17 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Si utiliza las restricciones DEFAULT para un proyecto de Entity Framework, se recomienda que NO incluyen la columna de TenantId en el modelo de datos EF. Esto es porque las consultas de Entity Framework proporcionan automáticamente los valores predeterminados que invalidan las restricciones DEFAULT creadas en T-SQL que usan SESSION_CONTEXT. Para utilizar las restricciones DEFAULT en el proyecto de ejemplo, por ejemplo, debe quitar el TenantId de DataClasses.cs (y ejecutar Add-Migration en la consola de administrador de paquetes) y usar T-SQL para asegurarse de que el campo solo existe en las tablas de base de datos. De este modo, EF no proporciona automáticamente valores predeterminados incorrectos al insertar datos. 
-> 
-> 
+> Si utiliza las restricciones predeterminadas para un proyecto de Entity Framework, es aconsejable que *NO* incluya la columna de TenantId en el modelo de datos EF. Esta recomendación se debe a que las consultas de Entity Framework proporcionan automáticamente los valores predeterminados que invalidan las restricciones predeterminadas creadas en T-SQL que usan SESSION\_CONTEXT.
+> Para utilizar las restricciones DEFAULT en el proyecto de ejemplo, por ejemplo, debe quitar el TenantId de DataClasses.cs (y ejecutar Add-Migration en la consola de administrador de paquetes) y usar T-SQL para asegurarse de que el campo solo existe en las tablas de base de datos. De este modo, EF no proporciona automáticamente valores predeterminados incorrectos al insertar datos.
 
-### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcional) Habilitar un "superusuario" para tener acceso a todas las filas
-Es posible que algunas aplicaciones deseen crear un "superusuario" que puede tener acceso a todas las filas; por ejemplo, para habilitar los informes en todos los inquilinos de todas las particiones, o bien para realizar operaciones de división y combinación en particiones que implican el desplazamiento de filas de inquilinos entre las bases de datos. Para habilitar esto, debe crear un nuevo usuario de SQL ("superusuario" en este ejemplo) en la base de datos de cada partición. Luego modifique la directiva de seguridad con una nueva función de predicado que permita al usuario tener acceso a todas las filas:
+### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcional) Habilitar un *superusuario* para que acceda a todas las filas
 
-```
--- New predicate function that adds superuser logic
+Algunas aplicaciones pueden necesitar crear un *superusuario* que pueda acceder a todas las filas. Un superusuario puede habilitar la generación de informes en todos los inquilinos de todas las particiones. O bien, un superusuario puede realizar operaciones de división y combinación en particiones que implican mover filas de inquilinos entre bases de datos.
+
+Para habilitar un superusuario, cree un nuevo usuario de SQL (`superuser` en este ejemplo) en cada base de datos de la partición. Luego, modifique la directiva de seguridad con una nueva función de predicado que permita a dicho usuario acceder a todas las filas. Dicha función se proporciona a continuación.
+
+```sql
+-- New predicate function that adds superuser logic.
 CREATE FUNCTION rls.fn_tenantAccessPredicateWithSuperUser(@TenantId int)
     RETURNS TABLE
     WITH SCHEMABINDING
@@ -277,44 +322,50 @@ AS
     RETURN SELECT 1 AS fn_accessResult 
         WHERE 
         (
-            DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- note, should not be dbo!
+            DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- Replace 'dbo'.
             AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
         ) 
         OR
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('superuser')
-        )
+        );
 GO
 
--- Atomically swap in the new predicate function on each table
+-- Atomically swap in the new predicate function on each table.
 ALTER SECURITY POLICY rls.tenantAccessPolicy
     ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
-    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
+    ALTER BLOCK  PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
     ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts,
-    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts
+    ALTER BLOCK  PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts;
 GO
 ```
 
 
 ### <a name="maintenance"></a>Mantenimiento
-* **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
-* **Agregar nuevas tablas**: agregue un predicado de bloqueo y filtro a la directiva de seguridad en todas las particiones siempre que se crea una nueva tabla; de lo contrario, no se filtran las consultas en la nueva tabla. Esto se puede automatizar mediante un desencadenador DDL, tal como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)(Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)).
+
+- **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
+- **Agregar tablas nuevas**: cada vez que se cree una tabla, agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
 
 ## <a name="summary"></a>Resumen
-Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones de varios inquilinos pueden utilizarse para almacenar datos de manera más eficaz (especialmente en casos donde un gran número de inquilinos solo tienen unas pocas filas de datos), mientras que las particiones de un único inquilino pueden usarse para admitir los inquilinos premium con requisitos más estrictos de aislamiento y rendimiento.  Para obtener más información, consulte la [referencia sobre la seguridad de nivel de fila](https://msdn.microsoft.com/library/dn765131). 
+
+Las herramientas de base de datos elásticas y la seguridad de nivel de fila pueden usarse juntas para escalar horizontalmente el nivel de datos de una aplicación con compatibilidad para particiones de un solo inquilino y de varios. Las particiones multiinquilino se pueden utilizar para almacenar datos de forma más eficaz. Esta eficacia es muy pronunciada cuando un gran número de inquilinos tienen pocas filas de datos. Las particiones de inquilino único pueden admitir inquilinos premium, que tienen unos requisitos de rendimiento y aislamiento más estrictos.  Para más información, consulte el artículo [Seguridad de nivel de fila][rls].
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
-* [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md)
-* [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](saas-tenancy-app-design-patterns.md)
-* [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
-* [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+
+- [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
+- [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](saas-tenancy-app-design-patterns.md)
+- [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
+- [Aplicación Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
-Si tiene alguna pregunta, póngase en contacto con nosotros en el [foro de SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+
+Si tiene preguntas, póngase en contacto con nosotros en el [foro de SQL Database](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Y agregue todas las solicitudes de característica al [foro de comentarios de SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-
+[rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[s-d-elastic-database-client-library]: sql-database-elastic-database-client-library.md
 

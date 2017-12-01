@@ -1,207 +1,191 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Teamwork | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Teamwork."
+title: "Tutorial: Integración de Azure Active Directory con Teamwork.com | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Teamwork.com."
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-ms.assetid: 03760032-3d76-4b47-ab84-241f72fbd561
+ms.reviewer: joflore
+ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: edd2f9446515531f1147a8abf99295b618b89b25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamwork"></a>Tutorial: Integración de Azure Active Directory con Teamwork
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: integración de Azure Active Directory con Teamwork.com
 
-En este tutorial, aprenderá a integrar Teamwork con Azure Active Directory (Azure AD).
+En este tutorial, obtendrá información sobre cómo integrar Teamwork.com con Azure Active Directory (Azure AD).
 
-La integración de Teamwork con Azure AD proporciona las siguientes ventajas:
+La integración de Teamwork.com con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Teamwork.
-- Puede permitir que los usuarios inicien sesión automáticamente en Teamwork (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
+- Puede controlar en Azure AD quién tiene acceso a Teamwork.com.
+- Puede permitir que los usuarios inicien sesión automáticamente en Teamwork.com (inicio de sesión único) con sus cuentas de Azure AD.
+- Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Teamwork, se necesitan los siguientes elementos:
+Para configurar la integración de Azure AD con Teamwork.com, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Teamwork
-
+- Una suscripción habilitada para el inicio de sesión único en Teamwork.com
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
 
-
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Teamwork desde la galería
+1. Agregar Teamwork.com desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
+## <a name="adding-teamworkcom-from-the-gallery"></a>Agregar Teamwork.com desde la galería
+Para configurar la integración de Teamwork.com en Azure AD, será preciso que agregue Teamwork.com desde la galería a la lista de aplicaciones SaaS administradas.
 
-## <a name="adding-teamwork-from-the-gallery"></a>Adición de Teamwork desde la galería
-Para configurar la integración de Teamwork en Azure AD, será preciso que agregue Teamwork desde la galería a la lista de aplicaciones SaaS administradas.
+**Para agregar Teamwork.com desde la galería, realice los pasos siguientes:**
 
-**Para agregar Teamwork desde la galería, realice los pasos siguientes:**
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
-
-    ![Active Directory][1]
+    ![Botón Azure Active Directory][1]
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![Hoja Aplicaciones empresariales][2]
     
-3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Teamwork**.
+4. En el cuadro de búsqueda, escriba **Teamwork.com**, seleccione **Teamwork.com** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_001.png)
+    ![Teamwork.com en la lista de resultados](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_addfromgallery.png)
 
-5. En el panel de resultados, seleccione **Teamwork** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_0001.png)
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Teamwork.com basado en un usuario de prueba llamado "Britta Simon".
 
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Teamwork.com para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Teamwork.com.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Teamwork con un usuario de prueba llamado "Britta Simon".
+Para establecer la relación de vínculo, en Teamwork.com, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Teamwork para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Teamwork.
+Para configurar y probar el inicio de sesión único de Azure AD con Teamwork.com, es preciso completar los siguientes bloques de creación:
 
-Esta relación de vínculo se establece mediante la asignación del valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en Teamwork.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Teamwork.com](#create-a-teamworkcom-test-user)**: para tener un homólogo de Britta Simon en Teamwork.com que esté vinculado a su representación en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Teamwork, es preciso completar los siguientes bloques de creación:
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Teamwork](#creating-a-teamwork-test-user)**: para tener un homólogo de Britta Simon en Teamwork que esté vinculado a la representación de ella en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Teamwork.com.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+**Para configurar el inicio de sesión único de Azure AD con Teamwork.com, realice los pasos siguientes:**
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación Teamwork.
+1. En la página de integración de la aplicación **Teamwork.com** de Azure Portal, haga clic en **Inicio de sesión único**.
 
-**Para configurar el inicio de sesión único de Azure AD con Teamwork, realice los pasos siguientes:**
+    ![Vínculo Configurar inicio de sesión único][4]
 
-1. En el Portal de administración de Azure, en la página de integración de la aplicación **Teamwork**, haga clic en **Inicio de sesión único**.
-
-    ![Configurar inicio de sesión único][4]
-
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_01.png)
+    ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Teamwork**, en el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL usando el patrón siguiente: `https://<company name>.teamwork.com`.
+3. En la sección **Teamwork.com Domain and URLs** (Dominio y direcciones URL de Teamwork.com), lleve a cabo los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_02.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Teamwork.com](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.teamwork.com`.
 
     > [!NOTE] 
-    > Tenga en cuenta que este no es el valor real. Tiene que actualizar este valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Teamwork](mailto:support@teamwork.com) para obtener este valor. 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Teamwork.com](mailto:support@teamwork.com) para obtener este valor. 
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_03.png)   
+    ![Vínculo de descarga del certificado](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_certificate.png) 
 
-5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
+5. Haga clic en el botón **Guardar** .
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_general_300.png)
+    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
-6. En la sección **Certificado de firma de SAML**, seleccione **Make new certificate active** (Activar el nuevo certificado) y haga clic en el botón **Guardar**.
+6. Para configurar el inicio de sesión único en el lado de **Teamwork.com**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Teamwork.com](mailto:support@teamwork.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_04.png)
+> [!TIP]
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-7. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-8. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
-
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_05.png) 
-
-9. Para configurar SSO para su aplicación, póngase en contacto con el [equipo de soporte técnico de Teamwork](mailto:support@teamwork.com) y proporcione los **metadatos** descargados.
-  
-
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
-
-![Creación de un usuario de Azure AD][100]
+   ![Creación de un usuario de prueba de Azure AD][100]
 
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png) 
+    ![Botón Azure Active Directory](./media/active-directory-saas-teamwork-tutorial/create_aaduser_01.png)
 
-2. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png) 
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
-3. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/active-directory-saas-teamwork-tutorial/create_aaduser_02.png)
+
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+
+    ![Botón Agregar](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png)
+
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+
+    ![Cuadro de diálogo Usuario](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png)
+
+    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+
+    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+
+    d. Haga clic en **Crear**.
  
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_03.png) 
+### <a name="create-a-teamworkcom-test-user"></a>Crear un usuario de prueba Teamwork.com
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-teamwork-tutorial/create_aaduser_04.png) 
+En esta sección, creará un usuario llamado Britta Simon en Teamwork.com. Colabore con el [equipo de soporte técnico de Teamwork.com](mailto:support@teamwork.com) para agregar los usuarios en la plataforma de Teamwork.com. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Teamwork.com.
 
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+![Asignación del rol de usuario][200] 
 
-    d. Haga clic en **Crear**. 
+**Para asignar el usuario Britta Simon a Teamwork.com, realice los pasos siguientes:**
 
-
-
-### <a name="creating-a-teamwork-test-user"></a>Creación de un usuario de prueba de Teamwork
-
-En esta sección, creará un usuario llamado Britta Simon en Teamwork. Colabore con el [equipo de soporte técnico de Teamwork](mailto:support@teamwork.com) para agregar los usuarios en esta plataforma.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Teamwork.
-
-![Asignar usuario][200] 
-
-**Para asignar a Britta Simon a Teamwork, realice los pasos siguientes:**
-
-1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y seleccione **Aplicaciones empresariales**. Después, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Teamwork**.
+2. En la lista de aplicaciones, seleccione **Teamwork.com**.
 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_50.png) 
+    ![Vínculo a Teamwork.com en la lista de aplicaciones](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_app.png)  
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
-    ![Asignar usuario][202] 
+    ![Vínculo "Usuarios y grupos"][202]
 
 4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][203]
+    ![Panel Agregar asignación][203]
 
 5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
@@ -209,14 +193,12 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
-
-
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Teamwork en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Teamwork.
-
+Al hacer clic en el icono de Teamwork.com en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación de Teamwork.com.
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -238,3 +220,4 @@ Al hacer clic en el icono de Teamwork en el panel de acceso, debería iniciar se
 [201]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamwork-tutorial/tutorial_general_203.png
+

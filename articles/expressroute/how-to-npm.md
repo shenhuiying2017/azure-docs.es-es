@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configuración de Network Performance Monitor para ExpressRoute (versión preliminar)
 
@@ -96,7 +96,7 @@ Si ya usa Network Performance Monitor para supervisar otros servicios u objetos 
 1. En la página **Configuración de Network Performance Monitor - Configuración TCP** para el recurso, en la sección **Instalar los agentes de OMS**, haga clic en el agente que se corresponde con el procesador del servidor y descargue el archivo de instalación.
 
   >[!NOTE]
-  >El agente de Linux no se admite para la supervisión de ExpressRoute en estos momentos.
+  >El agente debe instalarse en Windows Server (2008 SP1 o posterior). No se admite la supervisión de circuitos ExpressRoute mediante el sistema operativo de escritorio Windows y el sistema operativo Linux. 
   >
   >
 2. Después, copie los valores de **Id. de área de trabajo** y **Clave principal** en el Bloc de notas.
@@ -105,6 +105,8 @@ Si ya usa Network Performance Monitor para supervisar otros servicios u objetos 
   ![Script de PowerShell](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Instalación de un agente de supervisión en cada servidor de supervisión
+
+Le recomendamos que instale al menos dos agentes en cada lado de la conexión de ExpressRoute (por ejemplo, en el entorno local y en las redes virtuales de Azure) para obtener redundancia. Use los pasos siguientes para instalar agentes:
 
 1. Ejecute **el programa de instalación** para instalar el agente en cada servidor que va a utilizar para la supervisión de ExpressRoute. El servidor que se usa para la supervisión puede ser una máquina virtual o encontrase en un entorno local y debe tener acceso a Internet. Debe instalar al menos un agente local y uno en cada segmento de red que desea supervisar en Azure.
 2. En la página **principal**, haga clic en **Siguiente**.

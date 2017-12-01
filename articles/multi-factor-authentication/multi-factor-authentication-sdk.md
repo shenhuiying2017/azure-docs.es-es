@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dc12037928d5cc62c35535d45cf674865e3bfe25
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Creación de Multi-Factor Authentication en aplicaciones personalizadas (SDK)
+
+> [!IMPORTANT]
+> Se ha anunciado el desuso del Kit de desarrollo de Software (SDK) de Azure Multi-factor Authentication. Esta característica ya no se admitirá para los nuevos clientes. Los clientes actuales podrán continuar usando el SDK hasta el 14 de noviembre de 2018. Después de ese momento, se producirá un error en las llamadas al SDK. 
 
 El Kit de desarrollo de Software (SDK) de Multi-Factor Authentication de Azure le permite generar una comprobación en dos pasos directamente en los procesos de inicio de sesión o transacción de las aplicaciones de su inquilino de Azure AD.
 
@@ -35,30 +38,7 @@ Dado que las API no tienen acceso a los usuarios registrados en Azure Active Dir
 
 
 ## <a name="download-the-sdk"></a>Descarga del SDK
-Para descargar el SDK de Azure Multi-Factor, se requiere un [proveedor de autenticación multifactor](multi-factor-authentication-get-started-auth-provider.md).  Para ello, se necesita una suscripción de Azure completa, aunque se cuenten con licencias de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.  Para descargar el SDK, vaya al Portal de administración de Multi-Factor. Puede tener acceso al portal administrando directamente el proveedor de Multi-Factor Auth o haciendo clic en el vínculo **"Ir al portal"** de la página de configuración del servicio MFA.
-
-### <a name="download-from-the-azure-classic-portal"></a>Descarga desde el Portal de Azure clásico
-1. Inicie sesión como administrador en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En la parte izquierda, seleccione **Active Directory**.
-3. En la parte superior de la página Active Directory, seleccione **Proveedores de Multi-Factor Auth**
-4. En la parte inferior, seleccione **Administrar**. Se abrirá una nueva página.
-5. A la izquierda, en la parte inferior, haga clic en **SDK**.
-   <center>![Descargar](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Seleccione el idioma que desee y haga clic en uno de los vínculos de descarga asociados.
-7. Guarde el archivo descargado.
-
-### <a name="download-from-the-service-settings"></a>Descarga desde la configuración del servicio
-1. Inicie sesión como administrador en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En la parte izquierda, seleccione **Active Directory**.
-3. Haga doble clic en la instancia de Azure AD.
-4. En la parte superior, haga clic en **Configurar**
-5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**
-   ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
-6. En la parte inferior de la página de configuración de servicios, haga clic en **Ir al portal**. Se abrirá una nueva página.
-   ![Descargar](./media/multi-factor-authentication-sdk/download3a.png)
-7. A la izquierda, en la parte inferior, haga clic en **SDK**.
-8. Seleccione el idioma que desee y haga clic en uno de los vínculos de descarga asociados.
-9. Guarde el archivo descargado.
+Para descargar el SDK de Azure Multi-Factor, se requiere un [proveedor de autenticación multifactor](multi-factor-authentication-get-started-auth-provider.md).  Para ello, se necesita una suscripción de Azure completa, aunque se cuenten con licencias de Azure MFA, Azure AD Premium o Enterprise Mobility Suite. Los métodos públicos de descarga del SDK se han retirado porque el SDK está en desuso. Debe abrir un caso de soporte técnico con Microsoft si necesita descargar el SDK.
 
 ## <a name="whats-in-the-sdk"></a>Qué contiene el SDK
 El SDK incluye los siguientes elementos:

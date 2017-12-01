@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Control de errores y excepciones en Azure Logic Apps
 
@@ -26,38 +26,74 @@ Azure Logic Apps proporciona completas herramientas y patrones para garantizar l
 
 ## <a name="retry-policies"></a>Directivas de reintentos
 
-Una directiva de reintentos es el tipo más básico de control de errores y excepciones. Si una solicitud inicial ha agotado el tiempo de espera o ha producido error (toda solicitud que tenga como resultado una respuesta 429 o 5xx), esta directiva define si se debe reintentar la acción. De forma predeterminada, todas las acciones se reintentan 4 veces adicionales durante intervalos de 20 segundos. Por lo tanto, si la primera solicitud recibe una respuesta `500 Internal Server Error`, el motor de flujo de trabajo se pausa durante 20 segundos y vuelve a intentar la solicitud. Si, después de todos los reintentos, la respuesta sigue siendo una excepción o un error, el flujo de trabajo continúa y marca el estado de la acción como `Failed`.
+Una directiva de reintentos es el tipo más básico de control de errores y excepciones. Si una solicitud inicial ha agotado el tiempo de espera o ha producido error (toda solicitud que tenga como resultado una respuesta 429 o 5xx), esta directiva define si se debe reintentar la acción y cómo hacerlo. Existen tres tipos de directivas de reintentos: `exponential`, `fixed` y `none`. Si no se proporciona ninguna directiva de reintentos en la definición del flujo de trabajo, se utiliza la directiva predeterminada. Puede configurar directivas de reintentos en las **entradas** para una determinada acción o desencadenador, si se puede volver a reintentar. De forma similar, las directivas de reintentos de Diseñador de aplicaciones lógicas pueden configurarse (si procede) en la **configuración** de un determinado bloque.
 
-Puede configurar directivas de reintentos en las **entradas** para una acción determinada. Por ejemplo, puede configurar una directiva de reintentos para que haga hasta 4 intentos en intervalos de 1 hora. Para ver detalles completos sobre las propiedades de entrada, consulte [Workflow Actions and Triggers][retryPolicyMSDN] (Acciones y desencadenadores de flujo de trabajo).
+Para obtener información acerca de las limitaciones de las directivas de reintentos, vea [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) y, para obtener más información acerca de la sintaxis admitida, consulte la [sección acerca de la directiva de reintentos de Desencadenadores y acciones para flujos de trabajo][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Intervalo exponencial
+El tipo de directiva `exponential` volverá a intentar una solicitud con error después de un intervalo de tiempo aleatorio desde un intervalo exponencialmente creciente. Se garantiza que cada reintento se enviará a un intervalo aleatorio mayor que **minimumInterval** y menor que **maximumInterval**. Se generará una variable aleatoria uniforme en el intervalo siguiente para cada reintento hasta, e incluido, **count**:
+<table>
+<tr><th> Rango de variable aleatoria </th></tr>
+<tr><td>
+
+| Número de reintentos | Intervalo mínimo | Intervalo mínimo |
+| ------------ |  ------------ |  ------------ |
+| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
+| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
+| 3 | Max(2*interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
+| 4 | Max(4 * interval, **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+Para las directivas de tipo `exponential`, son necesarios **interval** y **count**, mientras que **minimumInterval** y **maximumInterval** pueden proporcionarse opcionalmente para invalidar los valores predeterminados de PT5S y PT1D respectivamente.
+
+| Nombre del elemento | Obligatorio | Tipo | Descripción |
+| ------------ | -------- | ---- | ----------- |
+| type | Sí | String | `exponential` |
+| count | Sí | Entero | número de reintentos, debe estar comprendido entre 1 y 90  |
+| interval | Sí | String | intervalo de reintentos en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations); debe estar entre PT5S y PT1D |
+| minimumInterval | No| String | intervalo mínimo de reintentos en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations); debe estar entre PT5S y **interval** |
+| maximumInterval | No| String | intervalo mínimo de reintentos en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations); debe estar entre **interval** y PT1D |
+
+### <a name="fixed-interval"></a>Intervalo fijo
+
+El tipo de directiva `fixed` volverá a intentar una solicitud con error después de esperar el intervalo proporcionado antes de enviar la solicitud siguiente.
+
+| Nombre del elemento | Obligatorio | Tipo | Descripción |
+| ------------ | -------- | ---- | ----------- |
+| type | Sí | String | `fixed`|
+| count | Sí | Entero | número de reintentos; debe estar comprendido entre 1 y 90 |
+| interval | Sí | String | intervalo de reintentos en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations); debe estar entre PT5S y PT1D |
+
+### <a name="none"></a>Ninguna
+El tipo de directiva `none` no volverá a intentar una solicitud con error.
+
+| Nombre del elemento | Obligatorio | Tipo | Descripción |
+| ------------ | -------- | ---- | ----------- |
+| type | Sí | String | `none`|
+
+### <a name="default"></a>Valor predeterminado
+Si no se especificó ninguna directiva de reintentos, se usará la directiva predeterminada. La directiva predeterminada es una directiva de intervalo exponencial que enviará hasta 4 reintentos, en intervalos que aumentan exponecialmente 7,5 segundos y que están limitados entre 5 y 45 segundos. Esta directiva predeterminada (que se usa cuando **retryPolicy** no se define) es equivalente a la directiva de esta definición de flujo de trabajo HTTP de ejemplo:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-Si desea que la acción HTTP se reintente 4 veces con intervalos de 10 minutos entre cada reintento, se usaría la siguiente definición:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Para más información sobre la sintaxis admitida, consulte la [sección sobre la directiva de reintentos en Workflow Actions and Triggers][retryPolicyMSDN] (Acciones y desencadenadores de flujo de trabajo).
 
 ## <a name="catch-failures-with-the-runafter-property"></a>Detección de errores con la propiedad RunAfter
 
@@ -207,7 +243,7 @@ Para poner en práctica diferentes patrones de control de excepciones, puede usa
 ## <a name="azure-diagnostics-and-telemetry"></a>Diagnósticos de Azure y datos de telemetría
 
 Los patrones anteriores son una manera excelente de controlar errores y excepciones dentro de una ejecución, pero también puede identificar y responder a los errores con independencia de la ejecución en sí. 
-[Diagnósticos de Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos de flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de almacenamiento de Azure o a un Centro de eventos de Azure. Para evaluar los estados de ejecución, puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera. Una posible opción es transmitir todos los eventos mediante el Centro de eventos de Azure a [Análisis de transmisiones](https://azure.microsoft.com/services/stream-analytics/). En Stream Analytics, puede escribir consultas en directo partiendo de anomalías, promedios o errores en los registros de diagnóstico. Con Stream Analytics es fácil enviar resultados a otros orígenes de datos, como colas, temas, SQL, Azure Cosmos DB y Power BI.
+[Diagnósticos de Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) ofrece un método sencillo de enviar todos los eventos de flujo de trabajo (incluidos todos los estados de ejecución y acción) a una cuenta de Azure Storage o a un Centro de eventos de Azure. Para evaluar los estados de ejecución, puede supervisar los registros y las métricas, o publicarlos en la herramienta de supervisión que prefiera. Una posible opción es transmitir todos los eventos mediante Azure Event Hubs a [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). En Stream Analytics, puede escribir consultas en directo partiendo de anomalías, promedios o errores en los registros de diagnóstico. Con Stream Analytics es fácil enviar resultados a otros orígenes de datos, como colas, temas, SQL, Azure Cosmos DB y Power BI.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

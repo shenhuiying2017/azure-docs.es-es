@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Linux - versión preliminar
 
@@ -30,10 +30,10 @@ Para realizar esta tarea, use el equipo o una máquina virtual para simular un d
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Creación de una instancia de IoT Hub con la CLI de Azure
 
-Cree una instancia de IoT Hub en la suscripción de Azure. El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si anteriormente usó IoT Hub y ya creó una instancia gratis, puede omitir esta sección e ir a [Registro de un dispositivo de IoT Edge][anchor-register]. Cada suscripción puede tener solo una instancia gratuita de IoT Hub. 
+Cree un centro de IoT en una suscripción de Azure. El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ya ha usado IoT Hub y ha creado una centro gratuito, puede omitir esta sección e ir a [Registro de un dispositivo de IoT Edge][anchor-register]. Cada suscripción no puede tener más de un centro de IoT gratuito. 
 
 1. Inicie sesión en [Azure Portal][lnk-portal]. 
-1. Seleccione el botón **Cloud Shell**. 
+1. Haga clic en el botón **Cloud Shell**. 
 
    ![Botón Cloud Shell][1]
 
@@ -43,7 +43,7 @@ Cree una instancia de IoT Hub en la suscripción de Azure. El nivel gratuito de 
    az group create --name IoTEdge --location westus
    ```
 
-1. Cree una instancia de IoT Hub en el grupo de recursos nuevo. El código siguiente crea una instancia de IoT Hub **F1** gratis llamada **MyIotHub** en el grupo de recursos **IoTEdge**:
+1. Cree un centro de IoT en el grupo de recursos nuevo. El código siguiente crea un centro **F1** gratis llamado **MyIotHub** en el grupo de recursos **IoTEdge**:
 
    ```azurecli
    az iot hub create --resource-group IoTEdge --name MyIotHub --sku F1 
@@ -51,7 +51,7 @@ Cree una instancia de IoT Hub en la suscripción de Azure. El nivel gratuito de 
 
 ## <a name="register-an-iot-edge-device"></a>Registro de un dispositivo de IoT Edge
 
-Cree una identidad para el dispositivo simulado, con el fin de que pueda comunicarse con su centro de IoT. Dado que los dispositivos con IoT Edge se comportan y se pueden administrar de manera diferente a los dispositivos de IoT típicos, declare que este es un dispositivo con IoT Edge desde el principio. 
+Cree una identidad para el dispositivo simulado, con el fin de que pueda comunicarse con su centro de IoT. Dado que los dispositivos de IoT Edge se comportan y se pueden administrar de manera diferente a los dispositivos de IoT típicos, declare que este es un dispositivo de IoT Edge desde el principio. 
 
 1. En Azure Portal, navegue hasta el centro de IoT.
 1. Seleccione **IoT Edge (versión preliminar)**.
@@ -66,44 +66,56 @@ Cree una identidad para el dispositivo simulado, con el fin de que pueda comunic
 El runtime de IoT Edge se implementa en todos los dispositivos con IoT Edge. Consta de dos módulos. En primer lugar, el agente de IoT Edge facilita la implementación y supervisión de los módulos en el dispositivo de IoT Edge. En segundo lugar, el centro de IoT Edge administra las comunicaciones entre los módulos del dispositivo de IoT Edge y entre el dispositivo e IoT Hub. 
 
 En el equipo en el que va a ejecutar el dispositivo con IoT Edge, descargue el script de control de IoT Edge:
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure el runtime con la cadena de conexión del dispositivo de IoT Edge de la sección anterior:
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Inicie el runtime:
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Compruebe Docker para ver si el agente de IoT Edge se ejecuta como un módulo:
-```python
+```cmd
 sudo docker ps
 ```
+
+![Vea edgeAgent en Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implementación de un módulo
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
-## <a name="view-generated-data"></a>Ver datos generados
+## <a name="view-generated-data"></a>Visualización de datos generados
 
 En esta guía de inicio rápido, ha creado un nuevo dispositivo de IoT Edge y ha instalado el runtime de IoT Edge en él. Luego, ha usado Azure Portal para insertar un módulo de IoT Edge para que se ejecute en el dispositivo sin tener que realizar cambios en el propio dispositivo. En este caso, el módulo que ha insertado crea datos del entorno que se pueden usar para los tutoriales. 
 
-Vea los mensajes que se envían desde el módulo tempSensor:
+Vuelva a abrir el símbolo del sistema en el equipo que ejecuta el dispositivo simulado. Confirme que el módulo implementado desde la nube se está ejecutando en el dispositivo IoT Edge:
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Ver tres módulos en el dispositivo](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Vea los mensajes que se envían desde el módulo tempSensor a la nube:
+
+```cmd
 sudo docker logs -f tempSensor
 ```
 
-También puede ver la telemetría que envía el dispositivo mediante la [herramienta IoT Hub Explorer][lnk-iothub-explorer]. 
+![Ver los datos desde el módulo](./media/tutorial-simulate-device-linux/docker-logs.png)
+
+También puede ver la telemetría que envía el dispositivo mediante la [herramienta del explorador IoT Hub][lnk-iothub-explorer]. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesita la instancia de IoT Hub que creó, puede usar el comando [az iot hub delete][lnk-delete] para quitar el recurso y cualquier dispositivo que tenga asociado:
+Cuando ya no necesite la instancia de IoT Hub que ha creado, puede usar el comando [az iot hub delete][lnk-delete] para quitar el recurso y todos los dispositivos que tenga asociados:
 
 ```azurecli
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
@@ -111,7 +123,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprendió a implementar un módulo de IoT Edge en un dispositivo de IoT Edge. Ahora intente implementar distintos tipos de servicios de Azure como módulos, para poder analizar los datos en el perímetro. 
+Ha aprendido a implementar un módulo de IoT Edge en un dispositivo de IoT Edge. Ahora intente implementar distintos tipos de servicios de Azure como módulos, para poder analizar los datos en el perímetro. 
 
 * [Implementación de su propio código como un módulo](tutorial-csharp-module.md)
 * [Implementación de Azure Function como un módulo](tutorial-deploy-function.md)

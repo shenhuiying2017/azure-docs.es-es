@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: f960d82575be2aa80c039c3c3f73abee1e2aa9a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configuración de cargas de archivos de IoT Hub mediante la CLI de Azure
 
@@ -31,7 +31,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Una cuenta de Azure activa. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * [CLI de Azure 2.0][lnk-CLI-install].
 * Un centro de Azure IoT. Si no tiene ningún IoT Hub, puede usar el [comando][lnk-cli-create-iothub] `az iot hub create` para crear uno o usar el portal para [Crear un IoT Hub][lnk-portal-hub].
-* Una cuenta de almacenamiento de Azure. Si no tiene ninguna cuenta de almacenamiento de Azure, puede usar la [CLI de Azure 2.0: Administrar cuentas de almacenamiento][lnk-manage-storage] para crear una o usar el portal para [Crear una cuenta de almacenamiento][lnk-portal-storage].
+* Una cuenta de Azure Storage. Si no tiene ninguna cuenta de Azure Storage, puede usar la [CLI de Azure 2.0: Administrar cuentas de almacenamiento][lnk-manage-storage] para crear una o usar el portal para [Crear una cuenta de almacenamiento][lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inicio de sesión y configuración de la cuenta de Azure
 
@@ -89,7 +89,7 @@ Ahora puede configurar el centro de IoT para habilitar la [funcionalidad de carg
 
 La configuración requiere los siguientes valores:
 
-**Contenedor de almacenamiento:**: un contenedor de blobs en una cuenta de almacenamiento de Azure en la suscripción actual para asociar con su centro de IoT. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. IoT Hub genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
+**Contenedor de almacenamiento:**: un contenedor de blobs en una cuenta de Azure Storage en la suscripción actual para asociar con IoT Hub. En la sección anterior, recuperó la información necesaria de la cuenta de almacenamiento. IoT Hub genera automáticamente identificadores URI de SAS con permisos de escritura en este contenedor de blobs para los dispositivos que se utilizarán cuando se carguen archivos.
 
 **Receive notifications for uploaded files** (Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos.
 
@@ -144,7 +144,7 @@ Siga estos vínculos para más información sobre la administración de Azure Io
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simular un dispositivo con IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
 * [Protección total de la solución de IoT][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
@@ -158,7 +158,7 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
 

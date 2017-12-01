@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Administración de costos con Azure Cost Management
 
@@ -80,6 +80,23 @@ En la siguiente imagen se muestra un ejemplo de reglas creadas para una nueva ca
 
 ![Categoría de ejemplo](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Informes y orígenes de etiqueta
+
+Los datos de etiqueta que se ven en los informes de Cloudyn se originan en tres lugares:
+
+- API de recursos del proveedor en la nube
+- API de facturación del proveedor en la nube
+- Etiquetas creadas manualmente desde los orígenes siguientes:
+    - Etiquetas de entidad de Cloudyn: metadatos definidos por el usuario aplicados a las entidades de Cloudyn
+    - Category Manager: una herramienta de limpieza de datos que crea nuevas etiquetas basadas en reglas que se aplican a las etiquetas existentes
+
+Para ver las etiquetas del proveedor en la nube en informes de costos de Cloudyn, debe crear un modelo de asignación de costos personalizado con Cost Allocation 360°. Para ello, vaya a **Cost** (Costo) > **Cost Management** (Administración de costos) > **Cost Allocation 360°**, seleccione las etiquetas deseadas y, a continuación, defina las reglas para controlar los costos no etiquetados. A continuación, cree un nuevo modelo de costos. Luego, podrá ver informes en Cost Allocation Analysis (Análisis de asignación de costos) para ver, filtrar y ordenar las etiquetas de recursos de Azure.
+
+Las etiquetas de recursos de Azure solo aparecen en los informes **Cost Allocation Analysis** (Análisis de asignación de costos).
+
+Las etiquetas de facturación del proveedor en la nube aparecen en todos los informes de costos.
+
+Las etiquetas de entidad de Cloudyn y las que crea manualmente aparecen en todos los informes de costos.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Creación de informes de visualización y contracargo de gastos

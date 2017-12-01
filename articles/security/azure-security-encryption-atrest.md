@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
-Hay varias herramientas en Microsoft Azure para proteger los datos según las necesidades de seguridad y cumplimiento de su empresa. Este documento se centra en cómo los datos están protegidos en reposo a través de Microsoft Azure, describe distintos componentes que participan en la implementación de protección de datos y revisan las ventajas y desventajas de los métodos de protección de la administración de claves diferente. 
+Hay varias herramientas en Microsoft Azure para proteger los datos según las necesidades de seguridad y cumplimiento de su empresa. Este documento se centra en:
+- Cómo se protegen los datos en reposo en Microsoft Azure.
+- Describir los distintos componentes que forman parte de la implementación de protección de datos.
+- Revisar las ventajas y desventajas de los distintos enfoques clave de protección de la administración. 
 
 El cifrado en reposo es un requisito de seguridad habitual. Una ventaja de Microsoft Azure es que las organizaciones pueden lograr el cifrado en reposo sin tener el costo de implementación y administración y el riesgo de una solución de administración de claves personalizadas. Las organizaciones tienen la opción de permitir a Azure administrar completamente el cifrado en reposo. Además, las organizaciones tienen varias opciones para administrar con detenimiento el cifrado y las claves de cifrado.
 
@@ -40,7 +43,7 @@ El cifrado en reposo está diseñado para proporcionar protección de datos para
 
 El cifrado en reposo está diseñado para evitar que el atacante obtenga acceso a los datos sin cifrar asegurándose de que los datos se cifran en el disco. Si un atacante lograra obtener una unidad de disco duro con este tipo de datos cifrados y no tiene acceso a las claves del cifrado, el atacante no podría comprometer los datos fácilmente. En este escenario, un atacante tendría que intentar atacar a los datos cifrados que son mucho más complejos y consumen recursos que si tuviera acceso a los datos sin cifrar en un disco duro. Por este motivo, el cifrado en reposo es muy recomendable y es un requisito de alta prioridad para muchas organizaciones. 
 
-En algunos casos, también se requiere el cifrado en reposo como necesidad de la organización de los esfuerzos de cumplimiento y gobernanza de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, y los requisitos de regulación internacionales, diseñan las medidas de seguridad específicas a través de procesos y directivas relativas a los requisitos de protección y cifrado de datos. Para muchos de esos reglamentos, el cifrado en reposo es una medida obligatoria necesaria para la protección y administración de datos compatibles. 
+En algunos casos, también se requiere el cifrado en reposo como necesidad de la organización de los esfuerzos de cumplimiento y gobernanza de datos. Las normas gubernamentales y del sector, como HIPAA, PCI y FedRAMP, diseñan las medidas de seguridad específicas a través de los requisitos de cifrado y la protección de datos. Para muchos de esos reglamentos, el cifrado en reposo es una medida obligatoria necesaria para la protección y administración de datos compatibles. 
 
 Además de los requisitos de cumplimiento y regulatorios, el cifrado en reposo se debería percibir como una funcionalidad de la plataforma para defenderse en fondo. Mientras que Microsoft proporciona una plataforma compatible para los servicios, aplicaciones y datos, instalación completa y seguridad física, auditoría y control de acceso a los datos, es importante proporcionar medidas de seguridad "superpuesta" adicionales en caso de que se produzca un error en una de las otras medidas de seguridad. El cifrado en reposo proporciona un mecanismo de grupo defensivo adicional.
 
@@ -52,7 +55,7 @@ Como se describe anteriormente, el objetivo del cifrado en reposo es que los dat
 
 ![Componentes](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Almacén de claves de Azure
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 La ubicación del almacenamiento de las claves de cifrado y el control de acceso a esas claves es fundamental para un modelo de cifrado en reposo. Las claves deben ser muy seguras pero fáciles de administrar por parte de los usuarios especificados y deben estar disponibles para servicios concretos. Para los servicios de Azure, Azure Key Vault es la solución de almacenamiento de claves recomendada y proporciona una experiencia de administración habitual en los servicios. Las claves se almacenan y administran en los almacenes de claves, y se puede proporcionar acceso a Key Vault a los usuarios o servicios. Azure Key Vault admite la creación del cliente de claves o importación de claves de cliente para su uso en escenarios de clave de cifrado administrada por el cliente.
 
@@ -62,7 +65,7 @@ Los permisos para usar las claves almacenadas en Azure Key Vault, además de par
 
 ### <a name="key-hierarchy"></a>Jerarquía de las claves
 
-Normalmente se usa más de una clave de cifrado en una implementación de cifrado en reposo. El cifrado asimétrico es útil para establecer la confianza y la autenticación necesarias para la administración y acceso a la clave. El cifrado simétrico es más eficaz para el cifrado masivo y descifrado, lo que permite un cifrado más seguro y un mejor rendimiento. Además, si se limita el uso de una clave de cifrado única, se reduce el riesgo de que la clave se encuentre en peligro y el costo de volver a cifrar cuando se debe reemplazar una clave. Para sacar provecho de las ventajas del cifrado simétrico y asimétrico y limitar el uso y la exposición de una clave única, los modelos del cifrado en reposo de Azure usan una jerarquía de claves que se compone de los siguientes tipos de claves:
+Se usa más de una clave de cifrado en una implementación de cifrado en reposo. El cifrado asimétrico es útil para establecer la confianza y la autenticación necesarias para la administración y acceso a la clave. El cifrado simétrico es más eficaz para el cifrado masivo y descifrado, lo que permite un cifrado más seguro y un mejor rendimiento. Además, si se limita el uso de una clave de cifrado única, se reduce el riesgo de que la clave se encuentre en peligro y el costo de volver a cifrar cuando se debe reemplazar una clave. Para sacar provecho de las ventajas del cifrado simétrico y asimétrico y limitar el uso y la exposición de una clave única, los modelos del cifrados en reposo de Azure usan una jerarquía de claves que se compone de los siguientes tipos de claves:
 
 - **Clave de cifrado de datos (DEK)**: Una clave simétrica AES256 usada para cifrar una partición o un bloque de datos.  Un único recurso puede tener muchas particiones y muchas claves de cifrado de datos. Cifrar cada bloque de datos con una clave diferente dificulta los ataques de análisis criptográficos. Se necesita acceso a las DEK por la instancia de proveedor o aplicación de recursos que cifra y descifra un bloque específico. Cuando se reemplaza una DEK con una nueva clave, solo se deben volver a cifrar los datos de su bloque asociado con una nueva clave.
 - **Clave de cifrado de claves (KEK)**: Una clave de cifrado asimétrico utilizada para cifrar las claves de cifrado de datos. El uso de una clave de cifrado de clave permite a las propias claves de cifrado de datos cifrarse y controlarse. La entidad que tiene acceso a la KEK puede ser diferente de la entidad que requiere la DEK. Esto permite que una entidad para intermediar el acceso a la DEK con el fin de garantizar el acceso limitado de cada DEK a una partición específica. Puesto que la KEK es necesaria para descrifrar la DEK, la KEK es de manera eficaz un punto único por el que se pueden eliminar de forma eficaz las DEK mediante la eliminación de la KEK.
@@ -85,7 +88,7 @@ Hay tres escenarios para el cifrado del lado servidor:
     - El cliente controla las claves mediante Azure Key Vault
     - Funcionalidad de nube completa
 
-- El cifrado del lado servidor mediante claves administradas por el cliente en el hardware controlado por el cliente
+- Cifrado del lado servidor mediante claves administradas por el cliente en el hardware controlado por el cliente
     - Los proveedores de recursos de Azure realizan las operaciones de cifrado y descifrado
     - Claves de controles de cliente en el hardware controlado por el cliente
     - Funcionalidad de nube completa
@@ -100,7 +103,7 @@ Los modelos de cifrado admitidos en Azure se dividen en dos grupos principales: 
 
 ### <a name="client-encryption-model"></a>Modelo de cifrado del cliente
 
-El modelo de cifrado del cliente hace referencia al cifrado que se realiza fuera del proveedor de recursos o Azure mediante el servicio o la aplicación que realiza la llamada. El cifrado puede realizarse mediante la aplicación de servicio de Azure o por una aplicación que se ejecuta en el centro de datos del cliente. En cualquier caso, cuando se saca provecho de este modelo de cifrado, el proveedor de recursos de Azure recibe un blob cifrado de datos sin la capacidad de descifrar los datos de ninguna forma ni tener acceso a las claves de cifrado. En este modelo, la administración de claves se realiza mediante el servicio o aplicación que realiza la llamada y es completamente opaca para el servicio de Azure.
+El modelo de cifrado del cliente hace referencia al cifrado que se realiza fuera del proveedor de recursos o Azure mediante el servicio o la aplicación que realiza la llamada. El cifrado puede realizarse mediante la aplicación de servicio de Azure o por una aplicación que se ejecuta en el centro de datos del cliente. En cualquier caso, cuando se saca provecho de este modelo de cifrado, el proveedor de recursos de Azure recibe un blob cifrado de datos sin la capacidad de descifrar los datos de ninguna forma ni tener acceso a las claves de cifrado. En este modelo, la administración de claves se realiza mediante el servicio o aplicación que realiza la llamada y es opaca para el servicio de Azure.
 
 ![Cliente](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
@@ -116,11 +119,11 @@ Cada uno de los modelos de cifrado en reposo del lado servidor implica caracter�
 
 #### <a name="server-side-encryption-using-service-managed-keys"></a>Cifrado del lado servidor mediante claves administradas del servicio
 
-Para muchos clientes, el requisito esencial es asegurarse de que los datos se cifran siempre que estén en reposo. El cifrado del lado servidor mediante las claves administradas del servicio habilita este modelo al permitir a los clientes marcar el recurso específico (cuenta de almacenamiento, base de datos SQL, etc.) para el cifrado y dejar todos los aspectos de la administración de claves, como el backup, rotación o emisión de claves a Microsoft. La mayoría de los servicios de Azure que admiten cifrado en reposo normalmente admiten este modelo de descarga de la administración de las claves de cifrado de Azure. El proveedor de recursos de Azure crea las claves, las coloca en un almacenamiento seguro y las recupera cuando es necesario. Esto significa que el servicio tiene acceso completo a las claves y el servicio tiene control total sobre la administración del ciclo de vida de las credenciales.
+Para muchos clientes, el requisito esencial es asegurarse de que los datos se cifran siempre que estén en reposo. El cifrado del lado servidor mediante las claves administradas del servicio habilita este modelo al permitir a los clientes marcar el recurso específico (cuenta de almacenamiento, SQL Database, etc.) para el cifrado y dejar todos los aspectos de la administración de claves, como el backup, rotación o emisión de claves a Microsoft. La mayoría de los servicios de Azure que admiten cifrado en reposo normalmente admiten este modelo de descarga de la administración de las claves de cifrado de Azure. El proveedor de recursos de Azure crea las claves, las coloca en un almacenamiento seguro y las recupera cuando es necesario. Esto significa que el servicio tiene acceso completo a las claves y el servicio tiene control total sobre la administración del ciclo de vida de las credenciales.
 
 ![administrado](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-Por lo tanto, el cifrado del lado servidor mediante las claves administradas del servicio satisface rápidamente la necesidad de que tengan el cifrado en reposo con poca sobrecarga al cliente. Cuando esté disponible, un cliente abrirá con normalidad el Azure portal para la suscripción de destino y el proveedor de recursos y comprobará un cuadro que indica si desearía que los datos se cifraran. El cifrado del lado servidor de algunos Resource Manager con las claves administradas del servicio se encuentra activado de forma predeterminada. 
+Por lo tanto, el cifrado del lado servidor mediante las claves administradas del servicio satisface rápidamente la necesidad de que tengan el cifrado en reposo con poca sobrecarga al cliente. Cuando esté disponible, un cliente abrirá con normalidad el Azure portal para la suscripción de destino y el proveedor de recursos y comprobará un cuadro que indica si desearía que los datos se cifraran. El cifrado del lado servidor de algunas instancias de Resource Manager con las claves administradas del servicio se encuentra activado de forma predeterminada. 
 
 El cifrado del lado servidor con las claves de Microsoft administradas implica que el servicio tiene acceso completo para almacenar y administra las claves. Aunque algunos clientes podrían desear administrar las claves porque creen que pueden garantizar una mayor seguridad, se deben tener en cuenta los costos y riesgos asociados a una solución de almacenamiento de claves personalizadas al evaluar este modelo. En muchos casos, una organización podría determinar que los riesgos o restricciones de recursos de una solución local pueden ser mayores que el riesgo de administración en la nube de las claves de cifrado en reposo.  Sin embargo, este modelo podría no ser suficiente para las organizaciones que tienen requisitos para controlar la creación o el ciclo de vida de las claves de cifrado o tener personal diferente para administrar las claves de cifrado de un servicio al que administra el servicio (es decir, la segregación de administración de claves de todo el modelo de administración para el servicio).
 
@@ -145,7 +148,7 @@ Para escenarios donde el requisito es cifrar los datos en reposo y controlar los
 
 ##### <a name="key-access"></a>Acceso a la clave
 
-El modelo de cifrado del lado servidor con claves administradas del cliente en Azure Key Vault implica el servicio de acceso a las claves para cifrar y descifrar según sea necesario. Las claves del cifrado en reposo son accesibles para un servicio a través de una directiva de control de acceso que concede ese acceso de identidad de servicio para recibir la clave. Un servicio de Azure que se ejecuta en nombre de una suscripción asociada puede configurarse con una identidad para ese servicio dentro de esa suscripción. El servicio puede realizar la autenticación de Azure Active Directory y recibir un token de autenticación que se identifica como el servicio que actúa en nombre de la suscripción. A continuación, se puede presentar ese token al Key Vault para obtener una clave a la que se le haya dado acceso.
+El modelo de cifrado del lado servidor con claves administradas del cliente en Azure Key Vault implica el servicio de acceso a las claves para cifrar y descifrar según sea necesario. Las claves del cifrado en reposo son accesibles para un servicio a través de una directiva de control de acceso. Esta directiva concede el acceso de identidad de servicio para recibir la clave. Un servicio de Azure que se ejecuta en nombre de una suscripción asociada puede configurarse con una identidad dentro de esa suscripción. El servicio puede realizar la autenticación de Azure Active Directory y recibir un token de autenticación que se identifica como el servicio que actúa en nombre de la suscripción. A continuación, se puede presentar ese token al Key Vault para obtener una clave a la que se le haya dado acceso.
 
 Para las operaciones con claves de cifrado, una identidad de servicio puede tener acceso a cualquiera de las siguientes operaciones: descifrar, cifrar, unwrapKey, wrapKey, comprobar, iniciar sesión, obtener, enumerar, actualizar, crear, importar, eliminar, backup y restaurar.
 
@@ -201,7 +204,7 @@ Los servicios en la nube de Microsoft se utilizan en los tres modelos de la nube
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Cifrado en reposo para clientes de SaaS
 
-Los clientes del software como servicio (SaaS) suelen tener el cifrado en reposo habilitado o disponible en cada servicio. Los servicios de Office 365 disponen de varias opciones para que los clientes comprueben o habiliten el cifrado en reposo. Para obtener información acerca de los servicios de Office 365, vea las tecnologías de cifrado de datos para Office 365.
+Los clientes del software como servicio (SaaS) suelen tener el cifrado en reposo habilitado o disponible en cada servicio. Office 365 dispone de varias opciones para que los clientes comprueben o habiliten el cifrado en reposo. Para obtener información acerca de los servicios de Office 365, vea las tecnologías de cifrado de datos para Office 365.
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Cifrado en reposo para clientes PaaS
 
@@ -263,8 +266,8 @@ Se admite el cifrado del lado cliente de los datos de SQL Azure a través de la 
 | Backup                           |                | -                   | -                            | -                            | Sí    |
 | **Inteligencia y análisis**       |                |                     |                              |                              |        |
 | Azure Data Factory               |                | Sí                 | -                            | -                            | -      |
-| Aprendizaje automático de Azure           |                | -                   | Vista previa                      | -                            | -      |
-| Análisis de transmisiones de Azure           |                | Sí                 | -                            | -                            | -      |
+| Azure Machine Learning           |                | -                   | Vista previa                      | -                            | -      |
+| Azure Stream Analytics           |                | Sí                 | -                            | -                            | -      |
 | HDInsights (Azure Blob Storage)  |                | Sí                 | -                            | -                            | -      |
 | HDInsights (Data Lake Storage)   |                | Sí                 | -                            | -                            | -      |
 | Almacén de Azure Data Lake            |                | Sí                 | Sí                          | -                            | -      |
@@ -272,8 +275,8 @@ Se admite el cifrado del lado cliente de los datos de SQL Azure a través de la 
 | Power BI                         |                | Sí                 | -                            | -                            | -      |
 | **Servicios IoT**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Sí    |
-| Bus de servicio                      |                | Sí (nivel Premium)              | -                            | -                            | Sí    |
-| Centros de eventos                       |                | Sí             | -                            | -                            | -      |
+| Azure Service Bus                      |                | Sí (nivel Premium)              | -                            | -                            | Sí    |
+| Event Hubs                       |                | Sí             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>Conclusión

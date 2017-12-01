@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Introducción y arquitectura de SAP HANA en Azure (instancias grandes)
 
@@ -130,7 +130,7 @@ Al igual que puede elegir entre diferentes tipos de máquinas virtuales con Azur
 
 A partir de julio de 2017, SAP HANA en Azure (instancias grandes) está disponible en varias configuraciones en las regiones de Azure Oeste y Este de EE. UU., Este de Australia, Sudeste de Australia, Europa Occidental y Europa del Norte:
 
-| Solución de SAP | CPU | Memoria | Almacenamiento | Disponibilidad |
+| Solución de SAP | CPU | Memoria | Storage | Disponibilidad |
 | --- | --- | --- | --- | --- |
 | Optimizada para OLAP: SAP BW, BW/4HANA<br /> o SAP HANA para cargas de trabajo de OLAP genérico | SAP HANA en Azure S72<br /> – 2 procesadores Intel® Xeon® E7-8890 v3<br /> 36 núcleos de CPU y 72 subprocesos de CPU |  768 GB |  3 TB | Disponible |
 | --- | SAP HANA en Azure S144<br /> – 4 procesadores Intel® Xeon® E7-8890 v3<br /> 72 núcleos de CPU y 144 subprocesos de CPU |  1,5 TB |  6 TB | No disponible |
@@ -161,7 +161,7 @@ La base de hardware para todas las ofertas con certificación SAP HANA TDI. Pero
 Es importante tener en cuenta que la marca completa de una instancia grande HANA no está asignada exclusivamente para que la use un único cliente. Esto se aplica también a los bastidores de recursos de procesos y almacenamiento conectados mediante un tejido de red implementado en Azure. La infraestructura de instancias grandes de HANA, como Azure, implementa &quot;inquilinos&quot; de clientes diferentes que están aislados entre sí en los tres niveles siguientes:
 
 - Red: aislamiento a través de redes virtuales dentro de la marca de instancia grande de HANA.
-- Almacenamiento: aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados y aíslan los volúmenes de almacenamiento entre inquilinos.
+- Storage: aislamiento a través de máquinas virtuales de almacenamiento que tienen volúmenes de almacenamiento asignados y aíslan los volúmenes de almacenamiento entre inquilinos.
 - Proceso: asignación dedicada de las unidades de proceso a un único inquilino. Sin particiones de hardware ni de software de las unidades de servidor. Sin uso compartido de una sola unidad de host o servidor entre los inquilinos. 
 
 Por lo tanto, las implementaciones de unidades de instancias grandes de HANA entre varios inquilinos no son visibles entre sí. Las unidades de instancias grandes de HANA implementadas en diferentes inquilinos tampoco se pueden comunicar directamente entre sí a nivel de la marca de instancia grande de HANA. Solo las unidades de instancias grandes de HANA dentro de un mismo inquilino se pueden comunicar entre sí a nivel de la marca de instancia grande de HANA.
@@ -291,7 +291,10 @@ En esta lista se recopilan los requisitos para ejecutar SAP HANA en Azure (insta
 - Red Hat Subscription Manager implementado en Azure en una máquina virtual de Azure. El administrador de suscripciones de Red Hat hace posible que se registre SAP HANA en Azure (Instancias grandes) y se actualice (ya que se carece de acceso directo a Internet desde el inquilino implementado en el sello de instancias grandes de Azure).
 - SAP requiere que también disponga de un contrato de soporte con el proveedor de Linux. Este requisito no se elimina con la solución de instancias grandes de HANA ni por el hecho de ejecutar Linux en Azure. A diferencia de lo que ocurre con algunas de las imágenes de la galería de Azure para Linux, la tarifa del servicio NO se incluye en la oferta de la solución de instancias grandes de HANA. Actúa como un cliente para cumplir los requisitos de SAP en relación con los contratos de soporte técnico con el distribuidor de Linux.   
    - Si se trata de SUSE Linux, busque los requisitos del contrato de soporte técnico en [SAP Note #1984787 - SUSE LINUX Enterprise Server 12: Installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota de SAP 1984787: SUSE LINUX Enterprise Server 12: notas de instalación) y [SAP Note #1056161 - SUSE Priority Support for SAP applications](https://launchpad.support.sap.com/#/notes/1056161) (Nota de SAP 1056161: Soporte con prioridad de SUSE LINUX para aplicaciones SAP).
-   - Para Red Hat Linux, necesita tener los niveles de suscripción adecuados que incluyan soporte técnico y servicios (actualizaciones del sistema operativo de instancias grandes de HANA). Red Hat recomienda obtener una suscripción a "RHEL for SAP Business Applications". En lo que respecta al soporte técnico y los servicios, consulte [SAP Note #2002167 - Red Hat Enterprise Linux 7.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/2002167) (Nota de SAP 2002167: Instalación y actualización de Red Hat Enterprise Linux 7.x) y [SAP Note #1496410 - Red Hat Enterprise Linux 6.x: Installation and Upgrade](https://launchpad.support.sap.com/#/notes/1496410) (Nota de SAP 1496410: Instalación y actualización de Red Hat Enterprise Linux 6.x) para obtener información detallada.
+   - Para Red Hat Linux, necesita tener los niveles de suscripción adecuados que incluyan soporte técnico y servicios (actualizaciones del sistema operativo de instancias grandes de HANA). Red Hat recomienda obtener una suscripción a "RHEL for [SAP Solutions](https://access.redhat.com/solutions/3082481)". 
+
+Para la matriz de compatibilidad de la distinta versión de SAP HANA con las diferentes versiones de Linux, consulte [Nota de SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
 
 **Base de datos**
 
@@ -315,7 +318,7 @@ En esta lista se recopilan los requisitos para ejecutar SAP HANA en Azure (insta
 - Especialmente para las implementaciones de las SKU de clase de tipo II de instancia grande de HANA, se recomienda consultar con SAP las versiones de SAP HANA y las configuraciones posibles en hardware de escalado vertical de tamaño grande.
 
 
-## <a name="storage"></a>Almacenamiento
+## <a name="storage"></a>Storage
 
 El diseño de almacenamiento para SAP HANA en Azure (instancias grandes) lo configura SAP HANA en Azure Service Management a través de directrices recomendadas de SAP, documentadas en las notas del producto [SAP HANA Storage Requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisitos de almacenamiento de SAP HANA).
 

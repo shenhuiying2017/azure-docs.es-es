@@ -1,5 +1,5 @@
 ---
-title: "Configuración de la autenticación y la autorización para una aplicación personalizada que llama a la API de Azure Time Series Insights | Microsoft Docs"
+title: "Cómo configurar las API de autenticación y autorización de Azure Time Series Insights"
 description: "En este artículo se describe cómo configurar la autenticación y la autorización para una aplicación personalizada que llama a la API de Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -28,11 +28,11 @@ En esta sección se explica cómo configurar una aplicación para acceder a la A
 
 Si tiene una aplicación que necesita acceder a Time Series Insights, debe configurar una aplicación de Azure Active Directory y asignar las directivas de acceso a datos en el entorno de Time Series Insights. Este enfoque es preferible a ejecutar la aplicación con sus propias credenciales por los siguientes motivos:
 
-* Puede asignar a la identidad de la aplicación unos permisos distintos a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación debe hacer. Por ejemplo, puede permitir que la aplicación solo lea datos en un entorno de Time Series Insights determinado.
+* Puede asignar a la identidad de la aplicación unos permisos distintos a los suyos propios. Normalmente, estos permisos están restringidos a exactamente aquello que la aplicación requiere. Por ejemplo, puede permitir que la aplicación solo lea datos en un entorno de Time Series Insights determinado.
 * No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian.
 * Puede usar un certificado o una clave de aplicación para automatizar la autenticación cuando vaya a ejecutar un script desatendido.
 
-En este artículo se muestra cómo realizar esos pasos a través de Azure Portal. Se centra en una aplicación de un único inquilino diseñada para ejecutarse en una sola organización. El usuario normalmente usa aplicaciones de un único inquilino para aplicaciones de línea de negocio que se ejecutan en la organización.
+En este tema se muestra cómo realizar tales pasos a través de Azure Portal. Se centra en una aplicación de un único inquilino diseñada para ejecutarse en una sola organización. El usuario normalmente usa aplicaciones de un único inquilino para aplicaciones de línea de negocio que se ejecutan en la organización.
 
 El flujo de configuración consta de tres pasos de alto nivel:
 
@@ -103,5 +103,7 @@ Use el identificador y la clave de la aplicación para autenticarse en Azure Tim
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para consultar código de ejemplo que llama a la API de Time Series Insights, vea [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md).
-- Para obtener información de referencia de la API, vea la [referencia sobre la API de consulta](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Create a service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Creación de una entidad de servicio en Azure Portal)
+- Para obtener información de referencia de la API, vea la [referencia sobre la API de consulta](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Creación de una entidad de servicio](../azure-resource-manager/resource-group-create-service-principal-portal.md)

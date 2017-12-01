@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configuración de Azure Multi-Factor Authentication (versión preliminar pública)
 
@@ -40,7 +40,7 @@ Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora
 | [Métodos de verificación seleccionables](#selectable-verification-methods) |Le permite elegir los métodos de autenticación que están disponibles para que los usuarios los utilicen. |
 
 ## <a name="block-and-unblock"></a>Bloqueo y desbloqueo
-La acción de bloquear y desbloquear usuarios puede usarse para impedirles recibir solicitudes de autenticación. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios bloqueados permanecerán en este estado durante 90 días a partir del momento en que se bloqueen.
+La acción de bloquear y desbloquear usuarios puede usarse para impedirles recibir solicitudes de autenticación. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios bloqueados permanecen en este estado durante 90 días a partir del momento en que se bloqueen.
 
 ### <a name="block-a-user"></a>Bloquear a un usuario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
@@ -85,7 +85,7 @@ Se puede instalar y configurar la alerta de fraude para que los usuarios puedan 
 6. En la parte inferior de la página Configuración del servicio, seleccione **Ir al portal**.
 7. En el Portal de administración de Azure Multi-Factor Authentication, en Ver un informe, haga clic en **Alerta de fraude**.
 8. Especifique el intervalo de fechas que desea ver en el informe. También puede especificar los nombres de usuario, los números de teléfono y el estado del usuario.
-9. Haga clic en **Ejecutar**. Aparecerá un informe de las alertas de fraude. Haga clic en **Exportar a CSV** si desea exportar el informe.
+9. Haga clic en **Ejecutar** para mostrar un informe de alertas de fraude. Haga clic en **Exportar a CSV** si desea exportar el informe.
 
 ## <a name="one-time-bypass"></a>Omisión por única vez
 Una omisión por única vez permite a un usuario autenticarse una sola vez y, por consiguiente, no realizar la verificación en dos pasos. La omisión es temporal y expira una vez que ha pasado el número especificado de segundos. En aquellas situaciones en las que la aplicación móvil o el teléfono no reciben una notificación o una llamada de teléfono, puede habilitar una omisión por única vez para que el usuario pueda acceder al recurso deseado.
@@ -98,7 +98,7 @@ Una omisión por única vez permite a un usuario autenticarse una sola vez y, po
    ![Omisión por única vez](./media/multi-factor-authentication-whats-next/onetimebypass.png)
 3. Seleccione **Agregar**.
 4. Si es necesario, seleccione el grupo de replicación para esta omisión.
-5. Escriba el nombre de usuario (tipo username@domain.com), el número de segundos que durará la omisión y el motivo de esta. 
+5. Escriba el nombre de usuario (tipo username@domain.com), el número de segundos que debería durar la omisión y el motivo de esta. 
 6. Seleccione **Agregar**. El límite de tiempo entra en vigor inmediatamente, por lo que es preciso que el usuario inicie sesión antes de que expire la omisión por única vez. 
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualización del informe de omisión por única vez
@@ -110,16 +110,16 @@ Una omisión por única vez permite a un usuario autenticarse una sola vez y, po
 6. En la parte inferior de la página Configuración del servicio, seleccione **Ir al portal**.
 7. En el Portal de administración de Azure Multi-Factor Authentication, en Ver un informe, haga clic en **Omisión por única vez**.
 8. Especifique el intervalo de fechas que desea ver en el informe. También puede especificar los nombres de usuario, los números de teléfono y el estado del usuario.
-9. Haga clic en **Ejecutar**. Aparecerá un informe de las omisiones. Haga clic en **Exportar a CSV** si desea exportar el informe.
+9. Haga clic en **Ejecutar** para mostrar un informe de omisiones. Haga clic en **Exportar a CSV** si desea exportar el informe.
 
 ## <a name="custom-voice-messages"></a>Mensajes de voz personalizados
 Los mensajes de voz personalizados le permiten utilizar sus propias grabaciones o saludos para la verificación en dos pasos. Pueden utilizarse además o reemplazar a las grabaciones de Microsoft.
 
-Antes de comenzar tenga en cuenta lo siguiente:
+Antes de comenzar, tenga en cuenta las restricciones siguientes:
 
 * Los formatos de archivo compatibles son .wav y. mp3.
 * El límite de tamaño de archivo es 5 MB.
-* Los mensajes de autenticación deben durar menos de 20 segundos. Cualquier valor superior a este podría provocar un error de comprobación porque el usuario puede no responder antes de que finalice el mensaje y se agote el tiempo de espera de la comprobación.
+* Los mensajes de autenticación deben durar menos de 20 segundos. Cualquier valor superior a 20 segundos podría provocar un error de comprobación porque el usuario puede no responder antes de que finalice el mensaje lo que hace que se agote el tiempo de espera de la comprobación.
 
 ### <a name="set-up-a-custom-message"></a>Configuración de un mensaje personalizado
 
@@ -134,7 +134,7 @@ Antes de comenzar tenga en cuenta lo siguiente:
 6. Seleccione **Agregar**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Almacenamiento en caché en Azure Multi-Factor Authentication
-El almacenamiento en caché permite establecer un período específico para que los intentos de autenticación siguientes que se realicen en dicho período tengan de forma automática un resultado satisfactorio. Se utiliza principalmente cuando sistemas locales, como VPN, envían varias solicitudes de comprobación mientras la primera solicitud aún está en curso. Esto permite que las solicitudes subsiguientes se realicen correctamente de forma automática después de que el usuario lleva a cabo correctamente la primera comprobación en curso. 
+El almacenamiento en caché permite establecer un período específico para que los intentos de autenticación siguientes que se realicen en dicho período tengan de forma automática un resultado satisfactorio. Se utiliza principalmente cuando sistemas locales, como VPN, envían varias solicitudes de comprobación mientras la primera solicitud aún está en curso. El almacenamiento en caché permite que las solicitudes subsiguientes se realicen correctamente de forma automática después de que el usuario lleve a cabo la primera comprobación en curso. 
 
 El almacenamiento en caché no está concebido para usarse en los inicios de sesión en Azure AD.
 
@@ -178,7 +178,7 @@ Independientemente de que IP de confianza esté habilitado, se requiere la verif
 5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio**.
 6. En la página Configuración del servicio, en IP de confianza, hay dos opciones:
    
-   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Debe crear la siguiente regla en AD FS si aún no existe: "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+   * **Para solicitudes de usuarios federados cuyo origen esté en mi intranet**: active la casilla. Todos los usuarios federados que inicien sesión desde la red corporativa omitirán la verificación en dos pasos mediante una notificación emitida por AD FS. Asegúrese de que AD FS tiene una regla para agregar la notificación de intranet al tráfico adecuado. Si la regla no existe, cree la siguiente regla en AD FS: "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
 
 
@@ -199,11 +199,11 @@ Algunas aplicaciones, como Office 2010, o las versiones anteriores, y Apple Mail
 ### <a name="important-things-to-know-about-app-passwords"></a>Aspectos importantes acerca de las contraseñas de aplicación
 La siguiente es una lista importante de cosas que debe saber acerca de las contraseñas de aplicación.
 
-* Las contraseñas de aplicación solo deben tener escribirse una vez por aplicación. No es preciso que los usuarios realicen un seguimiento de las mismas y las escriban en cada ocasión.
+* Las contraseñas de aplicación solo deben escribirse una vez por aplicación. No es preciso que los usuarios realicen un seguimiento de las mismas y las escriban en cada ocasión.
 * La contraseña real se genera automáticamente y no la proporciona el usuario. Esto se debe a que las contraseñas generadas automáticamente son más difícil de adivinar y, por tanto, más seguras.
 * Hay un límite de 40 contraseñas por usuario. 
 * Las aplicaciones que almacenan en caché las contraseñas y las usan en escenarios locales, pueden comenzar a dar error ya que la contraseña de aplicación no se reconocerá fuera del identificador de organización. Un ejemplo es el de los mensajes de correo electrónico de Exchange que son locales pero que se archivan en la nube. No funciona la misma contraseña.
-* Una vez habilitada la autenticación multifactor en una cuenta de usuario, las contraseñas de aplicación pueden usarse con la mayoría de los clientes que no son explorador, como Outlook y Lync, pero no se puede realizar acciones administrativas con contraseñas de aplicación a través de aplicaciones que no son explorador, como Windows PowerShell, incluso si ese usuario tiene una cuenta administrativa.  Asegúrese de crear una cuenta de servicio con una contraseña segura para ejecutar scripts de PowerShell y no la habilite para la comprobación en dos pasos.
+* Una vez habilitada la autenticación multifactor en una cuenta de usuario, se pueden usar contraseñas de aplicación con la mayoría de los clientes sin explorador como Outlook y Lync. No se pueden realizar acciones administrativas con contraseñas de aplicación a través de aplicaciones sin explorador como Windows PowerShell, incluso si ese usuario tiene una cuenta administrativa.  Cree una cuenta de servicio con una contraseña segura para ejecutar scripts de PowerShell y no la habilite para la comprobación en dos pasos.
 
 > [!WARNING]
 > Las contraseñas de aplicación no funcionan en entornos híbridos donde los clientes se comunican tanto en el entorno local como en los puntos de conexión de detección automática en la nube. Esto se debe a que se necesitan contraseñas de dominio para autenticarse en el entorno local y contraseñas de aplicación para autenticarse con la nube.
@@ -217,7 +217,7 @@ Microsoft recomienda crear una contraseña de aplicación por dispositivo, no po
 Azure AD admite la federación (inicio de sesión único) con Active Directory Domain Services (AD DS) de Windows Server. Si su organización está federada con Azure AD y va a usar Azure Multi-Factor Authentication, no deje de leer la siguiente información acerca de las contraseñas de aplicación. Esta sección se aplica solo a los clientes federados (SSO).
 
 * Las contraseñas de aplicación las comprueba Azure AD y, por tanto, se omite la federación. La federación solo se usa activamente al configurar la contraseñas de aplicación.
-* En el caso de los usuarios federados (SSO), nunca se usa el proveedor de identidades (IdP), a diferencia del flujo pasivo. Las contraseñas se almacenan en el identificador de la organización. Si el usuario abandona la empresa, esta información tiene que fluir al identificador de la organización usando DirSync en tiempo real. La deshabilitación o eliminación de la cuenta puede tardar hasta tres horas en sincronizarse, retrasando la deshabilitación o eliminación de contraseña de aplicación en Azure AD.
+* En el caso de los usuarios federados (SSO), nunca se contacta con el proveedor de identidades (IdP), a diferencia del flujo pasivo. Las contraseñas se almacenan en el identificador de la organización. Si el usuario abandona la empresa, esta información tiene que fluir al identificador de la organización usando DirSync en tiempo real. La deshabilitación o eliminación de la cuenta puede tardar hasta tres horas en sincronizarse, retrasando la deshabilitación o eliminación de contraseña de aplicación en Azure AD.
 * La configuración del control de acceso de cliente local no admite la contraseña de aplicación
 * La contraseña de aplicación no tiene la ninguna funcionalidad de auditoría o registro de autenticación local.
 * Puede que algunos diseños arquitectónicos avanzados requieran una combinación de nombre de usuario y contraseñas de la organización, y de contraseñas de aplicación cuando se usa comprobación en dos pasos con clientes, en función de dónde se autentiquen. Para los clientes que se autentican en una infraestructura local, usaría un nombre de usuario y una contraseña de la organización. Para los clientes que se autentican en Azure AD, usaría la contraseña de aplicación.
@@ -254,7 +254,7 @@ Los usuarios pueden crear contraseñas de aplicación durante el registro inicia
 Los usuarios también pueden crear contraseñas de aplicación después del registro si cambian su configuración en Azure Portal o en el Portal de Office 365. Para más información e instrucciones detalladas para los usuarios, consulte [¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?](./end-user/multi-factor-authentication-end-user-app-passwords.md).
 
 ## <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>Recuerdo de Multi-Factor Authentication para los dispositivos en los que los usuarios confían
-Recordar Multi-Factor Authentication para los dispositivos y exploradores en los que los usuarios confían es una característica gratuita para todos los usuarios de MFA. Permite ofrecer a los usuarios la opción de omitir MFA durante un número determinado de días después de realizar un inicio de sesión correcto con MFA. Esto puede mejorar la facilidad de uso, ya que minimiza el número de veces que un usuario puede realizar la comprobación en dos pasos en el mismo dispositivo.
+Recordar Multi-Factor Authentication para los dispositivos y exploradores en los que los usuarios confían es una característica gratuita para todos los usuarios de MFA. Esta opción permite ofrecer a los usuarios la opción de omitir MFA durante un número determinado de días después de realizar un inicio de sesión correcto con MFA. Esto puede mejorar la facilidad de uso, ya que minimiza el número de veces que un usuario puede realizar la comprobación en dos pasos en el mismo dispositivo.
 
 Sin embargo, si una cuenta o un dispositivo corren peligro, el hecho de recordar MFA para los dispositivos de confianza puede afectar a la seguridad. Si una cuenta corporativa se pone en peligro o un dispositivo de confianza es objeto de pérdida o robo, debe [restaurar Multi-Factor Authentication en todos los dispositivos](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-remembered-devices-for-a-user). Esta acción revoca el estado de confianza de todos los dispositivos y el usuario debe volver a realizar la comprobación en dos pasos. También puede indicar a los usuarios que restauren MFA en sus propios dispositivos con las instrucciones que se indican en [Administración de la configuración de la comprobación en dos pasos](./end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 
@@ -295,9 +295,9 @@ Cuando los usuarios inscriben sus cuentas para MFA, deciden su método de compro
 | Método | Descripción |
 |:--- |:--- |
 | Llamada al teléfono |Hace una llamada de voz automática. El usuario responde a la llamada y pulsa la # del teclado del teléfono para autenticarse. Este número de teléfono no se sincroniza con Active Directory local. |
-| Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se le pide al usuario que o bien conteste al mensaje de texto con el código de verificación o que escriba el código de verificación en la interfaz de inicio de sesión. |
+| Mensaje de texto al teléfono |Envía un mensaje de texto que contiene un código de verificación. Se pide al usuario que escriba el código de verificación en la interfaz de inicio de sesión. Este proceso se llama "SMS unidireccional". SMS bidireccional significa que el usuario debe devolver un mensaje de texto con un código determinado. SMS bidireccional ha quedado en desuso y ya no se admitirá a partir del 14 de noviembre de 2018. Los usuarios configurados para usar SMS bidireccional pasarán automáticamente a la autenticación "devolución de llamada" en ese momento.|
 | Notificación a través de aplicación móvil |Envía una notificación push a su teléfono o dispositivo registrado. El usuario ve la notificación y selecciona **Comprobar** para completar la comprobación. <br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de verificación desde aplicación móvil |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada treinta segundos. El usuario escribe dicho código en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificación desde aplicación móvil |La aplicación Microsoft Authenticator genera un nuevo código de verificación de OATH cada 30 segundos. El usuario escribe dicho código en la interfaz de inicio de sesión.<br>La aplicación Microsoft Authenticator está disponible para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Habilitación/deshabilitación de los métodos de autenticación
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).

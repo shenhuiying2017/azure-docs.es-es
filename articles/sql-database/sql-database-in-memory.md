@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -75,7 +75,7 @@ Vídeos detallados sobre las tecnologías:
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Límite de almacenamiento y tamaño de datos para OLTP en memoria
 
-OLTP en memoria incluye tablas con optimización de memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en el servicio de SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
+OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en el servicio de SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
 
 Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. En el momento de escribir este artículo, obtiene un gigabyte de almacenamiento por cada 125 unidades de transacción de base de datos (DTU) o unidades de transacción de base de datos elástica (eDTU).
 
@@ -83,8 +83,8 @@ En el artículo sobre los [niveles de servicio de SQL Database](sql-database-ser
 
 Los siguientes elementos cuentan para su límite de almacenamiento de OLTP en memoria:
 
-- Las filas de datos de usuarios activos en tablas con optimización de memoria y variables de tabla. Tenga en cuenta que las versiones antiguas de las filas no cuentan para el límite.
-- Los índices de tablas con optimización de memoria.
+- Las filas de datos de usuarios activos en tablas optimizadas para memoria y variables de tabla. Tenga en cuenta que las versiones antiguas de las filas no cuentan para el límite.
+- Los índices de tablas optimizadas para memoria.
 - La sobrecarga operacional de operaciones ALTER TABLE.
 
 Si alcanza el límite, recibirá un error que le notificará que se ha quedado sin cuota y no podrá volver a insertar o actualizar datos. Para mitigar este error, elimine datos o aumente el plan de tarifa de la base de datos o del grupo.
@@ -118,8 +118,6 @@ Pero cambiar a un plan de tarifas inferior puede repercutir negativamente en la 
 
 *Reducción a Básico o Estándar*: OLTP en memoria no se admite en bases de datos que se encuentren en los planes Estándar o Básico. Además, no es posible mover una base de datos con objetos de OLTP en memoria a los planes Estándar o Básico.
 
-Antes de degradar el plan de tarifa de una base de datos a Estándar o Básico, quite todos los tipos de tabla y las tablas con optimización de memoria, así como todos los módulos de Transact-SQL compilados de forma nativa.
-
 No existe ningún mecanismo de programación para comprender si una base de datos específica admite OLTP en memoria. Puede ejecutar la siguiente consulta de Transact-SQL:
 
 ```
@@ -128,8 +126,15 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Si la consulta devuelve **1**, OLTP en memoria se admite en esta base de datos.
 
+Antes de degradar el plan de tarifa de una base de datos a Estándar o Básico, quite todos los tipos de tabla y las tablas optimizadas para memoria, así como todos los módulos de Transact-SQL compilados de forma nativa. Las siguientes consultas identifican todos los objetos que deben quitarse antes de que se una base de datos de nivel Premium pase al nivel Estándar/Básico:
 
-*Reducción a un plan Premium inferior*: los datos de las tablas con optimización de memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de tarifa de la base de datos o disponible en el grupo elástico. Si trata de reducir el plan de tarifa o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrolla correctamente.
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+*Reducción a un plan Premium inferior*: los datos de las tablas optimizadas para memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de tarifa de la base de datos o disponible en el grupo elástico. Si trata de reducir el plan de tarifa o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrolla correctamente.
 
 ### <a name="columnstore-indexes"></a>Índices de almacén de columnas
 
@@ -186,9 +191,9 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 Un resultado de **0** significa que no se admite en memoria, mientras que un resultado de **1** significa que se admite. Para diagnosticar el problema, asegúrese de que la base de datos se encuentra en el nivel de servicio Premium.
 
 
-#### <a name="about-the-created-memory-optimized-items"></a>Acerca de los elementos creados con optimización para memoria
+#### <a name="about-the-created-memory-optimized-items"></a>Acerca de los elementos creados optimizados para memoria
 
-**Tablas**: el ejemplo contiene las siguientes tablas con optimización para memoria:
+**Tablas**: el ejemplo contiene las siguientes tablas optimizadas para memoria:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -197,7 +202,7 @@ Un resultado de **0** significa que no se admite en memoria, mientras que un res
 - Demo.DemoSalesOrderDetailSeed
 
 
-Puede inspeccionar las tablas con optimización para memoria a través del **Explorador de objetos** en SSMS. Haga clic con el botón derecho en **Tablas** > **Filtro** > **Configuración de filtro** > **Con optimización para memoria**. El valor es igual a 1.
+Puede inspeccionar las tablas optimizadas para memoria a través del **Explorador de objetos** en SSMS. Haga clic con el botón derecho en **Tablas** > **Filtro** > **Configuración de filtro** > **Con optimización para memoria**. El valor es igual a 1.
 
 
 O bien puede consultar las vistas de catálogo como:
@@ -224,7 +229,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 ### <a name="run-the-sample-oltp-workload"></a>Ejecución de la carga de trabajo de OLTP de ejemplo
 
-La única diferencia entre los dos *procedimientos almacenados* siguientes es que el primer procedimiento usa las versiones de las tablas con optimización para memoria, mientras que el segundo procedimiento usa las tablas en disco habituales:
+La única diferencia entre los dos *procedimientos almacenados* siguientes es que el primer procedimiento usa las versiones de las tablas optimizadas para memoria, mientras que el segundo procedimiento usa las tablas en disco habituales:
 
 - SalesLT**.**usp_InsertSalesOrder**_inmem**
 - SalesLT**.**usp_InsertSalesOrder**_ondisk**
@@ -248,7 +253,7 @@ Pero es posible que quiera comenzar con valores mucho más pequeños, como -n10 
 En esta sección se muestra el script de T-SQL que se inserta en la línea de comandos de ostress.exe. El script usa elementos creados por el script de T-SQL que instaló antes.
 
 
-El siguiente script inserta un pedido de ventas de ejemplo con cinco elementos de línea en las siguientes *tablas*con optimización para memoria:
+El siguiente script inserta un pedido de ventas de ejemplo con cinco elementos de línea en las siguientes *tablas* optimizadas para memoria:
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem

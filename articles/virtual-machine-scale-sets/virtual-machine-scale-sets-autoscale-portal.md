@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 266e9674a422dffb7f78a4aa3dd0adfa3c8bab3b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -34,7 +34,7 @@ Para crear reglas de escalado automático, necesita un conjunto de escalado de m
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Creación de una regla para realizar un escalado horizontal de forma automática
 Si aumenta la demanda de la aplicación, la carga de las instancias de máquina virtual del conjunto de escalado aumenta. Si este aumento de la carga es continuado, en lugar de ser algo puntual, puede configurar reglas de escalado automático para aumentar el número de instancias de máquina virtual en el conjunto de escalado. Cuando se crean estas instancias de máquina virtual y se implementan las aplicaciones, el conjunto de escalado empieza a distribuir el tráfico entre ellas mediante el equilibrador de carga. Puede controlar qué métricas se deben supervisar como, por ejemplo, la CPU o el disco, cuánto tiempo debe cumplir la carga de la aplicación un límite determinado y cuántas instancias de máquina virtual se deben agregar al conjunto de escalado.
 
-1. Abra Azure portal y seleccione **Grupos de recursos** en el menú de la izquierda del panel.
+1. Abra Azure Portal y seleccione **Grupos de recursos** en el menú de la izquierda del panel de información.
 2. Seleccione el grupo de recursos que contenga el conjunto de escalado y, después, elija el conjunto de escalado en la lista de recursos.
 3. Elija **Escalado** en el menú de la izquierda de la ventana del conjunto de escalado. Haga clic en el botón **Habilitar escalado automático**:
 
@@ -55,7 +55,7 @@ Si aumenta la demanda de la aplicación, la carga de las instancias de máquina 
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 70             |
     | *Duration*             | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 10 minutos     |
     | *operación*            | Define si el conjunto de escalado debe escalarse o reducirse verticalmente cuando se aplica la regla y en qué incremento debe hacerse                        | Aumentar porcentaje en |
-    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20 |             |
+    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20             |
     | *Tiempo de finalización (minutos)*  | El periodo que hay que esperar hasta que la regla se vuelva a aplicar, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos      |
 
     Los ejemplos siguientes muestran una regla creada en Azure Portal que se ajusta a esta configuración:    
@@ -78,7 +78,7 @@ La demanda de la aplicación puede reducirse por las tardes o durante los fines 
     | *Operador*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                      | Menor que   |
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 30             |
     | *operación*            | Define si el conjunto de escalado debe escalarse o reducirse verticalmente cuando se aplica la regla y en qué incremento debe hacerse                         | Reducir porcentaje en |
-    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                             | 20 |             |
+    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                             | 20             |
 
 3. Para crear la regla, seleccione **Agregar**
 

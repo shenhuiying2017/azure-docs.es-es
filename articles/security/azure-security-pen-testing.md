@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="pen-testing"></a>Pruebas de penetración
-Una de las grandes ventajas de usar Microsoft Azure para la prueba e implementación de aplicaciones es que no es necesario crear una infraestructura local para desarrollar, probar e implementar sus aplicaciones. Sos servicios de plataforma Microsoft Azure se ocupan de toda la infraestructura. No tiene que preocuparse del pedido, la adquisición, la "instalación en bastidor y apilamiento" de su propio hardware local.
+Una de las ventajas del uso de Azure para las pruebas y la implementación de aplicaciones es que puede crear entornos rápidamente.  No tiene que preocuparse del pedido, la adquisición, la "instalación en bastidor y apilamiento" de su propio hardware local.
 
 Esto es genial, pero debe asegurarse de realizar sus diligencias de seguridad normales. Una de las cosas que debe hacer es realizar pruebas de penetración de las aplicaciones que implemente en Azure.
 
-Es posible que ya sepa que realiza Microsoft realiza [pruebas de penetración de nuestro entorno de Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Esto nos ayuda a mejorar nuestra plataforma y guía nuestras acciones para mejorar los controles de seguridad, introducir nuevos controles de seguridad y mejorar nuestros procesos de seguridad.
+Es posible que ya sepa que realiza Microsoft realiza [pruebas de penetración de nuestro entorno de Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e). Esto permite impulsar las mejoras de Azure. 
 
 No realizamos pruebas de penetración de su aplicación, pero sabemos que se desea y necesita realizar dichas pruebas en sus propias aplicaciones. Eso es bueno, ya que al mejorar la seguridad de sus aplicaciones, ayuda a hacer que todo el ecosistema de Azure sea más seguro.
 
@@ -33,7 +33,8 @@ Al realizar pruebas de penetración de sus aplicaciones, podría parecer que nos
 
 ¿Qué debe hacer?
 
-Cuando esté listo para realizar pruebas de penetración de sus aplicaciones hospedadas en Azure, tiene la opción de [hacérnoslo saber](https://portal.msrc.microsoft.com/en-us/engage/pentest). Una vez que sepamos que va a realizar pruebas específicas, no le des conectaremos accidentalmente (por ejemplo, al bloquear la dirección IP desde la que está realizando la prueba), siempre y cuando las pruebas se ajusten a los términos y condiciones de las pruebas de penetración de Azure que se describen en [Reglas de interacción de prueba de penetración de Microsoft Cloud Unified](https://technet.microsoft.com/en-us/mt784683).
+Cuando esté listo para realizar pruebas de penetración de sus aplicaciones hospedadas en Azure, tiene la opción de [hacérnoslo saber](https://portal.msrc.microsoft.com/en-us/engage/pentest). Una vez reciba la notificación, Microsoft no le interrumpirá de forma involuntaria (por ejemplo, no bloqueará la dirección IP desde la que realiza pruebas). Las pruebas deben ser conformes a los términos y condiciones de las pruebas de penetración de Azure descritos en [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/en-us/mt784683) (Reglas de interacción con las pruebas de penetración unificadas de Microsoft Cloud).
+
 Entre las pruebas estándar que puede realizar se incluyen:
 
 * Pruebas en los puntos de conexión para descubrir las [10 principales vulnerabilidades del Proyecto de seguridad de aplicación web abierta (OWASP)](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
@@ -42,4 +43,6 @@ Entre las pruebas estándar que puede realizar se incluyen:
 
 Un tipo de prueba que no puede realizar es ningún tipo de ataque [de denegación de servicio (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Esto incluye iniciar un ataque de denegación de servicio o la realización de pruebas relacionadas que puedan determinar, demostrar o simular cualquier tipo de ataque de denegación de servicio.
 
-¿Está listo para empezar a realizar pruebas de penetración de sus aplicaciones hospedadas en Microsoft Azure? Si es así, diríjase a la página [Penetration Test Overview](https://technet.microsoft.com/library/mt784683.aspx) (Información general de pruebas de penetración) y haga clic en el botón Create a Testing Request (Crear una solicitud de prueba) en la parte inferior de la página. También encontrará más información sobre los términos y condiciones de las pruebas de penetración, así como vínculos útiles sobre cómo informar de problemas de seguridad relacionados con Azure o cualquier otro servicio de Microsoft.
+## <a name="next-steps"></a>Pasos siguientes
+
+- ¿Está listo para empezar a realizar pruebas de penetración de sus aplicaciones hospedadas en Microsoft Azure? Si es así, diríjase a la página [Penetration Test Overview](https://technet.microsoft.com/library/mt784683.aspx) (Información general de pruebas de penetración) y haga clic en el botón Create a Testing Request (Crear una solicitud de prueba) en la parte inferior de la página. 

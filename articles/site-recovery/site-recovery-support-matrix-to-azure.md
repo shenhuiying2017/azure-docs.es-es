@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matriz de compatibilidad de Azure Site Recovery para la replicación desde local a Azure
 
@@ -145,6 +145,7 @@ Varias NIC | Sí | Sí
 IP reservada | Sí | Sí
 IPv4 | Sí | Sí
 Conservar dirección IP de origen | Sí | Sí
+Puntos de conexión del servicio Virtual Network (redes virtuales y firewalls de Azure Storage) | No | No
 
 
 ## <a name="support-for-storage"></a>Compatibilidad con el almacenamiento
@@ -188,9 +189,11 @@ GRS | Sí | Sí
 RA-GRS | Sí | Sí
 Almacenamiento de acceso esporádico | No | No
 Almacenamiento de acceso frecuente| No | No
+Blobs en bloques | No | No
 Cifrado en reposo (SSE)| Sí | Sí
 Premium Storage | Sí | Sí
 Servicio Import/Export | No | No
+Puntos de conexión del servicio Virtual Network (firewalls de Azure Storage y Virtual Network) configurados en la cuenta de almacenamiento de destino o la cuenta de almacenamiento en la memoria caché usadas para el almacenamiento de los datos de replicación | No | No
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Compatibilidad con la configuración del proceso de Azure

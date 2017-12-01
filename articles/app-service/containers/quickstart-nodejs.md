@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a40dc540884454fed9c374ba1365fdf7b85e4531
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Creación de una aplicación web de Node.js en Azure App Service en Linux
 
@@ -33,8 +33,8 @@ Estos pasos se pueden realizar con un equipo Mac, Windows o Linux.
 
 Para completar esta guía de inicio rápido:
 
-* [Instalación de Git](https://git-scm.com/)
-* [Instalación de Node.js y NPM](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
+* <a href="https://nodejs.org/" target="_blank">Instalación de Node.js y NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -78,11 +78,11 @@ En la ventana de terminal, presione **Ctrl + C** para salir del servidor web.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Creación de una aplicación web con imagen integrada
+## <a name="create-a-web-app"></a>Creación de una aplicación web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-no-h.md)]
 
-Vaya a la aplicación web recién creada. Reemplace  _&lt;nombre de aplicación>_ por un nombre de aplicación único.
+Vaya a la aplicación web recién creada. Reemplace _&lt;app name>_ por el nombre de la aplicación web.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -142,7 +142,7 @@ El código de ejemplo de Node.js se está ejecutando en una aplicación web con 
 
 ## <a name="update-and-redeploy-the-code"></a>Actualización del código y nueva implementación
 
-Con un editor de texto, abra el archivo `index.js` en la aplicación de Node.js y realice un pequeño cambio en el texto en la llamada a `response.end`:
+En el directorio local, abra el archivo `index.js` en la aplicación de Node.js y realice un pequeño cambio en el texto de la llamada a `response.end`:
 
 ```nodejs
 response.end("Hello Azure!");

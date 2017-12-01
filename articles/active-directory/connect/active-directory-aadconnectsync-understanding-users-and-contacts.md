@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronización de Azure AD Connect: descripción de usuarios, grupos y contactos
 Hay diversas razones por las que podría interesarle tener varios bosques de Active Directory y hay diversas topologías de implementación. Los modelos comunes incluyen una implementación cuenta-recurso y bosques sincronizados de lista global de direcciones tras una fusión y adquisición. Sin embargo, aunque existan modelos puros, los modelos híbridos también son comunes. La configuración predeterminada de Azure AD Connect no da por supuesto ningún modelo en particular, pero en función de cómo se haya seleccionado la coincidencia de usuarios en la guía de instalación, pueden observarse comportamientos diferentes.
@@ -42,15 +42,15 @@ Puntos importantes para tener en cuenta durante la sincronización de grupos de 
 
 * Para sincronizar un grupo de Active Directory a Azure AD como un grupo habilitado para correo electrónico:
 
-    * Si el atributo del grupo *proxyAddress* está vacío, su atributo *mail* debe tener un valor, o 
+    * Si el atributo del grupo *proxyAddress* está vacío, su atributo *mail* debe tener un valor.
 
-    * Si el atributo del grupo *proxyAddress* no está vacío, también debe contener un valor de dirección de proxy SMTP principal (tal y como indica el prefijo con mayúsculas **SMTP**). Estos son algunos ejemplos:
+    * Si el atributo *proxyAddress* del grupo está vacío, debe contener al menos un valor de dirección de proxy SMTP. Estos son algunos ejemplos:
     
-      * Un grupo de Active Directory cuyo atributo proxyAddress tiene el valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* no estará habilitado para correo electrónico en Azure AD. No tiene ninguna dirección SMTP principal.
-      
-      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* no estará habilitado para correo electrónico en Azure AD. Tiene una dirección SMTP pero no es principal.
+      * Un grupo de Active Directory cuyo atributo proxyAddress tiene el valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* no estará habilitado para correo electrónico en Azure AD. No tiene ninguna dirección SMTP.
       
       * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* estará habilitado para correo electrónico en Azure AD.
+      
+      * Un grupo de Active Directory cuyo atributo proxyAddress tiene los valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","smtp:johndoe@contoso.com"}* estará habilitado también para correo electrónico en Azure AD.
 
 ## <a name="contacts"></a>Contactos
 Tras una fusión o una adquisición donde la solución GALSync actúa como puente entre dos o más bosques de Exchange, es habitual que los contactos representen a un usuario en un bosque diferente. El objeto de contacto siempre se une desde el espacio del conector al metaverso mediante el atributo de correo. Si ya existe un objeto de contacto o un objeto de usuario con la misma dirección de correo, los objetos se unen. Esto se configura en la regla **In from AD – Contact Join**. Existe también una regla llamada **In from AD – Contact Common** con un flujo de atributos al atributo de metaverso **sourceObjectType** con la constante **Contact**. Esta regla tiene una precedencia muy baja, por lo que si algún objeto de usuario se une al mismo objeto de metaverso, la regla **In from AD – User Common** aportará el valor User a este atributo. Con esta regla, este atributo tendrá el valor Contact si no se ha unido ningún usuario y el valor User si se ha encontrado por lo menos un usuario.

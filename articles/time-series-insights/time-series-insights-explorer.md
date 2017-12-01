@@ -3,7 +3,7 @@ title: "Exploración de los datos con el explorador de Azure Time Series Insight
 description: "En este artículo se describe cómo usar el explorador de Azure Time Series Insights en el explorador web para tener rápidamente una visión global de los macrodatos y validar el entorno de IoT."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 En este artículo se analizan las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. Puede usar el explorador de Time Series Insights en el explorador web para crear visualizaciones de los datos.
@@ -50,10 +50,10 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
       - **Split By** (Dividir por): este menú desplegable muestra las columnas de categoría (cadenas)
       - Puede habilitar la interpolación escalonada, mostrar el valor mínimo y el valor máximo, y ajustar el eje Y desde el panel de control que está junto a la medida.  Además, puede ajustar si los datos que se muestran son un recuento, un promedio o la suma de los datos.
       - Puede agregar hasta cinco términos para verlos en el mismo eje X.  Use el botón **copy-down** para agregar un término adicional o haga clic en el botón **Add** (Agregar) para agregar un término nuevo.
+     
+        ![Panel Editor de términos](media/time-series-insights-explorer/explorer2.png)
 
-      ![Panel Editor de términos](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predicate** (Predicado): el predicado permite filtrar rápidamente los eventos con el conjunto de operados que aparecen a continuación. Si realiza una búsqueda mediante selección o clic, el predicado se actualizará automáticamente según esa búsqueda.  Los tipos de operando compatibles incluyen:
+      - **Predicate** (Predicado): el predicado permite filtrar rápidamente los eventos con el conjunto de operados que aparecen a continuación. Si realiza una búsqueda mediante selección o clic, el predicado se actualizará automáticamente según esa búsqueda.      Los tipos de operando compatibles incluyen:
 
          |Operación  |Tipos admitidos  |Notas  |
          |---------|---------|---------|
@@ -107,4 +107,5 @@ Minutos después de conectar el origen del evento al entorno de Times Series Ins
 Ya ha visto las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Diagnóstico y solución de problemas de su entorno Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnóstico y solución de problemas de su entorno Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

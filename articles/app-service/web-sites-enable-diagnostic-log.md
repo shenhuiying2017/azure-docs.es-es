@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service
 ## <a name="overview"></a>Información general
@@ -34,9 +34,9 @@ Aplicaciones web de App Service ofrece la funcionalidad de diagnóstico para reg
 ### <a name="web-server-diagnostics"></a>Diagnósticos del servidor web
 Puede habilitar o deshabilitar los siguientes tipos de registros:
 
-* **Registro de errores detallado** : registra información detallada de errores para códigos de estado HTTP que indican un problema (código de estado 400 o superior). Puede contener información que puede ayudar a determinar por qué el servidor ha devuelto el código de error.
-* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Esto puede resultar útil si trata de aumentar el rendimiento del sitio o de aislar lo que causa la devolución de un error HTTP específico.
-* **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Este informe resulta útil para determinar las métricas totales del sitio, como el número de solicitudes tramitadas o cuántas solicitudes proceden de una dirección IP específica.
+* **Registro de errores detallado** : registra información detallada de errores para códigos de estado HTTP que indican un problema (código de estado 400 o superior). Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error.
+* **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Puede resultar útil si trata de aumentar el rendimiento del sitio o de aislar lo que causa la devolución de un error HTTP específico.
+* **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
 
 ### <a name="application-diagnostics"></a>diagnósticos de la aplicación
 El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
@@ -60,14 +60,13 @@ Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. Esta
 >
 >
 
-En el [Portal clásico](https://manage.windowsazure.com), en la pestaña **Configurar** de la aplicación web, puede seleccionar **almacenamiento** o **sistema de archivos** para el **registro de servidor web**. Si selecciona **almacenamiento**, tiene la opción de seleccionar una cuenta de almacenamiento y, después, un contenedor de blobs en el que se escribirán los registros. Todos los demás registros de **diagnósticos del sitio** se escriben solo en el sistema de archivos.
+Para la opción **Registro de aplicaciones**, puede activar temporalmente la opción del sistema de archivos con fines de depuración. Esta opción se desactiva automáticamente en 12 horas. También puede activar la opción de Blob Storage para seleccionar un contenedor de blog en el que escribir registros.
 
-En el [Portal clásico](https://manage.windowsazure.com) , la pestaña **Configurar** de la aplicación web también tiene una configuración adicional para el diagnóstico de aplicaciones:
+Para la opción **Registro del servidor web**, puede seleccionar **Almacenamiento** o **Sistema de archivos**. Si selecciona **almacenamiento**, tiene la opción de seleccionar una cuenta de almacenamiento y, después, un contenedor de blobs en el que se escribirán los registros. 
 
-* **Sistema de archivos** : almacena la información de diagnóstico de aplicaciones en el sistema de archivos de la aplicación web. Es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP con la utilización de Azure PowerShell o de la interfaz de la línea de comandos de Azure (CLI de Azure).
-* **Table Storage**: almacena la información de diagnóstico de aplicaciones en el nombre de la tabla y en la cuenta de Azure Storage.
-* **Blob Storage**: almacena la información de diagnóstico de aplicaciones en el contenedor de blobs y en la cuenta de Azure Storage.
-* **Período de retención**: de manera predeterminada, los registros no se eliminan automáticamente del **almacenamiento de blobs**. Seleccione **Establecer retención** y escriba el número de días durante los cuales desea que se conserven los registros si desea que estos se eliminen automáticamente.
+Si almacena registros en el sistema de archivos, es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP mediante Azure PowerShell o la Interfaz de la línea de comandos de Azure (CLI de Azure).
+
+De forma predeterminada, los registros no se eliminan automáticamente (con la excepción del **Registro de aplicaciones [sistema de archivos]**). Para eliminar automáticamente los registros, establezca el campo **Período de retención (días)**.
 
 > [!NOTE]
 > Si se [regeneran las claves de acceso de su cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), deberá restablecer la configuración de registro correspondiente para usar las claves actualizadas. Para ello, siga estos pasos:
@@ -101,12 +100,10 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 * **Registros de implementaciones** : /LogFiles/Git. Esta carpeta contiene registros generados por los procesos de implementación internos usados por las aplicaciones web de Azure, además de los registros de las implementaciones Git.
 
 ### <a name="ftp"></a>FTP
-Para obtener acceso a la información de diagnóstico mediante FTP, visite el **panel** de la aplicación web en el [Portal clásico](https://manage.windowsazure.com). En la sección **Vista rápida**, haga clic en el vínculo **Registros de diagnóstico de FTP** para obtener acceso a los archivos de registro mediante FTP. La entrada **Usuario de implementación /FTP** enumera el nombre de usuario que debe usarse para obtener acceso al sitio FTP.
 
-> [!NOTE]
-> Si no se establece la entrada **Usuario de implementación/FTP** o si ha olvidado la contraseña de este usuario, puede crear un nuevo usuario y una nueva contraseña mediante el vínculo **Restablecer credenciales de implementación** en la sección **Vista rápida** del **Panel**.
->
->
+Para abrir una conexión FTP al servidor FTP de la aplicación, consulte [Implementación de la aplicación en Azure App Service mediante FTP/S](app-service-deploy-ftp.md).
+
+Una vez conectado al servidor FTP/S de la aplicación web, abra la carpeta **LogFiles**, donde se almacenan los archivos de registro.
 
 ### <a name="download-with-azure-powershell"></a>Descarga con Azure PowerShell
 Para descargar los archivos de registro, inicie una nueva instancia de Azure PowerShell y use el siguiente comando:
@@ -145,7 +142,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 [Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Registros
-Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Para ello, puede transmitir la información de registro al entorno de desarrollo con Azure PowerShell o la interfaz de la línea de comandos de Azure.
+Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Para ello, puede transmitir la información de registro al entorno de desarrollo con Azure PowerShell o la Interfaz de la línea de comandos de Azure.
 
 > [!NOTE]
 > Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
@@ -224,7 +221,7 @@ Al realizar registros en el almacenamiento de tabla, se usan propiedades adicion
 | Timestamp |La fecha y la hora en que se ha producido el evento |
 | EventTickCount |La fecha y hora en que se ha producido el evento, con formato de marca de graduación (mayor precisión) |
 | ApplicationName |El nombre de la aplicación web |
-| Nivel |Nivel del evento (por ejemplo, error, advertencia o información) |
+| Nivel |Nivel del evento (por ejemplo, error, advertencia, información). |
 | EventId |El identificador de este evento<p><p>El valor predeterminado es 0 si no se ha especificado ninguno |
 | InstanceId |Instancia de la aplicación web en que se ha producido el evento |
 | Pid |Identificador del proceso |
@@ -238,7 +235,7 @@ Al realizar registros en el almacenamiento de blobs, los datos se almacenan con 
 | Nombre de propiedad | Valor/formato |
 | --- | --- |
 | Date |La fecha y la hora en que se ha producido el evento |
-| Nivel |Nivel del evento (por ejemplo, error, advertencia o información) |
+| Nivel |Nivel del evento (por ejemplo, error, advertencia, información). |
 | ApplicationName |El nombre de la aplicación web |
 | InstanceId |Instancia de la aplicación web en que se ha producido el evento |
 | EventTickCount |La fecha y hora en que se ha producido el evento, con formato de marca de graduación (mayor precisión) |
@@ -258,7 +255,7 @@ Los datos almacenados en un blob serían similares a los siguientes:
 >
 
 ### <a name="failed-request-traces"></a>Seguimientos de solicitudes con error
-El seguimiento de solicitudes con error se almacena en archivos XML con nombre **fr######.xml**. Para facilitar la visualización de la información registrada, se proporciona una hoja de estilo XSL con nombre **freb.xsl** en el mismo directorio que los archivos XML. Si abre uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento. El resultado es similar al siguiente:
+El seguimiento de solicitudes con error se almacena en archivos XML con nombre **fr######.xml**. Para facilitar la visualización de la información registrada, se proporciona una hoja de estilo XSL con nombre **freb.xsl** en el mismo directorio que los archivos XML. Si abre uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento, similar a la siguiente:
 
 ![solicitud con error visualizada en el explorador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 

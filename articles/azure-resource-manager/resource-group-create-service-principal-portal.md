@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -27,11 +27,11 @@ Si tiene una aplicación que necesita tener acceso a ciertos recursos o modifica
 * No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian. 
 * Puede usar un certificado para automatizar la autenticación al ejecutar un script desatendido.
 
-En este tema se muestra cómo realizar tales pasos a través del portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
+En este artículo se muestra cómo realizar esos pasos en el portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
-Para completar este tema, debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción de Azure. Vamos a asegurarnos de que tiene los permisos adecuados para realizar esos pasos.
+Para completar este artículo, debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción de Azure. Vamos a asegurarnos de que tiene los permisos adecuados para realizar esos pasos.
 
 ### <a name="check-azure-active-directory-permissions"></a>Comprobación de los permisos de Azure Active Directory
 
@@ -96,7 +96,7 @@ Para comprobar los permisos de su suscripción:
 
    ![seleccionar azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Seleccione **App registrations** (Registros de aplicaciones).
+1. Seleccione **Registros de aplicaciones**.
 
    ![seleccionar registros de aplicaciones](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
@@ -104,7 +104,7 @@ Para comprobar los permisos de su suscripción:
 
    ![agregar aplicación](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Proporcione un nombre y una dirección URL para la aplicación. Seleccione either **Web app / API** (Aplicación web/API) o **Nativa** para el tipo de aplicación que quiere crear. Después de configurar los valores, seleccione **Crear**.
+1. Proporcione un nombre y una dirección URL para la aplicación. Seleccione **Aplicación web o API** para indicar el tipo de aplicación que desea crear. No se pueden crear credenciales para una aplicación **nativa**; por consiguiente, ese tipo no funciona en una aplicación automatizada. Después de configurar los valores, seleccione **Crear**.
 
    ![aplicación de nombre](./media/resource-group-create-service-principal-portal/create-app.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Adición de un origen de eventos de centro de eventos al entorno de Azure Time Series Insights | Microsoft Docs"
+title: "Adición de un origen de eventos del Centro de eventos a Azure Time Series Insights | Microsoft Docs"
 description: "En este artículo se describe cómo agregar un origen de evento que está conectado a un centro de eventos a su entorno de Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,19 +10,19 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: f3a9a1c7e57383925877f674a2e02f931e5c1e3c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Adición de un origen de evento de centro de eventos al entorno de Time Series Insights
 
 En este artículo se describe cómo usar Azure Portal para agregar un origen de evento que lea datos de un centro de eventos al entorno de Time Series Insights.
 
 ## <a name="prerequisites"></a>Requisitos previos
-- Cree un entorno de Time Series Insights. Para más información, consulte [Creación de un entorno de Azure Time Series Insights](time-series-insights-get-started.md). 
+- Cree el entorno de Time Series Insights. Para más información, consulte [Creación de un entorno de Azure Time Series Insights](time-series-insights-get-started.md). 
 - Cree un centro de eventos. Para más información sobre Event Hubs, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md).
 - El centro de eventos debe tener eventos de mensajes activos en proceso de envío. Para más información, consulte [Envío de eventos a Azure Event Hubs mediante .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Cree un grupo de consumidores dedicado en el centro de eventos para que el entorno de Time Series Insights los consuma. Cada origen del evento de Time Series Insights tiene que tener su propio grupo de consumidores dedicado que no se comparte con ningún otro consumidor. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores vean errores. Tenga en cuenta que también hay un límite de 20 grupos de consumidores por Centro de eventos. Para obtener detalles, consulte la [Guía de programación de Event Hubs](../event-hubs/event-hubs-programming-guide.md).
@@ -30,7 +30,7 @@ En este artículo se describe cómo usar Azure Portal para agregar un origen de 
 ## <a name="add-a-new-event-source"></a>Adición de un nuevo origen del evento
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Busque su entorno existente de Time Series Insights. Haga clic en **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
+2. Busque su entorno de Time Series Insights existente. Haga clic en **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
 
 3. En el encabezado **Environment Topology** (Topología del entorno), haga clic en **Orígenes de eventos**.
 
@@ -60,7 +60,7 @@ En este artículo se describe cómo usar Azure Portal para agregar un origen de 
    | Nombre de la directiva del centro de eventos | Seleccione directiva de acceso compartido, que se puede crear en la pestaña Configuración de centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**.
    | Clave de la directiva de centro de eventos | El valor de clave se puede rellenar previamente.
    | Grupo de consumidores de centro de eventos | El grupo de consumidores para leer eventos del centro de eventos. Se recomienda fehacientemente usar un grupo de consumidores dedicado para el origen del evento. |
-   | Formato de serialización de eventos | Por el momento, JSON es la única serialización disponible. Los mensajes de eventos deben estar en este formato, o no se podrá leer ningún dato. |
+   | Formato de serialización de eventos | Por el momento, JSON es la única serialización disponible. Los mensajes de eventos deben estar en este formato, o bien no se podrá leer ningún dato. |
    | Nombre de la propiedad de marca de tiempo | Para determinar este valor, debe comprender el formato de mensaje de los datos del mensaje enviados al centro de eventos. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
 
 
@@ -75,7 +75,7 @@ En este artículo se describe cómo usar Azure Portal para agregar un origen de 
    | Nombre de la directiva del centro de eventos | La directiva de acceso compartido, que se puede crear en la pestaña Configuración de Centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. La directiva de acceso compartido para el origen de eventos *debe* tener permisos de **lectura**.
    | Clave de la directiva de centro de eventos | La clave de acceso compartido usada para autenticar el acceso al espacio de nombres de Service Bus. Escriba la clave principal o secundaria aquí.
    | Grupo de consumidores de centro de eventos | El grupo de consumidores para leer eventos desde el centro de eventos. Se recomienda fehacientemente usar un grupo de consumidores dedicado para el origen del evento.
-   | Formato de serialización de eventos | Por el momento, JSON es la única serialización disponible. Los mensajes de eventos deben estar en este formato, o no se podrá leer ningún dato. |
+   | Formato de serialización de eventos | Por el momento, JSON es la única serialización disponible. Los mensajes de eventos deben estar en este formato, o bien no se podrá leer ningún dato. |
    | Nombre de la propiedad de marca de tiempo | Para determinar este valor, debe comprender el formato de mensaje de los datos del mensaje enviados al centro de eventos. Este valor es el **nombre** de la propiedad específica del evento en los datos del mensaje que quiere usar como marca de tiempo del evento. El valor distingue mayúsculas de minúsculas. Si se deja en blanco, se usa la **hora de puesta en cola del evento** como marca de tiempo del evento en el origen del evento. |
 
 
@@ -103,6 +103,6 @@ Para agregar un nuevo grupo de consumidores a su centro de eventos, siga estos p
 5. Seleccione **Crear** para crear el nuevo grupo de consumidores.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Definición de directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos
-- [Envío de eventos](time-series-insights-send-events.md) al origen del evento
-- Acceso al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com)
+- [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
+- [Envíe eventos](time-series-insights-send-events.md) al origen de eventos.
+- Acceso al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

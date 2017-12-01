@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: 44dc7b18d46d1e75e8b55b6e32a346272a06bda9
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b515e05d16dda83c7d865113d5d3578c44be084f
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Comparación entre IoT Hub de Azure y Azure Event Hubs
-Uno de los principales usos de IoT Hub es recopilar telemetría de dispositivos. Por este motivo, IoT Hub a menudo se compara con [Azure Events Hubs][Azure Event Hubs]. Al igual que IoT Hub, Event Hubs es un servicio de procesamiento de eventos que ofrece entrada de telemetría y eventos en la nube a escala masiva, con una latencia baja y una confiabilidad alta.
+Uno de los principales usos de IoT Hub es recopilar telemetría de dispositivos. Por este motivo, IoT Hub a menudo se compara con [Azure Event Hubs][Azure Event Hubs]. Al igual que IoT Hub, Event Hubs es un servicio de procesamiento de eventos que ofrece entrada de telemetría y eventos en la nube a escala masiva, con una latencia baja y una confiabilidad alta.
 
 Sin embargo, los servicios tienen muchas diferencias que se detallan en la tabla siguiente:
 
@@ -39,7 +39,7 @@ Sin embargo, los servicios tienen muchas diferencias que se detallan en la tabla
 
 En resumen, aunque el único uso sea la entrada de telemetría de dispositivo a nube, IoT Hub ofrece un servicio que está diseñado para la conectividad de dispositivos IoT. Continuará expandiendo las propuestas de valor para estos escenarios con características específicas de IoT. Event Hubs está diseñado para la entrada de eventos a gran escala, tanto en escenarios de conexión entre centros de datos como dentro del propio centro de datos.
 
-No es raro usar IoT Hub y Event Hubs en la misma solución. IoT Hub controla la comunicación del dispositivo a la nube, y Events Hubs controla la entrada de eventos de última fase en motores de procesamiento en tiempo real.
+No es raro usar IoT Hub y Event Hubs en la misma solución. IoT Hub controla la comunicación del dispositivo a la nube, y Event Hubs controla la entrada de eventos de última fase en motores de procesamiento en tiempo real.
 
 ### <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el planeamiento de la implementación de IoT Hub, consulte [Escalado, alta disponibilidad y recuperación ante desastres][lnk-scaling].
@@ -47,7 +47,7 @@ Para más información sobre el planeamiento de la implementación de IoT Hub, c
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Simular un dispositivo con IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
@@ -63,5 +63,5 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md

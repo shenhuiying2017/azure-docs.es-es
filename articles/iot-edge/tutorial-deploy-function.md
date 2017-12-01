@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfb37ae51400210ef80a0f267b294d1e2e465b76
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implementación de Azure Functions como módulo de IoT Edge (versión preliminar)
 Azure Functions se puede usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos de IoT Edge. Este tutorial le guía a través de la creación y la implementación de una instancia de Azure Functions que filtra datos del sensor en el dispositivo de IoT Edge simulado que creó en el paso de implementación de Azure IoT Edge en un dispositivo simulado en los tutoriales de [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. En este tutorial, aprenderá a:     
@@ -129,7 +129,7 @@ En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante 
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```
@@ -141,7 +141,7 @@ En los siguientes pasos puede ver cómo crear una función de IoT Edge mediante 
 1. Compile la imagen de Docker.
     1. En el explorador de VS Code, haga clic en la carpeta **Docker** para abrirla. Luego, seleccione la carpeta de la plataforma de contenedores, **linux-x64** o **windows-nano**. 
     2. Haga clic con el botón derecho en el archivo **Dockerfile** y haga clic en **Build IoT Edge module Docker image** (Generar imagen de Docker del módulo de IoT Edge). 
-    3. En el cuadro **Seleccionar carpeta**, navegue hasta la carpeta **Docker/linux-x64** y haga clic en **Select Folder as EXE_DIR** (Seleccionar carpeta como EXE_DIR). 
+    3. En el cuadro **Seleccionar carpeta**, navegue hasta la carpeta del proyecto **FilterFunction** y haga clic en **Select Folder as EXE_DIR** (Seleccionar carpeta como EXE_DIR). 
     4. En el cuadro de texto emergente de la parte superior de la ventana de VS Code, escriba el nombre de la imagen. Por ejemplo, `<docker registry address>/filterfunction:latest`; donde la *dirección de Docker Registry* es su identificador de Docker si usa Docker Hub o es similar a `<your registry name>.azurecr.io`, si usa Azure Container Registry.
  
 4. Inicie sesión en Docker. En el terminal integrado, escriba el siguiente comando: 

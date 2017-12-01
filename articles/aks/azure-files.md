@@ -13,67 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2017
+ms.date: 11/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 11457e6556e6400d8f58f71c71ab1e790bcef8f1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: bae60e7f78934deacac173767ca3013ce93cf9ad
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="using-azure-files-with-kubernetes"></a>Uso de Azure Files con Kubernetes
 
-Las aplicaciones basadas en contenedor suelen necesitar acceder y conservar los datos en un volumen de datos externos. Azure Files puede utilizarse como este almacén de datos externos. En este artículo se detallan el uso de Azure Files como un volumen de Kubernetes Azure Container Service.
+Las aplicaciones que usan contenedores a menudo necesitan acceder a un volumen de datos externo y conservar datos en él. Azure Files puede utilizarse como este almacén de datos externos. En este artículo se detallan el uso de Azure Files como un volumen de Kubernetes Azure Container Service.
 
 Para más información sobre volúmenes de Kubernetes, consulte el artículo sobre [volúmenes de Kubernetes][kubernetes-volumes].
 
-## <a name="creating-a-file-share"></a>Creación de un recurso compartido de archivos
+## <a name="create-an-azure-file-share"></a>Creación de un recurso compartido de archivos de Azure
 
-Se puede usar un recurso compartido de Azure Files existente con Azure Container Service. Si tiene que crear uno, use el siguiente conjunto de comandos.
-
-Cree un grupo de recursos para el recurso compartido de Azure Files con el comando [az group create][az-group-create]. El grupo de recursos de la cuenta de almacenamiento y el clúster de Kubernetes deben estar en la misma región.
+Antes de utilizar un recurso compartido de archivos de Azure como volumen de Kubernetes, es preciso crear una cuenta de Azure Storage y el recurso compartido de archivos. El script siguiente puede utilizarse para completar estas tareas. Anote o actualice los valores de los parámetros, ya que algunos son necesarios al crear el volumen de Kubernetes.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
+# Change these four parameters
+AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
+AKS_PERS_RESOURCE_GROUP=myAKSShare
+AKS_PERS_LOCATION=eastus
+AKS_PERS_SHARE_NAME=aksshare
 
-Puede utilizar el comando [az storage account create][az-storage-create] para crear una cuenta de Azure Storage. El nombre de la cuenta de almacenamiento debe ser único. Actualice el valor del argumento `--name` con un valor único.
+# Create the Resource Group
+az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-```azurecli-interactive
-az storage account create --name mystorageaccount --resource-group myResourceGroup --sku Standard_LRS
-```
+# Create the storage account
+az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
-Utilice el comando [az storage account keys list][az-storage-key-list] para devolver la clave de almacenamiento. Actualice el valor del argumento `--account-name` con el nombre de cuenta de almacenamiento único.
+# Export the connection string as an environment variable, this is used when creating the Azure file share
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv`
 
-Tome nota de uno de los valores de clave, pues se utilizará en los pasos siguientes.
+# Create the file share
+az storage share create -n $AKS_PERS_SHARE_NAME
 
-```azurecli-interactive
-az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup --output table
-```
-
-Utilice el comando [az storage share create][az-storage-share-create] para crear el recurso compartido de Azure Files. Actualice el valor de `--account-key` con el valor recopilado en el último paso.
-
-```azurecli-interactive
-az storage share create --name myfileshare --account-name mystorageaccount --account-key <key>
+# Get storage account key
+STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
 ```
 
 ## <a name="create-kubernetes-secret"></a>Creación de un secreto de Kubernetes
 
-Kubernetes necesita credenciales para acceder al recurso compartido de archivos. En lugar de almacenar el nombre de la cuenta de Azure Storage y la clave con cada pod, se almacena una vez en un [secreto de Kubernetes][kubernetes-secret], al que se referirán todos los volúmenes de Azure Files. 
+Kubernetes necesita credenciales para acceder al recurso compartido de archivos. Estas credenciales se almacenan en un [secreto de Kubernetes][kubernetes-secret], al que se hace referencia al crear un pod de Kubernetes.
 
-Los valores de un manifiesto de secreto de Kubernetes deben estar codificados en base64. Utilice los siguientes comandos para devolver valores codificados.
+Al crear un secreto de Kubernetes, sus valores deben tener codificación en base64.
 
-En primer lugar, codifique el nombre de la cuenta de almacenamiento. Reemplace `storage-account` por el nombre de la cuenta de Azure Storage.
+En primer lugar, codifique el nombre de la cuenta de almacenamiento. Si fuera necesario, reemplace `$AKS_PERS_STORAGE_ACCOUNT_NAME` por el nombre de la cuenta de Azure Storage.
 
 ```azurecli-interactive
-echo -n <storage-account> | base64
+echo -n $AKS_PERS_STORAGE_ACCOUNT_NAME | base64
 ```
 
-A continuación, se necesita la clave de acceso de la cuenta de almacenamiento. Ejecute el comando siguiente para devolver la clave codificada. Reemplace `storage-key` por la clave recopilada en un paso anterior.
+A continuación, codifique la clave de la cuenta de Storage. Si fuera necesario, reemplace `$STORAGE_KEY` por el nombre de la clave de la cuenta de Azure Storage.
 
 ```azurecli-interactive
-echo -n <storage-key> | base64
+echo -n $STORAGE_KEY | base64
 ```
 
 Cree un archivo denominado `azure-secret.yml` y cópielo en el siguiente código YAML. Actualice los valores `azurestorageaccountname` y `azurestorageaccountkey` con los valores codificados en base64 recuperados en el último paso.
@@ -89,15 +86,15 @@ data:
   azurestorageaccountkey: <base64_encoded_storage_account_key>
 ```
 
-Utilice el comando [kubectl apply][kubectl-apply] para crear el secreto.
+Utilice el comando [kubectl create][kubectl-create] para crear el secreto.
 
 ```azurecli-interactive
-kubectl apply -f azure-secret.yml
+kubectl create -f azure-secret.yml
 ```
 
 ## <a name="mount-file-share-as-volume"></a>Montaje del recurso compartido de archivos como volumen
 
-Puede montar el recurso compartido de Azure Files en su pod mediante la configuración del volumen en su especificación. Cree un nuevo archivo denominado `azure-files-pod.yml` con el contenido siguiente. Actualice `share-name` con el nombre dado al recurso compartido de Azure Files.
+Puede montar el recurso compartido de Azure Files en su pod mediante la configuración del volumen en su especificación. Cree un nuevo archivo denominado `azure-files-pod.yml` con el contenido siguiente. Actualice `aksshare` con el nombre dado al recurso compartido de Azure Files.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +112,7 @@ spec:
   - name: azure
     azureFile:
       secretName: azure-secret
-      shareName: <share-name>
+      shareName: aksshare
       readOnly: false
 ```
 
@@ -139,6 +136,6 @@ Más información sobre los volúmenes de Kubernetes mediante Azure Files.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[kubectl-apply]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#apply
+[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [az-group-create]: /cli/azure/group#az_group_create

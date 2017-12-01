@@ -1,5 +1,5 @@
 ---
-title: "Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio"
+title: "Solución de problemas de una aplicación web en Azure App Service con Visual Studio"
 description: "Obtenga información acerca de cómo solucionar problemas de una aplicación web de Azure con herramientas de registro, seguimiento y depuración remota que están integradas en Visual Studio 2013."
 services: app-service
 documentationcenter: .net
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
-ms.openlocfilehash: e42ff64fdd2be87fc19be267d4e2a29e38f67ef5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio
+# <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
 En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplic. web en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) de manera remota o consultando los registros del servidor web o de aplicación.
 
@@ -33,25 +33,25 @@ Aprenderá a realizar los siguientes procedimientos:
 * Ejecución del modo de depuración de manera remota mientras un proyecto se ejecuta en Azure, tanto para una aplicación web como para un WebJob.
 * Creación de registros de seguimiento de aplicación y su visualización mientras los crea la aplicación.
 * Visualización de registros de servidor web, incluidos mensajes de error detallados y seguimiento de solicitudes con error.
-* Envío de registros de diagnóstico a una cuenta de almacenamiento de Azure y su visualización aquí.
+* Envío de registros de diagnóstico a una cuenta de Azure Storage y su visualización aquí.
 
 Si tiene Visual Studio Ultimate, también puede usar [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) para la depuración. IntelliTrace no se trata en este tutorial.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación web de Azure que configuró en [Introducción a Azure y ASP.NET][GetStarted]. Para las secciones WebJobs, necesitará la aplicación que cree en [Introducción al SDK de WebJobs de Azure][GetStartedWJ].
+Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación web de Azure que configuró en [Introducción a Azure y ASP.NET][GetStarted]. Para las secciones WebJobs, necesitará la aplicación que cree en [Introducción al SDK de Azure WebJobs][GetStartedWJ].
 
 Los ejemplos de código que aparecen en este tutorial son para una aplicación web C# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
 
-El tutorial supone que está utilizando Visual Studio 2015 o 2013. Si utiliza Visual Studio 2013, las características de WebJobs requieren la [actualización 4](http://go.microsoft.com/fwlink/?LinkID=510314) o posterior.
+El tutorial supone que está utilizando Visual Studio 2017. 
 
 La característica de registros de streaming solo funciona para aplicaciones dirigidas a .NET Framework 4 o superior.
 
 ## <a name="sitemanagement"></a>Administración y configuración de la aplicación web
-Visual Studio proporciona acceso a un subconjunto de las funciones de administración de aplicaciones web y los ajustes de configuración disponibles en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). En esta sección podrá ver las opciones y funciones disponibles mediante el **Explorador de servidores**. Para ver las últimas características de integración de Azure, pruebe también **Cloud Explorer** . Puede abrir dos ventanas del menú **Ver** .
+Visual Studio proporciona acceso a un subconjunto de las funciones de administración de aplicaciones web y los ajustes de configuración disponibles en [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). En esta sección podrá ver las opciones y funciones disponibles mediante el **Explorador de servidores**. Para ver las últimas características de integración de Azure, pruebe también **Cloud Explorer** . Puede abrir dos ventanas del menú **Ver** .
 
-1. Si todavía no inició sesión en Azure en Visual Studio, haga clic en el botón **Conectar a Azure** en el **Explorador de servidores**.
+1. Si aún no ha iniciado sesión en Azure en Visual Studio, haga clic con el botón derecho en **Azure** y seleccione Conectar a la **suscripción de Microsoft Azure** en el **Explorador de servidores**.
 
-    Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón derecho en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar y filtrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Azure**, haga clic en la pestaña **Certificados** y, luego, en **Importar**. Siga las instrucciones para descargar y luego importar un archivo de suscripción (también conocido como archivo *.publishsettings* ) para su cuenta de Azure.
+    Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón derecho en el nodo **Azure** del **Explorador de servidores** y, a continuación, seleccione **Administrar y filtrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Microsoft Azure**, haga clic en la pestaña **Certificados** y, luego, en **Importar**. Siga las instrucciones para descargar y luego importar un archivo de suscripción (también conocido como archivo *.publishsettings* ) para su cuenta de Azure.
 
    > [!NOTE]
    > Si descarga un archivo de suscripción, guárdelo en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.
@@ -60,7 +60,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
     Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. En el **Explorador de servidores**, expanda **Azure** y, a continuación, **App Service**.
-3. Expanda el grupo de recursos que incluye la aplicación web que creó en [Introducción a Azure y ASP.NET][GetStarted] y, a continuación, haga clic con el botón secundario en el nodo de la aplicación web y haga clic en **Ver configuración**.
+3. Expanda el grupo de recursos que incluye la aplicación web que creó en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md] y, a continuación, haga clic con el botón derecho en el nodo de la aplicación web en **Ver configuración**.
 
     ![Ver configuración en el Explorador de servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -68,14 +68,14 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
     ![Ventana de aplicaciones web de Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-    En este tutorial usará los menús desplegables de registro y seguimiento. También utilizará la depuración remota, pero va a utilizar un método distinto para habilitarla.
+    En este tutorial, usará los menús desplegables de registro y seguimiento. También utilizará la depuración remota, pero va a utilizar un método distinto para habilitarla.
 
-    Para obtener información acerca de los cuadros Configuración de aplicaciones y Cadenas de conexión de esta ventana, consulte [Aplicaciones web de Azure: Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
+    Para obtener información acerca de los cuadros Configuración de aplicaciones y Cadenas de conexión de esta ventana, consulte [Azure Web Apps: Funcionamiento de las cadenas de aplicación y de las cadenas de conexión](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Si desea realizar una tarea de administración de aplicaciones web que no se puede hacer en esta ventana, haga clic en **Abrir en Portal de administración** para abrir una ventana del explorador con el Portal de Azure.
 
 ## <a name="remoteview"></a>Acceso a archivos de aplicaciones web en el Explorador de servidores
-Normalmente implementa un sitio con la marca `customErrors` en el archivo Web.config establecida en `On` o en `RemoteOnly`, lo que significa que no recibirá un práctico mensaje de error cuando algo se realice de manera incorrecta. Para muchos errores, todo lo que verá será una página como alguna de las siguientes.
+Normalmente implementa un sitio con la marca `customErrors` en el archivo Web.config establecida en `On` o en `RemoteOnly`, lo que significa que no recibirá un práctico mensaje de error cuando algo se realice de manera incorrecta. Para muchos errores, todo lo que verá será una página como alguna de las siguientes:
 
 **Error del servidor en la aplicación '/':**
 
@@ -117,10 +117,12 @@ Si el mensaje de error detallado no proporciona información suficiente y no es 
 
 La depuración remota no funciona en ediciones Express de Visual Studio.
 
-Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Introducción a Azure y ASP.NET][GetStarted].
+En esta sección se muestra cómo depurar de forma remota mediante el proyecto creado en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md].
 
-1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
+1. Abra el proyecto web creado en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md].
+
 2. Abra *Controllers\HomeController.cs*.
+
 3. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
         public ActionResult About()
@@ -130,28 +132,39 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
             return View();
         }
 4. [Establezca un punto de interrupción](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) en la línea `ViewBag.Message`.
+
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, luego, haga clic en **Publicar**.
-6. En la lista desplegable **Perfil**, seleccione el mismo perfil que utilizó en [Introducción a Azure y ASP.NET][GetStarted].
-7. Haga clic en la pestaña **Configuración**, cambie la **Configuración** a **Depurar** y, luego, haga clic en **Publicar**.
+
+6. En la lista desplegable **Perfil**, seleccione el mismo perfil que usó en [Creación de una aplicación web ASP.NET en Azure][app-service-web-get-started-dotnet.md]. A continuación, haga clic en Configuración.
+
+7. En el cuadro de diálogo **Publicar**, haga clic en la pestaña **Configuración** y, a continuación, cambie la **Configuración** a **Depurar** y, luego, haga clic en **Guardar**.
 
     ![Publicar en modo de depuración](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
-8. Una vez que ha finalizado la implementación y que el explorador abre la dirección URL de Azure de su aplicación web, cierre el explorador.
+
+8. Haga clic en **Publicar**. Una vez que ha finalizado la implementación y que el explorador abre la dirección URL de Azure de su aplicación web, cierre el explorador.
+
 9. En el **Explorador de servidores**, haga clic con el botón derecho en la aplic. web y, luego, haga clic en **Asociar depurador**.
 
     ![Asociar depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    El explorador se abre automáticamente en su página inicial en ejecución en Azure. Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación web. Las veces posteriores dentro de las próximas 48 horas no habrá demora cuando vuelva a iniciar la depuración.
+    El explorador se abre automáticamente en su página inicial en ejecución en Azure. Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación web en un período de 48 horas. Al iniciar la depuración de nuevo en el mismo período, no hay ningún retraso.
 
-    **Nota:** Si tiene algún problema para iniciar el depurador, intente hacerlo con **Cloud Explorer** en lugar usar el **Explorador de servidores**.
+    > [!NOTE] 
+    > Si tiene algún problema para iniciar el depurador, intente hacerlo con **Cloud Explorer** en lugar de usar el **Explorador de servidores**.
+    >
+
 10. Haga clic en **Acerca de** en el menú.
 
      Visual Studio se detiene en el punto de interrupción y el código se ejecuta en Azure, no en su equipo local.
+
 11. Mantenga el puntero sobre la variable `currentTime` para ver el valor de tiempo.
 
      ![Ver la variable en ejecución en modo de depuración en Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
      La hora que ve es la hora del servidor Azure, que puede estar en una zona horaria distinta a la de su equipo local.
+
 12. Escriba un valor nuevo para la variable `currentTime` , como "Ahora en ejecución en Azure".
+
 13. Presione F5 para continuar la ejecución.
 
      La página About que se ejecuta en Azure muestra el valor nuevo que escribió en la variable currentTime.
@@ -159,47 +172,62 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
      ![Página About con el valor nuevo](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
 ## <a name="remotedebugwj"></a> WebJobs de depuración remota
-En esta sección se muestra cómo depurar de forma remota mediante el proyecto y la aplicación web que creó en [Introducción al SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/wiki).
+En esta sección se muestra cómo depurar de forma remota mediante el proyecto y la aplicación web que creó en [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Las características mostradas en esta sección solo están disponibles en Visual Studio 2013 con Update 4 o superior.
 
 La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo demanda y programados no admiten la depuración.
 
-1. Abra el proyecto web que creó en [Introducción al SDK de WebJobs de Azure][GetStartedWJ].
+1. Abra el proyecto web que creó en [Introducción al SDK de Azure WebJobs][GetStartedWJ].
+
 2. En el proyecto ContosoAdsWebJob, abra *Functions.cs*.
+
 3. [Establezca un punto de interrupción](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) en la primera instrucción del método `GnerateThumbnail`.
 
     ![Establecimiento de punto de interrupción](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
+
 4. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto web (no el proyecto WebJob) y, luego, haga clic en **Publicar**.
-5. En la lista desplegable **Perfil** , seleccione el mismo perfil que utilizó en [Introducción al SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/wiki).
+
+5. En la lista desplegable **Perfil** , seleccione el mismo perfil que utilizó en [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
+
 6. Haga clic en la pestaña **Configuración**, cambie la **Configuración** a **Depurar** y, luego, haga clic en **Publicar**.
 
     Visual Studio implementará los proyectos web y de WebJobs, y el explorador se abrirá en la dirección URL de Azure de su aplicación web.
+
 7. En el **Explorador de servidores**, expanda **Azure > App Service > su grupo de recursos > su aplic. web > WebJobs > Continuo** y, a continuación, haga clic con el botón derecho en **ContosoAdsWebJob**.
+
 8. Haga clic en **Adjuntar el depurador**.
 
     ![Asociar depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
-    El explorador se abre automáticamente en su página inicial en ejecución en Azure. Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación web. La siguiente vez que adjunte el depurador no se producirá un retraso, si lo hace en 48 horas.
+    El explorador se abre automáticamente en su página inicial en ejecución en Azure. Es posible que deba esperar unos 20 segundos mientras Azure configura el servidor para la depuración. Esta demora solo se produce la primera vez que ejecuta el modo de depuración en una aplicación web en un período de 48 horas. Al iniciar la depuración de nuevo en el mismo período, no hay ningún retraso.
+
 9. En el explorador web que se abre en la página principal de Contoso Ads, cree un nuevo anuncio.
 
-    Al crear un anuncio, se crea un mensaje de la cola, que WebJob recoge y procesa. Cuando el SDK de WebJobs llama a la función para procesar el mensaje de la cola, el código alcanzará el punto de interrupción.
-10. Cuando el depurador se interrumpe en el punto de interrupción, puede examinar y cambiar los valores de las variables mientras está ejecutando el programa en la nube. En la siguiente ilustración, el depurador muestra el contenido del objeto blobInfo que se pasó al método GenerateThumbnail.
+    Al crear un anuncio, se crea un mensaje de la cola, que WebJob recogerá y procesará. Cuando el SDK de WebJobs llama a la función para procesar el mensaje de la cola, el código alcanza el punto de interrupción.
+
+10. Cuando el depurador se interrumpe en el punto de interrupción, puede examinar y cambiar los valores de las variables mientras está ejecutando el programa en la nube. En la siguiente ilustración, el depurador muestra el contenido del objeto blobInfo que se pasó al método `GenerateThumbnail`.
 
      ![Objeto blobInfo en el depurador](./media/web-sites-dotnet-troubleshoot-visual-studio/blobinfo.png)
+
 11. Presione F5 para continuar la ejecución.
 
-     El método GenerateThumbnail finaliza la creación de la miniatura.
+     El método `GenerateThumbnail` finaliza la creación de la miniatura.
+
 12. En el explorador, actualice la página de índice y vea la miniatura.
+
 13. En Visual Studio, presione MAYÚS+F5 para detener la depuración.
+
 14. En el **Explorador de servidores**, haga clic con el botón derecho en el nodo ContosoAdsWebJob y, luego, haga clic en **Ver panel**.
+
 15. Inicie sesión con sus credenciales de Azure y, a continuación, haga clic en el nombre de WebJob para ir a la página de su WebJob.
 
      ![Clic en ContosoAdsWebJob](./media/web-sites-dotnet-troubleshoot-visual-studio/clickcaw.png)
 
-     El panel muestra la función GenerateThumbnail ejecutada recientemente.
+     El panel muestra la función `GenerateThumbnail` ejecutada recientemente.
 
      (La próxima vez que haga clic en **Ver panel**, no tendrá que iniciar sesión y el explorador irá directamente a la página de su WebJob).
+
 16. Haga clic en el nombre de función para ver detalles acerca de la ejecución de la función.
 
      ![Detalles de la función](./media/web-sites-dotnet-troubleshoot-visual-studio/funcdetails.png)
@@ -207,7 +235,8 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 Si la función [escribió registros](https://github.com/Azure/azure-webjobs-sdk/wiki), puede hacer clic en **ToggleOutput** para verlos.
 
 ## <a name="notes-about-remote-debugging"></a>Notas acerca de la depuración remota
-* No se recomienda ejecutar el modo de depuración en producción. Si su aplicación web de producción no está escalada horizontalmente en varias instancias de servidor, la depuración impedirá que el servidor web responda a otras solicitudes. Si tiene varias instancias de servidor web, cuando se asocie al depurador recibirá una instancia aleatoria y no tendrá forma de asegurarse de que las solicitudes del explorador siguientes se dirijan a esa instancia. Además, normalmente no implementará una compilación de depuración en producción, y las optimizaciones de compilador para compilaciones de versión podrían hacer imposible mostrar lo que ocurre línea a línea en su código fuente. Para solucionar problemas de producción, su mejor recurso son los registros de servidor web y de seguimiento de la aplicación.
+
+* No se recomienda ejecutar el modo de depuración en producción. Si su aplicación web de producción no está escalada horizontalmente en varias instancias de servidor, la depuración impide que el servidor web responda a otras solicitudes. Si tiene varias instancias de servidor web, cuando se asocie al depurador recibirá una instancia aleatoria y no tendrá forma de asegurarse de que las solicitudes del explorador siguientes se dirijan a la misma instancia. Además, normalmente no implementará una compilación de depuración en producción, y las optimizaciones de compilador para compilaciones de versión podrían hacer imposible mostrar lo que ocurre línea a línea en su código fuente. Para solucionar problemas de producción, su mejor recurso son los registros de servidor web y de seguimiento de la aplicación.
 * Evite detenciones prolongadas en los puntos de interrupción durante la depuración remota. Azure considera un proceso detenido durante más de unos minutos como un proceso sin respuesta y lo apaga.
 * Mientras realiza la depuración, el servidor envía datos a Visual Studio, lo que podría afectar a los cargos de ancho de banda. Para obtener información acerca de las tarifas de ancho de banda, consulte [Precios de Azure](https://azure.microsoft.com/pricing/calculator/).
 * Asegúrese de que el atributo `debug` del elemento `compilation` en el archivo *Web.config* esté establecido en true. Este es el valor predeterminado cuando publica una configuración de compilación de depuración.
@@ -228,16 +257,16 @@ Una aplicación de ASP.NET que se ejecuta en una aplicación web de Azure puede 
 * **Registros de servidor web**<br/>
   El servidor web crea una entrada de registro para cada solicitud HTTP a la aplicación web.
 * **Registros de mensaje de error detallados**<br/>
-  El servidor web crea una página HTML con algo de información adicional para solicitudes HTTP con error (las que generan el código de error 400 o superior).
+  El servidor web crea una página HTML con algo de información adicional para solicitudes HTTP con error (las solicitudes que generan el código de error 400 o superior).
 * **Registros de seguimiento de solicitudes con error**<br/>
   El servidor web crea un archivo XML con información de seguimiento detallada para solicitudes HTTP con error. El servidor web también proporciona un archivo XSL para dar formato al XML en un explorador.
 
 El registro afecta el rendimiento de la aplicación web, por lo que Azure le ofrece la posibilidad de habilitar o deshabilitar cada tipo de registro según sea necesario. En el caso de registros de aplicaciones, puede especificar que solo se escriban los registros por encima de un determinado nivel de gravedad. Cuando crea una aplicación web, todos los registros están deshabilitados de manera predeterminada.
 
-Los registros se escriben en archivos en una carpeta *LogFiles* en el sistema de archivos del sitio web y son accesibles a través de FTP. Los registros de servidor web y registros de aplicaciones también se pueden escribir en una cuenta de almacenamiento de Azure. Puede conservar un volumen mayor de registros en una cuenta de almacenamiento de lo que es posible en el sistema de archivos. Cuando utiliza el sistema de archivos, tiene un límite máximo de 100 megabytes de registros. (Los registros del sistema de archivos solo sirven para la conservación a corto plazo. Azure elimina los archivos de registro antiguos para dejar espacio para los nuevos una vez que se alcanza el límite).  
+Los registros se escriben en archivos en una carpeta *LogFiles* en el sistema de archivos del sitio web y son accesibles a través de FTP. Los registros de servidor web y registros de aplicaciones también se pueden escribir en una cuenta de Azure Storage. Puede conservar un volumen mayor de registros en una cuenta de almacenamiento de lo que es posible en el sistema de archivos. Cuando utiliza el sistema de archivos, tiene un límite máximo de 100 megabytes de registros. (Los registros del sistema de archivos solo sirven para la conservación a corto plazo. Azure elimina los archivos de registro antiguos para dejar espacio para los nuevos una vez que se alcanza el límite).  
 
 ## <a name="apptracelogs"></a>Creación y visualización de registros de seguimiento de aplicación
-En esta sección realizará las siguientes tareas:
+En esta sección, realizará las siguientes tareas:
 
 * Agregue instrucciones de seguimiento para el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 * Ver los registros cuando ejecute localmente el proyecto.
@@ -304,7 +333,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
         <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 4. Presione CTRL+F5 para ejecutar la aplicación.
-5. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y, a continuación, presione Entrar (la dirección URL será similar a http://localhost:53370/trace.axd).
+5. En la barra de direcciones de la ventana del explorador, agregue *trace.axd* a la dirección URL y, a continuación, presione Entrar (la dirección URL es similar a http://localhost:53370/trace.axd).
 6. En la página **Seguimiento de la aplicación**, haga clic en **Ver detalles** en la primera línea (no en la línea BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -317,7 +346,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
         <trace enabled="true" writeToDiagnosticsTrace="true" localOnly="false" mostRecent="true" pageOutput="false" />
 
-    Sin embargo, por lo general no se recomienda habilitar `trace.axd` en una aplicación web de producción por motivos de seguridad y en las siguientes secciones verá una manera más fácil de leer los registros de seguimiento en una aplicación web de Azure.
+    Sin embargo, no se recomienda habilitar `trace.axd` en una aplicación web de producción por motivos de seguridad. En las siguientes secciones, verá una forma más sencilla de leer registros de seguimiento en una aplicación web de Azure.
 
 ### <a name="view-the-tracing-output-in-azure"></a>Visualización del resultado de seguimiento en Azure
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto web y, a continuación, en **Publicar**.
@@ -333,7 +362,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
     ![Ver registros de streaming en el menú contextual](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-nologsyet.png)
 4. En la ventana del explorador que muestra la página principal de su aplicación, haga clic en **Contact**.
 
-    En unos pocos segundos, el resultado del seguimiento en el nivel de error que agregó al método `Contact` aparecerá en la ventana **Resultados** .
+    En unos pocos segundos, el resultado del seguimiento en el nivel de error que agregó al método `Contact` aparecerá en la ventana **Resultados**.
 
     ![Seguimiento de errores en la ventana Output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
@@ -353,10 +382,10 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
     ![Resultados detallados del seguimiento](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-verbosetraces.png)
 
-    En esta sección aprendió a habilitar y deshabilitar el registro mediante la configuración de la aplicación web de Azure. También puede habilitar y deshabilitar escuchas de seguimiento si modifica el archivo Web.config. Sin embargo, modificar el archivo Web.config hace que el dominio de la aplicación se recicle, mientras que habilitar el registro a través de la aplicación web no provoca eso. Si el problema tarda mucho en reproducirse, o bien es intermitente, reciclar el dominio de la aplicación podría "arreglarlo" y forzarle a esperar hasta que vuelva a ocurrir. Permitir el diagnóstico en Azure no lo hace, por lo que puede comenzar inmediatamente a capturar información sobre el error.
+    En esta sección, aprendió a habilitar y deshabilitar el registro mediante la configuración de la aplicación web de Azure. También puede habilitar y deshabilitar escuchas de seguimiento si modifica el archivo Web.config. Sin embargo, modificar el archivo Web.config hace que el dominio de la aplicación se recicle, mientras que habilitar el registro a través de la aplicación web no provoca eso. Si el problema tarda mucho en reproducirse, o bien es intermitente, reciclar el dominio de la aplicación podría "arreglarlo" y forzarle a esperar hasta que vuelva a ocurrir. Permitir el diagnóstico en Azure le permite comenzar inmediatamente a capturar información sobre el error sin reciclar el dominio de aplicación.
 
 ### <a name="output-window-features"></a>Características de la ventana de salida
-La pestaña **Registros de Azure** de la ventana **Resultados** tiene varios botones y un cuadro de texto:
+La pestaña **Registros de Microsoft Azure** de la ventana **Resultados** tiene varios botones y un cuadro de texto:
 
 ![Botones de la pestaña de registros](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-icons.png)
 
@@ -373,15 +402,15 @@ Estos elementos realizan las siguientes funciones:
 Si especificó una cadena de búsqueda o una expresión regular, Visual Studio filtra la información de registro en el cliente. Esto significa que puede especificar los criterios después de que aparezcan los registros en la ventana **Resultados** y que puede cambiar esos criterios de filtrado sin tener que volver a generar los registros.
 
 ## <a name="webserverlogs"></a>Visualización de registros de servidor web
-Los registros de servidor web registran toda la actividad HTTP para la aplicación web. Para verlos en la ventana **Resultados** , debe habilitarlos en la aplicación web e indicarle a Visual Studio que desea supervisarlos.
+Los registros de servidor web registran toda la actividad HTTP para la aplicación web. Para verlos en la ventana **Resultados**, debe habilitarlos en la aplicación web e indicarle a Visual Studio que desea supervisarlos.
 
 1. En la pestaña **Configuración de aplicaciones web de Azure** que abrió desde el **Explorador de servidores**, cambie el registro de servidor web a **Activado** y haga clic en **Guardar**.
 
     ![Habilitar el registro de servidor web](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
-2. En la ventana **Resultados**, haga clic en el botón **Especificar los registros de Azure para supervisar**.
+2. En la ventana **Resultados**, haga clic en el botón **Especificar los registros de Microsoft Azure para supervisar**.
 
     ![Especificar los registros de Azure para supervisar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
-3. En el cuadro de diálogo **Opciones de registro de Azure**, seleccione **Registros de servidor web** y haga clic en **Aceptar**.
+3. En el cuadro de diálogo **Opciones de registro de Microsoft Azure**, seleccione **Registros de servidor web** y haga clic en **Aceptar**.
 
     ![Supervisar los registros de servidor web](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
 4. En la ventana del explorador que muestra la aplic. web, haga clic en **Inicio**, en **Información** y, a continuación, en **Contacto**.
@@ -400,19 +429,22 @@ Los registros de error detallados proporcionan información adicional acerca de 
 1. En la pestaña **Configuración de aplicaciones web de Azure** que abrió desde el **Explorador de servidores**, cambie **Mensajes de error detallados** a **Activado** y haga clic en **Guardar**.
 
     ![Habilitar los mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
-2. En la ventana **Resultados**, haga clic en el botón **Especificar los registros de Azure para supervisar**.
-3. En el cuadro de diálogo **Opciones de registro de Azure**, haga clic en **Todos los registros** y, a continuación, en **Aceptar**.
+
+2. En la ventana **Resultados**, haga clic en el botón **Especificar los registros de Microsoft Azure para supervisar**.
+
+3. En el cuadro de diálogo **Opciones de registro de Microsoft Azure**, haga clic en **Todos los registros** y, a continuación, en **Aceptar**.
 
     ![Supervisar todos los registros](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
+
 4. En la barra de direcciones de la ventana del explorador, agregue un carácter adicional a la dirección URL para generar un error 404 (por ejemplo, `http://localhost:53370/Home/Contactx`) y presione Entrar.
 
     Después de varios segundos, el registro detallado del error aparecerá en la ventana **Resultados** de Visual Studio.
 
-    ![Registro de error detallado en la ventana Resultados](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
+    ![Registro de error detallado: ventana Resultados](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorlog.png)
 
     Presione Ctrl y haga clic en el vínculo para ver el resultado del registro formateado en un explorador:
 
-    ![Registro de error detallado en la ventana del explorador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
+    ![Registro de error detallado: ventana del explorador](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
 ## <a name="downloadlogs"></a>Descarga de registros del sistema de archivos
 Todos los registros que se pueden supervisar en la ventana **Resultados** también pueden descargarse como un archivo *.zip*
@@ -432,87 +464,87 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
    * Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
    * Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
 
-     (La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).  
+    (La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).  
 
-## <a name="storagelogs"></a>Visualización de registros de almacenamiento
-Los registros de seguimiento de la aplicación también se pueden enviar a una cuenta de almacenamiento de Azure y puede verlos en Visual Studio. Para ello, creará una cuenta de almacenamiento, habilitará los registros de almacenamiento en el portal clásico y los verá en la pestaña **Registros** de la ventana **Aplicación web de Azure**.
+<!-- ## <a name="storagelogs"></a>View storage logs
+Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.
 
-Puede enviar registros a todos o a cualquiera de estos tres destinos:
+You can send logs to any or all of three destinations:
 
-* El sistema de archivos.
-* Tablas de cuentas de almacenamiento.
-* Blobs de cuentas de almacenamiento.
+* The file system.
+* Storage account tables.
+* Storage account blobs.
 
-Puede especificar un nivel de gravedad distinto para cada destino.
+You can specify a different severity level for each destination.
 
-Las tablas facilitan la visualización de los detalles de registros en línea y son compatibles con streaming; puede consultar los registros en las tablas y ver nuevos registros a medida que se van creando. Los blobs facilitan la descarga de registros en archivos y su análisis con HDInsight, porque HDInsight sabe cómo trabajar con el almacenamiento de blobs. Para obtener más información, consulte **Hadoop y MapReduce** en [Opciones de almacenamiento de datos (Creación de aplicaciones reales con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
+Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
 
-Actualmente tiene los registros de sistema de archivos definidos en el nivel detallado; los pasos siguientes le guiarán por la configuración de registros en el nivel de información para ir a tablas de cuentas de almacenamiento. El nivel de información se refiere a que se mostrarán todos los registros creados al llamar a  `Trace.TraceInformation`, `Trace.TraceWarning` y `Trace.TraceError`, pero no los creados al llamar a `Trace.WriteLine`.
+You currently have file system logs set to verbose level; the following steps walk you through setting up information level logs to go to storage account tables. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
 
-Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prolongada de registros en comparación con el sistema de archivos. Otra ventaja de enviar los registros de seguimiento de aplicaciones al almacenamiento es que obtiene información adicional con cada registro que no obtiene de los registros del sistema de archivos.
+Storage accounts offer more storage and longer-lasting retention for logs compared to the file system. Another advantage of sending application tracing logs to storage is that you get some additional information with each log that you don't get from file system logs.
 
-1. Haga clic con el botón derecho en **Storage** en el nodo de Azure y, a continuación, haga clic en **Crear cuenta de Storage**.
+1. Right-click **Storage** under the Azure node, and then click **Create Storage Account**.
 
-![Crear cuenta de almacenamiento](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
+![Create Storage Account](./media/web-sites-dotnet-troubleshoot-visual-studio/createstor.png)
 
-1. En el cuadro de diálogo **Crear cuenta de almacenamiento** , escriba un nombre para la cuenta de almacenamiento.
+1. In the **Create Storage Account** dialog, enter a name for the storage account.
 
-    El nombre debe ser único (ninguna otra cuenta de almacenamiento de Azure puede tener el mismo nombre). Si el nombre especificado ya está en uso, tendrá la oportunidad de cambiarlo.
+    The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use you'll get a chance to change it.
 
-    La dirección URL para tener acceso a su cuenta de almacenamiento será *{name}*.core.windows.net.
-2. Establezca la lista desplegable **Grupo de afinidad o región** en la región más cercana a usted.
+    The URL to access your storage account will be *{name}*.core.windows.net.
+2. Set the **Region or Affinity Group** drop-down list to the region closest to you.
 
-    Esta configuración especifica el centro de datos de Azure que va a almacenar la cuenta de almacenamiento. En este tutorial, la opción que elija no tendrá mucha repercusión, pero en un entorno de producción se recomienda que la aplicación web y la cuenta de almacenamiento estén en la misma región a fin de minimizar la latencia y los cargos por concepto de salida de los datos. La aplicación web (que creará posteriormente) debe estar lo más próxima posible a los exploradores que obtengan acceso a su aplicación con el fin de minimizar la latencia.
-3. Establezca la lista desplegable **Replicación** en **Localmente redundante**.
+    This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
+3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en un centro de datos secundario para habilitar la conmutación por error en caso de que se produzca un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md).
-4. Haga clic en **Crear**.
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
-5. En la ventana **Aplicación web de Azure** de Visual Studio, haga clic en la pestaña **Registros** y a continuación, haga clic en **Configurar registro en el Portal de administración**.
+5. In the Visual Studio **Azure Web App** window, click the **Logs** tab, and then click **Configure Logging in Management Portal**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-    ![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+     <!-- todo:screenshot of new portal if the VS page link goes to new portal -- >
+    ![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-    Esto abre la pestaña **Configurar** en el portal clásico de su aplicación web.
-6. En la pestaña **Configurar** del portal clásico, desplácese hacia abajo hasta la sección de diagnóstico de aplicaciones y cambie **Registro de la aplicación (Table Storage)** a **Activado**.
-7. Cambie **Nivel de registro** a **Información**.
-8. Haga clic en **Administrar almacenamiento de tablas**.
+    This opens the **Configure** tab in the portal for your web app.
+6. In the portal's **Configure** tab, scroll down to the application diagnostics section, and then change **Application Logging (Table Storage)** to **On**.
+7. Change **Logging Level** to **Information**.
+8. Click **Manage Table Storage**.
 
-    ![Hacer clic en Manage Table Storage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
+    ![Click Manage TableStorage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-stgsettingsmgmtportal.png)
 
-    En el cuadro **Administrar almacenamiento de tablas para diagnósticos de la aplicación** , puede elegir su cuenta de almacenamiento si tiene más de una. Puede crear una tabla o usar una existente.
+    In the **Manage table storage for application diagnostics** box, you can choose your storage account if you have more than one. You can create a new table or use an existing one.
 
-    ![Administrar almacenamiento de tablas](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
-9. En el cuadro **Administrar almacenamiento de tablas para diagnósticos de la aplicación** , haga clic en la marca de verificación junto al cuadro.
-10. En la pestaña **Configurar** del portal clásico, haga clic en **Guardar**.
-11. En la ventana del explorador que muestra la aplic. web de la aplicación, haga clic en **Inicio**, en **Información** y, a continuación, en **Contacto**.
+    ![Manage table storage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-choosestorageacct.png)
+9. In the **Manage table storage for application diagnostics** box, click the check mark to close the box.
+10. In the portal's **Configure** tab, click **Save**.
+11. In the browser window that displays the application web app, click **Home**, then click **About**, and then click **Contact**.
 
-     La información de registro generada por la navegación en estas páginas web se escribirá en la cuenta de almacenamiento.
-12. En la pestaña **Registros** de la ventana **Aplicación web de Azure** en Visual Studio, haga clic en **Actualizar** en **Resumen de diagnóstico**.
+     The logging information produced by browsing these web pages is written to the storage account.
+12. In the **Logs** tab of the **Azure Web App** window in Visual Studio, click **Refresh** under **Diagnostic Summary**.
 
-     ![Haga clic en Actualizar](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
+     ![Click Refresh](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-refreshstorage.png)
 
-     De manera predeterminada, la sección **Resumen de diagnóstico** muestra registros de los últimos 15 minutos. Puede cambiar el período para ver más registros.
+     The **Diagnostic Summary** section shows logs for the last 15 minutes by default. You can change the period to see more logs.
 
-     (Si recibe un error de "no se encontró tabla", compruebe que navegó a las páginas que realizan el seguimiento después de haber habilitado **Registro de la aplicación (almacenamiento)** y después de haber hecho clic en **Guardar**).
+     (If you get a "table not found" error, verify that you browsed to the pages that do the tracing after you enabled **Application Logging (Storage)** and after you clicked **Save**.)
 
-     ![Registros de almacenamiento](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
+     ![Storage logs](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-storagelogs.png)
 
-     Tenga en cuenta que en esta vista puede ver el **identificador del proceso** y el **identificador del subproceso** para cada registro, los cuales no vería en los registros del sistema de archivos. Si desea ver campos adicionales, puede ver directamente la tabla de almacenamiento de Azure.
-13. Haga clic en **Ver todos los registros de aplicación**.
+     Notice that in this view you see **Process ID** and **Thread ID** for each log, which you don't get in the file system logs. You can see additional fields by viewing the Azure storage table directly.
+13. Click **View all application logs**.
 
-     La tabla de registros de seguimiento aparece en el visor de tablas de almacenamiento de Azure.
+     The trace log table appears in the Azure storage table viewer.
 
-     (Si recibe un error de "la secuencia no contiene elementos", abra el **Explorador de servidores**, expanda el nodo para la cuenta de almacenamiento en el nodo **Azure**, haga clic con el botón derecho en **Tabla** y, a continuación, haga clic en **Actualizar**).
+     (If you get a "sequence contains no elements" error, open **Server Explorer**, expand the node for your storage account under the **Azure** node, and then right-click **Tables** and click **Refresh**.)
 
-     ![Registros de almacenamiento en vista de tabla](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
+     ![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-     Esta vista muestra campos adicionales que no están disponibles en otras vistas. Esta vista también le permite filtrar registros mediante una interfaz de usuario especial del Generador de consultas para construir una consulta. Para obtener más información, consulte Trabajo con recursos de tabla - Filtrado de entidades en [Exploración de recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/ff683677.aspx).
-14. Para ver los detalles de una sola fila, haga doble clic en una de ellas.
+     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/ff683677.aspx).
+14. To look at the details for a single row, double-click one of the rows.
 
-     ![Tabla de seguimiento en el Explorador de servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
-
+     ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
+ -->
 ## <a name="failedrequestlogs"></a>Visualización de registros de seguimiento de solicitudes con error
 Los registros de seguimiento de solicitudes con error son útiles cuando necesita comprender los detalles de cómo IIS maneja una solicitud HTTP, en situaciones tales como problemas de autenticación o reconfiguración de URL.
 
@@ -520,7 +552,7 @@ Aplicaciones web de Azure usan la misma funcionalidad de seguimiento de solicitu
 
 Puede habilitar el seguimiento de solicitudes con error a través de Visual Studio, pero no puede verlas ahí. Estos registros son archivos XML. El servicio de registro de streaming solo supervisa archivos que se pueden leer en modo de texto sin formato: *.txt*, *.html* y *.log*.
 
-Puede ver los registros de seguimiento de solicitudes en un explorador directamente vía FTP o de manera local después de utilizar una herramienta FTP para descargarlos en el equipo local. En esta sección los verá directamente en un explorador.
+Puede ver los registros de seguimiento de solicitudes en un explorador directamente vía FTP o de manera local después de utilizar una herramienta FTP para descargarlos en el equipo local. En esta sección, los verá directamente en un explorador.
 
 1. En la pestaña **Configuración** de la ventana **Aplicación web de Azure** que abrió desde el **Explorador de servidores**, cambie **Seguimiento de solicitudes con error** a **Activado** y haga clic en **Guardar**.
 
@@ -528,19 +560,27 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
 2. En la barra de direcciones de la ventana del explorador que muestra la aplicación web, agregue un carácter adicional a la dirección URL y haga clic en Entrar para generar un error 404.
 
     Esto hará que se cree un registro de seguimiento de solicitud con error; los pasos siguientes muestran cómo ver o descargar el registro.
+
 3. En Visual Studio, en la pestaña **Configuración** de la ventana **Aplicación web de Azure**, haga clic en **Abrir en el Portal de administración**.
+
 4. En la hoja [Azure Portal](https://portal.azure.com) **Configuración** para la aplic. web, haga clic en **Credenciales de implementación** y luego especifique un nuevo nombre de usuario y contraseña.
 
     ![Nuevo nombre de usuario y contraseña de FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-    **Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\myid".
-5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la hoja **Aplicación web** de la aplicación web.
+    > [!NOTE]
+    > Cuando inicie sesión, debe utilizar el nombre de usuario completo, con el nombre de la aplicación como prefijo. Por ejemplo, si escribe "myid" como nombre de usuario y el sitio es "myexample", inicie sesión como "myexample\myid".
+    >
+
+5. En una ventana nueva del explorador, vaya a la dirección URL que aparece en **Nombre de host de FTP** o **Nombre de host de FTPS** en la página **Información general** de la aplicación web.
+
 6. Inicie sesión con las credenciales de FTP que creó anteriormente (el nombre de usuario debe incluir como prefijo el nombre de la aplicación).
 
     El explorador muestra la carpeta raíz de la aplicación web.
+
 7. Abra la carpeta *LogFiles* .
 
     ![Abrir la carpeta LogFiles](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilesfolder.png)
+
 8. Abra la carpeta llamada W3SVC más un valor numérico.
 
     ![Abrir la carpeta W3SVC](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfolder.png)
@@ -548,6 +588,7 @@ Puede ver los registros de seguimiento de solicitudes en un explorador directame
     La carpeta contiene archivos XML de todo error que se haya registrado después de haber habilitado el seguimiento de solicitudes con error, además de un archivo XSL que un explorador puede utilizar para dar formato al XML.
 
     ![Carpeta W3SVC](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-w3svcfoldercontents.png)
+
 9. Haga clic en el archivo XML de la solicitud con error para la que desea ver información de seguimiento.
 
     La siguiente ilustración muestra parte de la información de seguimiento de un error de muestra.
@@ -563,13 +604,13 @@ Ha visto cómo Visual Studio facilita la visualización de registros creados por
 * Seguimiento en aplicaciones de ASP.NET
 * Análisis de registros de servidor web
 * Análisis de registros de seguimiento de solicitudes con error
-* Depuración de Servicios en la nube
+* Depuración de Cloud Services
 
 ### <a name="azure-web-app-troubleshooting"></a>Solución de problemas de las aplicaciones web de Azure
-Para obtener más información sobre cómo solucionar problemas de aplicaciones web en el Servicio de aplicaciones de Azure, consulte los siguientes recursos:
+Para obtener más información sobre cómo solucionar problemas de aplicaciones web en Azure App Service, consulte los siguientes recursos:
 
 * [Supervisión de aplicaciones web](/manage/services/web-sites/how-to-monitor-websites/)
-* [Investigación de fugas de memoria en Aplicaciones web de Azure con Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Artículo del blog ALM de Microsoft sobre las características de Visual Studio para el análisis de problemas de memoria administrada.
+* [Investigación de fugas de memoria en Azure Web Apps con Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Artículo del blog ALM de Microsoft sobre las características de Visual Studio para el análisis de problemas de memoria administrada.
 * [Herramientas en línea de Aplicaciones web de Azure que debe conocer](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Publicación en el blog de Amit Apple.
 
 Si desea obtener ayuda para una pregunta específica sobre la solución de problemas, comience una conversación en alguno de los siguientes foros:
@@ -579,17 +620,17 @@ Si desea obtener ayuda para una pregunta específica sobre la solución de probl
 * [StackOverflow.com](http://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Depuración en Visual Studio
-Para más información acerca del uso del modo de depuración en Visual Studio, consulte el tema [Depuración en Visual Studio de MSDN](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) y [Sugerencias de depuración de Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Para más información acerca del uso del modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) y [Sugerencias de depuración de Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Depuración remota en Azure
 Para obtener más información sobre la depuración remota para aplicaciones web de Azure y WebJobs, consulte los siguientes recursos:
 
-* [Introducción a la depuración remota de aplicaciones web de Servicios de aplicaciones de Azure](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
-* [Introducción a la depuración remota en Aplicaciones web de Servicios de aplicaciones de Azure, 2ª parte: detalles de la depuración remota](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
-* [Introducción a la depuración remota en Aplicaciones web de Servicios de aplicaciones de Azure, 3ª parte: entorno de varias instancias y GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
+* [Introducción a la depuración remota de Azure App Service Web Apps](https://azure.microsoft.com/blog/2014/05/06/introduction-to-remote-debugging-on-azure-web-sites/).
+* [Introducción a la depuración remota en Azure App Service Web Apps, 2ª parte: detalles de la depuración remota](https://azure.microsoft.com/blog/2014/05/07/introduction-to-remote-debugging-azure-web-sites-part-2-inside-remote-debugging/)
+* [Introducción a la depuración remota en Azure App Service Web Apps, 3ª parte: entorno de varias instancias y GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Depuración de WebJobs](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Si su aplicación web utiliza una API web de Azure o el back-end de Servicios móviles y necesita depurarlo, consulte [Depuración de back-end de .NET en Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
+Si su aplicación web utiliza una API web de Azure o el back-end de Mobile Services y necesita depurarlo, consulte [Depuración de back-end de .NET en Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
 
 ### <a name="tracing-in-aspnet-applications"></a>Seguimiento en aplicaciones de ASP.NET
 No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET disponibles en Internet. Lo mejor que puede hacer es comenzar con materiales de introducción antiguos escritos para Web Forms, porque MVC todavía no existía, y complementarlos con las publicaciones más recientes en blogs que se centran en temas específicos. Algunos buenos sitios para comenzar son los siguientes recursos:
@@ -601,7 +642,7 @@ No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET dispon
 * [Agentes de escucha de seguimiento](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Brinda información acerca de los agentes de escucha de seguimiento, pero no menciona [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
 * [Tutorial: Integración del seguimiento de ASP.NET con el seguimiento de System.Diagnostics](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
-  También antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
+  Este artículo también es antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
 * [Seguimiento en vistas Razor de ASP.NET MVC](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores en MSDN](http://msdn.microsoft.com/library/bb397417.aspx) . Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
 
@@ -621,7 +662,7 @@ No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET dispon
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](http://nuget.org/packages/elmah/). Para obtener más información, consulte [Publicaciones de blog de Scott Hanselman sobre ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\home\logfiles*.
+Además, no es necesario realizar un seguimiento de ASP.NET o de `System.Diagnostics` para obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmite todo archivo *.txt*, *.html* o *.log* que encuentra en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\home\logfiles*.
 
 ### <a name="analyzing-web-server-logs"></a>Análisis de registros de servidor web
 Para obtener más información acerca del análisis de registros de servidor web, consulte los siguientes recursos:
@@ -634,7 +675,7 @@ Para obtener más información acerca del análisis de registros de servidor web
 * [El código de estado HTTP en IIS 7.0, IIS 7.5 y IIS 8.0](http://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Análisis de registros de seguimiento de solicitudes con error
-El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimiento de solicitudes erróneas](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) que puede ser muy práctica para comprender cómo utilizar estos registros. Sin embargo, esta documentación se centra principalmente en la configuración del seguimiento de solicitudes con error en IIS, algo que no puede hacer en Aplicaciones web Azure.
+El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimiento de solicitudes erróneas](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing), que puede ser muy práctica para comprender cómo utilizar estos registros. Sin embargo, esta documentación se centra principalmente en la configuración del seguimiento de solicitudes con error en IIS, algo que no puede hacer en Azure Web Apps.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

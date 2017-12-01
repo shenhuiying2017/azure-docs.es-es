@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -268,26 +268,26 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   **Ámbitos de la directiva:** todos los ámbitos  
   
 ##  <a name="LimitConcurrency"></a> Limitar la simultaneidad  
- La directiva `limit-concurrency` evita que las directivas delimitadas las ejecute en un momento dado un número de solicitudes mayor que el especificado. Tras superar el umbral, las nuevas solicitudes se agregan a una cola, hasta que se logra la longitud máxima de esta. Cuando la cola se agota, al intentar agregar nuevas solicitudes se produce un error inmediatamente.
+ La directiva `limit-concurrency` evita que las directivas delimitadas las ejecute en un momento dado un número de solicitudes mayor que el especificado. Al superar ese número, las nuevas solicitudes producirán un error inmediatamente con el código de estado de 429 Demasiadas solicitudes.
   
 ###  <a name="LimitConcurrencyStatement"></a> Declaración de la directiva  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Ejemplos  
   
-####  <a name="ChooseExample"></a> Ejemplo  
+#### <a name="example"></a>Ejemplo  
  En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que se reenvían a un back-end en función del valor de una variable de contexto.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |---------------|-----------------|--------------|--------------|  
 |key|Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas.|Sí|N/D|  
 |número máximo|Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.|Sí|N/D|  
-|timeout|Un entero. Expresión que se permite. Especifica el número de segundos que debe esperar una solicitud para indicar un ámbito antes de que aparezca el error "429 Demasiadas solicitudes"|No|Infinity|  
-|longitud máxima de cola|Un entero. Expresión que se permite. Especifica la longitud máxima de la cola. Cuando la cola se agote, las solicitudes entrantes que intenten acceder a esta directiva se terminarán inmediatamente con el error "429 Demasiadas solicitudes".|No|Infinity|  
   
-###  <a name="ChooseUsage"></a> Uso  
+### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
@@ -1014,5 +1012,5 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
   
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo trabajar con directivas, consulte:
--   [Directivas de Administración de API de Azure](api-management-howto-policies.md) 
+-   [Directivas de Azure API Management](api-management-howto-policies.md) 
 -   [Policy expressions (Expresiones de directiva)](api-management-policy-expressions.md)

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Desencadenadores y acciones para flujos de trabajo de aplicación lógica
 
@@ -118,7 +118,7 @@ Esta es la definición para este desencadenador:
 | timeZone | No | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
 | startTime | No | String | Especifique la fecha y hora de inicio en este formato: <p>AAAA-MM-DDThh:mm:ss si especifica una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no especifica una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p.m., especifique entonces "2017-09-18T14:00:00" y especifique una zona horaria como "Hora estándar del Pacífico". O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se especifica una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. Para más información sobre las fechas y horas de inicio, consulte [Introducción al desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). | 
 | weekDays | No | Cadena o matriz de cadenas | Si especifica "Week" para `frequency`, puede especificar uno o varios días, separados por comas, cuando desee ejecutar el flujo de trabajo: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" y "Sunday" | 
-| hours | No | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 23, separados por comas, como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a.m., 12 p.m. y 2 p.m. como las marcas de hora. | 
+| hours | No | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 23, separados por comas, como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
 | minutes | No | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 59, separados por comas, como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a.m., 12:30 p.m. y las 2:30 p.m. | 
 |||||| 
 
@@ -196,23 +196,13 @@ Los desencadenadores HTTP sondean un punto de conexión especificado y comprueba
 | Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
 | encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. | 
+| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
 | Autenticación | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>Aparte de Scheduler, hay una propiedad más que se admite: `authority`. De forma predeterminada, este valor es `https://login.windows.net` cuando no se especifica, pero se puede usar un valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
-
-Una *directiva de reintentos* se aplica a errores intermitentes, caracterizados como códigos de estado HTTP 408, 429 y 5xx, además de excepciones de conectividad. Puede definir esta directiva con el objeto `retryPolicy` tal y como se muestra aquí:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 Para que funcione bien con la aplicación lógica, el desencadenador HTTP necesita la API de HTTP para ajustarse a un patrón específico. El desencadenador reconoce estas propiedades:  
   
-| Response | Obligatorio | Descripción | 
+| Respuesta | Obligatorio | Descripción | 
 | -------- | -------- | ----------- |  
 | Código de estado | Sí | El código de estado 200 ("Correcto") provoca una ejecución. Cualquier otro código de estado no provoca una ejecución. | 
 | Encabezado Retry-after | No | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión. | 
@@ -269,7 +259,7 @@ El desencadenador de conexión de API es similar al desencadenador HTTP en su fu
 | Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
 | encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. | 
+| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
 | Autenticación | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -280,16 +270,6 @@ Para el objeto `host`, estas son las propiedades:
 | api runtimeUrl | Sí | Punto de conexión de la API administrada | 
 | connection name |  | Nombre de la conexión de API administrada que utiliza el flujo de trabajo. Debe hacer referencia a un parámetro denominado `$connection`. |
 |||| 
-
-Una *directiva de reintentos* se aplica a errores intermitentes, caracterizados como códigos de estado HTTP 408, 429 y 5xx, además de excepciones de conectividad. Puede definir esta directiva con el objeto `retryPolicy` tal y como se muestra aquí:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 Estas son las salidas para un desencadenador de conexión de API:
   
@@ -529,20 +509,11 @@ En este caso, el objeto `inputs` toma estos parámetros necesarios para construi
 | Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
 | encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. | 
+| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | No | string | Define el conjunto de comportamientos especiales para invalidar. | 
 | authentication | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). <p>Aparte de Scheduler, hay una propiedad más que se admite: `authority`. De forma predeterminada, este valor es `https://login.windows.net` cuando no se especifica, pero se puede usar un valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
 
-Las acciones HTTP y las acciones APIConnection admiten *directivas de reintentos*. Una directiva de reintentos se aplica a errores intermitentes, caracterizados como códigos de estado HTTP 408, 429 y 5xx, además de excepciones de conectividad. Puede definir esta directiva con el objeto `retryPolicy` tal y como se muestra aquí:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 Esta acción HTTP de ejemplo reintenta la obtención de las últimas noticias dos veces si hay errores intermitentes para tres ejecuciones en total y con un retraso de 30 segundos entre cada intento:
   
 ```json
@@ -631,20 +602,10 @@ Este es un ejemplo de acción APIConnection:
 | Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
 | encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. | 
+| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | No | string | Define el conjunto de comportamientos especiales para invalidar. | 
 | authentication | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-Una directiva de reintentos se aplica a errores intermitentes, caracterizados como códigos de estado HTTP 408, 429 y 5xx, además de excepciones de conectividad. Puede definir esta directiva con el objeto `retryPolicy` tal y como se muestra aquí:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>Acción APIConnectionWebhook
 
@@ -684,7 +645,7 @@ La acción APIConnectionWebhook hace referencia a un conector administrado por M
 | Consultas | No | Objeto | Representa los parámetros de consulta que se van a incluir en la dirección URL. <p>Por ejemplo, `"queries": { "api-version": "2015-02-01" }` agrega `?api-version=2015-02-01` a la dirección URL. | 
 | encabezados | No | Objeto | Representa cada encabezado que se envía en la solicitud. <p>Por ejemplo, para establecer el idioma y el tipo en una solicitud: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Objeto | Representa la carga útil que se envía al punto de conexión. | 
-| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. | 
+| retryPolicy | No | Objeto | Utilice este objeto para personalizar el comportamiento de reintento para errores 4xx o 5xx. Para más información, consulte [Directivas de reintentos](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | No | string | Define el conjunto de comportamientos especiales para invalidar. | 
 | authentication | No | Objeto | Representa el método que debe usar la solicitud para autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Requisitos previos para acceder a la API de generación de informes de Azure AD
 
@@ -55,7 +55,7 @@ Si quiere configurar el directorio para que acceda a la API de generación de in
 
 **Para registrar una aplicación de Azure Active Directory:**
 
-1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory**.
    
     ![Registre la aplicación](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 **Para obtener el nombre del dominio:**
 
-1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory**.
    
     ![Registre la aplicación](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. En la hoja **Azure Active Directory**, haga clic en **Nombres de dominio**.
+2. En la hoja **Azure Active Directory**, haga clic en **Nombres de dominio personalizados**.
 
     ![Registre la aplicación](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Necesitará estos valores al configurar llamadas a la API de generación de info
 
 **Para obtener el id. de cliente de la aplicación:**
 
-1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory**.
    
     ![Registre la aplicación](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Para obtener el secreto de cliente de la aplicación, debe crear una nueva clave
 
 **Para obtener el secreto de cliente de la aplicación:**
 
-1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
+1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory**.
    
     ![Registre la aplicación](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

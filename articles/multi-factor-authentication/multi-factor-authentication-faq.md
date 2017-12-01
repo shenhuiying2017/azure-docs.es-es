@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 Este artículo de P+F da respuesta a las preguntas más frecuentes sobre Azure Multi-Factor Authentication y el uso del servicio Multi-Factor Authentication. Se divide en preguntas sobre el servicio en general, los modelos de facturación, las experiencias del usuario y la solución de problemas.
@@ -95,7 +95,7 @@ Si el directorio tiene un proveedor de Azure Multi-Factor Authentication *por au
 
 **P.: ¿Mi organización tiene que usar y sincronizar las identidades para utilizar Azure Multi-Factor Authentication?**
 
-Si la organización usa un modelo de facturación basado en el consumo, Azure Active Directory es opcional, no obligatorio. Si el proveedor de MFA no está vinculado a un inquilino de Azure AD, solo puede implementar Servidor Azure Multi-Factor Authentication o el SDK de Azure Multi-Factor Authentication de manera local.
+Si la organización usa un modelo de facturación basado en el consumo, Azure Active Directory es opcional, no obligatorio. Si el proveedor de MFA no está vinculado a un inquilino de Azure AD, solo puede implementar Servidor Microsoft Azure Multi-Factor Authentication de manera local.
 
 El modelo de licencia requiere Azure Active Directory porque las licencias se agregan al inquilino de Azure AD cuando las compra y asigna a los usuarios en el directorio.
 

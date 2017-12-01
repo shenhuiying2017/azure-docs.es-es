@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="governance-in-azure"></a>Sistema de gobierno en Azure
 
 Sabemos que la seguridad tiene la máxima prioridad en la nube y conocemos la importancia que tiene que buscar información exacta y a tiempo sobre la seguridad de Azure. Una de las mejores razones para usar Azure en sus aplicaciones y servicios es poder aprovechar su amplia gama de funcionalidades y herramientas de seguridad. Estas herramientas y funcionalidades permiten crear soluciones seguras en la plataforma Azure segura.
 
-Para ayudarlo a comprender mejor la colección de controles de gobierno implementados en Microsoft Azure desde la perspectiva del cliente y de las operaciones de Microsoft, este artículo, "Sistema de gobierno en Azure", se ha redactado para proporcionar información completa sobre las características de gobierno disponibles con Microsoft Azure.
+Para ayudarlo a comprender mejor la matriz de controles de gobierno implementados en Microsoft Azure desde la perspectiva del cliente y de las operaciones de Microsoft, este artículo, "Sistema de gobierno en Azure", se ha redactado para proporcionar información completa sobre las características de gobierno disponibles con Microsoft Azure.
 
 ## <a name="azure-platform"></a>Plataforma Azure
 

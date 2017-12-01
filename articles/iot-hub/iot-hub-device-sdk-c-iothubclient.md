@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: obloch
-ms.openlocfilehash: 6e015d391067271cf71eb865af1b469135c8fcaa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 8428857bcd444f99ba2c0f6b31ff662d5596b591
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre IoTHubClient
-En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivo IoT de Azure**. En este artículo se explicaba que hay dos capas de arquitectura en el SDK. En la base está la biblioteca de **IoTHubClient** que administra directamente la comunicación con Centro de IoT. Y está también la biblioteca del **serializador** , que se basa en él para proporcionar servicios de serialización. En este artículo le proporcionamos detalles adicionales sobre la biblioteca **IoTHubClient** .
+En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivo IoT de Azure**. En este artículo se explicaba que hay dos capas de arquitectura en el SDK. En la base está la biblioteca de **IoTHubClient** que administra directamente la comunicación con IoT Hub. Y está también la biblioteca del **serializador** , que se basa en él para proporcionar servicios de serialización. En este artículo le proporcionamos detalles adicionales sobre la biblioteca **IoTHubClient** .
 
-El artículo anterior describe cómo usar la biblioteca **IoTHubClient** para enviar eventos a Centro de IoT y recibir mensajes. En este artículo ampliamos esa discusión y explicamos cómo administrar con mayor exactitud *cuándo* enviar y recibir datos, con una introducción a la **API de nivel inferior**. También explicaremos cómo adjuntar propiedades a eventos (y recuperarlas de mensajes) mediante las características de control de propiedades en la biblioteca **IoTHubClient** . Por último, proporcionaremos una explicación adicional sobre las diferentes formas de controlar los mensajes recibidos desde el Centro de IoT.
+El artículo anterior describe cómo usar la biblioteca **IoTHubClient** para enviar eventos a IoT Hub y recibir mensajes. En este artículo ampliamos esa discusión y explicamos cómo administrar con mayor exactitud *cuándo* enviar y recibir datos, con una introducción a la **API de nivel inferior**. También explicaremos cómo adjuntar propiedades a eventos (y recuperarlas de mensajes) mediante las características de control de propiedades en la biblioteca **IoTHubClient** . Por último, proporcionaremos una explicación adicional sobre las diferentes formas de controlar los mensajes recibidos desde IoT Hub.
 
 El artículo concluye con un par de temas variados, e incluye más información acerca de las credenciales de dispositivo y cómo cambiar el comportamiento de **IoTHubClient** mediante las opciones de configuración.
 
@@ -67,7 +67,7 @@ Sin embargo, hay funciones complementarias de cada una de estas API:
 
 Estas funciones incluyen "LL" en el nombre de la API. Aparte de eso, los parámetros de cada una de estas funciones son idénticos a sus correspondiente no LL. Sin embargo, el comportamiento de estas funciones es diferente en un aspecto importante.
 
-Cuando se llama a **IoTHubClient\_CreateFromConnectionString**, las bibliotecas subyacentes crean un nuevo subproceso que se ejecuta en segundo plano. Este subproceso envía eventos al Centro de IoT y recibe mensajes del mismo. No se crea ningún subproceso de este tipo cuando se trabaja con las API "LL". La creación de subproceso en segundo plano es muy práctico para el desarrollador. No tiene que preocuparse por enviar eventos y recibir mensajes del Centro de IoT de forma explícita porque esto se produce automáticamente en segundo plano. Por el contrario, las API "LL" proporcionan un control explícito sobre la comunicación con IoT Hub, si lo necesita.
+Cuando se llama a **IoTHubClient\_CreateFromConnectionString**, las bibliotecas subyacentes crean un nuevo subproceso que se ejecuta en segundo plano. Este subproceso envía eventos a IoT Hub y recibe mensajes del mismo. No se crea ningún subproceso de este tipo cuando se trabaja con las API "LL". La creación de subproceso en segundo plano es muy práctico para el desarrollador. No tiene que preocuparse por enviar eventos y recibir mensajes de IoT Hub de forma explícita porque esto se produce automáticamente en segundo plano. Por el contrario, las API "LL" proporcionan un control explícito sobre la comunicación con IoT Hub, si lo necesita.
 
 Para comprenderlo mejor, veamos un ejemplo:
 
@@ -75,7 +75,7 @@ Cuando se llama a **IoTHubClient\_SendEventAsync**, lo que realmente se está ha
 
 De forma similar, cuando se registra una función de devolución de llamada para mensajes mediante **IoTHubClient\_SetMessageCallback**, está indicando al SDK que el subproceso en segundo plano debe invocar la función de devolución de llamada cuando se recibe un mensaje, independientemente del subproceso principal.
 
-Las API "LL" no crean un subproceso en segundo plano. En su lugar, debe llamarse una nueva API para enviar y recibir datos a y desde Centro de IoT de forma explícita. Esto se muestra en el ejemplo siguiente.
+Las API "LL" no crean un subproceso en segundo plano. En su lugar, debe llamarse una nueva API para enviar y recibir datos a y desde IoT Hub de forma explícita. Esto se muestra en el ejemplo siguiente.
 
 La aplicación **iothub\_client\_sample\_http** que se incluye en el SDK muestra las API de nivel inferior. En este ejemplo, enviamos eventos a IoT Hub con un código como el siguiente:
 
@@ -123,7 +123,7 @@ Cuando termine de incorporar eventos y de recibir mensajes, asegúrese de llamar
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-Básicamente, hay solo un conjunto de API para enviar y recibir datos con un subproceso en segundo plano y otro conjunto de API que hace lo mismo sin el subproceso en segundo plano. Muchos desarrolladores pueden preferir las API no LL, pero las API de nivel inferior son útiles cuando el desarrollador desea un control explícito sobre las transmisiones de red. Por ejemplo, algunos dispositivos recopilan datos con el tiempo y solo incorporan eventos a intervalos especificados (por ejemplo, una vez cada hora o una vez al día). Las API de nivel inferior permiten controlar de forma explícita cuándo se envían y reciben los datos desde el Centro de IoT. Otros preferirán la simplicidad que proporcionan las API de nivel inferior. Todo ocurre en el subproceso principal en lugar de que parte del trabajo se realice en segundo plano.
+Básicamente, hay solo un conjunto de API para enviar y recibir datos con un subproceso en segundo plano y otro conjunto de API que hace lo mismo sin el subproceso en segundo plano. Muchos desarrolladores pueden preferir las API no LL, pero las API de nivel inferior son útiles cuando el desarrollador desea un control explícito sobre las transmisiones de red. Por ejemplo, algunos dispositivos recopilan datos con el tiempo y solo incorporan eventos a intervalos especificados (por ejemplo, una vez cada hora o una vez al día). Las API de nivel inferior permiten controlar de forma explícita cuándo se envían y reciben los datos desde Azure IoT Hub. Otros preferirán la simplicidad que proporcionan las API de nivel inferior. Todo ocurre en el subproceso principal en lugar de que parte del trabajo se realice en segundo plano.
 
 Sea cual sea el modelo que elija, asegúrese de mantener la coherencia en las API que usa. Si empieza con una llamada a **IoTHubClient\_LL\_CreateFromConnectionString**, asegúrese de usar solamente las API de nivel inferior correspondientes para cualquier trabajo que realice a continuación:
 
@@ -146,7 +146,7 @@ message.messageHandle = IoTHubMessage_CreateFromByteArray((const unsigned char*)
 IoTHubClient_LL_SendEventAsync(iotHubClientHandle, message.messageHandle, SendConfirmationCallback, &message)
 ```
 
-Este ejemplo envía un mensaje al Centro de IoT con el texto "Hello World". Pero el Centro de IoT también permite adjuntar propiedades a cada mensaje. Las propiedades son pares de nombres y valores que se pueden adjuntar al mensaje. Por ejemplo, podemos modificamos el código anterior para adjuntar una propiedad al mensaje:
+Este ejemplo envía un mensaje a IoT Hub con el texto "Hello World". Pero Azure IoT Hub también permite asociar propiedades a cada mensaje. Las propiedades son pares de nombres y valores que se pueden adjuntar al mensaje. Por ejemplo, podemos modificamos el código anterior para adjuntar una propiedad al mensaje:
 
 ```
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
@@ -158,7 +158,7 @@ Comenzamos llamando a **IoTHubMessage\_Properties** y pasándole el control del 
 
 Cuando se lee el evento en **Event Hubs**, el receptor puede enumerar las propiedades y recuperar sus valores correspondientes. Por ejemplo, en .NET esto se logra mediante el acceso a la [colección de propiedades en el objeto EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx).
 
-En el ejemplo anterior, adjuntamos propiedades a un evento que enviamos al Centro de IoT. Las propiedades también se pueden adjuntar a los mensajes recibidos desde el Centro de IoT. Si queremos recuperar las propiedades de un mensaje, podemos usar código similar al siguiente en la función de devolución de llamada del mensaje:
+En el ejemplo anterior, adjuntamos propiedades a un evento que enviamos a IoT Hub. Las propiedades también se pueden adjuntar a los mensajes recibidos desde IoT Hub. Si queremos recuperar las propiedades de un mensaje, podemos usar código similar al siguiente en la función de devolución de llamada del mensaje:
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -195,7 +195,7 @@ La llamada a **IoTHubMessage\_Properties** devuelve la referencia a **MAP\_HANDL
 No es necesario usar propiedades en la aplicación. Pero si necesita establecerlas en eventos o recuperarlas de mensajes, la biblioteca **IoTHubClient** se lo pone fácil.
 
 ## <a name="message-handling"></a>Administración de mensajes
-Como se explicó anteriormente, cuando los mensajes llegan del Centro de IoT, la biblioteca **IoTHubClient** responde invocando una función de devolución de llamada registrada. Hay un parámetro de valor devuelto de esta función que merece una explicación adicional. Este es un extracto de la función de devolución de llamada en la aplicación de ejemplo **iothub\_client\_sample\_http**:
+Como se explicó anteriormente, cuando los mensajes llegan de IoT Hub, la biblioteca **IoTHubClient** responde invocando una función de devolución de llamada registrada. Hay un parámetro de valor devuelto de esta función que merece una explicación adicional. Este es un extracto de la función de devolución de llamada en la aplicación de ejemplo **iothub\_client\_sample\_http**:
 
 ```
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -211,9 +211,9 @@ Observe que el tipo devuelto es **IOTHUBMESSAGE\_DISPOSITION\_RESULT** y, en est
 * **IOTHUBMESSAGE\_REJECTED**: el mensaje no se procesó y no hay intención hacerlo en el futuro. La biblioteca **IoTHubClient** no debe invocar la función de devolución de llamada con el mismo mensaje.
 * **IOTHUBMESSAGE\_ABANDONED**: el mensaje no se procesó correctamente, pero la biblioteca **IoTHubClient** debería invocar la función de devolución de llamada con el mismo mensaje.
 
-Para los dos primeros códigos de retorno, la biblioteca **IoTHubClient** envía un mensaje al Centro de IoT que indica que el mensaje debe eliminarse de la cola del dispositivo y no volver a entregarse. El efecto neto es el mismo (el mensaje se elimina de la cola del dispositivo), pero se registra si el mensaje se aceptó o se rechazó.  El registro de esta distinción es útil para los remitentes del mensaje que pueden escuchar los comentarios y saber así si un dispositivo aceptó o rechazó un mensaje determinado.
+Para los dos primeros códigos de retorno, la biblioteca **IoTHubClient** envía un mensaje a IoT Hub que indica que el mensaje debe eliminarse de la cola del dispositivo y no volver a entregarse. El efecto neto es el mismo (el mensaje se elimina de la cola del dispositivo), pero se registra si el mensaje se aceptó o se rechazó.  El registro de esta distinción es útil para los remitentes del mensaje que pueden escuchar los comentarios y saber así si un dispositivo aceptó o rechazó un mensaje determinado.
 
-En este último caso, también se envía un mensaje al Centro de IoT que indica que el mensaje debe volver a entregarse. Normalmente un mensaje se abandona si hay algún error, pero se desea volver a procesar el mensaje. Por el contrario, rechazar un mensaje es adecuado si se produce un error irrecuperable (o si simplemente decide que no quiere procesar el mensaje).
+En este último caso, también se envía un mensaje a IoT Hub que indica que el mensaje debe volver a entregarse. Normalmente un mensaje se abandona si hay algún error, pero se desea volver a procesar el mensaje. Por el contrario, rechazar un mensaje es adecuado si se produce un error irrecuperable (o si simplemente decide que no quiere procesar el mensaje).
 
 En cualquier caso simplemente debe tener en cuenta los diferentes códigos de retorno para poder obtener el comportamiento deseado de la biblioteca **IoTHubClient** .
 
@@ -231,7 +231,7 @@ Los argumentos de **IoTHubClient\_CreateFromConnectionString** son la cadena de 
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Hay cuatro grupos de información en esta cadena: nombre del Centro de IoT, sufijo del Centro de IoT, identificador de dispositivo y clave de acceso compartido. Obtendrá el nombre de dominio completo (FQDN) de un centro de IoT cuando cree la instancia del centro de IoT en el portal de Azure. Así obtiene el nombre del centro de IoT (la primera parte del FQDN) y el sufijo del centro de IoT (el resto del FQDN). Obtendrá el identificador de dispositivo y la clave de acceso compartido al registrar el dispositivo con IoT Hub (como se describe en el [artículo anterior](iot-hub-device-sdk-c-intro.md)).
+Hay cuatro grupos de información en esta cadena: nombre de IoT Hub, sufijo de IoT Hub, identificador de dispositivo y clave de acceso compartido. Obtendrá el nombre de dominio completo (FQDN) de un centro de IoT cuando cree la instancia del centro de IoT en el portal de Azure. Así obtiene el nombre del centro de IoT (la primera parte del FQDN) y el sufijo del centro de IoT (el resto del FQDN). Obtendrá el identificador de dispositivo y la clave de acceso compartido al registrar el dispositivo con IoT Hub (como se describe en el [artículo anterior](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** le ofrece una manera de inicializar la biblioteca. Pero si lo prefiere, puede crear un nuevo **IOTHUB\_CLIENT\_HANDLE** usando estos parámetros individuales en lugar de la cadena de conexión de dispositivo. Esto se consigue con el código siguiente:
 
@@ -247,7 +247,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 Esto consigue lo mismo que **IoTHubClient\_CreateFromConnectionString**.
 
-Puede parecer obvio que deseara usar **IoTHubClient\_CreateFromConnectionString** en lugar de este método de inicialización más detallado. Sin embargo, tenga en cuenta que cuando se registra un dispositivo en el Centro de IoT, lo que obtenemos es un identificador de dispositivo y una clave de dispositivo (no una cadena de conexión). La herramienta del SDK *Explorador de dispositivos* presentada en el [artículo anterior](iot-hub-device-sdk-c-intro.md) usa las bibliotecas del **SDK del servicio IoT de Azure** para crear la cadena de conexión de dispositivo a partir del identificador del dispositivo, la clave de dispositivo y el nombre de host del IoT Hub. Por lo tanto, una llamada a **IoTHubClient\_LL\_Create** puede ser preferible porque ahorra el paso de generar una cadena de conexión. Use el método que le resulte conveniente.
+Puede parecer obvio que deseara usar **IoTHubClient\_CreateFromConnectionString** en lugar de este método de inicialización más detallado. Sin embargo, tenga en cuenta que cuando se registra un dispositivo en Azure IoT Hub, lo que obtenemos es un identificador de dispositivo y una clave de dispositivo (no una cadena de conexión). La herramienta del SDK *Explorador de dispositivos* presentada en el [artículo anterior](iot-hub-device-sdk-c-intro.md) usa las bibliotecas del **SDK del servicio IoT de Azure** para crear la cadena de conexión de dispositivo a partir del identificador del dispositivo, la clave de dispositivo y el nombre de host del IoT Hub. Por lo tanto, una llamada a **IoTHubClient\_LL\_Create** puede ser preferible porque ahorra el paso de generar una cadena de conexión. Use el método que le resulte conveniente.
 
 ## <a name="configuration-options"></a>Opciones de configuración
 Hasta ahora todo lo descrito sobre forma en la que trabaja la biblioteca **IoTHubClient** refleja su comportamiento predeterminado. Sin embargo, hay algunas opciones que se pueden establecer para cambiar el funcionamiento de la biblioteca. Esto se logra aprovechando la API **IoTHubClient\_LL\_SetOption**. En este ejemplo:
@@ -262,7 +262,7 @@ Hay un par de opciones que se usan con frecuencia:
 * **SetBatching** (bool): si es **true**, los datos enviados al IoT Hub se envían en lotes. Si es **false**, los mensajes se envían individualmente. El valor predeterminado es **false**. Tenga en cuenta que la opción **SetBatching** solo se aplica al protocolo HTTPS y no a los protocolos MQTT o AMQP.
 * **Tiempo de espera** (entero sin sino): este valor se representa en milisegundos. Si el envío de una solicitud HTTPS o la recepción de una respuesta supera este tiempo, la conexión agota el tiempo.
 
-La opción de procesamiento por lotes es importante. De forma predeterminada, la biblioteca incorpora los eventos individualmente (un evento único es lo que se pasa a **IoTHubClient\_LL\_SendEventAsync**). Si la opción de procesamiento por lotes es **true**, la biblioteca recopilará tantos eventos como sea posible del búfer (hasta el tamaño máximo de mensaje que aceptará ese Centro de IoT).  El lote de eventos se envía a IoT Hub en una sola llamada HTTPS (los eventos individuales están agrupados en una matriz JSON). Habilitar el procesamiento por lotes normalmente da como resultado un gran aumento del rendimiento ya que se reducen los recorridos de ida y vuelta de red. Además, reduce considerablemente el ancho de banda porque se envía un conjunto de encabezados HTTPS con un lote de eventos en lugar de un conjunto de encabezados para cada evento individual. A menos que tenga una razón concreta para no hacerlo, normalmente es mejor habilitar el procesamiento por lotes.
+La opción de procesamiento por lotes es importante. De forma predeterminada, la biblioteca incorpora los eventos individualmente (un evento único es lo que se pasa a **IoTHubClient\_LL\_SendEventAsync**). Si la opción de procesamiento por lotes es **true**, la biblioteca recopilará tantos eventos como sea posible del búfer (hasta el tamaño máximo de mensaje que aceptará ese IoT Hub).  El lote de eventos se envía a IoT Hub en una sola llamada HTTPS (los eventos individuales están agrupados en una matriz JSON). Habilitar el procesamiento por lotes normalmente da como resultado un gran aumento del rendimiento ya que se reducen los recorridos de ida y vuelta de red. Además, reduce considerablemente el ancho de banda porque se envía un conjunto de encabezados HTTPS con un lote de eventos en lugar de un conjunto de encabezados para cada evento individual. A menos que tenga una razón concreta para no hacerlo, normalmente es mejor habilitar el procesamiento por lotes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se describe con detalle el comportamiento de la biblioteca **IoTHubClient** que se encuentra en el **SDK de dispositivo IoT de Azure para C**. Con esta información conocerá bien las capacidades de la biblioteca **IoTHubClient**. En el [siguiente artículo](iot-hub-device-sdk-c-serializer.md) se proporcionan detalles similares sobre la biblioteca del **serializador** .
@@ -271,8 +271,8 @@ Para más información acerca del desarrollo para IoT Hub, consulte los [SDK de 
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Simular un dispositivo con Azure IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

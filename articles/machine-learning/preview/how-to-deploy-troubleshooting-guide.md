@@ -10,21 +10,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2017
-ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/16/2017
+ms.openlocfilehash: 8eafb16abeb939a16b1ddb024853300c453bcd9a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Solución de problemas de implementación del servicio y configuración del entorno
 La siguiente información puede ayudar a determinar la causa de errores al configurar el entorno de Administración de modelos.
 
 ## <a name="model-management-environment"></a>Entorno de Administración de modelos
-### <a name="owner-permission-required"></a>Permiso de propietario necesario
-Debe tener permiso de propietario en la suscripción de Azure para registrar el proceso de Machine Learning.
-
-También necesita permiso de propietario para configurar un clúster para la implementación de los servicios web.
+### <a name="contributor-permission-required"></a>Permiso de colaborador necesario
+Necesita acceso de colaborador a la suscripción o al grupo de recursos para configurar un clúster para la implementación de los servicios web.
 
 ### <a name="resource-availability"></a>Disponibilidad de recursos
 Debe tener suficientes recursos disponibles en su suscripción, de forma que pueda aprovisionar los recursos del entorno.
@@ -89,6 +87,7 @@ Ejemplo de Python:
 ```
 
 ## <a name="other-common-problems"></a>Otros problemas comunes
+- Si al instalar el pip de azure-cli-ml aparece el error `cannot find the path specified` en un equipo Windows, es preciso habilitar la compatibilidad con rutas de acceso largas. Consulte https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/. 
 - Si el comando `env setup` produce el error `LocationNotAvailableForResourceType`, puede que esté usando una ubicación incorrecta (región) para los recursos de aprendizaje automático. Asegúrese de que la ubicación especificada con el parámetro `-l` sea `eastus2`, `westcentralus` o `australiaeast`.
 - Si el comando `env setup` produce el error `Resource quota limit exceeded`, asegúrese de que tiene suficientes núcleos disponibles en su suscripción y que los recursos no se consumen en otros procesos.
 - Si el comando `env setup` produce el error `Invalid environment name. Name must only contain lowercase alphanumeric characters`, asegúrese de que el nombre del servicio no contenga letras mayúsculas, símbolos o el carácter de subrayado (_) (como en *my_environment*).

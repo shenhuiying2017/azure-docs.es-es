@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -37,7 +37,7 @@ La [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) es u
 Hay _SDK de dispositivos_ disponibles para varios idiomas que permiten crear [aplicaciones para dispositivo](#device-app) que interactúan con un centro de IoT. Los tutoriales de IoT Hub muestran cómo se utilizan estos SDK de dispositivos. Puede encontrar el código fuente y más información sobre los SDK de dispositivos en este [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub.
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-IoT Edge facilita la escritura aplicaciones que permiten a dispositivos conectados a una puerta de enlace comunicarse con [IoT Hub](#iot-hub). Los tutoriales de IoT Hub muestran cómo se usa este servicio. Puede encontrar el código fuente y más información sobre Azure IoT Edge en este [repositorio](https://github.com/Azure/iot-edge) de GitHub.
+Azure IoT Edge mueve el análisis en la nube y lógica de negocios personalizada a los dispositivos para que su organización pueda centrarse en la información empresarial en lugar de en la administración de los datos. Habilite el escalado real de la solución al configurar el software de IoT, implementarlo en dispositivos a través de contenedores estándares y supervisar todo desde la nube. Empiece a trabajar con un tutorial que muestra cómo instalar y usar Azure IoT Edge en un dispositivo [Linux](../iot-edge/tutorial-simulate-device-linux.md) o [Windows](../iot-edge/tutorial-simulate-device-windows.md).
 
 ## <a name="azure-iot-service-sdks"></a>SDK de servicios IoT de Azure
 Hay _SDK de servicios_ disponibles para varios idiomas que permiten crear [aplicaciones de back-end](#back-end-app) que interactúan con un centro de IoT. Los tutoriales de IoT Hub muestran cómo se utilizan estos SDK de servicios. Puede encontrar el código fuente y más información sobre los SDK de servicios en este [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub.
@@ -189,7 +189,7 @@ El back-end de solución puede utilizar [trabajos](iot-hub-devguide-jobs.md) par
 La [API de REST de trabajos](https://docs.microsoft.com/rest/api/iothub/jobapi) permite administrar [trabajos](#job) que se ejecutan en IoT Hub.
 
 ## <a name="module"></a>Módulo
-En [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md), un [módulo](iot-hub-linux-iot-edge-get-started.md) es un componente que realiza una tarea específica. Las tareas pueden incluir ingerir un mensaje desde un dispositivo, transformar o enviar un mensaje a un centro de IoT. Un agente es responsable de reenviar los mensajes entre los módulos. Azure IoT Edge incluye un conjunto de módulos de ejemplo. También se pueden crear módulos propios personalizados.
+En [Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md), un [módulo](../iot-edge/iot-edge-modules.md) es un componente que realiza una tarea específica. Las tareas pueden incluir ingerir un mensaje desde un dispositivo, transformar o enviar un mensaje a un centro de IoT. Un agente es responsable de reenviar los mensajes entre los módulos. Azure IoT Edge incluye un conjunto de módulos de ejemplo. También se pueden crear módulos propios personalizados.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) es uno de los protocolos de mensajería que admite [IoT Hub](#iot-hub) para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).

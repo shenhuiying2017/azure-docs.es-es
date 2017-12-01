@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 177f8a61487130e718e3e6cfb779b17a3ed8ed69
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Creación de clústeres de MATLAB Distributed Computing Server en Máquinas virtuales de Azure
 Utilice Máquinas virtuales de Microsoft Azure para crear uno o más clústeres de MATLAB Distributed Computing Server con el fin de ejecutar sus cargas de trabajo MATLAB paralelas de proceso intensivo. Instale el software MATLAB Distributed Computing Server en una máquina virtual para usarlo como una imagen base y usar una plantilla de inicio rápido de Azure o un script de Azure PowerShell (disponible en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implementar y administrar el clúster. Después de la implementación, conéctese al clúster para ejecutar sus cargas de trabajo.
@@ -32,7 +32,7 @@ Mediante el uso de máquinas virtuales de Azure, puede crear clústeres de MATLA
 * **Equipo cliente** : necesitará un equipo cliente basado en Windows para comunicarse con Azure y el clúster de MATLAB Distributed Computing Server después de la implementación.
 * **Azure PowerShell** : consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para instalarlo en el equipo cliente.
 * **Suscripción de Azure** : si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
-* **Cuota de núcleos** : es posible que tenga que aumentar la cuota de núcleos para implementar un clúster grande o más de un MATLAB Distributed Computing Server. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
+* **Cuota de vCPU**: es posible que tenga que aumentar la cuota de vCPU para implementar un clúster grande o más de un clúster de MATLAB Distributed Computing Server. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 * **Licencias de MATLAB, Parallel Computing Toolbox y MATLAB Distributed Computing Server** ; los scripts asumen que se usa [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) para todas las licencias.  
 * **Software MATLAB Distributed Computing Server** : se instalará en una máquina virtual que se utilizará como la imagen de máquina virtual base para las máquinas virtuales del clúster.
 
@@ -62,7 +62,7 @@ El nodo cliente de MATLAB, el nodo de MATLAB Job Scheduler y los nodos de "traba
 * Para utilizar el clúster, conéctese mediante Escritorio remoto al nodo cliente. El nodo cliente ejecuta el cliente de MATLAB.
 * El nodo cliente tiene un recurso compartido de archivos al que tienen acceso todos los trabajadores.
 * MathWorks Hosted License Manager se usa para las comprobaciones de licencia de todo el software de MATLAB.
-* De forma predeterminada, se crea un trabajo de MATLAB Distributed Computing Server por núcleo en las máquinas virtuales de trabajo, pero puede especificar cualquier número.
+* De forma predeterminada, se crea un trabajo de MATLAB Distributed Computing Server por vCPU en las máquinas virtuales de trabajo, pero se puede especificar cualquier número.
 
 ## <a name="use-an-azure-based-cluster"></a>Uso de un clúster de Azure
 Como con otros tipos de clústeres de MATLAB Distributed Computing Server, debe usar Cluster Profile Manager en el cliente de MATLAB (en la máquina virtual del cliente) para crear un perfil de clúster en MATLAB Job Scheduler.

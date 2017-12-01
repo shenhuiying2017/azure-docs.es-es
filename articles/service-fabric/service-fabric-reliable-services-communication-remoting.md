@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicación remota de servicio con Reliable Services
 Para los servicios que no están vinculados a una pila o un protocolo de comunicación concretos, como WebAPI, Windows Communication Foundation (WCF) u otros, el marco de trabajo de Reliable Services ofrece un mecanismo de comunicación remota para configurar de manera rápida y sencilla una llamada a procedimiento remoto para servicios.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 El marco de trabajo de comunicación remota propaga las excepciones generadas en el servicio al cliente. Por lo tanto, la lógica de control de excepciones en el cliente mediante `ServiceProxy` puede controlar excepciones directamente que el servicio genera.
 
 ## <a name="service-proxy-lifetime"></a>Duración del proxy de servicio
-La creación de ServiceProxy es una operación ligera, por lo que los usuarios pueden crearla todas las veces que lo necesiten. El proxy de servicio puede volver a usarse siempre que los usuarios lo necesiten. Si la API remota lanza una excepción, los usuarios todavía pueden reutilizar el mismo proxy. Cada ServiceProxy contiene un cliente de comunicación que se usa para enviar mensajes a través de la conexión. Al invocar la API, se establece una comprobación interna para ver si el cliente de comunicación usado es válido. En función de ese resultado, volvemos a crear el cliente de comunicación. Por lo tanto, si se produce la excepción, los usuarios no tienen que volver a crear serviceproxy.
+La creación de ServiceProxy es una operación ligera, por lo que los usuarios pueden crearla todas las veces que lo necesiten. Las instancias de ServiceProxy pueden volver a usarse siempre que los usuarios lo necesiten. Si una llamada a procedimiento remoto inicia una excepción, los usuarios pueden reutilizar la misma instancia de proxy. Cada ServiceProxy contiene un cliente de comunicación que se usa para enviar mensajes a través de la conexión. Mientras se invocan llamadas remotas, internamente se comprueba si el cliente de comunicación es válido. En función de ese resultado, volvemos a crear el cliente de comunicación si se necesita. Por lo tanto, si se produce la excepción, los usuarios no tienen que volver a crear el proxy de servicio sino que se realiza de manera transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Duración de ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea un proxy para interfaces remotas diferentes. Si utiliza ServiceProxy.Create de la API para crear un proxy, el marco crea el singleton ServiceProxyFactory.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxy.Create` para crear el proxy, el marco crea un singleton ServiceProxy.
 Es útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
-Factory es una operación costosa. ServiceProxyFactory mantiene la memoria caché del cliente de comunicación.
+La creación de fábricas es una operación costosa. ServiceProxyFactory mantiene una memoria caché interna del cliente de comunicación.
 El procedimiento recomendado consiste en almacenar en caché ServiceProxyFactory tanto como sea posible.
 
 ## <a name="remoting-exception-handling"></a>Control de excepciones remota

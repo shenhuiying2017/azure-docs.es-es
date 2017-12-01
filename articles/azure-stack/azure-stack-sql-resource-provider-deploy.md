@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Uso de bases de datos SQL en Microsoft Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
 
 Use el adaptador del proveedor de recursos de SQL Server para exponer las bases de datos SQL como un servicio de [Azure Stack](azure-stack-poc.md). Después de instalar el proveedor de recursos y conectarse a una o varias instancias de SQL Server, usted y sus usuarios pueden crear:
-- bases de datos para las aplicaciones nativas de la nube
-- sitios web basados en SQL
-- cargas de trabajo basadas en SQL que no tengan que aprovisionar una máquina virtual (VM) que hospede SQL Server cada vez.
+- Bases de datos para las aplicaciones nativas de la nube
+- Sitios web basados en SQL
+- Cargas de trabajo basadas en SQL que no tengan que aprovisionar una máquina virtual (VM) que hospede SQL Server cada vez.
 
 El proveedor de recursos no admite todas las funcionalidades de administración de bases de datos de [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Por ejemplo, los grupos de bases de datos elásticas y la posibilidad de aumentar o disminuir el rendimiento de las bases de datos automáticamente no están disponibles. Sin embargo, el proveedor de recursos admite operaciones similares de creación, lectura, actualización y eliminación (CRUD). La API no es compatible con SQL DB.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>Arquitectura del adaptador del proveedor de recursos de SQL Server
+## <a name="sql-resource-provider-adapter-architecture"></a>Arquitectura del adaptador del proveedor de recursos de SQL
 El proveedor de recursos tiene tres componentes:
 
 - **La máquina virtual del adaptador del proveedor de recursos SQL**, que es una máquina virtual Windows que ejecuta los servicios del proveedor.
@@ -50,6 +50,9 @@ Debe crear uno o varios servidores SQL, o proporcionar acceso a instancias exter
     b. En los sistemas de varios nodos, el host debe ser un sistema que pueda tener acceso al punto de conexión con privilegios.
 
 3. [Descargue el archivo de binarios del proveedor de recursos SQL](https://aka.ms/azurestacksqlrp) y ejecute el extractor automático para extraer el contenido en un directorio temporal.
+
+    > [!NOTE]
+    > Si está usando la compilación 20170928.3 de Azure Stack o una versión anterior, [descargue esta versión](https://aka.ms/azurestacksqlrp1709).
 
 4. El certificado raíz de Azure Stack se recupera desde el punto de conexión con privilegios. Para ASDK, como parte de este proceso se crea un certificado autofirmado. Para varios nodos, debe proporcionar un certificado adecuado.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>Parámetros de DeploySqlProvider.ps1
@@ -141,27 +153,25 @@ Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o s
       ![Comprobación de la implementación de RP de SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>Eliminación del proveedor de recursos del adaptador de SQL
+## <a name="remove-the-sql-resource-provider-adapter"></a>Quitar el adaptador del proveedor de recursos SQL
 
 Para quitar el proveedor de recursos, es esencial quitar primero todas las dependencias.
 
-1. Asegúrese de tener el paquete de implementación original que descargó para esta versión del proveedor de recursos.
+1. Asegúrese de tener el paquete de implementación original que descargó para esta versión del adaptador del proveedor de recursos SQL.
 
 2. Todas las bases de datos de usuario deben eliminarse del proveedor de recursos (no se eliminan los datos). Los propios usuarios deben hacerlo.
 
-3. El administrador debe eliminar los servidores de hospedaje del adaptador de SQL.
+3. El administrador debe eliminar los servidores de hospedaje del adaptador del proveedor de recursos SQL.
 
-4. El administrador debe eliminar los planes que hagan referencia al adaptador de SQL.
+4. El administrador debe eliminar los planes que hagan referencia al adaptador del proveedor de recursos SQL.
 
-5. El administrador debe eliminar las SKU y las cuotas asociadas al adaptador de SQL.
+5. El administrador debe eliminar las SKU y las cuotas asociadas al adaptador del proveedor de recursos SQL.
 
 6. Vuelva a ejecutar el script de implementación con el parámetro -Uninstall, los puntos de conexión de Azure Resource Manager, DirectoryTenantID y las credenciales para la cuenta de administrador del servicio.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+[Agregar servidores host](azure-stack-sql-resource-provider-hosting-servers.md) y [crear bases de datos](azure-stack-sql-resource-provider-databases.md).
 
 Pruebe otros [servicios PaaS](azure-stack-tools-paas-services.md), como el [proveedor de recursos de MySQL Server](azure-stack-mysql-resource-provider-deploy.md) y el [proveedor de recursos de App Services](azure-stack-app-service-overview.md).

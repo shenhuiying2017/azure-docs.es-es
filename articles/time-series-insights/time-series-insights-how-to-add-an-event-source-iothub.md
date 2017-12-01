@@ -1,5 +1,5 @@
 ---
-title: "Adición de un origen de eventos de IoT Hub al entorno de Azure Time Series Insights | Microsoft Docs"
+title: "Adición de un origen de eventos de IoT Hub a Azure Time Series Insights | Microsoft Docs"
 description: "En este artículo se describe cómo agregar un origen de evento que está conectado a un centro de IoT Hub a su entorno de Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,26 +10,26 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Adición de un origen de eventos de IoT Hub al entorno de Time Series Insights
 Este tutorial describe cómo usar Azure Portal para agregar un origen de eventos que se lea desde un centro de IoT Hub a su entorno de Time Series Insights.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Cree el entorno de Time Series Insights. Para obtener más información, consulte [Creación de un entorno de Azure Time Series Insights](time-series-insights-get-started.md). 
-- Cree un centro de IoT Hub. Para obtener más información sobre los centros de IoT Hub, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
+- Cree un centro de IoT Hub. Para obtener más información acerca de los centros de IoT Hub, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
 - El centro de IoT Hub debe tener eventos de mensajes activos en proceso de envío.
 - Cree un grupo de consumidores dedicado en el centro de IoT Hub para que el entorno de Time Series Insight los consuma. Cada origen del evento de Time Series Insights tiene que tener su propio grupo de consumidores dedicado que no se comparte con ningún otro consumidor. Si varios lectores consumen eventos desde el mismo grupo de consumidores, es probable que todos los lectores vean errores. Para más información, vea la [Guía para desarrolladores de IoT Hub](../iot-hub/iot-hub-devguide.md).
 
 ## <a name="add-a-new-event-source"></a>Adición de un nuevo origen del evento
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. Busque su entorno existente de Time Series Insights. Haga clic en **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
+2. Busque su entorno de Time Series Insights existente. Haga clic en **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
 
 3. En el encabezado **Environment Topology** (Topología del entorno), haga clic en **Orígenes de eventos**.
    ![Orígenes de eventos + Agregar](media/time-series-insights-how-to-add-an-event-source-iothub/1-event-sources.png)
@@ -82,7 +82,7 @@ Este tutorial describe cómo usar Azure Portal para agregar un origen de eventos
 ### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adición de un grupo de consumidores a IoT Hub
 Las aplicaciones usan grupos de consumidores para extraer datos de Azure IoT Hub. Proporcione un grupo de consumidores dedicado, solo para su uso en este entorno de Time Series Insights, para leer datos de manera confiable del centro de IoT Hub.
 
-Para agregar un grupo de consumidores a su centro de IoT, siga estos pasos:
+Para agregar un grupo de consumidores a IoT Hub, siga estos pasos:
 1. En Azure Portal, busque y abra el centro de IoT Hub.
 
 2. En el encabezado **Mensajería**, seleccione **Puntos de conexión**. 

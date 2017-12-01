@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="data-source-wizard"></a>Asistente para origen de datos #
 
@@ -29,7 +29,7 @@ En primer lugar, especifique cómo están actualmente en los datos. Pueden estar
 ![paso 1](media/data-source-wizard/step1.png)
 
 ## <a name="step-3-select-data-file"></a>Paso 3: Seleccionar el archivo de datos ##
-Para un archivo o un directorio, especifique la ruta de acceso de archivo. Elija en la lista desplegable la ubicación de los datos, puede ser una ruta de acceso local, Azure Blob Storage o Azure Data Lake. 
+Para un archivo o un directorio, especifique la ruta de acceso de archivo. Elija en la lista desplegable la ubicación de los datos, puede ser una ruta de acceso local o Azure Blob Storage. 
 
 Especifique la ruta de acceso escribiéndola o haciendo clic en **Examinar...** botón para examinar. Puede buscar un directorio, o uno o varios archivos.
 
