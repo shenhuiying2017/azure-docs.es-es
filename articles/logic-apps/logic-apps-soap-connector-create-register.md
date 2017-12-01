@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Creación y registro de conectores SOAP en Azure Logic Apps
 
@@ -149,6 +149,12 @@ Los conectores personalizados registrados pero no certificados funcionan como co
 Para compartir su conector con usuarios externos (por ejemplo, todos los usuarios de Logic Apps), [presente su conector para que obtenga la certificación de Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
 ## <a name="faq"></a>P+F
+
+**P:** ¿Está el conector SOAP disponible de manera general (GA)? </br>
+**R:** El conector SOAP está en su **versión preliminar** y todavía no es un servicio que esté disponible de manera general.
+
+**P:** ¿Existen restricciones y problemas conocidos del conector SOAP? </br>
+**R:** Sí, consulte las [restricciones y problemas conocidos del conector SOAP](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **P:**  ¿Existen límites para los conectores personalizados? </br>
 **R:** Sí, consulte [los límites para conectores personalizados aquí](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

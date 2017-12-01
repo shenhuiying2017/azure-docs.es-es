@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios de software en su entorno con la solución de seguimiento de cambios
 
@@ -44,7 +44,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 4. Haga clic en **Guardar**.  
 
 > [!NOTE]
-> El seguimiento de archivos de Linux tiene funcionalidades adicionales, incluido el seguimiento de directorios, recursión de los directorios y seguimiento de comodines.
+> El seguimiento de archivos de Linux tiene funcionalidades adicionales, como el seguimiento de directorios, la recursión de los directorios y el seguimiento de comodines.
 
 ### <a name="configure-windows-files-to-track"></a>Configuración de los archivos de Windows de los que se realizará un seguimiento
 Use los pasos siguientes para configurar los archivos de los que se realizará un seguimiento en los equipos Windows.
@@ -69,7 +69,7 @@ Use los pasos siguientes para configurar las claves del Registro para realizar u
    * **File** (metadatos del archivo de informe: tamaño, fecha de modificación, hash, etc.)
    * **Directory** (metadatos del directorio de informe: tamaño, fecha de modificación, etc.)
 2. **Links** (control de referencias de vínculo simbólico de Linux a otros archivos o directorios)
-   * **Ignore** (omitir los vínculos simbólicos durante las recursiones para no incluir los archivos/directorios a los que se hace referencia)
+   * **Ignore** (omitir los vínculos simbólicos durante la recursión para no incluir los archivos/directorios a los que se hace referencia)
    * **Follow** (seguir los vínculos simbólicos durante las recursiones para incluir también los archivos/directorios a los que se hace referencia)
    * **Manage** (seguir los vínculos simbólicos y modificar el tratamiento del contenido devuelto)
 
@@ -96,6 +96,10 @@ Otras limitaciones:
 * Cuando el tráfico de red es elevado, los registros de cambios pueden tardar hasta seis horas en aparecer.
 * Si modifica la configuración mientras un equipo está apagado, el equipo podría publicar cambios de archivos que pertenecían a la configuración anterior.
 
+### <a name="known-issues"></a>Problemas conocidos
+Actualmente, la solución Change Tracking tiene los siguientes problemas:
+* Actualizaciones de revisiones que no se recopilan en las máquinas con Windows 10 Creators Update y Windows Server 2016 Core RS3.
+
 ## <a name="change-tracking-data-collection-details"></a>Detalles de la recopilación de datos de seguimiento de cambios
 El seguimiento de cambios recopila inventario de software y metadatos de servicio de Windows con los agentes habilitados.
 
@@ -103,7 +107,7 @@ La siguiente tabla muestra los métodos de recopilación de datos y otros detall
 
 | plataforma | Agente directo | Agente de Operations Manager | Agente Linux | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows y Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Entre 5 y 50 minutos, según el tipo de cambio. Para obtener más información, vea la tabla siguiente. |
+| Windows y Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Entre 5 y 50 minutos, según el tipo de cambio. Para obtener más información, consulte la tabla siguiente. |
 
 
 En la tabla siguiente se muestra la frecuencia de recopilación de datos para los tipos de cambios.

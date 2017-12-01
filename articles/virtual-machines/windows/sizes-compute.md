@@ -1,6 +1,6 @@
 ---
 title: "Tamaños de las máquinas virtuales Windows en Azure: proceso optimizado | Microsoft Docs"
-description: "Enumera los tamaños diferentes de proceso optimizado disponibles para las máquinas virtuales Windows en Azure."
+description: "Enumera los tamaños diferentes de proceso optimizado disponibles para las máquinas virtuales Windows en Azure. Se proporciona información sobre el número de unidades vCPU, discos de datos y NIC, así como sobre el rendimiento de almacenamiento y el ancho de banda de red para los tamaños de esta serie."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 1497535e1c40b77a588ae292ae3d3e4f6ab7daa3
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 0f393f0c5ed297e12f60e378c54778bdb384d200
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para proceso
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/11/2017
+ms.date: 11/19/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0bb79929a431a81c1618e09ee76fcb8415480655
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referencia técnica del acceso condicional de Azure Active Directory
 
@@ -177,25 +177,20 @@ Puede usar la opción **Solicitar aplicación cliente aprobada** en la directiva
 
 Puede usar las siguientes aplicaciones cliente con el requisito de la aplicación cliente aprobada:
 
+
+- Microsoft Azure Information Protection
 - Microsoft Excel
-
 - Microsoft OneDrive
-
-- Microsoft Outlook
-
 - Microsoft OneNote
-
+- Microsoft Outlook
+- Microsoft Planner
 - Microsoft PowerPoint
-
 - Microsoft SharePoint
-
 - Microsoft Skype Empresarial
-
 - Equipos de Microsoft
-
 - Microsoft Visio
-
 - Microsoft Word
+
 
 
 **Comentarios**

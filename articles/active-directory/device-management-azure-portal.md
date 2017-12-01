@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Administración de dispositivos con Azure Portal
 
@@ -32,7 +32,30 @@ En este tema:
 
 - Se proporciona información sobre la administración de dispositivos mediante Azure Portal
 
+## <a name="manage-devices"></a>Administración de dispositivos 
 
+Azure Portal le proporciona una ubicación central desde la que administrar los dispositivos. Para obtener esta ubicación, use un [vínculo directo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o siga los pasos que se detallan en el manual:
+
+1. Inicie sesión como administrador en [Azure Portal](https://portal.azure.com).
+
+2. En la barra de navegación izquierda, haga clic en **Active Directory**.
+
+    ![Configuración de dispositivo](./media/device-management-azure-portal/01.png)
+
+3. En la sección **Administrar**, haga clic en **Dispositivos**.
+
+    ![Configuración de dispositivo](./media/device-management-azure-portal/11.png)
+ 
+La página **Dispositivos** le permitirá:
+
+- Configurar las opciones de administración de los dispositivos.
+
+- Búsqueda de dispositivos
+
+- Realizar tareas de administración de dispositivos.
+
+- Revisar la administración de los dispositivos relacionados con los registros de auditoría.  
+  
 
 ## <a name="configure-device-settings"></a>Configuración de dispositivo
 

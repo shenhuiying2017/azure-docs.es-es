@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Generación de eventos y registros de nivel de plataforma
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Es importante supervisar en el nivel de infraestructura para determinar si el hardware y el clúster se comportan según lo previsto. Aunque Service Fabric puede mantener las aplicaciones en ejecución durante un error de hardware, es necesario diagnosticar si un error se produce en una aplicación o en la infraestructura subyacente. También debe supervisar los clústeres para planear mejor la capacidad, lo que ayuda a decidir si es necesario agregar o quitar hardware.
 
-Service Fabric incluye de forma predeterminada cinco canales de registro que generan los eventos siguientes:
-
-* Canal operativo: operaciones de alto nivel realizadas por Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización de SF, etc.
+Service Fabric proporciona los siguientes canales de registro integrados:
+* Canal operativo: operaciones de alto nivel que realiza Service Fabric y el clúster, incluyendo eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización, etc.
 * Canal operativo: detallado: informes de estado y decisiones para el equilibrio de carga
-* Canal de datos y mensajería: registros y eventos críticos generados en nuestra ruta de acceso a mensajería (actualmente solo ReverseProxy) y datos (modelos de servicios confiables)
+* Canal de datos y mensajería: registros y eventos críticos generados en la ruta de acceso a mensajería (actualmente solo ReverseProxy) y a datos (modelos de servicios confiables).
 * Canal de datos y mensajería: detallado: canal detallado que contiene todos los registros no críticos de datos y mensajería del clúster (este canal tiene un volumen de eventos muy alto)   
+
+Además, se proporcionan dos canales EventSource estructurados, así como registros que se recopilan para que los use el servicio de soporte técnico.
 * [Eventos de Reliable Services](service-fabric-reliable-services-diagnostics.md): eventos específicos del modelo de programación
 * [Eventos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md): contadores de rendimiento y eventos específicos del modelo de programación
 * Registros de soporte técnico: registros del sistema que genera Service Fabric únicamente para que los usemos al proporcionar soporte técnico

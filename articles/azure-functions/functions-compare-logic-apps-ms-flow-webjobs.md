@@ -13,21 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Elección entre Flow, Logic Apps, Functions y WebJobs
 En este artículo se comparan y contrastan los siguientes servicios en la nube de Microsoft. Todos ellos pueden resolver los problemas de integración y la automatización de los procesos empresariales:
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
-* [Azure Functions](https://azure.microsoft.com/services/functions/)
+* 
+            [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service](../app-service/web-sites-create-web-jobs.md)
 
 Todos estos servicios son útiles cuando se agrupan sistemas dispares. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio tiene ventajas únicas y no se trata de saber cuál es el mejor, sino cuál es el más adecuado para su situación. Con frecuencia, la mejor manera de crear rápidamente una solución de integración completa y escalable es combinar estos servicios.
@@ -45,7 +46,7 @@ Flows permite a cualquier oficinista realizar integraciones sencillas (por ejemp
 
 La tabla siguiente le ayuda a determinar qué es lo mejor para una integración dada, si Flow o Logic Apps.
 
-|  | Flujo | Aplicaciones lógicas |
+|  | Flujo | Logic Apps |
 | --- | --- | --- |
 | Público |trabajadores de oficina, usuarios empresariales |profesionales de TI, desarrolladores |
 | Escenarios |Autoservicio |Críticas |
@@ -81,12 +82,12 @@ En la tabla siguiente se resumen las diferencias entre Functions y WebJobs:
 | Escalado |Escalado sin configuración |escalado con plan de App Service |
 | Precios |Pago por uso o parte del plan de App Service |parte del plan de App Service |
 | Tipo ejecución |desencadenada, programada (por desencadenador de temporizador) |desencadenada, continua, programada |
-| Desencadenar eventos |[Temporizador](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Notification Hubs](functions-bindings-notification-hubs.md), [Azure Service Bus](functions-bindings-service-bus.md), [Azure Storage](functions-bindings-storage-blob.md) |[Azure Storage](functions-bindings-storage-blob.md), [Azure Service Bus](functions-bindings-service-bus.md) |
+| Desencadenar eventos |[Temporizador](functions-bindings-timer.md), [Azure Cosmos DB](functions-bindings-documentdb.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md), [Azure App Service Mobile Apps](functions-bindings-mobile-apps.md), [Azure Event Hubs](functions-bindings-event-hubs.md), [colas y blobs de Azure Storage](functions-bindings-storage-blob.md), [colas y temas de Azure Service Bus](functions-bindings-service-bus.md) |[colas y blobs de Azure Storage](functions-bindings-storage-blob.md), [colas y temas de Azure Service Bus](functions-bindings-service-bus.md) |
 | Desarrollo en el explorador |Compatible |No compatible |
 | C# |Compatible |Compatible |
 | F# |Compatible |No compatible |
 | JavaScript |Compatible |Compatible |
-| Java |Compatible | No compatible |
+| Java |Vista previa | No compatible |
 | Bash |Experimental |Compatible |
 | Scripting de Windows (.cmd, .bat) |Experimental |Compatible |
 | PowerShell |Experimental |Compatible |
