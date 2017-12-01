@@ -90,7 +90,7 @@ Ahora que tiene una cola de almacenamiento, puede probar la función. Para ello,
 
 1. De nuevo en Azure Portal, vaya a la función. Expanda **Registros** en la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
 
-1. En el Explorador de almacenamiento, expanda la cuenta de almacenamiento, **Colas** y **myqueue-items** y, después, haga clic en **Agregar mensaje**.
+1. En el Explorador de Storage, expanda la cuenta de almacenamiento, **Colas** y **myqueue-items** y, después, haga clic en **Agregar mensaje**.
 
     ![Agregue un mensaje a la cola.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 
@@ -100,7 +100,7 @@ Ahora que tiene una cola de almacenamiento, puede probar la función. Para ello,
 
     ![Vea el mensaje en los registros.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
 
-1. En el Explorador de almacenamiento, haga clic en **Actualizar** y compruebe que el mensaje se ha procesado y ya no está en la cola.
+1. En el Explorador de Storage, haga clic en **Actualizar** y compruebe que el mensaje se ha procesado y ya no está en la cola.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

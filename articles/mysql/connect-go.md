@@ -83,7 +83,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú izquierdo de Azure Portal, haga clic en **Todos los recursos** y busque el servidor que ha creado, por ejemplo, **myserver4demo**.
 3. Haga clic en el nombre del servidor **myserver4demo**.
-4. Seleccione la página **Propiedades** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**.
+4. Seleccione la página **Propiedades** del servidor y anote la información que figura en **Nombre del servidor** y en **Nombre de inicio de sesión del administrador del servidor**.
  ![Azure Database for MySQL: inicio de sesión del Administrador del servidor](./media/connect-go/1_server-properties-name-login.png)
 5. Si olvida la información de inicio de sesión del servidor, navegue hasta la página **Información general** para ver el nombre de inicio de sesión del administrador del servidor y, si es necesario, restablecer la contraseña.
    

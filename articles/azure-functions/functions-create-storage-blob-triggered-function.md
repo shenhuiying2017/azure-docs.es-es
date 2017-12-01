@@ -89,7 +89,7 @@ Ahora que tiene un contenedor de blobs, puede probar la función. Para ello, car
 
 1. De nuevo en Azure Portal, vaya a la función. Expanda **Registros** en la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
 
-1. En el Explorador de almacenamiento, expanda la cuenta de almacenamiento, **Contenedores de blobs** y **mycontainer**. Haga clic en **Cargar** y en **Cargar archivos…**
+1. En el Explorador de Storage, expanda la cuenta de almacenamiento, **Contenedores de blobs** y **mycontainer**. Haga clic en **Cargar** y en **Cargar archivos…**
 
     ![Cargue un archivo en el contenedor de blobs.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

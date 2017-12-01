@@ -36,7 +36,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
 
 3. Haga clic en el nombre del servidor.
 
-4. Seleccione la página **Propiedades** del servidor, anote el **nombre del servidor** y el **nombre de inicio de sesión del administrador del servidor**.
+4. Seleccione la página **Propiedades** del servidor y anote la información que figura en **Nombre del servidor** y en **Nombre de inicio de sesión del administrador del servidor**.
 
  ![Nombre del servidor de Azure Database for MySQL](./media/connect-workbench/1-server-properties-name-login.png)
  

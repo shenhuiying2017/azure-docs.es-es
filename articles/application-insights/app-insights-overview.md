@@ -118,7 +118,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
   * [Otras plataformas](app-insights-platforms.md)
 * **[Instrumente sus páginas web](app-insights-javascript.md)** para la vista de la página, AJAX y otros datos de telemetría del lado cliente.
 * **[Analice el uso de aplicaciones móviles](app-insights-mobile-center-quickstart.md)** mediante la integración con Visual Studio App Center.
-* **[Pruebas de disponibilidad](app-insights-monitor-web-app-availability.md)**: haga ping a su sitio web de manera regular desde nuestros servidores.
+* **[Pruebas de disponibilidad](app-insights-monitor-web-app-availability.md)** : haga ping a su sitio web de manera regular desde nuestros servidores.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

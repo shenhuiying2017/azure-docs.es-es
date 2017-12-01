@@ -133,7 +133,7 @@ Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de 
 
     Parámetro de psql |Valor sugerido|Descripción
     ---|---|---
-    Contraseña | Contraseña del administrador | Los caracteres que escriba en la contraseña no se muestran en el símbolo del sistema de bash. Después de escribir todos los caracteres, seleccione la tecla **ENTRAR** para autenticarse y conectarse.
+    contraseña | Contraseña del administrador | Los caracteres que escriba en la contraseña no se muestran en el símbolo del sistema de bash. Después de escribir todos los caracteres, seleccione la tecla **ENTRAR** para autenticarse y conectarse.
 
     Tras conectarse, la utilidad psql muestra un símbolo del sistema de postgres donde escribir comandos sql. En la salida de la conexión inicial, puede aparecer una advertencia, ya que la versión de psql de Cloud Shell puede diferir de la versión del servidor de Azure Database for PostgreSQL. 
     

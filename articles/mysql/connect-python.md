@@ -26,7 +26,7 @@ En este tutorial rápido se usan como punto de partida los recursos creados en u
 - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creación de un servidor de Azure Database for MySQL mediante la CLI de Azure)
 
 ## <a name="install-python-and-the-mysql-connector"></a>Instalación de Python y el conector de MySQL
-Instale [Python](https://www.python.org/downloads/) y el [conector de MySQL para Python](https://dev.mysql.com/downloads/connector/python/) en su propia máquina. Dependiendo de la plataforma, siga los pasos de la sección apropiada:
+Instale [Python](https://www.python.org/downloads/) y el [conector de MySQL para Python](https://dev.mysql.com/downloads/connector/python/) en su propia máquina. Dependiendo de la plataforma, siga estos pasos de la sección que proceda:
 
 ### <a name="windows"></a>Windows
 1. Descargue e instale Python 2.7 desde [python.org](https://www.python.org/downloads/windows/). 

@@ -55,7 +55,7 @@ En **Usuario administrador**, seleccione **Habilitar**. Anote los siguientes val
 
 * Servidor de inicio de sesión
 * Nombre de usuario
-* Contraseña
+* contraseña
 
 Estos valores los usará en los pasos siguientes al trabajar con el registro con la CLI de Docker.
 

@@ -91,13 +91,13 @@ El valor que se ha pasado al desencadenador HTTP se incluye en un mensaje agrega
 
     ![Agregue un enlace de salida de Queue Storage a una función en Azure Portal.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-2. Compruebe los registros para asegurarse de que la función se ha realizado correctamente. Se crea una nueva cola denominada **outqueue** en su cuenta de almacenamiento mediante el entorno de ejecución de las funciones cuando el enlace de salida se usa por primera vez.
+2. Compruebe los registros para asegurarse de que la función se ha realizado correctamente. Se crea una nueva cola denominada **outqueue** en su cuenta de Storage mediante el entorno de ejecución de Functions cuando el enlace de salida se usa por primera vez.
 
 Después, puede conectarse a su cuenta de almacenamiento para comprobar la cola nueva y el mensaje que ha agregado en esta. 
 
 ## <a name="connect-to-the-queue"></a>Conectarse a la cola
 
-Omita los tres primeros pasos si ya ha instalado el Explorador de almacenamiento y lo ha conectado a su cuenta de almacenamiento.    
+Omita los tres primeros pasos si ya ha instalado el Explorador de Storage y lo ha conectado a su cuenta de almacenamiento.    
 
 1. En su función, elija **Integrar** y en el nuevo enlace de salida de **Azure Queue Storage**. Después, expanda **Documentación**. Copie el **Nombre de cuenta** y la **Clave de cuenta**. Use estas credenciales para conectarse a la cuenta de almacenamiento.
  
