@@ -29,14 +29,18 @@
       href: project-ic-tasks.md
 - name: Estructura del proyecto
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
-- name: Planeación y ejecución del proyecto
+- name: Planeación del proyecto
+  href: team-data-science-process-project-templates.md
+- name: Ejecución de proyectos
   items:
-    - name: Planeación del proyecto
-      href: team-data-science-process-project-templates.md
-    - name: Ejecución de proyectos
-      items:
-        - name: Proyectos de ciencia de datos
-          href: project-execution.md
+    - name: Desarrollo ágil
+      href: agile-development.md
+    - name: Codificación colaborativa con Git
+      href: collaborative-coding-with-git.md
+    - name: Ejecución de tareas de ciencia de datos
+      href: execute-data-science-tasks.md
+    - name: Seguimiento del progreso
+      href: track-progress.md
 - name: Ejemplos
   href: walkthroughs.md
   items:
@@ -52,12 +56,12 @@
     - name: Spark con PySpark y Scala
       href: walkthroughs-spark.md
       items:
-        - name: Exploración de los datos
+        - name: Exploración y modelado de datos
           href: spark-data-exploration-modeling.md
+        - name: Exploración y modelado avanzados de datos
+          href: spark-advanced-data-exploration-modeling.md
         - name: Modelos de puntuación
           href: spark-model-consumption.md
-        - name: Exploración de datos avanzada
-          href: spark-advanced-data-exploration-modeling.md
     - name: Hive con HDInsight Hadoop
       href: walkthroughs-hdinsight-hadoop.md
     - name: U-SQL con Azure Data Lake
@@ -136,7 +140,8 @@
             - name: Uso de AzCopy
               href: move-data-to-azure-blob-using-azcopy.md
             - name: Uso de Python
-              href: move-data-to-azure-blob-using-python.md
+              href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+              maintainContext: true
             - name: Uso de SSIS
               href: move-data-to-azure-blob-using-ssis.md
             - name: Migración a una máquina virtual
@@ -211,14 +216,8 @@
             - name: Hoja de referencia de algoritmos
               href: ../studio/algorithm-cheat-sheet.md
               maintainContext: true
-    - name: Implementación de modelos
-      items:
-        - name: Con un servicio web
-          href: ../studio/publish-a-machine-learning-web-service.md
-          maintainContext: true
-        - name: Consumo de un servicio web
-          href: ../studio/consume-web-services.md
-          maintainContext: true
+    - name: Implementación de modelos en producción
+      href: deploy-models-in-production.md
 - name: Temas relacionados
   items:
     - name: Microsoft Cognitive Toolkit (CNTK)

@@ -7,8 +7,10 @@
 - name: Inicios rápidos
   expanded: true
   items:
-    - name: Creación de un clúster de AKS
+    - name: 'Creación de un clúster de AKS: CLI'
       href: kubernetes-walkthrough.md
+    - name: 'Creación de un clúster de AKS: Portal'
+      href: kubernetes-walkthrough-portal.md
 - name: Tutoriales
   items:
     - name: 'Paso 1: Preparación de la aplicación para AKS'

@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: Conceptos
   items:
-    - name: Comparación de planes de hospedaje
+    - name: Escalado y hospedaje
       href: functions-scale.md
     - name: Desencadenadores y enlaces
       href: functions-triggers-bindings.md

@@ -27,6 +27,10 @@
   items:
     - name: Descripción de los informes de costos
       href: understading-cost-reports.md
+- name: Guías de procedimientos
+  items:
+    - name: Uso de los informes de Cost Management
+      href: use-reports.md
 - name: Recursos
   items:
     - name: Vídeos sobre Cost Management

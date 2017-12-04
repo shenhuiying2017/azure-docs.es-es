@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 1d92e673a948dd139ff2d4a24f2e602180be43c5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bdcf2f8a06c782270683e34e9a4cbc2ab2c7f443
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Tutorial: Integración de Azure Active Directory con Google Apps
 
@@ -136,11 +136,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     | |
     |--|
-    | `http://google.com/a/<yourdomain.com>`|
-    | `http://google.com`|    
-    | `google.com/<yourdomain.com>`|
     | `google.com`|
-
+    | `http://google.com`|
+    | `google.com/<yourdomain.com>`|
+    | `http://google.com/a/<yourdomain.com>`|
+       
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Google Apps](https://www.google.com/contact/) para obtener estos valores. 
 

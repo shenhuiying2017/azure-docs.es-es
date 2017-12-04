@@ -29,6 +29,8 @@
       href: how-to-manage-account-keys.md
     - name: Uso del Control de mapa
       href: how-to-use-map-control.md
+    - name: Búsqueda de una dirección
+      href: how-to-search-for-address.md
 - name: Referencia
   items:
     - name: Centro para desarrolladores de Azure

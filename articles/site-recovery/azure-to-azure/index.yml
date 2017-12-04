@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 'Documentación sobre Site Recovery: Recuperación ante desastres de Azure en Azure'
+metadata:
+  title: 'Documentación sobre Azure Site Recovery: tutoriales y referencia de API | Microsoft Docs'
+  meta.description: Learn how to set up disaster recovery for Azure VMs
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Azure Site Recovery orquesta y administra la recuperación ante desastres de las máquinas virtuales de Azure. Aprenda a replicar en una región secundaria y a ejecutar una conmutación por error, y una conmutación por recuperación, con nuestros inicios rápidos y tutoriales.'
+sections:
+  - title: Inicios rápidos en 5 minutos
+    items:
+      - type: paragraph
+        text: Configuración rápida de la recuperación ante desastres de una máquina virtual de Azure
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
+            text: Azure Portal
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Tutoriales detallados
+    items:
+      - type: paragraph
+        text: 'Aprenda a configurar la recuperación ante desastres, la conmutación por error y la conmutación por recuperación para las máquinas virtuales de Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Configuración de la recuperación ante desastres</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Obtención de detalles de recuperación ante desastres</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Realización de una conmutación por error y una conmutación por recuperación</a>
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Línea de comandos
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Referencia de API de REST</a></p>

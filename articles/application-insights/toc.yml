@@ -247,6 +247,8 @@
       items:
         - name: No hay datos para .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
+        - name: Depurador de instantáneas
+          href: app-insights-troubleshoot-snapshot-debugger.md
         - name: Análisis
           href: app-insights-analytics-troubleshooting.md
         - name: Java

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfb37ae51400210ef80a0f267b294d1e2e465b76
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implementación de Azure Functions como módulo de IoT Edge (versión preliminar)
 Azure Functions se puede usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos de IoT Edge. Este tutorial le guía a través de la creación y la implementación de una instancia de Azure Functions que filtra datos del sensor en el dispositivo de IoT Edge simulado que creó en el paso de implementación de Azure IoT Edge en un dispositivo simulado en los tutoriales de [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. En este tutorial, aprenderá a:     
@@ -225,7 +225,7 @@ Para supervisar los mensajes del dispositivo a la nube enviados al centro de IoT
 En este tutorial, ha creado una instancia de Azure Functions que contiene código para filtrar datos sin procesar generados por el dispositivo IoT Edge. Para continuar con la exploración de Azure IoT Edge, aprenda a usar un dispositivo de IoT Edge como puerta de enlace. 
 
 > [!div class="nextstepaction"]
-> [Creación de un dispositivo de puerta de enlace con IoT Edge](how-to-create-gateway-device.md)
+> [Creación de un dispositivo de puerta de enlace con IoT Edge](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

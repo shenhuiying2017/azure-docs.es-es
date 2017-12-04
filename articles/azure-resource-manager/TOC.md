@@ -67,26 +67,20 @@
 
 ## Solución de problemas
 ### [Errores de implementación frecuentes](resource-manager-common-deployment-errors.md)
-### [Descripción de los errores de implementación](resource-manager-troubleshoot-tips.md)
-### Resolución de errores
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Problemas de implementación de Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Problemas de aprovisionamiento y asignación de Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Problemas de aprovisionamiento y asignación de Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Errores de implementación de máquinas virtuales
-#### Linux
-##### [Problemas de implementación](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Problemas de aprovisionamiento y asignación](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Mensajes comunes de error](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Problemas de implementación](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Problemas de aprovisionamiento y asignación](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Mensajes comunes de error](../virtual-machines/windows/error-messages.md)
+#### [Problemas de implementación de Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Descripción de los errores de implementación](resource-manager-troubleshoot-tips.md)
 
 # Referencia
 ## [Formato de plantilla](/azure/templates/)

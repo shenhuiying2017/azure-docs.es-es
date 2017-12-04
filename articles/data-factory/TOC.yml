@@ -4,6 +4,8 @@
   items:
     - name: Introducción a Data Factory
       href: introduction.md
+    - name: Comparación de las versiones 1 y 2
+      href: compare-versions.md
 - name: Inicios rápidos
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: Portal
           href: quickstart-create-data-factory-portal.md
+        - name: Plantilla de Resource Manager
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutoriales
   items:
     - name: 1 - Implementación de paquetes SSIS en Azure

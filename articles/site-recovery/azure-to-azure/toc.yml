@@ -1,0 +1,113 @@
+- name: Documentación de Site Recovery
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Site Recovery?
+      href: ../site-recovery-overview.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: Inicios rápidos
+  expanded: true
+  items:
+    - name: Replicación de una máquina virtual de Azure a una región secundaria
+      href: azure-to-azure-quickstart.md
+- name: Tutoriales
+  items:
+    - name: Configuración de la recuperación ante desastres
+      href: azure-to-azure-tutorial-enable-replication.md
+    - name: Ejecución de un simulacro de recuperación ante desastres
+      href: azure-to-azure-tutorial-dr-drill.md
+    - name: Realización de una conmutación por error y una conmutación por recuperación
+      href: azure-to-azure-tutorial-failover-failback.md
+- name: Conceptos
+  items:
+    - name: Arquitectura de Azure a Azure
+      href: concepts-azure-to-azure-architecture.md
+    - name: Matriz de compatibilidad de Azure a Azure
+      href: site-recovery-support-matrix-azure-to-azure.md
+    - name: Permisos de acceso basados en rol
+      href: ../site-recovery-role-based-linked-access-control.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: P+F
+      href: ../site-recovery-faq.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: Guías de procedimientos
+  items:
+    - name: Redes
+      items:
+        - name: Configuración de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
+          href: site-recovery-azure-to-azure-networking-guidance.md
+        - name: Configuración de la asignación de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
+          href: site-recovery-network-mapping-azure-to-azure.md
+    - name: Configuración
+      items:
+        - name: Habilitación de la replicación entre regiones de Azure
+          href: site-recovery-replicate-azure-to-azure.md
+    - name: Conmutación por error y conmutación por recuperación
+      items:
+        - name: Configuración de planes de recuperación
+          href: ../site-recovery-create-recovery-plans.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Adición de runbooks de Azure a los planes de recuperación
+          href: ../site-recovery-runbook-automation.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Reprotección de las máquinas después de la conmutación por error
+          href: site-recovery-how-to-reprotect-azure-to-azure.md
+    - name: Migrar
+      items:
+        - name: Migración de máquinas virtuales de Azure a otra región de Azure
+          href: ../site-recovery-migrate-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Replicación de máquinas a otra región de Azure después de la migración
+          href: ../site-recovery-azure-to-azure-after-migration.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Cargas de trabajo
+      items:
+        - name: Active Directory y DNS
+          href: ../site-recovery-active-directory.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Replicación de SQL Server
+          href: ../site-recovery-sql.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: SharePoint
+          href: ../site-recovery-sharepoint.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Dynamics AX
+          href: ../site-recovery-dynamicsax.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: RDS
+          href: '../site-recovery-workload.md#protect-rds?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+        - name: Exchange
+          href: '../site-recovery-workload.md#protect-exchange?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+        - name: SAP
+          href: ../site-recovery-sap.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Servidor de archivos
+          href: ../file-server-disaster-recovery.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Aplicaciones web basadas en IIS
+          href: ../site-recovery-iis.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Citrix XenApp y XenDesktop
+          href: ../site-recovery-citrix-xenapp-and-xendesktop.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Otras cargas de trabajo
+          href: '../site-recovery-workload.md#workload-summary?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json'
+    - name: Administrar
+      items:
+        - name: Quitar servidores y deshabilitar la protección
+          href: ../site-recovery-manage-registration-and-protection.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.jsos
+        - name: Eliminación de un almacén
+          href: ../delete-vault.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+    - name: Solución de problemas
+      items:
+        - name: Problemas de replicación de Azure a Azure
+          href: site-recovery-azure-to-azure-troubleshoot-errors.md
+- name: Referencia
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.siterecovery
+    - name: Azure PowerShell clásico
+      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/mt750497'
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'http://azure.microsoft.com/blog/tag/azure-site-recovery/'
+    - name: Foro
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Ruta de aprendizaje
+      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=site-recovery'

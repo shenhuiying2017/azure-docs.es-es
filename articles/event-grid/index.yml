@@ -33,7 +33,7 @@ sections:
             href: /azure/event-grid/custom-event-quickstart-powershell
           - image:
               src: /azure/event-grid/media/index/portal.svg
-            text: Portal de Azure
+            text: Azure Portal
             href: /azure/event-grid/custom-event-quickstart-portal
   - title: Tutoriales detallados
     items:
@@ -44,6 +44,7 @@ sections:
         items:
           - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Supervisión de cambios en las máquinas virtuales con aplicaciones lógicas</a>
           - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Cambio de tamaño de las imágenes cargadas</a>
+          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integración de Azure Automation con Event Grid</a>
   - title: Referencia
     items:
       - type: list

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -39,7 +39,7 @@ Estos son los aspectos clave de seguridad de esta característica:
 - Solo se usan puertos estándar (80 y 443) para la comunicación saliente de los agentes de autenticación a Azure AD. No es necesario abrir puertos entrantes en el firewall. 
   - El puerto 443 se usa en todas las comunicaciones salientes autenticadas.
   - Solo se usa el puerto 80 para descargar las listas de revocación de certificados (CRL) a fin de garantizar que ninguno de los certificados que use la característica hayan sido revocados.
-  - Para obtener la lista completa de los requisitos de red, consulte [Autenticación de paso a través de Azure Active Directory: inicio rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - Para obtener la lista completa de los requisitos de red, consulte [Autenticación de paso a través de Azure Active Directory: inicio rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Las contraseñas que proporciona el usuario durante el inicio de sesión se cifran en la nube antes de que los agentes de autenticación locales las acepten para validarlas en Active Directory.
 - El canal HTTPS entre Azure AD y el agente de autenticación local está protegido gracias a la autenticación mutua.
 - Esta característica se integra perfectamente con las funcionalidades de protección en la nube de Azure AD, como las directivas de acceso condicional (incluyendo Azure Multi-Factor Authentication), Identity Protection y el bloqueo inteligente.

@@ -6,7 +6,9 @@
 ## [Creación de una aplicación .NET](service-fabric-quickstart-dotnet.md)
 ## [Implementación de una aplicación contenedora de Linux](service-fabric-quickstart-containers-linux.md)
 ## [Implementación de una aplicación contenedora de Windows](service-fabric-quickstart-containers.md)
-## [Implementación de una aplicación Java](service-fabric-quickstart-java.md)
+## Guías de inicio rápido de Java
+### [Implementación de una aplicación de Spring Boot](service-fabric-quickstart-java-spring-boot.md)
+### [Implementación de una aplicación de Reliable Services](service-fabric-quickstart-java-reliable-services.md)
 
 # Tutoriales
 ## Implementación de una aplicación .NET
@@ -29,7 +31,9 @@
 #### [1a Creación de un clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b Creación de un clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Escalado del clúster](service-fabric-tutorial-scale-cluster.md)
-### [3- Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3- Actualización del entorno en tiempo de ejecución del clúster](service-fabric-tutorial-upgrade-cluster.md)
+### [4- Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Muestras

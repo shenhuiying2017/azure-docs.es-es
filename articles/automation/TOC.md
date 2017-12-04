@@ -50,7 +50,8 @@
 ### [Incorporación de máquinas para administración](automation-dsc-onboarding.md)
 ### [Compilación de configuraciones DSC](automation-dsc-compile.md)
 ### [Implementación continua mediante Chocolatey](automation-dsc-cd-chocolatey.md)
-### [Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS](automation-dsc-diagnostics.md)
+### 
+            [Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS](automation-dsc-diagnostics.md)
 ## Administración de recursos
 ### [Certificados](automation-certificates.md)
 ### [Conexiones](automation-connections.md)
@@ -70,6 +71,7 @@
 ### [Llamada a un runbook de Azure Automation desde una alerta de Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Implementación de una plantilla de Azure Resource Manager en un runbook de PowerShell de Azure Automation](automation-deploy-template-runbook.md)
 ## Soluciones
+### [Incorporación de actualizaciones y seguimiento de cambios](automation-onboard-solutions.md)
 ### [Administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md)
 #### [Administración de actualizaciones para varias máquinas virtuales](manage-update-multi.md)
 #### [Integración de SCCM con OMS Update Management](oms-solution-updatemgmt-sccmintegration.md)

@@ -22,6 +22,8 @@
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Cambio de tamaño de las imágenes cargadas
       href: resize-images-on-storage-blob-upload-event.md
+    - name: Desencadenamiento de runbook de Automation
+      href: ensure-tags-exists-on-new-virtual-machines.md
 - name: Conceptos
   items:
     - name: Conceptos de Event Grid

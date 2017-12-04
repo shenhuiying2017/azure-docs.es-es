@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Esquema de Webhook
+      href: container-registry-webhook-reference.md
 - name: Recursos
   items:
     - name: Disponibilidad en regiones
