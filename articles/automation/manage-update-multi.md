@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -87,6 +87,16 @@ Update Management está habilitado para su máquina virtual.
 Para obtener instrucciones sobre cómo habilitar Update Management en equipos y máquinas virtuales Windows que no sean de Azure, consulte [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agents.md).
 
 Para obtener instrucciones acerca de cómo habilitar Update Management en equipos y máquinas virtuales Linux que no sean de Azure, consulte [Conexión de equipos con Linux a Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Visualización de equipos conectados a su cuenta de Automation
+Tras habilitar la administración de actualizaciones en las máquinas, para su información, haga clic en **Equipos**. Verá la información del equipo, como su *nombre*, *cumplimiento*, *entorno*, *tipo de SO*, *actualizaciones críticas y de seguridad*  y *otras actualizaciones*. 
+
+  ![Pestaña en la que se ven los equipos](./media/manage-update-multi/update-computers-tab.png)
+
+Los equipos en los que se haya habilitado recientemente la administración de actualizaciones puede que no se hayan evaluado aún. El estado de cumplimiento de esos equipos sería *No evaluado*.  Esta es una lista de valores del estado de cumplimiento:
+* Compatible: equipos que no tienen actualizaciones de seguridad o críticas pendientes.
+* No compatible: equipos que no tienen al menos una actualización de seguridad o crítica pendiente.
+* No evaluado: los datos de evaluación de las actualizaciones no se han recibido del equipo en el período esperado.  En los equipos con Linux, dicho periodo es las últimas tres horas, mientras que en los equipos con Windows, las últimas 12 horas.  
 
 ## <a name="view-an-update-assessment"></a>Visualización de la evaluación de la actualización
 

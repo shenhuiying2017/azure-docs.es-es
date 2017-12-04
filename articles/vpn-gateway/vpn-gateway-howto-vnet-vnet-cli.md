@@ -1,6 +1,6 @@
 ---
-title: "Conexión de una red virtual a otra red virtual: CLI de Azure | Microsoft Docs"
-description: "Este artículo le guía por la conexión de redes virtuales entre sí por medio de Azure Resource Manager y la CLI de Azure."
+title: "Conexión de una red virtual a otra mediante una conexión entre redes virtuales: CLI de Azure | Microsoft Docs"
+description: "Este artículo le guía por todo el proceso de conexión de redes virtuales entre sí mediante una conexión entre redes virtuales y la CLI de Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: be33522fbabc801f64b7d3f38be83443c0327128
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
 
-En este artículo se explica cómo crear una conexión de VPN Gateway entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory. 
+En este artículo se muestra cómo conectar redes virtuales mediante el tipo de conexión entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory.
 
 Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y usan la CLI de Azure. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
@@ -37,13 +37,15 @@ Los pasos descritos en este artículo se aplican al modelo de implementación de
 >
 >
 
-La conexión de una red virtual a otra es muy parecida a la conexión de una red virtual a una ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE. Si las redes virtuales están en la misma región, podría pensar en conectarlas mediante emparejamiento de VNET. El emparejamiento de VNET no usa VPN Gateway. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Acerca de la conexión de redes virtuales
 
-Se puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinan la conectividad entre entornos locales con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
+La conexión de una red virtual a otra mediante el tipo de conexión de redes virtuales (VNet2VNet) es parecida a la creación de una conexión IPsec con la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE y ambos funcionan de la misma forma en lo relativo a la comunicación. La diferencia entre ambos tipos de conexión es la manera en que se configure la puerta de enlace de red local. Al crear una conexión entre redes virtuales, no se ve el espacio de direcciones de la puerta de enlace de red local. Se crea y rellena automáticamente. Si actualiza el espacio de direcciones de una red virtual, la otra conocerá automáticamente la ruta al espacio de direcciones actualizado.
 
-![Acerca de las conexiones](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+Si se trabaja con una configuración complicada, puede que sea mejor usar el tipo de conexión IPsec, en lugar de una conexión entre redes virtuales. Esto le permite especificar más espacio de direcciones para la puerta de enlace de red local, con el fin de enrutar el tráfico. Si conecta las redes virtuales con el tipo de conexión IPsec, tendrá que crear y configurar la puerta de enlace de red local manualmente. Para más información, consulte [Configuraciones entre sitios](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-### <a name="why"></a>¿Por qué debería conectarse a redes virtuales?
+Además, si las redes virtuales están en la misma región, se puede plantear la posibilidad de conectarlas mediante Emparejamiento de VNET. El emparejamiento de VNET no utiliza una puerta de enlace de VPN, por lo que los precios y funcionalidad son algo distintos. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>¿Por qué crear una conexión de red virtual a red virtual?
 
 Puede que desee conectar redes virtuales por las siguientes razones:
 
@@ -55,19 +57,22 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 
   * Dentro de la misma región, se pueden configurar aplicaciones de niveles múltiples con varias redes virtuales conectadas entre sí para cumplir requisitos administrativos o de aislamiento.
 
-Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo.
+Se puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
 ### <a name="which-set-of-steps-should-i-use"></a>¿Qué serie de pasos debo seguir?
 
-En este artículo, verá dos conjuntos de pasos diferentes. Un conjunto de pasos para [redes virtuales que residen en la misma suscripción](#samesub). En los pasos para esta configuración se utilizan TestVNet1 y TestVNet4.
+Este artículo le ayuda a conectar redes virtuales mediante el tipo de conexión entre redes virtuales. En este artículo, verá dos conjuntos de pasos diferentes. Un conjunto de pasos para las [redes virtuales que residen en la misma suscripción](#samesub) y otro para las [redes virtuales que residen en suscripciones diferentes](#difsub). 
 
-![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+Para este ejercicio, puede combinar las configuraciones, o bien elegir con la que desea trabajar. Todas las configuraciones utilizan el tipo de conexión entre redes virtuales. Flujos de tráfico de red entre las redes virtuales que están directamente conectados entre sí. En este ejercicio, el tráfico de TestVNet4 no se enruta a TestVNet5.
 
-Hay otro artículo para las [redes virtuales que residen en suscripciones distintas](#difsub). En los pasos para esta configuración se utilizan TestVNet1 y TestVNet5.
+* [Redes virtuales que residen en la misma suscripción:](#samesub) los pasos de esta configuración utilizan TestVNet1 y TestVNet4.
 
-![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-Puede combinar las configuraciones si lo prefiere o solo elegir con la que desea trabajar.
+* [Redes virtuales que residen en distintas suscripciones:](#difsub) los pasos de esta configuración utilizan TestVNet1 y TestVNet5.
+
+  ![diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>Conexión de redes virtuales que están en la misma suscripción
 
@@ -77,7 +82,7 @@ Antes de empezar, instale la versión más reciente de los comandos de la CLI (2
 
 ### <a name="Plan"></a>Planeamiento de los intervalos de direcciones IP
 
-En los pasos siguientes, se crearán dos redes virtuales junto con sus subredes de puerta de enlace y configuraciones correspondientes. A continuación crearemos una conexión VPN entre las dos redes virtuales. Es importante planear los intervalos de direcciones IP para la configuración de red. Tenga en cuenta que hay que asegurarse de que ninguno de los intervalos de VNet o intervalos de red local se solapen. En estos ejemplos, no se incluye ningún servidor DNS. Si desea disponer de resolución de nombres en las redes virtuales, consulte [Resolución de nombres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+En los pasos siguientes, se crean dos redes virtuales junto con sus subredes de puerta de enlace y configuraciones correspondientes. Luego, se crea una conexión VPN entre las dos redes virtuales. Es importante planear los intervalos de direcciones IP para la configuración de red. Tenga en cuenta que hay que asegurarse de que ninguno de los intervalos de VNet o intervalos de red local se solapen. En estos ejemplos, no se incluye ningún servidor DNS. Si desea disponer de resolución de nombres en las redes virtuales, consulte [Resolución de nombres](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 En los ejemplos usamos los siguientes valores:
 
@@ -261,7 +266,7 @@ Ahora tiene dos redes virtuales con puertas de enlace de VPN. El siguiente paso 
 
 ## <a name="difsub"></a>Conexión de redes virtuales que están en suscripciones diferentes
 
-En este escenario, conectaremos TestVNet1 y TestVNet5. Las redes virtuales residen en suscripciones distintas. Las suscripciones no necesitan estar asociadas con el mismo inquilino de Active Directory. Los pasos para esta configuración permiten agregar una conexión de red virtual a red virtual adicional para poder conectar TestVNet1 a TestVNet5.
+En este escenario, se conectan TestVNet1 y TestVNet5. Las redes virtuales residen en suscripciones distintas. Las suscripciones no necesitan estar asociadas con el mismo inquilino de Active Directory. Los pasos para esta configuración permiten agregar una conexión de red virtual a red virtual adicional para poder conectar TestVNet1 a TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Paso 5: Creación y configuración de TestVNet1
 
@@ -327,7 +332,7 @@ Este paso debe realizarse en el contexto de la nueva suscripción, Suscripción 
 
 ### <a name="connections5"></a>Paso 8: Creación de las conexiones
 
-Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]** porque las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use "az account list --all" para obtener una lista de las suscripciones disponibles para su cuenta y después use "az account set --subscription <subscriptionID>" para cambiar a la suscripción que desea usar.
+Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]** y **[Suscripción 5]**, ya que las puertas de enlace están en suscripciones diferentes. Para cambiar entre suscripciones, use "az account list --all" para obtener una lista de las suscripciones disponibles para su cuenta y después use "az account set --subscription <subscriptionID>" para cambiar a la suscripción que desea usar.
 
 1. **[Suscripción 1]** Inicie sesión y conéctese a Suscripción 1. Ejecute el siguiente comando para obtener el nombre y el identificador de la puerta de enlace de la salida:
 

@@ -1,6 +1,6 @@
 ---
-title: "Conexión de un equipo a una red virtual de Azure mediante la conectividad de punto a sitio y autenticación de certificado: Portal de Azure clásico | Microsoft Docs"
-description: "Conéctese de forma segura a su red virtual clásica de Azure mediante la creación de una conexión de punto a sitio de VPN Gateway con Azure Portal."
+title: "Conexión de un equipo a una red virtual de Azure mediante la conectividad de punto a sitio y autenticación de certificado: Azure Portal clásico | Microsoft Docs"
+description: "Conéctese de forma segura a Azure Virtual Network clásico mediante la creación de una conexión de punto a sitio de VPN Gateway con Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configuración de una conexión de punto a sitio a una red virtual mediante la autenticación de certificado (clásica): Azure Portal
 
@@ -35,8 +35,10 @@ En este artículo se muestra cómo se crea una red virtual con una conexión de 
 
 Una puerta de enlace de VPN de punto a sitio (P2S) permite crear una conexión segura a la red virtual desde un equipo cliente individual. Las conexiones VPN de punto a sitio son útiles cuando desea conectarse a la red virtual desde una ubicación remota, como desde casa o desde una conferencia. Una VPN P2S también es una solución útil en lugar de una VPN de sitio a sitio cuando hay solo unos pocos clientes que necesitan conectarse a una red virtual. Se establece una conexión VPN P2S al iniciar la conexión desde el equipo cliente.
 
-El modelo de implementación clásica admite solo clientes de VPN de Windows y usa el Protocolo de túnel de sockets seguros (SSTP), un protocolo de VPN basado en SSL. Para admitir clientes de VPN que no sean de Windows, la red privada virtual se debe crear mediante el modelo de implementación de Resource Manager. El modelo de implementación de Resource Manager admite IKEv2 VPN, además de SSTP. Para más información, consulte [Acerca de las conexiones P25](point-to-site-about.md).
-
+> [!IMPORTANT]
+> El modelo de implementación clásica admite solo clientes de VPN de Windows y usa el Protocolo de túnel de sockets seguros (SSTP), un protocolo de VPN basado en SSL. Para admitir clientes de VPN que no sean de Windows, la red privada virtual se debe crear mediante el modelo de implementación de Resource Manager. El modelo de implementación de Resource Manager admite IKEv2 VPN, además de SSTP. Para más información, consulte [Acerca de las conexiones P25](point-to-site-about.md).
+>
+>
 
 ![Diagrama de punto a sitio](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
@@ -78,10 +80,10 @@ Antes de empezar, compruebe que tiene una suscripción a Azure. Si todavía no l
 Si no tiene una red virtual, créela. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos. Para crear una red virtual mediante Azure Portal, siga estos pasos:
 
 1. Desde un explorador, vaya al [Portal de Azure](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
-2. Haga clic en **Nuevo**. En el campo **Buscar en el Marketplace**, escriba "Red virtual". En la lista de resultados, busque **Red virtual** y haga clic para abrir la página **Red virtual**.
+2. Haga clic en **Nuevo**. En el campo **Buscar en el Marketplace**, escriba "Virtual Network". En la lista de resultados, busque **Virtual Network** y haga clic para abrir la página **Virtual Network**.
 
   ![Búsqueda de la página Red virtual](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
-3. Cerca de la parte inferior de la página Red virtual, en la lista **Seleccionar un modelo de implementación**, seleccione **Clásico** y haga clic en **Crear**.
+3. Cerca de la parte inferior de la página Virtual Network, en la lista **Seleccionar un modelo de implementación**, seleccione **Clásico** y haga clic en **Crear**.
 
   ![Seleccionar modelo de implementación](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
 4. En la página **Crear red virtual**, configure los valores de la red virtual. En esta página, se agrega el primer espacio de direcciones y un intervalo único de direcciones de subred. Cuando termine de crear la red virtual, puede volver atrás y agregar espacios de direcciones y subredes adicionales.

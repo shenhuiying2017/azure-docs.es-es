@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 359887a8527d5432e705d9739e30f0eb2363e34f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de servicio con Azure Container Service (AKS)
 
@@ -43,17 +43,15 @@ Al implementar un clúster de AKS clúster con el comando `az aks create`, tiene
 En el siguiente ejemplo, se crea un clúster de AKS y, como no se ha especificado una entidad de servicio existente, se crea una para el clúster. Para completar esta operación, la cuenta debe tener los derechos apropiados para crear un servicio principal.
 
 ```azurecli
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Uso de una entidad de servicio existente
 
-Con un clúster AKS se pueden usar las entidades de servicio de Azure AD existentes o se puede crear una previamente. Esto resulta útil cuando se implementa un clúster desde la instancia de Azure Portal en la que hay que proporcionar la información de la entidad de servicio.
+Con un clúster AKS se pueden usar las entidades de servicio de Azure AD existentes o se puede crear una previamente. Esto resulta útil cuando se implementa un clúster desde Azure Portal, donde hay que proporcionar la información de la entidad de servicio.
 
 Si se usa una entidad de servicio existente, esta debe cumplir los siguientes requisitos:
 
-- Ámbito: la suscripción usada para implementar el clúster
-- Rol: colaborador
 - Secreto de cliente: debe ser una contraseña.
 
 ## <a name="pre-create-a-new-sp"></a>Creación previa de una entidad de servicio nueva
@@ -61,8 +59,7 @@ Si se usa una entidad de servicio existente, esta debe cumplir los siguientes re
 Para crear la entidad de servicio con la CLI de Azure, utilice el comando [az ad sp create-for-rbac]().
 
 ```azurecli
-id=$(az account show --query id --output tsv)
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+az ad sp create-for-rbac --skip-assignment
 ```
 
 La salida es similar a la siguiente. Tome nota de `appId` y `password`. Estos valores se usan al crear un clúster de AKS.
@@ -82,7 +79,7 @@ La salida es similar a la siguiente. Tome nota de `appId` y `password`. Estos va
 Si usa una entidad de servicio creada previamente, incluya `appId` y `password` como valores de los argumentos del comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
 ```
 
 Si se va a implementar un clúster de AKS desde Azure Portal, especifique estos valores en el formulario de configuración del clúster de AKS.
@@ -99,6 +96,7 @@ Cuando trabaje con entidades de servicio de AKS y Azure AD, tenga en cuenta lo s
 * En las máquinas virtuales principal y del nodo del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo /etc/kubernetes/azure.json.
 * Cuando use el comando `az aks create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo ~/.azure/acsServicePrincipal.json de la máquina que se usa para ejecutar el comando.
 * Cuando use el comando `az aks create` para generar automáticamente la entidad de servicio, esta también se puede autenticar con una [instancia de Azure Container Registry](../container-registry/container-registry-intro.md) creada en la misma suscripción.
+* Al eliminar un clúster de AKS creado mediante `az aks create`, no se eliminará la entidad de servicio que se creó automáticamente. Puede usar `az ad sp delete --id $clientID` para eliminarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

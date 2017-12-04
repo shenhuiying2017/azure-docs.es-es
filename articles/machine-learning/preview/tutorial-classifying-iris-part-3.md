@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
-ms.date: 11/14/2017
-ms.openlocfilehash: 7fa7eb53876746f1934af8ca3428cfdacb56382d
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.date: 11/29/2017
+ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de la clasificación de Iris: implementación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -163,7 +163,7 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
 
 3. Cree el entorno. Debe ejecutar este paso una vez por cada entorno. Por ejemplo, ejecútelo una vez para el entorno de desarrollo y otra vez para producción. Use el _modo local_ para este primer entorno. Puede probar los modificadores `-c` o `--cluster` en el siguiente comando para configurar un entorno en _modo clúster_posteriormente.
 
-Tenga en cuenta que el siguiente comando de configuración requiere que tenga acceso de colaborador a la suscripción. Si no lo tiene, al menos necesita acceso de colaborador al grupo de recursos en el que va a realizar la implementación. Para esto último, es preciso especificar el nombre del grupo de recursos como parte del comando de configuración mediante la marca `-g`. 
+   Tenga en cuenta que el siguiente comando de configuración requiere que tenga acceso de colaborador a la suscripción. Si no lo tiene, al menos necesita acceso de colaborador al grupo de recursos en el que va a realizar la implementación. Para hacer esto último, es preciso especificar el nombre del grupo de recursos como parte del comando de configuración mediante la marca `-g`. 
 
    ```azurecli
    az ml env setup -n <new deployment environment name> --location <e.g. eastus2>
@@ -276,10 +276,10 @@ Ya está preparado para ejecutar el servicio web.
 
 Para probar el servicio web **irisapp** en ejecución, use un registro codificado en JSON que contenga una matriz de cuatro números aleatorios:
 
-1. El servicio web incluye datos de ejemplo. Cuando se realiza la ejecución en modo local, puede llamar al comando **az ml service show realtime**. Esa llamada recupera un comando de ejecución de ejemplo que resulta de utilidad para probar el servicio. La llamada también recupera la dirección URL de puntuación que puede usar para incorporar el servicio a su propia aplicación personalizada:
+1. El servicio web incluye datos de ejemplo. Cuando se realiza la ejecución en modo local, puede llamar al comando **az ml service usage realtime**. Esa llamada recupera un comando de ejecución de ejemplo que resulta de utilidad para probar el servicio. La llamada también recupera la dirección URL de puntuación que puede usar para incorporar el servicio a su propia aplicación personalizada:
 
    ```azurecli
-   az ml service show realtime -i <web service ID>
+   az ml service usage realtime -i <web service ID>
    ```
 
 2. Para probar el servicio, ejecute el comando de ejecución del servicio devuelto:
