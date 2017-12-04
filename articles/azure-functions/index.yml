@@ -34,7 +34,7 @@ sections:
         style: icon48
         items:
           - image:
-              src: media/index/http.svg
+              src: 'https://docs.microsoft.com/en-us/media/common/i_http.svg'
             text: http
             href: /azure/azure-functions/functions-create-first-azure-function
           - image:
@@ -95,4 +95,4 @@ sections:
           - title: REST
             html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
           - title: Enlaces
-            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob storage</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Event Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Archivo externo</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP y webhooks</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Aplicaciones móviles</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Centros de notificaciones</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Bus de servicio</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Almacenamiento de tablas</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Temporizador</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Enlace de salida de Twilio</a></p>
+            html: "<p><a href=\"/azure/azure-functions/functions-bindings-storage-blob\">Blob storage</a></p><p><a href=\"/azure/azure-functions/functions-bindings-documentdb\">Azure Cosmos DB</a></p><p><a href=\"/azure/azure-functions/functions-bindings-event-hubs\">Event Hubs</a></p><p><a href=\"/azure/azure-functions/functions-bindings-external-file\">Archivo externo</a></p><p><a href=\"/azure/azure-functions/functions-bindings-http-webhook\">HTTP y webhooks</a></p><p><a href=\"/azure/azure-functions/functions-bindings-mobile-apps\">Mobile Apps</a></p><p>\r\n            <a href=\"/azure/azure-functions/functions-bindings-notification-hubs\">Notification Hubs</a></p><p><a href=\"/azure/azure-functions/functions-bindings-storage-queue\">Queue storage</a></p><p><a href=\"/azure/azure-functions/functions-bindings-sendgrid\">SendGrid</a></p><p><a href=\"/azure/azure-functions/functions-bindings-service-bus\">Service Bus</a></p><p><a href=\"/azure/azure-functions/functions-bindings-storage-table\">Almacenamiento de tablas</a></p><p><a href=\"/azure/azure-functions/functions-bindings-timer\">Temporizador</a></p><p><a href=\"/azure/azure-functions/functions-bindings-twilio\">Enlace de salida de Twilio</a></p>"
