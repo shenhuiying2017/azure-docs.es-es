@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 11/29/2017
   ms.author: carolz
 abstract:
   description: 'Azure Cosmos DB es un servicio de base de datos de varios modelos distribuido globalmente. Use estos inicios rápidos, tutoriales y ejemplos para desarrollar bases de datos de documentos, de clave-valor, basadas en columnas y de grafos mediante API conocidas y modelos de programación. Después, aprenda a replicar los datos entre varias regiones de Azure y a escalar el rendimiento independientemente del almacenamiento, al tiempo que se beneficia de unos Acuerdos de Nivel de Servicio completos.'
@@ -63,7 +63,7 @@ sections:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-graph-python
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: Table API
             values:
