@@ -13,8 +13,10 @@
 - name: Inicios rápidos
   expanded: true
   items:
-    - name: Creación de aplicaciones .NET
+    - name: Creación de una aplicación .NET Core
       href: app-service-web-get-started-dotnet.md
+    - name: Creación de una aplicación de .NET Framework
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Creación de aplicaciones de Node.js
       href: app-service-web-get-started-nodejs.md
     - name: Creación de aplicaciones PHP

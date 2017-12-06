@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre el servicio Azure IoT Hub Device Provisioning (versión preliminar)
+title: Documentación del servicio Azure IoT Hub Device Provisioning
 metadata:
-  title: 'Documentación sobre el servicio Azure IoT Hub Device Provisioning (versión preliminar): tutoriales, referencia de API'
+  title: 'Documentación del servicio Azure IoT Hub Device Provisioning: tutoriales, referencia de API'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'El servicio IoT Hub Device Provisioning (versión preliminar) es un servicio auxiliar de IoT Hub que ofrece un aprovisionamiento just-in-time, sin intervención del usuario, de la instancia apropiada de IoT Hub, lo que permite a los clientes aprovisionar millones de dispositivos de forma segura y escalable. Aprenda a aprovisionar dispositivos en las instancias de IoT Hub con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: 'El servicio IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que ofrece un aprovisionamiento just-in-time, sin intervención del usuario, de la instancia apropiada de IoT Hub, que permite a los clientes aprovisionar millones de dispositivos de forma segura y escalable. Aprenda a aprovisionar dispositivos en las instancias de IoT Hub con nuestros inicios rápidos, tutoriales y ejemplos.'
 sections:
   - title: Inicios rápidos en 5 minutos
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Tutoriales detallados
     items:
       - type: paragraph
-        text: Aprenda a usar el servicio IoT Hub Device Provisioning Service (versión preliminar) para aprovisionar automáticamente dispositivos de seguridad habilitada en una o varias instancias de IoT Hub.
+        text: Aprenda a usar el servicio IoT Hub Device Provisioning Service para aprovisionar automáticamente dispositivos de seguridad habilitada en una o varias instancias de IoT Hub.
       - type: list
         style: ordered
         items:

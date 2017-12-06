@@ -76,7 +76,7 @@ Los gráficos que elija se muestran en los siguientes casos:
 
 ### <a name="graphics-details"></a>Detalles de gráficos
 
-Use las siguientes opciones de configuración para cambiar las características visuales de la página de inicio de sesión. Vaya a **Azure Active Directory** > **Personalización de marca de empresa** >  **	Editar personalización de marca de empresa**:
+Use las siguientes opciones de configuración para cambiar las características visuales de la página de inicio de sesión. Vaya a **Azure Active Directory** > **Personalización de marca de empresa** > **Editar personalización de marca de empresa**:
 
 * La imagen de la página de inicio de sesión debe ser un archivo .png o .jpg de 1420 x 1200 píxeles y con un tamaño máximo de 500 KB. Para obtener los mejores resultados, le recomendamos que mantenga el tamaño en unos 200 KB.
 * El color de fondo de la página de inicio de sesión se usa en conexiones de alta latencia y debe tener el formato hexadecimal RGB.
@@ -85,7 +85,7 @@ Use las siguientes opciones de configuración para cambiar las características 
 
 ### <a name="sign-in-text-options"></a>Opciones de texto de inicio de sesión
 
-La siguiente configuración le permite agregar texto a la página de inicio de sesión de la organización. Vaya a **Azure Active Directory** > **Personalización de marca de empresa** >  **	Editar personalización de marca de empresa**:
+La siguiente configuración le permite agregar texto a la página de inicio de sesión de la organización. Vaya a **Azure Active Directory** > **Personalización de marca de empresa** > **Editar personalización de marca de empresa**:
 
 * **Sugerencia de nombre de usuario**: reemplaza el texto de ejemplo de *someone@example.com* con algo más adecuado para los usuarios. Se recomienda dejar la sugerencia predeterminada cuando se admitan usuarios internos y externos.
 * **Texto de la página de inicio de sesión**: puede tener una longitud máxima de 256 caracteres. Este texto aparece en cualquier lugar donde los usuarios inicien sesión en línea, así como en la experiencia de Azure AD Workplace Join en Windows 10. Use este texto para los términos de uso, las instrucciones y las sugerencias para los usuarios. 

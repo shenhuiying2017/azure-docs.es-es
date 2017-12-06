@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Etiquetar una máquina virtual
           href: tag.md
-        - name: Usar Cloud-init
-          href: using-cloud-init.md
         - name: Ejecución de scripts en una máquina virtual
           href: extensions-customscript.md
         - name: Uso de Escritorio Remoto
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Creación de una máquina virtual completa
               href: terraform-create-complete-vm.md
+        - name: Cloud-Init
+          items:
+            - name: Introducción a cloud-init
+              href: using-cloud-init.md
+            - name: Configuración del nombre de host de la máquina virtual
+              href: cloudinit-update-vm-hostname.md
+            - name: Paquetes de actualización en una máquina virtual
+              href: cloudinit-update-vm.md
+            - name: Adición de un usuario a una máquina virtual
+              href: cloudinit-add-user.md
+            - name: Configuración del archivo de intercambio
+              href: cloudinit-configure-swapfile.md
+            - name: Ejecución del script de bash existente
+              href: cloudinit-bash-script.md
+            - name: Preparación de la máquina virtual existente para cloud-init
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

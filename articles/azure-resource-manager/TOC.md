@@ -38,7 +38,7 @@
 #### [Implementación de recursos](resource-group-template-deploy-portal.md)
 #### [Exportación de la plantilla](resource-manager-export-template.md)
 ### [API DE REST](resource-group-template-deploy-rest.md)
-### [Implementación en varios grupos de recursos](resource-manager-cross-resource-group-deployment.md)
+### [Varios grupos de recursos o suscripciones](resource-manager-cross-resource-group-deployment.md)
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md)
 
