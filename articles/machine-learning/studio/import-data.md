@@ -1,11 +1,11 @@
 ---
 title: "Importación de datos en Machine Learning Studio | Microsoft Docs"
-description: "Cómo importar los datos en Estudio de aprendizaje automático de Azure desde varios orígenes de datos. Obtenga información sobre qué tipos de datos y formatos de datos son compatibles."
+description: "Cómo importar los datos en Azure Machine Learning Studio desde varios orígenes de datos. Obtenga información sobre qué tipos de datos y formatos de datos son compatibles."
 keywords: "importar datos, formato de datos, tipos de datos, orígenes de datos, datos de entrenamiento"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
@@ -13,16 +13,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/29/2017
 ms.author: garye;bradsev
-ms.openlocfilehash: 98a8fa15922ef100a7f8cadd92fb7ffef0d3bcde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22f516f298df9396ca809acaa9c8cb62589c2a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importación de datos de entrenamiento en Estudio de aprendizaje automático de Azure desde varios orígenes de datos
-Para usar sus propios datos en Estudio de aprendizaje automático para desarrollar y entrenar una solución de análisis predictivo, puede: 
+# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importación de datos de entrenamiento en Azure Machine Learning Studio desde varios orígenes de datos
+Para usar sus propios datos en Machine Learning Studio para desarrollar y entrenar una solución de análisis predictivo, puede: 
 
 * Cargar datos de un **archivo local** con antelación desde el disco duro para crear un módulo de conjunto de datos en el área de trabajo.
 * Acceder a los datos desde cualquiera de los **orígenes de datos** en línea mientras su experimento se ejecuta con el módulo [Importar datos][import-data]. 
@@ -34,7 +34,7 @@ Cada una de estas opciones se describen en uno de los temas del menú inferior. 
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 > [!NOTE]
-> Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Machine Learning Studio que puede usar como datos de aprendizaje. Para obtener información al respecto, consulte [Uso de los conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure](use-sample-datasets.md).
+> Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Machine Learning Studio que puede usar como datos de aprendizaje. Para obtener información al respecto, consulte [Uso de los conjuntos de datos de ejemplo en Azure Machine Learning Studio](use-sample-datasets.md).
 > 
 > 
 
@@ -44,12 +44,12 @@ En este tema de introducción también se explica cómo obtener datos listos par
 > 
 > 
 
-## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Preparación de los datos para usarlos en Estudio de aprendizaje automático de Azure
-Estudio de aprendizaje automático está diseñado para trabajar con datos rectangulares o tabulares, como datos de texto delimitados o datos estructurados de una base de datos, aunque en algunas circunstancias, es posible usar datos no rectangulares.
+## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Preparación de los datos para usarlos en Azure Machine Learning Studio
+Machine Learning Studio está diseñado para trabajar con datos rectangulares o tabulares, como datos de texto delimitados o datos estructurados de una base de datos, aunque en algunas circunstancias, es posible usar datos no rectangulares.
 
 Se recomienda que los datos estén relativamente limpios. Es decir, querrá ocuparse de problemas como las cadenas sin comillas antes de cargar los datos en su experimento.
 
-Sin embargo, hay módulos disponibles en Estudio de aprendizaje automáticos que le permitirán manipular levemente los datos en el experimento. Dependiendo de los algoritmos de aprendizaje automático que usará, es posible que deba decidir cómo controlar los problemas estructurales de los datos, como valores que faltan y datos esparcidos y existen módulos que pueden ayudar en esto. Observe la sección **Transformación de datos** de la paleta de módulos para los módulos que realizan estas funciones.
+Sin embargo, hay módulos disponibles en Machine Learning Studio que le permitirán manipular levemente los datos en el experimento. Dependiendo de los algoritmos de aprendizaje automático que usará, es posible que deba decidir cómo controlar los problemas estructurales de los datos, como valores que faltan y datos esparcidos y existen módulos que pueden ayudar en esto. Observe la sección **Transformación de datos** de la paleta de módulos para los módulos que realizan estas funciones.
 
 En cualquier momento del experimento puede ver o descargar los datos que genera un módulo con un clic en el puerto de salida. Dependiendo del módulo, es posible que haya distintas opciones de descarga disponibles, o bien que se puedan visualizar los datos dentro del explorador web en Machine Learning Studio.
 
@@ -69,13 +69,13 @@ Puede importar diversos tipos de datos al experimento, dependiendo del mecanismo
 * Archivo ZIP (.zip)
 * Archivo de área de trabajo u objeto de R (.RData)
 
-Si importa datos en un formato distinto de ARFF que incluyan metadatos, Estudio de aprendizaje automático usa estos metadatos para definir el tipo de datos y encabezado de cada columna.
+Si importa datos en un formato distinto de ARFF que incluyan metadatos, Machine Learning Studio usa estos metadatos para definir el tipo de datos y encabezado de cada columna.
 
-Si importa datos en formato TSV o CSV que no incluyan estos metadatos, Estudio de aprendizaje automático infiere el tipo de datos de cada columna tomando una muestra de los mismos. Si los datos no tienen encabezados de columna, Estudio de aprendizaje automático proporciona nombres predeterminados.
+Si importa datos en formato TSV o CSV que no incluyan estos metadatos, Machine Learning Studio infiere el tipo de datos de cada columna tomando una muestra de los mismos. Si los datos no tienen encabezados de columna, Machine Learning Studio proporciona nombres predeterminados.
 
 Puede especificar o cambiar explícitamente los encabezados y los tipos de datos de las columnas usando el módulo [Editar metadatos][edit-metadata].
 
-Estudio de aprendizaje automático reconoce los siguientes **tipos de datos** :
+Machine Learning Studio reconoce los siguientes **tipos de datos** :
 
 * String
 * Entero

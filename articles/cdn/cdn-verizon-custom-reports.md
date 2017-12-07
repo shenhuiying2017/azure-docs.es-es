@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Informes personalizados de Verizon
 
@@ -30,7 +30,7 @@ Mediante los informes personalizados de Verizon a través del portal de administ
 ## <a name="accessing-verizon-custom-reports"></a>Acceso a los informes personalizados de Verizon
 1. En la hoja de perfil de CDN, haga clic en el botón **Administrar** .
    
-    ![Botón de administración de hoja de perfil de red CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Botón de administración del perfil de la red CDN](./media/cdn-reports/cdn-manage-btn.png)
    
     Se abre el portal de administración de CDN.
 2. Mueva el puntero sobre la pestaña **Análisis** y después sobre el control flotante **Informes personalizados**. Haga clic en **Edge CNAMEs** (CNAME perimetrales).

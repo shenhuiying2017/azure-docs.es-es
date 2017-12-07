@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2014
-ms.author: support@blitline.com
-ms.openlocfilehash: 1d90599e028b3407a513b04b878e3aefc39928a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cwatson
+ms.openlocfilehash: 254af305592ebef755ccfcb3ae4367b27fb0fc4a
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>Cómo usar Blitline con Azure y Almacenamiento de Azure
+# <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>Cómo usar Blitline con Azure y Azure Storage
 Esta guía explica cómo obtener acceso a los servicios Blitline y cómo enviar trabajos a Blitline.
 
 ## <a name="what-is-blitline"></a>¿Qué es Blitline?
@@ -35,7 +35,7 @@ Para aclarar para qué sirve Blitline, normalmente es más sencillo identificar 
 
 * Blitline NO dispone de widgets HTML para cargar imágenes. Debe tener imágenes disponibles públicamente o con permisos restringidos disponibles para que los consiga Blitline.
 * Blitline NO activa el procesamiento de imágenes, como Aviary.com.
-* Blitline NO acepta cargas de imágenes y no puede insertar imágenes en Blitline directamente. Debe insertarlas en Almacenamiento de Azure o en otros lugares compatibles con Blitline y luego indicar a Blitline el lugar donde conseguirlas.
+* Blitline NO acepta cargas de imágenes y no puede insertar imágenes en Blitline directamente. Debe insertarlas en Azure Storage o en otros lugares compatibles con Blitline y luego indicar a Blitline el lugar donde conseguirlas.
 * Blitline funciona de una forma totalmente paralela y NO realiza ningún procesamiento sincrónico. Esto significa que debe proporcionarnos una dirección URL postback_url para que podamos indicarle cuándo acabamos el procedimiento.
 
 ## <a name="create-a-blitline-account"></a>Creación de una cuenta Blitline
@@ -84,8 +84,8 @@ Obtendrá un resultado JSON con una apariencia similar a la siguiente:
 
 Esto indica que Blitline ha recibido la solicitud, la ha puesto en la cola de procesamiento y, cuando se haya completado, la imagen estará disponible en: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-## <a name="how-to-save-an-image-to-your-azure-storage-account"></a>Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure
-Si dispone de una cuenta de Almacenamiento de Azure, puede hacer que Blitline inserte las imágenes procesadas en el contenedor de Azure. Si agrega "azure_destination", defina la ubicación y los permisos de inserción de Blitline.
+## <a name="how-to-save-an-image-to-your-azure-storage-account"></a>Almacenamiento de una imagen en la cuenta de Azure Storage
+Si dispone de una cuenta de Azure Storage, puede hacer que Blitline inserte las imágenes procesadas en el contenedor de Azure. Si agrega "azure_destination", defina la ubicación y los permisos de inserción de Blitline.
 
 Aquí tiene un ejemplo:
 
@@ -115,7 +115,7 @@ Ejemplo:
     http://blitline.blob.core.windows.net/sample/image.jpg?sr=b&sv=2012-02-12&st=2013-04-12T03%3A18%3A30Z&se=2013-04-12T04%3A18%3A30Z&sp=w&sig=Bte2hkkbwTT2sqlkkKLop2asByrE0sIfeesOwj7jNA5o%3D
 
 
-También puede consultar la última edición de los documentos de Almacenamiento de Azure de Blitline [aquí](http://www.blitline.com/docs/azure_storage).
+También puede consultar la última edición de los documentos de Azure Storage de Blitline [aquí](http://www.blitline.com/docs/azure_storage).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Visite blitline.com para conocer toda la información sobre otras características:

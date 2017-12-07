@@ -1,6 +1,6 @@
 ---
 title: Uso del portal de servicios web Azure Machine Learning | Microsoft Docs
-description: "Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático"
+description: "Administrar el acceso a las áreas de trabajo de Azure Machine Learning, e implementar y administrar servicios web de la API de Machine Learning"
 services: machine-learning
 documentationcenter: 
 author: vDonGlover
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Administración de un servicio web mediante el portal Servicios web Azure Machine Learning
 Puede administrar los servicios web Machine Learning nuevos y clásicos mediante el portal Servicios web Microsoft Azure Machine Learning. Dado que los servicios web clásicos y nuevos se basan en tecnologías subyacentes distintas, cada uno de ellos presenta funciones de administración ligeramente diferentes.
@@ -88,7 +88,7 @@ Puede actualizar las propiedades siguientes:
 * **Título** permite escribir un título para el servicio web
 * **Claves** permite alternar las claves de API primarias y secundarias.
 * **Clave de cuenta de almacenamiento** permite actualizar la clave de la cuenta de almacenamiento asociada con los cambios del servicio web. 
-* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Estudio de aprendizaje automático de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
+* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Machine Learning Studio de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
 
 ### <a name="managing-billing-plans"></a>Administración de planes de facturación
 Haga clic en la opción de menú **Planes** de la página Inicio rápido de los servicios web. También puede hacer clic en el plan asociado con el servicio web específico para administrar dicho plan.
@@ -153,38 +153,6 @@ Puede actualizar las propiedades siguientes:
 
 * **Descripción** permite escribir una descripción del servicio web. La descripción es un campo obligatorio.
 * **Registro** permite habilitar o deshabilitar el registro de errores en el punto de conexión. Para obtener más información sobre el registro, consulte [Habilitación del registro para los servicios web Machine Learning](web-services-logging.md).
-* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Estudio de aprendizaje automático de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
+* **Habilitar datos de ejemplo** permite ofrecer datos de ejemplo que pueden usarse para probar el servicio de solicitud-respuesta. Si ha creado el servicio web en Machine Learning Studio de Microsoft Azure, los datos de ejemplo se toman de los utilizados para entrenar el modelo. Si ha creado el servicio mediante programación, los datos se extraen de los datos de ejemplo ofrecidos como parte del paquete JSON.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Concesión o suspensión del acceso por parte de los usuarios del portal a los servicios web
-Mediante el Portal de Azure clásico, puede permitir o denegar el acceso a usuarios específicos.
-
-### <a name="access-for-users-of-new-web-services"></a>Acceso por parte de los usuarios de los servicios web nuevos
-Para permitir que otros usuarios puedan trabajar con los servicios web del portal Servicios web Azure Machine Learning, debe agregarlos como coadministradores en su suscripción de Azure.
-
-Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con su cuenta de Microsoft Azure (use la cuenta que está asociada a la suscripción de Azure).
-
-1. En el panel de navegación, haga clic en **Configuración** y luego en **Administradores**.
-2. En la parte inferior de la ventana, haga clic en **Agregar**. 
-3. En el cuadro de diálogo AGREGAR COADMINISTRADOR, escriba la dirección de correo electrónico de la persona a la que quiere agregar como coadministrador y luego seleccione la suscripción a la que quiere que el coadministrador tenga acceso.
-4. Haga clic en **Guardar**.
-
-### <a name="access-for-users-of-classic-web-services"></a>Acceso por parte de los usuarios de servicios web clásicos
-Para administrar un área de trabajo:
-
-Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) con su cuenta de Microsoft Azure (use la cuenta que está asociada a la suscripción de Azure).
-
-1. En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.
-2. Haga clic en el área de trabajo que desea administrar.
-3. Haga clic en la pestaña **Configurar** .
-
-En la pestaña Configuración, puede suspender el acceso al área de trabajo de Machine Learning haciendo clic en **DENEGAR**. Los usuarios ya no podrán abrir el área de trabajo en Estudio de aprendizaje automático. Para restaurar el acceso, haga clic en **PERMITIR**.
-
-Para usuarios específicos:
-
-Para administrar cuentas adicionales que dispongan de acceso al área de trabajo de Machine Learning Studio, haga clic en **Iniciar sesión en ML Studio** en la pestaña **PANEL**. De esta manera, se abre el área de trabajo en Estudio de aprendizaje automático. Desde aquí, haga clic en la pestaña **CONFIGURACIÓN** y luego en **USUARIOS**. Puede hacer clic en **INVITAR MÁS USUARIOS** para permitir el acceso a otros usuarios al área de trabajo. También puede seleccionar un usuario y hacer clic en **QUITAR**.
-
-> [!NOTE]
-> El vínculo **Iniciar sesión en ML Studio** permite abrir Machine Learning Studio mediante la cuenta Microsoft en la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure clásico para crear un área de trabajo no tiene automáticamente permiso para abrir el área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
-> 
-> 
 

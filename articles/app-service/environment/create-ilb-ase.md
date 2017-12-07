@@ -10,14 +10,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cc7bdd7860506c20187dc913b72111824d1737ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -68,7 +69,7 @@ Pasos para crear un ASE con un ILB:
 
     * Escale cerca de 100, pero con un escalado de front-end más rápido.
 
-6. Seleccione **Red virtual/Ubicación** > **Configuración de red virtual**. Establezca el valor de **Tipo de dirección VIP** en **Interna**.
+6. Seleccione **Virtual Network/Ubicación** > **Configuración de Virtual Network**. Establezca el valor de **Tipo de dirección VIP** en **Interna**.
 
 7. Escriba un valor en nombre de dominio. Este dominio es el que utiliza para las aplicaciones creadas en este ASE. Hay algunas restricciones. No puede ser:
 
@@ -94,7 +95,7 @@ Pasos para crear un ASE con un ILB:
 
     ![Creación de ASE][1]
 
-En la hoja **Red virtual**, hay una opción denominada **Configuración de red virtual**. Puede usarla para seleccionar una VIP externa o interna. El valor predeterminado es **Externa**. Si selecciona **Externa**, el ASE utilizará una dirección VIP accesible de Internet. Si selecciona **Interna**, el ASE se configurará con un ILB en una dirección IP de su red virtual.
+En la hoja **Virtual Network**, hay una opción denominada **Configuración de Virtual Network**. Puede usarla para seleccionar una VIP externa o interna. El valor predeterminado es **Externa**. Si selecciona **Externa**, el ASE utilizará una dirección VIP accesible de Internet. Si selecciona **Interna**, el ASE se configurará con un ILB en una dirección IP de su red virtual.
 
 Tras seleccionar **Interna**, se quita la capacidad de agregar más direcciones IP a su ASE. En su lugar, debe proporcionar el dominio del ASE. En un ASE con una dirección VIP externa, se usa el nombre del ASE en el dominio para las aplicaciones creadas en dicho ASE.
 
@@ -113,7 +114,7 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 4. Seleccione o cree un grupo de recursos.
 
-5. Seleccione o cree un plan del Servicio de aplicaciones. Si desea crear un nuevo plan de App Service, seleccione su ASE como ubicación. Seleccione el grupo de trabajo donde desea que se cree el plan de App Service. Cuando cree el plan de App Service, seleccione el ASE como ubicación y grupo de trabajo. Al especificar el nombre de la aplicación, el dominio que se encuentra bajo el nombre de la aplicación se reemplaza por el dominio del ASE.
+5. Seleccione o cree un plan de App Service. Si desea crear un nuevo plan de App Service, seleccione su ASE como ubicación. Seleccione el grupo de trabajo donde desea que se cree el plan de App Service. Cuando cree el plan de App Service, seleccione el ASE como ubicación y grupo de trabajo. Al especificar el nombre de la aplicación, el dominio que se encuentra bajo el nombre de la aplicación se reemplaza por el dominio del ASE.
 
 6. Seleccione **Crear**. Si quiere que la aplicación aparezca en el panel, active la casilla **Anclar a panel**.
 
@@ -218,7 +219,7 @@ Azure App Service proporciona muchas medidas de seguridad que protegen el sistem
 
 Para obtener más información sobre cómo configurar el ASE con un ILB con un dispositivo WAF, consulte [Configurar un firewall de aplicaciones web con App Service Environment][ASEWAF]. En este artículo se muestra cómo usar una aplicación virtual Barracuda con su ASE. Otra opción es utilizar Azure Application Gateway. Application Gateway utiliza las reglas de núcleo de OWASP para proteger cualquier aplicación que se encuentre detrás de él. Para obtener más información sobre Application Gateway, consulte [Introducción al firewall de aplicaciones web de Azure][AppGW].
 
-## <a name="get-started"></a>Primeros pasos ##
+## <a name="get-started"></a>Introducción ##
 
 * Para empezar a trabajar con las instancias de App Service Environment, consulte [Introducción a App Service Environment][Intro].
  

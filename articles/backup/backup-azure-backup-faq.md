@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
 En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -44,7 +44,7 @@ No. El almacén se crea en un nivel de suscripción y no se puede reasignar a ot
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Los almacenes de Recovery Services se basan en Resource Manager. ¿Se admiten aún los almacenes de Backup (modo clásico)? <br/>
 Todos los almacenes de Backup existentes en el [portal clásico](https://manage.windowsazure.com) siguen siendo compatibles. Sin embargo, ya no podrá usar el portal clásico para implementar nuevos almacenes de Backup. Microsoft recomienda el uso de almacenes de Recovery Services para todas las implementaciones porque las futuras mejoras solo se aplican a almacenes de Recovery Services. Si intenta crear un almacén de Backup en el portal clásico, se le redirigirá a [Azure Portal](https://portal.azure.com).
 
-### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>¿Se puede migrar un almacén de Backup a un almacén de Recovery Services? <br/>
+### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>¿Se puede migrar un almacén de Copia de seguridad a un almacén de Recovery Services? <br/>
 Sí, ahora puede actualizar los almacenes de Backup a almacenes de Recovery Services. Para más información, consulte [Actualización de un almacén de Backup a un almacén de Recovery Services](backup-azure-upgrade-backup-to-recovery-services.md).
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>He realizado copias de seguridad de mis máquinas virtuales clásicas en un almacén de Backup. ¿Puedo migrar mis máquinas virtuales del modo clásico al modo de Resource Manager y protegerlos en un almacén de Recovery Services?
@@ -55,7 +55,7 @@ Los puntos de recuperación de máquinas virtuales clásicas en un almacén de B
 3. Migre la máquina virtual del modo clásico al modo de Resource Manager. Asegúrese de que la información de almacenamiento y red correspondiente a la máquina virtual también se migra al modo de Resource Manager.
 4. Cree un almacén de Recovery Services y configure la copia de seguridad de la máquina virtual migrada mediante la acción **Copia de seguridad** sobre el panel del almacén. Para más información sobre la copia de seguridad de una máquina virtual en un almacén de Recovery Services, consulte el artículo [Primer análisis: protección de máquinas virtuales con un almacén de Recovery Services](backup-azure-vms-first-look-arm.md).
 
-## <a name="azure-backup-agent"></a>Agente de copia de seguridad de Azure
+## <a name="azure-backup-agent"></a>Agente de Azure Backup
 Se puede encontrar una lista detallada de preguntas en las [P+F sobre la copia de seguridad de archivos y carpetas de Azure](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="azure-vm-backup"></a>Copia de seguridad de máquina virtual de Azure
@@ -112,7 +112,6 @@ Azure Backup admite la siguiente lista de sistemas operativos para la copia de s
 | Windows Storage Server 2012 y SP más recientes |64 bits |Standard, Workgroup |
 | Windows Server 2012 R2 y SP más recientes |64 bits |Essential |
 | Windows Server 2008 R2 SP1 |64 bits |Standard, Enterprise, Datacenter, Foundation |
-| Windows Server 2008 SP2 |64 bits |Standard, Enterprise, Datacenter, Foundation |
 
 **Para la copia de seguridad de máquinas virtuales de Azure:**
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 54e39a1f1627ccf57271d2e8970af72fea3e75f0
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 726799e5d885f144d6e24ab88aaa022f95f0bdd8
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrado del tráfico de red con grupos de seguridad de red
 
@@ -123,7 +123,7 @@ Puede implementar los grupos de seguridad de red en el modelo de implementación
 
 | Herramienta de implementación | Clásico | Resource Manager |
 | --- | --- | --- |
-| Azure Portal   | Sí | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
+| Azure Portal   | No | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
 | PowerShell     | [Sí](virtual-networks-create-nsg-classic-ps.md) | [Sí](virtual-networks-create-nsg-arm-ps.md) |
 | CLI de Azure **V1**   | [Sí](virtual-networks-create-nsg-classic-cli.md) | [Sí](virtual-networks-create-nsg-arm-cli.md) |
 | CLI de Azure **V2**   | No | [Sí](virtual-networks-create-nsg-arm-cli.md) |

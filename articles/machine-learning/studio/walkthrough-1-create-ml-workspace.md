@@ -1,6 +1,6 @@
 ---
 title: "Paso 1: Creación de un área de trabajo de Machine Learning | Microsoft Docs"
-description: "Paso 1 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Estudio de aprendizaje automático de Azure."
+description: "Paso 1 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Azure Machine Learning Studio."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: ff857e83a37b95bceb751539bb34e9fb7f202931
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58b37cf8927926cb128928e4d0e438945074f6e5
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Paso 1 del tutorial: Creación de un área de trabajo de Aprendizaje automático
-Este es el primer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](walkthrough-develop-predictive-solution.md).
+# <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>Paso 1 del tutorial: Creación de un área de trabajo de Machine Learning
+Este es el primer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
-1. **Creación de un área de trabajo de Aprendizaje automático**
+1. **Creación de un área de trabajo de Machine Learning**
 2. [Carga de los datos existentes](walkthrough-2-upload-data.md)
 3. [Crear un experimento nuevo](walkthrough-3-create-new-experiment.md)
 4. [Entrenamiento y evaluación de los modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -33,16 +33,7 @@ Este es el primer paso del tutorial [Desarrollo de una solución de análisis pr
 - - -
 <!-- This needs to be updated to refer to the new way of creating workspaces in the Ibiza portal -->
 
-Para usar Estudio de aprendizaje automático, debe tener un área de trabajo de Aprendizaje automático de Microsoft Azure. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
-
-<!--
-## To create a workspace
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
-2. In the  Azure services panel, click **MACHINE LEARNING**.  
-   ![Create workspace][1]
-3. Click **CREATE AN ML WORKSPACE**.
-4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
--->
+Para usar Machine Learning Studio, debe tener un área de trabajo de Microsoft Azure Machine Learning. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
 
 El administrador de su suscripción de Azure debe crear el área de trabajo y, a continuación, agregarlo como un propietario o colaborador. Para obtener más información, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](create-workspace.md).
 
@@ -51,7 +42,7 @@ Una vez que haya creado el área de trabajo, abra Machine Learning Studio ([http
 ![Selección del área de trabajo en Studio][2]
 
 > [!TIP]
-> Si le han convertido en el propietario del área de trabajo, puede compartir los experimentos en los que esté trabajando invitando a otros al área. Para ello, en Estudio de aprendizaje automático, vaya a la página **CONFIGURACIÓN** . Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
+> Si le han convertido en el propietario del área de trabajo, puede compartir los experimentos en los que esté trabajando invitando a otros al área. Para ello, en Machine Learning Studio, vaya a la página **CONFIGURACIÓN** . Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
 > 
 > En la página **CONFIGURACIÓN**, haga clic en **USUARIOS** y, después, haga clic en **INVITE MORE USERS** (INVITAR A MÁS USUARIOS) en la parte inferior de la ventana.
 > 

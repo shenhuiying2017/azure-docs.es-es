@@ -11,18 +11,19 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2016
 ms.author: naziml
-ms.openlocfilehash: 3c218a6fe3857c216bc185c5d3630025f332147b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.custom: mvc
+ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service
 ## <a name="overview"></a>Información general
-Los firewalls de aplicaciones web como [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure), que está disponible en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/), ayudan a proteger las aplicaciones web mediante la inspección del tráfico web entrante para bloquear las inyecciones de código SQL, scripts entre sitios, cargas de malware, DDoS de aplicaciones y otros ataques. También examinan las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Combinado con el aislamiento y la escala adicional proporcionados por los entornos de App Service, esto proporciona un entorno ideal para hospedar importantes aplicaciones web empresariales que deben soportar peticiones malintencionadas y tráfico de gran volumen.
+Los firewalls de aplicaciones web como [Barracuda WAF para Azure](https://www.barracuda.com/programs/azure), que está disponible en [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/), ayudan a proteger las aplicaciones web mediante la inspección del tráfico web entrante para bloquear las inyecciones de código SQL, scripts entre sitios, cargas de malware, DDoS de aplicaciones y otros ataques. También examina las respuestas de los servidores web back-end para prevención de pérdida de datos (DLP). Combinado con el aislamiento y la escala adicional proporcionados por los entornos de App Service, esto proporciona un entorno ideal para hospedar importantes aplicaciones web empresariales que deben soportar peticiones malintencionadas y tráfico de gran volumen.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 

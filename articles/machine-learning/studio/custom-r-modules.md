@@ -1,10 +1,10 @@
 ---
 title: "Creación de módulos R personalizados en Azure Machine Learning | Microsoft Docs"
-description: "Inicio rápido para la creación de módulos R personalizados en Aprendizaje automático de Azure."
+description: "Inicio rápido para la creación de módulos R personalizados en Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 03/24/2017
-ms.author: bradsev;ankarlof
-ms.openlocfilehash: cf3f0e79a9f873a57ef6b7f5233d324faee3e017
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: bradsev;ankarlof;garye
+ms.openlocfilehash: 1cd2bbb6adecaba908252bd42fce292654a5cf5a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="author-custom-r-modules-in-azure-machine-learning"></a>Creación de módulos R personalizados en Aprendizaje automático de Azure
-En este tema se describe cómo crear e implementar un módulo R personalizado en Aprendizaje automático de Azure. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Aprendizaje automático. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
+# <a name="author-custom-r-modules-in-azure-machine-learning"></a>Creación de módulos R personalizados en Azure Machine Learning
+En este tema se describe cómo crear e implementar un módulo R personalizado en Azure Machine Learning. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Machine Learning. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-is-a-custom-r-module"></a>¿Qué es un módulo R personalizado?
-Un **módulo personalizado** es un módulo definido por el usuario que se puede cargar en el área de trabajo de un usuario y ejecutarlo como parte de un experimento de Aprendizaje automático de Azure. Un **módulo de R personalizado** es un módulo personalizado que ejecuta una función de R definida por el usuario. **R** es un lenguaje de programación de computación estadística y gráficos utilizado ampliamente por científicos estadísticos y de datos para implementar algoritmos. Actualmente, R es el único lenguaje que se admite en los módulos personalizados, pero en las próximas versiones se ha programado la compatibilidad con idiomas adicionales.
+Un **módulo personalizado** es un módulo definido por el usuario que se puede cargar en el área de trabajo de un usuario y ejecutarlo como parte de un experimento de Azure Machine Learning. Un **módulo de R personalizado** es un módulo personalizado que ejecuta una función de R definida por el usuario. **R** es un lenguaje de programación de computación estadística y gráficos utilizado ampliamente por científicos estadísticos y de datos para implementar algoritmos. Actualmente, R es el único lenguaje que se admite en los módulos personalizados, pero en las próximas versiones se ha programado la compatibilidad con idiomas adicionales.
 
-Los módulos personalizados tienen un **estado de primera clase** en Aprendizaje automático de Azure, en el sentido de que se pueden usar como cualquier otro módulo. Pueden ejecutarse con otros módulos e incluirse en experimentos publicados o visualizaciones. Usted tiene control sobre el algoritmo implementado por el módulo, los puertos de entrada y de salida a utilizar, los parámetros de modelado y otros distintos comportamientos en tiempo de ejecución. En la galería de Cortana Intelligence también se puede publicar un experimento con módulos personalizados para compartirlo fácilmente.
+Los módulos personalizados tienen un **estado de primera clase** en Azure Machine Learning, en el sentido de que se pueden usar como cualquier otro módulo. Pueden ejecutarse con otros módulos e incluirse en experimentos publicados o visualizaciones. Usted tiene control sobre el algoritmo implementado por el módulo, los puertos de entrada y de salida a utilizar, los parámetros de modelado y otros distintos comportamientos en tiempo de ejecución. En la galería de Cortana Intelligence también se puede publicar un experimento con módulos personalizados para compartirlo fácilmente.
 
 ## <a name="files-in-a-custom-r-module"></a>Archivos de un módulo R personalizado
 Un módulo R personalizado se define mediante un archivo .zip que contiene, como mínimo, dos archivos:
@@ -39,7 +39,7 @@ Un módulo R personalizado se define mediante un archivo .zip que contiene, como
 También se pueden incluir archivos auxiliares adicionales en el archivo .zip que proporcionan una funcionalidad a la que se puede tener acceso desde el módulo personalizado. Esta opción se describe en el apartado **Argumentos** de la sección de referencia **Elementos del archivo de definición XML** que sigue al ejemplo de inicio rápido.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Ejemplo de inicio rápido: definir, empaquetar y registrar un módulo R personalizado
-En este ejemplo se muestra cómo construir los archivos que requiere un módulo R personalizado, empaquetarlos en un archivo zip y, a continuación, registrar el módulo en un área de trabajo de Aprendizaje automático. Tanto el paquete zip de ejemplo como los archivos de ejemplo se pueden descargar en [Descargar el archivo CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+En este ejemplo se muestra cómo construir los archivos que requiere un módulo R personalizado, empaquetarlos en un archivo zip y, a continuación, registrar el módulo en un área de trabajo de Machine Learning. Tanto el paquete zip de ejemplo como los archivos de ejemplo se pueden descargar en [Descargar el archivo CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>El archivo de origen
 Considere el ejemplo de un módulo **Custom Add Rows** (Agregar filas personalizado) que modifica la implementación estándar del módulo de **Agregar filas** que se usa para concatenar las filas (observaciones) de dos conjuntos de datos (tramas de datos). El módulo **Agregar filas** estándar anexa las filas del segundo conjunto de datos de entrada al final del primer conjunto de datos de entrada mediante el algoritmo `rbind`. La función `CustomAddRows` personalizada acepta dos conjuntos de datos de forma similar, pero también acepta un parámetro booleano de intercambio como entrada adicional. Si el parámetro de intercambio está establecido en **FALSE**, devuelve el mismo conjunto de datos que la implementación estándar. Pero si el parámetro de intercambio es **TRUE**, la función anexará filas del primer conjunto de datos de entrada al final del segundo conjunto de datos. El archivo CustomAddRows.R que contiene la implementación de la función R `CustomAddRows` expuesta por el módulo **Agregar filas personalizado** tiene el siguiente código R.
@@ -57,7 +57,7 @@ Considere el ejemplo de un módulo **Custom Add Rows** (Agregar filas personaliz
     } 
 
 ### <a name="the-xml-definition-file"></a>El archivo de definición XML
-Para exponer esta función `CustomAddRows` como módulo de Aprendizaje automático de Azure, se debe crear un archivo de definición XML para especificar la apariencia y comportamiento que debe tener el módulo **Agregar filas personalizado** . 
+Para exponer esta función `CustomAddRows` como módulo de Azure Machine Learning, se debe crear un archivo de definición XML para especificar la apariencia y comportamiento que debe tener el módulo **Agregar filas personalizado** . 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -103,11 +103,11 @@ Para registrarlos en su área de trabajo de Machine Learning, vaya al área de t
 
 ![Cargar archivo zip](./media/custom-r-modules/upload-from-zip-package.png)
 
-El módulo **Agregar filas personalizado** ya está preparado para que los experimentos de Aprendizaje automático tengan acceso a él.
+El módulo **Agregar filas personalizado** ya está preparado para que los experimentos de Machine Learning tengan acceso a él.
 
 ## <a name="elements-in-the-xml-definition-file"></a>Elementos del archivo de definición XML
 ### <a name="module-elements"></a>Elementos Module
-El elemento **Module** se usa para definir un módulo personalizado en el archivo XML. Se pueden definir varios módulos en un archivo XML mediante el uso de varios elementos **Module** . Cada uno de los módulos del área de trabajo debe tener un nombre único. Registre un módulo personalizado con el mismo nombre que un módulo personalizado existente y reemplazará el módulo existente por otro nuevo. Sin embargo, los módulos personalizados se pueden registrar con el mismo nombre que un módulo de Aprendizaje automático de Azure existente. Si es así, aparecerán en la categoría **Custom** de la paleta del módulo.
+El elemento **Module** se usa para definir un módulo personalizado en el archivo XML. Se pueden definir varios módulos en un archivo XML mediante el uso de varios elementos **Module** . Cada uno de los módulos del área de trabajo debe tener un nombre único. Registre un módulo personalizado con el mismo nombre que un módulo personalizado existente y reemplazará el módulo existente por otro nuevo. Sin embargo, los módulos personalizados se pueden registrar con el mismo nombre que un módulo de Azure Machine Learning existente. Si es así, aparecerán en la categoría **Custom** de la paleta del módulo.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -117,7 +117,7 @@ El elemento **Module** se usa para definir un módulo personalizado en el archiv
 Dentro del elemento **Module** , puede especificar dos elementos opcionales adicionales:
 
 * un elemento **Owner** que está incrustado en el módulo  
-* un elemento **Description** que contiene el texto que se muestra en la ayuda rápida del módulo y cuando mantiene el puntero sobre el módulo en la interfaz de usuario de Aprendizaje automático.
+* un elemento **Description** que contiene el texto que se muestra en la ayuda rápida del módulo y cuando mantiene el puntero sobre el módulo en la interfaz de usuario de Machine Learning.
 
 Reglas para los límites de caracteres de los elementos Module:
 
@@ -125,7 +125,7 @@ Reglas para los límites de caracteres de los elementos Module:
 * El contenido del elemento **Description** no debe superar los 128 caracteres.
 * El contenido del elemento **Owner** no debe superar los 32 caracteres.
 
-Los resultados de un módulo pueden ser deterministas o no deterministas.** De forma predeterminada, se considera que todos los módulos son deterministas. Es decir, dado un conjunto de parámetros y datos de entrada que no cambian, el módulo debe devolver los mismos resultados cada vez que se ejecute RAND o una función. Dado este comportamiento, Estudio de aprendizaje automático de Azure solo volverá a ejecutar los módulos marcados como deterministas si un parámetro o los datos de entrada han cambiado. La devolución de los resultados almacenados en caché también proporciona una ejecución mucho más rápida de los experimentos.
+Los resultados de un módulo pueden ser deterministas o no deterministas.** De forma predeterminada, se considera que todos los módulos son deterministas. Es decir, dado un conjunto de parámetros y datos de entrada que no cambian, el módulo debe devolver los mismos resultados cada vez que se ejecute RAND o una función. Dado este comportamiento, Azure Machine Learning Studio solo volverá a ejecutar los módulos marcados como deterministas si un parámetro o los datos de entrada han cambiado. La devolución de los resultados almacenados en caché también proporciona una ejecución mucho más rápida de los experimentos.
 
 Hay funciones que son no deterministas, como RAND o una función que devuelve la fecha o la hora actual. Si el módulo usa una función no determinista, puede especificar que el módulo es no determinista estableciendo el atributo opcional **isDeterministic** en **FALSE**. Esto garantiza que el módulo se volverá a ejecutar siempre que se ejecute el experimento, aunque la entrada y los parámetros del módulo no hayan cambiado. 
 
@@ -137,7 +137,7 @@ El elemento **Lenguage** del archivo de definición XML se usa para especificar 
 
 ### <a name="ports"></a>Puertos
 Los puertos de entrada y salida de un módulo personalizado se especifican en los elementos secundarios de la sección **Ports** del archivo de definición XML. El orden de estos elementos determina el diseño que ven (UX) los usuarios. La primera **entrada** o **salida** secundaria que aparezca en el elemento **Ports** del archivo XML se convertirá en el puerto de entrada del punto de conexión situado más a la izquierda en la experiencia de usuario de Machine Learning.
-Cada puerto de entrada y salida puede tener un elemento secundario **Description** que especifica el texto que se muestra cuando mantiene el puntero sobre el puerto en la interfaz de usuario de Aprendizaje automático.
+Cada puerto de entrada y salida puede tener un elemento secundario **Description** que especifica el texto que se muestra cuando mantiene el puntero sobre el puerto en la interfaz de usuario de Machine Learning.
 
 **Reglas de puertos**:
 
@@ -146,7 +146,7 @@ Cada puerto de entrada y salida puede tener un elemento secundario **Description
 ### <a name="input-elements"></a>Elementos de entrada
 Los puertos de entrada le permiten pasar datos a una función y un área de trabajo de R. Los **tipos de datos** que se admiten para los puertos de entrada son los siguientes: 
 
-**DataTable:** este tipo se pasa a la función de R como data.frame. De hecho, todos los tipos (por ejemplo, archivos CSV o archivos ARFF) que admite Aprendizaje automático y que son compatibles con **DataTable** se convierten automáticamente en data.frame. 
+**DataTable:** este tipo se pasa a la función de R como data.frame. De hecho, todos los tipos (por ejemplo, archivos CSV o archivos ARFF) que admite Machine Learning y que son compatibles con **DataTable** se convierten automáticamente en data.frame. 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
@@ -225,12 +225,12 @@ Y devuelva la lista de objetos de una lista en el orden correcto en "CustomAddRo
 * El valor del atributo **type** del elemento **Output** debe ser *Visualization*.
 
 ### <a name="arguments"></a>Argumentos
-Se pueden pasar datos adicionales a la función de R a través de los parámetros del módulo que se definen en el elemento **Arguments** . Estos parámetros aparecen en el panel de propiedades de la derecha de la interfaz de usuario de Aprendizaje automático cuando está seleccionado el módulo. Los argumentos pueden ser cualquiera de los tipos admitidos, o bien puede crear una enumeración personalizada cuando sea necesario. Al igual que los elementos **Ports**, los elementos **Arguments** pueden tener un elemento **Description** opcional que especifica el texto que aparece al mantener el ratón sobre el nombre del parámetro.
+Se pueden pasar datos adicionales a la función de R a través de los parámetros del módulo que se definen en el elemento **Arguments** . Estos parámetros aparecen en el panel de propiedades de la derecha de la interfaz de usuario de Machine Learning cuando está seleccionado el módulo. Los argumentos pueden ser cualquiera de los tipos admitidos, o bien puede crear una enumeración personalizada cuando sea necesario. Al igual que los elementos **Ports**, los elementos **Arguments** pueden tener un elemento **Description** opcional que especifica el texto que aparece al mantener el ratón sobre el nombre del parámetro.
 Las propiedades opcionales de un módulo, como defaultValue, minValue y maxValue, se pueden agregar a cualquier argumento como atributos de un elemento **Properties** . Las propiedades válidas para el elemento **Properties** dependen del tipo de argumento y se describen con los siguientes tipos de argumento admitidos en la siguiente sección. Argumentos con el **isOptional** propiedad establecida en **"true"** no requieren que el usuario que especifique un valor. Si no se proporciona un valor al argumento, el argumento no se pasa a la función de punto de entrada. Los argumentos de la función de punto de entrada que son opcionales deben tratarse de forma explícita mediante la función, por ejemplo, asignar un valor predeterminado de NULL en la definición de función de punto de entrada. Un argumento opcional solo aplicará las demás restricciones de argumento, es decir, min o max, si el usuario proporciona un valor.
 Al igual que con las entradas y salidas, es fundamental que cada uno de los parámetros tenga valores de identificadores únicos asociados a ellos. En nuestro ejemplo de inicio rápido, el parámetro/id asociado era *swap*.
 
 ### <a name="arg-element"></a>Elemento Arg
-Los parámetros del módulo se definen mediante el elemento secundario **Arg** de la sección **Arguments** del archivo de definición XML. Al igual que con los elementos secundarios de la sección **Ports**, el orden de los parámetros de la sección **Arguments** define el diseño que se encuentra en la experiencia de usuario. Los parámetros aparecen de arriba abajo en la interfaz de usuario en el mismo orden en que se definen en el archivo XML. Aquí se enumeran los tipos admitidos por Aprendizaje automático para los parámetros. 
+Los parámetros del módulo se definen mediante el elemento secundario **Arg** de la sección **Arguments** del archivo de definición XML. Al igual que con los elementos secundarios de la sección **Ports**, el orden de los parámetros de la sección **Arguments** define el diseño que se encuentra en la experiencia de usuario. Los parámetros aparecen de arriba abajo en la interfaz de usuario en el mismo orden en que se definen en el archivo XML. Aquí se enumeran los tipos admitidos por Machine Learning para los parámetros. 
 
 **int** : parámetro de tipo entero (32 bits).
 
@@ -332,7 +332,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
   * **default**: el valor de la propiedad predeterminada debe corresponder a un valor de identificador de uno de los elementos **Item**.
 
 ### <a name="auxiliary-files"></a>Archivos auxiliares
-Cualquier archivo que se coloque en el archivo ZIP de módulo personalizado estará disponible para su uso durante el tiempo de ejecución. Se conservarán todas las estructuras de directorios presentes. Esto significa que el abastecimiento de archivos funcionará igual localmente y en la ejecución de Aprendizaje automático de Azure. 
+Cualquier archivo que se coloque en el archivo ZIP de módulo personalizado estará disponible para su uso durante el tiempo de ejecución. Se conservarán todas las estructuras de directorios presentes. Esto significa que el abastecimiento de archivos funcionará igual localmente y en la ejecución de Azure Machine Learning. 
 
 > [!NOTE]
 > Observe que todos los archivos se extraen en el directorio 'src', por lo que todas las rutas de acceso deberían tener el prefijo 'src/'.

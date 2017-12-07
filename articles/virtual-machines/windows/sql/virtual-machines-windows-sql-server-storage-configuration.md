@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 Al configurar una imagen de máquina virtual de SQL Server en Azure, el Portal le ayuda a automatizar la configuración del almacenamiento. Esto incluye asociar el almacenamiento a la máquina virtual, hacer que el almacenamiento esté accesible para SQL Server y configurarlo para optimizarlo para sus requisitos de rendimiento específicos.
@@ -30,14 +30,14 @@ Este tema explica cómo Azure configura el almacenamiento para sus máquinas vir
 ## <a name="prerequisites"></a>Requisitos previos
 Para usar la configuración del almacenamiento automática, la máquina virtual requiere las siguientes características:
 
-* Aprovisionada con una [imagen de la galería de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Aprovisionada con una [imagen de la galería de SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Usa el [modelo de implementación de Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
-* Usa [Almacenamiento premium](../premium-storage.md).
+* Usa [Premium Storage](../premium-storage.md).
 
 ## <a name="new-vms"></a>Nuevas máquinas virtuales
 En las secciones siguientes se describe cómo configurar el almacenamiento para nuevas máquinas virtuales de SQL Server.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 Al aprovisionar una máquina virtual de Azure mediante una imagen de la galería de SQL Server, puede configurar automáticamente el almacenamiento para la nueva máquina virtual. Especifique el tamaño del almacenamiento, los límites de rendimiento y el tipo de carga de trabajo. En la siguiente captura de pantalla se muestra la hoja Configuración de almacenamiento utilizada durante el aprovisionamiento de la máquina virtual de SQL.
 
 ![Configuración del almacenamiento de máquinas virtuales de SQL Server durante el aprovisionamiento](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
@@ -50,12 +50,12 @@ En función de lo que elija, Azure realiza las siguientes tareas de configuraci�
 * Asocia el grupo de almacenamiento a una unidad nueva en la máquina virtual.
 * Optimiza esta nueva unidad en función de su tipo de carga de trabajo (almacenamiento de datos, procesamiento de transaccional o general).
 
-Para más información sobre cómo Azure define la configuración del almacenamiento, consulte la sección [Configuración del almacenamiento](#storage-configuration). Para más información detallada acerca de cómo crear una máquina virtual de SQL Server en el Portal de Azure, consulte el [tutorial de aprovisionamiento](virtual-machines-windows-portal-sql-server-provision.md).
+Para más información sobre cómo Azure define la configuración del almacenamiento, consulte la sección [Configuración del almacenamiento](#storage-configuration). Para más información detallada acerca de cómo crear una máquina virtual de SQL Server en Azure Portal, consulte el [tutorial de aprovisionamiento](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="resource-manage-templates"></a>Plantillas de Resource Manager
 Si utiliza las siguientes plantillas de Resource Manager, se asocian dos discos de datos premium de forma predeterminada, sin configuración del grupo de almacenamiento. Sin embargo, puede personalizar estas plantillas para cambiar el número de discos de datos premium que se asocian a la máquina virtual.
 
-* [Creación de máquinas virtuales con copia de seguridad automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
+* [Creación de máquinas virtuales con Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 * [Creación de máquinas virtuales con la aplicación de revisión automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [Creación de máquinas virtuales con la integración de AKV](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
@@ -100,7 +100,7 @@ La otra opción para expandir el almacenamiento es ampliar la unidad existente. 
 ![Ampliación de una unidad para una máquina virtual de SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>Configuración de almacenamiento
-Esta sección proporciona una referencia para los cambios en la configuración del almacenamiento que Azure realiza automáticamente durante el aprovisionamiento de la máquina virtual de SQL o la configuración en el Portal de Azure.
+Esta sección proporciona una referencia para los cambios en la configuración del almacenamiento que Azure realiza automáticamente durante el aprovisionamiento de la máquina virtual de SQL o la configuración en Azure Portal.
 
 * Si ha seleccionado menos de dos TB de almacenamiento para la máquina virtual, Azure no crea ningún grupo de almacenamiento.
 * Si ha seleccionado al menos dos TB de almacenamiento para la máquina virtual, Azure configura un grupo de almacenamiento. La siguiente sección de este tema proporciona los detalles de la configuración del grupo de almacenamiento.
@@ -142,4 +142,4 @@ En la tabla siguiente se describen las opciones de tres tipos de carga de trabaj
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver otros temas sobre la ejecución de SQL Server en las máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Para ver otros temas sobre la ejecución de SQL Server en Azure Virtual Machines, consulte [SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).

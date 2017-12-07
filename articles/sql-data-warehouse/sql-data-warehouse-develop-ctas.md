@@ -1,10 +1,10 @@
 ---
 title: Create table as select (CTAS) en SQL Data Warehouse | Microsoft Docs
-description: "Sugerencias para la codificación con la instrucción Create table as select (CTAS) en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
+description: "Sugerencias para la codificación con la instrucción Create table as select (CTAS) en Azure SQL Data Warehouse para el desarrollo de soluciones."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 68ac9a94-09f9-424b-b536-06a125a653bd
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: queries
-ms.date: 01/30/2017
-ms.author: shigu;barbkess
-ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: a885ba4f455fecd158696faaee38c83c1e4ec0bf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Create Table As Select (CTAS) en Almacenamiento de datos SQL
+# <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Create Table As Select (CTAS) en SQL Data Warehouse
 Create table as select o `CTAS` es una de las características más importantes de T-SQL disponibles. Se trata de una operación completamente en paralelo que crea una nueva tabla basada en la salida de una instrucción SELECT. `CTAS` es el modo más sencillo y rápido de crear una copia de una tabla. Este documento incluye ejemplos y procedimientos recomendados para `CTAS`.
 
 ## <a name="selectinto-vs-ctas"></a>SELECT..INTO frente a CTAS
@@ -126,12 +126,12 @@ DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas.  Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos.  Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][Statistics] en el grupo de temas relacionados con el desarrollo.
+> Azure SQL Data Warehouse todavía no permite crear ni actualizar automáticamente las estadísticas.  Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos.  Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][Statistics] en el grupo de temas relacionados con el desarrollo.
 > 
 > 
 
 ## <a name="using-ctas-to-work-around-unsupported-features"></a>Uso de CTAS para solucionar características no admitidas
-`CTAS` para solucionar algunas de las características no admitidas que se indican a continuación. A menudo, esto puede resultar ser una situación ventajosa para todos dado que no solo el código será compatible sino que con frecuencia se ejecutará más rápido en Almacenamiento de datos SQL. El motivo es su diseño completamente en paralelo. Algunas situaciones que se pueden solucionar con CTAS incluyen:
+`CTAS` para solucionar algunas de las características no admitidas que se indican a continuación. A menudo, esto puede resultar ser una situación ventajosa para todos dado que no solo el código será compatible sino que con frecuencia se ejecutará más rápido en SQL Data Warehouse. El motivo es su diseño completamente en paralelo. Algunas situaciones que se pueden solucionar con CTAS incluyen:
 
 * ANSI JOINS en UPDATE
 * ANSI JOINS en DELETE
@@ -435,7 +435,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Por lo tanto, puede ver que la coherencia de los tipos y el mantenimiento de las propiedades de nulabilidad en CTAS es una buena práctica de ingeniería. Ayuda a mantener la integridad de los cálculos y también garantiza que la modificación de particiones es posible.
 
-Consulte MSDN para obtener más información sobre el uso de [CTAS][CTAS]. Es una de las instrucciones más importantes de Almacenamiento de datos SQL. Asegúrese de que la comprende perfectamente.
+Consulte MSDN para obtener más información sobre el uso de [CTAS][CTAS]. Es una de las instrucciones más importantes de SQL Data Warehouse. Asegúrese de que la comprende perfectamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].

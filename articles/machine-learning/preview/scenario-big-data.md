@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsión de carga de trabajo del servidor en terabytes de datos
 
@@ -67,7 +67,7 @@ Dirección IP de la DSVM | xxx|
  Password   | xxx|
 
 
-* Una cuenta de almacenamiento de Azure. Para crear una, siga [estas instrucciones](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account). Además, cree dos contenedores de blobs privados llamados `fullmodel` y `onemonthmodel` en esta cuenta de almacenamiento. La cuenta de almacenamiento se utiliza para guardar resultados intermedios de proceso y modelos de aprendizaje automático. Necesitará la clave de acceso y nombre de la cuenta de almacenamiento para probar este ejemplo. Guarde la tabla siguiente con información de la cuenta de Azure Storage para pasos posteriores:
+* Una cuenta de Azure Storage. Para crear una, siga [estas instrucciones](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account). Además, cree dos contenedores de blobs privados llamados `fullmodel` y `onemonthmodel` en esta cuenta de almacenamiento. La cuenta de almacenamiento se utiliza para guardar resultados intermedios de proceso y modelos de aprendizaje automático. Necesitará la clave de acceso y nombre de la cuenta de almacenamiento para probar este ejemplo. Guarde la tabla siguiente con información de la cuenta de Azure Storage para pasos posteriores:
 
  Nombre del campo| Valor |  
  |------------|------|
@@ -203,7 +203,7 @@ El segundo argumento es DEBUG (depuración). Si se establece en FILTER_IP, permi
 
 Inicie la línea de comandos desde Machine Learning Workbench seleccionando **Archivo** > **Abrir símbolo del sistema**. A continuación, ejecute: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 Se crearán los dos archivos siguientes en la carpeta aml_config del proyecto:
 
@@ -266,7 +266,7 @@ Una vez que ha finalizado correctamente la experimentación con los datos peque�
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. Creación del destino de proceso en Machine Learning Workbench para el clúster de HDInsight
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 Se crearán los dos archivos siguientes en la carpeta aml_config:
     

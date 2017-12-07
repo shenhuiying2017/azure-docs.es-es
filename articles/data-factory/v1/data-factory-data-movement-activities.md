@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d6cddf54827d44e41add9e1e6b1a4323e03879e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: dff87d41df2bdb5439785846c9653f2f0be2b40d
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Movimiento de datos con la actividad de copia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -103,7 +103,7 @@ Si los almacenes de datos del origen y del receptor residen en la nube, Data Fac
 | &nbsp; | Centro-Sur de EE. UU | Centro-Sur de EE. UU |
 | &nbsp; | Centro occidental de EE.UU. | Centro occidental de EE.UU. |
 | &nbsp; | Oeste de EE. UU. | Oeste de EE. UU. |
-| &nbsp; | Oeste de EE. UU. 2 | Oeste de EE. UU. |
+| &nbsp; | Oeste de EE. UU. 2 | Oeste de EE. UU. 2 |
 | Canadá | Este de Canadá | Centro de Canadá |
 | &nbsp; | Centro de Canadá | Centro de Canadá |
 | Brasil | Sur de Brasil | Sur de Brasil |

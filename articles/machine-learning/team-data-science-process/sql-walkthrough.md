@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-ms.openlocfilehash: d42377a55b1decc0918932b3ecc13cf575f934a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4157820bad3c0d7c07965e4a5556db2f6fb69fe2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
@@ -61,15 +61,15 @@ Se formularán tres problemas de predicción basados en *tip\_amount*, a saber:
 ## <a name="setup"></a>Configuración del entorno de ciencia de datos de Azure para análisis avanzado
 Como puede ver en la guía [Planear su entorno de ciencia de datos de aprendizaje automático de Azure](plan-your-environment.md) , existen varias opciones para trabajar con el conjunto de datos NYC Taxi Trips en Azure:
 
-* Trabajar con los datos en blobs de Azure y, a continuación, modelar en Aprendizaje automático de Azure.
-* Cargar los datos en una base de datos de SQL Server y, a continuación, modelar en Aprendizaje automático de Azure.
+* Trabajar con los datos en blobs de Azure y, a continuación, modelar en Azure Machine Learning.
+* Cargar los datos en una base de datos de SQL Server y, a continuación, modelar en Azure Machine Learning.
 
 En este tutorial se mostrará la importación paralela en bloque de los datos en SQL Server, la exploración de los datos, el diseño de características y la reducción de la muestra con SQL Server Management Studio, así como con un Bloc de notas de IPython. Los [scripts de ejemplo](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) y [blocs de notas de IPython](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) se comparten en GitHub. Hay un Bloc de notas de IPython de ejemplo disponible para trabajar con los datos de blobs de Azure en la misma ubicación.
 
 Para configurar el entorno de ciencia de datos de Azure:
 
 1. [Cree una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md)
-2. [Creación de un área de trabajo de Aprendizaje automático de Azure](../studio/create-workspace.md)
+2. [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
 3. [Aprovisione una máquina virtual de ciencia de datos](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que proporcionará un servidor de SQL Server y un servidor de Notebook de IPython.
    
    > [!NOTE]
@@ -115,7 +115,7 @@ Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantida
    * Seleccione **Configuración de base de datos** en la lista **Seleccionar una página** de la izquierda.
    * Compruebe o cambie los datos del apartado **Ubicaciones predeterminadas de la base de datos** por las ubicaciones del **Disco de datos** que prefiera. Aquí es donde se almacenarán las nuevas bases de datos si se crean con la configuración de ubicación predeterminada.
      
-       ![Valores predeterminados de Base de datos SQL][15]  
+       ![Valores predeterminados de SQL Database][15]  
 5. Para crear una nueva base de datos y un conjunto de grupos de archivos para almacenar las tablas con particiones, abra el script de ejemplo **create\_db\_default.sql**. El script creará una nueva base de datos llamada **TaxiNYC** y doce grupos de archivos en la ubicación de datos predeterminada. Cada uno de los grupos de archivos contendrá un mes de datos de trip\_data y trip\_fare. Modifique el nombre de la base de datos, si lo desea. Haga clic en **!Ejecutar** para ejecutar el script.
 6. A continuación, cree dos tablas de particiones, una para trip\_data y otra para trip\_fare. Abra el script de ejemplo **create\_partitioned\_table.sql**, que:
    
@@ -150,7 +150,7 @@ En este ejercicio, se hará lo siguiente:
 * Generar características y calcular o comparar distancias de carreras.
 * Combinar las dos tablas y extraer una muestra aleatoria que se usará para generar modelos.
 
-Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:  
+Cuando esté listo para continuar con Azure Machine Learning, puede:  
 
 1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning; o bien
 2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de bases de datos y usar la nueva tabla en el módulo [Importar datos][import-data] de Azure Machine Learning.
@@ -262,11 +262,11 @@ La secuencia recomendada al trabajar con big data es la siguiente:
 * Realizar algunas visualizaciones y exploraciones con los datos de muestreo.
 * Experimentar con el diseño de características con los datos de muestreo.
 * Para el diseño de características, la exploración y la manipulación de datos más grandes, usar Python para emitir consultas SQL directamente sobre la base de datos de SQL Server en la máquina virtual de Azure.
-* Decidir el tamaño de muestra que se usará para la creación del modelo de Aprendizaje automático de Azure.
+* Decidir el tamaño de muestra que se usará para la creación del modelo de Azure Machine Learning.
 
-Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:  
+Cuando esté listo para continuar con Azure Machine Learning, puede:  
 
-1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning. Este método se muestra en la sección [Generación de modelos en Aprendizaje automático de Azure](#mlmodel) .    
+1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning. Este método se muestra en la sección [Generación de modelos en Azure Machine Learning](#mlmodel) .    
 2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de base de datos y usar la nueva tabla en el módulo [Importar datos][import-data].
 
 A continuación, se muestran algunas exploraciones de datos, visualizaciones de datos y ejemplos de diseño de características. Para obtener más ejemplos, vea el Bloc de notas de IPython de SQL de ejemplo en la carpeta **Blocs de notas de IPython** de ejemplo.
@@ -546,18 +546,18 @@ En este ejemplo se desglosa la representación decimal de un campo de longitud o
     query = '''SELECT TOP 100 * FROM nyctaxi_one_percent'''
     pd.read_sql(query,conn)
 
-Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Aprendizaje automático de Azure](https://studio.azureml.net). Los datos están listos para cualquiera de los problemas de predicción identificados anteriormente, a saber:
+Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Azure Machine Learning](https://studio.azureml.net). Los datos están listos para cualquiera de los problemas de predicción identificados anteriormente, a saber:
 
 1. Clasificación binaria: para predecir si se dio propina en una carrera, o no.
 2. Clasificación multiclase: para predecir el intervalo de la propina dada, según las clases definidas anteriormente.
 3. Tarea de regresión: para predecir la cantidad de propina pagada en una carrera.  
 
-## <a name="mlmodel"></a>Creación de modelos en Aprendizaje automático de Azure
-Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Aprendizaje automático de Azure. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).
+## <a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
+Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de Azure Machine Learning. Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).
 
-1. Para empezar a usar el Aprendizaje automático de Azure, consulte [¿Qué es Estudio de aprendizaje automático de Microsoft Azure?](../studio/what-is-ml-studio.md)
-2. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net).
-3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información acerca de Aprendizaje automático de Azure, consulte el [Centro de documentación de Aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+2. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net).
+3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información acerca de Azure Machine Learning, consulte el [Centro de documentación de Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Un experimento de entrenamiento típico consta de las siguientes acciones:
 
@@ -581,7 +581,6 @@ En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y ta
 3. Escribir el nombre DNS de la base de datos en el campo **Nombre del servidor de la base de datos** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Escribir el **nombre de la base de datos** en el campo correspondiente.
 5. Escribir el **nombre de usuario de SQL** en **Server user account name y la contraseña en **Server user account password**.
-6. Activar la opción **Aceptar cualquier certificado de servidor** .
 7. En el área de texto editable **Consulta de base de datos** , pegar la consulta que extrae los campos de la base de datos necesarios (incluidos los campos calculados, como las etiquetas) y reducir la muestra al tamaño de muestra deseado.
 
 En la ilustración siguiente se muestra un ejemplo de un experimento de clasificación binaria que lee datos directamente de la base de datos de SQL Server. Se pueden construir experimentos similares para problemas de clasificación multiclase y de regresión.
@@ -595,7 +594,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 > 
 > 
 
-## <a name="mldeploy"></a>Implementación de modelos en Aprendizaje automático de Azure
+## <a name="mldeploy"></a>Implementación de modelos en Azure Machine Learning
 Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para más información sobre la implementación de servicios web Azure Machine Learning, vea [Implementar un servicio web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
 
 Para implementar un nuevo servicio web, deberá:
@@ -607,7 +606,7 @@ Para crear un experimento de puntuación a partir de un experimento de entrenami
 
 ![Puntuación de Azure][18]
 
-Aprendizaje automático de Azure intentará crear un experimento de puntuación en función de los componentes del experimento de entrenamiento. En concreto, hará lo siguiente:
+Azure Machine Learning intentará crear un experimento de puntuación en función de los componentes del experimento de entrenamiento. En concreto, hará lo siguiente:
 
 1. Guardar el modelo entrenado y quitar los módulos de entrenamiento del modelo.
 2. Identificar un **puerto de entrada** lógico que represente el esquema de datos de entrada esperado.
@@ -619,7 +618,7 @@ En la ilustración siguiente se muestra un ejemplo de experimento de puntuación
 
 ![Publicar Azure Machine Learning][11]
 
-Para recapitular, en este tutorial paso a paso se ha creado un entorno de ciencia de datos de Azure, se ha trabajado con un conjunto grande de datos público de principio a fin, desde la adquisición de los datos al entrenamiento del modelo, y la implementación de un servicio web de Aprendizaje automático de Azure.
+Para recapitular, en este tutorial paso a paso se ha creado un entorno de ciencia de datos de Azure, se ha trabajado con un conjunto grande de datos público de principio a fin, desde la adquisición de los datos al entrenamiento del modelo, y la implementación de un servicio web de Azure Machine Learning.
 
 ### <a name="license-information"></a>Información de licencia
 Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de notas de IPython bajo la licencia MIT. Consulte el archivo LICENSE.txt que se encuentra en el directorio del código de ejemplo en GitHub para obtener más detalles.

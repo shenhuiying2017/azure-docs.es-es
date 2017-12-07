@@ -1,10 +1,10 @@
 ---
 title: "Distribución de tablas en SQL Data Warehouse | Microsoft Docs"
-description: "Introducción a la distribución de tablas en Almacenamiento de datos SQL de Azure."
+description: "Introducción a la distribución de tablas en SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 5ed4337f-7262-4ef6-8fd6-1809ce9634fc
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: d0e12bf821a81826a20b8db84e76c48fa60ad9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 82e17e575cdb227af2fabf94f01e94df22994aac
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="distributing-tables-in-sql-data-warehouse"></a>Distribución de tablas en Almacenamiento de datos SQL
+# <a name="distributing-tables-in-sql-data-warehouse"></a>Distribución de tablas en SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Información general][Overview]
 > * [Tipos de datos][Data Types]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-El Almacenamiento de datos SQL es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP).  Al dividir los datos y la funcionalidad de procesamiento entre varios nodos, Almacenamiento de datos SQL puede ofrecer una gran escalabilidad, mucha más que cualquier sistema individual.  La decisión de cómo distribuir los datos en Almacenamiento de datos SQL es uno de los factores más importantes para lograr un rendimiento óptimo.   La clave para lograr un rendimiento óptimo es minimizar el movimiento de datos y, a su vez, la clave para minimizar el movimiento de datos es seleccionar la estrategia de distribución adecuada.
+SQL Data Warehouse es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP).  Al dividir los datos y la funcionalidad de procesamiento entre varios nodos, SQL Data Warehouse puede ofrecer una gran escalabilidad, mucha más que cualquier sistema individual.  La decisión de cómo distribuir los datos en SQL Data Warehouse es uno de los factores más importantes para lograr un rendimiento óptimo.   La clave para lograr un rendimiento óptimo es minimizar el movimiento de datos y, a su vez, la clave para minimizar el movimiento de datos es seleccionar la estrategia de distribución adecuada.
 
 ## <a name="understanding-data-movement"></a>Descripción del movimiento de datos
 En un sistema MPP, los datos de cada tabla se dividen entre varias bases de datos subyacentes.  Las consultas más optimizadas en un sistema MPP se pueden pasar simplemente para su ejecución en las bases de datos distribuidas individuales sin interacción entre las otras bases de datos.  Por ejemplo, supongamos que tiene una base de datos con datos de ventas que contiene dos tablas, ventas y clientes.  Si tiene una consulta que necesite combinar la tabla de ventas con la de clientes y divide ambas tablas por el número de cliente, coloque a cada cliente en una base de datos independiente y, de este modo, se podrán resolver todas las consultas que combinen ventas y clientes dentro de cada base de datos sin el conocimiento de las otras bases de datos.  En cambio, si divide los datos de ventas por número de pedido y los datos de clientes por número de cliente, cualquier base de datos dada no tendrá los datos correspondientes de cada cliente y, por tanto, si desea combinar los datos de ventas con los datos de clientes, necesitará obtener los datos para cada cliente desde las demás bases de datos.  En este segundo ejemplo, el movimiento de datos debe producirse para mover los datos del cliente a los datos de ventas, de modo que se pueden combinar las dos tablas.  
@@ -41,7 +41,7 @@ En un sistema MPP, los datos de cada tabla se dividen entre varias bases de dato
 El movimiento de datos no es algo negativo, a veces es necesario para resolver una consulta.  Pero si se puede evitar este paso adicional, evidentemente la consulta se ejecutará más rápido.  El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones.  Normalmente, tendrá que realizar ambas acciones por lo que, aunque es posible que pueda optimizar un escenario como el de una combinación, necesitará el movimiento de datos para ayudarle con la resolución del otro escenario, el de una agregación.  El truco es averiguar cuál supone menos trabajo.  En la mayoría de los casos, la distribución de tablas de datos de gran tamaño en una columna que normalmente está combinada es el método más eficaz para reducir al máximo el movimiento de datos.  La distribución de datos en columnas de combinación es un método mucho más frecuente para reducir el movimiento de datos que la distribución de datos en columnas que participan en una agregación.
 
 ## <a name="select-distribution-method"></a>Selección del método de distribución
-En segundo plano, Almacenamiento de datos SQL divide los datos en 60 bases de datos.  Cada base de datos individual se conoce como una **distribución**.  Cuando se cargan datos en cada tabla, Almacenamiento de datos SQL tiene que saber cómo dividirlos entre las 60 distribuciones.  
+En segundo plano, SQL Data Warehouse divide los datos en 60 bases de datos.  Cada base de datos individual se conoce como una **distribución**.  Cuando se cargan datos en cada tabla, SQL Data Warehouse tiene que saber cómo dividirlos entre las 60 distribuciones.  
 
 El método de distribución se define en el nivel de tabla y actualmente hay dos opciones:
 
@@ -157,7 +157,7 @@ Evite la distribución en una columna que acepte muchos valores NULL debido a qu
 Si no existe ninguna columna que sea una buena candidata, considere la posibilidad de utilizar el método de distribución Round Robin.
 
 ### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Selección de una columna de distribución que minimizará el movimiento de datos
-Una de las estrategias más importantes para optimizar el rendimiento de Almacenamiento de datos SQL es minimizar el movimiento de datos mediante la selección de la columna de distribución correcta.  El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones.  Las columnas usadas en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` y `HAVING` son todas **buenas** candidatas para la distribución por hash.
+Una de las estrategias más importantes para optimizar el rendimiento de SQL Data Warehouse es minimizar el movimiento de datos mediante la selección de la columna de distribución correcta.  El movimiento de los datos surge normalmente cuando se unen tablas o se realizan agregaciones.  Las columnas usadas en las cláusulas `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` y `HAVING` son todas **buenas** candidatas para la distribución por hash.
 
 Por otro lado, las columnas de la cláusula `WHERE`**no** son buenas candidatas de hash porque limitan las distribuciones que participan en la consulta, lo que genera asimetría de procesamiento.  Una columna de fecha es un buen ejemplo de una columna en la que podría resultar atractivo realizar la distribución pero que, a menudo, podría provocar esta asimetría de procesamiento.
 
@@ -181,7 +181,7 @@ Una manera sencilla de identificar una tabla como asimétrica es usar `DBCC PDW_
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Sin embargo, si consulta las vistas de administración dinámica de Almacenamiento de datos SQL de Azure, puede realizar un análisis más detallado.  Para empezar, cree la vista [dbo.vTableSizes][dbo.vTableSizes] mediante la instrucción SQL del artículo sobre [información general de tablas][Overview].  Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
+Sin embargo, si consulta las vistas de administración dinámica de Azure SQL Data Warehouse, puede realizar un análisis más detallado.  Para empezar, cree la vista [dbo.vTableSizes][dbo.vTableSizes] mediante la instrucción SQL del artículo sobre [información general de tablas][Overview].  Una vez que cree la vista, ejecute esta consulta para identificar qué tablas tienen más de un 10 % de asimetría de datos.
 
 ```sql
 select *

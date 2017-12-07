@@ -41,7 +41,6 @@
 ### [Creación e implementación de un servicio en la nube en el portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Creación de un contenedor de servicios en la nube vacío en PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Configuración de un nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md)
-### [Ensayo de una implementación de servicios en la nube (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Conexión a un controlador de dominio personalizado](cloud-services-connect-to-custom-domain.md)
 
 ## Administración de servicios

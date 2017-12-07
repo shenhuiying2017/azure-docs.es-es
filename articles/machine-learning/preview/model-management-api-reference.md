@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 1939a18fbaf0aed0f62ac9e7641b9901ec4762ea
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 03e51ab298a08386f0094d6d0290aa1ec85d337f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referencia sobre la API de la cuenta de Administración de modelos de Azure Machine Learning
 
-Para obtener información sobre la configuración del entorno de implementación, consulte [Model Management Account Setup](model-management-configuration.md) (Configuración de la cuenta de Administración de modelos).
+Para obtener información sobre la configuración del entorno de implementación, consulte [Model Management Account Setup](deployment-setup-configuration.md) (Configuración de la cuenta de Administración de modelos).
 
 La API de la cuenta de Administración de modelos de Azure Machine Learning permite implementar las operaciones siguientes:
 
@@ -75,7 +75,7 @@ El paso del registro del modelo permite registrar el modelo de Machine Learning 
 ### <a name="description"></a>Descripción
 Registra un modelo.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -211,7 +211,7 @@ Permite consultar la lista de manifiestos de una cuenta. Puede filtrar la lista 
 ### <a name="description"></a>Descripción
 Permite obtener el manifiesto por el identificador.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -263,7 +263,7 @@ Crea una imagen como una imagen de Docker en Azure Container Registry.
 ### <a name="description"></a>Descripción
 Permite consultar la lista de imágenes de una cuenta. Puede filtrar la lista de resultados por el identificador y el nombre del manifiesto. Si no se aplica ningún filtro, la consulta mostrará todas las imágenes de la cuenta. La lista devuelta está paginada y el número de elementos de cada página es un parámetro opcional.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -319,7 +319,7 @@ Obtiene una imagen por el identificador.
 ### <a name="description"></a>Descripción
 Crea un servicio a partir de una imagen.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -380,7 +380,7 @@ Consulta de la lista de imágenes de una cuenta. Puede filtrar la lista de resul
 ### <a name="description"></a>Descripción
 Obtiene un servicio por el identificador.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -406,7 +406,7 @@ Obtiene un servicio por el identificador.
 ### <a name="description"></a>Descripción
 Actualiza un servicio existente.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -434,7 +434,7 @@ Actualiza un servicio existente.
 ### <a name="description"></a>Descripción
 Elimina un servicio.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -487,7 +487,7 @@ Permite obtener las claves del servicio.
 ### <a name="description"></a>Descripción
 Regenera las claves del servicio y las devuelve.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |
@@ -514,7 +514,7 @@ Regenera las claves del servicio y las devuelve.
 ### <a name="description"></a>Descripción
 Consulta de la lista de implementaciones de una cuenta. Puede filtrar la lista de resultados por el identificador del servicio, lo cual solo devolverá las implementaciones creadas para ese servicio concreto. Si no se aplica ningún filtro, la consulta mostrará todas las implementaciones de la cuenta.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 | Nombre | Ubicado en | Descripción | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
 | subscriptionId | path | Identificador de suscripción de Azure | Sí | cadena |

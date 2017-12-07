@@ -1,20 +1,11 @@
 
-> [!NOTE] 
-> Las versiones preliminares están a su disposición con la condición de que acepte los términos de uso. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Esta versión preliminar se limita a las siguientes regiones:
-> - Oeste de EE. UU. 2
-> - Este de EE. UU.
-> - Oeste de Europa
-> - Sudeste de Asia Pacífico
-
-
 La familia de máquinas virtuales de la serie B le permite elegir qué tamaño de máquina virtual proporciona el rendimiento base necesario para su carga de trabajo, con la posibilidad de ampliar el rendimiento de la CPU hasta el 100% de una vCPU con procesador Intel® Broadwell E5-2673 v4 2.3GHz o Intel® Haswell 2.4 GHz E5-2673 v3 .
 
 Las máquinas virtuales de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, pequeñas bases de datos y entornos de desarrollo y de prueba. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. La serie B le brinda la posibilidad de adquirir un tamaño de máquina virtual con un rendimiento base al tiempo que la instancia de máquina virtual acumula créditos si utiliza un rendimiento por debajo de este nivel de base. Cuando la máquina virtual ha acumulado crédito se puede ampliar por encima de la base de referencia de esta con un uso de hasta un 100 % de la vCPU si la aplicación necesita el mayor rendimiento de CPU posible.
 
 La serie B incluye los siguientes seis tamaños de máquina virtual:
 
-| Tamaño          | vCPU | Memoria: GiB | SSD local: GiB | Rendimiento base de CPU de la máquina virtual | Rendimiento máximo de CPU de la máquina virtual | Créditos ingresados / hora | Créditos máximos ingresados |
+| Tamaño          | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento base de CPU de la máquina virtual | Rendimiento máximo de CPU de la máquina virtual | Créditos ingresados / hora | Créditos máximos ingresados |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
@@ -26,16 +17,11 @@ La serie B incluye los siguientes seis tamaños de máquina virtual:
 
 
 
-## <a name="q--a-about-this-preview"></a>Preguntas y respuestas acerca de esta versión preliminar
-
-### <a name="q-how-can-i-participate-in-this-preview"></a>P: ¿Cómo puedo participar en esta versión preliminar?
-**R**: solicite una cuota para la serie B de una de las regiones admitidas.  Una vez aprobada la cuota, podrá usar el portal o las API para realizar la implementación como lo haría normalmente. Para más información, consulte [Solicitudes de aumento de cuota de núcleos de Resource Manager](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+## <a name="q--a"></a>Preguntas y respuestas 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P: ¿Cómo obtener un 135% del rendimiento base de una máquina virtual?
 **R**: ese 135% se debe compartir entre las 8 vCPU que componen el tamaño de la máquina virtual. Por ejemplo, si la aplicación usa 4 de los 8 núcleos que están trabajando en el procesamiento por lotes y cada una de esas 4 vCPU se ejecuta al 30% de uso, la cantidad total de rendimiento de la CPU de la máquina virtual equivaldría al 120%.  Lo que significa que la máquina virtual podría acumular créditos basándose en este 15% de diferencia con el rendimiento base.  Pero también significa que cuando tenga créditos disponibles, esa misma máquina virtual puede utilizar el 100% de las 8 vCPU lo cual le proporcionaría a esa máquina virtual un rendimiento de CPU máximo del 800%.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>P: ¿Existe algún descuento en el precio durante la versión preliminar?
-**R**: Sí, se pueden ver los precios de la versión preliminar en nuestra [página de precios](http://aka.ms/vmsizes).
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>P: ¿Cómo puedo supervisar mi saldo de crédito y uso?
 **R**: Presentaremos 2 nuevas métricas en las próximas semanas, la métrica **Credit** le permitirá ver cuántos créditos ha acumulado su máquina virtual y la métrica **ConsumedCredit** le mostrará cuántos créditos de la CPU ha consumido la máquina virtual desde el banco.    Podrá ver estas métricas desde el panel de métricas del portal o mediante programación a través de las API de Azure Monitor.
@@ -58,14 +44,7 @@ Si tomo los 120 créditos que acumulé durante las horas de poca actividad y le 
 **R**: Sí, toda la serie B admite discos de datos de Premium Storage.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>P: ¿Desde qué regiones puedo acceder a la versión preliminar?
-**R**: La versión preliminar de la serie B estará disponible en las siguientes regiones:
-- Oeste de EE. UU. 2
-- Este de EE. UU.
-- Oeste de Europa
-- Sudeste de Asia Pacífico
 
-Una vez completada la fase de la versión preliminar, se lanzará la serie B para todas las demás regiones.
     
 
     

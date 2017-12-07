@@ -2,22 +2,17 @@
 title: SKU de Azure Container Registry
 description: Comparaciones entre los diferentes niveles de servicio disponibles en Azure Container Registry
 services: container-registry
-documentationcenter: 
 author: stevelas
-manager: balans
-editor: mmacy
+manager: timlt
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: cf7724dd9e3e870cfd7ec0b5d2e4ea1d0694e9de
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-container-registry-skus"></a>SKU de Azure Container Registry
 
@@ -26,7 +21,7 @@ Azure Container Registry (ACR) está disponible en varios niveles de servicio, c
 ## <a name="basic"></a>Básica
 Un punto de entrada optimizado para los costos para que los desarrolladores aprendan sobre Azure Container Registry. Los registros básicos tienen las mismas funcionalidades de programación que los estándar y premium (integración de la autenticación de Azure Active Directory, eliminación de imágenes y webhooks), sin embargo, existen restricciones de uso y tamaño.
 
-## <a name="standard"></a>Estándar
+## <a name="standard"></a>Standard
 Los registros estándar ofrecen las mismas funcionalidades que los básicos, pero con mayores límites de almacenamiento y un mayor rendimiento de las imágenes. Los registros estándar deberían satisfacer las necesidades de la mayoría de los escenarios de producción.
 
 ## <a name="premium"></a>Premium

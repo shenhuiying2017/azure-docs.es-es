@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e3ea323e00d64e6848850c22073f5948dd0b7e2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 > [!div class="op_single_selector"]
@@ -37,20 +37,20 @@ En este artículo se explica cómo realizar una copia de seguridad de los archiv
 ## <a name="before-you-start"></a>Antes de comenzar
 Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesita una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-Un almacén de Servicios de recuperación es una entidad que almacena todas las copias de seguridad y todos los puntos de recuperación creados con el tiempo. El almacén de Servicios de recuperación contiene también la directiva de copia de seguridad que se aplica a los archivos y las carpetas protegidos. Cuando se crea un almacén de Servicios de recuperación, también se debe seleccionar la opción de redundancia de almacenamiento adecuada.
+## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+Un almacén de Recovery Services es una entidad que almacena todas las copias de seguridad y todos los puntos de recuperación creados con el tiempo. El almacén de Recovery Services contiene también la directiva de copia de seguridad que se aplica a los archivos y las carpetas protegidos. Cuando se crea un almacén de Recovery Services, también se debe seleccionar la opción de redundancia de almacenamiento adecuada.
 
-### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante su suscripción.
+### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción.
 2. En el menú central, haga clic en **Más servicios** y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
+    ![Creación del almacén de Recovery Services, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
     Si hay almacenes de Recovery Services en la suscripción, estos aparecerán en una lista.
 
-3. En el menú **Almacenes de servicios de recuperación**, haga clic en **Agregar**.
+3. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
 
-    ![Creación del almacén de Servicios de recuperación, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
+    ![Creación del almacén de Recovery Services, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
     Se abre la hoja del almacén de Recovery Services, donde se le pide que especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
@@ -72,7 +72,7 @@ Un almacén de Servicios de recuperación es una entidad que almacena todas las 
 
 8. En la parte inferior de la hoja de almacén de recovery Services, haga clic en **Create** (Crear).
 
-  La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de servicios de recuperación. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
+  La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
 
   ![Clic en el botón Refresh (Actualizar)](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
 
@@ -80,7 +80,7 @@ Un almacén de Servicios de recuperación es una entidad que almacena todas las 
 
 
 ### <a name="set-storage-redundancy"></a>Establecimiento de la redundancia de almacenamiento
-Al crear un almacén de Servicios de recuperación se determina cómo se replica el almacenamiento.
+Al crear un almacén de Recovery Services se determina cómo se replica el almacenamiento.
 
 1. En la hoja **Almacenes de Recovery Services**, haga clic en el almacén nuevo.
 
@@ -164,7 +164,7 @@ Ahora que ha creado un almacén, prepare la infraestructura para realizar una co
 
   ![ejecutar las credenciales del instalador del agente de Recovery Services](./media/backup-try-azure-backup-in-10-mins/mars-installer-registration.png)
 
-2. Complete el asistente para la instalación del agente de Servicios de recuperación de Microsoft Azure. Para completar al asistente, tendrá que hacer lo siguiente:
+2. Complete el asistente para la instalación del agente de Microsoft Azure Recovery Services. Para completar al asistente, tendrá que hacer lo siguiente:
 
   * Elija una ubicación para la instalación y la carpeta de caché.
   * Proporcione la información del servidor proxy si usa un servidor proxy para conectarse a Internet.
@@ -186,14 +186,14 @@ Si la máquina o proxy tienen limitado el acceso a Internet, asegúrese de que s
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.ne
+    5. *.windows.net
 
 
 ## <a name="create-the-backup-policy"></a>Creación de la directiva de copia de seguridad
 La directiva de copia de seguridad constituye la programación del momento en que se establecen los puntos de recuperación y del período de retención de dichos puntos. Use el agente de Microsoft Azure Backup para crear la directiva de copia de seguridad de archivos y carpetas.
 
 ### <a name="to-create-a-backup-schedule"></a>Para crear una programación de copia de seguridad
-1. Abra el agente de Microsoft Azure Backup. Para encontrarlo, busque **Microsoft Azure Backup** en la máquina.
+1. Abra el agente de Microsoft Azure Backup. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
 
     ![Lanzamiento del agente de Azure Backup](./media/backup-configure-vault/snap-in-search.png)
 2. En el panel **Acciones** del agente de Backup, haga clic en **Programar copia de seguridad** para iniciar el Asistente para programar copias de seguridad.
@@ -223,7 +223,7 @@ La directiva de copia de seguridad constituye la programación del momento en qu
     La directiva de retención especifica el período durante el cual se almacena la copia de seguridad. En vez de especificar solo una directiva para todos los puntos de copia de seguridad, puede especificar directivas de retención distintas en función de cuándo se realice la copia de seguridad. Puede modificar las directivas de retención diarias, semanales, mensuales y anuales según sus necesidades.
 9. En la página Elija el tipo de copia de seguridad inicial, elija el tipo de copia de seguridad inicial. Deje activada la opción **Automáticamente a través de la red** y, luego, haga clic en **Siguiente**.
 
-    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md) para más información.
+    Puede hacer una copia de seguridad automáticamente en la red, o puede realizar una copia sin conexión. En el resto de este artículo, se describe el proceso para crear automáticamente una copia de seguridad. Si prefiere crear una copia de seguridad sin conexión, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md) para más información.
 10. En la página Confirmación, revise la información y, luego, haga clic en **Finalizar**.
 11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
 

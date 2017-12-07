@@ -1,5 +1,5 @@
 ---
-title: "Información general sobre unidades de proceso de Azure | Microsoft Docs"
+title: "Información general sobre unidades de Azure Compute | Microsoft Docs"
 description: "Información general sobre el concepto de unidades de proceso de Azure para Linux. La ACU proporciona un modo de comparar el rendimiento de la CPU en todas las SKU de Azure."
 services: virtual-machines-linux
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 12/05/2017
 ms.author: jonbeck
-ms.openlocfilehash: 82ccb9a3973b5a00ac442aa429634b19d0925dfa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0eba7b4350a693bd776c4bede463688e48ce6f67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-compute-unit-acu"></a>Unidad de proceso de Azure (ACU)
 

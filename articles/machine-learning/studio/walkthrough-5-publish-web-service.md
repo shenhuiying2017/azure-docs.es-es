@@ -1,6 +1,6 @@
 ---
 title: "Paso 5: implementación del servicio web Machine Learning | Microsoft Docs"
-description: "Paso 5 del tutorial Desarrollo de una solución predictiva: implementación de un experimento predictivo en Estudio de aprendizaje automático como servicio web."
+description: "Paso 5 del tutorial Desarrollo de una solución predictiva: implementación de un experimento predictivo en Machine Learning Studio como servicio web."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementar el servicio web de Aprendizaje automático de Azure
-Este es el quinto paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](walkthrough-develop-predictive-solution.md)
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning
+Este es el quinto paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Creación de un área de trabajo de Aprendizaje automático](walkthrough-1-create-ml-workspace.md)
+1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carga de los datos existentes](walkthrough-2-upload-data.md)
 3. [Crear un experimento nuevo](walkthrough-3-create-new-experiment.md)
 4. [Entrenamiento y evaluación de los modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -112,7 +112,7 @@ Ejecute el experimento por última vez (haga clic en **Ejecutar**). Si desea com
 Puede implementar el experimento como un servicio web clásico o como un servicio web nuevo basado en Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Implementación como servicio web clásico
-Para implementar un servicio web clásico derivado de nuestro experimento, haga clic en **Deploy Web Service** (Implementar servicio web) debajo del lienzo y seleccione **Deploy Web Service [Classic]** (Implementar servicio web [clásico]). Estudio de aprendizaje automático implementa el experimento como servicio web y lo remite al panel del servicio web. Desde esta página, puede volver al experimento (**View snapshot** [Ver instantánea] o **View latest** [Ver más reciente]) y ejecutar una prueba sencilla del servicio web (consulte la sección **Prueba del servicio web** a continuación). También hay información aquí para crear aplicaciones que puedan acceder al servicio web (más información al respecto en el siguiente paso de este tutorial).
+Para implementar un servicio web clásico derivado de nuestro experimento, haga clic en **Deploy Web Service** (Implementar servicio web) debajo del lienzo y seleccione **Deploy Web Service [Classic]** (Implementar servicio web [clásico]). Machine Learning Studio implementa el experimento como servicio web y lo remite al panel del servicio web. Desde esta página, puede volver al experimento (**View snapshot** [Ver instantánea] o **View latest** [Ver más reciente]) y ejecutar una prueba sencilla del servicio web (consulte la sección **Prueba del servicio web** a continuación). También hay información aquí para crear aplicaciones que puedan acceder al servicio web (más información al respecto en el siguiente paso de este tutorial).
 
 ![Panel del servicio web][6]
 
@@ -190,26 +190,6 @@ Los resultados de la prueba se muestran en el lado derecho de la página en la c
 
 
 ## <a name="manage-the-web-service"></a>Administración del servicio web
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Administración de un servicio web clásico en el Portal de Azure clásico
-
-Cuando se haya implementado el servicio web clásico, podrá administrarlo desde el [Portal de Azure clásico](https://manage.windowsazure.com).
-
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En el panel Servicios de Microsoft Azure, haga clic en **MACHINE LEARNING**.
-3. Haga clic en el área de trabajo.
-4. Haga clic en la pestaña **Servicios web**.
-5. Haga clic en el servicio web creado.
-6. Haga clic en el punto de conexión "predeterminado".
-
-Desde aquí, puede hacer tareas como supervisar el funcionamiento del servicio web y realizar ajustes de rendimiento cambiando el volumen de llamadas simultáneas que el servicio puede controlar.
-
-Para obtener información, consulte:
-
-* [Creación de extremos](create-endpoint.md)
-* [Escalado del servicio web](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Administración de un servicio web nuevo o clásico en el portal Servicios web Azure Machine Learning
 
 Cuando se haya implementado el servicio web, ya sea clásico o nuevo, podrá administrarlo desde el portal [Servicios web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart).
 

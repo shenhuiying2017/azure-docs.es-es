@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d4e3fc4f30d5c7b147fb460fb43367aef19118
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 > 
@@ -30,13 +30,13 @@ Cada instancia del servicio Administración de API mantiene una base de datos de
 * Cambios masivos en la configuración: realice cambios en varios ajustes de la configuración del servicio en el repositorio local e integre los cambios de nuevo en el servidor con una sola operación
 * Cadena de herramientas y flujo de trabajo familiares de Git: use las herramientas y los flujos de trabajo de Git con los que ya está familiarizado
 
-El diagrama siguiente muestra de forma global los distintos modos de configurar la instancia del servicio de Administración de API.
+El diagrama siguiente muestra de forma global los distintos modos de configurar la instancia del servicio de API Management.
 
 ![Configuración de GIT][api-management-git-configure]
 
 Cuando hace cambios en el servicio mediante el portal para editores, los cmdlets de PowerShell o la API de REST, está administrando la base de datos de configuración del servicio mediante el punto de conexión `https://{name}.management.azure-api.net` , tal como se muestra en el lado derecho del diagrama. En el lado izquierdo del diagrama se muestra cómo administrar la configuración del servicio mediante Git y el repositorio de Git para el servicio ubicado en `https://{name}.scm.azure-api.net`.
 
-Los pasos siguientes proporcionan una visión general sobre el proceso de administración de la instancia del servicio de Administración de API mediante Git.
+Los pasos siguientes proporcionan una visión general sobre el proceso de administración de la instancia del servicio de API Management mediante Git.
 
 1. Acceso a la configuración de Git en el servicio
 2. Guardar la base de datos de configuración del servicio en el repositorio de Git
@@ -47,7 +47,7 @@ Los pasos siguientes proporcionan una visión general sobre el proceso de admini
 Este artículo describe cómo habilitar y usar Git para administrar la configuración del servicio y sirve como referencia para los archivos y las carpetas del repositorio Git.
 
 ## <a name="access-git-configuration-in-your-service"></a>Acceso a la configuración de Git en el servicio
-Puede ver rápidamente el estado de la configuración Git en el icono de Git, en la esquina superior derecha del portal del editor. En este ejemplo, el mensaje de estado indica que hay cambios no guardados en el repositorio. Esto es porque la base de datos de configuración del servicio de Administración de API aún no se ha guardado en el repositorio.
+Puede ver rápidamente el estado de la configuración Git en el icono de Git, en la esquina superior derecha del portal del editor. En este ejemplo, el mensaje de estado indica que hay cambios no guardados en el repositorio. Esto es porque la base de datos de configuración del servicio de API Management aún no se ha guardado en el repositorio.
 
 ![Estado de Git][api-management-git-icon-enable]
 
@@ -128,7 +128,7 @@ git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 Una vez que se clone el repositorio, podrá ver y trabajar con él en el sistema de archivos local. Para más información, consulte [Referencia de estructura de archivo y carpeta del repositorio local de Git](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Para actualizar su repositorio local con la configuración de instancia de servicio más reciente
-Si realiza cambios en la instancia del servicio de Administración de API en el portal para editores o mediante la API de REST, debe guardar estos cambios en el repositorio para poder actualizar el repositorio local con los cambios más recientes. Para ello, haga clic en **Guardar configuración en repositorio** en la pestaña **Repositorio de configuración** del portal para editores y emita el siguiente comando en el repositorio local.
+Si realiza cambios en la instancia del servicio de API Management en el portal para editores o mediante la API de REST, debe guardar estos cambios en el repositorio para poder actualizar el repositorio local con los cambios más recientes. Para ello, haga clic en **Guardar configuración en repositorio** en la pestaña **Repositorio de configuración** del portal para editores y emita el siguiente comando en el repositorio local.
 
 ```
 git pull
@@ -154,7 +154,7 @@ Para insertar todas las confirmaciones en el servidor, ejecute el siguiente coma
 git push
 ```
 
-## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implementar los cambios de la configuración del servicio en la instancia del servicio de Administración de API
+## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Para implementar los cambios de la configuración del servicio en la instancia del servicio de API Management
 Una vez confirmados los cambios locales e insertados en el repositorio del servidor, puede implementarlos en la instancia del servicio Administración de API.
 
 ![Implementación][api-management-configuration-deploy]
@@ -183,7 +183,7 @@ Cada carpeta puede contener uno o varios archivos y, en algunos casos, una o var
 | xml |Policy statements |
 | css |Hojas de estilo para la personalización del portal para desarrolladores |
 
-Estos archivos pueden crear, eliminar, editar y administrar en el sistema de archivos local, y los cambios se pueden implementar de nuevo en la instancia de servicio de Administración de API.
+Estos archivos pueden crear, eliminar, editar y administrar en el sistema de archivos local, y los cambios se pueden implementar de nuevo en la instancia de servicio de API Management.
 
 > [!NOTE]
 > Las siguientes entidades no están en el repositorio de Git y no se pueden configurar mediante Git.
@@ -284,7 +284,7 @@ Para obtener información sobre otras formas de administrar la instancia de serv
   * [Azure API Management Deployment Management Cmdlets (Cmdlets de administración de la implementación de Administración de API de Azure)](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Azure API Management Service Management Cmdlets (Cmdlets de administración del servicio Administración de API de Azure)](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * Administrar la instancia de servicio en el portal para editores
-  * [Administración de su primera API en Administración de API de Azure](api-management-get-started.md)
+  * [Administración de su primera API en Administración de API de Azure](import-and-publish.md)
 * Administrar la instancia de servicio mediante la API de REST
   * [API Management REST API (API de REST de Administración de API)](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

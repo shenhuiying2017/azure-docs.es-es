@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.openlocfilehash: 67c11277142d6616fe77179e03b55ed08993b818
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 7ceb4bf97c29a18d6879af55615eea46037c51ce
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementar Azure Cosmos DB y Azure App Service Web Apps con una plantilla de Azure Resource Manager
 En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para implementar e integrar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), una aplicación web de [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) y una aplicación web de ejemplo.
@@ -58,15 +59,15 @@ Ahora vamos a implementar nuestra primera plantilla.
 > 
 > 
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com), haga clic en Nuevo y busque "Implementación de plantillas".
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com), haga clic en Nuevo y busque "Implementación de plantillas".
     ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment1.png)
 2. Seleccione el elemento de Template Deployment y haga clic en **Crear** ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment2.png)
 3. Haga clic en **Editar plantilla**, pegue el contenido del archivo de plantilla DocDBWebsiteTodo.json y haga clic en **Guardar**.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment3.png)
 4. Haga clic en **Editar parámetros**, proporcione valores para cada uno de los parámetros obligatorios y haga clic en **Aceptar**.  Los parámetros son los siguientes:
    
-   1. SITENAME: especifica el nombre de la aplicación web del Servicio de aplicaciones y se usa para crear la URL que se empleará para el acceso a la aplicación web (por ejemplo, si especifica "mydemodocdbwebsite", la URL mediante la que tendrá acceso a la aplicación web será mydemodocdbwebsite.azurewebsites.net).
-   2. HOSTINGPLANNAME: especifica el nombre del plan de hospedaje del Servicio de aplicaciones que se creará.
+   1. SITENAME: especifica el nombre de la aplicación web de App Service y se usa para crear la URL que se empleará para el acceso a la aplicación web (por ejemplo, si especifica "mydemodocdbwebsite", la URL mediante la que tendrá acceso a la aplicación web será mydemodocdbwebsite.azurewebsites.net).
+   2. HOSTINGPLANNAME: especifica el nombre del plan de hospedaje de App Service que se creará.
    3. LOCATION: especifica la ubicación de Azure en la que se crearán los recursos de Azure Cosmos DB y de la aplicación web.
    4. DATABASEACCOUNTNAME: especifica el nombre de la cuenta de Azure Cosmos DB que se creará.   
       
@@ -98,15 +99,15 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla resulta útil p
 > 
 > 
 
-1. En el [Portal de Azure](https://portal.azure.com), haga clic en Nuevo y busque "Implementación de plantillas".
+1. En el [Azure Portal](https://portal.azure.com), haga clic en Nuevo y busque "Implementación de plantillas".
     ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment1.png)
 2. Seleccione el elemento de Template Deployment y haga clic en **Crear** ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment2.png)
 3. Haga clic en **Editar plantilla**, pegue el contenido del archivo de plantilla DocDBWebSite.json y haga clic en **Guardar**.
    ![Captura de pantalla de la interfaz de usuario de implementación de plantillas](./media/create-website/TemplateDeployment3.png)
 4. Haga clic en **Editar parámetros**, proporcione valores para cada uno de los parámetros obligatorios y haga clic en **Aceptar**.  Los parámetros son los siguientes:
    
-   1. SITENAME: especifica el nombre de la aplicación web del Servicio de aplicaciones y se usa para crear la URL que se empleará para el acceso a la aplicación web (por ejemplo, si especifica "mydemodocdbwebsite", la URL mediante la que tendrá acceso a la aplicación web será mydemodocdbwebsite.azurewebsites.net).
-   2. HOSTINGPLANNAME: especifica el nombre del plan de hospedaje del Servicio de aplicaciones que se creará.
+   1. SITENAME: especifica el nombre de la aplicación web de App Service y se usa para crear la URL que se empleará para el acceso a la aplicación web (por ejemplo, si especifica "mydemodocdbwebsite", la URL mediante la que tendrá acceso a la aplicación web será mydemodocdbwebsite.azurewebsites.net).
+   2. HOSTINGPLANNAME: especifica el nombre del plan de hospedaje de App Service que se creará.
    3. LOCATION: especifica la ubicación de Azure en la que se crearán los recursos de Azure Cosmos DB y de la aplicación web.
    4. DATABASEACCOUNTNAME: especifica el nombre de la cuenta de Azure Cosmos DB que se creará.   
       
@@ -134,10 +135,10 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla resulta útil p
 * Para obtener más información sobre las plantillas del Administrador de recursos de Azure, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Websites a App Service, consulte: [Azure App Service y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 

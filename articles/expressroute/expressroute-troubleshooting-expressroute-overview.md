@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 960ea1540d644b6f41b95ab7df61cf91adcbb4ad
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 9aa21beb8963462b1cb6bdad6079b01e4d2e9c34
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
 ExpressRoute amplía una red local en Microsoft Cloud por medio de una conexión privada que se realiza mediante un proveedor de conectividad, y abarca las siguientes tres zonas de red distintas:
@@ -48,7 +48,7 @@ Según el modelo de conectividad de ExpressRoute (ubicación compartida de Excha
 4.  PE (hacia los MSEE): enrutadores o conmutadores del lado del proveedor orientados hacia los MSEE. Se hace referencia como PE-MSEE en este documento.
 5.  MSEEs: enrutadores de Microsoft Enterprise Edge (MSEE) ExpressRoute
 6.  Puerta de enlace de Virtual Network (VNet)
-7.  Dispositivo de proceso de la red virtual de Azure
+7.  Dispositivo de proceso de Azure Virtual Network
 
 Si se utilizan los modelos de conectividad de colocación de Exchange para la nube o conexión Ethernet de punto a punto, el enrutador del lado del cliente (2) establecerá un emparejamiento BGP con los MSEE (5). Los puntos de red 3 y 4 todavía existirán, pero serán transparentes de forma parecida a los dispositivos de capa 2.
 
@@ -192,7 +192,7 @@ Como se indicó en el ejemplo anterior, el contexto de enrutamiento de emparejam
 Para obtener los detalles de configuración del emparejamiento privado de Azure, use los siguientes comandos:
 
     $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt
+    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Una respuesta de ejemplo para un emparejamiento privado configurado correctamente es:
 

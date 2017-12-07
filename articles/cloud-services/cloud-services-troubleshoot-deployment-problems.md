@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Solución de problemas de implementación de servicios en la nube
 Al implementar un paquete de aplicación del servicio en la nube en Azure, puede obtener información sobre la implementación en el panel **Propiedades** del Portal de Azure. Puede usar los detalles de este panel para ayudarle a solucionar problemas con el servicio en la nube y proporcionar esta información al soporte técnico de Azure al abrir una nueva solicitud de soporte técnico.
@@ -27,7 +27,6 @@ Al implementar un paquete de aplicación del servicio en la nube en Azure, puede
 Puede encontrar el panel **Propiedades** panel de la siguiente manera:
 
 * En Azure Portal, haga clic en la implementación del servicio en la nube, haga clic en **Toda la configuración** y después en **Propiedades**.
-* En el Portal de Azure clásico, haga clic en la implementación del servicio en la nube y después en **PANEL**, que se encuentra en la esquina inferior derecha de la página (debajo de **vista rápida**). Tenga en cuenta que en este panel no hay ninguna etiqueta "Propiedades".
 
 > [!NOTE]
 > El contenido del panel **Propiedades** se puede copiar en el Portapapeles. Para ello, es preciso hacer clic en el icono de la esquina superior derecha del panel.

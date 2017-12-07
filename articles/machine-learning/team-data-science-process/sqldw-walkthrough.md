@@ -4,7 +4,7 @@ description: "Tecnología y procesos de análisis avanzado en acción"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev;hangzh;weig
-ms.openlocfilehash: 9a913533074bfd9b077d66d133f0ad02319a53ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/24/2017
+ms.author: bradsev;weig
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proceso de ciencia de datos en equipos en acción: uso de Almacenamiento de datos SQL
-En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante Almacenamiento de datos SQL (SQL DW) para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El modelo de clasificación binaria construido predice si se va a pagar o no una propina para la carrera, y también se describen los modelos de clasificación y regresión multiclase que predicen la distribución de los importes pagados en concepto de propina.
+# <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse
+En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante SQL Data Warehouse (SQL DW) para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El modelo de clasificación binaria construido predice si se va a pagar o no una propina para la carrera, y también se describen los modelos de clasificación y regresión multiclase que predicen la distribución de los importes pagados en concepto de propina.
 
-El procedimiento sigue el flujo de trabajo del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Se muestra cómo configurar un entorno de ciencia de datos, cómo cargar los datos en Almacenamiento de datos SQL y cómo usar Almacenamiento de datos SQL o un IPython Notebook para explorar las características de datos y de diseño para modelar. Luego se muestra cómo compilar e implementar un modelo con Aprendizaje automático de Azure.
+El procedimiento sigue el flujo de trabajo del [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) . Se muestra cómo configurar un entorno de ciencia de datos, cómo cargar los datos en Almacenamiento de datos SQL y cómo usar Almacenamiento de datos SQL o un IPython Notebook para explorar las características de datos y de diseño para modelar. Luego se muestra cómo compilar e implementar un modelo con Azure Machine Learning.
 
 ## <a name="dataset"></a>Conjunto de datos NYC Taxi Trips
 El conjunto de datos NYC Taxi Trips consta de aproximadamente 20 GB de archivos de valores separados por comas (CSV) comprimidos (aproximadamente, 48 GB sin comprimir), que registran más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y el lugar de recogida y llegada, el número de licencia del taxista anonimizado y el número de placa (número de identificación único del taxi). Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
@@ -77,14 +77,14 @@ Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
   * **Nombre de contenedor** (en donde los datos se van a almacenar en el Almacenamiento de blobs de Azure)
 
 **Aprovisione la instancia de Almacenamiento de datos SQL de Azure.**
-Siga la documentación de [Creación de Almacenamiento de datos SQL](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para aprovisionar una instancia de Almacenamiento de datos SQL. Asegúrese de que hacer anotaciones en las credenciales de Almacenamiento de datos SQL siguientes que se usarán en los pasos posteriores.
+Siga la documentación de [Creación de SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) para aprovisionar una instancia de SQL Data Warehouse. Asegúrese de que hacer anotaciones en las credenciales de SQL Data Warehouse siguientes que se usarán en los pasos posteriores.
 
 * **Nombre del servidor**: <server Name>.database.windows.net
 * **Nombre de SQLDW (base de datos)**
 * **Nombre de usuario**
 * **Password**
 
-**Instale Visual Studio y SQL Server Data Tools.** Para ver instrucciones, consulte [Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Instale Visual Studio y SQL Server Data Tools.** Para ver instrucciones, consulte [Instalación de Visual Studio 2015 y SSDT para SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Conéctese a Almacenamiento de datos SQL de Azure con Visual Studio.** Para obtener instrucciones, consulte los pasos 1 y 2 de [Conexión a Azure SQL Data Warehouse con Visual Studio](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
@@ -101,9 +101,9 @@ Siga la documentación de [Creación de Almacenamiento de datos SQL](../../sql-d
            --If the master key exists, do nothing
     END CATCH;
 
-**Cree un área de trabajo de Azure Machine Learning en su suscripción de Azure.** Para ver instrucciones, consulte [Creación de un área de trabajo de Aprendizaje automático de Azure](../studio/create-workspace.md).
+**Cree un área de trabajo de Azure Machine Learning en su suscripción de Azure.** Para ver instrucciones, consulte [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md).
 
-## <a name="getdata"></a>Carga de datos en Almacenamiento de datos SQL
+## <a name="getdata"></a>Carga de datos en SQL Data Warehouse
 Abra una consola de comandos de Windows PowerShell. Ejecute los comandos de PowerShell siguientes para descargar los archivos de script SQL de ejemplo que compartimos en GitHub en un directorio local especificado con el parámetro *-DestDir*. Puede cambiar el valor del parámetro *-DestDir* en cualquier directorio local. Si *-DestDir* no existe, lo creará el script de PowerShell.
 
 > [!NOTE]
@@ -256,7 +256,7 @@ Este archivo de **script de PowerShell** realiza las tareas siguientes:
                 REJECT_VALUE = 12         
             )
 
-    - Carga de datos de tablas externas del Almacenamiento de blobs de Azure en Almacenamiento de datos SQL
+    - Carga de datos de tablas externas de Azure Blob Storage en SQL Data Warehouse
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
@@ -338,7 +338,7 @@ Después de una ejecución correcta, verá una pantalla similar a la siguiente:
 
 ![][20]
 
-## <a name="dbexplore"></a>Exploración de datos y diseño de características en Almacenamiento de datos SQL de Azure
+## <a name="dbexplore"></a>Exploración de datos y diseño de características en Azure SQL Data Warehouse
 En esta sección, realizamos la generación de características y la exploración de datos mediante la ejecución de consultas SQL en Almacenamiento de datos SQL de Azure directamente mediante **Visual Studio Data Tools**. Todas las consultas SQL que se usan en esta sección se pueden encontrar en el script de ejemplo llamado *SQLDW_Explorations.sql*. Este archivo ya lo ha descargado en el directorio local el script de PowerShell. También puede recuperarlo desde [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Pero el archivo de GitHub no tiene la información de Azure SQL DW conectada.
 
 Conéctese con Almacenamiento de datos SQL de Azure utilizando Visual Studio con el nombre de inicio de sesión de Almacenamiento de datos SQL y la contraseña y abra el **Explorador de objetos SQL** para confirmar que la base de datos y las tablas se han importado. Recupere el archivo *SQLDW_Explorations.sql*.
@@ -559,7 +559,7 @@ La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, 
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-Cuando esté listo para continuar con Aprendizaje automático de Azure, puede:  
+Cuando esté listo para continuar con Azure Machine Learning, puede:  
 
 1. Guardar la consulta SQL final para extraer y muestrear los datos, y copiar y pegar la consulta directamente en un módulo [Importar datos][import-data] de Azure Machine Learning; o bien
 2. Conservar los datos muestreados y de ingeniería que planea usar para la generación de modelos en una nueva tabla de SQL Data Warehouse y usar la nueva tabla en el módulo [Importar datos][import-data] de Azure Machine Learning. El script de PowerShell del paso anterior se ha encargado de hacerlo. Puede leer directamente de esta tabla en el módulo Importar datos.
@@ -598,7 +598,7 @@ La secuencia recomendada al crear soluciones analíticas avanzadas en Aprendizaj
 * Realizar algunas visualizaciones y exploraciones con los datos de muestreo.
 * Experimentar con el diseño de características con los datos de muestreo.
 * Para el diseño de características, la exploración y la manipulación de datos más grandes, usar Python para emitir consultas SQL directamente en Almacenamiento de datos SQL.
-* Decidir el tamaño de muestra que se usará para la creación del modelo de Aprendizaje automático de Azure.
+* Decidir el tamaño de muestra que se usará para la creación del modelo de Azure Machine Learning.
 
 A continuación, se muestran algunas exploraciones de datos, visualizaciones de datos y ejemplos de diseño de características. Se pueden encontrar más exploraciones de datos en el cuaderno de IPython Notebook de ejemplo y en el archivo de script de Python de ejemplo.
 
@@ -653,7 +653,7 @@ Esta es la cadena de conexión que crea la conexión a la base de datos.
 * Número total de filas = 173179759  
 * Número total de columnas = 11
 
-### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>Lectura de una muestra de datos pequeña de la base de datos de Almacenamiento de datos SQL
+### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>Lectura de una muestra de datos pequeña de la base de datos de SQL Data Warehouse
     t0 = time.time()
 
     query = '''
@@ -804,18 +804,18 @@ En esta sección, se explorarán las distribuciones de datos con los datos de mu
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="mlmodel"></a>Creación de modelos en Aprendizaje automático de Azure
-Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Aprendizaje automático de Azure](https://studio.azureml.net). Los datos están listos para usarse en cualquiera de los problemas de predicción identificados anteriormente, a saber:
+## <a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
+Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Azure Machine Learning](https://studio.azureml.net). Los datos están listos para usarse en cualquiera de los problemas de predicción identificados anteriormente, a saber:
 
 1. **Clasificación binaria**: para predecir si se dio propina en una carrera o no.
 2. **Clasificación multiclase**: para predecir el intervalo de la propina dada, según las clases definidas anteriormente.
 3. **Tarea de regresión**: para predecir la cantidad de propina pagada en una carrera.  
 
-Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de **Aprendizaje automático de Azure** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Aprendizaje automático de Azure](../studio/create-workspace.md).
+Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de **Azure Machine Learning** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Aprendizaje automático de Azure](../studio/create-workspace.md).
 
-1. Para empezar a usar el Aprendizaje automático de Azure, consulte [¿Qué es Estudio de aprendizaje automático de Microsoft Azure?](../studio/what-is-ml-studio.md)
-2. Inicie sesión en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net).
-3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información sobre Aprendizaje automático de Azure, visite el [Centro de documentación de aprendizaje automático de Azure](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. Para empezar a usar Azure Machine Learning, consulte [¿Qué es Microsoft Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+2. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net).
+3. La página principal del Estudio ofrece una gran cantidad de información, vídeos, tutoriales, vínculos a referencias de módulos y otros recursos. Para obtener más información sobre Azure Machine Learning, visite el [Centro de documentación de Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Un experimento de entrenamiento típico consta de los pasos siguientes:
 
@@ -830,7 +830,7 @@ Un experimento de entrenamiento típico consta de los pasos siguientes:
 9. Evaluar los modelos para calcular las métricas relevantes para el problema de aprendizaje.
 10. Ajustar los modelos y seleccionar el mejor para su implementación.
 
-En este ejercicio, ya se han explorado y diseñado los datos en Almacenamiento de datos SQL, y también se ha decidido el tamaño de la muestra para la ingesta en Aprendizaje automático de Azure. Este es el procedimiento para crear uno o varios de los modelos de predicción:
+En este ejercicio, ya se han explorado y diseñado los datos en SQL Data Warehouse, y también se ha decidido el tamaño de la muestra para la ingesta en Azure Machine Learning. Este es el procedimiento para crear uno o varios de los modelos de predicción:
 
 1. Obtenga los datos e introdúzcalos en Azure ML mediante el módulo [Importar datos][import-data], que se encuentra disponible en la sección **Entrada y salida de datos**. Para obtener más información, consulte la página de referencia sobre el módulo [Importar datos][import-data].
    
@@ -839,10 +839,9 @@ En este ejercicio, ya se han explorado y diseñado los datos en Almacenamiento d
 3. Escribir el nombre DNS de la base de datos en el campo **Nombre del servidor de la base de datos** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Escribir el **nombre de la base de datos** en el campo correspondiente.
 5. Escribir el *nombre de usuario de SQL* en **Nombre de la cuenta de usuario del servidor** y la *contraseña* en **Contraseña de la cuenta de usuario del servidor**.
-6. Activar la opción **Aceptar cualquier certificado de servidor** .
 7. En el área de texto editable **Consulta de base de datos** , pegar la consulta que extrae los campos de la base de datos necesarios (incluidos los campos calculados, como las etiquetas) y reducir la muestra al tamaño de muestra deseado.
 
-En la ilustración siguiente se muestra un ejemplo de un experimento de clasificación binaria que lee datos directamente desde la base de datos de Almacenamiento de datos SQL (no olvide reemplazar los nombres de tabla nyctaxi_trip y nyctaxi_fare por el nombre de esquema y los nombres de tabla que utilizó en el tutorial). Se pueden construir experimentos similares para problemas de clasificación multiclase y de regresión.
+En la ilustración siguiente se muestra un ejemplo de un experimento de clasificación binaria que lee datos directamente desde la base de datos de SQL Data Warehouse (no olvide reemplazar los nombres de tabla nyctaxi_trip y nyctaxi_fare por el nombre de esquema y los nombres de tabla que utilizó en el tutorial). Se pueden construir experimentos similares para problemas de clasificación multiclase y de regresión.
 
 ![Entrenamiento de Aprendizaje automático de Azure][10]
 
@@ -853,8 +852,8 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 > 
 > 
 
-## <a name="mldeploy"></a>Implementación de modelos en Aprendizaje automático de Azure
-Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para obtener más información sobre la implementación de servicios web de Aprendizaje automático de Azure, vea [Implementación de un servicio web de Aprendizaje automático de Azure](../studio/publish-a-machine-learning-web-service.md).
+## <a name="mldeploy"></a>Implementación de modelos en Azure Machine Learning
+Cuando el modelo esté listo, podrá implementarlo fácilmente como un servicio web directamente desde el experimento. Para obtener más información sobre la implementación de servicios web de Azure Machine Learning, vea [Implementación de un servicio web de Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
 
 Para implementar un nuevo servicio web, deberá:
 
@@ -865,7 +864,7 @@ Para crear un experimento de puntuación a partir de un experimento de entrenami
 
 ![Puntuación de Azure][18]
 
-Aprendizaje automático de Azure intentará crear un experimento de puntuación en función de los componentes del experimento de entrenamiento. En concreto, hará lo siguiente:
+Azure Machine Learning intentará crear un experimento de puntuación en función de los componentes del experimento de entrenamiento. En concreto, hará lo siguiente:
 
 1. Guardar el modelo entrenado y quitar los módulos de entrenamiento del modelo.
 2. Identificar un **puerto de entrada** lógico que represente el esquema de datos de entrada esperado.
@@ -878,7 +877,7 @@ En la ilustración siguiente se muestra un ejemplo de experimento de puntuación
 ![Publicación de Aprendizaje automático de Azure][11]
 
 ## <a name="summary"></a>Resumen
-A modo de recapitulación, en este tutorial paso a paso se ha creado un entorno de ciencia de datos de Azure, se ha trabajado con un conjunto de datos público grande de principio a fin, llevándolo a través del proceso de ciencia de datos en equipos, desde la adquisición de los datos al entrenamiento del modelo, para finalizar con la implementación de un servicio web de Aprendizaje automático de Azure.
+A modo de recapitulación, en este tutorial paso a paso se ha creado un entorno de ciencia de datos de Azure, se ha trabajado con un conjunto de datos público grande de principio a fin, llevándolo a través del proceso de ciencia de datos en equipos, desde la adquisición de los datos al entrenamiento del modelo, para finalizar con la implementación de un servicio web de Azure Machine Learning.
 
 ### <a name="license-information"></a>Información de licencia
 Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de notas de IPython bajo la licencia MIT. Consulte el archivo LICENSE.txt que se encuentra en el directorio del código de ejemplo en GitHub para obtener más detalles.

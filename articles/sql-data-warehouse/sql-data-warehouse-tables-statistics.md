@@ -1,10 +1,10 @@
 ---
 title: "Administración de estadísticas de tablas en SQL Data Warehouse | Microsoft Docs"
-description: "Introducción a las estadísticas de tablas en Almacenamiento de datos SQL de Azure."
+description: "Introducción a las estadísticas de tablas en Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
 ms.service: sql-data-warehouse
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 10/31/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: 1d5ded69e394643ddfc3de0c6d30dbd30c8e848f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Administración de estadísticas en tablas en Almacenamiento de datos SQL
+# <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Administración de estadísticas en tablas en SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Información general][Overview]
 > * [Tipos de datos][Data Types]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Cuanto más sepa Almacenamiento de datos SQL acerca de los datos, más rápido podrá ejecutar consultas en ellos.  La manera en que se informa a Almacenamiento de datos SQL acerca de los datos es mediante la recopilación de estadísticas sobre los datos.  La obtención de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas.  Las estadísticas ayudan a Almacenamiento de datos SQL a crear el plan óptimo para las consultas.  Esto se debe a que el optimizador de consultas de Almacenamiento de datos SQL se basa en costos.  Es decir, compara el costo de varios planes de consulta y elige el de menor costo, que también debe ser el que se ejecutará más rápidamente.
+Cuanto más sepa SQL Data Warehouse acerca de los datos, más rápido podrá ejecutar consultas en ellos.  La manera en que se informa a SQL Data Warehouse acerca de los datos es mediante la recopilación de estadísticas sobre los datos.  La obtención de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas.  Las estadísticas ayudan a SQL Data Warehouse a crear el plan óptimo para las consultas.  Esto se debe a que el optimizador de consultas de SQL Data Warehouse se basa en costos.  Es decir, compara el costo de varios planes de consulta y elige el de menor costo, que también debe ser el que se ejecutará más rápidamente.
 
 Se pueden crear estadísticas de una sola columna, de varias columnas o de un índice de una tabla.  Las estadísticas se almacenan en un histograma que captura el intervalo y la selectividad de valores.  Esto es de especial interés cuando el optimizador debe evaluar las cláusulas JOIN, GROUP BY, HAVING y WHERE en una consulta.  Por ejemplo, si el optimizador estima que la fecha de filtro de la consulta devolverá una fila, puede elegir un plan completamente diferente del que elegiría si estima que la fecha seleccionada devolverá un millón de filas.  Aunque la creación de estadísticas es muy importante, no lo es menos que las estadísticas reflejen *con precisión* el estado actual de la tabla.  La existencia de las estadísticas actualizadas garantiza que el optimizador selecciona un buen plan.  Los planes que crea el optimizador son igual de buenos que las estadísticas de los datos.
 
@@ -43,7 +43,7 @@ En la actualidad, el proceso de creación y actualización de estadísticas es u
  Crear estadísticas de muestra en cada columna es una forma sencilla de empezar a trabajar con las estadísticas.  Dado que también es muy importante que las estadísticas estén actualizadas, un enfoque conservador puede ser actualizar las estadísticas diariamente o después de cada carga. Existen inconvenientes entre el rendimiento y el costo de crear y actualizar las estadísticas.  Si cree que tarda demasiado en realizar el mantenimiento de todas las estadísticas, puede intentar ser más selectivo acerca de las columnas con estadísticas o las que necesitan actualizarse con frecuencia.  Por ejemplo, puede preferir actualizar las columnas de fecha diariamente, ya que se pueden agregar nuevos valores, en lugar de después de cada carga. Una vez más, la mayor ventaja se logrará si se tienen estadísticas de las columnas implicadas las cláusulas JOINs, GROUP BY, HAVING y WHERE.  Si tiene una tabla con muchas columnas que solo se utilizan en la cláusula SELECT, es posible que las estadísticas de estas columnas no sirvan de ayuda, mientras que realizar ciertos esfuerzos para identificar solo las columnas en que las estadísticas servirán de ayuda puede reducir el tiempo necesario para mantener las estadísticas.
 
 ## <a name="multi-column-statistics"></a>Estadísticas de varias columnas
-Además de crear estadísticas de columnas individuales, es posible que las consultas se beneficien de las estadísticas de varias columnas.  Las estadísticas de varias columnas son las estadísticas creadas en una lista de columnas.  Incluyen las estadísticas de columna única en la primera columna de la lista, además de cierta información de correlación entre las columnas denominada densidades.  Por ejemplo, si tiene una tabla que se une a otro en dos columnas, es posible que Almacenamiento de datos SQL pueda optimizar mejor el plan si conoce la relación entre las dos columnas.   Las estadísticas de varias columnas pueden mejorar el rendimiento de las consultas en algunas operaciones, como las cláusulas compuestas JOINs y GROUP BY.
+Además de crear estadísticas de columnas individuales, es posible que las consultas se beneficien de las estadísticas de varias columnas.  Las estadísticas de varias columnas son las estadísticas creadas en una lista de columnas.  Incluyen las estadísticas de columna única en la primera columna de la lista, además de cierta información de correlación entre las columnas denominada densidades.  Por ejemplo, si tiene una tabla que se une a otro en dos columnas, es posible que SQL Data Warehouse pueda optimizar mejor el plan si conoce la relación entre las dos columnas.   Las estadísticas de varias columnas pueden mejorar el rendimiento de las consultas en algunas operaciones, como las cláusulas compuestas JOINs y GROUP BY.
 
 ## <a name="updating-statistics"></a>Actualización de estadísticas
 La actualización de estadísticas es una parte importante de la rutina de administración de base de datos.  Cuando se cambia la distribución de datos en la base de datos, las estadísticas deben actualizarse.  Las estadísticas obsoletas provocarán a rendimiento de las consultas que no llega a ser óptimo.
@@ -54,7 +54,7 @@ Una de las primeras preguntas que se deben formular para la solución de problem
 
 No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser muy antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de valores para una columna determinada, *entonces* será el momento de actualizar estadísticas.  
 
-Como referencia, **SQL Server** (no Almacenamiento de datos SQL) actualiza automáticamente las estadísticas para estas situaciones:
+Como referencia, **SQL Server** (no SQL Data Warehouse) actualiza automáticamente las estadísticas para estas situaciones:
 
 * Si tiene cero filas en la tabla, al agregar una filas, las estadísticas se actualizarán automáticamente
 * Al agregar más de 500 filas a una tabla comenzando con menos de 500 filas (p. ej., al principio tiene 499 y después agrega 500 filas a un total de 999 filas), obtendrá una actualización automática 
@@ -122,7 +122,7 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Crear estadísticas de columna única con las opciones predeterminadas
 Para crear estadísticas de una columna, basta con proporcionar un nombre para el objeto de estadística y el nombre de la columna.
 
-Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, el Almacenamiento de datos SQL ofrece un ejemplo del 20 % de la tabla cuando crea estadísticas.
+Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, SQL Data Warehouse ofrece un ejemplo del 20 % de la tabla cuando crea estadísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -219,7 +219,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### <a name="h-use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>H. Utilizar un procedimiento almacenado para crear estadísticas de todas las columnas de una base de datos
-El Almacenamiento de datos SQL no tiene un procedimiento almacenado del sistema equivalente a [] [sp_create_stats] en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
+SQL Data Warehouse no tiene un procedimiento almacenado del sistema equivalente a [] [sp_create_stats] en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
 
 Esto le ayudará a empezar a trabajar con el diseño de la base de datos. Puede adaptarlo a sus necesidades.
 
@@ -347,7 +347,7 @@ UPDATE STATISTICS dbo.table1;
 Esta instrucción es fácil de usar. Solo tiene que recordar que esto actualiza todas las estadísticas de la tabla y, por tanto, puede realizar más trabajo del necesario. Si el rendimiento no es un problema, sin duda es la forma más fácil y más completa de garantizar que las estadísticas están actualizadas.
 
 > [!NOTE]
-> Al actualizar todas las estadísticas de una tabla, el Almacenamiento de datos SQL realiza un análisis para crear muestras de la tabla para cada estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
+> Al actualizar todas las estadísticas de una tabla, SQL Data Warehouse realiza un análisis para crear muestras de la tabla para cada estadística. Si la tabla es grande y tiene muchas columnas y estadísticas, puede resultar más eficaz actualizar las estadísticas individualmente en función de las necesidades.
 > 
 > 
 
@@ -454,7 +454,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
 ## <a name="dbcc-showstatistics-differences"></a>Diferencias de DBCC SHOW_STATISTICS()
-DBCC SHOW_STATISTICS() se implementa de forma más estricta en el Almacenamiento de datos SQL en comparación con SQL Server.
+DBCC SHOW_STATISTICS() se implementa de forma más estricta en SQL Data Warehouse en comparación con SQL Server.
 
 1. No se admiten características no documentadas.
 2. No se puede usar Stats_stream.
