@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0629b0aa7e7981cf04330b407604e4612a58b168
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ef01271fd4885f9bdac80194bbf72e2a10df0d27
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilación de una aplicación web Node.js de Python Flask mediante Azure cosmos DB
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Visual Studio de 2017]((https://www.visualstudio.com/downloads/)) con **desarrollo de Azure** y **desarrollo de Python** habilitado. Puede comprobar si estos requisitos previos están instalados y, si es necesario, instalarlos abriendo el **Instalador de Visual Studio** localmente.   
+* [Visual Studio de 2017](https://www.visualstudio.com/downloads/) con **desarrollo de Azure** y **desarrollo de Python** habilitado. Puede comprobar si estos requisitos previos están instalados y, si es necesario, instalarlos abriendo el **Instalador de Visual Studio** localmente.   
 * [SDK de Microsoft Azure para Python 2.7](https://azure.microsoft.com/downloads/) 
 * [Python 2.7](https://www.python.org/downloads/windows/). Puede usar la instalación de 32 bits o la de 64 bits.
 
@@ -394,7 +394,7 @@ Ahora que ya tiene la aplicación completa funcionando correctamente en Azure Co
     ![Captura de pantalla de la ventana de publicación web con Microsoft Azure App Service resaltada](./media/documentdb-python-application/cosmos-db-python-publish.png)
 7. En el cuadro de diálogo **Crear App Service**, escriba el nombre de la aplicación web, junto con la **suscripción**, el **grupo de recursos**, el **plan de App Service** y, a continuación, haga clic en **Crear**.
    
-    ![Captura de pantalla de la ventana Aplicaciones web de Microsoft Azure](./media/documentdb-python-application/cosmos-db-python-create-app-service.png)
+    ![Captura de pantalla de la ventana Microsoft Azure Web Apps](./media/documentdb-python-application/cosmos-db-python-create-app-service.png)
 8. En unos segundos, Visual Studio terminará de copiar los archivos en el servidor y aparecerá el error "No se puede mostrar la página. Error interno en el servidor" en la página `http://<your app service>.azurewebsites.net/`.
 
 9. En Azure Portal, abra la nueva cuenta de App Service, a continuación, en el menú de navegación, desplácese hacia abajo hasta la sección **Herramientas de desarrollo**, seleccione **Extensiones** y, finalmente, haga clic en **+ Agregar**.

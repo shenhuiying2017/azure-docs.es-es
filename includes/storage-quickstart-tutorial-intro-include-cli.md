@@ -1,6 +1,6 @@
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos de Azure con el comando [az group create](/cli/azure/group#create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos de Azure con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 ```azurecli-interactive
 az group create \

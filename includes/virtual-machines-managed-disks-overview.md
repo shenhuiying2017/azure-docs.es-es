@@ -1,6 +1,6 @@
 # <a name="azure-managed-disks-overview"></a>Introducción a Azure Managed Disks
 
-Azure Managed Disks simplifica la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las [cuentas de almacenamiento](../articles/storage/common/storage-introduction.md) asociadas a los discos de la máquina virtual. Solo tiene que especificar el tipo ([premium](../articles/storage/common/storage-premium-storage.md) o [estándar](../articles/storage/common/storage-standard-storage.md)) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente.
+Azure Managed Disks simplifica la administración de discos para las máquinas virtuales de Azure IaaS, ya que administra las [cuentas de almacenamiento](../articles/storage/common/storage-introduction.md) asociadas a los discos de la máquina virtual. Solo tiene que especificar el tipo ([premium](../articles/virtual-machines/windows/premium-storage.md) o [estándar](../articles/virtual-machines/windows/standard-storage.md)) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente.
 
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -44,7 +44,7 @@ Al usar Managed Disks, se aplican las siguientes consideraciones de facturación
 
 Veámoslas más detalladamente.
 
-**Tipo de almacenamiento:** Managed Disks ofrece 2 niveles de rendimiento: [premium](../articles/storage/common/storage-premium-storage.md) (basado en SSD) y [estándar](../articles/storage/common/storage-standard-storage.md) (basado en HDD). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
+**Tipo de almacenamiento:** Managed Disks ofrece 2 niveles de rendimiento: [premium](../articles/virtual-machines/windows/premium-storage.md) (basado en SSD) y [estándar](../articles/virtual-machines/windows/standard-storage.md) (basado en HDD). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
 
 
 **Tamaño del disco**: la facturación de los discos administrados depende del tamaño aprovisionado del disco. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Managed Disks más cercana, como se especifica en las tablas siguientes. Cada disco administrado se asigna a uno de los tamaños aprovisionados admitidos y se factura según corresponda. Por ejemplo, si crea un disco administrado estándar y especificar un tamaño aprovisionado de 200 GB, se le facturará según los precios del tipo disco S20.
@@ -131,9 +131,9 @@ Para más información acerca de Managed Disks, consulte los siguientes artícul
 
 ### <a name="compare-managed-disks-storage-options"></a>Comparación de las opciones de almacenamiento de Managed Disks
 
-* [Discos y Premium Storage](../articles/storage/common/storage-premium-storage.md)
+* [Discos y Premium Storage](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Discos y almacenamiento estándar](../articles/storage/common/storage-standard-storage.md)
+* [Discos y almacenamiento estándar](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>Guía de operaciones
 

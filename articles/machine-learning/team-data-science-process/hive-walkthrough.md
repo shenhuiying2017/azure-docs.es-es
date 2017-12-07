@@ -4,7 +4,7 @@ description: "Uso del proceso de ciencia de datos en equipos para un escenario c
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.date: 11/29/2017
+ms.author: bradsev
+ms.openlocfilehash: ad7bc8bb65a3395599a4de9a9954ff203fa624c6
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
-En este tutorial se describe cómo utilizar el [proceso de ciencia de datos en equipos (TDSP)](overview.md) en un escenario completo con un clúster de [Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Aprendizaje automático de Azure para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
+En este tutorial se describe cómo utilizar el [proceso de ciencia de datos en equipos (TDSP)](overview.md) en un escenario completo con un clúster de [Hadoop de HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el tamaño de los datos. Los modelos de datos se generan mediante Azure Machine Learning para controlar las tareas predictivas de clasificación binaria y de clases múltiples, y de regresión.
 
 Para acceder a un tutorial que muestra cómo controlar un conjunto de datos de mayor tamaño (1 terabyte) para un escenario similar con clústeres de Hadoop de HDInsight para el procesamiento de datos, consulte [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](hive-criteo-walkthrough.md).
 
@@ -83,7 +83,7 @@ Puede configurar un entorno de Azure para análisis avanzado que emplee un clús
    
    * Recuerde vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de crearlo. Esta cuenta de almacenamiento se utiliza para tener acceso a datos que se procesan en el clúster.
    * Después de crear el clúster, debe habilitar el acceso remoto a su nodo principal. Navegue hasta la pestaña **Configuración** y haga clic en **Habilitar de forma remota**. Este paso especifica las credenciales de usuario usadas para el inicio de sesión remoto.
-3. [Cree un área de trabajo de Aprendizaje automático de Azure](../studio/create-workspace.md): esta área de trabajo se usa para crear modelos de aprendizaje automático. Esta tarea se lleva a cabo después de completar una exploración inicial de los datos y de reducir su tamaño con el clúster de HDInsight.
+3. [Cree un área de trabajo de Azure Machine Learning](../studio/create-workspace.md): esta área de trabajo se usa para crear modelos de aprendizaje automático. Esta tarea se lleva a cabo después de completar una exploración inicial de los datos y de reducir su tamaño con el clúster de HDInsight.
 
 ## <a name="getdata"></a>Obtención de los datos desde un origen público
 > [!NOTE]
@@ -134,7 +134,7 @@ Los datos deben estar ahora en Azure Blob Storage, listos para usarse dentro del
 
 Para tener acceso al nodo principal del clúster para el análisis de exploración de datos y la reducción de estos, siga el procedimiento descrito en [Acceso al nodo principal del clúster de Hadoop](customize-hadoop-cluster.md).
 
-En este tutorial se usan principalmente las consultas escritas en [Hive](https://hive.apache.org/), un lenguaje de consultas de tipo SQL, para realizar exploraciones preliminares de los datos. Las consultas de Hive se almacenan en archivos .hql. A continuación, se reducen estos datos para su uso en Aprendizaje automático de Azure con el fin de generar modelos.
+En este tutorial se usan principalmente las consultas escritas en [Hive](https://hive.apache.org/), un lenguaje de consultas de tipo SQL, para realizar exploraciones preliminares de los datos. Las consultas de Hive se almacenan en archivos .hql. A continuación, se reducen estos datos para su uso en Azure Machine Learning con el fin de generar modelos.
 
 Para preparar el clúster para el análisis de exploración de datos, se descargan los archivos .hql que contienen los scripts de Hive pertinentes de [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) en un directorio local (C:\temp) en el nodo principal. Para ello, abra el **símbolo del sistema** desde dentro del nodo principal del clúster y emita los dos comandos siguientes:
 
@@ -572,13 +572,13 @@ Para ver el contenido de un archivo determinado, por ejemplo, 000000\_0, se usa 
 
 Una ventaja clave de tener estos datos en un blob de Azure es que se pueden explorar dentro de Azure Machine Learning mediante el módulo [Importar datos][import-data].
 
-## <a name="#downsample"></a>Reducción de datos y creación de modelos en Aprendizaje automático de Azure
+## <a name="#downsample"></a>Reducción de datos y creación de modelos en Azure Machine Learning
 > [!NOTE]
 > Esta tarea la suelen hacer los **científicos de datos** .
 > 
 > 
 
-Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Aprendizaje automático de Azure. En esta sección veremos cómo se usa una consulta de Hive para reducir los datos, a los que después se accede desde el módulo [Importar datos][import-data] de Azure Machine Learning.
+Después de la fase de análisis de exploración de datos, estamos preparados para reducir los datos y crear modelos en Azure Machine Learning. En esta sección veremos cómo se usa una consulta de Hive para reducir los datos, a los que después se accede desde el módulo [Importar datos][import-data] de Azure Machine Learning.
 
 ### <a name="down-sampling-the-data"></a>Reducción de los datos
 Este procedimiento incluye dos pasos. En primer lugar, se unen las tablas **nyctaxidb.trip** y **nyctaxidb.fare** en función de tres claves incluidas en todos los registros: "medallion", "hack\_license" y "pickup\_datetime". Después se genera una etiqueta de clasificación binaria **tipped** y una etiqueta de clasificación de múltiples clases **tip\_class**.
@@ -587,7 +587,7 @@ Para usar los datos muestreados directamente desde el módulo [Importar datos][i
 
 La consulta aplica funciones estándar de Hive directamente para generar la hora del día, la semana del año, el día de la semana (1 representa el lunes y 7 el domingo) a partir del campo "pickup\_datetime", y la distancia directa entre las ubicaciones de recogida y destino. Los usuarios pueden consultar [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Manual de lenguaje: campos definidos por el usuario) para obtener una lista completa de estas funciones.
 
-Después esta consulta reduce los datos para que los resultados quepan en Estudio de aprendizaje automático de Azure. Aproximadamente solo el 1% del conjunto de datos original se importa en Estudio.
+Después esta consulta reduce los datos para que los resultados quepan en Azure Machine Learning Studio. Aproximadamente solo el 1% del conjunto de datos original se importa en Estudio.
 
 A continuación se muestra el contenido del archivo *sample\_hive\_prepare\_for\_aml\_full.hql* que prepara los datos para la creación de modelos en Azure Machine Learning.
 
@@ -716,9 +716,9 @@ Para ejecutar esta consulta, escriba en el símbolo del sistema del directorio d
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Ahora tenemos una tabla interna nyctaxidb.nyctaxi_downsampled_dataset, a la que se puede acceder mediante el módulo [Importar datos][import-data] de Azure Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Aprendizaje automático.  
+Ahora tenemos una tabla interna nyctaxidb.nyctaxi_downsampled_dataset, a la que se puede acceder mediante el módulo [Importar datos][import-data] de Azure Machine Learning. También se puede utilizar este conjunto de datos para generar modelos de Machine Learning.  
 
-### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Uso del módulo Importar datos de Aprendizaje automático de Azure para acceder a los datos muestreados
+### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Uso del módulo Importar datos de Azure Machine Learning para acceder a los datos muestreados
 Como requisitos previos para la emisión de consultas de Hive en el módulo [Importar datos][import-data] de Azure Machine Learning, se necesita acceso a un área de trabajo de Azure Machine Learning y a las credenciales del clúster y su cuenta de almacenamiento asociada.
 
 A continuación se indican algunos detalles del módulo [Importar datos][import-data] y los parámetros de entrada:
@@ -752,10 +752,10 @@ A continuación, se muestra una instantánea de la consulta de Hive y el módulo
 
 Tenga en cuenta que, dado que los datos reducidos se encuentran en el contenedor predeterminado, la consulta de Hive resultante de Azure Machine Learning es muy sencilla, simplemente "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data".
 
-Ahora el conjunto de datos se puede usar como punto de partida para la creación de modelos de Aprendizaje automático.
+Ahora el conjunto de datos se puede usar como punto de partida para la creación de modelos de Machine Learning.
 
-### <a name="mlmodel"></a>Creación de modelos en Aprendizaje automático de Azure
-Ya se puede pasar a la creación del modelo y la implementación del mismo en [Aprendizaje automático de Azure](https://studio.azureml.net). Ahora los datos están preparados para usarlos con el fin de abordar los problemas de predicción identificados anteriormente:
+### <a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
+Ya se puede pasar a la creación del modelo y la implementación del mismo en [Azure Machine Learning](https://studio.azureml.net). Ahora los datos están preparados para usarlos con el fin de abordar los problemas de predicción identificados anteriormente:
 
 **1. Clasificación binaria**: permite predecir si se dio propina en una carrera, o no.
 
@@ -814,7 +814,7 @@ b. En los problemas de regresión se mide la precisión de nuestra predicción m
 Vemos que el coeficiente de determinación es 0,709, lo que implica que aproximadamente el 71% de la varianza se explica por nuestros coeficientes de modelo.
 
 > [!IMPORTANT]
-> Para obtener más información sobre Azure Machine Learning y cómo obtener acceso a él y usarlo, vea [¿Qué es Machine Learning en Azure?](../studio/what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Azure Machine Learning es la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Aprendizaje automático de Azure.
+> Para obtener más información sobre Azure Machine Learning y cómo obtener acceso a él y usarlo, vea [¿Qué es Machine Learning en Azure?](../studio/what-is-machine-learning.md) Un recurso muy útil para realizar una serie de experimentos con Azure Machine Learning es la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La Galería cubre una gama de experimentos y da una introducción exhaustiva sobre la variedad de capacidades de Azure Machine Learning.
 > 
 > 
 

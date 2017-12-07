@@ -214,6 +214,6 @@ Para información completa sobre las especificaciones de API de REST, revise la 
     * [Máquina virtual Linux con disco administrado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [Lista completa de plantillas de discos administrados](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * Visite el documento [Introducción a Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) para más información sobre los discos administrados.
-* Revise la documentación de referencia de plantilla de los recursos de máquina virtual en el documento de [referencia de plantilla Microsoft.Compute/virtualMachines](/templates/microsoft.compute/virtualmachines).
-* Revise la documentación de referencia de plantilla de los recursos de disco en el documento de [referencia de plantilla Microsoft.Compute/disks](/templates/microsoft.compute/disks).
+* Revise la documentación de referencia de plantilla de los recursos de máquina virtual en el documento de [referencia de plantilla Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
+* Revise la documentación de referencia de plantilla de los recursos de disco en el documento de [referencia de plantilla Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).
  

@@ -6,13 +6,14 @@ keywords: "copia de seguridad de máquinas virtuales; copia de seguridad de máq
 author: markgalioto
 ms.author: markgal
 ms.date: 09/16/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: backup
-ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
@@ -50,7 +51,7 @@ El almacén de Recovery Services contiene los datos de la copia de seguridad y l
 
 Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Europa Occidental*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con el inicio rápido).
 
-La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de servicios de recuperación.
+La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services.
 
 Cuando se crea un almacén de Recovery Services, este tiene almacenamiento con redundancia geográfica de forma predeterminada. Para proporcionar resistencia de datos, el almacenamiento con redundancia geográfica replica los datos varias veces en dos regiones de Azure.
 

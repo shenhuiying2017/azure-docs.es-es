@@ -44,7 +44,7 @@ También puede [configurar desencadenadores](../articles/monitoring-and-diagnost
 
 Puede agregar o quitar máquinas virtuales cambiando la capacidad del conjunto de escalado. En Azure Portal, puede reducir o aumentar el número de máquinas virtuales (que aparece como **número de instancias**) del conjunto de escalado desplazando la barra de condición Invalidar en la pantalla Escalado hacia la izquierda o la derecha.
 
-Con Azure PowerShell, tendrá que obtener el objeto del conjunto de escalado mediante [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). A continuación, establezca la propiedad **sku.capacity** en el número de máquinas virtuales que desee y actualice el conjunto de escalado mediante [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Mediante la CLI de Azure, cambie la capacidad con el parámetro **--new-capacity** del comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale).
+Con Azure PowerShell, tendrá que obtener el objeto del conjunto de escalado mediante [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). A continuación, establezca la propiedad **sku.capacity** en el número de máquinas virtuales que desee y actualice el conjunto de escalado mediante [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Mediante la CLI de Azure, cambie la capacidad con el parámetro **--new-capacity** del comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale).
 
 ### <a name="vertical"></a>Vertical
 

@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
 
@@ -91,7 +91,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
    ![Inicie sesión con sus credenciales de Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Si inició sesión con una cuenta personal de Microsoft, como @outlook.com o @hotmail.com, el desencadenador de Event Grid podría no aparecer correctamente. Como alternativa, elija [Conectar con entidad de servicio](/azure-resource-manager/resource-group-create-service-principal-portal.md) o autenticarse como un miembro de Azure Active Directory que esté asociado a la suscripción de Azure, por ejemplo, *nombre-de-usuario*@emailoutlook.onmicrosoft.com.
+   > Si inició sesión con una cuenta personal de Microsoft, como @outlook.com o @hotmail.com, el desencadenador de Event Grid podría no aparecer correctamente. Como alternativa, elija [Conectar con entidad de servicio](../azure-resource-manager/resource-group-create-service-principal-portal.md) o autenticarse como un miembro de Azure Active Directory que esté asociado a la suscripción de Azure, por ejemplo, *nombre-de-usuario*@emailoutlook.onmicrosoft.com.
 
 8. Ahora suscriba la aplicación lógica a los eventos de publicador. Proporcione los detalles de la suscripción a eventos como se especifica en la tabla siguiente:
 

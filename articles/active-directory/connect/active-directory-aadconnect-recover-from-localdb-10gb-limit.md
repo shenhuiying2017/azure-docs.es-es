@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Recuperación del límite de 10 GB de LocalDB
 Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. Puede usar la instancia predeterminada de Local DB incluida en SQL Server 2012 Express que se instala con Azure AD Connect o utilizar la versión completa de SQL Server. SQL Server Express impone un límite en el tamaño de 10 GB. Si usa LocalDB y se alcanza este límite, el servicio Azure AD Connect Synchronization no podrá iniciarse ni sincronizarse correctamente. En este artículo se detallan los pasos de recuperación.
@@ -63,11 +63,11 @@ El nombre de la base de datos creada para Azure AD Connect es **ADSync**. Para r
 * La cuenta del servicio de sincronización que se utilizó como contexto operativo del servicio Azure AD Connect Synchronization.
 * El grupo local ADSyncAdmins que se creó durante la instalación.
 
-1. Realice una copia de seguridad de la base de datos. Para ello, copie en una ubicación segura los archivos **ADSync.mdf** y **ADSync_log.ldf** que se encuentran en `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data`.
+1. Realice una copia de seguridad de la base de datos. Para ello, copie en una ubicación segura los archivos **ADSync.mdf** y **ADSync_log.ldf** que se encuentran en `%ProgramFiles%\Microsoft Azure AD Sync\Data`.
 
 2. Inicie una nueva sesión de PowerShell.
 
-3. Acceda a la carpeta `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Acceda a la carpeta `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Inicie la utilidad **sqlcmd** ejecutando el comando `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>` con las credenciales del administrador del sistema o DBO de la base de datos.
 

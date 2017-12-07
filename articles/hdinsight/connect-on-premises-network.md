@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e9951132ebb46d1053fbf62528b43e82cc76d2e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conexión de HDInsight a la red local
 
-Obtenga información sobre cómo conectar HDInsight a la red local mediante redes virtuales de Azure y una puerta de enlace de VPN. En este documento se brinda información de planeación sobre:
+Obtenga información sobre cómo conectar HDInsight a la red local mediante instancias de Azure Virtual Network y una instancia de VPN Gateway. En este documento se brinda información de planeación sobre:
 
 * Uso de HDInsight en una instancia de Azure Virtual Network que se conecta con la red local.
 
@@ -334,7 +334,7 @@ Para conectarse directamente a HDInsight a través de la red virtual, use los pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre cómo usar HDInsight en una máquina virtual, consulte [Extensión de HDInsight con redes virtuales de Azure](./hdinsight-extend-hadoop-virtual-network.md).
+* Para más información sobre cómo usar HDInsight en una máquina virtual, consulte [Extensión de HDInsight con Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
 
 * Para más información sobre las redes virtuales de Azure, consulte la [información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 

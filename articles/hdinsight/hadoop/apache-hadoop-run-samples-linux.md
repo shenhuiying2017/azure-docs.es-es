@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 3e52fc6ee18faa9b8a04ad19db52dd48505782ae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 700f73d86686761908d241f989aab25e0fb43c0e
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
 
@@ -67,10 +67,7 @@ Aprenda a ejecutar los ejemplos de MapReduce incluidos con Hadoop en HDInsight.
 * `wordmedian`: programa de mapreduce que cuenta la mediana de la longitud de las palabras de los archivos de entrada.
 * `wordstandarddeviation`: programa de mapreduce que cuenta la desviación estándar de la longitud de las palabras de los archivos de entrada.
 
-**Código fuente**: el código fuente de estos ejemplos se incluye en el clúster de HDInsight en `/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
-
-> [!NOTE]
-> El `2.2.4.9-1` en la ruta de acceso es la versión de Hortonworks Data Platform para el clúster de HDInsight y puede que sea diferente para su clúster.
+**Código fuente**: el código fuente de estos ejemplos se incluye en el clúster de HDInsight en `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
 ## <a name="run-the-wordcount-example"></a>Ejecución del ejemplo de wordcount
 

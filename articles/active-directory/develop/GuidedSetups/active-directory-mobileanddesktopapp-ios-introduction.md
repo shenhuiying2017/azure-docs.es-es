@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fcd78eaa0c5b09b70aa973466a34556fff56071
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>Llamada a la API de Microsoft Graph desde una aplicación iOS
 
@@ -45,9 +45,9 @@ Las API como Microsoft Graph requieren un token de acceso para permitir el acces
 MSAL administra el almacenamiento en caché y la actualización de los tokens de acceso automáticamente, así que no tiene que preocuparse por ello.
 
 
-### <a name="nuget-packages"></a>Paquetes NuGet
+### <a name="libraries"></a>Bibliotecas
 
-Esta guía utiliza los siguientes paquetes NuGet:
+Esta guía utiliza la siguiente biblioteca:
 
 |Biblioteca|Descripción|
 |---|---|

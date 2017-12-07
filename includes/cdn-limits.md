@@ -1,7 +1,7 @@
 
 | Recurso | Límite predeterminado | Límite máximo | 
 | --- | --- | --- |
-| Perfiles de CDN |8 |25 |
+| Perfiles de CDN |25 |25 |
 | Puntos de conexión de CDN por perfil |10 |25 |
 | Dominios personalizados por punto de conexión |10 |25 |
 

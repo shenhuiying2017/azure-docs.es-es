@@ -32,3 +32,9 @@
 | Sudeste de Australia | 2                       |
 |                     |                         |
 | Sur de Brasil        | 2                       |
+|                     |                         |
+| Gobierno de EE. UU. - Virginia     | 2                       |
+| Gobierno de EE. UU.: Texas        | 2                       |
+| Gobierno de EE. UU.: Arizona      | 2                       |
+| Departamento de Defensa de EE. UU. Centro      | 2                       |
+| Departamento de Defensa de EE. UU. Este         | 2                       |
