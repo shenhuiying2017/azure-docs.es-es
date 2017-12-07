@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: damaerte
-ms.openlocfilehash: 995a5bf0b28f6bfa0e501f5930b9efcad9041b8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 913bd917ae7c2b44df097ead9c3e35841338905c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell (versión preliminar)
 
@@ -135,7 +135,7 @@ MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountN
 
 ```
 
-Con la cadena de conexión, puede usar el comando siguiente para montar el recurso compartido de archivos de Azure.
+Con la cadena de conexión, puede usar el comando siguiente para montar el recurso compartido de Azure Files.
         
 ``` PowerShell
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
@@ -143,9 +143,9 @@ net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<My
 
 ```
 
-Para detalles, consulte [Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows][azmount].
+Para detalles, consulte [Montaje de un recurso compartido de Azure Files y acceso al recurso compartido en Windows][azmount].
 
-También puede navegar en los directorios del recurso compartido de archivos de la manera siguiente:
+También puede navegar en los directorios del recurso compartido de Azure Files de la manera siguiente:
 
             
 ``` PowerShell
@@ -288,7 +288,7 @@ En un comando específico, todavía puede ejecutar Get-Help seguido de un cmdlet
 PS Azure:\> Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-file-storage-to-store-your-data"></a>Uso de Azure File Storage para almacenar los datos
+## <a name="use-azure-files-to-store-your-data"></a>Uso de Azure Files para almacenar los datos
 
 Para crear un script, diga `helloworld.ps1` y guárdelo en `CloudDrive` para usarlo en distintas sesiones de shell.
 
@@ -300,7 +300,7 @@ PS C:\users\ContainerAdministrator\CloudDrive> .\helloworld.ps1
 Hello World!
 ```
 
-La próxima vez que use PowerShell en Cloud Shell, el archivo `helloworld.ps1` existirá en la carpeta `CloudDrive` que monta el recurso compartido de archivos de Azure.
+La próxima vez que use PowerShell en Cloud Shell, el archivo `helloworld.ps1` existirá en la carpeta `CloudDrive` que monta el recurso compartido de Azure Files.
 
 ## <a name="use-custom-profile"></a>Uso de un perfil personalizado
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ $context = New-AzureStorageContext -StorageAccountName "<storage account name>" 
 $blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
-$blob.ICloudBlob.Properties.CacheControl = "public, max-age=3600"
+$blob.ICloudBlob.Properties.CacheControl = "max-age=3600"
 
 # Send the update to the cloud
 $blob.ICloudBlob.SetProperties()
@@ -85,7 +85,7 @@ class Program
         CloudBlob blob = container.GetBlobReference("<blob name>");
 
         // Set the CacheControl property to expire in 1 hour (3600 seconds)
-        blob.Properties.CacheControl = "public, max-age=3600";
+        blob.Properties.CacheControl = "max-age=3600";
 
         // Update the blob's properties in the cloud
         blob.SetProperties();
@@ -102,12 +102,20 @@ class Program
 ### <a name="azure-storage-explorer"></a>Explorador de Azure Storage
 Con el [Explorador de Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer/), puede ver y modificar los recursos de Blob Storage, incluidas las propiedades como *CacheControl*. 
 
+Para actualizar la propiedad *CacheControl* de un blob con el Explorador de Azure Storage:
+   1. Seleccione un blob y después seleccione **Propiedades** en el menú contextual. 
+   2. Desplácese hacia abajo hasta la propiedad *CacheControl*.
+   3. Escriba un valor y después haga clic en **Guardar**.
+
+
+![Propiedades del Explorador de Azure Storage](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
+
 ### <a name="azure-command-line-interface"></a>Interfaz de la línea de comandos de Azure
 Al cargar un blob, la propiedad *cacheControl* se puede establecer con el modificador `-p` en la [Interfaz de la línea de comandos de Azure](../cli-install-nodejs.md). En el siguiente ejemplo, se muestra cómo se establece el período de vida en una hora (3600 segundos):
   
-    ```text
-    azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
-    ```
+```command
+azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
+```
 
 ### <a name="azure-storage-services-rest-api"></a>API de REST de servicios de Azure Storage
 Puede usar la [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) para establecer explícitamente la propiedad *x-ms-blob-cache-control* mediante el uso de las siguientes operaciones en una solicitud:

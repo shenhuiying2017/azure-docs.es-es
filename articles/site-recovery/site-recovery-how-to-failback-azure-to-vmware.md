@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Conmutación por recuperación de Azure a un sitio local
 
@@ -135,3 +135,17 @@ Una vez finalizado el trabajo de reprotección, la máquina virtual se replica d
 
 ## <a name="common-issues"></a>Problemas comunes
 Asegúrese de que vCenter está en estado conectado antes de realizar una conmutación por recuperación. En caso contrario, al desconectar los discos y adjuntarlos a la máquina virtual se producirá un error.
+
+### <a name="common-error-codes"></a>Códigos de error comunes
+
+#### <a name="error-code-8038"></a>Código de error 8038
+
+*No se pudo iniciar la máquina virtual local debido al error*
+
+Aparece cuando 
+1. La máquina virtual local se inicia en un host que no tiene suficiente memoria aprovisionada.
+
+Para resolver este problema
+1. Puede aprovisionar más memoria en el host ESXi.
+2. Puede mover la máquina virtual con vMotion a otro host ESXi que tenga memoria suficiente para iniciar la máquina virtual.
+

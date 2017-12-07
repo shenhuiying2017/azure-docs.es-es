@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -50,7 +50,7 @@ Habilite Application Insights en la página **Crear** de Function App:
 
 ### <a name="existing-function-app"></a>Aplicación de función existente
 
-Obtenga una clave de instrumentación y guárdela en una aplicación de función:
+Obtenga la clave de instrumentación y guárdela en una aplicación de función:
 
 1. Cree la instancia de Application Insights. Establezca el tipo de aplicación en **General**.
 
@@ -60,7 +60,7 @@ Obtenga una clave de instrumentación y guárdela en una aplicación de función
 
    ![Copiar la clave de instrumentación de Application Insights](media/functions-monitoring/copy-ai-key.png)
 
-1. En la página **Configuración de la aplicación** de la aplicación de función, [agregue una configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) denominada APPINSIGHTS_INSTRUMENTATIONKEY y pegue la clave de instrumentación.
+1. En la página **Configuración de la aplicación** de la aplicación de función, [agregue una configuración de aplicación](functions-how-to-use-azure-function-app-settings.md#settings) haciendo clic en **Agregar nuevo valor**. Asigne un nombre al nuevo valor APPINSIGHTS_INSTRUMENTATIONKEY y pegue la clave de instrumentación copiada.
 
    ![Agregar clave de instrumentación a la configuración de la aplicación](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Obtenga una clave de instrumentación y guárdela en una aplicación de función
 
 ## <a name="view-telemetry-data"></a>Visualización de datos de telemetría
 
-Para navegar a Application Insights desde una aplicación de función en el portal, seleccione el vínculo **Application Insights** en la página **Introducción** de la aplicación de función.
+Para navegar a la instancia de Application Insights conectada desde una aplicación de función en el portal, seleccione el vínculo **Application Insights** en la página **Introducción** de la aplicación de función.
 
 Para obtener más información acerca de Application Insights, consulte [Documentación de Application Insights](https://docs.microsoft.com/azure/application-insights/). En esta sección se muestran algunos ejemplos de cómo ver los datos de Application Insights. Si ya está familiarizado con Application Insights, puede ir directamente a [las secciones acerca de cómo configurar y personalizar los datos de telemetría](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ En la pestaña [Rendimiento](../application-insights/app-insights-performance-co
 
 ![Rendimiento](media/functions-monitoring/performance.png)
 
-En la pestaña **Servidores** se muestra la utilización de recursos y el rendimiento por servidor. Estos datos pueden ser útiles para la depuración de escenarios en los que las funciones están dificultando los recursos subyacentes. Los servidores se conocen como *Instancias de rol en la nube*. 
+En la pestaña **Servidores** se muestra la utilización de recursos y el rendimiento por servidor. Estos datos pueden ser útiles para la depuración de escenarios en los que las funciones están dificultando los recursos subyacentes. Los servidores se conocen como **Instancias de rol en la nube**.
 
 ![Servidores](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ La pestaña [Live Metrics Stream](../application-insights/app-insights-live-stre
 
 ## <a name="query-telemetry-data"></a>Consultar datos de telemetría
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) proporciona acceso a todos los datos de telemetría en forma de tabla en una base de datos. Analytics ofrece un lenguaje de consulta para extraer y manipular los datos.
+[Application Insights Analytics](../application-insights/app-insights-analytics.md) proporciona acceso a todos los datos de telemetría en forma de tabla en una base de datos. Analytics ofrece un lenguaje de consulta para extraer, manipular y visualizar los datos.
 
 ![Seleccione Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ El tiempo de ejecución proporciona `customDimensions.LogLevel` y `customDimensi
 
 ## <a name="configure-categories-and-log-levels"></a>Configurar categorías y niveles de registro
 
-Puede usar Application Insights sin ninguna configuración personalizada, pero la configuración predeterminada puede dar lugar a un gran volumen de datos. Si usa una suscripción de Visual Studio Azure, es posible que alcance su límite de datos para App Insights. En el resto de este artículo se muestra cómo configurar y personalizar los datos que envían las funciones a Application Insights.
+Puede usar Application Insights sin ninguna configuración personalizada, pero la configuración predeterminada puede dar lugar a un gran volumen de datos. Si usa una suscripción de Visual Studio Azure, es posible que alcance su límite de datos para Application Insights. En el resto de este artículo se muestra cómo configurar y personalizar los datos que envían las funciones a Application Insights.
 
 ### <a name="categories"></a>Categorías
 
@@ -178,7 +178,7 @@ El archivo *host.json* configura la cantidad de registro que envía una aplicaci
 
 En el ejemplo siguiente se configuran las reglas siguientes:
 
-1. Para los registros con la categoría "Host.Results" o "Function", solo tiene que enviar el nivel `Error` y superior a Application Insights. Los registros del nivel `Information` e inferiores se omiten.
+1. Para los registros con la categoría "Host.Results" o "Function", solo tiene que enviar el nivel `Error` y superior a Application Insights. Los registros del nivel `Warning` e inferiores se omiten.
 2. Para los registros con la categoría Host. Aggregator, envíe solo el nivel `Information` y superior a Application Insights. Los registros del nivel `Debug` e inferiores se omiten.
 3. Para el resto de registros, envíe solo el nivel `Information` y superior a Application Insights.
 
@@ -217,7 +217,7 @@ Todos estos registros se escriben en el nivel `Information`, por lo que si se fi
 
 Estos registros proporcionan los recuentos y promedios de las invocaciones de función en un período de tiempo [configurable](#configure-the-aggregator). El período predeterminado es 30 segundos o 1000 resultados, lo que ocurra primero. 
 
-Estos registros se muestran como "customMetrics" en Application Insights. Algunos ejemplos son el número de ejecuciones, la tasa de éxito y la duración.
+Los registros están disponibles en la tabla **customMetrics** de Application Insights. Algunos ejemplos son el número de ejecuciones, la tasa de éxito y la duración.
 
 ![Consulta customMetrics](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Todos estos registros se escriben en el nivel `Information`, por lo que si se fi
 
 ### <a name="other-categories"></a>Otras categorías
 
-Todos los registros de categorías distintos de los que se muestran como "traces" en Application Insights.
+Todos los registros de categorías diferentes a las que ya se muestran están disponibles en la tabla **traces** en Application Insights.
 
 ![Consulta traces](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Si mantiene la misma cadena de mensaje e invierte el orden de los parámetros, e
 
 Los marcadores de posición se controlan de esta forma para que pueda hacer el registro estructurado. Application Insights almacena los pares de nombre-valor del parámetro además de la cadena de mensaje. Como resultado, los argumentos del mensaje se convierten en campos que puede consultar.
 
-Por ejemplo, si la llamada de método del registrador tiene un aspecto similar al ejemplo anterior, puede consultar el campo `customDimensions.prop__rowKey`. Se agrega el prefijo para asegurar que no hay ninguna colisión entre los campos que agrega el tiempo de ejecución y los campos que agrega el código de la función.
+Por ejemplo, si la llamada de método del registrador tiene un aspecto similar al ejemplo anterior, puede consultar el campo `customDimensions.prop__rowKey`. Se agrega el prefijo `prop__` para asegurar que no hay ninguna colisión entre los campos que agrega el tiempo de ejecución y los campos que agrega el código de la función.
 
 También puede consultar la cadena del mensaje original haciendo referencia al campo `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ El parámetro `tagOverrides` establece `operation_Id` en el identificador de inv
 
 ### <a name="dependencies"></a>Dependencias
 
-Las dependencias no se muestran automáticamente, pero puede escribir código personalizado para mostrarlas. El código de ejemplo en la [sección de telemetría personalizada de C#](#custom-telemetry-in-c-functions) muestra cómo hacerlo. El código de ejemplo da como resultado un *mapa de aplicación* de Application Insights, que tiene este aspecto:
+Las dependencias que la función tiene a otros servicios no se muestran automáticamente, pero puede escribir código personalizado para mostrarlas. El código de ejemplo en la [sección de telemetría personalizada de C#](#custom-telemetry-in-c-functions) muestra cómo hacerlo. El código de ejemplo da como resultado un *mapa de aplicación* de Application Insights, que tiene este aspecto:
 
 ![Mapa de aplicación](media/functions-monitoring/app-map.png)
 
@@ -473,10 +473,10 @@ Seleccione la pestaña **Supervisión** para una función y obtendrá una lista 
 
 ### <a name="real-time-monitoring"></a>Supervisión en tiempo real
 
-La supervisión en tiempo real está disponible cuando se hace clic en **secuencia de eventos en directo** en la pestaña **Supervisión** de la función. El flujo de eventos en directo se muestra en un gráfico en una nueva pestaña del explorador
+La supervisión en tiempo real está disponible cuando se hace clic en **Secuencia de eventos en directo** en la pestaña **Supervisión** de la función. El flujo de eventos en directo se muestra en un gráfico en una nueva pestaña del explorador.
 
 > [!NOTE]
-> Existe un problema conocido que puede provocar que no se pueden rellenar los datos. Puede que tenga que cerrar la pestaña del explorador que contiene la secuencia de eventos en directo y luego hacer clic de nuevo en **secuencia de eventos en directo** para poder rellenar correctamente los datos de la secuencia de eventos. 
+> Existe un problema conocido que puede provocar que no se pueden rellenar los datos. Puede que tenga que cerrar la pestaña del explorador que contiene la secuencia de eventos en directo y luego hacer clic de nuevo en **Secuencia de eventos en directo** para poder rellenar correctamente los datos de la secuencia de eventos. 
 
 Estas estadísticas son en tiempo real, pero el gráfico real de los datos de ejecución puede tener alrededor de 10 segundos de latencia.
 

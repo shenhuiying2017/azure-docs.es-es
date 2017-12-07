@@ -41,13 +41,14 @@
 
 ## Análisis
 ### [Análisis de patrones de uso de la red CDN de Azure](cdn-log-analysis.md)
-#### [Informes principales de Verizon](cdn-analyze-usage-patterns.md)
-#### [Informes personalizados de Verizon](cdn-verizon-custom-reports.md)
 #### [Registros de Azure Diagnostics](cdn-azure-diagnostic-logs.md)
-### Herramientas de análisis de Verizon para la red CDN de Azure
-#### [Generación de informes HTTP avanzados](cdn-advanced-http-reports.md)
-#### [Visualización de estadísticas en tiempo real](cdn-real-time-stats.md)
-#### [Análisis del rendimiento del nodo perimetral](cdn-edge-performance.md)
+#### Herramientas de análisis de Verizon para la red CDN de Azure
+##### [Informes principales de Verizon](cdn-analyze-usage-patterns.md)
+##### [Informes personalizados de Verizon](cdn-verizon-custom-reports.md)
+#### Herramientas de análisis de Verizon para la red CDN premium de Azure
+##### [Generación de informes HTTP avanzados](cdn-advanced-http-reports.md)
+##### [Visualización de estadísticas en tiempo real](cdn-real-time-stats.md)
+##### [Análisis del rendimiento del nodo perimetral](cdn-edge-performance.md)
 
 ## Desarrollo
 ### [.NET](cdn-app-dev-net.md)

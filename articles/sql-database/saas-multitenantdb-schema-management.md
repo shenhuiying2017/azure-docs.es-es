@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: billgib
-ms.openlocfilehash: 346177be29ec196464f4f441858222ac5d5eb8c3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e4b8e38d20ec408869f2228597afdf2f9620515b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>Administración del esquema para varios inquilinos en una aplicación multiinquilino que usa Azure SQL Database
 
@@ -40,12 +40,12 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-* La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está instalada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](saas-multitenantdb-get-started-deploy.md).
+* La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está instalada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * La versión más reciente de SQL Server Management Studio (SSMS) está instalada. [Descarga e instalación de SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> *En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Esta versión preliminar es limitada, de modo que póngase en contacto SaaSFeedback@microsoft.com si necesita asistencia.*
+> En este tutorial se usan características del servicio SQL Database que se encuentran en una versión preliminar limitada (trabajos de Elastic Database). Si desea seguir este tutorial, envíe su identificador de suscripción a SaaSFeedback@microsoft.com con el asunto Elastic Jobs Preview. Después de recibir la confirmación de que se ha habilitado su suscripción, [descargue e instale los cmdlets de trabajos de versión preliminar más recientes](https://github.com/jaredmoo/azure-powershell/releases). Esta versión preliminar es limitada, por lo que debe ponerse en contacto con SaaSFeedback@microsoft.com para realizar preguntas u obtener soporte técnico relacionados.
 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introducción a los patrones de administración de esquema de SaaS
@@ -58,9 +58,9 @@ El modelo de base de datos multiinquilino con particiones utilizado en este ejem
 
 Hay una nueva versión de Trabajos elásticos que ahora es una característica integrada de Azure SQL Database (no requiere servicios ni componentes adicionales). Esta nueva versión de Trabajos elásticos ofrece actualmente una versión preliminar limitada. Esta versión preliminar limitada admite PowerShell para crear cuentas de trabajo y T-SQL para crear y administrar trabajos.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Obtención de los scripts de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtención del código fuente y los scripts de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
 
-Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de Github [WingtipTicketsSaaS-MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). <!-- [Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts](saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets. 
 
 ## <a name="create-a-job-account-database-and-new-job-account"></a>Creación de una base de datos de cuentas de trabajo y una nueva cuenta de trabajo
 
@@ -89,13 +89,14 @@ Para crear un nuevo trabajo, utilizamos un conjunto de procedimientos almacenado
 6. Modifique la instrucción: set @User = &lt;user&gt; y sustituya el valor de usuario utilizado al implementar la aplicación SaaS de base de datos multiinquilino Wingtip Tickets.
 7. Presione **F5** para ejecutar el script.
 
-    * **sp\_add\_target\_group** crea el nombre del grupo de destino DemoServerGroup. Ahora hay que agregar miembros de destino al grupo.
-    * **sp\_add\_target\_group\_member** agrega un tipo de miembro de destino *servidor* que considera que todas las bases de datos de ese servidor (tenga en cuenta que se trata del servidor tenants1-mt-&lt;user&gt; que contiene las bases de datos de inquilino) en el momento de la ejecución del trabajo deben incluirse en el trabajo. A continuación, se agrega un tipo de miembro de destino *base de datos* para la base de datos "maestra" (basetenantdb) que reside en el servidor catalog-mt-&lt;user&gt;. Por último, se agrega otro tipo de miembro de destino *base de datos* para incluir la base de datos adhocreporting que se utiliza en un tutorial posterior.
-    * **sp\_add\_job** crea un trabajo llamado “Reference Data Deployment”.
-    * **sp\_add\_jobstep** crea el paso de trabajo que contiene el texto del comando T-SQL para actualizar la tabla de referencia VenueTypes.
-    * En las demás vistas del script se muestran los objetos existentes y se supervisa la ejecución de los trabajos. Use estas consultas para revisar el valor de estado en la columna **ciclo de vida** a fin de determinar si el trabajo ha finalizado correctamente en las bases de datos de inquilino y las dos bases de datos adicionales que contienen la tabla de referencia.
+Observe lo siguiente en el script *DeployReferenceData.sql*:
+* **sp\_add\_target\_group** crea el nombre del grupo de destino DemoServerGroup. Ahora hay que agregar miembros de destino al grupo.
+* **sp\_add\_target\_group\_member** agrega un tipo de miembro de destino *servidor* que considera que todas las bases de datos de ese servidor (tenga en cuenta que se trata del servidor tenants1-mt-&lt;user&gt; que contiene las bases de datos de inquilino) en el momento de la ejecución del trabajo deben incluirse en el trabajo. A continuación, se agrega un tipo de miembro de destino *base de datos* para la base de datos "maestra" (basetenantdb) que reside en el servidor catalog-mt-&lt;user&gt;. Por último, se agrega otro tipo de miembro de destino *base de datos* para incluir la base de datos adhocreporting que se utiliza en un tutorial posterior.
+* **sp\_add\_job** crea un trabajo llamado “Reference Data Deployment”.
+* **sp\_add\_jobstep** crea el paso de trabajo que contiene el texto del comando T-SQL para actualizar la tabla de referencia VenueTypes.
+* En las demás vistas del script se muestran los objetos existentes y se supervisa la ejecución de los trabajos. Use estas consultas para revisar el valor de estado en la columna **ciclo de vida** a fin de determinar si el trabajo ha finalizado correctamente en las bases de datos de inquilino y las dos bases de datos adicionales que contienen la tabla de referencia.
 
-1. En SSMS, vaya a la base de datos de inquilinos del servidor *tenants1-mt-&lt;user&gt;* y consulte la tabla *VenueTypes* para confirmar que *Motorcycle Racing* y *Swimming Club* se han **agregado* ya a la tabla.
+En SSMS, vaya a la base de datos de inquilinos del servidor *tenants1-mt-&lt;user&gt;* y consulte la tabla *VenueTypes* para confirmar que *Motorcycle Racing* y *Swimming Club* se han **agregado* ya a la tabla.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Creación de un trabajo para administrar el índice de tabla de referencia
@@ -105,11 +106,12 @@ Al igual que en el ejercicio anterior, en este ejercicio se crea un trabajo para
 
 1. En SSMS, conéctese a las base de datos jobaccount en el servidor catalog-mt-&lt;User&gt;.database.windows.net.
 2. En SSMS, abra …\\Learning Modules\\Schema Management\\OnlineReindex.sql.
-3. Presione **F5** para ejecutar el script
+3. Presione **F5** para ejecutar el script.
 
-    * **sp\_add\_job** crea un nuevo trabajo denominado “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”.
-    * **sp\_add\_jobstep** crea el paso de trabajo que contiene el texto del comando T-SQL para actualizar el índice.
-    * Las demás vistas del script permiten supervisar la ejecución del trabajo. Use estas consultas para revisar el valor de estado en la columna **ciclo de vida** a fin de determinar si el trabajo ha finalizado correctamente en todos los miembros del grupo de destino.
+Observe lo siguiente en el script *OnlineReindex.sql*:
+* **sp\_add\_job** crea un nuevo trabajo denominado “Online Reindex PK\_\_VenueTyp\_\_265E44FD7FD4C885”.
+* **sp\_add\_jobstep** crea el paso de trabajo que contiene el texto del comando T-SQL para actualizar el índice.
+* Las demás vistas del script permiten supervisar la ejecución del trabajo. Use estas consultas para revisar el valor de estado en la columna **ciclo de vida** a fin de determinar si el trabajo ha finalizado correctamente en todos los miembros del grupo de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -121,7 +123,7 @@ En este tutorial, ha aprendido cómo:
 > * Actualizar datos en todas las bases de datos de inquilino
 > * Crear un índice en una tabla en todas las bases de datos de inquilino
 
-[Tutorial de análisis ad hoc](saas-multitenantdb-adhoc-reporting.md)
+A continuación, pruebe el [tutorial de creación de informes ad hoc](saas-multitenantdb-adhoc-reporting.md).
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

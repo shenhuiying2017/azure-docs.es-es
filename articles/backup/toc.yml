@@ -71,7 +71,7 @@
           items:
             - name: Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware
               href: backup-azure-backup-server-vmware.md
-            - name: Uso del Azure Backup Server para hacer copia de seguridad de Exchange
+            - name: Uso de Azure Backup Server para hacer copia de seguridad de Exchange
               href: backup-azure-exchange-mabs.md
             - name: Uso del Azure Backup Server para hacer copia de seguridad de una granja de SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
@@ -183,7 +183,7 @@
           href: backup-azure-manage-windows-server.md
         - name: Copia de seguridad y restauración mediante el portal clásico
           items:
-            - name: Uso del modelo de implementación clásica por parte de Windows Server
+            - name: Windows Server mediante el modelo de implementación clásica
               href: backup-configure-vault-classic.md
             - name: Administración de almacenes de copia de seguridad mediante el modelo de implementación clásica
               href: backup-azure-manage-windows-server-classic.md
@@ -209,6 +209,8 @@
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
         - name: Solución de problemas de Azure Backup Server
           href: backup-azure-mabs-troubleshoot.md
+        - name: Solución de problemas del agente de Azure Backup
+          href: backup-azure-mars-troubleshoot.md
 - name: Referencia
   items:
     - name: Azure PowerShell

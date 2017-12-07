@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: ec753027c8ce8040cbc574279a44eb24590fcb05
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-sql-database"></a>Aprovisionamiento y catalogación de inquilinos nuevos una aplicación SaaS con una base de datos SQL multiinquilino con particiones
 
@@ -78,19 +78,18 @@ Para completar este tutorial, asegúrese de cumplir los siguientes requisitos pr
 * La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="get-the-wingtip-tickets-management-scripts"></a>Obtención de los scripts de administración de Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtención del código fuente y los scripts de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
 
-Los scripts de administración y el código fuente de la aplicación están disponibles en el repositorio [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) de GitHub. <!--See [Steps to download the Wingtip SaaS scripts](saas-tenancy-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).-->
-
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets. 
 
 ## <a name="provision-a-tenant-in-a-shared-database-with-other-tenants"></a>Aprovisionamiento de un inquilino en una base de datos compartida con otros inquilinos
 
 Para comprender cómo la aplicación Wingtip Tickets implementa el aprovisionamiento de un inquilino nuevo en una base de datos compartida, agregue un punto de interrupción y recorra el flujo de trabajo:
 
-1. En _PowerShell ISE_, abra ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ y establezca los parámetros siguientes:
+1. En _PowerShell ISE_, abra ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ y establezca los parámetros siguientes:
    * **$TenantName** = **Bushwillow Blues**, el nombre de la ubicación nueva.
-   * **$VenueType** = **blues**, uno de los tipos de ubicación predefinidos: *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacio).
-   * **$Scenario** = **1**, para el *aprovisionamiento de un inquilino en una base de datos compartida con otros inquilinos*.
+   * **$VenueType** = **blues**, uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacio).
+   * **$DemoScenario** = **1**, para el *aprovisionamiento de un inquilino en una base de datos compartida con otros inquilinos*.
 
 1. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea 38, que dice: *New-Tenant `* y presione **F9**.
 
@@ -121,10 +120,10 @@ A continuación se muestran los elementos clave del flujo de trabajo de aprovisi
 
 Ahora recorra los procesos para crear un inquilino en su propia base de datos:
 
-1. Todavía en ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_, establezca los parámetros siguientes:
+1. Todavía en ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_, establezca los parámetros siguientes:
    * **$TenantName** = **Sequoia Soccer**, el nombre de la ubicación nueva.
-   * **$VenueType** = **soccer**, uno de los tipos de ubicación predefinidos: *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacio).
-   * **$Scenario** = **2**, para el *aprovisionamiento de un inquilino en una base de datos compartida con otros inquilinos*.
+   * **$VenueType** = **soccer**, uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacio).
+   * **$DemoScenario** = **2** para *aprovisionar un inquilino en su propia base de datos*.
 
 1. Agregue un punto de interrupción nuevo colocando el cursor en cualquier lugar de la línea 57, que dice: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `*, y presione **F9**.
 
@@ -152,30 +151,31 @@ A continuación se muestran los elementos clave del flujo de trabajo que recorre
 
 Este ejercicio aprovisiona un lote de 17 inquilinos. Se recomienda que aprovisione este lote de inquilinos antes de comenzar con otros tutoriales de Wingtip Tickets, de manera que haya más bases de datos con las cuales trabajar.
 
-1. En *PowerShell ISE*, abra ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* y cambie el parámetro *$Scenario* a 3:
-   * **$Scenario** = **3**, para el *aprovisionamiento de un lote de inquilinos en una base de datos compartida*.
+
+1. En *PowerShell ISE*, abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* y cambie el parámetro *$DemoScenario* a 4:
+   * **$DemoScenario** = **4**, para el *aprovisionamiento de un lote de inquilinos en una base de datos compartida*.
 1. Presione **F5** y ejecute el script.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Comprobación del conjunto de inquilinos implementado 
-En esta fase, se tiene una combinación de inquilinos implementados en una base de datos compartida y los inquilinos implementados en sus propias bases de datos. Se puede usar Azure Portal para inspeccionar las bases de datos creadas:  
-
-* En [Azure Portal](https://portal.azure.com), abra el servidor **tenants1-mt-\<USER\>** mediante la navegación a la lista de servidores SQL Server.  La lista de **bases de datos SQL** debe incluir la base **tenants1** compartida y las bases de datos de los inquilinos que están en su propia base de datos:
+En esta fase, se tiene una combinación de inquilinos implementados en una base de datos compartida y los inquilinos implementados en sus propias bases de datos. Se puede usar Azure Portal para inspeccionar las bases de datos creadas. En [Azure Portal](https://portal.azure.com), abra el servidor **tenants1-mt-\<USER\>** mediante la navegación a la lista de servidores SQL Server.  La lista de **bases de datos SQL** debe incluir la base **tenants1** compartida y las bases de datos de los inquilinos que están en su propia base de datos:
 
    ![lista de base de datos](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Mientras Azure Portal muestra las bases de datos de inquilino, no le permite ver los inquilinos *dentro* de la base de datos compartida. Puede ver la lista completa de inquilinos en la página del centro de eventos de Wingtip Tickets y examinando el catálogo:   
 
-1. Abra la página del centro de eventos en el explorador (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+**Usando la página del centro de eventos de Wingtip Tickets** <br>
+Abra la página del centro de eventos en el explorador (http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
 
-   La lista completa de los inquilinos y su base de datos correspondiente está disponible en el catálogo. Se proporciona una vista SQL en la base de datos tenantcatalog que combina el nombre de inquilino almacenado en la tabla Inquilinos con el nombre de base de datos en las tablas de administración de particiones. Esta vista muestra de manera correcta el valor de extender los metadatos almacenados en el catálogo.
+**Usando la base de datos de catálogos** <br>
+La lista completa de los inquilinos y su base de datos correspondiente está disponible en el catálogo. Se proporciona una vista SQL en la base de datos tenantcatalog que combina el nombre de inquilino almacenado en la tabla Inquilinos con el nombre de base de datos en las tablas de administración de particiones. Esta vista muestra de manera correcta el valor de extender los metadatos almacenados en el catálogo.
 
-2. En *SQL Server Management Studio (SSMS)*, está conectado al servidor de inquilinos en **tenants1-mt.\<USER\>.database.windows.net**, con el inicio de sesión: **developer** y la contraseña: **P@ssword1**
+1. En *SQL Server Management Studio (SSMS)*, está conectado al servidor de inquilinos en **catalog-mt.\<USER\>.database.windows.net**, con el inicio de sesión: **developer** y la contraseña: **P@ssword1**
 
     ![Cuadro de diálogo de conexión SSMS](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. En el *Explorador de objetos*, examine las vistas de la base de datos *tenantcatalog*.
-2. Haga clic con el botón derecho en la vista *TenantsExtended* y elija **Select Top 1000 Rows** (Seleccionar las 1000 primeras filas). Observe la asignación entre el nombre de inquilino y la base de datos para los distintos inquilinos.
+1. En el *Explorador de objetos*, examine las vistas de la base de datos *tenantcatalog*.
+1. Haga clic con el botón derecho en la vista *TenantsExtended* y elija **Select Top 1000 Rows** (Seleccionar las 1000 primeras filas). Observe la asignación entre el nombre de inquilino y la base de datos para los distintos inquilinos.
 
     ![Vista ExtendedTenants en SSMS](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

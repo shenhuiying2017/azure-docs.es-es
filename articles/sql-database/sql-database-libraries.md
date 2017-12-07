@@ -13,19 +13,19 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: bdf83fac9bd0ac6790062f802748a18045c7a171
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Bibliotecas y entornos de conectividad para Microsoft SQL Server
 
 Consulte nuestros [tutoriales de introducción](http://aka.ms/sqldev) para empezar a trabajar rápidamente con lenguajes de programación como C#, Java, Node.js, PHP y Python, y crear una aplicación mediante SQL Server en Linux o Windows o Docker en macOS.
 
-La tabla siguiente enumera las bibliotecas de conectividad o los *controladores* que las aplicaciones cliente pueden utilizar desde diversos lenguajes para conectarse a instancias de Microsoft SQL Server que se ejecutan localmente o en la nube, en Linux, Windows o Docker, y también a Azure SQL Database y Azure SQL Warehouse. 
+La tabla siguiente enumera las bibliotecas de conectividad o los *controladores* que las aplicaciones cliente pueden utilizar desde diversos lenguajes para conectarse a instancias de Microsoft SQL Server que se ejecutan localmente o en la nube, en Linux, Windows o Docker, y también a Azure SQL Database y Azure SQL Data Warehouse. 
 
 | Idioma | Plataforma | Recursos adicionales | Descargar | Introducción |
 | :-- | :-- | :-- | :-- | :-- |
@@ -37,7 +37,7 @@ La tabla siguiente enumera las bibliotecas de conectividad o los *controladores*
 | Ruby | Windows, Linux, macOS | [Controlador de Ruby para SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Instalación](https://msdn.microsoft.com/library/mt711041.aspx) | [Introducción](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC Driver for SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Descargar](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-La tabla siguiente muestra algunos ejemplos de entornos y entornos web de asignación relacional de objetos (ORM) que las aplicaciones cliente pueden utilizar para conectarse a instancias de Microsoft SQL Server que se ejecutan localmente o en la nube, en Linux, Windows o Docker, y también a Azure SQL Database y Azure SQL Warehouse. 
+La tabla siguiente muestra algunos ejemplos de entornos y entornos web de asignación relacional de objetos (ORM) que las aplicaciones cliente pueden utilizar para conectarse a instancias de Microsoft SQL Server que se ejecutan localmente o en la nube, en Linux, Windows o Docker, y también a Azure SQL Database y Azure SQL Data Warehouse. 
 
 | Idioma | Plataforma | ORM |
 | :-- | :-- | :-- |
@@ -47,12 +47,25 @@ La tabla siguiente muestra algunos ejemplos de entornos y entornos web de asigna
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
+||||
 
 ## <a name="related-links"></a>Vínculos relacionados
 - [Controladores de SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) para conectarse desde aplicaciones cliente
-- [Conexión a Base de datos SQL mediante .NET (C#)](sql-database-connect-query-dotnet.md)
-- [Conexión a la base de datos SQL mediante PHP en Windows](sql-database-connect-query-php.md)
-- [Conexión a Base de datos SQL mediante Node.js](sql-database-connect-query-nodejs.md)
-- [Conexión a la base de datos SQL mediante Java con JDBC en Windows](sql-database-connect-query-java.md)
-- [Conexión a Base de datos SQL mediante Python](sql-database-connect-query-python.md)
-- [Conexión a Base de datos SQL mediante Ruby](sql-database-connect-query-ruby.md)
+- Conexión a SQL Database:
+    - [Conexión a SQL Database mediante .NET (C#)](sql-database-connect-query-dotnet.md)
+    - [Conexión a SQL Database mediante PHP en Windows](sql-database-connect-query-php.md)
+    - [Conexión a SQL Database mediante Node.js](sql-database-connect-query-nodejs.md)
+    - [Conexión a SQL Database mediante Java con JDBC en Windows](sql-database-connect-query-java.md)
+    - [Conexión a SQL Database mediante Python](sql-database-connect-query-python.md)
+    - [Conexión a SQL Database mediante Ruby](sql-database-connect-query-ruby.md)
+- Ejemplos de código de la lógica de reintento:
+    - [Conexión resistente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [Conexión resistente a SQL con PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

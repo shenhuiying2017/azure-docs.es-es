@@ -12,22 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 11/29/2017
 ms.author: frasim
-ms.openlocfilehash: f6131d7f177c3ca02cf8dfe5d140df5e6d8a7ffa
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 7f85c8b0377e57f08044bac41dbddbbedb7a4f55
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="payment-processing-blueprint-for-pci-dss-compliant-environments"></a>Proyecto de procesamiento de pagos para entornos compatibles con PCI DSS
+# <a name="azure-blueprint-automation-payment-processing-for-pci-dss-compliant-environments"></a>Azure Blueprint Automation: procesamiento de pagos para entornos compatibles con PCI DSS
 
-El proyecto de procesamiento de pagos para los entornos compatibles con PCI DSS proporciona una guía para implementar un entorno de plataforma como servicio (PaaS) compatible con PCI DSS que sea adecuado para controlar los datos confidenciales de tarjetas de pago. Muestra una arquitectura de referencia común y está diseñado para simplificar la adopción de Microsoft Azure. Esta arquitectura fundamental muestra una solución completa para satisfacer las necesidades de organizaciones que buscan un enfoque basado en la nube para reducir la carga y los costos de implementación.
+## <a name="overview"></a>Información general
 
-Asimismo, esta arquitectura fundamental cumple con los requisitos de las estrictas Normas de seguridad de datos del sector de las tarjetas de pago (PCI DSS 3.2) para recopilar, almacenar y recuperar los datos de las tarjetas de pago. Muestra cómo tratar adecuadamente los datos de una tarjeta de crédito (incluyendo el número de tarjeta, la fecha de caducidad y los datos de comprobación) en un entorno seguro de múltiples niveles implementado como una solución completa basada en Azure. Para obtener más información sobre los requisitos de PCI DSS 3.2 y esta solución, consulte [PCI DSS Requirements - High-Level Overview](pci-dss-requirements-overview.md) (Requisitos de PCI DSS: información general de alto nivel).
+El procesamiento de pagos para los entornos compatibles con PCI DSS proporciona una guía para implementar un entorno de plataforma como servicio (PaaS) compatible con PCI DSS que sea adecuado para controlar los datos confidenciales de tarjetas de pago. Muestra una arquitectura de referencia común y está diseñado para simplificar la adopción de Microsoft Azure. Este plano técnico muestra una solución completa para satisfacer las necesidades de organizaciones que buscan un enfoque basado en la nube para reducir la carga y los costos de implementación.
 
-Esta arquitectura está diseñada para servir como base para que los clientes puedan ajustarse a sus requisitos específicos y no debe usarse tal cual en un entorno de producción. Implementar una aplicación sin modificar en este entorno no es suficiente para satisfacer por completo los requisitos de una solución compatible con PCI DSS. Tenga en cuenta lo siguiente:
-- Esta arquitectura fundamental proporciona una línea de base para que los clientes puedan usar Microsoft Azure con PCI DSS.
+Este plano técnico está diseñado para cumplir con los requisitos de las estrictas Normas de seguridad de datos del sector de las tarjetas de pago (PCI DSS 3.2) para recopilar, almacenar y recuperar los datos de las tarjetas de pago. Muestra cómo tratar adecuadamente los datos de una tarjeta de crédito (incluyendo el número de tarjeta, la fecha de caducidad y los datos de comprobación) en un entorno seguro de múltiples niveles implementado como una solución PaaS de un extremo a otro basada en Azure. Para obtener más información sobre los requisitos de PCI DSS 3.2 y esta solución, consulte [PCI DSS Requirements - High-Level Overview](pci-dss-requirements-overview.md) (Requisitos de PCI DSS: información general de alto nivel).
+
+Este plano técnico está diseñado para servir como base para que los clientes puedan conocer mejor sus requisitos específicos y no debe usarse tal cual en un entorno de producción. Implementar una aplicación sin modificar en este entorno no es suficiente para satisfacer por completo los requisitos de una solución compatible con PCI DSS para una solución personalizada. Tenga en cuenta lo siguiente:
+- Este plano técnico proporciona una línea de base para que los clientes puedan usar Microsoft Azure con PCI DSS.
 - Para cumplir con los requisitos de PCI DSS, debe conseguir que un asesor de seguridad cualificado (QSA) y acreditado certifique una solución de cliente de producción.
 - Los clientes tienen la responsabilidad de realizar las revisiones de seguridad y cumplimiento adecuadas de cualquier solución integrada mediante esta arquitectura fundamental, ya que los requisitos pueden variar en función de las características de implementación y la ubicación geográfica de cada cliente.  
 
@@ -41,7 +43,7 @@ La arquitectura fundamental consta de los siguientes componentes:
 - **Plantillas de implementación**. En esta implementación, las [plantillas de Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) se usan para implementar automáticamente los componentes de la arquitectura en Microsoft Azure; para ello, se especifican los parámetros de configuración durante la instalación.
 - **Scripts de implementación automatizados**. Estos scripts le permiten implementar la solución de extremo a extremo. Asimismo, estos scripts constan de los siguientes elementos:
     - Una instalación de módulo y un script de configuración del [administrador global](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) se usan para instalar y comprobar que los roles de administrador global y los módulos de PowerShell necesarios están configurados correctamente.
-    - Un script de instalación de PowerShell se usa para implementar la solución completa, que se proporciona a través de un archivo .zip y un archivo .bacpac que contiene una aplicación web de demostración creada previamente con contenido de ejemplo de la base de datos SQL. Puede revisar el código fuente de esta solución [aquí](https://github.com/Microsoft/azure-sql-security-sample).
+    - Un script de instalación de PowerShell se usa para implementar la solución de un extremo a otro, que se proporciona a través de un archivo .zip y un archivo .bacpac que contiene una aplicación web de demostración creada previamente con contenido de [ejemplo de la base de datos SQL](https://github.com/Microsoft/azure-sql-security-sample) . El código fuente de esta solución está disponible para su revisión en el [repositorio de código del plano técnico de procesamiento de pagos][code-repo]. 
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitectura
 
@@ -49,9 +51,9 @@ La arquitectura fundamental consta de los siguientes componentes:
 
 ## <a name="user-scenario"></a>Escenario de usuario
 
-La arquitectura fundamental aborda el caso de uso que se detalla a continuación.
+En el plano técnico se aborda el caso de uso siguiente.
 
-> En este escenario se muestra cómo una tienda electrónica ficticia lleva la función de procesamiento de tarjetas de pago a una solución basada en Azure. La solución controla la recopilación de información básica del usuario junto con los datos de pago. Tenga en cuenta que la solución no procesa los pagos con los datos del titular de la tarjeta; una vez se recopilan los datos, los clientes son los responsables de iniciar y completar las transacciones mediante un procesador de pago. Para obtener más información, consulte el documento "Revisión e instrucciones de la implementación" en el [Portal de confianza de servicios Microsoft](http://aka.ms/stp).
+> En este escenario se muestra cómo una tienda electrónica ficticia lleva la función de procesamiento de tarjetas de pago a una solución PaaS basada en Azure. La solución controla la recopilación de información básica del usuario junto con los datos de pago. Tenga en cuenta que la solución no procesa los pagos con los datos del titular de la tarjeta; una vez se recopilan los datos, los clientes son los responsables de iniciar y completar las transacciones mediante un procesador de pago. Para más información, vea la [revisión y orientación sobre la implementación](https://aka.ms/pciblueprintprocessingoverview).
 
 ### <a name="use-case"></a>Caso de uso
 Una pequeña tienda electrónica llamada *Contoso Webstore* está lista para llevar su sistema de pago a la nube. Ha seleccionado Microsoft Azure para hospedar el proceso de compra y para permitir que un empleado recopile los pagos de las tarjetas de crédito de sus clientes.
@@ -76,9 +78,9 @@ Los roles de usuario se emplean para ilustrar el caso de uso y proporcionan una 
 | Nombre: |`Global Admin Azure PCI Samples`|
 |Tipo de usuario:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
-* La cuenta de administrador no puede leer la información de la tarjeta de crédito sin enmascarar. Todas las acciones se registran.
-* La cuenta de administrador no puede administrar ni iniciar sesión en SQL Database.
-* La cuenta de administrador puede administrar Active Directory y la suscripción.
+- La cuenta de administrador no puede leer la información de la tarjeta de crédito sin enmascarar. Todas las acciones se registran.
+- La cuenta de administrador no puede administrar ni iniciar sesión en SQL Database.
+- La cuenta de administrador puede administrar Active Directory y la suscripción.
 
 #### <a name="role-sql-administrator"></a>Rol: Administrador de SQL
 
@@ -90,8 +92,8 @@ Los roles de usuario se emplean para ilustrar el caso de uso y proporcionan una 
 |Apellido: |`PCI Samples`|
 |Tipo de usuario:| `Administrator`|
 
-* La cuenta sqladmin no podrá ver la información de la tarjeta de crédito sin filtrar. Todas las acciones se registran.
-* La cuenta sqladmin puede administrar SQL Database.
+- La cuenta sqladmin no podrá ver la información de la tarjeta de crédito sin filtrar. Todas las acciones se registran.
+- La cuenta sqladmin puede administrar SQL Database.
 
 #### <a name="role-clerk"></a>Rol: distribuidor
 
@@ -113,13 +115,13 @@ Edna Benson es la directora del departamento de recepción y negocios. Es la res
 
 ### <a name="contoso-webstore---estimated-pricing"></a>Contoso Webstore: precios estimados
 
-Esta arquitectura fundamental y la aplicación web de ejemplo tienen una estructura de tarifas mensual y un costo de uso por hora que se debe tener en cuenta al asignar el tamaño de la solución. Estos costos pueden evaluarse con la [Calculadora de costos de Azure](https://azure.microsoft.com/pricing/calculator/). A partir de septiembre de 2017, el costo mensual estimado de esta solución es de ~ 900 USD. Estos costos varían según cuánto se use la solución y están sujetos a cambios. Le corresponde al cliente calcular los costos mensuales estimados en el momento de la implementación, para poder obtener una estimación más precisa. 
+Esta arquitectura fundamental y la aplicación web de ejemplo tienen una estructura de tarifas mensual y un costo de uso por hora que se debe tener en cuenta al asignar el tamaño de la solución. Estos costos pueden evaluarse con la [Calculadora de costos de Azure](https://azure.microsoft.com/pricing/calculator/). A partir de septiembre de 2017, el costo mensual estimado para esta solución es de 2500 USD, que incluye un cargo por uso de 1000 USD al mes para ASE v2. Estos costos varían según cuánto se use la solución y están sujetos a cambios. Le corresponde al cliente calcular los costos mensuales estimados en el momento de la implementación, para poder obtener una estimación más precisa. 
 
 Esta solución utiliza los siguientes servicios de Azure. Los detalles de la arquitectura de implementación se encuentran en la sección [Arquitectura de implementación](#deployment-architecture).
 
 >- Application Gateway
 >- Azure Active Directory
->- Entorno de App Service
+>- App Service Environment v2
 >- Log Analytics de OMS
 >- Azure Key Vault
 >- Grupos de seguridad de red
@@ -220,7 +222,7 @@ Contoso Webstore cifra todos los datos de las tarjetas de crédito y usa Azure K
 
 ### <a name="identity-management"></a>Administración de identidades
 
-Las siguientes tecnologías proporcionan capacidades de administración de identidad en el entorno de Azure.
+Las siguientes tecnologías proporcionan funcionalidades de administración de identidad en el entorno de Azure.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) es el directorio de varios inquilinos basado en la nube y el servicio de administración de identidades de Microsoft. Todos los usuarios de la solución se crearon en Azure Active Directory, incluidos los usuarios que acceden a SQL Database.
 - La autenticación para acceder a la aplicación se realiza con Azure AD. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications). Además, el cifrado de la columna de base de datos también usa Azure AD para autenticar la aplicación Azure SQL Database. Para obtener más información, consulte [Always Encrypted: protección de datos confidenciales en SQL Database](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) detecta posibles vulnerabilidades que afectan a las identidades de la organización, configura respuestas automatizadas si surgen acciones sospechosas relacionadas con esas identidades, investiga incidentes sospechosos y toma las medidas oportunas para resolverlos.
@@ -234,7 +236,7 @@ Para obtener más información sobre el uso de las características de seguridad
 
 [Azure App Service](/azure/app-service/) es un servicio administrado para la implementación de aplicaciones web. La aplicación Contoso Webstore se implementa como una [aplicación web del servicio de aplicaciones](/azure/app-service-web/app-service-web-overview).
 
-[Azure App Service Environment (ASE)](/azure/app-service/app-service-environment/intro) es una característica de App Service que proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala. es un plan de servicio Premium que usa esta arquitectura fundamental para habilitar el cumplimiento de PCI DSS.
+[Azure App Service Environment (ASE v2)](/azure/app-service/app-service-environment/intro) es una característica de App Service que proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala. es un plan de servicio Premium que usa esta arquitectura fundamental para habilitar el cumplimiento de PCI DSS.
 
 Las instancias de ASE están aisladas para ejecutar únicamente las aplicaciones de un solo cliente y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de las aplicaciones, y las aplicaciones pueden establecer conexiones seguras de alta velocidad a los recursos corporativos locales a través de redes virtuales.
 
@@ -270,7 +272,7 @@ Se ha creado una máquina virtual como un jumpbox (host de tipo bastión) con la
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) para Azure Cloud Services y Virtual Machines es una funcionalidad de protección en tiempo real que le permitirá identificar y eliminar virus, spyware y otro software malintencionado mediante alertas que se pueden configurar para que le avisen si hay software malintencionado o no deseado que se intenta instalar o ejecutar en los sistemas de Azure.
 
-### <a name="operations-management"></a>Operations Management
+### <a name="operations-management"></a>Administración de operaciones
 
 #### <a name="application-insights"></a>Application Insights
 
@@ -282,7 +284,7 @@ Use [Application Insights](https://azure.microsoft.com/services/application-insi
 
 #### <a name="oms-solutions"></a>Soluciones de OMS
 
-Las siguientes soluciones de OMS se instalaron previamente como parte de la arquitectura fundamental:
+Estas soluciones adicionales de OMS deberían considerarse y configurarse:
 - [Análisis de registros de actividad](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Networking Analytics](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analytics](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,7 +340,7 @@ Le recomendamos que use una instalación nueva de PowerShell para implementar la
     
     Si quiere obtener instrucciones de uso detalladas, consulte las [instrucciones de script: implementar y configurar recursos de Azure](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Registre y supervise OMS. Una vez que se implemente la solución, podrá abrir un área de trabajo de [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) y podrá usar las plantillas de ejemplo incluidas en el repositorio de la solución para mostrar cómo se puede configurar un panel de supervisión. Para buscar las plantillas de ejemplo de OMS, consulte la [carpeta omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+3. Registre y supervise OMS. Una vez que se implemente la solución, podrá abrir un área de trabajo de [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) y podrá usar las plantillas de ejemplo incluidas en el repositorio de la solución para mostrar cómo se puede configurar un panel de supervisión. Para buscar las plantillas de ejemplo de OMS, consulte la [carpeta omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Tenga en cuenta que se deben recopilar datos de OMS para que las plantillas se implementen correctamente. Esta operación puede durar una hora o más en función de la actividad del sitio.
  
     Al configurar el registro de OMS, considere la posibilidad de incluir estos recursos:
  
@@ -355,11 +357,11 @@ Le recomendamos que use una instalación nueva de PowerShell para implementar la
     
 ## <a name="threat-model"></a>Modelo de amenazas
 
-Tiene disponibles un diagrama de flujo de datos (DFD) y un modelo de riesgos de ejemplo de Contoso Webstore en la sección Documentos del [repositorio de código][code-repo].
+Un diagrama de flujo de datos (DFD) y un modelo de amenazas de ejemplo para Contoso Webstore, en [modelo de amenazas en el plano técnico de procesamiento de pagos](https://aka.ms/pciblueprintthreatmodel).
 
 ![](images/pci-threat-model.png)
 
-Para obtener más información, consulte el [Modelo de amenazas del proyecto de PCI](https://aka.ms/pciblueprintthreatmodel).
+
 
 ## <a name="customer-responsibility-matrix"></a>Matriz de responsabilidades del cliente
 
@@ -376,7 +378,10 @@ Coalfire systems, Inc. se encargó de revisar la solución (asesores de segurida
 - Este documento es meramente informativo. MICROSOFT Y AVYAN NO GARANTIZAN DE NINGUNA MANERA (YA SEA DE FORMA EXPRESA, IMPLÍCITA O ESTATUTARIA) LA INFORMACIÓN INCLUIDA EN EL PRESENTE DOCUMENTO. Este documento se proporciona "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Los clientes que lean este documento se atienen a las consecuencias de usarlo.  
 - Este documento no proporciona a los clientes ningún derecho legal sobre ninguna propiedad intelectual de ningún producto de Microsoft o Ayvan.  
 - Los clientes pueden copiar y usar este documento con fines internos y de referencia.  
-- Algunas de las recomendaciones de este documento pueden provocar un aumento del uso de datos, de la red o de los recursos de procesos en Azure, lo que podría incrementar los costos de las licencias o las suscripciones de Azure.  
+
+  > [!NOTE]
+  > Algunas de las recomendaciones de este documento pueden provocar un aumento del uso de datos, de la red o de los recursos de procesos en Azure, lo que podría incrementar los costos de las licencias o las suscripciones de Azure.  
+
 - La solución de este documento está pensada como una arquitectura fundamental y no debe usarse tal cual para fines de producción. Para lograr el cumplimiento del estándar PCI, los clientes deben ponerse en contacto con su asesor de seguridad cualificado.  
 - Todos los nombres de los clientes, los registros de transacciones y cualquier dato relacionado en esta página son ficticios, ya que se han creado específicamente para esta arquitectura fundamental y solo se proporcionan con fines ilustrativos. No se pretende crear ninguna asociación o conexión real y ninguna debe inferirse.  
 - Esta solución fue desarrollada conjuntamente por Microsoft y Avyan Consulting y está disponible en la [licencia MIT](https://opensource.org/licenses/MIT).
@@ -384,8 +389,8 @@ Coalfire systems, Inc. se encargó de revisar la solución (asesores de segurida
 
 ### <a name="document-authors"></a>Autores de los documentos
 
-* *Frank Simorjay (Microsoft)*  
-* *Gururaj Pandurangi (Avyan Consulting)*
+- *Frank Simorjay (Microsoft)*  
+- *Gururaj Pandurangi (Avyan Consulting)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositorio de código"

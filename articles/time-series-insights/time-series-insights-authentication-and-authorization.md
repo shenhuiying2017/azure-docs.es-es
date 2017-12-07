@@ -1,5 +1,5 @@
 ---
-title: "Cómo configurar las API de autenticación y autorización de Azure Time Series Insights"
+title: "Autenticación y autorización mediante API en Azure Time Series Insights"
 description: "En este artículo se describe cómo configurar la autenticación y la autorización para una aplicación personalizada que llama a la API de Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -32,7 +32,7 @@ Si tiene una aplicación que necesita acceder a Time Series Insights, debe confi
 * No es necesario cambiar las credenciales de la aplicación si las responsabilidades cambian.
 * Puede usar un certificado o una clave de aplicación para automatizar la autenticación cuando vaya a ejecutar un script desatendido.
 
-En este tema se muestra cómo realizar tales pasos a través de Azure Portal. Se centra en una aplicación de un único inquilino diseñada para ejecutarse en una sola organización. El usuario normalmente usa aplicaciones de un único inquilino para aplicaciones de línea de negocio que se ejecutan en la organización.
+En este artículo se muestra cómo realizar esos pasos a través de Azure Portal. Se centra en una aplicación de un único inquilino diseñada para ejecutarse en una sola organización. El usuario normalmente usa aplicaciones de un único inquilino para aplicaciones de línea de negocio que se ejecutan en la organización.
 
 El flujo de configuración consta de tres pasos de alto nivel:
 

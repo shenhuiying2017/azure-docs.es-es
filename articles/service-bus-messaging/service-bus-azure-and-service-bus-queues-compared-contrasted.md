@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de colas que ofrece Microsoft Azure en la actualidad: colas de Storage y colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -30,12 +30,12 @@ Las **colas de Storage**, que forman parte de la infraestructura de [Azure Stora
 
 Las **colas de Service Bus** forman parte de una infraestructura de [mensajería de Azure](https://azure.microsoft.com/services/service-bus/) más amplia que admite la puesta en cola, así como la publicación/suscripción, y patrones de integración más avanzados. Para más información sobre las colas de Service Bus, los temas y las suscripciones, consulte la [introducción a Service Bus](service-bus-messaging-overview.md).
 
-Aunque ambas tecnologías de cola existen de manera simultánea, las colas de Storage se presentaron en primer lugar, como un mecanismo de almacenamiento de cola dedicado creado a partir de los servicios de Azure Storage. Las colas de Service Bus se generan a partir de la infraestructura de "mensajería asíncrona" más amplia diseñada para integrar aplicaciones o componentes de aplicaciones que pueden abarcar varios protocolos de comunicación, contratos de datos, dominios de confianza o entornos de red.
+Aunque ambas tecnologías de cola existen de manera simultánea, las colas de Storage se presentaron en primer lugar, como un mecanismo de almacenamiento de cola dedicado creado a partir de los servicios de Azure Storage. Las colas de Service Bus se generan a partir de la infraestructura de mensajería más amplia diseñada para integrar aplicaciones o componentes de aplicaciones que pueden abarcar varios protocolos de comunicación, contratos de datos, dominios de confianza o entornos de red.
 
 ## <a name="technology-selection-considerations"></a>Consideraciones de selección de tecnología
 Tanto las colas de Storage como las colas de Service Bus son implementaciones del servicio de cola de mensajes ofrecido actualmente por Microsoft Azure. Cada una tiene un conjunto de características ligeramente diferente, lo que significa que puede elegir una u otra, o usar ambas, según las necesidades de su solución concreta o problema empresarial o técnico que va a resolver.
 
-Al determinar qué tecnología de cola se ajusta al propósito de una solución determinada, los desarrolladores y arquitectos de soluciones deben considerar las siguientes recomendaciones. Para obtener información detallada vea la siguiente sección.
+Al determinar qué tecnología de cola se ajusta al propósito de una solución determinada, los desarrolladores y arquitectos de soluciones deben considerar estas recomendaciones. Para obtener información detallada vea la siguiente sección.
 
 Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas de Storage** en los siguientes casos:
 
@@ -75,8 +75,8 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 | API de estilo de inserción |**No** |**Sí**<br/><br/>API de .NET de sesiones de [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) y **OnMessage**. |
 | Modo de recepción |**Ojear y alquilar** |**Ojear y bloquear**<br/><br/>**Recibir y eliminar** |
 | Modo de acceso exclusivo |**Basado en concesión** |**Basado en bloqueo** |
-| Duración de concesión/bloqueo |**30 segundos (valor predeterminado)**<br/><br/>**7 días (máximo)** (puede renovar o liberar una concesión de mensaje mediante la API de [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)). |**60 segundos (valor predeterminado)**<br/><br/>Puede renovar un bloqueo de mensaje mediante la API de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
-| Precisión de concesión/bloqueo |**Nivel de mensaje**<br/><br/>(cada mensaje puede tener un valor de tiempo de espera diferente, que luego puede actualizar según sea necesario al procesar el mensaje, mediante el uso de la API de [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)) |**Nivel de cola**<br/><br/>(cada cola tiene una precisión de bloqueo que se aplica a todos sus mensajes, pero puede renovar el bloqueo mediante la API de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock)). |
+| Duración de concesión/bloqueo |**30 segundos (valor predeterminado)**<br/><br/>**7 días (máximo)** (puede renovar o liberar una concesión de mensaje mediante la API de [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage)). |**60 segundos (valor predeterminado)**<br/><br/>Puede renovar un bloqueo de mensaje mediante la API de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
+| Precisión de concesión/bloqueo |**Nivel de mensaje**<br/><br/>(cada mensaje puede tener un valor de tiempo de espera diferente, que luego puede actualizar según sea necesario al procesar el mensaje, mediante el uso de la API de [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage)) |**Nivel de cola**<br/><br/>(cada cola tiene una precisión de bloqueo que se aplica a todos sus mensajes, pero puede renovar el bloqueo mediante la API de [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock)). |
 | Recepción por lotes |**Sí**<br/><br/>(especificando explícitamente el número de mensajes al recuperar mensajes, hasta un máximo de 32 mensajes) |**Sí**<br/><br/>(habilitando implícitamente una propiedad de captura previa o explícitamente mediante el uso de transacciones) |
 | Envío por lotes |**No** |**Sí**<br/><br/>(mediante el uso de transacciones o de procesamiento por lotes del lado cliente) |
 
@@ -134,7 +134,7 @@ En esta sección se comparan las colas de Storage y las colas de Service Bus des
 | Tamaño de cola máximo |**500 TB**<br/><br/>(limitado a una [capacidad de cuenta de almacenamiento única](../storage/common/storage-introduction.md#queue-storage)) |**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional") |
 | Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, tamaño de encabezado máximo: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
 | TTL de mensaje máximo |**7 días** |**TimeSpan.Max** |
-| Número máximo de colas |**Sin límite** |**10.000**<br/><br/>(por espacio de nombres de servicio, se puede aumentar) |
+| Número máximo de colas |**Sin límite** |**10.000**<br/><br/>(por espacio de nombres de servicio) |
 | Número máximo de clientes simultáneos |**Sin límite** |**Sin límite**<br/><br/>(el límite de 100 conexiones simultáneas solo se aplica a la comunicación basada en protocolo TCP) |
 
 ### <a name="additional-information"></a>Información adicional

@@ -3,7 +3,7 @@ title: "Conmutación por recuperación en Azure Site Recovery para las máquinas
 description: "Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Información acerca de la conmutación por recuperación de Azure a un centro de datos local."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: fafaf3f55f07741d438a06e58713d57d465b1137
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Conmutación por recuperación en Site Recovery para máquinas virtuales de Hyper-V
 
@@ -34,7 +34,7 @@ En el portal, no hay ninguna acción explícita que se denomine conmutación por
 Al iniciar una conmutación por error, la hoja le informa sobre la dirección del trabajo. Si la dirección es de Azure a local, es una conmutación por recuperación.
 
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>¿Por qué hay solo una acción de conmutación por error planeada para la conmutación por recuperación?
-Azure es un entorno de alta disponibilidad y las máquinas virtuales estarán siempre disponibles. La conmutación por recuperación es una actividad planeada que necesita un tiempo breve de inactividad para que las cargas de trabajo empiecen a ejecutarse de nuevo de forma local. No se prevé la pérdida de datos. Por lo tanto, hay solo una conmutación por error planeada, que desactivará las máquinas virtuales de Azure, descargará los cambios más recientes y garantizará que no se pierden datos.
+Azure es un entorno de alta disponibilidad y las máquinas virtuales están siempre disponibles. La conmutación por recuperación es una actividad planeada que necesita un tiempo breve de inactividad para que las cargas de trabajo empiecen a ejecutarse de nuevo de forma local. No se prevé la pérdida de datos. Por lo tanto, hay solo una conmutación por error planeada, que desactivará las máquinas virtuales de Azure, descargará los cambios más recientes y garantizará que no se pierden datos.
 
 ## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>¿Se necesita un servidor de proceso en Azure para realizar la conmutación por recuperación en Hyper-v?
 No, solo se requiere un servidor de proceso cuando está protegiendo máquinas virtuales de VMware. No es necesario implementar componentes adicionales cuando se proteja o realice la conmutación por recuperación de máquinas virtuales de Hyper-v.
@@ -46,7 +46,7 @@ Después de la conmutación por error de la ubicación principal a la secundaria
 2. En la página **Confirmar conmutación por error planeada**, elija las ubicaciones de origen y de destino. Tenga en cuenta la dirección de la conmutación por error. Si la conmutación por error desde la ubicación principal ha funcionado como se esperaba y todas las máquinas virtuales están en la ubicación secundaria, este dato es solo informativo.
 3. Si realiza la conmutación por recuperación desde Azure, seleccione la configuración en **Sincronización de datos**:
 
-   * **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios incrementales)**: esta opción reduce al mínimo el tiempo de inactividad de las máquinas virtuales, ya que realiza la sincronización sin apagarlas. Hace lo siguiente:
+   * **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios incrementales)**: esta opción reduce al mínimo el tiempo de inactividad de las máquinas virtuales, ya que realiza la sincronización sin apagarlas. Realiza los pasos siguientes:
      * Fase 1: realiza una instantánea de la máquina virtual en Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
      * Fase 2: apaga la máquina virtual en Azure para que no se realice ningún nuevo cambio allí. El último conjunto de cambios incrementales se transfiere al servidor local y se inicia la máquina virtual local.
 
@@ -70,7 +70,7 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 2. Cree un conmutador de red virtual con el mismo nombre que tenía en el servidor original.
 3. Seleccione **Elementos protegidos** -> **Grupo de protección** -> <ProtectionGroupName> -> <VirtualMachineName> en el que desea realizar la conmutación por recuperación y seleccione **Conmutación por error planeada**.
 4. En **Confirmar conmutación por error planeada** select **Crear máquina virtual local si no existe**.
-5. En **Nombre de host** , seleccione el nuevo servidor host de Hyper-V en el que desea incluir la máquina virtual.
+5. En Nombre de host,** seleccione el nuevo servidor host de Hyper-V en el que desea incluir la máquina virtual.
 6. En Sincronización de datos, se recomienda seleccionar la opción **Sincronizar los datos antes de la conmutación por error**. Así se reduce el tiempo de inactividad de las máquinas virtuales, ya que la sincronización se realiza sin apagarlas. Hace lo siguiente:
 
    * Fase 1: realiza una instantánea de la máquina virtual en Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
@@ -95,4 +95,4 @@ Para acelerar la descarga de datos, puede configurar el agente de MARS para util
 
 Una vez haya completado el trabajo de conmutación por recuperación, realice la acción **Confirmar** en la máquina virtual. La confirmación elimina la máquina virtual de Azure y sus discos, y la prepara para volver a protegerla.
 
-Después de **Confirmar**, puede iniciar la *Replicación inversa*. Esto iniciará la protección de la máquina virtual del entorno local a Azure. Tenga en cuenta que esto solo replicará los cambios, ya que la máquina virtual se ha desactivado en Azure y solo envía los cambios incrementales.
+Después de **Confirmar**, puede iniciar la *Replicación inversa*. Esto inicia la protección de la máquina virtual del entorno local a Azure. Esto solo replicará los cambios, ya que la máquina virtual se ha desactivado en Azure y solo envía los cambios incrementales.

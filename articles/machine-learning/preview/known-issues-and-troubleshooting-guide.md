@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: Guía de solución de problemas conocidos 
 En este artículo se le ayuda a buscar y corregir los errores que se producen como parte del uso de la aplicación de Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ Si surge algún problema durante la instalación, los archivos de registro del i
 /tmp/amlinstaller/logs/*
 ```
 Puede comprimir el contenido de estos directorios y enviárnoslo para que podamos realizar un diagnóstico.
+
+### <a name="app-update"></a>Actualización de aplicaciones 
+#### <a name="no-update-notification-on-windows-desktop"></a>No hay notificación de actualizaciones en el Escritorio de Windows 
+Este problema se corregirá en una próxima actualización. Mientras tanto, la solución consiste en evitar iniciar la aplicación desde el acceso directo anclado a la barra de tareas. En su lugar, inicie la aplicación con el menú Inicio o la barra de búsqueda de Inicio o el acceso directo del escritorio (si lo tiene). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>No hay notificación de actualizaciones en una instancia de Ubuntu Data Science Virtual Machine (DSVM)
+Realice los pasos siguientes para descargar la aplicación más reciente:   
+   - quite la carpeta \Usuarios\AppData\Local\amlworkbench
+   - quite el script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`,
+   - quite el acceso directo de escritorio que se inicia el script anterior,
+   - instale en limpio mediante [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Aplicación de escritorio Workbench
 Si tiene problemas al iniciar sesión o si el escritorio de Workbench se bloquea, aquí puede encontrar los archivos de registro:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -277,7 +277,7 @@ Azure Resource Manager requiere que todos los grupos de recursos especifiquen un
 
 El estado de supervisión actual de cada punto de conexión, junto con el del perfil global, se muestra en el Portal de Azure. Esta información también está disponible a través de la [API de REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), los [cmdlets de PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) y la [CLI de Azure multiplataforma](../cli-install-nodejs.md) del Monitor de tráfico.
 
-Azure no proporciona información histórica sobre el estado del punto de conexión o la capacidad de generar alertas sobre los cambios de estado del punto de conexión.
+También puede usar Azure Monitor para hacer un seguimiento del mantenimiento de los puntos de conexión y ver una representación visual de los mismos. Para más información sobre cómo usar Azure Monitor, consulte la [documentación de supervisión de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>¿Puedo supervisar puntos de conexión HTTPS?
 
@@ -288,6 +288,10 @@ Traffic Manager no puede proporcionar ninguna validación de certificado, inclui
 * No se validan certificados del servidor
 * No se admiten certificados del servidor de SNI
 * No se admiten certificados de cliente
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Detuve un punto de conexión de una aplicación web o un servicio en la nube de Azure en mi perfil de Traffic Manager, pero no recibo tráfico incluso después de haberlo reiniciado. ¿Cómo lo puedo corregir?
+
+Cuando se detiene un punto de conexión de una aplicación web o un servicio en la nube de Azure, Traffic Manager deja de comprobar su mantenimiento y reinicia las comprobaciones de estado solo una vez que detecta que se reinició el punto de conexión. Para evitar este retraso, deshabilite y vuelva a habilitar ese punto de conexión en el perfil de Traffic Manager después de reiniciar el punto de conexión.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>¿Puedo usar Traffic Manager incluso si mi aplicación no tiene compatibilidad para HTTP o HTTPS?
 

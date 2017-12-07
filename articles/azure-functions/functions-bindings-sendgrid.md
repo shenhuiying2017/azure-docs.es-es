@@ -1,56 +1,76 @@
 ---
-title: Enlaces de SendGrid de Azure Functions | Microsoft Docs
-description: Referencia de enlaces de SendGrid de Azure Functions
+title: Enlaces de SendGrid de Azure Functions
+description: Referencia de enlaces de SendGrid de Azure Functions.
 services: functions
 documentationcenter: na
-author: rachelappel
+author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
-ms.author: rachelap
-ms.openlocfilehash: 4cdafbe05e29d8b483c6b0e1daf41a36583d7b5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: tdykstra
+ms.openlocfilehash: f24c2aecf44dd44fec05dc9a4d156ff408b0c953
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces de SendGrid de Azure Functions
 
-En este artículo se explica cómo configurar y trabajar con enlaces de SendGrid en Azure Functions. Con SendGrid, puede usar Azure Functions para enviar correo electrónico personalizado mediante programación.
+En este artículo se explica cómo enviar correos electrónicos mediante los enlaces de [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) en Azure Functions. Azure Functions admite un enlace de salida para SendGrid.
 
-Este artículo sirve como información de referencia para los desarrolladores de Azure Functions. Si está familiarizado con Funciones de Azure, comience con los siguientes recursos:
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-[Cree la primera Azure Function](functions-create-first-azure-function.md). 
-Referencias para desarrolladores de [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [nodo](functions-reference-node.md).
+## <a name="example"></a>Ejemplo
 
-## <a name="functionjson-for-sendgrid-bindings"></a>function.json para enlaces de SendGrid
+Vea el ejemplo específico del lenguaje:
 
-Azure Functions proporciona un enlace de salida para SendGrid. El enlace de salida de SendGrid le permite crear y enviar correo electrónico mediante programación. 
+* [C# precompilado](#c-example)
+* [Script de C#](#c-script-example)
+* [JavaScript](#javascript-example)
 
-El enlace de SendGrid admite las siguientes propiedades:
+### <a name="c-example"></a>Ejemplo de C#
 
-|Propiedad  |Descripción  |
-|---------|---------|
-|**name**| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. Este valor es ```$return``` cuando hay solo un valor de devuelto. |
-|**type**| Requerida: se debe establecer en `sendGrid`.|
-|**dirección**| Requerida: se debe establecer en `out`.|
-|**apiKey**| Requerida: se debe establecer en el nombre de la clave de API almacenada en la configuración de aplicación de Function App. |
-|**to**| Dirección de correo electrónico del destinatario. |
-|**from**| Dirección de correo electrónico del remitente. |
-|**subject**| Asunto del correo electrónico. |
-|**text**| Contenido del correo electrónico. |
+En el ejemplo siguiente se muestra una [función de C# precompilado](functions-dotnet-class-library.md) que usa un desencadenador de cola de Service Bus y un enlace de salida de SendGrid.
 
-Ejemplo de **function.json**:
+```cs
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    message = new SendGridMessage();
+    message.AddTo(email.To);
+    message.AddContent("text/html", email.Body);
+    message.SetFrom(new EmailAddress(email.From));
+    message.SetSubject(email.Subject);
+}
+
+public class OutgoingEmail
+{
+    public string To { get; set; }
+    public string From { get; set; }
+    public string Subject { get; set; }
+    public string Body { get; set; }
+}
+```
+
+Puede omitir la propiedad `ApiKey` del atributo si tiene la clave de API en una configuración de aplicación denominada "AzureWebJobsSendGridApiKey".
+
+### <a name="c-script-example"></a>Ejemplo de script de C#
+
+En el ejemplo siguiente se muestra un enlace de salida de SendGrid en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace.
+
+Estos son los datos de enlace del archivo *function.json*:
 
 ```json 
 {
     "bindings": [
         {
-            "name": "$return",
+            "name": "message",
             "type": "sendGrid",
             "direction": "out",
             "apiKey" : "MySendGridKey",
@@ -62,19 +82,16 @@ Ejemplo de **function.json**:
 }
 ```
 
-> [!NOTE]
-> Azure Functions almacena la información de conexión y las claves de API como configuración de la aplicación de forma que no se protegen en el repositorio de control de código fuente. Esta acción protege la información confidencial.
->
->
+En la sección de [configuración](#configuration) se explican estas propiedades.
 
-## <a name="c-example-of-the-sendgrid-output-binding"></a>Ejemplo de C# del enlace de salida de SendGrid
+Este es el código de script de C#:
 
 ```csharp
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
 
-public static Mail Run(TraceWriter log, string input, out Mail message)
+public static void Run(TraceWriter log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -94,7 +111,31 @@ public static Mail Run(TraceWriter log, string input, out Mail message)
 }
 ```
 
-## <a name="node-example-of-the-sendgrid-output-binding"></a>Ejemplo de nodo del enlace de salida de SendGrid
+### <a name="javascript-example"></a>Ejemplo de JavaScript
+
+En el ejemplo siguiente se muestra un enlace de salida de SendGrid en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace.
+
+Estos son los datos de enlace del archivo *function.json*:
+
+```json 
+{
+    "bindings": [
+        {
+            "name": "$return",
+            "type": "sendGrid",
+            "direction": "out",
+            "apiKey" : "MySendGridKey",
+            "to": "{ToEmail}",
+            "from": "{FromEmail}",
+            "subject": "SendGrid output bindings"
+        }
+    ]
+}
+```
+
+En la sección de [configuración](#configuration) se explican estas propiedades.
+
+Este es el código de JavaScript:
 
 ```javascript
 module.exports = function (context, input) {    
@@ -110,13 +151,44 @@ module.exports = function (context, input) {
 
     context.done(null, message);
 };
-
 ```
 
+## <a name="attributes"></a>Atributos
+
+Para funciones de [C# precompilado](functions-dotnet-class-library.md), use el atributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid).
+
+Para información sobre las propiedades de atributo que puede configurar, consulte [Configuración](#configuration). A continuación, se muestra un ejemplo del atributo `SendGrid` en una signatura de método:
+
+```csharp
+[FunctionName("SendEmail")]
+public static void Run(
+    [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
+{
+    ...
+}
+```
+
+Para un ejemplo completo, consulte el [ejemplo de C# precompilado](#c-example).
+
+## <a name="configuration"></a>Configuración
+
+En la siguiente tabla se explican las propiedades de configuración de enlace que se establecen en el archivo *function.json* y el atributo `SendGrid`.
+
+|Propiedad de function.json | Propiedad de atributo |Descripción|
+|---------|---------|----------------------|
+|**type**|| Requerida: se debe establecer en `sendGrid`.|
+|**dirección**|| Requerida: se debe establecer en `out`.|
+|**name**|| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. Este valor es ```$return``` cuando hay solo un valor de devuelto. |
+|**apiKey**|**ApiKey**| El nombre de una configuración de aplicación que contiene la clave de API. Si no está establecido, el nombre predeterminado de la configuración de aplicación es "AzureWebJobsSendGridApiKey".|
+|**to**|**To**| Dirección de correo electrónico del destinatario. |
+|**from**|**From**| Dirección de correo electrónico del remitente. |
+|**subject**|**Asunto**| Asunto del correo electrónico. |
+|**text**|**Texto**| Contenido del correo electrónico. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
-Para información sobre otros enlaces y desencadenadores de Azure Functions, consulte: 
-- [Referencia para desarrolladores de desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)
 
-- [Procedimientos recomendados de Azure Functions](functions-best-practices.md): se enumeran algunos procedimientos recomendados para crear Azure Functions.
-
-- [Guía para desarrolladores de Azure Functions](functions-reference.md): contiene las referencias del programador para codificar las funciones y definir los desencadenadores y los enlaces.
+> [!div class="nextstepaction"]
+> [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

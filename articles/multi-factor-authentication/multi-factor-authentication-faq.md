@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8881fc9193aa905b5d7083644a3ce8ac4411d693
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 Este artículo de P+F da respuesta a las preguntas más frecuentes sobre Azure Multi-Factor Authentication y el uso del servicio Multi-Factor Authentication. Se divide en preguntas sobre el servicio en general, los modelos de facturación, las experiencias del usuario y la solución de problemas.
@@ -45,6 +45,22 @@ Cuando se envían solicitudes de autenticación al servicio en la nube, se recop
 Los campos opcionales pueden configurarse en Servidor Multi-Factor Authentication.
 
 El resultado de la comprobación (aceptación o denegación) y el motivo de la denegación se almacenan con los datos de autenticación. Los datos están disponibles en los informes de autenticación y uso.
+
+**P: ¿Qué códigos cortos de SMS se usan para enviar mensajes SMS a mis usuarios?**
+
+En Estados Unidos, Microsoft utiliza los siguientes códigos cortos de SMS:
+
+   * 97671
+   * 69829
+   * 51789
+   * 99399
+
+En Canadá, Microsoft utiliza los siguientes códigos cortos de SMS:
+
+   * 759731 
+   * 673801
+
+Microsoft no garantiza la entrega rápida y coherente de Multi-Factor Authentication por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, Microsoft puede agregar o quitar códigos cortos cuando lo estime oportuno, ya que se realizan ajustes de enrutamiento para mejorar la capacidad de entrega de SMS. Microsoft no admite códigos cortos para países que no sean Estados Unidos y Canadá.
 
 ## <a name="billing"></a>Facturación
 La mayoría de las preguntas sobre facturación se pueden responder si se consulta la [página sobre precios de Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) o la documentación sobre [cómo conseguir Azure Multi-Factor Authentication](multi-factor-authentication-versions-plans.md).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1b2645580c12777ea39816bdcc62cfabc172d16
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: instrucciones de realización de consultas de tablas de datos con Table API
 
@@ -38,7 +38,7 @@ En las consultas de este artículo se usa la tabla `People` de ejemplo siguiente
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Consulte [Querying Tables and Entities] (Consulta de tablas y entidades) (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) para información sobre cómo realizar consultas con Table API. 
+Vea [Consultar tablas y entidades](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) para detalles sobre cómo realizar consultas mediante Table API. 
 
 Para más información sobre las funcionalidades premium que ofrece Azure Cosmos DB, consulte el artículo [Azure Cosmos DB: Table API](table-introduction.md) y [Azure Cosmos DB: desarrollo con Table API en .NET](tutorial-develop-table-dotnet.md). 
 
@@ -78,7 +78,7 @@ Esta es una consulta de ejemplo en la que se muestra cómo filtrar por propiedad
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Consulta de tablas y entidades](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Para obtener más información sobre cómo construir expresiones de filtro para diferentes tipos de datos, consulte [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities) (Consulta de tablas y entidades).
 
 **Resultados**
 

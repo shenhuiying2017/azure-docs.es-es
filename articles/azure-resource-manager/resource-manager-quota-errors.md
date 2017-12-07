@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Solución 3
 
-Si necesita aumentar un límite de cuota, vaya al portal y presente una incidencia de soporte técnico para elevar la cuota de la región en la que quiere realizar la implementación.
+Para solicitar un aumento de cuota, vaya al portal y abra una incidencia de soporte técnico. En la incidencia de soporte técnico, solicite un aumento de la cuota para la región en la que desea realizar la implementación.
 
 > [!NOTE]
 > Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de Resource Manager en todas las regiones.
 >
 >
+
+1. Seleccione **Suscripciones**.
+
+   ![Suscripciones](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Seleccione la suscripción que necesita una cuota mayor.
+
+   ![Seleccione la suscripción.](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Seleccione **Uso y cuotas**.
+
+   ![Selección de uso y cuotas](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. En la esquina superior derecha, seleccione **Solicitar aumento**.
+
+   ![Solicitud de aumento](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Rellene los formularios para el tipo de cuota que necesita aumentar.
+
+   ![Rellenado del formulario](./media/resource-manager-quota-errors/forms.png)

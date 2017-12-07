@@ -1,10 +1,10 @@
 ---
-title: Entradas de ejemplo en Azure Stream Analytics | Microsoft Docs
+title: Prueba de consulta de Azure Stream Analytics | Microsoft Docs
 description: "Identifique los problemas cuando realice la solución de problemas de trabajos de Stream Analytics."
 keywords: "entrada de solución de problemas, muestreo de entrada"
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: db9686fad7153d63fc659869b93821200e08397c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="azure-stream-analytics-input-stream-sampling"></a>Muestreo de flujo de entrada de Azure Stream Analytics
+# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Muestreo de flujo de entrada y prueba de consulta de Azure Stream Analytics
 
 Mediante Azure Stream Analytics, puede muestrear eventos de entrada que procedan de un archivo y probar consultas en el portal de sin necesidad de iniciar o detener un trabajo.
 
@@ -57,11 +57,11 @@ Cuando esté satisfecho con los resultados, puede guardar la consulta, iniciar e
 
 ## <a name="get-help"></a>Obtener ayuda
 
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

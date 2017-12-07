@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
-Las redes virtuales de Azure (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre las redes virtuales de Azure, vea: [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
+Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 Azure API Management se puede implementar dentro de la red virtual (VNET), por lo que puede tener acceso a los servicios back-end dentro de la red. El portal para desarrolladores y la puerta de enlace de API pueden configurarse para que sea accesible desde Internet o solo dentro de la red virtual.
 
@@ -45,7 +45,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Habilitación de la conectividad de VNET mediante Azure Portal
 
 1. Acceda a la instancia de APIM de [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Dominios personalizados y SSL**.
+2. Seleccione **Virtual Network**.
 3. Configure la instancia de API Management que se va a implementar dentro de la red virtual.
 
     ![Menú Red virtual de API Management][api-management-using-vnet-menu]
@@ -104,7 +104,7 @@ A continuación se muestra una lista de problemas de errores de configuración c
 
 * **Puertos necesarios para API Management**: el tráfico entrante y saliente en la subred en la que se implementa API Management puede controlarse mediante el [grupo de seguridad de red][Network Security Group]. Si alguno de estos puertos no está disponible, es posible que API Management no funcione correctamente y sea inaccesible. Tener bloqueados uno o varios de estos puertos es otro problema común de una configuración incorrecta cuando se usa API Management con una red virtual.
 
-Cuando la instancia del servicio de Administración de API se hospeda en una red virtual, se usan los puertos de la tabla siguiente.
+Cuando la instancia del servicio de API Management se hospeda en una red virtual, se usan los puertos de la tabla siguiente.
 
 | Puertos de origen/destino | Dirección | Protocolo de transporte | Origen/destino | Propósito (*) | Tipo de red virtual |
 | --- | --- | --- | --- | --- | --- |
@@ -116,6 +116,7 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 | * / 14000 - 14999 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|**Acceso a Azure SQL V12** |Externa e interna |
 | * / 5671 |Salida |AMQP |VIRTUAL_NETWORK/INTERNET|Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión |Externa e interna |
 | * / 445 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Dependencia del recurso compartido de archivos de Azure para Git |Externa e interna |
+| * / 25028 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Conexión a la retransmisión de SMTP para enviar correos electrónicos |Externa e interna |
 | * / 6381 - 6383 |Entrada y salida |TCP |VIRTUAL_NETWORK/VIRTUAL_NETWORK|Acceso a instancias de caché de Redis entre RoleInstances |Externa e interna |
 | * / * | Entrada |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Equilibrador de carga de la infraestructura de Azure |Externa e interna |
 
@@ -165,7 +166,7 @@ Cuando la instancia del servicio de Administración de API se hospeda en una red
 ## <a name="related-content"></a>Contenido relacionado
 * [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure](api-management-howto-api-inspector.md)
+* [Uso de API Inspector para hacer un seguimiento de las llamadas en Azure API Management](api-management-howto-api-inspector.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

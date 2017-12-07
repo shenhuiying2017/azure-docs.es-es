@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 75e509a7e39f5b268ce550d0c4dea2261d4fe56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Servicio Azure Metadata: eventos programados (versión preliminar) para VM Linux
 
@@ -27,47 +27,67 @@ ms.lasthandoff: 10/11/2017
 > Las versiones preliminares están a su disposición con la condición de que acepte los términos de uso. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Scheduled Events es uno de los subservicios de Azure Metadata Service. Se encarga de mostrar información relacionada con eventos próximos (por ejemplo, un reinicio) para que la aplicación pueda prepararse para ellos y limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluso para IaaS y PaaS. Scheduled Events permite que la máquina virtual tenga tiempo para realizar tareas de prevención y minimizar el efecto de un evento. 
+Eventos programados es un servicio de Azure Metadata Service que proporciona el tiempo de aplicación para prepararse para el mantenimiento de la máquina virtual. Proporciona información sobre los eventos de mantenimiento próximos (por ejemplo, un reinicio) para que la aplicación se pueda preparar y así limitar las interrupciones. Está disponible para todos los tipos de máquina virtual de Azure, incluido IaaS y PaaS, tanto en Windows como en Linux. 
 
-Scheduled Events está disponible para máquinas virtuales Linux y Windows. Para más información acerca de Scheduled Events en Windows, consulte [Scheduled Events para máquinas virtuales Windows](../windows/scheduled-events.md).
+Para más información acerca de Scheduled Events en Windows, consulte [Scheduled Events para máquinas virtuales Windows](../windows/scheduled-events.md).
 
 ## <a name="why-scheduled-events"></a>¿Por qué Scheduled Events?
 
-Con Scheduled Events, puede tomar medidas para limitar el impacto del mantenimiento iniciado por la plataforma o de las acciones iniciadas por usuarios en el servicio. 
+Muchas aplicaciones pueden beneficiarse del tiempo de preparación para el mantenimiento de las máquinas virtuales. Este tiempo se puede usar para realizar tareas específicas de la aplicación con el fin de mejorar la disponibilidad, la confiabilidad y la capacidad de servicio, lo que incluye: 
 
-Las cargas de trabajo de varias instancias, que usan técnicas de replicación para mantener el estado, pueden ser vulnerables a las interrupciones que se producen en varias instancias. Esas interrupciones pueden dar lugar a tareas costosas (por ejemplo, volver a elaborar los índices) o, incluso, a una pérdida de las réplicas. 
+- Punto de control y restauración
+- Purga de la conexión
+- Conmutación por error de la réplica principal 
+- Eliminación del grupo de equilibradores de carga
+- Registros de eventos
+- Apagado correcto 
 
-En muchos otros casos, la disponibilidad global de los servicios puede mejorarse realizando una secuencia de apagado estable, por ejemplo, completando transacciones en curso (o cancelándolas), reasignando tareas a otras máquinas virtuales del clúster (conmutación por error manual) o eliminando la máquina virtual de un grupo de equilibradores de carga de red. 
+Con Eventos programados, la aplicación puede detectar cuándo se producirá el mantenimiento y desencadenar tareas para limitar su impacto.  
 
-Hay casos en los que notificar a un administrador sobre un evento próximo o registrar dicho evento puede mejorar el mantenimiento de las aplicaciones hospedadas en la nube.
-
-Azure Metadata Service muestra Eventos programados en los siguientes casos de uso:
--   Mantenimiento iniciado por la plataforma (por ejemplo, la implementación del SO del host)
--   Llamadas iniciadas por el usuario (por ejemplo, si el usuario reinicia una VM o la vuelve a implementar)
-
+Eventos programados proporciona eventos en los casos de uso siguientes:
+- Mantenimiento iniciado por la plataforma (por ejemplo, actualización del SO del host)
+- Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
 
 ## <a name="the-basics"></a>Conceptos básicos  
 
 Azure Metadata Service expone información sobre la ejecución de máquinas virtuales mediante un punto de conexión de REST accesible desde la propia máquina virtual. La información se encuentra disponible a través de una dirección IP no enrutable, de modo que no se expone fuera de la máquina virtual.
 
 ### <a name="scope"></a>Scope
-Los eventos programados se presentan a todas las máquinas virtuales en un servicio en la nube o a todas las máquinas virtuales en un conjunto de disponibilidad. Por ello, debería revisar el campo `Resources` del evento para identificar cuáles son las máquinas virtuales que se verán afectadas. 
+Los eventos programados se entregan a:
+- Todas las máquinas virtuales de un servicio en la nube.
+- Todas las máquinas virtuales de un conjunto de disponibilidad.
+- Todas las máquinas virtuales de un grupo de selección de ubicación de conjunto de escalado. 
+
+Por ello, debería revisar el campo `Resources` del evento para identificar cuáles son las máquinas virtuales que se verán afectadas.
 
 ### <a name="discovering-the-endpoint"></a>Detección del punto de conexión
+En el caso de las máquinas virtuales habilitadas por VNET, el punto de conexión completo de la versión más reciente de Eventos programados es: 
+
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+
 Al crear una máquina virtual dentro de una red virtual (VNet), Metadata Service está disponible desde una dirección IP no enrutable (`169.254.169.254`).
-Si la máquina virtual no se crea dentro de una red virtual (lo habitual para servicios en la nube y VM clásicas), se necesita una lógica adicional para detectar el punto de conexión que vaya a usarse. Consulte esta muestra para obtener información sobre cómo [descubrir el punto de conexión de host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Si la máquina virtual no se crea dentro de una red virtual (lo habitual para servicios en la nube y VM clásicas), se necesita una lógica adicional para detectar la dirección IP que se va a usar. Consulte esta muestra para obtener información sobre cómo [descubrir el punto de conexión de host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Control de versiones 
-El servicio de metadatos de instancia tiene versiones. Las versiones son obligatorias y la versión actual es la `2017-03-01`.
+El servicio Eventos programados tiene versiones. Las versiones son obligatorias y la versión actual es la `2017-08-01`.
+
+| Versión | Notas de la versión | 
+| - | - | 
+| 2017-08-01 | <li> Se quitó el guion bajo antepuesto de los nombres de recursos en las máquinas virtuales de IaaS<br><li>Se aplicó el requisito de encabezado de metadatos para todas las solicitudes | 
+| 2017-03-01 | <li>Versión preliminar pública
+
 
 > [!NOTE] 
 > Las versiones preliminares de eventos programados compatibles {más reciente} como la versión de api. Este formato ya no es compatible y dejará de utilizarse en el futuro.
 
 ### <a name="using-headers"></a>Uso de encabezados
-Al realizar consultas a Metadata Service, debe proporcionar el encabezado `Metadata: true` para asegurarse de que la solicitud no se haya redirigido de manera involuntaria.
+Al realizar consultas a Metadata Service, debe proporcionar el encabezado `Metadata:true` para asegurarse de que la solicitud no se haya redirigido de manera involuntaria. El encabezado `Metadata:true` es necesario para todas las solicitudes de eventos programados. Un error al incluir el encabezado en la solicitud generará una respuesta del tipo Solicitud incorrecta del servicio de metadatos.
 
 ### <a name="enabling-scheduled-events"></a>Habilitación de eventos programados
 La primera vez que efectúe una solicitud de eventos programados, Azure habilita de manera implícita la característica en la máquina virtual. Como resultado, debe esperar una respuesta diferida de hasta dos minutos en la primera llamada.
+
+> [!NOTE]
+> Eventos programados se deshabilita automáticamente para el servicio si este no llama al punto de conexión durante un día. Una vez que se deshabilita Eventos programados para el servicio, no habrá eventos creados para el mantenimiento iniciado por el usuario.
 
 ### <a name="user-initiated-maintenance"></a>Mantenimiento iniciado por el usuario
 El mantenimiento de máquina virtual iniciado por el usuario a través de Azure Portal, API, CLI o PowerShell da lugar a un evento programado. Esto permite probar la lógica de preparación de mantenimiento en su aplicación. Asimismo, permite a su aplicación prepararse para el mantenimiento iniciado por el usuario.
@@ -75,7 +95,7 @@ El mantenimiento de máquina virtual iniciado por el usuario a través de Azure 
 Si se reinicia una máquina virtual, se programa un evento con el tipo `Reboot`. Si vuelve a implementar una máquina virtual, se programa un evento con el tipo `Redeploy`.
 
 > [!NOTE] 
-> Actualmente se puede programar sumultáneamente un máximo de 10 operaciones de mantenimiento iniciadas por el usuario. Este límite será más flexible antes de la disponibilidad general de eventos programados.
+> Actualmente se puede programar sumultáneamente un máximo de 100 operaciones de mantenimiento iniciadas por el usuario.
 
 > [!NOTE] 
 > Actualmente no se puede configurar ningún mantenimiento iniciado por el usuario que dé lugar a eventos programados. Está planeado que esta capacidad de configuración se lance en el futuro.
@@ -85,8 +105,9 @@ Si se reinicia una máquina virtual, se programa un evento con el tipo `Reboot`.
 ### <a name="query-for-events"></a>Consulta de eventos
 Puede consultar los eventos programados; para ello, simplemente haga la siguiente llamada:
 
+#### <a name="bash"></a>Bash
 ```
-curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 Una respuesta contiene una matriz de eventos programados. Una matriz vacía significa que actualmente no hay eventos programados.
@@ -130,15 +151,24 @@ Cada evento se programa una cantidad mínima de tiempo en el futuro en función 
 
 Una vez que se haya enterado de un evento próximo y que haya completado la lógica para un apagado estable, puede aprobar el evento pendiente mediante una llamada de `POST` a Metadata Service con `EventId`. Esta indica a Azure que puede acortar el tiempo de notificación mínimo (cuando sea posible). 
 
+A continuación se muestra el JSON esperado en el cuerpo de la solicitud `POST`. La solicitud debe contener una lista de `StartRequests`. Cada `StartRequest` contiene el elemento `EventId` para el evento que desea acelerar:
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
+{
+    "StartRequests" : [
+        {
+            "EventId": {EventId}
+        }
+    ]
+}
+```
+
+#### <a name="bash-sample"></a>Ejemplo de Bash
+```
+curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
 > Reconocer un evento permite a este continuar para todos sus elementos `Resources`, no solo para la máquina virtual que lo reconoce. Por tanto, puede optar por elegir un líder para que coordine el reconocimiento. Este puede ser tan sencillo como la propia máquina del campo `Resources`.
-
-
-
 
 ## <a name="python-sample"></a>Ejemplo de Python 
 
@@ -185,6 +215,6 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes 
-
+- Revise los ejemplos de código de Eventos programados en el [repositorio de Eventos programados de metadatos de instancia de Azure de GitHub](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - En [Instance Metadata Service](instance-metadata-service.md) (Servicio Instance Metadata), puede obtener más información sobre las API disponibles.
 - Obtenga información sobre cómo realizar [el mantenimiento planeado para máquinas virtuales Linux en Azure](planned-maintenance.md).

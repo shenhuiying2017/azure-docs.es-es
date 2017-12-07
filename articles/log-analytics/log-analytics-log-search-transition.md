@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transición al nuevo lenguaje de consulta de Log Analytics de Azure
 Log Analytics implementó recientemente un nuevo lenguaje de consulta.  En este artículo se proporciona ayuda sobre la transición a este lenguaje de Log Analytics, si ya conoce el lenguaje heredado y aún necesita más información.
+
+## <a name="resources"></a>Recursos
+
 
 ## <a name="language-converter"></a>Convertidor de lenguaje
 
 Si conoce el lenguaje de consulta de Log Analytics heredado, la manera más fácil de crear la misma consulta en el nuevo lenguaje es usar el convertidor de lenguaje que se instala en el portal de la búsqueda de registros cuando se convierte el área de trabajo.  El uso del convertidor es tan sencillo como escribir una consulta heredada en el cuadro de texto superior y, a continuación, hacer clic en **Convertir**.  O bien, puede hacer clic en el botón de búsqueda para ejecutar la consulta o copiar y pegar para utilizarla en otro lugar.
 
 ![Convertidor de lenguaje](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Recursos
+El [sitio de documentación para el lenguaje de consultas de Log Analytics](https://docs.loganalytics.io) tiene todos los recursos que necesita para ponerse al día en el nuevo lenguaje.  Esto incluye tutoriales, ejemplos y una referencia completa del lenguaje.
 
 
 ## <a name="cheat-sheet"></a>Hoja de referencia rápida

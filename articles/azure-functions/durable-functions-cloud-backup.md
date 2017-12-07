@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Escenario de distribución ramificada de entrada/salida en Durable Functions: ejemplo de copia de seguridad en la nube
 
@@ -67,7 +67,7 @@ Esta función de orquestador básicamente hace lo siguiente:
 4. Espera a que finalicen todas las cargas.
 5. Devuelve los bytes totales que se han cargado en Azure Blob Storage.
 
-Observe la línea `await Task.WhenAll(tasks);`. *No* se esperó a ninguna de las llamadas a la función `E2_CopyFileToBlob`. Se hace a propósito para que se ejecuten en paralelo. Cuando se pasa esta matriz de tareas a `Task.WhenAll`, obtenemos una tarea que no finalizará *hasta que se completen todas las operaciones de copia*. Si está familiarizado con la biblioteca TPL en. NET, esto no supondrá una novedad para usted. La diferencia es que estas tareas se pueden ejecutar en varias máquinas virtuales al mismo tiempo y la extensión garantiza que la ejecución de un extremo a otro es resistente al reciclaje de procesos.
+Observe la línea `await Task.WhenAll(tasks);`. *No* se esperó a ninguna de las llamadas a la función `E2_CopyFileToBlob`. Se hace a propósito para que se ejecuten en paralelo. Cuando se pasa esta matriz de tareas a `Task.WhenAll`, obtenemos una tarea que no finalizará *hasta que se completen todas las operaciones de copia*. Si está familiarizado con la biblioteca TPL en. NET, esto no supondrá una novedad para usted. La diferencia es que estas tareas se pueden ejecutar en varias máquinas virtuales al mismo tiempo y la extensión Durable Functions garantiza que la ejecución de un extremo a otro es resistente al reciclaje de procesos.
 
 Después de espera a `Task.WhenAll`, sabemos que todas las llamadas de función han finalizado y nos han devuelto valores. Cada llamada a `E2_CopyFileToBlob` devuelve el número de bytes cargados, por lo que calcular el recuento total de bytes es cuestión de agregar todos los valores devueltos.
 
@@ -92,7 +92,7 @@ La implementación también es bastante sencilla. Usa características de enlace
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-Con la implementación se carga el archivo desde el disco y transmite de forma asincrónica el contenido a un blob con el mismo nombre. El valor devuelto es el número de bytes copiados en el almacenamiento, que utilizará la función de orquestador para calcular el agregado total.
+Con la implementación se carga el archivo desde el disco y transmite de forma asincrónica el contenido a un blob con el mismo nombre en el contenedor "backups". El valor devuelto es el número de bytes copiados en el almacenamiento, que utilizará la función de orquestador para calcular el agregado total.
 
 > [!NOTE]
 > Es un ejemplo perfecto de cómo se mueven las operaciones de E/S a una función `activityTrigger`. No solo se puede distribuir el trabajo en muchas máquinas virtuales diferentes, sino que también obtendrá las ventajas de establecer puntos de control del progreso. Si el proceso de host se finaliza por alguna razón, sabrá qué cargas ya se han completado.

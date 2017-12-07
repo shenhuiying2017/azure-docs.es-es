@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 4e1f2f7d63666315f363caa8fec272ec2b6f18fc
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
@@ -42,24 +42,24 @@ Jenkins se puede configurar dentro o fuera de un clúster de Service Fabric. En 
    > [!NOTE]
    > Asegúrese de que el puerto 8081 se especifica como punto de conexión personalizado del clúster.
    >
-2. Clone la aplicación mediante los pasos siguientes:
 
+2. Clone la aplicación mediante los pasos siguientes:
   ```sh
-git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-cd service-fabric-java-getting-started/Services/JenkinsDocker/
-```
+  git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+  cd service-fabric-java-getting-started/Services/JenkinsDocker/
+  ```
 
 3. Guarde el estado del contenedor Jenkins en un recurso compartido de archivos:
   * Cree una cuenta de almacenamiento de Azure en la **misma región** que el clúster con un nombre como ``sfjenkinsstorage1``.
   * Cree un **recurso compartido de archivos** en esa cuenta de almacenamiento con un nombre como ``sfjenkins``.
   * Haga clic en **Conectar** para el recurso compartido de archivos y anote los valores que se muestran en **Conectando desde Linux**, valores que deberían ser parecidos a estos:
-```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
-```
+  ```sh
+  sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
+  ```
 
-> [!NOTE]
-> Para montar recursos compartidos cifs, debe tener instalado el paquete cifs-utils en los nodos del clúster.         
->
+  > [!NOTE]
+  > Para montar recursos compartidos cifs, debe tener instalado el paquete cifs-utils en los nodos del clúster.       
+  >
 
 4. Actualice los valores de marcador de posición en el script ```setupentrypoint.sh``` con los detalles de almacenamiento de Azure del paso 3.
 ```sh
@@ -68,16 +68,33 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
   * Reemplace ``[REMOTE_FILE_SHARE_LOCATION]`` con el valor ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` de la salida de la conexión en el paso 3 anterior.
   * Reemplace ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` con el valor ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` del paso 3 anterior.
 
-5. Conéctese al clúster e instale la aplicación contenedora.
-```sh
-sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
-bash Scripts/install.sh
-```
-Así se instala un contenedor de Jenkins en el clúster y se puede supervisar mediante Service Fabric Explorer.
+5. **Solo clústeres seguros:** para configurar la implementación de aplicaciones en un clúster seguro desde Jenkins, es necesario poder acceder al certificado en el contenedor de Jenkins. En clústeres Linux, los certificados (PEM), simplemente, se copian del almacén que especifica X509StoreName al contenedor. En ApplicationManifest de ContainerHostPolicies, agregue esta referencia de certificado y actualice el valor de la huella digital. El valor de la huella digital debe ser el de un certificado que se encuentra en el nodo.
+  ```xml
+  <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+  ```
+  > [!NOTE]
+  > El valor de la huella digital debe ser el mismo que el certificado usado para conectarse al clúster seguro. 
+  >
 
-   > [!NOTE]
-   > La imagen Jenkins puede tardar un par de minutos en descargarse en el clúster.
-   >
+6. Conéctese al clúster e instale la aplicación contenedora.
+
+  **Clúster seguro**
+  ```sh
+  sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  **Clúster no seguro**
+  ```sh
+  sfctl cluster select --endpoint http://PublicIPorFQDN:19080 # cluster connect command
+  bash Scripts/install.sh
+  ```
+
+  Así se instala un contenedor de Jenkins en el clúster y se puede supervisar mediante Service Fabric Explorer.
+
+    > [!NOTE]
+    > La imagen Jenkins puede tardar un par de minutos en descargarse en el clúster.
+    >
 
 ### <a name="steps"></a>Pasos
 1. En el explorador, vaya a ``http://PublicIPorFQDN:8081``. Se proporciona la ruta de acceso de la contraseña de administrador inicial necesaria para iniciar sesión. 
@@ -112,8 +129,8 @@ Debe tener instalado Docker. Los siguientes comandos se pueden usar para instala
 Ahora, cuando ejecute ``docker info`` en el terminal, verá en la salida que el servicio Docker se está ejecutando.
 
 ### <a name="steps"></a>Pasos
-  1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: ``docker pull raunakpandya/jenkins:9``
-  2. Ejecute la imagen del contenedor: ``docker run -itd -p 8080:8080 raunakpandya/jenkins:v9``
+  1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: ``docker pull sayantancs/jenkins:v9``
+  2. Ejecute la imagen del contenedor: ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
   3. Obtenga el identificador de la instancia de la imagen de contenedor. Puede enumerar todos los contenedores de Docker con el comando ``docker ps –a``.
   4. Inicie sesión en el portal de Jenkins, para lo que debe seguir estos pasos:
 
@@ -176,13 +193,19 @@ Aquí puede cargar un complemento. Seleccione **Choose file** (Elegir archivo) y
 
     ![Acción de compilación de Jenkins en Service Fabric][build-step-dotnet]
   
-   h. En la lista desplegable **Post-Build Actions** (Acciones posteriores a la compilación), seleccione **Deploy Service Fabric Project** (Implementar proyecto de Service Fabric). Aquí es preciso proporcionar los detalles del clúster donde se implementará la aplicación de Service Fabric compilada por Jenkins. También se puede especificar más detalles de la aplicación usados para implementar la aplicación. La siguiente captura de pantalla es un ejemplo de su aspecto:
+   h. En la lista desplegable **Post-Build Actions** (Acciones posteriores a la compilación), seleccione **Deploy Service Fabric Project** (Implementar proyecto de Service Fabric). Aquí es preciso proporcionar los detalles del clúster donde se implementará la aplicación de Service Fabric compilada por Jenkins. La ruta de acceso al certificado puede encontrarse haciendo eco del valor de la variable de entorno de eco Certificates_JenkinsOnSF_Code_MyCert_PEM desde dentro del contenedor. Esta ruta de acceso puede usarse para los campos de clave de cliente y certificado de cliente.
+
+      ```sh
+      echo $Certificates_JenkinsOnSF_Code_MyCert_PEM
+      ```
+   
+    También se puede especificar más detalles de la aplicación usados para implementar la aplicación. La siguiente captura de pantalla es un ejemplo de su aspecto:
 
     ![Acción de compilación de Jenkins en Service Fabric][post-build-step]
 
-    > [!NOTE]
-    > Este clúster puede ser el mismo que el que hospeda la aplicación del contenedor de Jenkins, en caso de que se vaya a usar Service Fabric para implementar la imagen del contenedor de Jenkins.
-    >
+      > [!NOTE]
+      > Este clúster puede ser el mismo que el que hospeda la aplicación del contenedor de Jenkins, en caso de que se vaya a usar Service Fabric para implementar la imagen del contenedor de Jenkins.
+      >
 
 ## <a name="next-steps"></a>Pasos siguientes
 GitHub y Jenkins ya están configurados. Considere la posibilidad de realizar algún cambio ejemplo de cambio en el proyecto ``MyActor`` del ejemplo de repositorio, https://github.com/sayantancs/SFJenkins. Inserte los cambios en una rama ``master`` remota (o en cualquier rama que ha configurado para trabajar con ella). Esto desencadena el trabajo de Jenkins, ``MyJob``, que ha configurado. Captura los cambios de GitHub, los compila e implementa la aplicación en el punto de conexión del clúster que especificó en las acciones posteriores a la compilación.  

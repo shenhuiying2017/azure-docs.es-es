@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 289f1f99b1661e499fa7132887e2f65e086ad689
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 
@@ -62,9 +62,9 @@ Se deben supervisar los grupos y las bases de datos de estos para garantizar que
 
 Para escenarios de alto volumen donde se trabaja con muchos recursos, se puede usar [Log Analytics (OMS)](saas-dbpertenant-log-analytics.md). Se trata de un servicio de Azure independiente que proporciona análisis de los registros de diagnóstico emitidos y de telemetría recopilados en un área de trabajo de Log Analytics. Log Analytics puede recopilar la telemetría de muchos servicios y sirve para consultar y establecer alertas.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Obtención del código fuente y los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
-Los scripts y el código fuente de la aplicación Wingtip Tickets SaaS Database Per Tenant están disponibles en el repositorio [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) de GitHub. [Pasos para descargar los scripts de Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 
 ## <a name="provision-additional-tenants"></a>Aprovisionamiento de inquilinos adicionales
 
@@ -220,7 +220,7 @@ En este ejercicio se simula el efecto de una carga elevada en Contoso Concert Ha
 
 Una vez que desaparezca el exceso de carga de la base de datos contosoconcerthall debe devolverla rápidamente al grupo para reducir el coste. Si no es evidente cuándo ocurrirá esto, podría establecer una alerta en la base de datos que se active cuando el uso de DTU descienda por debajo del máximo por base de datos establecido para el grupo. El movimiento de una base de datos a un grupo se describe en el ejercicio 5.
 
-## <a name="other-performance-management-patterns"></a>Otros modelos de administración del rendimiento
+## <a name="other-performance-management-patterns"></a>Otros patrones de administración del rendimiento
 
 **Escalado preventivo** En el ejercicio anterior donde exploramos cómo escalar una base de datos aislada, sabía la base de datos que buscaba. Si la administración de Contoso Concert Hall había informado a Wingtip de la venta inminente de entradas, la base de datos podía haberse sacado del grupo de manera preventiva. De lo contrario, probablemente se hubiera necesitado una alerta en el grupo o la base de datos permite detectar lo que estaba pasando. No le gustaría que le informaran de esto los otros inquilinos del grupo con quejas sobre el rendimiento. Y si el inquilino puede predecir durante cuánto tiempo necesita recursos adicionales, podrá configurar un runbook de Azure Automation para sacar la base de datos del grupo y volverla a meter según un programa determinado.
 

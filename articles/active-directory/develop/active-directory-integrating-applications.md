@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integración de aplicaciones con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -130,7 +130,7 @@ Además, para que un cliente pueda tener acceso a una API web expuesta por una a
 
 5. Para agregar permisos para tener acceso a las API de recursos desde el cliente
   - Haga clic en la sección **Permisos necesarios** en la página **Configuración**. 
-  - Haga clic en el botón **Add** (Agregar).
+  - Haga clic en el botón **Agregar**.
   - Haga clic en **Seleccionar una API** para seleccionar el tipo de recursos entre los que desea elegir.
   - Examine la lista de las API disponibles o use el cuadro de búsqueda para seleccionar entre las aplicaciones de recursos disponibles del directorio que exponen una API web. Haga clic en el recurso que le interese y luego en **Seleccionar**.
   - Se le remitirá a la página **Habilitar acceso**. Seleccione los Permisos de la aplicación o Permisos delegados que necesita la aplicación al tener acceso a la API.
@@ -178,7 +178,7 @@ En la siguiente sección se muestra cómo exponer ámbitos de acceso modificando
   }
   ```
   > [!NOTE]
-  > El valor de "id" debe haberse generado utilizando una herramienta de generación de GUID como [guidgen]](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) o mediante programación. Representa un identificador único para el ámbito que se expone mediante la API web. Una vez que un cliente se configura apropiadamente con permisos para tener acceso a la API web, Azure AD emite un token de acceso de OAuth2.0. Cuando el cliente llama a la API web, presenta el token de acceso que tiene la notificación de ámbito (scp) establecida para los permisos solicitados en el registro de la aplicación.
+  > El valor del "identificador" debe generarse con una herramienta de generación de GUID como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) o mediante programación. Representa un identificador único para el ámbito que se expone mediante la API web. Una vez que un cliente se configura apropiadamente con permisos para tener acceso a la API web, Azure AD emite un token de acceso de OAuth2.0. Cuando el cliente llama a la API web, presenta el token de acceso que tiene la notificación de ámbito (scp) establecida para los permisos solicitados en el registro de la aplicación.
   >
   > Puede exponer ámbitos adicionales posteriormente si es necesario. Tenga en cuenta que la API web podría exponer varios ámbitos asociados a diversas funciones diferentes. El recurso puede controlar el acceso a la API web en tiempo de ejecución, mediante la evaluación de las notificaciones de ámbito (`scp`) del token de acceso de OAuth 2.0 recibido.
   > 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database
 
@@ -120,7 +120,7 @@ La aplicación presenta lugares, como salas de concierto, clubs de jazz o clubes
 Una instancia central de **Events Hub** proporciona una lista de los vínculos a los inquilinos en su implementación específica.
 
 1. Abra *Events Hub* en el explorador web:
-    - http://events.wingtip-mt.&lt;USUARIO&gt;.trafficmanager.net &nbsp; *(reemplácelo por el valor de usuario de su implementación).*
+    - http://events.wingtip.&lt;USUARIO&gt;.trafficmanager.net &nbsp; *(reemplácelo por el valor de usuario de su implementación)*
 
     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Una instancia central de **Events Hub** proporciona una lista de los vínculos a
 
 Para controlar la distribución de las solicitudes entrantes, la aplicación usa [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Las páginas de eventos, que son específicas del inquilino, incluyen el nombre del inquilino en la dirección URL. Las direcciones URL también incluyen el valor de usuario específico y siguen este formato:
 
-- http://events.wingtip-mt.&lt;USUARIO&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;USUARIO&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 La aplicación de eventos analiza el nombre del inquilino de la dirección URL y le aplica código hash para crear una clave para acceder a un catálogo mediante la [administración del mapa de particiones](sql-database-elastic-scale-shard-map-management.md). El catálogo asigna la clave a la ubicación de base de datos del inquilino. **Events Hub** enumera todos los inquilinos que se encuentran registrados en el catálogo. **Events Hub** usa metadatos extendidos en el catálogo para recuperar el nombre del inquilino asociado con cada asignación para construir las direcciones URL.
 
@@ -156,7 +156,7 @@ Es posible que desee reiniciar la sesión del generador de carga para usar otros
 
 La implementación inicial incluye tres inquilinos de ejemplo en la base de datos *Tenants1*. Vamos a crear otro inquilino para ver cómo afecta esto a la aplicación implementada. En este paso, se crea rápidamente un inquilino.
 
-1. Abra \\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1* en *PowerShell ISE*.
+1. Abra ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1* en *PowerShell ISE*.
 2. Presione **F5** para ejecutar el script (deje por ahora los valores predeterminados).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ El modelo multiinquilino con particiones permite elegir entre aprovisionar un in
 
 Ahora aprovisionamos otro inquilino, esta vez en su propia base de datos.
 
-1. En \\Módulos de aprendizaje\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, modifique *$TenantName* por **Salix Salsa**, *$VenueType* por **dance** y *$Scenario* por **2**.
+1. En \\Módulos de aprendizaje\\Aprovisionamiento y catálogo\*Demo-ProvisionTenants.ps1*, modifique *$TenantName* a **Salix Salsa**, *$VenueType* a **dance** y *$Scenario* a **2**.
 
 2. Presione **F5** para volver a ejecutar el script.
     - Esta acción aprovisiona el inquilino nuevo en una base de datos independiente. La base de datos y el inquilino se registran en el catálogo. Luego, el explorador se abre en la página de eventos del inquilino.
@@ -239,7 +239,7 @@ En este tutorial ha obtenido información:
 > - Acerca de cómo ver el uso de grupos para supervisar la actividad de los inquilinos
 > - Acerca de cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos
 
-Ahora pruebe el [tutorial de aprovisionamiento de inquilinos](sql-database-saas-tutorial-provision-and-catalog.md).
+Ahora pruebe el [tutorial de aprovisionamiento del catálogo](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

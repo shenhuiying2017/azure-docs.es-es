@@ -164,6 +164,8 @@
       items:
         - name: Pago por adelantado de instancias reservadas de máquina virtual
           href: prepay-reserved-vm-instances.md
+        - name: Uso de máquinas virtuales
+          href: vm-usage.md
         - name: Tareas comunes de CLI
           href: cli-manage.md
         - name: Movimiento de una máquina virtual

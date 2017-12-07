@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
  
@@ -30,7 +30,7 @@ Azure Search admite varios orígenes de datos, el [análisis lingüístico en mu
 Cuando se comparan las tecnologías de búsqueda, los clientes a menudo preguntan información específica sobre Azure Search y Elasticsearch. Los clientes que eligen Azure Search en lugar de Elasticsearch para sus proyectos de aplicaciones de búsqueda suelen hacerlo porque hemos conseguido facilitar una tarea clave o porque necesitan integración incorporada con otras tecnologías de Microsoft:
 
 + Azure Search es un servicio en la nube completamente administrado con acuerdos de nivel de servicio (SLA) del 99,9 % cuando se aprovisiona con suficiente redundancia (dos réplicas para el acceso de lectura y tres para lectura y escritura).
-+ Los [procesadores de lenguaje Natural](https://docs.microsoft.com/rest/api/searchservice/language-support) de Microsoft ofrecen un análisis lingüístico puntero.  
++ Los [procesadores de lenguaje Natural](https://docs.microsoft.com/rest/api/searchservice/language-support) de Microsoft ofrecen un análisis lingüístico de vanguardia.  
 + Los [indexadores de Azure Search](search-indexer-overview.md) pueden rastrear diversos orígenes de datos de Azure para llevar a cabo la indexación inicial e incremental.
 + Si necesita una respuesta rápida a las fluctuaciones de volúmenes de indexación o de consultas, puede usar [controles deslizantes](search-manage.md#scale-up-or-down) en Azure Portal o ejecutar un [script de PowerShell](search-manage-powershell.md), omitiendo la administración de particiones directamente.  
 + Las [características de optimización y puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) proporcionan medios para influir en las clasificaciones de las búsquedas más allá de lo que puede proporcionar únicamente el motor de búsqueda. 

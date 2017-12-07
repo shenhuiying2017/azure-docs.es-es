@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -20,7 +20,7 @@ Los principales conceptos de Azure Event Grid son:
 
 ## <a name="events"></a>Eventos
 
-Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema.  Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único.  Cada evento tiene además información específica que solo es relevante para el evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como, por ejemplo, el valor de lastTimeModified. O bien, un evento sobre un reinicio de máquina virtual contiene el nombre de la máquina virtual y el motivo de reinicio. Cada evento tiene 64 KB de datos como máximo.
+Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema.  Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único.  Cada evento tiene además información específica que solo es relevante para el tipo de evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como, por ejemplo, el valor `lastTimeModified`. O bien, un evento sobre un reinicio de máquina virtual contiene el nombre de la máquina virtual y el motivo de reinicio. Cada evento tiene 64 KB de datos como máximo.
 
 ## <a name="event-sourcespublishers"></a>Orígenes/publicadores de eventos
 
@@ -46,7 +46,7 @@ Al suscribirse a un tema, puede filtrar los eventos que se envían al punto de c
 
 ## <a name="security"></a>Seguridad
 
-El evento proporciona seguridad para suscribirse a temas y publicar temas. Para suscribirse, debe tener los permisos adecuados en el recurso o el tema. Para publicar, debe tener un token de SAS o autenticación de clave para el tema. Para más información, vea [Event Grid security and authentication](security-authentication.md) (Seguridad y autenticación de Event Grid).
+Event Grid proporciona seguridad para suscribirse a temas y publicarlos. Para suscribirse, debe tener los permisos adecuados en el recurso o el tema. Para publicar, debe tener un token de SAS o autenticación de clave para el tema. Para más información, vea [Event Grid security and authentication](security-authentication.md) (Seguridad y autenticación de Event Grid).
 
 ## <a name="failed-delivery"></a>Error de entrega
 

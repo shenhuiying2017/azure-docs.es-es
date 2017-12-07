@@ -1,13 +1,13 @@
 ---
-title: Desencadenador de temporizador de Azure Functions
+title: Desencadenador de temporizador para Azure Functions
 description: "Descubra cómo utilizar desencadenadores de temporizador en Azure Functions."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
-keywords: "funciones de azure, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
+keywords: "azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor"
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: functions
 ms.devlang: multiple
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Desencadenador de temporizador de Azure Functions
+# <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
 En este artículo se explica cómo usar desencadenadores de temporizador en Azure Functions. Con un desencadenador de temporizador puede ejecutar una función de forma programada. 
 
@@ -118,7 +118,7 @@ Estos son los datos de enlace del archivo *function.json*:
 }
 ```
 
-Este es el código del script de F#:
+Este es el código del script de JavaScript:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -134,7 +134,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="attributes-for-precompiled-c"></a>Atributos para C# precompilado
+## <a name="attributes"></a>Atributos
 
 Para funciones de [C# precompilado](functions-dotnet-class-library.md), use [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), que se define en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -143,9 +143,14 @@ El constructor del atributo toma una expresión CRON, tal como se muestra en el 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 Puede especificar un `TimeSpan` en lugar de una expresión CRON si la aplicación de función se ejecuta en un plan de App Service (no en un plan de consumo).
+
+Para un ejemplo completo, vea el [ejemplo de C# precompilado](#c-example).
 
 ## <a name="configuration"></a>Configuración
 
@@ -156,7 +161,9 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**type** | N/D | Debe establecerse en "timerTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el objeto de temporizador en el código de la función. | 
-|**schedule**|**ScheduleExpression**|En el plan de consumo, puede definir programaciones con una expresión CRON. Si utiliza un plan de App Service, también puede usar una cadena `TimeSpan`. Las secciones siguientes explican las expresiones CRON. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en un valor encapsulado en signos **%**, como en este ejemplo: "%NameOfAppSettingWithCRONExpression%". Cuando desarrolla localmente, la configuración de aplicación pasa a los valores del [archivo local.settings.json](functions-run-local.md#local-settings-file).|
+|**schedule**|**ScheduleExpression**|En el plan de consumo, puede definir programaciones con una expresión CRON. Si utiliza un plan de App Service, también puede usar una cadena `TimeSpan`. Las secciones siguientes explican las expresiones CRON. Puede colocar la expresión de programación en una configuración de aplicación y establecer esta propiedad en un valor encapsulado en signos **%**, como en este ejemplo: "%NameOfAppSettingWithCRONExpression%". |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="cron-format"></a>Formato CRON 
 

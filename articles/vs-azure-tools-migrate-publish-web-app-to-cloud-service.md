@@ -12,192 +12,119 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Procedimiento: para migrar y publicar una aplicación web en un servicio en la nube de Azure desde Visual Studio
-Para aprovechar los servicios de hospedaje y la escalabilidad de Azure, puede migrar y publicar la aplicación web en un servicio en la nube de Azure. Puede ejecutar una aplicación web en Azure realizando unos cambios mínimos en la aplicación existente.
 
-> [!NOTE]
-> En este tema se explica la implementación en servicios en la nube pero no en sitios web. Para obtener más información sobre la implementación en sitios web, vea [Documentación de implementación de Azure App Service](app-service/app-service-deploy-local-git.md).
->
->
+Para aprovechar los servicios de hospedaje y la escalabilidad de Azure, puede migrar e implementar la aplicación web en un servicio en la nube de Azure. Solo se requieren cambios mínimos. En este artículo se trata solo cómo implementar solo en Cloud Services; para App Service, vea [Implementación de una aplicación web en Azure App Service](app-service/app-service-deploy-local-git.md).
 
-Para obtener una lista de plantillas específicas que sean compatibles con Visual C# y Visual Basic, consulte la sección **Plantillas de proyecto compatibles** más adelante en este tema.
+> [!Important]
+> Esta migración solo se admite para proyectos específicos de ASP.NET, Silverlight, WCF y WCF Workflow. No se admite para los proyectos de ASP.NET Core. Vea [Plantillas de proyecto compatibles](#supported-project-templates).
 
-Primero debe habilitar la aplicación web para Azure desde Visual Studio. En la siguiente ilustración se muestran los pasos principales para publicar la aplicación web existente agregando un proyecto de Azure que se va a usar para la implementación. Este proceso agrega a la solución un proyecto de Azure con el rol web necesario. Según el tipo de proyecto web de que se trate, las propiedades del proyecto para los ensamblados también se actualizarán si el paquete de servicio necesita ensamblados adicionales para la implementación.
+## <a name="migrate-a-project-to-cloud-services"></a>Migración de un proyecto a Cloud Services
 
-![Publicar una aplicación web en Microsoft Azure](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC748917.png)
+1. Haga clic con el botón derecho en el proyecto de aplicación web y seleccione **Convertir > Convertir en un proyecto de servicio en la nube de Microsoft Azure**. (Este comando no aparece si ya tiene un proyecto de rol web en la solución).
+1. Visual Studio crea un proyecto de servicio en la nube en la solución que contiene el rol web necesario. El nombre de este proyecto es el mismo que el proyecto de aplicación más el sufijo `.Azure`.
+1. Visual Studio también establece la propiedad **Copia local**en true para todos los ensamblados necesarios para MVC 2, MVC 3, MVC 4 y las aplicaciones empresariales de Silverlight. Esta propiedad agrega estos ensamblados al paquete de servicio empleado para la implementación.
 
-> [!NOTE]
-> El comando **Convertir**, **Convertir en proyecto de servicio en la nube de Azure** solo se muestra para el proyecto web de la solución. Por ejemplo, el comando no está disponible para un proyecto de Silverlight de la solución.
-> Al crear un paquete de servicio o publicar su aplicación en Azure, se podrían producir advertencias o errores. Estas advertencias y errores pueden ayudarle a solucionar problemas antes de la implementación en Azure. Por ejemplo, podría recibir una advertencia sobre un ensamblado que falta. Para obtener más información sobre cómo tratar las advertencias como errores, consulte [Configuración de un proyecto de servicio en la nube de Azure con Visual Studio](vs-azure-tools-configuring-an-azure-project.md). Si compila la aplicación, la ejecuta localmente mediante el emulador de proceso o la publica en Azure, es posible que vea el siguiente error en la ventana **Lista de errores:** **Se especificó una ruta de acceso, nombre de archivo o ambos demasiado largos**. Este error se produce porque el nombre completo de proyecto de Azure es demasiado largo. La longitud del nombre de proyecto, incluida la ruta de acceso completa, no puede tener más de 146 caracteres. Por ejemplo, este es el nombre de proyecto completo incluida la ruta de acceso de archivo para un proyecto de Azure que se crea para una aplicación de Silverlight: `c:\users\<user name>\documents\visual studio 2015\Projects\SilverlightApplication4\SilverlightApplication4.Web.Azure.ccproj`. Puede que necesite mover la solución a un directorio diferente que tenga una ruta de acceso más corta para reducir la longitud del nombre completo del proyecto.
->
->
+   > [!Important]
+   > Si tiene otros ensamblados o archivos que son necesarios para esta aplicación web, debe establecer manualmente las propiedades para estos archivos. Para obtener más información sobre cómo establecer estas propiedades, vea [Incluir archivos en el paquete de servicio](#include-files-in-the-service-package).
 
-Para migrar y publicar una aplicación web en Azure desde Visual Studio, siga estos pasos.
+### <a name="errors-and-warnings"></a>Errores y advertencias
 
-## <a name="enable-a-web-application-for-deployment-to-azure"></a>Habilitar la implementación de una aplicación web en Azure
-### <a name="to-enable-a-web-application-for-deployment-to-azure"></a>Para habilitar la implementación de una aplicación web en Azure
-1. Para habilitar la implementación de la aplicación web en Azure, abra el menú contextual de un proyecto web de la solución y elija Agregar proyecto de implementación de Azure.
+Las advertencias o errores que se producen indican problemas que se deben corregir antes de realizar implementaciones en Azure, como los ensamblados que faltan.
 
-    Se producirán las acciones siguientes:
+Si compila la aplicación, la ejecuta localmente mediante el emulador de proceso o la publica en Azure, puede que aparezca el error: "La ruta de acceso o el nombre de archivo especificados, o ambos, son demasiado largos". Este error indica que la longitud del nombre completo de proyecto de Azure excede de 146 caracteres. Para corregir el problema, mueva la solución a una carpeta diferente con una ruta de acceso más corta.
 
-   * Se agrega a la solución un proyecto de Azure denominado `<name of the web project>.Azure` para la aplicación.
-   * Se agrega un rol web para el proyecto web a este proyecto de Azure.
-   * La propiedad **Copia local** se establece en true para todos los ensamblados necesarios para MVC 2, MVC 3, MVC 4 y las aplicaciones de negocios de Silverlight. Esto agrega estos ensamblados al paquete de servicio empleado para la implementación.
+Para obtener más información sobre cómo tratar las advertencias como errores, consulte [Configuración de un proyecto de servicio en la nube de Azure con Visual Studio](vs-azure-tools-configuring-an-azure-project.md).
 
-   > [!IMPORTANT]
-   > Si tiene otros ensamblados o archivos que son necesarios para esta aplicación web, debe establecer manualmente las propiedades para estos archivos. Para obtener más información sobre cómo establecer estas propiedades, consulte la sección **Incluir archivos en el paquete de servicio** más adelante en este artículo.
-   >
-   > [!NOTE]
-   > Si ya existe un rol web para un proyecto web específico en un proyecto de Azure de la solución, no aparecerá **Convertir**, **Convertir en proyecto de servicio en la nube de Azure** en el menú contextual para este proyecto web.
-   >
-   >
+### <a name="test-the-migration-locally"></a>Prueba local de la migración
 
-   Si tiene varios proyectos web en la aplicación web y desea crear roles web para cada proyecto web, debe realizar los pasos de este procedimiento para cada proyecto web. Esto crea proyectos de Azure diferentes para cada rol web. Cada proyecto web puede publicarse por separado. O bien, puede agregar manualmente otro rol web a un proyecto de Azure existente en la aplicación web. Para ello, abra el menú contextual de la carpeta **Roles** del proyecto de Azure, elija **Agregar**, a continuación, **Proyecto de rol web en la solución**, elija el proyecto que desee agregar como rol web y, continuación, elija el botón **Aceptar**.
+1. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el proyecto de servicio en la nube agregado y seleccione **Establecer como proyecto de inicio**.
+1. Seleccione **Depurar > Iniciar depuración** (F5) para iniciar el entorno de depuración de Azure. Este entorno proporciona específicamente la emulación de varios servicios de Azure.
 
-## <a name="use-an-azure-sql-database-for-your-application"></a>Usar una Base de datos SQL Azure para su aplicación
-Si tiene una cadena de conexión para la aplicación web que usa una Base de datos de SQL Server local, debe cambiar esta cadena de conexión para usar una instancia de Base de datos SQL que hospeda Azure en su lugar.
+### <a name="use-an-azure-sql-database-for-your-application"></a>Uso de una instancia de SQL Database Azure para su aplicación
 
-> [!IMPORTANT]
-> Su suscripción debe permitir usar la Base de datos SQL. Si tiene acceso a su suscripción desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885), puede determinar qué servicios proporciona su suscripción. Las siguientes instrucciones se aplican en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885)publicado. Si usa el [Portal de Azure](http://portal.microsoft.com), vaya al siguiente procedimiento.
->
->
+Si tiene una cadena de conexión para la aplicación web que usa una instancia local de SQL Server Database, debe migrar la base de datos a Azure SQL Database en su lugar y actualizar la cadena de conexión. Para obtener instrucciones con este proceso, consulte los temas siguientes:
 
-### <a name="to-use-a-sql-database-instance-in-your-web-role-for-your-connection-string"></a>Para usar una instancia de Base de datos SQL en el rol web para la cadena de conexión
-1. Para crear una instancia de Base de datos SQL en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885), siga los pasos de la sección siguiente [Creating a SQL Database Server](http://go.microsoft.com/fwlink/?LinkId=225109) (Creación de un servidor de SQL Database).
+- [Migración de una base de datos de SQL Server a una instancia de SQL Database en la nube](sql-database/sql-database-cloud-migrate.md)
+- [Uso de .NET (C#) con Visual Studio para conectarse a una instancia de Azure SQL Database y consultarla](sql-database/sql-database-connect-query-dotnet-visual-studio.md).
 
-   > [!NOTE]
-   > Al configurar las reglas de firewall de su instancia de Base de datos SQL, debe activar la casilla **Permitir que otros servicios de Azure tengan acceso a este servidor** .
-   >
-   >
-2. Para crear una instancia de Base de datos de SQL para usarla para su cadena de conexión, siga los pasos de la siguiente sección del siguiente artículo: [Crear una Base de datos SQL](http://go.microsoft.com/fwlink/?LinkId=225110).
-3. Para copiar la cadena de conexión de ADO.NET para usarla para su cadena de conexión, en el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885)siga estos pasos:  
+## <a name="publish-the-application-to-azure-cloud-service"></a>Publicación de la aplicación en un Servicio en la nube de Azure
 
-   1. Elija el botón **Base de datos** y vuelva a abrir el nodo de suscripción que usó para crear la instancia de Base de datos SQL.
-   2. Para mostrar las instancias de Base de datos SQL disponibles, elija el nodo **Bases de datos SQL** .
-   3. Para mostrar las propiedades de la base de datos, elija la base de datos. Se muestra la vista **Propiedades** .
-
-      > [!NOTE]
-      > Si no aparece la vista **Propiedades** , puede que tenga que abrirla con el divisor.
-      >
-      >
-   4. Para mostrar las cadenas de conexión, elija el botón de puntos suspensivos (...) al lado de Ver.
-
-      Aparece el cuadro de diálogo **Cadenas de conexión** .
-   5. Para copiar la cadena de conexión de ADO.NET, resalte el texto y elija las teclas Ctrl+C.
-   6. Para cerrar el cuadro de diálogo, elija el botón **Cerrar** .
-4. Para reemplazar la cadena de conexión en el archivo web.config para usar esta instancia de Base de datos SQL, abra el archivo web.config, resalte la entrada existente de la cadena de conexión y, a continuación, elija las teclas de Ctrl+V. La cadena de conexión ADO.NET para la instancia de Base de datos SQL reemplaza la cadena de conexión existente.
-5. También debe agregar el parámetro `MultipleActiveResultSets=True` a la cadena de conexión. Las cadenas de conexión deben tener el siguiente formato:
-
-    ```
-    connectionString=”Server=tcp:<database_server>.database.windows.net,1433;Database=<database_name>;User ID=<user_name>@<database_server>;Password=<myPassword>;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True"
-    ```
-6. (Opcional) Un método alternativo a cambiar la cadena de conexión directamente en el archivo web.config es agregar una sección en uno de los archivos de transformación web.config, dependiendo de la configuración de compilación que use para crear su paquete del servicio. Abra el archivo Web.Debug.Config o el archivo Web.Release.Config. Agregue la siguiente sección en este archivo:
-
-    ```
-    XMLCopy<connectionStrings><addname="DefaultConnection"connectionString="Server=tcp:<database_server>.database.windows.net,1433;Database=<database_name>;User ID=<user_name>@<database_server>;Password=<myPassword>;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True"xdt:Transform="SetAttributes"xdt:Locator="Match(name)"/></connectionStrings>
-    ```
-7. Guarde el archivo modificado y vuelva a publicar la aplicación.
-
-### <a name="to-use-an-instance-of-sql-database-by-using-the-azure-classic-portal"></a>Para usar una instancia de Base de datos SQL mediante el Portal de Azure clásico
-1. En el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885), elija el nodo Base de datos SQL.
-
-   * Si aparece la instancia de Base de datos de SQL que desea usar, elija abrirla.
-   * Si no ha creado ninguna instancia, elija el vínculo apropiado y después cree una instancia.
-2. Después de abrir o crear una instancia de base de datos, elija el vínculo **Cadenas de conexión** .
-3. En la parte inferior de la página, elija el vínculo para configurar los valores de firewall y aceptar los valores predeterminados o configurar los valores que necesita.
-4. Copie la cadena de conexión ADO.NET, péguela en su archivo web.config sobre la cadena de conexión antigua para la base de datos existente y asegúrese de agregar `MultipleActiveResultSets=True`.
-
-## <a name="publish-a-web-application-to-azure"></a>Publicar una aplicación web en Azure
-### <a name="to-publish-a-web-application-to-azure"></a>Para publicar una aplicación web en Azure
-1. Para probar la aplicación en el entorno de desarrollo local usando el emulador de proceso de Azure, abra el menú contextual del proyecto de Azure para el rol web y elija **Establecer como proyecto de inicio**. A continuación, elija **Depurar**, **Iniciar depuración** (teclado: **F5**).
-
-    Aparecerá el cuadro de diálogo **Iniciar el entorno de depuración de Azure** y se iniciará la aplicación en el explorador. Para conocer cualquier detalle específico acerca de cómo iniciar cada tipo de aplicación web en el emulador de proceso, vea la tabla de esta sección.
-2. Para configurar los servicios de la aplicación que se va a publicar en Azure, debe tener una cuenta Microsoft y una suscripción de Azure. Use los pasos del tema siguiente para configurar los servicios: [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
-3. Para publicar la aplicación web en Azure, abra el menú contextual del proyecto web y elija **Publicar en Azure**.
-
-    Se muestra el cuadro de diálogo **Publicar aplicación de Azure** y Visual Studio inicia el proceso de implementación. Para obtener más información acerca de cómo publicar la aplicación, consulte la sección **Publicar o empaquetar una aplicación de Azure desde Visual Studio** en [Publicar un servicio en la nube mediante Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
-
-   > [!NOTE]
-   > También puede publicar la aplicación web desde el proyecto de Azure. Para ello, abra el menú contextual del proyecto de Azure y elija **Publicar**.
-   >
-   >
-4. Para ver el progreso de la implementación, puede examinar la ventana **Registro de actividad de Azure** . Este registro se muestra automáticamente cuando se inicia el proceso de implementación. Puede expandir la línea del registro de actividad para mostrar información detallada, como se muestra en la siguiente ilustración:
+1. Cree el servicio en la nube y las cuentas de almacenamiento necesarias en la suscripción de Azure según se describe en [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md).
+1. En Visual Studio, haga clic con el botón derecho en el proyecto de aplicación y seleccione **Publicar en Microsoft Azure...** (que es distinto del comando "Publicar...").
+1. En la ventana **Publicar aplicación de Azure** que aparece, inicie sesión mediante la cuenta de la suscripción de Azure y seleccione **Siguiente >**.
+1. En la pestaña **Configuración > Configuración común**, seleccione el servicio en la nube de destino en la lista desplegable **Servicio en la nube**, junto con las configuraciones y el entorno elegidos. 
+1. En **Configuración > Configuración avanzada**, seleccione la cuenta de almacenamiento que desea usar y después seleccione **Siguiente >**.
+1. En **Diagnósticos**, seleccione si desea enviar información a Application Insights.
+1. Seleccione **Siguiente >** para ver un resumen y después seleccione **Publicar** para iniciar la implementación.
+1. Visual Studio abre una ventana de registro de actividad donde puede realizar un seguimiento del progreso:
 
     ![VST_AzureActivityLog](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744149.png)
-5. (Opcional) Para cancelar el proceso de implementación, abra el menú contextual de la línea del registro de actividad y elija **Cancelar y quitar**. Esto detiene el proceso de implementación y elimina el entorno de implementación de Azure.
 
-   > [!NOTE]
-   > Para quitar este entorno de implementación una vez implementado, debe usar el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
-   >
-   >
-6. (Opcional) Después de que se hayan iniciado las instancias del rol, Visual Studio muestra automáticamente el entorno de implementación en el nodo **Cálculo de Azure** de **Cloud Explorer** o el **Explorador de servidores**. Desde aquí puede ver el estado de las instancias de rol individuales.
+1. (Opcional) Para cancelar el proceso de implementación, haga clic con el botón derecho en el elemento de línea del registro de actividad y después seleccione **Cancelar y quitar**. Este comando detiene el proceso de implementación y elimina el entorno de implementación de Azure. Nota: Para quitar este entorno de implementación una vez implementado, debe usar [Azure Portal](https://portal.azure.com).
+1. (Opcional) Una vez iniciadas las instancias de rol, Visual Studio muestra automáticamente el entorno de implementación en el nodo **Explorador de servidores > Cloud Services**. Desde aquí puede ver el estado de las instancias de rol individuales.
+1. Para tener acceso a la aplicación después de la implementación, elija la flecha situada junto a la implementación cuando aparezca un estado **Completado** en el **registro de actividad de Azure** junto con la dirección URL. Vea la tabla siguiente para obtener detalles acerca de cómo iniciar un tipo específico de aplicación web desde Azure.
 
-    La siguiente ilustración muestra las instancias del rol en el **Explorador de servidores** mientras todavía están en el estado de inicialización:
+## <a name="using-the-compute-emulator-and-starting-application-in-azure"></a>Uso del emulador de proceso e inicio de la aplicación en Azure
 
-    ![VST_DeployComputeNode](./media/vs-azure-tools-migrate-publish-web-app-to-cloud-service/IC744134.png)
-7. Para tener acceso a la aplicación después de la implementación, elija la flecha situada junto a la implementación cuando aparezca un estado **Completado** en el **registro de actividad de Azure**. Se muestra la dirección URL de la aplicación web en Azure. Vea la tabla siguiente para obtener detalles acerca de cómo iniciar un tipo específico de aplicación web desde Azure.
+Todos los tipos de aplicación se pueden iniciar en un explorador conectado al depurador de Visual Studio; para ello, seleccione **Depurar > Iniciar depuración** (F5). Con un proyecto de aplicación web ASP.NET vacía, primero debe agregar una página `.aspx` en la aplicación y establecerla como la página de inicio del proyecto web.
 
-    En la tabla siguiente se muestran los detalles acerca de cómo iniciar determinadas aplicaciones web desde Azure o cómo ejecutar o depurar una aplicación web localmente mediante el emulador de proceso de Azure:
+En la tabla siguiente se proporciona información detallada sobre cómo iniciar la aplicación en Azure:
 
-   | Tipo de aplicación web | Ejecutar o depurar localmente mediante el emulador de proceso | Ejecución en Azure |
+   | Tipo de aplicación web | Ejecución en Azure |
    | --- | --- | --- |
-   | Aplicación web ASP.NET |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Elija el hipervínculo de dirección URL que aparece en la pestaña **Implementación** del **registro de actividad de Azure** para cargar la página de inicio en el explorador. |
-   | Aplicación web MVC 2 de ASP.NET |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Elija el hipervínculo de dirección URL que aparece en la pestaña **Implementación** del **registro de actividad de Azure** para cargar la página de inicio en el explorador. |
-   | Aplicación web MVC 3 de ASP.NET |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Elija el hipervínculo de dirección URL que aparece en la pestaña **Implementación** del **registro de actividad de Azure** para cargar la página de inicio en el explorador. |
-   | Aplicación web MVC 4 de ASP.NET |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Elija el hipervínculo de dirección URL que aparece en la pestaña **Implementación** del **registro de actividad de Azure** para cargar la página de inicio en el explorador. |
-   | Aplicación web ASP.NET vacía |Debe agregar una página .aspx a la aplicación que configure como página de inicio para el proyecto web. Después, en la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Si tiene una página .aspx predeterminada en la aplicación, elija el hipervínculo de dirección URL mostrado en la pestaña **Implementación** del **registro de actividad de Azure**; esta página se cargará en el explorador. Si tiene una página .aspx diferente, necesita navegar hasta esta página específica usando el siguiente formato para la dirección URL `<url for deployment>/<name of page>.aspx` |
-   | Aplicación de Silverlight |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of page>.aspx` |
-   | Aplicación de negocios de Silverlight |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of page>.aspx` |
-   | Aplicación de navegación de Silverlight |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL:`<url for deployment>/<name of page>.aspx` |
-   | Aplicación de servicio de WCF |Debe establecer el archivo .svc como página de inicio para el proyecto de servicio  WCF. Después, en la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Necesita navegar hasta el archivo svc de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of service file>.svc` |
-   | Aplicación de servicio de flujo de trabajo WCF |Debe establecer el archivo .svc como página de inicio para el proyecto de servicio  WCF. Después, en la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Necesita navegar hasta el archivo svc de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of service file>.svc` |
-   | Entidades dinámicas de ASP.NET |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Debe actualizar la cadena de conexión (consulte la sección siguiente). También necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of page>.aspx` |
-   | Linq to SQL de datos dinámicos de ASP.NET |En la barra de menús, elija **Depurar**, **Iniciar depuración** (teclado: elija la tecla **F5**). |Debe seguir los pasos de este procedimiento: Usar una Base de datos SQL de Azure para su aplicación (que aparece anteriormente en este tema). También necesita navegar hasta la página específica de la aplicación usando el siguiente formato de dirección URL: `<url for deployment>/<name of page>.aspx` |
+   | Aplicación web ASP.NET<br/>(incluidos MVC 2, MVC 3 y MVC 4) | Seleccione la dirección URL en la pestaña **Implementación** del **registro de actividad de Azure**. |
+   | Aplicación web ASP.NET vacía | Si tiene una página `.aspx` predeterminada en la aplicación, seleccione la dirección URL en la pestaña **Implementación** del **registro de actividad de Azure**. Para navegar a otra página distinta, escriba una dirección URL con el siguiente formato en un explorador: `<deployment_url>/<page_name>.aspx` |
+   | Aplicación de Silverlight<br/>Aplicación de negocios de Silverlight<br/>Aplicación de navegación de Silverlight | Navegue hasta la página específica de la aplicación con el siguiente formato de dirección URL: `<deployment_url>/<page_name>.aspx` |
+    Aplicación de servicio de WCF<br/>Aplicación de servicio de flujo de trabajo WCF | Establezca el archivo `.svc` como la página de inicio del proyecto de servicio WCF. A continuación, vaya a `<deployment_url>/<service_file>.svc`. |
+   | Entidades dinámicas de ASP.NET<br/>Linq to SQL de datos dinámicos de ASP.NET | Actualice la cadena de conexión como se describe en la siguiente sección. A continuación, vaya a `<deployment_url>/<page_name>.aspx`. Para Linq to SQL, debe usar una instancia de Azure SQL Database. |
 
 ## <a name="update-a-connection-string-for-aspnet-dynamic-entities"></a>Actualizar una cadena de conexión para Entidades dinámicas de ASP.NET
-### <a name="to-update-a-connection-string-for-aspnet-dynamic-entities"></a>Para actualizar una cadena de conexión para Entidades dinámicas de ASP.NET
-1. Para crear una Base de datos SQL de Azure que pueda usarse con la aplicación web Entidades dinámicas de ASP.NET, debe seguir los pasos de este procedimiento: **Usar una Base de datos SQL de Azure para su aplicación** que aparece anteriormente en este tema.
-2. Agregue las tablas y los campos que necesite para esta base de datos desde el [Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=213885).
-3. La cadena de conexión para este tipo de aplicación tiene el formato siguiente en el archivo web.config:  
 
-    ```
+1. Cree una instancia de SQL Azure Database para una aplicación web de Entidades dinámicas de ASP.NET como se describió anteriormente en (#use-an-azuresql-database-for-your-application).
+1. Agregue las tablas y los campos que necesite para esta base de datos desde Azure Portal.
+1. Especifique una cadena de conexión en el archivo `web.config` con el siguiente formato y guarde el archivo:
+
+    ```xml
     <addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=<server name>\SQLEXPRESS;initial catalog=<database name>;integrated security=True;multipleactiveresultsets=True;App=EntityFramework&quot;"providerName="System.Data.EntityClient"/>
     ```
 
     Actualice el valor *connectionString* con la cadena de conexión de ADO.NET para la Base de datos SQL Azure de la manera siguiente:
 
-    ```
+    ```xml
     XMLCopy<addname="tempdbEntities"connectionString="metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string=&quot;Server=tcp:<SQL Azure server name>.database.windows.net,1433;Database=<database name>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;multipleactiveresultsets=True;App=EntityFramework&quot;"providerName="System.Data.EntityClient"/>
     ```
-4. Para guardar el archivo web.config con los cambios que ha realizado en la cadena de conexión, en la barra de menús, elija **Archivo**, **Guardar web.config**.
 
 ## <a name="supported-project-templates"></a>Plantillas de proyecto compatibles
-Para publicar una aplicación web en Azure, la aplicación debe usar una de las plantillas de proyecto de C# o Visual Basic que se muestran en la tabla siguiente.
 
-| Grupo de plantillas de proyecto | Plantilla de proyecto |
+Las aplicaciones que se pueden migrar y publicar en Cloud Services deben usar una de las plantillas de la tabla siguiente. No se admite ASP.NET Core.
+
+| Grupo de plantillas | Plantilla de proyecto |
 | --- | --- |
-| Web |Aplicación web ASP.NET |
-| Web |Aplicación web MVC 2 de ASP.NET |
-| Web |Aplicación web MVC 3 de ASP.NET |
-| Web |Aplicación web MVC 4 de ASP.NET |
-| Web |Aplicación web ASP.NET vacía |
-| Web |Aplicación web MVC 2 de ASP.NET vacía |
-| Web |Aplicación web de Entidades de datos dinámicos de ASP.NET |
-| Web |Aplicación web Linq to SQL de datos dinámicos de ASP.NET |
-| Silverlight |Aplicación de Silverlight |
-| Silverlight |Aplicación de negocios de Silverlight |
-| Silverlight |Aplicación de navegación de Silverlight |
-| WCF |Aplicación de servicio de WCF |
-| WCF |Aplicación de servicio de flujo de trabajo WCF |
-| Flujo de trabajo |Aplicación de servicio de flujo de trabajo WCF |
+| Web | Aplicación web ASP.NET (.NET Framework) |
+| Web | Aplicación web MVC 2 de ASP.NET |
+| Web | Aplicación web MVC 3 de ASP.NET |
+| Web | Aplicación web MVC 4 de ASP.NET |
+| Web | Aplicación web ASP.NET vacía (o sitio) |
+| Web | Aplicación web MVC 2 de ASP.NET vacía |
+| Web | Aplicación web de Entidades de datos dinámicos de ASP.NET |
+| Web | Aplicación web Linq to SQL de datos dinámicos de ASP.NET |
+| Silverlight | Aplicación de Silverlight |
+| Silverlight | Aplicación de negocios de Silverlight |
+| Silverlight | Aplicación de navegación de Silverlight |
+| WCF | Aplicación de servicio de WCF |
+| WCF | Aplicación de servicio de flujo de trabajo WCF |
+| Flujo de trabajo | Aplicación de servicio de flujo de trabajo WCF |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre la publicación, vea [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md). Consulte también [Configuración de credenciales de autenticación con nombre](vs-azure-tools-setting-up-named-authentication-credentials.md).
+
+- [Preparación para publicar o implementar una aplicación de Azure desde Visual Studio](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)
+- [Configuración de credenciales de autenticación con nombre](vs-azure-tools-setting-up-named-authentication-credentials.md)

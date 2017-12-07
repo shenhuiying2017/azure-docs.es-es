@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: integración de Azure Active Directory con Trello
 
@@ -96,6 +96,10 @@ Para configurar y probar el inicio de sesión único de Azure AD con Trello, es 
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en su aplicación Trello.
 
+>[!NOTE]
+    >Debe obtener el campo de datos dinámico **\<enterprise\>** desde Trello. Si no tiene el valor del campo de datos dinámico, póngase en contacto con el [equipo de soporte técnico de Trello](mailto:support@trello.com) para obtenerlo.
+    > 
+
 **Para configurar el inicio de sesión único de Azure AD con Trello, realice los pasos siguientes:**
 
 1. En Azure Portal, en la página de integración de la aplicación **Trello**, haga clic en **Inicio de sesión único**.
@@ -112,17 +116,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://trello.com/auth/saml/consume/<enterprise>`.
 
-4. En la sección **Dominio y direcciones URL de Trello**, si quiere configurar la aplicación en **SP initiated mode** (Modo iniciado por SP), realice los siguientes pasos:
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Si quiere configurar la aplicación en **modo iniciado por SP**, realice los siguientes pasos:
+
+  ![Configurar inicio de sesión único](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
 
-    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://trello.com/auth/saml/consume/<enterprise>`.
+    b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://trello.com/auth/saml/login/<enterprise>`.
 
-    >[!NOTE]
-    >Debe obtener el campo de datos dinámico **\<enterprise\>** desde Trello. Si no tiene el valor del campo de datos dinámico, póngase en contacto con el [equipo de soporte técnico de Trello](mailto:support@trello.com) para obtenerlo.
-    > 
+  c. En el cuadro de texto **Identificador**, escriba la siguiente dirección URL: `https://trello.com/auth/saml/metadata`
 
 5. La aplicación de Trello espera que las aserciones SAML contengan un atributo denominado "email". Configure los siguientes atributos para esta aplicación. Puede administrar el valor de estos atributos desde la pestaña "**Atributos de usuario**" de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto.
 

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b509ffa934949200277ae431761d2accd4a02d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Tutorial: Configuración de DocuSign para el aprovisionamiento de usuarios
 
@@ -41,9 +41,12 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Sugerencias importantes para asignar usuarios a DocuSign
 
-*   Se recomienda asignar un único usuario de Azure AD a DocuSign para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
+*   Se recomienda asignar un único usuario de Azure AD a DocuSign para probar la configuración de aprovisionamiento. Más tarde, se pueden asignar otros usuarios.
 
 *   Al asignar a un usuario a DocuSign, debe seleccionar un rol de usuario válido. El rol "Acceso predeterminado" no funciona para realizar el aprovisionamiento.
+
+> [!NOTE]
+> Azure AD no admite el aprovisionamiento de grupos con la aplicación de Docusign, solo se pueden aprovisionar usuarios.
 
 ## <a name="enable-user-provisioning"></a>Habilitación del aprovisionamiento de usuarios
 
@@ -86,7 +89,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 12. Haga clic en **Guardar**.
 
-Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a DocuSign en la sección Usuarios y grupos. La sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos, si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de DocuSign.
+Esta acción inicia la sincronización inicial de todos los usuarios asignados a DocuSign en la sección Usuarios y grupos. La sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de DocuSign.
 
 Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la cuenta se ha sincronizado con DocuSign.
 

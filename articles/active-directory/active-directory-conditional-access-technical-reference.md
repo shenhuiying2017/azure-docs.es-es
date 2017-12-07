@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/19/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: c9e44a696010541ab153597bb1ab5d556c2e7b65
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referencia técnica del acceso condicional de Azure Active Directory
 
-Puede usar el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) para ajustar el modo en que los usuarios autorizados pueden tener acceso a sus recursos.  
+Puede usar el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) para ajustar el modo en que los usuarios autorizados pueden tener acceso a sus recursos.   
 
-Este tema proporciona información de soporte técnico para las siguientes opciones de configuración de una directiva de acceso condicional: 
+En este artículo se proporciona información de soporte técnico para las siguientes opciones de configuración de una directiva de acceso condicional: 
 
 - Asignaciones de aplicaciones de nube
 
@@ -38,7 +38,7 @@ Este tema proporciona información de soporte técnico para las siguientes opcio
 
 ## <a name="cloud-apps-assignments"></a>Asignaciones de aplicaciones de nube
 
-Cuando se configura una directiva de acceso condicional, debe [seleccionar las aplicaciones de nube a las que se aplica la directiva](active-directory-conditional-access-azure-portal.md#who). 
+Con las directivas de acceso condicional, puede controlar cómo los usuarios acceden a las [aplicaciones en la nube](active-directory-conditional-access-azure-portal.md#who). Al configurar una directiva de acceso condicional, debe seleccionar al menos una aplicación en la nube. 
 
 ![Seleccione las aplicaciones de nube de la directiva](./media/active-directory-conditional-access-technical-reference/09.png)
 
@@ -48,6 +48,7 @@ Cuando se configura una directiva de acceso condicional, debe [seleccionar las a
 Puede asignar una directiva de acceso condicional a las siguientes aplicaciones de nube de Microsoft:
 
 - Azure Information Protection: [Más información](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+
 - Azure RemoteApp
 
 - Microsoft Dynamics 365
@@ -103,7 +104,7 @@ En una directiva de acceso condicional, puede configurar la condición de la pla
 
 ## <a name="client-apps-condition"></a>Condición de aplicaciones cliente 
 
-Cuando se configura una directiva de acceso condicional, puede [seleccionar las aplicaciones cliente ](active-directory-conditional-access-azure-portal.md#client-apps) de la condición de la aplicación cliente. Si establece la condición de aplicaciones cliente, podrá conceder o bloquear el acceso cuando se realiza un intento de acceso desde estos tipos de aplicaciones cliente:
+En la directiva de acceso condicional, puede configurar la condición de las [aplicaciones cliente](active-directory-conditional-access-azure-portal.md#client-apps) para asociar la directiva con la aplicación cliente que ha iniciado un intento de acceso. Si establece la condición de aplicaciones cliente, podrá conceder o bloquear el acceso cuando se realiza un intento de acceso desde estos tipos de aplicaciones cliente:
 
 - Browser
 - Aplicaciones de escritorio y aplicaciones móviles
@@ -112,11 +113,11 @@ Cuando se configura una directiva de acceso condicional, puede [seleccionar las 
 
 ### <a name="supported-browsers"></a>Exploradores compatibles 
 
-Controle el acceso del explorador mediante la opción **Explorador** que encontrará en la directiva de acceso condicional. Solo se concede el acceso cuando el intento de acceso se realiza mediante un explorador compatible. Cuando se realiza un intento de acceso mediante un explorador que no es compatible, se bloquea el intento.
+En la directiva de acceso condicional, puede seleccionar **Exploradores** como aplicación cliente.
 
 ![Controlar el acceso de los exploradores admitidos](./media/active-directory-conditional-access-technical-reference/05.png)
 
-En la directiva de acceso condicional, se admiten los siguientes exploradores: 
+Esta configuración afecta a los intentos de acceso realizados desde los siguientes exploradores: 
 
 
 | SO                     | Exploradores                            | Soporte técnico     |
@@ -140,42 +141,43 @@ En la directiva de acceso condicional, se admiten los siguientes exploradores:
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Clientes de escritorio y aplicaciones móviles compatibles
 
-Si selecciona la opción **clientes de escritorio y aplicaciones móviles** en la directiva de acceso condicional, podrá controlar el acceso de la aplicación y el cliente. El acceso se concede solo cuando el intento de acceso se realiza usando los clientes de escritorio y las aplicaciones móviles compatibles. Cuando se realiza un intento de acceso mediante una aplicación o un cliente no compatible, se bloquea el intento.
+En la directiva de acceso condicional, puede seleccionar **Aplicaciones móviles y aplicaciones de escritorio** como aplicación cliente.
+
 
 ![Controlar el acceso de aplicaciones móviles o clientes de escritorio compatibles](./media/active-directory-conditional-access-technical-reference/06.png)
 
-Los siguientes clientes de escritorio y aplicaciones móviles admiten el acceso condicional para Office 365 y otras aplicaciones de servicio conectadas a Azure AD:
+
+Esta configuración afecta a los intentos de acceso realizados desde las siguientes aplicaciones móviles y aplicaciones de escritorio: 
 
 
-| Aplicaciones cliente| Servicio de destino| Plataforma |
-| --- | --- | --- |
-| Azure RemoteApp| Servicio Azure Remote App| Windows 10, Windows 8.1, Windows 7, iOS, Android y Mac OS X|
-| Aplicación de Dynamics CRM| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS y Android|
-| Aplicación de Correo electrónico/Calendario/People, Outlook 2016, Outlook 2013 (con la autenticación moderna)| Office 365 Exchange Online| Windows 10|
-| Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos.| Cualquier servicio de aplicaciones de Mis aplicaciones| Android e iOS|
-| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web| Equipos de Microsoft| Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS|
-| Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7, Windows 7|
-| Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), la compatibilidad con Grupos de Office está prevista para el futuro, la compatibilidad con la aplicación SharePoint está prevista para el futuro| Office 365 SharePoint Online| Windows 10|
-| Office 2016 para macOS (solo Word, Excel, PowerPoint y OneNote). Soporte técnico de OneDrive para la Empresa previsto para el futuro| Office 365 SharePoint Online| Mac OS X|
-| Aplicaciones móviles de Office| Office 365 SharePoint Online| iOS, Android|
-| Aplicación de Yammer para Office| Yammer para Office 365| Windows 10, iOS y Android|
-| Outlook 2016 (Office para macOS)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016, Outlook 2013 (con autenticación moderna) y Skype Empresarial (con autenticación moderna)| Office 365 Exchange Online| Windows 8.1, Windows 7, Windows 7|
-| Aplicación móvil de Outlook| Office 365 Exchange Online| iOS|
-| Aplicación de PowerBI. La aplicación de Power BI para Android no admite actualmente el acceso condicional basado en dispositivos.| Servicio de PowerBI| Windows 10, Windows 8.1, Windows 7 e iOS|
-| Skype Empresarial| Office 365 Exchange Online| Android, IOS|
-| Aplicación de Visual Studio Team Services| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS y Android|
-
+|Aplicaciones cliente|Servicio de destino|Plataforma|
+|---|---|---|
+|Azure RemoteApp|Servicio Azure Remote App|Windows 10, Windows 8.1, Windows 7, iOS, Android y Mac OS X|
+|Aplicación de Dynamics CRM|Dynamics CRM|Windows 10, Windows 8.1, Windows 7, iOS y Android|
+|Aplicación de Correo electrónico/Calendario/People, Outlook 2016, Outlook 2013 (con la autenticación moderna)|Office 365 Exchange Online|Windows 10|
+|Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos. |Cualquier servicio de aplicaciones de Mis aplicaciones|Android e iOS|
+|Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web|Equipos de Microsoft|Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
+|Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7, Windows 7|
+|Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), la compatibilidad con Grupos de Office está prevista para el futuro, la compatibilidad con la aplicación SharePoint está prevista para el futuro|Office 365 SharePoint Online|Windows 10|
+|Office 2016 para macOS (solo Word, Excel, PowerPoint y OneNote). Soporte técnico de OneDrive para la Empresa previsto para el futuro|Office 365 SharePoint Online|Mac OS X|
+|Aplicaciones móviles de Office|Office 365 SharePoint Online|Android, iOS|
+|Aplicación de Yammer para Office|Yammer para Office 365|Windows 10, iOS y Android|
+|Outlook 2016 (Office para macOS)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013 (con autenticación moderna) y Skype Empresarial (con autenticación moderna)|Office 365 Exchange Online|Windows 8.1, Windows 7, Windows 7|
+|Aplicación móvil de Outlook|Office 365 Exchange Online|Android, iOS|
+|Aplicación de PowerBI. La aplicación de Power BI para Android no admite actualmente el acceso condicional basado en dispositivos.|Servicio de PowerBI|Windows 10, Windows 8.1, Windows 7 e iOS|
+|Skype Empresarial|Office 365 Exchange Online|Android, IOS |
+|Aplicación de Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS y Android|
 
 
 
 ## <a name="approved-client-app-requirement"></a>Requisito de aplicación cliente aprobado 
 
-Puede usar la opción **Solicitar aplicación cliente aprobada** en la directiva de acceso condicional para controlar las conexiones de cliente. Se concede acceso solo cuando una aplicación cliente aprobada realiza un intento de conexión.
+En la directiva de acceso condicional, puede requerir que un intento de acceso a las aplicaciones en la nube seleccionadas se realice desde una aplicación cliente aprobada. 
 
 ![Control de acceso de las aplicaciones cliente aprobadas](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Puede usar las siguientes aplicaciones cliente con el requisito de la aplicación cliente aprobada:
+Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 
 - Microsoft Azure Information Protection

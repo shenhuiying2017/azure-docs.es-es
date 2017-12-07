@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparación del destino (VMware a Azure)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ En este artículo se describe cómo configurar su entorno de Azure para comenzar
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En el artículo se da por hecho lo siguiente:
+En este artículo se da por supuesto lo siguiente:
 - Ha creado un almacén de Recovery Services para proteger sus máquinas virtuales de VMware. Puede crear un almacén de Recovery Services desde [Azure Portal](http://portal.azure.com "Azure Portal").
 - Ha [configurado el entorno local](./site-recovery-set-up-vmware-to-azure.md) para replicar máquinas virtuales de VMware en Azure.
 
@@ -46,7 +46,7 @@ Según el modelo de implementación elegido, se ejecuta una validación para ase
 
 Una vez completadas las validaciones correctamente, haga clic en Aceptar para ir al paso siguiente.
 
-Si no tiene una cuenta de almacenamiento de Resource Manager compatible o una red virtual, o le gustaría agregar más, puede hacerlo haciendo clic en los botones **+ Cuenta de almacenamiento** o **+ Red** en la parte superior de la hoja.
+Si no tiene una cuenta de almacenamiento de Resource Manager compatible o una red virtual, puede crearla haciendo clic en los botones **+ Cuenta de almacenamiento** o **+ Red** en la parte superior de la página.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Configuración de las opciones de replicación](./site-recovery-setup-replication-settings-vmware.md).

@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análisis entre inquilinos mediante datos extraídos
 
@@ -73,7 +73,7 @@ Saber con qué coherencia cada inquilino usa el servicio brinda una oportunidad 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 - La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está instalada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
-- Los scripts de SaaS de Wingtip y el [código fuente](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) de la aplicación se descargan de GitHub. No olvide *desbloquear el archivo ZIP* antes de extraer su contenido.
+- Los scripts de SaaS de Wingtip y el [código fuente](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) de la aplicación se descargan de GitHub. No olvide *desbloquear el archivo ZIP* antes de extraer su contenido. Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 - Power BI Desktop debe estar instalado. [Descargue Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 - Se debe haber aprovisionado el loto de inquilinos adicionales; vea el [**tutorial de aprovisionamiento de inquilinos**](saas-multitenantdb-provision-and-catalog.md).
 - Se deben haber creado una cuenta de trabajo y una base de datos para la cuenta de trabajo. Consulte los pasos apropiados en el [**tutorial de administración de esquemas**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).

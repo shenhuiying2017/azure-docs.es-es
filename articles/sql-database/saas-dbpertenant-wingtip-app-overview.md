@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: sstein
-ms.openlocfilehash: ddd51c23c7e7d01e38b02c79c27d1951eea61e70
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d17c361d2249cc95be78cde143925251ad65db44
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-a-sql-database-multi-tenant-saas-app-example"></a>Introducción al ejemplo de una aplicación SaaS multiinquilino de SQL Database
 
 *SaaS Wingtip* es una aplicación multiinquilino de ejemplo que muestra las ventajas únicas de SQL Database. La aplicación utiliza un patrón de aplicación SaaS de base de datos por inquilino para dar servicio a varios inquilinos. La aplicación está diseñada para presentar las características de Azure SQL Database que permiten escenarios de SaaS, incluidos los diversos patrones de diseño y administración de SaaS. Para ponerse rápidamente en marcha, la aplicación SaaS Wingtip se implementa en menos de cinco minutos.
 
-El código fuente y los scripts de administración de la aplicación están disponibles en el repositorio [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) de GitHub. Para ejecutar los scripts, [descargue la carpeta Learning Modules](#download-and-unblock-the-wingtip-saas-scripts) en el equipo local.
+El código fuente y los scripts de administración de la aplicación están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 
 ## <a name="application-architecture"></a>Arquitectura de la aplicación
 
@@ -42,7 +42,7 @@ Después de implementar la aplicación, explore los tutoriales siguientes que se
 
 | Tutorial | Descripción |
 |:--|:--|
-| [Guía y sugerencias para el ejemplo de una aplicación SaaS multiinquilino de Azure SQL Database](saas-dbpertenant-wingtip-app-guidance-tips.md) | **COMIENCE AQUÍ.** Descargue y ejecute scripts de PowerShell para preparar las partes de la aplicación. |
+| [Guía y sugerencias para el ejemplo de una aplicación SaaS multiinquilino de Azure SQL Database](saas-tenancy-wingtip-app-guidance-tips.md) | **COMIENCE AQUÍ.** Descargue y ejecute scripts de PowerShell para preparar las partes de la aplicación. |
 |[Implementar y explorar la aplicación SaaS de Wingtip](saas-dbpertenant-get-started-deploy.md)|  Implemente y explore la aplicación SaaS de Wingtip en la suscripción de Azure. |
 |[Aprovisionamiento y registro de inquilinos en el catálogo](saas-dbpertenant-provision-and-catalog.md)| Obtenga información sobre cómo se conecta la aplicación a los inquilinos mediante un base de datos de catálogo, y cómo asigna el catálogo los inquilinos a sus datos. |
 |[Supervisión y administración del rendimiento](saas-dbpertenant-performance-monitoring.md)| Obtenga información sobre cómo usar las características de supervisión de SQL Database y cómo establecer alertas cuando se superan los umbrales de rendimiento. |
@@ -55,6 +55,6 @@ Después de implementar la aplicación, explore los tutoriales siguientes que se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Guía y sugerencias para el ejemplo de una aplicación SaaS multiinquilino de Azure SQL Database](saas-dbpertenant-wingtip-app-guidance-tips.md)
+- [Guía y sugerencias para el ejemplo de una aplicación SaaS multiinquilino de Azure SQL Database](saas-tenancy-wingtip-app-guidance-tips.md)
 
 - [Implementar la aplicación SaaS de Wingtip](saas-dbpertenant-get-started-deploy.md)

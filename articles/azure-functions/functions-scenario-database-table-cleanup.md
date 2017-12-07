@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
-En este tema se indica cómo usar Azure Functions para crear un trabajo programado que limpie hileras de una tabla en Azure SQL Database. La nueva función C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Azure Portal. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como un valor de configuración en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. Para que la función procese ciertas operaciones CRUD en una tabla de Mobile Apps, debería usar enlaces de [Mobile Apps](functions-bindings-mobile-apps.md) en su lugar.
+En este tema se indica cómo usar Azure Functions para crear un trabajo programado que limpie hileras de una tabla en Azure SQL Database. La nueva función C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Azure Portal. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
+
+Para que la función procese operaciones individuales de creación, lectura, actualización y eliminación (CRUD) en una tabla de Mobile Apps, debería usar en su lugar [enlaces de Mobile Apps](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,7 +38,7 @@ Deberá obtener la cadena de conexión de la base de datos que creó una vez con
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
  
-3. Seleccione **Bases de datos SQL** en el menú de la izquierda y seleccione la base de datos en la página **Bases de datos SQL**.
+3. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database**.
 
 4. Seleccione **Mostrar las cadenas de conexión de la base de datos** y copie la cadena de conexión de **ADO.NET** completa.
 
@@ -59,12 +61,12 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Se 
     | Configuración       | Valor sugerido | Descripción             | 
     | ------------ | ------------------ | --------------------- | 
     | **Name**  |  sqldb_connection  | Se usa para acceder a la cadena de conexión almacenada en el código de función.    |
-    | **Valor** | Cadena copiada  | Pegue la cadena de conexión que copió en la sección anterior. |
-    | **Tipo** | Base de datos SQL | Use la conexión predeterminada de SQL Database. |   
+    | **Valor** | Cadena copiada  | Pegue la cadena de conexión que copió en la sección anterior y reemplace los marcadores de posición `{your_username}` y `{your_password}` por valores reales. |
+    | **Tipo** | SQL Database | Use la conexión predeterminada de SQL Database. |   
 
 3. Haga clic en **Guardar**.
 
-Ahora, puede agregar el código de función de C# que conecta con la base de datos SQL.
+Ahora, puede agregar el código de función de C# que conecta con SQL Database.
 
 ## <a name="update-your-function-code"></a>Actualización del código de función
 
@@ -84,7 +86,7 @@ Ahora, puede agregar el código de función de C# que conecta con la base de dat
     using System.Threading.Tasks;
     ```
 
-4. Reemplace la función **Run** existente por el siguiente código:
+4. Reemplace la función `Run` existente por el código siguiente:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ Ahora, puede agregar el código de función de C# que conecta con la base de dat
     }
     ```
 
-    Con este comando se actualiza la columna **Estado** según la fecha de envío. Debería actualizar 32 filas de datos.
+    Este comando de ejemplo actualiza la columna `Status` en función de la fecha de envío. Debería actualizar 32 filas de datos.
 
 5. Haga clic en **Guardar**, inspeccione la ventana **Registros** durante la ejecución de la siguiente función y, a continuación, anote el número de filas actualizadas en la tabla **SalesOrderHeader**.
 
@@ -120,7 +122,8 @@ A continuación, obtenga información sobre cómo usar Functions con Logic Apps 
 
 Para obtener más función sobre Functions, consulte los siguientes temas:
 
-* [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)  
-  contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
+* 
+              [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
+contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
   describe las diversas herramientas y técnicas para probar sus funciones.  

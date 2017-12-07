@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo crear, descifrar y editar un paqu
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crear y administrar un paquete de soporte para la serie StorSimple 8000
 
@@ -58,14 +58,14 @@ Puede compartir su paquete de soporte generado manualmente con el servicio de so
    
    * Para los recursos compartidos de red que están protegidos por contraseña, escriba:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
+       `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       Se le solicitará una contraseña, una ruta de acceso a la carpeta compartida de red y una frase de contraseña de cifrado (ya que el paquete de soporte está cifrado). A continuación, se crea un paquete de soporte en la carpeta especificada.
+       Se le solicitará una contraseña y una frase de contraseña de cifrado (ya que el paquete de soporte está cifrado). A continuación, se crea un paquete de soporte en la carpeta predeterminada (nombre de dispositivo anexado con la fecha y hora actuales).
    * Para o recursos compartidos que no están protegidos por contraseña, no es necesario el parámetro `-Credential` . Escriba lo siguiente:
      
-       `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
+       `Export-HcsSupportPackage`
      
-       El paquete de soporte se crea para ambos controladores en la carpeta compartida de red especificada. Se trata de un archivo comprimido y cifrado que puede enviarse al soporte técnico de Microsoft para solucionar problemas. Para obtener más información, consulte [Ponerse en contacto con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
+       El paquete de soporte se crea para ambos controladores en la carpeta predeterminada. El paquete es un archivo comprimido y cifrado que puede enviarse al Soporte técnico de Microsoft para solucionar problemas. Para obtener más información, consulte [Ponerse en contacto con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 ### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Parámetros del cmdlet Export-HcsSupportPackage
 

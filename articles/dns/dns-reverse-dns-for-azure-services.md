@@ -3,7 +3,7 @@ title: DNS inversos para servicios de Azure | Microsoft Docs
 description: "Aprenda a configurar búsquedas inversas de DNS para servicios hospedados en Azure"
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configuración de DNS inversos para servicios hospedados en Azure
 
@@ -28,9 +28,8 @@ Este escenario no debe confundirse con la capacidad de [hospedar las zonas de b�
 
 Antes de leer este artículo, debe estar familiarizado con [Introducción a DNS inverso y compatibilidad en Azure](dns-reverse-dns-overview.md).
 
-Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md).
-* En el modelo de implementación de Resource Manager, los recursos de proceso (como máquinas virtuales, conjuntos de escalado de máquinas virtuales o clústeres de Service Fabric) se exponen a través de un recurso de PublicIpAddress. Las búsquedas inversas de DNS se configuran mediante la propiedad 'ReverseFqdn' de PublicIpAddress.
-* En el modelo de implementación clásico, los recursos de proceso se exponen mediante Cloud Services. Las búsquedas inversas de DNS se configuran mediante la propiedad 'ReverseDnsFqdn' del servicio en la nube.
+En Azure DNS, los recursos de proceso (como las máquinas virtuales, los conjuntos de escalado de máquinas virtuales o los clústeres de Service Fabric) se exponen a través de un recurso de PublicIpAddress. Las búsquedas inversas de DNS se configuran mediante la propiedad 'ReverseFqdn' de PublicIpAddress.
+
 
 Actualmente no se admite DNS inverso para Azure App Service.
 
@@ -178,7 +177,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 Esta sección proporciona instrucciones detalladas sobre cómo configurar DNS inverso para Cloud Services en el modelo de implementación clásico, mediante Azure PowerShell. No se admite la configuración de DNS inverso para Cloud Services a través de Azure Portal, CLI de Azure 1.0 o CLI de Azure 2.0.
 
-### <a name="add-reverse-dns-to-existing-cloud-services"></a>Adición de DNS inverso a los servicios en la nube existentes
+### <a name="add-reverse-dns-to-existing-cloud-services"></a>Adición de DNS inverso a Cloud Services existentes
 
 Para agregar un registro DNS inverso a un servicio en la nube existente:
 
@@ -194,7 +193,7 @@ Para crear un nuevo servicio en la nube con la propiedad de DNS inverso ya espec
 New-AzureService –ServiceName "contosoapp1" –Location "West US" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
 ```
 
-### <a name="view-reverse-dns-for-existing-cloud-services"></a>Visualización de DNS inverso para los servicios en la nube existentes
+### <a name="view-reverse-dns-for-existing-cloud-services"></a>Visualización de DNS inverso para las instancias de Cloud Services existentes
 
 Para ver la propiedad de DNS inverso de un servicio en la nube existente:
 
@@ -202,7 +201,7 @@ Para ver la propiedad de DNS inverso de un servicio en la nube existente:
 Get-AzureService "contosoapp1"
 ```
 
-### <a name="remove-reverse-dns-from-existing-cloud-services"></a>Eliminación de DNS inverso de los servicios en la nube existentes
+### <a name="remove-reverse-dns-from-existing-cloud-services"></a>Eliminación de DNS inverso de instancias de Cloud Services existentes
 
 Para quitar un propiedad de DNS inverso de un servicio en la nube existente:
 
@@ -244,9 +243,9 @@ No. Azure admite un único registro de DNS inverso por cada servicio en la nube 
 
 No. Azure admite un DNS inverso en la actualidad solo para los recursos de PublicIpAddress de IPv4 y Cloud Services.
 
-### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>¿Puedo enviar correos electrónicos a dominios externos desde mis servicios de proceso de Azure?
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>¿Puedo enviar correos electrónicos a dominios externos desde mis instancias de Azure Compute Services?
 
-No. [Los servicios de proceso de Azure no admiten el envío de correos electrónicos a dominios externos](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
+No. [Azure Compute Services no admite el envío de correos electrónicos a dominios externos](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

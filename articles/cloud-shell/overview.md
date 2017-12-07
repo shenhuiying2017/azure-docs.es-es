@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure.
@@ -55,9 +55,9 @@ Además de estar disponible desde Azure Portal, también se puede acceder a Clou
 * [Aplicación móvil de Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensión de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>Conexión al almacenamiento de Azure Files
+### <a name="connect-your-microsoft-azure-files-storage"></a>Conexión con el almacenamiento de Microsoft Azure Files
 Las máquinas de Cloud Shell son temporales y, como resultado, requieren que un recurso compartido de Azure Files se monte como `clouddrive` para conservar el directorio $Home.
-Al iniciarse por primera vez, Cloud Shell le indica que va a crear un grupo de recursos, una cuenta de almacenamiento y un recurso compartido de archivos en su nombre. Esto es un paso único y se adjuntará automáticamente en todas las sesiones. Se puede asignar un recurso compartido de archivos único que Bash y PowerShell usarán en Cloud Shell (versión preliminar).
+Al iniciarse por primera vez, Cloud Shell le indica que va a crear un grupo de recursos, una cuenta de almacenamiento y un recurso compartido de archivos de Azure en su nombre. Esto es un paso único y se adjuntará automáticamente en todas las sesiones. Se puede asignar un recurso compartido de archivos de Azure único que Bash y PowerShell usarán en Cloud Shell (versión preliminar).
 
 #### <a name="create-new-storage"></a>creación de nuevo almacenamiento
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Se crearán tres recursos en su nombre:
 3. Recurso compartido de archivos llamado: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> Bash en Cloud Shell también crea una imagen de disco de 5 GB para conservar `$Home`. Todos los archivos en el directorio $Home, como las claves de SSH, se conservan en la imagen de disco de usuario almacenada en el recurso compartido de archivos montado. Ponga en práctica los procedimientos recomendados para guardar archivos en el directorio $Home y en el recurso compartido de archivos montado.
+> Bash en Cloud Shell también crea una imagen de disco de 5 GB para conservar `$Home`. Todos los archivos del directorio $Home, como las claves de SSH, se conservan en la imagen de disco de usuario almacenada en el recurso compartido de archivos de Azure montado. Ponga en práctica los procedimientos recomendados para guardar archivos en el directorio $Home y en el recurso compartido de archivos de Azure montado.
 
 #### <a name="use-existing-resources"></a>Uso de recursos existentes
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Se ofrece una opción avanzada que permite asociar los recursos existentes a Clo
 En el mensaje del programa de instalación, haga clic en "Mostrar configuración avanzada" para ver otras opciones.
 Las listas desplegables se filtran para las cuentas de almacenamiento redundante local o globalmente y para la región asignada de Cloud Shell.
 
-[Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos de archivos compartidos y la carga o descarga de archivos](persisting-shell-storage.md).
+[Obtenga más información sobre el almacenamiento de Cloud Shell, la actualización de recursos de archivos de Azure compartidos y la carga o descarga de archivos](persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Conceptos
 * Cloud Shell se ejecuta en un host temporal que se proporciona por cada sesión y usuario.
 * Cloud Shell agota el tiempo de espera tras 20 minutos sin actividad interactiva.
-* Cloud Shell requiere montar un recurso compartido de archivos.
-* Cloud Shell usa el mismo recurso compartido de archivos para Bash y para PowerShell.
+* Cloud Shell requiere montar un recurso compartido de archivos de Azure.
+* Cloud Shell usa el mismo recurso compartido de archivos de Azure para Bash y para PowerShell.
 * Se asigna a Cloud Shell una máquina por cuenta de usuario.
 * Los permisos se establecen como usuario de Linux normal en Bash.
 

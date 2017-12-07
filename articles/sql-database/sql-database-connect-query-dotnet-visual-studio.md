@@ -1,6 +1,6 @@
 ---
 title: Uso de Visual Studio y .NET para consultar Azure SQL Database | Microsoft Docs
-description: "En este tema se muestra cómo usar Visual Studio para crear un programa que se conecta a una base de datos SQL de Azure y realiza consultas mediante instrucciones Transact-SQL."
+description: "En este tema se muestra cómo usar Visual Studio para crear un programa que se conecta a Azure SQL Database y realiza consultas mediante instrucciones Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -13,46 +13,37 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: 5fc50c78af7c88cc2d0c537456cb8323002f8696
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 913055fca46580d870dc2e015f442b431c9ff6e0
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Uso de .NET (C#) con Visual Studio para conectarse y consultar una base de datos SQL de Azure
 
-Este tutorial de introducción muestra cómo usar [.NET Framework](https://www.microsoft.com/net/) para crear un programa de C# con Visual Studio que se conecta a una base de datos SQL de Azure y utiliza instrucciones Transact-SQL para consultar los datos.
+Este tutorial de inicio rápido muestra cómo usar [.NET Framework](https://www.microsoft.com/net/) para crear un programa de C# con Visual Studio que se conecta a una base de datos SQL de Azure y utiliza instrucciones Transact-SQL para consultar los datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que dispone de lo siguiente:
 
-- Una base de datos SQL de Azure. En esta guía de inicio rápido se utilizan como punto de partida los recursos creados en una de las siguientes guías: 
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-   - [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
-   - [Creación de la base de datos: CLI](sql-database-get-started-cli.md)
-   - [Creación de la base de datos: PowerShell](sql-database-get-started-powershell.md)
+- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para la dirección IP pública del equipo que usa para seguir este tutorial de inicio rápido.
 
-- Una [regla de firewall de nivel de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para la dirección IP pública del equipo que usa para seguir este tutorial.
 - Una instalación de [Visual Studio Community 2017, Visual Studio Professional 2017 o Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="sql-server-connection-information"></a>Información de conexión de SQL server
 
-Obtención de la información de conexión necesaria para conectarse a Azure SQL Database. En los procedimientos siguientes, necesitará el nombre completo del servidor, el nombre de la base de datos y la información de inicio de sesión.
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Bases de datos SQL** en el menú de la izquierda y haga clic en la base de datos en la página **Bases de datos SQL**. 
-3. En la página **Introducción** de la base de datos, revise el nombre completo del servidor tal como se muestra en la siguiente imagen. Mantenga el puntero sobre el nombre del servidor hasta que aparezca la opción **Haga clic para copiar**. 
+#### <a name="for-adonet"></a>Para ADO.NET
 
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
+1. Continúe haciendo clic en **Mostrar las cadenas de conexión de la base de datos**.
 
-4. Si ha olvidado la información de inicio de sesión para el servidor de Azure SQL Database, vaya a la página del servidor de SQL Database para ver el nombre del administrador del servidor. Si es necesario, restablezca la contraseña.
-
-5. Haga clic en **Mostrar las cadenas de conexión de la base de datos**.
-
-6. Revise la cadena de conexión completa de **ADO.NET**.
+2. Revise la cadena de conexión completa de **ADO.NET**.
 
     ![Cadena de conexión ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
@@ -142,3 +133,10 @@ namespace sqltest
 - Para más información, consulte [Introducción a .NET Core en Windows, Linux y macOS mediante la línea de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
 - Obtenga información acerca de cómo [diseñar la primera base de datos SQL de Azure con SSMS](sql-database-design-first-database.md) o [diseñar la primera base de datos SQL de Azure mediante .NET](sql-database-design-first-database-csharp.md).
 - Para más información acerca de. NET, consulte la [Documentación de .NET](https://docs.microsoft.com/dotnet/).
+- [Ejemplo de lógica de reintento: conexión resistente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Supervisión de Aplicaciones en Azure App Service
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada en [Azure Portal](https://portal.azure.com).
-Esto incluye la capacidad de revisar **cuotas** y **métricas** de una aplicación, así como el plan de App Service, configurar **alertas** e incluso **escalar** automáticamente en función de estas métricas.
+Azure Portal incluye la capacidad de revisar **cuotas** y **métricas** de una aplicación, así como el plan de App Service, configurar **alertas** e incluso **escalar** automáticamente en función de estas métricas.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -53,7 +53,7 @@ La única cuota aplicable a las aplicaciones hospedadas en un plan **básico**, 
 Para obtener más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte los [límites del servicio de suscripción de Azure](../azure-subscription-service-limits.md#app-service-limits).
 
 #### <a name="quota-enforcement"></a>Aplicación de cuotas
-Si una aplicación, al usarse, supera las cuotas **CPU (Short)** (CPU [corta]), **CPU (Day)** (CPU [diaria]) o **bandwidth** (ancho de banda), se detiene hasta que vuelva a establecerse la cuota. Durante este tiempo, todas las solicitudes entrantes provocan un error **HTTP 403**.
+Si una aplicación supera las cuotas **CPU (Short)** (CPU [corta]), **CPU (Day)** (CPU [diaria]) o **bandwidth** (ancho de banda), se detiene hasta que vuelva a establecerse la cuota. Durante este tiempo, todas las solicitudes entrantes provocan un error **HTTP 403**.
 ![][http403]
 
 Si la cuota de **memoria** de la aplicación se supera, la aplicación se reinicia.
@@ -125,14 +125,14 @@ Hay dos métricas que reflejan el uso de CPU. **Tiempo de CPU** y **Porcentaje d
 
 **Tiempo de CPU** es útil para las aplicaciones hospedadas en planes **gratis** o **compartidos**, ya que una de sus cuotas está definida en minutos de CPU utilizados por la aplicación.
 
-**Porcentaje de CPU** es útil para las aplicaciones hospedadas en planes **Básico**, **Estándar** y **Premium**, ya que pueden escalarse horizontalmente y esta métrica es un buen indicador del uso general en todas las instancias.
+**Porcentaje de CPU** es útil para las aplicaciones hospedadas en los planes de tipo **básico**, **estándar** y **premium** dado que se pueden escalar horizontalmente. Porcentaje de CPU es una buena indicación del uso general en todas las instancias.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Directiva de retención y granularidad de métricas
 El servicio registra y agrega las métricas para una aplicación y el plan de App Service con las siguientes directivas de retención y granularidades:
 
-* Las métricas de granularidad de **minuto** se conservan durante **48 horas**.
+* Las métricas de granularidad de **minuto** se conservan durante **30 horas**.
 * Las métricas de granularidad de **hora** se conservan durante **30 días**.
-* Las métricas de granularidad de **día** se conservan durante **90 días**.
+* Las métricas de granularidad de **día** se conservan durante **30 días**.
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Supervisión de cuotas y métricas en Azure Portal.
 Puede revisar el estado de las distintas **cuotas** y **métricas** que afectan a una aplicación en [Azure Portal](https://portal.azure.com).
@@ -149,7 +149,7 @@ Para más información acerca de las métricas, consulte [Supervisión de las m�
 ## <a name="alerts-and-autoscale"></a>Alertas y autoescala
 Las métricas para una aplicación o plan de App Service pueden enlazarse con las alertas. Para más información sobre esto, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Las aplicaciones de App Service hospedadas en planes de App Service Básico, Estándar o Premium admiten el **escalado automático**. Esto permite configurar reglas que supervisan las métricas del plan de App Service y pueden aumentar o disminuir el número de instancias que proporcionan recursos adicionales según sea necesario, o ahorrar si se aprovisionan recursos en exceso para la aplicación. Para más información acerca de la autoescala, consulte [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md).
+Las aplicaciones de App Service hospedadas en planes de App Service Básico, Estándar o Premium admiten el **escalado automático**. El escalado automático le permite configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que proporcionan recursos adicionales según sea necesario. Las reglas también pueden ayudarle a ahorrar dinero cuando la aplicación se aprovisiona en exceso. Para más información acerca de la autoescala, consulte [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md).
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.

@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 6a0f8cb76684a6efcc5e2d4be05493f18d5d4c76
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Exigencia de verificación en dos pasos para un usuario o grupo
 
@@ -40,11 +40,11 @@ Estas dos opciones solicitan a los usuarios registrarse en Azure Multi-Factor Au
 
 Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguientes tres estados:
 
-| Estado | Descripción | Aplicaciones que no son de explorador afectadas |
-|:---:|:---:|:---:|
-| Disabled |Estado predeterminado de un nuevo usuario no inscrito en Azure Multi-Factor Authentication (MFA). |No |
-| Enabled |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. Se le pedirá a dicho usuario que se registre la próxima vez que inicie sesión. |No.  Continúa funcionando hasta que se complete el proceso de registro. |
-| Aplicado |El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. |Sí.  Las aplicaciones requieren contraseñas de aplicación. |
+| Estado | Descripción | Aplicaciones que no son de explorador afectadas | Aplicaciones de explorador y autenticación moderna afectados |
+|:---:|:---:|:---:|:--:|
+| Disabled |Estado predeterminado de un nuevo usuario no inscrito en Azure Multi-Factor Authentication (MFA). |No |No |
+| Enabled |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. Se le pedirá a dicho usuario que se registre la próxima vez que inicie sesión. |No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire el token de actualización para la sesión, se requerirá el registro MFA.|
+| Aplicado |El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. |Sí.  Las aplicaciones requieren contraseñas de aplicación. |Sí. MFA requerido en el inicio de sesión. |
 
 El estado de un usuario refleja si un administrador lo ha inscrito en Azure MFA, y si ha completado el proceso de registro.
 

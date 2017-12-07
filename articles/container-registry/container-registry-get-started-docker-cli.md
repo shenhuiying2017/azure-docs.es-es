@@ -1,118 +1,127 @@
 ---
-title: "Inserción de imagen de Docker en el registro privado de Azure | Microsoft Docs"
+title: "Inserción de una imagen de Docker en el registro privado de Azure"
 description: "Inserción y extracción de imágenes de Docker en un registro de contenedor privado de Azure mediante la CLI de Docker"
 services: container-registry
-documentationcenter: 
 author: stevelas
 manager: balans
-editor: cristyg
-tags: 
-keywords: 
-ms.assetid: 64fbe43f-fdde-4c17-a39a-d04f2d6d90a1
+editor: mmacy
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/24/2017
+ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10f01e4e8c86bbbfa17cf2559caca645ff13bdcc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42877b0aeecf08602d31ba21dccc814e542fd174
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
-Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de [Docker](http://hub.docker.com), de una forma similar a la que [Docker Hub](https://hub.docker.com/) almacena imágenes públicas. Use la [interfaz de la línea de comandos de Docker](https://docs.docker.com/engine/reference/commandline/cli/) (CLI de Docker) para [iniciar sesión](https://docs.docker.com/engine/reference/commandline/login/), [insertar](https://docs.docker.com/engine/reference/commandline/push/), [extraer](https://docs.docker.com/engine/reference/commandline/pull/) y realizar otras operaciones en el registro de contenedor.
 
-Para más información sobre el entorno y los conceptos, consulte [la información general](container-registry-intro.md)
+Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de [Docker](http://hub.docker.com), de una forma similar a la que [Docker Hub](https://hub.docker.com/) almacena imágenes públicas. Puede usar la [interfaz de la línea de comandos de Docker](https://docs.docker.com/engine/reference/commandline/cli/) (CLI de Docker) para, entre otras, realizar las siguientes operaciones en el registro de contenedor: [iniciar sesión](https://docs.docker.com/engine/reference/commandline/login/), [insertar](https://docs.docker.com/engine/reference/commandline/push/), [extraer](https://docs.docker.com/engine/reference/commandline/pull/).
 
-
+En los pasos siguientes, se descarga una [imagen de Nginx](https://store.docker.com/images/nginx) oficial desde el registro público de Docker Hub, se le asigna una etiqueta para el registro de contenedor de Azure privado, se le inserta en el registro y luego se extrae del registro.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 * **Registro de contenedor de Azure**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure 2.0](container-registry-get-started-azure-cli.md).
-* **CLI de docker**: para configurar el equipo local como un host de Docker y tener acceso a los comandos de la CLI de Docker, instale [Docker Engine](https://docs.docker.com/engine/installation/).
+* **CLI de docker**: para configurar el equipo local como un host de Docker y tener acceso a los comandos de la CLI de Docker, instale [Docker](https://docs.docker.com/engine/installation/).
 
 ## <a name="log-in-to-a-registry"></a>Inicio de sesión en un registro
-Ejecute `docker login` para iniciar sesión en el registro de contenedor con sus [credenciales de registro](container-registry-authentication.md).
 
-En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/active-directory-application-objects.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización.
+Hay [varias maneras de autenticar](container-registry-authentication.md) en el registro de contenedor privado. Es el método recomendado cuando se trabaja en una línea de comandos con el comando de la CLI de Azure [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login). Por ejemplo, para iniciar sesión en un registro denominado *myregistry*:
 
+```azurecli
+az acr login --name myregistry
 ```
+
+También puede iniciar sesión con [docker login](https://docs.docker.com/engine/reference/commandline/login/). En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/active-directory-application-objects.md) de Azure Active Directory. Por ejemplo, puede que haya [asignado una entidad de servicio](container-registry-authentication.md#service-principal) al registro para ver un escenario de automatización.
+
+```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
+Ambos comandos devuelven `Login Succeeded` una vez completados. Si usa `docker login`, puede ver una advertencia de seguridad que recomienda el uso del parámetro `--password-stdin`. Cuando su uso esté fuera del ámbito de este artículo, recomendamos seguir este procedimiento recomendado. Para más información, vea la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/).
+
 > [!TIP]
-> Asegúrese de especificar el nombre completo del registro (todo en minúsculas). En este ejemplo, es `myregistry.azurecr.io`.
+> Especifique siempre el nombre completo del registro (en minúsculas) cuando se usa `docker login` y al etiquetar imágenes para insertar en el registro. En los ejemplos de este artículo, el nombre completo es *myregistry.azurecr.io*.
 
-## <a name="steps-to-pull-and-push-an-image"></a>Pasos para extraer e insertar una imagen
-En el ejemplo siguiente se descarga la imagen de Nginx desde el registro público de Docker Hub, se le asigna una etiqueta para el registro de contenedor de Azure privado, se le inserta en el registro y luego se extrae de nuevo.
-
-**1. Extraiga la imagen oficial de Docker para Nginx**
+## <a name="pull-the-official-nginx-image"></a>Extracción de la imagen de Nginx oficial
 
 En primer lugar, extraiga la imagen pública de Nginx al equipo local.
 
-```
+```Bash
 docker pull nginx
 ```
-**2. Inicie el contenedor de Nginx**
 
-El comando siguiente inicia el contenedor local de Nginx de forma interactiva en el puerto 8080, permitiéndole ver la salida de Nginx. Quita el contenedor en ejecución una vez detenido.
+## <a name="run-the-container-locally"></a>Ejecute el contenedor localmente
 
-```
+Ejecute el siguiente comando [docker run](https://docs.docker.com/engine/reference/run/) para iniciar una instancia local del contenedor de Nginx de forma interactiva (`-it`) en el puerto 8080. El argumento `--rm` especifica que el contenedor debe quitarse cuando lo detenga.
+
+```Bash
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Vaya a [http://localhost:8080](http://localhost:8080) para ver el contenedor en ejecución. Se muestra una pantalla similar a la siguiente.
+Vaya a [http://localhost: 8080](http://localhost:8080) para ver la página web predeterminada que proporciona Nginx en el contenedor en ejecución. Debería ver una página similar a la siguiente:
 
 ![Nginx en un equipo local](./media/container-registry-get-started-docker-cli/nginx.png)
 
-Para detener el contenedor en ejecución, pulse [CTRL] + [C].
+Dado que inició el contenedor de forma interactiva con `-it`, puede ver la salida del servidor Nginx en la línea de comandos después de navegar a él en el explorador.
 
-**3. Cree un alias de la imagen en el registro**
+Para detener y quitar el contenedor, presione `Control`+`C`.
 
-El siguiente comando crea un alias de la imagen, con una ruta de acceso completa al registro. Este ejemplo especifica el espacio de nombres `samples` para evitar el desorden en la raíz del registro.
+## <a name="create-an-alias-of-the-image"></a>Creación de un alias de la imagen
 
-```
+Utilice [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) para crear un alias de la imagen, con la ruta de acceso completa al registro. Este ejemplo especifica el espacio de nombres `samples` para evitar el desorden en la raíz del registro.
+
+```Bash
 docker tag nginx myregistry.azurecr.io/samples/nginx
-```  
-
-**4. Inserte la imagen en el registro**
-
 ```
+
+Para más información sobre cómo etiquetar con espacios de nombres, vea la sección [Espacios de nombres del repositorio](container-registry-best-practices.md#repository-namespaces) de [Procedimientos recomendados para Azure Container Registry](container-registry-best-practices.md).
+
+## <a name="push-the-image-to-your-registry"></a>Inserción de la imagen en el registro
+
+Ahora que ha etiquetado la imagen con la ruta de acceso completa para el registro privado, puede insertarla en el registro con [docker push](https://docs.docker.com/engine/reference/commandline/push/):
+
+```Bash
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
-**5. Extraiga la imagen del registro**
+## <a name="pull-the-image-from-your-registry"></a>Extracción de la imagen del registro
 
-```
+Use el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para extraer la imagen del registro:
+
+```Bash
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
-**6. Inicie el contenedor de Nginx del registro**
+## <a name="start-the-nginx-container"></a>Inicie el contenedor de Nginx
 
-```
+Use el comando [docker run](https://docs.docker.com/engine/reference/run/) para ejecutar la imagen que ha extraído del registro:
+
+```Bash
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
 Vaya a [http://localhost:8080](http://localhost:8080) para ver el contenedor en ejecución.
 
-Para detener el contenedor en ejecución, pulse [CTRL] + [C].
+Para detener y quitar el contenedor, presione `Control`+`C`.
 
-**7. (Opcional) Quite la imagen**
+## <a name="remove-the-image-optional"></a>Retirada de la imagen (opcional)
 
-```
+Si ya no necesita la imagen Nginx, puede eliminarla localmente con el comando [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/).
+
+```Bash
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-##<a name="concurrent-limits"></a>Límites simultáneos
-En algunos escenarios, la ejecución de llamadas de forma simultánea podría producir errores. La tabla siguiente contiene los límites de llamadas simultáneas con las operaciones "Insertar" y "Extraer" en el registro de contenedor de Azure:
+Para quitar imágenes del registro de contenedor de Azure, puede usar el comando de la CLI de Azure [az acr repository delete](/cli/azure/acr/repository#az_acr_repository_delete). Por ejemplo, el siguiente comando elimina el manifiesto al que se hace referencia mediante una etiqueta, todos los datos de la capa asociados y todas las demás etiquetas que hacen referencia al manifiesto.
 
-| Operación  | Límite                                  |
-| ---------- | -------------------------------------- |
-| EXTRAER       | Hasta 10 extracciones simultáneas por registro |
-| INSERTAR       | Hasta 5 inserciones simultáneas por registro |
+```azurecli
+az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que conoce los fundamentos, ya está listo para empezar a usar el registro. Por ejemplo, empiece por implementar imágenes del contenedor en un clúster de [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/).
+
+¡Ahora que conoce los fundamentos, ya está listo para empezar a usar el registro! Por ejemplo, implemente imágenes de contenedor del registro en un clúster de [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md).

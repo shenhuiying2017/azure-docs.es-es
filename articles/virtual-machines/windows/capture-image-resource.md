@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: d6409ac490f530d49f82c93b07b0fd22adbec4de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a7e94fe2cd2db398ab2afa9a6492cea144071114
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -111,7 +111,7 @@ Para más información, consulte [Azure PowerShell Versioning](/powershell/azure
     ``` 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Creación de una imagen a partir de un disco administrado mediante PowerShell
 
-Si solo desea crear una imagen del disco del sistema operativo, también puede crear una imagen especificando el id. de disco administrado como disco del sistema operativo.
+Si solo desea crear una imagen del disco del sistema operativo, también puede crear una imagen especificando el identificador del disco administrado como disco del sistema operativo.
 
     
 1. Cree algunas variables. 

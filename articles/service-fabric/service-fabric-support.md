@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/12/2017
+ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: 7bc0f70e99be04cd646c0b7c610f7c6e4a74dfc2
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -68,15 +68,15 @@ Consulte los documentos siguientes para ver detalles sobre cómo hacer que el cl
  
 A continuación, aparece una lista con las versiones compatibles de Service Fabric y las fechas de finalización del soporte técnico.
 
-| **Clúster de tiempo de ejecución de Service Fabric** | **Versiones del SDK o paquete de NuGet compatibles** | **Fecha de finalización de soporte técnico** |
-| --- | --- | --- |
-| Todas las versiones de clústeres anteriores a 5.3.121 |Versión 2.3 o anterior |20 de enero de 2017 |
-| 5.3* |Versión 2.3 o anterior |24 de febrero de 2017 |
-| 5.4.* |Versión 2.4 o anterior |10 de mayo de 2017       |
-| 5.5.* |Versión 2.5 o anterior |10 de agosto de 2017    |
-| 5.6.* |Versión 2.6 o anterior |13 de octubre de 2017   |
-| 5.7.* |Versión 2.7 o anterior |15 de diciembre de 2017  |
-| 6.0.* |Versión menor o igual que la 2.8 |Versión actual y, por lo tanto, sin fecha de finalización
+| **Entorno de tiempo de ejecución de Service Fabric en el clúster** | **Se puede actualizar directamente desde la versión del clúster** |**Versiones del SDK o paquete de NuGet compatibles** | **Fecha de finalización de soporte técnico** |
+| --- | --- |--- | --- |
+| Todas las versiones de clústeres anteriores a 5.3.121 | 5.1.158* |Versión 2.3 o anterior |20 de enero de 2017 |
+| 5.3* | 5.1.158.* |Versión 2.3 o anterior |24 de febrero de 2017 |
+| 5.4.* | 5.1.158.* |Versión 2.4 o anterior |10 de mayo de 2017       |
+| 5.5.* | 5.4.164.* |Versión 2.5 o anterior |10 de agosto de 2017    |
+| 5.6.* | 5.4.164.* |Versión 2.6 o anterior |13 de octubre de 2017   |
+| 5.7.* | 5.4.164.* |Versión 2.7 o anterior |15 de diciembre de 2017  |
+| 6.0.* | 5.6.205.* |Versión menor o igual que la 2.8 |Versión actual y, por lo tanto, sin fecha de finalización |
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versiones de vista previa de Service Fabric: no admitidas para su uso en producción.
 De vez en cuando, publicamos versiones que tienen características importantes sobre las que deseamos saber su opinión, que se publican como versiones preliminares. Estas versiones preliminares solo se deben usar con fines de prueba. El clúster de producción debe estar ejecutando siempre una versión de Service Fabric compatible y estable. Una versión preliminar siempre comienza con un número de versión principal y secundaria de 255. Por ejemplo, si ve una versión 255.255.5703.949 de Service Fabric, esa versión es solo para su uso en clústeres de prueba y se encuentra en versión preliminar. Estas versiones preliminares también se anuncian en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) y se detallan en las características incluidas.

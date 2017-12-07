@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Conmutación por error en Site Recovery
 En este artículo se describe cómo se realiza la conmutación por error en máquinas virtuales y en servidores físicos protegidos con Site Recovery.
@@ -70,7 +70,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error para
 1. Realice la acción **Confirmar** una vez que quede satisfecho con la conmutación por error de la máquina virtual. Esto elimina todos los puntos de recuperación disponibles con el servicio y la opción **Cambiar punto de recuperación** dejará de estar disponible.
 
 ## <a name="planned-failover"></a>Conmutación por error planeada
-Las máquinas virtuales y los servidores físicos protegidos con Site Recovery también admiten la **conmutación por error planeada**. La conmutación por error planeada es una opción de conmutación por error sin pérdida de datos. Cuando se desencadena una conmutación por error planeada, primero se apagan las máquinas virtuales de origen, después se sincronizan los datos que correspondan y, por último, se desencadena la conmutación por error.
+Las máquinas virtuales y los servidores físicos protegidos con Site Recovery también admiten la **conmutación por error planeada**. La conmutación por error planeada es una opción de conmutación por error sin pérdida de datos. Cuando se desencadena una conmutación por error planeada, primero se apagan las máquinas virtuales de origen, después se sincronizan los últimos datos y, por último, se desencadena la conmutación por error.
 
 > [!NOTE]
 > Cuando se conmutan por error máquinas virtuales de Hyper-V un sitio local a otro, para regresar al sitio principal local, primero debe realizar una **replicación inversa** de la máquina virtual al sitio principal y, a continuación, desencadenar la conmutación por error. Si la máquina virtual principal no está disponible, antes de iniciar la **replicación inversa** tiene que restaurar la máquina virtual desde una copia de seguridad.   

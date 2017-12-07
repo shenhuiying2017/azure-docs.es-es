@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Notificaciones de estado del servicio
 ## <a name="overview"></a>Información general
 
 En este artículo se explica cómo ver las notificaciones de estado del servicio mediante Azure Portal.
 
-Las notificaciones de estado del servicio permiten ver los mensajes que publica el equipo de Azure acerca del estado de un servicio que puedan afectar a los recursos de su suscripción. Estas notificaciones son una subclase de los eventos del registro de actividad y también se pueden encontrar en la hoja del registro de actividad. En función de la clase, las notificaciones de estado del servicio pueden ser meramente informativas o pueden requerir acciones.
+Las notificaciones de estado del servicio permiten ver los mensajes que publica el equipo de Azure acerca del estado de un servicio que puedan afectar a los recursos de su suscripción. Estas notificaciones son una subclase de los eventos del registro de actividad y también se pueden encontrar en el registro de actividad. En función de la clase, las notificaciones de estado del servicio pueden ser meramente informativas o pueden requerir acciones.
 
 Hay cinco clases de las notificaciones de estado del servicio:  
 
-- **Acción requerida:** de vez en cuando podemos percibir que algo inusual sucede en su cuenta. Es posible que tengamos que trabajar conjuntamente para remediar dicho asunto. Le enviaremos una notificación en el que detallamos las acciones que debe realizar o le indicamos cómo ponerse en contacto con los equipos de ingeniería o soporte técnico de Azure.  
-- **Recuperación asistida:** se ha producido un evento y los ingenieros han confirmado que todavía le afecta. El equipo de ingeniería necesitará trabajar con usted directamente para restaurar los servicios.  
+- **Acción requerida:** de vez en cuando, Azure puede percibir que algo inusual sucede en su cuenta. Es posible que Azure tenga que trabajar conjuntamente con usted para remediar dicho asunto. Azure le enviará una notificación en la que se detallan las acciones que debe realizar o se proporciona información sobre cómo ponerse en contacto con los equipos de ingeniería o soporte técnico de Azure.  
+- **Recuperación asistida:** se ha producido un evento y los ingenieros han confirmado que todavía le afecta. El equipo de ingeniería de Azure necesitará trabajar con usted directamente para restaurar completamente los servicios.  
 - **Incidente:** uno o varios recursos de la suscripción están resultando afectados por un evento que tiene repercusiones es un servicio.  
 - **Mantenimiento:** se trata de una notificación que le informa de una actividad de mantenimiento planeada que puede afectar a uno o varios de los recursos de su suscripción.  
-- **Información:** de vez en cuando podemos enviarle notificaciones que le comunican posibles optimizaciones que puede ayudarle a mejorar la utilización de los recursos.  
+- **Información:** de vez en cuando, Azure puede enviarle notificaciones que le informan de posibles optimizaciones que pueden ayudarle a mejorar la utilización de los recursos.  
 - **Seguridad:** información urgente relacionada con la seguridad de las soluciones que se ejecutan en Azure.
 
-Cada notificación del estado de un servicio transmitirá datos acerca del ámbito y el impacto en los recursos. Dichos datos incluyen:
+Cada notificación del estado de un servicio incluye datos acerca del ámbito y el impacto en los recursos. Los detalles incluyen:
 
 Nombre de propiedad | Descripción
 -------- | -----------
@@ -70,14 +70,12 @@ Properties.communicationId | La comunicación de este evento está asociada.
 1.  En el [portal](https://portal.azure.com), navegue hasta el servicio **Monitor**.
 
     ![Supervisión](./media/monitoring-service-notifications/home-monitor.png)
-2.  Haga clic en la opción **Monitor** para abrir la hoja Monitor. En esta hoja se encuentran toda la configuración de supervisión y los datos en una sola vista consolidada. Primero se abre la sección **Registro de actividades** .
+2.  Haga clic en la opción **Supervisión** para abrir la experiencia Supervisión. Azure Monitor se abre junto con toda la configuración de supervisión y los datos en una sola vista consolidada. Primero se abre la sección **Registro de actividades** .
 
-3.  Ahora, haga clic en la sección **Notificaciones del servicio**
+3.  Ahora haga clic en la sección **Alertas**.
 
     ![Supervisión](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Haga clic en cualquiera de los elementos de línea para ver más detalles
-
-5. Haga clic en la operación **+ Agregar alerta de registro de actividad** para recibir notificaciones para asegurarse de que se recibe las futuras notificaciones del servicio de este tipo. Para más información acerca de cómo configurar alertas en las notificaciones del servicio [haga clic aquí](monitoring-activity-log-alerts-on-service-notifications.md)
+4. Haga clic en **+Agregar alerta de registro de actividad** y configure una alerta para asegurarse de que recibe las futuras notificaciones del servicio de este tipo. Para más información sobre la configuración de alertas en las notificaciones del servicio visite la página [Creación de alertas del registro de actividad en notificaciones del servicio](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Pasos siguientes:
 Reciba [notificaciones de alertas cada vez que se publique una notificación de estado del servicio](monitoring-activity-log-alerts-on-service-notifications.md)  

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas de análisis ad hoc entre varias bases de datos Azure SQL Database
 
-En este tutorial, se ejecutan consultas distribuidas en todo el conjunto de bases de datos de inquilino para habilitar las notificaciones ad hoc interactivas. Estas consultas pueden extraer información incluida en los datos operativos diarios de la aplicación SaaS Wingtip Tickets. Para ello, puede implementar una base de datos de análisis adicional en el servidor de catálogo y usar una consulta elástica para habilitar las consultas distribuidas.
+En este tutorial, se ejecutan consultas distribuidas en todo el conjunto de bases de datos de inquilino para habilitar las notificaciones ad hoc interactivas. Estas consultas pueden extraer información incluida en los datos operativos diarios de la aplicación SaaS Wingtip Tickets. Para ello, implemente una base de datos de análisis adicional en el servidor de catálogo y use una consulta elástica para habilitar las consultas distribuidas.
 
 
 En este tutorial, obtendrá información:
@@ -57,7 +57,7 @@ Mediante la distribución de las consultas en las bases de datos de inquilino, l
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
-Los scripts y el código fuente de la aplicación Wingtip Tickets SaaS Database Per Tenant están disponibles en el repositorio [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) de GitHub. Asegúrese de seguir los pasos de desbloqueo descritos en el archivo Léame.
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Creación de datos de ventas de entradas
 
@@ -71,9 +71,9 @@ Para ejecutar consultas en un conjunto de datos más interesante, ejecute el gen
 
 En la aplicación Wingtip Tickets SaaS Database Per Tenant, cada inquilino tiene una base de datos. Por lo tanto, los datos de las tablas de base de datos se limita a la perspectiva de un solo inquilino. Sin embargo, al consultar en todas las bases de datos, es importante que la consulta elástica pueda tratar los datos como si formaran parte de una sola base de datos lógica compartida por el inquilino. 
 
-Para simular este patrón, se agrega un conjunto de vistas 'globales' a la base de datos de inquilino que proyectan un identificador de inquilino en cada una de las tablas que se consultan globalmente. Por ejemplo, la vista *VenueEvents* agrega un identificador *VenueId* calculado a las columnas que se proyectan desde la tabla *Events*. Análogamente, las vistas *VenueTicketPurchases* y *VenueTickets* agregan una columna *VenueId* calculada proyectada desde sus respectivas tablas. Estas vistas las utiliza la consulta elástica para usar consultas en paralelo e insertarlas en la base de datos remota de inquilinos cuando hay una columna *VenueId* presente. Así se reduce considerablemente la cantidad de datos que se devuelven, lo que da como resultado un aumento sustancial del rendimiento para muchas consultas. Estas vistas globales se han creado previamente en todas las bases de datos de inquilino.
+Para simular este patrón, se agrega un conjunto de vistas "globales" a la base de datos de inquilino que proyectan un identificador de inquilino en cada una de las tablas que se consultan globalmente. Por ejemplo, la vista *VenueEvents* agrega un identificador *VenueId* calculado a las columnas que se proyectan desde la tabla *Events*. Análogamente, las vistas *VenueTicketPurchases* y *VenueTickets* agregan una columna *VenueId* calculada proyectada desde sus respectivas tablas. Estas vistas las utiliza la consulta elástica para usar consultas en paralelo e insertarlas en la base de datos remota de inquilinos cuando hay una columna *VenueId* presente. Así se reduce considerablemente la cantidad de datos que se devuelven, lo que da como resultado un aumento sustancial del rendimiento para muchas consultas. Estas vistas globales se han creado previamente en todas las bases de datos de inquilino.
 
-1. Abra SSMS y [conéctese al servidor tenants1-&lt;USUARIO&gt;](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Abra SSMS y [conéctese al servidor tenants1-&lt;USUARIO&gt;](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Expanda **Bases de datos**, haga clic con el botón derecho en **contosoconcerthall** y seleccione **Nueva consulta**.
 3. Ejecute las siguientes consultas para explorar la diferencia entre las tablas de inquilino único y las vistas globales:
 
@@ -127,7 +127,7 @@ En este ejercicio se agrega el esquema (el origen de datos externo y las definic
 
     ![crear credencial](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   El origen de datos externo, que se define para usar el mapa de particiones de inquilino en la base de datos de catálogo. Al utilizarlo como origen de datos externo, las consultas se distribuyen a todas las bases de datos registradas en el catálogo cuando se ejecuta la consulta. Dado que los nombres de servidor son diferentes para cada implementación, este script de inicialización obtiene la ubicación de la base de datos de catálogo mediante la recuperación del servidor actual (@@servername) donde se ejecuta el script.
+   Al utilizar la base de datos del catálogo como origen de datos externo, las consultas se distribuyen a todas las bases de datos registradas en el catálogo cuando se ejecuta la consulta. Dado que los nombres de servidor son diferentes para cada implementación, este script de inicialización obtiene la ubicación de la base de datos de catálogo mediante la recuperación del servidor actual (@@servername) donde se ejecuta el script.
 
     ![crear origen de datos externos](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Ahora que la base de datos *adhocreporting* está configurada, continúe y ejecu
 
 Al inspeccionar el plan de ejecución, mantenga el mouse sobre los iconos de plan para obtener más información. 
 
-Es importante tener en cuenta que la configuración **DISTRIBUTION = SHARDED(VenueId)** cuando se define el origen de datos externo, mejora el rendimiento en muchos escenarios. Dado que cada identificador *VenueId* se asigna a una sola base de datos, el filtrado se lleva a cabo fácilmente de forma remota, y devuelve solo los datos que se necesitan.
+Es importante tener en cuenta que, si configura **DISTRIBUTION = SHARDED(VenueId)** al definir el origen de datos externo, se mejora el rendimiento de muchos escenarios. Dado que cada identificador *VenueId* se asigna a una sola base de datos, el filtrado se lleva a cabo fácilmente de forma remota, y devuelve solo los datos necesarios.
 
 1. Abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* en SSMS.
 2. Asegúrese de que está conectado a la base de datos **adhocreporting**.
@@ -160,7 +160,7 @@ Es importante tener en cuenta que la configuración **DISTRIBUTION = SHARDED(Ven
 
    La consulta devuelve la lista de ubicaciones completa e ilustra lo rápido y fácil que es realizar consultas en todos los inquilinos y devolver los datos de cada uno.
 
-   Inspeccione el plan y compruebe que el costo íntegro es la consulta remota porque simplemente vamos a cada base de datos de inquilino y seleccionamos la información de las ubicaciones.
+   Inspeccione el plan y compruebe que el costo íntegro es la consulta remota porque cada base de datos de inquilino controla su propia consulta y devuelve su información sobre las ubicaciones.
 
    ![SELECT * FROM dbo.Venues](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Es importante tener en cuenta que la configuración **DISTRIBUTION = SHARDED(Ven
 
    Esta consulta combina datos de las bases de datos de inquilino y de la tabla local *VenueTypes* (local porque es una tabla de la base de datos *adhocreporting*).
 
-   Inspeccione el plan y compruebe que la mayor parte del costo es la consulta remota, ya que se consulta la información de ubicación de cada inquilino (dbo.Venues) y, a continuación, se realiza una combinación rápida local con la tabla local *VenueTypes* para mostrar el nombre descriptivo.
+   Inspeccione el plan y observe que la mayoría del costo se corresponde con la consulta remota. Cada base de datos de inquilino devuelve su información sobre la ubicación y realiza una combinación local con la tabla local *VenueTypes* para mostrar el nombre descriptivo.
 
    ![Combinación de datos remotos y locales](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Ahora seleccione la consulta *On which day were the most tickets sold?* (¿Qué día se vendieron más entradas?) y presione **F5**.
 
-   Esta consulta hace una combinación y una agregación un poco más complejas. Es importante tener en cuenta que la mayor parte del procesamiento se realiza de forma remota y, una vez más, se devuelven solo las filas que se necesitan, una única fila para el recuento total diario de ventas de entradas de cada ubicación.
+   Esta consulta hace una combinación y una agregación un poco más complejas. Es importante tener en cuenta que la mayor parte del procesamiento se realiza de forma remota y, una vez más, se devuelven solo las filas que se necesitan, una única fila para cada recuento total diario de ventas de entradas de cada ubicación.
 
    ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 

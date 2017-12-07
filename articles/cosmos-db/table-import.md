@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importación de datos para su uso con Table API de Azure Cosmos DB
 
@@ -32,11 +32,11 @@ En este tutorial se describen las tareas siguientes:
 
 ## <a name="data-migration-tool"></a>Herramienta de migración de datos
 
-La Herramienta de migración de datos de Azure Cosmos DB de línea de comandos (dt.exe) puede usarse para importar los datos de Azure Table Storage existentes a una cuenta con disponibilidad general de Table API o para migrar los datos desde una cuenta de Table API (versión preliminar) a una cuenta con disponibilidad general de Table API. Otros orígenes no se admiten actualmente.
+La Herramienta de migración de datos de Azure Cosmos DB de línea de comandos (dt.exe) puede usarse para importar los datos de Azure Table Storage existentes a una cuenta con disponibilidad general de Table API o para migrar los datos desde una cuenta de Table API (versión preliminar) a una cuenta con disponibilidad general de Table API. Otros orígenes no se admiten actualmente. La herramienta de migración de datos basada en la interfaz de usuario (dtui.exe) no se admite actualmente para las cuentas de la API Table. 
 
 Para realizar una migración de datos de tablas, complete las tareas siguientes:
 
-1. Descargue la herramienta de migración desde el [Centro de descarga de Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) o desde [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Descargue la herramienta de migración de [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Ejecute `dt.exe` usando los argumentos de la línea de comandos para su escenario.
 
 dt.exe toma un comando con el formato siguiente:
@@ -92,7 +92,7 @@ Utilice las siguientes opciones de destino al definir Table API de Azure Cosmos 
 A continuación se muestra un ejemplo de línea de comandos para importar desde Azure Table Storage a Table API:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando de ejemplo: el origen es Table API de Azure Cosmos DB (versión preliminar)

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory
 Cuando se requiera que los usuarios unan sus dispositivos personales al área de trabajo en el servicio de registro de dispositivos de Azure Active Directory (Azure AD), los dispositivos deben estar marcados como conocidos para la organización. A continuación aparece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
@@ -115,7 +115,7 @@ Este paso le ayuda a integrar el inquilino de Azure AD con la instancia local de
    
    Además, configure la federación con AD FS tal como se describe en [Instalación personalizada de Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
-## <a name="upgrade-your-active-directory-domain-services-schema"></a>Actualización del esquema de Servicios de dominio de Active Directory
+## <a name="upgrade-your-active-directory-domain-services-schema"></a>Actualización del esquema de Active Directory Domain Services
 > [!NOTE]
 > Una vez que actualice el esquema de Active Directory, no es posible revertir el proceso. Se recomienda realizar la actualización primero en un entorno de prueba.
 > 
@@ -166,9 +166,9 @@ Existen varias formas de comunicar la URL a los usuarios. Por ejemplo, un métod
 4. Cuando se lo pidan, inicie sesión con sus credenciales. El dispositivo ahora está unido.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Unión de un dispositivo Windows 7 mediante el registro de dispositivos de Azure Active Directory
-Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el paquete de software de registro del dispositivo. El paquete de software se llama Workplace Join for Windows 7 y está disponible para su descarga en el [sitio web de Microsoft Connect](https://connect.microsoft.com/site1164). 
+Para registrar los dispositivos Windows 7 unidos a un dominio debe implementar el [paquete de software de registro del dispositivo](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Las instrucciones sobre cómo usar el paquete están disponibles en [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+Para obtener instrucciones sobre cómo usar el paquete, consulte [Paquetes de Windows Installer para equipos sin Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Comprobación de que los dispositivos registrados se escriben de manera diferida en Active Directory
 Puede ver y comprobar que los objetos de dispositivo se escribieron de manera diferida en Active Directory con LDP.exe o con el Editor ADSI. Ambos están disponibles con las herramientas del administrador de Active Directory.

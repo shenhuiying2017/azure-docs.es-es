@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: c036901bde5fff0d63ee2494de87e49410662099
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 48e8eb91a5febcc1109bee3404bb534bd0391f88
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configuración y uso de Log Analytics (OMS) con la aplicación de SaaS de Azure SQL Database multiinquilino
+# <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configuración y uso de Log Analytics (OMS) con la aplicación SaaS de Azure SQL Database multiinquilino
 
-En este tutorial, instalaremos y usaremos *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para supervisar bases de datos y grupos elásticos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Muestra cómo usar *Log Analytics* para intensificar la supervisión y alerta proporcionadas en Azure Portal. Log Analytics es adecuado para la supervisión y las alertas de escalado, ya que admite cientos de grupos y cientos de miles de bases de datos. También proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
+En este tutorial, se va a configurar y usar *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para supervisar bases de datos y grupos elásticos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Muestra cómo usar *Log Analytics* para intensificar la supervisión y alerta proporcionadas en Azure Portal. Log Analytics es adecuado para la supervisión y las alertas de escalado, ya que admite cientos de grupos y cientos de miles de bases de datos. También proporciona una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
 
 En este tutorial, aprenderá a:
 
@@ -59,7 +59,7 @@ Las soluciones analíticas y las áreas de trabajo de Log Analytics se pueden ab
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
-Los scripts y el código fuente de la aplicación Wingtip Tickets SaaS Database Per Tenant están disponibles en el repositorio [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) de GitHub. Los archivos de los scripts se encuentran en la [carpeta Learning Modules](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/master/Learning%20Modules). Descargue la carpeta **Learning Modules** en el equipo local, conservando su estructura de carpetas.
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalación y configuración de Log Analytics y la solución Azure SQL Analytics
 
@@ -85,7 +85,8 @@ En este ejercicio, abra Log Analytics y el portal de OMS para observar cómo se 
 1. Seleccione **Introducción** para abrir la solución Log Analytics en Azure Portal.
    ![vínculo a la introducción](media/saas-dbpertenant-log-analytics/click-overview.png)
 
-    **IMPORTANTE**: la solución puede tardar unos minutos en activarse. Tenga paciencia.
+    > [!IMPORTANT]
+    > La solución puede tardar unos minutos en activarse. Tenga paciencia.
 
 1. Haga clic en el icono de Azure SQL Analytics para abrirlo.
 

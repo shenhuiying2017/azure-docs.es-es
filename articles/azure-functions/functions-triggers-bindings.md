@@ -1,5 +1,5 @@
 ---
-title: Trabajo con desencadenadores y enlaces de Azure Functions | Microsoft Docs
+title: Trabajo con desencadenadores y enlaces en Azure Functions
 description: "Obtenga información sobre cómo usar desencadenadores y enlaces en Azure Functions para conectar la ejecución del código a los eventos en línea y servicios basados en la nube."
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 Azure Functions le permite escribir código en respuesta a eventos en Azure y otros servicios mediante *desencadenadores* y *enlaces*. En este artículo, se ofrece una introducción conceptual a los desencadenadores y enlaces de todos los lenguajes de programación compatibles. Aquí se describen características comunes de todos los enlaces.
 
 ## <a name="overview"></a>Información general
 
-Los desencadenadores y enlaces permiten definir de forma declarativa cómo se invoca una función y con qué datos funcionará. Los *desencadenadores* establecen el modo de invocar una función. Cada función debe tener exactamente un desencadenador. Los desencadenadores tienen datos asociados, que suelen ser la carga que desencadenó la función. 
+Los desencadenadores y enlaces permiten definir de forma declarativa cómo se invoca una función y con qué datos funcionará. Los *desencadenadores* establecen el modo de invocar una función. Cada función debe tener exactamente un desencadenador. Los desencadenadores tienen datos asociados, que suelen ser la carga que desencadenó la función.
 
 Los *enlaces* de entrada y de salida permiten conectarse de manera declarativa a datos desde el código. De forma similar a los desencadenadores, se pueden especificar las cadenas de conexión y otras propiedades en la configuración de la función. Los enlaces son opcionales y cada función puede tener varios enlaces de entrada y de salida. 
 
@@ -35,11 +34,13 @@ Mediante los desencadenadores y enlaces, puede escribir código más genérico s
 
 Puede configurar desencadenadores y enlaces en la pestaña **Integrar** del portal de Azure Functions. Entre bastidores, la interfaz de usuario modifica un archivo llamado *function.json* en el directorio de la función. Este archivo puede editarse cambiando a la opción **Editor avanzado**.
 
-En la siguiente tabla, se muestran los desencadenadores y enlaces compatibles con Azure Functions. 
+## <a name="supported-bindings"></a>Enlaces admitidos
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Ejemplo: desencadenador de colas y enlace de salida de tablas
+Para información sobre qué enlaces están en versión preliminar o aprobados para su uso en producción, consulte los [lenguajes admitidos](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Ejemplo: desencadenador de colas y enlace de salida de tablas
 
 Supongamos que quiere escribir una fila nueva en Azure Table Storage cada vez que aparezca un nuevo mensaje en Azure Queue Storage. Este escenario puede implementarse mediante un desencadenador de colas de Azure y un enlace de salida de Azure Table Storage. 
 
@@ -126,9 +127,9 @@ Para ver y editar el contenido de *function.json* en el portal de Azure, haga cl
 
 Para obtener más ejemplos de código e información sobre la integración con Azure Storage, consulte el artículo sobre [desencadenadores y enlaces de Azure Functions para Azure Storage](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Dirección de los enlaces
+## <a name="binding-direction"></a>Dirección de los enlaces
 
-Todos los desencadenadores y enlaces tienen la propiedad `direction`:
+Todos los desencadenadores y enlaces tienen una propiedad `direction` en el archivo *function.json*:
 
 - En el caso de los desencadenadores, esta propiedad siempre aparece como `in`
 - Los enlaces de entrada y de salida usan `in` y `out`
@@ -243,7 +244,7 @@ Por ejemplo, un desencadenador de Azure Storage Queue admite las siguientes prop
 
 Los detalles sobre las propiedades de metadatos de cada desencadenador se describen en el tema de referencia correspondiente. También podrá encontrar documentación en la pestaña **Integrar** del portal, en la sección **Documentación**, debajo del área de configuración de enlaces.  
 
-Por ejemplo, debido a que los desencadenadores de blobs tienen algunos retrasos, puede utilizar un desencadenador de colas para ejecutar la función (consulte el artículo relativo al [desencadenador de Blob Storage](functions-bindings-storage-blob.md#blob-storage-trigger)). El mensaje de la cola contendría el nombre de archivo del blob que se desencadenará. Mediante la propiedad de metadatos `queueTrigger`, puede especificar este comportamiento en la configuración, en lugar del código.
+Por ejemplo, debido a que los desencadenadores de blobs tienen algunos retrasos, puede utilizar un desencadenador de colas para ejecutar la función (consulte el artículo relativo al [desencadenador de Blob Storage](functions-bindings-storage-blob.md#trigger)). El mensaje de la cola contendría el nombre de archivo del blob que se desencadenará. Mediante la propiedad de metadatos `queueTrigger`, puede especificar este comportamiento en la configuración, en lugar del código.
 
 ```json
   "bindings": [

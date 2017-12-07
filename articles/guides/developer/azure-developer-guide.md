@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -49,7 +49,7 @@ Azure ofrece servicios para sus necesidades de desarrollo y hospedaje de aplicac
 ![Opciones de hospedaje de aplicaciones en Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Servicio de aplicaciones de Azure 
+#### <a name="azure-app-service"></a>Azure App Service 
 
 Si desea el camino más corto para publicar proyectos web, considere Azure App Service. Con App Service es muy fácil extender las aplicaciones web para admitir a los clientes móviles y publicar sencillas API de REST. Esta plataforma proporciona autenticación mediante el uso de proveedores de redes sociales, autoescala basada en el tráfico, pruebas en producción e implementaciones de contenedor y continuas.
 
@@ -67,7 +67,7 @@ Puede migrar las aplicaciones existentes a App Service con la [herramienta de mi
 
 >**Pruébelo ahora**: App Service le permite aprovisionar una aplicación de corta duración para probar la plataforma sin necesidad de registrarse para obtener una cuenta de Azure. Pruebe la plataforma y [cree una aplicación de Azure App Service](https://tryappservice.azure.com/).
 
-#### <a name="azure-virtual-machines"></a>Máquinas virtuales de Azure
+#### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
 Como proveedor de infraestructura como servicio (IaaS), Azure le permite implementar o migrar la aplicación a máquinas virtuales Windows o Linux. Junto con Azure Virtual Network, Azure Virtual Machines permite la implementación de máquinas virtuales Windows o Linux en Azure. Con las máquinas virtuales, tiene un control total sobre la configuración de la máquina. Al usar las máquinas virtuales, es responsabilidad suya la instalación, la configuración y el mantenimiento del software del servidor, así como las revisiones del sistema operativo.
 
@@ -123,7 +123,7 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
     >**Para empezar**: [cree una base de datos SQL en cuestión de minutos con Azure Portal](../../sql-database/sql-database-get-started.md).
 
 
-Puede usar [Azure Data Factory](../../data-factory/introduction.md) para mover los datos locales existentes a Azure. Si no está listo para mover los datos a la nube, [Conexiones híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) en BizTalk le permite conectar su aplicación hospedada en App Service con recursos locales. También puede conectarse a los servicios de datos y almacenamiento de Azure desde las aplicaciones locales.
+Puede usar [Azure Data Factory](../../data-factory/introduction.md) para mover los datos locales existentes a Azure. Si no está listo para mover los datos a la nube, [Conexiones híbridas](../../biztalk-services/integration-hybrid-connection-overview.md) en BizTalk Services le permite conectar su aplicación hospedada en App Service con recursos locales. También puede conectarse a los servicios de datos y almacenamiento de Azure desde las aplicaciones locales.
 
 #### <a name="docker-support"></a>Compatibilidad con Docker
 
@@ -299,7 +299,7 @@ Al permitir el acceso a los recursos de Azure, siempre es recomendable proporcio
 
 -   **Objetos de entidad de servicio**: además de proporcionar acceso a las entidades de seguridad de usuarios y grupos, puede conceder el mismo acceso a una entidad de servicio.
 
-    > **Cuándo se usa**: para administrar los recursos de Azure o conceder acceso a las aplicaciones mediante programación. Para más información, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../../resource-group-create-service-principal-portal.md).
+    > **Cuándo se usa**: para administrar los recursos de Azure o conceder acceso a las aplicaciones mediante programación. Para más información, consulte [Creación de aplicación de Active Directory y una entidad de servicio](../../resource-group-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Etiquetas
 

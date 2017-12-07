@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 7a77e6ecbf59944c62aa4ae014bf5b8a5a7f7f1f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
@@ -65,69 +65,10 @@ Los puertos de alta disponibilidad se encuentran en las [mismas regiones que Loa
 
 ## <a name="preview-sign-up"></a>Registro en versión preliminar
 
-Para participar en la versión preliminar de la característica de puertos de alta disponibilidad de Load Balancer Standard, registre su suscripción para obtener acceso. Puede usar la CLI 2.0 de Azure o PowerShell.
+Para participar en la versión preliminar de la característica de puertos de alta disponibilidad de Load Balancer estándar, registre la suscripción para acceder a la [versión preliminar](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer estándar. Puede registrarse con la CLI de Azure 2.0 o mediante PowerShell.
 
 >[!NOTE]
->Para usar esta característica, es necesario registrarse en la [versión preliminar](https://aka.ms/lbpreview#preview-sign-up) de Load Balancer Standard, además de en la característica de los puertos de alta disponibilidad. El registro puede tardar hasta una hora en completarse.
-
-### <a name="sign-up-by-using-azure-cli-20"></a>Registro mediante la CLI de Azure 2.0
-
-1. Registro de la característica con el proveedor:
-    ```cli
-    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-2. La operación anterior puede tardar hasta 10 minutos en completarse. Puede comprobar el estado de la operación con el siguiente comando:
-
-    ```cli
-    az feature show --name AllowILBAllPortsRule --namespace Microsoft.Network
-    ```
-    
-    La operación se habrá completado correctamente cuando el estado de registro de la característica devuelva el valor **Registered** (Registrado) tal y como se muestra a continuación:
-   
-    ```json
-    {
-       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
-       "name": "Microsoft.Network/AllowILBAllPortsRule",
-       "properties": {
-          "state": "Registered"
-       },
-       "type": "Microsoft.Features/providers/features"
-    }
-    ```
-    
-3. Complete el registro de la versión preliminar volviendo a registrar la suscripción con el proveedor de recursos:
-
-    ```cli
-    az provider register --namespace Microsoft.Network
-    ```
-    
-### <a name="sign-up-by-using-powershell"></a>Registro mediante PowerShell
-
-1. Registro de la característica con el proveedor:
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    
-2. La operación anterior puede tardar hasta 10 minutos en completarse. Puede comprobar el estado de la operación con el siguiente comando:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
-    ```
-    La operación se habrá completado correctamente cuando el estado de registro de la característica devuelva el valor **Registered** (Registrado) tal y como se muestra a continuación:
-   
-    ```
-    FeatureName          ProviderName      RegistrationState
-    -----------          ------------      -----------------
-    AllowILBAllPortsRule Microsoft.Network Registered
-    ```
-    
-3. Complete el registro de la versión preliminar volviendo a registrar la suscripción con el proveedor de recursos:
-
-    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-    ```
-
+>El registro puede tardar hasta una hora en completarse.
 
 ## <a name="limitations"></a>Limitaciones
 

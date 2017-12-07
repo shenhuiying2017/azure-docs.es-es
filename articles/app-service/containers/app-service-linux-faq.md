@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 265538a7e31d58a7d58c9e30870510eb66954f44
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: d262d9c2bd23a09c2efdb5fd6695bb2ed29cae54
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -64,6 +64,20 @@ Sí.
 **¿Puedo usar *Web Deploy* para implementar mi aplicación web?**
 
 Sí, es necesario establecer un valor de la aplicación llamado `WEBSITE_WEBDEPLOY_USE_SCM` en *false*.
+
+**Se produce un error en la implementación de GIT de la aplicación cuando se usa la aplicación web de Linux. ¿Cómo puedo solucionar el problema?**
+
+Si se produce un error en la implementación de GIT en la aplicación web de Linux, puede elegir las opciones alternativas siguientes para implementar el código de aplicación:
+
+- Use la característica Entrega continua (versión preliminar): puede almacenar el código fuente de la aplicación en un repositorio de GIT de Team Services o en un repositorio GitHub para usar Azure Continuous Delivery. Para más detalles, consulte el artículo sobre cómo [configurar Entrega continua para una aplicación web de Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+
+- Use la [API ZIP deploy](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para usar esta API, [use SSH en la aplicación web](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) y vaya a la carpeta en la que desea implementar el código. Ejecute lo siguiente:
+
+   ```
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   ```
+
+   Si recibe un error que indica que no se encuentra el comando `curl`, asegúrese de que instalar curl mediante `apt-get install curl` antes de ejecutar el comando `curl` anterior.
 
 ## <a name="language-support"></a>Compatibilidad con idiomas
 

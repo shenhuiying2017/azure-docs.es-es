@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restauración de una base de datos SQL de Azure de un solo inquilino en una aplicación SaaS multiinquilino
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restauración de una instancia de Azure SQL Database de un solo inquilino en una aplicación SaaS multiinquilino
 
-La aplicación SaaS Wingtip se compila con un modelo de base de datos por inquilino, donde cada inquilino tiene su propia base de datos. Una de las ventajas de este modelo es que resulta fácil restaurar los datos de un inquilino único de manera aislada sin afectar a otros inquilinos.
+La aplicación SaaS Wingtip Tickets se compila con un modelo de base de datos por inquilino, donde cada inquilino tiene su propia base de datos. Una de las ventajas de este modelo es que resulta fácil restaurar los datos de un inquilino único de manera aislada sin afectar a otros inquilinos.
 
 En este tutorial, conocerá dos patrones de recuperación de datos:
 
@@ -53,9 +53,9 @@ En el primer patrón, los datos se restauran en una base de datos nueva. Luego, 
 
 En el segundo patrón, que supone que el inquilino sufrió una pérdida o daños en los datos, la base de datos de producción del inquilino se restaura a un momento dado anterior. En el patrón de restauración en contexto, el inquilino se deja sin conexión durante un tiempo breve mientras la base de datos se restaura y se vuelve a poner en línea. La base de datos original se elimina, pero de todos modos se puede hacer la restauración a partir de ella si necesita volver a un momento dado incluso anterior. Una variación de este patrón podría cambiar el nombre de la base de datos en lugar de eliminar, a pesar de que cambiar el nombre no ofrece ninguna ventaja adicional en términos de la seguridad de los datos.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obtener scripts de la aplicación Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtención de los scripts de la aplicación Wingtip Tickets SaaS Database Per Tenant
 
-Los scripts SaaS de Wingtip y el código fuente de la aplicación están disponibles en el repositorio de GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Pasos para descargar los scripts SaaS de Wingtip](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simulación de la eliminación accidental de los datos de un inquilino
 
@@ -146,6 +146,6 @@ En este tutorial aprendió lo siguiente:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* Otros [tutoriales basados en la aplicación SaaS de Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Otros tutoriales basados en la aplicación SaaS de Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Introducción a la continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md)
 * [Más información sobre las copias de seguridad de SQL Database](sql-database-automated-backups.md)

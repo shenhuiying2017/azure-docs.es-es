@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-## <a name="intro-on-role-based-access-control"></a>Introducción al control de acceso basado en roles
+# <a name="intro-on-role-based-access-control"></a>Introducción al control de acceso basado en roles
 
 El control de acceso basado en roles es una característica de Azure Portal que permite a los propietarios de una suscripción asignar roles granulares a otros usuarios que pueden administrar ámbitos de recursos específicos en su entorno.
 
@@ -32,11 +32,10 @@ El uso de RBAC en el entorno de Azure requiere:
 * Tener una suscripción de Azure independiente asignada al usuario como propietario (rol de suscripción)
 * Tener el rol de propietario de la suscripción de Azure
 * Tener acceso a [Azure Portal](https://portal.azure.com)
-* Asegúrese de tener los siguientes proveedores de recursos registrados para la suscripción del usuario: **Microsoft.Authorization**. Para más información sobre cómo registrar los proveedores de recursos, consulte [Proveedores del Administrador de recursos, regiones, versiones de API y esquemas](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
+* Asegúrese de tener los siguientes proveedores de recursos registrados para la suscripción del usuario: **Microsoft.Authorization**. Para más información sobre cómo registrar los proveedores de recursos, consulte [Proveedores del Administrador de recursos, regiones, versiones de API y esquemas](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Las suscripciones de Office 365 y las licencias de Azure Active Directory (por ejemplo, acceso a Azure Active Directory) aprovisionadas desde el portal de O365 no permiten el uso de RBAC.
+> Las suscripciones de Office 365 y las licencias de Azure Active Directory (por ejemplo, Acceso a Azure Active Directory) aprovisionadas desde el portal de O365 no permiten el uso de RBAC.
 
 ## <a name="how-can-rbac-be-used"></a>Uso de RBAC
 RBAC puede aplicarse en tres ámbitos diferentes de Azure. Del ámbito más alto al más bajo, son los siguientes:
@@ -76,8 +75,7 @@ Después de seleccionar la suscripción, el usuario administrador debe hacer cli
 
 ![Agregar un nuevo usuario en la característica de control de acceso IAM en Azure Portal](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol** el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para obtener explicaciones detalladas de cada rol y sus ámbitos asignables, consulte [Roles integrados en el control de acceso basado en roles de Azure](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
+El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol** el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para obtener explicaciones detalladas de cada rol y sus ámbitos asignables, consulte [Roles integrados en el control de acceso basado en roles de Azure](role-based-access-built-in-roles.md).
 
 El usuario administrador, a continuación, debe agregar la dirección de correo electrónico del usuario externo. El comportamiento esperado para el usuario externo es que no aparezca en el inquilino existente. Cuando el usuario externo haya sido invitado, será visible en **Suscripciones > Control de acceso (IAM)** con todos los usuarios que están asignados actualmente a un rol de RBAC en el ámbito de la suscripción.
 
@@ -123,8 +121,7 @@ En la vista **Usuarios** de ambos portales, los usuarios externos se pueden reco
 * Un tipo de icono diferente en Azure Portal
 * Un punto de origen diferente en el portal clásico
 
-Sin embargo, conceder acceso como **Propietario** o **Colaborador** a un usuario externo en el ámbito de la **Suscripción** no permite el acceso al directorio del usuario administrador, a menos que el **Administrador global** lo permita. En las propiedades del usuario, el **Tipo de usuario**, que tiene dos parámetros comunes, se pueden identificar **Miembro** e **Invitado**. Un miembro es un usuario que está registrado en el directorio, mientras que un invitado es un usuario invitado al directorio desde un origen externo. Para más información, consulte [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](/active-directory/active-directory-b2b-admin-add-users)
-<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
+Sin embargo, conceder acceso como **Propietario** o **Colaborador** a un usuario externo en el ámbito de la **Suscripción** no permite el acceso al directorio del usuario administrador, a menos que el **Administrador global** lo permita. En las propiedades del usuario, el **Tipo de usuario**, que tiene dos parámetros comunes, se pueden identificar **Miembro** e **Invitado**. Un miembro es un usuario que está registrado en el directorio, mientras que un invitado es un usuario invitado al directorio desde un origen externo. Para más información, consulte [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](active-directory-b2b-admin-add-users.md)
 
 > [!NOTE]
 > Asegúrese de que, después de escribir las credenciales en el portal, el usuario externo selecciona el directorio correcto en el que se iniciará sesión. El mismo usuario puede tener acceso a varios directorios y puede seleccionar cualquiera de ellos haciendo clic en el nombre de usuario en la parte superior derecha de Azure Portal y, a continuación, seleccionando el directorio adecuado en la lista desplegable.

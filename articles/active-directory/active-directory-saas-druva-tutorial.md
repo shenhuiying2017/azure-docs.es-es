@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: Integración de Azure Active Directory con Druva
 
@@ -104,21 +104,27 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Druva**, lleve a cabo los pasos siguientes:
+3. Vaya a la sección **Dominio y direcciones URL de Druva**, si quiere configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    En el cuadro de texto **Identificador**, escriba el valor de cadena: `druva-cloud`
+    
+4. Active **Mostrar configuración avanzada de URL**. Si quiere volver a configurar la aplicación en modo iniciado por **SP**:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://cloud.druva.com/home`
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. La aplicación Druva espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token SAML**. 
+6. La aplicación Druva espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los **atributos del token SAML**. 
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo del token de SAML como muestra la imagen anterior y realice los siguientes pasos:
+7. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo del token de SAML como muestra la imagen anterior y realice los siguientes pasos:
 
     | Nombre del atributo      | Valor de atributo      |
     | ------------------- | -------------------- |
@@ -136,47 +142,47 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     d. Haga clic en **Aceptar**.    
 
-7. Haga clic en el botón **Guardar** .
+8. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. En la sección **Configuración de Druva**, haga clic en **Configurar Druva** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
+9. En la sección **Configuración de Druva**, haga clic en **Configurar Druva** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía en Druva.
+10. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía en Druva.
 
-10. Vaya a **Administrar \> Configuración**.
+11. Vaya a **Administrar \> Configuración**.
 
     ![Configuración](./media/active-directory-saas-druva-tutorial/ic795091.png "Configuración")
 
-11. En el cuadro de diálogo Single Sign-On Settings (Configuración de inicio de sesión único), siga estos pasos:
+12. En el cuadro de diálogo Single Sign-On Settings (Configuración de inicio de sesión único), siga estos pasos:
 
     ![Configuración de inicio de sesión único](./media/active-directory-saas-druva-tutorial/ic795092.png "Configuración de inicio de sesión único")
     
-    a. Pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal en el cuadro de texto **ID Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades).
-    
-    b. Pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal en el cuadro de texto **ID Provider Logout URL** (Dirección URL de cierre de sesión del proveedor de identidades).
-    
-     c. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de Id.** .
+    a. En el cuadro de texto **ID Provider Login URL** (Dirección URL de inicio de sesión del proveedor de identidades), pegue el valor de **Dirección URL del servicio de inicio de sesión único** que copió de Azure Portal.
+        
+    b. En el cuadro de texto **ID Provider Logout URL** (Dirección URL de cierre de sesión del proveedor de identidades), pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
+        
+    c. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado de proveedor de Id.** .
      
-     d. Para abrir la página **Configuración**, haga clic en **Guardar**.
+    d. Para abrir la página **Configuración**, haga clic en **Guardar**.
 
-12. En la página **Configuración**, haga clic en**Generar token de SSO**.
+13. En la página **Configuración**, haga clic en**Generar token de SSO**.
 
     ![Configuración](./media/active-directory-saas-druva-tutorial/ic795093.png "Configuración")
 
-13. En el cuadro de diálogo **Token de autenticación de inicio de sesión único** , siga estos pasos:
+14. En el cuadro de diálogo **Token de autenticación de inicio de sesión único** , siga estos pasos:
 
     ![Token de SSO](./media/active-directory-saas-druva-tutorial/ic795094.png "Token de SSO")
     
-    a. Haga clic en **Copiar**, pegue el valor copiado en el cuadro de texto **Valor** en la sección **Agregar atributo**.
+    a. Haga clic en **Copiar**, pegue el valor copiado en el cuadro de texto **Valor** en la sección **Agregar atributo** de Azure Portal.
     
     b. Haga clic en **Cerrar**.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -280,8 +286,6 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

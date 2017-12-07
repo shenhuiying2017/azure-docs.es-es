@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 > * Simular el uso de una base de datos multiinquilino con particiones mediante la ejecución de un generador de carga proporcionado
 > * Supervisar la base de datos a medida que responde al aumento de carga
 > * Escalar verticalmente la base de datos en respuesta al aumento de la carga de esta
-> * Aprovisionamiento de un inquilino en una base de datos de un único inquilino
+> * Aprovisionar un inquilino en una base de datos de un único inquilino
 
 Para completar este tutorial, asegúrese de cumplir los siguientes requisitos previos:
 
@@ -59,7 +59,7 @@ Para escenarios de alto volumen donde se trabaja con muchos recursos, se puede u
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtención del código fuente y los scripts de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets
 
-Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de Github [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). <!--Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts(saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB). Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 
 ## <a name="provision-additional-tenants"></a>Aprovisionamiento de inquilinos adicionales
 
@@ -195,7 +195,7 @@ En este tutorial, aprenderá a:
 > * Simular el uso de una base de datos multiinquilino con particiones mediante la ejecución de un generador de carga proporcionado
 > * Supervisar la base de datos a medida que responde al aumento de carga
 > * Escalar verticalmente la base de datos en respuesta al aumento de la carga de esta
-> * Aprovisionamiento de un inquilino en una base de datos de un único inquilino
+> * Aprovisionar un inquilino en una base de datos de un único inquilino
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

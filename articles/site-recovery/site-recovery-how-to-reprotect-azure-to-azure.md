@@ -3,7 +3,7 @@ title: "Cómo volver a proteger máquinas virtuales de Azure conmutadas por erro
 description: "Después de la conmutación por error de máquinas virtuales de una región de Azure en otra, puede usar Azure Site Recovery para proteger las máquinas en dirección inversa. Conozca los pasos para volver a proteger antes de una nueva conmutación por error."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Volver a proteger desde una región de Azure conmutada por error de nuevo en la región principal
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Información general
 Cuando se [conmutan por error](site-recovery-failover.md) las máquinas virtuales de una región de Azure en otra, las máquinas virtuales están en un estado desprotegido. Si quiere volver a llevarlas a la región principal, primero debe protegerlas y luego volver a conmutar por error. No hay ninguna diferencia entre cómo se conmuta por error en una dirección u otra. Del mismo modo, para habilitar la protección de las máquinas virtuales posteriormente, no hay ninguna diferencia entre volver a proteger después de la conmutación por error o por recuperación.
-Para explicar los flujos de trabajo de reprotección y para evitar confusiones, se usará el sitio principal de las máquinas protegidas como región de Asia Oriental y el sitio de recuperación de las máquinas como región de Asia Suroriental. Durante la conmutación por error, las máquinas virtuales se conmutan por error en la región de Asia Suroriental. Antes de la conmutación por recuperación, debe volver a proteger las máquinas virtuales de Asia Suroriental en Asia Oriental. En este artículo se explican los pasos para volver a proteger.
+Para explicar los flujos de trabajo de reprotección y para evitar confusiones, consulte el sitio principal de las máquinas protegidas como región de Asia Oriental y el sitio de recuperación de las máquinas como región de Asia Suroriental. Durante la conmutación por error, las máquinas virtuales arrancan en la región de Asia Suroriental. Antes de la conmutación por recuperación, debe volver a proteger las máquinas virtuales de Asia Suroriental en Asia Oriental. En este artículo se explican los pasos para volver a proteger.
 
 > [!WARNING]
-> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación.
+> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede volver a proteger o conmutar por recuperación la máquina virtual.
 
 Una vez que la reprotección ha finalizado y las máquinas virtuales protegidas se están replicando, puede iniciar una conmutación por error en las máquinas virtuales para llevarlas de nuevo a la región de Asia Oriental.
 
@@ -56,9 +56,9 @@ A continuación se indican los pasos para volver a proteger una máquina virtual
 
 ![Volver a proteger la hoja](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Revise la información de **Grupo de recursos, Red, Almacenamiento y Conjuntos de disponibilidad** y haga clic en Aceptar. Si hay algún recurso marcado (nuevo), se creará como parte de la reprotección.
+3. Revise la información de **Grupo de recursos, red, almacenamiento y conjuntos de disponibilidad** y haga clic en Aceptar. Si hay algún recurso marcado (nuevo), se creará como parte de la reprotección.
 
-Esto desencadenará un trabajo de reprotección que primero propagará el sitio de destino (región de Asia Suroriental en este caso) con los datos más recientes y, una vez hecho esto, replicará los valores delta antes de conmutar por error de nuevo en Asia Suroriental.
+El trabajo de reprotección primero propagará el sitio de destino (región de Asia Suroriental en este caso) con los datos más recientes y, una vez hecho esto, replicará los valores delta antes de conmutar por error de nuevo en Asia Suroriental.
 
 ### <a name="reprotect-customization"></a>Volver a proteger la personalización
 Si quiere elegir la cuenta de almacenamiento de extracción o la red durante la reprotección, puede hacerlo mediante la opción de personalización proporcionada en la hoja de reprotección.
@@ -72,7 +72,7 @@ Puede personalizar las siguientes propiedades de la máquina virtual de destino 
 |Propiedad |Notas  |
 |---------|---------|
 |Grupo de recursos de destino     | Puede cambiar el grupo de recursos de destino en el que se va a crear la máquina virtual. Como parte de la reprotección, se eliminará la máquina virtual de destino, así que puede elegir un nuevo grupo de recursos en el que crear la máquina virtual posterior a la conmutación por error.         |
-|Red virtual de destino     | No se puede cambiar la red durante la reprotección. Para cambiar la red, vuelva a hacer la asignación de red.         |
+|Virtual Network de destino     | No se puede cambiar la red durante la reprotección jb. Para cambiar la red, vuelva a hacer la asignación de red.         |
 |Almacenamiento de destino     | Puede cambiar la cuenta de almacenamiento en la que se creará la máquina virtual después de la conmutación por error.         |
 |Almacenamiento en caché     | Puede especificar una cuenta de almacenamiento en caché que se usará durante la replicación. Si usa los valores predeterminados, se creará una nueva cuenta de almacenamiento en caché, si aún no existe.         |
 |Conjunto de disponibilidad     |Si la máquina virtual de Asia Oriental forma parte de un conjunto de disponibilidad, puede elegir un conjunto de disponibilidad para la máquina virtual de destino de Asia Suroriental. Los valores predeterminados buscarán el conjunto de disponibilidad de la región de Asia Suroriental existente e intentarán usarlo. Durante la personalización, puede especificar un conjunto de disponibilidad completamente nuevo.         |
@@ -99,7 +99,7 @@ A continuación se indican los pasos que se producen al desencadenar un trabajo 
 > [!NOTE]
 > No se puede proteger en un nivel de plan de recuperación. Solo se puede volver a proteger en un nivel de máquina virtual.
 
-Una vez que la reprotección se haya completado correctamente, la máquina virtual entrará en un estado protegido.
+Una vez que la reprotección del trabajo se haya completado correctamente, la máquina virtual entrará en un estado protegido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

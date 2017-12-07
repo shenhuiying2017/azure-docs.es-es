@@ -10,11 +10,11 @@ ms.reviewer: veyalla
 ms.date: 11/17/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b6c8e77b16d784373e392d0ac97094050677cb84
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalación de la instancia de IoT Edge en tiempo de ejecución en un dispositivo Windows IoT Core (versión preliminar)
 
@@ -50,7 +50,7 @@ La instancia de Azure IoT Edge en tiempo de ejecución puede ejecutarse incluso 
    * Python 3.6
    * El script de control de IoT Edge (iotedgectl.exe)
 
-Puede ver resultados informativos de la herramienta iotedgectl.exe en rojo en la ventana de PowerShell remota. Esto no indica que haya necesariamente errores. 
+Puede ver resultados informativos de la herramienta iotedgectl.exe en verde en la ventana de PowerShell remota. Esto no indica que haya necesariamente errores. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -3,7 +3,7 @@ title: "Guía para desarrollar Azure Functions | Microsoft Docs"
 description: "Obtenga información sobre los conceptos y las técnicas de Azure Functions que necesita para desarrollar funciones en Azure, en todos los lenguajes de programación y enlaces."
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,17 +15,17 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.author: tdykstra
+ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
 
-Este artículo presupone que ya ha leído la [información general de Azure Functions](functions-overview.md) y está familiarizado con [conceptos de SDK de WebJobs como desencadenadores, enlaces y el tiempo de ejecución de JobHost](https://github.com/Azure/azure-webjobs-sdk/wiki). Las funciones de Azure se basan en el SDK de WebJobs. 
+Este artículo presupone que ya ha leído la [información general de Azure Functions](functions-overview.md) y está familiarizado con [conceptos de SDK de WebJobs como desencadenadores, enlaces y el tiempo de ejecución de JobHost](https://github.com/Azure/azure-webjobs-sdk/wiki). Azure Functions se basan en el SDK de WebJobs. 
 
 ## <a name="function-code"></a>Código de función
 Una *función* es el concepto principal en las funciones de Azure. Se escribe código para una función en el lenguaje de su elección y se guarda dicho código y los archivos de configuración en la misma carpeta. La configuración se denomina `function.json`, que contiene datos de configuración de JSON. Se admiten diferentes lenguajes, y cada uno de ellos tiene una experiencia ligeramente diferente optimizada para que funcione mejor para ese lenguaje: 
@@ -58,7 +58,7 @@ La propiedad `bindings` es donde configura los enlaces y los desencadenadores. C
 | `name` |string |El nombre que se usa para los datos enlazados en la función. En C# es un nombre de argumento; en JavaScript es la clave en una lista de clave-valor. |
 
 ## <a name="function-app"></a>Aplicación de función
-Una aplicación de función se compone de una o varias funciones individuales que se administran conjuntamente en el Servicio de aplicaciones de Azure. Todas las funciones de una aplicación de función comparten el mismo plan de precios, la misma implementación continua y la misma versión en tiempo de ejecución. Las funciones escritas en varios lenguajes pueden compartir la misma aplicación de función. Una aplicación de función es como una forma de organizar y administrar las funciones de manera colectiva. 
+Una aplicación de función se compone de una o varias funciones individuales que se administran conjuntamente en Azure App Service. Todas las funciones de una aplicación de función comparten el mismo plan de precios, la misma implementación continua y la misma versión en tiempo de ejecución. Las funciones escritas en varios lenguajes pueden compartir la misma aplicación de función. Una aplicación de función es como una forma de organizar y administrar las funciones de manera colectiva. 
 
 ## <a name="runtime-script-host-and-web-host"></a>Tiempo de ejecución (host de script y host web)
 El tiempo de ejecución, o host de script, es el host del SDK de WebJobs subyacente que escucha eventos, recopila y envía datos y, finalmente, ejecuta el código. 
@@ -68,7 +68,7 @@ Para facilitar los desencadenadores HTTP, también hay un host web que se ha dis
 ## <a name="folder-structure"></a>Estructura de carpetas
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Al configurar un proyecto para la implementación de funciones en una aplicación de función en el Servicio de aplicaciones de Azure, puede tratar esta estructura de carpetas como el código del sitio. Puede utilizar herramientas existentes como scripts de implementación personalizados o implementación e integración continuas para realizar la transpilación de código o la instalación del paquete de tiempo de implementación.
+Al configurar un proyecto para la implementación de funciones en una aplicación de función en Azure App Service, puede tratar esta estructura de carpetas como el código del sitio. Puede utilizar herramientas existentes como scripts de implementación personalizados o implementación e integración continuas para realizar la transpilación de código o la instalación del paquete de tiempo de implementación.
 
 > [!NOTE]
 > Asegúrese de implementar su archivo `host.json` y las carpetas de función directamente en la carpeta `wwwroot`. No incluya la carpeta `wwwroot` en sus implementaciones. De lo contrario, acabará con carpetas `wwwroot\wwwroot`. 
@@ -81,11 +81,8 @@ El editor de funciones integrado en el Portal de Azure le permite actualizar el 
 Las aplicaciones de función se integran en App Service, por lo que todas las [opciones de implementación disponibles para aplicaciones web estándar](../app-service/app-service-deploy-local-git.md) están también disponibles para aplicaciones de función. Estos son algunos métodos que puede utilizar para cargar o actualizar los archivos del contenedor de funciones. 
 
 #### <a name="to-use-app-service-editor"></a>Uso del Editor de App Service
-1. En el portal de Funciones de Azure, haga clic en **Function app settings**(Configuración de Function App).
-2. En la sección **Configuración avanzada**, haga clic en **Go to App Service Settings** (Ir a la configuración del Servicio de aplicaciones).
-3. Haga clic en **Editor de App Service** en el panel de navegación del menú de aplicaciones, que está debajo de **HERRAMIENTAS DE DESARROLLO**.
-4. Haga clic en **Ir**.
-   
+1. En el portal de Azure Functions, haga clic en **Características de la plataforma**.
+2. En la sección **HERRAMIENTAS DE DESARROLLO**, haga clic en **Editor de App Service**.   
    Después de que se cargue el Editor de App Service, verá el archivo *host.json* y las carpetas de funciones en *wwwroot*. 
 5. Abra los archivos para editarlos, o arrástrelos y colóquelos desde el equipo de desarrollo para cargar los archivos.
 
@@ -108,13 +105,16 @@ Cuando se producen varios eventos de desencadenado más rápido de lo que un tie
 Puede configurar la versión del entorno en tiempo de ejecución de Functions mediante la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION`. Por ejemplo, el valor "~1" indica que la Function App utilizará 1 como versión principal. Las Function App se actualizan a las nuevas versiones secundarias a medida que se lanzan. Para más información y saber cómo ver la versión exacta de la aplicación de función, consulte [Cómo seleccionar un destino para versiones en tiempo de ejecución de Azure Functions](functions-versions.md).
 
 ## <a name="repositories"></a>Repositorios
-El código de Funciones de Azure es código abierto y está almacenado en repositorios de GitHub:
+El código de Azure Functions es código abierto y está almacenado en repositorios de GitHub:
 
-* [Tiempo de ejecución de Funciones de Azure](https://github.com/Azure/azure-webjobs-sdk-script/)
-* [Portal de Funciones de Azure](https://github.com/projectkudu/AzureFunctionsPortal)
-* [Plantillas de Funciones de Azure](https://github.com/Azure/azure-webjobs-sdk-templates/)
-* [SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk/)
-* [Extensiones del SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* 
+            [Tiempo de ejecución de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/)
+* 
+            [Portal de Azure Functions](https://github.com/projectkudu/AzureFunctionsPortal)
+* 
+            [Plantillas de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/)
+* [Extensiones del SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Enlaces
 Esta es una tabla de todos los enlaces admitidos.
@@ -128,9 +128,12 @@ Esta es una tabla de todos los enlaces admitidos.
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
-* [Referencia para desarrolladores de C# de Funciones de Azure](functions-reference-csharp.md)
+* 
+            [Referencia para desarrolladores de C# de Azure Functions](functions-reference-csharp.md)
 * [Referencia para desarrolladores de F# de Azure Functions](functions-reference-fsharp.md)
-* [Referencia para desarrolladores de NodeJS de Funciones de Azure](functions-reference-node.md)
-* [Enlaces y desencadenadores de las Funciones de azure](functions-triggers-bindings.md)
-* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Funciones de Azure: trayectoria) en el blog del equipo del Servicio de aplicaciones de Azure. Esta es la historia de cómo se desarrolló Funciones de Azure.
+* 
+            [Referencia para desarrolladores de NodeJS de Azure Functions](functions-reference-node.md)
+* 
+            [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Azure Functions: trayectoria) en el blog del equipo de Azure App Service. Esta es la historia de cómo se desarrolló Azure Functions.
 

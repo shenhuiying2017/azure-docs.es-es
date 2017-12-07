@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
@@ -154,6 +154,21 @@ Las causas comunes de este problema son las siguientes:
 ### <a name="solution"></a>Solución
 
 Para resolver el problema, use la [herramienta de solución de problemas para los errores de montaje de Azure Files](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta herramienta puede ayudarle a validar el cliente que ejecuta el entorno, detectar la configuración de cliente incompatible que podría provocar un error de acceso en Azure Files, proporcionar instrucciones preceptivas sobre la solución autónoma de problemas y recopilar los seguimientos de diagnóstico.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: no se puede acceder a "&lt;ruta de acceso&gt;": error de entrada/salida
+
+Cuando se intenta mostrar los archivos en un recurso compartido de archivos de Azure mediante el comando ls, este comando se bloquea al enumerar los archivos y se recibe el siguiente error:
+
+**ls: no se puede acceder a "&lt;ruta de acceso&gt;": error de entrada/salida**
+
+
+### <a name="solution"></a>Solución
+Actualice el kernel de Linux a las siguientes versiones que tengan una solución para este problema:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Todas las versiones que sean mayores o iguales que 4.13
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

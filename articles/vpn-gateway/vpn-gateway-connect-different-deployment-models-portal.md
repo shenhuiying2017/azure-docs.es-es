@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2100b2b8710207ddb5d1848f11f4d6133f1dfd91
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con el portal
 
@@ -49,7 +49,9 @@ Puede usar estos valores para crear un entorno de prueba o hacer referencia a el
 
 Nombre de red virtual = ClassicVNet <br>
 Espacio de direcciones = 10.0.0.0/24 <br>
-Subred-1 = 10.0.0.0/27 <br>
+Nombre de subred = Subnet-1 <br>
+Intervalo de direcciones de subred = 10.0.0.0/27 <br>
+Suscripción = la suscripción que desea usar <br>
 Grupo de recursos = ClassicRG <br>
 Ubicación = Oeste de EE. UU. <br>
 GatewaySubnet = 10.0.0.32/28 <br>
@@ -59,18 +61,20 @@ Sitio local = RMVNetLocal <br>
 
 Nombre de red virtual = RMVNet <br>
 Espacio de direcciones = 192.168.0.0/16 <br>
-Subred-1 = 192.168.1.0/24 <br>
-Subred de la puerta de enlace = 192.168.0.0/26 <br>
 Grupo de recursos = GR1 <br>
 Ubicación = Este de EE. UU. <br>
+Nombre de subred = Subnet-1 <br>
+Intervalo de direcciones = 192.168.1.0/24 <br>
+Subred de la puerta de enlace = 192.168.0.0/26 <br>
 Nombre de la puerta de enlace de red virtual = PuertaDeEnlaceRM <br>
 Tipo de puerta de enlace = VPN <br>
 Tipo de VPN = basada en enrutamiento <br>
-Nombre de dirección IP pública de puerta de enlace = rmgwpip <br>
-Puerta de enlace de red local = LocalRedVClásica <br>
+SKU = VpnGw1 <br>
+Ubicación = Este de EE. UU. <br>
+Red virtual = RMVNet <br> (asocie la puerta de enlace de VPN a esta red virtual) Configuración de la primera dirección IP = rmgwpip <br> (dirección IP pública de la puerta de enlace) Puerta de enlace de red local = ClassicVNetLocal <br>
 Nombre de conexión = RMtoClassic
 
-### <a name="connection-overview"></a>Información general sobre la conexión
+### <a name="connectoverview"></a>Información general sobre la conexión
 
 Para esta configuración se crea una conexión de puerta de enlace VPN a través de un túnel VPN de IPsec/IKE entre las redes virtuales. Asegúrese de que ninguno de los intervalos de red virtual se superponga con otro o con cualquiera de las redes locales a las que se conectan.
 
@@ -83,82 +87,104 @@ En la tabla siguiente se muestra un ejemplo de cómo se definen los sitios local
 
 ## <a name="classicvnet"></a>Sección 1: Configuración de la red virtual clásica
 
-En esta sección se creará la red local (sitio local) y la puerta de enlace de la red virtual para la red virtual clásica. Si no tiene una red virtual clásica y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente.
+En esta sección se crea la red virtual clásica, la red local (sitio local) y la puerta de enlace de red virtual. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 
-Al usar el portal para crear una red virtual clásica, debe ir a la página de la red virtual siguiendo los pasos siguientes; en caso contrario, no aparecerá la opción para crear una red virtual clásica:
+### 1. <a name="classicvnet"></a>Creación de una red virtual clásica
 
-1. Haga clic en "+" para abrir la página "Nuevo".
-2. En el campo "Buscar en el Marketplace", escriba "Red virtual". Si en su lugar, selecciona Redes -> Red virtual, no obtendrá la opción para crear una red virtual clásica.
-3. En la lista de resultados, busque "Virtual Network" y haga clic en esa opción para abrir la página Virtual Network. 
-4. En la página de red virtual, seleccione "Clásica" para crear una red virtual clásica. 
+Si no tiene una red virtual clásica y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente.
 
-Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puerta de enlace sea dinámica. Si es estática, primero debe eliminar la puerta de enlace VPN y luego continuar.
+Si ya tiene una red virtual con una puerta de enlace VPN, compruebe que la puerta de enlace sea dinámica. Si es estática, primero debe eliminar la puerta de enlace de VPN antes de pasar a [configurar el sitio local](#local).
 
-Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
+1. Abra [Azure Portal](https://ms.portal.azure.com) e inicie sesión con su cuenta de Azure.
+2. Haga clic en **+ Crear un recurso** para abrir la página "Nuevo".
+3. En el campo "Buscar en el Marketplace", escriba "Virtual Network". Si en su lugar, selecciona Redes -> Virtual Network, no obtendrá la opción para crear una red virtual clásica.
+4. En la lista de resultados, busque "Virtual Network" y haga clic en esa opción para abrir la página Virtual Network. 
+5. En la página de red virtual, seleccione "Clásica" para crear una red virtual clásica. Si aquí usa el valor predeterminado, generará en su lugar una red virtual de Resource Manager.
 
-### 1. <a name="local"></a>Configuración del sitio local
-
-Abra [Azure Portal](https://ms.portal.azure.com) e inicie sesión con su cuenta de Azure.
+### 2. <a name="local"></a>Configuración del sitio local
 
 1. Vaya a **Todos los recursos** y ubique **ClassicVNet** en la lista.
-2. En la página **Información general**, en la sección **Conexiones de VPN**, haga clic en el gráfico **Puerta de enlace** para crear una puerta de enlace.
-
-    ![Configurar una puerta de enlace VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurar una puerta de enlace VPN")
+2. En la página **Información general**, en la sección **Conexiones de VPN**, haga clic en **Puerta de enlace** para crear una puerta de enlace.
+  ![Configurar una puerta de enlace VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurar una puerta de enlace VPN")
 3. En la página **Nueva conexión de VPN**, en la opción **Tipo de conexión**, seleccione **De sitio a sitio**.
 4. En **Sitio local**, haga clic en **Configurar los valores obligatorios**. Con esto se abre la página **Sitio local**.
 5. En la página **Sitio Local**, cree un nombre para hacer referencia a la red virtual de Resource Manager. Por ejemplo, "RMVNetLocal".
 6. Si la puerta de enlace VPN para la red virtual de Resource Manager ya tiene una dirección IP pública, use el valor para el campo **Dirección IP de la VPN Gateway**. Si lleva a cabo estos pasos como ejercicio o todavía no tiene una puerta de enlace de red virtual para la red virtual de Resource Manager, puede inventar una dirección IP de marcador de posición. Asegúrese de que la dirección IP de marcador de posición utiliza un formato válido. Más adelante, reemplaza la dirección IP de marcador de posición por la dirección IP pública de la puerta de enlace de red virtual de Resource Manager.
-7. Para **Client Address Space** (Espacio de direcciones de clientes), use los valores de los espacios de direcciones IP de red virtual para la red virtual de Resource Manager. Este valor se usa para especificar los espacios de direcciones a fin de enrutar a la red virtual de Resource Manager.
+7. Para **Client Address Space** (Espacio de direcciones de clientes), use los [valores](#connectoverview) de los espacios de direcciones IP de red virtual para la red virtual de Resource Manager. Este valor se usa para especificar los espacios de direcciones a fin de enrutar a la red virtual de Resource Manager. En el ejemplo usamos 192.168.0.0/16, el intervalo de direcciones de RMVNet.
 8. Haga clic en **Aceptar** para guardar los valores y volver a la página **Nueva conexión de VPN**.
 
-### <a name="classicgw"></a>2. Creación de la puerta de enlace de red virtual
+### <a name="classicgw"></a>3. Creación de la puerta de enlace de red virtual
 
-1. En la página **Nueva conexión de VPN**, seleccione la casilla **Crear puerta de enlace inmediatamente** y haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**. 
+1. En la página **Nueva conexión VPN**, active la casilla **Crear puerta de enlace inmediatamente**.
+2. Haga clic en **Configuración de puerta de enlace opcional** para abrir la página **Configuración de puerta de enlace**.
 
-    ![Abrir página de configuración de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Abrir página de configuración de puerta de enlace")
-2. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El **nombre** ya está configurado con valor requerido **GatewaySubnet**.
-3. **Intervalo de direcciones** hace referencia al intervalo para la subred de puerta de enlace. Si bien puede crear una subred de puerta de enlace con un intervalo de direcciones de /29 (3 direcciones), se recomienda crear una subred de puerta de enlace que incluya más direcciones IP. Esto permitirá configuraciones futuras que puedan requerir más direcciones IP disponibles. Si es posible, utilice /27 o /28. Si usa estos pasos como ejercicio, puede hacer referencia a los valores de [ejemplo](#values). Haga clic en **Aceptar** para crear la subred de puerta de enlace.
-4. En la página **Configuración de puerta de enlace**, la opción **Tamaño** hace referencia a la SKU de la puerta de enlace. Seleccione la SKU de puerta de enlace para la puerta de enlace VPN.
-5. Compruebe que el **Tipo de enrutamiento** sea **Dinámico** y haga clic en **Aceptar** para volver a la página **Nueva conexión de VPN**.
-6. En la página **Nueva conexión de VPN**, haga clic en **Aceptar** para empezar a crear la puerta de enlace de VPN. Una puerta de enlace VPN puede tardar hasta 45 minutos en completarse.
+  ![Abrir página de configuración de puerta de enlace](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Abrir página de configuración de puerta de enlace")
+3. Haga clic en **Subred: configurar los valores obligatorios** para abrir la página **Agregar subred**. El **nombre** ya está configurado con valor requerido: **GatewaySubnet**.
+4. **Intervalo de direcciones** hace referencia al intervalo para la subred de puerta de enlace. Si bien puede crear una subred de puerta de enlace con un intervalo de direcciones de /29 (3 direcciones), se recomienda crear una subred de puerta de enlace que incluya más direcciones IP. Esto permitirá configuraciones futuras que puedan requerir más direcciones IP disponibles. Si es posible, utilice /27 o /28. Si usa estos pasos como ejercicio, puede hacer referencia a los [valores de ejemplo](#values). En este ejemplo se usa "10.0.0.32/28". Haga clic en **Aceptar** para crear la subred de puerta de enlace.
+5. En la página **Configuración de puerta de enlace**, la opción **Tamaño** hace referencia a la SKU de la puerta de enlace. Seleccione la SKU de puerta de enlace para la puerta de enlace VPN.
+6. Compruebe que el **Tipo de enrutamiento** sea **Dinámico** y haga clic en **Aceptar** para volver a la página **Nueva conexión de VPN**.
+7. En la página **Nueva conexión de VPN**, haga clic en **Aceptar** para empezar a crear la puerta de enlace de VPN. Una puerta de enlace VPN puede tardar hasta 45 minutos en completarse.
 
-### <a name="ip"></a>3. Copia de la dirección IP pública de la puerta de enlace de la red virtual
+### <a name="ip"></a>4. Copia de la dirección IP pública de la puerta de enlace de la red virtual
 
 Una vez que se haya creado la puerta de enlace de la red virtual, puede ver la dirección IP de la puerta de enlace. 
 
 1. Desplácese a la red virtual clásica y haga clic en **Información general**.
-2. Haga clic en **Conexiones de VPN** para abrir la página de conexiones. En la página de conexiones de VPN, puede ver la dirección IP pública. Se trata de la dirección IP pública asignada a la puerta de enlace de red virtual. 
-3. Escriba o copie la dirección IP. Se usa en pasos posteriores al trabajar con las opciones de configuración de puerta de enlace de red local de Resource Manager. También puede ver el estado de las conexiones de puerta de enlace. Observe que el sitio de red local que creó aparece como "Conectando". El estado cambiará una vez creadas las conexiones.
-4. Cierre la página después de copiar la dirección IP de la puerta de enlace.
+2. Haga clic en **Conexiones de VPN** para abrir la página de conexiones. En la página de conexiones de VPN, puede ver la dirección IP pública. Se trata de la dirección IP pública asignada a la puerta de enlace de red virtual. Anote la dirección IP. Se usa en pasos posteriores al trabajar con las opciones de configuración de puerta de enlace de red local de Resource Manager. 
+3. Puede ver el estado de las conexiones de puerta de enlace. Observe que el sitio de red local que creó aparece como "Conectando". El estado cambiará una vez creadas las conexiones. Puede cerrar esta página cuando termine de ver el estado.
 
 ## <a name="rmvnet"></a>Sección 2: Configuración de redes virtuales de Resource Manager
 
-En esta sección se crea la puerta de enlace de red virtual y la puerta de enlace de red local para la red de Resource Manager. Si no tiene una red virtual de Resource Manager y lleva a cabo estos pasos como ejercicio, puede crear una red virtual según [este artículo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) y los valores de configuración de [ejemplo](#values) indicados anteriormente.
+En esta sección se crea la puerta de enlace de red virtual y la puerta de enlace de red local para la red de Resource Manager. Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
 
-Las capturas de pantalla se proporcionan a modo de ejemplo. Asegúrese de reemplazar los valores por los suyos o use los valores de [ejemplo](#values).
+### <a name="1-create-a-virtual-network"></a>1. Crear una red virtual
 
-### <a name="1-create-a-gateway-subnet"></a>1. Creación de una subred de puerta de enlace
+**Valores de ejemplo:**
 
-Antes de crear una puerta de enlace de red virtual, primero deberá crear una subred de puerta de enlace. Cree una subred de puerta de enlace con un recuento CIDR de /28 o mayor. (/27, /26, etc.)
+* Nombre de red virtual = RMVNet <br>
+* Espacio de direcciones = 192.168.0.0/16 <br>
+* Grupo de recursos = GR1 <br>
+* Ubicación = Este de EE. UU. <br>
+* Nombre de subred = Subnet-1 <br>
+* Intervalo de direcciones = 192.168.1.0/24 <br>
+
+
+Si no tiene una red virtual de Resource Manager y ejecuta estos pasos como ejercicio, puede crear una red virtual con [este artículo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) y los valores de ejemplo.
+
+### <a name="2-create-a-gateway-subnet"></a>2. Creación de una subred de puerta de enlace
+
+**Valor de ejemplo:** GatewaySubnet = 192.168.0.0/26
+
+Antes de crear una puerta de enlace de red virtual, primero deberá crear una subred de puerta de enlace. Cree una subred de puerta de enlace con un recuento CIDR de /28 o mayor (/27, /26, etc.). Si crea esta configuración como parte de un ejercicio, puede usar los valores de ejemplo.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="creategw"></a>2. Creación de una puerta de enlace de red virtual
+### <a name="creategw"></a>3. Creación de una puerta de enlace de red virtual
+
+**Valores de ejemplo:**
+
+* Nombre de la puerta de enlace de red virtual = PuertaDeEnlaceRM <br>
+* Tipo de puerta de enlace = VPN <br>
+* Tipo de VPN = basada en enrutamiento <br>
+* SKU = VpnGw1 <br>
+* Ubicación = Este de EE. UU. <br>
+* Red virtual = RMVNet <br>
+* Configuración de primera dirección IP = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>3. Creación de una puerta de enlace de red local
+### <a name="createlng"></a>4. Creación de una puerta de enlace de red local
 
-La puerta de enlace de red local especifica el intervalo de direcciones y la dirección IP pública asociados a la red virtual clásica y su puerta de enlace de red virtual.
-
-Si lleva a cabo estos pasos como ejercicio, haga referencia a esta configuración:
+**Valores de ejemplo:** Puerta de enlace de red local = ClassicVNetLocal
 
 | Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |Dirección IP pública de puerta de enlace|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Oeste de EE. UU. | RMVNetLocal (192.168.0.0/16) |La dirección IP pública que se asigna a la puerta de enlace ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Este de EE. UU. |ClassicVNetLocal (10.0.0.0/24) |La dirección IP pública que se asigna a la puerta de enlace RMVNet.|
+
+La puerta de enlace de red local especifica el intervalo de direcciones y la dirección IP pública asociados a la red virtual clásica y su puerta de enlace de red virtual. Si lleva a cabo estos pasos como un ejercicio, consulte los valores de ejemplo.
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 

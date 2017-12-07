@@ -3,7 +3,7 @@ title: "Reprotección desde Azure en un sitio local | Microsoft Docs"
 description: "Después de que se produzca una conmutación por error de máquinas virtuales en Azure, puede iniciar una conmutación por recuperación para volver a poner las máquinas virtuales en el entorno local. Aprenda a reproteger antes de una conmutación por recuperación."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
-ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Reprotección desde Azure a un sitio local
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 En este artículo se explica cómo reproteger máquinas virtuales de Azure desde Azure en un sitio local. Siga las instrucciones de este artículo cuando esté listo para conmutar por recuperación máquinas virtuales de VMware o servidores físicos de Windows o Linux después de que se hayan conmutado por error desde el sitio local en Azure (como se explica en [Replicación de máquinas virtuales VMware y servidores físicos en Azure con Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación. Si deshabilita la protección de la máquina virtual, no es posible realizar la conmutación por recuperación.
+> Si ha [finalizado la migración](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), ha trasladado la máquina virtual a otro grupo de recursos o ha eliminado la máquina virtual de Azure, no puede entonces realizar la conmutación por recuperación. Si deshabilita la protección de la máquina virtual, no es posible realizar la conmutación por recuperación. Si la máquina virtual se creó por primera vez en Azure (nacido en la nube) no se puede volver a proteger en local. La máquina se debe haber protegido inicialmente en local y haber conmutador por error a Azure antes de la reprotección.
 
 
 Cuando termine la reprotección y las máquinas virtuales protegidas se estén replicando, puede iniciar una conmutación por recuperación en las máquinas virtuales para llevarlas al sitio local.
@@ -62,13 +62,20 @@ Cuando se prepare para reproteger máquinas virtuales, tome o considere las sigu
   * **Servidor de destino maestro**: este servidor recibe datos de conmutación por recuperación. El servidor de administración local que creó tiene instalado de forma predeterminada un servidor de destino maestro. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino principal distinto para esta operación.
     * [Una máquina virtual Linux necesita un servidor de destino maestro Linux](site-recovery-how-to-install-linux-master-target.md).
     * Una máquina virtual Windows necesita un servidor de destino maestro Windows. Puede usar el servidor de procesos local y las máquinas de destino maestro de nuevo.
+    * El destino maestro tiene otros requisitos previos que se enumeran en [Comprobaciones habituales en un destino maestro antes de reproteger](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-    El destino maestro tiene otros requisitos previos que se enumeran en [Comprobaciones habituales en un destino maestro antes de reproteger](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Todas las máquinas virtuales de un grupo de replicación deben ser del mismo tipo de sistema operativo (todas Windows o todas Linux). Un grupo de replicación con sistemas operativos mezclados no se admite actualmente para reprotección y conmutación por recuperación a local. Esto se debe a que el destino maestro debe ser del mismo sistema operativo que la máquina virtual y todas las máquinas virtuales de un grupo de replicación deben tener el mismo destino maestro. 
+
+    
 
 * Se necesita un servidor de configuración en local al conmutar por recuperación. Durante la conmutación por recuperación, la máquina virtual debe encontrarse en la base de datos del servidor de configuración. En caso contrario, la conmutación por recuperación no será correcta. 
 
 > [!IMPORTANT]
 > Asegúrese de realizar una copia de seguridad programada periódica del servidor de configuración. En caso de desastre, restaure el servidor con la misma dirección IP para que la conmutación por recuperación funcione.
+
+> [!WARNING]
+> Un grupo de replicación solamente debe tener VM Windows o VM Linux, y no una combinación de ambas porque todas las VM de un grupo de replicación utilizan el mismo servidor de destino maestro y la VM Linux requiere un servidor de destino maestro Linux y, lo mismo sucede para una VM Windows.
 
 * Establezca `disk.EnableUUID=true` en los parámetros de configuración de la máquina virtual del destino maestro en VMware. Si la fila no existe, agréguela. Esta configuración es necesaria a fin de proporcionar un UUID uniforme al disco de máquina virtual (VMDK) para que se monte correctamente.
 
@@ -170,6 +177,8 @@ Actualmente, Azure Site Recovery admite la conmutación por recuperación única
 * El servidor de destino maestro no puede tener instantáneas en los discos. Si hay instantáneas, se produce un error en la reprotección y la conmutación por recuperación.
 
 * El destino maestro no puede tener ninguna controladora SCSI paravirtual. La controladora solo puede ser una controladora de LSI Logic. Sin ella, se produce un error en la reprotección.
+
+* En cualquier instancia dada, el destino maestro puede tener 60 discos como máximo conectados a él. Si el número de máquinas virtuales que se va a volver a proteger en el destino maestro local suma más de 60 discos, las reprotecciones en el destino maestro empezarán a generar errores. Asegúrese de que tiene suficientes ranuras de disco de destino maestro o implemente servidores de destino maestro adicionales.
 
 <!--
 ### Failback policy

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Configuración de puertos de alta disponibilidad para el equilibrador de carga interno
 
@@ -41,13 +41,10 @@ Figura 1: Dispositivos virtuales de red implementados detrás de un equilibrador
 
 ## <a name="preview-sign-up"></a>Registro en versión preliminar
 
-Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en Load Balancer estándar, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0.  Puede registrar una suscripción para
-
-1. [la versión preliminar de Load Balancer estándar](https://aka.ms/lbpreview#preview-sign-up) y 
-2. [la versión preliminar de Puertos HA](https://aka.ms/haports#preview-sign-up).
+Para participar en la versión preliminar de la característica de puertos de alta disponibilidad en Load Balancer estándar, registre su suscripción para obtener acceso mediante PowerShell o la CLI de Azure 2.0. Registre la suscripción para la [versión preliminar de Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Para usar esta característica, es necesario registrarse en la versión preliminar de Load Balancer [estándar](https://aka.ms/lbpreview#preview-sign-up) además de para los puertos de alta disponibilidad. El registro de las versiones preliminares de los puertos de alta disponibilidad o Load Balancer estándar puede tardar hasta una hora.
+>El registro de las versiones preliminares de Load Balancer Standard puede tardar hasta una hora.
 
 ## <a name="configuring-ha-ports"></a>Configuración de puertos de alta disponibilidad
 

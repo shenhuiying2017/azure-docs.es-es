@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creación de una instancia de Application Gateway con la plantilla de Azure Resource Manager
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona solicitudes HTTP de enrutamiento del rendimiento y conmutación por error y entre distintos servidores, independientemente de que se encuentren en la nube o en el entorno local. Application Gateway proporciona numerosas características del controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, y muchas más. Para encontrar una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md).
 
-Este artículo le guiará por los procesos de descarga y modificación de una plantilla de Azure Resource Manager desde GitHub, así como a implementación desde GitHub, PowerShell y la CLI de Azure.
+Este artículo le guiará por los procesos de descarga y modificación de una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) desde GitHub, así como la implementación desde GitHub, PowerShell y la CLI de Azure.
 
-Si simplemente va a implementar la plantilla de Azure Resource Manager directamente desde GitHub sin realizar ningún cambio, vaya a la sección sobre la implementación una plantilla desde GitHub.
+Si solo va a implementar la plantilla directamente desde GitHub sin realizar ningún cambio, vaya a la implementación de una plantilla desde GitHub.
 
 ## <a name="scenario"></a>Escenario
 
@@ -75,9 +75,6 @@ Puede descargar la plantilla de Azure Resource Manager existente para crear una 
    * **type**. Tipo de recurso que creó la plantilla. En este caso, el tipo es `Microsoft.Network/applicationGateways`, que representa una puerta de enlace de aplicaciones.
    * **nombre**. Nombre del recurso. Observe el uso de `[parameters('applicationGatewayName')]`, que significa que el nombre lo proporciona el usuario o un archivo de parámetros durante la implementación.
    * **propiedades**. Lista de propiedades para el recurso. Esta plantilla usa la red virtual y la dirección IP pública durante la creación de la instancia de Application Gateway.
-
-   > [!NOTE]
-   > Para más información sobre las plantillas, visite el artículo de [referencia de plantillas de Resource Manager](/templates/)
 
 1. Vuelva a [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Haga clic en **azuredeploy-paremeters.json** y luego en **Sin formato**.

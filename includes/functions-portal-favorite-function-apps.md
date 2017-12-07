@@ -12,6 +12,6 @@ Si todavía no lo ha hecho, agregue instancias de Function App a sus favoritos e
 
 3. Cierre el menú y después desplácese hasta la parte inferior para ver el icono Funciones. Haga clic en este icono para ver una lista de todas sus instancias de Function App. Haga clic en su Function App para trabajar con las funciones de esta aplicación. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Function Apps en favoritos](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      
