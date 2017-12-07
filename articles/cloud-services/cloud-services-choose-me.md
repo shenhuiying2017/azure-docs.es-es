@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>¿Debo elegir los servicios en la nube o alguna otra opción?
 ¿Es Azure Cloud Services la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una de ellas proporciona un conjunto diferente de servicios; por tanto, lo que elija dependerá exactamente lo intenta hacer.
@@ -50,7 +50,7 @@ A pesar de que las aplicaciones se ejecutan en máquinas virtuales, resulta impo
 ## <a name="scaling-and-management"></a>Escalado y administración
 Con Cloud Services no se crean máquinas virtuales. En lugar de eso, se proporciona un archivo de configuración que le indica a Azure qué cantidad de cada una le gustaría tener, como por ejemplo, **tres instancias de rol web** y **dos instancias de rol de trabajo**, y la plataforma las crea por usted.  Sigue siendo necesario que elija [qué tamaño](cloud-services-sizes-specs.md) deben tener esas máquinas virtuales (las opciones son las mismas que con las máquinas virtuales de Azure), pero no tiene que crearlas por sí mismo explícitamente. Si la aplicación necesita manejar una carga mayor, puede pedir más VM y Azure creará esas instancias. Si la carga disminuye, puede apagar esas instancias y así dejar de pagar por ellas.
 
-Una aplicación de Cloud Services normalmente está a disposición de los usuarios a través de un proceso de dos pasos. Un desarrollador primero [carga la aplicación](cloud-services-how-to-create-deploy-portal.md) en el área de ensayo de la plataforma. Cuando el desarrollador está preparado para activar definitivamente la aplicación, utiliza Azure Portal para intercambiar el ensayo por la producción. Este [intercambio entre el área de ensayo y la producción](cloud-services-nodejs-stage-application.md) se puede llevar a cabo sin tiempo de inactividad, lo que permite actualizar una aplicación en ejecución a una versión nueva sin interrumpir ni molestar a sus usuarios.
+Una aplicación de Cloud Services normalmente está a disposición de los usuarios a través de un proceso de dos pasos. Un desarrollador primero [carga la aplicación](cloud-services-how-to-create-deploy-portal.md) en el área de ensayo de la plataforma. Cuando el desarrollador está preparado para activar definitivamente la aplicación, utiliza Azure Portal para intercambiar el ensayo por la producción. Este [intercambio entre el área de ensayo y la producción](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) se puede llevar a cabo sin tiempo de inactividad, lo que permite actualizar una aplicación en ejecución a una versión nueva sin interrumpir ni molestar a sus usuarios.
 
 ## <a name="monitoring"></a>Supervisión
 Cloud Services también brinda supervisión. Al igual que con Azure Virtual Machines, detecta un servidor físico con errores y reinicia las VM que se ejecutaban en ese servidor en una máquina nueva. Pero Cloud Services también detecta máquinas virtuales y aplicaciones con errores, no solo errores de hardware. A diferencia de Máquinas virtuales, Servicios en la nube tiene un agente dentro de cada rol web o rol de trabajo, por lo que puede iniciar nuevas instancias de aplicaciones y máquinas virtuales cuando se produce un error.
