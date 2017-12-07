@@ -9,14 +9,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 89e2192b3b5c978da4a41dea51d0ab70181b500d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilación de una aplicación web Docker Python con PostgreSQL en Azure
 
@@ -445,7 +445,7 @@ Cuando se ha creado la aplicación web, la CLI de Azure muestra información sim
 
 En este mismo tutorial, ya ha definido variables de entorno para conectarse a su base de datos de PostgreSQL.
 
-En App Service, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [az appservice web config appsettings set](/cli/azure/webapp/config#az_webapp_config_appsettings_set).
+En App Service, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [az appservice web config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
 
 En el siguiente ejemplo se especifican los datos de conexión de la base de datos en forma de valores de configuración de aplicación. También se usa la variable *PORT* para asignar el PUERTO 5000 del contenedor de Docker para reciba tráfico HTTP en el PUERTO 80.
 

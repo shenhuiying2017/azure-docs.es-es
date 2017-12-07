@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 916aefb7916ab374c882efb95417babfc5b06a50
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics en IoT Edge (versión preliminar)
 
@@ -35,7 +35,7 @@ Esta característica está en versión preliminar y si tiene cualquier pregunta 
 * **Comando de baja latencia y control**: por ejemplo, los sistemas de seguridad en la fabricación deben responder a los datos operativos con una latencia muy baja. Con ASA en IoT Edge, puede analizar los datos de sensores casi en tiempo real y emitir comandos cuando detecte anomalías para detener una máquina o desencadenar alertas.
 *   **Conectividad limitada a la nube**: los sistemas críticos, como un equipo de minería remoto, buques conectados o las perforaciones petrolífera en mar abierto necesitan analizar y reaccionar ante los datos, incluso cuando la nube conectividad sea intermitente. Con el ASA, la lógica de streaming funciona independientemente de la conectividad de red y puede elegir lo que envía a la nube para su posterior procesamiento o almacenamiento.
 * **Ancho de banda limitado**: el volumen de datos que generan los motores de jet o los automóviles conectados puede ser tan grande que los datos se deben filtrar o procesar con anterioridad antes de enviarlos a la nube. ASA puede filtrar o agregar los datos que se envían a la nube.
-* **Cumplimiento**: el cumplimiento de las normas puede requerir que se agreguen algunos datos o que se oculte su identidad localmente antes de enviarlos a la nube. Con ASA, 
+* **Cumplimiento**: el cumplimiento de las normas puede requerir que se agreguen algunos datos o que se oculte su identidad localmente antes de enviarlos a la nube.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Trabajos de Edge en Azure Stream Analytics
 ### <a name="what-is-an-edge-job"></a>¿Qué es un trabajo "perimetral"?
