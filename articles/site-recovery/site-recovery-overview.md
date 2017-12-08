@@ -1,4 +1,4 @@
-﻿---
+---
 title: Acerca de Azure Site Recovery | Microsoft Docs
 description: "Proporciona información general sobre el servicio de Azure Site Recovery y resume escenarios de implementación."
 services: site-recovery

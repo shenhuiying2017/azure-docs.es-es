@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas de la Factoría de datos de Azure"
-description: "Obtenga información acerca de la solución de problemas relacionados con la factoría de datos de Azure."
+title: "Solución de problemas de Azure Data Factory"
+description: "Obtenga información acerca de la solución de problemas relacionados con Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/01/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 1b4cab46e0fc86d5074b6d19601cd7ff4afeb0eb
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 8273647aa1cf8f7d35a9c645d44c64455e554cdb
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solución de problemas de la factoría de datos
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. 
 
-En este artículo se proporcionan consejos para solución de problemas surgidos al usar Data Factory de Azure. Este artículo no incluye todos los posibles problemas que pueden aparecer al usar el servicio, pero trata algunos de ellos, así como consejos para solución de problemas generales.   
+En este artículo se proporcionan consejos para solución de problemas surgidos al usar Azure Data Factory. Este artículo no incluye todos los posibles problemas que pueden aparecer al usar el servicio, pero trata algunos de ellos, así como consejos para solución de problemas generales.   
 
 ## <a name="troubleshooting-tips"></a>Sugerencias de solución de problemas
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Error: La suscripción no está registrada para usar el espacio de nombres 'Microsoft.DataFactory'
-Si recibe este error, el proveedor de recursos de Data Factory de Azure no se ha registrado en su equipo. Haga lo siguiente:
+Si recibe este error, el proveedor de recursos de Azure Data Factory no se ha registrado en su equipo. Haga lo siguiente:
 
 1. Inicie Azure PowerShell.
 2. Inicie sesión en la cuenta de Azure mediante el siguiente comando.
@@ -37,7 +37,7 @@ Si recibe este error, el proveedor de recursos de Data Factory de Azure no se ha
     ```powershell
     Login-AzureRmAccount
     ```
-3. Ejecute el siguiente comando para registrar el proveedor de Data Factory de Azure.
+3. Ejecute el siguiente comando para registrar el proveedor de Azure Data Factory.
 
     ```powershell        
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -64,7 +64,7 @@ La configuración rápida de Data Management Gateway requiere Internet Explorer 
 Inicie **Administrador de configuración de Data Management Gateway** en el equipo de la puerta de enlace y use la pestaña **Solución de problemas** para probar la conexión a SQL Server desde el equipo de la puerta de enlace. Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obtener sugerencias para solucionar problemas de conexión o puerta de enlace.   
 
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>Problema: Los segmentos de entrada están en el estado En espera de forma permanente.
-Los intervalos pueden tener el estado **En espera** por diversos motivos. Uno de los motivos comunes es que la propiedad **external** no está establecida en **True**. Cualquier conjunto de datos que se produce fuera del ámbito de Data Factory de Azure debe marcarse con la propiedad **external** . Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
+Los intervalos pueden tener el estado **En espera** por diversos motivos. Uno de los motivos comunes es que la propiedad **external** no está establecida en **True**. Cualquier conjunto de datos que se produce fuera del ámbito de Azure Data Factory debe marcarse con la propiedad **external** . Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
 Consulte el ejemplo siguiente para el uso de la propiedad **external** . Opcionalmente, puede especificar **externalData*** al establecer external en true.
 
@@ -102,7 +102,7 @@ Para resolver el error, agregue la propiedad **external** y la sección **extern
 Consulte [Solución de problemas de la puerta de enlace](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) si quiere ver los pasos para solucionar problemas con la copia en un almacén de datos local como origen o destino usando Data Management Gateway.
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: El aprovisionamiento de HDInsight a petición produce un error
-Al usar un servicio vinculado de tipo HDInsightOnDemand, debe especificar linkedServiceName que apunte a Almacenamiento de blobs de Azure. El servicio Data Factory usa este almacenamiento para almacenar registros y archivos auxiliares para el clúster de HDInsight a petición.  A veces, el aprovisionamiento de un clúster de HDInsight a petición produce el siguiente error:
+Al usar un servicio vinculado de tipo HDInsightOnDemand, debe especificar linkedServiceName que apunte a Azure Blob Storage. El servicio Data Factory usa este almacenamiento para almacenar registros y archivos auxiliares para el clúster de HDInsight a petición.  A veces, el aprovisionamiento de un clúster de HDInsight a petición produce el siguiente error:
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
