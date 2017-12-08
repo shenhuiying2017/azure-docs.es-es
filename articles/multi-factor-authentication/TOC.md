@@ -13,7 +13,6 @@
 # Cómo
 ## Implementación y uso
 ### [Configuración de opciones](multi-factor-authentication-whats-next.md)
-#### [Uso del portal de PhoneFactor](multi-factor-authentication-whats-next-pfweb.md)
 ### [Informes de MFA](multi-factor-authentication-manage-reports.md)
 ### [Uso de servidores de directivas de red existentes](multi-factor-authentication-nps-extension.md)
 #### [Configuración avanzada para extensión NPS](nps-extension-advanced-configuration.md)
