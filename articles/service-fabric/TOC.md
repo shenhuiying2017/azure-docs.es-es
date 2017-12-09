@@ -101,7 +101,6 @@
 
 ## Administración de aplicaciones
 ### [Información general](service-fabric-application-lifecycle.md)
-### [Configuración de ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Actualización de aplicaciones
 #### [Información general](service-fabric-application-upgrade.md)
 #### [Configuración](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Serialización de datos en actualizaciones de aplicaciones](service-fabric-application-upgrade-data-serialization.md)
 #### [Temas avanzados sobre actualización de aplicaciones](service-fabric-application-upgrade-advanced.md)
 ### [Introducción a los análisis de errores](service-fabric-testability-overview.md)
+### [Configuración de ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
 ## Creación y administración de clústeres
 ### [Información general](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Limitaciones](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Movimiento de servicio](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integración con API Management](service-fabric-api-management-overview.md)
-
 ## Supervisión y diagnóstico
 ### [Aplicaciones de supervisión y diagnóstico](service-fabric-diagnostics-overview.md)
 ### Generación de eventos
@@ -164,13 +162,14 @@
 #### [Análisis de eventos con OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Solución de problemas de un clúster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integración con API Management](service-fabric-api-management-overview.md)
+
 # Guías de procedimientos
 ## Configuración de su entorno de desarrollo
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Configuración de la CLI de Service Fabric](service-fabric-cli.md)
+### [Configuración de la CLI de Service Fabric](service-fabric-cli.md)
 
 ## Creación de una aplicación
 ### [Creación de la primera aplicación de C# en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
