@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 #### [Solución de problemas](active-directory-application-proxy-troubleshoot.md)
-#### Uso del portal clásico
-##### [Descarga de conectores](application-proxy-enable-classic-portal.md)
-##### [Publicación de aplicaciones](active-directory-application-proxy-publish.md)
-##### [Uso de conectores](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Acceso condicional](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Administración de aplicaciones empresariales
 #### [Asignación de usuarios](active-directory-coreapps-assign-user-azure-portal.md)
@@ -286,7 +281,7 @@
 ## Protección de las identidades
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Controles](active-directory-conditional-access-controls.md)
-#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### Tareas

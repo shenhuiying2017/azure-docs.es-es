@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre las aplicaciones administradas de Azure
+title: "Documentación sobre las aplicaciones administradas de Azure"
 metadata:
-  title: 'Documentación sobre las aplicaciones administradas de Azure: tutoriales y referencia de API'
-  description: Use las aplicaciones administradas de Azure para publicar soluciones en la nube que resulten más fáciles de mantener para los usuarios.
+  title: "Documentación sobre las aplicaciones administradas de Azure: tutoriales y referencia de API"
+  description: "Use las aplicaciones administradas de Azure para publicar soluciones en la nube que resulten más fáciles de mantener para los usuarios."
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -13,38 +13,43 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
+  ms.openlocfilehash: a51f2d028dc09bfe8d58357d2ade7c3dfa6e3fef
+  ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/08/2017
 abstract:
-  description: Las aplicaciones administradas de Azure le permiten ofrecer soluciones en la nube a clientes internos y externos. Puede definir la infraestructura de la solución y los términos de la administración continua de esta. La facturación de la solución se controla a través de la facturación de Azure.
+  description: "Las aplicaciones administradas de Azure le permiten ofrecer soluciones en la nube a clientes internos y externos. Puede definir la infraestructura de la solución y los términos de la administración continua de esta. La facturación de la solución se controla a través de la facturación de Azure."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Aprenda a publicar e implementar una aplicación administrada."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Aprenda a publicar e implementar una aplicación administrada.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/managed-applications/media/index/cli.svg
-            text: CLI de Azure
-            href: /azure/managed-applications/managed-apps-quickstart-cli
-  - title: Tutoriales detallados
+    - image:
+        src: /azure/managed-applications/media/index/cli.svg
+      text: CLI de Azure
+      href: /azure/managed-applications/managed-apps-quickstart-cli
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: "Aprenda a desarrollar aplicaciones administradas y a ofrecerlas a través de Azure Marketplace."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Aprenda a desarrollar aplicaciones administradas y a ofrecerlas a través de Azure Marketplace.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publicación de una aplicación administrada para usuarios internos</a>
-          - html: <a href="/azure/managed-applications/publish-marketplace-app">Publicación de una aplicación administrada para usuarios externos</a>
-  - title: Referencia
+    - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">Publicación de una aplicación administrada para usuarios internos</a>"
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: <p><a href="/cli/azure/managedapp">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
-          - title: API de REST
-            html: <p><a href="/rest/api/resources/">REST</a></p>
-          - title: Interfaz de usuario
-            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Elementos de interfaz de usuario</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funciones de interfaz de usuario</a></p>
+    - title: "Línea de comandos"
+      html: <p><a href="/cli/azure/managedapp">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+    - title: API de REST
+      html: <p><a href="/rest/api/resources/">REST</a></p>
+    - title: Interfaz de usuario
+      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Elementos de interfaz de usuario</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Funciones de interfaz de usuario</a></p>
