@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11bc2418e439f86a228ff7d5c845caef683d9018
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Desarrollar para Azure Files con .NET y WindowsAzure.Storage
+# <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-En este tutorial se muestran los aspectos básicos del uso de .NET y de la API `WindowsAzure.Storage` para desarrollar aplicaciones que usen [Azure Files](storage-files-introduction.md) para almacenar datos de archivos. En este tutorial, se crea una aplicación de consola simple para realizar acciones básicas con .NET y Azure Files:
+En este tutorial se muestran los aspectos básicos del uso de .NET para desarrollar aplicaciones que usan [Azure Files](storage-files-introduction.md) para almacenar datos de archivos. En este tutorial, se crea una aplicación de consola simple para realizar acciones básicas con .NET y Azure Files:
 
 * Obtener el contenido de un archivo
 * Establezca la cuota (tamaño máximo) para el recurso compartido de archivos.
@@ -45,9 +45,6 @@ API | Cuándo se deben usar | Notas
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Su aplicación: <ul><li>Es necesario leer o escribir archivos a través de SMB</li><li>Se ejecuta en un dispositivo que tenga acceso a través del puerto 445 a su cuenta de Azure Files</li><li>No es necesario administrar cualquiera de las opciones administrativas del recurso compartido de archivos</li></ul> | El archivo de codificación I/O de Azure Files a través de SMB normalmente es igual que la codificación I/O con cualquier recurso compartido de red o dispositivo de almacenamiento local. Vea [este tutorial](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) para obtener una introducción a una serie de características en .NET, incluido el archivo I/O.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | Su aplicación: <ul><li>No se puede tener acceso a Azure Files a través de SMB en el puerto 445 debido a restricciones de ISP o firewall</li><li>Requiere funcionalidad administrativa, como la capacidad de establecer la cuota de un recurso compartido de archivo o crear una firma de acceso compartido</li></ul> | Este artículo muestra el uso de `WindowsAzure.Storage` para el archivo I/O con REST (en lugar de SMB) y la administración del recurso compartido de archivos.
-
-> [!TIP]
-> Según los requisitos de la aplicación, Blobs de Azure puede ser una opción más adecuada para el almacenamiento. Para más información sobre si elegir Azure Files o Blobs de Azure, consulte [Decidir cuándo utilizar Blobs de Azure, Azure Files o Discos de Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Creación de la aplicación de consola y obtención del ensamblado
 En Visual Studio, cree una nueva aplicación de consola de Windows. Los pasos siguientes muestran cómo crear una aplicación de consola en Visual Studio 2017; sin embargo, en otras versiones de Visual Studio los pasos son similares.

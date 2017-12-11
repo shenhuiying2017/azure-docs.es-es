@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 54cb7a9630a64be1a3012604929613fe0a843666
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 
-En este artículo se muestra cómo conectar redes virtuales mediante el tipo de conexión entre redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory.
+En este artículo se muestra cómo conectar redes virtuales mediante el tipo de conexión de red virtual a red virtual. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Al conectar redes virtuales de distintas suscripciones, estas no necesitan estar asociadas con el mismo inquilino de Active Directory.
 
 Los pasos descritos en este artículo se aplican al modelo de implementación de Resource Manager y utilizan PowerShell. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
@@ -39,15 +39,23 @@ Los pasos descritos en este artículo se aplican al modelo de implementación de
 
 ## <a name="about"></a>Acerca de la conexión de redes virtuales
 
-La conexión de una red virtual a otra mediante el tipo de conexión de redes virtuales (VNet2VNet) es parecida a la creación de una conexión IPsec con la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE y ambos funcionan de la misma forma en lo relativo a la comunicación. La diferencia entre ambos tipos de conexión es la manera en que se configure la puerta de enlace de red local. Al crear una conexión entre redes virtuales, no se ve el espacio de direcciones de la puerta de enlace de red local. Se crea y rellena automáticamente. Si actualiza el espacio de direcciones de una red virtual, la otra conocerá automáticamente la ruta al espacio de direcciones actualizado.
+Hay varias formas de conectar redes virtuales. Las siguientes secciones describen distintas formas de conectar redes virtuales.
 
-Si se trabaja con una configuración complicada, puede que sea mejor usar el tipo de conexión IPsec, en lugar de una conexión entre redes virtuales. Esto le permite especificar más espacio de direcciones para la puerta de enlace de red local, con el fin de enrutar el tráfico. Si conecta las redes virtuales con el tipo de conexión IPsec, tendrá que crear y configurar la puerta de enlace de red local manualmente. Para más información, consulte [Configuraciones entre sitios](vpn-gateway-create-site-to-site-rm-powershell.md).
+### <a name="vnet-to-vnet"></a>De red virtual a red virtual
 
-Además, si las redes virtuales están en la misma región, se puede plantear la posibilidad de conectarlas mediante Emparejamiento de VNET. El emparejamiento de VNET no utiliza una puerta de enlace de VPN, por lo que los precios y funcionalidad son algo distintos. Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
+La configuración de una conexión entre redes virtuales es una buena manera de conectar redes virtuales fácilmente. La conexión de una red virtual a otra mediante el tipo de conexión entre redes virtuales (VNet2VNet) es parecida a la creación de una conexión IPsec de sitio a sitio en una ubicación local.  Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro mediante IPsec/IKE y los dos funcionan de la misma forma en lo relativo a la comunicación. La diferencia entre ambos tipos de conexión radica en la manera en que se configura la puerta de enlace de red local. Al crear una conexión entre redes virtuales, no se ve el espacio de direcciones de la puerta de enlace de red local. Se crea y rellena automáticamente. Si actualiza el espacio de direcciones de una de las redes virtuales, la otra sabe automáticamente cómo realizar el enrutamiento al espacio de direcciones actualizado. La creación de una conexión entre redes virtuales suele ser más rápida y sencilla que la creación de una conexión de sitio a sitio entre redes virtuales.
 
-### <a name="why"></a>¿Por qué crear una conexión de red virtual a red virtual?
+### <a name="site-to-site-ipsec"></a>De sitio a sitio (IPsec)
 
-Puede que desee conectar redes virtuales por las siguientes razones:
+Si puntualmente trabaja con una configuración de red complicada, puede que prefiera conectar sus redes virtuales mediante los pasos que se indican en [Creación de una red virtual con una conexión VPN de sitio a sitio mediante PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md), en lugar de las instrucciones para la conexión entre redes virtuales. Cuando se usan las instrucciones para la conexión de sitio a sitio, las puertas de enlace de red locales se crean y se configuran manualmente. La puerta de enlace de red local de cada red virtual trata a la otra red virtual como un sitio local. De esta forma, puede especificar más espacio de direcciones para la puerta de enlace de red local a fin de enrutar el tráfico. Si el espacio de direcciones de una red virtual cambia, es preciso que actualice la puerta de enlace de red local correspondiente para reflejar dicho cambio. No se actualiza automáticamente.
+
+### <a name="vnet-peering"></a>Emparejamiento de VNET
+
+Puede que desee considerar conectar sus redes virtuales mediante el emparejamiento de VNET. El emparejamiento de VNET no utiliza una puerta de enlace de VPN y tiene distintas restricciones. Además, [los precios del emparejamiento de VNET](https://azure.microsoft.com/pricing/details/virtual-network) se calculan de forma diferente que los [precios de VPN Gateway entre redes virtuales](https://azure.microsoft.com/pricing/details/vpn-gateway). Para más información, consulte [Emparejamiento de VNET](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>¿Por qué crear una conexión de red virtual a red virtual?
+
+Puede que desee conectar redes virtuales con una conexión entre redes virtuales por las siguientes razones:
 
 * **Presencia geográfica y redundancia geográfica entre regiones**
 
@@ -59,7 +67,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 
 Se puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
-## <a name="which-set-of-steps-should-i-use"></a>¿Qué serie de pasos debo seguir?
+## <a name="steps"></a>¿Qué instrucciones para la conexión entre redes virtuales debo seguir?
 
 En este artículo, verá dos conjuntos de pasos diferentes. Un conjunto de pasos para las [redes virtuales que residen en la misma suscripción](#samesub) y otro para las [redes virtuales que residen en suscripciones diferentes](#difsub).
 La principal diferencia entre ambos conjuntos es que debe utilizar sesiones de PowerShell independientes al configurar las conexiones de redes virtuales que residen en distintas suscripciones. 

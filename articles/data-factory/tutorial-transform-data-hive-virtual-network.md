@@ -13,22 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shengc
-ms.openlocfilehash: b8c30a2fd68178ddd2bfb3ff079c47ba00928855
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c15d723efdcf273c86f54ddce04904ce1a274631
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformación de datos en Azure Virtual Network mediante la actividad de Hive en Azure Data Factory
-
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Este tutorial
-
-> [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
-En este tutorial, se usa Azure PowerShell para crear una canalización de Data Factory que transforma los datos mediante la actividad de Hive en un clúster de HDInsight que se encuentra en una instancia de Azure Virtual Network. En este tutorial, realizará los siguientes pasos:
+En este tutorial, se usa Azure PowerShell para crear una canalización de Data Factory que transforma los datos mediante la actividad de Hive en un clúster de HDInsight que se encuentra en una instancia de Azure Virtual Network (VNet). En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos. 
@@ -39,6 +31,8 @@ En este tutorial, se usa Azure PowerShell para crear una canalización de Data F
 > * Supervisión de la ejecución de la canalización 
 > * Comprobación del resultado 
 
+> [!NOTE]
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -71,22 +65,32 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
    FROM hivesampletable
    ```
 2. En Azure Blob Storage, cree un contenedor denominado **adftutorial** si no existe.
-3. Cree una carpeta llamada `hivescripts`.
-4. Cargue el archivo `hivescript.hql` a la subcarpeta `hivescripts`.
+3. Cree una carpeta llamada **hivescripts**.
+4. Cargue el archivo **hivescript.hql** en la subcarpeta **hivescripts**.
 
  
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
 
-1. Establezca las variables una a una.
+1. Establezca el nombre del grupo de recursos. Se crea un grupo de recursos como parte de este tutorial. Sin embargo, puede usar un grupo de recursos existente, si lo desea. 
 
     ```powershell
-    $subscriptionID = "<subscription ID>" # Your Azure subscription ID
-    $resourceGroupName = "ADFTutorialResourceGroup" # Name of the resource group
-    $dataFactoryName = "MyDataFactory09142017" # Globally unique name of the data factory
-    $pipelineName = "MyHivePipeline" # Name of the pipeline
-    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" # make it a unique name. 
+    $resourceGroupName = "ADFTutorialResourceGroup" 
+    ```
+2. Especifique el nombre de la factoría de datos. Debe ser único globalmente.
+
+    ```powershell
+    $dataFactoryName = "MyDataFactory09142017"
+    ```
+3. Escriba un nombre para la canalización. 
+
+    ```powershell
+    $pipelineName = "MyHivePipeline" # 
+    ```
+4. Especifique un nombre para el Integration Runtime autohospedado. Se requiere Integration runtime autohospedado cuando Data Factory necesita tener acceso a recursos (por ejemplo, SQL Azure Database) dentro de una red virtual. 
+    ```powershell
+    $selfHostedIntegrationRuntimeName = "MySelfHostedIR09142017" 
     ```
 2. Inicie **PowerShell**. Mantenga Azure PowerShell abierto hasta el final de esta guía de inicio rápido. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo. Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
@@ -222,18 +226,24 @@ Actualice los valores de las siguientes propiedades en la definición de servici
 - **clusterUri**. Especifique la dirección URL de su clúster de HDInsight en el formato https://<clustername>.azurehdinsight.net.  En este artículo, se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en `https://clustername.azurehdinsight.net`. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado grupos de seguridad de red (NSG) o rutas definidas por el usuario (UDR) para restringir el acceso desde Internet. Para que Data Factory pueda enviar trabajos al clúster de HDInsight en Azure Virtual Network, debe configurar su instancia de Azure Virtual Network de modo que la URL pueda resolverse en la dirección IP privada de la puerta de enlace que usa HDInsight.
 
   1. Desde Azure Portal, abra la instancia de Virtual Network en que se encuentra HDInsight. Abra la interfaz de red con nombres que empiecen por `nic-gateway-0`. Anote su dirección IP privada. Por ejemplo: 10.6.0.15. 
-  2. Si su instancia de Azure Virtual Network tiene un servidor DNS, actualice el registro DNS para que la dirección URL del clúster de HDInsight `https://<clustername>.azurehdinsight.net` puede resolverse en `10.6.0.15`. Éste es el método recomendado. Si no tiene ningún servidor DNS en su instancia de Azure Virtual Network, puede solucionar este problema de forma temporal. Para ello, edite el archivo de hosts (C:\Windows\System32\drivers\etc) de todas las máquinas virtuales que se registran como nodos de la instancia de Integration Runtime autohospedada mediante la adición de una entrada similar a la siguiente: 
+  2. Si su instancia de Azure Virtual Network tiene un servidor DNS, actualice el registro DNS para que la dirección URL del clúster de HDInsight `https://<clustername>.azurehdinsight.net` puede resolverse en `10.6.0.15`. Éste es el método recomendado. Si no tiene ningún servidor DNS en su instancia de Azure Virtual Network, puede evitar este problema de forma temporal. Para ello, edite el archivo de hosts (C:\Windows\System32\drivers\etc) de todas las máquinas virtuales que se registran como nodos de la instancia de Integration Runtime autohospedado mediante la adición de una entrada similar a la siguiente: 
   
         `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-Cambie a la carpeta donde creó los archivos JSON y ejecute el siguiente comando para implementar los servicios vinculados: 
+## <a name="create-linked-services"></a>Crear servicios vinculados
+En PowerShell, cambie a la carpeta donde creó los archivos JSON y ejecute el siguiente comando para implementar los servicios vinculados: 
 
+1. En PowerShell, cambie a la carpeta donde creó los archivos JSON.
+2. Ejecute el siguiente comando para crear un servicio vinculado de Azure Storage: 
 
-```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    ```
+3. Ejecute el siguiente comando para crear un servicio vinculado de Azure HDInsight: 
 
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDILinkedService" -File "MyHDILinkedService.json"
-```
+    ```powershell
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    ```
 
 ## <a name="author-a-pipeline"></a>Creación de una canalización
 En este paso, se crea una canalización con una actividad de Hive. La actividad ejecuta el script de Hive para devolver datos de una tabla de ejemplo y guardarlos en una ruta de acceso que haya definido. Cree un archivo JSON en el editor que prefiera, copie la siguiente definición de JSON de una definición de canalización y guárdela como **MyHiveOnDemandPipeline.json**.

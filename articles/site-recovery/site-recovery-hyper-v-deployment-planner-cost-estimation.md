@@ -1,0 +1,165 @@
+---
+title: "Información detallada de la estimación de costos de Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure | Microsoft Docs"
+description: "En este artículo, se ofrece información detallada de la estimación de costos del informe generado por Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure."
+services: site-recovery
+documentationcenter: 
+author: nsoneji
+manager: garavd
+editor: 
+ms.assetid: 
+ms.service: site-recovery
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 12/02/2017
+ms.author: nisoneji
+ms.openlocfilehash: 47cdbf31e6b01055405cefedda11d5eeef82f32e
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/05/2017
+---
+# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos de Azure Site Recovery Deployment Planner  
+
+El informe de Deployment Planner ofrece un resumen de la estimación de costos incluida en las hojas de [Recomendaciones](site-recovery-hyper-v-deployment-planner-analyze-report.md#recommendations) y del análisis detallado de los costos en la hoja Estimación de costos. Incluye el análisis detallado del costo por máquina virtual. 
+
+### <a name="cost-estimation-summary"></a>Resumen de la estimación de costos 
+En el gráfico siguiente se muestra la vista de resumen del costo total estimado de la recuperación ante desastres en Azure de la región de destino elegida y en la moneda que ha especificado para generar el informe.
+![Cost estimation summary](media/site-recovery-hyper-v-deployment-planner-analyze-report/cost-estimation-summary-h2a.png) El resumen le ayuda a comprender lo que debe pagar por los servicios de almacenamiento, proceso, red y licencia cuando protege todas las máquinas virtuales compatibles en Azure mediante Azure Site Recovery. El costo se calcula para las máquinas virtuales compatibles y no para todas las máquinas virtuales para las que se han generado perfiles.  
+ 
+Puede ver el costo mensual o anual. Obtenga más información sobre las [regiones de destino admitidas](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) y las [monedas admitidas](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
+
+**Cost by components**: el costo total de la recuperación ante desastres se divide entre cuatro componentes: Compute, Storage, Network y el costo de la licencia de Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
+
+**Cost by states**: el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres. 
+
+**Replication cost**: costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery. 
+
+**DR-Drill cost** (Costo del simulacro de recuperación ante desastres): costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución. 
+
+**Azure storage cost per Month/Year**: muestra el costo total en el que se incurrirá por el almacenamiento premium y estándar por la replicación y el simulacro de recuperación ante desastres.
+
+## <a name="detailed-cost-analysis"></a>Análisis detallado del costo
+Los precios de Azure para los recursos de proceso, almacenamiento o red, entre otros, varía en las distintas regiones de Azure. Puede generar un informe de estimación de costos con los precios de Azure más recientes en función de su suscripción, la oferta que está asociada a su suscripción y la región de destino de Azure en la moneda especificada. De forma predeterminada, la herramienta usa la región Oeste de EE. UU. 2 de Azure y la moneda dólares estadounidenses (USD). Si ha usado otra región y moneda, la próxima vez que genere un informe sin identificador de suscripción, identificador de oferta, región de destino y moneda, usará los precios de la última región de destino usada y la última moneda usada para la estimación de costos.
+En esta sección se muestra el identificador de suscripción y el identificador de oferta que ha usado para generar el informe.  Si no se usa, está en blanco.
+
+En todo el informe, las celdas marcadas en color gris son de solo lectura. Las celdas en blanco se pueden modificar según sus necesidades.
+
+![Detalles de la estimación de costos 1](media/site-recovery-hyper-v-deployment-planner-cost-estimation/cost-estimation1-h2a.png)
+
+### <a name="overall-dr-cost-by-components"></a>Overall DR cost by components (Costo total de la recuperación ante desastres por componente)
+La primera sección muestra el costo total de la recuperación ante desastres por componente y por estado. 
+
+**Compute** (Proceso): costo de las máquinas virtuales IaaS que se ejecutan en Azure para satisfacer las necesidades de recuperación ante desastres. Incluye las máquinas virtuales creadas con Azure Site Recovery durante los simulacros de recuperación ante desastres (conmutaciones por error de prueba) y las máquinas virtuales que se ejecutan en Azure como SQL Server con grupos de disponibilidad AlwaysOn y controladores de dominio o servidores de nombres de dominio.
+
+**Storage** (Almacenamiento): costo del consumo de almacenamiento de Azure para satisfacer las necesidades de recuperación ante desastres. Incluye el consumo de almacenamiento para la replicación y durante los simulacros de recuperación ante desastres.
+Network (Red): costo de ExpressRoute y VPN de sitio a sitio para satisfacer las necesidades de recuperación ante desastres. 
+
+**ASR License** (Licencia de ASR): costo de la licencia de Azure Site Recovery para todas las máquinas virtuales compatibles. Si ha insertado manualmente una máquina virtual en la tabla de análisis detallado del costo, el costo de la licencia de Azure Site Recovery también está incluido para esa máquina virtual.
+
+### <a name="overall-dr-cost-by-states"></a>Overall DR cost by states (Costo total de la recuperación ante desastres por estado)
+El costo total de la recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
+
+**Replication** (Replicación): se incurre en el costo en el momento de la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery. 
+
+**DR-Drill cost** (Costo del simulacro de recuperación ante desastres): se incurre en el costo en el momento del simulacro de recuperación ante desastres. Azure Site Recovery pone en marcha las máquinas virtuales durante los simulacros de recuperación ante desastres. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución.
+Duración total de los simulacros de recuperación ante desastres en un año = Número de simulacros de recuperación ante desastres x Duración de cada simulacro de recuperación ante desastres (días) Costo promedio del simulacro de recuperación ante desastres (por mes) = Costo total de los simulacros de recuperación ante desastres/12
+
+### <a name="storage-cost-table"></a>Tabla Storage cost (Costo de almacenamiento):
+Esta tabla muestra el costo del almacenamiento premium y estándar en el que se incurre por la replicación y los simulacros de recuperación ante desastres, con y sin descuento.
+
+### <a name="site-to-azure-network"></a>Site to Azure network (Red de sitio a Azure)
+Seleccione la opción adecuada según sus requisitos. 
+
+**ExpressRoute**: de forma predeterminada, la herramienta selecciona el plan de ExpressRoute que más se aproxime al ancho de banda de red necesario para la replicación diferencial. Puede cambiar el plan según sus requisitos.
+
+**VPN Gateway**: seleccione VPN Gateway si tiene alguna en su entorno. De forma predeterminada, es NA.
+
+**Target Region** (Región de destino): región de Azure especificado para la recuperación ante desastres. El precio usado en el informe para proceso, almacenamiento, red y licencia se basa en los precios de Azure para esa región. 
+
+### <a name="vm-running-on-azure"></a>VM running on Azure (Máquina virtual que se ejecuta en Azure)
+Si se está ejecutando algún controlador de dominio, máquina virtual con DNS o máquina virtual con SQL Server con grupos de disponibilidad AlwaysOn en Azure para recuperación ante desastres, puede proporcionar el número de máquinas virtuales y su tamaño para valorar el costo del proceso en el costo total de la recuperación ante desastres. 
+
+### <a name="apply-overall-discount-if-applicable"></a>Apply overall discount if applicable (Aplicar el descuento total si es aplicable)
+Si es un asociado o un cliente de Azure y tiene derecho a un descuento sobre el precio general de Azure, puede usar este campo. La herramienta aplica el descuento (en %) en todos los componentes.
+
+### <a name="number-of-virtual-machines-type-and-compute-cost-per-year"></a>Number of virtual machines type and compute cost (per year) [Número de tipo de máquinas virtuales y el cálculo de costo (anual)]
+Esta tabla muestra el número de máquinas virtuales Windows y no Windows, y el costo de los servicios de proceso para la recuperación ante desastres de las mismas.
+
+### <a name="settings"></a>Settings 
+**Using managed disk** (Uso de disco administrado): especifica si se está usando un disco administrado en el momento del simulacro de recuperación ante desastres. El valor predeterminado es "yes" (sí). Si ha configurado -UseManagedDisks en No, usa el precio de los discos no administrados para el cálculo de los costos.
+
+**Currency** (Moneda): la moneda en la que se genera el informe. Cost duration (Duración del costo): puede ver todos los costos del mes o de todo el año. 
+
+## <a name="detailed-cost-analysis-table"></a>Tabla Detailed cost analysis (Análisis detallado del costo)
+La tabla ![Detailed cost analysis](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png) (Análisis detallado del costo) muestra el desglose del costo de cada máquina virtual compatible. Para usar esta tabla para obtener el costo estimado de la recuperación ante desastres en Azure de máquinas virtuales sin perfiles, puede agregar las máquinas virtuales manualmente. Esto resulta útil cuando es necesario calcular los costos en Azure de una nueva implementación de recuperación ante desastres sin realizar una generación de perfiles detallada.
+Para agregar las máquinas virtuales manualmente: 
+1.  Haga clic en el botón "Insert row" (Insertar fila) para insertar una fila nueva entre las filas inicial y final.
+
+2.  Rellene las columnas siguientes en función del tamaño aproximado de máquina virtual y del número de máquinas virtuales que coincidan con esta configuración: 
+
+* Number of VMs (Número de máquinas virtuales), IaaS size (Tamaño de IaaS): valor que elija
+* Storage Type (Standard/Premium) [Tipo de almacenamiento (Estándar/Premium)]
+* VM total storage size (GB) [Tamaño de almacenamiento total de máquinas virtuales (GB)]
+* Number of DR drills in a year (Número de simulacros de recuperación ante desastres en un año) 
+* Each DR drill duration (Days) [Duración de cada simulacro de recuperación ante desastres (días)] 
+* OS Type (Tipo de SO)
+* Redundancia de datos 
+* Ventaja de uso híbrido de Azure
+
+3.  Haga clic en el botón "Apply to all" (Aplicar a todas) para aplicar a todas las máquinas virtuales de la tabla el mismo valor de número de simulacros de recuperación ante desastres en un año, duración de cada simulacro de recuperación ante desastres y ventaja para uso híbrido de Azure.
+
+4.  Haga clic en "Re-calculate cost" (Volver a calcular el costo) para actualizar el costo.
+
+**VM Name**: nombre de la máquina virtual.
+
+**Number of VMs**: número de máquinas virtuales que coinciden con la configuración. Puede actualizar el número de máquinas virtuales existentes si no se va a generar el perfil de las máquinas virtuales con una configuración similar y se protegerán.
+
+**IaaS size (Recommended)**: es el tamaño de rol de máquina virtual de la máquina virtual compatible que la herramienta recomienda. 
+
+**IaaS size (Your selection)**: de forma predeterminada, es el mismo que el tamaño recomendado de rol de máquina virtual. Puede cambiar el rol para ajustarlo a sus requisitos. El costo de los servicios de proceso se basa en el tamaño de rol de máquina virtual seleccionado.
+
+**Storage type**: tipo del almacenamiento que usa la máquina virtual. Puede ser almacenamiento estándar o premium.
+
+**TVM total storage size (GB)**: almacenamiento total de la máquina virtual.
+
+**Number of DR-Drills in a year**: número de veces que se realizan los simulacros de recuperación ante desastres en un año. De forma predeterminada, es 4 veces en un año. Puede modificar el período para máquinas virtuales específicas o aplicar el nuevo valor a todas las máquinas virtuales. Para ello, escriba el nuevo valor en la fila superior y haga clic en el botón "Apply to all" (Aplicar a todas). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres realizados en un año y de la duración de cada uno de ellos.  
+
+**Each DR-Drill duration (Days)**: duración de cada simulacro de recuperación ante desastres. De forma predeterminada, es de 7 días cada 90 días según la [ventaja Disaster Recovery Software Assurance](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Puede modificar el período para máquinas virtuales específicas o puede aplicar un nuevo valor a todas las máquinas virtuales. Para ello, escriba el nuevo valor en la fila superior y haga clic en el botón "Apply to all" (Aplicar a todas). El costo total de los simulacros de recuperación ante desastres se calcula en función del número de simulacros de recuperación ante desastres en un año y la duración de cada uno de ellos.
+  
+**OS Type**: tipo de sistema operativo de la máquina virtual. Es Windows o Linux. Si el sistema operativo es Windows, se puede aplicar la ventaja para uso híbrido de Azure a esa máquina virtual. 
+
+**Data redundancy**: la redundancia de datos puede ser almacenamiento con redundancia local (LRS), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). El valor predeterminado es LRS. Puede cambiar el tipo en función de su cuenta de almacenamiento para máquinas virtuales específicas o puede aplicar el nuevo tipo a todas las máquinas virtuales. Para ello, cambie el tipo de la fila superior y haga clic en el botón "Apply to all" (Aplicar a todas).  El costo del almacenamiento para la replicación se calcula en función del precio de la redundancia de datos que ha seleccionado. 
+
+**Azure Hybrid Use Benefit**: puede aplicar la ventaja para uso híbrido de Azure a las máquinas virtuales de Windows, si es aplicable.  El valor predeterminado es Yes. Puede cambiar la configuración de máquinas virtuales específicas o actualizar todas las máquinas virtuales. Para ello, haga clic en el botón "Apply to all" (Aplicar a todas).
+
+**Total Azure consumption**: incluye los costos de licencia de Azure Site Recovery, almacenamiento y proceso para la recuperación ante desastres. En función de los valores seleccionados, mostrará el costo mensual o anual.
+
+**Steady state replication cost**: incluye el costo de almacenamiento para la replicación.
+
+**Total DR-Drill cost (average)**: incluye el costo de los servicios de proceso y almacenamiento de los simulacros de recuperación ante desastres.
+
+**ASR license cost**: costo de la licencia de Azure Site Recovery.
+
+## <a name="supported-target-regions"></a>Regiones de destino admitidas
+Azure Site Recovery Deployment Planner proporciona una estimación de los costos para las siguientes regiones de Azure. Si su región no aparece en la lista, puede usar cualquiera de las siguientes regiones cuyo precio sea más parecido al de su región.
+
+eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope, westeurope, eastasia, southeastasia, japaneast, japanwest, australiaeast, australiasoutheast, brazilsouth, southindia, centralindia, westindia, canadacentral, canadaeast, westus2, westcentralus, uksouth, ukwest, koreacentral, koreasouth 
+
+## <a name="supported-currencies"></a>Monedas admitidas
+Azure Site Recovery Deployment Planner puede generar el informe de costos en cualquiera de las siguientes monedas.
+
+|Moneda|Nombre||Moneda|Nombre||Moneda|Nombre|
+|---|---|---|---|---|---|---|---|
+|ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileño (R$)|
+|CAD|Dólar canadiense ($)||CHF|Franco suizo (chf)||DKK|Corona danesa (kr)|
+|EUR|Euro (€)||GBP|Libra británica (£)||HKD|Dólar de Hong Kong (HK$)|
+|IDR|Rupia indonesia (Rp)||INR|Rupia india (₹)||JPY|Yen japonés (¥)|
+|KRW|Won coreano (₩)||MXN|Peso mexicano (MX$)||MYR|Ringgit malayo (RM$)|
+|NOK|Corona noruega (kr)||NZD|Dólar de Nueva Zelanda ($)||RUB|Rublo ruso (руб)|
+|SAR|Saudi Riyal (SR)||SEK|Corona sueca (kr)||TWD|Dólar taiwanés (NT$)|
+|TRY|Lira turca (TL)||USD| Dólar estadounidense (USD)||ZAR|Rand sudafricano (R)|
+
+## <a name="next-steps"></a>Pasos siguientes
+Obtenga más información sobre cómo proteger las [máquinas virtuales de Hyper-V en Azure con Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).

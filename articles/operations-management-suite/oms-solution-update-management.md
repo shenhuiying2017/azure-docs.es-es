@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Solución Administración de actualizaciones de OMS
 
@@ -57,7 +57,7 @@ Puede implementar e instalar las actualizaciones de software en equipos que requ
 En la fecha y hora especificadas en la implementación de actualizaciones, los equipos de destino ejecutan la implementación en paralelo.  En primer lugar, se realiza un examen para comprobar si las actualizaciones siguen siendo necesarias y las instala.  Para los equipos cliente WSUS, es importante tener en cuenta que, si no se aprueban las actualizaciones en WSUS, se producirá un error en la implementación de actualizaciones.  Los resultados de las actualizaciones aplicadas se reenvían a OMS para que se procesen y se resuman en los paneles o para la búsqueda de eventos.     
 
 ## <a name="prerequisites"></a>Requisitos previos
-* La solución permite realizar evaluaciones de las actualizaciones en Windows Server 2008 y versiones posteriores, e implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores.  No se admiten las opciones de instalación de Server Core y Nano Server.
+* La solución permite realizar evaluaciones de las actualizaciones en Windows Server 2008 y versiones posteriores, e implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores.  Nano Server no se admite.
 
     > [!NOTE]
     > Para poder implementar las actualizaciones en Windows Server 2008 R2 SP1 se necesita .NET Framework 4.5 y WMF 5.0 o versiones posteriores.

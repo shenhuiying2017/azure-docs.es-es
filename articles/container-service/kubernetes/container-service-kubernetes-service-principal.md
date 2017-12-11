@@ -1,26 +1,19 @@
 ---
-title: "Entidad de servicio de clúster de Azure Kubernetes | Microsoft Docs"
+title: "Entidad de servicio del clúster de Azure Kubernetes"
 description: "Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en Azure Container Service"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configuración de una entidad de servicio de Azure AD para un clúster de Kubernetes en Container Service
 
@@ -36,11 +29,11 @@ Este artículo muestra distintas opciones para configurar una entidad de servici
 
 Puede usar una entidad de servicio de Azure AD existente que cumpla los requisitos siguientes o crear una.
 
-* **Ámbito**: el grupo de recursos usado para implementar el clúster.
+* **Ámbito**: grupo de recursos
 
-* **Rol**: **colaborador**.
+* **Rol**: colaborador
 
-* **Secreto de cliente**: debe ser una contraseña. Actualmente, no se puede usar a una entidad de servicio configurado para la autenticación de certificados.
+* **Client secret**: secreto de cliente; debe ser una contraseña. Actualmente, no se puede usar a una entidad de servicio configurado para la autenticación de certificados.
 
 > [!IMPORTANT]
 > Para crear una entidad de servicio, debe tener permisos suficientes para registrar una aplicación en su inquilino de Azure AD y asignar la aplicación a un rol en su suscripción. Para ver si tiene los permisos necesarios, [compruébelo en el portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 Devuelve una salida similar a la siguiente (que se muestra aquí):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Si especifica el valor **Id. de cliente** para la entidad de servicio, puede usar el valor de `appId` (como se muestra en este artículo) o la entidad de servicio correspondiente `name` (por ejemplo, `https://www.contoso.org/example`).
 
-* En las máquinas virtuales principal y del agente en el clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo /etc/kubernetes/azure.json.
+* En las máquinas virtuales principal y agente del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
 
-* Cuando use el comando `az acs create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo ~/.azure/acsServicePrincipal.json de la máquina que se usa para ejecutar el comando.
+* Cuando use el comando `az acs create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/acsServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
 
 * Cuando use el comando `az acs create` para generar automáticamente la entidad de servicio, esta también se puede autenticar con una [instancia de Azure Container Registry](../../container-registry/container-registry-intro.md) creada en la misma suscripción.
+
+* Las credenciales de la entidad de servicio pueden expirar, lo que hace que los nodos del clúster entren en un estado **NotReady**. Consulte la sección [Expiración de credenciales](#credential-expiration) para obtener información sobre la mitigación.
+
+## <a name="credential-expiration"></a>Expiración de credenciales
+
+A menos que se especifique una ventana de validez personalizada con el parámetro `--years` al crear una entidad de servicio, sus credenciales son válidas durante 1 año desde la hora de creación. Cuando expira la credencial, los nodos del clúster podrían entrar en un estado **NotReady**.
+
+Para comprobar la fecha de expiración de una entidad de servicio, ejecute el comando [az ad app show](/cli/azure/ad/app#az_ad_app_show) con el parámetro `--debug` y busque el valor `endDate` de `passwordCredentials` cerca de la parte inferior de la salida:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Salida (aquí se muestra truncada):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Si las credenciales de la entidad de servicio han expirado, use el comando [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) para actualizarlas:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Salida:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+A continuación, actualice `/etc/kubernetes/azure.json` con las nuevas credenciales en todos los nodos de clúster y reinicie los nodos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

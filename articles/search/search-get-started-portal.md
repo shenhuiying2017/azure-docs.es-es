@@ -1,29 +1,29 @@
 ---
-title: "Índice, consulta y filtro en las páginas del portal de Azure Search | Microsoft Docs"
-description: "En el portal de Azure, use datos de ejemplo predefinidos para generar un índice. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más."
+title: "Tutorial de Azure Search sobre indexación, consulta y filtrado mediante el portal | Microsoft Docs"
+description: "En Azure Portal, use datos de ejemplo predefinidos para generar un índice en Azure Search. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creación, consulta y filtro de un índice en el portal de Azure Search
 
-En Azure Portal, comience con un conjunto de datos de ejemplo predefinido para generar rápidamente un índice mediante el **Asistente para la importación de datos**. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada y la búsqueda geográfica con el **Explorador de búsqueda**.  
+En Azure Portal, comience con un conjunto de datos de ejemplo predefinido para generar rápidamente un índice de Azure Search mediante el **Asistente para la importación de datos**. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada y la búsqueda geográfica con el **Explorador de búsqueda**.  
 
 Esta introducción sin código le permitirá comenzar a trabajar con datos predefinidos de modo que pueda escribir consultas interesantes de forma inmediata. Si bien las herramientas del portal no sustituyen al código, pueden ser de utilidad para estas tareas:
 

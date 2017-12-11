@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70d365910569a2acb1c230c803fdfca5cb6b35af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Creación de su primera aplicación de Reliable Services con estado de Service Fabric en C#
 
@@ -84,7 +84,7 @@ Cuando se inicia la aplicación, Visual Studio muestra automáticamente el **vis
 
 La plantilla del servicio con estado que se utilizó muestra simplemente un valor del contador, que se incrementa en el método `RunAsync` de **MyStatefulService.cs**.
 
-Expanda uno de los eventos para ver más detalles, incluido el nodo en que se ejecuta el código. En este caso, es \_Node\_2, aunque puede que en su equipo sea otro.
+Expanda uno de los eventos para ver más detalles, incluido el nodo en que se ejecuta el código. En este caso, es \_Node\_0, aunque puede diferir en su máquina.
    
 ![Detalle del Visor de eventos de diagnóstico][6]
 

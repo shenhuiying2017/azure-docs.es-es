@@ -1,5 +1,5 @@
 ---
-title: Copia de datos de forma incremental con Azure Data Factory | Microsoft Docs
+title: Copia incremental de una tabla con Azure Data Factory | Microsoft Docs
 description: "En este tutorial, creará una canalización de Azure Data Factory que copia datos de forma incremental de Azure SQL Database a Azure Blob Storage."
 services: data-factory
 documentationcenter: 
@@ -13,24 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: f352f46f2d4c23124f4ee7e886cae9bdd8d5d2c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 0b05971b5ab8ec3fd14dd4ce14d07df478e1dcc9
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
+En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de una tabla de una base de datos SQL de Azure en un almacenamiento de blobs de Azure. 
 
-[!INCLUDE [data-factory-what-is-include-md](../../includes/data-factory-what-is-include.md)]
-
-#### <a name="this-tutorial"></a>Este tutorial
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte la [documentación de la versión 1 de Data Factory](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Durante el recorrido de integración de datos, uno de los escenarios ampliamente usados consiste en cargar de forma incremental los datos periódicamente para actualizar el resultado de los análisis actualizados después del análisis y las cargas de datos iniciales. En este tutorial, se centrará en cargar únicamente registros nuevos o actualizados desde los orígenes de datos en los receptores de datos. Esto resulta más eficiente comparado con las completas, especialmente para los conjuntos de datos de gran tamaño.    
-
-Puede usar Data Factory para crear soluciones con límite máximo a fin de lograr la carga de datos incremental mediante actividades de búsqueda, copia y procedimiento almacenado en una canalización.  
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -46,7 +41,7 @@ En este tutorial, realizará los siguientes pasos:
 ## <a name="overview"></a>Información general
 El diagrama de solución de alto nivel es: 
 
-![Cargar datos de forma incremental](media\tutorial-Incrementally-load-data-from-azure-sql-to-blob\incrementally-load.png)
+![Cargar datos de forma incremental](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
 
 Estos son los pasos importantes para crear esta solución: 
 
@@ -71,7 +66,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en Azure SQL Database
-1. Abra **SQL Server Management Studio**, en el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija la **Nueva consulta**.
+1. Abra **SQL Server Management Studio**. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 2. Ejecute el siguiente comando SQL en Azure SQL Database para crear una tabla denominada `data_source_table` como almacén de origen de datos.  
     
     ```sql
@@ -151,40 +146,47 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
-
-1. Inicie **PowerShell**. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-
-    Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en Azure Portal:
-        
-    ```powershell
-    Login-AzureRmAccount
-    ```        
-    Ejecute el siguiente comando para ver todas las suscripciones de esta cuenta:
-
-    ```powershell
-    Get-AzureRmSubscription
-    ```
-    Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **SubscriptionId** con el identificador de la suscripción de Azure:
-
-    ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
-    ```
-2. Ejecute el cmdlet **AzureRmDataFactoryV2 Set** para crear una factoría de datos. Reemplace los marcadores de posición con sus propios valores antes de ejecutar el comando.
-
-    ```powershell
-    Set-AzureRmDataFactoryV2 -ResourceGroupName "<your resource group to create the factory>" -Location "East US" -Name "<specify the name of data factory to create. It must be globally unique.>" 
+1. Defina una variable para el nombre del grupo de recursos que usa en los comandos de PowerShell más adelante. Copie el texto del comando siguiente en PowerShell, especifique el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) entre comillas dobles y ejecute el comando. Por ejemplo: `"adfrg"`. 
+   
+     ```powershell
+    $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
-    Tenga en cuenta los siguientes puntos:
+    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y vuelva a ejecutar el comando
+2. Defina una variable para la ubicación de la factoría de datos: 
 
-    * El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
+    ```powershell
+    $location = "East US"
+    ```
+3. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
 
-        ```
-        The specified Data Factory name '<data factory name>' is already in use. Data Factory names must be globally unique.
-        ```
+    ```powershell
+    New-AzureRmResourceGroup $resourceGroupName $location
+    ``` 
+    Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y ejecute el comando de nuevo. 
+3. Defina una variable para el nombre de la factoría de datos. 
 
-    * Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
-    * Actualmente, Data Factory V2 le permite crear factorías de datos solo en la región Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+    > [!IMPORTANT]
+    >  Actualice el nombre de la factoría de datos para que sea globalmente único. Por ejemplo, ADFTutorialFactorySP1127. 
+
+    ```powershell
+    $dataFactoryName = "ADFIncCopyTutorialFactory";
+    ```
+5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzureRmDataFactoryV2**: 
+    
+    ```powershell       
+    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    ```
+
+Tenga en cuenta los siguientes puntos:
+
+* El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error, cambie el nombre y vuelva a intentarlo.
+
+    ```
+    The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
+    ```
+* Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
+* Actualmente, la versión 2 de Data Factory permite crear factorías de datos solo en las regiones Este de EE. UU., Este de EE. UU. 2 y Europa Occidental. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
@@ -224,7 +226,7 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     ```
 
 ### <a name="create-azure-sql-database-linked-service"></a>Creación de un servicio vinculado a Azure SQL Database
-1. Cree un archivo JSON llamado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADF** con el siguiente contenido: (cree la carpeta ADF si aún no existe). Reemplace **&lt;server&gt;, &lt;user id&gt; y &lt;password&gt;** por el nombre de su servidor SQL Server de Azure, su id. de usuario y su contraseña antes de guardar el archivo. 
+1. Cree un archivo JSON llamado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADF** con el siguiente contenido: (cree la carpeta ADF si aún no existe). Antes de guardar el archivo, reemplace **&lt;server&gt;, &lt;database&gt;, &lt;user id&gt; y &lt;password&gt;** por su servidor Azure SQL Server, base de datos, identificador de usuario y contraseña. 
 
     ```json
     {
@@ -233,15 +235,15 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
             "type": "AzureSqlDatabase",
             "typeProperties": {
                 "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
+                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
                     "type": "SecureString"
                 }
             }
         }
     }
     ```
-2. En **Azure PowerShell**, cambie a la carpeta **ADF**.
-3. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureSQLDatabaseLinkedService**. 
+1. En **Azure PowerShell**, cambie a la carpeta **ADF**.
+2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -280,7 +282,7 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
     }
    
     ```
-    En este tutorial, el nombre de tabla es **data_source_table**). Reemplácelo si está utilizando una tabla con otro nombre. 
+    En este tutorial, usará el nombre de tabla: **data_source_table**. Reemplácelo si está utilizando una tabla con otro nombre. 
 2.  Ejecute el cmdlet Set-AzureRmDataFactoryV2Dataset para crear el conjunto de datos: SourceDataset.
     
     ```powershell
@@ -379,7 +381,7 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
 En este tutorial, creará una canalización con dos actividades de búsqueda, una actividad de copia y una actividad de procedimiento almacenado encadenado a una canalización. 
 
 
-1. Cree un archivo JSON llamado IncrementalCopyPipeline.json en la misma carpeta con el siguiente contenido. 
+1. Cree un archivo JSON llamado IncrementalCopyPipeline.json en la misma carpeta con el siguiente contenido: 
 
     ```json
     {
@@ -512,9 +514,9 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 1. Ejecute la canalización **IncrementalCopyPipeline** mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Reemplace los marcadores de posición con su propio grupo de recursos y el nombre de la factoría de datos.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Compruebe el estado de la canalización mediante el cmdlet Get-AzureRmDataFactoryV2ActivityRun hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para el parámetro RunStartedAfter y RunStartedBefore.  En este tutorial, usamos -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+2. Compruebe el estado de la canalización mediante el cmdlet Get-AzureRmDataFactoryV2ActivityRun hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para el parámetro RunStartedAfter y RunStartedBefore.  En este tutorial, se usará -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -616,7 +618,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
     ``` 
 
-    Los datos actualizados en Azure SQL Database son los siguientes:
+    Los datos actualizados en la base de datos SQL de Azure son los siguientes:
 
     ```
     PersonID | Name | LastModifytime
@@ -632,9 +634,9 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 2. Ejecute de nuevo la canalización **IncrementalCopyPipeline** mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Reemplace los marcadores de posición con su propio grupo de recursos y el nombre de la factoría de datos.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup "<your resource group>" -dataFactoryName "<your data factory name>"
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Compruebe el estado de la canalización mediante el cmdlet **Get-AzureRmDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para el parámetro RunStartedAfter y RunStartedBefore.  En este tutorial, usamos -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
+3. Compruebe el estado de la canalización mediante el cmdlet **Get-AzureRmDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para el parámetro RunStartedAfter y RunStartedBefore.  En este tutorial, se usará -RunStartedAfter "2017/09/14" -RunStartedBefore "2017/09/15"
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -700,7 +702,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     Error             : {errorCode, message, failureType, target}
 
     ```
-4.  En Azure Blob Storage, debería ver que se ha creado otro archivo en Azure Blob Storage. En este tutorial, el nombre de archivo nuevo es `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Abra el archivo y verá que contiene 2 registros de filas:
+4.  En Azure Blob Storage, debería ver que se ha creado otro archivo en Azure Blob Storage. En este tutorial, el nombre de archivo nuevo es `Incremental-2fc90ab8-d42c-4583-aa64-755dba9925d7.txt`.  Abra ese archivo y verá que contiene dos registros de filas:
 5.  Compruebe el ultimo valor de `watermarktable`. Observará que el valor de marca de agua se ha vuelvo a actualizar.
 
     ```sql
@@ -725,10 +727,10 @@ En este tutorial, realizó los pasos siguientes:
 > * Ejecución de la canalización
 > * Supervisión de la ejecución de la canalización 
 
-Pase al tutorial siguiente para obtener información acerca de la transformación de datos mediante el uso de un clúster de Spark en Azure:
+En este tutorial, la canalización copió datos de una **única tabla** de una base de datos SQL de Azure a un almacenamiento de blobs de Azure. Avance al tutorial siguiente para aprender a copiar datos de **varias tablas** de una base de datos de SQL Server local a una base de datos SQL de Azure. 
 
 > [!div class="nextstepaction"]
->[Transformar datos con un clúster de Spark en la nube](tutorial-transform-data-spark-powershell.md)
+>[Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 
 

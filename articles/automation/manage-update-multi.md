@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -43,7 +43,7 @@ Update Management es compatible con los sistemas operativos siguientes.
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 y versiones posterior, y las implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores. No se admiten las opciones de instalación de Server Core y Nano Server.
+* Windows Server 2008 y versiones posterior, y las implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores. Nano Server no se admite.
 
   Para poder implementar las actualizaciones en Windows Server 2008 R2 SP1, se necesita .NET Framework 4.5 y Windows Management Framework 5.0 o versiones posteriores.
 

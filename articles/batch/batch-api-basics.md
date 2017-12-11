@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -56,10 +56,8 @@ Algunos de los siguientes recursos son necesarios para todas las soluciones que 
 * [Nodo de proceso](#compute-node)
 * [Grupo](#pool)
 * [Trabajo](#job)
-
   * [Programaciones del trabajo](#scheduled-jobs)
 * [Task](#task)
-
   * [Tarea de inicio](#start-task)
   * [Tareas del Administrador de trabajos](#job-manager-task)
   * [Tareas de preparación y liberación de trabajos](#job-preparation-and-release-tasks)
@@ -264,6 +262,9 @@ Cuando crea una tarea, puede especificar:
 * **Paquetes de aplicación** que se implementan en el nodo de proceso en el que está programado que se ejecute la tarea. [Application packages](#application-packages) proporcionan una implementación simplificada y el control de las versiones de las aplicaciones que ejecutan las tareas. Los paquetes de aplicaciones de nivel de tarea son especialmente útiles en entornos de grupo compartido, donde los distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.
 * Una referencia de **imagen de contenedor** de Docker Hub o un registro privado y valores de configuración adicionales para crear un contenedor de Docker en el que la tarea se ejecute en el nodo. Esta información solo se especifica si el grupo está configurado con una configuración de contenedor.
 
+> [!NOTE]
+> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 7 días. Las tareas completadas se mantienen de forma indefinida; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
+
 Además de las tareas que se definen para realizar cálculos en un nodo, el servicio Batch también proporciona las siguientes tareas especiales:
 
 * [Tarea de inicio](#start-task)
@@ -273,9 +274,9 @@ Además de las tareas que se definen para realizar cálculos en un nodo, el serv
 * [Dependencias de las tareas](#task-dependencies)
 
 ### <a name="start-task"></a>Tarea de inicio
-Al asociar una **tarea de inicio** con un grupo, puede preparar el entorno operativo de sus nodos. Por ejemplo, puede realizar acciones como instalar las aplicaciones que las tareas ejecutarán o iniciar procesos en segundo plano. La tarea de inicio se ejecuta cada vez que se inicia un nodo, siempre y cuando dicho nodo permanezca en el grupo. Aquí se incluye también la primera vez que el nodo se agrega al grupo o cuando se reinicia o se restablece su imagen inicial.
+Al asociar una **tarea de inicio** con un grupo, puede preparar el entorno operativo de sus nodos. Por ejemplo, puede realizar acciones como instalar las aplicaciones que las tareas ejecutan o iniciar procesos en segundo plano. La tarea de inicio se ejecuta cada vez que se inicia un nodo, siempre y cuando dicho nodo permanezca en el grupo. Aquí se incluye también la primera vez que el nodo se agrega al grupo o cuando se reinicia o se restablece su imagen inicial.
 
-Una de las principales ventajas de la tarea de inicio es que contiene toda la información necesaria para configurar un nodo de proceso e instalar las aplicaciones necesarias para ejecutar tareas. Por lo tanto, aumentar el número de nodos en un grupo es tan simple como especificar el nuevo número de nodos de destino. La tarea de inicio proporciona al servicio Batch la información que se necesita para configurar los nuevos nodos y prepararlos para aceptar tareas.
+Una de las principales ventajas de la tarea de inicio es que puede contener toda la información necesaria para configurar un nodo de proceso e instalar las aplicaciones necesarias para ejecutar tareas. Por lo tanto, aumentar el número de nodos en un grupo es tan simple como especificar el nuevo número de nodos de destino. La tarea de inicio proporciona al servicio Batch la información necesaria para configurar los nuevos nodos y prepararlos para aceptar tareas.
 
 Como con cualquier tarea de Azure Batch, se puede especificar una lista de **archivos de recursos** en [Azure Storage][azure_storage], además de una **línea de comandos** para ejecutar. El servicio Batch copia primero los archivos de recursos desde Azure Storage al nodo y después ejecuta la línea de comandos. Para una tarea de inicio de grupo, la lista de archivos contiene normalmente la aplicación de la tarea y sus dependencias.
 

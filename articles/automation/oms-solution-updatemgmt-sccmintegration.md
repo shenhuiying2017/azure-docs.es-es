@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrar System Center Configuration Manager con Update Management de OMS [versión preliminar]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integración de System Center Configuration Manager con Update Management de OMS
 
 Los clientes que han invertido en System Center Configuration Manager para administrar equipos, servidores y dispositivos móviles también dependen de su solidez y nivel de madurez para administrar actualizaciones de software como parte de su ciclo de Administración de actualizaciones de software (SUM).  
 
@@ -42,12 +42,13 @@ La forma de administrar los clientes hospedados en IaaS de Azure con el entorno 
 Siga estos pasos si va a continuar administrando las implementaciones de actualizaciones desde Configuration Manager.  OMS se conecta a Configuration Manager para aplicar actualizaciones a los equipos cliente conectados al área de trabajo de Log Analytics. El contenido de la actualización está disponible en la caché del equipo cliente como si la implementación se administrara mediante Configuration Manager.  
 
 1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Configuration Manager mediante el proceso descrito en el [proceso de implementación de actualizaciones de software](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  La única opción que se debe configurar de forma distinta de una implementación estándar es la opción **No instalar actualizaciones de software** para controlar el comportamiento de descarga del paquete de implementación. La solución Update Management de OMS administra este comportamiento mediante la creación de una implementación de actualizaciones programada en el paso siguiente.  
-2. En Azure Portal, seleccione su cuenta de Automation en la pantalla **Cuenta de Automation** y cree una variable de tipo booleano denominada **UseOMSForSCCMUpdates** con un valor **true** según se describe en [Para crear una nueva variable con el Portal de Azure](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal).
-3. En el portal de OMS, abra el panel de Update Management.  Cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) y seleccione la colección adecuada de Configuration Manager representada como grupo de equipos de OMS en la lista desplegable.  Tenga en cuenta los siguientes puntos importantes:
+
+1. En el portal de OMS, abra el panel de Update Management.  Cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) y seleccione la colección adecuada de Configuration Manager representada como grupo de equipos de OMS en la lista desplegable.  Tenga en cuenta los siguientes puntos importantes:
     1. Si una ventana de mantenimiento se define en la colección de dispositivos de Configuration Manager, los miembros de la colección respetan sus condiciones, en lugar de la opción **Duración** definida en la implementación programada de OMS.
-    2. Los miembros de la colección de destino deben tener una conexión a Internet (ya sea directamente, a través de un servidor proxy o a través de la puerta de enlace de OMS).  
+    1. Los miembros de la colección de destino deben tener una conexión a Internet (ya sea directamente, a través de un servidor proxy o a través de la puerta de enlace de OMS).  
 
 Después de completar la implementación de actualizaciones con la solución OMS, los equipos de destino que son miembros del grupo de equipos seleccionado instalarán las actualizaciones a la hora programada desde la memoria caché del cliente local.  También puede [ver el estado de implementación de actualizaciones](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) para supervisar los resultados de la implementación.  
+
 
 ### <a name="manage-software-updates-from-oms"></a>Administrar actualizaciones de software de OMS
 

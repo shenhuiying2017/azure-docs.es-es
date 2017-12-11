@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Hacer que una imagen de máquina virtual personalizada esté disponible en Azure Stack
 
@@ -143,7 +143,7 @@ Remove-AzsVMImage `
   -version "1.0.0" `
 ```
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parámetros
 
 | Parámetro | Descripción |
 | --- | --- |
@@ -184,7 +184,7 @@ Debe poderse hacer referencia a las imágenes mediante un identificador URI de B
 
 2. Inicie sesión como operador en Azure Stack. En el menú, seleccione **Más servicios** > **Proveedores de recursos**. A continuación, seleccione **Proceso** > **Imágenes de máquina virtual** > **Agregar**.
 
-3. En la hoja **Add a VM Image** (Agregar una imagen de máquina virtual), escriba el publicador, la oferta, la SKU y la versión de la imagen de máquina virtual. Estos segmentos de nombre hacen referencia a la imagen de máquina virtual en las plantillas de Resource Manager. Asegúrese de seleccionar el valor de **osType** correctamente. En **OD Disk Blob URI** (URI de blob de disco de OD), escriba el URI de blob donde se cargó la imagen. A continuación, seleccione **Crear** para empezar a crear la imagen de máquina virtual.
+3. En la hoja **Add a VM Image** (Agregar una imagen de máquina virtual), escriba el publicador, la oferta, la SKU y la versión de la imagen de máquina virtual. Estos segmentos de nombre hacen referencia a la imagen de máquina virtual en las plantillas de Resource Manager. Asegúrese de seleccionar el valor de **osType** correctamente. En **OS Disk Blob URI** (URI de blob de disco del SO), escriba el identificador URI del blob en que se cargó la imagen. A continuación, seleccione **Crear** para empezar a crear la imagen de máquina virtual.
    
    ![Inicio de la creación de la imagen](./media/azure-stack-add-vm-image/image4.png)
 

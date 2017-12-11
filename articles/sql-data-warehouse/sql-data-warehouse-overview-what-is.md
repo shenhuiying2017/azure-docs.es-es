@@ -1,10 +1,10 @@
 ---
-title: "¿Qué es Almacenamiento de datos SQL de Azure? | Microsoft Docs"
+title: "¿Qué es Azure SQL Data Warehouse? | Microsoft Docs"
 description: "Base de datos distribuida de clase empresarial, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: bjhubbard
+manager: jenniehubbard
 editor: 
 ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
 ms.service: sql-data-warehouse
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 10/23/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: d5ad5b566bd8d40ab6d7a9151af54890fd47cc88
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: jrj
+ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="what-is-azure-sql-data-warehouse"></a>¿Qué es Almacenamiento de datos SQL de Azure?
+# <a name="what-is-azure-sql-data-warehouse"></a>¿Qué es Azure SQL Data Warehouse?
 
 SQL Data Warehouse es un almacenamiento de datos empresarial (EDW) en la nube empresarial que aprovecha el procesamiento paralelo masivo (MPP) para ejecutar rápidamente consultas complejas en petabytes de datos. SQL Data Warehouse se usa como un componente clave de una solución de macrodatos. Importe macrodatos en SQL Data Warehouse con consultas T-SQL de PolyBase simples y, después, use la potencia de MPP para realizar análisis de alto rendimiento. Al realizar la integración y el análisis, el almacenamiento de datos pasará a ser la versión única de certeza con la que puede contar su empresa para obtener información.  
 
@@ -41,9 +41,9 @@ Los resultados del análisis pueden ir a aplicaciones o bases de datos de inform
 
 SQL Data Warehouse ofrece [niveles de rendimiento](performance-tiers.md) diseñados para proporcionar la flexibilidad necesaria para satisfacer sus necesidades de datos, independientemente de que sean grandes o pequeñas. Puede elegir un almacén de datos que esté optimizado para proporcionar mayor elasticidad o para el proceso. 
 
-- El **nivel de rendimiento optimizado para elasticidad** separa las capas de proceso y almacenamiento en la arquitectura. Esta opción destaca en que las cargas de trabajo pueden aprovechar al máximo la separación entre proceso y almacenamiento mediante el escalado frecuente para proporcionar soporte técnico a periodos cortos de actividad máxima. Este nivel de proceso tiene el punto de precio básico más bajo y escala para admitir la mayoría de las cargas de trabajo del cliente.
+- El **nivel de rendimiento optimizado para elasticidad** separa las capas de proceso y almacenamiento en la arquitectura. Esta opción resulta muy útil para las cargas de trabajo que pueden aprovechar al máximo la separación entre proceso y almacenamiento, ya que se escala frecuentemente para admitir periodos breves de máxima actividad. Este nivel de proceso tiene el precio de venta al público de entrada más bajo y se puede escalar para admitir la mayoría de las cargas de trabajo del cliente.
 
-- El **nivel de rendimiento optimizado para proceso** utiliza el hardware de Azure más reciente para introducir una nueva memoria caché de disco de estado sólido NVMe que mantiene los datos a los que se accede con mayor frecuencia cerca de la CPU, que es exactamente donde desea que estén. Al organizar automáticamente el almacenamiento en niveles, destacan las consultas complejas de este nivel de rendimiento, ya que todas las E/S se mantienen de forma local en la capa de proceso. Además, el almacén de columnas se ha mejorado para almacenar una cantidad ilimitada de datos en SQL Data Warehouse. El nivel de rendimiento optimizado para proceso proporciona un mayor nivel de escalabilidad, lo que permite escalar hasta 30 000 unidades de almacenamiento de datos (cDWU) de proceso. Elija este nivel para las cargas de trabajo que requieran un rendimiento continuo e increíblemente rápido.
+- El **nivel de rendimiento Optimizado para Compute** usa el hardware de Azure más reciente para introducir una nueva memoria caché de disco de estado sólido NVMe que mantiene los datos a los que se accede con mayor frecuencia cerca de las CPU, es decir, exactamente donde deben estar. Al organizar automáticamente el almacenamiento en niveles, este nivel de rendimiento resulta muy útil para las consultas complejas, ya que todas las E/S se mantienen de forma local en la capa de proceso. Además, el almacén de columnas se ha mejorado para almacenar una cantidad ilimitada de datos en SQL Data Warehouse. El nivel de rendimiento Optimizado para Compute proporciona un mayor nivel de escalabilidad y permite escalar hasta 30,000 unidades de almacenamiento de datos de proceso (cDWU). Elija este nivel para las cargas de trabajo que requieren un rendimiento continuo e increíblemente rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][create a SQL Data Warehouse] y [cargar datos de ejemplo de manera rápida][load sample data]. Si no está familiarizado con Azure, el [Glosario de Azure][Azure glossary] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de SQL Data Warehouse.  

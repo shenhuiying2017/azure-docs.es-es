@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/28/2017
 ms.author: spelluru
-ms.openlocfilehash: 6a6d0af6ed4e2c4ece7d69f6d7606e3ca149f8a7
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 8d00602dd2634b6fdbd9e9203efaf1e4393f4c09
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -426,7 +426,7 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
     ```
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
-1. Después de iniciar sesión [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, busque la palabra clave `data fa` y seleccione **Factorías de datos**.
+1. Después de iniciar sesión en [Azure Portal](https://portal.azure.com/), haga clic en **Más servicios**, busque la palabra clave, como **data fa** y seleccione **Factorías de datos**.
 
     ![Examinar el menú de Factorías de datos](media/quickstart-create-data-factory-resource-manager-template/browse-data-factories-menu.png)
 2. En la página **Factorías de datos**, haga clic en la factoría de datos que ha creado. Si es necesario, filtre la lista por el nombre de su factoría de datos.  

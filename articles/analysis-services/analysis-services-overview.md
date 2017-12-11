@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ Los clientes usan las [bibliotecas de cliente](analysis-services-data-providers.
 ## <a name="get-help"></a>Obtener ayuda
 
 #### <a name="documentation"></a>Documentación
-Azure Analysis Services es fácil de configurar y administrar. Puede encontrar toda la información que necesita para crear y administrar los servicios del servidor aquí. Crear un modelo de datos para implementar en el servidor es similar a crear un modelo de datos que se implementa en un servidor local. Hay una amplia biblioteca de artículos sobre conceptos, procedimientos, tutoriales y referencia en [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+Azure Analysis Services es fácil de configurar y administrar. Puede encontrar toda la información que necesita para crear y administrar los servicios del servidor aquí. Crear un modelo de datos para implementar en el servidor es similar a crear un modelo de datos que se implementa en un servidor local. Hay una amplia biblioteca de artículos de referencia, sobre conceptos, procedimientos y tutoriales en la [ayuda de SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 #### <a name="videos"></a>Vídeos
 Consulte algunos vídeos útiles en [Azure Analysis Services en Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).

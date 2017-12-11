@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,63 +67,7 @@ Después de que se han procesado los datos sin procesar en un formato compatible
 ### <a name="monitor"></a>Supervisión
 Una vez creada e implementada correctamente la canalización de integración de datos, que proporciona un valor empresarial a partir de datos procesados, supervise las canalizaciones y las actividades programadas para ver las tasas de éxito y error. Azure Data Factory tiene compatibilidad integrada con la supervisión de canalizaciones mediante Azure Monitor, API, PowerShell, Microsoft Operations Management Suite y paneles de mantenimiento en Azure Portal.
 
-## <a name="whats-different-in-version-2"></a>Diferencias en la versión 2
-La versión 2 de Azure Data Factory se basa en el servicio original de movimiento y transformación de datos de Azure Data Factory, que se extiende a un conjunto más amplio de escenarios de integración de datos principalmente en la nube. La versión 2 de Azure Data Factory ofrece las siguientes funcionalidades:
-
-- Escala y flujo de control
-- Implementación y ejecución de paquetes de SQL Server Integration Services (SSIS) en Azure
-
-Tras el lanzamiento de la versión 1, detectamos que los clientes necesitaban diseñar escenarios complejos de integración de datos híbridos que requerían el movimiento y el procesamiento de datos en la nube, en el entorno local y en las máquinas virtuales de nube. Estos requisitos pusieron de manifiesto la necesidad de transferir y procesar los datos dentro de entornos de red virtual protegidos y escalar horizontalmente la potencia de procesamiento a petición.
-
-Como las canalizaciones de datos se convierten en una parte fundamental de una estrategia de análisis de negocios, hemos observado que estas actividades de datos críticas requieren una programación flexible para admitir cargas de datos incrementales y ejecuciones desencadenadas por eventos. Finalmente, a medida que estas operaciones se hacen más complejas, lo hacen los requisitos para que el servicio admita los paradigmas comunes de flujo de trabajo como el procesamiento condicional, la bifurcación y el bucle.
-
-Con la versión 2, también puede migrar paquetes SSIS existentes a la nube. Puede levantar y mover SSIS como un servicio de Azure que se administra en ADF, mediante la nueva característica "Integration Runtime" (IR). Al poner en marcha un IR de SSIS en la versión 2, tiene la capacidad de ejecutar, administrar, supervisar y generar paquetes SSIS en la nube.
-
-### <a name="control-flow-and-scale"></a>Escala y flujo de control 
-Para admitir los diferentes patrones y flujos de integración en el almacenamiento de datos actual, Data Factory ha habilitado un nuevo modelo de canalización de datos flexible que ya no está asociado con los datos de serie temporal. Con esta versión, puede modelar condicionales y la bifurcación en el flujo de control de una canalización de datos, así como pasar explícitamente los parámetros dentro y entre estos flujos.
-
-Ahora tiene la libertad de modelar cualquier estilo de flujo necesario para la integración de datos y enviarlo a petición o varias veces según una programación horaria. Algunos flujos comunes ya habilitados que anteriormente no eran posibles son:   
-
-- Flujo de control:
-    - Encadenamiento de actividades en una secuencia dentro de una canalización
-    - Bifurcación de actividades dentro de una canalización
-    - parameters
-        - Los parámetros se pueden definir en la canalización y los argumentos se pueden pasar al invocar la canalización a petición o desde un desencadenador.
-        - Las actividades pueden consumir los argumentos que se pasan a la canalización.
-    - Paso a estado personalizado
-        - Los resultados de la actividad, incluido el estado, se pueden usar en una posterior actividad de la canalización.
-    - Contenedores de bucle
-        - Para cada 
-- Flujos basados en el desencadenador
-    - Las canalizaciones se pueden desencadenar a petición o por tiempo de reloj.
-- Flujos delta
-    - Use parámetros y defina el límite máximo de la copia delta al mover tablas de dimensiones o de referencia desde un almacén relacional de forma local o en la nube para cargar los datos en Data Lake. 
-
-Para más información, consulte [Actividades de bifurcación y encadenamiento en una canalización de Data Factory](tutorial-control-flow.md).
-
-### <a name="deploy-ssis-packages-to-azure"></a>Implementación de paquetes SSIS en Azure 
-Si desea mover las cargas de trabajo SSIS, puede crear una versión 2 de Data Factory y aprovisionar una instancia de SSIS Integration Runtime (IR) de Azure. SSIS IR de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones detalladas, consulte el tutorial [Implementación de paquetes de SQL Server Integration Services en Azure](tutorial-deploy-ssis-packages-azure.md). 
- 
-
-### <a name="sdks"></a>SDK
-Si es un usuario avanzado y busca una interfaz programática, la versión 2 le proporciona un amplio conjunto de SDK que se pueden usar para crear, administrar y supervisar canalizaciones mediante su IDE favorito.
-
-- *SDK de .NET*: el SDK de .NET se actualiza para la versión 2. 
-- *PowerShell*: los cmdlets de PowerShell se actualizan para la versión 2. La versión 2 de los cmdlets tienen **DataFactoryV2** en el nombre. Por ejemplo: Get-AzureRmDataFactoryV2. 
-- *SDK de Python*: este SDK es una novedad de la versión 2.
-- *API de REST*: la API de REST se actualiza para la versión 2.  
-
-Los SDK que se actualizan para la versión 2 no son compatibles con los clientes de la versión 1. 
-
-### <a name="monitoring"></a>Supervisión
-Actualmente, la versión 2 admite la supervisión de factorías de datos solo con los SDK. El portal aún no es compatible con la supervisión de las factorías de datos de la versión 2. 
-
-## <a name="load-the-data-into-a-lake"></a>Carga de los datos en un lago
-Data Factory tiene más de 30 conectores para que pueda cargar datos de entornos heterogéneos e híbridos en Azure. Consulte [Guía de rendimiento y ajuste](copy-activity-performance.md) para ver los últimos resultados de rendimiento de las pruebas internas y las sugerencias de ajuste. 
-
-Además, recientemente se ha habilitado alta disponibilidad y escalabilidad para Integration Runtime autohospedado que se instala en un entorno de red privada. Esto soluciona en gran medida los requisitos del cliente de empresa de nivel 1 de una mejor disponibilidad y escalabilidad.
-
-## <a name="top-level-concepts-in-version-2"></a>Conceptos de nivel superior en la versión 2
+## <a name="top-level-concepts"></a>Conceptos de nivel superior
 Una suscripción de Azure puede tener una o varias instancias de Azure Data Factory (o factorías de datos). Azure Data Factory consta de cuatro componentes principales. Estos componentes funcionan juntos para proporcionar la plataforma en la que pueda crear flujos de trabajo basados en datos con pasos para moverlos y transformarlos.
 
 ### <a name="pipeline"></a>Canalización
@@ -147,13 +91,12 @@ Los servicios vinculados se utilizan con dos fines en Data Factory:
 - Para representar un **recurso de proceso** que puede hospedar la ejecución de una actividad. Por ejemplo, la actividad HDInsightHive se ejecuta en un clúster de Hadoop para HDInsight. Consulte el artículo sobre [transformación de datos](transform-data.md) para ver una lista de los entornos de proceso y las actividades de transformación admitidos.
 
 ### <a name="triggers"></a>Desencadenadores
-Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Existen diferentes tipos de desencadenadores para diferentes tipos de eventos. En versión preliminar, se admite el desencadenador del programador de reloj. 
-
+Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Existen diferentes tipos de desencadenadores para diferentes tipos de eventos. En la versión preliminar, Data Factory admite el desencadenador del programador de reloj. 
 
 ### <a name="pipeline-runs"></a>Ejecuciones de la canalización
 Una ejecución de la canalización es una instancia de la ejecución de la canalización. Normalmente, las instancias de ejecuciones de canalización se crean al pasar argumentos a los parámetros definidos en las canalizaciones. Los argumentos se pueden pasar manualmente o dentro de la definición del desencadenador.
 
-### <a name="parameters"></a>Parámetros
+### <a name="parameters"></a>parameters
 Los parámetros son pares clave-valor de configuración de solo lectura.  Los parámetros se definen en la canalización. Los argumentos de los parámetros definidos se pasan durante la ejecución desde el contexto de ejecución creado por un desencadenador o una canalización que se ejecuta manualmente. Las actividades dentro de la canalización consumen los valores de parámetro.
 
 Un conjunto de datos es un parámetro fuertemente tipado y una entidad reutilizable o a la que se puede hacer referencia. Una actividad puede hacer referencia a conjuntos de datos y puede consumir las propiedades definidas en la definición del conjunto de datos.
@@ -179,6 +122,9 @@ Azure Data Factory no almacena ningún dato. Permite crear flujos de trabajo con
 Aunque Data Factory solamente está disponible en las regiones del este de EE. UU., este de EE. UU. 2 y Europa Occidental, el servicio que atiende el movimiento de datos en Data Factory está disponible mundialmente en varias regiones. Si un almacén de datos se encuentra detrás de un firewall, será una instancia de Data Management Gateway instalada en el entorno local la que mueva los datos en su lugar.
 
 Por ejemplo, supongamos que sus entornos de proceso, tales como el clúster de Azure HDInsight y Azure Machine Learning, se ejecutan fuera de la región de Europa Occidental. Puede crear y usar una instancia de Azure Data Factory en Europa del Norte y usarla para programar trabajos en los entornos de proceso en Europa Occidental. Data Factory tarda unos milisegundos en desencadenar el trabajo en su entorno de proceso, pero el tiempo para ejecutar el trabajo en el entorno de proceso no cambia.
+
+## <a name="compare-with-version-2"></a>Comparación con la versión 2
+Para obtener una lista de las diferencias entre las versiones 1 y 2 del servicio Data Factory, consulte [Compare with version 1](compare-versions.md) (Comparación de las versiones 1 y 2 de Azure Data Factory). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para saber cómo crear una factoría de datos, siga las instrucciones paso a paso en los inicios rápidos siguientes: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API de REST](quickstart-create-data-factory-rest-api.md) y Azure Portal. 

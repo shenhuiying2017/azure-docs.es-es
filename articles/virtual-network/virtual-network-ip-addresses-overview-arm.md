@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -62,7 +62,7 @@ Todas las direcciones IP públicas creadas antes de la introducción de SKU son 
 - Se pueden asignar a una zona específica.
 - No tienen redundancia de zona. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-#### <a name="standard"></a>Estándar
+#### <a name="standard"></a>Standard
 
 Las direcciones IP públicas de SKU estándar:
 
@@ -150,7 +150,7 @@ Se asigna una dirección IP privada del intervalo de direcciones de la subred de
 Hay dos métodos de asignación de direcciones IP privadas:
 
 - **Dinámica**: Azure asigna la siguiente dirección IP sin asignar o no reservada disponible en el intervalo de direcciones de la subred. Por ejemplo, Azure asigna 10.0.0.10 a un nuevo recurso, si las direcciones 10.0.0.4 a 10.0.0.9 ya están asignadas a otros. Este es el método de asignación predeterminado. Una vez asignadas, las direcciones IP dinámicas solo se liberan si se elimina una interfaz de red y se asigna a otra subred diferente de la misma red virtual, o bien el método de asignación se cambia a estática y se especifica otra dirección IP. De forma predeterminada, cuando se cambia el método de asignación de dinámica a estática, Azure asigna la dirección asignada dinámicamente anterior como dirección estática.
-- **Estática**: seleccione y asigne cualquier dirección IP sin asignar o no reservada en el intervalo de direcciones de la subred. Por ejemplo, si el intervalo de direcciones de una subred es 10.0.0.0/16 y las direcciones 10.0.0.4 a 10.0.0.9 ya están asignadas a otros recursos, puede asignar cualquier dirección entre 10.0.0.10 y 10.0.255.254. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente como dirección dinámica la dirección IP estática asignada anteriormente, aunque no sea la siguiente disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
+- **Estática**: seleccione y asigne cualquier dirección IP sin asignar o no reservada en el intervalo de direcciones de la subred. Por ejemplo, si el intervalo de direcciones de una subred es 10.0.0.0/16 y las direcciones 10.0.0.4 a 10.0.0.9 ya están asignadas a otros recursos, puede asignar cualquier dirección entre 10.0.0.10 y 10.0.255.254. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a dinámica, Azure asigna dinámicamente como dirección dinámica la dirección IP estática asignada anteriormente, aunque no sea la siguiente disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
 

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d28def78ef34e7c41e846fc10771992f109efd45
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: b764c813910b8188b2da7a8168d7e8ab8af70762
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -52,7 +52,7 @@ Este tema ofrece una visión general de las actividades de inicio de sesión.
 Con la información proporcionada por el informe de inicio de sesión del usuario, puede encontrar respuestas a preguntas tales como:
 
 * ¿Cuál es el patrón de inicio de sesión de un usuario?
-* ¿Cuántos usuarios tienen usuarios que han iniciado sesión durante una semana?
+* ¿Cuántos usuarios han iniciado sesión en una semana?
 * ¿Cuál es el estado de estos inicios de sesión?
 
 El primer punto de entrada a todos los datos de actividades de inicio de sesión es **Inicios de sesión** en la sección Actividad de **Azure Active**.
