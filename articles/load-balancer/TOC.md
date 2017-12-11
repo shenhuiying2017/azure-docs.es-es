@@ -1,7 +1,7 @@
 # Información general
 ## [¿Qué es el equilibrador de carga?](load-balancer-overview.md)
 ## [¿Qué es Load Balancer Estándar?](load-balancer-standard-overview.md)
-## [Equilibrador de carga de Internet](load-balancer-internet-overview.md)
+## [Equilibrador de carga público](load-balancer-internet-overview.md)
 ## [Equilibrador de carga interno](load-balancer-internal-overview.md)
 ## [Descripción de los sondeos del equilibrador de carga](load-balancer-custom-probe-overview.md)
 ## [Introducción a los puertos de alta disponibilidad](load-balancer-ha-ports-overview.md)
@@ -12,31 +12,23 @@
 
 # Introducción
 
-## [Configuración del equilibrador de carga interno](load-balancer-get-started-ilb-arm-portal.md)
+## [Configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configuración del equilibrador de carga interno (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configuración del equilibrador de carga interno (CLI)](load-balancer-get-started-ilb-arm-cli.md)
 ### [Configuración del equilibrador de carga interno (plantilla)](load-balancer-get-started-ilb-arm-template.md)
 
-## [Configuración del equilibrador de carga interno para Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
-### [Configuración del equilibrador de carga interno para Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
-### [Configuración del equilibrador de carga interno para Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+## [Configuración del equilibrador de carga público](load-balancer-get-started-internet-portal.md)
+### [Configuración del equilibrador de carga público (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [Configuración del equilibrador de carga público (CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [Configuración del equilibrador de carga público (plantilla)](load-balancer-get-started-internet-arm-template.md)
 
-## [Configuración del equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-portal.md)
-### [Configuración del equilibrador de carga accesible desde Internet (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [Configuración del equilibrador de carga accesible desde Internet (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Configuración del equilibrador de carga accesible desde Internet (plantilla)](load-balancer-get-started-internet-arm-template.md)
+## [Creación de un equilibrador de carga público con IPv6](load-balancer-ipv6-internet-ps.md)
+### [Creación de un equilibrador de carga público con IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
+### [Creación de un equilibrador de carga público con IPv6 (plantilla)](load-balancer-ipv6-internet-template.md)
 
-## [Configuración del equilibrador de carga accesible desde Internet (PowerShell clásico)](load-balancer-get-started-internet-classic-ps.md)
-### [Configuración del equilibrador de carga accesible desde Internet (nube clásica)](load-balancer-get-started-internet-classic-cloud.md)
-### [Configuración del equilibrador de carga accesible desde Internet (CLI clásica)](load-balancer-get-started-internet-classic-cli.md)
-
-## [Creación de un equilibrador de carga accesible desde Internet con IPv6](load-balancer-ipv6-internet-ps.md)
-### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
-### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (plantilla)](load-balancer-ipv6-internet-template.md)
-
-## [Creación de un estándar público de equilibrador de carga con redundancia de zonas](load-balancer-get-started-internet-az-portal.md)
-### [Creación de un estándar público de equilibrador de carga con redundancia de zonas (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Creación de un estándar público de equilibrador de carga con redundancia de zonas (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Creación de un equilibrador de carga estándar público con redundancia de zonas](load-balancer-get-started-internet-az-portal.md)
+### [Creación de un equilibrador de carga estándar público con redundancia de zonas (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Creación de un equilibrador de carga estándar público con redundancia de zonas (CLI)](load-balancer-get-started-internet-az-cli.md)
 
 # Cómo
 ## [Configuración del tiempo de espera de inactividad TCP del equilibrador de carga](load-balancer-tcp-idle-timeout.md)
@@ -50,11 +42,17 @@
 ## [Log Analytics para Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuración de DHCPv6 para VM de Linux](load-balancer-ipv6-for-linux.md)
 ## [Configuración de puertos de alta disponibilidad para el equilibrador de carga interno](load-balancer-configure-ha-ports.md)
-## [Creación de una dirección IP pública en una zona de disponibilidad](../virtual-network/create-public-ip-availability-zone-portal.md)
-## [Creación de una dirección IP pública en una zona de disponibilidad (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
-## [Creación de una dirección IP pública en una zona de disponibilidad (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
+
 ## Solución de problemas
 ### [Configuración de Azure Load Balancer](load-balancer-troubleshoot.md)
+
+## Artículos sobre el modelo de implementación clásica
+### [Configuración de un equilibrador de carga interno para Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
+#### [Configuración de un equilibrador de carga interno para Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+#### [Configuración de un equilibrador de carga interno para Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+### [Configuración de un equilibrador de carga público (PowerShell clásico)](load-balancer-get-started-internet-classic-ps.md)
+#### [Configuración de un equilibrador de carga público (nube clásica)](load-balancer-get-started-internet-classic-cloud.md)
+#### [Configuración de un equilibrador de carga público (CLI clásica)](load-balancer-get-started-internet-classic-cli.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)

@@ -50,6 +50,7 @@
 ### [Validación de XML](logic-apps-enterprise-integration-xml-validation.md)
 ### [Adición de esquemas para la validación XML](logic-apps-enterprise-integration-schemas.md)
 ### [Transformación de XML](logic-apps-enterprise-integration-transform.md)
+### [Transformación de JSON](logic-apps-enterprise-integration-liquid-transform.md)
 ### [Incorporación de mapas para la transformación XML](logic-apps-enterprise-integration-maps.md)
 ### [Incorporación de certificados para la seguridad B2B](logic-apps-enterprise-integration-certificates.md)
 ### [Metadatos de almacén para artefactos](logic-apps-enterprise-integration-metadata.md)
@@ -114,7 +115,8 @@
 ## Conectores: Temas detallados
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)
-### [Azure Functions](logic-apps-azure-functions.md)
+### 
+            [Azure Functions](logic-apps-azure-functions.md)
 ### [Azure Logic Apps](logic-apps-http-endpoint.md)
 ### [Azure SQL Database](../connectors/connectors-create-api-sqlazure.md)
 ### [API y aplicaciones web personalizadas](logic-apps-create-api-app.md)

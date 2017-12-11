@@ -11,6 +11,9 @@
   items:
     - name: Creación de un clúster de Storm
       href: apache-storm-tutorial-get-started-linux.md
+    - name: Instalación de aplicaciones de HDInsight
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Planificación de capacidad
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -45,17 +48,11 @@
           href: apache-storm-sensor-data-analysis.md
     - name: Extensión de los clústeres
       items:
-        - name: Uso de una cuenta de almacenamiento con protección habilitada
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: Personalización de clústeres con Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: Personalización de clústeres mediante la acción de script
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: Conexión de HDInsight a la red local
-          href: ../connect-on-premises-network.md
           maintainContext: true
         - name: Desarrollo acciones de script
           href: ../hdinsight-hadoop-script-actions-linux.md
@@ -63,14 +60,8 @@
         - name: Instalación o actualización de Mono
           href: ../hdinsight-hadoop-install-mono.md
           maintainContext: true
-        - name: Uso de Virtual Network
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Compilación de aplicaciones de HDInsight
           items:
-            - name: Instalación de aplicaciones de HDInsight
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Instalación de aplicaciones personalizadas
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -180,20 +171,6 @@
         - name: Aplicación de revisión del SO para un clúster de HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Supervisión
-      items:
-        - name: Uso de Azure Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Paneles específicos de clúster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Uso de consultas con Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Supervisión del rendimiento de un clúster
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Solución de problemas
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -220,6 +197,33 @@
             - name: Habilitación de volcados del montón para servicios de Hadoop
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
               maintainContext: true
+- name: Adecuado para empresas
+  items:
+    - name: Protección de datos
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Acceso de red
+      items:
+        - name: HDInsight en redes virtuales de Azure
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: Conexión de HDInsight con la red local
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: Supervisión con OMS
+      items:
+        - name: Uso de Azure Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Paneles específicos de clúster
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Uso de consultas con Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Supervisión del rendimiento de un clúster
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Referencia
   items:
     - name: Ejemplos de código
