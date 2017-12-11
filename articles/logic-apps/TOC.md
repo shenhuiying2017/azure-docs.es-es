@@ -115,8 +115,7 @@
 ## Conectores: Temas detallados
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob Storage](../connectors/connectors-create-api-azureblobstorage.md)
-### 
-            [Azure Functions](logic-apps-azure-functions.md)
+### [Azure Functions](logic-apps-azure-functions.md)
 ### [Azure Logic Apps](logic-apps-http-endpoint.md)
 ### [Azure SQL Database](../connectors/connectors-create-api-sqlazure.md)
 ### [API y aplicaciones web personalizadas](logic-apps-create-api-app.md)
