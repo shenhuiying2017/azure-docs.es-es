@@ -66,6 +66,9 @@
         - name: Proceso optimizado
           href: sizes-compute.md
         - name: Memoria optimizada
+          items:
+            - name: VCPU restringidas
+              href: constrained-vcpu.md
           href: sizes-memory.md
         - name: Almacenamiento optimizado
           href: sizes-storage.md

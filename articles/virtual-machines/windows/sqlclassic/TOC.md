@@ -12,7 +12,7 @@
 # Procedimientos
 ## Configuración para alta disponibilidad
 ### [Opciones de alta disponibilidad](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Configuración de grupos de disponibilidad Always On mediante el portal clásico](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Configuración de grupos de disponibilidad Always On mediante el portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Configuración de grupos de disponibilidad Always On con PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Configuración un agente de escucha interno para un grupo de disponibilidad](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Configuración un agente de escucha externo para un grupo de disponibilidad](virtual-machines-windows-classic-ps-sql-ext-listener.md)
@@ -25,7 +25,7 @@
 ### [Consideraciones sobre la seguridad](../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## Copia de seguridad y restauración
 ### [Copia de seguridad y restauración](../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
-### [Copia de seguridad automatizada](virtual-machines-windows-classic-sql-automated-backup.md)
+### [Automated Backup](virtual-machines-windows-classic-sql-automated-backup.md)
 ### [Uso de Azure Storage para la copia de seguridad y la restauración](../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## Inteligencia empresarial
 ### [Inteligencia empresarial de SQL Server en máquinas virtuales de Azure](virtual-machines-windows-classic-ps-sql-bi.md)

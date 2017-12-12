@@ -9,7 +9,7 @@
 - name: Inicios rápidos
   expanded: true
   items:
-    - name: DocumentDB
+    - name: SQL
       items:
         - name: .NET
           href: create-documentdb-dotnet.md
@@ -71,7 +71,7 @@
   items:
     - name: 1 - Creación
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-develop-documentdb-dotnet.md
         - name: MongoDB con .NET
           href: tutorial-develop-mongodb.md
@@ -87,7 +87,7 @@
           href: tutorial-develop-cassandra-java.md
     - name: 2 - Importación
       items:
-        - name: DocumentDB
+        - name: SQL
           href: import-data.md
         - name: MongoDB
           href: mongodb-migrate.md
@@ -97,7 +97,7 @@
           href: cassandra-import-data.md
     - name: 3 - Consulta
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-query-documentdb.md
         - name: MongoDB
           href: tutorial-query-mongodb.md
@@ -107,7 +107,7 @@
           href: tutorial-query-graph.md
     - name: 4 - Distribución global
       items:
-        - name: DocumentDB
+        - name: SQL
           href: tutorial-global-distribution-documentdb.md
         - name: MongoDB
           href: tutorial-global-distribution-mongodb.md
@@ -147,7 +147,7 @@
       href: request-units.md
     - name: API de varios modelos
       items:
-        - name: DocumentDB
+        - name: SQL
           href: documentdb-introduction.md
         - name: MongoDB
           href: mongodb-introduction.md
@@ -170,7 +170,7 @@
   items:
     - name: Desarrollo
       items:
-        - name: DocumentDB API
+        - name: API DE SQL
           href: documentdb-index.md
           items:
             - name: Recursos
@@ -239,8 +239,6 @@
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Actualizaciones del servicio
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: Portal de la Comunidad
-                  href: community.md
                 - name: Documento sobre indexación independiente del esquema
                   href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
                 - name: 'Retirada de S1, S2, S3'
@@ -378,13 +376,13 @@
           href: powerbi-visualize.md
         - name: Aprovechamiento del controlador ODBC para la visualización de datos
           href: odbc-driver.md
-        - name: Uso de Spring Boot Starter con API de DocumentDB
+        - name: Uso de Spring Boot Starter con las API de SQL
           href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: Referencia
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: DocumentDB API
+    - name: API de SQL
       items:
         - name: Java
           href: documentdb-sdk-java.md
