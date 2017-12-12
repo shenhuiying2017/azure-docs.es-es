@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación de Azure Container Registry
+title: "Documentación de Azure Container Registry"
 metadata:
-  title: 'Documentación sobre Azure Container Registry: tutoriales | Microsoft Docs'
-  description: 'Azure Container Registry le permite almacenar y administrar imágenes para todo tipo de implementaciones de contenedor. Obtenga información sobre cómo usar Azure Container Registry con estos inicios rápidos, tutoriales y ejemplos.'
+  title: "Documentación sobre Azure Container Registry: tutoriales | Microsoft Docs"
+  description: "Azure Container Registry le permite almacenar y administrar imágenes para todo tipo de implementaciones de contenedor. Obtenga información sobre cómo usar Azure Container Registry con estos inicios rápidos, tutoriales y ejemplos."
   services: container-registry
   author: czeumault
   manager: carolz
@@ -13,49 +13,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
+  ms.openlocfilehash: cdd33e3aed48cc94f91962b78f17628a6e29657d
+  ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/07/2017
 abstract:
-  description: 'Azure Container Registry le permite almacenar y administrar imágenes para todo tipo de implementaciones de contenedor. Obtenga información sobre cómo usar Azure Container Registry con estos inicios rápidos, tutoriales y ejemplos.'
+  description: "Azure Container Registry le permite almacenar y administrar imágenes para todo tipo de implementaciones de contenedor. Obtenga información sobre cómo usar Azure Container Registry con estos inicios rápidos, tutoriales y ejemplos."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: Aprenda a implementar una instancia de Azure Container Registry.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Aprenda a implementar una instancia de Azure Container Registry.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI de Azure
-            href: /azure/container-registry/container-registry-get-started-azure-cli
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Azure Portal
-            href: /azure/container-registry/container-registry-get-started-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-registry/container-registry-get-started-powershell
-  - title: Tutoriales detallados
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI de Azure
+      href: /azure/container-registry/container-registry-get-started-azure-cli
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/container-registry/container-registry-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/container-registry/container-registry-get-started-powershell
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a usar Azure Container Registry con estos tutoriales.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Aprenda a usar Azure Container Registry con estos tutoriales.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Replicación geográfica de Container Registry (versión preliminar)</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry con Azure Container Instances</a>
-          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry con Azure Container Service (AKS)</a>
-          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry con Service Fabric</a>
-  - title: Referencia
+    - html: "<a href=\"/azure/container-registry/container-registry-tutorial-prepare-registry\">Replicación geográfica de Container Registry (versión preliminar)</a>"
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry con Azure Container Instances</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry con Azure Container Service (AKS)</a>
+    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Container Registry con Service Fabric</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: <p><a href="/cli/azure/acr">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-          - title: Idiomas
-            html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/containerregistry">Referencia de API de REST</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Plantilla de Resource Manager</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Esquema de Webhook</a></p>
+    - title: "Línea de comandos"
+      html: <p><a href="/cli/azure/acr">CLI de Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+    - title: Idiomas
+      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/containerregistry">Referencia de API de REST</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Plantilla de Resource Manager</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Esquema de Webhook</a></p>

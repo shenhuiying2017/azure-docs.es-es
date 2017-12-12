@@ -116,6 +116,8 @@
       items:
         - name: Directrices de infraestructura
           href: infrastructure-example.md
+        - name: Cuotas de vCPU
+          href: quotas.md
 - name: Guías de procedimientos
   items:
     - name: Crear máquinas virtuales

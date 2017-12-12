@@ -1,7 +1,7 @@
 # Información general
 ## [¿Qué es Microsoft Power BI Embedded?](what-is-power-bi-embedded.md)
 
-# Primeros pasos
+# Introducción
 ## [Introducción a Power BI Embedded](get-started.md)
 ## [Introducción a un ejemplo](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
@@ -24,7 +24,7 @@
 
 # Referencia
 ## API existentes
-### [API de REST de Azure Resource Manager](/rest/api/powerbiembedded/)
+### [API de REST de Azure Resource Manager](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [API de REST](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## SDK
 ### [Descarga del SDK de .NET](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
