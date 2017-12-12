@@ -219,7 +219,6 @@
 ### [Configuración de la aceleración automática del inicio de sesión mediante la directiva de HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Administración del acceso a aplicaciones](active-directory-managing-access-to-apps.md)
-#### [Acceso de autoservicio](active-directory-self-service-application-access.md)
 #### [Acceso con SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificados para SSO](active-directory-sso-certs.md)
 #### [Restricciones de inquilino](active-directory-tenant-restrictions.md)
@@ -281,7 +280,7 @@
 ## Protección de las identidades
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Controles](active-directory-conditional-access-controls.md)
-#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### Tareas

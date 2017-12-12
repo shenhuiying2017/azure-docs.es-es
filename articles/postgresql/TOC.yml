@@ -89,7 +89,7 @@
           href: howto-restore-server-portal.md
         - name: CLI de Azure
           href: howto-restore-server-cli.md
-    - name: Migración de la base de datos
+    - name: Migración de una base de datos
       items:
         - name: Volcado de memoria y restauración
           href: howto-migrate-using-dump-and-restore.md

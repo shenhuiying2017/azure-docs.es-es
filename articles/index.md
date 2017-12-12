@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
 featureFlags: clicktale
-ms.openlocfilehash: ef6d74496520b61392503bf5a1b9bc3c611b0352
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1d6ff00b9fdabbf612cba15fa09f923d0b08a58e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -566,7 +566,7 @@ ms.lasthandoff: 12/08/2017
                                         <li>
                                             <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Administrador de tráfico</p>
+                                                <p>Traffic Manager</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1608,7 +1608,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Administrador de tráfico</h3>
+                                                    <h3>Traffic Manager</h3>
                                                     <p>Enrute el tráfico entrante para obtener alto rendimiento y disponibilidad</p>
                                                 </div>
                                             </div>
@@ -3228,7 +3228,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                <a href="/azure/active-directory/develop">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
