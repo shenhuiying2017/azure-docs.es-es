@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspectores admitidos disponibles para la versión preliminar de la preparación de datos de Azure Machine Learning
 En este documento se describe el conjunto de inspectores disponibles en esta versión preliminar.
@@ -113,3 +113,18 @@ Un mapa con puntos trazados, suponiendo que se han especificado la latitud y la 
 Este inspector admite el filtrado mediante la selección de puntos en el mapa. Presione la tecla **Ctrl** y, después, haga clic y arrastre con el mouse para formar un cuadrado alrededor de los puntos. Después, aplique los filtros como se ha descrito anteriormente.
 
 Puede cambiar el tamaño del mapa rápidamente para mostrar solamente todos los puntos posibles. Para ello, presione la **E** situada en el lado izquierdo del mapa.
+
+
+## <a name="pattern-frequency"></a>Frecuencia de patrón 
+
+Este inspector muestra una lista de patrones en la columna Cadena seleccionada. Los patrones se representan mediante una sintaxis similar a las expresiones regulares. Al mantener el mouse sobre el modelo, se muestran los ejemplos de los valores representados por ese patrón. Junto con los patrones, también se muestran las coberturas aproximadas en forma de porcentaje.
+
+![Imagen del inspector de patrones](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Opciones
+- Número de valores superiores
+- Descendente
+- Mostrar halo
+
+### <a name="actions"></a>Acciones
+Este inspector admite el filtrado basado en los patrones mostrados. Presione la tecla **Ctrl** y, a continuación, seleccione las barras rellenas en el inspector de patrones. Después, aplique los filtros como se ha descrito anteriormente. Como resultado de la acción del usuario, se agrega un paso Filtro avanzado. Puede ver y modificar el código Python generado invocando la opción de edición del paso Filtro avanzado.

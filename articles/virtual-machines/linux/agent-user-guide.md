@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagen
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagen
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 A continuación se describen en detalle las diferentes opciones de configuración. Las opciones de configuración son de tres tipos: Boolean, String o Integer. Las opciones de configuración booleana se pueden especificar como "y" o "n". La palabra clave especial "None" se puede usar para algunas entradas de la configuración tipo cadena como se detalla a continuación.
 
@@ -209,9 +211,13 @@ Predeterminado: n
 
 Si se establece, waagent ejecutará CustomData después del aprovisionamiento.
 
+**Provisioning.AllowResetSysUser** Tipo: Boolean Default: n
+
+Esta opción permite restablecer la contraseña del usuario SYS; de forma predeterminada, está deshabilitada.
+
 **Provisioning.PasswordCryptId**  
 Tipo: String  
-Valor predeterminado: 6
+Predeterminado: 6
 
 Algoritmo usado por el cifrado al generar el hash de contraseña.   
  1 - MD5  
@@ -290,6 +296,12 @@ Tipo: String
 Valor predeterminado: None
 
 Si se establece, el agente usará este servidor proxy para tener acceso a Internet. 
+
+**AutoUpdate.Enabled** Tipo: Boolean Default: y
+
+Habilita o deshabilita la actualización automática del procesamiento del estado del objetivo; está habilitada de forma predeterminada.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Ubuntu Cloud Images
 Tenga en cuenta que Ubuntu Cloud Images usan [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) para realizar muchas tareas de configuración que de lo contrario, serían administradas por el agente Linux de Azure.  Tenga en cuenta las siguientes diferencias:

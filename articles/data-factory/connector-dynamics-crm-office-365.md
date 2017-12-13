@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics CRM y 365 mediante Azure Data Factory
 
@@ -30,14 +30,20 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 
 Puede copiar desde Dynamics 365 o CRM a cualquier almacén de datos receptor compatible, o copiar datos desde cualquier almacén de datos receptor compatible a Dynamics 365 o CRM. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
-En concreto, este conector de Dynamics admite los siguientes tipos de autenticación y versiones de Dynamics:
+Este conector de Dynamics admite los siguientes tipos de autenticación y versiones de Dynamics (*IFD es la abreviatura en inglés del término "implementación con conexión a Internet"*):
 
 | Versiones de Dynamics | Tipos de autenticación | Ejemplos de servicios vinculados |
 |:--- |:--- |:--- |
 | Dynamics 365 Online <br> Dynamics CRM Online | Office 365 | [Autenticación de Dynamics Online + Office 365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 local con IFD <br> Dynamics CRM 2016 local con IFD <br> Dynamics CRM 2015 local con IFD | IFD | [Dynamics local con autenticación de IFD + IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD es la abreviatura en inglés del término "implementación con conexión a Internet".*
+Para Dynamics 365 en concreto, se admiten los siguientes tipos de aplicación:
+
+- Dynamics 365 for Sales
+- Dynamics 365 for Customer Service
+- Dynamics 365 for Field Service
+- Dynamics 365 for Project Service Automation
+- Dynamics 365 for Marketing
 
 > [!NOTE]
 > Para utilizar este conector de Dynamics, almacene la contraseña en Azure Key Vault y permita que la actividad de copia de ADF la extraiga de este lugar al realizar la copia de datos. Consulte la sección de configuración de la sección de [propiedades de servicios vinculados](#linked-service-properties).
@@ -61,7 +67,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | organizationName | El nombre de la organización de la instancia de Dynamics. | No (se debe especificar cuando hay más de una instancia de Dynamics asociada al usuario) |
 | authenticationType | Tipo de autenticación para conectarse a Dynamics. Especifique **"Office365"** para Dynamics Online. | Sí |
 | nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| Contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Tendrá que colocar la contraseña en Azure Key Vault y configurar la contraseña como "AzureKeyVaultSecret". Más información sobre [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Tendrá que colocar la contraseña en Azure Key Vault y configurar la contraseña como "AzureKeyVaultSecret". Más información sobre [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No para el origen, sí para el receptor |
 
 >[!IMPORTANT]
@@ -110,7 +116,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | organizationName | El nombre de la organización de la instancia de Dynamics. | Sí |
 | authenticationType | Tipo de autenticación para conectarse a Dynamics. Especifique **"Ifd"** para Dynamics local con IFD. | Sí |
 | nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| Contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Tenga en cuenta que tiene que colocar la contraseña en Azure Key Vault y configurar la contraseña como "AzureKeyVaultSecret". Más información sobre [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Tenga en cuenta que tiene que colocar la contraseña en Azure Key Vault y configurar la contraseña como "AzureKeyVaultSecret". Más información sobre [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No para el origen, sí para el receptor |
 
 >[!IMPORTANT]

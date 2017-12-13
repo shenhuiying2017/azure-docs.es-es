@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referencia de modelo de datos de la plantilla de Azure API Management
 Este tema describe las representaciones de entidad y tipo de elementos comunes que se usan en los modelos de datos en las plantillas de portal para desarrolladores de Azure API Management.  
@@ -332,7 +332,7 @@ Este tema describe las representaciones de entidad y tipo de elementos comunes q
 |DelegationEnabled|boolean|Especifica si está habilitado el inicio de sesión delegado.|  
 |DelegationUrl|string|Dirección URL de inicio de sesión delegado, si está habilitado.|  
 |SsoSignUpUrl|string|Inicio de sesión único en la dirección URL del usuario, si está presente.|  
-|AuxServiceUrl|string|Si el usuario actual es un administrador, esto es un vínculo a la instancia de servicio en el Portal de Azure clásico.|  
+|AuxServiceUrl|cadena|Si el usuario actual es un administrador, esto es un vínculo a la instancia de servicio en Azure Portal.|  
 |Proveedores|Colección de entidades [Provider](#Provider).|Los proveedores de autenticación de este usuario.|  
 |UserRegistrationTerms|string|Condiciones que un usuario debe aceptar para poder iniciar sesión.|  
 |UserRegistrationTermsEnabled|boolean|Especifica si las condiciones están habilitadas.|  

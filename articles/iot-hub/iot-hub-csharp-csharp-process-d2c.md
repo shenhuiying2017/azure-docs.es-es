@@ -1,6 +1,6 @@
 ---
-title: Procesamiento de mensajes de dispositivo a nube de IoT Hub de Azure mediante rutas (.NET) | Microsoft Docs
-description: "Cómo procesar mensajes de dispositivo a nube de IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end."
+title: Enrutamiento de mensajes con Azure IoT Hub (.Net) | Microsoft Docs
+description: "Cómo procesar mensajes de dispositivo a nube de Azure IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Procesamiento de mensajes de dispositivo a nube de IoT Hub mediante rutas (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>Enrutamiento de mensajes con IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Visual Studio 2015 o Visual Studio 2017.
 * Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
-También se dan por sentados ciertos conocimientos sobre [Azure Storage] y [Azure Service Bus].
+También se recomienda leer sobre [Azure Storage] y [Azure Service Bus].
 
 ## <a name="send-interactive-messages"></a>Envío de mensajes interactivos
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Con este método se agrega aleatoriamente la propiedad `"level": "critical"` a los mensajes que envía el dispositivo, lo que simula un mensaje que requiere una acción inmediata del back-end de soluciones. La aplicación de dispositivo pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
+Con este método se agrega aleatoriamente la propiedad `"level": "critical"` y `"level": "storage"` a los mensajes que envía el dispositivo, lo que simula un mensaje que requiere una acción inmediata del back-end de aplicaciones o uno que necesita almacenarse permanentemente. La aplicación pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
 
 > [!NOTE]
 > Puede usar propiedades de mensaje a fin de enrutar mensajes en diferentes escenarios, como el procesamiento en frío, además del ejemplo de procesamiento en caliente que se muestra aquí.
 
 > [!NOTE]
-> Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios].
+> Es muy recomendable implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios].
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Enrutamiento de mensajes a una cola en IoT Hub
 
@@ -177,6 +185,30 @@ Ahora está preparado para ejecutar las aplicaciones.
    
    ![Tres aplicaciones de consola][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcional) Adición de un contenedor de almacenamiento a IoT Hub y enrutamiento de mensajes a este
+
+En esta sección, se crea una cuenta de Storage, se conecta con el IoT Hub y se configura este para enviar mensajes a la cuenta en función de la presencia de una propiedad en el mensaje. Para más información acerca de cómo administrar el almacenamiento, consulte [Introducción a Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > Si no está limitado a un **punto de conexión**, puede configurar **StorageContainer**, además de **CriticalQueue**, y ejecutar ambos simultáneamente.
+
+1. Cree una cuenta de Storage como se describe en la [documentación de Azure Storage][lnk-storage]. Tome nota del nombre de la cuenta.
+
+2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión**.
+
+3. En la hoja **Puntos de conexión**, seleccione el punto de conexión **CriticalQueue** y haga clic en **Eliminar**. Haga clic en **Sí** y, a continuación, en **Agregar**. Asigne el nombre **StorageContainer** al punto de conexión y use los menús desplegables para seleccionar **Contenedor de Azure Storage** y crear una **cuenta de Storage** y un **contenedor de Storage**.  Tome nota de los nombres.  Cuando haya terminado, haga clic en **Aceptar** en la parte inferior. 
+
+ > [!NOTE]
+   > Si no está limitado a un **punto de conexión**, no es necesario eliminar **CriticalQueue**.
+
+4. Haga clic en **Rutas** en IoT Hub. Haga clic en **Agregar** en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **Mensajes del dispositivo** como origen de los datos. Escriba `level="storage"` como condición y elija **StorageContainer** como punto de conexión personalizado como punto de conexión de regla de enrutamiento. Haga clic en **Guardar** en la parte inferior.  
+
+    Asegúrese de que la ruta de reserva se establece en **Activado**. Esta es la configuración predeterminada del centro de IoT.
+
+1. Asegúrese de que no se ha detenido la ejecución de las aplicaciones anteriores. 
+
+1. En Azure Portal, vaya a la cuenta de almacenamiento en **Blob Service**, haga clic en **Examinar blobs...**.  Seleccione el contenedor, vaya al archivo JSON y haga clic en él. Después, haga clic en **Descargar** para ver los datos.
+
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha aprendido a enviar de manera confiable mensajes del dispositivo a la nube mediante la funcionalidad de enrutamiento de mensajes de IoT Hub.
 
@@ -204,5 +236,5 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centro para desarrolladores de Azure IoT]: https://azure.microsoft.com/develop/iot
 [Control de errores transitorios]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

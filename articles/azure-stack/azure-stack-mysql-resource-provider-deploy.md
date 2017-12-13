@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bases de datos MySQL en Microsoft Azure Stack
 
@@ -60,10 +60,16 @@ Esta cuenta del sistema debe tener los siguientes privilegios:
 
     b. En los sistemas de varios nodos, el host debe ser un sistema que pueda tener acceso al punto de conexión con privilegios.
 
-3. [Descargue el archivo de binarios del proveedor de recursos MySQL](https://aka.ms/azurestackmysqlrp) y ejecute el extractor automático para extraer el contenido en un directorio temporal.
+3. Descargue el binario del proveedor de recursos MySQL y ejecute el extractor automático para extraer el contenido en un directorio temporal.
 
-    > [!NOTE]
-    > Si está usando la compilación 20170928.3 de Azure Stack o una versión anterior, [descargue esta versión](https://aka.ms/azurestackmysqlrp1709).
+    >[!NOTE] 
+    > La compilación del proveedor de recursos corresponde a las compilaciones de Azure Stack. Debe descargar el binario correcto para la versión de Azure Stack que se ejecuta.
+
+    | Compilación de Azure Stack | Instalador de MySQL RP |
+    | --- | --- |
+    | 1.0.171122.1 | [MySQL RP, versión 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171028.1 | [MySQL RP, versión 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
+    | 1.0.170928.3 | [MySQL RP, versión 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  El certificado raíz de Azure Stack se recupera desde el punto de conexión con privilegios. Para ASDK, como parte de este proceso se crea un certificado autofirmado. Para varios nodos, debe proporcionar un certificado adecuado.
 
@@ -116,7 +122,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set the credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 

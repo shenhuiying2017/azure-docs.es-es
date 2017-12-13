@@ -2,7 +2,7 @@
   href: null
 - name: Información general
   items:
-    - name: Introducción a la Azure Data Factory
+    - name: Introducción a Azure Data Factory
       href: data-factory-introduction.md
     - name: Conceptos
       items:
@@ -70,17 +70,17 @@
               href: data-factory-amazon-redshift-connector.md
             - name: Amazon S3
               href: data-factory-amazon-simple-storage-service-connector.md
-            - name: Almacenamiento de blobs de Azure
+            - name: Azure Blob Storage
               href: data-factory-azure-blob-connector.md
             - name: Azure Cosmos DB
               href: data-factory-azure-documentdb-connector.md
             - name: Almacén de Azure Data Lake
               href: data-factory-azure-datalake-connector.md
-            - name: Búsqueda de Azure
+            - name: Azure Search
               href: data-factory-azure-search-connector.md
             - name: Azure SQL Database
               href: data-factory-azure-sql-connector.md
-            - name: Almacenamiento de datos SQL de Azure
+            - name: Azure SQL Data Warehouse
               href: data-factory-azure-sql-data-warehouse-connector.md
             - name: Azure Table Storage
               href: data-factory-azure-table-connector.md
@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: Solución de problemas con Data Management Gateway
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: Invocar paquetes SSIS mediante la actividad de procedimiento almacenado
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Referencia
   items:
     - name: Ejemplos de código

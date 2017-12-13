@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9026090addde35dc702a80f302abd7e3eb9c690
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Predicción del abandono de clientes con Azure Machine Learning
 
@@ -90,14 +90,14 @@ __docs__: contiene todos los laboratorios prácticos
 El orden de los laboratorios prácticos para llevar a cabo la solución es el siguiente:
 1. Preparación de datos: el archivo principal relacionado con la preparación de los datos en la carpeta data es `CATelcoCustomerChurnTrainingSample.csv`
 2. Modelado y evaluación: el archivo principal relacionado con el modelado y la evaluación en la carpeta raíz es `CATelcoCustomerChurnModeling.py`
-3. Modelado y evaluación en Docker: el archivo principal para esta tarea en la carpeta raíz es `CATelcoCustomerChurnModelingDocker.py`
+3. Modelado y evaluación sin .dprep: el archivo principal para esta tarea en la carpeta raíz es `CATelcoCustomerChurnModelingWithoutDprep.py`
 4. Operacionalización: los archivos principales para implementar son el modelo (`model.pkl`) y `churn_schema_gen.py`
 
 | Orden| Nombre de archivo | Archivos relacionados |
 |--|-----------|------|
 | 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
 | 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 3 | [`CATelcoCustomerChurnModelingWithoutDprep.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/CATelcoCustomerChurnModelingWithoutDprep.md) | 'CATelcoCustomerChurnModelingWithoutDprep.py' |
 | 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 Siga los laboratorios de la manera secuencial que se ha descrito anteriormente.

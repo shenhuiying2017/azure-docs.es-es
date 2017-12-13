@@ -12,14 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: db790f9dc56605b5b752e7ab797903e32b2fc675
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: e2a69f240068d3155c2fdd52c118dc037ccbcdcb
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+La nueva versión mejorada de [Azure Site Recovery Deployment Planner para Hyper-V en Azure](site-recovery-hyper-v-deployment-planner.md) está disponible ahora y reemplaza a la antigua herramienta. Use la herramienta nueva para el planeamiento de la implementación. Proporciona las siguientes directrices: 
+* Evaluación de la idoneidad de las máquinas virtuales en función del número de discos, el tamaño de estos, las IOPS, la actividad de datos y algunas otras características de las máquinas virtuales.
+* Necesidad de ancho de banda de red frente a evaluación de RPO.
+* Requisitos de infraestructura de Azure.
+* Requisitos de la infraestructura local.
+* Guía para el procesamiento por lotes de la replicación inicial.
+* Costo estimado total de la recuperación ante desastres en Azure.
+
+
 # <a name="hyper-v-capacity-planner-tool-for-site-recovery"></a>Herramienta de planeamiento de capacidad de Hyper-V para Site Recovery
 
 Como parte de la implementación de Azure Site Recovery, debe averiguar los requisitos de ancho de banda y replicación. La herramienta de planeamiento de capacidad de Hyper-V para Site Recovery lo ayuda a esto para replicar máquinas virtuales de Hyper-V.

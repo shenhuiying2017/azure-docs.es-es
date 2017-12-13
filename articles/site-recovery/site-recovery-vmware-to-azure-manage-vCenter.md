@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Administración de VMware vCenter Server en Azure Site Recovery
 En este artículo se describen las diversas operaciones de Site Recovery que se pueden realizar en un servidor VMware vCenter.
@@ -27,7 +27,7 @@ En este artículo se describen las diversas operaciones de Site Recovery que se 
 
 **Compatibilidad con un host de VMware vCenter y VMware vSphere ESX** | **Detalles** |
 |--- | --- |
-|**Servidores de VMware locales** | Uno o más servidores de VMware vSphere, con 6.0, 5.5 o 5.1 y las últimas actualizaciones. Los servidores se deberían encontrar en la misma red que el servidor de configuración (o en un servidor de procesos independiente).<br/><br/> Se recomienda un servidor vCenter para administrar hosts, con 6.0 o 5.5 con las últimas actualizaciones. Solo se admiten las características que estén disponibles en 5.5 cuando se implementa la versión 6.0.|
+|**Servidores de VMware locales** | Uno o varios servidores VMware vSphere, con la versión 6.5, 6.0 o 5.5 y las actualizaciones más recientes. Los servidores se deberían encontrar en la misma red que el servidor de configuración (o en un servidor de procesos independiente).<br/><br/> Se recomienda un servidor vCenter para administrar los hosts, con la versión 6.5,6.0 ó 5.5 y las actualizaciones más recientes. Solo se admiten las características que estén disponibles en 5.5 cuando se implementa la versión 6.0.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparación de una cuenta de detección automática
 Site Recovery necesita acceso a VMware para que el servidor de procesos detecte automáticamente máquinas virtuales, así como para la conmutación por error y por recuperación de máquinas virtuales.

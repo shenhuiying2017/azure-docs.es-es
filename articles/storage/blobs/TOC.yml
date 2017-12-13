@@ -24,6 +24,8 @@
       href: storage-quickstart-blobs-python.md
     - name: 'Uso de blobs: Node.js'
       href: storage-quickstart-blobs-nodejs.md
+    - name: 'Uso de blobs: Explorador de Storage'
+      href: storage-quickstart-blobs-storage-explorer.md
 - name: Tutoriales
   items:
     - name: Carga y procesamiento de una imagen

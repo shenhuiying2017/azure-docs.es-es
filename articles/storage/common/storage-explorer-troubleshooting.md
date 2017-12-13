@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -172,6 +172,14 @@ Si se conecta a un servicio mediante una dirección URL de SAS y se produce este
 - Compruebe que la dirección URL no haya expirado.
 
 - Si la dirección URL de SAS se basa en una directiva de acceso, compruebe que la directiva de acceso no haya sido revocada.
+
+Si asoció accidentalmente una dirección URL de SAS no válida y no se puede desasociar, siga estos pasos:
+1.  Cuando se ejecute el Explorador de Storage, presione F12 para abrir la ventana de herramientas de desarrollador.
+2.  Haga clic en la pestaña Aplicación y, a continuación, haga clic en Almacenamiento Local > file:// en el árbol de la izquierda.
+3.  Busque la clave asociada al tipo de servicio del URI de SAS problemática. Por ejemplo, si el URI incorrecto de SAS es para un contenedor de blobs, busque la clave denominada "StorageExplorer_AddStorageServiceSAS_v1_blob".
+4.  El valor de la clave debe ser una matriz JSON. Busque el objeto asociado con el URI incorrecto y quítelo.
+5.  Presione Ctrl + R para volver a cargar el Explorador de Storage.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

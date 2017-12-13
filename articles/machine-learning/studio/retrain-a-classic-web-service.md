@@ -1,6 +1,6 @@
 ---
 title: "Reentrenamiento de un servicio web clásico | Microsoft Docs"
-description: "Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en el Aprendizaje automático de Azure."
+description: "Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: vDonGlover
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Reentrenamiento de un servicio web clásico
 El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web. 
@@ -33,7 +33,7 @@ Debe haber configurado un experimento de entrenamiento y un experimento predicti
 
 Para obtener más información sobre la implementación de servicios web, vea el artículo sobre [implementación de un servicio web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-## <a name="add-a-new-endpoint"></a>Adición de un nuevo punto de conexión
+## <a name="add-a-new-endpoint"></a>Adición de un punto de conexión nuevo
 El servicio web predictivo que implementó contiene un punto de conexión de puntuación predeterminado que se mantiene sincronizado con la formación original y el modelo entrenado de experimentos de puntuación. Para actualizar el servicio web a un nuevo modelo entrenado, debe crear un nuevo punto de conexión para la puntuación. 
 
 Para crear un nuevo punto de conexión de puntuación, en el servicio web predictivo que se puede actualizar con el modelo entrenado:
@@ -43,11 +43,10 @@ Para crear un nuevo punto de conexión de puntuación, en el servicio web predic
 > 
 > 
 
-Hay tres formas en que puede agregar un nuevo punto de conexión a un servicio web:
+Hay dos formas en que puede agregar un nuevo punto de conexión a un servicio web:
 
 1. De manera programática
 2. Uso del portal de servicios web de Microsoft Azure
-3. Uso del Portal de Azure clásico
 
 ### <a name="programmatically-add-an-endpoint"></a>Incorporación de un punto de conexión mediante programación
 También puede agregar puntos de conexión de puntuación mediante el código de ejemplo proporcionado en este [repositorio de GitHub](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -56,20 +55,12 @@ También puede agregar puntos de conexión de puntuación mediante el código de
 1. En Machine Learning Studio, en la columna de navegación izquierda, haga clic en Servicios web.
 2. En la parte inferior del panel de servicios web, haga clic en **Manage endpoints preview**(Administrar versión preliminar de puntos de conexión).
 3. Haga clic en **Agregar**.
-4. Escriba un nombre y una descripción para el nuevo punto de conexión. Seleccione el nivel de registro y si los datos de ejemplo están habilitados. Para más información sobre los registros, vea [Habilitar el registro para los servicios web de Aprendizaje automático](web-services-logging.md).
-
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Uso del Portal de Azure clásico para agregar un punto de conexión
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Haga clic en **Aprendizaje automático**en el menú izquierdo.
-3. En Nombre, haga clic en el área de trabajo y, a continuación, haga clic en **Servicios web**.
-4. En Nombre, haga clic en **Census Model [predictive exp.]** (Modelo de censo [exp. predictivo]).
-5. Haga clic en **Agregar extremo**en la parte inferior de la página. Para más información sobre la incorporación de puntos de conexión, consulte [Creación de puntos de conexión](create-endpoint.md). 
+4. Escriba un nombre y una descripción para el nuevo punto de conexión. Seleccione el nivel de registro y si los datos de ejemplo están habilitados. Para más información sobre los registros, vea [Habilitar el registro para los servicios web de Machine Learning](web-services-logging.md).
 
 ## <a name="update-the-added-endpoints-trained-model"></a>Actualización del modelo entrenado del punto de conexión agregado
 Para completar el proceso de reentrenamiento, debe actualizar el modelo entrenado del nuevo punto de conexión que ha agregado.
 
-* Si ha agregado el nuevo punto de conexión mediante el Portal de Azure clásico, puede hacer clic en su nombre y luego en el vínculo **UpdateResource** para obtener la dirección URL que necesitará para actualizar el modelo del punto de conexión.
-* Si agregó el punto de conexión mediante el código de ejemplo, esto incluye la ubicación de la dirección URL de ayuda identificada por el valor *HelpLocationURL* de la salida.
+Si agregó el punto de conexión mediante el código de ejemplo, esto incluye la ubicación de la dirección URL de ayuda identificada por el valor *HelpLocationURL* de la salida.
 
 Para recuperar la dirección URL de la ruta de acceso:
 
@@ -126,7 +117,7 @@ Se puede obtener *apiKey* y *endpointUrl* para la llamada desde el panel del pun
 El valor del parámetro *Name* de *Resources* debe coincidir con el nombre del recurso del modelo entrenado guardado en el experimento predictivo. Para obtener el nombre del recurso:
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. Haga clic en **Aprendizaje automático**en el menú izquierdo.
+2. Haga clic en **Machine Learning**en el menú izquierdo.
 3. En Nombre, haga clic en el área de trabajo y, a continuación, haga clic en **Servicios web**.
 4. En Nombre, haga clic en **Census Model [predictive exp.]** (Modelo de censo [exp. predictivo]).
 5. Haga clic en el nuevo punto de conexión que ha agregado.
@@ -144,5 +135,5 @@ Mediante el uso de las API de reentrenamiento, puede actualizar el modelo entren
 * Distribución de un modelo entre los clientes con el fin de permitirles reentrenar el modelo mediante sus propios datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Solución de problemas del reentrenamiento de un servicio web clásico de Aprendizaje automático de Azure](troubleshooting-retraining-models.md)
+[Solución de problemas del reentrenamiento de un servicio web clásico de Azure Machine Learning](troubleshooting-retraining-models.md)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servicios web Azure Machine Learning: Implementación y consumo
 Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones a través de Internet para que realicen predicciones en tiempo real o en modo por lotes. Como estos servicios web son RESTFul, se los puede llamar desde diversos lenguajes de programación y plataformas como .NET y Java, y aplicaciones como Excel.
@@ -26,6 +26,7 @@ Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos d
 Las siguientes secciones proporcionan vínculos a tutoriales, código y documentación para ayudarle a empezar.
 
 ## <a name="deploy-a-web-service"></a>Implementación de un servicio web
+
 ### <a name="with-azure-machine-learning-studio"></a>Con Azure Machine Learning Studio
 Machine Learning Studio y el portal de Servicios web Microsoft Azure Machine Learning le permiten implementar y administrar un servicio web sin tener que escribir código.
 
@@ -36,7 +37,7 @@ Los vínculos siguientes proporcionan información general sobre cómo implement
 * Para obtener información detallada acerca de cómo crear e implementar un servicio web, consulte [Paso 1 del tutorial: Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Para obtener ejemplos específicos de la implementación de un servicio web, consulte:
 
-  * [Paso 5 del tutorial: Implementar el servicio web de Aprendizaje automático de Azure](walkthrough-5-publish-web-service.md)
+  * [Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
   * [Procedimiento para implementar un servicio web en varias regiones](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con API de proveedor de recursos de servicios web (API de Azure Resource Manager)
@@ -58,7 +59,7 @@ La ejecución de la aplicación permite crear una plantilla JSON del servicio we
 
 * Nombre y clave de la cuenta de almacenamiento
 
-    Puede obtener el nombre y la clave de la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com/) o en el [Portal de Azure clásico](http://manage.windowsazure.com/).
+    El nombre y la clave de la cuenta de almacenamiento se pueden obtener en [Azure Portal](https://portal.azure.com/).
 * Identificador del plan de compromiso
 
     Para obtener este identificador de plan en el portal de [Servicios web Azure Machine Learning](https://services.azureml.net) , inicie sesión y haga clic en un nombre de plan.
@@ -77,7 +78,7 @@ Este es un ejemplo:
 
 Consulte los siguientes artículos y el código de ejemplo para obtener más detalles:
 
-* [cmdlets de Aprendizaje automático de Azure](https://msdn.microsoft.com/library/azure/mt767952.aspx) en MSDN
+* [cmdlets de Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) en MSDN
 * [Tutorial](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) de ejemplo en GitHub
 
 ## <a name="consume-the-web-services"></a>Consumo de servicios web
@@ -85,8 +86,8 @@ Consulte los siguientes artículos y el código de ejemplo para obtener más det
 Puede probar el servicio web en el portal de Servicios web Azure Machine Learning. Esto incluye probar las interfaces del servicio de solicitud-respuesta (RRS) y del servicio de ejecución de lotes (BES).
 
 * [Implementación de servicios web nuevos](publish-a-machine-learning-web-service.md)
-* [Implementar un servicio web de Aprendizaje automático de Azure](publish-a-machine-learning-web-service.md)
-* [Paso 5 del tutorial: Implementar el servicio web de Aprendizaje automático de Azure](walkthrough-5-publish-web-service.md)
+* [Implementar un servicio web de Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* [Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
 
 ### <a name="from-excel"></a>Desde Excel
 Puede descargar una plantilla de Excel para consumir el servicio web:

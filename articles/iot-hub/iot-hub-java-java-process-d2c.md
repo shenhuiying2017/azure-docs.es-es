@@ -1,6 +1,6 @@
 ---
-title: Procesamiento de mensajes de dispositivo a la nube de IoT Hub de Azure (Java) | Microsoft Docs
-description: "Cómo procesar mensajes de dispositivo a nube de IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end."
+title: Enrutamiento de mensajes con Azure IoT Hub (Java) | Microsoft Docs
+description: "Cómo procesar mensajes de dispositivo a nube de Azure IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 0fb3e9012ae88112515ebb552e49fa463a087f54
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 81f846e1fd8cca586613e6fc57737ec27e43a639
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-java"></a>Procesamiento de mensajes de dispositivo a nube de IoT Hub (Java)
+# <a name="routing-messages-with-iot-hub-java"></a>Enrutamiento de mensajes con IoT Hub (Java)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
-Azure IoT Hub es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y un back-end de la solución. Otros tutoriales ([Introducción a IoT Hub] y [Envío de mensajes de nube a dispositivo con IoT Hub][lnk-c2d]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub.
+Azure IoT Hub es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y un back-end de la solución. Otros tutoriales ([Introducción a Azure IoT Hub] y [Envío de mensajes de nube a dispositivo con IoT Hub][lnk-c2d]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub.
 
-Este tutorial se basa en el código que se muestra en el tutorial [Introducción a IoT Hub] y le muestra cómo usar el enrutamiento de mensajes para procesar mensajes del dispositivo a la nube de manera escalable. El tutorial ilustra cómo procesar mensajes que requieren acción inmediata en el back-end de soluciones. Por ejemplo, un dispositivo puede enviar un mensaje de alarma que desencadena la inserción de una incidencia en un sistema CRM. Por el contrario, los mensajes de punto de datos simplemente se envían a un motor de análisis. Por ejemplo, la telemetría de temperatura de un dispositivo que se almacena para su posterior análisis es un mensaje de punto de datos.
+Este tutorial se basa en el código que se muestra en el tutorial [Introducción a Azure IoT Hub] y le muestra cómo usar el enrutamiento de mensajes para procesar mensajes del dispositivo a la nube de manera escalable. El tutorial ilustra cómo procesar mensajes que requieren acción inmediata en el back-end de soluciones. Por ejemplo, un dispositivo puede enviar un mensaje de alarma que desencadena la inserción de una incidencia en un sistema CRM. Por el contrario, los mensajes de punto de datos simplemente se envían a un motor de análisis. Por ejemplo, la telemetría de temperatura de un dispositivo que se almacena para su posterior análisis es un mensaje de punto de datos.
 
 Al final de este tutorial, ejecutará tres aplicaciones de consola de Java:
 
-* **simulated-device**, una versión modificada de la aplicación creada en el tutorial [Introducción a IoT Hub] , que envía mensajes de dispositivo a nube de punto de datos cada segundo y mensajes de dispositivo a nube interactivos cada 10 segundos. Esta aplicación usa el protocolo AMQP para comunicarse con IoT Hub.
+* **simulated-device**, una versión modificada de la aplicación creada en el tutorial [Introducción a Azure IoT Hub] , que envía mensajes de dispositivo a nube de punto de datos cada segundo y mensajes de dispositivo a nube interactivos cada 10 segundos. Esta aplicación usa el protocolo AMQP para comunicarse con IoT Hub.
 * **read-d2c-messages** muestra los datos de telemetría enviados por la aplicación de dispositivo.
 * **read-critical-queue** quita de la cola los mensajes críticos de la cola de la instancia de Service Bus adjunta a IoT Hub.
 
 > [!NOTE]
-> El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Para instrucciones sobre cómo reemplazar el dispositivo de este tutorial con un dispositivo físico y sobre cómo conectar dispositivos a IoT Hub, consulte el [Centro para desarrolladores de Azure IoT].
+> IoT Hub ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Para instrucciones sobre cómo reemplazar el dispositivo de este tutorial con un dispositivo físico y sobre cómo conectar dispositivos a IoT Hub, consulte el [Centro para desarrolladores de Azure IoT].
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una versión funcional y completa del tutorial [Introducción a IoT Hub] .
+* Una versión funcional y completa del tutorial [Introducción a Azure IoT Hub] .
 * La versión más reciente de [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
-También se dan por sentados ciertos conocimientos sobre [Azure Storage] y [Azure Service Bus].
+También se recomienda leer sobre [Azure Storage] y [Azure Service Bus].
 
 ## <a name="send-interactive-messages-from-a-device-app"></a>Envío de mensajes interactivos desde una aplicación de dispositivo
-En esta sección, se modifica la aplicación de dispositivo que creó en el tutorial [Introducción a IoT Hub] a fin de enviar ocasionalmente mensajes que requieren un procesamiento inmediato.
+En esta sección, se modifica la aplicación de dispositivo que creó en el tutorial [Introducción a Azure IoT Hub] a fin de enviar ocasionalmente mensajes que requieren un procesamiento inmediato.
 
-1. Con un editor de texto, abra el archivo simulated-device\src\main\java\com\mycompany\app\App.java. Este archivo contiene el código para la aplicación **simulated-device** que creó en el tutorial [Introducción a IoT Hub] .
+1. Con un editor de texto, abra el archivo simulated-device\src\main\java\com\mycompany\app\App.java. Este archivo contiene el código para la aplicación **simulated-device** que creó en el tutorial [Introducción a Azure IoT Hub] .
 
 2. Reemplace la clase **MessageSender** por el código siguiente:
 
@@ -66,9 +66,15 @@ En esta sección, se modifica la aplicación de dispositivo que creó en el tuto
                     String msgStr;
                     Message msg;
                     if (new Random().nextDouble() > 0.7) {
-                        msgStr = "This is a critical message.";
-                        msg = new Message(msgStr);
-                        msg.setProperty("level", "critical");
+                        if (new Random().nextDouble() > 0.5) {
+                            msgStr = "This is a critical message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "critical");
+                        } else {
+                            msgStr = "This is a storage message.";
+                            msg = new Message(msgStr);
+                            msg.setProperty("level", "storage");
+                        }
                     } else {
                         double currentTemperature = minTemperature + rand.nextDouble() * 15;
                         double currentHumidity = minHumidity + rand.nextDouble() * 20; 
@@ -99,7 +105,7 @@ En esta sección, se modifica la aplicación de dispositivo que creó en el tuto
     }
     ```
    
-    Con este método se agrega aleatoriamente la propiedad `"level": "critical"` a los mensajes que envía el dispositivo, lo que simula un mensaje que requiere una acción inmediata del back-end de aplicaciones. La aplicación pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
+    Con este método se agrega aleatoriamente la propiedad `"level": "critical"` y `"level": "storage"` a los mensajes que envía el dispositivo, lo que simula un mensaje que requiere una acción inmediata del back-end de aplicaciones o uno que necesita almacenarse permanentemente. La aplicación pasa esta información en las propiedades del mensaje, en lugar de en el cuerpo del mensaje, de manera que este IoT Hub puede enrutar el mensaje a su destino correcto.
    
    > [!NOTE]
    > Puede usar propiedades de mensaje a fin de enrutar mensajes en diferentes escenarios, como el procesamiento en frío, además del ejemplo de procesamiento en caliente que se muestra aquí.
@@ -107,7 +113,7 @@ En esta sección, se modifica la aplicación de dispositivo que creó en el tuto
 2. Guarde y cierre el archivo simulated-device\src\main\java\com\mycompany\app\App.java.
 
     > [!NOTE]
-    > Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios].
+    > Es muy recomendable implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios].
 
 3. Para compilar la aplicación **simulated-device** con Maven, ejecute el siguiente comando en el símbolo del sistema en la carpeta simulated-device:
 
@@ -121,7 +127,7 @@ En esta sección, se crea una cola de Service Bus, se conecta con el IoT Hub y s
 
 1. Cree una cola de Service Bus como se describe en [Introducción a las colas][lnk-sb-queues-java]. Tome nota del espacio de nombres y del nombre de la cola.
 
-2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión**.
+2. En Azure Portal, abra el centro de IoT y haga clic en **Endpoints** (Puntos de conexión).
 
     ![Puntos de conexión en IoT Hub][30]
 
@@ -133,7 +139,7 @@ En esta sección, se crea una cola de Service Bus, se conecta con el IoT Hub y s
 
     ![Adición de una ruta][32]
 
-    Asegúrese de que la ruta de reserva se establece en **Activado**. Esta es la configuración predeterminada del centro de IoT.
+    Asegúrese de que la ruta de reserva se establece en **ON** (Activado). Esta es la configuración predeterminada del centro de IoT.
 
     ![Ruta de reserva][33]
 
@@ -169,6 +175,30 @@ Ahora está preparado para ejecutar las tres aplicaciones.
    
    ![Ejecución de simulated-device][simulateddevice]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Opcional) Adición de un contenedor de almacenamiento a IoT Hub y enrutamiento de mensajes a este
+
+En esta sección, se crea una cuenta de Storage, se conecta con el IoT Hub y se configura este para enviar mensajes a la cuenta en función de la presencia de una propiedad en el mensaje. Para más información acerca de cómo administrar el almacenamiento, consulte [Introducción a Azure Storage][Azure Storage].
+
+ > [!NOTE]
+   > Si no está limitado a un **punto de conexión**, puede configurar **StorageContainer**, además de **CriticalQueue**, y ejecutar ambos simultáneamente.
+
+1. Cree una cuenta de Storage como se describe en la [documentación de Azure Storage][lnk-storage]. Tome nota del nombre de la cuenta.
+
+2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión**.
+
+3. En la hoja **Puntos de conexión**, seleccione el punto de conexión **CriticalQueue** y haga clic en **Eliminar**. Haga clic en **Sí** y, luego, en **Agregar**. Asigne el nombre **StorageContainer** al punto de conexión y use los menús desplegables para seleccionar **Contenedor de Azure Storage** y crear una **cuenta de Storage** y un **contenedor de Storage**.  Tome nota de los nombres.  Cuando haya terminado, haga clic en **Aceptar** en la parte inferior. 
+
+ > [!NOTE]
+   > Si no está limitado a un **punto de conexión**, no es necesario eliminar **CriticalQueue**.
+
+4. Haga clic en **Rutas** en IoT Hub. Haga clic en **Agregar** en la parte superior de la hoja para crear una regla que enrute los mensajes a la cola que acaba de agregar. Seleccione **Mensajes del dispositivo** como origen de los datos. Escriba `level="storage"` como condición y elija **StorageContainer** como punto de conexión personalizado como punto de conexión de regla de enrutamiento. Haga clic en **Guardar** en la parte inferior.  
+
+    Asegúrese de que la ruta de reserva se establece en **Activado**. Esta es la configuración predeterminada del centro de IoT.
+
+1. Asegúrese de que no se ha detenido la ejecución de las aplicaciones anteriores. 
+
+1. En Azure Portal, vaya a la cuenta de almacenamiento, en **Blob Service** y haga clic en **Examinar blobs...**.  Seleccione el contenedor, vaya al archivo JSON y haga clic en él. Después, haga clic en **Descargar** para ver los datos.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido a enviar de manera confiable mensajes del dispositivo a la nube mediante la funcionalidad de enrutamiento de mensajes de IoT Hub.
@@ -201,7 +231,8 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 
 [Guía del desarrollador de IoTHub de Azure]: iot-hub-devguide.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-[Introducción a IoT Hub]: iot-hub-java-java-getstarted.md
+
+            [Introducción a Azure IoT Hub]: iot-hub-java-java-getstarted.md
 [Centro para desarrolladores de Azure IoT]: https://azure.microsoft.com/develop/iot
 [Control de errores transitorios]: https://msdn.microsoft.com/library/hh675232.aspx
 

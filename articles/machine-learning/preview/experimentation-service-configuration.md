@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuración del servicio Experimentación de Azure Machine Learning
 
@@ -79,7 +79,7 @@ EnvironmentVariables:
 "EXAMPLE_ENV_VAR2": "Example Value2"
 ```
 
-Puede accederse a estas variables de entorno en el código. Por ejemplo, este fragmento de código de phyton imprime la variable de entorno denominada "EXAMPLE_ENV_VAR1".
+Puede accederse a estas variables de entorno en el código. Por ejemplo, este fragmento de código de phyton imprime la variable de entorno denominada “EXAMPLE_ENV_VAR1”.
 ```
 print(os.environ.get("EXAMPLE_ENV_VAR1"))
 ```
@@ -198,7 +198,7 @@ La máquina virtual remota debe cumplir los requisitos siguientes:
 Puede utilizar el siguiente comando para crear tanto en la definición del destino de proceso como en la configuración de ejecución para las ejecuciones basadas en Docker remoto.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 Una vez configurado el destino de proceso, puede usar el siguiente comando para ejecutar el script.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 El proceso de construcción de Docker para máquinas virtuales remotas es exactamente el mismo que el proceso para ejecuciones de Docker local, por lo que debe esperar una experiencia de ejecución similar.
 
 >[!TIP]
->Si prefiere evitar la latencia que genera la creación de la imagen de Docker para la primera ejecución, puede usar el comando siguiente para preparar el destino de proceso antes de ejecutar el script. az ml experiment prepare -c <remotedocker>
+>Si prefiere evitar la latencia que genera la creación de la imagen de Docker para la primera ejecución, puede usar el comando siguiente para preparar el destino de proceso antes de ejecutar el script. az ml experiment prepare -c remotedocker
 
 
 _**Información general de ejecución de máquina virtual remota para un script de Python:**_
@@ -226,7 +226,7 @@ HDInsight es una plataforma popular para el análisis de macrodatos compatibles 
 Puede crear un destino de proceso y configuración de ejecución para un clúster de Spark en HDInsight con el comando siguiente:
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Información general de ejecución basada en HDInsight para un script de PySp
 ## <a name="running-a-script-on-gpu"></a>Ejecución de un script en la GPU
 Para ejecutar los scripts en la GPU, puede seguir las instrucciones de este artículo:[Uso de GPU en Azure Machine Learning](how-to-use-gpu.md)
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Uso de la autenticación basada en claves SSH para crear y utilizar destinos de proceso
+Azure Machine Learning Workbench le permite crear y usar destinos de proceso mediante autenticación basada en claves SSH además del esquema basado en nombre de usuario y contraseña. Puede usar esta funcionalidad al utilizar remotedocker o cluster como destino de proceso. Cuando se usa este esquema, Workbench crea un par de claves pública y privada e informa de la clave pública. La clave pública se anexa a los archivos ~/.ssh/authorized_keys para su nombre de usuario. Azure Machine Learning Workbench usa a continuación la autenticación basada en claves SSH para acceder a este destino de proceso y ejecutarlo. Puesto que la clave privada para el destino de proceso se guarda en el almacén de claves para el área de trabajo, otros usuarios del área de trabajo pueden usar el destino de proceso del mismo modo proporcionando el nombre de usuario especificado para crear el destino de proceso.  
+
+Siga estos pasos para utilizar esta funcionalidad. 
+
+- Cree un destino de proceso con uno de los siguientes comandos.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+o
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- Anexe la clave pública generada por Workbench al archivo ~/.ssh/authorized_keys del destino de proceso adjunto. 
+
+[!IMPORTANT] Deberá iniciar sesión en el destino de proceso con el mismo nombre de usuario utilizado para crear el destino de proceso. 
+
+- Ahora puede preparar y usar el destino de proceso mediante autenticación basada en claves SSH.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Crear e instalar Azure Machine Learning](quickstart-installation.md)

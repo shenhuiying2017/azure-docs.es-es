@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de OMS para Windows
 
@@ -28,7 +28,12 @@ Operations Management Suite (OMS) proporciona funcionalidades de corrección de 
 ## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativos
+
 La extensión del agente de OMS para Windows se puede ejecutar en las versiones Windows Server 2008 R2, 2012, 2012 R2 y 2016.
+
+### <a name="azure-security-center"></a>Azure Security Center
+
+Azure Security Center aprovisiona automáticamente el agente de OMS y lo conecta con el área de trabajo de Log Analytics predeterminado de la suscripción de Azure. Si utiliza Azure Security Center, no siga los pasos de este documento. Si lo hace, sobrescribirá el área de trabajo configurada e interrumpirá la conexión con Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 La extensión del agente de OMS para Windows requiere que la máquina virtual de destino esté conectada a Internet. 

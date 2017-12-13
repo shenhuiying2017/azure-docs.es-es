@@ -1,35 +1,34 @@
 ---
 title: "Configuración de notificaciones y plantillas de correo electrónico en Azure API Management | Microsoft Docs"
-description: "Obtenga información acerca de cómo configurar notificaciones y plantillas de correo electrónico en Administración de API de Azure."
+description: "Obtenga información acerca de cómo configurar notificaciones y plantillas de correo electrónico en Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2029405e4fa05c061cdf7b38fcaa05dd38f9c804
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: ec560bbab3caf4cde090ed3c9a47ccc0afcb2492
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
-Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de Administración de API. Este tema muestra cómo configurar notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Azure API Management
+Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de API Management. Este tema muestra cómo configurar notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
 
 ## <a name="publisher-notifications"></a>Configuración de notificaciones del publicador
-Para configurar las notificaciones, haga clic en **Portal para editores** en Azure Portal en su servicio API Management. De este modo, se abre el portal del publicador de Administración de API.
+Para configurar las notificaciones, haga clic en **Portal para editores** en Azure Portal en su servicio API Management. De este modo, se abre el portal del publicador de API Management.
 
 ![Portal del publicador][api-management-management-console]
 
 > [!NOTE] 
-> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance] en el tutorial [Introducción a Azure API Management][Get started with Azure API Management].
+> Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance].
 
 Haga clic en **Notificaciones** en el menú **API Management** de la izquierda para ver las notificaciones disponibles.
 
@@ -117,5 +116,5 @@ Para guardar los cambios efectuados en la plantilla de correo electrónico, haga
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md

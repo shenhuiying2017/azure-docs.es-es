@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Orígenes de datos admitidos para la preparación de datos de Azure Machine Learning 
 En este artículo se describen los orígenes de datos admitidos actualmente en la preparación de datos de Azure Machine Learning.
@@ -24,6 +24,25 @@ En este artículo se describen los orígenes de datos admitidos actualmente en l
 Los orígenes de datos admitidos para esta versión son los siguientes.
 
 ## <a name="types"></a>Tipos 
+
+### <a name="sql-server"></a>SQL Server
+Lectura desde el servidor SQL local o la base de datos SQL de Azure.
+
+#### <a name="options"></a>Opciones
+- Dirección del servidor
+- Confíe en el servidor (incluso cuando el certificado en el servidor no sea válido. Úselo con precaución)
+- Tipo de autenticación (Windows, Server)
+- User Name
+- Password
+- Base de datos a la que conectarse
+- Consulta SQL
+
+#### <a name="notes"></a>Notas
+- No se admiten columnas Sql-variant
+- La columna de hora se convierte en fecha y hora al anexar la hora de la base de datos a la fecha 1970/1/1
+- Cuando se ejecuta en el clúster de Spark, todos los datos relacionados con las columnas (date, datetime, datetime2, datetimeoffset) evaluarán valores incorrectos para las fechas anteriores a 1583
+- Los valores de columnas decimales pueden perder precisión debido a la conversión a formato decimal
+
 ### <a name="directory-vs-file"></a>Directorio frente a archivo
 Elija un único archivo y léalo en la preparación de datos. El tipo de archivo se analiza para determinar los parámetros predeterminados para la conexión de archivo que se encuentra en la pantalla siguiente.
 
@@ -88,6 +107,9 @@ La ejecución de la escalabilidad horizontal se basa en las funcionalidades de l
 ## <a name="locations"></a>Ubicaciones
 ### <a name="local"></a>Local
 Una unidad de disco duro local o una ubicación de almacenamiento de red asignada.
+
+### <a name="sql-server"></a>SQL Server
+Servidor SQL local o base de datos SQL de Azure.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob Storage, que requiere una suscripción de Azure.

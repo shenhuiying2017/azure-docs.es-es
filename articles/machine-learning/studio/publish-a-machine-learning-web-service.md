@@ -1,6 +1,6 @@
 ---
 title: "Implementación de un servicio web Machine Learning | Microsoft Docs"
-description: "Cómo convertir un experimento de entrenamiento en un experimento predictivo, prepararlo para la implementación y luego implementarlo como servicio web de Aprendizaje automático de Azure."
+description: "Cómo convertir un experimento de entrenamiento en un experimento predictivo, prepararlo para la implementación y luego implementarlo como servicio web de Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="deploy-an-azure-machine-learning-web-service"></a>Implementar un servicio web de Aprendizaje automático de Azure
+# <a name="deploy-an-azure-machine-learning-web-service"></a>Implementar un servicio web de Azure Machine Learning
 Azure Machine Learning permite compilar, probar e implementar soluciones de análisis predictivo.
 
 Desde una perspectiva general, esto se realiza en tres pasos:
 
-* **[Crear un experimento de entrenamiento]** : el Estudio de aprendizaje automático de Azure es un entorno de desarrollo visual de colaboración que se utiliza para entrenar y probar un modelo de análisis predictivo con los datos de entrenamiento que proporcione.
+* **[Crear un experimento de entrenamiento]** : Azure Machine Learning Studio es un entorno de desarrollo visual de colaboración que se utiliza para entrenar y probar un modelo de análisis predictivo con los datos de entrenamiento que proporcione.
 * **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
 * **[Implementarlo como un servicio web]**: puede implementar el experimento predictivo como un servicio web de Azure [nuevo] o [clásico]. Los usuarios pueden enviar datos al modelo y recibir las predicciones de su modelo.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
-Para entrenar un modelo de análisis predictivo, utilice el Estudio de aprendizaje automático de Azure para crear un experimento de entrenamiento en el que incluya varios módulos para cargar los datos de entrenamiento, prepare los datos según sea necesario, aplique los algoritmos de aprendizaje automático y evalúe los resultados. Puede iterar en un experimento y probar algoritmos distintos de aprendizaje automático para comparar y evaluar los resultados.
+Para entrenar un modelo de análisis predictivo, utilice Azure Machine Learning Studio para crear un experimento de entrenamiento en el que incluya varios módulos para cargar los datos de entrenamiento, prepare los datos según sea necesario, aplique los algoritmos de aprendizaje automático y evalúe los resultados. Puede iterar en un experimento y probar algoritmos distintos de aprendizaje automático para comparar y evaluar los resultados.
 
 El proceso de creación y administración de experimentos de entrenamiento se trata más detenidamente en otros artículos. Para obtener más información, consulte estos artículos:
 
-* [Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure](create-experiment.md)
-* [Desarrollo de una solución predictiva con Aprendizaje automático de Azure](walkthrough-develop-predictive-solution.md)
-* [Importar datos de entrenamiento en Estudio de aprendizaje automático de Azure](import-data.md)
-* [Administrar iteraciones de experimentos en Estudio de aprendizaje automático de Azure](manage-experiment-iterations.md)
+* [Creación de un experimento sencillo en Azure Machine Learning Studio](create-experiment.md)
+* [Desarrollo de una solución predictiva con Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Importar datos de entrenamiento en Azure Machine Learning Studio](import-data.md)
+* [Administrar iteraciones de experimentos en Azure Machine Learning Studio](manage-experiment-iterations.md)
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Convertir un experimento de entrenamiento en experimento predictivo
 Una vez que haya entrenado el modelo, estará listo para convertir el experimento de entrenamiento en un experimento predictivo para puntuar datos nuevos.
@@ -89,9 +89,9 @@ Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores ade
 
 ![Implementación del servicio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-Para realizar pruebas BES, haga clic en **Lote**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
+Para realizar pruebas BES, haga clic en **Batch**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
 
-Para ello, abra Estudio de aprendizaje automático de Microsoft Azure. Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**.
+Para ello, abra Machine Learning Studio. Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**.
 
 ![Implementación del servicio web](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -108,11 +108,11 @@ En la página **CONFIGURACIÓN**, puede cambiar la descripción y el título, ac
 Una vez que haya implementado el servicio web, puede hacer lo siguiente:
 
 * **Acceder** a él través de la API del servicio web
-* **Administrarlo** a través del portal de servicios web de Aprendizaje automático de Azure o el portal de Azure clásico
+* **Administrarlo** mediante el portal de servicios web de Azure Machine Learning.
 * **Actualizarlo** si cambia el modelo
 
 #### <a name="access-your-new-web-service"></a>Acceso al servicio web nuevo
-Cuando implementa el servicio web desde el Estudio de aprendizaje automático, puede enviar datos al servicio y recibir respuestas mediante programación.
+Cuando implementa el servicio web desde Machine Learning Studio, puede enviar datos al servicio y recibir respuestas mediante programación.
 
 La página **Consume** (Consumo) proporciona toda la información que necesita para acceder al servicio web. Por ejemplo, la clave de API se ofrece para permitir el acceso autorizado al servicio.
 
@@ -141,18 +141,18 @@ Para probar el servicio de ejecución por lotes, haga clic en el vínculo de vis
 
 ![Prueba del servicio web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-En la página **CONFIGURACIÓN** puede cambiar el nombre para mostrar del servicio y darle una descripción. El nombre y la descripción se muestran en el [Portal de Azure clásico](http://manage.windowsazure.com/) , donde se administran los servicios web.
+En la página **CONFIGURACIÓN** puede cambiar el nombre para mostrar del servicio y darle una descripción. El nombre y la descripción se muestran en [Azure Portal](https://portal.azure.com/), donde se administran los servicios web.
 
 Puede dar una descripción para los datos de entrada, los de salida y los parámetros del servicio web escribiendo una cadena para cada columna en **INPUT SCHEMA** (ESQUEMA DE ENTRADA), **OUTPUT SCHEMA** (ESQUEMA DE SALIDA) y **WEB SERVICE PARAMETER** (PARÁMETRO DE SERVICIO WEB). Estas descripciones se utilizan en la documentación de código de ejemplo proporcionada para el servicio web.
 
-Puede habilitar el registro para diagnosticar cualquier error que vea al acceder al servicio web. Para más información, vea [Habilitar el registro para los servicios web de Aprendizaje automático](web-services-logging.md).
+Puede habilitar el registro para diagnosticar cualquier error que vea al acceder al servicio web. Para más información, vea [Habilitar el registro para los servicios web de Machine Learning](web-services-logging.md).
 
 ![Configurar el servicio web](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 También puede configurar los puntos de conexión del servicio web en el portal Servicios web Azure Machine Learning de una forma parecida al procedimiento mostrado anteriormente en la sección Servicio web nuevo. Las opciones son diferentes: puede agregar o cambiar la descripción del servicio, habilitar el registro y habilitar datos de ejemplo para las pruebas.
 
 #### <a name="access-your-classic-web-service"></a>Acceso al servicio web clásico
-Cuando implementa el servicio web desde el Estudio de aprendizaje automático, puede enviar datos al servicio y recibir respuestas mediante programación.
+Cuando implementa el servicio web desde Machine Learning Studio, puede enviar datos al servicio y recibir respuestas mediante programación.
 
 El panel proporciona toda la información que necesita para tener acceso a su servicio web. Por ejemplo, la clave de API se proporciona para permitir el acceso autorizado al servicio, y las páginas de ayuda de API sirven para ayudarle a empezar a escribir el código.
 
@@ -179,7 +179,7 @@ Como ya ha implementado este experimento antes, se le preguntará si quiere sobr
 > 
 > 
 
-Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](retrain-models-programmatically.md).
+Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de Machine Learning mediante programación](retrain-models-programmatically.md).
 
 <!-- internal links -->
 [Crear un experimento de entrenamiento]: #create-a-training-experiment

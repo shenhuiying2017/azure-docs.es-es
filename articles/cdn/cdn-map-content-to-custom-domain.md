@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Adición de un dominio personalizado al punto de conexión de CDN
 Después de crear un perfil, normalmente también creará uno o más [puntos de conexión](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) de CDN (un subdominio de `azureedge.net`) para entregar el contenido mediante HTTP y HTTPS. De forma predeterminada, este punto de conexión se incluye en todas las direcciones URL (por ejemplo, `https://contoso.azureedge.net/photo.png`). Para su comodidad, Azure CDN le permite asociar un dominio personalizado (por ejemplo, `www.contoso.com`) al punto de conexión. Con esta opción, usará un dominio personalizado para entregar el contenido, en lugar del punto de conexión. Esta opción es útil si, por ejemplo, desea que su propio nombre de dominio sea visibles para sus clientes con fines de personalización de marca.
@@ -54,7 +54,7 @@ Para asignar su dominio personalizado a un punto de conexión de CDN, use una de
  
   | NOMBRE             | TIPO  | VALOR                  |
   |------------------|-------|------------------------|
-  | www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | www\.contoso.com | CNAME | contoso\.azureedge.net |
 
 
 - Opción 2: Asignación con el subdominio **cdnverify**. Si en el dominio personalizado se ejecuta tráfico de producción que no se puede interrumpir, puede crear una asignación de CNAME temporal al punto de conexión. Con esta opción, usará el subdominio **cdnverify** de Azure para proporcionar un paso de registro intermedio para que los usuarios puedan acceder al dominio sin interrupción mientras se realiza la asignación de DNS.
@@ -64,7 +64,7 @@ Para asignar su dominio personalizado a un punto de conexión de CDN, use una de
 
    | NOMBRE                       | TIPO  | VALOR                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Paso 3. Habilitación de la asignación de registros CNAME en Azure
@@ -103,7 +103,7 @@ Este paso depende del paso 2, opción 2 (Asignación con el subdominio **cdnveri
  
    | NOMBRE             | TIPO  | VALOR                  |
    |------------------|-------|------------------------|
-   | www\.consoto.com | CNAME | consoto\.azureedge.net |
+   | www\.contoso.com | CNAME | contoso\.azureedge.net |
 2. Elimine el registro CNAME con el subdominio **cdnverify** que creó anteriormente.
 
 ## <a name="see-also"></a>Otras referencias

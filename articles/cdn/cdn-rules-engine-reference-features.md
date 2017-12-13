@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
@@ -644,7 +644,7 @@ Disabled|El encabezado de respuesta X-EC-Debug se excluirá de la respuesta.
 
 **Comportamiento predeterminado**: deshabilitado.
 
-###<a name="modify-client-response-header"></a>Modificar encabezado de respuesta de cliente
+###<a name="modify-client-request-header"></a>Modificar encabezado de solicitud de cliente
 **Propósito:** cada solicitud contiene un conjunto de [encabezados de solicitud]() que la describen. Esta característica puede:
 
 - Anexar o sobrescribir el valor asignado a un encabezado de solicitud. Si el encabezado de solicitud especificado no existe, esta característica lo agregará a la solicitud.
@@ -680,7 +680,7 @@ Información importante:
 ###<a name="modify-client-response-header"></a>Modificar encabezado de respuesta de cliente
 Cada respuesta contiene un conjunto de [encabezados de respuesta]() que lo describen. Esta característica puede:
 
-- Anexar o sobrescribir el valor asignado a un encabezado de respuesta. Si el encabezado de solicitud especificado no existe, esta característica lo agregará a la respuesta.
+- Anexar o sobrescribir el valor asignado a un encabezado de respuesta. Si el encabezado de respuesta especificado no existe, esta característica lo agregará a la respuesta.
 - Eliminar un encabezado de respuesta de la respuesta.
 
 De forma predeterminada, los valores de encabezado de respuesta se definen por un servidor de origen y por nuestros servidores perimetrales.
@@ -689,9 +689,9 @@ En un encabezado de respuesta se puede realizar una de las siguientes acciones:
 
 Opción|Descripción|Ejemplo
 -|-|-
-Append|El valor especificado se agregará al final del valor del encabezado de solicitud existente.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/> **Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor1Valor2
-Sobrescribir|El valor del encabezado de solicitud se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/>**Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor2 <br/>
-Eliminar|Elimina el encabezado de solicitud especificado.|**Valor de encabezado de solicitud (cliente):**Valor1 <br/> **Modificar configuración de encabezado de solicitud de cliente:** elimina el encabezado de respuesta en cuestión. <br/>**Resultado:** el encabezado de respuesta especificado no se reenviará al solicitante.
+Append|El valor especificado se agregará al final del valor del encabezado de respuesta existente.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/> **Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor1Valor2
+Sobrescribir|El valor del encabezado de respuesta se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/>**Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor2 <br/>
+Eliminar|Elimina el encabezado de respuesta especificado.|**Valor de encabezado de respuesta (cliente):** Valor1 <br/> **Modificar configuración de encabezado de respuesta de cliente:** elimina el encabezado de respuesta en cuestión. <br/>**Resultado:** el encabezado de respuesta especificado no se reenviará al solicitante.
 
 Información importante:
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -122,7 +122,7 @@ En los ejemplos anteriores se escaló o redujo horizontalmente de forma automát
 
     ![Crear reglas de escalado automático que realicen el escalado según una programación](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Para ver cómo se aplican las reglas de escalado automático, seleccione **Historial de ejecución** en la parte superior de la ventana **Escala**. El gráfico y la lista de eventos muestran cuando se desencadenan las reglas de escalado automático y el número de instancias de máquina virtual de la escala que aumentan o disminuyen.
+Para ver cómo se aplican las reglas de escalado automático, seleccione **Historial de ejecución** en la parte superior de la ventana **Escala**. El gráfico y la lista de eventos muestran cuándo se desencadenan las reglas de escalado automático y el número de instancias de máquina virtual del conjunto de escalado aumenta o disminuye.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

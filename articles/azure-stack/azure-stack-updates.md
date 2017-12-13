@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Introducción a la administración de actualizaciones en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack*
 
-Microsoft lanzará actualizaciones para sistemas integrados de Azure Stack de manera periódica. Cada lanzamiento de actualizaciones de software de Microsoft software viene como una única actualización. Como operador de Azure Stack, puede importar, instalar y supervisar fácilmente el progreso de la instalación de estas actualizaciones desde el portal de administrador. 
+Microsoft lanzará paquetes de actualización para sistemas integrados de Azure Stack periódicamente, normalmente el cuarto martes de cada mes, a partir de la disponibilidad general. Consulte a su OEM sobre su proceso de notificación específico para asegurarse de que las notificaciones de actualización llegan a su organización o active la casilla en Conceptos\Notas de la versión\Sistemas integrados para más información acerca de versiones específicas.
+
+Cada lanzamiento de actualizaciones de software de Microsoft software viene como una única actualización. Como operador de Azure Stack, puede importar, instalar y supervisar fácilmente el progreso de la instalación de estas actualizaciones desde el portal de administrador. 
 
 El proveedor de hardware OEM (fabricante de equipo original) también lanzará actualizaciones, como las de controladores y firmware. proporcionará como paquetes independientes y luego Microsoft se encargará de administrarlas aparte.
 

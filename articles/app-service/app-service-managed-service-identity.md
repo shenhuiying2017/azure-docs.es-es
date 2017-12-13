@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Uso de la identidad del servicio administrada (versión preliminar pública) en App Service y Azure Functions
 
@@ -45,6 +45,35 @@ Para configurar una identidad de servicio administrada en el portal, primero ten
 4. Cambie **Registrar en Azure Active Directory** a **Activado**. Haga clic en **Guardar**.
 
 ![Identidad de servicio administrada en App Service](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
+
+Para configurar una identidad de servicio administrada mediante la CLI de Azure, debe usar el comando `az webapp assign-identity` en una aplicación existente. Tiene tres opciones para ejecutar los ejemplos de esta sección:
+
+- Usar [Azure Cloud Shell](../cloud-shell/overview.md) desde Azure Portal.
+- Use Azure Cloud Shell integrado mediante el botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
+- [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 o posterior), si prefiere usar una consola de la CLI local. 
+
+Los siguientes pasos le guiarán por la creación de una aplicación web y la asignación a la misma de una identidad mediante la CLI:
+
+1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/#login). Use una cuenta asociada a la suscripción de Azure en la que desea implementar la aplicación:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Cree una aplicación web mediante la CLI. Para más ejemplos de cómo utilizar la CLI con App Service, consulte los [ejemplos de la CLI de App Service](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Ejecute el comando `assign-identity` para crear la identidad de esta aplicación:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Uso de una plantilla de Azure Resource Manager
 

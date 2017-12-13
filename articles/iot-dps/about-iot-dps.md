@@ -1,22 +1,22 @@
 ---
-title: "Introducción al servicio Azure IoT Hub Device Provisioning (versión preliminar) | Microsoft Docs"
+title: "Introducción a Azure IoT Hub Device Provisioning Service | Microsoft Docs"
 description: Describe el aprovisionamiento de dispositivos con el servicio Device Provisioning e IoT Hub
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Aprovisionamiento de dispositivos con el servicio Azure IoT Hub Device Provisioning (versión preliminar)
 Microsoft Azure proporciona un amplio conjunto de servicios públicos en la nube integrados para todas las necesidades de su solución de IoT. El servicio IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que ofrece un aprovisionamiento just-in-time, sin intervención del usuario, de la instancia apropiada de IoT Hub, que permite a los clientes aprovisionar millones de dispositivos de forma segura y escalable.
@@ -47,7 +47,7 @@ Todos los escenarios mencionados en la sección anterior se pueden realizar medi
 8. El dispositivo obtiene el estado deseado del dispositivo gemelo en la instancia de IoT Hub.
 
 ## <a name="provisioning-process"></a>Proceso de aprovisionamiento
-Hay dos pasos diferentes en el proceso de implementación de un dispositivo, en los que el servicio Device Provisioning toma parte, que se pueden efectuar de forma independiente:
+Hay dos pasos diferentes en el proceso de implementación de un dispositivo, en los que Device Provisioning Service toma parte, que se pueden llevar a cabo de forma independiente:
 
 * El **paso de fabricación** en el que se crea el dispositivo y se prepara la configuración de fábrica, y
 * el **paso de configuración en la nube** en el que el servicio Device Provisioning se configura para el aprovisionamiento automatizado.
@@ -59,7 +59,7 @@ Este paso es todo lo que sucede en la línea de fabricación. Los roles implicad
 
 El servicio Device Provisioning no introduce un nuevo paso en el proceso de fabricación; más bien, se vincula al paso existente que instala el software inicial e (idealmente) el HSM en el dispositivo. En lugar de crear un identificador de dispositivo en este paso, el dispositivo simplemente se programa con la información del servicio de aprovisionamiento, por lo que debe llamar a este para obtener la información de conexión y la asignación de solución IoT al activarse.
 
-También en este paso, el fabricante proporciona al operador o implementador del dispositivo la información clave de identificación. Esto puede ser tan simple como confirmar que todos los dispositivos tienen un certificado X.509 generado por una entidad de certificación raíz proporcionada por el operador o el implementador del dispositivo, o como extraer la parte pública de una clave de aprobación de TPM de cada dispositivo TPM. Muchos fabricantes de Silicon ofrecen estos servicios hoy en día.
+También en este paso, el fabricante proporciona al operador o implementador del dispositivo la información clave de identificación. Esto puede ser tan simple como confirmar que todos los dispositivos tienen un certificado X.509 generado a partir de un certificado de firma proporcionado por el operador o el implementador del dispositivo para extraer la parte pública de una clave de aprobación de TPM de cada dispositivo TPM. Muchos fabricantes de Silicon ofrecen estos servicios hoy en día.
 
 ### <a name="cloud-setup-step"></a>Paso de configuración de la nube
 Este paso trata sobre la configuración de la nube para un aprovisionamiento automático adecuado. Por lo general hay dos tipos de usuarios implicados en el paso de configuración de la nube: alguien que sabe cómo se deben configurar los dispositivos inicialmente (un operador del dispositivo) y otra persona que sabe cómo se van a dividir los dispositivos entre las instancias de IoT Hub (un operador de la solución).
@@ -84,19 +84,29 @@ El servicio Device Provisioning tiene muchas características que hacen que resu
 * **Varias directivas de asignación** para controlar la forma en que el servicio Device Provisioning asigna dispositivos a las instancias de IoT Hub para dar apoyo a sus escenarios.
 * **Registros de supervisión y diagnóstico** para asegurarse de que todo funciona correctamente.
 * **Compatibilidad con varios concentradores** que permite que el servicio Device Provisioning asigne dispositivos a más de una instancia de IoT Hub. El servicio Device Provisioning puede comunicarse con los concentradores de varias suscripciones de Azure.
+* **Compatibilidad entre regiones** que permite que Device Provisioning Service asigne dispositivos a instancias de IoT Hub en otras regiones.
 
 Puede aprender más sobre los conceptos y características implicados en el aprovisionamiento de dispositivos en [conceptos de dispositivo](concepts-device.md), [conceptos de servicio](concepts-service.md) y [conceptos de seguridad](concepts-security.md).
 
 ## <a name="cross-platform-support"></a>Compatibilidad multiplataforma
-El servicio Device Provisioning, al igual que todos los servicios de Azure IoT, funciona entre plataformas con diversos sistemas operativos. La versión preliminar pública admite un conjunto limitado de lenguajes o protocolos, aunque habrá muchos más disponibles cuando el servicio Device Provisioning esté disponible con carácter general. Para la versión preliminar pública, el servicio Device Provisioning solo admite conexiones HTTPS para las operaciones de dispositivo y de servicio. El SDK del dispositivo está en C y el del servicio está en C#.
+El servicio Device Provisioning, al igual que todos los servicios de Azure IoT, funciona entre plataformas con diversos sistemas operativos. Azure ofrece SDK de código abierto en una variedad de [lenguajes](https://github.com/Azure/azure-iot-sdks) para facilitar la conexión de dispositivos y administrar el servicio. Device Provisioning Service admite los siguientes protocolos de conexión de dispositivos:
+
+* HTTPS
+* AMQP
+* AMQP sobre WebSockets
+* MQTT
+* MQTT sobre WebSockets
+
+Device Provisioning Service solo admite conexiones HTTPS para las operaciones de servicio.
 
 ## <a name="regions"></a>Regiones
-La versión preliminar pública del servicio Device Provisioning está disponible en estas regiones: Este de EE. UU., Europa Occidental y Sudeste Asiático. Se mantiene una lista actualizada de las regiones existentes y de las recién anunciadas para todos los servicios.
+Device Provisioning Service está disponible en muchas regiones. Hay una lista actualizada de las regiones existentes y de las recién anunciadas para todos los servicios en [Regiones de Azure](https://azure.microsoft.com/regions/). Puede ver que Device Provisioning Service está disponible en la página [Estado de Azure](https://azure.microsoft.com/status/).
 
-* [Regiones de Azure](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> Device Provisioning Service es global y no está enlazado a una ubicación. Sin embargo, debe especificar una región en la que van a residir los metadatos asociados con el perfil de Device Provisioning Service.
 
 ## <a name="availability"></a>Disponibilidad
-Se procura mantener la mejor disponibilidad del servicio durante la versión preliminar pública. Durante la versión preliminar pública no hay ningún Acuerdo de Nivel de Servicio en vigor. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
+Mantenemos un Acuerdo de Nivel de Servicio del 99,9 % para Device Provisioning Service y también puede [leer el SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
 ## <a name="quotas"></a>Cuotas
 Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar al ámbito de su solución de IoT. El límite actual por suscripción es de 10 servicios Device Provisioning por suscripción.

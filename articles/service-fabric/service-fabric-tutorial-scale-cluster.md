@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Escalabilidad de un clúster de Service Fabric
 
@@ -30,6 +30,13 @@ En este tutorial, aprenderá a:
 > * Leer el recuento de nodos de clúster
 > * Agregar nodos de clúster (escalabilidad horizontal)
 > * Quitar nodos de clúster (reducción horizontal)
+
+En esta serie de tutoriales, se aprende a:
+> [!div class="checklist"]
+> * Crear un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
+> * Escalar o reducir un clúster horizontalmente
+> * [Actualización del sistema de tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Implementar API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial:
@@ -250,8 +257,8 @@ En este tutorial, ha aprendido cómo:
 > * Quitar nodos de clúster (reducción horizontal)
 
 
-A continuación, avance hasta el siguiente tutorial para aprender a implementar una aplicación y a usar API Management.
+Luego, pase al siguiente tutorial para aprender a actualizar el sistema de tiempo de ejecución de un clúster.
 > [!div class="nextstepaction"]
-> [Implementación de API Management](service-fabric-tutorial-deploy-api-management.md)
+> [Actualización del sistema de tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

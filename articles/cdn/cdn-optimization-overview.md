@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Optimizar la entrega de contenido de Azure para su escenario
 
@@ -103,7 +103,7 @@ Si usa Azure Content Delivery Network de Akamai, debe usar la descarga de archiv
 
 Si usa Azure Content Delivery Network de Akamai, las descargas de archivos grandes se optimizan para el contenido de más de 10 MB. Si el tamaño promedio de los archivos es menor que 10 MB, se recomienda usar la entrega web general. Si los tamaños promedios de los archivos son constantemente superiores a 10 MB, es posible que sea más eficaz crear un punto de conexión independiente para los archivos grandes. Por ejemplo, las actualizaciones de firmware o software normalmente son archivos grandes.
 
-Azure Content Delivery Network de Verizon usa el tipo de optimización de entrega web general para ofrecer streaming multimedia.
+Azure Content Delivery Network de Verizon usa el tipo de optimización de entrega web general para ofrecer contenido de descarga de archivos grandes.
 
 Para obtener más información sobre la optimización de archivos grandes, vea [Optimización de archivos grandes](cdn-large-file-optimization.md).
 

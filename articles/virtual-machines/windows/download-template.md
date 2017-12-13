@@ -4,7 +4,7 @@ description: "Descarga de la plantilla para una máquina virtual con el objetivo
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
@@ -13,24 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="download-the-template-for-a-vm"></a>Descargar la plantilla para una máquina virtual
 Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se crea automáticamente una plantilla de Resource Manager. Puede usar esta plantilla para duplicar rápidamente una implementación. La plantilla contiene información acerca de todos los recursos de un grupo de recursos. En el caso de una máquina virtual, significa que la plantilla contiene todo lo que se crea para ayudar a la máquina virtual de ese grupo de recursos, incluidos los recursos de red.
 
 ## <a name="download-the-template-using-the-portal"></a>Descarga de la plantilla mediante el portal
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. En el menú del concentrador, haga clic en **Virtual Machines**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+2. En el menú de la izquierda, seleccione **Máquinas virtuales**.
 3. Seleccione la máquina virtual en la lista.
 4. Seleccione **Script de Automation**.
-5. Seleccione **Descargar** y guarde el archivo .zip en el equipo local.
-6. Abra el archivo .zip y extraiga los archivos en una carpeta. El archivo .zip contendrá:
+5. Seleccione **Descargar** en el menú de la parte superior y guarde el archivo .zip en el equipo local.
+6. Abra el archivo .zip y extraiga los archivos en una carpeta. El archivo .zip contiene:
    
    * deploy.ps1
    * deploy.sh 

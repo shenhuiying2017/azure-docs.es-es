@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 63b35ed25b809a16b61b685fd35aa67474b0a369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Instalación de la CLI de Azure 1.0
 > [!div class="op_single_selector"]
@@ -28,7 +28,8 @@ ms.lasthandoff: 10/11/2017
 > * [CLI de Azure 2.0](/cli/azure/install-azure-cli)
 
 > [!IMPORTANT]
-> En este tema se describe cómo instalar la CLI de Azure 1.0, que se integra en nodeJS y admite todas las llamadas a la API de implementación clásica, así como un gran número de actividades de implementación de Resource Manager. Debe utilizar la [CLI de Azure 2.0](/cli/azure/overview) para administrar o implementar CLI nuevas o futuras.
+> En este tema se describe cómo instalar la CLI de Azure 1.0. Esta CLI está en desuso y solo debe usarse para la compatibilidad del modelo Azure Service Management (ASM) con recursos "clásicos".
+> Para las implementaciones de Azure Resource Manager (ARM), utilice la [CLI de Azure 2.0](/cli/azure/overview).
 
 Instale rápidamente la interfaz de la línea de comandos de Azure (CLI de Azure 1.0) para utilizar un conjunto de comandos de código abierto basados en shell para crear y administrar recursos en Microsoft Azure. Tiene varias opciones para instalar estas herramientas multiplataforma en su equipo:
 

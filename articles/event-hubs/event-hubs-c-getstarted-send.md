@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 25311958314cca049d109ecbe3f46aaaa36b694d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Envío de eventos a Azure Event Hubs mediante C
 
@@ -27,16 +27,16 @@ Event Hubs es un sistema de recopilación de alta escalabilidad que puede recibi
 
 Para más información, consulte [Información general de Event Hubs][Información general de Event Hubs].
 
-En este tutorial, aprenderá a enviar eventos a un centro de eventos mediante una aplicación de consola en C. Para recibir eventos, haga clic en el idioma de recepción adecuado en la tabla de contenido izquierda.
+En este tutorial se describe el envío de eventos a un centro de eventos mediante una aplicación de consola en C. Para obtener información acerca de la recepción de eventos, haga clic en el idioma de recepción adecuado en la tabla de contenido de la izquierda.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una VM Linux de Azure con Ubuntu 14.04.
+* Un entorno de desarrollo de C. Para este tutorial se presupone el uso de la pila de gcc en una máquina virtual Linux de Azure con Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="send-messages-to-event-hubs"></a>Envío de mensajes a Centros de eventos
-En esta sección se escribirá una aplicación en C para enviar eventos al centro de eventos. El código usa la biblioteca Proton AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de C como se muestra [aquí](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para más información, vea la [documentación de Qpid Proton](http://qpid.apache.org/proton/index.html).
+## <a name="send-messages-to-event-hubs"></a>Envío de mensajes a Event Hubs
+En esta sección se muestra cómo se escribe una aplicación en C para enviar eventos al centro de eventos. El código usa la biblioteca Proton AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Service Bus con AMQP desde C como se muestra [en este ejemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para más información, consulte la [documentación de Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. En la página [Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html), siga las instrucciones para instalar Qpid Proton según su entorno.
 2. Para compilar la biblioteca Proton, instale los paquetes siguientes:
@@ -59,7 +59,7 @@ En esta sección se escribirá una aplicación en C para enviar eventos al centr
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente código. No olvide sustituir el valor para el nombre del centro de eventos y el espacio de nombres. También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. En su directorio de trabajo, cree un nuevo archivo denominado **sender.c** con el siguiente código. No olvide reemplazar los valores de nombre/clave de SAS, el nombre del centro de eventos y del espacio de nombres. También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -147,15 +147,13 @@ En esta sección se escribirá una aplicación en C para enviar eventos al centr
     ```
 
     > [!NOTE]
-    > En este código, usamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general, la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Consulte la [página Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) para más información sobre cómo usar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
+    > En este código se usa una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. Se recomienda que la aplicación pruebe con los mensajes por lotes para aumentar el rendimiento. Consulte la [página Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) para más información sobre cómo usar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
-* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md
-)
-* [Creación de un centro de eventos](event-hubs-create.md)
+* [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Preguntas más frecuentes sobre Event Hubs](event-hubs-faq.md)
 
 <!-- Images. -->

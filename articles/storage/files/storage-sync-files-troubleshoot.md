@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solución de problemas de Azure File Sync (versión preliminar)
-Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de los archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
+Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
 
 Este artículo está diseñado para ayudarle a solucionar problemas que podrían producirse con la implementación de Azure File Sync. Se describe cómo recopilar registros importantes del sistema si es necesario investigar los problemas en mayor profundidad. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
 
 1. La sección Comentarios de este artículo.
-2. [Foro de Azure Storage](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Foro de Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [UserVoice de Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Soporte técnico de Microsoft. Para crear una solicitud de soporte técnico, en Azure Portal, vaya a la pestaña **Ayuda**, seleccione el botón **Ayuda y soporte técnico** y elija **Nueva solicitud de soporte técnico**.
 
@@ -69,13 +69,13 @@ Reset-StorageSyncServer
 Este problema se produce cuando la directiva **Seguridad mejorada de Internet Explorer** está habilitada durante el registro de servidor. Para más información sobre cómo deshabilitar de manera apropiada la directiva **Seguridad mejorada de Internet Explorer**, consulte la sección [Preparación de los servidores de Windows Server para su uso con Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) del artículo [Cómo implementar Azure File Sync (versión preliminar)](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Administración de grupos de sincronización
-<a id="cloud-endpoint-using-share"></a>**Se produce un error al crear el punto de conexión de nube con el error: "The specified Azure FileShare is already in use by a different CloudEndpoint"** (El recurso compartido de archivos de Azure especificado ya está en uso por un punto de conexión de nube diferente)  
-Este error se produce si el recurso compartido de archivos de Azure ya está en uso por otro punto de conexión de nube. 
+<a id="cloud-endpoint-using-share"></a>**Se produce un error al crear el punto de conexión de nube con el mensaje: "The specified Azure FileShare is already in use by a different CloudEndpoint"** (El recurso compartido de archivos de Azure especificado ya está siendo usado por un punto de conexión de nube diferente)  
+Este error se produce si el recurso compartido de archivos de Azure ya está siendo utilizado por otro punto de conexión de nube. 
 
-Si ve este mensaje y el recurso compartido de archivos de Azure no está actualmente en uso por un punto de conexión de nube, complete los siguientes pasos para borrar los metadatos de Azure File Sync en el recurso compartido de archivos de Azure:
+Si ve este mensaje y el recurso compartido de archivos de Azure no está siendo utilizado actualmente por un punto de conexión de nube, complete los siguientes pasos para borrar los metadatos de Azure File Sync en el recurso compartido de archivos de Azure:
 
 > [!Warning]  
-> Si se eliminan los metadatos en un recurso compartido de archivos de Azure que está actualmente en uso por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. 
+> Si se eliminan los metadatos en un recurso compartido de archivos de Azure que está siendo utilizado por un punto de conexión de nube, las operaciones de Azure File Sync producirán un error. 
 
 1. Vaya al recurso compartido de archivos de Azure en Azure Portal.  
 2. Haga clic con el botón derecho en el recurso compartido de archivos de Azure y seleccione **Editar metadatos**.
@@ -103,12 +103,12 @@ Para determinar si su rol de la cuenta de usuario tiene los permisos necesarios:
     * **Definición de roles** debe tener permisos de **lectura** y **escritura**.
 
 <a id="cloud-endpoint-deleteinternalerror"></a>**Se produce el error "MgmtInternalError" al eliminar el punto de conexión de nube**  
-Este problema puede producirse si el recurso compartido de archivos de Azure o la cuenta de almacenamiento se han eliminado antes de eliminar el punto de conexión de nube. El problema se solucionará en una futura actualización. En ese momento, podrá eliminar un punto de conexión de nube después de eliminar la cuenta de almacenamiento o recurso compartido de archivos de Azure.
+Este problema puede producirse si el recurso compartido de archivos de Azure o la cuenta de almacenamiento se han eliminado antes de eliminar el punto de conexión de nube. El problema se solucionará en una futura actualización. En ese momento, podrá eliminar un punto de conexión de nube después de eliminar la cuenta de almacenamiento o el recurso compartido de archivos de Azure.
 
 Mientras tanto, para evitar que esto se produzca, elimine el punto de conexión de nube antes de eliminar el recurso compartido de archivos de Azure o la cuenta de almacenamiento.
 
 ## <a name="sync"></a>Sync
-<a id="afs-change-detection"></a>**Si creó un archivo directamente en el recurso compartido de archivos de Azure a través de SMB o a través del portal, ¿cuánto tiempo tarda el archivo en sincronizarse con los servidores del grupo de sincronización?**  
+<a id="afs-change-detection"></a>**Si creé un archivo directamente en el recurso compartido de archivos de Azure mediante SMB o el portal, ¿cuánto tiempo tarda el archivo en sincronizarse con los servidores del grupo de sincronización?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="broken-sync"></a>**Se produce un error en la sincronización en un servidor**  
@@ -133,6 +133,28 @@ Si los archivos individuales no se podrán sincronizar:
     > Azure File Sync toma instantáneas de VSS periódicamente para sincronizar los archivos que tienen identificadores abiertos.
 
 ## <a name="cloud-tiering"></a>Niveles de nube 
+Los errores en la organización en niveles en la nube pueden producirse de dos formas:
+
+- Los archivos pueden dar error al organizarse en niveles, lo que significa que Azure File Sync lo intenta sin éxito con un archivo en Azure Files.
+- Los archivos pueden producir un error en la recuperación, lo que significa que el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) da un error al descargar los datos cuando un usuario intenta tener acceso a un archivo que ha sido organizado en niveles.
+
+Hay dos clases principales de errores que pueden producirse de alguno de esos modos:
+
+- Errores de almacenamiento en la nube
+    - *Problemas transitorios de disponibilidad del servicio de almacenamiento*. Vea [Acuerdo de Nivel de Servicio (SLA) para Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) para más información.
+    - *Recurso compartido de archivos de Azure inaccesible*. Este error normalmente ocurre al eliminarse el recurso compartido de archivos de Azure cuando sigue siendo un punto de conexión en la nube en un grupo de sincronización.
+    - *Cuenta de almacenamiento inaccesible*. Este error suele ocurrir cuando se elimina la cuenta de almacenamiento mientras todavía tiene un recurso compartido de archivos de Azure que es un punto de conexión en la nube en un grupo de sincronización. 
+- Errores del servidor 
+    - *No está cargado el filtro de sistema de archivos de Azure File Sync (StorageSync.sys)*. Para responder a solicitudes de organización por niveles o recuperación, debe haber cargado el filtro del sistema de archivos de Azure File Sync. El filtro puede no cargarse por varios motivos, pero el más común es que un administrador lo descargue manualmente. El filtro del sistema de archivos de Azure File Sync se debe cargar en todo momento para que este funcione de forma adecuada.
+    - *El punto de reanálisis falta, está dañado o ha sufrido algún otro problema*. Un punto de reanálisis es una estructura de datos especial en un archivo que consta de dos partes:
+        1. Una etiqueta de reanálisis, que indica al sistema operativo que el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) puede necesitar realizar alguna acción de E/S en el archivo. 
+        2. Repita el análisis de los datos, lo que indica al sistema de archivos que filtre el URI del archivo en el punto de conexión en la nube asociado (el recurso compartido de archivos de Azure). 
+        
+        La manera más común de que un punto de reanálisis pueda resultar dañado es que un administrador intente modificar la etiqueta o sus datos. 
+    - *Problemas de conectividad de red*. Con el fin organizar en niveles un archivo o de recuperarlo, el servidor debe tener conectividad a Internet.
+
+En las secciones siguientes se indica cómo solucionar problemas de los niveles en la nube y determinar si se trata de un problema de almacenamiento en la nube o del servidor.
+
 <a id="files-fail-tiering"></a>**Solución de problemas de archivos que no se apilan**  
 Si no se pueden apilar archivos en Azure Files:
 

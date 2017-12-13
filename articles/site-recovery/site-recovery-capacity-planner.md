@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+La nueva versión mejorada de [Azure Site Recovery Deployment Planner para Hyper-V en Azure](site-recovery-hyper-v-deployment-planner.md) está disponible ahora y reemplaza a la antigua herramienta. Use la herramienta nueva para el planeamiento de la implementación. Proporciona las siguientes directrices:
+* Evaluación de la idoneidad de las máquinas virtuales en función del número de discos, el tamaño de estos, las IOPS, la actividad de datos y algunas otras características de las máquinas virtuales.
+* Necesidad de ancho de banda de red frente a evaluación de RPO.
+* Requisitos de infraestructura de Azure.
+* Requisitos de la infraestructura local.
+* Guía para el procesamiento por lotes de la replicación inicial.
+* Costo estimado total de la recuperación ante desastres en Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planeamiento de la capacidad para proteger las máquinas virtuales de Hyper-V con Site Recovery
 
 La herramienta Azure Site Recovery Capacity Planner le ayuda a determinar los requisitos de capacidad al replicar máquinas virtuales de Hyper-V con Azure Site Recovery.
 
-Use Capacity Planner de Site Recovery para analizar el entorno de origen y las cargas de trabajo, calcular las necesidades de ancho de banda, los recursos de servidor que necesita en la ubicación de origen y los recursos (máquinas virtuales y almacenamiento, etc.) que necesitará en su ubicación de destino.
+Use Site Recovery Capacity Planner para analizar el entorno de origen y las cargas de trabajo, calcular las necesidades de ancho de banda, los recursos de servidor que necesita en la ubicación de origen y los recursos (máquinas virtuales, almacenamiento, etc.) que necesitará en su ubicación de destino.
 
 Puede ejecutar la herramienta de dos modos distintos:
 
