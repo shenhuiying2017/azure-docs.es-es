@@ -14,11 +14,11 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 5444e9d54bd9a2f7250ce590c3b6ced6b8b7bc51
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/02/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Managed Service Identity (MSI) para recursos de Azure
 
@@ -61,7 +61,7 @@ Pruebe un tutorial de Managed Service Identity para obtener información sobre e
 |                    | [Acceder a Azure Storage mediante una clave de acceso con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Acceder a Azure Storage mediante SAS con Managed Service Identity en una máquina virtual Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Acceder a un recurso ajeno a Azure AD con Managed Service Identity en una máquina virtual Linux y Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |
-| Servicio de aplicaciones de Azure  | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure App Service  | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Función de Azure     | [Uso de Managed Service Identity con Azure App Service o Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>¿Qué servicios de Azure son compatibles con Managed Service Identity?
@@ -74,9 +74,9 @@ Los siguientes servicios de Azure admiten Managed Service Identity.
 
 | Servicio | Estado | Date | Configuración | Obtención de un token |
 | ------- | ------ | ---- | --------- | ----------- |
-| Máquinas virtuales de Azure | Vista previa | Septiembre de 2017 | [Portal de Azure](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[CLI de Azure](msi-qs-configure-cli-windows-vm.md)<br>[Plantillas del Administrador de recursos de Azure](msi-qs-configure-template-windows-vm.md) | [.NET](msi-how-to-get-access-token-using-msi.md#net)<br>[PowerShell](msi-how-to-get-access-token-using-msi.md#azure-powershell-token)<br>[Bash/Curl](msi-how-to-get-access-token-using-msi.md#bashcurl)<br>[REST](msi-how-to-get-access-token-using-msi.md#rest) |
-| Servicio de aplicaciones de Azure | Vista previa | Septiembre de 2017 | [Portal de Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Plantilla de Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Funciones de Azure | Vista previa | Septiembre de 2017 | [Portal de Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Plantilla de Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Virtual Machines | Vista previa | Septiembre de 2017 | [Portal de Azure](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[CLI de Azure](msi-qs-configure-cli-windows-vm.md)<br>[Plantillas del Administrador de recursos de Azure](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Go](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
+| Azure App Service | Vista previa | Septiembre de 2017 | [Portal de Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Plantilla de Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Functions | Vista previa | Septiembre de 2017 | [Portal de Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Plantilla de Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Servicios de Azure que admiten la autenticación de Azure AD
 

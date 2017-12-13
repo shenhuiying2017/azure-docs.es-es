@@ -12,22 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="azure-api-management-developer-portal-templates"></a>Plantillas del portal para desarrolladores de Azure API Management
+# <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores
+
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
   
- Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).  
+Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).  
 
-
-
-  
 ##  <a name="DeveloperPortalTemplates"></a>Plantillas del portal para desarrolladores  
   
 -   [API](api-management-api-templates.md)  
@@ -60,9 +58,9 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
     -   [Sign up](api-management-page-templates.md#SignUp)  
     -   [Page not found](api-management-page-templates.md#PageNotFound)
 
-
 ## <a name="next-steps"></a>Pasos siguientes  
--   [Referencia de plantilla](api-management-developer-portal-templates-reference.md)  
--   [Data model reference](api-management-template-data-model-reference.md)  
--   [Controles de página](api-management-page-controls.md)  
--   [Template resources](api-management-template-resources.md)
+
++ [Referencia de plantilla](api-management-developer-portal-templates-reference.md)  
++ [Data model reference](api-management-template-data-model-reference.md)  
++ [Controles de página](api-management-page-controls.md)  
++ [Template resources](api-management-template-resources.md)

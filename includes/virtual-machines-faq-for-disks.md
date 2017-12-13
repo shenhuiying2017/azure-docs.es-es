@@ -54,7 +54,7 @@ No. Las máquinas virtuales de un conjunto de disponibilidad deben utilizar úni
 
 **¿Es Managed Disks la opción predeterminada en Azure Portal?**
 
-No actualmente, pero lo será en el futuro.
+Sí. 
 
 **¿Puedo crear un disco administrado vacío?**
 
@@ -108,6 +108,40 @@ No. No se puede actualizar la propiedad de nombre de equipo. La nueva máquina v
 **¿Dónde puedo encontrar plantillas de Azure Resource Manager de ejemplo para crear máquinas virtuales con discos administrados**
 * [Lista de plantillas mediante discos administrados](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>Migración a Managed Disks 
+
+**¿Qué cambios son necesarios en una configuración del servicio Azure Backup preexistente antes y después de la migración a Managed Disks?**
+
+No es preciso realizar cambios. 
+
+**¿Las copias de seguridad de mi máquina virtual creadas con el servicio Azure Backup antes de la migración seguirán funcionando?**
+
+Sí, las copias de seguridad funcionan sin problemas.
+
+**¿Qué cambios son necesarios en una configuración de Azure Disks Encryption ya existente antes y después de la migración a Managed Disks?**
+
+No es preciso realizar cambios. 
+
+**¿Está permitida la migración automática de un conjunto de escalado de máquinas virtuales (VMSS) existente de discos no administrados a Managed Disks?**
+
+No. Puede crear un nuevo VMSS con Managed Disks con la imagen del antiguo conjunto de escalado de máquinas virtuales con discos no administrados. 
+
+**¿Puedo crear un disco administrado desde una instantánea de blob en páginas tomada antes de migrar a Managed Disks?**
+
+No. Puede exportar una instantánea del blob en páginas como un blob en páginas y, a continuación, crear un disco administrado a partir del blob en páginas exportado. 
+
+**¿Se puede realizar una conmutación por error de mis equipos locales protegidos por Azure Site Recovery a una máquina virtual con Managed Disks?**
+
+Sí, puede realizar la conmutación por error a una máquina virtual con Managed Disks.
+
+**¿Hay algún impacto en la migración de las máquinas virtuales de Azure protegidas por Azure Site Recovery (ASR) mediante la replicación de Azure a Azure?**
+
+Sí. No se admite la protección de máquinas virtuales con Managed Disks con ASR de Azure a Azure. Se admitirá a partir de finales de 2018. 
+
+**¿Puedo migrar máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento que se hayan cifrado previamente en discos administrados?**
+
+Sí
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks y Storage Service Encryption 
 

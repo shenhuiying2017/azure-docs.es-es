@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Preguntas más frecuentes sobre informes de Azure Active Directory
 
@@ -119,5 +119,11 @@ Este artículo incluye respuestas a preguntas más frecuentes sobre los informes
 **P: ¿Cómo se calculan las direcciones IP en los inicios de sesión y en el informe de inicios de sesión de riesgo?**
 
 **R:** Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. Esto se complica por factores tales como proveedores de dispositivos móviles y VPN que emiten direcciones IP desde grupos centrales, a menudo muy lejos de donde se usa realmente el dispositivo del cliente. Dado lo anterior, la conversión de la dirección IP en una ubicación física es un esfuerzo notable basado en seguimientos, datos de registro, búsquedas inversas y otra información. 
+
+---
+
+**P: ¿Qué significa el evento de riesgo "Inicio de sesión con riesgo adicional detectado"?**
+
+**R:** Para proporcionarle un detalle de todos los inicios de sesión con riesgo en su entorno, mostramos el evento de riesgo "Inicio de sesión con riesgo adicional detectado" en los inicios de sesión considerados de riesgo debido a detecciones exclusivas para los suscriptores de Azure AD Identity Protection.
 
 ---

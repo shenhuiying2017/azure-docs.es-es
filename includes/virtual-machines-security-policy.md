@@ -24,7 +24,7 @@ Cuando se conecta a máquinas virtuales (VM), debe usar la criptografía de clav
 
 ## <a name="policies"></a>Directivas
 
-Las [directivas de Azure Resource Manager](../articles/azure-resource-manager/resource-manager-policy.md) pueden utilizarse para definir el comportamiento deseado de las [máquinas virtuales Windows](../articles/virtual-machines/windows/policy.md) y de las [máquinas virtuales Linux](../articles/virtual-machines/linux/policy.md) en su organización. Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización.
+Las [directivas de Azure](../articles/azure-policy/azure-policy-introduction.md) pueden utilizarse para definir el comportamiento deseado de las [máquinas virtuales Windows](../articles/virtual-machines/windows/policy.md) y de las [máquinas virtuales Linux](../articles/virtual-machines/linux/policy.md) en su organización. Mediante las directivas, una organización puede aplicar varias convenciones y reglas en toda la empresa. La aplicación del comportamiento deseado puede ayudar a reducir el riesgo a la vez que se contribuye al éxito de la organización.
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 

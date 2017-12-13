@@ -68,8 +68,9 @@ Ejecute aplicaciones HPC personalizadas o comerciales en Azure. Se realizan prue
 
 ### <a name="ai-and-deep-learning"></a>Inteligencia artificial y aprendizaje profundo
 
+* [Batch AI](../articles/batch-ai/overview.md): entrenamiento de modelos de aprendizaje profundo
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [Deep learning toolkit for Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [Máquina virtual de aprendizaje profundo](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Batch Shipyard recipes for deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
@@ -104,7 +105,7 @@ Obtenga información sobre cómo:
 
 * [Empezar a desarrollar con Batch](../articles/batch/batch-dotnet-get-started.md)
 * [Usar ejemplos de código de Azure Batch](https://github.com/Azure/azure-batch-samples)
-* [Usar máquinas virtuales de prioridad baja con Batch (versión preliminar)](../articles/batch/batch-low-pri-vms.md)
+* [Uso de máquinas virtuales de prioridad baja con Batch](../articles/batch/batch-low-pri-vms.md)
 * [Ejecutar cargas de trabajo de HPC en contenedores con Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Usar el lenguaje R con Batch](https://github.com/Azure/doAzureParallel)
 
@@ -138,11 +139,11 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 * [Almacenamiento de archivos](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Datos y análisis
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) para clústeres de Hadoop en Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) para clústeres de Hadoop en Azure
 * [Factoría de datos](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
-* [Base de datos SQL](../articles/sql-database/sql-database-technical-overview.md)
+* [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
 ### <a name="networking"></a>Redes
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)

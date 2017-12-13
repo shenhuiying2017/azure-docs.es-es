@@ -1,5 +1,5 @@
 ---
-title: "Comparación de los planes de hospedaje de Azure Functions | Microsoft Docs"
+title: Escalado y hospedaje de Azure Functions | Microsoft Docs
 description: Aprenda a elegir entre el plan de consumo y el plan de App Service de Azure Functions.
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Comparación de los planes de hospedaje de Azure Functions
+# <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
-Azure Functions se puede ejecutar de dos formas diferentes: plan de consumo y plan de Azure App Service. El plan de consumo asigna automáticamente capacidad de proceso cuando se ejecuta el código, se amplía horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. Por lo tanto, no tiene que pagar por máquinas virtuales inactivas y no tiene que reservar capacidad de antemano. Este artículo se centra en el plan de consumo, un modelo de aplicación [sin servidor](https://azure.microsoft.com/overview/serverless-computing/). Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Azure Functions se puede ejecutar de dos formas diferentes: plan de consumo y plan de Azure App Service. El plan de consumo asigna automáticamente capacidad de proceso cuando se ejecuta el código, se amplía horizontalmente cuando es necesario para gestionar la carga y se reduce horizontalmente cuando no se ejecuta código. No tiene que pagar por máquinas virtuales inactivas y no tiene que reservar capacidad de antemano. Este artículo se centra en el plan de consumo, un modelo de aplicación [sin servidor](https://azure.microsoft.com/overview/serverless-computing/). Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > El hospedaje de Linux solo está disponible en un plan de App Service.
@@ -84,18 +84,20 @@ Always On solo está disponible en un plan de App Service. En un plan de consumo
 
 Tanto en el plan de consumo como en el plan de App Service, una aplicación de función requiere una cuenta de Azure Storage general que admita almacenamiento de Azure en blobs, colas, archivos y tablas. A nivel interno, Azure Functions usa Azure Storage para operaciones como la administración de desencadenadores y las ejecuciones de la función de registro. Algunas cuentas de almacenamiento no son compatibles con colas ni tablas, como las cuentas de almacenamiento solo para blob (incluido Premium Storage) y las cuentas de almacenamiento de uso general con replicación de almacenamiento con redundancia de zona. Estas cuentas se filtran en la hoja **Cuenta de almacenamiento** al crear una aplicación de función.
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 Para obtener más información sobre los tipos de cuenta de almacenamiento, vea [Introducción de los servicios Azure Storage](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Funcionamiento del plan de consumo
 
-En el plan de consumo, el controlador de escalado escala automáticamente los recursos de CPU y memoria mediante la incorporación de instancias del host de Functions, según el número de eventos desencadenados por las funciones. Cada instancia del host de Functions se limita a 1,5 GB de memoria.
+En el plan de consumo, el controlador de escalado escala automáticamente los recursos de CPU y memoria mediante la incorporación de instancias del host de Functions, según el número de eventos desencadenados por las funciones. Cada instancia del host de Functions se limita a 1,5 GB de memoria.  Una instancia del host es Function App, lo que significa que todas las funciones de una aplicación de función comparten recursos al mismo tiempo en una instancia y escala determinadas.
 
 Al usar el plan de hospedaje de consumo, los archivos de código de función se almacenan en recursos compartidos de Azure Files en la cuenta de almacenamiento principal de la función. Al eliminarse la cuenta de almacenamiento principal de la aplicación de función, los archivos de código de función también se eliminan y no se pueden recuperar.
 
 > [!NOTE]
 > Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Después de que la aplicación de función se ejecute, los blobs se procesan inmediatamente. Para evitar este retraso inicial, considere una de las siguientes opciones:
 > - Hospede la aplicación de función en un plan de App Service con Siempre activado habilitado.
-> - Usar otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob Para obtener un ejemplo, consulte [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example) (Ejemplos de C# y JavaScript para los enlaces de entrada y salida de blob).
+> - Use otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, una suscripción de Event Grid o un mensaje de la cola que contenga el nombre del blob. Para obtener un ejemplo, consulte [C# script and JavaScript examples for the blob input and output bindings](functions-bindings-storage-blob.md#input--output---example) (Ejemplos de C# y JavaScript para los enlaces de entrada y salida de blob).
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 
@@ -104,6 +106,20 @@ Azure Functions usa un componente denominado *controlador de escala* para superv
 La unidad de escalado es la aplicación de función. Al escalar horizontalmente la aplicación de función, se asignan recursos adicionales para ejecutar varias instancias del host de Azure Functions. Por el contrario, si la demanda se reduce, el controlador de escala elimina instancias del host de la función. El número de instancias se reduce verticalmente hasta cero cuando no se ejecuta ninguna función en la aplicación de función.
 
 ![Controlador de escala que supervisa los eventos y la creación de instancias](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>Descripción de los comportamientos de escalado
+
+El escalado puede variar en función de varios factores, y realizarse de forma diferente según el desencadenador y el idioma seleccionados. No obstante, hay algunos aspectos del escalado que existen actualmente en el sistema:
+* Una aplicación de función única solo se escalará hasta un máximo de 200 instancias. Una única instancia puede procesar más de un mensaje o solicitud a la vez, por lo que no hay un límite establecido en el número de ejecuciones simultáneas.
+* Solo se asignarán nuevas instancias como máximo una vez cada 10 segundos.
+
+Diferentes desencadenadores pueden también tener distintos límites de escalado como se describe a continuación:
+
+* [Event Hubs](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedimientos recomendados y patrones para aplicaciones escalables
+
+Hay muchos aspectos de una aplicación de función que afectarán a cómo se escala esta, incluida la configuración del host, la superficie del sistema de tiempo de ejecución y la eficacia de los recursos.  Consulte la [sección de escalabilidad del artículo sobre consideraciones de rendimiento](functions-best-practices.md#scalability-best-practices) para más información.
 
 ### <a name="billing-model"></a>Modelo de facturación
 

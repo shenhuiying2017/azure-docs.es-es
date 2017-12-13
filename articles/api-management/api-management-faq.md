@@ -1,6 +1,6 @@
 ---
 title: P+F de API Management de Azure | Microsoft Docs
-description: "Conozca las respuestas a preguntas comunes, patrones y prácticas recomendadas en API Management de Azure."
+description: "Conozca las respuestas a las preguntas más frecuentes (P+F), los patrones y los procedimientos recomendados en Azure API Management."
 services: api-management
 documentationcenter: 
 author: vladvino
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -26,18 +26,17 @@ Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados p
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 * [¿Cómo se puede hacer una pregunta al equipo de Microsoft Azure API Management?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 * [¿Qué significa que una característica se encuentra en su versión preliminar?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [¿Cómo se puede proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [¿Cómo se puede copiar mi instancia de servicio de API Management en una nueva instancia?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
-* [¿Es posible administrar mi instancia de Administración de API mediante programación?](#can-i-manage-my-api-management-instance-programmatically)
+* [¿Es posible administrar mi instancia de API Management mediante programación?](#can-i-manage-my-api-management-instance-programmatically)
 * [¿Cómo se puede agregar un usuario al grupo de administradores?](#how-do-i-add-a-user-to-the-administrators-group)
 * [¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [¿Cómo se pueden utilizar las versiones de API en API Management?](#how-do-i-use-api-versioning-in-api-management)
 * [¿Cómo se configuran varios entornos en una sola API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [¿Se puede usar SOAP con API Management?](#can-i-use-soap-with-api-management)
-* [¿Es constante la dirección IP de la puerta de enlace de Administración de API? ¿Puedo usarla en las reglas de firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
+* [¿Es constante la dirección IP de la puerta de enlace de API Management? ¿Puedo usarla en las reglas de firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 * [¿Se puede configurar un servidor de autorización de OAuth 2.0 con seguridad AD FS?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 * [¿Qué método de enrutamiento utiliza API Management en implementaciones en varias ubicaciones geográficas?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [¿Se puede usar una plantilla de Azure Resource Manager para crear una instancia del servicio API Management?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
@@ -62,7 +61,7 @@ Cuando una característica está en su versión preliminar, significa que estamo
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>¿Cómo se puede proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end?
 Tiene varias opciones para proteger la conexión entre la puerta de enlace de API Management y mis servicios back-end. Puede:
 
-* Use la autenticación básica HTTP. Para más información, consulte [Definición de la configuración de la API](api-management-howto-create-apis.md#configure-api-settings).
+* Use la autenticación básica HTTP. Para más información, consulte [Importación y publicación de la primera API](import-and-publish.md).
 * Use la autenticación mutua de SSL como se describe en [Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management](api-management-howto-mutual-certificates.md).
 * Utilice la lista blanca IP en su servicio back-end. Si tiene una instancia de API Management de nivel Estándar o Premium, la dirección IP de la puerta de enlace permanece constante. Puede establecer una lista blanca para permitir esta dirección IP. Puede obtener la dirección IP de la instancia de API Management en el Panel de Azure Portal.
 * Conecte la instancia de API Management a Azure Virtual Network.
@@ -74,7 +73,7 @@ Tiene varias opciones si desea copiar una instancia de API Management a una nuev
 * Crear su propia característica de copia de seguridad y restauración mediante la [API de REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx). Usar la API de REST para guardar y restaurar las entidades de la instancia de servicio que desee.
 * Descargar la configuración del servicio mediante Git y cargarla en una nueva instancia. Para más información, consulte [Guardado y configuración del servicio API Management mediante Git](api-management-configuration-repository-git.md).
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>¿Es posible administrar mi instancia de Administración de API mediante programación?
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>¿Es posible administrar mi instancia de API Management mediante programación?
 Sí, puede administrar API Management mediante programación utilizando:
 
 * La [API de REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
@@ -102,7 +101,7 @@ Si la directiva que desea agregar aparece atenuada o sombreada en el editor de d
 Tiene varias opciones para usar las versiones de API en API Management:
 
 * En API Management, puede configurar las API para representar distintas versiones. Por ejemplo, podría tener dos API distintas, MyAPIv1 y MyAPIv2. Un desarrollador puede elegir la versión que desea usar.
-* También puede configurar su API con una dirección URL del servicio que no incluya un segmento de versión; por ejemplo: https://my.api. A continuación, configure un segmento de la versión de la plantilla [URL de reescritura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operación. Por ejemplo, puede tener una operación con una [plantilla URL](api-management-howto-add-operations.md#url-template) llamada /resource y una plantilla [URL de reescritura](api-management-howto-add-operations.md#rewrite-url-template) denominada /v1/Resource. Puede cambiar el valor del segmento de la versión por separado para cada operación.
+* También puede configurar su API con una dirección URL del servicio que no incluya un segmento de versión; por ejemplo: https://my.api. A continuación, configure un segmento de la versión de la plantilla [URL de reescritura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) de cada operación. 
 * Si quiere mantener un segmento de versión predeterminado en la dirección URL del servicio de la API, configure una directiva que use la directiva [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) (Establecer servicio back-end) en operaciones seleccionadas para cambiar la ruta de acceso de la solicitud back-end.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>¿Cómo se configuran varios entornos en una sola API?
@@ -114,7 +113,7 @@ Para configurar varios entornos; por ejemplo, un entorno de prueba y un entorno 
 ### <a name="can-i-use-soap-with-api-management"></a>¿Se puede usar SOAP con API Management?
 Ahora se admite el [paso a través de SOAP](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/). Los administradores pueden importar el WSDL de su servicio SOAP, y Azure API Management creará un front-end SOAP. Ahora hay documentación del portal para desarrolladores, la consola de prueba, las directivas y el análisis disponible para los servicios SOAP.
 
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>¿Es constante la dirección IP de la puerta de enlace de Administración de API? ¿Puedo usarla en las reglas de firewall?
+### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>¿Es constante la dirección IP de la puerta de enlace de API Management? ¿Puedo usarla en las reglas de firewall?
 En los niveles Estándar y Premium, la dirección IP pública del inquilino de API Management es estática durante la vigencia del inquilino, con algunas excepciones. La dirección IP cambia en estas circunstancias:
 
 * El servicio se elimina y se vuelve a crear.

@@ -3,27 +3,26 @@ title: "Controles de página de Azure API Management | Microsoft Docs"
 description: "Aprenda sobre los controles de página disponibles para su uso en las plantillas del portal para desarrolladores de Azure API Management."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
 Azure API Management proporciona los siguientes controles para su uso en las plantillas del portal para desarrolladores.  
   
- Para usar un control, colóquelo en la ubicación deseada en la plantilla del portal para desarrolladores. Algunos controles, como el control [app-actions](#app-actions), tienen parámetros, como se muestra en el ejemplo siguiente.  
+Para usar un control, colóquelo en la ubicación deseada en la plantilla del portal para desarrolladores. Algunos controles, como el control [app-actions](#app-actions), tienen parámetros, como se muestra en el ejemplo siguiente:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
 ## <a name="developer-portal-template-page-controls"></a>Controles de página de las plantillas del portal para desarrolladores  
   
 -   [app-actions](#app-actions)  
-  
 -   [basic-signin](#basic-signin)  
-  
 -   [paging-control](#paging-control)  
-  
 -   [providers](#providers)  
-  
 -   [search-control](#search-control)  
-  
 -   [sign-up](#sign-up)  
-  
 -   [subscribe-button](#subscribe-button)  
-  
 -   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> app-actions  
@@ -69,7 +61,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
 |appId|Identificador de la aplicación.|  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `app-actions` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `app-actions` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [Applications](api-management-user-profile-templates.md#Applications)  
   
@@ -88,7 +80,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `basic-signin` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `basic-signin` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [Sign in](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `paging-control` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `paging-control` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [API list](api-management-api-templates.md#APIList)  
   
@@ -130,7 +122,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `providers` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `providers` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [Sign in](api-management-page-templates.md#SignIn)  
   
@@ -149,7 +141,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `search-control` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `search-control` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [API list](api-management-api-templates.md#APIList)  
   
@@ -170,7 +162,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `sign-up` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `sign-up` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [Sign up](api-management-page-templates.md#SignUp)  
   
@@ -189,7 +181,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `subscribe-button` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `subscribe-button` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [Producto](api-management-product-templates.md#Product)  
   
@@ -214,7 +206,7 @@ Azure API Management proporciona los siguientes controles para su uso en las pla
 |cancelUrl|Dirección URL de cancelación de la suscripción.|  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
- El control `subscription-cancel` se puede usar en las siguientes plantillas del portal para desarrolladores.  
+ El control `subscription-cancel` se puede usar en las siguientes plantillas del portal para desarrolladores:  
   
 -   [Producto](api-management-product-templates.md#Product)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2017
+ms.date: 11/29/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2ebb469289afc36b08c90ae9839f5bdba41cd90b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -31,6 +31,7 @@ En este artículo se describen algunos errores comunes de implementación de Azu
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Siga las restricciones de nomenclatura para las cuentas de almacenamiento. | [Resolución del nombre de la cuenta de almacenamiento](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Consulte las propiedades disponibles para la cuenta de almacenamiento. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
+| AllocationFailed | El clúster o la región no tienen recursos disponibles o no admiten el tamaño de máquina virtual solicitado. Vuelva a realizar la solicitud más adelante o solicite otro tamaño de máquina virtual. | [Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual Linux en Azure](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) y [Solución de problemas de implementación al crear una nueva máquina virtual Windows en Azure](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Espere a que la operación simultánea finalice. | |
 | AuthorizationFailed | La cuenta o entidad de servicio no dispone de acceso suficiente para completar la implementación. Compruebe el rol al que la cuenta pertenece y su acceso para el ámbito de implementación. | [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md) |
 | BadRequest | Envió valores de implementación que no coinciden con los que Resource Manager esperaba. Compruebe el mensaje de estado interno para obtener ayuda para solucionar el problema. | [Referencia de plantillas](/azure/templates/) y [ubicaciones admitidas](resource-manager-template-location.md) |

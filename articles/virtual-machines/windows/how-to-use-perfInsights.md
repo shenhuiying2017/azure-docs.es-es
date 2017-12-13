@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 36e204c73e62e950c3f40eab7e1ce6bccd7abd83
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb4c21456643532df040df4fcd5f4fa1a4f48d2c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights 
 
@@ -30,7 +30,7 @@ Se recomienda ejecutar este script antes de abrir una incidencia de soporte téc
 
 PerfInsights puede recopilar y analizar varios tipos de información que se agrupan en escenarios únicos.
 
-### <a name="collect-disk-configuration"></a>Recopilar configuración de disco 
+### <a name="collect-basic-configuration"></a>Recopilación de la configuración básica 
 
 En este escenario se recopila la configuración de disco y otra información importante, incluidos los siguientes elementos:
 
@@ -57,7 +57,7 @@ Se trata de un conjunto de información pasiva que no debería afectar al sistem
 >[!Note]
 >Este escenario se incluye automáticamente en cada uno de los escenarios siguientes.
 
-### <a name="benchmarkstorage-performance-test"></a>Banco de pruebas y prueba de rendimiento de almacenamiento
+### <a name="benchmarking"></a>Pruebas comparativas
 
 En este escenario se ejecuta el banco de pruebas de [diskspd](https://github.com/Microsoft/diskspd) (IOPS y MBPS) para todas las unidades que estén conectadas a la máquina virtual. 
 
@@ -65,11 +65,11 @@ En este escenario se ejecuta el banco de pruebas de [diskspd](https://github.com
 > Este escenario puede afectar al sistema y no debe ejecutarse en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una carga de trabajo mayor que se deba a una prueba de seguimiento o un banco de pruebas podría afectar negativamente al rendimiento de la máquina virtual.
 >
 
-### <a name="general-vm-slow-analysis"></a>Análisis general de lentitud de la máquina virtual 
+### <a name="slow-vm-analysis"></a>Análisis de máquinas virtuales lentas 
 
 En este escenario se ejecuta un seguimiento de [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) mediante el uso de los contadores que se especifican en el archivo Generalcounters.txt. Si la máquina virtual se identifica como un servidor que ejecuta SQL Server, ejecuta un seguimiento del contador de rendimiento mediante los contadores que se encuentran en el archivo Sqlcounters.txt. También se incluyen datos de diagnóstico de rendimiento.
 
-### <a name="vm-slow-analysis-and-benchmark"></a>Análisis y banco de pruebas de lentitud de la máquina virtual
+### <a name="slow-vm-analysis-and-benchmarking"></a>Análisis de máquinas virtuales lentas y pruebas comparativas
 
 En este escenario se ejecuta un seguimiento del [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) seguido de un banco de pruebas [diskspd](https://github.com/Microsoft/diskspd). 
 
@@ -99,9 +99,9 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 |              | Prom. Longitud de la cola de escritura       |
 |              | Prom. Longitud de la cola de datos        |
 
-### <a name="custom-configuration"></a>Configuración personalizada 
+### <a name="custom-slow-vm-analysis"></a>Análisis personalizado de máquinas virtuales lentas 
 
-Al ejecutar una configuración personalizada, todos los seguimientos (diagnóstico de rendimiento, contador de rendimiento, xperf, red, storport) se ejecutan en paralelo, dependiendo de cuántos seguimientos diferentes se seleccionan. Una vez completado el seguimiento, la herramienta ejecuta el banco de pruebas de diskspd, si está seleccionado. 
+Al ejecutar un análisis personalizado de máquinas virtuales lentas, ejecutará todos los seguimientos (contador de rendimiento, xperf, red, storport) en paralelo, según cuántos seguimientos diferentes se seleccionen. Una vez completado el seguimiento, la herramienta ejecuta el banco de pruebas de diskspd, si está seleccionado. 
 
 > [!Note]
 > Este escenario puede afectar al sistema y no debe ejecutarse en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una carga de trabajo mayor que se deba a una prueba de seguimiento o un banco de pruebas podría afectar negativamente al rendimiento de la máquina virtual.
@@ -113,7 +113,7 @@ Se recopila información sobre la máquina virtual de Windows, la configuración
 
 |Datos recopilados                              |  |  | Escenarios de rendimiento |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                              | Recopilar configuración de disco | Banco de pruebas y prueba de rendimiento de almacenamiento | Análisis general de lentitud de la máquina virtual | Análisis y banco de pruebas de lentitud de la máquina virtual | Análisis de Azure Files | Configuración personalizada |
+|                              | Recopilación de la configuración básica | Pruebas comparativas | Análisis de máquinas virtuales lentas | Análisis de máquinas virtuales lentas y pruebas comparativas | Análisis de Azure Files | Análisis personalizado de máquinas virtuales lentas |
 | Información de los registros de eventos      | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Información del sistema               | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Asignación de volúmenes                       | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
@@ -127,7 +127,7 @@ Se recopila información sobre la máquina virtual de Windows, la configuración
 | Network configuration (Configuración de red)            | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Configuración del firewall           | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
 | Configuración de SQL Server         | Sí                        | Sí                                | Sí                      | Sí                            | Sí                  | Sí                  |
-| Seguimientos de diagnóstico de rendimiento * |                            |                                    | Sí                      |                                |                      | Sí                  |
+| Seguimientos de diagnóstico de rendimiento * | Sí                        | Sí                                | Sí                      |                                | Sí                  | Sí                  |
 | Seguimiento de contadores de rendimiento **     |                            |                                    |                          |                                |                      | Sí                  |
 | Seguimiento del contador de SMB **             |                            |                                    |                          |                                | Sí                  |                      |
 | Seguimiento del contador de SQL Server **      |                            |                                    |                          |                                |                      | Sí                  |
@@ -180,9 +180,9 @@ Pruebas de carga de trabajo de E/S de diskspd [disco del sistema operativo (escr
 
 **Posibles problemas al ejecutar el script en máquinas virtuales de producción:**
 
-1.  Es posible que el script afecte negativamente al rendimiento de la máquina virtual cuando se usa junto con el escenario de "Banco de pruebas" o "Personalizado" que se configura mediante XPerf o DiskSpd. Tenga cuidado cuando ejecute el script en un entorno de producción.
+1.  Cuando se usa cualquier escenario de pruebas comparativas o el escenario "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar XPerf o DiskSpd, el script podría afectar de manera negativa al rendimiento de la máquina virtual. No se recomienda ejecutar estos escenarios en un entorno de producción sin la supervisión de un ingeniero de CSS.
 
-2.  Cuando use el script junto con el escenario de "Banco de pruebas" o "Personalizado" que se configura mediante DiskSpd, asegúrese de que ninguna otra actividad en segundo plano interfiere con la carga de trabajo de E/S en los discos probados.
+2.  Al usar los escenarios de pruebas comparativas o el escenario "Análisis personalizado de máquinas virtuales lentas" que está configurado para usar DiskSpd, asegúrese de que ninguna otra actividad en segundo plano interfiera con la carga de trabajo de E/S en los discos probados.
 
 3.  De forma predeterminada, el script usa la unidad de almacenamiento temporal para recopilar los datos. Si el seguimiento permanece habilitado durante más tiempo, es posible que la cantidad de datos que se recopilan sea relevante. Esto puede reducir la disponibilidad de espacio en el disco temporal, afectando por tanto a cualquier aplicación que se base en esta unidad.
 
@@ -236,7 +236,7 @@ Para ejecutar el script de PerfInsights, siga estos pasos:
 
 8.  También puede ejecutar PerfInsights sin la interfaz de usuario.
 
-    El siguiente comando ejecuta el escenario de solución de problemas "Análisis general de lentitud de la máquina virtual" sin un mensaje de interfaz de usuario y sin capturar datos durante 30 segundos. Le pedirá que dé su consentimiento a la misma declinación de responsabilidades y términos de licencia que se mencionan en el paso 4.
+    El siguiente comando ejecuta el escenario de solución de problemas "Análisis de máquinas virtuales lentas" sin un mensaje de interfaz de usuario y sin capturar datos durante 30 segundos. Le pide que dé su consentimiento a la misma declinación de responsabilidades y términos de licencia que se mencionan en el paso 4.
 
         powershell.exe -ExecutionPolicy UnRestricted -NoProfile -Command ".\\PerfInsights.ps1 -NoGui -Scenario vmslow -TracingDuration 30"
 
@@ -264,13 +264,13 @@ Si el script sigue produciendo errores incluso después de varios intentos, se r
 
 Después de que se produzca el error, copie la salida completa de la consola de PowerShell y envíelo al agente de Soporte técnico de Microsoft que le está ayudando a solucionar el problema.
 
-### <a name="how-do-i-run-the-script-in-custom-configuration-mode"></a>¿Cómo se ejecuta el script en modo de configuración personalizada?
+### <a name="how-do-i-run-the-script-in-custom-slow-vm-analysis-mode"></a>¿Cómo se ejecuta el script en modo de análisis personalizado de máquinas virtuales lentas?
 
-Si selecciona la configuración **Personalizada**, puede habilitar varios seguimientos en paralelo (presione la tecla MAYÚS para seleccionar varios):
+Al seleccionar el escenario **Análisis personalizado de máquinas virtuales lentas**, puede habilitar varios seguimientos en paralelo (use Mayús para realizar varias selecciones):
 
 ![seleccionar escenarios](media/how-to-use-perfInsights/select-scenario.png)
 
-Cuando seleccione los escenarios Diagnóstico de rendimiento, Seguimiento del contador de rendimiento, Seguimiento de XPerf, Seguimiento de la red o Seguimiento de Storport, siga las instrucciones que aparecen en los cuadros de diálogo y trate de reproducir el problema de rendimiento lento después de iniciar los seguimientos.
+Cuando seleccione los escenarios Seguimiento del contador de rendimiento, Seguimiento de XPerf, Seguimiento de la red o Seguimiento de Storport, siga las instrucciones que aparecen en los cuadros de diálogo y trate de reproducir el problema de rendimiento lento después de iniciar los seguimientos.
 
 El siguiente cuadro de diálogo permite iniciar un seguimiento:
 
@@ -289,21 +289,22 @@ En el archivo **CollectedData\_aaaa-MM-dd\_hh\_mm\_ss.zip** generado por PerfIns
 
 Haga clic en la pestaña **Conclusiones**.
 
-![pestaña Conclusiones](media/how-to-use-perfInsights/findingtab.png)
+![pestaña buscar](media/how-to-use-perfInsights/findingtab.png)
+![conclusiones](media/how-to-use-perfInsights/findings.PNG)
 
 **Notas**
 
--   Los mensajes en rojo son problemas de configuración conocidos que pueden causar problemas de rendimiento.
+-   Las conclusiones clasificadas como críticas son problemas conocidos que pueden provocar problemas de rendimiento.
 
--   Los mensajes en amarillo son advertencias que representan configuraciones inadecuadas que no necesariamente provocan problemas de rendimiento.
+-   Las conclusiones clasificadas como importantes representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento.
 
--   Los mensajes en azul son solo instrucciones informativas.
+-   Las conclusiones clasificadas como informativas son solo declaraciones informativas.
 
-Revise los vínculos HTTP de todos los mensajes de error en rojo para obtener información detallada sobre las conclusiones y cómo pueden afectar al rendimiento o prácticas recomendadas para configuraciones con optimización para el rendimiento.
+Revise las recomendaciones y los vínculos relativos a todas las conclusiones críticas e importantes para obtener información más detallada sobre ellas y cómo pueden afectar al rendimiento, o sobre los procedimientos recomendados para realizar configuraciones optimizadas para el rendimiento.
 
-### <a name="disk-configuration-tab"></a>Pestaña Configuración del disco
+### <a name="storage-tab"></a>Pestaña Almacenamiento
 
-En la sección **Información general** se muestran distintas vistas de la configuración de almacenamiento, incluida información de Diskpart y Espacios de almacenamiento.
+La sección **Conclusiones** muestra diversas conclusiones y recomendaciones relacionadas con el almacenamiento.
 
 En las secciones **DiskMap** y **VolumeMap** se describe desde una perspectiva dual cómo se relacionan los volúmenes lógicos y los discos físicos entre sí.
 
@@ -315,21 +316,24 @@ En la perspectiva Volumen (*VolumeMap*), se muestran en las tablas todos los dis
 
 ![pestaña Volumen](media/how-to-use-perfInsights/volumetab.png)
 
-### <a name="sql-server-tab"></a>Pestaña SQL Server
+### <a name="sql-tab"></a>Pestaña SQL
 
-Si la máquina virtual de destino hospeda alguna instancia de SQL Server, verá una pestaña adicional en el informe con el nombre **SQL Server**:
+Si la máquina virtual de destino hospeda alguna instancia de SQL Server, verá una pestaña adicional en el informe con el nombre **SQL**:
 
 ![ficha sql](media/how-to-use-perfInsights/sqltab.png)
 
-En esta sección se incluye una pestaña "Información general" y subpestañas adicionales para cada una de las instancias de SQL Server hospedadas en la máquina virtual.
+En esta sección se incluye una pestaña "Conclusiones" y subpestañas adicionales para cada una de las instancias de SQL Server hospedadas en la máquina virtual.
 
-La sección "Información general" contiene una tabla útil en la que resumen todos los discos físicos (discos de datos y del sistema) que se están ejecutando y que contienen una combinación de archivos de datos y archivos de registro de transacciones.
+La pestaña "Conclusiones" contiene una lista de todos los problemas de rendimiento relacionados con SQL encontrados, junto con las recomendaciones.
 
 En el ejemplo siguiente, se muestra *PhysicalDrive0* (que ejecuta la unidad C) porque los archivos *modeldev* y *modellog* se encuentran en la unidad C y son de tipos diferentes (Archivo de datos y Registro de transacciones, respectivamente):
 
 ![loginfo](media/how-to-use-perfInsights/loginfo.png)
 
 Las pestañas específicas de la instancia de SQL Server contienen una sección general en la que se muestra información básica sobre la instancia seleccionada y secciones adicionales para información avanzada, incluidos los ajustes, configuraciones y opciones de usuario.
+
+### <a name="diagnostic-tab"></a>Pestaña Diagnóstico
+La pestaña Diagnóstico contiene información acerca de los principales consumidores de CPU, disco y memoria en el cuadro de duración de la ejecución de PerfInsights. También puede encontrar otra información útil, como revisiones críticas que podría necesitar el sistema, lista de tareas y eventos importantes del sistema. 
 
 ## <a name="references-to-the-external-tools-used"></a>Referencias a las herramientas externas usadas
 

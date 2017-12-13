@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
 Azure API Management proporciona un objeto `ProxyError` que permite a los publicadores responder a las condiciones de error que se pueden producir durante el procesamiento de solicitudes en el proxy. Para acceder al objeto `ProxyError` se usa la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables). Este objeto se puede usar en las directivas de la sección de directivas `on-error`. En este tema se proporciona una referencia a las funcionalidades de control de errores de Azure API Management.  
@@ -56,27 +56,16 @@ Azure API Management proporciona un objeto `ProxyError` que permite a los public
  Las siguientes directivas se pueden usar en la sección de directivas `on-error`.  
   
 -   [choose](api-management-advanced-policies.md#choose)  
-  
 -   [set-variable](api-management-advanced-policies.md#set-variable)  
-  
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [set-status](api-management-advanced-policies.md#SetStatus)  
-  
 -   [send-request](api-management-advanced-policies.md#SendRequest)  
-  
 -   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -128,4 +117,10 @@ Azure API Management proporciona un objeto `ProxyError` que permite a los public
 |validate-jwt|Otros errores de validación|JwtInvalid|<mensaje de la biblioteca de jwt\>.|
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
+
+Para obtener más información sobre cómo trabajar con directivas, consulte:
+
++ [Directivas de Azure API Management](api-management-howto-policies.md)
++ [API de transformación](transform-api.md)
++ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
++ [Ejemplos de directivas](policy-samples.md)   

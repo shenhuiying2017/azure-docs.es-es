@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reciclaje de un servicio web predictivo existente
 En este documento se describe el proceso de reciclaje para el escenario siguiente:
@@ -86,20 +86,19 @@ En la sección **Basic consumption info** (Información básica sobre consumo) d
 ### <a name="update-the-azure-storage-information"></a>Actualización de la información de Azure Storage
 El código de ejemplo de BES carga un archivo desde una unidad local (por ejemplo, "C:\temp\CensusIpnput.csv") en Azure Storage, lo procesa y escribe los resultados de nuevo en Azure Storage.  
 
-Para actualizar la información de Azure Storage, debe recuperar el nombre de cuenta de almacenamiento, la clave y la información del contenedor para la cuenta de almacenamiento del Portal de Azure clásico y, luego, actualizar los valores correspondientes en el código.
 Después de ejecutar el experimento, el flujo de trabajo resultante debe ser similar al siguiente:
 
 ![Flujo de trabajo resultante después de la ejecución][4]
 
-1. Inicie sesión en el portal clásico de Azure.
-2. En la columna de navegación izquierda, haga clic en **Storage**.
+1. Inicie sesión en el Portal de Azure.
+2. En la columna de navegación izquierda, haga clic en **Más servicios**, busque **Cuentas de almacenamiento** y selecciónelo.
 3. En la lista de cuentas de almacenamiento, seleccione una para almacenar el modelo reciclado.
-4. En la parte inferior de la página, haga clic en **Administrar claves de acceso**.
-5. Copie y guarde la **clave de acceso principal** y cierre el cuadro de diálogo.
-6. En la parte superior de la página, haga clic en **Contenedores**.
+4. En la columna de navegación izquierda, haga clic en **Claves de acceso**.
+5. Copie y guarde el valor de **Primary Access Key**.
+6. En la columna de navegación izquierda, haga clic en **Contenedores**.
 7. Seleccione un contenedor existente o cree uno nuevo y guarde el nombre.
 
-Busque las declaraciones *StorageAccountName*, *StorageAccountKey* y *StorageContainerName* y actualice los valores guardados en el portal clásico.
+Busque las declaraciones *StorageAccountName*, *StorageAccountKey* y *StorageContainerName* y actualice los valores guardados en el portal.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

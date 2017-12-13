@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: b91902b13e7633a0724a57ff7fceb68e50abd13a
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 8a2fdc89241c659505d9e61e843c1ddf438f8c53
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
 
@@ -122,6 +122,7 @@ Ahora ya debería tener acceso a su cuenta. Si no es así, póngase en contacto 
 
 | Caso de error| ¿Qué tipo de error aparece?| Solución |
 | --- | --- | --- |
+| Veo un error al intentar cambiar la contraseña. | Lamentablemente, la contraseña contiene una palabra, frase o patrón que permite adivinar la contraseña fácilmente. Vuelva a intentarlo con una contraseña diferente. | Elija una contraseña que sea más difícil de adivinar. |
 | Al escribir mi identificador de usuario, aparece una página "Póngase en contacto con el administrador". | Póngase en contacto con el administrador. <br> <br> Hemos detectado que la contraseña de su cuenta de usuario no está administrada por Microsoft. Como consecuencia, no podemos restablecer automáticamente su contraseña. <br> <br> Tiene que ponerse en contacto con el personal de TI para obtener más ayuda. | Si ve este mensaje es que el personal de TI administra la contraseña en su entorno local. No puede restablecer la contraseña desde el vínculo "No se puede tener acceso a su cuenta". <br> <br> Para restablecer la contraseña, póngase en contacto directamente con el personal de TI para solicitar ayuda y dígales que quiere restablecer la contraseña para que le puedan habilitar esta característica.|
 | Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña". | La cuenta no está habilitada para restablecer la contraseña. <br> <br> Lamentablemente, el personal de TI no ha configurado la cuenta para usar este servicio. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje es que el personal de TI no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo "No se puede tener acceso a su cuenta", o bien no le ha autorizado para usar la característica. <br> <br> Para restablecer la contraseña, seleccione el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al personal de TI de la compañía y decirles que quiere restablecer su contraseña para que puedan habilitarle esta característica. |
 | Después de escribir mi identificador de usuario, recibo el error "No se pudo comprobar su cuenta". | No se ha podido comprobar su cuenta. <br> <br> Si lo desea, podemos ponernos en contacto con un administrador de su organización para que restablezca la contraseña. | Si ve este mensaje es que está habilitado para el restablecimiento de contraseña, pero no se ha registrado para usar el servicio. Para registrarse para el restablecimiento de contraseña, vaya a http://aka.ms/ssprsetup después de haber recuperado el acceso a su cuenta. <br> <br> Para restablecer la contraseña, seleccione el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al personal de TI de la compañía. |

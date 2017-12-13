@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2017
+ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 7c582c81aac889b2b6f57777fab4531107e0fad3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19c5f165b47f7de4a014226460f82f3ca12b3eec
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Usar el cliente de Beeline con Apache Hive
 
@@ -202,7 +202,7 @@ Use los pasos siguientes para crear un archivo y, luego, ejecútelo mediante Bee
     ```
 
     > [!NOTE]
-    > El parámetro `-i` inicia Beeline y ejecuta las instrucciones del archivo query.hql. Una vez que se completa la consulta, llegará al aviso `jdbc:hive2://headnodehost:10001/>`. También puede ejecutar un archivo mediante el parámetro `-f` que sale de Beeline después de que la consulta se completa.
+    > El parámetro `-i` inicia Beeline y ejecuta las instrucciones del archivo `query.hql`. Una vez que se completa la consulta, llegará al aviso `jdbc:hive2://headnodehost:10001/>`. También puede ejecutar un archivo mediante el parámetro `-f` que sale de Beeline después de que la consulta se completa.
 
 5. Para comprobar que la tabla **errorLogs** se creó, use la siguiente instrucción para devolver todas las filas de **errorLogs**:
 
@@ -243,7 +243,7 @@ Para buscar el nombre de dominio completo de un nodo principal, use la informaci
 
 ## <a id="sparksql"></a>Uso de Beeline con Spark
 
-Spark proporciona su propia implementación de HiveServer2, que a menudo se denomina servidor Thrift de Spark. Este servicio utiliza Spark SQL para resolver las consultas en lugar de Hive y proporciona un mejor rendimiento en función de la consulta.
+Spark proporciona su propia implementación de HiveServer2 que, en algunas ocasiones, se denomina servidor Thrift de Spark. Este servicio utiliza Spark SQL para resolver las consultas en lugar de Hive y proporciona un mejor rendimiento en función de la consulta.
 
 Para conectarse al servidor Thrift de Spark en el clúster de HDInsight, use el puerto `10002` en lugar del `10001`. Por ejemplo: `beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'`.
 

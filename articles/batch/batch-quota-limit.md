@@ -12,24 +12,24 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Lote
+# <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
-Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Lote. Muchos de ellos son cuotas predeterminadas que Azure aplica en el nivel de cuenta o suscripción. En este artículo se describen esos valores predeterminados y cómo solicitar un aumento de la cuota.
+Al igual que en otros servicios de Azure, existen límites en determinados recursos asociados con el servicio Batch. Muchos de ellos son cuotas predeterminadas que Azure aplica en el nivel de cuenta o suscripción. En este artículo se describen esos valores predeterminados y cómo solicitar un aumento de la cuota.
 
 Tenga en cuenta estas cuotas al diseñar y escalar verticalmente sus cargas de trabajo de Batch. Por ejemplo, si su grupo no alcanza el número objetivo de nodos de proceso especificado, es posible que se haya alcanzado el límite de cuota de núcleos de la cuenta de Batch.
 
 Se pueden ejecutar varias cargas de trabajo de Batch en una sola cuenta de Batch, o bien distribuir las cargas de trabajo entre cuentas de Batch que se encuentren en la misma suscripción, pero en diferentes regiones de Azure.
 
-Si planea ejecutar cargas de trabajo de producción en Lote, es posible que tenga que aumentar el valor predeterminado de una o varias de las cuotas. Si desea aumentar una cuota, puede abrir una [solicitud de soporte técnico al cliente](#increase-a-quota) en línea sin ningún costo.
+Si planea ejecutar cargas de trabajo de producción en Batch, es posible que tenga que aumentar el valor predeterminado de una o varias de las cuotas. Si desea aumentar una cuota, puede abrir una [solicitud de soporte técnico al cliente](#increase-a-quota) en línea sin ningún costo.
 
 > [!NOTE]
 > Una cuota es un límite de crédito, no una garantía de capacidad. Si tiene necesidades de capacidad a gran escala, póngase en contacto con el soporte técnico de Azure.
@@ -47,24 +47,25 @@ Si usó una versión anterior de la API de Batch para crear una cuenta de Batch 
 | **Recurso** | **Límite máximo** |
 | --- | --- |
 | [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso |4 × número de núcleos de nodo |
-| [Aplicaciones](batch-application-packages.md) por cuenta de Lote |20 | |
+| [Aplicaciones](batch-application-packages.md) por cuenta de Batch |20 | |
 | Paquetes de aplicación por aplicación |40 |
 | Tamaño del paquete de aplicación (cada uno) |Aprox. 195 GB<sup>1</sup> |
 | Tamaño máximo de la tarea de inicio | 32 768 caracteres<sup>2</sup> |
+| Duración máxima de la tarea | 7 días<sup>3</sup> |
 
-<sup>1</sup> Límite de Almacenamiento de Azure para el tamaño máximo de blob en bloques<br />
-<sup>2</sup> Incluye archivos de recursos y variables de entorno
+<sup>1</sup> Límite de Azure Storage para el tamaño máximo de blob en bloques<br />
+<sup>2</sup> Incluye archivos de recursos y variables de entorno<br />
+<sup>3</sup> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 7 días. Las tareas completadas se mantienen de forma indefinida; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
 
 
-
-## <a name="view-batch-quotas"></a>Visualización de las cuotas de Lote
+## <a name="view-batch-quotas"></a>Visualización de las cuotas de Batch
 Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
 
 1. Seleccione **Cuentas de Batch** en el portal y, luego, seleccione la cuenta de Batch que le interesan.
 2. Seleccione **Cuotas** en el menú de la cuenta de Batch.
 3. Visualización de las cuotas aplicadas actualmente a la cuenta de Batch
    
-    ![Cuotas de la cuenta de Lote][account_quotas]
+    ![Cuotas de la cuenta de Batch][account_quotas]
 
 
 
@@ -90,7 +91,7 @@ Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o
    
     a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
    
-    b. En **Detalles**, especifique cada cuota que desee cambiar, el nombre de cuenta de Lote y el nuevo límite.
+    b. En **Detalles**, especifique cada cuota que desee cambiar, el nombre de cuenta de Batch y el nuevo límite.
    
     Haga clic en **Siguiente**.
 5. En **Información de contacto**:
@@ -105,8 +106,8 @@ Una vez que haya enviado la solicitud de soporte técnico, el servicio de soport
 
 
 ## <a name="related-topics"></a>Temas relacionados
-* [Creación de una cuenta de Lote de Azure con el Portal de Azure](batch-account-create-portal.md)
-* [Información general de las características de Lote de Azure](batch-api-basics.md)
+* [Creación de una cuenta de Azure Batch con Azure Portal](batch-account-create-portal.md)
+* [Información general de las características de Azure Batch](batch-api-basics.md)
 * [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com

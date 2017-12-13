@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -773,7 +773,7 @@ PropertyGroup|X509NameMap, el valor predeterminado es None|Dinámica| |
 |MaxSecondaryReplicationQueueSize|uint, el valor predeterminado es 2048|estática|Es el número máximo de operaciones que podrían existir en la cola de replicación secundaria. Tenga en cuenta que debe ser una potencia de 2.|
 |MaxSecondaryReplicationQueueMemorySize|uint, el valor predeterminado es 0|estática|Es el valor máximo de la cola de replicación secundaria en bytes.|
 |QueueHealthMonitoringInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(30)|estática|Especifique el intervalo de tiempo en segundos. Este valor determina el período de tiempo que usa el replicador para supervisar los eventos de estado de advertencia o error de las colas de la operación de replicación. Un valor "0" deshabilita la supervisión del estado. |
-|QueueHealthWarningAtUsagePercent|uint, el valor predeterminado es 80|estática|Este valor determina el uso de la cola de replicación (en porcentaje) a partir del cual se advierte acerca de un alto uso de la cola. Esto se hace después de un intervalo de gracia de QueueHealthMonitoringInterval. Si el uso de la cola cae por debajo de este porcentaje en el intervalo de gracia.|
+|QueueHealthWarningAtUsagePercent|uint, el valor predeterminado es 80|estática|Este valor determina el uso de la cola de replicación (en porcentaje) a partir del cual se advierte acerca de un alto uso de la cola. Esto se hace después de un intervalo de gracia de QueueHealthMonitoringInterval. Si el uso de la cola cae por debajo de este porcentaje en el intervalo de gracia, no se notificará la advertencia.|
 |RetryInterval|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(5)|estática|Especifique el intervalo de tiempo en segundos. Cuando una operación se pierde o rechaza, este temporizador determina con qué frecuencia el replicador volverá a intentar enviar la operación.|
 
 ### <a name="section-name-transport"></a>Nombre de sección: Transport

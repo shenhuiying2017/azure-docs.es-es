@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 -   Directivas de almacenamiento en caché de respuesta  
   
     -   [Get from cache](api-management-caching-policies.md#GetFromCache): realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando está disponible.  
-  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) (Almacenar en la caché): almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.  
   
 -   Directivas de almacenamiento en caché de valores  
-  
-    -   [Obtener valor de caché](#GetFromCacheByKey) : recupere un elemento almacenado en caché por clave.  
-  
-    -   [Almacenar valor en caché](#StoreToCacheByKey) : almacene un elemento en la memoria caché por clave.  
-  
+
+    -   [Obtener valor de caché](#GetFromCacheByKey) : recupere un elemento almacenado en caché por clave. 
+    -   [Almacenar valor en caché](#StoreToCacheByKey) : almacene un elemento en la memoria caché por clave. 
     -   [Quitar valor de caché](#RemoveCacheByKey); quita un elemento de la memoria caché por clave.  
   
 ##  <a name="GetFromCache"></a> Get from cache  
@@ -54,7 +51,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -119,14 +116,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |allow-private-response-caching|Cuando se establece en `true`, permite el almacenamiento en caché de las solicitudes que contienen un encabezado de autorización.|No|false|  
 |downstream-caching-type|Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.|No|Ninguna|  
 |must-revalidate|Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.|No|true|  
-|vary-by-developer|Se establece en `true` para almacenar en caché las respuestas por clave de desarrollador.|No|false|  
-|vary-by-developer-groups|Se establece en `true` para almacenar en caché las respuestas por rol de usuario.|No|false|  
+|vary-by-developer|Se establece en `true` para almacenar en caché las respuestas por clave de desarrollador.|Sí||  
+|vary-by-developer-groups|Se establece en `true` para almacenar en caché las respuestas por rol de usuario.|Sí||  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound  
-  
 -   **Ámbitos de directiva:** API, operation, product  
   
 ##  <a name="StoreToCache"></a> Store to cache (Almacenar en la caché)  
@@ -198,8 +194,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
   
--   **Secciones de la directiva:** outbound  
-  
+-   **Secciones de la directiva:** outbound    
 -   **Ámbitos de directiva:** API, operation, product  
   
 ##  <a name="GetFromCacheByKey"></a> Get value from cache (Obtener valor de la caché)  
@@ -244,7 +239,6 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error  
-  
 -   **Ámbitos de la directiva:** global, API, operación, producto  
   
 ##  <a name="StoreToCacheByKey"></a> Store value in cache (Almacenar valor en la caché)  
@@ -287,11 +281,10 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error  
-  
 -   **Ámbitos de la directiva:** global, API, operación, producto  
   
 ###  <a name="RemoveCacheByKey"></a> Remove value from cache (Quitar valor de la caché)  
- La directiva `cache-remove-value` elimina un elemento almacenado en caché identificado por su clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.  
+La directiva `cache-remove-value` elimina un elemento almacenado en caché identificado por su clave. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.  
   
 #### <a name="policy-statement"></a>Declaración de directiva  
   
@@ -325,9 +318,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound, outbound, backend, on-error  
-  
 -   **Ámbitos de la directiva:** global, API, operación, producto  
-  
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo trabajar con directivas, consulte a [Directivas de API Management](api-management-howto-policies.md).  
+
+Para obtener más información sobre cómo trabajar con directivas, consulte:
+
++ [Directivas de Azure API Management](api-management-howto-policies.md)
++ [API de transformación](transform-api.md)
++ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
++ [Ejemplos de directivas](policy-samples.md)   

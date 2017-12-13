@@ -6,53 +6,38 @@ documentationcenter:
 author: vladvino
 manager: erikre
 editor: 
-ms.assetid: 8a13348b-7856-428f-8e35-9e4273d94323
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AdvancedPolicies"></a> Directivas avanzadas  
   
 -   [Flujo de control](api-management-advanced-policies.md#choose): aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones](api-management-policy-expressions.md) booleanas.  
-  
 -   [Reenviar solicitud](#ForwardRequest) : reenvía la solicitud al servicio back-end.
-
 -   [Limitar la simultaneidad](#LimitConcurrency): evita que las directivas delimitadas las ejecute simultáneamente un número de solicitudes mayor que el especificado.
-  
 -   [Registro en centro de eventos](#log-to-eventhub): envía mensajes en el formato especificado a un centro de eventos definido por una entidad de registrador. 
-
 -   [Mock response](#mock-response) (Simular respuesta): anula la ejecución de la canalización y devuelve la respuesta ficticia directamente al llamador.
-  
 -   [Reintentar](#Retry): reintenta ejecutar las instrucciones de directiva adjuntas, si y hasta que se cumple la condición. La ejecución se repite en los intervalos de tiempo especificados y hasta el número de reintentos indicado.  
-  
 -   [Devolver respuesta](#ReturnResponse) : anula la ejecución de la canalización y devuelve la respuesta especificada directamente al llamador. 
-  
 -   [Enviar solicitud unidireccional](#SendOneWayRequest) : envía una solicitud a la dirección URL especificada sin esperar una respuesta.  
-  
 -   [Enviar solicitud](#SendRequest) : envía una solicitud a la dirección URL especificada.  
-
 -   [Establecer el proxy HTTP](#SetHttpProxy): permite enrutar las solicitudes reenviadas a través de un proxy HTTP.  
-
 -   [Establecer método de solicitud](#SetRequestMethod) : le permite cambiar el método HTTP de una solicitud.  
-  
 -   [Establecimiento de código de estado](#SetStatus): cambia el código de estado HTTP al valor especificado.  
-  
 -   [Establecimiento de variable](api-management-advanced-policies.md#set-variable): conserva un valor en una variable [context](api-management-policy-expressions.md#ContextVariables) con nombre para su posterior acceso.  
-
 -   [Seguimiento](#Trace): agrega una cadena a la salida de [API Inspector](https://azure.microsoft.com/en-us/documentation/articles/api-management-howto-api-inspector/).  
-  
 -   [Espera](#Wait): espera a que se completen las directivas adjuntas de [envío de solicitud](api-management-advanced-policies.md#SendRequest), [obtención del valor de caché](api-management-caching-policies.md#GetFromCacheByKey) o [flujo de control](api-management-advanced-policies.md#choose) antes de continuar.  
   
 ##  <a name="choose"></a> Flujo de control  
@@ -264,7 +249,6 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** back-end  
-  
 -   **Ámbitos de la directiva:** todos los ámbitos  
   
 ##  <a name="LimitConcurrency"></a> Limitar la simultaneidad  
@@ -807,7 +791,6 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** saliente, back-end y en caso de error  
-  
 -   **Ámbitos de la directiva:** todos los ámbitos  
 
 ##  <a name="set-variable"></a> Establecimiento de variable  
@@ -843,72 +826,41 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
  Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente, back-end y en caso de error  
-  
 -   **Ámbitos de la directiva:** todos los ámbitos  
   
 ###  <a name="set-variableAllowedTypes"></a> Tipos permitidos  
  Las expresiones usadas en la directiva `set-variable` deben devolver uno de los siguientes tipos básicos.  
   
 -   System.Boolean  
-  
 -   System.SByte  
-  
 -   System.Byte  
-  
 -   System.UInt16  
-  
 -   System.UInt32  
-  
 -   System.UInt64  
-  
 -   System.Int16  
-  
 -   System.Int32  
-  
 -   System.Int64  
-  
 -   System.Decimal  
-  
 -   System.Single  
-  
 -   System.Double  
-  
 -   System.Guid  
-  
 -   System.String  
-  
 -   System.Char  
-  
 -   System.DateTime  
-  
 -   System.TimeSpan  
-  
 -   System.Byte?  
-  
 -   System.UInt16?  
-  
 -   System.UInt32?  
-  
 -   System.UInt64?  
-  
 -   System.Int16?  
-  
 -   System.Int32?  
-  
 -   System.Int64?  
-  
 -   System.Decimal?  
-  
 -   System.Single?  
-  
 -   System.Double?  
-  
 -   System.Guid?  
-  
 -   System.String?  
-  
 -   System.Char?  
-  
 -   System.DateTime?  
 
 ##  <a name="Trace"></a> Seguimiento  
@@ -1004,13 +956,16 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 |for|Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> -   `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />- any: espera a que se haya completado cualquier directiva secundaria inmediata. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata.|No|todas|  
   
 ### <a name="usage"></a>Uso  
- Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
+ 
+Esta directiva puede usarse en las siguientes [secciones](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** entrante, saliente y back-end  
-  
 -   **Ámbitos de la directiva:** todos los ámbitos  
   
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para obtener más información sobre cómo trabajar con directivas, consulte:
--   [Directivas de Azure API Management](api-management-howto-policies.md) 
--   [Policy expressions (Expresiones de directiva)](api-management-policy-expressions.md)
++ [Directivas de Azure API Management](api-management-howto-policies.md) 
++ [Expresiones de directiva](api-management-policy-expressions.md)
++ En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración
++ [Ejemplos de directivas](policy-samples.md)   

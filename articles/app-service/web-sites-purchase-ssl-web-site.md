@@ -1,11 +1,10 @@
 ---
-title: "Incorporación de un certificado SSL a la aplicación Azure App Service | Microsoft Docs"
-description: "Obtenga información sobre cómo agregar un certificado SSL a la aplicación App Service."
+title: "Compra y configuración de un certificado SSL para Azure App Service | Microsoft Docs"
+description: "Aprenda a comprar un certificado de App Service y a enlazarlo a esta aplicación"
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para el Servicio de aplicaciones de Azure
+# <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
 Este tutorial muestra cómo proteger su aplicación web comprando un certificado SSL para su instancia de  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** almacenándolo de forma segura en [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)y asociándolo a un dominio personalizado.
 
@@ -74,12 +73,16 @@ Una vez que haya seleccionado el repositorio de Key Vault donde almacenar este c
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Paso 4: Comprobación de la propiedad del dominio
 
-> [!NOTE]
-> Los tres tipos de comprobación de dominios compatibles con los certificados de App Service son Comprobación de dominio, Comprobación de correo y Comprobación manual. Estos tipos de comprobación se explican con más detalle en la sección [Avanzado](#advanced).
-
 En la página **Configuración del certificado** que usó en el paso 3, haga clic en **Paso 2: Comprobación**.
 
-**Comprobación de dominio** es el proceso más cómodo, pero **SOLO SI****[adquirió el dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md)**.
+Elija el método de comprobación de dominio preferido. 
+
+Hay cuatro tipos de comprobación de dominio que admiten los certificados de App Service: App Service, Comprobación de dominio, Comprobación de correo electrónico y Comprobación manual. Estos tipos de comprobación se explican con más detalle en la sección [Avanzado](#advanced).
+
+> [!NOTE]
+> **Comprobación de App Service** es la opción más conveniente cuando el dominio que desea comprobar ya está asignado a una aplicación App Service de la misma suscripción. Se aprovecha de que la aplicación App Service ya ha comprobado la propiedad del dominio.
+>
+
 Haga clic en el botón **Comprobar** para completar este paso.
 
 ![insert image of domain verification](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -142,6 +145,10 @@ Para completar el paso de comprobación de correo electrónico, abra el mensaje 
 
 Si necesita reenviar el correo electrónico de comprobación, haga clic en el botón **Reenviar correo electrónico**.
 
+#### <a name="domain-verification"></a>Comprobación de dominio
+
+Elija esta opción solo para [un dominio de App Service que haya adquirido a través de Azure](custom-dns-web-site-buydomains-web-app.md). Azure agrega automáticamente el registro TXT de comprobación en su lugar y completa el proceso.
+
 #### <a name="manual-verification"></a>Comprobación manual
 
 > [!IMPORTANT]
@@ -197,6 +204,7 @@ Si el certificado SSL está configurado para la renovación automática, pero no
 - GoDaddy, que genera certificados de App Service, requiere la comprobación del dominio una vez cada tres años. El administrador del dominio recibe un correo electrónico una vez cada tres años para comprobar el dominio. Un error al comprobar el correo electrónico o comprobar el dominio impide que el certificado de App Service se renueve automáticamente. 
 - Todos los certificados de App Service emitidos antes del 31 de marzo de 2017 requieren la comprobación de nuevo del dominio en el momento de la renovación siguiente (incluso si la renovación automática está habilitada para el certificado). Esto es resultado del cambio en la directiva de GoDaddy. Compruebe su correo electrónico y complete esta comprobación de dominio de un solo uso para continuar con la renovación automática del certificado de App Service. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="more-resources"></a>Más recursos
 
-* [Adición de una red de entrega de contenido](app-service-web-tutorial-content-delivery-network.md)
+* [Uso de un certificado SSL en el código de aplicación de Azure App Service](app-service-web-ssl-cert-load.md)
+* [Preguntas frecuentes: Certificados de App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

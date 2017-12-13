@@ -12,11 +12,11 @@ Las máquinas virtuales de la serie F son una opción excelente para cargas de t
 
 La serie Fs proporciona todas las ventajas de la serie F, además de Premium Storage.
 
-## <a name="fsv2-series"></a>Serie Fsv2
+## <a name="fsv2-series"></a>Serie Fsv2*
 
 ACU: 195 - 210
 
-| Tamaño             | vCPU | Memoria: GiB | SSD local: GiB | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+| Tamaño             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderado                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderado                                       |
@@ -25,7 +25,7 @@ ACU: 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremadamente alto                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremadamente alto                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremadamente alto                                 |
-
+*Las máquinas virtuales de la serie Fsv2 cuentan con la tecnología Hyper-Threading de Intel®
 
 ## <a name="fs-series"></a>Serie Fs*
 
