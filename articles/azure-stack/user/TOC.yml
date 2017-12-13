@@ -119,6 +119,10 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: CLI de Azure Stack
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Temas relacionados
+  items:
+    - name: Documentación del operador de Azure Stack
+      href: /azure/azure-stack/
 - name: Recursos
   items:
     - name: Azure Roadmap

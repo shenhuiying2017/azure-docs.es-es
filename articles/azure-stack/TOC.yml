@@ -233,6 +233,10 @@
   items:
     - name: PowerShell de Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
+- name: Temas relacionados
+  items:
+    - name: Documentación de usuario de Azure Stack
+      href: /azure/azure-stack/user/
 - name: Recursos
   items:
     - name: Azure Roadmap

@@ -11,7 +11,6 @@
 ## Creación de una zona y un registro DNS
 ### [Portal de Azure](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
-### [CLI de Azure 1.0](dns-getstarted-cli-nodejs.md)
 ### [CLI de Azure](dns-getstarted-cli.md)
 
 ## Creación de una zona DNS privada y un registro
@@ -24,13 +23,11 @@
 ## Administración de zonas DNS
 ### [Portal de Azure](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
-### [CLI de Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 ### [CLI de Azure](dns-operations-dnszones-cli.md)
 
 ## Administración de registros DNS
 ### [Portal de Azure](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
-### [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
 ### [CLI de Azure](dns-operations-recordsets-cli.md)
 
 ## Administración de DNS inverso
@@ -59,7 +56,7 @@
 ## [REST](/rest/api/dns/)
 
 # Temas relacionados
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [Máquina virtual](/azure/virtual-machines/)
 ## [Equilibrador de carga](/azure/load-balancer/)
