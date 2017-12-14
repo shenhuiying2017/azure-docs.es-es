@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
 ms.date: 11/15/2017
-ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f066f0dd0dab0096279c18ded3c024a7cc0cbda0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools para AI
-Visual Studio Tools para AI es una extensión de desarrollo para compilar, probar e implementar soluciones de Deep Learning y AI. Ofrece una integración sin problemas con Azure Machine Learning, principalmente, una vista del historial de ejecución que detalla el rendimiento de aprendizajes anteriores y métricas personalizadas. Ofrece una vista de explorador de ejemplos que permite examinar y arrancar un proyecto nuevo con [Microsoft Cognitive Toolkit (anteriormente, CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) y otro marco de aprendizaje profundo. Por último, proporciona un explorador para destinos de proceso que permite enviar trabajos para entrenar modelos en entornos remotos, como máquinas virtuales de Azure o servidores Linux con GPU. También facilita el acceso a [Azure Batch AI (versión preliminar)](https://docs.microsoft.com/en-us/azure/batch-ai/).
+Visual Studio Tools para AI es una extensión de desarrollo para compilar, probar e implementar soluciones de Deep Learning y AI. Ofrece una integración sin problemas con Azure Machine Learning, principalmente, una vista del historial de ejecución que detalla el rendimiento de aprendizajes anteriores y métricas personalizadas. Ofrece una vista de explorador de ejemplos que permite examinar y arrancar un proyecto nuevo con [Microsoft Cognitive Toolkit (anteriormente, CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) y otro marco de aprendizaje profundo. Por último, proporciona un explorador para destinos de proceso que permite enviar trabajos para entrenar modelos en entornos remotos, como máquinas virtuales de Azure o servidores Linux con GPU. También facilita el acceso a [Azure Batch AI (versión preliminar)](https://docs.microsoft.com/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Introducción 
 Para comenzar, descargue e instale [Visual Studio](https://www.visualstudio.com/downloads/). Una vez abierto Visual Studio, siga los pasos que se describen a continuación:
@@ -28,7 +28,7 @@ Para comenzar, descargue e instale [Visual Studio](https://www.visualstudio.com/
 3. Haga clic en el botón **Descargar** . 
 4. Tras la instalación, reinicie Visual Studio. 
 
-Después de volver a cargar Visual Studio, la extensión está activa. [Más información sobre cómo buscar extensiones](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+Después de volver a cargar Visual Studio, la extensión está activa. [Más información sobre cómo buscar extensiones](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
 > Visual Studio Tools para AI necesita Visual Studio 2015 o 2017, edición profesional o empresa. No admite la versión de Apple OSX. 

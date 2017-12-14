@@ -150,7 +150,7 @@
         - name: Caras
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: Language Understanding Intelligent Service (LUIS)
+        - name: Comprensión del lenguaje (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Análisis de texto
@@ -392,7 +392,7 @@
     - name: Time Series Insights
       tocHref: /azure/time-series-insights/
       topicHref: /azure/time-series-insights/
-    - name: Administrador de tráfico
+    - name: Traffic Manager
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
     - name: Conjuntos de escalado de máquina virtual

@@ -1,0 +1,31 @@
+- name: Documentación de Microsoft Genomics
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Microsoft Genomics?
+      href: overview-what-is-genomics.md
+- name: Inicios rápidos
+  expanded: true
+  items:
+    - name: Ejecutar un ejemplo de flujo de trabajo de Genomics
+      href: quickstart-run-genomics-workflow-portal.md
+    - name: Uso de varios formatos de archivo de entrada
+      items:
+        - name: Par de archivos FASTQ
+          href: quickstart-input-pair-fastq.md
+        - name: Archivo BAM
+          href: quickstart-input-bam.md
+        - name: Varios archivos FASTQ o BAM
+          href: quickstart-input-multiple.md
+- name: Recursos
+  items:
+    - name: Preguntas frecuentes
+      href: frequently-asked-questions-genomics.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/genomics/'
+    - name: Disponibilidad en regiones
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opciones de soporte técnico
+      href: 'https://azure.microsoft.com/support/options/'

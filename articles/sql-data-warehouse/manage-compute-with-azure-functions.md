@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 11/06/2017
 ms.author: elbutter
-ms.openlocfilehash: e2138f26a78338406b466bdd2aa6e756e602726d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 8947da9d34261be46ad9aea961b6020141484172
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-functions-to-automate-sql-dw-compute-levels"></a>Uso de Azure Functions para automatizar los niveles de proceso de SQL DW
 
 Este tutorial mostrará cómo puede utilizar Azure Functions para administrar los niveles de proceso de Azure SQL Data Warehouse. Se recomienda usar estas arquitecturas con SQL Data Warehouse [optimizado para Elasticity][Performance Tiers].
 
-Para poder usar Azure Function App con SQL Data Warehouse, debe crear un [cuenta de la entidad de servicio](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) con acceso de colaborador en la misma suscripción que la instancia de almacenamiento de datos. 
+Para poder usar Azure Function App con SQL Data Warehouse, debe crear un [cuenta de la entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con acceso de colaborador en la misma suscripción que la instancia de almacenamiento de datos. 
 
 ## <a name="deploy-timer-based-scaler-with-an-azure-resource-manager-template"></a>Implementación de la escala basada en el temporizador con una plantilla de Azure Resource Manager
 

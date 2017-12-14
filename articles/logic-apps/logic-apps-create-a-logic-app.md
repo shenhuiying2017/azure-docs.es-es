@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: LADocs; estfan
 ms.openlocfilehash: 5906605192f9b03f612e6ca3a445434a23713d7f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="automate-your-first-workflow-to-process-data-with-a-logic-app"></a>Automatización del primer flujo de trabajo para procesar datos con una aplicación lógica
 
@@ -41,7 +41,7 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 > * Agregar una acción para enviar un correo electrónico con información sobre el elemento de la fuente RSS.
 > * Ejecutar el flujo de trabajo de la aplicación lógica.
 
-Si no tiene una suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -62,25 +62,25 @@ En este tutorial rápido no es necesario escribir código, pero Logic Apps es co
 
    ![Portal de Azure, Nuevo, Enterprise Integration, Logic App](./media/logic-apps-create-a-logic-app/azure-portal-create-logic-app.png)
 
-3. Cree la aplicación lógica con la configuración de la tabla a continuación de esta imagen:
+3. Cree la aplicación lógica con la configuración que se incluye en la tabla situada bajo la imagen:
 
    ![Proporcione los detalles de la aplicación lógica](./media/logic-apps-create-a-logic-app/logic-app-settings.png)
 
    | Configuración | Valor sugerido | Descripción | 
    | ------- | --------------- | ----------- | 
    | **Name** | *nombre-de-la-aplicación-lógica* | Proporcione un nombre único de aplicación lógica. | 
-   | **Suscripción** | *nombre-de-la-suscripción-de-Azure* | Seleccione la suscripción de Azure que quiera usar. | 
-   | **Grupos de recursos** | *nombre-del-grupo-de-recursos-de-Azure* | Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para esta aplicación lógica y para organizar todos los recursos asociados a esta aplicación. | 
-   | **Ubicación** | *región-de-Azure-del-centro-de-datos* | Seleccione la región del centro de datos para implementar la aplicación lógica, por ejemplo, Oeste de EE. UU. | 
+   | **Suscripción** | *your-Azure-subscription-name* | Seleccione la suscripción de Azure que quiera usar. | 
+   | **Grupos de recursos** | *your-Azure-resource-group-name* | Cree un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para esta aplicación lógica y para organizar todos los recursos asociados a esta aplicación. | 
+   | **Ubicación** | *your-Azure-datacenter-region* | Seleccione la región del centro de datos para implementar la aplicación lógica, por ejemplo, Oeste de EE.UU. | 
    | **Log Analytics** | Off | Active el registro de diagnóstico para la aplicación lógica, pero para este tutorial rápido, mantenga el valor de configuración **desactivado**. | 
    |||| 
 
 4. Cuando esté listo, elija **Anclar al panel**. De este modo, la aplicación lógica aparecerá automáticamente en el panel de Azure y se abrirá después de la implementación. Seleccione **Create**.
 
    > [!NOTE]
-   > Si no desea anclar la aplicación lógica, búsquela y ábrala manualmente después de la implementación para continuar.
+   > Si no quiere anclar la aplicación lógica, búsquela y ábrala manualmente después de la implementación para continuar.
 
-   Una vez que Azure ha implementado la aplicación lógica, el Diseñador de aplicaciones lógicas se abre y muestra una página con un vídeo de introducción. 
+   Una vez que Azure ha implementado la aplicación lógica, el Diseñador de Logic Apps se abre y muestra una página con un vídeo de introducción. 
    Bajo el vídeo encontrará plantillas de los patrones de aplicación lógica más comunes. 
    En este tutorial rápido se compila la aplicación lógica desde el principio. 
 
@@ -242,7 +242,7 @@ Puede eliminar solo la aplicación lógica y conservar todos los demás recursos
    > [!TIP]
    > Si no ve el menú de la aplicación lógica, intente volver al panel de Azure y vuelva a abrir la aplicación lógica.
 
-2. Confirme que desea eliminar la aplicación lógica y elija **Eliminar**.
+2. Confirme que quiere eliminar la aplicación lógica y elija **Eliminar**.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

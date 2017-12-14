@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configuración de los puntos de conexión de servicio de Virtual Network
 
@@ -56,7 +56,7 @@ Durante la versión preliminar, se admite la característica de puntos de conexi
    >[!NOTE]
    Solo se pueden ver rutas eficaces si tiene uno o más interfaces de red (NIC) configuradas y asociadas a una máquina virtual en ejecución de la subred.
 
-## <a name="azure-portal"></a>Portal de Azure
+## <a name="azure-portal"></a>Azure Portal
 
 ### <a name="setting-up-service-endpoint-on-a-subnet-during-vnet-create"></a>Establecimiento del punto de conexión de servicio en una subred durante la creación de la red virtual
 
@@ -385,7 +385,7 @@ Los puntos de conexión de servicio pueden configurarse en redes virtuales de fo
 
 Para proteger los recursos de servicio de Azure a una red virtual, el usuario debe tener permiso "Microsoft.Network/JoinServicetoaSubnet" para las subredes que se van a agregar. De forma predeterminada, este permiso se incluye en los roles de administrador de servicios integrado y puede modificarse mediante la creación de roles personalizados.
 
-Obtenga más información sobre los [roles integrados](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) y la asignación de permisos específicos a [roles personalizados](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+Obtenga más información sobre los [roles integrados](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) y la asignación de permisos específicos a [roles personalizados](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
 Las redes virtuales y los recursos de servicio de Azure pueden encontrarse en la misma o en diferentes suscripciones. Si están en distintas suscripciones, los recursos deben estar en el mismo inquilino de Active Directory (AD), en el momento de esta versión preliminar.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Obtención de datos mediante Reporting API de Azure AD con certificados
 Este artículo trata de cómo usar Reporting API de Azure AD con credenciales de certificado para obtener datos de directorios sin intervención del usuario. 
@@ -89,7 +89,7 @@ Ya puede crear el script. A continuación se muestra un ejemplo de cómo utiliza
 Ya puede exportar a CSV y guardar en un sistema SIEM. También puede encapsular el script en una tarea programada para obtener datos de Azure AD de su inquilino periódicamente sin tener que almacenar las claves de aplicación en el código fuente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Aspectos básicos de la administración de identidades de Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[Aspectos básicos de la administración de identidades de Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

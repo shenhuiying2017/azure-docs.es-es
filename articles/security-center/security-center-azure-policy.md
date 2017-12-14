@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integración de las directivas de seguridad de Security Center con Azure Policy
 Este artículo le ayuda a configurar las directivas de seguridad de Azure Security Center, que se basan en Azure Policy. 
@@ -30,7 +30,7 @@ Security Center crea automáticamente una directiva de seguridad predeterminada 
 * Supervisar el cumplimiento de las directivas.
 
 > [!NOTE]
-> Azure Policy se encuentra en versión preliminar limitada. Para unirse, vaya a [Sign up for Azure Policy](https://aka.ms/getpolicy) (Suscripción a Azure Policy). Para más información sobre Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> Azure Policy se encuentra en versión preliminar limitada. Para unirse, vaya a [Sign up for Azure Policy](https://aka.ms/getpolicy) (Suscripción a Azure Policy). Para más información sobre Azure Policy, consulte [Creación y administración de directivas para aplicar el cumplimiento](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Edición de directivas de seguridad
 Puede editar la directiva de seguridad predeterminada de cada una de las suscripciones de Azure en Security Center. Para modificar una directiva de seguridad, debe ser propietario, colaborador o administrador de seguridad de la suscripción o del grupo de administración que la contiene. Para ver las directivas de seguridad en Security Center, haga lo siguiente:

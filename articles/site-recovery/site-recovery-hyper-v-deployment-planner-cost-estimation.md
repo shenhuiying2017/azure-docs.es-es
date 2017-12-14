@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 47cdbf31e6b01055405cefedda11d5eeef82f32e
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b36e8064da2661e6424d68f11b1e08d5af96131f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos de Azure Site Recovery Deployment Planner  
 
@@ -162,4 +162,4 @@ Azure Site Recovery Deployment Planner puede generar el informe de costos en cua
 |TRY|Lira turca (TL)||USD| Dólar estadounidense (USD)||ZAR|Rand sudafricano (R)|
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre cómo proteger las [máquinas virtuales de Hyper-V en Azure con Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
+Obtenga más información sobre cómo proteger las [máquinas virtuales de Hyper-V en Azure con Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-hyper-v-to-azure).

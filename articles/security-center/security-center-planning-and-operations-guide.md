@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guía de planeamiento y operaciones de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), arquitectos de TI, analistas de seguridad de la información y administradores de la nube cuyas organizaciones estén planeando utilizar Azure Security Center.
@@ -125,7 +125,7 @@ Una directiva de seguridad define la configuración deseada de las cargas de tra
 
 Las directivas de Security Center contienen los componentes siguientes:
 - [Recopilación de datos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): configuración de colección de datos y aprovisionamiento de agente.
-- [Directiva de seguridad](https://docs.microsoft.com/azure/security-center/security-center-policies): una [directiva de Azure](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) que determina qué controles supervisa y recomienda Security Center. También puede usar Azure Policy para crear nuevas definiciones, definir directivas adicionales y asignar directivas en los grupos de administración.
+- [Directiva de seguridad](https://docs.microsoft.com/azure/security-center/security-center-policies): una [directiva de Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina qué controles supervisa y recomienda Security Center. También puede usar Azure Policy para crear nuevas definiciones, definir directivas adicionales y asignar directivas en los grupos de administración.
 - [Notificaciones por correo electrónico](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): configuración de contactos de seguridad y notificaciones.
 - [Nivel de precios](https://docs.microsoft.com/azure/security-center/security-center-pricing): selección de precios de nivel gratuito o estándar, que determina qué características de Security Center están disponibles para los recursos en el ámbito (se puede especificar para suscripciones, grupos de recursos y áreas de trabajo).
 

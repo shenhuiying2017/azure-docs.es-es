@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: 'Uso de blobs: Python'
       href: storage-quickstart-blobs-python.md
+    - name: 'Uso de blobs: Ruby'
+      href: storage-quickstart-blobs-ruby.md
     - name: 'Uso de blobs: Node.js'
       href: storage-quickstart-blobs-nodejs.md
     - name: 'Uso de blobs: Explorador de Storage'
@@ -46,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Búsqueda de datos no estructurados en almacenamiento en la nube
       href: storage-unstructured-search.md
+    - name: Optimización del rendimiento y la escalabilidad de la aplicación de almacenamiento
+      items:
+        - name: Creación de una máquina virtual y de una cuenta de almacenamiento
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Carga de datos grandes en una cuenta de Azure Storage
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Carga de datos grandes en una cuenta de Azure Storage
+          href: storage-blob-scalable-app-download-files.md
+        - name: Comprobación de las métricas de rendimiento y latencia
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Muestras
   items:
     - name: .NET

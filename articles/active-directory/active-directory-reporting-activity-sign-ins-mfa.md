@@ -4,7 +4,7 @@ description: "Información de referencia para los informes de la autenticación 
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3b817c59658f4a5d102a3d65a17fade254e0257c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8e4fc5c9eb031beef42b52c771ef88ea80dba068
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Referencia para los informes de la autenticación multifactor informes en Azure Portal
 
@@ -56,7 +56,7 @@ Los informes de actividades de inicio de sesión referentes a la MFA le proporci
 
 **Método de autenticación de MFA:** el método de autenticación que el usuario ha utilizado para completar la MFA. Los valores posibles son: 
 
-- Mensaje de texto 
+- mensaje de texto 
 
 - Notificación en aplicación móvil 
 
@@ -164,11 +164,11 @@ Azure Multi-Factor Authentication denegado;
 
 - el usuario está bloqueado 
 
-- el usuario no ha escrito el código de comprobación 
+- el usuario no ha escrito el código de verificación 
 
 - el usuario no se encuentra 
  
-- el código de comprobación ya se ha usado una vez 
+- el código de verificación ya se ha usado una vez 
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integración de System Center Configuration Manager con Update Management de OMS
 
@@ -41,7 +41,7 @@ La forma de administrar los clientes hospedados en IaaS de Azure con el entorno 
 
 Siga estos pasos si va a continuar administrando las implementaciones de actualizaciones desde Configuration Manager.  OMS se conecta a Configuration Manager para aplicar actualizaciones a los equipos cliente conectados al área de trabajo de Log Analytics. El contenido de la actualización está disponible en la caché del equipo cliente como si la implementación se administrara mediante Configuration Manager.  
 
-1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Configuration Manager mediante el proceso descrito en el [proceso de implementación de actualizaciones de software](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  La única opción que se debe configurar de forma distinta de una implementación estándar es la opción **No instalar actualizaciones de software** para controlar el comportamiento de descarga del paquete de implementación. La solución Update Management de OMS administra este comportamiento mediante la creación de una implementación de actualizaciones programada en el paso siguiente.  
+1. Cree una implementación de actualizaciones de software desde el sitio de nivel superior de la jerarquía de Configuration Manager mediante el proceso descrito en el [proceso de implementación de actualizaciones de software](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  La única opción que se debe configurar de forma distinta de una implementación estándar es la opción **No instalar actualizaciones de software** para controlar el comportamiento de descarga del paquete de implementación. La solución Update Management de OMS administra este comportamiento mediante la creación de una implementación de actualizaciones programada en el paso siguiente.  
 
 1. En el portal de OMS, abra el panel de Update Management.  Cree una nueva implementación según los pasos descritos en [Creación de una implementación de actualizaciones](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) y seleccione la colección adecuada de Configuration Manager representada como grupo de equipos de OMS en la lista desplegable.  Tenga en cuenta los siguientes puntos importantes:
     1. Si una ventana de mantenimiento se define en la colección de dispositivos de Configuration Manager, los miembros de la colección respetan sus condiciones, en lugar de la opción **Duración** definida en la implementación programada de OMS.
