@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Cambie la suscripción de pago por uso de Azure a otra oferta
 
@@ -105,7 +105,7 @@ El mismo día que se realiza el cambio se genera una factura por todos los cargo
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>¿Puedo migrar de la suscripción de pago por uso a la de [Proveedor de soluciones en la nube](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) o a la de [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Para migrar a CSP, vea [Azure Pas-As-You-Go Subscription Migration to CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp) (Migración de la suscripción de pago por uso de Azure a CSP).
+* Para migrar a CSP, vea [Azure Pas-As-You-Go Subscription Migration to CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp) (Migración de la suscripción de pago por uso de Azure a CSP).
 * Para migrar a EA, indique a su administrador de inscripciones que agregue su cuenta a dicho EA. Siga las instrucciones que aparecen en el correo electrónico de invitación para mover las suscripciones bajo la inscripción EA. Para más información, consulte [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Asociar una cuenta existente) en el portal EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>¿Puedo migrar datos y servicios a nueva una suscripción?

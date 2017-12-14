@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
@@ -52,7 +52,7 @@ Intelligent Insights detecta automáticamente los problemas de rendimiento con S
 | [Degradación del plan de tarifa](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | La acción de degradación del plan de tarifa redujo los recursos disponibles, lo que afecta al rendimiento SQL Database. |
 
 > [!TIP]
-> Para optimizar el rendimiento continuo de SQL Database, habilite el [ajuste automático de Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). Esta característica única de inteligencia incorporada de SQL Database supervisa continuamente la base de datos SQL, optimiza automáticamente los índices y aplica las correcciones del plan de ejecución de consultas.
+> Para optimizar el rendimiento continuo de SQL Database, habilite el [ajuste automático de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Esta característica única de inteligencia incorporada de SQL Database supervisa continuamente la base de datos SQL, optimiza automáticamente los índices y aplica las correcciones del plan de ejecución de consultas.
 >
 
 En la sección siguiente se describen los patrones de rendimiento detectables enumerados anteriormente con más detalle.
@@ -63,7 +63,7 @@ En la sección siguiente se describen los patrones de rendimiento detectables en
 
 Este patrón de rendimiento detectable combina los problemas de rendimiento relacionados con el alcance de los límites de recursos disponibles, los límites de trabajo y los límites de sesión. Una vez que se detecta este problema de rendimiento, un campo de descripción del registro de diagnóstico indica si el problema de rendimiento está relacionado con el recurso, el trabajo o los límites de la sesión.
 
-Los recursos de SQL Database se conocen normalmente como [recursos DTU](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Están formados por una medida mezclada de recursos de CPU y E/S (de datos y registro de transacciones). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
+Los recursos de SQL Database se conocen normalmente como [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Están formados por una medida mezclada de recursos de CPU y E/S (de datos y registro de transacciones). El patrón de alcance de los límites de recursos se reconoce cuando la degradación detectada del rendimiento de consultas se produce debido a que se alcanza alguno de los límites de los recursos medidos.
 
 El recurso de límites de sesión denota el número de inicios de sesión simultáneos disponibles en SQL Database. Este patrón de rendimiento se reconoce cuando las aplicaciones que se conectan a las bases de datos SQL han alcanzado el número de inicios de sesión simultáneos disponibles para la base de datos. Si las aplicaciones intenten usar más sesiones que las que hay disponibles en una base de datos, el rendimiento de consultas resultará afectado.
 
@@ -75,7 +75,7 @@ El registro de diagnóstico genera códigos hash de consultas que han afectado a
 
 Si se han alcanzado los límites de sesión disponibles, puede optimizar las aplicaciones mediante la reducción del número de inicios de sesión realizados en la base de datos. Si no puede reducir el número de inicios de sesión de las aplicaciones en la base de datos, considere la posibilidad de aumentar el plan de tarifa de la base de datos. O bien, puede mover la base de datos y dividirla en varias bases de datos para una distribución más uniforme de la carga de trabajo.
 
-Para más sugerencias sobre cómo resolver los límites de sesión, consulte [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) (Cómo abordar los límites del número máximo de inicios de sesión de Azure SQL Database). Para averiguar los límites de recursos disponibles para su nivel de suscripción, consulte [Límites de recursos de SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Para más sugerencias sobre cómo resolver los límites de sesión, consulte [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/) (Cómo abordar los límites del número máximo de inicios de sesión de Azure SQL Database). Para averiguar los límites de recursos disponibles para su nivel de suscripción, consulte [Límites de recursos de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Aumento de la carga de trabajo
 
@@ -145,7 +145,7 @@ La opción de configuración del servidor MAXDOP de SQL Database se usa para con
 
 El registro de diagnóstico genera códigos hash de consulta relacionados con las consultas en las que ha aumentado la duración de la ejecución porque están más paralelizadas de lo que deberían. El registro también genera tiempos de espera CXP. Este tiempo representa el tiempo en que un subproceso de organizador o coordinador único (subproceso 0) espera a que todos los demás subprocesos finalicen, antes de combinar los resultados y seguir avanzando. Además, el registro de diagnóstico proporciona los tiempos de espera de las consultas con un rendimiento deficiente durante la ejecución general. Puede usar esta información como base para la solución de problemas.
 
-En primer lugar, optimice o simplifique las consultas más complejas. Le recomendamos que divida los trabajos por lotes largos en partes más pequeñas. Además, asegúrese de que se han creado índices para admitir las consultas. También puede aplicar manualmente el grado máximo de paralelismo (MAXDOP) para una consulta que se marcó como con un rendimiento deficiente. Para configurar esta operación mediante T-SQL, consulte [Configurar la opción de servidor MAXDOP](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+En primer lugar, optimice o simplifique las consultas más complejas. Le recomendamos que divida los trabajos por lotes largos en partes más pequeñas. Además, asegúrese de que se han creado índices para admitir las consultas. También puede aplicar manualmente el grado máximo de paralelismo (MAXDOP) para una consulta que se marcó como con un rendimiento deficiente. Para configurar esta operación mediante T-SQL, consulte [Configurar la opción de servidor MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Si se establece la opción de configuración del servidor MAXDOP en cero (0) como valor predeterminado, se indica que SQL Database puede usar todos los núcleos de CPU lógicos disponibles para paralelizar los subprocesos para ejecutar una sola consulta. La configuración de MAXDOP en uno (1) indica que solo un núcleo puede usarse para la ejecución de una única consulta. En la práctica, esto significa que el paralelismo se ha desactivado. En función de cada caso, los núcleos disponibles para la base de datos y la información de registro de diagnóstico, puede ajustar la opción MAXDOP al número de núcleos usados para la ejecución de consultas en paralelo que podrán resolver el problema en su caso.
 
@@ -231,7 +231,7 @@ Este patrón de rendimiento detectable indica una condición de rendimiento de l
 
 El registro de diagnóstico genera detalles de contención de tempDB. Puede usar la información como punto de partida para solucionar el problema. Hay dos cosas que puede hacer para solucionar este tipo de contención y mejorar el rendimiento de la carga de trabajo general: la primera es dejar de usar las tablas temporales y la segunda usar tablas optimizadas para memoria. 
 
-Para más información, consulte [Introducción a las tablas con optimización para memoria](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Para más información, consulte [Introducción a las tablas optimizadas para memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Escasez de DTU en el grupo elástico
 
@@ -328,10 +328,10 @@ Navegue a Azure SQL Analytics y acceda a Intelligent Insights a través de Azure
 > [!TIP]
 > Seleccione el diagrama de flujo para descargar una versión en PDF.
 
-Intelligent Insights normalmente necesita una hora para realizar el análisis de la causa principal del problema de rendimiento. Si no puede encontrar el problema en Intelligent Insights y es importante para usted, use el Almacén de consultas para identificar manualmente la causa principal del problema de rendimiento. (Normalmente, estos problemas se han producido hace menos de una hora). Para más información, consulte [Supervisión del rendimiento mediante el almacén de consultas](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights normalmente necesita una hora para realizar el análisis de la causa principal del problema de rendimiento. Si no puede encontrar el problema en Intelligent Insights y es importante para usted, use el Almacén de consultas para identificar manualmente la causa principal del problema de rendimiento. (Normalmente, estos problemas se han producido hace menos de una hora). Para más información, consulte [Supervisión del rendimiento mediante el almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Conozca los conceptos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Use el [registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Supervise [Azure SQL Database mediante Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Supervise [Azure SQL Database mediante Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

@@ -4,7 +4,7 @@ description: "En este artículo se analizan las prácticas recomendadas de susti
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: ed964056-0723-42fe-bb69-e57323b9407f
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 228bb9058537af1e4eb38207c376c2eb86aee68c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac68839795dfd69daba16a0f7a01fc9ff16f616e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Sustitución de claves de firma de Azure Active Directory
 En este tema se describe lo que necesita saber de las claves públicas que se usan en Azure Active Directory (Azure AD) para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Azure AD deben poder manejar mediante programación el proceso de sustitución de claves o establecer un proceso de sustitución manual periódico. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.
@@ -36,7 +36,7 @@ La forma que tiene la aplicación de controlar la sustitución de claves depende
 
 * [Aplicaciones de cliente nativas que acceden a recursos](#nativeclient)
 * [Aplicaciones y API web que acceden a recursos](#webclient)
-* [Aplicaciones y API web que protegen recursos y creadas mediante Servicios de aplicaciones de Azure](#appservices)
+* [Aplicaciones y API web que protegen recursos y creadas mediante Azure App Service](#appservices)
 * [Aplicaciones y API web que protegen recursos mediante middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication](#owin)
 * [Aplicaciones y API web que protegen recursos mediante el middleware .NET Core OpenID Connect o JwtBearerAuthentication](#owincore)
 * [Aplicaciones y API web que protegen recursos mediante el módulo Node.js passport-azure-ad](#passport)
@@ -62,8 +62,8 @@ Las aplicaciones que solo acceden a los recursos (es decir, Microsoft Graph, Key
 
 Las aplicaciones web y las API web que usan el flujo solo de aplicación (credenciales del cliente o el certificado de cliente), entran en esta categoría y, por tanto, no se verán afectadas por la sustitución.
 
-### <a name="appservices"></a>Aplicaciones y API web que protegen recursos y creadas mediante Servicios de aplicaciones de Azure
-La funcionalidad de autenticación o autorización (EasyAuth) de Servicios de aplicaciones de Azure ya cuenta con la lógica necesaria para controlar automáticamente la sustitución de claves.
+### <a name="appservices"></a>Aplicaciones y API web que protegen recursos y creadas mediante Azure App Service
+La funcionalidad de autenticación o autorización (EasyAuth) de Azure App Service ya cuenta con la lógica necesaria para controlar automáticamente la sustitución de claves.
 
 ### <a name="owin"></a>Aplicaciones y API web que protegen recursos mediante middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication
 Si la aplicación está utilizando el middleware .NET OWIN OpenID Connect, WS-Fed o WindowsAzureActiveDirectoryBearerAuthentication, ya tiene la lógica necesaria para controlar automáticamente la sustitución de clave.

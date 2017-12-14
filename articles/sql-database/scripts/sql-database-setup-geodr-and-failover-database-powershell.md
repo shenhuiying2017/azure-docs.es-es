@@ -9,18 +9,18 @@ editor: carlrab
 tags: azure-service-management
 ms.assetid: 
 ms.service: sql-database
-ms.custom: business continuity
+ms.custom: business continuity, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 22688c1b3c1a993612898da2c3e2b6cca3d03b30
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: fc618022ffb69182bde8594e878a5a27747d9c28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Use PowerShell para configurar la replicación geográfica activa para una instancia única de Azure SQL Database
 
@@ -54,8 +54,8 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Obtiene una o más bases de datos. |
 | [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Convierte una base de datos secundaria en principal para iniciar la conmutación por error.|
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Obtiene los vínculos de replicación geográfica entre una Base de datos SQL de Azure y un grupo de recursos o SQL Server. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Finaliza una replicación de datos entre una base de datos SQL y la base de datos secundaria especificada. |
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Obtiene los vínculos de replicación geográfica entre una instancia de Azure SQL Database y un grupo de recursos o SQL Server. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Finaliza una replicación de datos entre SQL Database y la base de datos secundaria especificada. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 

@@ -4,7 +4,7 @@ description: "Información general de Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: be18ee0266a97057499baccc5bb39a35224336d7
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Información general
-Los Servicios de infraestructura de Azure permiten implementar una amplia variedad de soluciones informáticas de una manera ágil. Con las Máquinas virtuales de Azure, puede realizar implementaciones casi instantáneas y pagar solo por minuto. Con el soporte técnico para Windows, Linux, SQL Server, Oracle, IBM, SAP y BizTalk, puede implementar cualquier carga de trabajo y cualquier lenguaje en casi cualquier sistema operativo. Estas ventajas permiten migrar aplicaciones heredadas que se implementan de forma local en Azure, con el fin de ahorrar en los gastos operativos.
+Los Servicios de infraestructura de Azure permiten implementar una amplia variedad de soluciones informáticas de una manera ágil. Con Azure Virtual Machines, puede realizar implementaciones casi instantáneas y pagar solo por minuto. Con el soporte técnico para Windows, Linux, SQL Server, Oracle, IBM, SAP y BizTalk, puede implementar cualquier carga de trabajo y cualquier lenguaje en casi cualquier sistema operativo. Estas ventajas permiten migrar aplicaciones heredadas que se implementan de forma local en Azure, con el fin de ahorrar en los gastos operativos.
 
 Uno de los aspectos clave de la migración de aplicaciones locales a Azure es tratar con las necesidades de identidad de estas aplicaciones. Las aplicaciones que tienen en cuenta el directorio dependen de LDAP para el acceso de lectura o escritura al directorio corporativo, o bien se basan en la autenticación integrada de Windows (autenticación de Kerberos o NTLM) para autenticar a los usuarios finales. Las aplicaciones de línea de negocio (LOB) que se ejecutan en Windows Server se implementan normalmente en máquinas unidas a un dominio, de modo que se pueden administrar de forma segura mediante la directiva de grupo. Para subir y desplazar las aplicaciones locales a la nube, es necesario resolver estas dependencias de la infraestructura de identidad corporativa.
 

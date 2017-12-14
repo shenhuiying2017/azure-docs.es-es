@@ -4,7 +4,7 @@ description: "Aprenda cómo puede usar una cuenta profesional o educativa para a
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 029fb8ddad84b297d99509a0a9ad35d9548e5c00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eab79e4c1b579697f702c41e40f6b27b2d3d0864
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Inicio de sesión en Azure como una organización
 Hasta hace poco, solo era posible registrarse para obtener una suscripción a Microsoft Azure con su cuenta Microsoft (Windows Live ID). Azure ahora es compatible con cualquiera de los dos métodos de cuenta siguientes para registrarse:

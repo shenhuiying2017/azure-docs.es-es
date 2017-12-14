@@ -4,7 +4,7 @@ description: "Procedimiento para compilar una aplicación iOS con la que los usu
 services: active-directory
 documentationcenter: 
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398ddbd004b4a12f4aa79ed64cc85f0e5bc5407a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adición de inicio de sesión a una aplicación iOS mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
 La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y OpenID Connect. Los desarrolladores pueden usar la biblioteca que quieran integrar con nuestros servicios. Para ayudar a los desarrolladores a utilizar nuestra plataforma con otras bibliotecas, hemos escrito algunos tutoriales como este para demostrar cómo configurar bibliotecas de terceros con el objetivo de conectarse a la plataforma Microsoft Identity. La mayoría de las bibliotecas que implementan [la especificación OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) pueden conectarse a la plataforma Microsoft Identity.

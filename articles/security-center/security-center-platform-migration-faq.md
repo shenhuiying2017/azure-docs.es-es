@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 69d0c368eb11953d1a6e954990a3be10df7044f0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Preguntas frecuentes sobre la migración de la plataforma de Security Center
 A principios de junio de 2017, Azure Security Center comenzó a usar Microsoft Monitoring Agent para recopilar y almacenar datos. Para obtener más información, consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md). Estas preguntas frecuentes responden a interrogantes sobre la migración de la plataforma.
@@ -175,7 +175,7 @@ Quizá desee rechazar el aprovisionamiento automático si lo siguiente es aplica
 Una vez terminada la migración, Security Center no será capaz de recopilar datos de seguridad de la máquina virtual y algunas recomendaciones de seguridad y las alertas no estarán disponibles. Si lo rechaza, deberá instalar Microsoft Monitoring Agent manualmente. Consulte los [pasos recomendados al rechazarlo](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>¿Cuáles son los pasos recomendados al rechazar el aprovisionamiento automático?
-Debe instalar Microsoft Monitoring Agent manualmente para que Security Center pueda recopilar los datos de seguridad de las máquinas virtuales y proporcionar recomendaciones y alertas. Consulte [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agents.md) como guía de instalación.
+Debe instalar Microsoft Monitoring Agent manualmente para que Security Center pueda recopilar los datos de seguridad de las máquinas virtuales y proporcionar recomendaciones y alertas. Consulte [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agent.md) como guía de instalación.
 
 Puede conectar al agente a cualquier área de trabajo personalizada existente o a la que creara Security Center. Si el área de trabajo personalizada no tiene las soluciones "Security" o "SecurityCenterFree" habilitadas, será necesario aplicar una solución. Para la aplicación, seleccione el área de trabajo personalizada o la suscripción y aplique un plan de tarifa desde la hoja **Directiva de seguridad: plan de tarifa**.
 

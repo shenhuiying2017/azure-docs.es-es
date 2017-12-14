@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Cómo restablecer una contraseña de máquina virtual Linux o clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco con la extensión VMAccess
 Si no puede conectarse a una máquina virtual Linux porque olvidó la contraseña, la clave de Shell seguro (SSH) es incorrecta o hay un problema con la configuración de SSH, use la extensión VMAccessForLinux con la CLI de Azure para restablecer la contraseña o la clave SSH, corregir la configuración de SSH y comprobar la coherencia de los discos. 
@@ -44,7 +44,7 @@ Con la CLI de Azure, puede realizar las tareas siguientes:
 ## <a name="prerequisites"></a>Requisitos previos
 Deberá hacer lo siguiente:
 
-* También necesitará [instalar la CLI de Azure](../../../cli-install-nodejs.md) y [conectarse a su suscripción](../../../xplat-cli-connect.md) para usar recursos de Azure asociados a su cuenta.
+* También necesitará [instalar la CLI de Azure](../../../cli-install-nodejs.md) y [conectarse a su suscripción](/cli/azure/authenticate-azure-cli) para usar recursos de Azure asociados a su cuenta.
 * Establezca el modo correcto para el modelo de implementación clásica escribiendo lo siguiente en el símbolo del sistema:
     ``` 
         azure config mode asm

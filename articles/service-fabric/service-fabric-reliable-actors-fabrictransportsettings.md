@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a21dfde5544045e4961549fe5728e14647eb886
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configuración de FabricTransport de Reliable Actors
 
 Estos son los valores que puede configurar:
 - C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 Puede modificar la configuración predeterminada de FabricTransport de las maneras siguientes.
 
 ## <a name="assembly-attribute"></a>Atributo de ensamblado
 
-El atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) debe aplicarse en los ensamblados del cliente de actor y del servicio de actor.
+El atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) debe aplicarse en los ensamblados del cliente de actor y del servicio de actor.
 
 En el ejemplo siguiente se muestra cómo cambiar el valor predeterminado de la configuración de FabricTransport OperationTimeout:
 
@@ -49,7 +49,7 @@ En el ejemplo siguiente se muestra cómo cambiar el valor predeterminado de la c
 
 ## <a name="config-package"></a>Paquete de configuración
 
-Puede usar un [paquete de configuración](service-fabric-application-model.md) para modificar la configuración predeterminada.
+Puede usar un [paquete de configuración](service-fabric-application-and-service-manifests.md) para modificar la configuración predeterminada.
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configuración del valor de FabricTransport para el servicio de actor
 

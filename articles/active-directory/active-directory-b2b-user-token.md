@@ -4,7 +4,7 @@ description: "Referencia de tokens de usuario de la colaboración B2B de Azure A
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d19a6ff42ec905d68133e9940366f173140f916
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Información sobre los tokens de usuario de la colaboración B2B de Azure Active Directory
 

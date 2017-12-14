@@ -4,7 +4,7 @@ description: Obtenga ayuda para los problemas o dudas que le surjan relativos a 
 services: azure-portal
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 407c030ea159915d4d7ac21760a3d17ec2204372
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7155ed7613d46329229d8e572c75400041022ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Solución de problemas del control de acceso basado en rol
 
@@ -89,7 +89,7 @@ Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo d
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
 
 ## <a name="see-more"></a>Ver más
-* [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): inicio de RBAC en el Portal de Azure.
+* [Control de acceso basado en roles de Azure](role-based-access-control-configure.md): introducción a RBAC en Azure Portal.
 * [RBAC: Roles integrados](role-based-access-built-in-roles.md): obtenga información sobre los roles que se incluyen como estándar en RBAC.
 * [Roles personalizados en Azure RBAC](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
 * [Creación de un informe de historial de cambios de acceso](role-based-access-control-access-change-history-report.md): realice un seguimiento del cambio de asignaciones de rol en el RBAC.

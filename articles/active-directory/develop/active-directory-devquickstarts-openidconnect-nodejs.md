@@ -4,7 +4,7 @@ description: "Aprenda a crear una aplicación web MVC Express de Node.js que se 
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a9bc44ec9fc5a7c5e18139070bac837421efff5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Inicio y cierre de sesión de aplicación web de Node.js con Azure AD
 Aquí usamos Passport para:
@@ -96,7 +96,7 @@ Aquí configuramos Express para usar el protocolo de autenticación OpenID Conne
     // add a logger
 
     var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
+        name: 'Microsoft OIDC Example Web Application'
     });
     ```
 
@@ -157,27 +157,27 @@ El código anterior toma cualquier usuario que se autentique en el servidor. Est
             //   this is done simply by storing the user ID when serializing and finding
             //   the user by ID when deserializing.
             passport.serializeUser(function(user, done) {
-            done(null, user.email);
+                done(null, user.email);
             });
 
             passport.deserializeUser(function(id, done) {
-            findByEmail(id, function (err, user) {
-                done(err, user);
-            });
+                findByEmail(id, function (err, user) {
+                    done(err, user);
+                });
             });
 
             // array to hold signed-in users
             var users = [];
 
             var findByEmail = function(email, fn) {
-            for (var i = 0, len = users.length; i < len; i++) {
-                var user = users[i];
-            log.info('we are using user: ', user);
-                if (user.email === email) {
-                return fn(null, user);
+                for (var i = 0, len = users.length; i < len; i++) {
+                    var user = users[i];
+                    log.info('we are using user: ', user);
+                    if (user.email === email) {
+                        return fn(null, user);
+                    }
                 }
-            }
-            return fn(null, null);
+                return fn(null, null);
             };
     ```
 
@@ -208,8 +208,7 @@ El código anterior toma cualquier usuario que se autentique en el servidor. Est
 
 6. Por último, se agregan las rutas que entregan las solicitudes de inicio de sesión reales al motor `passport-azure-ad`:
 
-
-       ```JavaScript
+    ```JavaScript
 
         // Our Auth routes (section 3)
 
@@ -226,30 +225,30 @@ El código anterior toma cualquier usuario que se autentique en el servidor. Est
             res.redirect('/');
         });
 
-            // GET /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
-            app.get('/auth/openid/return',
-              passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-              function(req, res) {
-                log.info('We received a return from AzureAD.');
-                res.redirect('/');
-              });
+        // GET /auth/openid/return
+        //   Use passport.authenticate() as route middleware to authenticate the
+        //   request. If authentication fails, the user is redirected back to the
+        //   sign-in page. Otherwise, the primary route function is called,
+        //   which, in this example, redirects the user to the home page.
+        app.get('/auth/openid/return',
+          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+          function(req, res) {
+            log.info('We received a return from AzureAD.');
+            res.redirect('/');
+          });
 
-            // POST /auth/openid/return
-            //   Use passport.authenticate() as route middleware to authenticate the
-            //   request. If authentication fails, the user is redirected back to the
-            //   sign-in page. Otherwise, the primary route function is called,
-            //   which, in this example, redirects the user to the home page.
-            app.post('/auth/openid/return',
-              passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-              function(req, res) {
-                log.info('We received a return from AzureAD.');
-                res.redirect('/');
-              });
-       ```
+        // POST /auth/openid/return
+        //   Use passport.authenticate() as route middleware to authenticate the
+        //   request. If authentication fails, the user is redirected back to the
+        //   sign-in page. Otherwise, the primary route function is called,
+        //   which, in this example, redirects the user to the home page.
+        app.post('/auth/openid/return',
+          passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+          function(req, res) {
+            log.info('We received a return from AzureAD.');
+            res.redirect('/');
+          });
+     ```
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Paso 4: Uso de Passport para emitir solicitudes de inicio y cierre de sesión en Azure AD

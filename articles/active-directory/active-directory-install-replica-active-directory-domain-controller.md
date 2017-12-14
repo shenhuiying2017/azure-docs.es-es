@@ -4,7 +4,7 @@ description: "Cómo instalar controladores de dominio de réplica para un domini
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c9ebf1b-289a-4dd6-9567-a946450005c0
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 60839f93954bfe38f0346b235259f68e479b8a00
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 3f7624d588e958985a73c5b40e8010e18e8879cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure
 En este tema se muestra cómo instalar controladores de dominio adicionales para usarlos como controladores de dominio de réplica para un dominio de Active Directory local en máquinas virtuales (VM) de Azure en una red virtual de Azure. También [puede instalar un bosque de Windows Server Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md). Para obtener instrucciones sobre la instalación de Active Directory Domain Services (AD DS) en una red virtual de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).

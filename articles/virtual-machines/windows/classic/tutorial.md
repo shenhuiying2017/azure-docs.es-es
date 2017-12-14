@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 61d71479ae39c1ee22618f2c7fc6677b5bae8fe4
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 0a80599df07767cd6a117157fc699315cce7ad23
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
 > [!div class="op_single_selector"]
@@ -39,8 +39,6 @@ En este tutorial se muestra cómo crear una máquina virtual de Azure con Window
 En esta sección se muestra cómo utilizar el **panel** en Azure Portal para seleccionar y luego crear la máquina virtual.
 
 También puede crear máquinas virtuales con sus [propias imágenes](createupload-vhd.md). Para obtener más información sobre este y otros métodos, consulte [Diferentes formas de crear una máquina virtual de Windows](../../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-<!-- 02/27/2017 Video removed as it was based on the classic portal. -->
 
 ## <a id="createvirtualmachine"></a>Creación de la máquina virtual
 [!INCLUDE [virtual-machines-create-WindowsVM](../../../../includes/virtual-machines-create-windowsvm.md)]

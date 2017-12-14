@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
 
@@ -119,7 +119,7 @@ En este artículo se ofrecen respuestas a las preguntas más frecuentes (P+F) so
 * Cifrar (puede tardar varias horas o incluso días según las características de la máquina virtual y el tamaño de los discos de datos adjuntos).
 * Personalizar y agregar software a la imagen según sea necesario.
 
-Si este flujo de trabajo no es posible, el uso del [Cifrado del servicio de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE) en el nivel de la cuenta de almacenamiento de la plataforma puede ser una alternativa al cifrado del disco completo mediante dm-crypt.
+Si este flujo de trabajo no es posible, el uso del [Cifrado del servicio de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) en el nivel de la cuenta de almacenamiento de la plataforma puede ser una alternativa al cifrado del disco completo mediante dm-crypt.
 
 **P:**  ¿Qué es el disco "Bek volumen" o "/mnt/azure_bek_disk"?
 

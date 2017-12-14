@@ -4,7 +4,7 @@ description: "Se proporciona información detallada sobre cómo determinar los r
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 840de1e1fcba74285788d51d8f544375f0affa77
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2689306150f400f5a3cdf000a9ca590b397d812
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de administración de contenido para la solución de identidad híbrida
 Comprender los requisitos de administración de contenido de su empresa puede afectar directamente a su decisión sobre la solución de identidad híbrida que es mejor usar. Con la proliferación de tantos dispositivos y la posibilidad de que los usuarios traigan los suyos propios ([BYOD](http://aka.ms/byodcg)), la empresa debe proteger sus propios datos, pero también mantener intacta la privacidad del usuario. Normalmente, cuando un usuario tiene su propio dispositivo lo habitual es que tenga más varias credenciales que se irán alternando según la aplicación que use. Es importante distinguir qué contenido se creó con las credenciales personales frente al que se creó con las credenciales corporativas. La solución de identidad debe ser capaz de interactuar con los servicios en la nube a fin de proporcionar al usuario final una experiencia sin fisuras, y al mismo tiempo asegurar su privacidad y aumentar la protección frente a la pérdida de datos. 

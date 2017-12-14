@@ -4,7 +4,7 @@ description: Un tema acerca de las directivas personalizadas de Azure Active Dir
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f07e05a1786f8afc1ccecf21994b1ad263ead285
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalización de la IU de un recorrido de usuario con directivas personalizadas
 
@@ -81,7 +81,7 @@ Gracias a este enfoque basado en CORS, los usuarios finales tendrán experiencia
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Como requisito previo, debe crear una cuenta de almacenamiento. Necesitará una suscripción de Azure para crear una cuenta de Almacenamiento de blobs de Azure. Puede registrarse para obtener una evaluación gratuita en el [sitio web de Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
+Como requisito previo, debe crear una cuenta de almacenamiento. Necesitará una suscripción de Azure para crear una cuenta de Azure Blob Storage. Puede registrarse para obtener una evaluación gratuita en el [sitio web de Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
 
 1. Abra una sesión de exploración y desplácese hasta el [portal de Azure](https://portal.azure.com).
 2. Inicie sesión con sus credenciales administrativas.

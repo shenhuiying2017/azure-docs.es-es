@@ -4,7 +4,7 @@ description: "Este artículo describe cómo utilizar los mensajes HTTP para impl
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad2118130ec36aed1561db763946104501eb0f32
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Llamadas entre servicios mediante las credenciales del cliente (secreto compartido o certificado)
 El flujo de concesión de credenciales de cliente de OAuth 2.0 permite a un servicio web (*cliente confidencial*) usar sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente es normalmente un servicio web de nivel intermedio, un servicio demonio o un sitio web. Para conseguir un mayor nivel de control, Azure AD también permite al servicio que realiza la llamada usar un certificado (en lugar de un secreto compartido) como credencial.

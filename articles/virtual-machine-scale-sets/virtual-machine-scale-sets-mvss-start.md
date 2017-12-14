@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1672474e22411e7f7fca4082ce83146e40ebfbc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
 Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado de viabilidad mínimo y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss). 
@@ -123,7 +123,7 @@ En este caso, solo hay un elemento en la lista: la máquina virtual del ejemplo 
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Especificación de propiedades de conjunto de escalado
-Los conjuntos de escalado tienen muchas propiedades para personalizar las máquinas virtuales en el conjunto de escalado. Para una lista completa de estas propiedades, consulte la [documentación de API de REST del conjunto de escalado](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set). En ese tutorial solo establecemos algunas propiedades de uso frecuente.
+Los conjuntos de escalado tienen muchas propiedades para personalizar las máquinas virtuales en el conjunto de escalado. Para una lista completa de estas propiedades, consulte la [documentación de API de REST del conjunto de escalado](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). En ese tutorial solo establecemos algunas propiedades de uso frecuente.
 ### <a name="supply-vm-size-and-capacity"></a>Suministro de capacidad y tamaño de máquina virtual
 El conjunto de escalado necesita saber qué tamaño de máquina virtual debe crear ("nombre de SKU") y cuántas crear ("capacidad de SKU"). Para ver qué tamaños de máquinas virtuales están disponibles, consulte la [documentación de tamaños de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

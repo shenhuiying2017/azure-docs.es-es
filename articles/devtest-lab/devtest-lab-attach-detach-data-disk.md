@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 3183c61323b1b9ce22b0b64d9021f683b2276d9d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Asociación de un disco de datos, o su desasociación, a una máquina virtual en Azure DevTest Labs
-[Azure Managed Disks](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview) administra las cuentas de almacenamiento asociadas a los discos de datos de máquina virtual. Un usuario asocia un nuevo disco de datos a una máquina virtual, especifica el tipo y el tamaño del disco que se necesita, y Azure crea y administra el disco automáticamente. El disco de datos se puede desasociar de la máquina virtual y volver a asociarlo más tarde a la misma máquina virtual, o bien se puede asociar a otra máquina virtual que pertenezca al mismo usuario.
+[Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) administra las cuentas de almacenamiento asociadas a los discos de datos de máquina virtual. Un usuario asocia un nuevo disco de datos a una máquina virtual, especifica el tipo y el tamaño del disco que se necesita, y Azure crea y administra el disco automáticamente. El disco de datos se puede desasociar de la máquina virtual y volver a asociarlo más tarde a la misma máquina virtual, o bien se puede asociar a otra máquina virtual que pertenezca al mismo usuario.
 
 Esta funcionalidad es útil para administrar el almacenamiento o el software fuera de cada máquina virtual individual. Si el almacenamiento o software ya existe dentro de un disco de datos, se puede asociar, desasociar y volver a asociar fácilmente a cualquier máquina virtual que sea propiedad del usuario que posee ese disco de datos.
 
 ## <a name="attach-a-data-disk"></a>Acoplamiento de un disco de datos
 Antes de asociar un disco de datos a una máquina virtual, revise estas sugerencias:
 
-- El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+- El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para obtener más información, consulte [Tamaños de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 - Solo puede asociar un disco de datos a una máquina virtual que se está ejecutando. Asegúrese de que la máquina virtual se está ejecutando antes de intentar asociar un disco de datos.
 
 ### <a name="attach-a-new-disk"></a>Conexión de un disco nuevo

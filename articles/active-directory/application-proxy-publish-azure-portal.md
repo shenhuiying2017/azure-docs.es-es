@@ -4,28 +4,24 @@ description: "Publique aplicaciones locales en la nube con el proxy de aplicaci�
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
+ms.date: 12/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e00a939f2b20ab8e0a2ddf0ff91e59db440213ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3639c7d8c3c1e716eaf1a0af0506f6d0d2ad0493
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-proxy-publish-azure-portal.md)
-> * [Portal de Azure clásico](active-directory-application-proxy-publish.md)
 
 El proxy de aplicación de Azure Active Directory (AD) permite publicar aplicaciones locales para acceder a ellas a través de Internet y poder admitir trabajadores remotos. Puede publicar estas aplicaciones a través de Azure Portal para proporcionar acceso remoto seguro desde fuera de la red.
 

@@ -4,7 +4,7 @@ description: "Cómo utilizar las características del SDK de ADAL para habilitar
 services: active-directory
 documentationcenter: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 9c7e959530a836fe5ddf74708363a636c39b3cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d832ecf3e9c64088a75cc88551879b4e09df715
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Habilitación de SSO entre aplicaciones en Android mediante ADAL
 Los clientes esperan que se proporcione un inicio de sesión único (SSO) para que los usuarios solo tengan que escribir sus credenciales una sola vez y esas credenciales automáticamente funcionen en otras aplicaciones. La dificultad de escribir el nombre de usuario y contraseña en una pantalla pequeña, a menudo combinado con un factor adicional (2FA) como una llamada de teléfono o un código de mensaje de texto, provoca una rápida insatisfacción si el usuario tiene que hacer esto más de una vez para su producto.

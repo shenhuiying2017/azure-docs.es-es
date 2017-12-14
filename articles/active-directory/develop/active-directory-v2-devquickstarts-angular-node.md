@@ -4,7 +4,7 @@ description: "Cómo crear una aplicación de una página Angular JS que inicia l
 services: active-directory
 documentationcenter: 
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e90171afd9c4c782fbb18375ab2d147497ef442
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10f797ad97ac3253984896c6cadb66b6b948ff8a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Agregar inicio de sesión a una aplicación de una página AngularJS (NodeJS)
 En este artículo vamos a agregar inicio de sesión con cuentas con tecnología de Microsoft a una aplicación AngularJS mediante el punto de conexión de Azure Active Directory v2.0. El punto de conexión v2.0 permite realizar una sola integración en la aplicación y autenticar a los usuarios tanto con cuentas personales como profesionales o educativas.

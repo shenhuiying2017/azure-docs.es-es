@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Consideraciones para las redes de Azure Stack
 
@@ -34,7 +34,7 @@ Este artículo proporciona información general sobre las consideraciones única
 | |Conjuntos de registros DNS por zona|5000 (valor predeterminado)<br>Puede aumentarse a petición.|5000|
 ||Servidores de nombres para la delegación de zona|Azure proporciona cuatro servidores de nombres para cada zona de usuario (inquilino) que se crea.|Azure Stack proporciona dos servidores de nombres para cada zona de usuario (inquilino) que se crea.|
 | Red virtual|Emparejamiento de redes virtuales de Azure|Conecte dos redes virtuales de la misma región mediante la red troncal de Azure.|Todavía no se admite|
-| |Direcciones IPv6|Puede asignar una dirección IPv6 como parte de la [configuración de la interfaz de red](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Se admite solo IPv4.|
+| |Direcciones IPv6|Puede asignar una dirección IPv6 como parte de la [configuración de la interfaz de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Se admite solo IPv4.|
 |Puertas de enlace de VPN|Puerta de enlace de VPN de punto a sitio|Compatible|Todavía no se admite|
 | |Puerta de enlace de VNET a VNET|Compatible|Todavía no se admite|
 | |SKU de puerta de enlace de VPN|Compatibilidad con SKU básicas, GW1, GW2, GW3, alto rendimiento estándar, ultra alto rendimiento. |Compatibilidad con SKU básicas, estándar y de alto rendimiento.|
@@ -42,7 +42,7 @@ Este artículo proporciona información general sobre las consideraciones única
 |Network Watcher|Funciones de supervisión de red de inquilinos de Network Watcher|Compatible|Todavía no se admite|
 |CDN|Perfiles de Content Delivery Network|Compatible|Todavía no se admite|
 |puerta de enlace de aplicaciones|Equilibrio de carga de nivel 7|Compatible|Todavía no se admite|
-|Administrador de tráfico|Dirija el tráfico entrante para obtener un rendimiento y una confiabilidad óptimos de las aplicaciones.|Compatible|Todavía no se admite|
+|Traffic Manager|Dirija el tráfico entrante para obtener un rendimiento y una confiabilidad óptimos de las aplicaciones.|Compatible|Todavía no se admite|
 |ExpressRoute|Configure una conexión privada rápida con los servicios en la nube de Microsoft desde su infraestructura local o una instalación de colocalización.|Compatible|Compatibilidad para conectar Azure Stack a un circuito de Express Route.|
 
 ## <a name="next-steps"></a>Pasos siguientes

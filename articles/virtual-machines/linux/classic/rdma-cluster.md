@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI
 Aprenda a configurar un clúster de Linux RDMA en Azure con [tamaños de máquina virtual de procesos de alto rendimiento](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. En este artículo se incluyen los pasos necesarios para preparar una imagen de HPC de Linux para ejecutar Intel MPI en un clúster. Después de la preparación, se implementa un clúster de máquinas virtuales con esta imagen y uno de los tamaños de máquinas virtuales de Azure compatibles con RDMA (actualmente H16r, H16mr, A8 o A9). Use el clúster para ejecutar aplicaciones MPI que se comunican eficazmente a través de una red de latencia baja y alto rendimiento con tecnología de acceso directo a memoria remota (RDMA).
@@ -47,7 +47,7 @@ Los pasos siguientes muestran cómo usar la CLI de Azure para implementar una m�
 * **Suscripción de Azure**: si no tiene ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/) en un par de minutos. En los clústeres más grandes, considere la posibilidad de una suscripción de pago por uso u otras opciones de compra.
 * **Disponibilidad de tamaño de máquina virtual**: los siguientes tamaños de instancia son compatibles con RDMA: H16r, H16mr, A8 y A9. Para ver la disponibilidad en las regiones de Azure, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/) .
 * **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos para implementar un clúster de máquinas virtuales de proceso intensivo. Por ejemplo, necesita al menos 128 núcleos si desea implementar máquinas virtuales A8 o A9 tal y como se muestra en este artículo. La suscripción también podría limitar el número de núcleos que se pueden implementar en ciertas familias de tamaño de máquina virtual, como la serie H. Para solicitar un aumento de cuota, [abra una solicitud de soporte técnico al cliente en línea](../../../azure-supportability/how-to-create-azure-support-request.md) sin cargo alguno.
-* **CLI de Azure**: [instale](../../../cli-install-nodejs.md) la CLI de Azure y [conéctela a su suscripción de Azure](../../../xplat-cli-connect.md) en el equipo cliente.
+* **CLI de Azure**: [instale](../../../cli-install-nodejs.md) la CLI de Azure y [conéctela a su suscripción de Azure](/cli/azure/authenticate-azure-cli) en el equipo cliente.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Aprovisionamiento de una máquina virtual de HPC de SLES 12 SP1
 Después de iniciar sesión en Azure con la CLI de Azure, ejecute `azure config list` para confirmar que la salida muestra el modo de Administración del servicio de Azure. Si no es así, ejecute este comando para establecer el modo:

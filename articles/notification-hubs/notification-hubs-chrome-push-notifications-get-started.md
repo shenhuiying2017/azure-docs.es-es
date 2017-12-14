@@ -15,11 +15,11 @@ ms.devlang: JavaScript
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 600b1b7e5f3987c9a0acc33b7049f7118442b931
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107c001f1b02874adfdc53856f18e6bfcbcb0cf4
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="send-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Envío de notificaciones push a Chrome con los Centros de notificaciones de Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -460,7 +460,6 @@ Si desea segmentar los usuarios por grupos de interés, puede leer [Uso de los C
 <!-- URLs. -->
 [ejemplo del centro de notificaciones de la aplicación Chrome]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [consola en la nube de Google]: http://cloud.google.com/console
-[Azure Classic Portal]: https://manage.windowsazure.com/
 [Introducción a los centros de notificaciones]: notification-hubs-push-notification-overview.md
 [Información general sobre las aplicaciones de Chrome]: https://developer.chrome.com/apps/about_apps
 [ejemplo de GCM de la aplicación de Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications

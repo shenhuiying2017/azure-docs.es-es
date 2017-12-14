@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3d3c6c95763bc8eb67f092bda61bb58c7af9daf2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicación de una aplicación de catálogo de servicios mediante Azure Portal
 
@@ -62,5 +62,4 @@ El archivo .zip que contiene la definición de la aplicación administrada debe 
 
 * Para una introducción a las aplicaciones administradas, consulte [Introducción a las aplicaciones administradas](overview.md).
 * Para ver ejemplos de aplicaciones administradas, consulte [Sample projects for Azure managed applications](sample-projects.md) (Ejemplos de proyectos para aplicaciones administradas de Azure).
-* Para información sobre cómo publicar aplicaciones administradas en Azure Marketplace, consulte [Aplicaciones administradas de Azure en Marketplace](publish-marketplace-app.md).
 * Para aprender a crear un archivo de definición de interfaz de usuario para una aplicación administrada, consulte [Introducción a CreateUiDefinition](create-uidefinition-overview.md).

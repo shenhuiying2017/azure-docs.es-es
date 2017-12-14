@@ -4,7 +4,7 @@ description: "Cómo registrar una aplicación con Microsoft para habilitar el in
 services: active-directory
 documentationcenter: 
 author: lnalepa
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: e6202aa8665c906382666fe08a561421e50e0a8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eba8ecd27542b23676c08b8ce072c91134d27fa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Cómo registrar una aplicación con el punto de conexión v2.0
 Para crear una aplicación que acepte tanto el inicio de sesión de MSA como de Azure AD, tendrá que registrar primero una aplicación con Microsoft.  En este momento, no podrá usar ninguna aplicación existente que tenga con Azure AD o MSA. Tendrá que crear una completamente nueva.

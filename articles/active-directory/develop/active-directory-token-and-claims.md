@@ -4,7 +4,7 @@ description: "Una guía en la que se describen y evalúan las notificaciones en 
 documentationcenter: na
 author: dstrockis
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Referencia de tokens de Azure AD
 Azure Active Directory (Azure AD) emite varios tipos de tokens de seguridad durante el procesamiento de cada flujo de autenticación. Este documento describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -96,7 +96,7 @@ Al canjear un token de actualización por un nuevo token de acceso, recibirá un
 
 ## <a name="validating-tokens"></a>Validación de los tokens
 
-Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, la versión independiente de inquilino del documento se encuentra en [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, la versión independiente de inquilino del documento se encuentra en [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Ofrecemos bibliotecas y ejemplos de código que muestran cómo realizar fácilmente la validación del token; la siguiente información se proporciona solo para quienes quieran entender el proceso subyacente.  También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md).
 

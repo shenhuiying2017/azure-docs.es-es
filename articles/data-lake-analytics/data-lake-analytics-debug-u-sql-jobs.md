@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depuración de código C# definido por el usuario para trabajos de U-SQL con errores
 
-U-SQL proporciona un modelo de extensibilidad mediante C#. En los scripts de U-SQL es fácil llamar a funciones de C# y realizar funciones de análisis que no admitiría un lenguaje declarativo similar a SQL. Para más información sobre la extensibilidad de U-SQL, consulte la [Guía de programación de U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL proporciona un modelo de extensibilidad mediante C#. En los scripts de U-SQL es fácil llamar a funciones de C# y realizar funciones de análisis que no admitiría un lenguaje declarativo similar a SQL. Para más información sobre la extensibilidad de U-SQL, consulte la [Guía de programación de U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 En la práctica, cualquier código puede necesitar depuración, pero es difícil depurar un trabajo distribuido con código personalizado en la nube con unos archivos de registro limitados. Las [Herramientas de Azure Data Lake para Visual Studio](http://aka.ms/adltoolsvs) incluyen una característica denominada **depuración de vértice con errores**, que ayuda a que sea más fácil depurar los errores que se producen en el código personalizado. Cuando se produce un error en el trabajo de U-SQL, el servicio conserva el estado de error y la herramienta le ayuda a descargar el entorno con error de la nube en la máquina local para su depuración. La descarga local captura todo el entorno en la nube, incluidos el código de usuario y los datos de entrada.
 

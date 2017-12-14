@@ -1,9 +1,9 @@
 ---
 title: "Creación gráfica en Azure Automation | Microsoft Docs"
-description: "Creación gráfica le permite crear runbooks para Automatización de Azure sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico."
+description: "Creación gráfica le permite crear runbooks para Azure Automation sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Automatización de Azure
+# <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 ## <a name="introduction"></a>Introducción
-Creación gráfica permite crear runbooks para Automatización de Azure sin las complejidades del código subyacente de Windows PowerShell o del flujo de trabajo de esta herramienta. Puede agregar actividades a los lienzos de una biblioteca de cmdlets y runbooks, vincularlas y configurarlas para conformar un flujo de trabajo.  Si alguna vez ha utilizado System Center Orchestrator o Service Management Automation (SMA), el proceso le debería resultar familiar.   
+Creación gráfica permite crear runbooks para Azure Automation sin las complejidades del código subyacente de Windows PowerShell o del flujo de trabajo de esta herramienta. Puede agregar actividades a los lienzos de una biblioteca de cmdlets y runbooks, vincularlas y configurarlas para conformar un flujo de trabajo.  Si alguna vez ha utilizado System Center Orchestrator o Service Management Automation (SMA), el proceso le debería resultar familiar.   
 
 Este artículo proporciona una introducción a la creación gráfica y los conceptos que necesita para comenzar a crear un runbook gráfico.
 
 ## <a name="graphical-runbooks"></a>Runbooks gráficos
-Todos los runbooks de Automatización de Azure son flujos de trabajo de Windows PowerShell.  Los runbooks gráficos y los runbooks gráficos de flujo de trabajo PowerShell generan código de PowerShell que ejecutan los trabajos de Automatización de Azure, pero no se pueden ver ni modificar directamente.  Un runbook gráfico se puede convertir en un runbook gráfico de flujo de trabajo de PowerShell y viceversa, pero no se pueden convertir en un runbook textual. Los runbooks de texto existentes no se pueden importar en el editor de gráficos.  
+Todos los runbooks de Azure Automation son flujos de trabajo de Windows PowerShell.  Los runbooks gráficos y los runbooks gráficos de flujo de trabajo PowerShell generan código de PowerShell que ejecutan los trabajos de Azure Automation, pero no se pueden ver ni modificar directamente.  Un runbook gráfico se puede convertir en un runbook gráfico de flujo de trabajo de PowerShell y viceversa, pero no se pueden convertir en un runbook textual. Los runbooks de texto existentes no se pueden importar en el editor de gráficos.  
 
 ## <a name="overview-of-graphical-editor"></a>Información general del editor de gráficos
 Puede abrir el editor de gráficos en el Portal de Azure a través de la creación o la edición de un Runbook gráfico.
@@ -81,7 +81,7 @@ El control de Prueba solicitará cualquier parámetro de entrada y podrá inicia
 ![Botones Control de Prueba](media/automation-graphical-authoring-intro/runbook-test-start.png)
 
 ### <a name="publishing-a-graphical-runbook"></a>Publicación de un runbook gráfico
-Cada runbook de Automatización de Azure tiene una versión de borrador y una versión publicada. Solo es posible ejecutar la versión publicada y solo es posible editar la versión de borrador. Los cambios realizados en la versión de borrador no afectan la versión publicada. Cuando la versión de borrador está lista para su disponibilidad, puede publicarla, lo que sobrescribirá la versión publicada con la versión de borrador.
+Cada runbook de Azure Automation tiene una versión de borrador y una versión publicada. Solo es posible ejecutar la versión publicada y solo es posible editar la versión de borrador. Los cambios realizados en la versión de borrador no afectan la versión publicada. Cuando la versión de borrador está lista para su disponibilidad, puede publicarla, lo que sobrescribirá la versión publicada con la versión de borrador.
 
 Para publicar un runbook gráfico, abra el runbook para editarlo y, a continuación, haga clic en el botón **Publicar** .
 
@@ -117,10 +117,10 @@ Cuando especifica un valor para un parámetro, selecciona un origen de datos par
 | Valor constante |Escriba un valor para el parámetro.  Este solo se encuentra disponible para los siguientes tipos de datos: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Salida de la actividad |Salida de una actividad que precede la actividad actual en el flujo de trabajo.  Se mostrarán todas las actividades válidas.  Seleccione solo la actividad para usar su salida en el valor de parámetro.  Si la actividad genera un objeto con varias propiedades, puede escribir el nombre de la propiedad después de seleccionar la actividad. |
 | Entrada de Runbook |Seleccione un parámetro de entrada runbook como entrada para el parámetro de actividad. |
-| Activo de variable |Seleccione una variable de Automatización como entrada. |
-| Activo de credencial |Seleccione una credencial de Automatización como entrada. |
-| Activo de certificado |Seleccione un certificado de Automatización como entrada. |
-| Activo de conexión |Seleccione una conexión de Automatización como entrada. |
+| Activo de variable |Seleccione una variable de Automation como entrada. |
+| Activo de credencial |Seleccione una credencial de Automation como entrada. |
+| Activo de certificado |Seleccione un certificado de Automation como entrada. |
+| Activo de conexión |Seleccione una conexión de Automation como entrada. |
 | Expresión de PowerShell |Especifique una [expresión de PowerShell](#powershell-expressions)simple.  La expresión se evaluará antes de la actividad y el resultado se usará en el valor del parámetro.  Puede usar variables para consultar la salida de una actividad o un parámetro de entrada de runbook. |
 | Sin configurar |Borrar cualquier valor configurado anteriormente. |
 
@@ -253,7 +253,7 @@ Puede establecer [puntos de control](automation-powershell-workflow.md#checkpoin
 Los puntos de control solo se habilitan en los runbooks gráficos de flujo de trabajo de PowerShell; no están disponibles en los runbooks gráficos.  Si el runbook usa cmdlets de Azure, debe seguir cualquier actividad establecida con puntos de control con un AzureRMAccount en caso de suspender el runbook y de reiniciarlo a partir de dicho punto de control en un trabajo diferente. 
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticación a los recursos de Azure
-Los runbooks de Automatización de Azure que administran recursos de Azure requerirán tendrán que autenticarse en Azure.  La característica de [cuenta de ejecución](automation-offering-get-started.md#creating-an-automation-account) (también denominada entidad de servicio) es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción con los runbooks de Automation.  Puede agregar esta funcionalidad a un runbook gráfico incorporando el activo de conexión **AzureRunAsConnection**, que utiliza el cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) de PowerShell, y el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) al lienzo. Esto se muestra en el ejemplo siguiente.<br>![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
+Los runbooks de Azure Automation que administran recursos de Azure requerirán tendrán que autenticarse en Azure.  La característica de [cuenta de ejecución](automation-offering-get-started.md#creating-an-automation-account) (también denominada entidad de servicio) es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción con los runbooks de Automation.  Puede agregar esta funcionalidad a un runbook gráfico incorporando el activo de conexión **AzureRunAsConnection**, que utiliza el cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) de PowerShell, y el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) al lienzo. Esto se muestra en el ejemplo siguiente.<br>![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 La actividad de obtención de conexión de ejecución (es decir, Get-AutomationConnection) se configura con un origen de datos de valor constante denominado "AzureRunAsConnection".<br>![Configuración de la conexión de ejecución](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 La siguiente actividad, Add-AzureRmAccount, agrega la cuenta de ejecución autenticada para que pueda utilizarse en el runbook.<br>
 ![Conjunto de parámetros Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
@@ -379,6 +379,6 @@ En el ejemplo siguiente se usa la salida de una actividad llamada *Get Twitter C
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md) 
 * Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
-* Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
-* Para comprender cómo autenticarse con la cuenta de ejecución de Automatización de Azure, consulte [Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md)
+* Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)
+* Para comprender cómo autenticarse con la cuenta de ejecución de Azure Automation, consulte [Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md)
 

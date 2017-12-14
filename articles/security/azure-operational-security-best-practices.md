@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 Con seguridad operativa de Azure, se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. La seguridad operativa de Azure se basa en una plataforma que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.
@@ -156,7 +156,7 @@ Los clientes pueden crear una red integral en Azure mediante la orquestación y 
 Supervise y diagnostique problemas de red sin iniciar sesión en las máquinas virtuales (VM) mediante Network Watcher. Desencadene la [captura de paquetes](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) estableciendo alertas y obtenga acceso a información de rendimiento en tiempo real en el ámbito de paquete. Cuando vea un problema, podrá investigar en detalle para mejorar los diagnósticos.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Obtención de información detallada sobre el tráfico de la red mediante registros de flujo
-Conozca al detalle el patrón de tráfico de red mediante los [registros de flujo del grupo de seguridad de red](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). La información proporcionada por los registros de flujo le ayuda a recopilar datos para el cumplimiento, la auditoría y la supervisión de su perfil de seguridad de red.
+Conozca al detalle el patrón de tráfico de red mediante los [registros de flujo del grupo de seguridad de red](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). La información proporcionada por los registros de flujo le ayuda a recopilar datos para el cumplimiento, la auditoría y la supervisión de su perfil de seguridad de red.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>Diagnóstico de problemas de conectividad VPN
 Network Watcher le ofrece la posibilidad de [diagnosticar los problemas más comunes de las conexiones y VPN Gateway](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Esto no solo le permite identificar el problema sino también usar los registros detallados creados para ayudar a investigar más.

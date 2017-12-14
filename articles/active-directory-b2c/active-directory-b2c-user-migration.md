@@ -4,7 +4,7 @@ description: "Describe fundamentos y conceptos avanzados sobre la migración de 
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 Si migra su proveedor de identidades a Azure Active Directory B2C (Azure AD B2C), también debe migrar la cuenta de usuario. En este artículo se explica cómo migrar las cuentas de usuario existentes desde cualquier proveedor de identidades a Azure AD B2C. El artículo no pretende ser preceptivo, sino describir dos de los varios enfoques. El desarrollador es responsable de la idoneidad de cada enfoque.
 
 ## <a name="user-migration-flows"></a>Flujos de migración de usuarios
-Con Azure AD B2C, puede migrar los usuarios mediante la [API Graph](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). El proceso de migración de usuarios se divide en dos flujos:
+Con Azure AD B2C, puede migrar los usuarios mediante la [API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). El proceso de migración de usuarios se divide en dos flujos:
 
 * **Antes de la migración**: este flujo se aplica cuando tiene acceso libre a las credenciales de un usuario (nombre de usuario y contraseña) o las credenciales se cifran, pero puede descifrarlas. El proceso de pre-migración implica leer los usuarios del anterior proveedor de identidades y crear nuevas cuentas en el directorio de Azure AD B2C.
 
@@ -100,7 +100,7 @@ Los permisos de lectura y escritura de los datos del directorio *no* incluyen el
 > Debe usar una cuenta de administrador de inquilinos B2C que sea *local* para el inquilino B2C. La sintaxis del nombre de la cuenta es *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
-> El siguiente script de PowerShell requiere [Azure Active Directory PowerShell versión 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> El siguiente script de PowerShell requiere [Azure Active Directory PowerShell versión 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 En este script de PowerShell, haga lo siguiente:
 1. Se conecta a su servicio en línea. Para ello, ejecute el cmdlet `Connect-AzureAD` en el símbolo del sistema de Windows PowerShell y proporcione las credenciales. 
@@ -278,7 +278,7 @@ Para realizar un seguimiento del cambio de contraseña, se usa una tabla de Azur
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Paso 4.2: Implementación de la aplicación web en Azure App Service
-Publique el servicio de API en Azure App Service. Para obtener más información, consulte [Implementación de la aplicación en Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Publique el servicio de API en Azure App Service. Para obtener más información, consulte [Implementación de la aplicación en Azure App Service](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Paso 4.3: Adición del perfil técnico y validación del perfil técnico a la directiva 
 1. Abra el archivo de directiva de extensión *TrustFrameworkExtensions.xml* desde el directorio de trabajo. 
@@ -384,7 +384,7 @@ Puede ver y supervisar la información de registro prácticamente en tiempo real
 
 6. Compruebe la salida de la API de RESTful.
 
-Para obtener más información, consulte [Registros de streaming y la consola](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Para obtener más información, consulte [Registros de streaming y la consola](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Use los registros de diagnóstico solo durante el desarrollo y pruebas. La salida de la API de RESTful puede contener información confidencial que no debe exponerse en producción.

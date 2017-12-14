@@ -4,7 +4,7 @@ description: "Aprenda a crear una revisión de acceso para identidades con privi
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 3e52b731-55f4-4c8a-ba87-9fd34033f52f
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 05/04/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 2b516e2f05aa883c5e37f5864e5ee8a2b37d3a46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f57a32ca1914d18540289ebb05421a7ae9618094
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Inicio de una revisión de acceso en Privileged Identity Management de Azure AD
 Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Con el fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios deben revisar regularmente los roles que se han concedido a los usuarios. En este documento se describen los pasos para iniciar una revisión de acceso en Azure AD Privileged Identity Management (PIM).

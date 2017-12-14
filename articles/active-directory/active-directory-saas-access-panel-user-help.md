@@ -4,7 +4,7 @@ description: Obtenga instrucciones para realizar tareas comunes al trabajar con 
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>¿Necesita ayuda con el portal Mis aplicaciones?
 
@@ -35,7 +35,7 @@ Algunas cuestiones generales que se deben comprobar primero son:
 
 - Asegúrese de que el usuario no haya olvidado la contraseña o esta haya expirado. Consulte [aquí](active-directory-passwords-update-your-own-password.md) más detalles sobre cómo actualizar la contraseña.
 
-- Compruebe si la información de contacto de autenticación está actualizada y no le impide el acceso. Consulte [este artículo](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) para más información sobre cómo configurar la información de autenticación.
+- Compruebe si la información de contacto de autenticación está actualizada y no le impide el acceso. Consulte [este artículo](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) para más información sobre cómo configurar la información de autenticación.
 
 - Intente borrar las cookies del explorador y volver a iniciar sesión.
 

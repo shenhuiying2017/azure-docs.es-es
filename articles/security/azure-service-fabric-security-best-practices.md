@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -64,7 +64,7 @@ Los clústeres deben estar protegidos para evitar que usuarios no autorizados se
 Hay tres [escenarios](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) para implementar la seguridad del clúster mediante el uso de varias tecnologías:
 
 -   Seguridad de nodo a nodo: este escenario protege la comunicación entre las máquinas virtuales y los equipos del clúster. Esta forma de seguridad garantiza que solo los equipos que están autorizados a unirse al clúster pueden hospedar aplicaciones y servicios en el clúster.
-En este escenario, los clústeres que se ejecutan en Azure o los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) o la [seguridad de Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) para las máquinas con Windows Server.
+En este escenario, los clústeres que se ejecutan en Azure o los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) o la [seguridad de Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) para las máquinas con Windows Server.
 -   Seguridad de cliente a nodo: este escenario protege la comunicación entre un cliente de Service Fabric y los nodos individuales del clúster.
 -   Control de acceso basado en roles (RBAC): este escenario utiliza identidades diferentes (certificados, Azure AD, etc) para cada rol de cliente de administrador y usuario que tiene acceso al clúster. Se especifican las identidades de rol cuando se crea el clúster.
 
@@ -125,7 +125,7 @@ Cada actor se define como una instancia de un tipo de actor, similar a la forma 
 Las configuraciones de replicador configuran el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente confiable.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Configuración de SSL para Azure Service Fabric
-El proceso de autenticación de servidor [autentica](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) los puntos de conexión de administración del clúster a un cliente de administración. El cliente de administración, a continuación, reconoce que se comunica con el clúster real. Este certificado proporciona también [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) para la API de administración de HTTPS y para Service Fabric Explorer sobre HTTPS.
+El proceso de autenticación de servidor [autentica](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) los puntos de conexión de administración del clúster a un cliente de administración. El cliente de administración, a continuación, reconoce que se comunica con el clúster real. Este certificado proporciona también [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para la API de administración de HTTPS y para Service Fabric Explorer sobre HTTPS.
 Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una entidad de certificación, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado del clúster.
 
 Para configurar SSL para una aplicación, primero debe obtener un certificado SSL firmado por una entidad de certificación. La entidad de certificación es un tercero de confianza que emite certificados SSL por motivos de seguridad. Si todavía no tiene un certificado SSL, deberá obtenerlo mediante una compañía que venda certificados SSL.

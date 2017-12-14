@@ -3,7 +3,7 @@ title: Mi primer runbook de PowerShell en Azure Automation | Microsoft Docs
 description: "Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de PowerShell."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "powershell de Azure, tutorial de scripts de powershell, automatización de powershell"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;sngun
-ms.openlocfilehash: 2645d149df1f337700fb627aaff99e869fc8b8e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 885fe6caaa00bc0caea875d72fe2626f9e6b1863
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-powershell-runbook"></a>Mi primer runbook de PowerShell
 
@@ -30,20 +30,21 @@ ms.lasthandoff: 10/11/2017
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-Este tutorial le guiará por la creación de un [Runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) en Automatización de Azure. Comenzaremos con un runbook simple que probaremos y publicaremos, y explicaremos cómo hacer un seguimiento del estado del trabajo del runbook. A continuación, modificaremos el runbook para administrar recursos de Azure, en este caso, iniciar una máquina virtual de Azure. Para finalizar, agregaremos parámetros de runbook para que el runbook sea más robusto.
+Este tutorial le guiará por la creación de un [Runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) en Azure Automation. Comenzaremos con un runbook simple que probaremos y publicaremos, y explicaremos cómo hacer un seguimiento del estado del trabajo del runbook. A continuación, modificaremos el runbook para administrar recursos de Azure, en este caso, iniciar una máquina virtual de Azure. Para finalizar, agregaremos parámetros de runbook para que el runbook sea más robusto.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, necesitará lo siguiente:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Cuenta de Automatización](automation-offering-get-started.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
+* 
+            [Cuenta de Automation](automation-offering-get-started.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
 * Una máquina virtual de Azure. Detendremos e iniciaremos esta máquina, por lo que no debería ser una máquina virtual de producción.
 
 ## <a name="step-1---create-new-runbook"></a>Paso 1: crear nuevo runbook
 Empezaremos creando un runbook simple que genere el texto *Hello World*.
 
-1. En el Portal de Azure, abra su cuenta de Automatización.  
-   La página de la cuenta de Automatización proporciona una vista rápida de los recursos que hay en esa cuenta. Ya debería tener algunos recursos. Muchas de ellos son los módulos que se incluyen automáticamente en una cuenta nueva de Automatización. También debe tener el recurso de credencial que se menciona en los [requisitos previos](#prerequisites).
+1. En Azure Portal, abra su cuenta de Automation.  
+   La página de la cuenta de Automation proporciona una vista rápida de los recursos que hay en esa cuenta. Ya debería tener algunos recursos. Muchas de ellos son los módulos que se incluyen automáticamente en una cuenta nueva de Automation. También debe tener el recurso de credencial que se menciona en los [requisitos previos](#prerequisites).
 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.<br><br> ![RunbooksControl](media/automation-first-runbook-textual-powershell/runbooks-control-tiles.png)  
 3. Para crear un runbook, haga clic en el botón **Agregar un runbook** y en **Crear un runbook nuevo**.
 4. Asigne al Runbook el nombre *MyFirstRunbook-PowerShell*.
@@ -148,6 +149,6 @@ Los runbooks de PowerShell tienen el mismo ciclo de vida, las mismas funcionalid
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con cuadernos gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
-* Para obtener más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
+* Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)
 * Para obtener más información sobre la característica de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 

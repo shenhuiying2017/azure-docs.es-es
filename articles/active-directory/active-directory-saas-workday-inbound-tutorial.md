@@ -4,7 +4,7 @@ description: Aprenda a usar Workday como origen de datos de identidad para Activ
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: configuración de Workday para aprovisionar automáticamente usuarios con Active Directory y Azure Active Directory locales
 El objetivo de este tutorial consiste en mostrarle los pasos que debe llevar a cabo para importar usuarios de Workday a Active Directory y Azure Active Directory, con la reescritura opcional de algunos atributos en Workday. 

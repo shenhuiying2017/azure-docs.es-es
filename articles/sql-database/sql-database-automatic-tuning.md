@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 50d1548637ecc6862f680f73e333e8d7f8d20e39
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático en Azure SQL Database
 
@@ -37,7 +37,7 @@ El ajuste automático de Azure SQL Database podría convertirse en su mejor alia
 - Registro del historial de ajustes
 - Scripts T-SQL de acción de ajuste para implementaciones manuales
 - Supervisión proactiva del rendimiento de las cargas de trabajo
-- Escalación horizontal de la capacidad en cientos de miles de bases de datos
+- Funcionalidad de escalabilidad horizontal de cientos de miles de bases de datos
 - Impacto positivo para los recursos de DevOps y el costo total de propiedad
 
 ## <a name="safe-reliable-and-proven"></a>Seguro, confiable y probado
@@ -48,7 +48,7 @@ Los mecanismos de ajuste automático están muy desarrollados y se han perfeccio
 
 ![¿Cómo funciona el ajuste automático?](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
-El ajuste automático de Azure SQL Database comparte su lógica básica con el motor de ajuste automático de SQL Server. Para obtener información técnica adicional sobre el mecanismo de inteligencia integrada, vea el artículo sobre el [ajuste automático de SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning).
+El ajuste automático de Azure SQL Database comparte su lógica básica con el motor de ajuste automático de SQL Server. Para obtener información técnica adicional sobre el mecanismo de inteligencia integrada, vea el artículo sobre el [ajuste automático de SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).
 
 ## <a name="use-automatic-tuning"></a>Uso del ajuste automático
 
@@ -80,4 +80,4 @@ Las opciones de ajuste automático pueden activarse o desactivarse de forma inde
 - Para habilitar la característica de ajuste automático en Azure SQL Database para administrar la carga de trabajo, vea [Habilitación del ajuste automático](sql-database-automatic-tuning-enable.md).
 - Para revisar manualmente y aplicar las recomendaciones de ajuste automático, vea [Búsqueda y aplicación de recomendaciones de rendimiento](sql-database-advisor-portal.md).
 - Para obtener más información sobre la inteligencia integrada que se usa en el ajuste automático, vea [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) (La inteligencia artificial ajusta las bases de datos de Azure SQL Database).
-- Para obtener más información sobre cómo funciona el ajuste automático en Azure SQL Database y SQL Server 2017, vea [SQL Server automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) (Ajuste automático de SQL Server).
+- Para obtener más información sobre cómo funciona el ajuste automático en Azure SQL Database y SQL Server 2017, vea [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) (Ajuste automático de SQL Server).

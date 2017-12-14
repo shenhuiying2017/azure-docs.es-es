@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Introducción a Azure Load Balancer estándar (versión preliminar)
 
@@ -335,11 +335,11 @@ Load Balancer estándar está disponible actualmente en estas regiones:
 
 ## <a name="sku-service-limits-and-abilities"></a>Capacidades y límites de servicio de la SKU
 
-Los [límites de servicio de red](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) se aplican por región y suscripción. 
+Los [límites de servicio de red](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) se aplican por región y suscripción. 
 
 En la tabla siguiente se comparan los límites y capacidades de los SKU de Load Balancer básico y estándar:
 
-| Load Balancer | Básica | Estándar |
+| Load Balancer | Básica | Standard |
 | --- | --- | --- |
 | Tamaño del grupo de servidores back-end | hasta 100 | hasta 1000 |
 | Límite de grupo de servidores back-end | Conjunto de disponibilidad | red virtual, región |
@@ -355,7 +355,7 @@ En la tabla siguiente se comparan los límites y capacidades de los SKU de Load 
 
 En la tabla siguiente se comparan los límites y capacidades de SKU básica y estándar de la dirección IP pública:
 
-| Dirección IP pública | Básica | Estándar |
+| Dirección IP pública | Básica | Standard |
 | --- | --- | --- |
 | Escenarios de zonas de disponibilidad | Solo zonal | Con redundancia de zona (predeterminado), zonal (opcional) | 
 | Movilidad rápida de IP | No compatible | Disponible |

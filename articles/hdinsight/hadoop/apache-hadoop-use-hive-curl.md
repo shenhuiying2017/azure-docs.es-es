@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: 07386c2fbb5fe4ce4fe1ca6844f6308cf59cbfb4
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Hive con Hadoop en HDInsight con REST
 
@@ -122,7 +122,7 @@ Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecuta
 
 4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde Azure Blob Storage. El parámetro `statusdir` pasado con la consulta contiene la ubicación del archivo de salida; en este caso, **/example/curl**. Esta dirección almacena el resultado en el directorio **example/curl** de los clústeres del almacenamiento predeterminado.
 
-    Puede enumerar y descargar estos archivos mediante la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Para obtener más información sobre el uso de la CLI de Azure con Azure Storage, consulte el documento [Uso de la CLI de Azure 2.0 con Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs).
+    Puede enumerar y descargar estos archivos mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obtener más información sobre el uso de la CLI de Azure con Azure Storage, consulte el documento [Uso de la CLI de Azure 2.0 con Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
 
 5. Use las siguientes instrucciones para crear una nueva tabla "interna" llamada **errorLogs**.
 

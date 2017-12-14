@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault
 
@@ -50,7 +50,7 @@ Puede habilitar SSE para la cuenta de almacenamiento mediante [Azure Portal](htt
 ![Captura de pantalla del portal que muestra la opción de cifrado](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*Habilitar SSE para Blob service*
 
-Si desea habilitar o deshabilitar mediante programación el cifrado del servicio de almacenamiento en una cuenta de almacenamiento, puede usar la [API de REST del proveedor de recursos de Azure Storage](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), la [Biblioteca del cliente proveedor de recursos de almacenamiento para .NET](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0) o la [CLI de Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Si desea habilitar o deshabilitar mediante programación el cifrado del servicio de almacenamiento en una cuenta de almacenamiento, puede usar la [API de REST del proveedor de recursos de Azure Storage](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), la [Biblioteca del cliente proveedor de recursos de almacenamiento para .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0) o la [CLI de Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 En esta pantalla, si no ve la casilla "Use su propia clave", significa que no tiene aprobación para la versión preliminar. Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) y solicite la aprobación.
 
@@ -71,12 +71,12 @@ Si la cuenta de almacenamiento no tiene acceso a Key Vault, puede ejecutar el si
 También puede conceder acceso a través de Azure Portal yendo a Azure Key Vault en Azure Portal y concediendo acceso a la cuenta de almacenamiento.
 
 ## <a name="step-4-copy-data-to-storage-account"></a>Paso 4: Copiar datos en una cuenta de almacenamiento
-Si desea transferir datos a la nueva cuenta de almacenamiento de manera que se cifren, consulte el apartado [Paso 3 de la sección Introducción de Storage Service Encryption para datos en reposo](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+Si desea transferir datos a la nueva cuenta de almacenamiento de manera que se cifren, consulte el apartado [Paso 3 de la sección Introducción de Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Paso 5: Consultar el estado de los datos cifrados
-Para consultar el estado de los datos cifrados, consulte el apartado [Paso 4 de la sección Introducción de Storage Service Encryption para datos en reposo](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Para consultar el estado de los datos cifrados, consulte el apartado [Paso 4 de la sección Introducción de Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
-## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Preguntas más frecuentes acerca de Cifrado del servicio de Almacenamiento para datos en reposo
+## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Preguntas más frecuentes acerca de cifrado del servicio Storage para datos en reposo
 **P: Uso Premium Storage. ¿Puedo usar SSE con claves administradas por el cliente?**
 
 R: Sí, SSE con claves administradas por Microsoft y claves administradas el cliente es compatible tanto con almacenamiento estándar como con almacenamiento premium. 
@@ -91,7 +91,7 @@ R: Hay un costo asociado para usar Azure Key Vault. Para más información, visi
 
 **P: ¿Puedo revocar el acceso a las claves de cifrado?**
 
-R: Sí, puede revocar el acceso en cualquier momento. Hay varias maneras para revocar el acceso a las claves. Para más información, consulte [PowerShell de Azure Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) y la [CLI de Azure Key Vault](https://docs.microsoft.com/en-us/cli/azure/keyvault). La revocación del acceso bloqueará eficazmente el acceso a todos los blobs de la cuenta de almacenamiento, ya que Azure Storage no podrá acceder a la clave de cifrado de la cuenta.
+R: Sí, puede revocar el acceso en cualquier momento. Hay varias maneras para revocar el acceso a las claves. Para más información, consulte [PowerShell de Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) y la [CLI de Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revocación del acceso bloqueará eficazmente el acceso a todos los blobs de la cuenta de almacenamiento, ya que Azure Storage no podrá acceder a la clave de cifrado de la cuenta.
 
 **P: ¿puedo crear una cuenta de almacenamiento y un clave en una región diferente?**
 
@@ -123,6 +123,6 @@ R: Envíe un mensaje de correo electrónico a [ssediscussions@microsoft.com](mai
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-*   Para más información sobre el conjunto completo de funcionalidades de seguridad que ayudan a los desarrolladores a crear aplicaciones seguras, consulte la [Guía de seguridad de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*   Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
+*   Para más información sobre el conjunto completo de funcionalidades de seguridad que ayudan a los desarrolladores a crear aplicaciones seguras, consulte la [Guía de seguridad de Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 *   Para una introducción sobre Azure Key Vault, consulte [Introducción al Almacén de claves de Azure](../../key-vault/key-vault-get-started.md).

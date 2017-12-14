@@ -4,7 +4,7 @@ description: "Si sabe cómo implementar servicios de dominio de Active Directory
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure
 Este artículo explica las importantes diferencias entre implementar Windows Server Active Directory Domain Services (ADDS) y Servicios de federación de Active Directory (ADFS) localmente en comparación con la implementación en máquinas virtuales de Microsoft Azure.
@@ -42,7 +42,7 @@ Este artículo no explica la configuración de [Azure Active Directory](http://a
 
 1. Puede ejecutar Windows Server AD DS en la nube en máquinas virtuales si utiliza Azure para extender el centro de datos local en la nube.
 2. Puede usar Azure Active Directory para proporcionar a los usuarios un inicio de sesión único en aplicaciones de software como servicio (SaaS). Por ejemplo, Microsoft Office 365 usa esta tecnología y las aplicaciones que se ejecutan en Azure u otras plataformas en la nube también pueden usarla.
-3. Puede utilizar Azure AD (el Servicio de control de acceso) para permitir que los usuarios inicien sesión, mediante identidades de Facebook, Google, Microsoft y otros proveedores de identidades, en aplicaciones hospedadas en la nube o de forma local.
+3. Puede utilizar Azure AD (Access Control Service) para permitir que los usuarios inicien sesión, mediante identidades de Facebook, Google, Microsoft y otros proveedores de identidades, en aplicaciones hospedadas en la nube o de forma local.
 
 Para más información sobre estas diferencias, consulte el artículo [Aspectos básicos de la administración de identidades de Azure](fundamentals-identity.md).
 
@@ -51,8 +51,9 @@ Puede descargar y ejecutar la herramienta de [evaluación de preparación de má
 
 Se recomienda que revise también en primer lugar los tutoriales, guías y vídeos que tratan de los siguientes temas:
 
-* [Creación de una red virtual mediante el Portal de Azure](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
-* [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Creación de una red virtual mediante de Azure Portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+* 
+            [Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Portal clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 * [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md)
 * [Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS para profesionales de TI: (01) Principios básicos sobre máquinas virtuales](https://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
@@ -64,7 +65,7 @@ Los requisitos fundamentales para implementar Windows Server Active Directory en
 ### <a name="azure-virtual-machines-may-need-connectivity-to-the-on-premises-corporate-network"></a>Puede que las máquinas virtuales de Azure necesiten conectividad con la red corporativa local.
 Conectar de nuevo máquinas virtuales de Azure a una red corporativa local requiere una red virtual que incluya un componente de red privada virtual (VPN) de sitio a sitio o de sitio a punto que pueda conectar sin ningún problema máquinas virtuales de Azure y equipos locales. Este componente de VPN también puede permitir a equipos miembros del dominio local acceder a un dominio de Windows Server Active Directory cuyos controladores de dominio estén hospedados exclusivamente en máquinas virtuales de Azure. No obstante, es importante que tenga en cuenta que si se produce un error en la VPN, la autenticación y otras operaciones que dependen de Windows Server Active Directory también darán error. Aunque los usuarios podrán iniciar sesión con credenciales ya existentes almacenadas en caché, todos los intentos de autenticación de punto a punto o de cliente a servidor cuyos vales se tienen que emitir aún o se han quedado obsoletos, darán error.
 
-Consulte [Red virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para ver una demostración en vídeo y una lista de tutoriales paso a paso, incluido [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+Consulte [Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) para ver una demostración en vídeo y una lista de tutoriales paso a paso, incluido [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]
 > También puede implementar Windows Server Active Directory en una red virtual de Azure que no tenga conectividad con una red local. Las instrucciones de este tema, sin embargo, dan por supuesto que se usa una red virtual de Azure, ya que esta proporciona funcionalidades de direccionamiento IP que son esenciales para Windows Server.
@@ -111,7 +112,7 @@ A partir de Windows Server 2012, [se han integrado medidas de seguridad adiciona
 > 
 > 
 
-## <a name="why-deploy-windows-server-ad-ds-on-azure-virtual-machines"></a>¿Por qué implementar Windows Server AD DS en Máquinas virtuales de Azure?
+## <a name="why-deploy-windows-server-ad-ds-on-azure-virtual-machines"></a>¿Por qué implementar Windows Server AD DS en Azure Virtual Machines?
 Muchos escenarios de implementación de Windows Server AD DS son adecuados para la implementación como máquinas virtuales en Azure. Por ejemplo, suponga que tiene una compañía en Europa que necesita autenticar usuarios en una ubicación remota de Asia. La compañía no ha implementado previamente controladores de dominio de Windows Server Active Directory en Asia debido al costo de implementación y a su poca experiencia para administrar el periodo posterior a la implementación de los servidores. Como resultado, los controladores de dominio en Europa atienden las solicitudes de autenticación de Asia con resultados poco óptimos. En este caso, puede implementar un controlador de dominio en la máquina virtual que ha especificado que se debe ejecutar en el centro de datos de Azure en Asia. La asociación de ese controlador de dominio a una red virtual de Azure que esté conectada directamente a la ubicación remota mejorará el rendimiento de la autenticación.
 
 Azure también resulta indicado como sustituto de sitios costosos de recuperación ante desastres (DR). El costo relativamente bajo de hospedar un número pequeño de controladores de dominio y una única red virtual en Azure constituye una alternativa atractiva.
@@ -123,10 +124,10 @@ Por último, puede que desee implementar una aplicación de red en Azure, como S
 > 
 > 
 
-## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>Diferencias entre implementar controladores de dominio de Windows Server Active Directory en máquinas virtuales de Azure o hacerlo de forma local
+## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>Diferencias entre implementar controladores de dominio de Windows Server Active Directory en Azure Virtual Machines o hacerlo de forma local
 * En cualquier escenario de implementación de Windows Server Active Directory que incluya más de una máquina virtual, es necesario utilizar una red virtual para que las direcciones IP sean coherentes. Tenga en cuenta que en esta guía se supone que los controladores de dominio se ejecutan en una red virtual.
 * Al igual que con los controladores de dominio locales, se recomiendan direcciones IP estáticas. Una dirección IP estática solo se puede configurar mediante Azure PowerShell. Para más detalles, consulte [Static internal IP address for VMs (Dirección IP estática interna para máquinas virtuales)](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) . Si tiene sistemas de supervisión u otras soluciones que comprueban la configuración de la dirección IP estática en el sistema operativo invitado, puede asignar la misma dirección IP estática a las propiedades del adaptador de red de la máquina virtual. Pero tenga en cuenta que el adaptador de red se descartará si la máquina virtual se somete a recuperación del servicio o se cierra en el portal y se desasigna su dirección. En ese caso, tendrá que restablecer la dirección IP estática del sistema operativo invitado.
-* La implementación de máquinas virtuales en una red virtual no implica (ni requiere) conectividad a una red local; la red virtual simplemente habilita esa posibilidad. Debe crear una red virtual para la comunicación privada entre Azure y la red local. Debe implementar un punto de conexión de VPN en la red local. La VPN está abierta desde Azure a la red local. Para más información, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md) y [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+* La implementación de máquinas virtuales en una red virtual no implica (ni requiere) conectividad a una red local; la red virtual simplemente habilita esa posibilidad. Debe crear una red virtual para la comunicación privada entre Azure y la red local. Debe implementar un punto de conexión de VPN en la red local. La VPN está abierta desde Azure a la red local. Para más información, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md) y [Creación de una red virtual con una conexión VPN de sitio a sitio mediante Azure Portal clásico](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 > [!NOTE]
 > Hay una opción disponible para [crear una VPN de punto a sitio](../vpn-gateway/vpn-gateway-point-to-site-create.md) para conectar equipos individuales basados en Windows directamente a una red virtual.
@@ -281,7 +282,7 @@ SharePoint se implementa en una máquina virtual de Azure y la aplicación no ti
 #### <a name="description"></a>Descripción
 Una aplicación de notificaciones que se ha implementado correctamente de forma local, utilizada por usuarios corporativos, y que debe ser accesible directamente desde Internet. La aplicación actúa como un front-end web para una Base de datos SQL en la que almacena los datos. Los servidores de SQL Server utilizados por la aplicación también se encuentran en la red corporativa. Se han implementado dos STS de Windows Server AD FS y un equilibrador de carga de forma local para proporcionar acceso a los usuarios corporativos. Ahora, tanto los socios comerciales mediante sus propias identidades corporativas como los usuarios corporativos ya existentes necesitan acceder adicionalmente a la aplicación directamente a través de Internet.
 
-En un esfuerzo por simplificar y satisfacer las necesidades de implementación y configuración de este nuevo requisito, se decidió que se instalaran dos front-end web y dos servidores proxy de Windows Server AD FS en las máquinas virtuales de Azure. Las cuatro máquinas virtuales se expondrán directamente a Internet y se proporcionará conectividad a la red local con la funcionalidad VPN de sitio a sitio de la red virtual de Azure.
+En un esfuerzo por simplificar y satisfacer las necesidades de implementación y configuración de este nuevo requisito, se decidió que se instalaran dos front-end web y dos servidores proxy de Windows Server AD FS en las máquinas virtuales de Azure. Las cuatro máquinas virtuales se expondrán directamente a Internet y se proporcionará conectividad a la red local con la funcionalidad VPN de sitio a sitio de la instancia de Azure Virtual Network.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Consideraciones sobre el escenario y cómo se aplican las áreas de tecnología al mismo
 * [Topología de red](#BKMK_NetworkTopology): cree una red virtual de Azure y [configure la conectividad entre locales](../vpn-gateway/vpn-gateway-site-to-site-create.md).
@@ -331,7 +332,7 @@ Por ejemplo, si implementa un controlador de dominio de réplica en una red virt
 | --- | --- | --- |
 | [Topología de red](#BKMK_NetworkTopology) |¿Crear una red virtual? |<li>Requisitos de acceso a recursos corporativos</li> <li>Autenticación</li> <li>Administración de cuentas</li> |
 | [Configuración de la implementación del controlador de dominio](#BKMK_DeploymentConfig) |<li>¿Implementar un bosque independiente sin ninguna relación de confianza?</li> <li>¿Implementar un nuevo bosque con federación?</li> <li>¿Implementar un nuevo bosque con confianza de bosque de Windows Server Active Directory o Kerberos?</li> <li>¿Extender el bosque corporativo implementando un controlador de dominio de réplica?</li> <li>¿Extender el bosque corporativo implementando un nuevo dominio secundario o árbol de dominios?</li> |<li>Seguridad</li> <li>Cumplimiento normativo</li> <li>Coste</li> <li>Resistencia y tolerancia a errores</li> <li>Compatibilidad de aplicación</li> |
-| [Topología del sitio en Windows Server Active Directory](#BKMK_ADSiteTopology) |¿Cómo configurar subredes, sitios y vínculos de sitio con Red virtual de Azure para optimizar el tráfico y minimizar los costos? |<li>Definiciones de sitio y de subred</li> <li>Propiedades de vínculo de sitio y notificación de cambio</li> <li>Compresión de replicación</li> |
+| [Topología del sitio en Windows Server Active Directory](#BKMK_ADSiteTopology) |¿Cómo configurar subredes, sitios y vínculos de sitio con Azure Virtual Network para optimizar el tráfico y minimizar los costos? |<li>Definiciones de sitio y de subred</li> <li>Propiedades de vínculo de sitio y notificación de cambio</li> <li>Compresión de replicación</li> |
 | [Direccionamiento IP y DNS](#BKMK_IPAddressDNS) |¿Cómo configurar la resolución de nombres y direcciones IP? |<li>Usar el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática</li> <li>Instalar el servidor DNS de Windows Server y configurar las propiedades de la red virtual con el nombre y la dirección IP de la máquina virtual que hospeda los roles de servidor DC y DNS</li> |
 | [Controladores de dominio distribuidos geográficamente](#BKMK_DistributedDCs) |¿Cómo replicar en controladores de dominio de redes virtuales independientes? |Si la topología de sitio de Active Directory requiere controladores de dominio en ubicaciones geográficas que se corresponden con regiones de Azure, es recomendable crear sitios de Active Directory según corresponda. [Configure una conexión de red virtual a red virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) para efectuar la replicación entre controladores de dominio de redes virtuales independientes. |
 | [Controladores de dominio de solo lectura](#BKMK_RODC) |¿Usar controladores de dominio de solo lectura o de escritura? |<li>Filtrar atributos HBI/PII</li> <li>Filtrar secretos</li> <li>Limitar tráfico de salida</li> |
@@ -347,7 +348,7 @@ Por ejemplo, si implementa un controlador de dominio de réplica en una red virt
 ### <a name="BKMK_NetworkTopology"></a>Topología de red
 Para cumplir con los requisitos de coherencia de direcciones IP y de DNS de Windows Server AD DS, es necesario crear primero una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) y conectar las máquinas virtuales a ella. Durante su creación, debe decidir si desea ampliar la conectividad a la red corporativa local, que conecta de forma transparente máquinas virtuales de Azure a máquinas locales. Esto se logra mediante tecnologías tradicionales de VPN y requiere exponer un punto de conexión de VPN en el borde de la red corporativa. Es decir, la VPN se inicia desde Azure a la red corporativa, no a la inversa.
 
-Tenga en cuenta que se aplican cargos adicionales al extender una red virtual a la red local además de los cargos estándar que se aplican a cada máquina virtual. En concreto, se aplican cargos para el tiempo de CPU de la puerta de enlace de la Red virtual de Azure y para el tráfico de salida generado por cada máquina virtual que se comunica con máquinas locales a través de la VPN. Para obtener más información acerca de los gastos por tráfico de red, consulte [Precios de Azure](http://azure.microsoft.com/pricing/).
+Tenga en cuenta que se aplican cargos adicionales al extender una red virtual a la red local además de los cargos estándar que se aplican a cada máquina virtual. En concreto, se aplican cargos para el tiempo de CPU de la puerta de enlace de Azure Virtual Network y para el tráfico de salida generado por cada máquina virtual que se comunica con máquinas locales a través de la VPN. Para obtener más información acerca de los gastos por tráfico de red, consulte [Precios de Azure](http://azure.microsoft.com/pricing/).
 
 ### <a name="BKMK_DeploymentConfig"></a>Configuración de la implementación del controlador de dominio
 La forma de configurar el controlador de dominio depende de los requisitos del servicio que desee ejecutar en Azure. Por ejemplo, podría implementar un nuevo bosque, aislado de su propio bosque corporativo, para comprobar una prueba de concepto, una nueva aplicación o algún otro proyecto a corto plazo que requiera servicios de directorio pero no acceso específico a recursos internos corporativos.

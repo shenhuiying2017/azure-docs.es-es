@@ -1,9 +1,9 @@
 ---
 title: "Información general de DSC de Azure Automation | Microsoft Docs"
-description: "Una información general de Configuración de estado deseado (DSC) de Automatización de Azure, sus condiciones y problemas conocidos"
+description: "Una información general de Configuración de estado deseado (DSC) de Azure Automation, sus condiciones y problemas conocidos"
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 keywords: "powershell dsc, configuración de estado deseado, powershell dsc azure"
 ms.assetid: fd40cb68-c1a6-48c3-bba2-710b607d1555
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
-ms.author: eslesar
-ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: 7440fa58f9cbd201984d178a7e9a2c12afc84783
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-automation-dsc-overview"></a>Información general de DSC de Automatización de Azure
+# <a name="azure-automation-dsc-overview"></a>Información general de DSC de Azure Automation
 
 DSC de Azure Automation es un servicio de Azure que le permite escribir, administrar y compilar [configuraciones](https://msdn.microsoft.com/powershell/dsc/configurations) de configuración de estado deseado (DSC) de PowerShell, importar [recursos de DSC](https://msdn.microsoft.com/powershell/dsc/resources) y asignar configuraciones a nodos de destino, todo en la nube.
 

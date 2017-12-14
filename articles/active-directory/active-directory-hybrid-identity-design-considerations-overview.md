@@ -4,7 +4,7 @@ description: "Información general y mapa de contenido de la guía de considerac
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: e2a70f2474298618dd8ee11c583f8f445d7eba7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94e67c5ea0028419e9bf74420e2bb46709b3df01
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Consideraciones de diseño de identidad híbrida de Azure Active Directory
 Los dispositivos basados en el consumidor proliferan en el mundo empresarial y las aplicaciones de software como servicio (SaaS) basadas en la nube son fáciles de adoptar. Como resultado, resulta difícil mantener el control de acceso a las aplicaciones de los usuarios entre centros de datos internos y plataformas en la nube.  
@@ -47,7 +47,7 @@ La ilustración anterior es un ejemplo de una solución de identidad híbrida qu
 
 Esta guía proporciona una serie de pasos y las tareas que puede seguir para diseñar una solución de identidad híbrida que cumpla los requisitos únicos de su organización. A través de los siguientes pasos y tareas, la guía presenta las tecnologías y característica pertinentes que están disponibles para usted para satisfacer los requisitos funcionales y de nivel de servicio de su organización.
 
-**Suposiciones**: tiene algo de experiencia con Windows Server, Servicios de dominio de Active Directory y Azure Active Directory. En este documento, se supone que está buscando cómo estas soluciones pueden satisfacer sus necesidades de negocio por sí solas o en una solución integrada.
+**Suposiciones**: tiene algo de experiencia con Windows Server, Active Directory Domain Services y Azure Active Directory. En este documento, se supone que está buscando cómo estas soluciones pueden satisfacer sus necesidades de negocio por sí solas o en una solución integrada.
 
 ## <a name="design-considerations-overview"></a>Información general sobre las consideraciones de diseño
 Este documento proporciona un conjunto de pasos y tareas que puede seguir para diseñar una solución de identidad híbrida que cumpla sus necesidades. Los pasos se presentan en una secuencia ordenada. Las consideraciones de diseño que aprenderá en pasos posteriores pueden llevarle a cambiar las decisiones tomadas en los pasos anteriores, debido al conflicto entre las opciones de diseño. Hemos hecho todo lo posible por avisarle de los posibles conflictos de diseño en todo el documento. 

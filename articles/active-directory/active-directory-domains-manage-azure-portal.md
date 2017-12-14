@@ -4,7 +4,7 @@ description: "Conceptos y procedimientos de administración de un nombre de domi
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 64c1be4358305a736ac1dd8a1b7194c80100d256
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 Un nombre de dominio es una parte importante del identificador para muchos recursos de directorio: forma parte de un nombre de usuario o una dirección de correo electrónico de un usuario, forma parte de la dirección para un grupo y puede formar parte del URI del identificador de una aplicación. Un recurso en Azure Active Directory (Azure AD) puede incluir un nombre de dominio cuya pertenencia al directorio que contiene el recurso ya se haya verificado. Solo los administradores globales pueden realizar tareas de administración de Azure AD.
@@ -63,7 +63,7 @@ Debe cambiar o eliminar dichos recursos en su directorio Azure AD para poder eli
 También se pueden completar la mayoría de las tareas de administración para los nombres de dominio de Azure Active Directory mediante Microsoft PowerShell, o mediante programación utilizando la API de Azure Graph.
 
 * [Utilización de PowerShell para administrar los nombres de dominio en Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-* [Uso de la API Graph para administrar nombres de dominio en Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Using Graph API to manage domain names in Azure AD (Uso de la API Graph para administrar nombres de dominio en Azure AD)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Agregar nombres de dominio personalizados](add-custom-domain.md)

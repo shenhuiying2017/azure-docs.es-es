@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: acdcf5b772cbaca1827663b49d5cc8cafa238108
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solución de problemas de vistas de costos empresariales 
 
-Dentro de las inscripciones empresariales, hay varias configuraciones que podrían provocar que los usuarios de la inscripción no pudieran ver los costos.  Estas configuraciones las administra el administrador de inscripciones o el asociado si la inscripción no se ha adquirido directamente con Microsoft.  Este artículo le ayuda a comprender cuáles son las configuraciones y de qué manera pueden afectar a la inscripción. Estas opciones son independientes de los [roles de RBAC de Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+Dentro de las inscripciones empresariales, hay varias configuraciones que podrían provocar que los usuarios de la inscripción no pudieran ver los costos.  Estas configuraciones las administra el administrador de inscripciones o el asociado si la inscripción no se ha adquirido directamente con Microsoft.  Este artículo le ayuda a comprender cuáles son las configuraciones y de qué manera pueden afectar a la inscripción. Estas opciones son independientes de los [roles de RBAC de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 > [!Note]
 > Esta característica actualmente está en versión preliminar privada. [Regístrese aquí](https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbR0YtfU6ham9OsGsPPYdu2xdUNk1BQUwzTkUyOVc5NUpCTFcwR0pIOVFETS4u) para tener su inscripción unida a la versión preliminar.     
@@ -46,5 +46,5 @@ Si recibe el mensaje de error "Este recurso no está disponible" al intentar acc
 ![recurso no encontrado](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Póngase en contacto con el administrador de la suscripción o de los grupos de administración para conseguir acceso.  
-* Para las suscripciones, consulte el documento [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) para obtener ayuda sobre qué rol se necesita.
+* Para las suscripciones, consulte el documento [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) para obtener ayuda sobre qué rol se necesita.
 * Para los grupos de administración, el acceso RBAC no está disponible y lo estará próximamente. Póngase en contacto con el administrador de Enterprise Portal para que le asigne acceso.   

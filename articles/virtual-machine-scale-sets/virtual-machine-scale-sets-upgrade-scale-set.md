@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Actualización de un conjunto de escalado de máquinas virtuales
 En este artículo se describe cómo puede implementar una actualización del sistema operativo en un conjunto de escalado de máquinas virtuales de Azure sin tiempos de inactividad. En este contexto, una actualización del SO implica un cambio de versión o de SKU del sistema operativo o del URI de una imagen personalizada. Para actualizar sin tiempos de inactividad, las máquinas virtuales deben actualizarse una a una o en grupos (por ejemplo, un dominio de error a la vez), en lugar de todas a la vez. Al hacerlo, todas las máquinas virtuales que no se estén actualizando siguen funcionando.
@@ -31,7 +31,7 @@ Para evitar ambigüedades, se distingue entre cuatro tipos de actualización de 
 * Cambiar la referencia de imagen de un conjunto de escalado que se creó con Azure Managed Disks.
 * Aplicar revisiones al sistema operativo desde una máquina virtual (por ejemplo, instalar una revisión de seguridad y ejecutar Windows Update). Este escenario es posible, pero no se trata en este artículo.
 
-No hablaremos de los conjuntos de escalado de máquinas virtuales que se implementan como parte de un clúster de [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) . Consulte [Aplicación de revisiones del sistema operativo Windows en el clúster de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) para obtener más información sobre aplicación de revisiones a Service Fabric.
+No hablaremos de los conjuntos de escalado de máquinas virtuales que se implementan como parte de un clúster de [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) . Consulte [Aplicación de revisiones del sistema operativo Windows en el clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) para obtener más información sobre aplicación de revisiones a Service Fabric.
 
 La secuencia básica para cambiar la versión o la SKU del SO de una imagen de plataforma o el URI de una imagen personalizada es la siguiente:
 

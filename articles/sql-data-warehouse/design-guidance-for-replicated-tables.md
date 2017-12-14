@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 413a9df6d224e53ba42313f6dc5e740710d418e3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse
 En este artículo se proporcionan recomendaciones para el diseño de tablas replicadas en el esquema de SQL Data Warehouse. Siga estas recomendaciones para mejorar el rendimiento de las consultas al reducir el movimiento de datos y la complejidad de las consultas.
@@ -47,7 +47,7 @@ Las tablas replicadas funcionan correctamente para tablas de dimensiones pequeñ
 
 Considere la posibilidad de usar una tabla replicada cuando:
 
-- El tamaño de la tabla en el disco es inferior a 2 GB, independientemente del número de filas. Para averiguar el tamaño de una tabla, puede usar el comando [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
+- El tamaño de la tabla en el disco es inferior a 2 GB, independientemente del número de filas. Para averiguar el tamaño de una tabla, puede usar el comando [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - La tabla se usa en combinaciones que en caso contrario requerirían el movimiento de datos. Por ejemplo, una combinación en tablas distribuidas por hash requiere el movimiento de datos cuando las columnas de combinación no son la misma columna de distribución. Si una de las tablas distribuidas por hash es pequeña, considere la posibilidad de usar una tabla replicada. Una combinación en una tabla Round Robin requiere movimiento de datos. Se recomienda usar tablas replicadas en lugar de tablas Round Robin en la mayoría de los casos. 
 
 

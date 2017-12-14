@@ -4,7 +4,7 @@ description: "Al planear la solución de identidad híbrida, identifique los req
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 96bf9d4c26a22f718c29804c11681199e775f589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77b773f4cd1c4d0ff0a4566fa76fd1d002d15993
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
 El primer paso para proteger los datos es identificar quién puede tener acceso a ellos. Como parte de este proceso, necesita contar con una solución de identidad que se pueda integrar con su sistema con el fin de proporcionar funcionalidades de autenticación y autorización. Con frecuencia la autenticación y la autorización se confunden y no se comprende bien su función. En realidad, son bastante diferentes, tal como se muestra en la ilustración siguiente:

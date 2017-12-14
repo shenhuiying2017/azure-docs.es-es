@@ -4,7 +4,7 @@ description: "En este tema se describe la característica de Programador incorpo
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63f69756b3933fecdec75cc677e1098447e5b94e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 418dcf67844bff7352b63db31ddfa3be3f7f29e9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Programador
+# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect Sync: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (también denominado motor de sincronización).
 
 Esta característica se introdujo con la compilación 1.1.105.0 (publicada en febrero de 2016).
@@ -37,7 +37,7 @@ El programador es responsable de dos tareas:
 
 El programador en sí, siempre está en ejecución, pero se puede configurar para que ejecute solo una o ninguna de estas tareas. Por ejemplo, si necesita tener su propio proceso de ciclo de sincronización, puede deshabilitar esta tarea en el programador y continuar ejecutando la tarea de mantenimiento.
 
-## <a name="scheduler-configuration"></a>Configuración del programador
+## <a name="scheduler-configuration"></a>Configuración de Scheduler
 Para ver la configuración actual, vaya a PowerShell y ejecute `Get-ADSyncScheduler`. Muestra algo parecido a esta imagen:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
@@ -165,7 +165,7 @@ Get-ADSyncConnectorRunStatus
 ![Estado de la ejecución de conector](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
 En la ilustración anterior, la primera línea refleja un estado donde el motor de sincronización está inactivo. La segunda línea es de cuando se ejecuta el conector de Azure AD.
 
-## <a name="scheduler-and-installation-wizard"></a>Programador y Asistente para instalación
+## <a name="scheduler-and-installation-wizard"></a>Scheduler y Asistente para instalación
 Si inicia el Asistente para instalación, el programador se suspende temporalmente. Este comportamiento es debido a que se supone que realizará cambios en la configuración y estos cambios no se pueden aplicar si el motor de sincronización se está ejecutando activamente. Por este motivo, no deje el Asistente para instalación abierto, ya que impide que el motor de sincronización realizar ninguna acción.
 
 ## <a name="next-steps"></a>Pasos siguientes

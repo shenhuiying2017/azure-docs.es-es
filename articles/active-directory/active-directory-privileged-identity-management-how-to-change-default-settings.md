@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo cambiar la configuración predete
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f6cbcb6a-8a89-4077-afd8-06c94a64f4aa
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 23605e89cd1846d2e06e48cb5d3e0191cb9e9b4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2cf361dc879915c316e7ee907b5c70b5907459c2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Administración de la configuración de activación de rol en Privileged Identity Management de Azure AD
 Un administrador de roles con privilegios puede personalizar Privileged Identity Management (PIM) de Azure AD en su organización, como cambiar la experiencia de un usuario que va a activar una asignación de rol apto.

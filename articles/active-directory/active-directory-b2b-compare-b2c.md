@@ -4,7 +4,7 @@ description: "¿Cuál es la diferencia entre la colaboración B2B de Azure Activ
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-ms.openlocfilehash: 44cbbc149787a2d6cf2e0e8750b98d33b52f6136
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: beca92e9259835fffa9178f558e9762637594570
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparación de la colaboración B2B y B2C de Azure Active Directory
 
@@ -35,7 +35,7 @@ Se admite el inicio de sesión único (SSO) en todas las aplicaciones conectadas
 Ciclo de vida de socio comercial: administrado por la organización anfitriona o invitadora.  | Ciclo de vida de cliente: mediante autoservicio o administrado por la aplicación.
 Directiva de seguridad y cumplimiento: administradas por la organización anfitriona o invitadora.  | Directiva de seguridad y cumplimiento: administradas por la aplicación.
 Personalización de marca: se utiliza la marca de la organización anfitriona o invitadora.  |    Personalización de marca: administrada por la aplicación. Normalmente suele tratarse de productos con marca, y la organización pasa a un segundo plano.
-Más información: [entrada de blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentación](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Más información: [página de producto](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [documentación](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+Más información: [entrada de blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [documentación](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | Más información: [página de producto](https://azure.microsoft.com/en-us/services/active-directory-b2c/), [documentación](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 
 ### <a name="next-steps"></a>Pasos siguientes

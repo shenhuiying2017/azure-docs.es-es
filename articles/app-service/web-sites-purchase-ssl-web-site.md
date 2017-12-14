@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
-Este tutorial muestra cómo proteger su aplicación web comprando un certificado SSL para su instancia de  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** almacenándolo de forma segura en [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)y asociándolo a un dominio personalizado.
+Este tutorial muestra cómo proteger su aplicación web comprando un certificado SSL para su instancia de  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** almacenándolo de forma segura en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)y asociándolo a un dominio personalizado.
 
 ## <a name="step-1---log-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
 
@@ -49,7 +49,7 @@ Seleccione la **suscripción**, el **grupo de recursos** y la **SKU de certifica
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Paso 3: Almacenamiento del certificado en Azure Key Vault
 
 > [!NOTE]
-> [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) es un servicio de Azure que ayuda a proteger claves criptográficas y secretos que emplean servicios y aplicaciones en la nube.
+> [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) es un servicio de Azure que ayuda a proteger claves criptográficas y secretos que emplean servicios y aplicaciones en la nube.
 >
 
 Una vez completada la compra del certificado SSL, debe abrir la página [Certificados de App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders).

@@ -15,20 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: 751ad19e72c7d705639227bd6a44dafab78e41d8
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 9c07800747dcfda3d233467174bb6b893a24039e
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Ejemplos de Node.js de Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [Ejemplos de .NET](documentdb-dotnet-samples.md)
 > * [Ejemplos de Node.js](documentdb-nodejs-samples.md)
 > * [Ejemplos de Python](documentdb-python-samples.md)
-> * [Galería de ejemplos de código de Azure](https://azure.microsoft.com/documentation/samples/?service=documentdb&ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+> * [Galería de ejemplos de código de Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 En el repositorio de GitHub [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) se incluyen soluciones de ejemplo que realizan operaciones CRUD y otras comunes en recursos de Azure Cosmos DB. Este artículo ofrece:
 

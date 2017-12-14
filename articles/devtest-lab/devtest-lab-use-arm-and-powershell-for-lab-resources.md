@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: tarcher
-ms.openlocfilehash: cea4531175df2cc39790497dc049d27e23ffa0c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9f293c7c96633cd0116dc3c19189085d24048b4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Creación o modificación de laboratorios automáticamente con plantillas de Azure Resource Manager y PowerShell
 
@@ -30,7 +30,7 @@ Este artículo le guía a través del proceso de uso de estas plantillas y scrip
 Puede encontrar [plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) y [scripts de PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/Scripts) creados previamente en nuestro [repositorio de Github](https://github.com/Azure/azure-devtestlab) público. Úselos como están o personalícelos según sus necesidades y almacénelos en su propio [repositorio Git privado](devtest-lab-add-artifact-repo.md). 
 
 ## <a name="step-2-modify-your-azure-resource-manager-template"></a>Paso 2: Edición de la plantilla de Azure Resource Manager
-Si nunca ha creado una plantilla antes, puede seguir los pasos que se indican en [Creación de la primera plantilla de Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template).
+Si nunca ha creado una plantilla antes, puede seguir los pasos que se indican en [Creación de la primera plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
 Además, en los [procedimientos recomendados para crear plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) se ofrecen muchas directrices y sugerencias para ayudarle a crear plantillas de Azure Resource Manager confiables y fáciles de usar. Normalmente, se usará una variación de uno de los enfoques o ejemplos proporcionados y se modificará la plantilla según las necesidades de cada persona.
 

@@ -5,7 +5,7 @@ keywords: "autenticación de usuario, experiencia de inicio de sesión, inicio d
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 04/02/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: f4e67815cfe03c775dae83d214aea4f2ac37fcdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c47356b7b84e38a1db9259304c2a975958b1977c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>La experiencia de inicio de sesión con Azure Multi-Factor Authentication
 > [!NOTE]
@@ -70,7 +70,7 @@ Si usa la aplicación Microsoft Authenticator para obtener códigos de comprobac
 1. Inicie sesión en una aplicación o servicio como Office 365 con su nombre de usuario y contraseña.
 2. Microsoft le pedirá un código de verificación.
 
-  ![Escribir el código de comprobación](./media/multi-factor-authentication-end-user-signin/verify3.png)
+  ![Escribir el código de verificación](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Abra la aplicación Microsoft Authenticator en el teléfono y escriba el código en el cuadro donde está iniciando sesión.
 

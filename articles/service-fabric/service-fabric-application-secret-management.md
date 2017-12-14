@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: ab60d37c8a6189b25ce35d2659999542ca5c8d6b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>Administración de secretos en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.
@@ -180,7 +180,7 @@ Más información sobre la [ejecución de aplicaciones con distintos permisos de
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md
-[config-package]: service-fabric-application-model.md
+[config-package]: service-fabric-application-and-service-manifests.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 
 <!-- Images -->

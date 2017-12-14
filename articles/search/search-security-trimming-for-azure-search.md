@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Recorte de seguridad con Azure Search
 
@@ -108,13 +108,13 @@ Si necesita actualizar un documento existente con la lista de grupos, puede usar
 }
 ```
 
-Para obtener detalles completos sobre cómo agregar o actualizar documentos, puede leer [Edición de documentos](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Para obtener detalles completos sobre cómo agregar o actualizar documentos, puede leer [Edición de documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Aplicación del filtro de seguridad
 
 Para recortar documentos basados en el acceso `group_ids`, debe emitir una consulta de búsqueda con un filtro `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, donde "group_id1, group_id2,..." son los grupos a los que pertenece el emisor de la solicitud de búsqueda.
 Este filtro coincide con todos los documentos para los que el campo `group_ids` contiene uno de los identificadores especificados.
-Para obtener detalles completos sobre cómo buscar documentos con Azure Search, puede leer [Búsqueda en documentos](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Para obtener detalles completos sobre cómo buscar documentos con Azure Search, puede leer [Búsqueda en documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Tenga en cuenta que en este ejemplo se muestra cómo buscar en documentos mediante una solicitud POST.
 
 Emita la solicitud POST HTTP:

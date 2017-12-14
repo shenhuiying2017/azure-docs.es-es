@@ -4,7 +4,7 @@ description: "Esta es la página de Azure AD Connect Health donde se describe c�
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Supervisión de Azure AD Connect sync con Azure AD Connect Health
-La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Para obtener información adicional sobre la supervisión de los Servicios de dominio de Active Directory con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
+La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
 
 ![Azure AD Connect Health para sincronización](./media/active-directory-aadconnect-health-sync/sync-blade.png)
 
@@ -35,7 +35,7 @@ Al seleccionar una alerta, recibirá información adicional, así como los pasos
 ### <a name="limited-evaluation-of-alerts"></a>Evaluación limitada de alertas
 Si Azure AD Connect no usa la configuración predeterminada (por ejemplo, si el filtrado de atributos se cambia de la configuración predeterminada a una configuración personalizada), el agente de Azure AD Connect Health no cargará los eventos de error relacionados con Azure AD Connect.
 
-Esto limita la evaluación de las alertas por parte del servicio. Verá una pancarta que indica esta condición en el Portal de Azure en su servicio.
+Esto limita la evaluación de las alertas por parte del servicio. Verá una pancarta que indica esta condición en Azure Portal en su servicio.
 
 ![Azure AD Connect Health para sincronización](./media/active-directory-aadconnect-health-sync/banner.png)
 

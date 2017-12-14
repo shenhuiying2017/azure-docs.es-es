@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -36,7 +36,7 @@ Este error suele ocurrir cuando se intenta el cifrado del disco del sistema oper
 - El disco del sistema operativo utiliza un esquema de administrador de volúmenes lógicos (LVM). Aunque hay compatibilidad limitada con los discos de datos LVM, no se admite el disco del sistema operativo LVM.
 - No se cumplen los requisitos mínimos de memoria (se recomiendan 7 GB para el cifrado del disco de sistema operativo).
 - Las unidades de datos se han montado recursivamente en el directorio /mnt/ o entre sí (por ejemplo, /mnt/datos1, /mnt/datos2, /datos3 + /datos3/datos4).
-- No se cumplen otros [requisitos previos](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) de Azure Disk Encryption para Linux.
+- No se cumplen otros [requisitos previos](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) de Azure Disk Encryption para Linux.
 
 ## <a name="unable-to-encrypt"></a>No se puede cifrar
 

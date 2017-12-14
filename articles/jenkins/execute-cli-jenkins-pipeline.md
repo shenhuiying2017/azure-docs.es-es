@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 490112417870fb3bfdb75abdb82f9adfff550f0a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementación en Azure App Service con Jenkins y la CLI de Azure
 Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de Azure en [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). En este tutorial, creará una canalización de CI/CD en una máquina virtual de Azure, y aprenderá los siguientes temas:
@@ -56,7 +56,7 @@ sudo apt-get install -y maven
 Para ejecutar la CLI de Azure se necesita una credencial de Azure.
 
 * En el panel de Jenkins, haga clic en **Credenciales -> System ->**(Credenciales -> Sistema). Haga clic en **Global credentials(unrestricted)**  [Credenciales (sin restricción) globales].
-* Haga clic en **Add Credentials** (Agregar credenciales) para agregar una nueva [entidad de servicio de Microsoft Azure](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) rellenando los datos correspondientes a Subscription ID (Identificador de suscripción), Client ID (Identificador de cliente), Client Secret (Secreto de cliente) y OAuth 2.0 Token Endpoint (Punto de conexión de token OAuth 2.0). Proporcione un identificador para usarlo en el paso posterior.
+* Haga clic en **Add Credentials** (Agregar credenciales) para agregar una nueva [entidad de servicio de Microsoft Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) rellenando los datos correspondientes a Subscription ID (Identificador de suscripción), Client ID (Identificador de cliente), Client Secret (Secreto de cliente) y OAuth 2.0 Token Endpoint (Punto de conexión de token OAuth 2.0). Proporcione un identificador para usarlo en el paso posterior.
 
 ![Adición de credenciales](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 

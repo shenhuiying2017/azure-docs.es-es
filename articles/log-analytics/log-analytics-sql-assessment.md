@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Log Analytics
 
@@ -52,7 +52,7 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
 
 Para llevar a cabo la comprobación de estado en los servidores de SQL Server, necesitan un agente y conectividad a Log Analytics mediante alguno de los siguientes métodos admitidos:
 
-1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) si el servidor no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
+1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si el servidor no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el servidor se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
 3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) una vez que habilite la solución en el área de trabajo.  
 

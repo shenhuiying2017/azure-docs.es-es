@@ -3,8 +3,8 @@ title: Conectarse a Azure Stack con CLI | Microsoft Docs
 description: "Obtenga información sobre cómo usar la interfaz de la línea de comandos (CLI) multiplataforma para administrar e implementar recursos en Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
-ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.author: mabrigg
+ms.openlocfilehash: 5d15815e9b1d20ab03b5716de45ad0fa77a11057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar y configurar la CLI para su uso con Azure Stack
 
@@ -145,7 +145,7 @@ Use los pasos siguientes para conectarse a Azure Stack:
      --profile 2017-03-09-profile
    ```
 
-4. Inicie sesión en el entorno de Azure Stack. Para ello, use el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack como un usuario o una [entidad de servicio](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Inicie sesión en el entorno de Azure Stack. Para ello, use el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack como un usuario o una [entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Iniciar sesión como un *usuario*: puede especificar el nombre de usuario y la contraseña directamente en el comando `az login` o autenticarse mediante un explorador. Deberá hacer esto último, si la cuenta tiene habilitada la autenticación multifactor.
 
@@ -195,4 +195,3 @@ Hay algunos problemas conocidos que debe tener en cuenta cuando use la CLI en Az
 [Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
 
 [Administración de permisos de usuario](azure-stack-manage-permissions.md)
-

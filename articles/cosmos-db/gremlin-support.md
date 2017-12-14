@@ -3,7 +3,7 @@ title: Compatibilidad de Azure Cosmos DB con Gremlin | Microsoft Docs
 description: "Más información sobre el lenguaje Gremlin de Apache TinkerPop y sobre las características y pasos que están disponibles en Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
 Azure Cosmos DB admite el lenguaje de recorrido de grafos de [Apache Tinkerpop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una API Graph para crear entidades de grafo y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 

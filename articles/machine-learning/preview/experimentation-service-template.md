@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configuración del servicio Experimentación de Azure Machine Learning
 
 ## <a name="overview"></a>Información general
-La cuenta del servicio Experimentación de Azure Machine Learning, el área de trabajo y el proyecto son recursos de Azure. Por lo tanto, se pueden implementar con plantillas de Resource Manager. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+La cuenta del servicio Experimentación de Azure Machine Learning, el área de trabajo y el proyecto son recursos de Azure. Por lo tanto, se pueden implementar con plantillas de Resource Manager. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Implementación de una plantilla
 Para implementar una plantilla solamente es necesario realizar un par de pasos en la interfaz de la línea de comandos de Azure o en Azure Portal.
@@ -131,13 +131,13 @@ Cree un archivo denominado "template-file.json" con el contenido siguiente.
 }
 ```
 
-### <a name="parameters"></a>Parámetros 
+### <a name="parameters"></a>parameters 
 Cree un archivo con el contenido siguiente y guárdelo como <parameters.json>. 
 
 Hay tres valores que puede cambiar. 
 * AccountName: nombre de la cuenta de experimentación.
 * Location: una de las regiones de Azure admitidas.
-* storageAccountSKU: Azure ML solo admite almacenamiento estándar, no premium. Para más información sobre el almacenamiento, consulte la [introducción al almacenamiento](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* storageAccountSKU: Azure ML solo admite almacenamiento estándar, no premium. Para más información sobre el almacenamiento, consulte la [introducción al almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

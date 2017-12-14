@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>¿Qué es Operations Management Suite (OMS)?
 Este artículo proporciona una introducción a Operations Management Suite (OMS) incluyendo una breve información general sobre el valor empresarial que proporciona, los servicios y las soluciones de administración que incluye y las ofertas que reúnen en un solo paquete diferentes servicios y soluciones.  Se incluyen vínculos a la documentación detallada sobre la implementación y uso de cada servicio y solución.
@@ -52,8 +52,8 @@ Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad p
 || Servicio | Descripción |
 |:--|:--|:--|
 | ![Log Analytics](media/operations-management-suite-overview/icon-log-analytics.png) | Log Analytics | Supervisión y análisis de la disponibilidad y el rendimiento de los distintos recursos, incluidas las máquinas físicas y virtuales. |
-| ![Azure Automation](media/operations-management-suite-overview/icon-automation.png) | Automatización | Automatización de procesos manuales y aplicación de configuraciones a máquinas físicas y virtuales. |
-| ![Copia de seguridad de Azure](media/operations-management-suite-overview/icon-backup.png) | Backup | Realización de copias de seguridad y restauración de datos críticos. |
+| ![Azure Automation](media/operations-management-suite-overview/icon-automation.png) | Automation | Automatización de procesos manuales y aplicación de configuraciones a máquinas físicas y virtuales. |
+| ![Azure Backup](media/operations-management-suite-overview/icon-backup.png) | Backup | Realización de copias de seguridad y restauración de datos críticos. |
 | ![Azure Site Recovery](media/operations-management-suite-overview/icon-site-recovery.png) | Site Recovery | Provisión de una alta disponibilidad para las aplicaciones críticas. |
 
 ### <a name="log-analytics"></a>Log Analytics
@@ -64,7 +64,7 @@ Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad p
 #### <a name="collecting-data"></a>La recopilación de datos
 Hay una variedad de formas para obtener datos para el repositorio con el fin de que Log Analytics los analice.
 
-- **Equipos y máquinas virtuales de Windows o Linux.**  Instale Microsoft Monitoring Agent en los equipos o máquinas virtuales de [Windows](../log-analytics/log-analytics-windows-agents.md) y [Linux](../log-analytics/log-analytics-linux-agents.md) de los que desea recopilar datos.  El agente descargará automáticamente la configuración de Log Analytics que define los eventos y datos de rendimiento que se van a recopilar.  Puede instalar fácilmente el agente en máquinas virtuales que se ejecutan en Azure mediante Azure Portal.  Si ya tiene un entorno de Operations Manager, puede conectar el grupo de administración a Log Analytics y empezar a recopilar datos de todos los agentes existentes automáticamente.
+- **Equipos y máquinas virtuales de Windows o Linux.**  Instale Microsoft Monitoring Agent en los equipos o máquinas virtuales de [Windows](../log-analytics/log-analytics-windows-agent.md) y [Linux](../log-analytics/log-analytics-linux-agents.md) de los que desea recopilar datos.  El agente descargará automáticamente la configuración de Log Analytics que define los eventos y datos de rendimiento que se van a recopilar.  Puede instalar fácilmente el agente en máquinas virtuales que se ejecutan en Azure mediante Azure Portal.  Si ya tiene un entorno de Operations Manager, puede conectar el grupo de administración a Log Analytics y empezar a recopilar datos de todos los agentes existentes automáticamente.
 - **Servicios de Azure.**  Log Analytics recopila telemetría de [Azure Diagnostics y Azure Monitoring](../log-analytics/log-analytics-azure-storage.md) en el repositorio para que pueda supervisar los recursos de Azure.
 - **API del recopilador de datos.**  Log Analytics tiene una [API de REST para rellenar los datos desde cualquier cliente](../log-analytics/log-analytics-data-collector-api.md).  Esto permite recopilar datos de aplicaciones de terceros o implementar escenarios de administración personalizados.  Un método común consiste en usar un runbook en Azure Automation para recopilar datos y, a continuación, usar la API del recopilador de datos para escribirlo en el repositorio.
 
@@ -121,16 +121,16 @@ Los runbooks se pueden [iniciar con una serie de métodos](../automation/automat
 ### <a name="azure-backup-and-azure-site-recovery"></a>Azure Backup y Azure Site Recovery
 Azure Backup y Azure Site Recovery contribuyen a la continuidad del negocio y la recuperación ante desastres.  Cada uno de ellos tiene características que le ayudan a garantizar que las aplicaciones permanecen disponibles cuando se producen interrupciones y vuelven a su operatividad normal cuando los sistemas vuelven a estar conectados.  Ambos servicios contribuyen a los objetivos de puntos de recuperación (RPO) y objetivos de tiempo de recuperación (RTO) definidos para su organización. El RPO define el límite aceptable durante el que los datos no están disponibles en una interrupción, mientras que el RTO limita el periodo aceptable durante el que un servicio o aplicación no está disponible en una interrupción.
 
-#### <a name="azure-backup"></a>Copia de seguridad de Azure
+#### <a name="azure-backup"></a>Azure Backup
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup) proporciona copias de seguridad de datos y restauración de servicios de OMS.  Protege los datos de las aplicaciones y los conserva durante años sin necesidad de realizar ninguna inversión y afrontando unos costes operativos mínimos.  Permite realizar la copia de seguridad a partir de los servidores físicos y virtuales de Windows, además de cargas de trabajo de aplicaciones como SQL Server y SharePoint.  System Center Data Protection Manager (DPM) también puede usar esa solución para replicar los datos protegidos en Azure para obtener redundancia y almacenamiento a largo plazo.
 
 Los datos protegidos en Azure Backup se almacenan en un almacén de copia de seguridad ubicado en una región geográfica determinada. Los datos se replican en la misma región y, según el tipo de almacén, también pueden replicarse en otra región para obtener una resistencia adicional.
 
 Azure Backup tiene tres escenarios fundamentales.
 
-- **Máquina de Windows con agente de Azure Backup.** Realice una copia de seguridad de archivos y carpetas desde cualquier servidor o cliente de Windows directamente a su almacén de copia de seguridad de Azure.<br><br>![Máquina de Windows con agente de Azure Backup](media/operations-management-suite-overview/overview-backup-01.png)
-- **System Center Data Protection Manager (DPM) o servidor de Microsoft Azure Backup.** Aproveche DPM o el servidor de Microsoft Azure Backup para realizar la copia de seguridad de archivos y carpetas, además de las cargas de trabajo de aplicaciones como SQL Server y SharePoint al almacenamiento local y, a continuación, efectuar la replicación en el almacén de Azure Backup. Es compatible con máquinas virtuales Windows y Linux en Hyper-V o VMware.<br><br>![System Center Data Protection Manager (DPM) o servidor de Microsoft Azure Backup](media/operations-management-suite-overview/overview-backup-02.png)
-- **Extensiones de máquina virtual de Azure.** Realice copias de seguridad de las máquinas virtuales Windows o Linux en Azure en su almacén de copia de seguridad de Azure.<br><br>![Extensiones de la máquina virtual de Azure](media/operations-management-suite-overview/overview-backup-03.png)
+- **Máquina de Windows con agente de Azure Backup.** Realice una copia de seguridad de archivos y carpetas desde cualquier servidor o cliente de Windows directamente a su almacén de Azure Backup.<br><br>![Máquina de Windows con agente de Azure Backup](media/operations-management-suite-overview/overview-backup-01.png)
+- **System Center Data Protection Manager (DPM) o Microsoft Azure Backup Server.** Aproveche DPM o Microsoft Azure Backup Server para realizar la copia de seguridad de archivos y carpetas, además de las cargas de trabajo de aplicaciones como SQL Server y SharePoint al almacenamiento local y, a continuación, efectuar la replicación en el almacén de Azure Backup. Es compatible con máquinas virtuales Windows y Linux en Hyper-V o VMware.<br><br>![System Center Data Protection Manager (DPM) o Microsoft Azure Backup Server](media/operations-management-suite-overview/overview-backup-02.png)
+- **Extensiones de máquina virtual de Azure.** Realice copias de seguridad de las máquinas virtuales Windows o Linux en Azure en su almacén de Azure Backup.<br><br>![Extensiones de la máquina virtual de Azure](media/operations-management-suite-overview/overview-backup-03.png)
 
 
 

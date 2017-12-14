@@ -4,7 +4,7 @@ description: "Aprenda a actualizar las directivas de vigencia de los tokens para
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a28eacd820ed28a6470992ce86b060e886c00bcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8067ecf3e274f65abe2c82f20dd2f4469344f3b6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Modificación de los valores predeterminados de vigencia de los tokens en una aplicación personalizada
 
@@ -29,10 +29,10 @@ Azure AD Premium permite a los desarrolladores de aplicaciones y a los administr
 
  * En esta directiva de ejemplo, se establece la actualización del token con arreglo a un único factor de antigüedad máxima. Cree la directiva: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Consulte el documento sobre la [configuración de la vigencia de los tokens](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes) para aprender a crear una directiva personalizada.
+ * Consulte el documento sobre la [configuración de la vigencia de los tokens](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) para aprender a crear una directiva personalizada.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Configuración de la vigencia de los tokens](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
+[Configuración de la vigencia de los tokens](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Referencia de tokens de Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)
+[Referencia de tokens de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

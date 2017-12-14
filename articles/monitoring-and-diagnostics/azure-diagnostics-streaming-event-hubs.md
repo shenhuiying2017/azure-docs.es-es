@@ -1,5 +1,5 @@
 ---
-title: "Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos | Microsoft Docs"
+title: "Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs | Microsoft Docs"
 description: "Configuración de Diagnósticos de Azure con Event Hubs de un extremo a otro, con instrucciones para escenarios comunes"
 services: event-hubs
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos
-Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Almacenamiento de Azure. A partir de marzo de 2016 (SDK 2.9), puede enviar diagnósticos a orígenes de datos personalizados y transferir datos de rutas de acceso activas en cuestión de segundos mediante [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
+# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs
+Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Azure Storage. A partir de marzo de 2016 (SDK 2.9), puede enviar diagnósticos a orígenes de datos personalizados y transferir datos de rutas de acceso activas en cuestión de segundos mediante [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
 Entre los tipos de datos admitidos se incluyen:
 
@@ -31,11 +31,11 @@ Entre los tipos de datos admitidos se incluyen:
 * Registros de aplicación
 * Registros de infraestructura de diagnóstico de Azure
 
-En este artículo se muestra cómo configurar Diagnósticos de Azure con Centros de eventos de manera integral. También se proporcionan instrucciones para los siguientes escenarios comunes:
+En este artículo se muestra cómo configurar Diagnósticos de Azure con Event Hubs de manera integral. También se proporcionan instrucciones para los siguientes escenarios comunes:
 
 * Cómo personalizar los registros y las métricas enviadas a Event Hubs
 * Cómo cambiar la configuración de cada entorno
-* Cómo ver los datos de secuencia de los Centros de eventos
+* Cómo ver los datos de secuencia de Event Hubs
 * Cómo solucionar los problemas de conexión  
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -44,11 +44,11 @@ La recepción de Diagnósticos de Azure en Event Hubs se admite en Cloud Service
 * La extensión de Diagnósticos de Azure 1.6 ([Azure SDK para .NET 2.9 o posterior](https://azure.microsoft.com/downloads/) sirve a este fin de forma predeterminada).
 * [Visual Studio 2013 o posterior.](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Configuraciones existentes de Diagnósticos de Azure en una aplicación mediante un archivo *.wadcfgx* y uno de los siguientes métodos:
-  * Visual Studio: [Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-  * Windows PowerShell: [Habilitar el diagnóstico en Servicios en la nube de Azure mediante PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
+  * Visual Studio: [Configuración de Diagnósticos en Azure Cloud Services y Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Windows PowerShell: [Habilitar el diagnóstico en Azure Cloud Services mediante PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Espacio de nombres de Event Hubs aprovisionado según el artículo [Introducción a los Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Conectar Diagnósticos de Azure al receptor de Centros de eventos
+## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Conectar Diagnósticos de Azure al receptor de Event Hubs
 De forma predeterminada, Diagnósticos de Azure siempre envía registros y métricas a una cuenta de Azure Storage. Una aplicación también puede enviar datos a Event Hubs con la incorporación de una nueva sección **Sinks** al elemento **PublicConfig** / **WadCfg** del archivo *.wadcfgx*. En Visual Studio, el archivo *.wadcfgx* está almacenado en la siguiente ruta de acceso: **Proyecto de servicio en la nube** > **Roles** > **(nombreDelRol)** > archivo **diagnostics.wadcfgx**.
 
 ```xml
@@ -83,7 +83,7 @@ El nombre **Sink** se puede establecer en cualquier cadena válida siempre y cua
 >
 >
 
-El receptor de Centros de eventos también se debe declarar y definir en la sección **PrivateConfig** del archivo de configuración *.wadcfgx* .
+El receptor de Event Hubs también se debe declarar y definir en la sección **PrivateConfig** del archivo de configuración *.wadcfgx* .
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -104,17 +104,17 @@ El receptor de Centros de eventos también se debe declarar y definir en la secc
 }
 ```
 
-El valor de `SharedAccessKeyName` debe coincidir con una directiva y una clave de firma de acceso compartido (SAS) que se hayan definido en el espacio de nombres de **Centros de eventos** . Vaya al panel de Centros de eventos en el [Portal de Azure](https://manage.windowsazure.com), seleccione la pestaña **Configurar** y configure una directiva con nombre (por ejemplo, SendRule) que tenga permisos de *envío* . El elemento **StorageAccount** también se declara en **PrivateConfig**. No hace falta cambiar estos valores si funcionan. En este ejemplo, dejamos los valores vacíos, que indica que un activo de bajada establecerá los valores. Por ejemplo, el archivo de configuración del entorno *ServiceConfiguration.Cloud.cscfg* establecerá las claves y los nombres apropiados.  
+El valor de `SharedAccessKeyName` debe coincidir con una directiva y una clave de firma de acceso compartido (SAS) que se hayan definido en el espacio de nombres de **Event Hubs** . Vaya al panel de Event Hubs en [Azure Portal](https://portal.azure.com), seleccione la pestaña **Configurar** y configure una directiva con nombre (por ejemplo, SendRule) que tenga permisos de *envío*. El elemento **StorageAccount** también se declara en **PrivateConfig**. No hace falta cambiar estos valores si funcionan. En este ejemplo, dejamos los valores vacíos, que indica que un activo de bajada establecerá los valores. Por ejemplo, el archivo de configuración del entorno *ServiceConfiguration.Cloud.cscfg* establecerá las claves y los nombres apropiados.  
 
 > [!WARNING]
-> Tenga en cuenta que la clave SAS de Centros de eventos se almacena en texto sin formato en el archivo *wadcfgx* . A menudo, esta clave se registra en el control de código fuente o está disponible como un recurso en el servidor de compilación, por lo que debe protegerla de la manera adecuada. Se recomienda usar aquí una clave SAS con permisos de *solo envío* para que los usuarios malintencionados puedan escribir en el Centro de eventos, pero nunca realizar operaciones de administración ni de escucha.
+> Tenga en cuenta que la clave SAS de Event Hubs se almacena en texto sin formato en el archivo *wadcfgx*. A menudo, esta clave se registra en el control de código fuente o está disponible como un recurso en el servidor de compilación, por lo que debe protegerla de la manera adecuada. Se recomienda usar aquí una clave SAS con permisos de *solo envío* para que los usuarios malintencionados puedan escribir en el Centro de eventos, pero nunca realizar operaciones de administración ni de escucha.
 >
 >
 
 ## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Configuración de Diagnósticos de Azure para enviar registros y métricas a Event Hubs
 Como se ha indicado anteriormente, todos los datos de diagnóstico predeterminados y personalizados (es decir, métricas y registros) se envían automáticamente a Azure Storage en los intervalos configurados. Con Event Hubs y cualquier receptor adicional, puede especificar que cualquier nodo raíz u hoja de la jerarquía se envíe al centro de eventos. Esto incluye eventos ETW, contadores de rendimiento, registros de eventos de Windows y registros de aplicaciones.   
 
-Es importante tener en cuenta cuántos puntos de datos se deben transferir realmente a Centros de eventos. Normalmente, los desarrolladores transfieren datos de ruta de acceso activa y de baja latencia que deben consumirse e interpretarse rápidamente. Los sistemas que supervisan las alertas o las reglas de escalado automático son algunos ejemplos. Un desarrollador también puede configurar un almacén de búsqueda o un almacén de análisis alternativo (por ejemplo, Análisis de transmisiones de Azure, Elasticsearch, un sistema de supervisión personalizado o un sistema de supervisión favorito de terceros).
+Es importante tener en cuenta cuántos puntos de datos se deben transferir realmente a Event Hubs. Normalmente, los desarrolladores transfieren datos de ruta de acceso activa y de baja latencia que deben consumirse e interpretarse rápidamente. Los sistemas que supervisan las alertas o las reglas de escalado automático son algunos ejemplos. Un desarrollador también puede configurar un almacén de búsqueda o un almacén de análisis alternativo (por ejemplo, Azure Stream Analytics, Elasticsearch, un sistema de supervisión personalizado o un sistema de supervisión favorito de terceros).
 
 Las siguientes son algunas configuraciones de ejemplo.
 
@@ -205,8 +205,8 @@ En el ejemplo siguiente se muestra cómo un desarrollador puede limitar la canti
 
 En este ejemplo, el receptor se aplica a los registros y se filtra solo para el seguimiento de nivel Error.
 
-## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implementación y actualización de una aplicación de servicios en la nube y configuración de diagnósticos
-Visual Studio proporciona la manera más sencilla de implementar la aplicación y la configuración del receptor de Centros de eventos. Para ver y editar el archivo, abra el archivo *.wadcfgx* en Visual Studio, edítelo y guárdelo. La ruta de acceso es **Proyecto de servicio en la nube** > **Roles** > **(nombreDelRol)** > **diagnostics.wadcfgx**.  
+## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implementación y actualización de una aplicación de Cloud Services y configuración de diagnósticos
+Visual Studio proporciona la manera más sencilla de implementar la aplicación y la configuración del receptor de Event Hubs. Para ver y editar el archivo, abra el archivo *.wadcfgx* en Visual Studio, edítelo y guárdelo. La ruta de acceso es **Proyecto de servicio en la nube** > **Roles** > **(nombreDelRol)** > **diagnostics.wadcfgx**.  
 
 En este punto, toda la implementación y las acciones de actualización de la implementación en Visual Studio, Visual Studio Team System, además de todos los comandos o scripts que se basan en MSBuild y usan el destino **/t:publish** incluirán el archivo *.wadcfgx* en el proceso de empaquetado. Además, las implementaciones y actualizaciones implementan el archivo en Azure mediante la extensión del agente de Diagnósticos de Azure en las máquinas virtuales.
 
@@ -222,7 +222,7 @@ En la siguiente figura, el panel de Event Hubs muestra el envío correcto de los
 >
 
 ## <a name="view-hot-path-data"></a>Ver los datos de la ruta de acceso activa
-Como se explicó anteriormente, la escucha y el procesamiento de datos de Centros de eventos tienen varias finalidades.
+Como se explicó anteriormente, la escucha y el procesamiento de datos de Event Hubs tienen varias finalidades.
 
 Un enfoque sencillo es crear una pequeña aplicación de consola de prueba para escuchar el centro de eventos e imprimir el flujo de salida. Puede colocar el código siguiente (que se explica con más detalle en [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)) en una aplicación de consola.  
 
@@ -320,7 +320,7 @@ namespace EventHubListener
     Primero, asegúrese de que la información del centro de eventos y de la configuración es correcta tal y como se ha explicado anteriormente. A veces, **PrivateConfig** se restablece en una actualización de implementación. La solución recomendada consiste en realizar todos los cambios en *.wadcfgx* en el proyecto y, luego, insertar una actualización completa de la aplicación. Si no es posible, asegúrese de que la actualización de diagnósticos inserta completamente **PrivateConfig** , lo que incluye la clave SAS.  
 * He probado las sugerencias y el centro de eventos sigue sin funcionar.
 
-    Pruebe a mirar en la tabla de Almacenamiento de Azure que contiene registros y errores del servicio Diagnósticos de Azure: **WADDiagnosticInfrastructureLogsTable**. Una opción es usar una herramienta como el [Explorador de almacenamiento de Azure](http://www.storageexplorer.com) para conectarse a esta cuenta de almacenamiento, ver esta tabla y agregar una consulta para TimeStamp en las últimas 24 horas. Puede usar la herramienta para exportar un archivo .csv y abrirlo en una aplicación como Microsoft Excel. Excel facilita la búsqueda de cadenas de tarjeta de llamadas, como **EventHubs**, para ver qué error se notifica.  
+    Pruebe a mirar en la tabla de Azure Storage que contiene registros y errores del servicio Diagnósticos de Azure: **WADDiagnosticInfrastructureLogsTable**. Una opción es usar una herramienta como el [Explorador de Azure Storage](http://www.storageexplorer.com) para conectarse a esta cuenta de almacenamiento, ver esta tabla y agregar una consulta para TimeStamp en las últimas 24 horas. Puede usar la herramienta para exportar un archivo .csv y abrirlo en una aplicación como Microsoft Excel. Excel facilita la búsqueda de cadenas de tarjeta de llamadas, como **EventHubs**, para ver qué error se notifica.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 •    [Más información sobre Event Hubs](https://azure.microsoft.com/services/event-hubs/)

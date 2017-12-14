@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guía para vendedores de Azure Marketplace
 
 Esta es la guía para vendedores de Azure Marketplace. Esta guía está diseñada para los usuarios empresariales y administradores de productos para proveedores de software independientes (ISV) que están interesados en vender sus aplicaciones administradas e imágenes de máquina virtual con certificación de Azure a desarrolladores y profesionales de TI. Dado que los clientes de Azure se reparten por todo el mundo, [Azure Marketplace](https://azuremarketplace.microsoft.com/) puede conseguir un gran alcance y exposición para sus productos.
 
 > [!NOTE]
-> Si está interesado en vender su [aplicación administrada](https://docs.microsoft.com/en-us/azure/managed-applications/overview), debe seguir las instrucciones para publicarla en Azure Marketplace [aquí](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Si está interesado en vender su [aplicación administrada](https://docs.microsoft.com/azure/managed-applications/overview), debe seguir las instrucciones para publicarla en Azure Marketplace [aquí](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Si está interesado en vender los productos terminados de software como servicio (SaaS) a _desarrolladores y profesionales de TI_, puede ponerse en contacto con saas-on-amp@microsoft.com para obtener más información sobre las opciones disponibles.
@@ -100,7 +100,7 @@ Figura 1: proceso para vender en Azure Marketplace
 Dependiendo de la carga de trabajo (máquina virtual o aplicación administrada) que vaya a publicar, seguirá un proceso diferente para publicar la oferta. El siguiente contenido se centra en la publicación de _ofertas de máquina virtual_.
 
 > [!NOTE]
-> Si está interesado en vender su [aplicación administrada](https://docs.microsoft.com/en-us/azure/managed-applications/overview), debe seguir las instrucciones para publicarla en Azure Marketplace [aquí](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Si está interesado en vender su [aplicación administrada](https://docs.microsoft.com/azure/managed-applications/overview), debe seguir las instrucciones para publicarla en Azure Marketplace [aquí](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Si está interesado en vender los productos terminados de software como servicio (SaaS) a _desarrolladores y profesionales de TI_, puede ponerse en contacto con saas-on-amp@microsoft.com para obtener más información sobre las opciones disponibles.

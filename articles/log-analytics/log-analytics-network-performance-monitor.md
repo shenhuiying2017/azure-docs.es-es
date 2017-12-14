@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solución Monitor de rendimiento de red de Log Analytics
 
@@ -46,7 +46,7 @@ Si desea supervisar una aplicación de línea de negocio, puede usar la solució
 Además, si ya ha invertido en otras herramientas de supervisión de red, nuestra solución puede actuar como un complemento para estas, porque la mayoría de las soluciones convencionales de supervisión de red no ofrecen información sobre las métricas de rendimiento de red de un extremo a otro, como la pérdida y la latencia.  La solución Monitor de rendimiento de red puede ayudar a suplir esa laguna.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Instalación y configuración de agentes para la solución
-Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Log Analytics](log-analytics-windows-agents.md) y [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
+Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Log Analytics](log-analytics-windows-agent.md) y [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Debe instalar al menos 2 agentes si desea disponer de suficientes datos para detectar y supervisar los recursos de red. De lo contrario, la solución permanecerá en un estado de configuración hasta que instale y configure más agentes.

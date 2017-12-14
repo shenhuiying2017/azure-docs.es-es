@@ -3,7 +3,7 @@ title: "Automatización de la eliminación de grupos de recursos | Microsoft Doc
 description: "Versión del flujo de trabajo de PowerShell de un escenario de Azure Automation, que incluye Runbooks para quitar todos los grupos de recursos de su suscripción."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Escenario de Azure Automation: automatizar la eliminación de grupos de recursos
 Muchos clientes crean más de un grupo de recursos. Algunos se podrían usar para administrar aplicaciones de producción y otros como entornos de desarrollo, pruebas y ensayo. Automatizar la implementación de estos recursos es una cosa, pero poder dar de baja un grupo de recursos con un clic del botón es otra. Esta tarea común de administración se puede optimizar mediante Azure Automation. Esto resulta útil si está trabajando con una suscripción de Azure que tiene un límite de gasto a través de una oferta de miembro como MSDN o el programa Microsoft Partner Network Cloud Essentials, por ejemplo.

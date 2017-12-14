@@ -17,20 +17,20 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 6ea6d94453583c6b5ed680f96ebc43d33d0262a0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Depuración de aplicaciones de Spark de forma local o remota en un clúster de HDInsight con el kit de herramientas de Azure para IntelliJ mediante SSH
 
 En este artículo se ofrecen instrucciones paso a paso para el empleo de las herramientas de HDInsight del Kit de herramientas de Azure para IntelliJ para depurar aplicaciones de forma remota en un clúster de HDInsight. Para depurar el proyecto, también puede ver el vídeo [Debug HDInsight Spark applications with Azure Toolkit for IntelliJ (Depurar aplicaciones HDInsight Spark con el Kit de herramientas de Azure para IntelliJ)](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ).
 
 **Requisitos previos**
-* **Herramientas de HDInsight del kit de herramientas de Azure para IntelliJ**. Esta herramienta es parte del Kit de herramientas de Azure para IntelliJ. Para más información, vea [Instalación del kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). Y el **kit de herramientas de Azure para IntelliJ**. Use este kit de herramientas para crear aplicaciones Spark para un clúster de HDInsight. Para más información, siga las instrucciones de [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
+* **Herramientas de HDInsight del kit de herramientas de Azure para IntelliJ**. Esta herramienta es parte del Kit de herramientas de Azure para IntelliJ. Para más información, vea [Instalación del kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). Y el **kit de herramientas de Azure para IntelliJ**. Use este kit de herramientas para crear aplicaciones Spark para un clúster de HDInsight. Para más información, siga las instrucciones de [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **Servicio SSH de HDInsight con administración de nombre de usuario y contraseña**. Para más información vea [Conexión a través de SSH con HDInsight (Hadoop)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **Servicio SSH de HDInsight con administración de nombre de usuario y contraseña**. Para más información vea [Conexión a través de SSH con HDInsight (Hadoop)](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>Obtenga información acerca de cómo ejecutar y depurar localmente
 ### <a name="scenario-1-create-a-spark-scala-application"></a>Escenario 1: Creación de una aplicación de Scala en Spark 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Actualización de la aplicación de Service Fabric
-Una aplicación de Azure Service Fabric es una colección de servicios. Durante una actualización, Service Fabric compara el nuevo [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) con la versión anterior y determina qué servicios de la aplicación requieren actualizaciones. Service Fabric compara los números de versión en los manifiestos de servicio con los números de versión en la versión anterior. Si un servicio no ha cambiado, no se actualiza.
+Una aplicación de Azure Service Fabric es una colección de servicios. Durante una actualización, Service Fabric compara el nuevo [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) con la versión anterior y determina qué servicios de la aplicación requieren actualizaciones. Service Fabric compara los números de versión en los manifiestos de servicio con los números de versión en la versión anterior. Si un servicio no ha cambiado, no se actualiza.
 
 ## <a name="rolling-upgrades-overview"></a>Información general de las actualizaciones graduales
 En una actualización de la aplicación gradual, la actualización se realiza por etapas. En cada etapa, la actualización se aplica a un subconjunto de nodos del clúster, llamado dominio de actualización. Como resultado, la aplicación permanece disponible durante la actualización. Durante la actualización, el clúster puede contener una mezcla de las versiones anteriores y nuevas.
@@ -47,14 +47,14 @@ El modo en que se recomienda que se actualice la aplicación es el modo supervis
 El modo manual sin supervisión requiere intervención manual tras cada actualización en un dominio de actualización para iniciar la actualización en el siguiente dominio de actualización. No se realiza ninguna comprobación de mantenimiento de Service Fabric. El administrador realiza las comprobaciones de estado antes de iniciar la actualización en el siguiente dominio de actualización.
 
 ## <a name="upgrade-default-services"></a>Actualización de servicios predeterminados
-Los servicios predeterminados de la aplicación de Service Fabric pueden actualizarse durante el proceso de actualización de una aplicación. Estos se definen en el [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application). Las reglas estándar de la actualización de servicios predeterminados son las siguientes:
+Los servicios predeterminados de la aplicación de Service Fabric pueden actualizarse durante el proceso de actualización de una aplicación. Estos se definen en el [manifiesto de aplicación](service-fabric-application-and-service-manifests.md). Las reglas estándar de la actualización de servicios predeterminados son las siguientes:
 
-1. Se crean los servicios predeterminados del nuevo [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) que no se encuentran en el clúster.
+1. Se crean los servicios predeterminados del nuevo [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) que no se encuentran en el clúster.
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) debe establecerse en True para habilitar las reglas siguientes. Esta característica se admite desde la versión 5.5.
 
-2. Se actualizan los servicios predeterminados existentes del [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) anterior y los de la nueva versión. Las descripciones de servicios de la nueva versión sobrescribirán a las que ya se encuentran en el clúster. La actualización de aplicaciones se revertiría automáticamente tras el error de actualización de servicios.
-3. Se eliminan los servicios predeterminados del [manifiesto de aplicación](service-fabric-application-model.md#describe-an-application) anterior, pero no los de la nueva versión. **Tenga en cuenta que no se pueden revertir esta eliminación de servicios predeterminados.**
+2. Se actualizan los servicios predeterminados existentes del [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) anterior y los de la nueva versión. Las descripciones de servicios de la nueva versión sobrescribirán a las que ya se encuentran en el clúster. La actualización de aplicaciones se revertiría automáticamente tras el error de actualización de servicios.
+3. Se eliminan los servicios predeterminados del [manifiesto de aplicación](service-fabric-application-and-service-manifests.md) anterior, pero no los de la nueva versión. **Tenga en cuenta que no se pueden revertir esta eliminación de servicios predeterminados.**
 
 En el caso de que se revierta una actualización de aplicaciones, los servicios predeterminados se revierten al estado anterior al inicio de la aplicación. No obstante, nunca se pueden crear servicios eliminados.
 

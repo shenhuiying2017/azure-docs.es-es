@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solución Agent Health en OMS
 La solución Agent Health en OMS le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de OMS o a un grupo de administración de System Center Operations Manager conectado a OMS, cuáles no responden y envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
 
 ## <a name="prerequisites"></a>Requisitos previos
-Antes de implementar esta solución, confirme que tiene actualmente [agentes de Windows](../log-analytics/log-analytics-windows-agents.md) compatibles que informan al área de trabajo de OMS o a un [grupo de administración de Operations Manager](../log-analytics/log-analytics-om-agents.md) integrado con el área de trabajo de OMS.    
+Antes de implementar esta solución, confirme que tiene actualmente [agentes de Windows](../log-analytics/log-analytics-windows-agent.md) compatibles que informan al área de trabajo de OMS o a un [grupo de administración de Operations Manager](../log-analytics/log-analytics-om-agents.md) integrado con el área de trabajo de OMS.    
 
 ## <a name="solution-components"></a>Componentes de soluciones
 Esta solución consta de los siguientes recursos que se agregan a su área de trabajo y a los agentes directamente conectados o al grupo de administración conectado de Operations Manager.

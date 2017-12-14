@@ -3,6 +3,7 @@
 | Número máximo de cuentas de almacenamiento por suscripción | 200<sup>1</sup> |
 | Capacidad máxima de la cuenta de almacenamiento | 500 TiB<sup>2</sup> |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento | Sin límite |
+| Tasa de solicitud total por cuenta de almacenamiento | 20 000 solicitudes por segundo<sup>2</sup> |
 | Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 10 Gbps si GRS/ZRS<sup>4</sup> están habilitados, 20 Gbps en el caso de LRS<sup>2</sup> |
 | Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.) | 20 Gbps si RA-GRS/GRS/ZRS<sup>4</sup> están habilitados, 30 Gbps en el caso de LRS<sup>2</sup> |
 | Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones no de EE. UU.) | 5 Gbps si GRS/ZRS<sup>4</sup> están habilitados, 10 Gbps en el caso de LRS<sup>2</sup> |

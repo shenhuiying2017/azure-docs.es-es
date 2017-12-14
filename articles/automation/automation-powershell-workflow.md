@@ -3,7 +3,7 @@ title: Aprendizaje del flujo de trabajo de Windows PowerShell para Azure Automat
 description: "Este artículo está destinado como una lección rápida para que los autores familiarizados con PowerShell comprendan las diferencias específicas entre Powershell y el flujo de trabajo de PowerShell y los conceptos aplicables a los runbooks de Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 84bf133e-5343-4e0e-8d6c-bb14304a70db
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 6dce88bdd85a28ce05e1621b08a0f4b148b02627
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: caa13099b22311502f7a527e4fa017aefeee73c7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation 
 Los runbooks de Azure Automation se implementan como flujos de trabajo de Windows PowerShell.  Un flujo de trabajo de Windows PowerShell es similar a un script de Windows PowerShell, pero presenta algunas diferencias importantes que pueden resultar confusas para un usuario nuevo.  Aunque este artículo está pensado para ayudarle a escribir runbooks con el flujo de trabajo de PowerShell, se recomienda que escribir runbooks con PowerShell, a menos que necesite puntos de control.  Hay varias diferencias de sintaxis al crear runbooks de flujo de trabajo de PowerShell y estas diferencias requieren algo más de trabajo para escribir flujos de trabajo eficaces.  

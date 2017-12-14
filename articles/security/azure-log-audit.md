@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d8d52b7e151d116678169dd4839f0380f63132d7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 ## <a name="introduction"></a>Introducción
@@ -67,13 +67,13 @@ En la tabla siguiente se enumeran el tipo más importante de registros disponibl
 
 | Categoría del registro | Tipo de registro | Usos | Integración |
 | ------------ | -------- | ------ | ----------- |
-|[Registros de actividad](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Eventos de plano de control de los recursos de Azure Resource Manager| Proporcionan información detallada sobre las operaciones que se realizaron en los recursos de su suscripción.| API de REST y [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
-|[Registros de diagnóstico de Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción|   Proporcionan información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor, [Stream](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
-|[Informes de AAD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Registros e informes|Actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios|[API Graph](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Máquina virtual y Cloud Services](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Registro de eventos de Windows y Syslog de Linux|  Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (almacenamiento de Diagnósticos de Microsoft Azure) y Linux en Azure Monitor|
-|[Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Registro de almacenamiento y proporciona datos de métricas para una cuenta de almacenamiento.|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|  API de REST o [biblioteca de cliente](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
-|[Registros de flujos de NSG (grupo de seguridad de red)](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON y muestra flujos entrantes y salientes por cada regla|Consulte información sobre el tráfico IP de entrada y salida a través de un grupo de seguridad de red|[Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)|Registros, excepciones y diagnósticos personalizados|  Servicio de Application Performance Management (APM) para desarrolladores web en varias plataformas.| API de REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|[Registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Eventos de plano de control de los recursos de Azure Resource Manager|   Proporcionan información detallada sobre las operaciones que se realizaron en los recursos de su suscripción.| API de REST y [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
+|[Registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción| Proporcionan información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
+|[Informes de AAD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Registros e informes|Actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios|[API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
+|[Máquina virtual y Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Registro de eventos de Windows y Syslog de Linux|    Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (almacenamiento de Diagnósticos de Microsoft Azure) y Linux en Azure Monitor|
+|[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Registro de almacenamiento y proporciona datos de métricas para una cuenta de almacenamiento.|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|    API de REST o [biblioteca de cliente](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[Registros de flujos de NSG (grupo de seguridad de red)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON y muestra flujos entrantes y salientes por cada regla|Consulte información sobre el tráfico IP de entrada y salida a través de un grupo de seguridad de red|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
+|[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Registros, excepciones y diagnósticos personalizados|    Servicio de Application Performance Management (APM) para desarrolladores web en varias plataformas.| API de REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
 |Datos de proceso/alerta de seguridad| Alerta de Azure Security Center, alerta de OMS| Información y alertas de seguridad|   API de REST, JSON|
 
 ### <a name="activity-log"></a>Registro de actividad
@@ -121,29 +121,29 @@ Los registros de diagnóstico de Azure ofrecen varias opciones de configuración
 
 | Servicio | Esquema y documentos | Tipo de recurso | Categoría |
 | ------- | ------------- | ------------- | -------- |
-|Load Balancer| [Análisis del registros para el Equilibrador de carga de Azure (vista previa)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|  LoadBalancerAlertEvent|
+|Load Balancer| [Análisis del registros para el Equilibrador de carga de Azure (vista previa)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
-|Grupos de seguridad de red|[Análisis del registro para grupos de seguridad de red (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
+|Grupos de seguridad de red|[Análisis del registro para grupos de seguridad de red (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
-|Puertas de enlace de aplicaciones|[Registro de diagnóstico para la Puerta de enlace de aplicaciones](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
+|Puertas de enlace de aplicaciones|[Registro de diagnóstico para la Puerta de enlace de aplicaciones](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
-|Key Vault|[Registro de Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
-|Azure Search|[Habilitación y uso de Análisis de tráfico de búsqueda](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
-|Data Lake Store|[Acceso a los registros de diagnóstico de Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Auditoría|
-|Data Lake Analytics|[Acceso a los registros de diagnóstico de Azure Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Auditoría|
+|Key Vault|[Registro de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
+|Azure Search|[Habilitación y uso de Análisis de tráfico de búsqueda](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
+|Data Lake Store|[Acceso a los registros de diagnóstico de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Auditoría|
+|Data Lake Analytics|[Acceso a los registros de diagnóstico de Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Auditoría|
 |||Microsoft.DataLakeAnalytics/accounts|Solicitudes|
 |||Microsoft.DataLakeStore/accounts|Solicitudes|
-|Logic Apps|[Esquema de seguimiento personalizado de Logic Apps B2B](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
+|Logic Apps|[Esquema de seguimiento personalizado de Logic Apps B2B](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
 |||Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|
-|Azure Batch|[Registros de diagnósticos de Azure Batch](https://docs.microsoft.com/en-us/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure Automation|[Log Analytics para Azure Automation](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
+|Azure Batch|[Registros de diagnósticos de Azure Batch](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
+|Azure Automation|[Log Analytics para Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
-|Event Hubs|[Registros de diagnóstico de Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|Event Hubs|[Registros de diagnóstico de Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
-|Stream Analytics|[Registros de diagnósticos de trabajos](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Ejecución|
+|Stream Analytics|[Registros de diagnósticos de trabajos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Ejecución|
 |||Microsoft.StreamAnalytics/streamingjobs|Creación|
-|Service Bus|[Registros de diagnóstico de Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
+|Service Bus|[Registros de diagnóstico de Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### <a name="azure-active-directory-reporting"></a>Informes de Azure Active Directory
 Azure Active Directory (Azure AD) incluye informes de seguridad, actividad y auditoría para el directorio. El [informe de auditoría de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) ayuda a los clientes a identificar las acciones con privilegios que se produjeron en su entorno de Azure Active Directory. Las acciones con privilegios incluyen cambios de elevación (por ejemplo, creación de roles o restablecimientos de contraseña), cambios de configuraciones de directiva (por ejemplo, directivas de contraseña) o cambios de configuración de directorio (por ejemplo, cambios en la configuración de la federación de dominio).
@@ -300,17 +300,17 @@ Application Insights está dirigido al equipo de desarrollo y sirve ayudarle a c
 
 | Escenarios de integración | Descripción |
 | --------------------- | :---------- |
-|[Mapa de aplicación](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-app-map)|Los componentes de la aplicación, con alertas y métricas clave.||
-|[Búsqueda de diagnóstico para datos de instancia](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-diagnostic-search)| Busque y filtre eventos como solicitudes, excepciones, llamadas de dependencia, seguimientos de registro y vistas de páginas.||
-|[Explorador de métricas para datos agregados](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-metrics-explorer)|Explore, filtre y segmente datos agregados, como los índices de solicitudes, errores y excepciones; los tiempos de respuesta y los tiempos de carga de página.||
-|[Paneles](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-dashboards#dashboards)|Combine datos de varios recursos y compártalos con otros. Ideal para aplicaciones de varios componentes y para la presentación continua en la sala de reuniones.||
-|[Secuencia de métricas en directo](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-live-stream)|Al implementar una nueva compilación, fíjese en estos indicadores de rendimiento casi en tiempo real para asegurarse de que todo funciona según lo esperado.||
-|[Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics)|Responda preguntas complejas acerca del uso y el rendimiento de su aplicación mediante este eficaz lenguaje de consulta.||
-|[Alertas automáticas y manuales](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-alerts)|Las alertas automáticas se adaptan a los patrones normales de telemetría de la aplicación y se desencadenan cuando algo no responde al patrón habitual. También puede establecer alertas sobre niveles de métricas estándares o personalizadas.||
-|[Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-visual-studio)|Vea los datos de rendimiento en el código. Vaya al código desde los seguimientos de la pila.||
-|[Power BI](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-power-bi)|Integre métricas de uso con otra inteligencia empresarial.||
+|[Mapa de aplicación](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Los componentes de la aplicación, con alertas y métricas clave.||
+|[Búsqueda de diagnóstico para datos de instancia](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Busque y filtre eventos como solicitudes, excepciones, llamadas de dependencia, seguimientos de registro y vistas de páginas.||
+|[Explorador de métricas para datos agregados](https://docs.microsoft.com/azure/application-insights/app-insights-metrics-explorer)|Explore, filtre y segmente datos agregados, como los índices de solicitudes, errores y excepciones; los tiempos de respuesta y los tiempos de carga de página.||
+|[Paneles](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Combine datos de varios recursos y compártalos con otros. Ideal para aplicaciones de varios componentes y para la presentación continua en la sala de reuniones.||
+|[Secuencia de métricas en directo](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)|Al implementar una nueva compilación, fíjese en estos indicadores de rendimiento casi en tiempo real para asegurarse de que todo funciona según lo esperado.||
+|[Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Responda preguntas complejas acerca del uso y el rendimiento de su aplicación mediante este eficaz lenguaje de consulta.||
+|[Alertas automáticas y manuales](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Las alertas automáticas se adaptan a los patrones normales de telemetría de la aplicación y se desencadenan cuando algo no responde al patrón habitual. También puede establecer alertas sobre niveles de métricas estándares o personalizadas.||
+|[Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)|Vea los datos de rendimiento en el código. Vaya al código desde los seguimientos de la pila.||
+|[Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)|Integre métricas de uso con otra inteligencia empresarial.||
 |[API DE REST](https://dev.applicationinsights.io/)|Escriba código para ejecutar consultas sobre las métricas y los datos sin procesar.||
-|[Exportación continua](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry)|Exportación masiva de datos sin procesar al almacenamiento cuando llegan.||
+|[Exportación continua](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Exportación masiva de datos sin procesar al almacenamiento cuando llegan.||
 
 ### <a name="azure-security-center-alerts"></a>Alertas de Azure Security Center
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) recopila, analiza e integra automáticamente los datos de registro de los recursos de Azure, la red y las soluciones de asociados conectados, como firewalls y soluciones de protección de puntos de conexión, para detectar amenazas reales y reducir los falsos positivos. En Security Center, se muestra una lista de alertas de seguridad prioritarias, junto con la información que necesita para investigar rápidamente y recomendaciones para corregir un ataque.
@@ -354,25 +354,25 @@ Hay cuatro maneras diferentes de [recopilar registros y métricas para servicios
 
 | Servicio | Tipo de recurso | Registros | Métricas | Solución |
 | :------ | :------------ | :--- | :------ | :------- |
-|Puertas de enlace de aplicaciones|  Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Azure Application](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[Gateway Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Puertas de enlace de aplicaciones|  Microsoft.Network/<br>applicationGateways|  Diagnóstico|Diagnóstico|    [Azure Application](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application Insights||     Conector|  Conector|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)[Connector (versión preliminar)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Cuentas de Automation|   Microsoft.Automation/<br>AutomationAccounts|    Diagnóstico||       [Más información](https://docs.microsoft.com/en-us/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Cuentas de Automation|   Microsoft.Automation/<br>AutomationAccounts|    Diagnóstico||       [Más información](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Cuentas de Batch|    Microsoft.Batch/<br>batchAccounts|  Diagnóstico|    Diagnóstico||
-|Servicios en la nube clásica||       Storage||       [Más información](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage-iis-table)|
+|Servicios en la nube clásica||       Storage||       [Más información](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|       Diagnóstico|||
 |Data Lake Analytics|   Microsoft.DataLakeAnalytics/<br>accounts|   Diagnóstico|||
 |Data Lake Store|   Microsoft.DataLakeStore/<br>accounts|   Diagnóstico|||
 |Espacio de nombres del Centro de eventos|   Microsoft.EventHub/<br>namespaces|  Diagnóstico|    Diagnóstico||
 |IoT Hubs|  Microsoft.Devices/<br>IotHubs||     Diagnóstico||
-|Key Vault| Microsoft.KeyVault/<br>vaults|  Diagnóstico  || [KeyVault Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-key-vault)|
+|Key Vault| Microsoft.KeyVault/<br>vaults|  Diagnóstico  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Equilibradores de carga|    Microsoft.Network/<br>loadBalancers|    Diagnóstico|||
 |Logic Apps|    Microsoft.Logic/<br>workflows|  Diagnóstico|    Diagnóstico||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Grupos de seguridad de red|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Azure Network Security Group Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Grupos de seguridad de red|   Microsoft.Network/<br>networksecuritygroups|Diagnóstico||   [Azure Network Security Group Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Almacenes de recuperación|   Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (versión preliminar)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Servicios de búsqueda|   Microsoft.Search/<br>searchServices|    Diagnóstico|    Diagnóstico||
 |Espacio de nombres de Service Bus| Microsoft.ServiceBus/<br>namespaces|    Diagnóstico|Diagnóstico|    [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       Storage||    [Service Fabric Analytics (versión preliminar)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
+|Service Fabric||       Storage||    [Service Fabric Analytics (versión preliminar)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servers/<br>bases de datos||       Diagnóstico||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
 |Storage|||         Script| [Azure Storage Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|

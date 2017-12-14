@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: a6895f7a145c7b925703e4deb32411d51e7a3cab
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 89a5ee969cf4337dbc0521027f36f80e357c54e5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD
 
@@ -57,7 +57,7 @@ Los pasos siguientes muestran cómo conectarse a SQL Database o SQL Data Warehou
    ![3mfa-setup][3]  
 7. El segundo cuadro de diálogo de un único uso que puede que aparezca le permite seleccionar los detalles del método de autenticación. El administrador configura las opciones posibles.  
    ![4mfa-verify-1][4]  
-8. Azure Active Directory le envía la información de confirmación. Cuando reciba el código de comprobación, escríbalo en el cuadro **Escribir código de comprobación** y haga clic en **Iniciar sesión**.  
+8. Azure Active Directory le envía la información de confirmación. Cuando reciba el código de verificación, escríbalo en el cuadro **Escribir código de comprobación** y haga clic en **Iniciar sesión**.  
    ![5mfa-verify-2][5]  
 
 Cuando se complete la comprobación, SSMS se conectará de manera habitual, siempre que haya acceso de firewall y credenciales válidas.
@@ -67,7 +67,7 @@ Cuando se complete la comprobación, SSMS se conectará de manera habitual, siem
 - Para obtener información general de la autenticación multifactor de Azure SQL Database, consulte [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md).  
 - Conceder a otros usuarios acceso a la base de datos. Consulte [Autorización y autenticación de SQL Database: concesión de acceso](sql-database-manage-logins.md).  
 - Asegúrese de que otros usuarios puedan conectarse a través del firewall. Consulte [Configuración de un firewall de nivel de servidor en Azure SQL Database mediante Azure Portal](sql-database-configure-firewall-settings.md).  
-- Cuando se usa la autenticación de **Active Directory - Universal compatible con MFA**, el seguimiento de ADAL está disponible a partir de [SSMS 17.3](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms). Desactivado de forma predeterminada, puede activar el seguimiento de ADAL mediante el menú **Herramientas**, **Opciones**, en **Azure Services**, **Azure Cloud**, **Nivel de seguimiento de la ventana de salida de ADAL**, y habilitar seguidamente **Salida** en el menú **Ver**. Los seguimientos están disponibles en la ventana de salida al seleccionar la opción **Azure Active Directory**.   
+- Cuando se usa la autenticación de **Active Directory - Universal compatible con MFA**, el seguimiento de ADAL está disponible a partir de [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Desactivado de forma predeterminada, puede activar el seguimiento de ADAL mediante el menú **Herramientas**, **Opciones**, en **Azure Services**, **Azure Cloud**, **Nivel de seguimiento de la ventana de salida de ADAL**, y habilitar seguidamente **Salida** en el menú **Ver**. Los seguimientos están disponibles en la ventana de salida al seleccionar la opción **Azure Active Directory**.   
 
 
 [1]: ./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png

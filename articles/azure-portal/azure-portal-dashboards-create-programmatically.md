@@ -6,18 +6,18 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creación mediante programación de paneles de Azure
 
@@ -27,7 +27,7 @@ Este documento le guía a través del proceso de creación y publicación de pan
 
 ## <a name="overview"></a>Información general
 
-Los paneles compartidos en Azure constituyen [recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), al igual que las máquinas virtuales y las cuentas de almacenamiento.  Por lo tanto, se pueden administrar mediante programación a través de las [API de REST de Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/overview), los [comandos de Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0) y numerosas características de [Azure Portal](https://portal.azure.com) basadas en estas API para facilitar la administración de recursos.  
+Los paneles compartidos en Azure constituyen [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), al igual que las máquinas virtuales y las cuentas de almacenamiento.  Por lo tanto, se pueden administrar mediante programación a través de las [API de REST de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), la [CLI de Azure](https://docs.microsoft.com/cli/azure/overview), los [comandos de Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) y numerosas características de [Azure Portal](https://portal.azure.com) basadas en estas API para facilitar la administración de recursos.  
 
 Cada una de estas API y herramientas ofrece formas de crear, enumerar, recuperar, modificar y eliminar recursos.  Puesto que los paneles son recursos, puede elegir la API o herramienta que prefiera usar.
 
@@ -55,7 +55,7 @@ Después de haber configurado el panel a su gusto, los siguientes pasos son publ
 
 ![comando compartir](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Al hacer clic en el comando Compartir, se muestra un cuadro de diálogo en el que se le pide que elija en qué suscripción y grupo de recursos quiere publicar. Tenga en cuenta que [debe tener acceso de escritura](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) a la suscripción y al grupo de recursos que desee.
+Al hacer clic en el comando Compartir, se muestra un cuadro de diálogo en el que se le pide que elija en qué suscripción y grupo de recursos quiere publicar. Tenga en cuenta que [debe tener acceso de escritura](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) a la suscripción y al grupo de recursos que desee.
 
 ![uso compartido y acceso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ No es necesario comprender perfectamente la estructura JSON del panel para crear
 
 Para publicar este panel para cualquier máquina virtual en el futuro, debe parametrizar todas las apariciones de esta cadena en JSON. 
 
-Hay dos tipos de API que crean recursos en Azure. [API imperativas](https://docs.microsoft.com/en-us/rest/api/resources/resources) que crean un recurso a la vez y un sistema de [implementación basado en plantillas](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) que puede organizar la creación de varios recursos dependientes con una sola llamada API. Esta última admite de forma nativa la parametrización y creación de plantillas, por eso la utilizamos en nuestro ejemplo.
+Hay dos tipos de API que crean recursos en Azure. [API imperativas](https://docs.microsoft.com/rest/api/resources/resources) que crean un recurso a la vez y un sistema de [implementación basado en plantillas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) que puede organizar la creación de varios recursos dependientes con una sola llamada API. Esta última admite de forma nativa la parametrización y creación de plantillas, por eso la utilizamos en nuestro ejemplo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Creación mediante programación de un panel a partir de la plantilla mediante una implementación de plantilla
 
-Azure ofrece la capacidad de organizar la implementación de varios recursos. Puede crear una plantilla de implementación que especifique el conjunto de recursos que se van a implementar, así como las relaciones entre ellos.  El formato JSON de los recursos es el mismo que si estuviera creándolos uno a uno. La diferencia es que el [lenguaje de plantilla](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) agrega algunos conceptos como variables, parámetros, funciones básicas, etc. Esta sintaxis extendida solo se admite en el contexto de una implementación de plantilla y no funciona si se usa con las API imperativas que se han mencionado anteriormente.
+Azure ofrece la capacidad de organizar la implementación de varios recursos. Puede crear una plantilla de implementación que especifique el conjunto de recursos que se van a implementar, así como las relaciones entre ellos.  El formato JSON de los recursos es el mismo que si estuviera creándolos uno a uno. La diferencia es que el [lenguaje de plantilla](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) agrega algunos conceptos como variables, parámetros, funciones básicas, etc. Esta sintaxis extendida solo se admite en el contexto de una implementación de plantilla y no funciona si se usa con las API imperativas que se han mencionado anteriormente.
 
 Si ha elegido esta última opción, debe realizar la parametrización mediante la sintaxis de parámetros de la plantilla.  Reemplace todas las instancias del identificador del recurso, que hemos visto anteriormente, tal como se muestra aquí.
 
@@ -119,7 +119,7 @@ También debe declarar algunos metadatos de plantilla requeridos y los parámetr
 
 __Vista de la plantilla de trabajo completa al final de este documento.__
 
-Una vez diseñada la plantilla, puede implementarla mediante las [API de REST](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) o la [página de implementación de plantillas del portal](https://portal.azure.com/#create/Microsoft.Template).
+Una vez diseñada la plantilla, puede implementarla mediante las [API de REST](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), la [CLI de Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) o la [página de implementación de plantillas del portal](https://portal.azure.com/#create/Microsoft.Template).
 
 Estas son dos versiones de nuestro panel de ejemplo JSON. La primera es la versión que hemos exportado desde el portal y que ya estaba enlazada a un recurso. La segunda es la versión de la plantilla que se puede enlazar mediante programación a cualquier máquina virtual e implementar con Azure Resource Manager.
 

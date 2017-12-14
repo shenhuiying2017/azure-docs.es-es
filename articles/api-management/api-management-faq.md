@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: d0072a56c2688c297d499533a125926ba9915ff9
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -139,7 +139,7 @@ Sí. Consulte las plantillas de inicio rápido del [servicio Azure API Managemen
 Sí. Puede hacerse a través de PowerShell o enviando el certificado directamente a la API. Esta operación deshabilitará la validación de la cadena de certificados y le permitirá usar certificados autofirmados o firmados de forma privada cuando se comunique con los servicios back-end desde API Management.
 
 #### <a name="powershell-method"></a>Método de Powershell ####
-Utilice el cmdlet de PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (con el nuevo back-end) o [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (con el back-end existente) y establezca el parámetro `-SkipCertificateChainValidation` en `True`. 
+Utilice el cmdlet de PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (con el nuevo back-end) o [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (con el back-end existente) y establezca el parámetro `-SkipCertificateChainValidation` en `True`. 
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

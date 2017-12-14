@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 682b7577135e327457976dc77ce4b4364bd12e48
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -48,8 +48,6 @@ Para más información sobre cómo publicar una aplicación administrada del cat
 
 Los proveedores que deseen facturar sus servicios pueden disponer de una aplicación administrada a través de Azure Marketplace. Después de que el proveedor publica una aplicación, esta está disponible para los usuarios de fuera de la organización. Con este método, los proveedores de servicios administrados (MSP), los fabricantes de software independientes (ISV) y los integradores del sistema (SIs) pueden ofrecer sus soluciones a todos los clientes de Azure.
 
-Para más información sobre cómo publicar una aplicación administrada en Azure Marketplace, consulte [Creación de la aplicación de Marketplace](publish-marketplace-app.md).
-
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicaciones administradas
 
 Normalmente, los recursos de una aplicación administrada residen en dos grupos de recursos. El consumidor administra un grupo de recursos y el editor administra el otro. Al definir la aplicación administrada, el editor especifica los niveles de acceso. La siguiente imagen muestra un escenario en el que el editor solicita el rol de propietario del grupo de recursos administrados. El editor puso un bloqueo de solo lectura en este grupo de recursos para el consumidor.
@@ -72,5 +70,4 @@ Cuando el consumidor elimina la aplicación administrada, también se elimina el
 
 * Para obtener una introducción sobre cómo definir e implementar una aplicación administrada, consulte [Creación e implementación de una aplicación administrada de Azure con la CLI de Azure](managed-apps-quickstart-cli.md)
 * Para más información sobre cómo publicar una aplicación interna, consulte [Creación de la aplicación de catálogo de servicios](publish-service-catalog-app.md).
-* Para información sobre cómo publicar aplicaciones administradas en Marketplace, consulte [Creación de la aplicación de Marketplace](publish-marketplace-app.md).
 

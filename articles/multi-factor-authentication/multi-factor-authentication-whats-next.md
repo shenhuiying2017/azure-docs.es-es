@@ -4,7 +4,7 @@ description: "Esta es la página de Azure Multi-Factor Authentication que descri
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -14,18 +14,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 4dc029e01762d9ab6eb1c930f2941d0c1ac8ed7d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configuración de Azure Multi-Factor Authentication (versión preliminar pública)
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
 Este artículo le ayudará a administrar Azure Multi-Factor Authentication ahora que ya está preparado y con todo funcionando.  Abarca varios temas que le permitirán sacar el máximo partido de Azure Multi-Factor Authentication.  No todas estas características están disponibles en todas las [versiones de Azure Multi-Factor Authentication](/multi-factor-authentication-get-started.md#what-features-do-i-need).
-
->[!NOTE]
->Esta configuración es una versión preliminar pública en Azure Portal. Para documentación sobre cómo administrar la configuración Azure Multi-Factor Authentication en el portal web, consulte [Configuración de Azure Multi-Factor Authentication](multi-factor-authentication-whats-next-pfweb.md).
 
 | Característica | Descripción | 
 |:--- |:--- |

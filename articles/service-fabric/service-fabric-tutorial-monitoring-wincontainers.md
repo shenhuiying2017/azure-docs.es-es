@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Supervisión de contenedores de Windows en Service Fabric mediante OMS
 
@@ -41,7 +41,7 @@ Antes de comenzar este tutorial, debe:
 
 En el caso de que usara la [plantilla proporcionada](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) en la primera parte de este tutorial, debe incluir las siguientes incorporaciones a una plantilla de Azure Resource Manager para Service Fabric genérica. En caso de que tenga un clúster que quiera configurar para supervisar contenedores con OMS:
 * Realice los siguientes cambios en su plantilla de Resource Manager.
-* Impleméntelo mediante PowerShell para actualizar su clúster [implementando la plantilla](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager es consciente de la existencia del recurso, por lo que lo implementará como una actualización.
+* Impleméntelo mediante PowerShell para actualizar su clúster [implementando la plantilla](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager es consciente de la existencia del recurso, por lo que lo implementará como una actualización.
 
 ### <a name="adding-oms-to-your-cluster-template"></a>Incorporación de OMS a su plantilla de clúster
 

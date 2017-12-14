@@ -4,7 +4,7 @@ description: "Integración de intercambios de notificaciones de API de REST en e
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,17 +14,17 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 El marco de experiencia de identidad, que subyace a Azure Active Directory B2C (Azure AD B2C), le permite realizar la integración con una API RESTful en un recorrido del usuario. En este tutorial, aprenderá de qué forma Azure AD B2C con los servicios REST de .NET Framework (API web).
 
 ## <a name="introduction"></a>Introducción
-Mediante Azure AD B2C puede agregar su propia lógica de negocios a un recorrido del usuario mediante una llamada a su propio servicio REST. El marco de experiencia de identidad envía datos al servicio REST en una colección *Notificaciones entrantes* y recibe datos de RESTful en una colección *Notificaciones salientes*. Con la integración del servicio REST, puede hacer lo siguiente:
+Mediante Azure AD B2C puede agregar su propia lógica de negocios a un recorrido del usuario mediante una llamada a su propio servicio REST. El marco de experiencia de identidad envía datos al servicio REST en una colección *Notificaciones entrantes* y recibe datos de RESTful en una colección *Notificaciones salientes*. Con la integración del servicio RESTful, puede hacer lo siguiente:
 
 * **Validar datos de entrada de usuario**: esta acción impide que se conserven en Azure AD datos con formato incorrecto. Si el valor del usuario no es válido, el servicio REST devuelve el mensaje de error que indica al usuario que proporcione una entrada. Por ejemplo, puede comprobar que la dirección de correo electrónico que proporciona el usuario existe en la base de datos del cliente.
 * **Sobrescribir notificaciones de entrada**: por ejemplo, si un usuario escribe el nombre con mayúsculas o minúsculas, se le puede dar un formato en el que solo la primera letra esté en mayúscula.
@@ -215,7 +215,7 @@ En la API web, un _controlador_ es un objeto que controla las solicitudes HTTP. 
     Se abre la ventana **Crear servicio de aplicaciones**. En ella, cree todos los recursos de Azure necesarios para ejecutar la aplicación web ASP.NET en Azure.
 
     > [!NOTE]
-    >Para más información acerca de la publicación, consulte [Creación de una aplicación web ASP.NET en Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Para más información acerca de la publicación, consulte [Creación de una aplicación web ASP.NET en Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. En el cuadro **Nombre de aplicación web**, escriba un nombre de aplicación único [los caracteres válidos son a-z, A-Z, 0-9 y guión(-)]. La dirección URL de la aplicación web es http://<nombre_aplicación>.azurewebsites.NET, donde *nombre_aplicación* es el nombre de su aplicación web. Puede aceptar el nombre generado automáticamente, que es único.
 

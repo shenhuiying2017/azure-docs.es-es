@@ -4,7 +4,7 @@ description: "Cómo usar la directiva de grupo para implementar el complemento d
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06e55977eb2840c8325d70a9fdfd95023bbf380d
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: a203548575eacb2d0eb0d09a4aaf239b11caad3c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
 En este tutorial se muestra cómo usar la directiva de grupo para instalar de forma remota la extensión de panel de acceso para Internet Explorer en los equipos de los usuarios. Esta extensión es necesaria para los usuarios de Internet Explorer que deben iniciar sesión en aplicaciones que están configuradas con un [inicio de sesión único basado en contraseña](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
@@ -29,7 +29,7 @@ Se recomienda que los administradores automaticen la implementación de esta ext
 La extensión de panel de acceso también está disponible para [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) y [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), ninguno de los cuales requieren permisos de administrador para la instalación.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Configuró [Servicios de dominio de Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)y unió los equipos de los usuarios a su dominio.
+* Configuró [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)y unió los equipos de los usuarios a su dominio.
 * Debe tener el permiso "Editar configuración" para editar el objeto de directiva de grupo (GPO). De forma predeterminada, los miembros de los siguientes grupos de seguridad poseen este permiso: Administradores de dominio, Administradores de organización y Propietarios del creador de directivas de grupo. [Más información.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Paso 1: Crear el punto de distribución
@@ -50,7 +50,7 @@ En primer lugar, debe colocar el paquete del instalador en una ubicación de red
 7. Compruebe que los equipos cliente tengan acceso al paquete de instalador desde el recurso compartido. 
 
 ## <a name="step-2-create-the-group-policy-object"></a>Paso 2: Crear el objeto de directiva de grupo
-1. Inicie sesión en el servidor que hospeda la instalación de Servicios de dominio de Active Directory (AD DS).
+1. Inicie sesión en el servidor que hospeda la instalación de Active Directory Domain Services (AD DS).
 2. En el Administrador del servidor, vaya a **Herramientas** > **Administración de directivas de grupo**.
    
     ![Vaya a Herramientas > Administración de directivas de grupo.](./media/active-directory-saas-ie-group-policy/tools-gpm.png)

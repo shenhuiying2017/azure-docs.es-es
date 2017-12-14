@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 75fc097013251eb839cb53dc2558c8f52a745e38
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f98659081b991d403b6477196042c6ff3d40bb12
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usar Spark MLlib para compilar una aplicación de aprendizaje automático y analizar un conjunto de datos
 
@@ -342,7 +342,7 @@ Cuando haya terminado de ejecutar la aplicación, deberá cerrar el cuaderno par
 
 ### <a name="scenarios"></a>Escenarios
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
-* [Creación de aplicaciones de Aprendizaje automático con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
+* [Creación de aplicaciones de Machine Learning con Apache Spark en HDInsight de Azure](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](apache-spark-eventhub-streaming.md)
 * [Análisis del registro del sitio web con Spark en HDInsight](apache-spark-custom-library-website-log-analysis.md)
 

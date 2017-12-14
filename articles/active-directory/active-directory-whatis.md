@@ -4,7 +4,7 @@ description: Usar Azure Active Directory para ampliar sus identidades locales ex
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
-ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5eafd4d25d2638ab5d9f904a7e0c00b36501d68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 Azure Active Directory (Azure AD) es el directorio basado en la nube de varios inquilinos y el servicio de administración de identidades de Microsoft. Azure AD combina servicios de directorio fundamentales, gobierno avanzado de la identidad y administración del acceso a las aplicaciones. Azure AD ofrece también una plataforma muy completa basada en estándares que permite a los desarrolladores proporcionar control de acceso a sus aplicaciones, en función de una directiva y reglas centralizadas. 

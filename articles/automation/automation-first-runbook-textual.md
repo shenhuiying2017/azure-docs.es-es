@@ -3,7 +3,7 @@ title: Mi primer runbook de flujo de trabajo de PowerShell en Azure Automation |
 description: "Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de texto simple con Flujo de trabajo de PowerShell."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: flujo de trabajo de powershell, ejemplos de flujo de trabajo de powershell, powershell para flujos de trabajo
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 71fba79804e4361fd731ec5627526beafa01fa3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 214163dd0f63bb8e08afdf94dcbfcc93d0279ad1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mi primer runbook de flujo de trabajo de PowerShell
 
@@ -37,14 +37,15 @@ Este tutorial le guiará para crear un [runbook de flujo de trabajo de PowerShel
 Para completar este tutorial, necesitará lo siguiente:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Cuenta de Automatización](automation-offering-get-started.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
+* 
+            [Cuenta de Automation](automation-offering-get-started.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
 * Una máquina virtual de Azure. Detendremos e iniciaremos esta máquina, por lo que no debería ser una máquina virtual de producción.
 
 ## <a name="step-1---create-new-runbook"></a>Paso 1: crear nuevo runbook
 Empezaremos creando un runbook simple que genere el texto *Hello World*.
 
-1. En el Portal de Azure, abra su cuenta de Automatización.  
-   La página de la cuenta de Automatización proporciona una vista rápida de los recursos que hay en esa cuenta. Ya debería tener algunos recursos. Muchas de ellos son los módulos que se incluyen automáticamente en una cuenta nueva de Automatización. También debe tener el recurso de credencial que se menciona en los [requisitos previos](#prerequisites).
+1. En Azure Portal, abra su cuenta de Automation.  
+   La página de la cuenta de Automation proporciona una vista rápida de los recursos que hay en esa cuenta. Ya debería tener algunos recursos. Muchas de ellos son los módulos que se incluyen automáticamente en una cuenta nueva de Automation. También debe tener el recurso de credencial que se menciona en los [requisitos previos](#prerequisites).
 2. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.<br><br> ![Control de runbooks](media/automation-first-runbook-textual/runbooks-control-tiles.png)
 3. Para crear un runbook, haga clic en el botón **Agregar un runbook** y en **Crear un nuevo runbook**.
 4. Asigne al runbook el nombre *MyFirstRunbook-Workflow*.
@@ -104,7 +105,7 @@ Hemos probado y publicado nuestro runbook, pero hasta ahora no hace nada útil. 
 1. Abra el editor de texto haciendo clic en **Editar** en el panel MyFirstRunbook-Workflow.<br><br> ![Editar runbook](media/automation-first-runbook-textual/automation-runbook-controls-edit.png)
 2. Ya no necesitamos la línea **Write-Output** , así que elimínela.
 3. Coloque el cursor en una línea en blanco entre las llaves.
-4. Escriba o copie y pegue el siguiente código que controlará la autenticación con la cuenta de ejecución de Automatización:
+4. Escriba o copie y pegue el siguiente código que controlará la autenticación con la cuenta de ejecución de Automation:
 
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -157,5 +158,5 @@ Actualmente, nuestro runbook inicia la máquina virtual que codificamos en el ru
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md)
-* Para aprender más sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
+* Para más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)
 * Para más información sobre la característica de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

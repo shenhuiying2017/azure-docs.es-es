@@ -4,7 +4,7 @@ description: "Cómo crear una aplicación nativa .NET con la que los usuarios pu
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 46d81e09-bad0-44ce-9026-881805976e72
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7436db2943a6b3de6ec53cdaa6692aa05d2f2f69
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Agregar inicio de sesión a una aplicación de escritorio de Windows
 Con el punto de conexión v2.0 puede agregar rápidamente la autenticación a sus aplicaciones de escritorio compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas.  También permite que la aplicación se comunique de forma segura con una API web back-end, así como con [Microsoft Graph](https://graph.microsoft.io) y algunas de las [API unificadas de Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).

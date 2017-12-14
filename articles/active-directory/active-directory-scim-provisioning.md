@@ -4,7 +4,7 @@ description: "Azure Active Directory puede aprovisionar automáticamente los usu
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
@@ -12,25 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: aaddev;it-pro
+ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
 ## <a name="overview"></a>Información general
 Azure Active Directory (Azure AD) puede aprovisionar automáticamente a usuarios y grupos de cualquier aplicación o almacén de identidades dirigidos por un servicio web con la interfaz definida en la [especificación del protocolo System for Cross-Domain Identity Management (SCIM) 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory puede enviar solicitudes para crear, modificar o eliminar los usuarios y grupos asignados al servicio web. El servicio web puede convertir entonces esas solicitudes en operaciones en el almacén de identidades de destino. 
-
-> [!IMPORTANT]
-> Microsoft recomienda administrar Azure AD con el [Centro de administración de Azure AD](https://aad.portal.azure.com) en Azure Portal en lugar de usar el portal de Azure clásico al que se hace referencia en este artículo. 
-
-
 
 ![][0]
 *Figura 1: aprovisionamiento de Azure Active Directory en un almacén de identidades a través de un servicio web*
@@ -87,7 +82,7 @@ Las aplicaciones que admiten el perfil SCIM descrito en este artículo se pueden
 13. Haga clic en **Guardar** para iniciar el servicio de aprovisionamiento de Azure AD. 
 14. Al sincronizar solo los usuarios y grupos asignados (recomendado), no olvide seleccionar la pestaña **Usuarios y grupos** y asigne los usuarios o grupos que se van a sincronizar.
 
-Una vez que haya iniciado la sincronización inicial, puede utilizar la pestaña **Registros de auditoría** para supervisar el progreso, con lo que se muestran todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación. Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Una vez que haya iniciado la sincronización inicial, puede utilizar la pestaña **Registros de auditoría** para supervisar el progreso, con lo que se muestran todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación. Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >La sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos si se está ejecutando el servicio. 
@@ -159,7 +154,7 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
 13. Haga clic en **Guardar** para iniciar el servicio de aprovisionamiento de Azure AD. 
 14. Al sincronizar solo los usuarios y grupos asignados (recomendado), no olvide seleccionar la pestaña **Usuarios y grupos** y asigne los usuarios o grupos que se van a sincronizar.
 
-Una vez que haya iniciado la sincronización inicial, puede utilizar la pestaña **Registros de auditoría** para supervisar el progreso, con lo que se muestran todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación. Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Una vez que haya iniciado la sincronización inicial, puede utilizar la pestaña **Registros de auditoría** para supervisar el progreso, con lo que se muestran todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación. Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 El último paso en la comprobación del ejemplo es abrir el archivo TargetFile.csv en la carpeta \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug en el equipo Windows. Una vez que se ejecuta el proceso de aprovisionamiento, este archivo muestra los detalles de todos los usuarios y grupos asignados y aprovisionados.
 

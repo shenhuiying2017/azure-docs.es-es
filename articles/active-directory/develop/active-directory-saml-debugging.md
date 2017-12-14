@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo depurar el inicio de sesión 
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: 246709effcff1c38d14db3848fe2fad836ad90da
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7aa7ca90f9098f30565524470ca23783e97195e0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 Cuando se depura una integración de la aplicación basada en SAML, a menudo resulta útil usar una herramienta como [Fiddler](http://www.telerik.com/fiddler) para ver la solicitud SAML, la respuesta de SAML y el token SAML real que se emite a la aplicación. Mediante el examen del token SAML, puede asegurarse de que todos los atributos necesarios, el nombre de usuario del SAML Subject y el URI del emisor se logren del modo esperado.

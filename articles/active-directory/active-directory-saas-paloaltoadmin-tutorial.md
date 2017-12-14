@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo configurar el inicio de sesión �
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: a826eaec-15af-4c85-8855-8a3374d1efb9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e73739588f1422e1e5b724784eedd6f25d71bf9
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5dca976449ee856cc61407d0eae831fc1e1e7a50
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integración de Azure Active Directory con Palo Alto Networks: interfaz de usuario de administración
 
@@ -155,19 +155,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 9. Haga clic en **Dispositivo**.
 
-    ![Configuración del inicio de sesión único con Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
+    ![Configuración del inicio de sesión único de Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-10. Seleccione **Proveedor de identidad SAML** en la barra de navegación izquierda y haga clic en "Importar" para importar el archivo de metadatos.
+10. Seleccione **Proveedor de identidades SAML** en la barra de navegación izquierda y haga clic en "Importar" para importar el archivo de metadatos.
 
-    ![Configuración del inicio de sesión único con Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
+    ![Configuración del inicio de sesión único de Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-11. Realice las siguientes acciones en la ventana Importar
+11. Realice las siguientes acciones en la ventana Importar:
 
-    ![Configuración del inicio de sesión único con Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
+    ![Configuración del inicio de sesión único de Palo Alto](./media/active-directory-saas-paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    a. En el cuadro de texto **Nombre de perfil**, proporcione un nombre (por ejemplo, Azure AD Admin UI).
+    a. En el cuadro de texto **Nombre de perfil**, proporcione un nombre, por ejemplo, Azure AD Admin UI.
     
-    b. En **Metadatos del proveedor de identidades**, haga clic en **Navegar** y seleccione el archivo metadata.xml que ha descargado de Azure Portal
+    b. En **Metadatos del proveedor de identidades**, haga clic en **Examinar** y seleccione el archivo metadata.xml que ha descargado de Azure Portal.
     
     c. Haga clic en **Aceptar**
 

@@ -4,7 +4,7 @@ description: Un tema que explica los enfoques para proteger el acceso con privil
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 00fc998666574f0b85b968cba174d328a300e861
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: e1bc0f27b14beef91b4deb68dc625d75195445fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>Protección del acceso con privilegios en Azure AD
 La protección del acceso con privilegios es un primer paso esencial para ayudar a proteger los activos empresariales en las organizaciones modernas. Las cuentas con privilegios son cuentas que administran los sistemas de TI. Estas cuentas son el objetivo de los ciberatacantes ya que les proporcionan acceso a los datos y los sistemas de una organización. Para proteger el acceso con privilegios, debe aislar las cuentas y los sistemas del riesgo de exposición a usuarios malintencionados.

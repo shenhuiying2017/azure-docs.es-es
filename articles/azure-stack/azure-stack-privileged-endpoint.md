@@ -3,8 +3,8 @@ title: "Uso del punto de conexión con privilegios en Azure Stack | Microsoft Do
 description: "Se muestra cómo usar el punto de conexión con privilegios en Azure Stack (para un operador de Azure Stack)."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: twooley
-ms.openlocfilehash: 9769b12064216680bb1b2db8c1fd7449927c7771
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Uso del punto de conexión con privilegios en Azure Stack
 
@@ -77,7 +77,7 @@ Es recomendable que se conecte al punto de conexión con privilegios solo desde 
       - **Nombre de usuario**: especifique la cuenta CloudAdmin con el formato **&lt;*dominio de Azure Stack*&gt;\cloudadmin**. (Para ASDK, el nombre de usuario es **azurestack\cloudadmin**).
       - **Contraseña**: escriba la misma contraseña que proporcionó durante la instalación de la cuenta del administrador de dominio de AzureStackAdmin.
     
-3.  Después de conectarse, el símbolo del sistema cambia a **[*dirección IP o nombre de máquina virtual de ERCS*]: PS>** o a **[azs ercs01]: PS>**, según el entorno. Desde aquí, ejecute `Get-Command` para ver la lista de los cmdlets disponibles.
+3.  Después de conectarse, el símbolo del sistema cambia a  **[*dirección IP o nombre de máquina virtual de ERCS*]: PS > ** o a **[azs ercs01]: PS >**, según el entorno. Desde aquí, ejecute `Get-Command` para ver la lista de los cmdlets disponibles.
 
     ![Salida del cmdlet Get-Command que muestra la lista de comandos disponibles](media/azure-stack-privileged-endpoint/getcommandoutput.png)
 

@@ -1,9 +1,9 @@
 ---
-title: "Edición de runbooks de texto en Automatización de Azure"
-description: "En este artículo, se proporcionan diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Automatización de Azure mediante el editor de texto."
+title: "Edición de runbooks de texto en Azure Automation"
+description: "En este artículo, se proporcionan diferentes procedimientos para trabajar con runbooks de PowerShell y de flujo de trabajo de PowerShell en Azure Automation mediante el editor de texto."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: ae36342ab0f42c364dedd4107a59f5b0ffc20a0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e166700be0ec6b32d40f34bd47f92a7cff1cc7bf
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="editing-textual-runbooks-in-azure-automation"></a>Edición de runbooks de texto en Automatización de Azure
+# <a name="editing-textual-runbooks-in-azure-automation"></a>Edición de runbooks de texto en Azure Automation
 El editor de texto de Azure Automation sirve para editar [runbooks de PowerShell](automation-runbook-types.md#powershell-runbooks) y [runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Además, incluye las características típicas de otros editores de código, como IntelliSense y codificación en colores, junto con otras características especiales que le ayudarán a acceder a recursos habituales de runbooks.  En este artículo, se proporcionan pasos detallados para realizar diferentes funciones con este editor.
 
 El editor de texto incluye una característica para insertar código para las actividades, los recursos y los runbooks secundarios en un runbook. En lugar de escribir en el código personalmente, puede seleccionar entre una lista de recursos disponibles para que se inserte el código adecuado en el runbook.
 
-Cada runbook de Automatización de Azure tiene dos versiones: una de borrador y otra publicada. Edite la versión de borrador del runbook y después publíquela para que pueda ejecutarse. No se puede editar la versión publicada. Consulte el artículo sobre la [publicación de un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) para obtener más información.
+Cada runbook de Azure Automation tiene dos versiones: una de borrador y otra publicada. Edite la versión de borrador del runbook y después publíquela para que pueda ejecutarse. No se puede editar la versión publicada. Consulte el artículo sobre la [publicación de un runbook](automation-creating-importing-runbook.md#publishing-a-runbook) para obtener más información.
 
 Para trabajar con [runbooks gráficos](automation-runbook-types.md#graphical-runbooks), consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -64,7 +64,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 ## <a name="to-edit-a-runbook-with-the-azure-portal"></a>Para editar un runbook con el Portal de Azure
 Use el siguiente procedimiento para abrir un runbook para su edición en el editor de texto.
 
-1. En el Portal de Azure, seleccione **Automatización** y, a continuación, haga clic en el nombre de una cuenta de Automatización.
+1. En Azure Portal, seleccione **Automation** y, a continuación, haga clic en el nombre de una cuenta de Automation.
 2. Seleccione la pestaña **Runbooks** .
 3. Haga clic en el nombre del runbook que desea editar y después seleccione la pestaña **Autor** .
 4. Haga clic en el botón **Editar** en la parte inferior de la pantalla.
@@ -97,7 +97,7 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 4. Seleccione entre los recursos disponibles en la columna central.
 5. A continuación, haga clic en el botón Comprobar.  El código para obtener o establecer el recurso se insertará en el runbook.
 
-## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Para editar un runbook de Automatización de Azure mediante Windows PowerShell
+## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Para editar un runbook de Azure Automation mediante Windows PowerShell
 Para editar un runbook con Windows PowerShell, use el editor de su elección y guárdelo en un archivo. ps1. Puede usar el cmdlet [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) para recuperar el contenido del runbook y después el cmdlet [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) para reemplazar el borrador del runbook existente por el modificado.
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Para recuperar el contenido de un runbook mediante Windows PowerShell
@@ -123,9 +123,11 @@ En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido 
     Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
+* 
+            [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
 * [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
-* [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md)
+* 
+            [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * [Certificados](automation-certificates.md)
 * [Conexiones](automation-connections.md)
 * [Credenciales](automation-credentials.md)

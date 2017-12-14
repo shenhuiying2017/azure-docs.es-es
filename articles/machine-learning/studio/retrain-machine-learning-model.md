@@ -3,7 +3,7 @@ title: Reciclaje de un modelo de Machine Learning | Microsoft Docs
 description: "Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 0270a43f79202d102a8cdfe9cba7011a882e8117
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54655c33336ff3fef261024984947108d6f1df9c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="retrain-a-machine-learning-model"></a>Reciclaje de un modelo de Machine Learning
-Como parte del proceso de operacionalización de modelos de Aprendizaje automático de Azure, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predicativo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles. 
+Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predicativo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles. 
 
-Los modelos que crea mediante Aprendizaje automático no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. 
+Los modelos que crea mediante Machine Learning no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. 
 
 El reentrenamiento puede producirse con frecuencia. Con la característica de la API de reentrenamiento mediante programación, puede reciclar el modelo mediante programación con las API de reentrenamiento y actualizar el servicio web con el modelo recién entrenado. 
 
 Este documento describe el proceso anterior y muestra cómo usar las API de reentrenamiento.
 
 ## <a name="why-retrain-defining-the-problem"></a>Por qué volver a entrenar: definición del problema
-Como parte del proceso de entrenamiento de aprendizaje automático, un modelo se entrena usando un conjunto de datos. Los modelos que crea mediante Aprendizaje automático no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse.
+Como parte del proceso de entrenamiento de aprendizaje automático, un modelo se entrena usando un conjunto de datos. Los modelos que crea mediante Machine Learning no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse.
 
 En estos casos, una API de programación proporciona una manera cómoda de permitirle a usted o al consumidor de sus API crear un cliente que pueda, en un momento determinado o de forma habitual, volver a entrenar un modelo usando sus propios datos. A continuación, puede evaluar los resultados del reentrenamiento y actualizar la API del servicio web para utilizar el modelo recién entrenado.
 

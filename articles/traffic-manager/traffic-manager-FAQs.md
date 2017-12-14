@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d6681a5b46aa352b1aa0dadedad8a51c9d1e5eaf
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -368,7 +368,7 @@ El número de comprobaciones de estado de Traffic Manager que llega a su punto d
 
 ### <a name="how-do-i-configure-nested-profiles"></a>¿Cómo se configuran los perfiles anidados?
 
-Los perfiles anidados de Traffic Manager se pueden configurar mediante Azure Resource Manager y las API de REST del portal clásico, cmdlets de Azure PowerShell y comandos de la CLI de Azure multiplataforma. También son compatibles con el nuevo Azure Portal. No son compatibles con el portal clásico.
+Los perfiles anidados de Traffic Manager se pueden configurar mediante Azure Resource Manager y las API de REST del portal clásico, cmdlets de Azure PowerShell y comandos de la CLI de Azure multiplataforma. También son compatibles con el nuevo Azure Portal.
 
 ### <a name="how-many-layers-of-nesting-does-traffic-manger-support"></a>¿Cuántas capas de anidamiento admite el Administrador de tráfico?
 

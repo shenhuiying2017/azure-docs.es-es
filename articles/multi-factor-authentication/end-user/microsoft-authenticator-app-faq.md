@@ -4,7 +4,7 @@ description: "Proporciona una lista de las preguntas y respuestas más frecuente
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 4d1302416cfa767415d7bb1e8b426079099caf28
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 073b8adfcbe5fdcc2a6d1dba820a1101fac83218
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Preguntas más frecuentes de la aplicación Microsoft Authenticator
 
@@ -33,9 +33,9 @@ La aplicación Microsoft Authenticator reemplaza la aplicación Azure Authentica
 
 Cuando se abre la aplicación Microsoft Authenticator, se ven las cuentas que ha agregado y un número de seis u ocho dígitos junto a cada una de ellas. Es posible que vea un temporizador de 30 segundos que cuenta de manera regresiva.
 
-Estos códigos se usan cuando inicia sesión en la cuenta. Después de escribir el nombre de usuario y la contraseña, puede que se le pida que especifique un código de comprobación. Abra la aplicación Microsoft Authenticator y copie el código que se mostrando. Introduzca ese código en la página de inicio de sesión para finalizar.
+Estos códigos se usan cuando inicia sesión en la cuenta. Después de escribir el nombre de usuario y la contraseña, puede que se le pida que especifique un código de verificación. Abra la aplicación Microsoft Authenticator y copie el código que se mostrando. Introduzca ese código en la página de inicio de sesión para finalizar.
 
-El motivo por el que los códigos cambian cada 30 segundos es para que nunca se utilice el mismo código dos veces. No es lo mismo que una contraseña, que se supone que debe recordar. La idea es que solo un usuario con acceso a su teléfono conoce el código de comprobación.
+El motivo por el que los códigos cambian cada 30 segundos es para que nunca se utilice el mismo código dos veces. No es lo mismo que una contraseña, que se supone que debe recordar. La idea es que solo un usuario con acceso a su teléfono conoce el código de verificación.
 
 Los códigos no requieren Internet ni datos, por lo que no tiene que preocuparse por tener el servicio de teléfono para iniciar sesión. Cuando se cierra la aplicación, esta no sigue ejecutándose en segundo plano ni agota la batería. Puede cerrar la aplicación e ignorarla hasta la próxima vez que inicie sesión.  
 
@@ -81,7 +81,7 @@ Esta es una lista completa de permisos que es posible que se le pidan y de cómo
 
 * **Cámara**: usamos la cámara para escanear códigos QR cuando agrega una cuenta profesional, educativa o que no es de Microsoft.
 * **Contactos y teléfono**: cuando inicia sesión con su cuenta personal de Microsoft, intentamos simplificar el proceso buscando cuentas existentes que utiliza en su teléfono.
-* **SMS**: cuando inicia sesión con su cuenta personal de Microsoft por primera vez, tenemos que asegurarnos de que su número de teléfono coincida con el que tenemos en el registro. Enviamos un mensaje de texto al teléfono donde descargó la aplicación. El mensaje contiene un código de comprobación de 6 a 8 dígitos. En lugar de pedirle que busque este código y que lo escriba en la aplicación, lo buscamos en el mensaje de texto para usted.
+* **SMS**: cuando inicia sesión con su cuenta personal de Microsoft por primera vez, tenemos que asegurarnos de que su número de teléfono coincida con el que tenemos en el registro. Enviamos un mensaje de texto al teléfono donde descargó la aplicación. El mensaje contiene un código de verificación de 6 a 8 dígitos. En lugar de pedirle que busque este código y que lo escriba en la aplicación, lo buscamos en el mensaje de texto para usted.
 * **Colocar sobre otras aplicaciones**: cuando recibe una notificación para comprobar su identidad, mostramos esa notificación sobre cualquier otra aplicación que podría estar ejecutándose.
 * **Recibir datos de Internet**: este permiso es necesario para enviar notificaciones.
 * **Impedir que el teléfono entre en modo de suspensión**: si registra el dispositivo con su organización, puede cambiar esta directiva en su teléfono.

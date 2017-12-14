@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
-ms.openlocfilehash: c0f89f98c26b80e8b71c58fc89ea7ecebe734f71
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f59083510bab1f8d665444f829cffced98f4fe28
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.
 
@@ -99,15 +99,6 @@ Para más información, vea [Configuración de nodo predeterminada y tamaños de
 
 ### <a name="hdinsight-version"></a>Versión de HDInsight
 Elija la versión de HDInsight para este clúster. Para más información, consulte [Versiones compatibles de HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-### <a name="cluster-tiers"></a>Nivel de clúster: niveles de servicio de HDInsight
-
-Azure HDInsight proporciona las ofertas de la nube de macrodatos en dos niveles de servicio: Standard y Premium.  Para más información, vea [HDInsight Standard y HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium).
-
-La captura de pantalla siguiente muestra la información del Portal de Azure para elegir los tipos de clúster:
-
-![Configuración de HDInsight Premium](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-type-configuration.png)
-
 
 ## <a name="cluster-login-and-ssh-user-name"></a>Inicio de sesión de clúster y nombre de usuario SSH
 Con los clústeres de HDInsight, puede configurar dos cuentas de usuario durante la creación del clúster:

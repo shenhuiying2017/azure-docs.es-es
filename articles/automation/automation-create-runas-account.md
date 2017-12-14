@@ -3,7 +3,7 @@ title: "Creación de una cuenta de ejecución de Azure Automation | Microsoft Do
 description: "Este artículo describe cómo actualizar la cuenta de Automation y crear cuentas de ejecución con PowerShell o desde el portal."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 28bfa54c263388d91057118878a3109ec467894a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 029ecaf43249175504cc1e22d246f24e927234af
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Actualizar la autenticación de la cuenta de Automation con cuentas de ejecución 
 Puede actualizar una cuenta de Automation existente desde Azure Portal o mediante PowerShell si:
@@ -277,9 +277,9 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
 
 Una vez que el script se ejecuta correctamente, observe lo siguiente:
 * Si creó una cuenta de ejecución clásica con un certificado público autofirmado (formato .cer), el script lo crea y lo guarda en la carpeta de archivos temporales del equipo con el perfil de usuario *%USERPROFILE%\AppData\Local\Temp*, que se usa para ejecutar la sesión de PowerShell.
-* Si creó una cuenta de identificación clásica con un certificado público de empresa (archivo .cer), use este certificado. Siga las instrucciones para [cargar un certificado de API de administración en el Portal de Azure clásico](../azure-api-management-certs.md) y luego valide la configuración de credenciales con recursos de implementación clásicos mediante el [código de ejemplo para realizar la autenticación con recursos del modelo de implementación clásica de Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Si creó una cuenta de identificación clásica con un certificado público de empresa (archivo .cer) , use este certificado. Siga las instrucciones para [cargar un certificado de API de administración en el Portal de Azure clásico](../azure-api-management-certs.md) y luego valide la configuración de credenciales con recursos de implementación clásicos mediante el [código de ejemplo para realizar la autenticación con recursos del modelo de implementación clásica de Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
 * Si *no* creó una cuenta de ejecución clásica, realice la autenticación con recursos de Resource Manager y valide la configuración de credenciales mediante el [código de ejemplo para la autenticación con recursos de Service Management](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
-* Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md).
+* Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

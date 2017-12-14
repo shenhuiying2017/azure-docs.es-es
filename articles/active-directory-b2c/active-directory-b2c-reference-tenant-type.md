@@ -4,7 +4,7 @@ description: Un tema sobre los tipos de inquilinos de Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: gsacavdm
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: 8a0644da-b825-4edc-8ce9-541c3c976afb
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: gsacavdm
-ms.openlocfilehash: facd66f0324e382ea7609a035de8129ba433846f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 752a98ca7f3c77c434de296461790f2cf37e2d5c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad en regiones y residencia de datos
 La disponibilidad en regiones y residencia de datos son dos conceptos muy diferentes que se aplican de forma diferente a Azure AD B2C del resto de Azure. En este artículo se explican las diferencias entre estos dos conceptos y se compara cómo se aplican a Azure frente a Azure AD B2C.

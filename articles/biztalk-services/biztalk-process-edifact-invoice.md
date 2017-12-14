@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: procesamiento de facturas de EDIFACT mediante Azure BizTalk Services | Microsoft Docs'
-description: "Creación y configuración del conector de Box o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+description: "Creación y configuración del conector de Box o la aplicación de API y su uso en una aplicación lógica en Azure App Service"
 services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: procesamiento de facturas de EDIFACT mediante los Servicios de BizTalk de Azure
+# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: procesamiento de facturas de EDIFACT mediante Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Puede usar el Portal de Servicios de BizTalk para configurar e implementar los contratos X12 y EDIFACT. En este tutorial, vemos cómo crear un contrato EDIFACT para intercambiar facturas entre socios comerciales. Este tutorial se centra en una solución empresarial integral que involucra a dos socios comerciales, Northwind y Contoso, que intercambian mensajes EDIFACT.  
+Puede usar el Portal de BizTalk Services para configurar e implementar los contratos X12 y EDIFACT. En este tutorial, vemos cómo crear un contrato EDIFACT para intercambiar facturas entre socios comerciales. Este tutorial se centra en una solución empresarial integral que involucra a dos socios comerciales, Northwind y Contoso, que intercambian mensajes EDIFACT.  
 
 ## <a name="sample-based-on-this-tutorial"></a>Ejemplo basado en este tutorial
-Este tutorial se ha escrito en torno a un ejemplo **Envío de facturas EDIFACT a través de los servicios de BizTalk**, que está disponible en la [Galería de código de MSDN](http://go.microsoft.com/fwlink/?LinkId=401005). Puede usar el ejemplo y seguir este tutorial para entender cómo se creó. O bien, puede usar este tutorial para crear su propia solución desde cero. Este tutorial está destinado al segundo enfoque, de modo que entienda cómo se compiló esta solución. Además, en la medida de lo posible, el tutorial es coherente con el ejemplo y usa los mismos nombres para los artefactos (por ejemplo, esquemas, transformaciones) que se usan en el ejemplo.  
+Este tutorial se ha escrito en torno a un ejemplo **Envío de facturas EDIFACT a través de BizTalk Services**, que está disponible en la [Galería de código de MSDN](http://go.microsoft.com/fwlink/?LinkId=401005). Puede usar el ejemplo y seguir este tutorial para entender cómo se creó. O bien, puede usar este tutorial para crear su propia solución desde cero. Este tutorial está destinado al segundo enfoque, de modo que entienda cómo se compiló esta solución. Además, en la medida de lo posible, el tutorial es coherente con el ejemplo y usa los mismos nombres para los artefactos (por ejemplo, esquemas, transformaciones) que se usan en el ejemplo.  
 
 > [!NOTE]
 > Dado que esta solución implica enviar un mensaje de un puente EAI a un puente EDI, se reutiliza el ejemplo de [BizTalk Services Bridge chaining sample](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) .  
@@ -39,10 +39,10 @@ En esta solución, Northwind recibe facturas EDIFACT de Contoso. Estas facturas 
 
 ![][1]  
 
-Para lograr este escenario empresarial, Contoso usa las funciones que se incluyen en Servicios de BizTalk de Microsoft Azure.
+Para lograr este escenario empresarial, Contoso usa las funciones que se incluyen en Microsoft Azure BizTalk Services.
 
 * Contoso usa puentes EAI para transformar la factura original en INVOIC EDIFACT.
-* El puente EAI envía luego el mensaje a un puente de envío de EDI implementado como parte de un contrato configurado en el Portal de Servicios de BizTalk.
+* El puente EAI envía luego el mensaje a un puente de envío de EDI implementado como parte de un contrato configurado en el Portal de BizTalk Services.
 * El puente de envío EDI procesa la INVOIC EDIFACT y la redirige a Northwind.
 * Después de recibir la factura, Northwind devuelve un mensaje CONTRL al puente de recepción EDI implementado como parte del contrato.  
 
@@ -51,30 +51,30 @@ Para lograr este escenario empresarial, Contoso usa las funciones que se incluye
 > 
 > 
 
-Para completar el escenario, usamos colas de Bus de servicio para enviar la factura de Contoso a Northwind o para recibir la confirmación de Northwind. Estas colas se pueden crear con una aplicación cliente, que está disponible para descarga y se incluye en el paquete de ejemplo disponible como parte de este tutorial.  
+Para completar el escenario, usamos colas de Service Bus para enviar la factura de Contoso a Northwind o para recibir la confirmación de Northwind. Estas colas se pueden crear con una aplicación cliente, que está disponible para descarga y se incluye en el paquete de ejemplo disponible como parte de este tutorial.  
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Debe tener un espacio de nombres de Bus de servicio. Para instrucciones sobre cómo crear un espacio de nombres, consulte [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supongamos que ya tiene un espacio de nombres del Bus de servicio aprovisionado, llamado **edifactbts**.
-* Debe tener una suscripción a Servicios de BizTalk. Para instrucciones, consulte [Creación de Servicios de BizTalk mediante el Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkID=302280). En este tutorial, supongamos que tiene una suscripción a Servicios de BizTalk, llamada **contosowabs**.
-* Registre la suscripción de Servicios de BizTalk en el Portal de Servicios de BizTalk. Para obtener instrucciones, consulte [Registro de una implementación de Servicios de BizTalk en el Portal de Servicios de BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
+* Debe tener un espacio de nombres de Service Bus. Para instrucciones sobre cómo crear un espacio de nombres, consulte [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supongamos que ya tiene un espacio de nombres de Service Bus aprovisionado, llamado **edifactbts**.
+* Debe tener una suscripción a BizTalk Services. En este tutorial, supongamos que tiene una suscripción a BizTalk Services, llamada **contosowabs**.
+* Registre la suscripción de BizTalk Services en el Portal de BizTalk Services. Para obtener instrucciones, consulte [Registro de una implementación de BizTalk Services en el Portal de BizTalk Services](https://msdn.microsoft.com/library/hh689837.aspx)
 * Debe tener instalado Visual Studio.
-* Debe tener instalado el SDK de Servicios de BizTalk. Puede descargar el SDK de [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
+* Debe tener instalado el SDK de BizTalk Services. Puede descargar el SDK de [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
 
-## <a name="step-1-create-the-service-bus-queues"></a>Paso 1: Creación de las colas de Bus de servicio
-Esta solución usa colas de Bus de servicio para intercambiar mensajes entre socios comerciales. Contoso y Northwind envían mensajes a las colas desde donde los puentes EAI o EDI los consumen. Para esta solución, necesita tres colas de Bus de servicio:
+## <a name="step-1-create-the-service-bus-queues"></a>Paso 1: Creación de las colas de Service Bus
+Esta solución usa colas de Service Bus para intercambiar mensajes entre socios comerciales. Contoso y Northwind envían mensajes a las colas desde donde los puentes EAI o EDI los consumen. Para esta solución, necesita tres colas de Service Bus:
 
 * **northwindreceive** : Northwind recibe la factura de Contoso por esta cola.
 * **contosoreceive** : Contoso recibe la confirmación de Northwind por esta cola.
 * **suspended** : todos los mensajes suspendidos se enrutan a esta cola. Los mensajes se suspenden si tienen un error durante el procesamiento.
 
-Puede crear estas colas de Bus de servicio mediante una aplicación cliente que se incluye en el paquete de ejemplo.  
+Puede crear estas colas de Service Bus mediante una aplicación cliente que se incluye en el paquete de ejemplo.  
 
 1. Desde la ubicación donde descargó el ejemplo, abra **Tutorial Sending Invoices Using BizTalk Services EDI Bridges.sln**.
 2. Presione **F5** para compilar e iniciar la aplicación **Tutorial Client**.
-3. En la pantalla, escriba el espacio de nombres ACS del Bus de servicio, el nombre del emisor y la clave del emisor.
+3. En la pantalla, escriba el espacio de nombres ACS de Service Bus, el nombre del emisor y la clave del emisor.
    
    ![][2]  
-4. Aparece un mensaje que indica que se crearán las tres colas en el espacio de nombres del Bus de servicio. Haga clic en **Aceptar**.
+4. Aparece un mensaje que indica que se crearán las tres colas en el espacio de nombres de Service Bus. Haga clic en **Aceptar**.
 5. Deje Tutorial Client en ejecución. Haga clic en **Service Bus** > ***el espacio de nombres de Service Bus*** > **Colas**, y compruebe que se hayan creado las tres colas.  
 
 ## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>Paso 2: Creación e implementación del contrato entre socios comerciales
@@ -105,7 +105,7 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
    3. En la pestaña **Protocolo**, en la sección **Esquemas**, cargue el esquema **EFACT_D93A_INVOIC.xsd**. Este esquema está disponible con el paquete de ejemplo.
       
       ![][4]  
-   4. En la pestaña **Transformación** , especifique los detalles de las colas de Bus de servicio. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en **Paso 1: Creación de las colas de Bus de servicio** (en este tema).
+   4. En la pestaña **Transformación** , especifique los detalles de las colas de Service Bus. Para el contrato del lado de envío, usamos la cola **northwindreceive** para enviar la factura EDIFACT a Northwind y la cola **suspended** para enrutar los mensajes que se suspenden por tener errores durante el procesamiento. Estas colas se crean en **Paso 1: Creación de las colas de Service Bus** (en este tema).
       
       ![][5]  
       
@@ -127,19 +127,19 @@ Los contratos entre socios comerciales se crean entre perfiles de negocio de soc
    * En la pestaña **Configuración de envío**, en **Dirección URL de entrada**, anote el punto de conexión. Para enviar un mensaje de Contoso a Northwind con el puente de envío EDI, debe enviar un mensaje a este punto de conexión.
    * En la pestaña **Configuración de recepción**, en **Transporte**, anote el punto de conexión. Para enviar un mensaje de Northwind a Contoso mediante el puente de envío EDI, debe enviar un mensaje a este punto de conexión.  
 
-## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Paso 3: Creación e implementación del proyecto de Servicios de BizTalk
-En el paso anterior, implementó los contratos de envío y recepción de EDI para procesar facturas y confirmaciones EDIFACT. Estos contratos solo pueden procesar mensajes que cumplan el esquema de mensaje EDIFACT estándar. Sin embargo, según el escenario de esta solución, Contoso envía una factura a Northwind en un esquema interno propio. Por lo tanto, antes de enviar el mensaje al puente de envío EDI, se debe transformar del esquema interno al esquema de facturas EDIFACT estándar. El proyecto de EAI de Servicios de BizTalk hace eso.
+## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Paso 3: Creación e implementación del proyecto de BizTalk Services
+En el paso anterior, implementó los contratos de envío y recepción de EDI para procesar facturas y confirmaciones EDIFACT. Estos contratos solo pueden procesar mensajes que cumplan el esquema de mensaje EDIFACT estándar. Sin embargo, según el escenario de esta solución, Contoso envía una factura a Northwind en un esquema interno propio. Por lo tanto, antes de enviar el mensaje al puente de envío EDI, se debe transformar del esquema interno al esquema de facturas EDIFACT estándar. El proyecto de EAI de BizTalk Services hace eso.
 
-El proyecto de Servicios de BizTalk, **InvoiceProcessingBridge**, que transforma el mensaje también se incluye como parte del ejemplo que descargó. El proyecto incluye los siguientes artefactos:
+El proyecto de BizTalk Services, **InvoiceProcessingBridge**, que transforma el mensaje también se incluye como parte del ejemplo que descargó. El proyecto incluye los siguientes artefactos:
 
 * **INHOUSEINVOICE. XSD** : esquema de la factura interna que se envía a Northwind.
 * **EFACT_D93A_INVOIC.XSD**: esquema de la factura EDIFACT estándar.
 * **EFACT_4.1_CONTRL.XSD**: esquema de la confirmación de EDIFACT que Northwind envía a Contoso.
 * **INHOUSEINVOICE_to_D93AINVOIC.TRFM**: la transformación que asigna el esquema de facturas interno al esquema de facturas EDIFACT estándar.  
 
-### <a name="create-the-biztalk-services-project"></a>Creación del proyecto de Servicios de BizTalk
+### <a name="create-the-biztalk-services-project"></a>Creación del proyecto de BizTalk Services
 1. En la solución de Visual Studio, expanda el proyecto InvoiceProcessingBridge y luego abra el archivo **MessageFlowItinerary.bcs** .
-2. Haga clic en cualquier parte del lienzo y establezca la **dirección URL del servicio de BizTalk** en el cuadro de propiedad para especificar el nombre de la suscripción de Servicios de BizTalk. Por ejemplo: `https://contosowabs.biztalk.windows.net`.
+2. Haga clic en cualquier parte del lienzo y establezca la **dirección URL del servicio de BizTalk** en el cuadro de propiedad para especificar el nombre de la suscripción de BizTalk Services. Por ejemplo: `https://contosowabs.biztalk.windows.net`.
    
    ![][7]  
 3. En el cuadro de herramientas, arrastre un **puente unidireccional Xml** al lienzo. Establezca las propiedades del puente **Nombre de entidad** y **Dirección relativa** en **ProcessInvoiceBridge**. Haga doble clic en **ProcessInvoiceBridge** para abrir la superficie de configuración del puente.
@@ -214,9 +214,9 @@ El proyecto de Servicios de BizTalk, **InvoiceProcessingBridge**, que transforma
 10. Guarde los cambios en la solución.  
 
 ### <a name="deploy-the-project"></a>Implementación del proyecto
-1. En el equipo donde creó el proyecto de Servicios de BizTalk, descargue e instale el certificado SSL para su suscripción de Servicios de BizTalk. En BizTalk Services, haga clic en **Panel** y luego haga clic en **Descargar certificado SSL**. Haga doble clic en el certificado y siga las indicaciones para completar la instalación. Asegúrese de instalar el certificado en el almacén de certificados **Entidades de certificación raíz de confianza** .
+1. En el equipo donde creó el proyecto de BizTalk Services, descargue e instale el certificado SSL para su suscripción de BizTalk Services. En BizTalk Services, haga clic en **Panel** y luego haga clic en **Descargar certificado SSL**. Haga doble clic en el certificado y siga las indicaciones para completar la instalación. Asegúrese de instalar el certificado en el almacén de certificados **Entidades de certificación raíz de confianza** .
 2. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto **InvoiceProcessingBridge** y luego haga clic en **Implementar**.
-3. Proporcione los valores como se muestra en la imagen y luego haga clic en **Implementar**. Para obtener las credenciales de ACS para Servicios de BizTalk, haga clic en **Información de conexión** en el panel de Servicios de BizTalk.
+3. Proporcione los valores como se muestra en la imagen y luego haga clic en **Implementar**. Para obtener las credenciales de ACS para BizTalk Services, haga clic en **Información de conexión** en el panel de BizTalk Services.
    
    ![][11]  
    
@@ -226,10 +226,10 @@ El proyecto de Servicios de BizTalk, **InvoiceProcessingBridge**, que transforma
 En este tema, examinaremos cómo probar la solución mediante la aplicación **Tutorial Client** proporcionada como parte del ejemplo.  
 
 1. En Visual Studio, presione F5 para iniciar **Tutorial Client**.
-2. La pantalla debe mostrar los valores completados en el paso donde creamos las colas de Bus de servicio. Haga clic en **Siguiente**.
-3. En la siguiente ventana, proporcione las credenciales de ACS para la suscripción de Servicios de BizTalk y los puntos de conexión donde se implementan los puentes EAI y EDI (recepción).
+2. La pantalla debe mostrar los valores completados en el paso donde creamos las colas de Service Bus. Haga clic en **Siguiente**.
+3. En la siguiente ventana, proporcione las credenciales de ACS para la suscripción de BizTalk Services y los puntos de conexión donde se implementan los puentes EAI y EDI (recepción).
    
-   Ya copió el punto de conexión del puente EAI en el paso anterior. Para el punto de conexión del puente de recepción EDI, en el Portal de Servicios de BizTalk, vaya al contrato > Configuración de recepción > Transporte > Punto de conexión.
+   Ya copió el punto de conexión del puente EAI en el paso anterior. Para el punto de conexión del puente de recepción EDI, en el Portal de BizTalk Services, vaya al contrato > Configuración de recepción > Transporte > Punto de conexión.
    
    ![][12]  
 4. En la ventana siguiente, en Contoso, haga clic en el botón **Enviar factura interna** . En el cuadro de diálogo Abrir, abra el archivo INHOUSEINVOICE.txt. Examine el contenido del archivo y luego haga clic en **Aceptar** para enviar la factura.
@@ -246,11 +246,11 @@ En este tema, examinaremos cómo probar la solución mediante la aplicación **T
    ![][16]  
 
 ## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Paso 5 (opcional): Envío de facturas EDIFACT en lotes
-Los puentes EDI de Servicios de BizTalk también admiten el procesamiento en lotes de los mensajes salientes. Esta función es útil para los socios receptores que prefieren recibir un lote de mensajes (que cumpla ciertos criterios), en lugar de mensajes individuales.
+Los puentes EDI de BizTalk Services también admiten el procesamiento en lotes de los mensajes salientes. Esta función es útil para los socios receptores que prefieren recibir un lote de mensajes (que cumpla ciertos criterios), en lugar de mensajes individuales.
 
 El factor más importante al trabajar con lotes es la emisión real del lote, también llamado el criterio de liberación. Este criterio de liberación se puede basar en cómo quiere recibir los mensajes el socio receptor. Si el procesamiento por lotes está habilitado, el puente EDI no envía el mensaje saliente al socio receptor hasta que se cumple el criterio de liberación. Por ejemplo, un criterio de procesamiento en lotes basado en el tamaño del mensaje libera un lote una vez que se procesan "n" mensajes en el lote. Un criterio de procesamiento por lotes también se puede basar en la hora, de modo que se envíe un lote a una hora fijada todos los días. En esta solución, analizamos los criterios basados en el tamaño del mensaje.
 
-1. En el Portal de Servicios de BizTalk, haga clic en el contrato que creó antes. Haga clic en Configuración de envío > Procesamiento por lotes > Agregar lote.
+1. En el Portal de BizTalk Services, haga clic en el contrato que creó antes. Haga clic en Configuración de envío > Procesamiento por lotes > Agregar lote.
 2. Para el nombre del lote, escriba **InvoiceBatch**, proporcione una descripción y luego haga clic en **Siguiente**.
 3. Especifique un criterio de procesamiento por lotes, que defina qué mensajes se deben procesar por lotes. En esta solución, procesamos por lote todos los mensajes. Así que, seleccione la opción Usar definiciones avanzadas y escriba **1 = 1**. Esta es una condición que siempre será verdadera y, por eso, todos los mensajes se procesarán por lotes. Haga clic en **Siguiente**.
    

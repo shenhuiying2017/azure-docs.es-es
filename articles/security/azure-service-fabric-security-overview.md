@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Introducción a la seguridad de Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar.
@@ -50,7 +50,7 @@ Los clústeres que se ejecutan en Azure o los independientes que se ejecutan en 
 
 Service Fabric usa certificados de servidor X.509 que se especifican cuando se crea un clúster. Para obtener una descripción rápida de qué son estos certificados y cómo se pueden adquirir o crear, consulte [Trabajo con certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-Configure la seguridad basada en certificados al crear el clúster mediante Azure Portal, las plantillas de Azure Resource Manager o una plantilla JSON independiente. Puede especificar un certificado principal y uno secundario opcional que se utiliza para la sustitución del certificado. Los certificados principales y secundarios que especifique deben ser diferentes de los certificados de cliente de solo lectura y de los de cliente de administración que determine para la [seguridad de cliente a nodo](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+Configure la seguridad basada en certificados al crear el clúster mediante Azure Portal, las plantillas de Azure Resource Manager o una plantilla JSON independiente. Puede especificar un certificado principal y uno secundario opcional que se utiliza para la sustitución del certificado. Los certificados principales y secundarios que especifique deben ser diferentes de los certificados de cliente de solo lectura y de los de cliente de administración que determine para la [seguridad de cliente a nodo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Seguridad de cliente a nodo
 La seguridad de cliente a nodo se configura mediante identidades de cliente. Para establecer la confianza entre un cliente y el clúster, debe configurar el clúster para que sepa en qué identidades de cliente puede confiar. Esto puede hacerse de dos maneras:

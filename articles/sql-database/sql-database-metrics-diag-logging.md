@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
@@ -318,7 +318,7 @@ Aprenda a [descargar métricas y registros de diagnóstico desde Storage](../sto
 |query_id_d|Identificador de la consulta en el Almacén de consultas.|
 |plan_id_d|Identificador del plan en el Almacén de consultas.|
 
-Obtenga más información sobre los [datos de estadísticas de tiempo de ejecución del Almacén de consultas](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Obtenga más información sobre los [datos de estadísticas de tiempo de ejecución del Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Estadísticas de espera del Almacén de consultas
 
@@ -356,7 +356,7 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |query_id_d|Identificador de la consulta en el Almacén de consultas.|
 |plan_id_d|Identificador del plan en el Almacén de consultas.|
 
-Obtenga más información sobre los [datos de estadísticas de espera del Almacén de consultas](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Obtenga más información sobre los [datos de estadísticas de espera del Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Conjunto de datos de errores
 
@@ -414,7 +414,7 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.m
 |delta_wait_time_ms_d|Tiempo total de espera en el período.|
 |delta_waiting_tasks_count_d|Número de tareas en espera.|
 
-Obtenga más información sobre las [estadísticas de espera de la base de datos](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Obtenga más información sobre las [estadísticas de espera de la base de datos](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Conjunto de datos de los tiempos de espera
 

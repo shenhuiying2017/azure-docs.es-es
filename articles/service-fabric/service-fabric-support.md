@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2017
 ms.author: pkc
-ms.openlocfilehash: a3ab41d1aa6051e5d4021443c3fe581cbf4c880f
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0e4a2aa0ed7327a8ed19e9a716b0bd97abc71d5c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -81,7 +81,7 @@ A continuación, aparece una lista con las versiones compatibles de Service Fabr
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versiones de vista previa de Service Fabric: no admitidas para su uso en producción.
 De vez en cuando, publicamos versiones que tienen características importantes sobre las que deseamos saber su opinión, que se publican como versiones preliminares. Estas versiones preliminares solo se deben usar con fines de prueba. El clúster de producción debe estar ejecutando siempre una versión de Service Fabric compatible y estable. Una versión preliminar siempre comienza con un número de versión principal y secundaria de 255. Por ejemplo, si ve una versión 255.255.5703.949 de Service Fabric, esa versión es solo para su uso en clústeres de prueba y se encuentra en versión preliminar. Estas versiones preliminares también se anuncian en el [blog del equipo de Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric) y se detallan en las características incluidas.
 
-No hay ninguna opción de soporte técnico de pago para estas versiones preliminares. Use una de las opciones enumeradas en [Notificación de problemas Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para formular preguntas o proporcionar comentarios.
+No hay ninguna opción de soporte técnico de pago para estas versiones preliminares. Use una de las opciones enumeradas en [Notificación de problemas Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) para formular preguntas o proporcionar comentarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

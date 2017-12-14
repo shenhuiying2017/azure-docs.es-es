@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: 4a394ead09794c52e92dbd2db8be8166d1fab83b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solución de administración de alertas de Operations Management Suite (OMS)
 
@@ -49,7 +49,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Soporte técnico | Descripción |
 |:--- |:--- |:--- |
-| [Agentes de Windows](log-analytics-windows-agents.md) | No |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | No |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
 | [Agentes de Linux](log-analytics-linux-agents.md) | No |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
 | [Grupo de administración de System Center Operations](log-analytics-om-agents.md) |Sí |Las alertas que se generan en agentes de Operations Manager se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
 

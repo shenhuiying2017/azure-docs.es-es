@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b20c54660552f527ff403fb41f2a04e478832d43
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de OMS para Linux
 
@@ -182,7 +182,7 @@ El resultado de la ejecución de las extensiones se registra en el archivo sigui
 | 10 | La máquina virtual ya está conectada a un área de trabajo de OMS | Para conectar la máquina virtual al área de trabajo especificada en el esquema de extensión, establezca stopOnMultipleConnections en false en la configuración pública o quite esta propiedad. Esta máquina virtual se factura una vez por cada área de trabajo a la que se conecta. |
 | 11 | Configuración no válida proporcionada a la extensión | Siga los ejemplos anteriores para configurar todos los valores de propiedad necesarios para la implementación. |
 | 12 | El administrador de paquetes de dpkg está bloqueado | Asegúrese de que todas las operaciones de actualización de dpkg en el equipo han finalizado e intente de nuevo. |
-| 20 | | Habilitar llamado antes de tiempo | [Actualice el agente de Linux de Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) a la versión más reciente disponible. |
+| 20 | | Habilitar llamado antes de tiempo | [Actualice el agente de Linux de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) a la versión más reciente disponible. |
 | 51 | Esta extensión no se admite en el sistema operativo de la máquina virtual | |
 | 55 | No se puede conectar con el servicio Microsoft Operations Management Suite | Compruebe que el sistema tiene acceso a Internet o que se ha proporcionado un servidor proxy HTTP válido. Además, compruebe la validez del identificador del área de trabajo. |
 

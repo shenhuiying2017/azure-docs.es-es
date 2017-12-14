@@ -3,7 +3,7 @@ title: "Ejecución de un runbook en Azure Automation | Microsoft Docs"
 description: "Describe los detalles de cómo se procesa un runbook en Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d10c8ce2-2c0b-4ea7-ba3c-d20e09b2c9ca
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 22852fed184022b4eae298d6cc531fd383eff552
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 Cuando se inicia un runbook en Azure Automation, se crea un trabajo. Un trabajo es una instancia única de ejecución de un runbook. Un trabajador de Azure Automation está asignado para ejecutar cada trabajo. Aunque los trabajadores se comparten por varias cuentas de Azure, los trabajos de diferentes cuentas de Automation están aislados entre sí. No tiene el control sobre qué trabajador presta servicio a la solicitud para el trabajo. Un único runbook puede tener varios trabajos que se ejecutan al mismo tiempo.  Se puede reutilizar el entorno de ejecución para los trabajos de la misma cuenta de Automation. Al ver la lista de runbooks en Azure Portal, se muesta el estado de todos los trabajos iniciados por cada runbook. Puede ver la lista de trabajos para cada runbook para hacer un seguimiento del estado de cada uno. Para obtener una descripción de los distintos estados de trabajo, consulte [Estados del trabajo](#job-statuses).

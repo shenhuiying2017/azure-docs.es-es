@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos de la CLI de Azure en el modo de Resource Manager
 En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para obtener una descripción general de los recursos y grupos de recursos de Azure, vea [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
@@ -29,7 +29,7 @@ En este artículo se proporcionan la sintaxis y las opciones de los comandos de 
 >Obtenga más información sobre las [CLI antigua y nueva de Azure](/cli/azure/old-and-new-clis).
 >
 
-En primer lugar, [instale la CLI de Azure](../cli-install-nodejs.md) y [conéctese a su suscripción de Azure](../xplat-cli-connect.md).
+En primer lugar, [instale la CLI de Azure](../cli-install-nodejs.md) y [conéctese a su suscripción de Azure](/cli/azure/authenticate-azure-cli).
 
 Para las opciones y la sintaxis de comando actuales de la línea de comandos en el modo del Administrador de recursos, escriba `azure help` o, para mostrar la ayuda de un comando específico, `azure help [command]`. También encontrará ejemplos de CLI en la documentación para crear y administrar servicios de Azure concretos.
 
@@ -1570,7 +1570,7 @@ Opciones de parámetro:
     storage account keys list [options] <name>
     storage account keys renew [options] <name>
 
-**Comandos para mostrar la cadena de conexión de Almacenamiento**
+**Comandos para mostrar la cadena de conexión de Storage**
 
     storage account connectionstring show [options] <name>
 
@@ -1619,7 +1619,7 @@ Opciones de parámetro:
     storage share delete [options] [share]
     storage share list [options] [prefix]
 
-**Comandos para administrar sus archivos de Almacenamiento**
+**Comandos para administrar sus archivos de Storage**
 
     storage file list [options] [share] [path]
     storage file delete [options] [share] [path]
@@ -1696,7 +1696,7 @@ Opciones de parámetro:
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: comandos para administrar máquinas virtuales de Azure
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: comandos para administrar Azure Virtual Machines
 **Crear una máquina virtual**
 
     vm create [options] <resource-group> <name> <location> <os-type>

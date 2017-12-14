@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c4966f3ddc95a7e7c97d09cd45abdb8443601b74
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: aec4db684a9067e1dee424f2c0e05e3674f84d1a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-java-application"></a>Creación de una aplicación Java
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
@@ -38,10 +38,10 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar esta guía de inicio rápido:
-1. [Instale el SDK de Service Fabric y la interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Instale el SDK de Service Fabric y la interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Instalación de Git](https://git-scm.com/)
 3. [Instale Eclipse](https://www.eclipse.org/downloads/)
-4. [Configure el entorno de Java](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), para lo que debe seguir los pasos opcionales para instalar el complemento de Eclipse 
+4. [Configure el entorno de Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), para lo que debe seguir los pasos opcionales para instalar el complemento de Eclipse 
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 En una ventana Comandos, ejecute el comando siguiente para clonar el repositorio de la aplicación de ejemplo en la máquina local.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.openlocfilehash: f17ebb2b74cd7ad872f88483ed7cdb4f239ee069
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aede44d964994bd2ef9b46a133b1f1ee303ef309
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperación ante desastres para Oracle Database 12c en el entorno de Azure
 
@@ -78,7 +78,7 @@ A continuación, se muestra un resumen de la configuración de Azure:
 ![Captura de pantalla de la página de la topología de recuperación ante desastres](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Enfoque 2: VPN de sitio a sitio
-Un mejor enfoque consiste en el uso de una VPN de sitio a sitio. Para más información acerca de cómo configurar una VPN, consulte [Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+Un mejor enfoque consiste en el uso de una VPN de sitio a sitio. Para más información acerca de cómo configurar una VPN, consulte [Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topología
 

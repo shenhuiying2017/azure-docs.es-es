@@ -4,7 +4,7 @@ description: "Cómo llamar a la API Graph para un inquilino de B2C mediante una 
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: uso de la API Graph de Azure AD
 
@@ -71,7 +71,7 @@ Ahora tiene una aplicación con permiso para crear, leer y actualizar usuarios e
 ## <a name="configure-delete-permissions-for-your-application"></a>Configuración de permisos de eliminación para la aplicación
 Actualmente, el permiso *Leer y escribir en datos de directorio* **NO** incluye la capacidad de llevar a cabo cualquier eliminación, como la de usuarios. Si desea dotar a la aplicación de la capacidad de eliminar usuarios, deberá seguir estos pasos adicionales que hacen partícipe a PowerShell. De lo contrario, puede ir a la sección siguiente.
 
-En primer lugar, si no se ha instalado previamente, instale el [módulo de PowerShell v1 de Azure AD (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
+En primer lugar, si no se ha instalado previamente, instale el [módulo de PowerShell v1 de Azure AD (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
 ```powershell
 Install-Module MSOnline

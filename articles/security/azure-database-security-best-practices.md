@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
 
@@ -137,7 +137,7 @@ Si interactúa con Azure Storage a través de Azure Portal, todas las transaccio
 
 Las organizaciones que no protegen los datos en tránsito son más susceptibles a los [ataques del tipo "Man in the middle"](https://technet.microsoft.com/library/gg195821.aspx), a la [interceptación](https://technet.microsoft.com/library/gg195641.aspx) y al secuestro de sesión. Estos ataques pueden ser el primer paso para obtener acceso a datos confidenciales.
 
-Para más información sobre la opción de VPN de Azure, lea el artículo [Planeamiento y diseño de VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Para más información sobre la opción de VPN de Azure, lea el artículo [Planeamiento y diseño de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Habilitación de la auditoría de bases de datos
 La auditoría de una instancia del motor de base de datos de SQL Server o una base de datos individual implica el seguimiento y el registro de los eventos que se producen en el motor de base de datos. La auditoría de SQL Server le permite crear auditorías de servidor, que pueden contener especificaciones de auditoría de servidor para los eventos del nivel de servidor así como especificaciones de auditoría de base de datos para los eventos del nivel de base de datos. Los eventos auditados se pueden escribir en los registros de eventos o en los archivos de auditoría.

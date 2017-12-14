@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Log Analytics
 
@@ -52,7 +52,7 @@ Después de agregar la solución y completar una comprobación, se muestra infor
 
 Para llevar a cabo la comprobación de estado en los controladores de dominio que son miembros del dominio que se va a evaluar, necesitan un agente y conectividad a Log Analytics mediante alguno de los siguientes métodos admitidos:
 
-1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agents.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
+1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el controlador de dominio se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
 3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) una vez que habilite la solución en el área de trabajo.  
 

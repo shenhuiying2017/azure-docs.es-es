@@ -4,7 +4,7 @@ description: "El informe de uso sin licencia ayuda a identificar usuarios sin li
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 92138f43-9528-4c8a-b834-66a47da476e3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unlicensed-usage-report"></a>Informe de uso sin licencia
 El informe de uso sin licencia ayuda a identificar usuarios sin licencia que utilizan características de Azure AD de pago, lo que permite hacer un mejor uso de las licencias que se han adquirido e identificar en qué momento se necesitan más licencias. 

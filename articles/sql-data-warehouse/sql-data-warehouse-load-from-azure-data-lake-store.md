@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 09/15/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3ca2a26fe47a8f0831a1ce4edf2c35911f3fc1
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Carga de datos de Azure Data Lake Store en SQL Data Warehouse
 Este documento ofrece todos los pasos que necesarios para cargar sus propios datos desde Azure Data Lake Store (ADLS) en SQL Data Warehouse mediante PolyBase.
@@ -56,7 +56,7 @@ PolyBase usa objetos externos T-SQL para definir la ubicación y los atributos d
 ###  <a name="create-a-credential"></a>Creación de una credencial
 Para acceder a su instancia de Azure Data Lake Store, debe crear una clave maestra de base de datos para cifrar su secreto de credencial que se usa en el paso siguiente.
 Después, cree una credencial con ámbito de base de datos, que almacena las credenciales de la entidad de servicio configuradas en AAD. Para aquellos que han usado PolyBase para conectarse a Microsoft Azure Storage Blob, hay que tener en cuenta que la sintaxis de las credenciales es diferente.
-Para conectarse a Azure Data Lake Store, **primero** debe crear una aplicación de Azure Active Directory, crear una clave de acceso y conceder acceso a la aplicación al recurso de Azure Data Lake. Las instrucciones para realizar estos pasos se encuentran [aquí](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Para conectarse a Azure Data Lake Store, **primero** debe crear una aplicación de Azure Active Directory, crear una clave de acceso y conceder acceso a la aplicación al recurso de Azure Data Lake. Las instrucciones para realizar estos pasos se encuentran [aquí](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -189,7 +189,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Optimización de compresión de almacén de columnas
-De forma predeterminada, Almacenamiento de datos SQL almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen varios motivos por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
+De forma predeterminada, SQL Data Warehouse almacena la tabla como índice de almacén de columnas agrupado. Una vez completada una carga, puede que algunas de las filas de datos no se compriman en el almacén de columnas.  Existen varios motivos por los que esto puede ocurrir. Para aprender más, consulte el artículo sobre [administración de índices de almacén de columnas][manage columnstore indexes].
 
 Para optimizar el rendimiento de las consultas y la compresión de almacén de columnas después de una carga, vuelva a crear la tabla para obligar al índice de almacén de columnas a comprimir todas las filas.
 

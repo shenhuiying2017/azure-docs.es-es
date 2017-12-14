@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 3bb4c82268fe7805227c213000dc803307876fe7
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solución Wire Data 2.0 (versión preliminar) en Log Analytics
 
@@ -58,7 +58,7 @@ Wire Data obtiene sus datos de Microsoft Dependency Agent. Dependency Agent depe
 
 | **Origen conectado** | **Compatible** | **Descripción** |
 | --- | --- | --- |
-| Agentes de Windows | Sí | Wire Data analiza y recopila datos de equipos del agente de Windows. <br><br> Además del [agente de OMS](log-analytics-windows-agents.md), los agentes de Windows requieren el agente de dependencia de Microsoft. Consulte los [sistemas operativos compatibles](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
+| Agentes de Windows | Sí | Wire Data analiza y recopila datos de equipos del agente de Windows. <br><br> Además del [agente de OMS](log-analytics-windows-agent.md), los agentes de Windows requieren el agente de dependencia de Microsoft. Consulte los [sistemas operativos compatibles](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
 | Agentes de Linux | Sí | Wire Data analiza y recopila datos de equipos del agente de Linux.<br><br> Además del [agente de OMS](log-analytics-quick-collect-linux-computer.md), los agentes de Linux requieren Microsoft Dependency Agent. Consulte los [sistemas operativos compatibles](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
 | Grupo de administración de System Center Operations Manager | Sí | Wire Data analiza y recopila datos de los agentes de Windows y Linux en un [grupo de administración de System Center Operations Manager](log-analytics-om-agents.md) conectado. <br><br> Se requiere una conexión directa desde el equipo agente de System Center Operations Manager a Log Analytics. Los datos se reenvían desde el grupo de administración a Log Analytics. |
 | Cuenta de almacenamiento de Azure | No | Wire Data recopila datos de equipos de agente, por lo que no hay ningún dato en él que recopilar desde Azure Storage. |
@@ -208,7 +208,7 @@ Dependency Agent se instala en equipos que ejecutan Windows mediante InstallDepe
 
 Use los pasos siguientes para instalar Dependency Agent en cada equipo que ejecute Windows:
 
-1. Instale el agente de OMS siguiendo los pasos descritos de [Collect data from Windows computers hosted in your environment](log-analytics-windows-agents.md) (Recopilación de datos de equipos Windows hospedados en su entorno).
+1. Instale el agente de OMS siguiendo los pasos descritos de [Collect data from Windows computers hosted in your environment](log-analytics-windows-agent.md) (Recopilación de datos de equipos Windows hospedados en su entorno).
 2. Descargue Dependency Agent de Windows mediante el vínculo de la sección anterior y, después, ejecútelo mediante el comando siguiente: `InstallDependencyAgent-Windows.exe`.
 3. Siga el asistente para instalar el agente.
 4. Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Windows, el directorio de registro es %Programfiles%\Microsoft Dependency Agent\logs.

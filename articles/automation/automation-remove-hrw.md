@@ -3,7 +3,7 @@ title: Quitar Hybrid Runbook Workers de Azure Automation | Microsoft Docs
 description: "En este artículo encontrará información sobre cómo administrar los Hybrid Runbook Workers de Azure Automation implementados que le permiten ejecutar runbooks en equipos en su centro de datos local o entorno de nube."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 68031ba2ce5c47870c3e60dc469dcda2971b4d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a897a97b9a1e259f5994a27b974eb5183fd1194b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="remove-azure-automation-hybrid-runbook-workers"></a>Quitar Hybrid Runbook Workers de Azure Automation
 
@@ -39,7 +39,7 @@ Puede quitar uno o más Hybrid Runbook Worker de un grupo o puede quitar el grup
 
 Para quitar un grupo, primero debe quitar el Hybrid Runbook Worker de todos los equipos que sean miembros del grupo mediante el procedimiento mostrado anteriormente y luego realizar los pasos siguientes para quitar el grupo.  
 
-1. Abra la cuenta de Automatización en el Portal de Azure.
+1. Abra la cuenta de Automation en Azure Portal.
 1. Seleccione el icono **Grupos de Hybrid Worker** y en la hoja **Grupos de Hybrid Worker**, seleccione el grupo que quiere eliminar.  Tras seleccionar el grupo específico, se muestra la hoja de propiedades de **Grupo de Hybrid Worker**.<br> ![Hoja Grupo de Hybrid Runbook Worker](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)   
 1. En la hoja de propiedades del grupo seleccionado, haga clic en **Eliminar**.  Aparecerá un mensaje solicitándole que confirme esta acción. Si está seguro de que quiere continuar, seleccione **Sí**.<br> ![Cuadro de diálogo de confirmación de eliminación de grupo](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)<br> Este proceso puede tardar varios segundos en completarse y puede realizar el seguimiento de su progreso en **Notificaciones** en el menú. 
 

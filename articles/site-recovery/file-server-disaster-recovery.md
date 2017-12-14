@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Protección de un servidor de archivos mediante Azure Site Recovery 
 
@@ -145,7 +145,7 @@ El enfoque sugerido de integración de Azure File Sync con Azure Site Recovery e
 
 Los pasos de abajo detallan el uso del servicio Azure File Sync:
 
-1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) (recomendado) en las cuentas de almacenamiento, tendrá acceso de lectura a los datos de la región secundaria e caso de desastre. Consulte las [estrategias de recuperación ante desastres del recurso compartido de archivos de Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener más información.
+1. [Cree una cuenta de almacenamiento en Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Si eligió el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) (recomendado) en las cuentas de almacenamiento, tendrá acceso de lectura a los datos de la región secundaria e caso de desastre. Consulte las [estrategias de recuperación ante desastres del recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obtener más información.
 2. [Cree un recurso compartido de archivos](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Implemente Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) en el servidor de archivos local.
 4. Cree un grupo de sincronización: los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión de nube, que representa un recurso compartido de Azure Files, y un punto de conexión de servidor, que representa una ruta de acceso de un servidor de Windows Server local.

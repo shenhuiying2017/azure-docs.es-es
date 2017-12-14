@@ -1,6 +1,6 @@
 ---
 title: "Conexión de Azure SQL Database a Azure Search con indexadores | Microsoft Docs"
-description: "Obtenga información sobre cómo extraer datos de la base de datos SQL de Azure en un índice de Búsqueda de Azure mediante el uso de indizadores."
+description: "Obtenga información sobre cómo extraer datos de Azure SQL Database en un índice de Azure Search mediante el uso de indexadores."
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Base de datos SQL de Azure a Búsqueda de Azure con indexadores
+# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Azure SQL Database a Azure Search con indexadores
 
 Antes de poder consultar un [índice de Azure Search](search-what-is-an-index.md) debe rellenarlo con datos. Si los datos residen en una instancia de Azure SQL Database, el nuevo **indexador de Azure Search para Azure SQL Database** (o **indexador de Azure SQL**, para abreviar) puede automatizar el proceso de indexación, lo que significa menos código que escribir y menos infraestructura de la que preocuparse.
 
@@ -44,7 +44,7 @@ Puede instalar y configurar un indexador de SQL de Azure mediante:
 
 * El asistente para importar datos en [Azure Portal](https://portal.azure.com)
 * [SDK de .NET de Azure Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* [API de REST](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations) de Azure Search
+* [API de REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) de Azure Search
 
 En este artículo, usaremos la API de REST para crear **indexadores** y **orígenes de datos**.
 
@@ -189,7 +189,7 @@ Si la base de datos SQL admite el [seguimiento de cambios](https://docs.microsof
 
 + Requisitos de versión de la base de datos:
   * SQL Server 2012 SP3 y versiones posteriores, si usa SQL Server en máquinas virtuales de Azure.
-  * Base de datos SQL de Azure V12, si está usando la Base de datos SQL de Azure.
+  * Azure SQL Database V12, si está usando Azure SQL Database.
 + Solo tablas (vistas no). 
 + En la base de datos, [habilite el seguimiento de los cambios](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) para la tabla. 
 + Ninguna clave principal compuesta (una clave principal que contiene más de una columna) en la tabla.  
@@ -289,7 +289,7 @@ Cuando use la técnica de la eliminación temporal, puede especificar la directi
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, numérico decimal de dinero |Edm.String |Búsqueda de Azure no admite la conversión de tipos decimales en Edm.Double porque esto podría provocar la pérdida de precisión |
+| smallmoney, numérico decimal de dinero |Edm.String |Azure Search no admite la conversión de tipos decimales en Edm.Double porque esto podría provocar la pérdida de precisión |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Una cadena SQL se puede usar para rellenar un campo Collection (EDM.String) si la cadena representa una matriz JSON de cadenas: `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |

@@ -1,4 +1,4 @@
-# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Análisis de transmisiones de Azure: detección de fraudes en tiempo real
+# <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real
 
 Este tutorial muestra de principio a fin cómo usar Azure Stream Analytics. Aprenderá a: 
 
@@ -26,11 +26,11 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
     >[!NOTE]
     >Windows puede bloquear el archivo zip descargado. Si no puede descomprimirlo, haga clic con el botón derecho en el archivo y seleccione **Propiedades**. Si ve el mensaje "Este archivo proviene de otro equipo y podría bloquearse para ayudar a proteger este equipo", seleccione la opción **Desbloquear** y luego haga clic en **Aplicar**.
 
-Si quiere examinar los resultados del trabajo de análisis de Stream Analytics, necesita además una herramienta para ver el contenido de un contenedor de Azure Blob Storage. Si utiliza Visual Studio, puede usar [Azure Tools para Visual Studio](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) o [Visual Studio Cloud Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-resources-managing-with-cloud-explorer). También puede instalar herramientas independientes, tales como [Explorador de Azure Storage](http://storageexplorer.com/) y [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Si quiere examinar los resultados del trabajo de análisis de Stream Analytics, necesita además una herramienta para ver el contenido de un contenedor de Azure Blob Storage. Si utiliza Visual Studio, puede usar [Azure Tools para Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) o [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). También puede instalar herramientas independientes, tales como [Explorador de Azure Storage](http://storageexplorer.com/) y [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Creación de una instancia de Azure Event Hubs para la ingesta de eventos
 
-Para analizar un flujo de datos, debe *introducirlo* en Azure. Una forma habitual de ingesta de datos consiste en usar [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), que permite la ingesta de millones de eventos por segundo y el procesamiento y almacenamiento de la información de los eventos. En este tutorial, se crea un centro de eventos y luego se indica a la aplicación del generador de eventos de llamada que envíe los datos de llamada a dicho centro. Para más información sobre Event Hubs, vea la [documentación de Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus/).
+Para analizar un flujo de datos, debe *introducirlo* en Azure. Una forma habitual de ingesta de datos consiste en usar [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md), que permite la ingesta de millones de eventos por segundo y el procesamiento y almacenamiento de la información de los eventos. En este tutorial, se crea un centro de eventos y luego se indica a la aplicación del generador de eventos de llamada que envíe los datos de llamada a dicho centro. Para más información sobre Event Hubs, vea la [documentación de Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
 
 >[!NOTE]
 >Para obtener una versión más detallada de este procedimiento, vea [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). 
@@ -344,7 +344,7 @@ El trabajo ya está configurado. Ha especificado una entrada (el centro de event
 
 2. En el panel del trabajo, haga clic en **Iniciar**.
 
-    ![Inicio del trabajo de Análisis de transmisiones](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
+    ![Inicio del trabajo de Stream Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start-output.png)
 
 3. En el panel **Iniciar trabajo**, en Hora de inicio de salida del trabajo, seleccione **Ahora**. 
 
@@ -383,7 +383,7 @@ Pero, si ha terminado y no necesita los recursos que ha creado, puede eliminarlo
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -393,7 +393,7 @@ Puede seguir este tutorial con el artículo siguiente:
 
 Para más información sobre Stream Analytics en general, examine estos artículos:
 
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

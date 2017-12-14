@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9e3b498aa28a1075c8ed65ea698df955824b9893
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Diseño de la primera base de datos de Azure Database for MySQL
 Azure Database for MySQL es un servicio administrado que le permite ejecutar, administrar y escalar bases de datos de MySQL de alta disponibilidad en la nube. Con Azure Portal puede administrar fácilmente el servidor y diseñar una base de datos.
@@ -34,7 +34,7 @@ En este tutorial usará Azure Portal para aprender a hacer lo siguiente:
 Abra el explorador web de su preferencia y visite [Microsoft Azure Portal](https://portal.azure.com/). Introduzca sus credenciales para iniciar sesión en el portal. La vista predeterminada es el panel del servicio.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creación de un servidor de Azure Database for MySQL
-Se crea un servidor de Azure Database for MySQL con un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-unit-and-storage.md). El servidor se crea dentro de un [grupo de recursos de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+Se crea un servidor de Azure Database for MySQL con un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-unit-and-storage.md). El servidor se crea dentro de un [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Vaya a **Bases de datos** > **Azure Database for MySQL**. Si no encuentra el servidor MySQL en la categoría **Bases de datos**, haga clic en **Ver todo** para mostrar todos los servicios de base de datos disponibles. También puede escribir **Azure Database for MySQL** en el cuadro de búsqueda para encontrar el servicio rápidamente.
 ![2-1 Vaya a MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)

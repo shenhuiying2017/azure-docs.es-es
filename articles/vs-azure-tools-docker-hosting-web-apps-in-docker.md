@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 4a87ee69f23779bf4f6f5db40bc05edbcfc7668d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Implementación de un contenedor ASP.NET en un host remoto de Docker
 ## <a name="overview"></a>Información general
 Docker es un motor de contenedor ligero, semejante de alguna manera a una máquina virtual, que puede utilizar para hospedar aplicaciones y servicios.
-Este tutorial le guiará a través del uso de la extensión de [Visual Studio Tools para Docker](https://docs.microsoft.com/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker) para implementar una aplicación ASP.NET Core en un host de Docker en Azure mediante PowerShell.
+Este tutorial le guiará a través del uso de la extensión de [Visual Studio Tools para Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) para implementar una aplicación ASP.NET Core en un host de Docker en Azure mediante PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 El siguiente requisito es necesario para completar este tutorial:

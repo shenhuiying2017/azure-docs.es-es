@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: e4d90e69edb67cf070bb54b9d60a986eb5d0e386
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: compilación de una aplicación de Flask con MongoDB API
 
@@ -116,7 +116,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ## <a name="deploy-to-azure"></a>Implementación en Azure
 
-Para implementar esta aplicación, puede crear una nueva aplicación web en Azure y habilitar la implementación continua con una bifurcación de este repositorio de GitHub. Siga este [tutorial](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-continuous-deployment) para configurar la implementación continua con GitHub en Azure.
+Para implementar esta aplicación, puede crear una nueva aplicación web en Azure y habilitar la implementación continua con una bifurcación de este repositorio de GitHub. Siga este [tutorial](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) para configurar la implementación continua con GitHub en Azure.
 
 Para la implementación en Azure, debe quitar las claves de la aplicación y asegurarse de que la sección siguiente no tiene comentarios:
 
@@ -126,7 +126,7 @@ Para la implementación en Azure, debe quitar las claves de la aplicación y ase
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Después debe agregar los valores de MONGOURL, MONGO_PASSWORD y MONGO_USERNAME a la configuración de la aplicación. Puede seguir este [tutorial](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-configure#application-settings) para aprender acerca de la configuración de la aplicación en Azure Web Apps.
+Después debe agregar los valores de MONGOURL, MONGO_PASSWORD y MONGO_USERNAME a la configuración de la aplicación. Puede seguir este [tutorial](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings) para aprender acerca de la configuración de la aplicación en Azure Web Apps.
 
 Si no desea crear una bifurcación de este repositorio, también puede hacer clic en el botón de implementación en Azure siguiente. A continuación, debe ir a Azure y ajustar la configuración de la aplicación con la información de cuenta de Cosmos DB.
 

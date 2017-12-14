@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Niveles de rendimiento de Azure SQL Data Warehouse (versión preliminar)
 SQL Data Warehouse ofrece dos niveles de rendimiento optimizados para cargas de trabajo de análisis. En este artículo se explican los conceptos de niveles de rendimiento que le ayudarán a elegir el más adecuado para su carga de trabajo. 
 
-
 ## <a name="what-is-a-performance-tier"></a>¿Qué es un nivel de rendimiento?
 Un nivel de rendimiento es una opción que determina la configuración del almacenamiento de datos. Esta opción es una de las primeras decisiones que toma al crear un almacenamiento de datos.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - El **nivel de rendimiento Optimizado para Elasticity** separa las capas de proceso y almacenamiento en la arquitectura. Esta opción resulta muy útil para las cargas de trabajo que pueden aprovechar al máximo la separación entre proceso y almacenamiento, ya que se escala frecuentemente para admitir periodos breves de máxima actividad. Este nivel de proceso tiene el precio de venta al público de entrada más bajo y se puede escalar para admitir la mayoría de las cargas de trabajo del cliente.
 

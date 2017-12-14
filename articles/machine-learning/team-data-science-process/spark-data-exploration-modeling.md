@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 59f1e4c5bf1c1a3ea4af42872246b5230d4c6d24
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4b8023b8b2c33ce9fc1a6294e21b1518abbc392b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploración y modelado de datos con Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -55,8 +55,8 @@ Los pasos de instalación y el código proporcionado en este tutorial son para H
 ### <a name="spark-20-notebooks"></a>Cuadernos de Spark 2.0
 Las tareas de clasificación y regresión que se implementan mediante un clúster de Spark 2.0 se encuentran en cuadernos diferentes y el cuaderno de clasificación usa un conjunto de datos distinto:
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este archivo proporciona información sobre cómo realizar el modelado, la puntuación y la exploración de datos en clústeres de Spark 2.0 mediante el conjunto de datos de carreras y tarifas de taxis en Nueva York que se describe [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este cuaderno puede ser un buen punto de partida para explorar rápidamente el código proporcionado para Spark 2.0. Para obtener un análisis más pormenorizado de los datos del cuaderno sobre taxis en Nueva York, vea el siguiente cuaderno de esta lista. Vea las notas después de esta lista en las que se establece una comparación de estos cuadernos. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): este archivo muestra cómo realizar la comparación de datos (Spark SQL y operaciones de trama de datos), la exploración, modelado y puntuación mediante el conjunto de datos de carreras y tarifas de NYC Taxi descrito [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este archivo proporciona información sobre cómo realizar el modelado, la puntuación y la exploración de datos en clústeres de Spark 2.0 mediante el conjunto de datos de carreras y tarifas de taxis en Nueva York que se describe [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Este cuaderno puede ser un buen punto de partida para explorar rápidamente el código proporcionado para Spark 2.0. Para obtener un análisis más pormenorizado de los datos del cuaderno sobre taxis en Nueva York, vea el siguiente cuaderno de esta lista. Vea las notas después de esta lista en las que se establece una comparación de estos cuadernos. 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): este archivo muestra cómo realizar la comparación de datos (Spark SQL y operaciones de trama de datos), la exploración, modelado y puntuación mediante el conjunto de datos de carreras y tarifas de NYC Taxi descrito [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
 - [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): este archivo muestra cómo realizar la comparación de datos (Spark SQL y operaciones de trama de datos), la exploración, modelado y puntuación mediante el conocido conjunto de datos de salidas puntuales de líneas aéreas de 2011 y 2012. Se ha integrado el conjunto de datos de las líneas aéreas con los datos climatológicos del aeropuerto (por ejemplo, velocidad del viento, temperatura, altitud, etc.), antes de realizar el modelado, para que estas características climatológicas puedan incluirse en el modelo.
 
 <!-- -->

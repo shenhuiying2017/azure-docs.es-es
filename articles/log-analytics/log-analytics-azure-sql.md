@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209968a598d3a579cc40edaf52bd7344fa3f60ed
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Supervisión de Azure SQL Database mediante Azure SQL Analytics (versión preliminar) en Log Analytics
 
@@ -43,7 +43,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Soporte técnico | Descripción |
 | --- | --- | --- |
-| [Agentes de Windows](log-analytics-windows-agents.md) | No | La solución no utiliza agentes directos de Windows. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | No | La solución no utiliza agentes directos de Windows. |
 | [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no utiliza agentes directos de Linux. |
 | [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no utiliza una conexión directa entre el agente de SCOM y Log Analytics. |
 | [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | Log Analytics no lee los datos de una cuenta de almacenamiento. |

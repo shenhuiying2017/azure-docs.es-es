@@ -3,7 +3,7 @@ title: "Uso de importación y exportación de datos en servicios web Azure Machi
 description: "Aprenda a usar los módulos de importación y exportación de datos para enviar y recibir datos de un servicio web."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondlaghaeian
 editor: 
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40e1dbf4fc1618deec5e7f85fb956f2881e08319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54b0434cb753484bdb8300f4b9c4f7f7ca75c7c8
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implementación de servicios web del aprendizaje automático de Azure que usan módulos de importación y exportación de datos
 
@@ -39,7 +39,7 @@ Para leer los datos de la tabla de SQL de Azure:
 2. En el cuadro de búsqueda de componentes, escriba import.
 3. En la lista de resultados, agregue un módulo *Importar datos* al lienzo del experimento.
 4. Conecte la salida del módulo *Import Data* (Importar datos) a la entrada del módulo *Clean Missing Data* (Limpiar datos que faltan).
-5. En el panel de propiedades, seleccione **Base de datos SQL de Azure** in the **Origen de datos** .
+5. En el panel de propiedades, seleccione **Azure SQL Database** in the **Origen de datos** .
 6. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Nombre de usuario** y **Contraseña**, escriba la información apropiada para la base de datos.
 7. En el campo Consulta de base de datos, escriba la siguiente consulta.
    
@@ -70,7 +70,7 @@ A continuación, configure el experimento predictivo desde el que se implementa 
 3. En el cuadro de búsqueda de componentes, escriba export.
 4. En la lista de resultados, agregue un módulo *Exportar datos* al lienzo del experimento.
 5. Conecte la salida del módulo *Score Model* (Puntuar modelo) a la entrada del módulo *Export Data* (Exportar datos). 
-6. En el panel de propiedades, seleccione **Base de datos SQL de Azure** en el menú desplegable Origen de datos.
+6. En el panel de propiedades, seleccione **Azure SQL Database** en el menú desplegable Origen de datos.
 7. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Server user account name** (Nombre de la cuenta de usuario del servidor) y **Server user account password** (Contraseña de la cuenta de usuario del servidor) escriba la información apropiada para la base de datos.
 8. En el campo **Comma separated list of columns to be saved** (Lista de elementos separados por comas de las columnas que guardar) escriba Scored Labels.
 9. En el campo **Data table name**(Nombre de tabla de datos), escriba dbo.ScoredLabels. Si la tabla no existe, se crea cuando se ejecuta el experimento o se llama al servicio web.
@@ -129,7 +129,7 @@ Para realizar la implementación como un servicio web nuevo y crear una aplicaci
 2. Cuando la ejecución haya terminado, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]).
 3. En la página Deploy Experiment (Implementar experimento), escriba un nombre para el servicio web, seleccione un plan de precios y haga clic en **Implementar**.
 4. En la página **Inicio rápido**, haga clic en **Consume** (Consumir).
-5. En la sección **Sample Code** (Ejemplo de código), haga clic en **Lote**.
+5. En la sección **Sample Code** (Ejemplo de código), haga clic en **Batch**.
 6. Cree una nueva aplicación de consola de C# en Visual Studio: **Nuevo** > **Proyecto** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
 7. Copie y pegue el ejemplo de código de C# en el archivo Program.cs.
 8. Actualice el valor de la variable *apiKey* con la **clave principal** ubicada en la sección **Basic consumption info** (Información básica de consumo).

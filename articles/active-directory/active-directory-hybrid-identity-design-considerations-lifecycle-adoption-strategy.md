@@ -4,7 +4,7 @@ description: "Ayuda a definir las tareas de administración de identidades híbr
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
 En esta tarea, va a definir la estrategia de administración de identidades para que su solución de identidad híbrida cumpla los requisitos empresariales que definió en [Determinación de las tareas de administración de identidad híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

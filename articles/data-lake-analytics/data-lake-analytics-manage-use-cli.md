@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: f90bada3572c0ed40b07d76ec02c1b499bbd1428
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 142a5baf0ffb0425856520fadccee27f3fc0517f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Administración del Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -36,7 +36,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * **Autenticación**, mediante el comando siguiente:
   
         azure login
-    Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+    Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](/cli/azure/authenticate-azure-cli).
 * **Cambiar al modo de Administrador de recursos de Azure**con el siguiente comando:
   
         azure config mode arm
@@ -84,9 +84,9 @@ Obtener detalles de una cuenta específica de Análisis de Data Lake
 Actualmente, Análisis de Data Lake admite los siguientes orígenes de datos:
 
 * [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
-* [Almacenamiento de Azure](../storage/common/storage-introduction.md)
+* [Azure Storage](../storage/common/storage-introduction.md)
 
-Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azure Data Lake para que sea la cuenta de almacenamiento predeterminada. La cuenta predeterminada de almacenamiento de ADL sirve para almacenar los metadatos de trabajos y los registros de auditoría de trabajos. Una vez creada la cuenta de Análisis, puede agregar más cuentas de Almacén de Data Lake y/o cuentas de Almacenamiento de Azure. 
+Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azure Data Lake para que sea la cuenta de almacenamiento predeterminada. La cuenta predeterminada de almacenamiento de ADL sirve para almacenar los metadatos de trabajos y los registros de auditoría de trabajos. Una vez creada la cuenta de Análisis, puede agregar más cuentas de Data Lake Store y/o cuentas de Azure Storage. 
 
 ### <a name="find-the-default-adl-storage-account"></a>Búsqueda de la cuenta de almacenamiento de ADL predeterminada
     azure datalake analytics account show "<Data Lake Analytics Account Name>"
@@ -176,7 +176,7 @@ Un servicio Análisis de Data Lake puede incluir los siguientes componentes:
 * Cuenta de Análisis de Azure Data Lake
 * Cuenta predeterminada y necesaria de Almacén de Azure Data Lake
 * Cuentas adicionales de Almacén de Azure Data Lake
-* Cuentas adicionales de Almacenamiento de Azure
+* Cuentas adicionales de Azure Storage
 
 Puede crear todos estos componentes en un grupo de ARM para que sean más fáciles de administrar.
 
@@ -187,7 +187,10 @@ Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.
 
 ## <a name="see-also"></a>Otras referencias
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
-* [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
-* [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* 
+            [Introducción a Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md)
+* 
+            [Administración de Análisis de Azure Data Lake mediante Azure Portal](data-lake-analytics-manage-use-portal.md)
+* 
+            [Supervisión y solución de problemas de trabajos de Data Lake Analytics mediante Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

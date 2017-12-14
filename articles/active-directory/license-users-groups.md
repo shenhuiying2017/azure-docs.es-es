@@ -4,7 +4,7 @@ description: "Obtención de una licencia para usted y sus usuarios en Azure Acti
 services: active-directory
 documentationcenter: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc210b83a9eeb947a15b60548e43096bd9e11c45
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Inicio rápido: Licencia de usuarios en Azure Active Directory
 Los servicios de Azure AD basados en licencia funcionan mediante la activación de una suscripción de Azure Active Directory (Azure AD) en el inquilino de Azure. Una vez activa la suscripción, los administradores de Azure AD pueden administrar las funcionalidades del servicio y los usuarios con licencia pueden usarlas. Cuando compra Enterprise Mobility + Security, Azure AD Premium o Azure AD Basic, el inquilino se actualiza con la suscripción, lo que incluye su período de validez y las licencias de prepago. La información de suscripción, incluido el número de licencias asignadas o disponibles, está disponible a través de Azure Portal en **Azure Active Directory** abriendo el icono **Licencias**. La hoja **Licencias** es también el mejor lugar para administrar las asignaciones de licencias.

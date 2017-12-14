@@ -1,6 +1,6 @@
 ---
-title: "Envío de notificaciones push seguras con los Centros de notificaciones de Azure y Node.js"
-description: "Aprenda a usar los Centros de notificaciones para enviar notificaciones de inserción desde una aplicación Node.js."
+title: "Envío de notificaciones push seguras con Azure Notification Hubs y Node.js"
+description: "Aprenda a usar Notification Hubs para enviar notificaciones de inserción desde una aplicación Node.js."
 keywords: "notificación push,notificaciones push,inserción de node.js,inserción de ios"
 services: notification-hubs
 documentationcenter: nodejs
@@ -15,13 +15,13 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: yuaxu
-ms.openlocfilehash: dc4987b16b2e930641c6c90eff8b65c1bf8d573c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff2dd0c2ededa3664c48b5ff77b05466fceb4b3f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con los Centros de notificaciones de Azure y Node.js
+# <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envío de notificaciones push seguras con Azure Notification Hubs y Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ## <a name="overview"></a>Información general
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Esta guía le mostrará cómo enviar notificaciones push con la ayuda de los Centros de notificaciones de Azure directamente desde una aplicación Node.js. 
+Esta guía le mostrará cómo enviar notificaciones push con la ayuda de Azure Notification Hubs directamente desde una aplicación Node.js. 
 
 Entre los escenarios descritos se incluye el envío de notificaciones push a aplicaciones en las siguientes plataformas:
 
@@ -41,14 +41,14 @@ Entre los escenarios descritos se incluye el envío de notificaciones push a apl
 
 Para obtener más información acerca de los centros de notificaciones, consulte la sección [Pasos siguientes](#next) .
 
-## <a name="what-are-notification-hubs"></a>¿Qué son los Centros de notificaciones?
-Los Centros de notificaciones de Azure proporcionan una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones push a los dispositivos móviles. Para más información sobre la infraestructura del servicio, consulte la página [Introducción a los centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
+## <a name="what-are-notification-hubs"></a>¿Qué son Notification Hubs?
+Azure Notification Hubs proporciona una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones push a los dispositivos móviles. Para más información sobre la infraestructura del servicio, consulte la página de [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 El primer paso en este tutorial es crear una nueva aplicación Node.js vacía. Si desea instrucciones sobre cómo crear una aplicación Node.js, consulte [Introducción a las aplicaciones web Node.js en Azure App Service][nodejswebsite], [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure][Node.js Cloud Service] (con Windows PowerShell) o [Creación e implementación de una aplicación web Node.js en Azure con WebMatrix].
 
-## <a name="configure-your-application-to-use-notification-hubs"></a>Configuración de la aplicación para usar los Centros de notificaciones
-Para usar los Centros de notificaciones de Azure tendrá que descargar y usar el [paquete de Azure](https://www.npmjs.com/package/azure)Node.js, que incluye un conjunto de bibliotecas auxiliares que se comunican con los servicios REST de notificación push.
+## <a name="configure-your-application-to-use-notification-hubs"></a>Configuración de la aplicación para usar Notification Hubs
+Para usar Azure Notification Hubs tendrá que descargar y usar el [paquete de Azure](https://www.npmjs.com/package/azure)Node.js, que incluye un conjunto de bibliotecas auxiliares que se comunican con los servicios REST de notificación push.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 1. Use una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Linux) y navegue a la carpeta donde creó la aplicación vacía.
@@ -70,14 +70,14 @@ El objeto **NotificationHubService** le permite trabajar con los Centros de noti
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-El valor de conexión **connectionstring** se puede obtener en el [Portal de Azure] mediante los siguientes pasos:
+El valor de conexión **connectionstring** se puede obtener en el [Azure Portal] mediante los siguientes pasos:
 
 1. En el panel de navegación izquierdo, haga clic en **Examinar**.
-2. Seleccione **Centros de notificaciones**y, a continuación, elija el centro que desea usar para el ejemplo. Puede consultar el tutorial [Introducción a Centros de notificaciones para aplicaciones de la Tienda Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si necesita ayuda para crear un nuevo Centro de notificaciones.
+2. Seleccione **Notification Hubs**y, a continuación, elija el centro que desea usar para el ejemplo. Puede consultar el tutorial [Introducción a Centros de notificaciones para aplicaciones de la Tienda Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si necesita ayuda para crear un nuevo Centro de notificaciones.
 3. Seleccione **Configuración**.
 4. Haga clic en **Directivas de acceso**. Verá las cadenas de conexión de acceso, tanto las compartidas como las de acceso completo.
 
-![Portal de Azure: Centros de notificaciones](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
+![Azure Portal: Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
 > También puede recuperar la cadena de conexión mediante el cmdlet **Get-AzureSbNamespace** que proporciona [Azure PowerShell](/powershell/azureps-cmdlets-docs) o el comando **azure sb namespace show** con la [Interfaz de la línea de comandos de Azure (CLI de Azure)](../cli-install-nodejs.md).
@@ -176,9 +176,9 @@ El código siguiente usa la instancia **WnsService** expuesta por **Notification
     });
 
 ## <a name="next-steps"></a>Pasos siguientes
-Los fragmentos de código de los ejemplos anteriores le permiten crear fácilmente la infraestructura del servicio para entregar notificaciones push a una amplia variedad de dispositivos. Ahora que conoce los fundamentos del uso de los Centros de notificaciones con node.js, siga estos vínculos para más información acerca de cómo puede ampliar estas capacidades adicionales.
+Los fragmentos de código de los ejemplos anteriores le permiten crear fácilmente la infraestructura del servicio para entregar notificaciones push a una amplia variedad de dispositivos. Ahora que conoce los fundamentos del uso de Notification Hubs con node.js, siga estos vínculos para más información acerca de cómo puede ampliar estas capacidades adicionales.
 
-* Consulte la referencia MSDN [Introducción a los centros de notificaciones](https://msdn.microsoft.com/library/azure/jj927170.aspx).
+* Consulte la referencia de MSDN para [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx).
 * Visite el repositorio [SDK de Azure para Node] en GitHub para ver más ejemplos y detalles de implementación.
 
 [SDK de Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -196,7 +196,6 @@ Los fragmentos de código de los ejemplos anteriores le permiten crear fácilmen
 [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
 [1]: #Next_Steps
 [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-[Azure Classic Portal]: http://manage.windowsazure.com
 [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
 [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -211,4 +210,5 @@ Los fragmentos de código de los ejemplos anteriores le permiten crear fácilmen
 [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
-[Portal de Azure]: https://portal.azure.com
+
+            [Azure Portal]: https://portal.azure.com

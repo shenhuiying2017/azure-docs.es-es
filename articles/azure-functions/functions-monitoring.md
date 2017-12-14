@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -153,7 +153,7 @@ El registrador de funciones de Azure también incluye un *nivel de registro* con
 |Warning (Advertencia)     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |
-|None        | 6 |
+|Ninguna        | 6 |
 
 El nivel de registro `None` se explica en la sección siguiente. 
 
@@ -486,7 +486,7 @@ Puede transmitir archivos de registro a una sesión de línea de comandos en una
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Supervisión de archivos de registro de la aplicación de función con la CLI de Azure 1.0
 
-Para comenzar, [instale la CLI de Azure 1.0](../cli-install-nodejs.md) e [inicie sesión en Azure](../xplat-cli-connect.md).
+Para comenzar, [instale la CLI de Azure 1.0](../cli-install-nodejs.md) e [inicie sesión en Azure](/cli/azure/authenticate-azure-cli).
 
 Use los siguientes comandos para habilitar el modo clásico de Service Management, elija su suscripción y transmita los archivos de registro:
 

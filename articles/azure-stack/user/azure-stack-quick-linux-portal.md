@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Creación de una máquina virtual con Linux desde el portal de Azure Stack
 
@@ -30,7 +30,7 @@ Las máquinas virtuales de Azure Stack pueden crearse a través del portal de Az
 
 * **Acceso a un cliente SSH**
 
-   Si está usando el Azure Stack Development Kit (ASDK), es posible que no tenga acceso a un cliente SSH en su entorno. Si este es el caso, puede elegir entre varios paquetes que incluyen a un cliente SSH. Por ejemplo, puede instalar PuTTY que incluye un cliente SSH y el generador de claves SSH (puttygen.exe). Para obtener más información acerca de las opciones posibles, consulte el siguiente artículo de Azure relacionado: [Uso de SSH con Windows en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Si está usando el Azure Stack Development Kit (ASDK), es posible que no tenga acceso a un cliente SSH en su entorno. Si este es el caso, puede elegir entre varios paquetes que incluyen a un cliente SSH. Por ejemplo, puede instalar PuTTY que incluye un cliente SSH y el generador de claves SSH (puttygen.exe). Para obtener más información acerca de las opciones posibles, consulte el siguiente artículo de Azure relacionado: [Uso de SSH con Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Este tutorial rápido usa PuTTY para generar claves SSH y para conectarse a la máquina virtual con Linux. Para descargar e instalar PuTTY, vaya a [http://www.putty.org/](http://www.putty.org).
 

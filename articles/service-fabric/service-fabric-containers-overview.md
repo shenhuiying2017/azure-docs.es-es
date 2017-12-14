@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/20/2017
 ms.author: msfussell
-ms.openlocfilehash: f47a855b94a29a2e9bbf4ca509e68612423aa65d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9389ab5c3c67525703538cee644af9399417ffd5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric y contenedores
 > [!NOTE]
@@ -61,7 +61,7 @@ La ilustración siguiente muestra los diferentes tipos de niveles de aislamiento
 ## <a name="scenarios-for-using-containers"></a>Escenarios de uso de contenedores
 Ejemplos típicos de buena elección de contenedor:
 
-* **Levantamiento y movimiento de IIS**: si dispone de aplicaciones [ASP.NET MVC](https://www.asp.net/mvc) existentes que quiera seguir utilizando, colóquelas en un contenedor en lugar de migrarlas a ASP.NET Core. Estas aplicaciones de ASP.NET MVC dependen de Internet Information Services (IIS). Puede empaquetarlas en imágenes de contenedor a partir de la imagen de IIS creada previamente e implementarlas con Service Fabric. Consulte [Imágenes de contenedores en Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obtener información sobre los contenedores de Windows.
+* **Levantamiento y movimiento de IIS**: si dispone de aplicaciones [ASP.NET MVC](https://www.asp.net/mvc) existentes que quiera seguir utilizando, colóquelas en un contenedor en lugar de migrarlas a ASP.NET Core. Estas aplicaciones de ASP.NET MVC dependen de Internet Information Services (IIS). Puede empaquetarlas en imágenes de contenedor a partir de la imagen de IIS creada previamente e implementarlas con Service Fabric. Consulte [Imágenes de contenedores en Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) para obtener información sobre los contenedores de Windows.
 * **Combinación de contenedores y microservicios de Service Fabric**: use una imagen de contenedor existente para la parte de la aplicación. Por ejemplo, podría usar el [contenedor NGINX](https://hub.docker.com/_/nginx/) para el front-end web de su aplicación y los servicios con estado para la computación de back-end más intensa.
 * **Reducción del impacto de los servicios de los "vecinos ruidosos"**: puede utilizar la capacidad de regulación de los recursos de los contenedores para restringir los recursos que utiliza un servicio en un host. Si hay servicios que consuman un gran número de recursos y afecten al rendimiento de otros (por ejemplo, una consulta de larga ejecución como operación), considere la posibilidad de poner estos servicios en contenedores con regulación de recursos.
 
@@ -90,6 +90,6 @@ En este artículo, ha aprendido acerca de los contenedores y que Service Fabric 
 
 [Cree la primera aplicación de contenedor de Service Fabric en Linux](service-fabric-get-started-containers-linux.md)
 
-[Más información acerca de los contenedores de Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
+[Más información acerca de los contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png

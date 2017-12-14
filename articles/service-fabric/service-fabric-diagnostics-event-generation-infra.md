@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8452b5ae733b21254b0beecaec44a968897ae491
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Generación de eventos y registros de nivel de plataforma
 
@@ -105,7 +105,7 @@ Para obtener una lista de contadores de rendimiento para recopilar datos cuando 
 
 A continuación se indican dos formas habituales de configurar la recopilación de datos de rendimiento del clúster:
 
-* Usar un agente: se trata de la mejor manera de recopilar datos de rendimiento de un equipo, ya que los agentes suelen incluir una lista de las métricas de rendimiento que se pueden recopilar, y el proceso de elegir o cambiar las métricas que se van a recopilar es relativamente sencillo. Lea los artículos dedicados a [cómo configurar OMS para Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) y [cómo configurar el agente de OMS de Windows](../log-analytics/log-analytics-windows-agents.md) para obtener más información sobre el agente de OMS, que es un agente de supervisión que puede recopilar datos de rendimiento de las máquinas virtuales del clúster y los contenedores implementados.
+* Usar un agente: se trata de la mejor manera de recopilar datos de rendimiento de un equipo, ya que los agentes suelen incluir una lista de las métricas de rendimiento que se pueden recopilar, y el proceso de elegir o cambiar las métricas que se van a recopilar es relativamente sencillo. Lea los artículos dedicados a [cómo configurar OMS para Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) y [cómo configurar el agente de OMS de Windows](../log-analytics/log-analytics-windows-agent.md) para obtener más información sobre el agente de OMS, que es un agente de supervisión que puede recopilar datos de rendimiento de las máquinas virtuales del clúster y los contenedores implementados.
 
 * Configurar los diagnósticos de modo que escriban los contadores de rendimiento en una tabla: en el caso de los clústeres de Azure esto significa cambiar la configuración de Azure Diagnostics, de modo que recopile los contadores de rendimiento correspondientes a las máquinas virtuales del clúster y pueda reunir estadísticas de Docker si va a implementar contenedores. Obtenga más información sobre cómo configurar [contadores de rendimiento de WAD](service-fabric-diagnostics-event-aggregation-wad.md) en Service Fabric para configurar una colección de contadores de rendimiento.
 

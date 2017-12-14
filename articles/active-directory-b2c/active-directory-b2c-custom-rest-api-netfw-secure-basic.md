@@ -4,7 +4,7 @@ description: "Proteja los intercambios de notificaciones de la API de REST perso
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Protección de los servicios REST mediante la autenticación HTTP básica
 En un [artículo de Azure AD B2C relacionado](active-directory-b2c-custom-rest-api-netfw.md), se crea un servicio REST (API web) que se integra en los recorridos del usuario de Azure Active Directory B2C (Azure AD B2C) sin autenticación. 
 
 En dicho artículo se agrega una autenticación HTTP básica al servicio REST, con el fin de que solo los usuarios comprobados, lo que incluye B2C, puedan acceder a la API. Con la autenticación HTTP básica, se establecen las credenciales de usuario (identificador de aplicación y secreto de aplicación) en la directiva personalizada. 
 
-Para más información, consulte [Basic authentication in ASP.NET web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication) (Autenticación básica en ASP.NET Web API).
+Para más información, consulte [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticación básica en ASP.NET Web API).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Complete los pasos del artículo [Azure Active Directory B2C: integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación en entradas de usuario](active-directory-b2c-custom-rest-api-netfw.md).

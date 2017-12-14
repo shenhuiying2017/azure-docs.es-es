@@ -4,7 +4,7 @@ description: "Ejemplos de código de uso de los SDK de Azure con una MSI en una 
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 222acd1624ce025985bf1a3eef40eb124ab7678e
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 46fd75668999537dfbc9fd82c1f166e126b6f547
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Uso de una identidad de servicio administrada (MSI) de Azure en una máquina virtual con los SDK de Azure 
 

@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>La estructura de los paneles de Azure
 Este documento le guía a través de la estructura de un panel de Azure con el panel siguiente como ejemplo:
 
 ![panel de ejemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Como los [paneles de Azure compartidos son recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), este panel se puede representar como JSON.  La siguiente representación JSON representa el panel visualizado anteriormente.
+Como los [paneles de Azure compartidos son recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), este panel se puede representar como JSON.  La siguiente representación JSON representa el panel visualizado anteriormente.
 
 ```json
 
@@ -294,7 +294,7 @@ Vamos a desglosar las secciones relevantes de JSON.  Las propiedades de nivel su
 
 ### <a name="the-id-property"></a>La propiedad id
 
-El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Cuando el portal crea un panel, elige generalmente un id. en forma de identificador único pero se puede utilizar cualquier nombre válido cuando se crean mediante programación. 
+El identificador de recurso de Azure está sujeto a las [convenciones de nomenclatura de recursos de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Cuando el portal crea un panel, elige generalmente un id. en forma de identificador único pero se puede utilizar cualquier nombre válido cuando se crean mediante programación. 
 
 ### <a name="the-name-property"></a>La propiedad name
 El nombre es el segmento del identificador de recurso que no incluye la suscripción, el tipo de recurso o la información del grupo de recursos. Básicamente, es el último segmento del identificador de recurso.
@@ -303,7 +303,7 @@ El nombre es el segmento del identificador de recurso que no incluye la suscripc
 Todos los paneles son del tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>La propiedad location
-A diferencia de otros recursos, los paneles no tienen un componente de tiempo de ejecución.  Para los paneles, la ubicación indica la ubicación geográfica principal que almacena la representación JSON del panel. El valor debe ser uno de los códigos de ubicación que se pueden recuperar mediante la [API de ubicaciones en el recurso de suscripciones](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+A diferencia de otros recursos, los paneles no tienen un componente de tiempo de ejecución.  Para los paneles, la ubicación indica la ubicación geográfica principal que almacena la representación JSON del panel. El valor debe ser uno de los códigos de ubicación que se pueden recuperar mediante la [API de ubicaciones en el recurso de suscripciones](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>La propiedad tags
 Las etiquetas son una característica común de los recursos de Azure que le permiten organizar el recurso por pares de nombre y valor arbitrarios. Para los paneles, hay una etiqueta especial denominada __hidden-title__. Si el panel tiene esta propiedad rellenada, se utiliza como el nombre para mostrar del panel en el portal. No se puede cambiar el nombre de los identificadores de recursos de Azure, pero con las etiquetas sí se puede. Esta etiqueta ofrece un modo de tener un nombre para mostrar que pueda cambiar para el panel.

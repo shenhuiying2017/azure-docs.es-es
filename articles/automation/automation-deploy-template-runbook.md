@@ -3,7 +3,7 @@ title: "Implementación de una plantilla de Azure Resource Manager en un runbook
 description: Procedimiento para implementar una plantilla de Azure Resource Manager almacenada en Azure Storage desde un runbook
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 keywords: powershell, runbook, json, azure automation
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
-ms.author: eslesar
-ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: dc283973efd936d50418d303bbc359dd4312a121
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementación de una plantilla de Azure Resource Manager en un runbook de Azure Automation PowerShell
 
@@ -32,7 +32,8 @@ En este tema, crearemos un runbook de PowerShell que use una plantilla de Resour
 Para completar este tutorial, necesitará lo siguiente:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o <a href="/pricing/free-account/" target="_blank">[registrarse para obtener una cuenta gratis](https://azure.microsoft.com/free/).
-* [Cuenta de Automatización](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
+* 
+            [Cuenta de Automation](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
 * [Cuenta de Azure Storage](../storage/common/storage-create-storage-account.md) donde se va a almacenar la plantilla de Resource Manager
 * Azure Powershell instalado en una máquina local. Consulte [Instalación y configuración de Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) para información sobre cómo obtener Azure PowerShell.
 

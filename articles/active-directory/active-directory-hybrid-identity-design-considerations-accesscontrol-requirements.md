@@ -4,7 +4,7 @@ description: "Cubre los pilares de identidad y la identificación de los requisi
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6404940da460461632616fe49f055d50c2a7aba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 069c83a0bbbb21ba85aea07375c186fe0b11c781
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de control de acceso para la solución de identidad híbrida
 Cuando una organización va a diseñar su solución de identidad híbrida también pueden usar esta oportunidad para revisar los requisitos de acceso de los recursos que tienen pensado poner a disposición de los usuarios. El acceso a los datos atraviesa los cuatro pilares de identidad, que son:

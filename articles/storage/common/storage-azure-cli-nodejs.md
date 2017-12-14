@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Uso de la CLI de Azure 1.0 con Azure Storage
 
@@ -28,7 +28,7 @@ La CLI de Azure proporciona un conjunto de comandos de código abierto y multipl
 
 En esta guía, exploraremos cómo usar la [Interfaz de la línea de comandos de Azure (CLI de Azure)](../../cli-install-nodejs.md) para realizar diversas tareas de desarrollo y administración con Azure Storage. Antes de usar esta guía es aconsejable descargar e instalar la CLI de Azure más reciente, o actualizarse a ella.
 
-En esta guía se supone que conoce los conceptos básicos de Almacenamiento de Azure. La guía incluye varios scripts que muestran cómo se usa la CLI de Azure con Almacenamiento de Azure. Antes de ejecutar cada script, asegúrese de que ha actualizado las variables del mismo según su configuración.
+En esta guía se supone que conoce los conceptos básicos de Azure Storage. La guía incluye varios scripts que muestran cómo se usa la CLI de Azure con Azure Storage. Antes de ejecutar cada script, asegúrese de que ha actualizado las variables del mismo según su configuración.
 
 > [!NOTE]
 > La guía proporciona ejemplos de comandos y scripts de CLI de Azure de cuentas de almacenamiento clásico. Consulte [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) (Uso de la CLI de Azure para Mac, Linux y Windows mediante la administración de recursos de Azure) para ver los comandos de la CLI de Azure de las cuentas de almacenamiento de Resource Manager.
@@ -37,7 +37,7 @@ En esta guía se supone que conoce los conceptos básicos de Almacenamiento de A
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Introducción de 5 minutos a Almacenamiento de Azure y a la CLI de Azure
+## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Introducción de 5 minutos a Azure Storage y a la CLI de Azure
 En esta guía se usa Ubuntu para los ejemplos, pero el funcionamiento debe ser similar en otros sistemas operativos.
 
 **Nuevo en Azure:** obtenga una suscripción de Microsoft Azure y una cuenta de Microsoft asociada a dicha suscripción. Para más información sobre las opciones de compra de Azure, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
@@ -95,7 +95,7 @@ Una vez ejecutado el script, debería tener una carpeta de destino local que inc
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>Administración de cuentas de almacenamiento con la CLI de Azure
 ### <a name="connect-to-your-azure-subscription"></a>Conexión a su suscripción de Azure
-Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure de modo que funcione con su suscripción, siga los pasos en [Connect to an Azure subscription from the Azure CLI](../../xplat-cli-connect.md)(Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure [CLI de Azure]).
+Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure de modo que funcione con su suscripción, siga los pasos en [Connect to an Azure subscription from the Azure CLI](/cli/azure/authenticate-azure-cli)(Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure [CLI de Azure]).
 
 ### <a name="create-a-new-storage-account"></a>Creación de una cuenta de almacenamiento nueva
 Para utilizar Almacenamiento de Azure, necesitará una cuenta de almacenamiento. Puede crear una nueva cuenta de almacenamiento de Azure después de configurar el equipo para que pueda conectarse a su suscripción.
@@ -142,7 +142,7 @@ azure storage container create mycontainer
 >
 
 ### <a name="upload-a-blob-into-a-container"></a>Cargar un blob en un contenedor
-El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. Para más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+Azure Blob Storage admite blobs en bloques y en páginas. Para más información, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Para cargar blobs en un contenedor, puede utilizar `azure storage blob upload`. Este comando carga de forma predeterminada los archivos locales a un blob en bloque. Para especificar el tipo de blob, puede usar el parámetro `--blobtype` .
 

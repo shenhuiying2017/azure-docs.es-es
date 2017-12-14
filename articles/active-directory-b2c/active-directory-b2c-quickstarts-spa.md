@@ -4,7 +4,7 @@ description: "Inicio de sesión de versión de prueba, registro, edición de per
 services: active-directory-b2c
 documentationcenter: 
 author: saraford
-manager: krassk
+manager: mtillman
 editor: PatAltimore
 ms.assetid: 5a8a46af-28bb-4b70-a7f0-01a5240d0255
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: saraford
-ms.openlocfilehash: 22da1ae317ba685d32f93d3331cf794b568891ec
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: ba8ee4657309ab2a541f4c7b3fd4879542eee63c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="test-drive-a-single-page-application-configured-with-azure-ad-b2c"></a>Versión de prueba de una aplicación de una sola página configurada con Azure AD B2C
 
@@ -69,7 +69,7 @@ Abra `http://localhost:6420` en un explorador web para acceder a la aplicación 
 
 Haga clic en el botón de **inicio de sesión** para iniciar el flujo de trabajo de **registro o inicio de sesión** de Azure AD B2C. Al crear una cuenta, puede usar una cuenta de proveedor de identidades de redes sociales existente o una cuenta de correo electrónico.
 
-### <a name="sign-up-using-a-social-identity-provider"></a>Registrarse con un proveedor de identidades de redes sociales
+### <a name="sign-up-using-a-social-identity-provider"></a>Registro con un proveedor de identidades de redes sociales
 
 Para registrarse con un proveedor de identidades de redes sociales, haga clic en el botón del proveedor de identidades que desee usar. Si prefiere usar una dirección de correo electrónico, vaya a la sección [Registro con una dirección de correo electrónico](#sign-up-using-an-email-address).
 

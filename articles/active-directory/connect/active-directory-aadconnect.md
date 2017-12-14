@@ -5,7 +5,7 @@ keywords: "introducción a Azure AD Connect, información general de Azure AD Co
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/02/2017
 ms.author: billmath
-ms.openlocfilehash: e52adf302a34566076d8787b9befc4da34195416
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 6e3405f0883104a005946917d811036206603848
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integración de los directorios locales con Azure Active Directory
 Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD. Este tema le guiará a través del planeamiento, implementación y pasos de la operación. Se ofrece una colección de vínculos a temas relacionados con esta área.

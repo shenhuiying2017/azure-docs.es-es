@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -27,7 +27,7 @@ Azure Stream Analytics agrega el "peso" de rendimiento de ejecutar un trabajo en
 
 Con el fin de lograr un procesamiento de streaming de latencia baja, los trabajos de Azure Stream Analytics realizan todo el procesamiento en memoria. El trabajo de streaming presenta un error cuando se queda sin memoria. Como resultado, en el caso de un trabajo de producción, resulta importante supervisar el uso de recursos de un trabajo de streaming, y debe asegurarse de que hay recursos asignados suficientes para mantener los trabajos en ejecución de manera ininterrumpida.
 
-La métrica es un número de porcentaje que va de 0 % a 100 %. Para un trabajo de streaming con una superficie mínima, la métrica de porcentaje de uso de SU suele estar entre 10 % y 20 %. Se recomienda mantener la métrica por debajo del 80 % para tener en cuenta las subidas ocasionales.  Puede establecer una alerta en la métrica (consulte [aquí para configurar las alertas de métricas](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal)).
+La métrica es un número de porcentaje que va de 0 % a 100 %. Para un trabajo de streaming con una superficie mínima, la métrica de porcentaje de uso de SU suele estar entre 10 % y 20 %. Se recomienda mantener la métrica por debajo del 80 % para tener en cuenta las subidas ocasionales.  Puede establecer una alerta en la métrica (consulte [aquí para configurar las alertas de métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
 
 
 
@@ -82,7 +82,7 @@ Con el fin de mejorar los problemas causados por la cardinalidad alta en la cons
 
 Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de clusterid que entra en cada nodo se reduce, lo que disminuye la cardinalidad del grupo por operador. 
 
-Las particiones de Event Hub se deben particionar según la clave de agrupación para evitar la necesidad de un paso de reducción. [Aquí](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview) se describen detalles adicionales. 
+Las particiones de Event Hub se deben particionar según la clave de agrupación para evitar la necesidad de un paso de reducción. [Aquí](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview) se describen detalles adicionales. 
 #### <a name="temporal-join"></a>Combinación temporal
 El tamaño del estado de una combinación temporal es proporcional al número de eventos en el espacio de ondulación temporal de la combinación, que es la tasa de entrada del evento multiplicada por el tamaño del espacio de ondulación. 
 

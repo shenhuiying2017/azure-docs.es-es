@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="aerial-image-classification"></a>Clasificación de imágenes aéreas
 
@@ -67,7 +67,7 @@ Las instrucciones siguientes le guían a través del proceso de configuración d
         - "Install Azure Python SDK" (Instalación del SDK de Python de Azure)
     - Registre el identificador de cliente, el secreto y el identificador de inquilino de la aplicación de Azure Active Directory que va a crear. Más adelante en este tutorial usará esas credenciales.
     - En el momento de redactar este documento, Azure Machine Learning Workbench y Azure Batch AI usan bifurcaciones independientes de la CLI de Azure 2.0. Para mayor claridad, nos referimos a la versión de Workbench de la CLI como "la CLI publicada a partir de Azure Machine Learning Workbench" y la versión de disponibilidad general (que incluye Batch AI) como "la CLI de Azure 2.0".
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), una utilidad gratuita para coordinar la transferencia de archivos entre cuentas de Azure Storage
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), una utilidad gratuita para coordinar la transferencia de archivos entre cuentas de Azure Storage
     - Compruebe que la carpeta que contiene el ejecutable AzCopy está en la variable de entorno PATH del sistema. (Las instrucciones sobre cómo modificar variables de entorno están disponibles [aquí](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)).
 - Un cliente de SSH; se recomienda [PuTTY](http://www.putty.org/).
 

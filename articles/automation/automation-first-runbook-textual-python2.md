@@ -3,7 +3,7 @@ title: Mi primer runbook de Python en Azure Automation | Microsoft Docs
 description: "Tutorial que le guiará a través de la creación, prueba y publicación de un runbook de Python."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.author: gwallace
+ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-python-runbook"></a>Mi primer runbook de Python
 
@@ -36,15 +36,16 @@ Este tutorial le guiará por la creación de un [runbook de Python](automation-r
 Para completar este tutorial, necesitará lo siguiente:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Cuenta de Automatización](automation-offering-get-started.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
+* 
+            [Cuenta de Automation](automation-offering-get-started.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
 * Una máquina virtual de Azure. Detendremos e iniciaremos esta máquina, por lo que no debería ser una máquina virtual de producción.
 
 ## <a name="create-a-new-runbook"></a>Crear un runbook
 
 Empezamos creando un runbook simple cuya salida sea el texto *Hello World*.
 
-1. En el Portal de Azure, abra su cuenta de Automatización.
-   La página de la cuenta de Automatización proporciona una vista rápida de los recursos que hay en esa cuenta. Ya debería tener algunos recursos. Muchas de ellos son los módulos que se incluyen automáticamente en una cuenta nueva de Automatización. También debe tener el recurso de credencial que se menciona en los [requisitos previos](#prerequisites).
+1. En Azure Portal, abra su cuenta de Automation.
+   La página de la cuenta de Automation proporciona una vista rápida de los recursos que hay en esa cuenta. Ya debería tener algunos recursos. Muchas de ellos son los módulos que se incluyen automáticamente en una cuenta nueva de Automation. También debe tener el recurso de credencial que se menciona en los [requisitos previos](#prerequisites).
 1. Haga clic en el icono **Runbooks** para abrir la lista de runbooks.
    ![RunbooksControl](media/automation-first-runbook-textual-python/runbooks-control-tiles.png)
 1. Para crear un runbook, haga clic en el botón **Agregar un runbook** y en **Crear un runbook nuevo**.
@@ -212,6 +213,6 @@ Haga clic en **Aceptar** para iniciar el runbook. El runbook se ejecuta e inicia
 * Para empezar a trabajar con Runbooks de PowerShell, consulte [Mi primer Runbook de PowerShell](automation-first-runbook-textual-powershell.md)
 * Para empezar a trabajar con cuadernos gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
-* Para obtener más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Automatización de Azure](automation-runbook-types.md)
-* Para más información sobre cómo desarrollar para Azure con Python, vea [Azure para desarrolladores de Python](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Para ver runbooks de ejemplo 2 de Python, consulte el [GitHub de Azure Automation](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)
+* Para más información sobre cómo desarrollar para Azure con Python, vea [Azure para desarrolladores de Python](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Para ver runbooks de ejemplo 2 de Python, consulte el [GitHub de Azure Automation](https://docs.microsoft.com/python/azure/?view=azure-python).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creación de un trabajo de exportación para el servicio Azure Import/Export
 Para crear un trabajo de exportación para el servicio Microsoft Azure Import/Export con la API de REST, debe seguir estos pasos:
@@ -57,7 +57,7 @@ Antes de crear un trabajo de exportación, necesita obtener un nombre de la ubic
 
 Siga los pasos siguientes para obtener la ubicación de envío:
 
--   Identifique el nombre de la ubicación de la cuenta de almacenamiento. Este valor puede encontrarse en el campo **Ubicación** del **Panel** de la cuenta de almacenamiento del portal clásico o consultarse mediante el uso de la operación [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) de Service Management API.
+-   Identifique el nombre de la ubicación de la cuenta de almacenamiento. Este valor puede encontrarse en el campo **Ubicación** del **Panel** de la cuenta de almacenamiento de Azure Portal o puede consultarse mediante el uso de la operación [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) de Service Management API.
 
 -   Recupere la ubicación que está disponible para procesar esta cuenta de almacenamiento mediante una llamada a la operación `Get Location`.
 

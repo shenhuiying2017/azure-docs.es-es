@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo desarrollar y usar el Control
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse
-Esta guía le mostrará cómo usar el servicio de control de acceso de Azure (ACS) dentro del Kit de herramientas de Azure para Eclipse. Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps) .
+# <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Autenticación de usuarios web con Azure Access Control Service mediante Eclipse
+Esta guía le mostrará cómo usar Azure Access Control Service (ACS) dentro del Kit de herramientas de Azure para Eclipse. Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps) .
 
 > [!NOTE]
 > El filtro de control de los servicios de acceso de Azure es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft.

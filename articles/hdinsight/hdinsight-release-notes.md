@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 8a8b62e2cdf9f4f6c41b041ac20694303203531b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e0977417ec8678db54d91677b1f9bdc709e196b5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Notas de la versión de los componentes de Hadoop en HDInsight de Azure
 
@@ -101,7 +101,7 @@ Spark 2.0.1 ahora está disponible en los clústeres Spark (HDInsight versión 3
 * El URI para el acceso al nodo perimetral ha cambiado a **clustername**-ed-ssh.azurehdinsight.net
 * Se ha optimizado R Server en el aprovisionamiento de clústeres de HDInsight.
 * R Server en HDInsight ahora está disponible como un tipo de clúster R Server regular de HDInsight y ya no se instala como una aplicación independiente de HDInsight. El nodo perimetral y los archivos binarios de R Server ahora se suministran como parte de la implementación del clúster de R Server. Esto mejora la velocidad y la confiabilidad del aprovisionamiento. El modelo de precios para R Server se actualiza en consecuencia.
-* El precio del tipo de clúster de R Server ahora se basa en el precio del nivel estándar más el suplemento de R Server. Ahora el nivel Premium se reserva para las características Premium disponibles en diferentes tipos de clúster y no se usa para el tipo de clúster de R Server. Este cambio no afecta al precio efectivo de R Server, únicamente cambia el modo en que los cargos aparecen reflejados en la factura. Todos los clústeres de R Server existentes seguirán funcionando y las plantillas de Resource Manager siguen siendo válidas hasta que se notifique el abandono de su uso. **En cambio, se recomienda actualizar las implementaciones con scripts de forma que usen la nueva plantilla de Resource Manager.**
+* El precio del tipo de clúster de R Server ahora se basa en el precio del nivel estándar más el suplemento de R Server. Este cambio no afecta al precio efectivo de R Server, únicamente cambia el modo en que los cargos aparecen reflejados en la factura. Todos los clústeres de R Server existentes seguirán funcionando y las plantillas de Resource Manager siguen siendo válidas hasta que se notifique el abandono de su uso. **En cambio, se recomienda actualizar las implementaciones con scripts de forma que usen la nueva plantilla de Resource Manager.**
 
 
 

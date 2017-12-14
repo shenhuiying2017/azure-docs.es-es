@@ -3,8 +3,8 @@ title: Consideraciones de planeamiento para sistemas integrados de Azure Stack |
 description: "Obtenga información acerca de lo que puede hacer para planear ahora y prepararse para Azure Stack de varios nodos."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: twooley
-ms.openlocfilehash: 8484f7947f23a00c05b34babf13cd75f9d227740
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: b39b3b8f73f9deef48173c712d7966eb13c6ecc3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de planeamiento para sistemas integrados de Azure Stack
 
@@ -119,7 +119,7 @@ Para la implementación, debe proporcionar los certificados de Capa de sockets s
  
 La siguiente tabla muestra los servicios y el número de puntos de conexión de acceso público que requieren certificados para la implementación inicial de Azure Stack. 
 
-| Se usa para | Extremo 
+| Se usa para | Punto de conexión 
 | -------- | ------------- | 
 | Azure Resource Manager (administrador) | adminmanagment.[region].[external_domain] |
 | Azure Resource Manager (usuario) | management.[region].[external_domain] |

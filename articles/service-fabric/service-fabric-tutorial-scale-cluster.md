@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.custom: mvc
+ms.openlocfilehash: 63b4747164959b0e95f6d3f1908d1fd265589a98
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Escalabilidad de un clúster de Service Fabric
 
@@ -33,10 +34,10 @@ En este tutorial, aprenderá a:
 
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
-> * Crear un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
+> * Cree un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
 > * Escalar o reducir un clúster horizontalmente
 > * [Actualización del sistema de tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Implementar API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial:

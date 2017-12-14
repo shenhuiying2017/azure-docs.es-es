@@ -1,6 +1,6 @@
 ---
 title: "Uso de la extensión de VM Docker para Linux en Azure"
-description: "Describe Docker y las extensiones de máquinas virtuales de Azure y muestra cómo crear máquinas virtuales en Azure mediante programación que son host de Docker desde la línea de comandos usando la CLI de Azure."
+description: "Describe Docker y las extensiones de Azure Virtual Machines y muestra cómo crear instancias de Azure Virtual Machines mediante programación que son host de Docker desde la línea de comandos usando la CLI de Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ Para instalar y configurar la CLI de Azure, consulte [Instalación y configuraci
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Conexión de la CLI de Azure a su cuenta de Azure
-Antes de poder utilizar la CLI de Azure, debe asociar las credenciales de su cuenta de Azure con la CLI de Azure en su plataforma. La sección [Conexión con su suscripción de Azure](../../../xplat-cli-connect.md) explica cómo descargar e importar su archivo **.publishsettings** o asociar su CLI de Azure con un identificador de organización.
+Antes de poder utilizar la CLI de Azure, debe asociar las credenciales de su cuenta de Azure con la CLI de Azure en su plataforma. La sección [Conexión con su suscripción de Azure](/cli/azure/authenticate-azure-cli) explica cómo descargar e importar su archivo **.publishsettings** o asociar su CLI de Azure con un identificador de organización.
 
 > [!NOTE]
 > Existen algunas diferencias de comportamiento al utilizar uno u otro método de autenticación, por eso debe asegurarse de leer el documento anterior para comprender las diferentes funcionalidades.

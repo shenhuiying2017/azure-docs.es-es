@@ -1,6 +1,6 @@
 ---
 title: "Envío de notificaciones push a Android con Azure Notification Hubs y Firebase Cloud Messaging | Microsoft Docs"
-description: "En este tutorial aprenderá a usar los Centros de notificaciones de Azure y Firebase Cloud Messaging para enviar notificaciones push a dispositivos Android."
+description: "En este tutorial aprenderá a usar Azure Notification Hubs y Firebase Cloud Messaging para enviar notificaciones push a dispositivos Android."
 services: notification-hubs
 documentationcenter: android
 keywords: "notificaciones push,notificación push,notificación push android, fcm, firebase cloud messaging"
@@ -15,22 +15,22 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: yuaxu
-ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3425a4aa40f4f10d12c58099d4f4874534971f92
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Envío de notificaciones push a Android con los Centros de notificaciones de Azure
+# <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Envío de notificaciones push a Android con Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Información general
 > [!IMPORTANT]
-> En este tema se muestran las notificaciones push con Firebase Cloud Messaging (FCM) de Google. Si aún utiliza el Servicio de mensajería en la nube (GCM) de Google, consulte [Envío de notificaciones push a Android con los Centros de notificaciones de Azure](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> En este tema se muestran las notificaciones push con Firebase Cloud Messaging (FCM) de Google. Si aún utiliza Google Cloud Messaging (GCM), consulte [Envío de notificaciones push a Android con Azure Notification Hubs](notification-hubs-android-push-notification-google-gcm-get-started.md).
 > 
 > 
 
-En este tutorial se muestra cómo usar Centros de notificaciones de Azure y Firebase Cloud Messaging para enviar notificaciones push a una aplicación de Android.
+En este tutorial se muestra cómo usar Azure Notification Hubs y Firebase Cloud Messaging para enviar notificaciones push a una aplicación de Android.
 Creará una aplicación de Android en blanco que reciba notificaciones push mediante Firebase Cloud Messaging (FCM).
 
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
@@ -47,7 +47,7 @@ El código completo de este tutorial se puede descargar de GitHub [aquí](https:
 * Android 2.3, o una versión superior, para Firebase Cloud Messaging.
 * Para Firebase Cloud Messaging, se requiere la revisión 27 del repositorio de Google, o una revisión posterior.
 * Google Play Services 9.0.2, o una versión superior, para Firebase Cloud Messaging.
-* La realización de este tutorial es un requisito previo para todos los tutoriales de Centros de notificaciones para aplicaciones Android.
+* La realización de este tutorial es un requisito previo para todos los tutoriales de Notification Hubs para aplicaciones Android.
 
 ## <a name="create-a-new-android-studio-project"></a>Creación de un nuevo proyecto de Android Studio
 1. En Android Studio, inicie un nuevo proyecto de Android Studio.
@@ -66,7 +66,7 @@ El código completo de este tutorial se puede descargar de GitHub [aquí](https:
 
 &emsp;&emsp;6. En la hoja **Settings** (Configuración) del Centro de notificaciones, seleccione **Notification Services** (Servicios de notificaciones) y, luego, **Google (GCM)**. Escriba la clave de servidor de FCM que copió anteriormente de la [consola de Firebase](https://firebase.google.com/console/) y haga clic en **Save**(Guardar).
 
-&emsp;&emsp;![Centros de notificaciones de Azure: Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
+&emsp;&emsp;![Azure Notification Hubs: Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
 El Centro de notificaciones está configurado para funcionar con Firebase Cloud Messagin y el usuario dispone de las cadenas de conexión necesarias para registrar su aplicación para que reciba y envíe notificaciones push.
 
@@ -74,7 +74,7 @@ El Centro de notificaciones está configurado para funcionar con Firebase Cloud 
 ### <a name="add-google-play-services-to-the-project"></a>Incorporación de los servicios de Google Play al proyecto
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-### <a name="adding-azure-notification-hubs-libraries"></a>Incorporación de bibliotecas de Centros de notificaciones de Azure
+### <a name="adding-azure-notification-hubs-libraries"></a>Incorporación de bibliotecas de Azure Notification Hubs
 1. En el archivo `Build.Gradle` de la **aplicación**, agregue las siguientes líneas en la sección **dependencies**.
    
         compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
@@ -131,7 +131,8 @@ El Centro de notificaciones está configurado para funcionar con Firebase Cloud 
    
    * **SenderId**: el Id. de remitente que obtuvo anteriormente en la pestaña **Mensajería en la nube** de la configuración del proyecto en la [consola de Firebase](https://firebase.google.com/console/).
    * **HubListenConnectionString**: la cadena de conexión **DefaultListenAccessSignature** del centro. Para copiar dicha cadena de conexión, haga clic en **Directivas de acceso** en la hoja **Configuración** de su centro en [Azure Portal].
-   * **HubName**: use el nombre del centro de notificaciones que aparece en la hoja del centro en el [Azure Portal].
+   * 
+            **HubName**: use el nombre del centro de notificaciones que aparece en la hoja del centro en el [Azure Portal].
      
      `NotificationSettings` :
      
@@ -419,7 +420,7 @@ El Centro de notificaciones está configurado para funcionar con Firebase Cloud 
 ## <a name="sending-push-notifications"></a>Envío de notificaciones push
 Para probar la recepción de notificaciones push en la aplicación, envíelas a través del [Azure Portal] (busque la sección **Solución del problemas** en la hoja del centro, como se muestra a continuación).
 
-![Centros de notificaciones de Azure: envío de prueba](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+![Azure Notification Hubs: envío de prueba](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
@@ -658,11 +659,11 @@ Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecuci
        ![Testing on Android - notifications](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Se recomienda seguir el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
+Se recomienda seguir el tutorial [Notificación a los usuarios con Azure Notification Hubs] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
 
 Si desea segmentar los usuarios por grupos de interés, consulte el tutorial [Uso de Notification Hubs para enviar noticias de última hora] .
 
-Para más información sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
+Para más información sobre Notification Hubs, consulte [Introducción a Notification Hubs].
 
 <!-- Images. -->
 
@@ -672,8 +673,10 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Azure Classic Portal]: https://manage.windowsazure.com/
-[Introducción a los centros de notificaciones]: notification-hubs-push-notification-overview.md
-[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+
+            [Introducción a Notification Hubs]: notification-hubs-push-notification-overview.md
+
+            [Notificación a los usuarios con Azure Notification Hubs]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure Portal]: https://portal.azure.com
+
+            [Azure Portal]: https://portal.azure.com

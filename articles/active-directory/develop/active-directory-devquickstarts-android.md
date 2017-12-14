@@ -4,7 +4,7 @@ description: "Cómo crear una aplicación Android que se integra con Azure AD pa
 services: active-directory
 documentationcenter: android
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ea39854766332a87eae4f44f52a4853848d2120
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Integración de Azure AD en una aplicación Android
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]

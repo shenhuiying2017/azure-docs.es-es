@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de comprobación de seguridad operativa de Azure
 La implementación de una aplicación en Azure es un procedimiento rápido, sencilla y rentable. Antes de implementar la aplicación en la nube en producción, es útil disponer de una lista de comprobación que ayude en la evaluación de la aplicación en relación con una lista de acciones de seguridad operativas esenciales y recomendadas que tener en cuenta.
@@ -52,6 +52,6 @@ Muchas organizaciones han implementado y puesto en funcionamiento correctamente 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, se presentó la solución Seguridad y auditoría de OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
 
-- [Información general de Operations Management Suite (OMS)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview)
+- [Información general de Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 - [Diseño y seguridad operativa](https://www.microsoft.com/trustcenter/security/designopsecurity)
 - [Guía de planeamiento y operaciones de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)

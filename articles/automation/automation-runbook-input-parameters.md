@@ -3,7 +3,7 @@ title: "Parámetros de entrada de runbook | Microsoft Docs"
 description: "Los parámetros de entrada de Runbook aumentan la flexibilidad de los Runbooks porque permiten pasar datos a un Runbook cuando se inicia. En este artículo se describen los distintos escenarios donde se usan parámetros de entrada en Runbooks."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-ms.openlocfilehash: e5a2afdc0dbe6171b27c11400f460eac46147f37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 889d1ac1597bd88ae7455ac98bfdb34f4013e0de
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-input-parameters"></a>Parámetros de entrada de Runbook
 
@@ -30,7 +30,7 @@ Los parámetros de entrada pueden configurarse en los runbooks gráficos, de Pow
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>Configuración de parámetros de entrada en Runbooks de PowerShell y de flujo de trabajo de PowerShell
 
-Los Runbooks de PowerShell y de [flujo de trabajo de PowerShell](automation-first-runbook-textual.md) en Automatización de Azure admiten parámetros de entrada que se definen mediante los siguientes atributos.  
+Los Runbooks de PowerShell y de [flujo de trabajo de PowerShell](automation-first-runbook-textual.md) en Azure Automation admiten parámetros de entrada que se definen mediante los siguientes atributos.  
 
 | **Propiedad** | **Descripción** |
 |:--- |:--- |
@@ -39,7 +39,7 @@ Los Runbooks de PowerShell y de [flujo de trabajo de PowerShell](automation-firs
 | Obligatorio |Opcional. Especifica si se debe proporcionar un valor para el parámetro. Si se establece en **$true**, se debe proporcionar un valor cuando se inicia el Runbook. Si se establece en **$false**, el valor es opcional. |
 | Valor predeterminado |Opcional.  Especifica un valor que se usará para el parámetro si no se pasa un valor al iniciar el Runbook. Se puede establecer un valor predeterminado para cualquier parámetro y hará automáticamente que el parámetro sea opcional independientemente de la configuración de Mandatory. |
 
-Windows PowerShell admite más atributos de parámetros de entrada de los enumerados aquí, como validación, alias y conjuntos de parámetros. Sin embargo, Automatización de Azure actualmente solo admite los parámetros de entrada enumerados antes.
+Windows PowerShell admite más atributos de parámetros de entrada de los enumerados aquí, como validación, alias y conjuntos de parámetros. Sin embargo, Azure Automation actualmente solo admite los parámetros de entrada enumerados antes.
 
 Una definición de parámetro en los Runbooks de flujo de trabajo de PowerShell tiene el formato general siguiente, donde los distintos parámetros están separados por comas.
 
@@ -61,7 +61,7 @@ Una definición de parámetro en los Runbooks de flujo de trabajo de PowerShell 
 
 Por ejemplo, vamos a configurar los parámetros de entrada para un Runbook de flujo de trabajo de PowerShell que proporciona detalles sobre las máquinas virtuales, una o varias, de un grupo de recursos. Este Runbook tiene dos parámetros, como se muestra en la siguiente captura de pantalla: el nombre de la máquina virtual y el nombre del grupo de recursos.
 
-![Automatización, flujo de trabajo de PowerShell](media/automation-runbook-input-parameters/automation-01-powershellworkflow.png)
+![Automation, flujo de trabajo de PowerShell](media/automation-runbook-input-parameters/automation-01-powershellworkflow.png)
 
 En esta definición de parámetros, los parámetros **$VMName** y **$resourceGroupName** son parámetros simples de tipo String. Sin embargo, los Runbooks de PowerShell y de flujo de trabajo de PowerShell admiten todos los tipos simples y complejos, como **object** o **PSCredential**, como parámetros de entrada.
 
@@ -88,7 +88,7 @@ Puede usar la actividad [**Write-Output**](https://technet.microsoft.com/library
 1. Seleccione el Runbook gráfico de la hoja **Runbooks** y [**edítelo**](automation-graphical-authoring-intro.md).
 2. En el editor de Runbooks, haga clic en **Entrada y salida** para abrir la hoja **Entrada y salida**.
    
-    ![Runbook gráfico de Automatización](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
+    ![Runbook gráfico de Automation](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
 3. La hoja **Entrada y salida** muestra una lista de parámetros de entrada definidos para el Runbook. En esta hoja, puede agregar un nuevo parámetro de entrada o editar la configuración de uno existente. Para agregar un nuevo parámetro para el Runbook, haga clic en **Agregar entrada** para abrir la hoja **Parámetro de entrada de Runbook**. En ella puede configurar los siguientes parámetros:
    
    | **Propiedad** | **Descripción** |
@@ -176,7 +176,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Inicio de un Runbook con un SDK y asignación de parámetros
 
-* **Método Azure Resource Manager:** puede iniciar un Runbook mediante el SDK de un lenguaje de programación. A continuación, se muestra un fragmento de código C# para iniciar un Runbook en su cuenta de Automatización. Puede ver todo el código en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+* **Método Azure Resource Manager:** puede iniciar un Runbook mediante el SDK de un lenguaje de programación. A continuación, se muestra un fragmento de código C# para iniciar un Runbook en su cuenta de Automation. Puede ver todo el código en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -195,7 +195,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
       return response.Job;
       }
   ```
-* **Método Administración de servicios de Azure:** puede iniciar un Runbook mediante el SDK de un lenguaje de programación. A continuación, se muestra un fragmento de código C# para iniciar un Runbook en su cuenta de Automatización. Puede ver todo el código en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Método Administración de servicios de Azure:** puede iniciar un Runbook mediante el SDK de un lenguaje de programación. A continuación, se muestra un fragmento de código C# para iniciar un Runbook en su cuenta de Automation. Puede ver todo el código en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```      
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -229,7 +229,7 @@ En la etiqueta bajo el cuadro de entrada, puede ver los atributos que se han def
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>Inicio de un Runbook con la API de REST y asignación de parámetros
-Se puede crear un trabajo de Runbook e iniciarlo con la API de REST de Automatización de Azure usando el método **PUT** con el siguiente identificador URI de solicitud.
+Se puede crear un trabajo de runbook e iniciarlo con la API de REST de Azure Automation usando el método **PUT** con el siguiente identificador URI de solicitud.
 
     https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
@@ -284,5 +284,5 @@ Cuando se ejecuta un Runbook mediante un webhook, se envía un parámetro de ent
 * Para más información sobre la entrada y salida de Runbooks, consulte [Azure Automation: Runbook Input, Output, and Nested Runbooks](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)(Automatización de Azure: entrada y salida de Runbooks, y Runbooks anidados).
 * Para más información acerca de diferentes maneras de iniciar un Runbook, consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md).
 * Para editar un Runbook de texto, consulte [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md).
-* Para editar un Runbook gráfico, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md).
+* Para editar un Runbook gráfico, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
 

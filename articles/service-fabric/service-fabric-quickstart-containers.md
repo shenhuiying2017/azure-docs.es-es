@@ -9,16 +9,17 @@ editor: vturecek
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: bd1b36af82a01909b12404ef54de32beb2f31c0b
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.custom: mvc
+ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Implementación de una aplicación contenedora Windows de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -82,7 +83,7 @@ Para implementar la aplicación en un clúster de Azure, puede crear su propio c
 
 Los clústeres de entidad son clústeres de Service Fabric gratuitos y de duración limitada, hospedados en Azure y ejecutados por el equipo de Service Fabric, donde cualquier usuario puede implementar aplicaciones y obtener información sobre la plataforma. Para obtener acceso a un clúster de entidad, [siga estas instrucciones](http://aka.ms/tryservicefabric).  
 
-Para información sobre cómo crear su propio clúster, vea [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Para obtener información sobre cómo crear su propio clúster, vea [Creación de un clúster de Service Fabric en Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Tome nota del punto de conexión, que se utiliza en el paso siguiente.  
 

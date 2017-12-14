@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: 4c699a8e5a9fafa0fec10bcb731f9ba533e3d283
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importación de datos a Azure Machine Learning Studio desde varios orígenes de datos en línea con el módulo Importar datos
 En este artículo se describe la compatibilidad con la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Azure Machine Learning.
@@ -43,7 +43,7 @@ Con el módulo [Importar datos][import-data], puede tener acceso a los datos des
 * Base de datos SQL de Azure o SQL Server en máquina virtual de Azure
 * La base de datos de SQL Server local
 * Un proveedor de fuentes de datos, actualmente OData
-* Azure CosmosDB (anteriormente denominado DocumentDB)
+* Azure Cosmos DB
 
 Para tener acceso a orígenes de datos en línea en el experimento de Studio, agregue el módulo [Importar datos][import-data] al experimento, seleccione **Origen de datos** y, después, especifique los parámetros necesarios para acceder a los datos. Los orígenes de datos en línea admitidos se muestran en la tabla siguiente. Esta tabla también resume los formatos de archivo admitidos y los parámetros usados para tener acceso a los datos.
 

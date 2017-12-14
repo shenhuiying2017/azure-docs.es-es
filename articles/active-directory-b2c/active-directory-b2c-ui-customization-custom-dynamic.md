@@ -4,7 +4,7 @@ description: "Admisión de varias experiencias de personalización de marca con 
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas
 Mediante el uso de las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C), puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil. 
@@ -66,7 +66,7 @@ En este tutorial realizará lo siguiente:
 
 ## <a name="step-1-create-an-aspnet-web-app"></a>Paso 1: Creación de una aplicación web de ASP.NET
 
-1. Cree un proyecto nuevo en Visual Studio seleccionando **Archivo** >  **Nuevo** > **Proyecto**.
+1. Cree un proyecto en Visual Studio, para lo que debe seleccionar **Archivo** >  **Nuevo** > **Proyecto**.
 
 2. En la ventana **Nuevo proyecto**, seleccione **Visual C#** > **Web** > **Aplicación web ASP.NET Core (.NET Core)**.
 
@@ -152,10 +152,10 @@ Ubique el elemento `<img>` que contiene el valor de `ID` *background_background_
 
     ![Creación de nueva aplicación en Microsoft Azure App Service](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish2.png)
 
-    La ventana **Crear servicio de aplicaciones** se abre. En ella puede empezar a crear todos los recursos de Azure necesarios para ejecutar la aplicación web ASP.NET en Azure.
+    Se abre la ventana **Crear servicio de aplicaciones**. En ella puede empezar a crear todos los recursos de Azure necesarios para ejecutar la aplicación web ASP.NET en Azure.
 
     > [!NOTE]
-    > Para más información sobre la publicación, consulte [Creación de una aplicación web ASP.NET en Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Para más información sobre la publicación, consulte [Creación de una aplicación web ASP.NET en Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. En el cuadro **Nombre de la aplicación web**, escriba un nombre único de aplicación, los caracteres válidos son a-z, A-Z, 0-9 y el guión(-). La dirección URL de la aplicación web es `http://<app_name>.azurewebsites.NET`, donde `<app_name>` es el nombre de la aplicación web. Puede aceptar el nombre generado automáticamente, que es único.
 

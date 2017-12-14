@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migración de la plataforma de Azure Security Center
 
@@ -36,7 +36,7 @@ En adelante, Security Center usará Microsoft Monitoring Agent, que es el mismo 
 
 ## <a name="agent"></a>Agente
 
-Como parte de la transición, Microsoft Monitoring Agent (para [Windows](../log-analytics/log-analytics-windows-agents.md) o [Linux](../log-analytics/log-analytics-linux-agents.md)) se instala en todas las máquinas virtuales de Azure de las que se están recopilando datos en ese momento.  Si la máquina virtual ya tiene instalado Microsoft Monitoring Agent, Security Center aprovechará al agente instalado actual.
+Como parte de la transición, Microsoft Monitoring Agent (para [Windows](../log-analytics/log-analytics-windows-agent.md) o [Linux](../log-analytics/log-analytics-linux-agents.md)) se instala en todas las máquinas virtuales de Azure de las que se están recopilando datos en ese momento.  Si la máquina virtual ya tiene instalado Microsoft Monitoring Agent, Security Center aprovechará al agente instalado actual.
 
 Durante un período de tiempo (normalmente unos días), ambos agentes se ejecutarán en paralelo para garantizar una transición fluida sin pérdida de datos. De esta forma, Microsoft podrá validar que la nueva canalización de datos está operativa antes de dejar de usar la canalización actual. Una vez comprobado, Azure Monitoring Agent se quitará de las máquinas virtuales. No es necesario que el usuario intervenga de ninguna forma. Cuando todos los clientes se hayan migrado, recibirá una notificación por correo electrónico.
  

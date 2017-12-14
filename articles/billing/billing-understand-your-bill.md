@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
@@ -31,7 +31,7 @@ Para obtener la factura en PDF y una copia de la descarga del archivo CSV de uso
 
 Para términos y descripciones detallados de su factura y el archivo de uso diario detallado, vea [Descripción de los términos en su factura de Microsoft Azure](billing-understand-your-invoice.md) y [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) (Descripción de los términos sobre el uso detallado de Microsoft Azure). 
 
-Para obtener información sobre los informes de administración de costes, vea [Azure portal cost management](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started) (Administración de costos de Azure Portal).
+Para obtener información sobre los informes de administración de costes, vea [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) (Administración de costos de Azure Portal).
 
 ## <a name="charges"></a>¿Cómo puedo asegurarme de que los cargos de mi factura son correctos?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Si hay un cargo en la factura del que quiera tener más detalles, hay un par de 
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opción 1: Revisión de la factura y comparación del uso y los costos con el archivo CSV de uso detallado
 
-El archivo CSV de uso detallado proporciona los cargos por período de facturación y el uso diario. Para obtener el archivo CSV de uso detallado, consulte [Obtención de los datos de uso diario y la factura de Azure](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date).
+El archivo CSV de uso detallado proporciona los cargos por período de facturación y el uso diario. Para obtener el archivo CSV de uso detallado, consulte [Obtención de los datos de uso diario y la factura de Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
 Los cargos de uso se muestran en el nivel de medidor. Los siguientes términos significan lo mismo en la factura y en el archivo de uso detallado. Por ejemplo, el ciclo de facturación en la factura es equivalente al período de facturación que se muestra en el archivo de uso detallado.
 
@@ -65,7 +65,7 @@ Se muestra el mismo cargo en la sección de **resumen de cuenta** del archivo CS
 
 ![Cargos de uso del archivo CSV](./media/billing-understand-your-bill/2.png)
 
-Para ver un desglose de este cargo a diario, vaya a la sección **Uso diario** del archivo CSV. Filtre por "Programador" en *Categoría de medidor* y podrá ver qué días se usó el medidor y cuánto se consumió. La información de *recursos* y de *grupo de recursos* también se incluye para poder realizar una comparación. Los valores *consumidos* deben corresponderse con los que aparecen en la factura.
+Para ver un desglose de este cargo a diario, vaya a la sección **Uso diario** del archivo CSV. Filtre por "Scheduler" en *Categoría de medidor* y podrá ver qué días se usó el medidor y cuánto se consumió. La información de *recursos* y de *grupo de recursos* también se incluye para poder realizar una comparación. Los valores *consumidos* deben corresponderse con los que aparecen en la factura.
 
 ![Sección de uso diario en el archivo CSV](./media/billing-understand-your-bill/3.png)
 

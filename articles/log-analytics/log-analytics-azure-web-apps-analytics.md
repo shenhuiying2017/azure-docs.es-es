@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualización de datos de análisis para métricas en todos los recursos de aplicaciones web de Azure
 
@@ -27,9 +27,9 @@ La solución Azure Web Apps Analytics (versión preliminar) proporciona informac
 
 Con la solución, puede ver:
 
-- Las aplicaciones web principales con el mayor tiempo de respuesta
-- El número de solicitudes en sus aplicaciones web, incluidas las solicitudes correctas y con errores
-- Las principales aplicaciones web con mayor tráfico entrante y saliente
+- Las instancias de Web Apps principales con el mayor tiempo de respuesta
+- El número de solicitudes en Web Apps, incluidas las solicitudes correctas y con errores
+- Las principales instancias de Web Apps con mayor tráfico entrante y saliente
 - Los principales planes de servicio con un uso intensivo de CPU y memoria
 - Operaciones de registro de actividad de Azure Web Apps
 
@@ -39,7 +39,7 @@ A diferencia de la mayoría de las demás soluciones Log Analytics, los agentes 
 
 | Origen conectado | Compatible | Descripción |
 | --- | --- | --- |
-| [Agentes de Windows](log-analytics-windows-agents.md) | No | La solución no recopila información de los agentes de Windows. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | No | La solución no recopila información de los agentes de Windows. |
 | [Agentes de Linux](log-analytics-linux-agents.md) | No | La solución no recopila información de los agentes de Linux. |
 | [Grupo de administración de SCOM](log-analytics-om-agents.md) | No | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
 | [Cuenta de Azure Storage](log-analytics-azure-storage.md) | No | La solución no recopila información de Azure Storage. |
@@ -97,7 +97,7 @@ Haga clic en el icono **Azure Web Apps Analytics** para abrir el panel de **Azur
 | Azure Web Apps |   |
 | Tendencias de solicitud de Web Apps | Muestra un gráfico de líneas de la tendencia de solicitud de Web Apps para el intervalo de fechas seleccionado y muestra una lista de las diez principales solicitudes web. Haga clic en el gráfico de líneas para ejecutar una búsqueda de registros de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Haga clic en un elemento de la solicitud web para ejecutar una búsqueda de registros de la tendencia de métrica de solicitud web que lo soliciten. |
 | Tiempo de respuesta de Web Apps | Muestra un gráfico de líneas del tiempo de respuesta de Web Apps para el intervalo de fechas que haya seleccionado. También muestra una lista de los diez principales tiempos de respuesta de Web Apps. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* MetricName="AverageResponseTime" &#124; measure avg(Average) by Resource interval 1HOUR</code><br> Haga clic en una aplicación web para ejecutar una búsqueda de registros que devuelva los tiempos de respuesta de la aplicación web. |
-| Tráfico de Web Apps | Muestra un gráfico de líneas para el tráfico de Web Apps, en MB y muestra el tráfico principal de Web Apps. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Muestra todas las aplicaciones web con tráfico durante el último minuto. Haga clic en una aplicación web para ejecutar una búsqueda de registros que muestren los bytes recibidos y enviados a la aplicación web. |
+| Tráfico de Web Apps | Muestra un gráfico de líneas para el tráfico de Web Apps, en MB y muestra el tráfico principal de Web Apps. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>Type:AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"*  MetricName=BytesSent OR BytesReceived &#124; measure sum(Average) by Resource interval 1HOUR</code><br> Muestra todas las instancias de Web Apps con tráfico durante el último minuto. Haga clic en una aplicación web para ejecutar una búsqueda de registros que muestren los bytes recibidos y enviados a la aplicación web. |
 | Planes de Azure App Service |   |
 | Planes de App Service con un uso de CPU &gt; 80 % | Muestra el número total de planes de App Service que tienen un uso de CPU mayor que el 80 % y enumera los 10 planes de App Service principales por uso de CPU. Haga clic en el área total para ejecutar una búsqueda de registros de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=CpuPercentage &#124; measure Avg(Average) by Resource</code><br> Muestra una lista de los planes de App Service y su uso de CPU promedio. Haga clic en un plan de App Service para ejecutar una búsqueda de registros que muestre su uso de CPU promedio. |
 | Planes de App Service con un uso de memoria &gt; 80 % | Muestra el número total de planes de App Service que tienen un uso de memoria mayor que el 80 % y enumera los 10 planes de App Service principales por uso de memoria. Haga clic en el área total para ejecutar una búsqueda de registros de <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SERVERFARMS/"* MetricName=MemoryPercentage &#124; measure Avg(Average) by Resource</code><br> Muestra una lista de los planes de App Service y su uso de memoria promedio. Haga clic en un plan de App Service para ejecutar una búsqueda de registros que muestre la utilización de memoria promedio. |
@@ -106,7 +106,7 @@ Haga clic en el icono **Azure Web Apps Analytics** para abrir el panel de **Azur
 
 
 
-### <a name="azure-web-apps"></a>Aplicaciones web de Azure 
+### <a name="azure-web-apps"></a>Azure Web Apps
 
 En el panel, puede explorar en profundidad para obtener más información sobre las métricas de Web Apps. Este primer conjunto de hojas muestra la tendencia de las solicitudes de Web Apps, el número de errores (por ejemplo, HTTP404), el tráfico y el tiempo medio de respuesta con el tiempo. También muestra un desglose de esas métricas para las diferentes Web Apps.
 
@@ -122,7 +122,7 @@ En la imagen de ejemplo de búsqueda de registros siguiente puede ver que la apl
 
 ![ejemplo de búsqueda de registros](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
 
-### <a name="app-service-plans"></a>Planes del Servicio de aplicaciones
+### <a name="app-service-plans"></a>Planes de App Service
 
 Si está usando planes de servicio dedicados, también puede recopilar métricas para los planes de App Service. En esta vista, verá los planes de App Service con un uso intensivo de CPU o memoria (&gt; 80 %). También muestra los principales servicios de aplicaciones con un uso intensivo de memoria o CPU. De igual forma, se aplica un límite de umbral para poder identificar más fácilmente las aplicaciones con problemas.
 
@@ -134,7 +134,7 @@ Si está usando planes de servicio dedicados, también puede recopilar métricas
 
 ## <a name="azure-web-apps-log-searches"></a>Búsquedas de registros de Azure Web Apps
 
-La **lista de consultas populares de búsqueda de Azure Web Apps** muestra todos los registros de actividad relacionados para las aplicaciones web, que proporcionan información sobre las operaciones que se realizaron en los recursos de Web Apps. También se muestran todas las operaciones relacionadas y el número de veces que se han ocurrido.
+La **lista de consultas populares de búsqueda de Azure Web Apps** muestra todos los registros de actividad relacionados para Web Apps, que proporcionan información sobre las operaciones que se realizaron en los recursos de Web Apps. También se muestran todas las operaciones relacionadas y el número de veces que se han ocurrido.
 
 Con cualquiera de las consultas de búsqueda de registros como punto de partida, puede crear fácilmente una alerta. Por ejemplo, puede crear una alerta cuando el tiempo medio de respuesta de una métrica es mayor de 1 segundo.
 

@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7123a2d44d3b7c332afe30fb0fcea88ca29e313a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e794d8983470efe3ff4eef4947f4654ce2c523
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de transmisión en directo con Servicios multimedia de Azure
+# <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de transmisión en directo con Azure Media Services
 
 ## <a name="overview"></a>Información general
 
-Servicios multimedia de Microsoft Azure ofrece determinadas API que envían solicitudes a los Servicios multimedia para iniciar operaciones (por ejemplo, crear, iniciar, detener o eliminar un canal). Estas son operaciones de larga duración.
+Microsoft Azure Media Services ofrece determinadas API que envían solicitudes a los Media Services para iniciar operaciones (por ejemplo, crear, iniciar, detener o eliminar un canal). Estas son operaciones de larga duración.
 
-El SDK .NET de Servicios multimedia proporciona las API que envían la solicitud y esperan a que la operación se complete (internamente, las API sondean el progreso de la operación a intervalos determinados). Por ejemplo, cuando se llama a channel.Start(), se devuelve el método después de que se inicie el canal. También puede usar la versión asincrónica: await channel.StartAsync() (para obtener información sobre el patrón asincrónico basado en tareas, consulte [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). Las API que envían una solicitud de operación y, después, sondean el estado hasta que se completa la operación se llaman “métodos de sondeo”. Estos métodos (sobre todo la versión asincrónica) se recomiendan para las aplicaciones cliente enriquecidas y para servicios con estado.
+El SDK .NET de Media Services proporciona las API que envían la solicitud y esperan a que la operación se complete (internamente, las API sondean el progreso de la operación a intervalos determinados). Por ejemplo, cuando se llama a channel.Start(), se devuelve el método después de que se inicie el canal. También puede usar la versión asincrónica: await channel.StartAsync() (para obtener información sobre el patrón asincrónico basado en tareas, consulte [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx)). Las API que envían una solicitud de operación y, después, sondean el estado hasta que se completa la operación se llaman “métodos de sondeo”. Estos métodos (sobre todo la versión asincrónica) se recomiendan para las aplicaciones cliente enriquecidas y para servicios con estado.
 
-En ciertos casos, una aplicación no puede esperar a una solicitud HTTP de ejecución prolongada y desea sondear el progreso de la operación manualmente. Un ejemplo típico sería un explorador que interactúa con un servicio web sin estado: cuando el explorador solicita crear un canal, el servicio web inicia una operación de ejecución prolongada y devuelve el identificador de la operación al explorador. A continuación, el explorador puede solicitar al servicio web que obtenga el estado de la operación en función del identificador. El SDK .NET de Servicios multimedia proporciona las API que son útiles para este escenario. Estas API se denominan “métodos sin sondeo”.
+En ciertos casos, una aplicación no puede esperar a una solicitud HTTP de ejecución prolongada y desea sondear el progreso de la operación manualmente. Un ejemplo típico sería un explorador que interactúa con un servicio web sin estado: cuando el explorador solicita crear un canal, el servicio web inicia una operación de ejecución prolongada y devuelve el identificador de la operación al explorador. A continuación, el explorador puede solicitar al servicio web que obtenga el estado de la operación en función del identificador. El SDK .NET de Media Services proporciona las API que son útiles para este escenario. Estas API se denominan “métodos sin sondeo”.
 Los "métodos sin sondeo" tienen el siguiente modelo de nomenclatura: Send*OperationName*Operation (por ejemplo, SendCreateOperation). Los métodos Send*OperationName*Operation devuelven el objeto **IOperation** ; el objeto devuelto contiene información que puede usarse para realizar un seguimiento de la operación. Los métodos Send*OperationName*OperationAsync devuelven **Task<IOperation>**.
 
 Las siguientes clases admiten métodos sin sondeo actualmente:  **Channel**, **StreamingEndpoint** y **Program**.
@@ -47,158 +47,169 @@ También se muestra cómo el cliente puede usar esta clase.
 
 ### <a name="channeloperations-class-definition"></a>Definición de la clase ChannelOperations
 
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Net;
+```
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Net;
+
+/// <summary> 
+/// The ChannelOperations class only implements 
+/// the Channel’s creation operation. 
+/// </summary> 
+public class ChannelOperations
+{
+    // Read values from the App.config file.
+    private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+    private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+    private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+    private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
+
+    // Field for service context.
+    private static CloudMediaContext _context = null;
+
+    public ChannelOperations()
+    {
+        AzureAdTokenCredentials tokenCredentials = 
+            new AzureAdTokenCredentials(_AADTenantDomain,
+                new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                AzureEnvironments.AzureCloudEnvironment);
+
+        var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+        _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+    }
+
+    /// <summary>  
+    /// Initiates the creation of a new channel.  
+    /// </summary>  
+    /// <param name="channelName">Name to be given to the new channel</param>  
+    /// <returns>  
+    /// Operation Id for the long running operation being executed by Media Services. 
+    /// Use this operation Id to poll for the channel creation status. 
+    /// </returns> 
+    public string StartChannelCreation(string channelName)
+    {
+        var operation = _context.Channels.SendCreateOperation(
+            new ChannelCreationOptions
+            {
+                Name = channelName,
+                Input = CreateChannelInput(),
+                Preview = CreateChannelPreview(),
+                Output = CreateChannelOutput()
+            });
+
+        return operation.Id;
+    }
 
     /// <summary> 
-    /// The ChannelOperations class only implements 
-    /// the Channel’s creation operation. 
+    /// Checks if the operation has been completed. 
+    /// If the operation succeeded, the created channel Id is returned in the out parameter.
     /// </summary> 
-    public class ChannelOperations
+    /// <param name="operationId">The operation Id.</param> 
+    /// <param name="channel">
+    /// If the operation succeeded, 
+    /// the created channel Id is returned in the out parameter.</param>
+    /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
+    public bool IsCompleted(string operationId, out string channelId)
     {
-        // Read values from the App.config file.
-        private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-        private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+        IOperation operation = _context.Operations.GetOperation(operationId);
+        bool completed = false;
 
-        // Field for service context.
-        private static CloudMediaContext _context = null;
+        channelId = null;
 
-        public ChannelOperations()
+        switch (operation.State)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+            case OperationState.Failed:
+                // Handle the failure. 
+                // For example, throw an exception. 
+                // Use the following information in the exception: operationId, operation.ErrorMessage.
+                break;
+            case OperationState.Succeeded:
+                completed = true;
+                channelId = operation.TargetEntityId;
+                break;
+            case OperationState.InProgress:
+                completed = false;
+                break;
         }
-
-        /// <summary>  
-        /// Initiates the creation of a new channel.  
-        /// </summary>  
-        /// <param name="channelName">Name to be given to the new channel</param>  
-        /// <returns>  
-        /// Operation Id for the long running operation being executed by Media Services. 
-        /// Use this operation Id to poll for the channel creation status. 
-        /// </returns> 
-        public string StartChannelCreation(string channelName)
-        {
-            var operation = _context.Channels.SendCreateOperation(
-                new ChannelCreationOptions
-                {
-                    Name = channelName,
-                    Input = CreateChannelInput(),
-                    Preview = CreateChannelPreview(),
-                    Output = CreateChannelOutput()
-                });
-
-            return operation.Id;
-        }
-
-        /// <summary> 
-        /// Checks if the operation has been completed. 
-        /// If the operation succeeded, the created channel Id is returned in the out parameter.
-        /// </summary> 
-        /// <param name="operationId">The operation Id.</param> 
-        /// <param name="channel">
-        /// If the operation succeeded, 
-        /// the created channel Id is returned in the out parameter.</param>
-        /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
-        public bool IsCompleted(string operationId, out string channelId)
-        {
-            IOperation operation = _context.Operations.GetOperation(operationId);
-            bool completed = false;
-
-            channelId = null;
-
-            switch (operation.State)
-            {
-                case OperationState.Failed:
-                    // Handle the failure. 
-                    // For example, throw an exception. 
-                    // Use the following information in the exception: operationId, operation.ErrorMessage.
-                    break;
-                case OperationState.Succeeded:
-                    completed = true;
-                    channelId = operation.TargetEntityId;
-                    break;
-                case OperationState.InProgress:
-                    completed = false;
-                    break;
-            }
-            return completed;
-        }
-
-        private static ChannelInput CreateChannelInput()
-        {
-            return new ChannelInput
-            {
-                StreamingProtocol = StreamingProtocol.RTMP,
-                AccessControl = new ChannelAccessControl
-                {
-                    IPAllowList = new List<IPRange>
-                        {
-                            new IPRange
-                            {
-                                Name = "TestChannelInput001",
-                                Address = IPAddress.Parse("0.0.0.0"),
-                                SubnetPrefixLength = 0
-                            }
-                        }
-                }
-            };
-        }
-
-        private static ChannelPreview CreateChannelPreview()
-        {
-            return new ChannelPreview
-            {
-                AccessControl = new ChannelAccessControl
-                {
-                    IPAllowList = new List<IPRange>
-                        {
-                            new IPRange
-                            {
-                                Name = "TestChannelPreview001",
-                                Address = IPAddress.Parse("0.0.0.0"),
-                                SubnetPrefixLength = 0
-                            }
-                        }
-                }
-            };
-        }
-
-        private static ChannelOutput CreateChannelOutput()
-        {
-            return new ChannelOutput
-            {
-                Hls = new ChannelOutputHls { FragmentsPerSegment = 1 }
-            };
-        }
+        return completed;
     }
+
+    private static ChannelInput CreateChannelInput()
+    {
+        return new ChannelInput
+        {
+            StreamingProtocol = StreamingProtocol.RTMP,
+            AccessControl = new ChannelAccessControl
+            {
+                IPAllowList = new List<IPRange>
+                    {
+                        new IPRange
+                        {
+                            Name = "TestChannelInput001",
+                            Address = IPAddress.Parse("0.0.0.0"),
+                            SubnetPrefixLength = 0
+                        }
+                    }
+            }
+        };
+    }
+
+    private static ChannelPreview CreateChannelPreview()
+    {
+        return new ChannelPreview
+        {
+            AccessControl = new ChannelAccessControl
+            {
+                IPAllowList = new List<IPRange>
+                    {
+                        new IPRange
+                        {
+                            Name = "TestChannelPreview001",
+                            Address = IPAddress.Parse("0.0.0.0"),
+                            SubnetPrefixLength = 0
+                        }
+                    }
+            }
+        };
+    }
+
+    private static ChannelOutput CreateChannelOutput()
+    {
+        return new ChannelOutput
+        {
+            Hls = new ChannelOutputHls { FragmentsPerSegment = 1 }
+        };
+    }
+}
+```
 
 ### <a name="the-client-code"></a>El código de cliente
-    ChannelOperations channelOperations = new ChannelOperations();
-    string opId = channelOperations.StartChannelCreation("MyChannel001");
 
-    string channelId = null;
-    bool isCompleted = false;
+```
+ChannelOperations channelOperations = new ChannelOperations();
+string opId = channelOperations.StartChannelCreation("MyChannel001");
 
-    while (isCompleted == false)
-    {
-        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
-        isCompleted = channelOperations.IsCompleted(opId, out channelId);
-    }
+string channelId = null;
+bool isCompleted = false;
 
-    // If we got here, we should have the newly created channel id.
-    Console.WriteLine(channelId);
+while (isCompleted == false)
+{
+    System.Threading.Thread.Sleep(TimeSpan.FromSeconds(30));
+    isCompleted = channelOperations.IsCompleted(opId, out channelId);
+}
 
+// If we got here, we should have the newly created channel id.
+Console.WriteLine(channelId);
+```
 
-
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -84,7 +84,7 @@ Update Management está habilitado para su máquina virtual.
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitación de Update Management en equipos y máquinas virtuales que no son de Azure
 
-Para obtener instrucciones sobre cómo habilitar Update Management en equipos y máquinas virtuales Windows que no sean de Azure, consulte [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agents.md).
+Para obtener instrucciones sobre cómo habilitar Update Management en equipos y máquinas virtuales Windows que no sean de Azure, consulte [Conexión de equipos Windows al servicio Log Analytics de Azure](../log-analytics/log-analytics-windows-agent.md).
 
 Para obtener instrucciones acerca de cómo habilitar Update Management en equipos y máquinas virtuales Linux que no sean de Azure, consulte [Conexión de equipos con Linux a Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 

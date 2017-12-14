@@ -1,6 +1,6 @@
 ---
 title: "API de detección de anomalías de Azure Machine Learning | Microsoft Docs"
-description: "La API de detección de anomalías es un ejemplo integrado en Aprendizaje automático de Microsoft Azure que detecta anomalías en los datos de serie temporales con valores numéricos espaciados de manera uniforme en el tiempo."
+description: "La API de detección de anomalías es un ejemplo integrado en Microsoft Azure Machine Learning que detecta anomalías en los datos de serie temporales con valores numéricos espaciados de manera uniforme en el tiempo."
 services: machine-learning
 documentationcenter: 
 author: alokkirpal
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 ## <a name="overview"></a>Información general
@@ -44,13 +44,13 @@ La oferta de detección de anomalías incluye herramientas útiles para comenzar
 >
 
 ## <a name="api-deployment"></a>Implementación de la API
-Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Para ello, puede utilizar la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web Machine Learning (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Web Services](https://services.azureml.net/webservices/) (Servicios web Machine Learning de Azure).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Para ello, puede utilizar la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web Machine Learning (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Web Services](https://services.azureml.net/webservices/) (Servicios web Machine Learning de Azure).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Escalado de la aplicación
 De forma predeterminada, la implementación tendrá un plan de facturación de desarrollo y pruebas gratuito que incluye 1000 transacciones al mes y 2 horas de proceso al mes.  Puede actualizar a otro plan según sus necesidades.  La información de precios de los distintos planes está disponibles [aquí](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) en "Precios de API web de producción".
 
 ## <a name="managing-aml-plans"></a>Administración de los planes de AML 
-Puede administrar el plan de facturación [aquí](https://services.azureml.net/plans/).  El nombre del plan tomará como base el nombre del grupo de recursos que eligió al implementar la API, a lo que se añadirá una cadena única para la suscripción.  Las instrucciones sobre cómo actualizar el plan están disponibles [aquí](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) en la sección "Administración de planes de facturación".
+Puede administrar el plan de facturación [aquí](https://services.azureml.net/plans/).  El nombre del plan tomará como base el nombre del grupo de recursos que eligió al implementar la API, a lo que se añadirá una cadena única para la suscripción.  Las instrucciones sobre cómo actualizar el plan están disponibles [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) en la sección "Administración de planes de facturación".
 
 ## <a name="api-definition"></a>Definición de la API
 El servicio web proporciona API basadas en REST a través de HTTPS que se pueden consumir de varias formas, como una aplicación web o móvil, R, Python, Excel, etc.  Los datos de la serie temporal se envían a este servicio mediante una llamada a la API de REST, y se ejecuta una combinación de los tres tipos de anomalías descritos a continuación.

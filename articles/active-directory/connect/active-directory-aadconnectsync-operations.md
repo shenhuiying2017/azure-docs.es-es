@@ -4,7 +4,7 @@ description: "En este tema se describen las tareas operativas de la sincronizaci
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d4d832476c0e5bb4ac3694d3e97b15835e3a4441
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronización de Azure AD Connect: tareas y consideraciones operativas
 El objetivo de este tema es describir las tareas operativas de la sincronización de Azure AD Connect.

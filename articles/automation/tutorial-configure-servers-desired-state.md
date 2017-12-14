@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: eslesar
 ms.custom: 
-ms.openlocfilehash: 63a83e35ce29541de578cb264464448fb6ee3e1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c0a44b37ac303f3e93c54e3bf691f14ba1d65e9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configuración de servidores en un estado deseado y administración de desviaciones
 
@@ -39,7 +39,7 @@ Configuración de estado deseado (DSC) de Azure Automation permite especificar c
 
 Para completar este tutorial, necesitará:
 
-* Una cuenta de Automatización de Azure Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo sobre las [cuentas de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
+* Una cuenta de Azure Automation Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo sobre las [cuentas de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
 * Una máquina virtual de Azure Resource Manager (no clásico) ejecuta Windows Server 2008 R2, o cualquier versión posterior. Para obtener instrucciones sobre la creación de una máquina virtual, consulte [Creación de la primera máquina virtual de Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 * Módulo Azure PowerShell, versión 3.6 o posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * Familiaridad con DSC. Para obtener información sobre DSC, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](https://docs.microsoft.com/powershell/dsc/overview)
@@ -96,7 +96,7 @@ Esto crea una configuración de nodo llamada `TestConfig.WebServer` en su cuenta
 
 ## <a name="register-a-vm-to-be-managed-by-dsc"></a>Registro de una máquina virtual para su administración mediante DSC
 
-DSC de automatización de Azure se puede usar para administrar máquinas virtuales de Azure (tanto el enfoque clásico como el de Resource Manager), máquinas virtuales locales, máquinas de Linux, máquinas virtuales de AWS y máquinas físicas locales. En este tema, se explicará cómo registrar solo máquinas virtuales de Azure Resource Manager.
+DSC de Azure Automation se puede usar para administrar máquinas virtuales de Azure (tanto el enfoque clásico como el de Resource Manager), máquinas virtuales locales, máquinas de Linux, máquinas virtuales de AWS y máquinas físicas locales. En este tema, se explicará cómo registrar solo máquinas virtuales de Azure Resource Manager.
 Para más información sobre el registro de otros tipos de máquinas, consulte [Incorporación de máquinas para su administración mediante DSC de Azure Automation](automation-dsc-onboarding.md).
 
 Llame al cmdlet `Register-AzureRmAutomationDscNode` para registrar la máquina virtual con DSC de Azure Automation.
@@ -152,10 +152,10 @@ Puede obtener informes sobre el estado de cumplimiento de un nodo de DSC mediant
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Get an array of status reports for the DSC node
-$reports Get-Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
+$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
 
 # Display the most recent report
-$report[0]
+$reports[0]
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

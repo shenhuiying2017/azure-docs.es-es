@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: bade7107cdad69e4d5f28d43d37e08e9005406a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f7a2344b6676a9067cf0adff04f49a73ce457fc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -31,7 +31,7 @@ Puede usar TelemetryClient API para instrumentar y supervisar manualmente aspect
 
 ![Gráficos de supervisión de rendimiento de ejemplo](./media/app-insights-nodejs/10-perf.png)
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Realice las tareas siguientes para configurar la supervisión para una aplicación o servicio.
 
@@ -39,8 +39,8 @@ Realice las tareas siguientes para configurar la supervisión para una aplicaci�
 
 Antes de empezar, asegúrese de que tiene una suscripción de Azure o bien [obtenga una nueva de forma gratuita][azure-free-offer]. Si su organización ya tiene una suscripción de Azure, un administrador puede seguir [estas instrucciones][add-aad-user] y agregarle a ella.
 
-[azure-free-offer]: https://azure.microsoft.com/en-us/free/
-[add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
+[azure-free-offer]: https://azure.microsoft.com/free/
+[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
 
 
 ### <a name="resource"></a> Configuración de un recurso de Application Insights

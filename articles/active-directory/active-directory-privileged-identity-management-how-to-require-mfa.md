@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo requerir Multi-Factor Authenticat
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: b778774fa23be8219db3f716d79bac324a7de9d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: faee62bdaca3f80fdd8f6be8aaf28c881314333a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Exigencia de MFA en Privileged Identity Management de Azure AD
 Se recomienda exigir Multi-Factor Authentication (MFA) para todos los administradores. De esta forma, se reduce el riesgo de ataques debidos a que una contraseña se ha puesto en peligro.

@@ -16,7 +16,7 @@ Si tiene problemas para conectarse a una aplicación, intente los siguientes pas
 * Reiniciar la máquina virtual
 * Volver a crear el punto de conexión / reglas de firewall / reglas de grupo de seguridad de red (NSG)
   * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-  * [Modelo clásico: administración de puntos de conexión de servicios en la nube](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [Modelo clásico: administración de puntos de conexión de Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Conectarse desde otra ubicación, como una red virtual de Azure diferente
 * Volver a implementar la máquina virtual
   * [Nueva implementación de la máquina virtual en Windows](../articles/virtual-machines/windows/redeploy-to-new-node.md)
@@ -75,7 +75,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 * El firewall del host de la VM de destino permite el tráfico de la solicitud entrante y el tráfico de la respuesta saliente.
 * El software de detección de intrusiones o de supervisión de red que se ejecuta en la VM de destino permite el tráfico.
 * Los puntos de conexión de Cloud Services o los grupos de seguridad de red permiten el tráfico:
-  * [Modelo clásico: administración de puntos de conexión de servicios en la nube](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
+  * [Modelo clásico: administración de puntos de conexión de Cloud Services](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
   * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * Un componente independiente que se ejecuta en la VM en la ruta de acceso entre la VM de prueba y su VM (como un equilibrador de carga o un firewall) permite el tráfico.
 
@@ -115,7 +115,7 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Paso 4 Si no puede obtener acceso a la aplicación, use la comprobación de IP para comprobar la configuración. 
 
-Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

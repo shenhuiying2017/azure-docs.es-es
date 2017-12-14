@@ -3,7 +3,7 @@ title: "Administración de una cuenta de Azure Automation | Microsoft Docs"
 description: "En este artículo se describe cómo administrar la configuración de la cuenta de Automation: renovación, eliminación o configuración incorrecta de certificados."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7ad5f539afc25c7c36712f8af25ce4e4f6d31a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-automation-account"></a>Administración de la cuenta de Azure Automation
 En algún momento antes de que expire su cuenta de Automation, debe renovar el certificado. Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla. En esta sección se describe cómo realizar estas operaciones.
@@ -82,5 +82,5 @@ Rápidamente puede resolver estos problemas de la cuenta de ejecución con solo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
-* Para más información acerca del control de acceso basado en rol de Automatización de Azure, consulte [Control de acceso basado en rol en Automatización de Azure](automation-role-based-access-control.md).
-* Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md).
+* Para más información acerca del control de acceso basado en rol de Azure Automation, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
+* Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

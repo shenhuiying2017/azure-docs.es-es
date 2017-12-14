@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Recopilar datos del modelo mediante la recopilación de datos
 
@@ -98,9 +98,9 @@ Los datos pueden consumirse desde los blobs de Azure de diferentes maneras y tan
 - Azure Machine Learning Workbench: abra el archivo .csv en Azure Machine Learning Workbench mediante la adición del archivo .csv como origen de datos.
 - Excel: abra los archivos .csv diariamente como una hoja de cálculo.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): cree gráficos con datos extraídos de los datos .csv en blobs.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): cree una trama de datos con una gran parte de datos .csv.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): cree una trama de datos con una gran parte de datos .csv.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) : cargue los datos .csv en una tabla de hive y realice las consultas SQL directamente en el blob.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started) : cargue los datos .csv en una tabla de hive y realice las consultas SQL directamente en el blob.
 

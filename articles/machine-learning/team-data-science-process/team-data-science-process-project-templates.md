@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: bradsev;
-ms.openlocfilehash: 7f99b0bc36a08f52148f032567771f21c56ce42e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 6512bf204a1fdc7a413a553b571e3b64b547855b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="team-data-science-process-project-planning"></a>Plantilla de planeamiento del proyecto del proceso de ciencia de datos en equipo
 
@@ -31,7 +31,7 @@ El ciclo de vida describe las fases principales por las que pasan normalmente lo
 - Implementación
 - Aceptación del cliente
 
-Para obtener descripciones de cada una de estas fases, consulte [El ciclo de vida del proceso de ciencia de datos en equipo](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle).
+Para obtener descripciones de cada una de estas fases, consulte [El ciclo de vida del proceso de ciencia de datos en equipo](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
 
  
 ## <a name="microsoft-project-template"></a>Plantilla de Microsoft Project

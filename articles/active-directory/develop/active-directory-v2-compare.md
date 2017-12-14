@@ -4,7 +4,7 @@ description: "Una comparación entre el punto de conexión original de Azure AD 
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>¿Qué hay diferente en el punto de conexión v2.0?
 Si está familiarizado con Azure Active Directory o ha integrado aplicaciones con Azure AD en el pasado, puede que haya algunas diferencias en el punto de conexión v2.0 que no se espera.  Este documento describe esas diferencias para su comprensión.
@@ -68,7 +68,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-donde el parámetro **resource** indicaba para qué recurso la aplicación cliente solicitaba autorización.  Azure AD calculaba los permisos requeridos por la aplicación en función de la configuración estática en el Portal de Azure y emitía tokens en consecuencia.  Ahora, la misma solicitud de autorización de OAuth 2.0 tiene un aspecto similar al siguiente:
+donde el parámetro **resource** indicaba para qué recurso la aplicación cliente solicitaba autorización.  Azure AD calculaba los permisos requeridos por la aplicación en función de la configuración estática en Azure Portal y emitía tokens en consecuencia.  Ahora, la misma solicitud de autorización de OAuth 2.0 tiene un aspecto similar al siguiente:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -84,7 +84,7 @@ Las aplicaciones registradas anteriormente en Azure AD tenían que especificar s
 
 ![Interfaz de usuario de registro de permisos](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
-Los permisos que una aplicación requerían se configuraban **estáticamente**.  Aunque esto permitía que la configuración de la aplicación existiera en el Portal de Azure y mantenía bien el aspecto del código, presentaba algunos problemas para los desarrolladores:
+Los permisos que una aplicación requerían se configuraban **estáticamente**.  Aunque esto permitía que la configuración de la aplicación existiera en Azure Portal y mantenía bien el aspecto del código, presentaba algunos problemas para los desarrolladores:
 
 * Una aplicación debía conocer todos los permisos que consumiría alguna vez durante la creación de la aplicación.  Agregar permisos con el tiempo era un proceso difícil.
 * Una aplicación debía conocer todos los recursos a los que tendría acceso alguna vez durante por adelantado.  Era difícil crear aplicaciones que podrían tener acceso a un número arbitrario de recursos.

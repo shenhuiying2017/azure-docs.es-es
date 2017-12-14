@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 > [!NOTE]
@@ -50,7 +50,7 @@ Después del 15 de diciembre de 2017:
 
 - Ya no podrá crear clústeres de la versión 3.3 (o versiones anteriores) de HDInsight basado en Linux mediante el servicio vinculado de HDInsight a petición en Azure Data Factory v1. 
 
-- Si no se especifica la [propiedad osType and/or Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) explícitamente en las definiciones JSON existentes de servicios vinculados de HDInsight a petición en Azure Data Factory v1, el valor predeterminado se cambiará de **Version=3.1, osType=Windows** a **Version=3.6, osType=Linux**.
+- Si no se especifica la [propiedad osType and/or Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) explícitamente en las definiciones JSON existentes de servicios vinculados de HDInsight a petición en Azure Data Factory v1, el valor predeterminado se cambiará de **Version=3.1, osType=Windows** a **Version=3.6, osType=Linux**.
 
 Después del 31 de julio de 2018:
 
@@ -58,10 +58,10 @@ Después del 31 de julio de 2018:
 
  **Acciones recomendadas** 
 
-- Actualice la [propiedad osType and/or Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) de las definiciones afectadas de servicios vinculados de HDInsight a petición en Azure Data Factory v1 a versiones más nuevas de HDInsight basado en Linux (HDInsight 3.6) para asegurarse de que puede usar los componentes y correcciones más recientes del ecosistema de Hadoop. 
-- Antes del 15 de diciembre de 2017, pruebe las actividades de streaming de Hive, Pig, MapReduce y Hadoop de Azure Data Factory V1 que hacen referencia al servicio vinculado afectado para asegurarse de que son compatibles con el nuevo valor predeterminado de *osType* and/or *Version* (Version=3.6, osType=Linux) o con los valores explícitos de versión y tipo de sistema operativo de HDInsight a los que va a actualizar. Para aprender más sobre la compatibilidad, revise las páginas web de documentación [Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) y [¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) 
+- Actualice la [propiedad osType and/or Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) de las definiciones afectadas de servicios vinculados de HDInsight a petición en Azure Data Factory v1 a versiones más nuevas de HDInsight basado en Linux (HDInsight 3.6) para asegurarse de que puede usar los componentes y correcciones más recientes del ecosistema de Hadoop. 
+- Antes del 15 de diciembre de 2017, pruebe las actividades de streaming de Hive, Pig, MapReduce y Hadoop de Azure Data Factory V1 que hacen referencia al servicio vinculado afectado para asegurarse de que son compatibles con el nuevo valor predeterminado de *osType* and/or *Version* (Version=3.6, osType=Linux) o con los valores explícitos de versión y tipo de sistema operativo de HDInsight a los que va a actualizar. Para aprender más sobre la compatibilidad, revise las páginas web de documentación [Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) y [¿Cuáles son los componentes y versiones de Hadoop disponibles con HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions) 
 - Establezca explícitamente el tipo de sistema operativo de Windows antes del 15 de diciembre de 2017, si quiere seguir usando los servicios vinculados de HDInsight a petición de Azure Data Factory v1 para crear clústeres de HDInsight basados en Windows. Sin embargo, aún se recomienda migrar a clústeres de HDInsight basado en Linux antes del 31 de julio de 2018. 
-- Si va a usar un servicio vinculado de HDInsight a petición para ejecutar la actividad personalizada de DotNet de Azure Data Factory v1, actualice la definición JSON de actividad personalizada de DotNet para usar en su lugar un servicio vinculado de Azure Batch. Aprenda más en la página web de documentación [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities). 
+- Si va a usar un servicio vinculado de HDInsight a petición para ejecutar la actividad personalizada de DotNet de Azure Data Factory v1, actualice la definición JSON de actividad personalizada de DotNet para usar en su lugar un servicio vinculado de Azure Batch. Aprenda más en la página web de documentación [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 >[!Note]
 >Para los clientes que usan su servicio vinculado existente Bring Your Own Cluster (BYOC) de HDInsight en Azure Data Factory v1 o para aquellos que usan BYOC y un servicio vinculado de HDInsight a petición en Azure Data Factory v2, ya está aplicada la versión más reciente de la directiva de compatibilidad de los clústeres de Azure HDInsight, así que no se requiere ninguna acción. 
@@ -225,7 +225,7 @@ Este tipo de configuración se admite para los entornos de procesos siguientes:
 
 * HDInsight de Azure
 * Azure Batch
-* Aprendizaje automático de Azure
+* Azure Machine Learning
 * Análisis con Azure Data Lake
 * Azure SQL DB, Azure SQL DW, SQL Server
 
@@ -306,8 +306,8 @@ Otra opción es proporcionar el punto de conexión batchUri tal como se muestra 
 | poolName          | Nombre del grupo de máquinas virtuales.    | Sí      |
 | linkedServiceName | Nombre del servicio vinculado de Azure Storage asociado a este servicio vinculado de Azure Batch. Este servicio vinculado se usa para los archivos de almacenamiento provisional necesarios para ejecutar la actividad y almacenar los registros de ejecución de la actividad. | Sí      |
 
-## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de aprendizaje automático de Azure
-Un servicio vinculado de aprendizaje automático de Azure se crea para registrar un punto de conexión de puntuación por lotes de aprendizaje automático en una factoría de datos.
+## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning
+Un servicio vinculado de Azure Machine Learning se crea para registrar un punto de conexión de puntuación por lotes de Machine Learning en una factoría de datos.
 
 ### <a name="example"></a>Ejemplo
 

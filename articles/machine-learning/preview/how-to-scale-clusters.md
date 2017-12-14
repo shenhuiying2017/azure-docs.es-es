@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Escalado del clúster para administrar el rendimiento del servicio web
 
@@ -55,7 +55,7 @@ El siguiente comando establece el recuento de nodos de agente en el clúster:
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-Esta operación tardará algunos minutos en completarse. Para más información sobre el escalado del número de nodos del clúster, consulte [Escalado de nodos de agente en un clúster de Container Service](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+Esta operación tardará algunos minutos en completarse. Para más información sobre el escalado del número de nodos del clúster, consulte [Escalado de nodos de agente en un clúster de Container Service](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Escalado del número de réplicas de pod de Kubernetes en un clúster
  

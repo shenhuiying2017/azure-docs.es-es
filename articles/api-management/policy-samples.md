@@ -10,14 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: mvc
+ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="api-management-policy-samples"></a>Ejemplos de directivas de API Management
 
@@ -31,7 +32,7 @@ Las [directivas](api-management-howto-policies.md) constituyen una funcionalidad
 |[Incorporación de funcionalidades a un servicio back-end y almacenamiento de la respuesta en caché](./policies/cache-response.md?toc=api-management/toc.json) |Muestra cómo agregar funcionalidades a un servicio back-end. Por ejemplo, aceptar el nombre de un lugar en vez de su latitud y longitud en una API de pronóstico meteorológico.|
 |[Autorización de acceso con notificaciones JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |Muestra cómo autorizar el acceso a los métodos HTTP específicos en una API con notificaciones JWT.|
 |[Autorización de acceso con el token de OAuth de Google](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Muestra cómo autorizar el acceso a los puntos de conexión con Google como proveedor de tokens de OAuth.|
-|[Generación de la firma de acceso compartido y reenvío de la solicitud a Azure Storage](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Muestra cómo generar una [firma de acceso compartido](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) mediante expresiones y reenviar la solicitud a Azure Storage con la directiva de reescritura del identificador URI. |
+|[Generación de la firma de acceso compartido y reenvío de la solicitud a Azure Storage](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Muestra cómo generar una [firma de acceso compartido](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) mediante expresiones y reenviar la solicitud a Azure Storage con la directiva de reescritura del identificador URI. |
 |[Obtención del token de acceso de OAuth2 desde AAD y reenvío al back-end](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Proporciona un ejemplo de uso de OAuth2 para la autorización entre la puerta de enlace y un back-end. Muestra cómo obtener un token de acceso en AAD y reenviarlo al back-end.|
 |[Obtención del token de X-CSRF en la puerta de enlace de SAP mediante la directiva de solicitud de envío](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Muestra cómo implementar el patrón X-CSRF que utilizan muchas API. En este ejemplo es específico de la puerta de enlace de SAP. |
 |[Enrutamiento de la solicitud en función del tamaño de su cuerpo](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Muestra cómo enrutar las solicitudes en función del tamaño de su cuerpo.|

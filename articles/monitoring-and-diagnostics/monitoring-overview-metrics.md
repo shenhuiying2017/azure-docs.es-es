@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Información general sobre las métricas en Microsoft Azure
 En este artículo se explica qué son las métricas en Microsoft Azure, sus beneficios y cómo comenzar a utilizarlas.  
@@ -80,7 +80,7 @@ A continuación, mostramos un breve tutorial sobre cómo crear un gráfico de m�
    ![Acceso a todas las métricas en un solo lugar en Azure Monitor](./media/monitoring-overview-metrics/MetricsOverview2.png)
 
 > [!NOTE]
-> Puede acceder a las métricas en el nivel de host de máquinas virtuales (basadas en Azure Resource Manager) y conjuntos de escalas de máquina virtual sin ninguna configuración adicional de diagnóstico. Estas nuevas métricas a nivel de host están disponibles para las instancias de Windows y Linux. Estas métricas no deben confundirse con las de nivel de SO invitado a las que se accede al activar Diagnósticos de Azure en máquinas virtuales o conjuntos de escalas de máquina virtual. Para obtener más información sobre la configuración de Diagnósticos de Azure, vea [¿Qué es Microsoft Azure Diagnostics?](../azure-diagnostics.md)
+> Puede acceder a las métricas en el nivel de host de máquinas virtuales (basadas en Azure Resource Manager) y conjuntos de escalas de máquina virtual sin ninguna configuración adicional de diagnóstico. Estas nuevas métricas a nivel de host están disponibles para las instancias de Windows y Linux. Estas métricas no deben confundirse con las de nivel de SO invitado a las que se accede al activar Diagnósticos de Azure en máquinas virtuales o conjuntos de escalas de máquina virtual. Para obtener más información sobre la configuración de Diagnostics, vea [¿Qué es Microsoft Azure Diagnostics?](../azure-diagnostics.md)
 >
 >
 
@@ -89,11 +89,11 @@ Azure Monitor también tiene una nueva experiencia de gráficos de métricas dis
 ## <a name="access-metrics-via-the-rest-api"></a>Acceso a métricas a través de la API de REST
 Se puede acceder a las métricas de Azure a través de las API de Azure Monitor. Hay dos API que facilitan la detección de métricas y el acceso a ellas:
 
-* Utilice la [API de REST de definiciones de métricas de Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) para acceder a la lista de métricas, y las dimensiones, disponibles para un servicio.
-* Use la [API de REST de métricas de Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) para segmentar y filtrar los datos de métricas reales y acceder a estos.
+* Utilice la [API de REST de definiciones de métricas de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) para acceder a la lista de métricas, y las dimensiones, disponibles para un servicio.
+* Use la [API de REST de métricas de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics) para segmentar y filtrar los datos de métricas reales y acceder a estos.
 
 > [!NOTE]
-> En este artículo se tratan las métricas a través de la [API nueva para las métricas](https://docs.microsoft.com/en-us/rest/api/monitor/) para recursos de Azure. La versión de API para las nuevas definiciones de métricas y las API de métricas es 2017-05-01-preview. Se puede acceder a las métricas y definiciones de métricas heredadas con la versión de API 2014-04-01.
+> En este artículo se tratan las métricas a través de la [API nueva para las métricas](https://docs.microsoft.com/rest/api/monitor/) para recursos de Azure. La versión de API para las nuevas definiciones de métricas y las API de métricas es 2017-05-01-preview. Se puede acceder a las métricas y definiciones de métricas heredadas con la versión de API 2014-04-01.
 >
 >
 

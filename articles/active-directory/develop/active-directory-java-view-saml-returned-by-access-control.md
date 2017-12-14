@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo ver SAML devuelto por el serv
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d239145806be19d2199314fa351d1121f52203c8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Visualización del SAML que devuelve el servicio de control de acceso de Azure
-En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante el servicio de control de acceso de Azure (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) y proporciona código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
+# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Visualización del SAML que devuelve Azure Access Control Service
+En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante Azure Access Control Service (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con Azure Access Control Service mediante Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) y proporciona código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
 
 ![Salida de SAML de ejemplo][saml_output]
 

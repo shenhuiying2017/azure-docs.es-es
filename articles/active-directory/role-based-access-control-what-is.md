@@ -1,10 +1,10 @@
 ---
 title: "Administración de acceso y permisos con RBAC: Azure RBAC | Microsoft Docs"
-description: "Introducción al control de acceso basado en roles de Azure en el Portal de Azure. Use las asignaciones de roles para asignar permisos en el directorio."
+description: "Introducción al control de acceso basado en roles de Azure en Azure Portal. Use las asignaciones de roles para asignar permisos en el directorio."
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 0462fe8ff75bdda397decb301c459795886e9e58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df1ebcc65998a2078f5f215277eef351e48ca1b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-role-based-access-control-in-the-azure-portal"></a>Introducción al control de acceso basado en roles en Azure Portal
 Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al control de acceso basado en roles (RBAC) de Azure, podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure.
@@ -64,6 +64,6 @@ RBAC de Azure solo es compatible con el Portal de Azure y las nuevas API de Azur
 RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure pueden autorizarse. Por ejemplo, puede autorizar a un empleado que administre las cuentas de almacenamiento, pero no los blobs o las tablas de una cuenta de almacenamiento. De igual forma, una base de datos SQL se puede administrar, pero no las tablas que contiene.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Introducción a [Control de acceso basado en roles en el Portal de Azure](role-based-access-control-configure.md).
+* Introducción a [Control de acceso basado en roles en Azure Portal](role-based-access-control-configure.md).
 * Consulte los [Roles RBAC integrados](role-based-access-built-in-roles.md)
 * Defina sus propios [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md)

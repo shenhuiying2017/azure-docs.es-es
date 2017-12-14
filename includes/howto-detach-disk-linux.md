@@ -6,7 +6,7 @@ Cuando ya no necesite un disco de datos que se encuentra conectado a una máquin
 ## <a name="find-the-disk"></a>Buscar el disco
 Antes de poder desconectar un disco de una máquina virtual, es necesario conocer el número de unidad lógica (LUN), que es un identificador para el disco que se va a desconectar. Para ello, sigue estos pasos:
 
-1. Abra la CLI de Azure y [conéctese a su suscripción de Azure](../articles/xplat-cli-connect.md). Asegúrese de que se encuentra en el modo de administración de servicios de Azure (`azure config mode asm`).
+1. Abra la CLI de Azure y [conéctese a su suscripción de Azure](/cli/azure/authenticate-azure-cli). Asegúrese de que se encuentra en el modo de administración de servicios de Azure (`azure config mode asm`).
 2. Compruebe qué discos están conectados a la máquina virtual. En el ejemplo siguiente se enumeran los discos de la máquina virtual denominada `myVM`:
 
     ```azurecli

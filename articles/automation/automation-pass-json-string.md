@@ -3,7 +3,7 @@ title: Paso de un objeto JSON a un runbook de Azure Automation | Microsoft Docs
 description: "Procedimiento para pasar parámetros a un runbook como un objeto JSON"
 services: automation
 documentationcenter: dev-center-name
-author: eslesar
+author: georgewallace
 manager: carmonm
 keywords: powershell, runbook, json, azure automation
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
-ms.author: eslesar
-ms.openlocfilehash: e9352ac1a346537d6214590be6dbc9db7ca0f461
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.author: gwallace
+ms.openlocfilehash: 5390ba34a25713aed84d6e778335e30f27c2b1f8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Paso de un objeto JSON a un runbook de Azure Automation
 
@@ -32,7 +32,8 @@ El runbook de PowerShell inicia una máquina virtual de Azure y se obtienen los 
 Para completar este tutorial, necesitará lo siguiente:
 
 * Suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o <a href="/pricing/free-account/" target="_blank">[registrarse para obtener una cuenta gratis](https://azure.microsoft.com/free/).
-* [Cuenta de Automatización](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
+* 
+            [Cuenta de Automation](automation-sec-configure-azure-runas-account.md) para contener el Runbook y autenticarse en recursos de Azure.  Esta cuenta debe tener permiso para iniciar y detener la máquina virtual.
 * Una máquina virtual de Azure. Detendremos e iniciaremos esta máquina, por lo que no debería ser una máquina virtual de producción.
 * Azure Powershell instalado en una máquina local. Consulte [Instalación y configuración de Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) para información sobre cómo obtener Azure PowerShell.
 
@@ -114,7 +115,7 @@ El runbook usa los valores del archivo JSON para iniciar una máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información acerca de la edición de runbooks de PowerShell y flujo de trabajo de PowerShell, consulte [Edición de runbooks de texto en Automatización de Azure](automation-edit-textual-runbook.md) 
+* Para más información acerca de la edición de runbooks de PowerShell y flujo de trabajo de PowerShell, consulte [Edición de runbooks de texto en Azure Automation](automation-edit-textual-runbook.md) 
 * Para información sobre cómo crear e importar runbooks, consulte [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
 
 

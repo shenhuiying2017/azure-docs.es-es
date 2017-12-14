@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: terrylan
-ms.openlocfilehash: c80e78b39b3fba4dcd9523e1e679822758822805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd238f0b2d877f7f57a27ce495dae8de1ab9c066
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Plataformas compatibles con Azure Security Center
 La supervisión del estado de seguridad y las recomendaciones están disponibles para las máquinas virtuales creadas con los modelos de implementación clásica y de Resource Manager.
@@ -53,12 +53,12 @@ Sistemas operativos Linux compatibles:
 >
 >
 
-## <a name="vms-and-cloud-services"></a>Servicios en la nube y máquinas virtuales
-También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre los servicios en la nube](../cloud-services/cloud-services-choose-me.md).
+## <a name="vms-and-cloud-services"></a>Cloud Services y Virtual Machines
+También se admiten máquinas virtuales que se ejecuten en un servicio en la nube. Se supervisan los roles de web y de trabajo de servicios en la nube que se ejecutan en espacios de producción. Para aprender más sobre el servicio en la nube, consulte la [información general sobre Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a realizar planes y conozca las consideraciones de diseño necesarias para adoptar Azure Security Center.
-- [Alertas de seguridad por tipo de Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis): obtenga más información sobre el análisis de comportamiento de máquinas virtuales y el análisis de la memoria de volcado en Security Center.
+- [Alertas de seguridad por tipo de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis): obtenga más información sobre el análisis de comportamiento de máquinas virtuales y el análisis de la memoria de volcado en Security Center.
 - [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 - [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): encuentre entradas de blog sobre cumplimiento y seguridad de Azure.

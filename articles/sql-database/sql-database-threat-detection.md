@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 06b4fe19b8c468b3fc98a5bb25ba9b1f169e529c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-database-threat-detection"></a>Detección de amenazas de SQL Database
 
@@ -78,7 +78,7 @@ Detección de amenazas de SQL Database integra la alerta con [Azure Security Cen
 
 * Para más información sobre Detección de amenazas, visite el [Blog de Azure](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Más información acerca de la [auditoría de Azure SQL Database](sql-database-auditing.md)
-* Más información acerca de [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+* Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Para más detalles sobre los precios, consulte la [página Precios de SQL Database](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
 * Para ver un script de ejemplo de PowerShell, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure 2.0
 
@@ -42,7 +42,7 @@ Puede crear una puerta de enlace de aplicaciones mediante una de las siguientes 
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Requisito previo: instalar la CLI de Azure 2.0
 
-Para seguir los pasos de este artículo, es preciso [instalar la CLI de Azure para macOS, Linux y Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Para seguir los pasos de este artículo, es preciso [instalar la CLI de Azure para macOS, Linux y Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > Necesita una cuenta de Azure para crear una puerta de enlace de aplicaciones. Si no tiene una, suscríbase para [una prueba gratuita](../active-directory/sign-up-organization.md).

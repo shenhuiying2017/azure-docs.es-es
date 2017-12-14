@@ -4,7 +4,7 @@ description: "Una introducción sobre cómo puede usar Azure AD para el aprovisi
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd82ef109abbc5707db4c02c2f14f9d55dfb74e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
@@ -64,7 +64,7 @@ El **servicio de aprovisionamiento de Azure AD** aprovisiona usuarios para las a
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>¿Qué aplicaciones y sistemas puedo usar con el aprovisionamiento automático de usuarios de Azure AD?
 
-Las características preintegradas de Azure AD admiten una gran variedad de aplicaciones SaaS populares y sistemas de recursos humanos, así como compatibilidad genérica con las aplicaciones que implementan determinadas partes del [estándar SCIM 2.0](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+Las características preintegradas de Azure AD admiten una gran variedad de aplicaciones SaaS populares y sistemas de recursos humanos, así como compatibilidad genérica con las aplicaciones que implementan determinadas partes del [estándar SCIM 2.0](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
 
 Todas las aplicaciones destacadas de la galería de aplicaciones de Azure AD admiten el aprovisionamiento automático de usuarios. [Puede ver la lista de aplicaciones destacadas aquí.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

@@ -3,7 +3,7 @@ title: "Uso de etiquetas con formato JSON para programar el estado de la máquin
 description: "En este artículo se explica cómo usar cadenas JSON en las etiquetas para automatizar la programación de inicio y apagado de máquinas virtuales."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Escenario de Automatización de Azure: uso de etiquetas con formato JSON para crear una programación de inicio y apagado de VM de Azure
+# <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Escenario de Azure Automation: uso de etiquetas con formato JSON para crear una programación de inicio y apagado de VM de Azure
 Normalmente, los clientes quieren programar el inicio y apagado de las máquinas virtuales para reducir los costos de suscripción o dar cabida a requisitos empresariales y técnicos.
 
 El siguiente escenario le permite configurar el inicio y apagado automatizados de máquinas virtuales por medio de una etiqueta denominada Schedule en un nivel de grupo de recursos o de máquina virtual de Azure. Esta programación se puede configurar de domingo a sábado con una hora de inicio y una hora de apagado.
@@ -54,12 +54,12 @@ Este escenario consta de cuatro Runbooks de flujo de trabajo de PowerShell que p
 
 ## <a name="install-and-configure-this-scenario"></a>Instalación y configuración de este escenario
 ### <a name="install-and-publish-the-runbooks"></a>Instalar y publicar los Runbooks
-Después de descargar los Runbooks, puede importarlos mediante el procedimiento descrito en [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).  Publique cada Runbook después de que se hayan importado correctamente en la cuenta de Automatización.
+Después de descargar los Runbooks, puede importarlos mediante el procedimiento descrito en [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).  Publique cada Runbook después de que se hayan importado correctamente en la cuenta de Automation.
 
 ### <a name="add-a-schedule-to-the-test-resourceschedule-runbook"></a>Incorporación de una programación al Runbook Test-ResourceSchedule
 Haga lo siguiente para habilitar la programación en el Runbook Test-ResourceSchedule. Este es el Runbook que comprueba las máquinas virtuales que debe iniciar, apagar o quedar como están.
 
-1. Desde el Portal de Azure, abra la cuenta de Automatización y haga clic en el icono **Runbooks** .
+1. Desde el Portal de Azure, abra la cuenta de Automation y haga clic en el icono **Runbooks** .
 2. En la hoja de **Test-ResourceSchedule**, haga clic en el icono **Programaciones**.
 3. En la hoja **Programaciones**, haga clic en **Agregar una programación**.
 4. En la hoja **Programaciones**, seleccione **Vincular una programación a su Runbook**. A continuación, seleccione **Crear una programación nueva**.
@@ -237,7 +237,7 @@ El **resumen del trabajo** incluye los mensajes de los flujos de salida, adverte
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
-* Para aprender más sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de Runbooks de Automatización de Azure](automation-runbook-types.md).
+* Para aprender más sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de Runbooks de Azure Automation](automation-runbook-types.md).
 * Para más información sobre las características de compatibilidad con scripts de PowerShell, consulte [Announcing Native PowerShell Script Support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)(Anuncio de la compatibilidad nativa con scripts de PowerShell en Automatización de Azure).
-* Para más información sobre el registro y salida de Runbooks, vea [Salidas de runbook y mensajes en Automatización de Azure](automation-runbook-output-and-messages.md).
+* Para más información sobre el registro y salida de Runbooks, vea [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md).
 * Para obtener más información sobre una cuenta de ejecución de Azure y de cómo autenticar sus runbooks mediante ella, consulte [Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md).

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Uso del registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights.
+# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Uso del registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights
 
 Esta página proporciona información sobre cómo usar el registro de diagnóstico de rendimiento de Azure SQL Database generado por [Intelligent Insights](sql-database-intelligent-insights.md), el formato y los datos que contiene según sus necesidades de desarrollo personalizadas. Este registro de diagnóstico se puede enviar a [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o a una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
@@ -139,13 +139,13 @@ La última parte del registro de rendimiento de Intelligent Insights pertenece a
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-El registro de rendimiento de Intelligent Insights se puede usar con [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+El registro de rendimiento de Intelligent Insights se puede usar con [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Conozca los conceptos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Aprenda a [solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Aprenda a [supervisar Azure SQL Database mediante Azure SQL Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Aprenda a [supervisar Azure SQL Database mediante Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

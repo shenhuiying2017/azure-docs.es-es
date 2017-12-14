@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
-ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -370,7 +370,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/service-bus/">
                                                 <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>Bus de servicio</p>
+                                                <p>Azure Service Bus</p>
                                             </a>
                                         </li>
                                         <li>
@@ -591,7 +591,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Búsqueda de visión personalizada</p>
+                                                <p>Servicio de visión personalizada</p>
                                             </a>
                                         </li>
                                         <li>
@@ -671,7 +671,7 @@ ms.lasthandoff: 10/11/2017
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Almacenamiento</h3>
+                                    <h3>Storage</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
@@ -1350,7 +1350,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Administrador de tráfico</h3>
+                                                    <h3>Traffic Manager</h3>
                                                     <p>Enrute el tráfico entrante para obtener alto rendimiento y disponibilidad</p>
                                                 </div>
                                             </div>
@@ -2473,7 +2473,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bus de servicio</h3>
+                                                    <h3>Azure Service Bus</h3>
                                                     <p>Conéctese a través de entornos de nube privada y pública</p>
                                                 </div>
                                             </div>
@@ -3334,7 +3334,7 @@ ms.lasthandoff: 10/11/2017
                                             <div class="cardText">
                                                 <h3>CLI de Azure </h3>
                                                 <p>
-                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Primeros pasos</a>
+                                                    <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://aka.ms/linux-azure-cli">Descargar la CLI de Azure para Linux</a>

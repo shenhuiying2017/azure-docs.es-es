@@ -1,9 +1,9 @@
 ---
 title: Programaciones Azure Automation | Microsoft Docs
-description: "Las programaciones de Automatización se usan para programar runbooks en Automatización de Azure para que se inicien automáticamente. Describe cómo crear y administrar una programación de modo que pueda iniciar automáticamente un Runbook en un momento determinado o en una programación periódica."
+description: "Las programaciones de Automation se usan para programar runbooks en Azure Automation para que se inicien automáticamente. Describe cómo crear y administrar una programación de modo que pueda iniciar automáticamente un Runbook en un momento determinado o en una programación periódica."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: 446dc79202938ee96cbb090345d9c191060afe76
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Automatización de Azure
-Para programar un runbook en Automatización de Azure para que se inicie en un momento determinado, vincúlelo a una o más programaciones. Puede configurar una programación para que se ejecute una vez o de forma periódica, cada hora o a diario, para runbooks en el Portal de Azure clásico y runbooks en Azure Portal. Además, puede programarlos semanal o mensualmente, para determinados días de la semana o del mes, o en un día concreto del mes.  Un runbook puede vincularse a varias programaciones y una programación puede tener varios runbooks vinculados a ella.
+# <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Azure Automation
+Para programar un runbook en Azure Automation para que se inicie en un momento determinado, vincúlelo a una o más programaciones. Puede configurar una programación para que se ejecute una vez o de forma periódica, cada hora o a diario, para runbooks en el Portal de Azure clásico y runbooks en Azure Portal. Además, puede programarlos semanal o mensualmente, para determinados días de la semana o del mes, o en un día concreto del mes.  Un runbook puede vincularse a varias programaciones y una programación puede tener varios runbooks vinculados a ella.
 
 > [!NOTE]
-> Las programaciones no admiten actualmente las configuraciones de DSC de Automatización de Azure.
+> Las programaciones no admiten actualmente las configuraciones de DSC de Azure Automation.
 > 
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
-Los cmdlets de la siguiente tabla se usan para crear y administrar programaciones con Windows PowerShell en Automatización de Azure. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview).
+Los cmdlets de la siguiente tabla se usan para crear y administrar programaciones con Windows PowerShell en Azure Automation. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview).
 
 | Cmdlets | Descripción |
 |:--- |:--- |
@@ -108,7 +108,7 @@ Un runbook puede vincularse a varias programaciones y una programación puede te
 6. Si el runbook tiene parámetros, se le pedirán sus valores.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Para vincular una programación a un runbook con Windows PowerShell
-Puede usar el cmdlet [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) para vincular una programación a un Runbook clásico o [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) para Runbooks en Azure Portal.  Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Consulte [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) para obtener más información sobre cómo especificar valores de parámetro.
+Puede usar el cmdlet [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) para vincular una programación a un Runbook clásico o [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) para Runbooks en Azure Portal.  Puede especificar valores para los parámetros del runbook con el parámetro Parameters. Consulte [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) para obtener más información sobre cómo especificar valores de parámetro.
 
 Los siguientes comandos de ejemplo muestran cómo vincular una programación a un runbook mediante un cmdlet de Azure Resource Manager con parámetros.
 
@@ -162,5 +162,5 @@ Los siguientes comandos de ejemplo muestran cómo deshabilitar una programación
     –Name $scheduleName –IsEnabled $false
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para empezar a trabajar con Runbooks, vea [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) 
+* Para empezar a trabajar con Runbooks, vea [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md) 
 

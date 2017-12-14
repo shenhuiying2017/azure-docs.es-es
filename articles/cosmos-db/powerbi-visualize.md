@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: mimig
-ms.openlocfilehash: 03127c9d35b8dd0fe54310c84ff89ea087f175b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6414cdc942c43f6eb13ca8f050d6503bdd3e0b42
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Tutorial de Power BI para Azure Cosmos DB: visualización de datos mediante el conector de Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) es un servicio en línea, en el que se pueden crear paneles e informes, y compartirlos, con los datos que son importantes para el usuario y su organización.  Power BI Desktop es una herramienta dedicada de creación de informes que permite recuperar datos de varios orígenes de datos, combinar y transformar los datos, crear visualizaciones e informes eficaces y publicar los informes en Power BI.  Con la versión más reciente de Power BI Desktop, ahora puede conectarse a su cuenta de Cosmos DB a través del conector DocumentDB para Cosmos DB.   
@@ -224,5 +224,5 @@ Para realizar una actualización programada, haga lo siguiente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre Power BI, consulte [Introducción a Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
-* Para más información sobre Cosmos DB, consulte la [página de destino de la documentación de Azure Cosmos DB](https://azure.microsoft.com/documentation/services/documentdb/).
+* Para más información sobre Cosmos DB, consulte la [página de destino de la documentación de Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: 3e8727e80571be70124fb439f4c7e448f521b692
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bb4eebc80d1c0fdcb9fb5d0f6bb7aeeeb3cb08d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-diagnostic-logs"></a>Registros de diagnósticos de Azure
 
 Con los registros de Azure Diagnostics, puede ver análisis básicos y guardarlos en uno o varios destino, por ejemplo:
 
- - Cuenta de almacenamiento de Azure
+ - Cuenta de Azure Storage
  - Azure Event Hubs
  - [Repositorio de Log Analytics de OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
@@ -261,7 +261,7 @@ Siga estos pasos para agregar una solución de administración:
 
 ### <a name="offers-and-pricing-tiers"></a>Ofertas y planes de tarifa
 
-Puede ver ofertas y planes de tarifa de las soluciones de administración de OMS [aquí](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Puede ver ofertas y planes de tarifa de las soluciones de administración de OMS [aquí](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Personalización de las vistas
 
@@ -410,8 +410,8 @@ Propiedades de ejemplo:
 
 * [Registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análisis básico mediante el portal complementario de la red CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Log Analytics de OMS de Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-overview)
-* [API de REST de Azure Log Analytics](https://docs.microsoft.com/en-us/rest/api/loganalytics)
+* [Log Analytics de OMS de Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [API de REST de Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

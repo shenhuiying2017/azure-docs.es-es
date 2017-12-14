@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: d6962bf2ffbf731a4aa301e663c7c7d3428080d4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
 
@@ -250,7 +250,7 @@ Para que Azure App Service en Azure Stack hospede y mida bases de datos, es prec
 
 Para su uso con el kit de desarrollo de Azure Stack, puede usar SQL Express 2014 SP2, o cualquier versión posterior.
 
-Por motivos de producción y para ofrecer alta disponibilidad, debe usar una versión completa de SQL 2014 SP2, o cualquier versión posterior, habilitar la autenticación de modo mixto y realizar la implementación en una [configuración de alta disponibilidad](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+Por motivos de producción y para ofrecer alta disponibilidad, debe usar una versión completa de SQL 2014 SP2, o cualquier versión posterior, habilitar la autenticación de modo mixto y realizar la implementación en una [configuración de alta disponibilidad](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
 Azure App Service en Azure Stack SQL Server debe ser accesible desde todos los roles de App Service. SQL Server se puede implementar en la suscripción de proveedor predeterminada en Azure Stack. O bien, puede usar la infraestructura existente en su organización (siempre y cuando haya conectividad con Azure Stack). Si va a usar una imagen de Azure Marketplace, no olvide configurar el firewall adecuadamente. 
 

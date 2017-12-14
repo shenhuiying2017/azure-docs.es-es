@@ -4,7 +4,7 @@ description: "Introducción a la API de generación informes de Azure Active Dir
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación de informes de Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory proporciona una variedad de informes. Los datos de estos 
 Este artículo proporciona la información que necesita para empezar a trabajar con las API de generación de informes de Azure AD.
 En la sección siguiente, puede encontrar más detalles sobre el uso de las API de auditoría e inicio de sesión. 
 
-Para conocer las preguntas más frecuentes, lea nuestras [Preguntas más frecuentes](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). En caso de problemas, [abra una incidencia de soporte técnico](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+Para conocer las preguntas más frecuentes, lea nuestras [Preguntas más frecuentes](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq). En caso de problemas, [abra una incidencia de soporte técnico](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="learning-map"></a>Mapa de aprendizaje
 1. **Preparación** : para poder usar los ejemplos de la API, debe completar la [requisitos previos para tener acceso a la API de generación de informes de Azure AD](active-directory-reporting-api-prerequisites-azure-portal.md).

@@ -1,6 +1,6 @@
 ---
 title: "Administración de entidades de Media Services con REST| Microsoft Docs"
-description: "Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST."
+description: "Obtenga información sobre cómo administrar las entidades de Media Services con la API de REST."
 author: juliako
 manager: cfowler
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: a336907b605da962f835b8057ac6071f480cd85e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 645d417e22b32e6da978e8d94e67f9615100ea89
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Administración de entidades de Media Services con REST 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. Puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo que con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
+Microsoft Azure Media Services es un servicio REST basado en OData v3. Puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo que con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
 
 En este tema se muestra cómo administrar entidades de Azure Media Services con REST.
 
@@ -36,17 +36,14 @@ En este tema se muestra cómo administrar entidades de Azure Media Services con 
 
 ## <a name="considerations"></a>Consideraciones  
 
-Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
+## <a name="connect-to-media-services"></a>Conexión con Media Services
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
-
 ## <a name="adding-entities"></a>Incorporación de entidades
-Todas las entidades de Servicios multimedia se agregan a un conjunto de entidades, como recursos, a través de una solicitud HTTP POST.
+Todas las entidades de Media Services se agregan a un conjunto de entidades, como recursos, a través de una solicitud HTTP POST.
 
 En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy.
 
@@ -55,7 +52,7 @@ En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy.
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: media.windows.net
     Content-Length: 74
@@ -72,7 +69,7 @@ En el ejemplo siguiente se recupera una lista de todas las entidades MediaProces
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
@@ -83,7 +80,7 @@ También puede recuperar una entidad específica o todos los conjuntos de entida
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336907474&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=OpuY0CeTylqFFcFaP4pKUVGesT4PGx4CP55zDf2zXnc%3d
     Host: media.windows.net
 
@@ -92,7 +89,7 @@ También puede recuperar una entidad específica o todos los conjuntos de entida
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336907474&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=OpuY0CeTylqFFcFaP4pKUVGesT4PGx4CP55zDf2zXnc%3d
     Host: media.windows.net
 
@@ -103,7 +100,7 @@ El ejemplo siguiente devuelve la propiedad State de todos los trabajos.
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
@@ -114,12 +111,12 @@ El ejemplo siguiente devuelve todos los JobTemplates con el nombre "SampleTempla
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
 > [!NOTE]
-> Servicios multimedia no admite la operación $expand, ni los métodos no admitidos de LINQ que se describen en las consideraciones sobre LINQ (Servicios de datos de WCF).
+> Media Services no admite la operación $expand, ni los métodos no admitidos de LINQ que se describen en las consideraciones sobre LINQ (Servicios de datos de WCF).
 > 
 > 
 
@@ -133,7 +130,7 @@ En el ejemplo siguiente se muestra cómo usar **skip** y **top** para omitir los
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
@@ -147,7 +144,7 @@ En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337083279&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=DMLQXWah4jO0icpfwyws5k%2b1aCDfz9KDGIGao20xk6g%3d
     Host: media.windows.net
     Content-Length: 21
@@ -156,7 +153,7 @@ En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name
     {"Name" : "NewName" }
 
 ## <a name="deleting-entities"></a>Eliminación de entidades
-Las entidades pueden eliminarse en Servicios multimedia mediante una solicitud HTTP DELETE. Según la entidad, el orden con que se eliminan las entidades puede ser importante. Por ejemplo, entidades como Assets requieren que revoque (o elimine) todos los localizadores que hagan referencia a ese recurso específico antes de eliminar el recurso.
+Las entidades pueden eliminarse en Media Services mediante una solicitud HTTP DELETE. Según la entidad, el orden con que se eliminan las entidades puede ser importante. Por ejemplo, entidades como Assets requieren que revoque (o elimine) todos los localizadores que hagan referencia a ese recurso específico antes de eliminar el recurso.
 
 En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó para cargar un archivo en el almacenamiento de blobs.
 
@@ -165,12 +162,12 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
     Host: media.windows.net
     Content-Length: 0
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

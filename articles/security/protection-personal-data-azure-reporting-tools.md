@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentación de protección de datos personales con herramientas de informes de Azure
 
@@ -90,7 +90,7 @@ Visite el sitio [Referencia de la API de auditoría de Azure Active Directory](h
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) puede [recopilar datos de Azure Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) para correlacionarlos con otros datos y proporcionar análisis adicional. Azure Monitor recopila y analiza datos de supervisión para su entorno de Azure. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) puede [recopilar datos de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para correlacionarlos con otros datos y proporcionar análisis adicional. Azure Monitor recopila y analiza datos de supervisión para su entorno de Azure. 
 
 Las herramientas de análisis de Log Analytics, como búsquedas de registros, vistas y soluciones funcionan con todos los datos recopilados, que proceden del análisis centralizado de todo el entorno. Log Analytics puede agregar y analizar registros de eventos de Windows, registros IIS y registros de Syslog, que pueden ayudar a detectar infracciones potenciales de datos personales que podrían exponer estos a usuarios no autorizados.
 
@@ -194,7 +194,7 @@ Para obtener más información sobre cómo realizar cada uno de estos pasos, con
 
 ### <a name="azure-storage-analytics"></a>Azure Storage Analytics 
 
-El análisis de almacenamiento registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede usar para supervisar solicitudes individuales, lo que puede resultar de utilidad a la hora de documentar el acceso a datos personales almacenados en el servicio. Sin embargo, el registro de Storage Analytics no se habilita de forma predeterminada para su cuenta de almacenamiento. Puede habilitarlo en Azure Portal.
+Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede usar para supervisar solicitudes individuales, lo que puede resultar de utilidad a la hora de documentar el acceso a datos personales almacenados en el servicio. Sin embargo, el registro de Storage Analytics no se habilita de forma predeterminada para su cuenta de almacenamiento. Puede habilitarlo en Azure Portal.
 
 #### <a name="how-do-i-configure-monitoring-for-a-storage-account"></a>¿Cómo se puede configurar la supervisión para una cuenta de almacenamiento?
 

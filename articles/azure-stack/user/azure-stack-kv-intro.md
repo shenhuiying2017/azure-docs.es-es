@@ -3,8 +3,8 @@ title: "Introducción al almacén de claves de Azure Stack | Microsoft Docs"
 description: "Aprenda cómo el almacén de claves de Azure Stack administra claves y secretos"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
-ms.author: sngun
-ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.author: mabrigg
+ms.openlocfilehash: a50a03e70ccf014a8a9d33e0f177febed560853f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Introducción a Key Vault en Azure Stack
 
@@ -35,7 +35,7 @@ Key Vault en Azure Stack ayuda a proteger claves criptográficas y secretos usad
    * Archivos .pfx
    * Contraseñas
 
-Almacén de claves agiliza el proceso de administración de claves y le permite mantener el control de claves que obtienen acceso a sus datos y los cifran. Los desarrolladores pueden crear claves para desarrollo y prueba en minutos y, a continuación, migrarlas sin problemas a claves de producción. Los administradores de seguridad pueden conceder (y revocar) permisos a las claves según sea necesario.
+Key Vault agiliza el proceso de administración de claves y le permite mantener el control de claves que obtienen acceso a sus datos y los cifran. Los desarrolladores pueden crear claves para desarrollo y prueba en minutos y, a continuación, migrarlas sin problemas a claves de producción. Los administradores de seguridad pueden conceder (y revocar) permisos a las claves según sea necesario.
 
 Cualquiera que tenga una suscripción a Azure Stack puede crear y usar los almacenes de claves. Aunque Key Vault beneficia a los desarrolladores y los administradores de seguridad, el operador que administra otros servicios de Azure Stack en una organización puede implementarlo y administrarlo. Por ejemplo, el operador de Azure Stack puede iniciar sesión con una suscripción de Azure Stack, crear un almacén para la organización en el que almacenaría las claves y asumir la responsabilidad de las tareas operativas:
 

@@ -1,24 +1,16 @@
 ---
 title: "Escalado de detección y evaluación con Azure Migrate | Microsoft Docs"
 description: "Se describe cómo evaluar un número elevado de máquinas locales con el servicio Azure Migrate."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: dde0d07f-94b7-4b6a-a158-a89aa9324a35
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 930ec182cf329e7dda072dc49bd7f70abb413f2d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e28a2144dd102fcd2ec05531432cac0df250ae01
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -50,14 +42,14 @@ Un proyecto de Azure Migrate puede evaluar hasta 1500 máquinas. Una sola detecc
 Cree un proyecto de Azure Migrate según sus necesidades.
 
 1. En Azure Portal, haga clic en **Crear un recurso**.
-2. Busque **Azure Migrate** y seleccione el servicio **Azure Migrate (versión preliminar)** en los resultados de la búsqueda. A continuación, haga clic en **Crear**.
+2. Busque **Azure Migrate** y seleccione el servicio (**Azure Migrate (versión preliminar)** en los resultados de búsqueda. A continuación, haga clic en **Crear**.
 3. Especifique un nombre de proyecto y la suscripción de Azure para el proyecto.
 4. Cree un nuevo grupo de recursos.
 5. Especifique la región en la que se va a crear el proyecto y haga clic en **Crear**. Los metadatos recopilados a partir de VM locales se almacenan en esta región.
 
 ## <a name="set-up-the-collector-appliance"></a>Configuración del dispositivo de recopilador
 
-Azure Migrate crea una VM local conocida como el dispositivo de recopilador. Esta VM detecta VM de VMware locales y envía los metadatos sobre ellas al servicio Azure Migrate. Para configurar el dispositivo de recopilador, descargue un archivo .OVA e impórtelo en el servidor vCenter local para crear la VM.
+Azure Migrate crea una VM local conocida como el dispositivo de recopilador. Esta VM detecta VM de VMware locales y envía los metadatos sobre ellas para al servicio Azure Migrate. Para configurar el dispositivo de recopilador, descargue un archivo .OVA e impórtelo en el servidor vCenter local para crear la VM.
 
 ### <a name="download-the-collector-appliance"></a>Descarga del dispositivo de recopilador
 

@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Creación y administración de Caché en Redis de Azure mediante la interfaz de línea de comandos de Azure (CLI de Azure)
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Creación y administración de Azure Redis Cache mediante la interfaz de línea de comandos de Azure (CLI de Azure)
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
 > * [CLI de Azure](cache-manage-cli.md)
 >
 >
 
-La CLI de Azure es una excelente manera de administrar la infraestructura de Azure desde cualquier plataforma. En este artículo se muestra cómo crear y administrar las instancias de Caché en Redis de Azure usando la CLI de Azure.
+La CLI de Azure es una excelente manera de administrar la infraestructura de Azure desde cualquier plataforma. En este artículo se muestra cómo crear y administrar las instancias de Azure Redis Cache usando la CLI de Azure.
 
 > [!NOTE]
 > Este artículo se aplica a una versión anterior de la CLI de Azure. Para conocer los scripts de ejemplo más recientes de la CLI 2.0 de Azure, consulte [Ejemplos de caché de Redis para la CLI de Azure](cli-samples.md).
@@ -35,11 +35,11 @@ La CLI de Azure es una excelente manera de administrar la infraestructura de Azu
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para crear y administrar instancias de Caché en Redis de Azure mediante la CLI de Azure, debe realizar los pasos siguientes.
+Para crear y administrar instancias de Azure Redis Cache mediante la CLI de Azure, debe realizar los pasos siguientes.
 
 * Debe tener una cuenta de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos momentos.
 * [Instalación de la CLI de Azure](../cli-install-nodejs.md).
-* Conecte su instalación de CLI de Azure con una cuenta personal de Azure o con una cuenta de Azure profesional o educativa, e inicie sesión desde la CLI de Azure mediante el comando `azure login` . Para comprender las diferencias y elegir, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-connect.md).
+* Conecte su instalación de CLI de Azure con una cuenta personal de Azure o con una cuenta de Azure profesional o educativa, e inicie sesión desde la CLI de Azure mediante el comando `azure login` . Para comprender las diferencias y elegir, consulte [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](/cli/azure/authenticate-azure-cli).
 * Antes de ejecutar cualquiera de los comandos siguientes, cambie la CLI de Azure al modo de Administrador de recursos mediante la ejecución del comando `azure config mode arm` . Para más información, vea [Use the Azure CLI to manage Azure resources and resource groups (Uso de la CLI de Azure para administrar los recursos y grupos de recursos de Azure)](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Propiedades de caché en Redis
@@ -56,7 +56,7 @@ Las siguientes propiedades se utilizan al crear y actualizar instancias de cach�
 | Configuración de Redis |-c, --redis-configuration |Configuración de Redis. Escriba una cadena con formato JSON de valores y claves de configuración aquí. Formato:"{"":"","":""}" |
 | Configuración de Redis |-f, --redis-configuration-file |Configuración de Redis. Escriba la ruta de acceso de un archivo que contiene valores y claves de configuración aquí. Formato de la entrada del archivo: {"":"","":""} |
 | Número de particiones |-r, --shard-count |Número de particiones que se creará en una caché de clúster premium con la agrupación de clústeres. |
-| Red virtual |-v, --virtual-network |Si hospeda la memoria caché en una red virtual, especifica el id. de recurso de ARM exacto de la red virtual en la que se va a implementar la Caché en Redis. Formato de ejemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| Virtual Network |-v, --virtual-network |Si hospeda la memoria caché en una red virtual, especifica el id. de recurso de ARM exacto de la red virtual en la que se va a implementar la Caché en Redis. Formato de ejemplo: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | key type |-t, --key-type |Tipo de la clave que renovar. Valores válidos: [Primary, Secondary] |
 | StaticIP |-p, --static-ip <static-ip> |Si hospeda la memoria caché en una red virtual, especifica una dirección IP única en la subred de la memoria caché. Si no se ofrece, elija una para usted en la subred. |
 | Subred |t, --subnet <subnet> |Si hospeda la memoria caché en una red virtual, especifica el nombre de la subred en la que se va a implementar la memoria caché. |

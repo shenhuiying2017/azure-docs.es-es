@@ -1,9 +1,9 @@
 ---
 title: "Galerías de runbooks y módulos para Azure Automation | Microsoft Docs"
-description: "Dispone de runbooks y módulos de Microsoft y la comunidad para instalarlos y usarlos en su entorno de Automatización de Azure.  En este artículo, se describe cómo acceder a estos recursos y contribuir sus runbooks a la galería."
+description: "Dispone de runbooks y módulos de Microsoft y la comunidad para instalarlos y usarlos en su entorno de Azure Automation.  En este artículo, se describe cómo acceder a estos recursos y contribuir sus runbooks a la galería."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: d3fee7b4-630a-4c10-8425-9bf51d7c9e58
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: e46c09a0cfecf07514f85b5801129fbd8162510f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70bbc131f153efd88816450c239920c79665fdff
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerías de runbooks y módulos para Automatización de Azure
-En lugar de crear sus propios runbooks y módulos en Automatización de Azure, dispone de acceso a diversos escenarios ya compilados por Microsoft y la comunidad.  Puede usar estos escenarios sin modificaciones o como punto de partida para modificarlos según sus requisitos específicos.
+# <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerías de runbooks y módulos para Azure Automation
+En lugar de crear sus propios runbooks y módulos en Azure Automation, dispone de acceso a diversos escenarios ya compilados por Microsoft y la comunidad.  Puede usar estos escenarios sin modificaciones o como punto de partida para modificarlos según sus requisitos específicos.
 
 Puede obtener runbooks en la [Galería de Runbook](#runbooks-in-runbook-gallery) y módulos en la [Galería de PowerShell](#modules-in-powerShell-gallery).  También puede contribuir a la comunidad si comparte los escenarios que desarrolle.
 
@@ -81,10 +81,10 @@ Microsoft recomienda agregar a la Galería de Runbooks aquellos runbooks que pie
   * Aprovisionamiento
   * Corrección
   * Administración del ciclo de vida de VM
-* Automatización actualiza la galería una vez a la hora, por lo que no verá sus contribuciones de inmediato.
+* Automation actualiza la galería una vez a la hora, por lo que no verá sus contribuciones de inmediato.
 
 ## <a name="modules-in-powershell-gallery"></a>Módulos en la Galería de PowerShell
-Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los módulos existentes que se pueden instalar en Automatización de Azure están disponibles en la [Galería de PowerShell](http://www.powershellgallery.com).  Puede iniciar esta galería desde el Portal de Azure e instalarlos directamente en Automatización de Azure o puede descargarlos e instalarlos de forma manual.  No puede instalar los módulos directamente desde el Portal de Azure clásico, pero puede descargarlos e instalarlos como cualquier otro módulo.
+Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los módulos existentes que se pueden instalar en Azure Automation están disponibles en la [Galería de PowerShell](http://www.powershellgallery.com).  Puede iniciar esta galería desde el Portal de Azure e instalarlos directamente en Azure Automation o puede descargarlos e instalarlos de forma manual.  No puede instalar los módulos directamente desde el Portal de Azure clásico, pero puede descargarlos e instalarlos como cualquier otro módulo.
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Para importar un módulo de la Galería de módulos de automatización con el Portal de Azure
 1. En Azure Portal, abra su cuenta de Automation.
@@ -102,7 +102,7 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
    Cuando explore un módulo específico, podrá ver más información sobre el módulo, incluido un vínculo a la Galería de PowerShell, las dependencias necesarias y todos los cmdlets o recursos de DSC que contiene el módulo.
    
     ![Detalles del módulo de PowerShell](media/automation-runbook-gallery/gallery-item-details-blade.png) <br>
-7. Para instalar el módulo directamente en Automatización de Azure, haga clic en el botón **Importar** .
+7. Para instalar el módulo directamente en Azure Automation, haga clic en el botón **Importar** .
    
     ![Botón de importación de módulo](media/automation-runbook-gallery/module-import-button.png)
 8. Al hacer clic en el botón Importar, en el panel **Importar**, verá el nombre del módulo que se va a importar. Si están instaladas todas las dependencias, el botón **Aceptar** estará activo. Si faltan dependencias, debe importarlas antes de importar este módulo.
@@ -118,6 +118,6 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/246290-azure-automation/).  Si necesita ayuda para escribir un runbook o se plantea preguntas acerca de PowerShell, publique una pregunta en nuestro [foro](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para empezar a trabajar con runbooks, consulte [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
+* Para empezar a trabajar con runbooks, consulte [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
 * Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 

@@ -1,9 +1,9 @@
 ---
 title: "Administración de datos de Azure Automation | Microsoft Docs"
-description: "Este artículo contiene varios temas para administrar un entorno de Automatización de Azure.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Automatización de Azure."
+description: "Este artículo contiene varios temas para administrar un entorno de Azure Automation.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: e4a90f47167cfa2497e1ad5ae9db025d2d7d91dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="managing-azure-automation-data"></a>Administración de datos de Automatización de Azure
-Este artículo contiene varios temas para administrar un entorno de Automatización de Azure.
+# <a name="managing-azure-automation-data"></a>Administración de datos de Azure Automation
+Este artículo contiene varios temas para administrar un entorno de Azure Automation.
 
 ## <a name="data-retention"></a>Retención de datos
-Cuando elimina un recurso en Automatización de Azure, se conserva durante 90 días para fines de auditoría antes de quitarlo de manera permanente.  Durante este tiempo, no es posible ver ni usar el recurso.  Esta directiva también se aplica a recursos que pertenecen a una cuenta de automatización eliminada.
+Cuando elimina un recurso en Azure Automation, se conserva durante 90 días para fines de auditoría antes de quitarlo de manera permanente.  Durante este tiempo, no es posible ver ni usar el recurso.  Esta directiva también se aplica a recursos que pertenecen a una cuenta de automatización eliminada.
 
-Automatización de Azure elimina automáticamente y quita de manera permanente los trabajos que tengan más de 90 días.
+Azure Automation elimina automáticamente y quita de manera permanente los trabajos que tengan más de 90 días.
 
 La tabla siguiente resume la directiva de retención para distintos recursos.
 
@@ -45,29 +45,29 @@ La directiva de retención se aplica a todos los usuarios y, por el momento, no 
 
 Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede reenviar los registros de trabajos del runbook a Log Analytics.  Para más información, consulte [Reenvío de datos del trabajo de Azure Automation a Log Analytics de OMS](automation-manage-send-joblogs-log-analytics.md)   
 
-## <a name="backing-up-azure-automation"></a>Copia de seguridad de Automatización de Azure
+## <a name="backing-up-azure-automation"></a>Copia de seguridad de Azure Automation
 Cuando se elimina una cuenta de automatización en Microsoft Azure, se eliminan todos los objetos de la cuenta, incluidos runbooks, módulos, configuraciones, trabajos y recursos. No es posible recuperar los objetos una vez eliminada la cuenta.  Puede usar la información siguiente para crear una copia de seguridad de los contenidos de la cuenta de automatización antes de eliminarla. 
 
 ### <a name="runbooks"></a>Runbooks
 Puede exportar los runbooks a archivos de script con el Portal de administración de Azure o el cmdlet [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) en Windows PowerShell.  Es posible importar estos archivos de script a otra cuenta de automatización, tal como se describe en [Creación o importación de un runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Módulos de integración
-No es posible exportar módulos de integración desde Automatización de Azure.  Debe asegurarse de que se encuentren disponibles fuera de la cuenta de automatización.
+No es posible exportar módulos de integración desde Azure Automation.  Debe asegurarse de que se encuentren disponibles fuera de la cuenta de automatización.
 
 ### <a name="assets"></a>Recursos
-No es posible exportar [recursos](https://msdn.microsoft.com/library/dn939988.aspx) desde Automatización de Azure.  Si utiliza el Portal de administración de Azure, debe anotar los detalles de las variables, las credenciales, los certificados, las conexiones y las programaciones.  Luego debe crear manualmente todos los recursos utilizados por los runbooks que importa a otra automatización.
+No es posible exportar [recursos](https://msdn.microsoft.com/library/dn939988.aspx) desde Azure Automation.  Si utiliza el Portal de administración de Azure, debe anotar los detalles de las variables, las credenciales, los certificados, las conexiones y las programaciones.  Luego debe crear manualmente todos los recursos utilizados por los runbooks que importa a otra automatización.
 
 Puede usar [cmdlets de Azure](https://msdn.microsoft.com/library/dn690262.aspx) para recuperar los detalles de recursos no cifrados y guardarlos para una referencia futura o crear recursos equivalentes en otra cuenta de automatización.
 
 No es posible recuperar el valor de variables cifradas o del campo de contraseña de las credenciales mediante el uso de cmdlets.  Si no conoce estos valores, puede recuperarlos de un runbook con las actividades [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) y [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx).
 
-No es posible exportar certificados desde Automatización de Azure.  Debe asegurarse de que todos los certificados estén disponibles fuera de Azure.
+No es posible exportar certificados desde Azure Automation.  Debe asegurarse de que todos los certificados estén disponibles fuera de Azure.
 
 ### <a name="dsc-configurations"></a>Configuraciones DSC
 Puede exportar las configuraciones a archivos de script con el Portal de administración de Azure o con el cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) en Windows PowerShell. Estas configuraciones se pueden importar y usar en otra cuenta de automatización.
 
-## <a name="geo-replication-in-azure-automation"></a>Replicación geográfica en Automatización de Azure
-La replicación geográfica, una función estándar de las cuentas de Automatización de Azure, realiza una copia de seguridad de los datos de la cuenta en una región geográfica diferente con fines de redundancia. Puede elegir una región primaria al configurar la cuenta, y entonces se le asigna automáticamente a esta una región secundaria. Los datos secundarios, copiados de la región primaria, se actualizan continuamente en caso de pérdida de los datos.  
+## <a name="geo-replication-in-azure-automation"></a>Replicación geográfica en Azure Automation
+La replicación geográfica, una función estándar de las cuentas de Azure Automation, realiza una copia de seguridad de los datos de la cuenta en una región geográfica diferente con fines de redundancia. Puede elegir una región primaria al configurar la cuenta, y entonces se le asigna automáticamente a esta una región secundaria. Los datos secundarios, copiados de la región primaria, se actualizan continuamente en caso de pérdida de los datos.  
 
 La siguiente tabla muestra los emparejamientos de la región primaria y secundaria.
 

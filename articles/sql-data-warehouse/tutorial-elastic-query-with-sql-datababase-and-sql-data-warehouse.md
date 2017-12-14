@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 11/03/2017
 ms.author: elbutter
-ms.openlocfilehash: a13b81213b7a47cb7209bc914f514fa10aede5c4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-elastic-query-with-sql-data-warehouse"></a>Configuración de consultas elásticas con SQL Data Warehouse
 
@@ -39,9 +39,9 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 2. Cree un inicio de sesión y un usuario que represente la conexión de la base de datos SQL y el almacenamiento de datos.
 
-  ```sql
-  CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
-  ```
+   ```sql
+   CREATE LOGIN SalesDBLogin WITH PASSWORD = 'aReallyStrongPassword!@#';
+   ```
 
 3. Mediante SSMS u otro cliente de consulta, abra una nueva consulta para la **instancia de almacenamiento de datos SQL** en el servidor lógico.
 
@@ -75,14 +75,14 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 9. Cree un origen de datos externos que apunte a la instancia de almacenamiento de datos.
 
-  ```sql
-  CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
-      (TYPE = RDBMS, 
-      LOCATION = '<SERVER NAME>.database.windows.net', 
-      DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
-      CREDENTIAL = SalesDBElasticCredential, 
-  ) ;
-  ```
+   ```sql
+   CREATE EXTERNAL DATA SOURCE EnterpriseDwSrc WITH 
+       (TYPE = RDBMS, 
+       LOCATION = '<SERVER NAME>.database.windows.net', 
+       DATABASE_NAME = '<SQL DATA WAREHOUSE NAME>', 
+       CREDENTIAL = SalesDBElasticCredential, 
+   ) ;
+   ```
 
 10. Ahora puede crear tablas externas que hagan referencia a este origen de datos externos. Las consultas que usan esas tablas se envían a la instancia de almacenamiento para procesarlas y enviarlas de vuelta a la instancia de base de datos.
 

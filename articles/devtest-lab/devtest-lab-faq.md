@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a5e686a7f60b15b55d8f4365b73c71de02c4bad
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -226,11 +226,11 @@ Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, 
 ## <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>¿Por qué aparece el error "No se encuentra el recurso primario" al aprovisionar una máquina virtual desde PowerShell?
 Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si el recurso primario no existe, verá un mensaje **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
 
-Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
 Los errores de implementación de máquinas virtuales se capturan en los registros de actividad. Puede encontrar los registros de actividad de las máquinas virtuales en **Registros de auditoría** o **Virtual machine diagnostics** (Diagnósticos de máquina virtual) en el menú de recursos de la hoja de máquina virtual del laboratorio (la hoja se muestra una vez que selecciona la máquina virtual en la lista **My virtual machines** [Mis máquinas virtuales]).
 
-En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

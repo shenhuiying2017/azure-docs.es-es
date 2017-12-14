@@ -4,7 +4,7 @@ description: "Cómo crear una aplicación universal de Windows con la que los us
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d2c92b65-3c1d-46d1-81c8-88f32f6b2c4b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f39b6e0c209ad0891db478706c6f50585c80b58
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>Agregar inicio de sesión a una aplicación universal de Windows mediante el punto de conexión de v2.0
   El tutorial de inicio rápido para aplicaciones universales de Windows aún no está listo... Vuelva pronto y busque actualizaciones de @AzureAD en Twitter.

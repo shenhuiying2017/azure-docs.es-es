@@ -4,7 +4,7 @@ description: Uso del registro de autoservicio en un inquilino de Azure Active Di
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/03/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 762627a1d743922d680d90d1065ae80fbd3f4420
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 En este artículo se explica el registro de autoservicio y como admitirlo en Azure Active Directory (Azure AD). Si desea asumir un nombre de dominio de un inquilino de Azure AD no administrado, consulte [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Toma de control de un directorio no administrado como administrador).

@@ -5,22 +5,22 @@ services: active-directory
 keywords: "Administración de contraseñas de Active Directory, administración de contraseñas, autoservicio de restablecimiento de contraseña de Azure AD"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 
@@ -160,7 +160,6 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
   * Cualquier operación de cambio de contraseña voluntaria de autoservicio del administrador
   * Cualquier operación exigida de cambio de contraseña de autoservicio del administrador (por ejemplo, la expiración de contraseña)
   * Cualquier restablecimiento de contraseña de autoservicio del administrador que se origina en el [portal de restablecimiento de contraseñas](https://passwordreset.microsoftonline.com)
-  * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde el [Portal de Azure clásico](https://manage.windowsazure.com)
   * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde [Azure Portal](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Operaciones de usuario y administrador que no se admiten en la escritura diferida de contraseñas

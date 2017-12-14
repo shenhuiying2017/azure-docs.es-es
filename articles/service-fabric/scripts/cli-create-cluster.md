@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 571d1d599508f09aff4dde27dffcf0f8e3c6a7d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1fb5828ed65ec4268af5285f23a8fb9f46a96b03
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Creación de un clúster seguro de Linux de Service Fabric en Azure
 
@@ -46,7 +46,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Comando | Notas |
 |---|---|
-| [az sf cluster create](https://docs.microsoft.com/en-us/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Crea un clúster de Azure Service Fabric.  |
+| [az sf cluster create](https://docs.microsoft.com/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) | Crea un clúster de Azure Service Fabric.  |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

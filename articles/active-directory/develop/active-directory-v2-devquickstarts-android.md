@@ -4,7 +4,7 @@ description: "Procedimiento para compilar una aplicación Android con la que los
 services: active-directory
 documentationcenter: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adición de inicio de sesión a una aplicación Android mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
 La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y OpenID Connect. Los desarrolladores pueden usar la biblioteca que quieran integrar con nuestros servicios. Para ayudar a los desarrolladores a utilizar nuestra plataforma con otras bibliotecas, hemos escrito algunos tutoriales como este para demostrar cómo configurar bibliotecas de terceros con el objetivo de conectarse a la plataforma Microsoft Identity. La mayoría de las bibliotecas que implementan [la especificación OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) pueden conectarse a la plataforma Microsoft Identity.

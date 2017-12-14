@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creación de búsquedas de registros en Azure Log Analytics mediante el portal correspondiente
 
@@ -34,7 +34,7 @@ Para crear búsquedas en el portal de análisis avanzado en lugar de en el porta
 En este tutorial se da por supuesto que ya tiene un área de trabajo de Log Analytics con al menos un origen conectado que genera los datos para que las consultas los analicen.  
 
 - Si no tiene un área de trabajo, puede crear una gratis mediante el procedimiento descrito en [Introducción a un área de trabajo de Log Analytics](log-analytics-get-started.md).
-- Conecte al menos un [agente de Windows](log-analytics-windows-agents.md) o un [agente de Linux](log-analytics-linux-agents.md) al área de trabajo.  
+- Conecte al menos un [agente de Windows](log-analytics-windows-agent.md) o un [agente de Linux](log-analytics-linux-agents.md) al área de trabajo.  
 
 ## <a name="open-the-log-search-portal"></a>Abrir el portal de búsqueda de registros
 En primer lugar, abra el portal de búsqueda de registros.  Puede acceder a él en Azure Portal o en el portal de OMS.

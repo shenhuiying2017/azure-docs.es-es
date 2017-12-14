@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: ccebc722386a19014674d7a59757a3685bd50793
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8afb0075eba0093aba8841db1731fb64afb7f6a5
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Pruebas de ancho de banda y rendimiento (NTTTCP)
 
@@ -106,7 +106,7 @@ Ubuntu: instalación de Git:
 ```
 Cree e instale en ambas:
 ``` bash
- git clone <https://github.com/Microsoft/ntttcp-for-linux>
+ git clone https://github.com/Microsoft/ntttcp-for-linux
  cd ntttcp-for-linux/src
  make && make install
 ```
@@ -161,4 +161,4 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Dependiendo de los resultados, puede que haya espacio para [optimizar máquinas de rendimiento de red](virtual-network-optimize-network-bandwidth.md) para su escenario.
-* Más información sobre [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](virtual-networks-faq.md)
+* Obtenga más información con las [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](virtual-networks-faq.md)

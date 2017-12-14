@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 author: asmalser-msft
 writer: asmalser-msft
-manager: stevenpo
+manager: mtillman
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7e6d4275940174074c1758a5b73030e0b3f107c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Tutorial: configuración de Cerner Central para el aprovisionamiento automático de usuarios
 
@@ -123,7 +123,7 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Cerner Central en la sección Usuarios y grupos. La sincronización inicial tardará más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 20 minutos si el servicio de aprovisionamiento de Azure AD está en ejecución. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los informes de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Cerner Central.
 
-Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -133,4 +133,4 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

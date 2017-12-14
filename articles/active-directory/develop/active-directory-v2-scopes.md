@@ -4,7 +4,7 @@ description: "Descripción de la autorización del punto de conexión v2.0 de Az
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ámbitos, permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
 Las aplicaciones que se integran con Azure Active Directory (Azure AD) siguen un modelo de autorización que ofrece a los usuarios control sobre el modo en que una aplicación puede acceder a sus datos. La implementación v2.0 del modelo de implementación se ha actualizado, y cambia el modo en que una aplicación debe interactuar con Azure AD. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
@@ -46,8 +46,8 @@ Mediante la definición de estos tipos de permisos, el recurso tiene control esp
 
 En Azure AD y OAuth, estos tipos de permisos se denominan *ámbitos*. En ocasiones también se conocen como *oAuth2Permissions*. Un ámbito se representa en Azure AD como un valor de cadena. Al igual que en el ejemplo de Microsoft Graph, el valor de ámbito para cada permiso es:
 
-* Leer el calendario de un usuario mediante `Calendar.Read`
-* Escribir en el calendario de un usuario mediante `Mail.ReadWrite`
+* Leer el calendario de un usuario mediante `Calendars.Read`
+* Escribir en el calendario de un usuario mediante `Calendars.ReadWrite`
 * Enviar correo electrónico con un usuario mediante `Mail.Send`
 
 Una aplicación puede solicitar estos permisos mediante la especificación de los ámbitos en las solicitudes al punto de conexión v2.0.
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```

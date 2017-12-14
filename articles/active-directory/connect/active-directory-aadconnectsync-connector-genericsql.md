@@ -4,7 +4,7 @@ description: "En este artículo se describe cómo configurar el conector de SQL 
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: billmath
-ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 04a6b7290c4a17d60145355ef1374960a8b6c5ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referencia técnica del conector de SQL genérico
 En este artículo se describe el conector de SQL genérico. El artículo se aplica a los siguientes productos:
@@ -79,7 +79,7 @@ La base de datos debe admitir uno de estos métodos de autenticación:
 
 * **Autenticación de Windows**: la base de datos de autenticación utiliza las credenciales de Windows para comprobar el usuario. Se utilizan el nombre de usuario y la contraseña especificados para realizar la autenticación con la base de datos. Esta cuenta necesita permisos para la base de datos.
 * **Autenticación de SQL**: la base de datos de autenticación utiliza el nombre de usuario y la contraseña definidos en la pantalla Conectividad para conectarse a la base de datos. Si almacena el nombre de usuario y la contraseña en el archivo DSN, las credenciales proporcionadas en la pantalla Conectividad tendrán prioridad.
-* **Autenticación de Base de datos SQL de Azure**: para más información, consulte [Conexión a Base de datos SQL o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../../sql-database/sql-database-aad-authentication.md).
+* **Autenticación de Azure SQL Database**: para más información, consulte [Conexión a SQL Database o a Almacenamiento de datos SQL mediante autenticación de Azure Active Directory](../../sql-database/sql-database-aad-authentication.md).
 
 **DN is Anchor**(DN es el delimitador): si selecciona esta opción, el nombre distintivo también se utilizará como atributo de delimitador. Se puede usar para una implementación simple, aunque tiene la siguiente limitación:
 

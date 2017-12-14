@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 8/20/2017
 ms.author: xujing
-ms.openlocfilehash: e3209abd17c7ba3e39a67f834be69f113c27a021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fd3cf826915b128039e3d9fe20c309f20ad2c6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino 
 Para los clientes con Windows 10 Enterprise E3/E5 por usuario o con acceso a escritorios virtuales de Windows por usuario (licencias de suscripción de usuarios o licencias de suscripción de usuario de complemento), los derechos de hospedaje multiinquilino de Windows 10 le permiten llevar sus licencias de Windows 10 a la nube y ejecutar máquinas virtuales de Windows 10 en Azure sin pagar por otra licencia. Para más información, consulte [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx) (Hospedaje multiinquilino para Windows 10).
@@ -57,7 +57,7 @@ Para obtener más información:
 
 
 ## <a name="deploying-windows-10-with-multitenant-hosting-rights"></a>Implementación de Windows 10 con derechos de hospedaje multiinquilino
-Asegúrese de que tiene [la versión de Azure PowerShell más reciente instalada y configurada](/powershell/azure/overview). Cuando haya preparado el disco duro virtual, cárguelo en su cuenta de Almacenamiento de Azure mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
+Asegúrese de que tiene [la versión de Azure PowerShell más reciente instalada y configurada](/powershell/azure/overview). Cuando haya preparado el disco duro virtual, cárguelo en su cuenta de Azure Storage mediante el cmdlet `Add-AzureRmVhd` de la siguiente forma:
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -108,7 +108,7 @@ LicenseType              :
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre la [configuración de VDA para Windows 10](https://docs.microsoft.com/en-us/windows/deployment/vda-subscription-activation).
+- Obtenga más información sobre la [configuración de VDA para Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation).
 - Obtenga más información sobre el [hospedaje multiinquilino para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
 
 

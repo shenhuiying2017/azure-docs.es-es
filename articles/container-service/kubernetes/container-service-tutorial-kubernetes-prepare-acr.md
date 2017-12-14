@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4bca5e2522c091b5d8045fd9738b438156ff07f9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: c9c8ad6dfd6df0e99f9e41eaf1da12ebeb2a2da6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementación y uso de Azure Container Registry
 
@@ -54,7 +54,7 @@ En el resto de este tutorial, se usa `<acrname>` como un marcador de posición d
 
 ## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 
-Después, use el comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) para iniciar sesión en la instancia de Azure Container Registry. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
+Después, use el comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para iniciar sesión en la instancia de Azure Container Registry. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
 
 ```azurecli
 az acr login --name <acrName>

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Captura de una máquina virtual Linux que se ejecuta en Azure
 Siga los pasos de este artículo para generalizar y capturar la máquina virtual (VM) Linux de Azure en el modelo de implementación de Resource Manager. Cuando se generaliza la máquina virtual, se quita la información de la cuenta personal y se prepara la máquina virtual para usarla como imagen. A continuación, se captura la imagen de un disco duro virtual (VHD) generalizado para el SO, discos duros virtuales para los discos de datos asociados y un [plantilla de Resource Manager](../../azure-resource-manager/resource-group-overview.md) para las implementaciones de nuevas máquinas virtuales. En este artículo se detalla cómo capturar una imagen de máquina virtual con la CLI de Azure 1.0 para una máquina virtual mediante discos no administrados. También puede [capturar una máquina virtual Azure Managed Disks con la CLI de Azure 2.0](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Los discos administrados se controlan mediante la plataforma de Azure y no requieren preparativos ni ubicación para el almacenamiento. Para obtener más información, consulte [Azure Managed Disks overview](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Información general sobre Azure Managed Disks). 
@@ -61,7 +61,7 @@ En primer lugar, ejecute el comando **waagent** con el parámetro **deprovision*
 ## <a name="step-2-capture-the-vm"></a>Paso 2: Capturar la máquina virtual
 Use la CLI de Azure para generalizar y capturar la máquina virtual. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen **myResourceGroup**, **myVnet** y **myVM**.
 
-1. En el equipo local, abra la CLI de Azure e [inicie sesión en su suscripción de Azure](../../xplat-cli-connect.md). 
+1. En el equipo local, abra la CLI de Azure e [inicie sesión en su suscripción de Azure](/cli/azure/authenticate-azure-cli). 
 2. Asegúrese de que está en modo de Resource Manager.
    
     ```azurecli

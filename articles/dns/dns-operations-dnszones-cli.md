@@ -3,7 +3,7 @@ title: "Administración de zonas DNS en Azure DNS (CLI de Azure 2.0) | Microsoft
 description: "Puede administrar zonas DNS con la CLI de Azure 2.0. Este artículo muestra cómo actualizar, eliminar y crear zonas DNS en Azure DNS."
 services: dns
 documentationcenter: na
-author: georgewallace
+author: KumudD
 manager: timlt
 ms.assetid: 8ab63bc4-5135-4ed8-8c0b-5f0712b9afed
 ms.service: dns
@@ -12,30 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
-ms.author: gwallace
-ms.openlocfilehash: 1414baf9e51d648cc3a46c4f8635040b4d276910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 2042d9c2864a4f8da474e0df38882414bfe3417e
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Cómo administrar zonas DNS en Azure DNS con la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [CLI de Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [CLI de Azure 2.0](dns-operations-dnszones-cli.md)
 
 
 Esta guía muestra cómo administrar las zonas DNS mediante la CLI de Azure multiplataforma, que está disponible para Windows, Mac y Linux. También puede administrar sus zonas DNS mediante [Azure PowerShell](dns-operations-dnszones.md) o Azure Portal.
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-* [CLI de Azure 1.0](dns-operations-dnszones-cli-nodejs.md): la CLI para los modelos de implementación clásica y de administración de recursos.
-* [CLI de Azure 2.0](dns-operations-dnszones-cli.md): la CLI de última generación para el modelo de implementación de administración de recursos.
 
 ## <a name="introduction"></a>Introducción
 
@@ -49,7 +41,7 @@ Antes de comenzar con la configuración, compruebe que dispone de los elementos 
 
 * Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-* Instale la versión más reciente de la CLI de Azure 2.0, disponible para Windows, Linux o Mac. Hay más información disponible en [Install the Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2) (Instalación de la CLI de Azure 2.0).
+* Instale la versión más reciente de la CLI de Azure 2.0, disponible para Windows, Linux o Mac. Hay más información disponible en [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (Instalación de la CLI de Azure 2.0).
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure.
 

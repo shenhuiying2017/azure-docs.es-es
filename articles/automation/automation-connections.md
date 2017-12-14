@@ -1,9 +1,9 @@
 ---
 title: "Recursos de conexión en Azure Automation | Microsoft Docs"
-description: "Los activos de conexión en Automatización de Azure contienen la información necesaria para conectarse a una aplicación o a un servicio externo desde un runbook o una configuración de DSC. En este artículo se explican los detalles de las conexiones y cómo trabajar con ellas en la creación de texto y de gráficos."
+description: "Los activos de conexión en Azure Automation contienen la información necesaria para conectarse a una aplicación o a un servicio externo desde un runbook o una configuración de DSC. En este artículo se explican los detalles de las conexiones y cómo trabajar con ellas en la creación de texto y de gráficos."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: f1746f4f6706835d43edc171b03d4ececfa3560c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Automatización de Azure
+# <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Azure Automation
 
-Un recurso de conexión de Automatización contiene la información necesaria para conectarse a una aplicación o a un servicio externos desde un runbook o una configuración de DSC. Esto puede incluir información solicitada para la autenticación, como un nombre de usuario y una contraseña, además de información de conexión, como una dirección URL o un puerto. El valor de una conexión es mantener todas las propiedades para conectarse a una aplicación determinada en un recurso, a diferencia de crear distintas variables. El usuario puede editar los valores de una conexión en un lugar y es posible pasar el nombre de una conexión a un runbook o una configuración de DSC en un solo parámetro. Es posible tener acceso a las propiedades de una conexión en el runbook o la configuración de DSC con la actividad **Get-AutomationConnection** . 
+Un recurso de conexión de Automation contiene la información necesaria para conectarse a una aplicación o a un servicio externos desde un runbook o una configuración de DSC. Esto puede incluir información solicitada para la autenticación, como un nombre de usuario y una contraseña, además de información de conexión, como una dirección URL o un puerto. El valor de una conexión es mantener todas las propiedades para conectarse a una aplicación determinada en un recurso, a diferencia de crear distintas variables. El usuario puede editar los valores de una conexión en un lugar y es posible pasar el nombre de una conexión a un runbook o una configuración de DSC en un solo parámetro. Es posible tener acceso a las propiedades de una conexión en el runbook o la configuración de DSC con la actividad **Get-AutomationConnection** . 
 
 Cuando crea una conexión, debe especificar un *tipo de conexión*. El tipo de conexión es una plantilla que define un conjunto de propiedades. La conexión define valores para cada propiedad definida en su tipo de conexión. Los tipos de conexión se agregan a Azure Automation en módulos de integración o se crean con la [API de Azure Automation](http://msdn.microsoft.com/library/azure/mt163818.aspx) si el módulo de integración incluye un tipo de conexión y se importa en su cuenta de Automation. En caso contrario, debe crear un archivo de metadatos para especificar un tipo de conexión de Automation.  Para obtener más información sobre esto, consulte [Módulos de integración](automation-integration-modules.md).  
 
 >[!NOTE] 
->Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
+>Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se cifra mediante un certificado maestro y se almacena en Azure Automation. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
 
-Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automatización.
+Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automation.
 
 |Cmdlet|Descripción|
 |:---|:---|

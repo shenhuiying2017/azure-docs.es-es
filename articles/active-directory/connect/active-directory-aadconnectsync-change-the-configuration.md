@@ -4,7 +4,7 @@ description: "Tutorial cómo realizar un cambio en la configuración de la sincr
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dc6be73abafb99772ed428bd4f22c1797c9b1bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada
 El objetivo de este tema es guiarle para realizar cambios en la configuración predeterminada en la sincronización de Azure AD Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar algunos cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
@@ -79,11 +79,11 @@ Con este nuevo cambio, quiere asegurarse de que funciona según lo previsto y no
 Inicie el **Servicio de sincronización** desde el menú Inicio. Los pasos de esta sección se encuentran en esta herramienta.
 
 1. **Sincronización completa en todos los objetos**  
-   Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Servicios de dominio de Active Directory, y selecciónelo. Seleccione **Ejecutar** en Acciones y seleccione **Sincronización completa** y **Aceptar**.
+   Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Active Directory Domain Services, y selecciónelo. Seleccione **Ejecutar** en Acciones y seleccione **Sincronización completa** y **Aceptar**.
    ![Sincronización completa](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
    Los objetos se actualizan ahora en el metaverso. Ahora desea ver el objeto en el metaverso.
 2. **Vista previa y sincronización completa en un solo objeto**  
-   Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Servicios de dominio de Active Directory, y selecciónelo. Seleccione **Search Connector Space**(Buscar espacio de conector). Use el ámbito para encontrar un objeto que se vaya a utilizar para probar el cambio. Seleccione el objeto y haga clic en **Vista previa**. En la nueva pantalla, seleccione **Vista previa de confirmación**.  
+   Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Active Directory Domain Services, y selecciónelo. Seleccione **Search Connector Space**(Buscar espacio de conector). Use el ámbito para encontrar un objeto que se vaya a utilizar para probar el cambio. Seleccione el objeto y haga clic en **Vista previa**. En la nueva pantalla, seleccione **Vista previa de confirmación**.  
    ![Commit preview](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
    Ahora, el cambio se confirma en el metaverso.
 

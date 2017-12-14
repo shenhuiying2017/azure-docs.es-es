@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.openlocfilehash: a530b08c276596ddbffafc21e6cffdd9e0e9e3fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: db3be2120c998a0c8973a85d375b526f53e73247
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -136,7 +136,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 
 ### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
 
-El servicio vinculado de HDInsight a petición requiere una autenticación de entidad de servicio para crear clústeres de HDInsight en su nombre. Para usar autenticación de entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale el rol **Colaborador** de la suscripción o el grupo de recursos en el que se crea el clúster de HDInsight. Para los pasos detallados, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal). Anote los siguientes valores; los usará para definir el servicio vinculado:
+El servicio vinculado de HDInsight a petición requiere una autenticación de entidad de servicio para crear clústeres de HDInsight en su nombre. Para usar autenticación de entidad de servicio, registre una entidad de aplicación en Azure Active Directory (Azure AD) y concédale el rol **Colaborador** de la suscripción o el grupo de recursos en el que se crea el clúster de HDInsight. Para los pasos detallados, consulte [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Anote los siguientes valores; los usará para definir el servicio vinculado:
 
 - Identificador de aplicación
 - Clave de la aplicación 
@@ -247,7 +247,7 @@ Este tipo de configuración se admite para los entornos de procesos siguientes:
 
 * HDInsight de Azure
 * Azure Batch
-* Aprendizaje automático de Azure
+* Azure Machine Learning
 * Análisis con Azure Data Lake
 * Azure SQL DB, Azure SQL DW, SQL Server
 
@@ -346,7 +346,7 @@ Consulte los temas siguientes si no está familiarizado con el servicio Azure Ba
 | connectVia        | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | No       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning
-Un servicio vinculado de aprendizaje automático de Azure se crea para registrar un punto de conexión de puntuación por lotes de aprendizaje automático en una factoría de datos.
+Un servicio vinculado de Azure Machine Learning se crea para registrar un punto de conexión de puntuación por lotes de Machine Learning en una factoría de datos.
 
 ### <a name="example"></a>Ejemplo
 

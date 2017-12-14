@@ -1,3 +1,4 @@
+
 1. Una vez creada y en ejecución la máquina virtual de Azure, haga clic en el icono Virtual Machines en Azure Portal para ver las máquinas virtuales.
 
 1. Haga clic en el botón de puntos suspensivos, **...** , de la nueva máquina virtual.

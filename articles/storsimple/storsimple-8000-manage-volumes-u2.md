@@ -4,7 +4,7 @@ description: "Explica cómo agregar, modificar, supervisar y eliminar volúmenes
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Usar el servicio Administrador de dispositivos de StorSimple para administrar volúmenes (Update 3 o posterior)
 
@@ -119,11 +119,7 @@ Ya [creó un volumen](storsimple-8000-deployment-walkthrough-u2.md#step-6-create
       
        Si se aprovisiona un volumen anclado localmente de 8,5 TB (tamaño máximo permitido) en el dispositivo 8100, habrá agotado todo el espacio local disponible en él. No puede crear ningún volumen en capas desde ese punto en adelante, porque no hay ningún espacio local en el dispositivo para hospedar el espacio de trabajo del volumen en capas. Los volúmenes existentes en capas también afectan al espacio disponible. Por ejemplo, si tiene un dispositivo 8100 que ya cuenta con volúmenes en capas de aproximadamente 106 TB, solo 4 TB de espacio estarán disponibles para volúmenes anclados localmente.
 
-    6. En el campo **Hosts conectados**, haga clic en la flecha. 
-
-        ![Hosts conectados](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
-
-    7. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un ACR nuevo. Si elige un nuevo ACR, proporcione después un **Nombre** para el ACR y proporcione el **Nombre calificado iSCSI** (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host). Haga clic en **Crear**. Se creará un volumen con la configuración especificada.
+    6. En el campo **Hosts conectados**, haga clic en la flecha. En la hoja **Hosts conectados**, seleccione un ACR existente o agregue un ACR nuevo. Si elige un nuevo ACR, proporcione después un **Nombre** para el ACR y proporcione el **Nombre calificado iSCSI** (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host). Haga clic en **Crear**. Se creará un volumen con la configuración especificada.
 
         ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

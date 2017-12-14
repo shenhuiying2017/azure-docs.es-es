@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1fad082a576bc994897c6b396e5edcfa02313487
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 0c0a229e973999cb60ca5da2df652a6182c192a8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 La delegación le permite usar su sitio web actual para controlar el inicio de sesión y la suscripción de los desarrolladores, así como sus suscripciones a productos, en contraposición al uso de la funcionalidad integrada en el portal para desarrolladores. Esto habilita su sitio web como propietario de los datos de usuario para poder realizar la validación de estos pasos de forma personalizada.
@@ -172,7 +172,7 @@ Para obtener más información acerca de la delegación, vea el siguiente vídeo
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[solicite un token de inicio de sesión único (SSO)]: https://docs.microsoft.com/en-us/rest/api/apimanagement/User/GenerateSsoUrl
+[solicite un token de inicio de sesión único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Cree un usuario]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [llamando a la API de REST para la suscripción del producto]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.openlocfilehash: 9f3d564fd844d982838cc6f29af24399801a62bc
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ee91ca168acf2fa0d248e18cce64ac546740a2bd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Exploración y administración de recursos de almacenamiento mediante el Explorador de servidores
 
@@ -162,7 +162,7 @@ En la siguiente imagen se muestra una cola que contiene dos mensajes:
 Para más información sobre las colas de servicios de almacenamiento, consulte [Introducción a Azure Queue Storage mediante .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obtener información sobre el servicio web para colas de servicios de almacenamiento, vea [Conceptos del servicio Cola](http://go.microsoft.com/fwlink/?LinkId=264788). Para obtener información acerca de cómo enviar mensajes a una cola de servicios de almacenamiento mediante Visual Studio, vea [Enviar mensajes a una cola de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 > [!NOTE]
-> Las colas de servicios de almacenamiento son distintas de las colas de Azure Service Bus. Para más información sobre las colas de Service Bus, consulte [Colas, temas y suscripciones de Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
+> Las colas de servicios de almacenamiento son distintas de las colas de Azure Service Bus. Para más información sobre las colas de Service Bus, consulte [Colas, temas y suscripciones de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
 
 ## <a name="work-with-table-resources"></a>Uso de recursos de tabla
 

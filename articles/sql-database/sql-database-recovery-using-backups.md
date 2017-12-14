@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: b23ee0629720676b76de17c81f90b33a4fd4d8a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 SQL Database proporciona estas opciones para la recuperación de bases de datos mediante [copias de seguridad automatizadas de la base de datos](sql-database-automated-backups.md) y [copias de seguridad en retención a largo plazo](sql-database-long-term-retention.md). Puede restaurar de una copia de seguridad de base de datos a:
@@ -70,7 +70,7 @@ No existe ninguna funcionalidad integrada para restaurar de forma masiva. El scr
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-Puede restaurar una base de datos existente a un momento dado como una nueva base de datos en el mismo servidor lógico con Azure Portal, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase) o la [API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Puede restaurar una base de datos existente a un momento dado como una nueva base de datos en el mismo servidor lógico con Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o la [API de REST](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!TIP]
 > Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración a un momento dado, vea [Restauración de una instancia de SQL Database con PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -90,7 +90,7 @@ Para recuperar a un momento dado mediante Azure Portal, abra la página de la ba
 ![restauración a un momento dado](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
 ## <a name="deleted-database-restore"></a>Restauración de la base de datos eliminada
-Puede restaurar una base de datos eliminada a la hora de eliminación de una base de datos eliminada en el mismo servidor lógico con Azure Portal, [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.sql/restore-azurermsqldatabase) o la [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
+Puede restaurar una base de datos eliminada a la hora de eliminación de una base de datos eliminada en el mismo servidor lógico con Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) o la [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx). 
 
 > [!TIP]
 > Para obtener un script de PowerShell de ejemplo que muestre cómo realizar una restauración en una base de datos eliminada, vea [Restauración de una instancia de SQL Database con PowerShell](scripts/sql-database-restore-database-powershell.md).

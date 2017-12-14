@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 64141afe421ace44fe71c04f8a2fba48144633c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="consuming-web-services"></a>Uso de servicios web
 Al implementar un modelo como un servicio web en tiempo real, puede enviarle datos y obtener predicciones de diversas plataformas y aplicaciones. El servicio web en tiempo real expone una API de REST para obtener predicciones. Puede enviar datos al servicio web en formato de una o varias filas para obtener una o varias predicciones al mismo tiempo.
 
-Con el [servicio web Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), una aplicación externa se comunica de forma sincrónica con un modelo predictivo mediante la realización de una llamada HTTP POST a la dirección URL del servicio. Para realizar una llamada al servicio web, la aplicación cliente debe especificar la clave de API que se crea al implementar una predicción y poner los datos de solicitud en el cuerpo de la solicitud POST.
+Con el [servicio web Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy), una aplicación externa se comunica de forma sincrónica con un modelo predictivo mediante la realización de una llamada HTTP POST a la dirección URL del servicio. Para realizar una llamada al servicio web, la aplicación cliente debe especificar la clave de API que se crea al implementar una predicción y poner los datos de solicitud en el cuerpo de la solicitud POST.
 
 Tenga en cuenta que las claves de API solo están disponibles en el modo de implementación de clúster. Los servicios web locales no tienen claves.
 

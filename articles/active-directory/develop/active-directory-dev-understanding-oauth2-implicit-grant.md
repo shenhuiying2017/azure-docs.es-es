@@ -4,7 +4,7 @@ description: "Sepa más de la implementación del flujo de concesión implícita
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/15/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 241c744737515ee0c8d5d833a51121808877e559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)
 La concesión implícita de OAuth2 es conocida por tratarse de la lista más amplia de problemas de seguridad de la especificación de OAuth2. Además, es el enfoque que ha implementado ADAL JS y el que recomendamos a la hora de crear aplicaciones SPA. ¿Qué ventajas aporta? Se trata de analizar los pros y los contras: cuando se adopta, la concesión implícita es el mejor enfoque que puede aplicarse a las aplicaciones que usan una API web a través de JavaScript en un explorador.

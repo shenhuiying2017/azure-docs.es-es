@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: a30d7a8e3f2e11a0c5ed05c5b68d75d32b138fb9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fbcb4807aa7f6a3d6227cd630c77714c4d2834b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Solución de problemas de YARN mediante Azure HDInsight
 
@@ -139,7 +139,7 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
 
 ### <a name="additional-reading-2"></a>Lecturas adicionales
 
-- [Conexión a HDInsight (Hadoop) a través de SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Conexión a HDInsight (Hadoop) a través de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop Yarn concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Conceptos y aplicaciones de YARN en Apache Hadoop)
 
 

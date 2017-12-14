@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d593b011ce4d0998ef07bc257d3c26f1286e3b0e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Implementación de OpenShift Origin en Azure
 
@@ -98,7 +98,7 @@ En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.pa
 
 
 > [!NOTE] 
-> El comando siguiente requiere la CLI de Azure 2.0.8 o una versión posterior. Puede comprobar la versión de la CLI con el comando `az --version`. Para actualizar la versión de la CLI, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> El comando siguiente requiere la CLI de Azure 2.0.8 o una versión posterior. Puede comprobar la versión de la CLI con el comando `az --version`. Para actualizar la versión de la CLI, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 En el ejemplo siguiente se implementa el clúster de OpenShift y todos los recursos relacionados en un grupo de recursos llamado myResourceGroup, con el nombre de implementación myOpenShiftCluster. Se hace referencia a la plantilla directamente desde el repositorio de GitHub mediante el uso de un archivo de parámetros local denominado azuredeploy.parameters.json.
 
@@ -119,7 +119,7 @@ La implementación tarda al menos 25 minutos en completarse, según el número t
 
 ## <a name="connect-to-the-openshift-cluster"></a>Conexión con el clúster de OpenShift
 
-Cuando concluya la implementación, conéctese a la consola de OpenShift con el explorador mediante el uso de `OpenShift Console Uri`. Como alternativa, puede conectarse al maestro de OpenShift con el siguiente comando:
+Cuando concluya la implementación, conéctese a la consola de OpenShift con el explorador mediante `OpenShift Console Uri`. Como alternativa, puede conectarse al maestro de OpenShift con el siguiente comando:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com

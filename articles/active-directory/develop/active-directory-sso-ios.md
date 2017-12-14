@@ -4,7 +4,7 @@ description: "Cómo utilizar las características del SDK de ADAL para habilitar
 services: active-directory
 documentationcenter: 
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 73b8ed7e6a153a0790f7eae9bd51bb2e554ae72e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e8b9e61f0417e365fb68a7de7135965ca43ab86
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 Actualmente, los clientes esperan disfrutar de un inicio de sesión único que les permita escribir sus credenciales una sola vez y que esas credenciales se propaguen automáticamente entre las diferentes aplicaciones. La dificultad de escribir el nombre de usuario y contraseña en una pantalla pequeña, a menudo combinado con un factor adicional (2FA) como una llamada de teléfono o un código de mensaje de texto, provoca una rápida insatisfacción si el usuario tiene que hacer esto más de una vez para su producto.

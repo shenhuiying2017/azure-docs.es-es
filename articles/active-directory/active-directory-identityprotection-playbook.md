@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5479981ed4c017e6953ef616588ca0e4060ce3b2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: e274a9364dcb7bf4d220159e1f906bbd015369aa
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 Esta guía le ayudará a:
@@ -109,7 +109,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 11. Haga clic en **Guardar**.
 12. Ahora puede probar el acceso condicional basado en riesgos mediante un inicio de sesión con un usuario con un nivel de riesgo elevado. Si el riesgo del usuario es Medio, en función de la directiva que establezca, se bloqueará el inicio de sesión o se forzará el cambio de contraseña. 
     <br><br>
-    ![Guía](./media/active-directory-identityprotection-playbook/201.png "Guía")
+    ![Guía de](./media/active-directory-identityprotection-playbook/201.png "Guía")
     <br>
 
 ## <a name="sign-in-risk"></a>Riesgo de inicio de sesión

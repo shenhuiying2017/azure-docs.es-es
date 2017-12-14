@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Características de Log Analytics para proveedores de servicios
 Log Analytics puede ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales en la nube del cliente. 
@@ -26,7 +26,7 @@ Log Analytics puede ayudar a proveedores de servicios administrados (MSP), grand
 Las grandes empresas comparten muchas similitudes con los proveedores de servicios, especialmente cuando hay un equipo de TI centralizado que es responsable de la administración de TI de muchas unidades de negocio diferentes. Por motivos de simplicidad, este documento utiliza el término "*proveedor de servicios*", pero la misma funcionalidad también está disponible para empresas y otros clientes.
 
 ## <a name="cloud-solution-provider"></a>Proveedor de soluciones en la nube
-Para los asociados y proveedores de servicios que forman parte del programa de [proveedores de soluciones en la nube (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics es uno de los servicios de Azure que hay disponible en una [suscripción de CSP de Azure](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Para los asociados y proveedores de servicios que forman parte del programa de [proveedores de soluciones en la nube (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics es uno de los servicios de Azure que hay disponible en una [suscripción de CSP de Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 Para análisis Log Analytics, se habilitan las siguientes funcionalidades en las suscripciones de *proveedores de soluciones en la nube*.
 
@@ -51,7 +51,7 @@ Los *clientes* de un proveedor de soluciones en la nube, puede realizar las sigu
 * Ver y usar la página de administración de usuarios en la aplicación Configuración del portal de OMS.
 
 > [!NOTE]
-> Las soluciones de copia de seguridad y recuperación del sitio incluidas para Log Analytics no pueden conectarse a un almacén de Recovery Services y no se puede configurar en una suscripción de CSP. 
+> Las soluciones Backup y Recovery Services incluidas para Log Analytics no pueden conectarse a un almacén de Recovery Services y no se puede configurar en una suscripción de CSP. 
 > 
 > 
 

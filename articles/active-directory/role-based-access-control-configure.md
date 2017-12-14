@@ -1,10 +1,10 @@
 ---
 title: Control de acceso basado en rol en Azure Portal | Microsoft Docs
-description: "Introducción a la administración del acceso con el control de acceso basado en rol en el Portal de Azure. Use las asignaciones de roles para asignar permisos a los recursos."
+description: "Introducción a la administración del acceso con el control de acceso basado en rol en Azure Portal. Use las asignaciones de roles para asignar permisos a los recursos."
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d037e224e206e162fb3a6c896ce69c0fe69ad496
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure
 > [!div class="op_single_selector"]

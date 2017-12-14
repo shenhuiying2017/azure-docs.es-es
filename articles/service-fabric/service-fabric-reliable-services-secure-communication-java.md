@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e2f36b3de1dd04c1a3f36ae308af164d10654ea
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Ayuda para garantizar la comunicación de los servicios de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Vamos a usar un [ejemplo](service-fabric-reliable-services-communication-remotin
 
     Asegúrese de que el certificado que desea utilizar para ayudar a proteger la comunicación de servicio esté instalado en todos los nodos del clúster. Hay dos formas de proporcionar la configuración de escucha y las credenciales de seguridad:
 
-   1. Proporcionarlas utilizando un [paquete de configuración](service-fabric-application-model.md):
+   1. Proporcionarlas utilizando un [paquete de configuración](service-fabric-application-and-service-manifests.md):
 
        Agregue una sección `TransportSettings` en el archivo settings.xml.
 

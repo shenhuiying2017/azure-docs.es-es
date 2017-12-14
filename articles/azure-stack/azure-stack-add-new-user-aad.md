@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *Se aplica a: Azure Stack Development Kit*
 
@@ -28,7 +28,7 @@ Después de [implementar Azure Stack Development Kit](azure-stack-run-powershell
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Creación de una cuenta de inquilino de Azure Stack con el Portal de Azure+
 Debe tener una suscripción de Azure para usar el Portal de Azure.
 
-1. Inicie sesión en [Azure](http://manage.windowsazure.com).
+1. Inicie sesión en [Azure](https://portal.azure.com).
 2. En la barra de navegación izquierda de Microsoft Azure, haga clic en **Active Directory**.
 3. En la lista de directorios, haga clic en el directorio que desea usar para Azure Stack o cree uno nuevo.
 4. En este directorio, haga clic en **Usuarios**.

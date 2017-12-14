@@ -4,7 +4,7 @@ description: "Aprenda a definir roles personalizados con Control de acceso basad
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 53c8060413f5625273360d9bf23cf27b3f56fb32
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Creación de roles personalizados para el control de acceso basado en roles de Azure
 Cree un rol personalizado en Control de acceso basado en rol (RBAC) de Azure si ninguno de los roles integrados satisface sus necesidades de acceso específicas. Se pueden crear roles personalizados con [Azure PowerShell](role-based-access-control-manage-access-powershell.md), la [interfaz de la línea de comandos (CLI) de Azure](role-based-access-control-manage-access-azure-cli.md) y la [API de REST](role-based-access-control-manage-access-rest.md). Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y aplicaciones en los ámbitos de suscripción, grupo de recursos y recurso. Los roles personalizados se almacenan en un inquilino de Azure AD y se pueden compartir entre suscripciones.

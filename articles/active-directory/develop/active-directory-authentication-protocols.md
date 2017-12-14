@@ -4,7 +4,7 @@ description: "Información general sobre los protocolos de autenticación admiti
 documentationcenter: dev-center-name
 author: priyamohanram
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: e106a9bdf28243dd829b6a014b73c148809c1bde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1387ce5f3f16301786cf4111a081a5486788fa77
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocolos de autenticación de Azure Active Directory
 Azure Active Directory (Azure AD) admite varios de los protocolos de autenticación y autorización utilizados más comúnmente. En los temas de esta sección se describen los protocolos admitidos y su implementación en Azure AD. En los temas se incluye una revisión de los tipos de notificación compatibles, una introducción al uso de los metadatos de federación, documentación de referencia detallada sobre los protocolos OAuth 2.0. y SAML 2.0, y una sección de solución de problemas.

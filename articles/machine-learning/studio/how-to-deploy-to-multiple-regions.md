@@ -3,7 +3,7 @@ title: Procedimiento para implementar un servicio web en varias regiones | Micro
 description: Pasos para implementar (copiar) un servicio web nuevo en otras regiones
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: cgronlun
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd6f05e9b9ce711ce55e88f07aa13287c76ebc2
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Procedimiento para implementar un servicio web en varias regiones
 Gracias a los servicios web nuevos de Azure, se puede implementar fácilmente un servicio web en varias regiones sin necesidad de disponer de varias suscripciones o áreas de trabajo. 
@@ -26,7 +26,7 @@ Gracias a los servicios web nuevos de Azure, se puede implementar fácilmente un
 Los precios dependen de la región, por lo tanto, debe definir un plan de facturación para cada región en la que implementará el servicio web.
 
 ## <a name="to-create-a-plan-in-another-region"></a>Pasos para crear un plan en otra región
-1. Inicie sesión en el [portal de servicios web de Aprendizaje automático de Microsoft Azure](https://services.azureml.net/).
+1. Inicie sesión en el [portal de servicios web de Microsoft Azure Machine Learning](https://services.azureml.net/).
 2. Haga clic en la opción de menú **Planes** .
 3. En la página de información general de Planes, haga clic en **Nuevo**.
 4. En el menú desplegable **Suscripción** , seleccione la suscripción en que residirá el nuevo plan.

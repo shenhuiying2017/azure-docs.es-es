@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 41b122cdb4dcb836b431004fc162ebe06d0c8b17
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Administración de discos de Azure con la CLI de Azure
 
@@ -61,7 +61,7 @@ Cuando se crea una máquina virtual de Azure, se conectan dos discos automática
 
 ## <a name="azure-data-disks"></a>Discos de datos de Azure
 
-Se pueden agregar discos de datos adicionales para instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 1 terabyte. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual. Para cada vCPU de la máquina virtual, se pueden conectar dos discos de datos. 
+Se pueden agregar discos de datos adicionales para instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 1 terabyte. El tamaño de la máquina virtual determina cuántos discos de datos se pueden conectar a una máquina virtual. Para cada vCPU de la máquina virtual, se pueden asociar dos discos de datos. 
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
@@ -233,7 +233,7 @@ Cuando se toma una instantánea de disco, se crea una copia de solo lectura y de
 
 ### <a name="create-snapshot"></a>Creación de una instantánea
 
-Antes de crear una instantánea de disco de máquina virtual, se necesita el identificador o el nombre del disco. Use el comando [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) para devolver el identificador de disco. En este ejemplo, el identificador del disco se almacena en una variable para que se pueda usar en un paso posterior.
+Antes de crear una instantánea de disco de máquina virtual, se necesita el identificador o el nombre del disco. Use el comando [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) para devolver el identificador de disco. En este ejemplo, el identificador del disco se almacena en una variable para que se pueda usar en un paso posterior.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

@@ -4,7 +4,7 @@ description: "Esta página presenta proveedores de identidades de terceros que s
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: billmath
-ms.openlocfilehash: ed1e9276425b2c8577275e7ec6b57f54e5f7ae92
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 86c247b6a9d197e89040109ac6b8686e3310dbf5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidad de federación de Azure AD
 Azure Active Directory brinda mayor seguridad en el acceso a la aplicación e inicio de sesión único para Office 365 y otros servicios en línea de Microsoft para implementaciones híbridas y solo en la nube sin que sea necesaria ninguna solución de terceros. Office 365, al igual que la mayoría de los servicios en línea de Microsoft, está integrado con Azure Active Directory para autorización, autenticación y servicios de directorio. Azure Active Directory también proporciona inicio de sesión único a miles de aplicaciones SaaS y aplicaciones web locales. Consulte la galería de aplicaciones de Azure Active Directory para ver las aplicaciones SaaS compatibles.
@@ -195,7 +195,7 @@ A continuación, se presenta la matriz de compatibilidad de escenarios para esta
 | --- | --- | --- |
 | Clientes basados en web como Exchange Web Access y SharePoint Online |Compatible |None|
 | Aplicaciones cliente enriquecidas como Lync, suscripción a Office, CRM |Compatible |None|
-| Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |Ninguna |
+| Clientes de correo electrónico enriquecidos, como Outlook y ActiveSync |Compatible |None |
 
 Para obtener más información, consulte [ForgeRock Identity Platform Access Management V5.x](https://backstage.forgerock.com/knowledge/kb/article/a98278517).
 

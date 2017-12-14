@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Conexión de equipos sin acceso a Internet a OMS mediante OMS Gateway
 
@@ -129,7 +129,7 @@ Para más información sobre cómo diseñar e implementar un clúster de equilib
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configuración de agentes de OMS y de un grupo de administración de Operations Manager
 La sección siguiente incluye pasos sobre cómo configurar agentes de OMS, un grupo de administración de Operations Manager o Hybrid Runbook Workers de Azure Automation con OMS Gateway para comunicarse con OMS.  
 
-Para entender los requisitos y los pasos sobre cómo instalar el agente de OMS en equipos Windows conectados directamente a OMS, consulte [Conexión de equipos Windows a OMS](log-analytics-windows-agents.md) o para equipos Linux, consulte [Conexión de equipos Linux a OMS](log-analytics-linux-agents.md). 
+Para entender los requisitos y los pasos sobre cómo instalar el agente de OMS en equipos Windows conectados directamente a OMS, consulte [Conexión de equipos Windows a OMS](log-analytics-windows-agent.md) o para equipos Linux, consulte [Conexión de equipos Linux a OMS](log-analytics-linux-agents.md). 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configuración de agentes de OMS y de Operations Manager para usar OMS Gateway como servidor proxy
 

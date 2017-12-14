@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: 5a80195dd474414626cc54623945393c6f88093d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: e6a22e9989bfe7064ead1c5598e9c68d4a929b07
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Enrutamiento de mensajes con IoT Hub (Node)
 
@@ -209,7 +209,7 @@ En esta sección, se crea una cuenta de Storage, se conecta con el IoT Hub y se 
 
 2. En Azure Portal, abra el centro de IoT y haga clic en **Puntos de conexión**.
 
-3. En la hoja **Puntos de conexión**, seleccione el punto de conexión **CriticalQueue** y haga clic en **Eliminar**. Haga clic en **Sí** y, a continuación, en **Agregar**. Asigne el nombre **StorageContainer** al punto de conexión y use los menús desplegables para seleccionar **Contenedor de Azure Storage** y crear una **cuenta de Storage** y un **contenedor de Storage**.  Tome nota de los nombres.  Cuando haya terminado, haga clic en **Aceptar** en la parte inferior. 
+3. En la hoja **Puntos de conexión**, seleccione el punto de conexión **CriticalQueue** y haga clic en **Eliminar**. Haga clic en **Sí** y, luego, en **Agregar**. Asigne el nombre **StorageContainer** al punto de conexión y use los menús desplegables para seleccionar **Contenedor de Azure Storage** y crear una **cuenta de Storage** y un **contenedor de Storage**.  Tome nota de los nombres.  Cuando haya terminado, haga clic en **Aceptar** en la parte inferior. 
 
  > [!NOTE]
    > Si no está limitado a un **punto de conexión**, no es necesario eliminar **CriticalQueue**.
@@ -265,4 +265,4 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 [lnk-c2d]: iot-hub-node-node-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-free-trial]: https://azure.microsoft.com/free/
-[lnk-storage]: https://docs.microsoft.com/en-us/azure/storage/
+[lnk-storage]: https://docs.microsoft.com/azure/storage/

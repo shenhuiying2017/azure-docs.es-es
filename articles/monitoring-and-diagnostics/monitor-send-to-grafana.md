@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Ahora, los servicios y las aplicaciones de Azure también se pueden supervisar desde [Grafana](https://grafana.com/) gracias al [complemento de origen de datos de Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). Este complemento recopila los datos de rendimiento de la aplicación recabados por el SDK de Application Insights, así como los datos de infraestructura proporcionados por Azure Monitor. De este modo, podrá ver estos datos en el panel de Grafana.
@@ -62,7 +62,7 @@ Grafana usa una entidad de servicio de Azure Active Directory para conectarse a 
 
 1. Vea [estas instrucciones](../azure-resource-manager/resource-group-create-service-principal-portal.md) para crear una entidad de servicio. Copie y guarde el identificador de inquilino, el identificador de cliente y un secreto de cliente.
 
-2. Vea [Asignación de aplicación a un rol](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para asignar el rol de lector a la aplicación Azure Active Directory.   
+2. Vea [Asignación de aplicación a un rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para asignar el rol de lector a la aplicación Azure Active Directory.     
 
 3. Si usa Application Insights, también puede incluir la API de Application Insights y el identificador de la aplicación para recopilar métricas basadas en Application Insights. Para más información, vea [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (Obtener la clave de API y el identificador de aplicación).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Replicación de una aplicación web basada en IIS de niveles múltiples con Azure Site Recovery
 
@@ -71,6 +71,7 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con II
 **Hyper-V** | Sí | Sí
 **VMware** | Sí | Sí
 **Servidor físico** | No | Sí
+**Las tablas de Azure**|N/D|Sí
 
 ## <a name="replicate-virtual-machines"></a>Replicación de máquinas virtuales
 
@@ -133,7 +134,7 @@ Si la dirección IP está asociada a un sitio, tendrá que actualizar todos los 
 Si tiene una máquina virtual de Enrutamiento de solicitud de aplicaciones, agregue un [script de conmutación por error de ARR para IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) detrás de Group 4 (Grupo 4) para actualizar la dirección IP.
 
 #### <a name="the-ssl-cert-binding-for-an-https-connection"></a>Enlace de certificado SSL de una conexión https
-Los sitios web pueden tener un certificado SSL asociado que les ayude a garantizar una comunicación segura entre el servidor web y el explorador del usuario. Si el sitio web tiene una conexión https y una enlace de sitio https asociado a la dirección IP del servidor IIS con un enlace de certificado SSL, tras la conmutación por error, será necesario agregar un nuevo enlace de sitio para el certificado con la dirección IP de la máquina virtual IIS.
+Websites puede tener un certificado SSL asociado que les ayude a garantizar una comunicación segura entre el servidor web y el explorador del usuario. Si el sitio web tiene una conexión https y una enlace de sitio https asociado a la dirección IP del servidor IIS con un enlace de certificado SSL, tras la conmutación por error, será necesario agregar un nuevo enlace de sitio para el certificado con la dirección IP de la máquina virtual IIS.
 
 El certificado SSL puede emitirse con arreglo a:
 

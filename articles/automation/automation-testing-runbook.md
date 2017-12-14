@@ -1,9 +1,9 @@
 ---
 title: Prueba de un runbook en Azure Automation | Microsoft Docs
-description: "Antes de publicar un runbook en Automatización de Azure, puede probarlo para asegurarse de que funciona según lo previsto.  En este artículo se describe cómo probar un runbook y ver su salida."
+description: "Antes de publicar un runbook en Azure Automation, puede probarlo para asegurarse de que funciona según lo previsto.  En este artículo se describe cómo probar un runbook y ver su salida."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: 2c811cc8c8277e9840babcf1043cde44238b8661
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df675dbf915d0fe08905a83b7874fdd95deed42d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="testing-a-runbook-in-azure-automation"></a>Prueba de un runbook en Automatización de Azure
+# <a name="testing-a-runbook-in-azure-automation"></a>Prueba de un runbook en Azure Automation
 Cuando se prueba un runbook, se ejecuta la [versión de borrador](automation-creating-importing-runbook.md#publishing-a-runbook) y se completan todas las acciones que realiza. No se crea ningún historial de trabajos, pero los flujos de [salida](automation-runbook-output-and-messages.md#output-stream) y los de [error y advertencia](automation-runbook-output-and-messages.md#message-streams) se muestran en el panel de salida de la prueba. Los mensajes del [flujo detallado](automation-runbook-output-and-messages.md#message-streams) solo se muestran en el panel de salida si la [variable $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) está establecida en Continue.
 
 Aun cuando se ejecuta la versión de borrador, el runbook ejecuta el flujo de trabajo con normalidad y realiza las acciones correspondientes en los recursos del entorno. Por este motivo, solo debe probar runbooks en recursos no pertenecientes a entornos de producción.
@@ -39,8 +39,8 @@ Puede trabajar con cualquier [tipo de Runbook](automation-runbook-types.md) en e
 7. Revise la salida del runbook en el panel de salida.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para obtener información sobre cómo crear o importar un runbook, consulte [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
-* Para obtener más información sobre la creación de gráficos, consulte [Creación gráfica en Automatización de Azure](automation-graphical-authoring-intro.md)
+* Para obtener información sobre cómo crear o importar un runbook, consulte [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
+* Para obtener más información sobre la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
-* Para obtener más información sobre cómo configurar runbooks para devolver los errores y mensajes de estado, incluidas las prácticas recomendadas, consulte [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
+* Para obtener más información sobre cómo configurar runbooks para devolver los errores y mensajes de estado, incluidas las prácticas recomendadas, consulte [Salidas de runbook y mensajes en Azure Automation](automation-runbook-output-and-messages.md)
 

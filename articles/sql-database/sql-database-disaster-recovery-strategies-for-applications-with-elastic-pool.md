@@ -12,17 +12,18 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
+ms.author: sashan
+ms.reviewer: carlrab
 ms.workload: Inactive
-ms.date: 04/07/2017
-ms.author: sashan;carlrab
-ms.openlocfilehash: 03bc991d5c1f644b439e9ebfa0d750cbf0c56764
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9d12fb8a7dbd3bb763e42fd0981d7ef18b57248b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estrategias de recuperación ante desastres para aplicaciones que usan grupos elásticos de SQL Database
-A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos ocurren. SQL Database proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos únicas admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de Base de datos SQL.
+A lo largo de los años, hemos aprendido que los servicios en la nube no son infalibles y que los incidentes catastróficos ocurren. SQL Database proporciona una serie de funcionalidades para proporcionar la continuidad del negocio de la aplicación cuando se producen estos incidentes. Los [grupos elásticos](sql-database-elastic-pool.md) y las bases de datos únicas admiten el mismo tipo de funcionalidades de recuperación ante desastres. En este artículo se describen varias estrategias de recuperación ante desastres para grupos elásticos que sacan partido a esas características de continuidad de negocio de SQL Database.
 
 En este artículo se usa el modelo de aplicaciones de ISV de SaaS canónico siguiente:
 
@@ -62,7 +63,7 @@ En este momento la aplicación estará en línea en la región primaria con toda
 
 ![Ilustración 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-La principal **ventaja** de esta estrategia es el bajo costo continuo para la redundancia de nivel de datos. Las copias de seguridad las realiza automáticamente el servicio de Base de datos SQL sin necesidad de reescritura de aplicación y sin costo adicional.  El costo se contrae solo cuando se restauran las bases de datos elásticas. El **inconveniente** es que la recuperación completa de todas las bases de datos de inquilino tarda mucho tiempo. El tiempo dependerá del número total de restauraciones que se inicien en la región de recuperación ante desastres y del tamaño general de las bases de datos de inquilino. Aunque si se priorizan algunas restauraciones de inquilinos sobre otras, estará compitiendo con todas las demás restauraciones que se inicien en la misma región, ya que el servicio arbitrará y se limitará para minimizar la repercusión global en las bases de datos de los clientes existentes. Además, la recuperación de las bases de datos de inquilino no podrá iniciarse hasta que se cree el nuevo grupo elástico en la región de recuperación ante desastres.
+La principal **ventaja** de esta estrategia es el bajo costo continuo para la redundancia de nivel de datos. Las copias de seguridad las realiza automáticamente el servicio SQL Database sin necesidad de reescritura de aplicación y sin costo adicional.  El costo se contrae solo cuando se restauran las bases de datos elásticas. El **inconveniente** es que la recuperación completa de todas las bases de datos de inquilino tarda mucho tiempo. El tiempo dependerá del número total de restauraciones que se inicien en la región de recuperación ante desastres y del tamaño general de las bases de datos de inquilino. Aunque si se priorizan algunas restauraciones de inquilinos sobre otras, estará compitiendo con todas las demás restauraciones que se inicien en la misma región, ya que el servicio arbitrará y se limitará para minimizar la repercusión global en las bases de datos de los clientes existentes. Además, la recuperación de las bases de datos de inquilino no podrá iniciarse hasta que se cree el nuevo grupo elástico en la región de recuperación ante desastres.
 
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Escenario 2. Aplicación madura con servicio en capas
 <i>Tengo una aplicación de SaaS desarrollada con ofertas de servicio en capas y distintos Acuerdos de Nivel de Servicio para clientes de versiones de prueba y de pago. Para los clientes de versiones de prueba, tengo que reducir el costo tanto como sea posible. Los clientes de versiones de prueba pueden asumir el tiempo de inactividad, pero quiero reducir su probabilidad. Para los clientes de versiones de pago, los tiempos de inactividad es un riesgo de vuelo. Por tanto, quiero asegurarme de que los clientes con versiones de pago siempre tengan acceso a sus datos.</i> 
@@ -166,7 +167,7 @@ Las **contrapartidas** principales son las siguientes:
 Este artículo se centra en las estrategias de recuperación ante desastres para el nivel de base de datos utilizado por una aplicación multiinquilino ISV de SaaS. La estrategia que seleccione debe basarse en las necesidades de la aplicación, como el modelo de negocio, el contrato de nivel de servicio que desea ofrecer a sus clientes, la restricción del presupuesto, entre otras. Cada estrategia descrita describe las ventajas y los inconvenientes para que pueda tomar una decisión informada. Además, la aplicación específica probablemente incluya otros componentes de Azure. Debe revisar las instrucciones de continuidad de negocio de los mismos y coordinar la recuperación de la capa de base de datos con ellos. Para más información sobre la administración de la recuperación de aplicaciones de base de datos en Azure, consulte [Diseño de soluciones en la nube para la recuperación ante desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para saber en qué consisten las copias de seguridad automatizadas de Base de datos SQL de Azure, consulte [Información general: copias de seguridad automatizadas de Base de datos SQL](sql-database-automated-backups.md).
+* Para saber en qué consisten las copias de seguridad automatizadas de Azure SQL Database, consulte [Información general: copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md).
 * Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 * Si quiere saber cómo utilizar las copias de seguridad automatizadas para procesos de recuperación, consulte [Recover an Azure SQL database using automated database backups](sql-database-recovery-using-backups.md)(Recuperación de una base de datos SQL de Azure mediante copias de seguridad de base de datos automatizadas).
 * Para conocer las opciones de recuperación más rápidas, consulte [Replicación geográfica activa](sql-database-geo-replication-overview.md).

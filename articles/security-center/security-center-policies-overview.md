@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Introducción a las directivas de seguridad
 En este documento se proporciona información general sobre las directivas de seguridad de Security Center.
@@ -29,7 +29,7 @@ Una directiva de seguridad define la configuración deseada de las cargas de tra
 Las directivas de Security Center contienen los componentes siguientes:
 
 - **Recopilación de datos**: determina el aprovisionamiento del agente y la configuración de la [colección de datos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Directiva de seguridad**: determina qué controles Security Center supervisa y recomienda. Puede editar la [directiva de seguridad](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) en Security Center. También puede usar [Azure Policy](security-center-azure-policy.md) (en versión preliminar limitada) para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración.
+- **Directiva de seguridad**: determina qué controles Security Center supervisa y recomienda. Puede editar la [directiva de seguridad](https://docs.microsoft.com/azure/security-center/security-center-policies) en Security Center. También puede usar [Azure Policy](security-center-azure-policy.md) (en versión preliminar limitada) para crear definiciones, definir directivas adicionales y asignar directivas en los grupos de administración.
 - **Notificaciones por correo electrónico**: determina la configuración de contactos de seguridad y de [notificaciones por correo electrónico](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 - **Plan de tarifa**: define la [selección de precios](https://docs.microsoft.com/azure/security-center/security-center-pricing) gratuitos o estándar. El plan elegido determina qué características de Security Center están disponibles para los recursos del ámbito. Puede especificar un plan para las suscripciones, los grupos de recursos y las áreas de trabajo. 
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 4eecaf76773927f96f0e4d79d795f0ffe8033a66
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 77c7163b896c2b364039ea6c669ee70cf8be4d9e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight
 
@@ -169,7 +169,7 @@ Para obtener instrucciones de instalación, consulte [Instalación del kit de he
       Para obtener información sobre cómo tener acceso a la salida de trabajo, consulte la sección "Acceso y administración de clústeres de HDInsight Spark mediante el uso del kit de herramientas de Azure para IntelliJ" que encontrará más adelante en este artículo.
 
 ## <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Depurar aplicaciones Spark de forma local o remota en un clúster de HDInsight 
-También se recomienda otra manera de enviar la aplicación Spark al clúster. También puede establecer los parámetros del IDE de **configuraciones de ejecución o depuración**. Para obtener más información, consulte [Depuración de aplicaciones Spark en un clúster de HDInsight con el Kit de herramientas de Azure para IntelliJ mediante SSH](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
+También se recomienda otra manera de enviar la aplicación Spark al clúster. También puede establecer los parámetros del IDE de **configuraciones de ejecución o depuración**. Para obtener más información, consulte [Depuración de aplicaciones Spark en un clúster de HDInsight con el Kit de herramientas de Azure para IntelliJ mediante SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh).
 
 ## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Acceso y administración de clústeres de HDInsight Spark mediante el uso del kit de herramientas de Azure para IntelliJ
 Puede realizar varias operaciones mediante el Kit de herramientas de Azure para IntelliJ.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Supervise visualmente las factorías de datos de Azure
 Azure Data Factory es un servicio de integración de datos basado en la nube que le permite crear flujos de trabajo basados en datos en la nube a fin de coordinar y automatizar el movimiento y la transformación de datos. Mediante Azure Data Factory, puede crear y programar flujos de trabajo orientados a datos (llamados canalizaciones) que pueden ingerir datos de almacenes de datos dispares, procesar o transformar los datos mediante servicios de proceso, como Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics y Azure Machine Learning, y publicar datos de salida en almacenes de datos, como Azure SQL Data Warehouse para que los consuman las aplicaciones de inteligencia empresarial (BI).
@@ -114,4 +114,4 @@ Haga clic en el icono "Comentarios" para enviarnos comentarios de varias caracte
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte el artículo [Supervisión y administración de canalizaciones mediante programación](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) para obtener información sobre la supervisión y administración de canalizaciones
+Consulte el artículo [Supervisión y administración de canalizaciones mediante programación](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) para obtener información sobre la supervisión y administración de canalizaciones

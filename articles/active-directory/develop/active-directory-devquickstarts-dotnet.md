@@ -4,7 +4,7 @@ description: "Creación de una aplicación de escritorio .NET de Windows que se 
 services: active-directory
 documentationcenter: .net
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a252e0e5243c7b7489373845531cb913ca1f6aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Integración de Azure AD en una aplicación WPF de escritorio de Windows
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -64,7 +64,7 @@ Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el c
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* En el proyecto de buscador de directorios, abra `app.config`.  Reemplace los valores de los elementos de la sesión `<appSettings>` para que reflejen los valores especificados en el Portal de Azure.  El código hará referencia a estos valores siempre que use ADAL.
+* En el proyecto de buscador de directorios, abra `app.config`.  Reemplace los valores de los elementos de la sesión `<appSettings>` para que reflejen los valores especificados en Azure Portal.  El código hará referencia a estos valores siempre que use ADAL.
   * `ida:Tenant` es el dominio del inquilino de Azure AD, por ejemplo, contoso.onmicrosoft.com.
   * `ida:ClientId` es el identificador de cliente de la aplicación que copió del portal.
   * El `ida:RedirectUri` es la URL de redirección que ha registrado en el portal.

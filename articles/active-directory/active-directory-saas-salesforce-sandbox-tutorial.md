@@ -4,7 +4,7 @@ description: "Aprenda a configurar el inicio de sesión único entre Azure Activ
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 128d04fdf191b60441b695efef2bf602920d80e6
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 16b60342106c69cb9959aad539b794cb8003acda
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integración de Azure Active Directory con Salesforce Sandbox
 
@@ -159,11 +159,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     e. En **SAML Identity Type** (tipo de identidad SAML), elija una de las siguientes opciones:
     
-      * Seleccione **Assertion contains the User's Salesforce username** (La aserción contiene el nombre del usuario en Salesforce) si el nombre de usuario en Salesforce se pasa en la aserción SAML
+      * Seleccione **Assertion contains the User's Salesforce username** (La aserción contiene el nombre del usuario en Salesforce) si el nombre de usuario en Salesforce se pasa en la aserción SAML.
 
-      * Seleccione **Assertion contains the Federation ID from the User object** (La aserción contiene el id. de federación del objeto de usuario) si el id. de federación del objeto de usuario se pasa en la aserción SAML
+      * Seleccione **Assertion contains the Federation ID from the User object** (La aserción contiene el id. de federación del objeto de usuario) si el id. de federación del objeto de usuario se pasa en la aserción SAML.
 
-      * Seleccione **Assertion contains the Use ID from the User object** (La aserción contiene el id. de uso del objeto de usuario) si el id. de federación del objeto de usuario se pasa en la aserción SAML
+      * Seleccione **Assertion contains the Use ID from the User object** (La aserción contiene el id. de uso del objeto de usuario) si el id. de federación del objeto de usuario se pasa en la aserción SAML.
  
     f. Como **SAML Identity Location**(Ubicación de identidad de SAML), seleccione **Identity is in the NameIdentifier element of the Subject statement** (La identidad está en el elemento NameIdentifier de la instrucción de sujeto).
 

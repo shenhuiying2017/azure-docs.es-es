@@ -4,7 +4,7 @@ description: "Referencia de la API de informes de actividad de inicio de sesión
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5c407727fbc3adf7a089a13bfe09af959be9d2b9
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: e213e6fcf10e98cb8e4344692475eb8d41d1afb5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
 Este tema forma parte de una serie de temas sobre la API de informes de Azure Active Directory.  

@@ -14,6 +14,7 @@
 ### [Secciones de plantilla](resource-group-authoring-templates.md)
 #### [Parámetros](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
+#### [Recursos](resource-manager-templates-resources.md)
 ### [Procedimientos recomendados para las plantillas](resource-manager-template-best-practices.md)
 ### [Vínculo a otras plantillas](resource-group-linked-templates.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)

@@ -5,7 +5,7 @@ services: active-directory
 keywords: "qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: b4efb457a58d8b54c9ebb126a8d84fdef01b3847
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: d5f47bd780de692a5e641fc49ea0c433809068bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -53,10 +53,10 @@ Examine **Azure Active Directory** > **Inicios de sesión** en el [centro de adm
 |Código de error de inicio de sesión|Motivo del error de inicio de sesión|Resolución
 | --- | --- | ---
 | 81001 | El vale de Kerberos del usuario es demasiado grande. | Reduzca la pertenencia a grupos del usuario e inténtelo de nuevo.
-| 81002 | No se puede validar el vale Kerberos del usuario. | Vela la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
-| 81003 | No se puede validar el vale Kerberos del usuario. | Vela la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
-| 81004 | Error al intentar la autenticación Kerberos. | Vela la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
-| 81008 | No se puede validar el vale Kerberos del usuario. | Vela la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
+| 81002 | No se puede validar el vale Kerberos del usuario. | Vea la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
+| 81003 | No se puede validar el vale Kerberos del usuario. | Vea la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
+| 81004 | Error al intentar la autenticación Kerberos. | Vea la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
+| 81008 | No se puede validar el vale Kerberos del usuario. | Vea la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
 | 81009 | No se puede validar el vale Kerberos del usuario. | Vea la [Lista de comprobación de solución de problemas](#troubleshooting-checklist).
 | 81010 | Error de SSO de conexión directa porque el vale de Kerberos del usuario ha expirado o no es válido. | El usuario debe iniciar sesión desde un dispositivo unido al dominio dentro de la red corporativa.
 | 81011 | No se puede encontrar el objeto de usuario con la información del vale de Kerberos del usuario. | Use Azure AD Connect para sincronizar la información del usuario en Azure AD.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Requisitos previos de implementación de Azure Stack
 
@@ -85,7 +85,7 @@ Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una 
 
 1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crear una de forma gratuita en [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (en China, visite <http://go.microsoft.com/fwlink/?LinkID=717821> en su lugar). Si tiene previsto más adelante [registrar Azure Stack en Azure](azure-stack-register.md), también debe tener una suscripción en la cuenta recién creada.
    
-    Guarde estas credenciales para su uso en el paso 6 de [Implementación del kit de desarrollo](azure-stack-run-powershell-script.md#deploy-the-development-kit). Los *administradores de servicios* pueden configurar y administrar recursos en la nube, cuentas de usuario, planes de inquilinos, cuotas y precios. En el portal, pueden crear nubes de sitios web, nubes privadas de máquinas virtuales, crear planes y administrar suscripciones de usuario.
+    Guarde estas credenciales para su uso en el paso 6 de [Implementación del kit de desarrollo](azure-stack-run-powershell-script.md). Los *administradores de servicios* pueden configurar y administrar recursos en la nube, cuentas de usuario, planes de inquilinos, cuotas y precios. En el portal, pueden crear nubes de sitios web, nubes privadas de máquinas virtuales, crear planes y administrar suscripciones de usuario.
 2. [Cree](azure-stack-add-new-user-aad.md) al menos una cuenta para que pueda iniciar sesión en el kit de desarrollo como un inquilino.
    
    | **Cuenta de Azure Active Directory** | **¿Admitida?** |
@@ -121,62 +121,6 @@ Asegúrese de que hay un servidor DHCP disponible en la red al que se conecta la
 
 ### <a name="internet-access"></a>Acceso a Internet
 Azure Stack necesita acceso a Internet, ya sea directamente o a través de un proxy transparente. Azure Stack no admite la configuración de un proxy web para habilitar el acceso a Internet. Tanto la dirección IP del host como la nueva dirección IP asignada a MAS-BGPNAT01 (por DHCP o dirección IP estática) deben poder acceder a Internet. Se usan los puertos 80 y 443 en los dominios graph.windows.net y login.microsoftonline.com.
-
-## <a name="telemetry"></a>Telemetría
-
-La telemetría nos ayuda a dar forma a versiones futuras de Azure Stack. Nos permite responder rápidamente a los comentarios, proporcionar características nuevas y mejorar la calidad. Microsoft Azure Stack incluye Windows Server 2016 y SQL Server 2014. Ninguno de estos productos tienen cambios en la configuración predeterminada y ambos se describen en la declaración de privacidad de Microsoft Enterprise. Azure Stack también contiene software de código abierto que no se ha modificado para enviar datos de telemetría a Microsoft. Estos son algunos ejemplos de datos de telemetría de Azure Stack:
-
-- información de registro de implementación
-- cuándo se abre y se cierra una alerta
-- el número de recursos de red
-
-Para admitir el flujo de datos de telemetría, el puerto 443 (HTTPS) debe estar abierto en la red. El punto de conexión de cliente es https://vortex-win.data.microsoft.com.
-
-Si no desea proporcionar datos de telemetría para Azure Stack, se puede desactivar en el host del kit de desarrollo y en las máquinas virtuales de infraestructura como se explica a continuación.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Desactivación de la telemetría en el host del kit de desarrollo (opcional)
-
->[!NOTE]
-Si desea desactivar la telemetría para el host del kit de desarrollo, debe hacerlo antes de ejecutar el script de implementación.
-
-Antes de [ejecutar el script asdk-installer.ps1]() para implementar el host del kit de desarrollo, inicie CloudBuilder.vhdx y ejecute el siguiente script en una ventana de PowerShell con privilegios elevados:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Establezca **AllowTelemetry** en 0 para desactivar la telemetría en la implementación de Windows y Azure Stack. Solo se envían eventos de seguridad críticos del sistema operativo. El valor controla la telemetría de Windows en todos los hosts y máquinas virtuales de infraestructura y se vuelve a aplicar a los nuevos nodos y las máquinas virtuales cuando se producen operaciones de escalado horizontal.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Desactivación de la telemetría en las máquinas virtuales de infraestructura (opcional)
-
-Después de la correcta implementación, ejecute el siguiente script en una ventana de PowerShell con privilegios elevados (como el usuario AzureStack\AzureStackAdmin) en el host del kit de desarrollo:
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Para configurar la telemetría de SQL Server, consulte [Cómo configurar SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Informes de uso
-
-A través del registro, Azure Stack también está configurado para reenviar información de uso a Azure. Los informes de uso se controlan de forma independiente de la telemetría. Puede desactivar los informes de uso en el momento del [registro](azure-stack-register.md) mediante el uso del script de Github. Basta con establecer el parámetro **$reportUsage** en **$false**.
-
-El formato de los datos de uso se detalla en [Informe de datos de uso de Azure Stack a Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). No se cobra a los usuarios de Azure Stack Development Kit. Esta funcionalidad se incluye en el kit de desarrollo para que pueda probar el funcionamiento de los informes de uso. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

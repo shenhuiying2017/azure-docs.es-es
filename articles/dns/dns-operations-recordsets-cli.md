@@ -3,7 +3,7 @@ title: "Administración de registros de DNS en Azure DNS mediante la CLI de Azur
 description: "Administración de conjuntos de registros y registros DNS en DNS de Azure al hospedar dominios en DNS de Azure. Todos los comandos de la CLI 2.0 para operaciones en conjuntos de registros y registros."
 services: dns
 documentationcenter: na
-author: subsarma
+author: KumudD
 manager: carmonm
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,30 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
-ms.author: subsarma
-ms.openlocfilehash: 47be36aee053b81913286f0119edb6c8caa7c456
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: kumud
+ms.openlocfilehash: 6f8a462a8de93d75f0555397bea548d2b5122c09
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Administración de conjuntos de registros y registros de DNS en Azure DNS mediante la CLI de Azure 2.0
 
 > [!div class="op_single_selector"]
-> * 
-            [Azure Portal](dns-operations-recordsets-portal.md)
-> * [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [CLI de Azure 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 En este artículo se muestra cómo administrar los registros de DNS para su zona DNS mediante la versión 2.0 de la interfaz de la línea de comandos (CLI) multiplataforma de Azure, disponible para Windows, Mac y Linux. También puede administrar sus registros de DNS mediante [Azure PowerShell](dns-operations-recordsets.md) o [Azure Portal](dns-operations-recordsets-portal.md).
-
-## <a name="cli-versions-to-complete-the-task"></a>Versiones de la CLI para completar la tarea
-
-Puede completar la tarea mediante una de las siguientes versiones de la CLI:
-
-* [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md): la CLI para los modelos de implementación clásica y de administración de recursos.
-* [CLI de Azure 2.0](dns-operations-recordsets-cli.md): la CLI de última generación para el modelo de implementación de administración de recursos.
 
 En los ejemplos de este artículo se supone que ya ha [instalado la CLI de Azure 2.0, iniciado sesión y creado una zona DNS](dns-operations-dnszones-cli.md).
 

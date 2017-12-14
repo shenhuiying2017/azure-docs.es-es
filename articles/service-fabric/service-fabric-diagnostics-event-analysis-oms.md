@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Análisis y visualización de eventos con OMS
 
@@ -41,7 +41,7 @@ Vea [Configuración de Log Analytics (OMS)](service-fabric-diagnostics-oms-setup
 
 ## <a name="using-the-oms-agent"></a>Uso del agente de OMS
 
-Se recomienda utilizar EventFlow y WAD como soluciones de agregación porque permiten adoptar un enfoque más modular de diagnóstico y supervisión. Por ejemplo, si desea cambiar las salidas de EventFlow, no es necesario realizar ningún cambio en la instrumentación real, sino tan solo una sencilla modificación del archivo de configuración. Si, sin embargo, decide invertir en usar Log Analytics de OMS, debe configurar el [Agente de OMS](../log-analytics/log-analytics-windows-agents.md). También debe utilizar al agente de OMS al implementar contenedores en el clúster, tal y como se comenta a continuación. 
+Se recomienda utilizar EventFlow y WAD como soluciones de agregación porque permiten adoptar un enfoque más modular de diagnóstico y supervisión. Por ejemplo, si desea cambiar las salidas de EventFlow, no es necesario realizar ningún cambio en la instrumentación real, sino tan solo una sencilla modificación del archivo de configuración. Si, sin embargo, decide invertir en usar Log Analytics de OMS, debe configurar el [Agente de OMS](../log-analytics/log-analytics-windows-agent.md). También debe utilizar al agente de OMS al implementar contenedores en el clúster, tal y como se comenta a continuación. 
 
 Vaya a [Incorporación del Agente de OMS a un clúster](service-fabric-diagnostics-oms-agent.md) para seguir los pasos correspondientes.
 

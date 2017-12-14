@@ -4,7 +4,7 @@ description: Uso de Twitter como proveedor de identidades mediante el protocolo 
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
-ms.openlocfilehash: f3a7936a468df7b0a2713f1f30c5b91e74d1d917
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -132,7 +132,7 @@ Para definir Twitter como proveedor de notificaciones, agregue el nodo `<ClaimsP
 
 4. Reemplace el valor de *client_id* por la clave de consumidor de la aplicación de la cuenta de Twitter.
 
-5. Guarde el archivo.
+5. Guarde el archivo .
 
 ## <a name="step-4-register-the-twitter-account-claims-provider-to-your-sign-up-or-sign-in-user-journey"></a>Paso 4: Registro del proveedor de notificaciones de la cuenta de Twitter para el recorrido del usuario de registro o inicio de sesión
 Ha configurado el proveedor de identidades. Sin embargo, aún no está disponible en ninguna de las ventanas de registro o inicio de sesión. Ahora debe agregar el proveedor de identidades de la cuenta de Twitter al recorrido del usuario `SignUpOrSignIn`.

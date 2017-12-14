@@ -4,7 +4,7 @@ description: "En este artículo se proporciona información general de los perfi
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/21/2017
 ms.author: priyamo
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: d5ffba5d0c409fe9de7a9e82c6faa4ca2702ab95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 84bd6ae5e1624ade18dc7ee2b73fe1c94914978e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Cómo Azure Active Directory usa el protocolo SAML
 Azure Active Directory (Azure AD) utiliza el protocolo SAML 2.0 para permitir que las aplicaciones ofrezcan una experiencia de inicio de sesión único a sus usuarios. Los perfiles SAML de [inicio](active-directory-single-sign-on-protocol-reference.md) y [cierre de sesión único](active-directory-single-sign-out-protocol-reference.md) de Azure AD explican cómo se usan las aserciones, los protocolos y los enlaces SAML en el servicio de proveedor de identidades.

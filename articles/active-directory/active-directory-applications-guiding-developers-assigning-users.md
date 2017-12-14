@@ -4,7 +4,7 @@ description: "Cómo implementar la asignación de usuarios para aplicaciones de 
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 97ce69c1-4034-4e38-bd82-8caf984f6b98
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: 29d63bd5781dc7ef9e84840dd4b1b70222cf6892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f25f5e750b705fda387fbaeed7d4e67710e0a18
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD y aplicaciones: asignación de usuarios a una aplicación
 Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios.  Para obtener información sobre cómo requerir asignación de usuarios, consulte el artículo [Necesidad de asignación de usuario](active-directory-applications-guiding-developers-requiring-user-assignment.md) .

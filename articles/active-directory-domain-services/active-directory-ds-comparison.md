@@ -4,7 +4,7 @@ description: "Comparación de Azure Active Directory Domain Services con control
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 09a68c7f4e7169a6ca02e33e89e0f048155fa88c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Cómo decidir si Active Directory Domain Services es adecuado para su caso de uso
 Con Active Directory Domain Services puede implementar cargas de trabajo en los servicios de infraestructura de Azure sin tener que preocuparse por mantener la infraestructura de las identidades en Azure. Este servicio administrado no es lo mismo que una implementación típica de Windows Server Active Directory donde los usuarios son los encargados de llevarla a cabo y administrarla. El servicio es fácil de implementar y permite la corrección de problemas y la supervisión automatizada del estado. Realizamos continuamente cambios en el servicio para agregar compatibilidad con escenarios comunes de implementación.
@@ -118,4 +118,4 @@ Hemos publicado [directrices de implementación de Windows Server Active Directo
 ## <a name="related-content"></a>Contenido relacionado
 * [Características de Azure AD Domain Services](active-directory-ds-features.md)
 * [Escenarios de implementación de Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Directrices para implementar Windows Server Active Directory en Microsoft Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)

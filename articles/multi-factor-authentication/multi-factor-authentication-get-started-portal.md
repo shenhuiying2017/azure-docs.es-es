@@ -4,7 +4,7 @@ description: "En esta página de Azure Multi-Factor Authentication, se describe 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 06b419fa-3507-4980-96a4-d2e3960e1772
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 2a4f64524f94a782434306f89f6ad1034297c4cc
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 15f4ef7b70027a820dc50a9399891bbab77d7e12
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de usuarios para el Servidor Azure Multi-Factor Authentication
 
@@ -45,7 +45,7 @@ En ambos escenarios, si el SDK del servicio web de Azure Multi-Factor Authentica
 3. Complete la instalación mediante los valores predeterminados a menos que necesite cambiarlos por algún motivo.
 4. Enlace un certificado SSL al sitio en IIS.
 
-Si tiene alguna pregunta acerca de cómo configurar un certificado SSL en un servidor IIS, consulte el artículo [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Configuración de un certificado SSL en IIS)///.
+Si tiene alguna pregunta acerca de cómo configurar un certificado SSL en un servidor IIS, consulte el artículo [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Configuración de un certificado SSL en IIS)///.
 
 El SDK del servicio web debe estar protegido con un certificado SSL. Un certificado autofirmado es adecuado para este propósito. Importe el certificado al almacén "Entidades de certificación de raíz de confianza" de la cuenta Equipo local en el servidor web del Portal de usuarios para que confíe en ese certificado cuando inicie la conexión SSL.
 
@@ -73,7 +73,7 @@ Para implementar el portal de usuarios, siga estos pasos:
 
 ![Instalación del Portal de usuarios del servidor MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
-Si tiene alguna pregunta acerca de cómo configurar un certificado SSL en un servidor IIS, consulte el artículo [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Configuración de un certificado SSL en IIS)///.
+Si tiene alguna pregunta acerca de cómo configurar un certificado SSL en un servidor IIS, consulte el artículo [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Configuración de un certificado SSL en IIS)///.
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Implementación del portal de usuarios en un servidor independiente
 
@@ -110,7 +110,7 @@ Para instalar el portal de usuarios en un servidor diferente a Servidor Azure Mu
 
 6. Abra un explorador web desde cualquier equipo y vaya a la dirección URL donde se instaló el Portal de usuarios (por ejemplo, https://mfa.contoso.com/MultiFactorAuth). Asegúrese de que no aparezca ningún error ni advertencia de certificado.
 
-Si tiene alguna pregunta acerca de cómo configurar un certificado SSL en un servidor IIS, consulte el artículo [How to Set Up SSL on IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Configuración de un certificado SSL en IIS)///.
+Si tiene alguna pregunta acerca de cómo configurar un certificado SSL en un servidor IIS, consulte el artículo [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) (Configuración de un certificado SSL en IIS)///.
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Establecimiento de la configuración del Portal de usuarios en el Servidor Azure Multi-Factor Authentication
 

@@ -5,7 +5,7 @@ keywords: "implementar AD FS en azure, implementar azure adfs, azure ad fs, impl
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
 AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
@@ -160,7 +160,7 @@ Para implementar un ILB, seleccione Equilibradores de carga en Azure Portal y ha
 
 * **Nombre**: asigne un nombre adecuado al equilibrador de carga.
 * **Esquema**: puesto que este equilibrador de carga se colocará delante de los servidores AD FS y está pensado SOLO para las conexiones de red interna, seleccione "Interno".
-* **Red virtual**: elija la red virtual donde está implementando AD FS.
+* **Virtual Network**: elija la red virtual donde está implementando AD FS.
 * **Subred**: elija aquí la subred interna.
 * **Asignación de dirección IP**: Estática
 
@@ -347,7 +347,7 @@ Puede usar una red virtual existente o crear una nueva red virtual durante la im
 * [Equilibrador de carga interno](https://aka.ms/Azure/ILB/Internal)
 * [Equilibrador de carga accesible desde Internet](https://aka.ms/Azure/ILB/Internet)
 * [Cuentas de almacenamiento](https://aka.ms/Azure/Storage)
-* [Redes virtuales de Azure](https://aka.ms/Azure/VNet)
+* [Azure Virtual Network](https://aka.ms/Azure/VNet)
 * [AD FS y vínculos de proxy de aplicación web](http://aka.ms/ADFSLinks) 
 
 ## <a name="next-steps"></a>Pasos siguientes

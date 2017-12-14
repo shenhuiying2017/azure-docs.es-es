@@ -14,23 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Escalación del recuento de instancias de forma manual o automática
-En el [Portal de Azure](https://portal.azure.com/), puede establecer manualmente el número de instancias de su servicio o bien establecer parámetros para que esta cantidad se escale automáticamente en función de la demanda. Esto se conoce normalmente como *escalar horizontalmente* o *reducir horizontalmente*.
+En el [Azure Portal](https://portal.azure.com/), puede establecer manualmente el número de instancias de su servicio o bien establecer parámetros para que esta cantidad se escale automáticamente en función de la demanda. Esto se conoce normalmente como *escalar horizontalmente* o *reducir horizontalmente*.
 
 Antes de escalar según el recuento de instancias, tenga en cuenta que, además de con el recuento de instancias, el escalado está relacionado con el **plan de tarifa**. Diferentes niveles de precios pueden tener diferentes cantidades de núcleos y memoria y, por tanto, es posible encontrar un mejor rendimiento para el mismo número de instancias. (lo que se conoce como *Escalar verticalmente* o *Reducir verticalmente*). Este artículo trata específicamente sobre *Reducir horizontalmente* y *Escalar horizontalmente*.
 
 Puede reducir horizontalmente en el portal, y también puede utilizar la [API de REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) o el [SDK de .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para ajustar la escala de forma manual o automática.
-
-> [!NOTE]
-> En este artículo se describe cómo crear una configuración de escalado automático en el portal en [http://portal.azure.com](http://portal.azure.com). La configuración de escalado automático creada en este portal no se puede editar en el portal clásico ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>Escalado manual
 1. En [Azure Portal](https://portal.azure.com/), haga clic en **Examinar** y luego navegue hasta el recurso que desea escalar, como un **plan de App Service**.

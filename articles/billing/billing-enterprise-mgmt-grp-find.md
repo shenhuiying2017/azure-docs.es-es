@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Búsqueda de un grupo de administración o una suscripción de Azure
 
-Si tiene dificultades para encontrar una suscripción o un grupo de administración en Azure, puede que esté buscando en el directorio equivocado. Esta situación puede darse cuando la cuenta existe en varios directorios de Azure Active Directory. Cada [directorio activo es independiente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) y el acceso no se hereda a través de directorios.      
+Si tiene dificultades para encontrar una suscripción o un grupo de administración en Azure, puede que esté buscando en el directorio equivocado. Esta situación puede darse cuando la cuenta existe en varios directorios de Azure Active Directory. Cada [directorio activo es independiente](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence) y el acceso no se hereda a través de directorios.      
 
 ![Menú Cambiar directorio](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ Si recibe el mensaje de error "Este recurso no está disponible" al intentar acc
 ![recurso no encontrado](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Póngase en contacto con el administrador de la suscripción o de los grupos de administración para conseguir acceso.  
-* Para las suscripciones, consulte el documento [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) para obtener ayuda sobre qué rol se necesita.
+* Para las suscripciones, consulte el documento [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) para obtener ayuda sobre qué rol se necesita.
 * Para los grupos de administración, el acceso RBAC no está disponible y lo estará próximamente. Póngase en contacto con el administrador de Enterprise Portal para que le asigne acceso.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>Mejora de su experiencia con grupos de administración y suscripciones en el mismo directorio 

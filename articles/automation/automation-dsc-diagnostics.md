@@ -3,7 +3,7 @@ title: "Reenvío de datos de informes de DSC de Azure Automation a Log Analytics
 description: "En este artículo se muestra cómo enviar datos de los informes de Desired State Configuration (DSC) a Log Analytics de Microsoft Operations Management Suite para ofrecer mayor información y administración."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Reenvío de datos de informes de DSC de Azure Automation a Log Analytics de OMS
 
@@ -35,7 +35,7 @@ El estado de cumplimiento se puede ver en Azure Portal, o con PowerShell, tanto 
 Para empezar a enviar los registros de DSC de Automation a Log Analytics, necesita:
 
 * La versión de noviembre de 2016, o una posterior, de [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
-* Una cuenta de Automatización de Azure Para más información, consulte [Introducción a Azure Automation](automation-offering-get-started.md)
+* Una cuenta de Azure Automation Para más información, consulte [Introducción a Azure Automation](automation-offering-get-started.md)
 * Un área de trabajo de Log Analytics con una oferta de servicio de **Automation & Control**. Para más información, consulte [Introducción a Log Analytics](../log-analytics/log-analytics-get-started.md).
 * Al menos un nodo de DSC de Azure Automation. Para más información, consulte [Incorporación de máquinas para administrarlas con DSC de Azure Automation](automation-dsc-onboarding.md) 
 
@@ -43,7 +43,7 @@ Para empezar a enviar los registros de DSC de Automation a Log Analytics, necesi
 
 Para comenzar a importar datos de DSC de Azure Automation en Log Analytics, haga lo siguiente:
 
-1. Inicie sesión en su cuenta de Azure en PowerShell. Consulte [Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Inicie sesión en su cuenta de Azure en PowerShell. Consulte [Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Obtenga el valor de _ResourceId_ de su cuenta de Automation mediante la ejecución del siguiente comando de PowerShell: (si tiene más de una cuenta de Automation, elija el valor de _ResourceID_ de la cuenta que desea configurar).
 
   ```powershell

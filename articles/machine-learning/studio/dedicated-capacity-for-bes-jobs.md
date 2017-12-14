@@ -3,7 +3,7 @@ title: "Capacidad dedicada para trabajos de servicio de ejecución de lotes de M
 description: "Información general de los servicios de Azure Batch para trabajos de Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.service: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f7498c63db89a77121d33afc9d48a4132b1a51d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Servicio de Azure Batch para trabajos de Machine Learning
 
@@ -27,7 +27,7 @@ El procesamiento de grupo de lote permite crear grupos en los que se pueden envi
 
 ## <a name="how-to-use-batch-pool-processing"></a>Cómo utilizar el procesamiento de grupo de lote
 
-La configuración del procesamiento de grupo de lote no está actualmente disponible a través de Azure Portal. Para usar el procesamiento de grupo de lote, tiene que:
+La configuración del procesamiento de grupo de Batch no está actualmente disponible a través de Azure Portal. Para usar el procesamiento de grupo de lote, tiene que:
 
 -   Llamar a CSS para crear una cuenta de grupo de lote y obtener una dirección URL de servicio de grupo y una clave de autorización
 -   Crear un servicio web basado en el nuevo Resource Manager y un plan de facturación
@@ -40,7 +40,7 @@ Después de crear su cuenta, utilice la dirección URL del servicio de grupo y l
 
 Cree grupos mediante una llamada a la operación Create Pool (Crear grupo) en la dirección URL de servicio de grupo que le proporcionó CSS. Cuando cree un grupo, especifique el número de máquinas virtuales y la dirección URL de swagger.json de un servicio web de Machine Learning basado en el nuevo Resource Manager. Este servicio web se proporciona para establecer la asociación de facturación. El servicio de grupo de lote utiliza el swagger.json para asociar el grupo a un plan de facturación. Puede ejecutar cualquier servicio web BES, tanto basado en el nuevo Resource Manager como en el clásico, que elija en el grupo.
 
-Puede usar cualquier servicio web basado en el nuevo Resource Manager, pero tenga en cuenta que la facturación de los trabajos se cobra con respecto al plan de facturación asociado a ese servicio. Es posible que desee crear un servicio web y un nuevo plan de facturación específicamente para ejecutar trabajos de grupo de lote.
+Puede usar cualquier servicio web basado en el nuevo Resource Manager, pero tenga en cuenta que la facturación de los trabajos se cobra con respecto al plan de facturación asociado a ese servicio. Es posible que desee crear un servicio web y un nuevo plan de facturación específicamente para ejecutar trabajos de grupo de Batch.
 
 Para más información sobre la implementación de servicios web, vea el artículo [Implementar un servicio web de Azure Machine Learning](publish-a-machine-learning-web-service.md).
 

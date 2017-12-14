@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: danis
-ms.openlocfilehash: b62cf38b2b16bd54b4df38402e8b7d75f5fd5e68
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 5de2949561ed5f64582898006de7818e81f79f5b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Extensión de script personalizado para Windows con el modelo de implementación clásico
 
@@ -88,7 +88,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 
 ## <a name="powershell-deployment"></a>Implementación de PowerShell
 
-El comando `Set-AzureVMCustomScriptExtension` se puede usar para agregar la extensión de script personalizado a una máquina virtual existente. Para más información, consulte [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
+El comando `Set-AzureVMCustomScriptExtension` se puede usar para agregar la extensión de script personalizado a una máquina virtual existente. Para más información, consulte [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension).
 
 ```powershell
 # create vm object

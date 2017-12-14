@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: 34550ed33cd81bcbf5b405a5e5c09d25adf5e6ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
 Puede instalar una aplicación de Azure HDInsight en un clúster de HDInsight basado en Linux. En este artículo, aprenderá a publicar una aplicación de HDInsight en Azure Marketplace. Para obtener información general sobre cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -46,8 +46,7 @@ La publicación de aplicaciones en Marketplace consta de dos pasos. En primer lu
     "version": "0.0.1-preview",
     "clusterFilters": {
         "types": ["Hadoop", "HBase", "Storm", "Spark"],
-        "tiers": ["Standard", "Premium"],
-        "versions": ["3.4"]
+        "versions": ["3.6"]
     }
 }
 ```
@@ -55,7 +54,6 @@ La publicación de aplicaciones en Marketplace consta de dos pasos. En primer lu
 | Campo | Description | Valores posibles |
 | --- | --- | --- |
 | types |Los tipos de clúster con los que es compatible la aplicación. |Hadoop, HBase, Storm y Spark (o cualquier combinación de estos) |
-| tiers |Los niveles de clúster con los que es compatible la aplicación. |Standard, Premium (o ambos) |
 | versions |Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3.4 |
 
 ## <a name="application-installation-script"></a>Script de instalación de aplicaciones

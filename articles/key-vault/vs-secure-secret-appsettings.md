@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3284f9f9c3cef27cba599238f06b0dcf0f35de78
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 612b8d2c36e9b46e99452e78d1b30fda03474151
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar de forma segura la configuración del secreto de la aplicación para una aplicación web
 
@@ -32,7 +32,7 @@ Para asegurarse de que el proceso de desarrollo es seguro, se crean bibliotecas 
 ## <a name="aspnet-and-net-core-applications"></a>Aplicaciones ASP.NET y .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Guardar la configuración del secreto en el almacén de User Secret que se encuentra fuera de la carpeta de control de código fuente
-Si está realizando un prototipo rápido o no tiene acceso a Internet, comience por sacar la configuración del secreto de la carpeta de control de código fuente y pasarla al almacén de User Secret. El almacén de User Secret es un archivo que se guarda en la carpeta del generador de perfiles de usuario, así que los secretos no se registran en el control de código fuente. En el diagrama siguiente se muestra cómo funciona [User Secret](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
+Si está realizando un prototipo rápido o no tiene acceso a Internet, comience por sacar la configuración del secreto de la carpeta de control de código fuente y pasarla al almacén de User Secret. El almacén de User Secret es un archivo que se guarda en la carpeta del generador de perfiles de usuario, así que los secretos no se registran en el control de código fuente. En el diagrama siguiente se muestra cómo funciona [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager).
 
 ![User Secret guarda las opciones de configuración del secreto fuera del control de código fuente](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -45,7 +45,7 @@ Si está desarrollando un proyecto de equipo y tiene que compartir código fuent
 
     ![Crear una instancia de Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Concédase a usted mismo y a los miembros del equipo acceso a Key Vault. Si tiene un equipo grande, puede crear un [grupo de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-groups-create-azure-portal) y agregar acceso a ese grupo de seguridad para Key Vault. En la lista desplegable *Permisos de secretos*, marque *Get* (Obtener) y *List* (Lista) en *Secret Management Operations* (Operaciones de administración de secretos).
+2. Concédase a usted mismo y a los miembros del equipo acceso a Key Vault. Si tiene un equipo grande, puede crear un [grupo de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) y agregar acceso a ese grupo de seguridad para Key Vault. En la lista desplegable *Permisos de secretos*, marque *Get* (Obtener) y *List* (Lista) en *Secret Management Operations* (Operaciones de administración de secretos).
 
     ![Agregar directiva de acceso de Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

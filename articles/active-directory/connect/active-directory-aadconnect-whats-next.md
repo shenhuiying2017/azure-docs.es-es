@@ -4,7 +4,7 @@ description: "Aprenda a ampliar la configuración predeterminada y las tareas op
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: beace24fa00c85a5038a3c39ae8f76af5fd12111
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e898ee203276b072605fe0f21af633ecfdaae1fe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Pasos siguientes y cómo administrar Azure AD Connect
 Utilice los procedimientos operativos de este artículo para personalizar Azure Active Directory (Azure AD) Connect para satisfacer las necesidades y requisitos de su organización.  
@@ -55,7 +55,7 @@ Si necesita ejecutar una tarea de sincronización, ejecute de nuevo el Asistente
 
 <center>![Inicio de la sincronización](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
-Para obtener más información sobre el programador de sincronización de Azure AD Connect, consulte [Sincronización de Azure AD Connect: Programador](active-directory-aadconnectsync-feature-scheduler.md).
+Para más información sobre el programador de sincronización de Azure AD Connect, consulte [Programador de Azure AD Connect](active-directory-aadconnectsync-feature-scheduler.md)
 
 ## <a name="additional-tasks-available-in-azure-ad-connect"></a>Tareas adicionales disponibles en Azure AD Connect
 Después de la instalación inicial de Azure AD Connect, siempre puede volver a iniciar el asistente desde la página de inicio de Azure AD Connect o el acceso directo de escritorio.  Verá que al volver a pasar por el asistente aparecen algunas opciones nuevas en el formulario de tareas adicionales.  

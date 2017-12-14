@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b427556c589c7cc5205bfda16edc8d891814326
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migración desde Amazon Web Services (AWS) y otras plataformas a Managed Disks en Azure
 
-Puede cargar archivos de VHD desde AWS o soluciones de virtualización locales en Azure para crear máquinas virtuales que aprovechen las ventajas de Managed Disks. Azure Managed Disks elimina la necesidad de administrar las cuentas de Storage para las VM IaaS de Azure. Solo tiene que especificar el tipo (premium o estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. 
+Puede cargar archivos de VHD desde AWS o soluciones de virtualización locales en Azure para crear máquinas virtuales que aprovechen las ventajas de Managed Disks. Azure Managed Disks elimina la necesidad de administrar las cuentas de almacenamiento para las VM IaaS de Azure. Solo tiene que especificar el tipo (premium o estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. 
 
 Puede cargar VHD generalizados o especializados. 
 - **VHD generalizado**: elimina toda la información personal de la cuenta mediante Sysprep. 
@@ -63,7 +63,7 @@ Elija una ubicación donde Azure Managed Disks esté disponible. Si va a migrar 
 ### <a name="vm-sizes"></a>Tamaños de VM
 
 Si va a migrar a Managed Disks Premium, debe actualizar el tamaño de la VM a un tamaño compatible con Premium Storage disponible en la región donde se ubica la VM. Revise los tamaños de VM compatibles con Premium Storage. Las especificaciones de tamaño de las máquinas virtuales de Azure se muestran en [Tamaños de máquinas virtuales](sizes.md).
-Repase las características de rendimiento de las máquinas virtuales que trabajan con Almacenamiento premium y elija el tamaño de máquina virtual que se mejor se ajuste a su carga de trabajo. Procure que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco.
+Repase las características de rendimiento de las máquinas virtuales que trabajan con Premium Storage y elija el tamaño de máquina virtual que se mejor se ajuste a su carga de trabajo. Procure que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco.
 
 ### <a name="disk-sizes"></a>Tamaños de disco
 

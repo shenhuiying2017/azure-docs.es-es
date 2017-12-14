@@ -4,7 +4,7 @@ description: "Creación de una aplicación de Windows Phone que se integra con A
 services: active-directory
 documentationcenter: windows
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 03c4b6d225dce99d79ef6c1ba2af43af8dea3eae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5edaee6a4adedc440b16e936462df5e224fe8609
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Integración de Azure AD con una aplicación de Windows Phone
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -72,7 +72,7 @@ Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el c
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* En el proyecto de buscador de directorios, abra `MainPage.xaml.cs`.  Reemplace los valores de la región `Config Values` para que reflejen los valores especificados en el Portal de Azure.  El código hará referencia a estos valores siempre que use ADAL.
+* En el proyecto de buscador de directorios, abra `MainPage.xaml.cs`.  Reemplace los valores de la región `Config Values` para que reflejen los valores especificados en Azure Portal.  El código hará referencia a estos valores siempre que use ADAL.
   * `tenant` es el dominio del inquilino de Azure AD, por ejemplo, contoso.onmicrosoft.com.
   * `clientId` es el identificador de cliente de la aplicación que copió del portal.
 * Ahora deberá detectar el URI de devolución de llamada para la aplicación de Windows Phone.  Establezca un punto de interrupción en esta línea en el método `MainPage` :

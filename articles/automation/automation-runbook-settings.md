@@ -1,9 +1,9 @@
 ---
 title: "Configuración de runbooks | Microsoft Docs"
-description: "Describe las opciones de configuración para un runbook en Automatización de Azure y cómo cambiarlas mediante el Portal de administración de Azure y Windows PowerShell."
+description: "Describe las opciones de configuración para un runbook en Azure Automation y cómo cambiarlas mediante el Portal de administración de Azure y Windows PowerShell."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
-ms.openlocfilehash: 534ea7e3f2f8e5640db4d351c2bb3245f29b6eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d626465bcfdb4efa9cf85c41a2ee679e30eadaf
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="runbook-settings"></a>Configuración de runbook
-Cada runbook en Automatización de Azure tiene varias opciones de configuración para ayudarle a identificar y cambiar su comportamiento de registro. A continuación se describen todas estas opciones, seguido de procedimientos acerca de cómo modificarlas.
+Cada runbook en Azure Automation tiene varias opciones de configuración para ayudarle a identificar y cambiar su comportamiento de registro. A continuación se describen todas estas opciones, seguido de procedimientos acerca de cómo modificarlas.
 
 ## <a name="settings"></a>Settings
 ### <a name="name-and-description"></a>Nombre y descripción
@@ -38,7 +38,7 @@ De forma predeterminada, los registros detallados y de progreso no se escriben e
 ### <a name="changing-runbook-settings-with-the-azure-portal"></a>Cambio de la configuración del runbook mediante Azure Portal
 Puede cambiar la configuración de un runbook en Azure Portal en la hoja **Configuración** del runbook.
 
-1. En el Portal de Azure, seleccione **Automatización** y, a continuación, haga clic en el nombre de una cuenta de Automatización.
+1. En Azure Portal, seleccione **Automation** y, a continuación, haga clic en el nombre de una cuenta de Automation.
 2. Seleccione la pestaña **Runbooks** .
 3. Haga clic en el nombre de un runbook y se le redirigirá a la hoja de configuración del runbook. Aquí podrá especificar o modificar etiquetas, la descripción del runbook, configurar opciones de seguimiento y registro, y acceder herramientas de soporte técnico para ayudarlo a solucionar problemas.     
 

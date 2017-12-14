@@ -4,7 +4,7 @@ description: En este tema se describen los requisitos previos y los requisitos d
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: e09017cbd6c4060ea24bb17c751277b4f4c6daf8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1dc33bbd686d97f21c7b9d61752d9f2c584a79fe
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Requisitos previos de Azure AD Connect
 En este tema se describen los requisitos previos y los de hardware de Azure AD Connect.
@@ -61,7 +61,7 @@ Antes de instalar Azure AD Connect, hay algunas cosas que necesita.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server usado por Azure AD Connect
 * Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada, se instala SQL Server 2012 Express LocalDB (versión ligera de SQL Server Express). SQL Server Express tiene un límite de tamaño de 10 GB que le permite administrar aproximadamente 100 000 objetos. Si tiene que administrar un volumen superior de objetos de directorio, es necesario que el asistente para la instalación apunte a otra instalación de SQL Server.
 * Si utiliza una instancia de SQL Server independiente, se aplican estos requisitos:
-  * Azure AD Connect admite todas las versiones de Microsoft SQL Server, desde SQL Server 2008 (con el Service Pack más reciente) hasta SQL Server 2016 SP1. **No se admite** Base de datos SQL de Microsoft Azure como base de datos.
+  * Azure AD Connect admite todas las versiones de Microsoft SQL Server, desde SQL Server 2008 (con el Service Pack más reciente) hasta SQL Server 2016 SP1. **No se admite** Microsoft Azure SQL Database como base de datos.
   * Debe usar una intercalación de SQL sin distinción de mayúsculas y minúsculas. Estas intercalaciones se identifican porque el nombre incluye \_CI_. **No se puede utilizar** para emplear una intercalación sin distinción de mayúsculas y minúsculas, y se identifica porque el nombre incluye \_CS_.
   * Solo se puede tener un motor de sincronización por cada instancia de SQL. **No se puede** compartir una instancia de SQL con FIM/MIM Sync, DirSync o la Sincronización de Azure AD.
 

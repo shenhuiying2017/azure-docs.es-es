@@ -4,7 +4,7 @@ description: "Creación de aplicaciones web mediante la implementación del fluj
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3bd8256814036a357b30b69286da6bb7c974162f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ecc9de6a9eb910ac4c31290710530555441890d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolos de la versión 2.0: uso del flujo implícito para las SPA
 Con el punto de conexión v2.0, puede iniciar la sesión de los usuarios en sus aplicaciones de una página tanto con cuentas de Microsoft personales como profesionales o educativas.  Las aplicaciones de una sola página y otras aplicaciones JavaScript que se ejecutan principalmente en un explorador, se enfrentan con algunos retos interesantes por lo que se refiere a la autenticación:

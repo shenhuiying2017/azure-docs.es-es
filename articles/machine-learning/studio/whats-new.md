@@ -1,9 +1,9 @@
 ---
 title: Novedades de Azure Machine Learning | Microsoft Docs
-description: "Nuevas características disponibles en Aprendizaje automático de Azure."
+description: "Nuevas características disponibles en Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 1e3dc7e1375488ae9473cdd26f4d00871a091fbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82ec23f4edba88ec75c2073e24cad24b66323d72
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
-# <a name="whats-new-in-azure-machine-learning"></a>Novedades de Aprendizaje automático de Azure
+# <a name="whats-new-in-azure-machine-learning"></a>Novedades de Azure Machine Learning
 
 ### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>El lanzamiento en marzo de 2017 de las actualizaciones de Microsoft Azure Machine Learning incluye la siguiente característica:
 

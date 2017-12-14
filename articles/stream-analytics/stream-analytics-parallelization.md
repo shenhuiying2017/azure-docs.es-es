@@ -1,6 +1,6 @@
 ---
 title: "Aprovechamiento de la paralelización de consultas en Azure Stream Analytics | Microsoft Docs"
-description: "Aprenda a escalar los trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
+description: "Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
 keywords: "datos de streaming, procesamiento de datos de streaming, optimización del análisis"
 services: stream-analytics
 documentationcenter: 
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 33685152c7e7cb1d066661d85a018d30c25442dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
 Como requisito previo, puede que le interese conocer la noción de Unidad de streaming que se describe en [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md).
 
-## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>¿Cuáles son las partes de un trabajo de Análisis de transmisiones?
-Una definición de trabajo de Análisis de transmisiones incluye entradas, una consulta y la salida. Las entradas proceden del lugar en el cual el trabajo lee el flujo de datos. La consulta se usa para transformar el flujo de entrada de datos y la salida es el lugar al que el trabajo envía los resultados.  
+## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>¿Cuáles son las partes de un trabajo de Stream Analytics?
+Una definición de trabajo de Stream Analytics incluye entradas, una consulta y la salida. Las entradas proceden del lugar en el cual el trabajo lee el flujo de datos. La consulta se usa para transformar el flujo de entrada de datos y la salida es el lugar al que el trabajo envía los resultados.  
 
 Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada del flujo de datos puede almacenarse en un centro de eventos de Azure o en Azure Blob Storage. Para más información, vea [¿Qué es Azure Stream Analytics?](stream-analytics-introduction.md) e [Introducción al uso de Azure Stream Analytics: detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md).
 
@@ -43,13 +43,13 @@ Todas las entradas de Azure Stream Analytics pueden aprovechar la creación de p
 
 Cuando trabaja con Stream Analytics, puede aprovechar la creación de particiones en las salidas:
 -   Azure Data Lake Storage
--   Funciones de Azure
+-   Azure Functions
 -   tabla de Azure
 -   Almacenamiento de blobs
 -   CosmosDB (la clave de partición se debe establecer explícitamente)
 -   EventHub (la clave de partición se debe establecer explícitamente)
 -   IoT Hub (la clave de partición se debe establecer explícitamente)
--   Bus de servicio
+-   Azure Service Bus
 
 Las salidas de PowerBI, SQL y SQL Data Warehouse no admiten la creación de particiones. Sin embargo, de todos modos puede crear particiones de la entrada, tal como se describe en [está sección](#multi-step-query-with-a-grouping-key) 
 
@@ -222,12 +222,12 @@ Esta consulta se puede escalar hasta 24 unidades de streaming.
 
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
+* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
@@ -241,7 +241,6 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](ht
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

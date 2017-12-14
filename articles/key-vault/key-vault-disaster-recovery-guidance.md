@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f19c4bba2152eb021831dedda734fd54ee78d75
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="azure-key-vault-availability-and-redundancy"></a>Redundancia y disponibilidad del Almacén de claves de Azure
-El Almacén de claves de Azure tiene varias capas de redundancia para garantizar la disponibilidad de las claves y los secretos para su aplicación, aunque se produzcan errores de componentes individuales del servicio.
+# <a name="azure-key-vault-availability-and-redundancy"></a>Redundancia y disponibilidad de Azure Key Vault
+Azure Key Vault tiene varias capas de redundancia para garantizar la disponibilidad de las claves y los secretos para su aplicación, aunque se produzcan errores de componentes individuales del servicio.
 
-El contenido del almacén de claves se replica dentro de la región y en una región secundaria que se encuentre a una distancia mínima de 241 km pero dentro de la misma ubicación geográfica. Así se mantiene la durabilidad de las claves y los secretos. Consulte el artículo sobre las [regiones emparejadas de Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) para obtener más información sobre pares de regiones específicas.
+El contenido del almacén de claves se replica dentro de la región y en una región secundaria que se encuentre a una distancia mínima de 241 km pero dentro de la misma ubicación geográfica. Así se mantiene la durabilidad de las claves y los secretos. Consulte el artículo sobre las [regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) para obtener más información sobre pares de regiones específicas.
 
 Si se produce un error en algún componente individual dentro del servicio del almacén de claves, los componentes alternativos de la región se encargan de atender la solicitud para garantizar que no se pierde funcionalidad. No es necesario realizar ninguna acción para ello. Se lleva a cabo automáticamente y es transparente para el programador.
 

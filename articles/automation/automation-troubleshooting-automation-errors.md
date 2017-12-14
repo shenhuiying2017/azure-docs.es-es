@@ -3,7 +3,7 @@ title: "Solución de problemas comunes de Azure Automation| Microsoft Docs"
 description: "En este artículo se proporciona información para solucionar los errores comunes de Azure Automation."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c958bc149cc617b5c9e99a2d3fc6fb2d425b2772
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solución de problemas comunes en Azure Automation 
 Este artículo proporciona ayuda para solucionar los errores comunes que puede experimentar en Azure Automation y sugiere posibles soluciones para resolverlos.
@@ -29,12 +29,13 @@ Este artículo proporciona ayuda para solucionar los errores comunes que puede e
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Escenario: Fallo del inicio de sesión en la cuenta de Azure
 **Error**: Recibe el error "Unknown_user_type: Tipo de usuario desconocido" mientras trabaja con los cmdlets Add-AzureAccount o Login-AzureRmAccount.
 
-**Motivo del error:** este error se produce si el nombre de activo de credencial no es válido o si el nombre de usuario y la contraseña que usó para configurar el activo de credencial de automatización no son válidos.
+
+            **Motivo del error:** este error se produce si el nombre de activo de credencial no es válido o si el nombre de usuario y la contraseña que usó para configurar el activo de credencial de Automation no son válidos.
 
 **Sugerencias para solucionar el problema:** para determinar cuál es el problema, siga estos pasos:  
 
-1. Asegúrese de que el nombre de activo de la credencial de Automatización que use para conectarse a Azure no contenga caracteres especiales, incluido el carácter **@** .  
-2. Compruebe que puede utilizar el nombre de usuario y la contraseña que se almacenan en la credencial de Automatización de Azure en su editor local ISE de PowerShell. Puede hacerlo ejecutando los siguientes cmdlets en el ISE de PowerShell:  
+1. Asegúrese de que el nombre de activo de la credencial de Automation que use para conectarse a Azure no contenga caracteres especiales, incluido el carácter **@** .  
+2. Compruebe que puede utilizar el nombre de usuario y la contraseña que se almacenan en la credencial de Azure Automation en su editor local ISE de PowerShell. Puede hacerlo ejecutando los siguientes cmdlets en el ISE de PowerShell:  
 
         $Cred = Get-Credential  
         #Using Azure Service Management   
@@ -95,24 +96,24 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 ### <a name="scenario-runbook-job-failed-because-the-allocated-quota-exceeded"></a>Escenario: Error de trabajo de Runbook porque superó la cuota asignada
 **Error:** Su trabajo de runbook falla y recibe el error "Se ha alcanzado la cuota para el tiempo de ejecución de trabajo mensual para esta suscripción".
 
-**Motivo del error:** Este error se produce cuando la ejecución del trabajo supera la cuota gratuita de 500 minutos para su cuenta. Esta cuota se aplica a todos los tipos de tareas de ejecución de trabajo como realizar pruebas de un trabajo, iniciar un trabajo desde el portal, ejecutar un trabajo usando Webhook y programar un trabajo para ejecutar mediante el Portal de Azure o en su centro de datos. Para obtener más información sobre precios para, consulte automatización [Precios de Automatización](https://azure.microsoft.com/pricing/details/automation/).
+**Motivo del error:** Este error se produce cuando la ejecución del trabajo supera la cuota gratuita de 500 minutos para su cuenta. Esta cuota se aplica a todos los tipos de tareas de ejecución de trabajo como realizar pruebas de un trabajo, iniciar un trabajo desde el portal, ejecutar un trabajo usando Webhook y programar un trabajo para ejecutar mediante el Portal de Azure o en su centro de datos. Para obtener más información sobre precios para, consulte [Precios de Automation](https://azure.microsoft.com/pricing/details/automation/).
 
 **Sugerencias para solucionar el problema:** Si desea usar más de 500 minutos de procesamiento por mes tiene que cambiar la suscripción del nivel Gratis al nivel Básico. Puede actualizar al nivel Básico realizando los pasos siguientes:  
 
 1. Inicie sesión en la suscripción de Azure  
-2. Seleccione la cuenta de Automatización que desee actualizar  
+2. Seleccione la cuenta de Automation que desee actualizar  
 3. Haga clic en **Configuración** > **Precios**.
 4. Haga clic en **Habilitar** en la parte inferior de la página para actualizar su cuenta al nivel **Básico**.
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Escenario: No se reconoce el Cmdlet cuando se ejecuta un runbook
 **Error**: se produce un error en su trabajo de runbook con el mensaje "``<cmdlet name>``: El término ``<cmdlet name>`` no se reconoce como nombre de un cmdlet, una función, un archivo de script o un programa ejecutable".
 
-**Motivo del error:** este error se produce cuando el motor de PowerShell no puede encontrar el cmdlet que está usando en su Runbook.  Esto podría deberse a que el módulo que contiene el cmdlet no está presente en la cuenta, a que haya un conflicto de nombres con un nombre de runbook o a que el cmdlet también existe en otro módulo y Automatización no puede resolver el nombre.
+**Motivo del error:** este error se produce cuando el motor de PowerShell no puede encontrar el cmdlet que está usando en su Runbook.  Esto podría deberse a que el módulo que contiene el cmdlet no está presente en la cuenta, a que haya un conflicto de nombres con un nombre de runbook o a que el cmdlet también existe en otro módulo y Automation no puede resolver el nombre.
 
 **Sugerencias para solucionar el problema:** cualquiera de las siguientes alternativas solucionará este problema:  
 
 * Compruebe que ha escrito correctamente el nombre del cmdlet.  
-* Asegúrese de que el cmdlet existe en su cuenta de Automatización y de que no hay ningún conflicto. Para comprobar si está presente el cmdlet, abra un runbook en modo de edición y busque el cmdlet que quiere encontrar en la biblioteca o ejecute **Get-Command``<CommandName>``**.  Una vez que haya comprobado que el cmdlet está disponible para la cuenta y que no hay conflictos de nombres con otros cmdlets o runbooks, agréguelo al lienzo y asegúrese de que está utilizando un parámetro válido establecido en su runbook.  
+* Asegúrese de que el cmdlet existe en su cuenta de Automation y de que no hay ningún conflicto. Para comprobar si está presente el cmdlet, abra un runbook en modo de edición y busque el cmdlet que quiere encontrar en la biblioteca o ejecute **Get-Command``<CommandName>``**.  Una vez que haya comprobado que el cmdlet está disponible para la cuenta y que no hay conflictos de nombres con otros cmdlets o runbooks, agréguelo al lienzo y asegúrese de que está utilizando un parámetro válido establecido en su runbook.  
 * Si tiene un conflicto de nombres y el cmdlet está disponible en dos módulos diferentes, puede resolver este problema mediante el nombre completo del cmdlet. Por ejemplo, puede usar **NombreDeMódulo\NombredeCmdlet**.  
 * Si está ejecutando el runbook local en un grupo de trabajo híbrido, asegúrese de que el cmdlet o módulo está instalado en el equipo que hospeda el trabajo híbrido.
 
@@ -125,10 +126,11 @@ Cualquiera de las siguientes tres alternativas solucionará este problema:
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>Escenario: No se puede importar el módulo o no se puede ejecutar cmdlets después de la importación
 **Error:** un módulo no se puede importar o se importa correctamente, pero no se extrae ningún cmdlet.
 
-**Motivo del error:** algunas razones comunes por las que un módulo no se importa correctamente a Automatización de Azure son:  
 
-* La estructura no coincide con la estructura que Automatización necesita.  
-* El módulo depende de otro módulo que no se ha implementado en su cuenta de Automatización.  
+            **Motivo del error:** algunas razones comunes por las que un módulo no se importa correctamente a Azure Automation son:  
+
+* La estructura no coincide con la estructura que Automation necesita.  
+* El módulo depende de otro módulo que no se ha implementado en su cuenta de Automation.  
 * Al módulo le faltan sus dependencias en la carpeta.  
 * El cmdlet **New-AzureRmAutomationModule** se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una URL de acceso público.  
 
@@ -137,7 +139,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 
 * Asegúrese de que el módulo sigue el formato siguiente:  
   nombreDeMódulo.Zip **->** nombreDeMódulo o un número de versión **->** (nombreDeMódulo.psm1, nombreDeMódulo.psd1)
-* Abra el archivo. psd1 y compruebe si el módulo tiene dependencias.  Si es así, cargue estos módulos en la cuenta de Automatización.  
+* Abra el archivo. psd1 y compruebe si el módulo tiene dependencias.  Si es así, cargue estos módulos en la cuenta de Automation.  
 * Asegúrese de que todos los archivos .dll a los que se hace referencia están presentes en la carpeta del módulo.  
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errores comunes al trabajar con la Configuración de estado deseado (DSC)
@@ -179,12 +181,12 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 
 **Sugerencias de solución de problemas:**  
 
-* Asegúrese de que pasa el valor adecuado de **ConfigurationData** para establecer **PSAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, vea los [recursos en DSC de Automatización de Azure](automation-dsc-compile.md#assets).
+* Asegúrese de que pasa el valor adecuado de **ConfigurationData** para establecer **PSAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, vea los [recursos en DSC de Azure Automation](automation-dsc-compile.md#assets).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si ha seguido los pasos de solución de problemas anteriores y no puede encontrar la respuesta, puede revisar las opciones de soporte técnico adicionales siguientes.
 
 * Obtener ayuda de expertos de Azure. Envíe su problema a los [foros de MSDN de Azure o Stack Overflow](https://azure.microsoft.com/support/forums/).
 * Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio del soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y facturación**.
-* Si está buscando una solución de Runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/) .
-* Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
+* Si está buscando una solución de Runbook o un módulo de integración de Azure Automation, publique una solicitud de script en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/) .
+* Si tiene comentarios o solicitudes de características para Azure Automation, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).

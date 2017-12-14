@@ -1,6 +1,6 @@
 ---
 title: Escalar los trabajos de Stream Analytics para incrementar el rendimiento | Microsoft Docs
-description: "Aprenda a escalar los trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
+description: "Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
 keywords: "datos de streaming, procesamiento de datos de streaming, optimización del análisis"
 services: stream-analytics
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: a38394d825c9a9b3007b30f598b37caa08f7325f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781a3b71c35cb48e40202e3b1acc8edbbaf865c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Escalar los trabajos de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
@@ -151,12 +151,12 @@ Y en el gráfico siguiente se muestra una visualización de la relación entre u
 ![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
+* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->
@@ -170,7 +170,6 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](ht
 <!--Link references-->
 
 [microsoft.support]: http://support.microsoft.com
-[azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md

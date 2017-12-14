@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>Uso del operador ANOMALYDETECTION
 
@@ -38,12 +38,12 @@ También existe la opción de procesar grupos de eventos por separado en funció
 
 ## <a name="syntax"></a>Sintaxis
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Ejemplo de uso
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Argumentos
@@ -56,7 +56,7 @@ También existe la opción de procesar grupos de eventos por separado en funció
 
 - **partition_by_clause** 
 
-  La cláusula `PARTITION BY \<partition key\>` divide el aprendizaje teórico y el práctico en particiones independientes. En otras palabras, se usaría un modelo independiente por cada valor de `\<partition key\>` y solo se usarían los eventos con dicho valor se usaría para los aprendizajes teórico y práctico en ese modelo. Por ejemplo,
+  La cláusula `PARTITION BY <partition key>` divide el aprendizaje teórico y el práctico en particiones independientes. En otras palabras, se usaría un modelo independiente por cada valor de `<partition key>` y solo se usarían los eventos con dicho valor se usaría para los aprendizajes teórico y práctico en ese modelo. Por ejemplo,
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -80,7 +80,7 @@ La función devuelve un registro que contiene las tres puntuaciones como salida.
 
 Para extraer los valores individuales del registro, use la función **GetRecordPropertyValue**. Por ejemplo:
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Una anomalía de un tipo concreto se detecta cuando una de estas puntuaciones supera un umbral. El umbral puede ser cualquier número de punto flotante \>= 0. El umbral es un equilibrio entre la confidencialidad y la confianza. Por ejemplo, un umbral más bajo aumentaría la sensibilidad a los cambios y generaría más alertas, mientras que un umbral más alto podría reducir la sensibilidad de la detección y aumentar la seguridad pero enmascararía algunas anomalías. El valor de umbral exacto que se utiliza depende del escenario. No hay límite superior, pero el intervalo recomendado es 3,25-5.
@@ -160,12 +160,12 @@ Como ya se ha indicado, por ahora no debe omitir el paso `FillInMissingValuesSte
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Referencias
@@ -175,13 +175,13 @@ Como ya se ha indicado, por ahora no debe omitir el paso `FillInMissingValuesSte
 * [Detección de anomalías en una series temporal](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
