@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Administración de Cloud Services
-En el área **Cloud Services (clásico)** de Azure Portal, puede actualizar un rol de servicio o una implementación, promover una implementación de ensayo en producción, vincular recursos con su servicio en la nube para que pueda ver las dependencias de estos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
+En el área **Cloud Services** de Azure Portal, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
 Para obtener más información sobre cómo escalar un servicio en la nube, haga clic [aquí](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Tenga en cuenta que las actualizaciones del SO invitado y las operaciones de rec
 **¿Un intercambio conlleva tiempo de inactividad de mi aplicación? ¿Cómo puedo controlarlo?**
 
 Como se ha descrito en la última sección, un intercambio de implementación suele ser rápido, ya que no es más que un cambio de configuración en Azure Load Balancer. Sin embargo, en algunos casos, puede tardar diez o más segundos y dar lugar a errores de conexión transitorios. Para limitar el impacto en los clientes, considere la posibilidad de implementar la [lógica de reintento del cliente](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Vinculación de un recurso a un servicio en la nube
-El Portal de Azure no vincula recursos entre sí como el Portal de Azure clásico actual. En su lugar, implemente más recursos en el mismo grupo de recursos que está usando el servicio en la nube.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Eliminación de implementaciones y un servicio en la nube
 Antes de que pueda eliminar un servicio en la nube, debe eliminar cada implementación existente.

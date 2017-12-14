@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: e9422745de1f46098f1a1b0605c2560f44c02f3c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Uso de Jenkins para compilar e implementar las aplicación para Linux
 Jenkins es una herramienta popular para la integración e implementación continuas de aplicaciones. Así es como se compila e implementa una aplicación de Azure Service Fabric mediante Jenkins.
 
 ## <a name="general-prerequisites"></a>Requisitos previos generales
 - Git debe estar instalado localmente. La versión adecuada de Git se puede instalar desde [la página de descargas de la Git](https://git-scm.com/downloads), en función de su sistema operativo. Si no conoce Git, encontrará más información al respecto en la [documentación de Git](https://git-scm.com/docs).
-- Tener a mano el complemento de Jenkins para Service Fabric. Puede descargarlo de las [descargas de Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+- Tener a mano el complemento de Jenkins para Service Fabric. Puede descargarlo de las [descargas de Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Si usa el explorador Edge, cambie el nombre de la extensión del archivo descargado de .zip a .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configuración de Jenkins en un clúster de Service Fabric
 
@@ -129,8 +129,8 @@ Debe tener instalado Docker. Los siguientes comandos se pueden usar para instala
 Ahora, cuando ejecute ``docker info`` en el terminal, verá en la salida que el servicio Docker se está ejecutando.
 
 ### <a name="steps"></a>Pasos
-  1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: ``docker pull sayantancs/jenkins:v9``
-  2. Ejecute la imagen del contenedor: ``docker run -itd -p 8080:8080 sayantancs/jenkins:v9``
+  1. Extraiga la imagen del contenedor de Jenkins de Service Fabric: ``docker pull rapatchi/jenkins:v9``
+  2. Ejecute la imagen del contenedor: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
   3. Obtenga el identificador de la instancia de la imagen de contenedor. Puede enumerar todos los contenedores de Docker con el comando ``docker ps –a``.
   4. Inicie sesión en el portal de Jenkins, para lo que debe seguir estos pasos:
 

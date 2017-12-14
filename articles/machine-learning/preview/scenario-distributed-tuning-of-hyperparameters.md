@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuido de hiperparámetros con Azure Machine Learning Workbench
 
@@ -27,9 +27,9 @@ A continuación se muestra el vínculo al repositorio de GitHub público:
 
 Muchos algoritmos de aprendizaje automático tienen uno o varios mandos de control, llamados hiperparámetros. Estos mandos de control permiten ajustar algoritmos para optimizar su rendimiento en datos futuros, medido según métricas especificadas por el usuario (por ejemplo, precisión, AUC, RMSE). Los científicos de datos tienen que proporcionar valores para los hiperparámetros al generar un modelo con datos de entrenamiento antes de ver los datos de pruebas futuras. Basándonos en los datos de entrenamiento conocidos, ¿cómo podemos configurar los valores de los hiperparámetros de modo que el modelo tenga un buen rendimiento con datos de prueba desconocidos? 
 
-Una técnica popular para el ajuste de hiperparámetros es la *búsqueda de cuadrícula* combinada con *validación cruzada*. La validación cruzada es una técnica que evalúa la predicción de un modelo entrenado en un conjunto de entrenamiento sobre el conjunto de prueba. Con esta técnica, inicialmente se divide el conjunto de datos en K subconjuntos y, a continuación, se entrena el algoritmo K veces, de un modo round robin, en todos los subconjuntos menos uno, llamado subconjunto apartado. Se calcula el valor medio de las métricas de K modelos sobre K subconjuntos apartados. Este valor promedio, denominado *estimación de rendimiento de validación cruzada*, depende de los valores de los hiperparámetros utilizados al crear K modelos. Al ajustar hiperparámetros, se busca en el espacio de valores del hiperparámetro candidato para encontrar los que optimizan la estimación de rendimiento de validación cruzada. La búsqueda de cuadrícula es una técnica de búsqueda común en la que el espacio de valores candidatos de varios hiperparámetros es un producto cruzado de conjuntos de valores candidatos de hiperparámetros individuales. 
+Una técnica popular para el ajuste de hiperparámetros es la *búsqueda de cuadrícula* combinada con *validación cruzada*. La validación cruzada es una técnica que evalúa la predicción de un modelo entrenado en un conjunto de entrenamiento sobre el conjunto de prueba. Con esta técnica, primero se divide el conjunto de datos en K subconjuntos y luego se entrena el algoritmo K veces de un modo round robin. Esta técnica se emplea en todos los subconjuntos excepto en uno de ellos denominado "subconjunto apartado". Se calcula el valor medio de las métricas de K modelos sobre K subconjuntos apartados. Este valor promedio, denominado *estimación de rendimiento de validación cruzada*, depende de los valores de los hiperparámetros utilizados al crear K modelos. Al ajustar hiperparámetros, se busca en el espacio de valores del hiperparámetro candidato para encontrar los que optimizan la estimación de rendimiento de validación cruzada. La búsqueda de cuadrícula es una técnica de búsqueda común. En la búsqueda de cuadrícula, el espacio de valores candidatos de varios hiperparámetros es un producto cruzado de conjuntos de valores candidatos de hiperparámetros individuales. 
 
-La búsqueda de cuadrícula con la validación cruzada puede consumir mucho tiempo. Si un algoritmo tiene 5 hiperparámetros, cada uno con 5 valores candidatos y usamos K = 5 subconjuntos, para completar una búsqueda de cuadrícula es necesario entrenar 5<sup>6</sup>= 15625 modelos. Afortunadamente, la búsqueda de cuadrícula con la validación cruzada es un procedimiento paralelo y se puede entrenar todos estos modelos en paralelo.
+La búsqueda de cuadrícula con la validación cruzada puede consumir mucho tiempo. Si un algoritmo tiene cinco hiperparámetros cada uno con cinco valores candidatos, usamos K=5 subconjuntos. Después, se completa una búsqueda de cuadrícula entrenando 5<sup>6</sup>= 15 625 modelos. Afortunadamente, la búsqueda de cuadrícula con la validación cruzada es un procedimiento paralelo y se puede entrenar todos estos modelos en paralelo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,11 +37,19 @@ La búsqueda de cuadrícula con la validación cruzada puede consumir mucho tiem
 * Una copia instalada de [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](./quickstart-installation.md) para instalar el programa y crear cuentas.
 * En este escenario se da por supuesto que está ejecutando Azure ML Workbench en Windows 10 o MacOS con el motor de Docker instalado localmente. 
 * Para ejecutar el escenario con un contenedor de Docker remoto, aprovisione la instancia de Data Science Virtual Machine (DSVM) Ubuntu siguiendo estas [instrucciones](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Se recomienda usar una máquina virtual con al menos 8 núcleos y 28 GB de memoria. Las instancias de máquinas virtuales D4 tienen esa capacidad. 
-* Para ejecutar este escenario con un clúster de Spark, aprovisione el clúster de HDInsight siguiendo estas [instrucciones](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Se recomienda tener un clúster con al menos seis nodos de trabajo y al menos 8 núcleos y 28 GB de memoria en los nodos principal y de trabajo. Las instancias de máquinas virtuales D4 tienen esa capacidad. Para maximizar el rendimiento del clúster, se recomienda cambiar los parámetros spark.executor.instances, spark.executor.cores y spark.executor.memory siguiendo estas [instrucciones](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) y editar las definiciones de la sección "custom spark defaults" (valores predeterminados de spark personalizados).
+* Para ejecutar este escenario con un clúster de Spark, aprovisione el clúster de Azure HDInsight siguiendo estas [instrucciones](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Se recomienda tener un clúster con al menos 
+- seis nodos de trabajo
+- ocho núcleos
+- 28 GB de memoria en los nodos de encabezado y de trabajo. Las instancias de máquinas virtuales D4 tienen esa capacidad. Es recomendable cambiar los parámetros siguientes para maximizar el rendimiento del clúster.
+- spark.executor.instances
+- spark.executor.cores
+- spark.executor.memory 
 
-     **Solución de problemas**: la suscripción de Azure podría tener una cuota en el número de núcleos que se pueden usar. Azure Portal no permite la creación del clúster si el número total de núcleos supera la cuota. Para encontrar la cuota, vaya en Azure Portal a la sección Suscripciones, haga clic en la suscripción que se utiliza para implementar el clúster y, a continuación, haga clic en **Uso y cuotas**. Normalmente las cuotas se definen por cada región de Azure y puede elegir implementar el clúster de Spark en una región donde haya suficientes núcleos libres. 
+Puede seguir estas [instrucciones](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) y editar las definiciones en la sección de personalización de valores predeterminados de spark".
 
-* Cree una cuenta de Azure Storage que se usará para almacenar el conjunto de datos. Puede seguir estas [instrucciones](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) para crear una cuenta de Azure Storage.
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+
+* Cree una cuenta de Azure Storage que se usará para almacenar el conjunto de datos. Siga las [instrucciones](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) para crear una cuenta de almacenamiento.
 
 ## <a name="data-description"></a>Descripción de los datos
 
@@ -72,7 +80,7 @@ Usamos los paquetes [scikit-learn](https://anaconda.org/conda-forge/scikit-learn
 
 La archivo modificado conda\_dependencies.yml se almacena en el directorio aml_config del tutorial. 
 
-En los pasos siguientes, se conecta el entorno de ejecución con la cuenta de Azure. Para abrir la ventana de línea de comandos (CLI), haga clic en el menú Archivo en la esquina superior izquierda de AML Workbench y elija "Abrir símbolo del sistema." A continuación, en la CLI, ejecute
+En los pasos siguientes, se conecta el entorno de ejecución con la cuenta de Azure. Haga clic en el menú Archivo situado en la esquina superior izquierda de AML Workbench. Elija "Abrir símbolo del sistema". A continuación, en la CLI, ejecute
 
     az login
 
@@ -84,7 +92,7 @@ Vaya a esta página web, escriba el código e inicie sesión en su cuenta de Azu
 
     az account list -o table
 
-y busque el identificador de la suscripción de Azure con su cuenta de AML Workbench Workspace. Por último, en la CLI, ejecute
+y busque el identificador de la suscripción de Azure que tenga su cuenta de AML Workbench Workspace. Por último, en la CLI, ejecute
 
     az account set -s <subscription ID>
 
@@ -96,7 +104,7 @@ En las dos secciones siguientes se muestra cómo completar la configuración del
 
  Para configurar un contenedor de Docker remoto, en la CLI, ejecute
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 con la dirección IP, nombre de usuario y contraseña de la DSVM. La dirección IP de la DSVM se puede encontrar en la sección Información general de la página de la DSVM en Azure Portal:
 
@@ -106,7 +114,7 @@ con la dirección IP, nombre de usuario y contraseña de la DSVM. La dirección 
 
 Para configurar el entorno de Spark, en la CLI, ejecute
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 con el nombre del clúster, el nombre de usuario SSH del clúster y la contraseña. El valor predeterminado del nombre de usuario SSH es `sshuser`, a menos que se haya cambiado durante el aprovisionamiento del clúster. El nombre del clúster se puede encontrar en la sección Propiedades de la página del clúster en Azure Portal:
 
@@ -136,13 +144,13 @@ Para descargar datos desde Kaggle, vaya a la [página del conjunto de datos](htt
 ![Abrir blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![Abrir contenedor](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-A continuación, seleccione el contenedor del conjunto de datos en la lista y haga clic en el botón de carga. Azure Portal permite para cargar varios archivos al mismo tiempo. En la sección "Cargar blob", haga clic en el botón de carpeta, seleccione todos los archivos del conjunto de datos y, a continuación, haga clic en Abrir y, a continuación, haga clic en Cargar. La captura de pantalla siguiente muestra estos pasos:
+A continuación, seleccione el contenedor del conjunto de datos en la lista y haga clic en el botón Cargar. Azure Portal le permite cargar varios archivos al mismo tiempo. En la sección "Cargar blob", haga clic en el botón de carpeta, seleccione todos los archivos del conjunto de datos y, a continuación, haga clic en Abrir y, a continuación, haga clic en Cargar. La siguiente captura de pantalla muestra estos pasos:
 
 ![Carga de blob](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 La carga de los archivos tarda varios minutos, dependiendo de la conexión a Internet. 
 
-En el código, utilizamos el [SDK de Azure Storage](https://azure-storage.readthedocs.io/en/latest/) para descargar el conjunto de datos desde el almacenamiento de blobs al entorno de ejecución actual. La descarga se realiza en la función load\_ldata() del archivo load_data.py. Para usar este código, es necesario reemplazar <ACCOUNT_NAME> y <ACCOUNT_KEY> por el nombre y la clave principal de la cuenta de almacenamiento que hospeda el conjunto de datos. El nombre de la cuenta se muestra en la esquina superior izquierda de la página de Azure de la cuenta de almacenamiento. Para obtener la clave de la cuenta, seleccione Claves de acceso en la página de Azure de la cuenta de almacenamiento (ver la primera captura de pantalla en la sección Ingesta de datos) y, a continuación, copie la cadena larga en la primera fila de la columna de clave:
+En el código, utilizamos el [SDK de Azure Storage](https://azure-storage.readthedocs.io/en/latest/) para descargar el conjunto de datos desde el almacenamiento de blobs al entorno de ejecución actual. La descarga se realiza en la función load\_ldata() del archivo load_data.py. Para usar este código, es necesario reemplazar <ACCOUNT_NAME> y <ACCOUNT_KEY> por el nombre y la clave principal de la cuenta de almacenamiento que hospeda el conjunto de datos. Puede ver el nombre de la cuenta en la esquina superior izquierda de la página de Azure de la cuenta de almacenamiento. Para obtener la clave de la cuenta, seleccione Claves de acceso en la página de Azure de la cuenta de almacenamiento (ver la primera captura de pantalla en la sección Ingesta de datos) y, a continuación, copie la cadena larga en la primera fila de la columna de clave:
  
 ![clave de acceso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ El siguiente código de la función load_data() descarga un único archivo:
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Tenga en cuenta que no es necesario ejecutar el archivo load_data.py manualmente. Más adelante se llamará desde otros archivos.
+Tenga en cuenta que no es necesario ejecutar el archivo load_data.py manualmente. Más adelante se llama desde otros archivos.
 
 ### <a name="feature-engineering"></a>Ingeniería de características
 El código para calcular todas las características en el archivo feature\_engineering.py. No es necesario ejecutar el archivo feature_engineering.py manualmente. Más adelante se llamará desde otros archivos.
@@ -190,7 +198,7 @@ Puesto que el entorno local es demasiado pequeño para calcular todos los conjun
 Usamos la implementación de [xgboost](https://anaconda.org/conda-forge/xgboost) [1] de la potenciación de árboles de gradiente. Usamos el paquete [scikit-learn](http://scikit-learn.org/) para ajustar los hiperparámetros de xgboost. Aunque xgboost no forma parte del paquete scikit-learn, implementa la API de scikit-learn, por lo que puede utilizarse junto con las funciones de ajuste de hiperparámetros de scikit-learn. 
 
 Xgboost tiene ocho hiperparámetros:
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,7 +206,10 @@ Xgboost tiene ocho hiperparámetros:
 * learning_rate
 * colsample\_by_level
 * subsample
-* objective Puede encontrar una descripción de estos hiperparámetros [aquí](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) y [aquí](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). Inicialmente utilizamos la instancia de DSVM remota y ajustamos los hiperparámetros a partir de una cuadrícula pequeña de valores candidatos:
+* objective Puede encontrar una descripción de estos hiperparámetros en
+- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). 
+- 
+Inicialmente, utilizamos la instancia de DSVM remota y ajustamos los hiperparámetros a partir de una cuadrícula pequeña de valores candidatos:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
@@ -224,7 +235,7 @@ Después de crear el modelo, se guardan los resultados del ajuste del hiperpará
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-También creamos el archivo sweeping_results.txt con la validación cruzada de las pérdidas logarítmicas negativas de todas las combinaciones de valores de hiperparámetros de la cuadrícula:
+También creamos el archivo sweeping_results.txt con la validación cruzada de las pérdidas logarítmicas negativas de todas las combinaciones de valores de hiperparámetros de la cuadrícula.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Este comando finaliza en 1 hora y 38 minutos con una instancia de DSVM con 8 nú
 
 ![historial de ejecución](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-De forma predeterminada, la ventana Historial de ejecución muestra valores y gráficos de los primeros 1-2 valores registrados. Para ver la lista completa de los valores elegidos de hiperparámetros, haga clic en el icono de configuración marcado con un círculo rojo en la captura de pantalla anterior y seleccione los hiperparámetros que se mostrarán en la tabla. Además, para seleccionar los gráficos que se muestran en la parte superior de la ventana Historial de ejecución, haga clic en el icono de configuración marcado con un círculo azul y seleccione los gráficos de la lista. 
+De forma predeterminada, la ventana Historial de ejecución muestra valores y gráficos de los primeros 1-2 valores registrados. Para ver la lista completa de los valores elegidos de hiperparámetros, haga clic en el icono de configuración marcado con un círculo rojo en la captura de pantalla anterior. Después, seleccione los hiperparámetros que se mostrarán en la tabla. Además, para seleccionar los gráficos que se muestran en la parte superior de la ventana Historial de ejecución, haga clic en el icono de configuración marcado con un círculo azul y seleccione los gráficos de la lista. 
 
 También se pueden examinar los valores elegidos de hiperparámetros en la ventana Propiedades de ejecución: 
 
 ![propiedades de ejecución](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-En la esquina superior derecha de la ventana Propiedades de ejecución, hay una sección de Archivos de salida con la lista de todos los archivos que se crearon en la carpeta '. \output' en el entorno de ejecución. El archivo sweeping\_results.txt puede descargarse desde allí seleccionándolo y haciendo clic en el botón de descarga. El archivo sweeping_results.txt debe tener la siguiente salida:
+En la esquina superior derecha de la ventana Propiedades de ejecución, hay una sección de archivos de salida con la lista de todos los archivos que se crearon en la carpeta '. \output'. El archivo sweeping\_results.txt puede descargarse desde allí seleccionándolo y haciendo clic en el botón de descarga. El archivo sweeping_results.txt debe tener la siguiente salida:
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -297,15 +308,15 @@ en la ventana de la CLI. Esta instalación puede tardar varios minutos. Después
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-Este comando finaliza en 1 hora y 6 minutos con un clúster de Spark que tiene 6 nodos de trabajo con 28 GB de memoria. Se puede tener acceso a los resultados del ajuste de los hiperparámetros en el clúster de Spark, es decir, registros, mejores valores de hiperparámetros y el archivo sweeping_results.txt, en Azure Machine Learning Workbench de la misma manera que en la ejecución en la instancia de DSVM remota. 
+Este comando finaliza en 1 hora y 6 minutos con un clúster de Spark que tiene 6 nodos de trabajo con 28 GB de memoria. Se puede acceder a los resultados de la optimización de hiperparámetros en Azure Machine Learning Workbench del mismo modo que la ejecución remota de DSVM. (es decir, registros, mejores valores de hiperparámetros y archivo sweeping_results.txt)
 
 ### <a name="architecture-diagram"></a>Diagrama de la arquitectura
 
-El siguiente diagrama muestra el flujo de trabajo de un extremo a otro: ![arquitectura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+El siguiente diagrama muestra el flujo de trabajo global: ![arquitectura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>Conclusión 
 
-En este escenario, hemos mostrado cómo usar Azure Machine Learning Workbench para realizar el ajuste de hiperparámetros en la máquina virtual remota y en el clúster de Spark remoto. Hemos visto que Azure Machine Learning Workbench proporciona herramientas para facilitar la configuración de los entornos de ejecución y cambiar entre ellos. 
+En este escenario, hemos mostrado cómo usar Azure Machine Learning Workbench para realizar el ajuste de hiperparámetros en máquinas virtuales remotas y en clústeres de Spark. Hemos visto que Azure Machine Learning Workbench proporciona herramientas para facilitar la configuración de entornos de ejecución. También permite cambiar fácilmente entre ellos. 
 
 ## <a name="references"></a>Referencias
 

@@ -10,137 +10,147 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 0cd447a52964578dd2348a786dd57a45ea87516e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f4f1112fe68bdb2a26f68b3da08fe97f9d22d3b7
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>Uso de un repositorio de Git con un proyecto de Azure Machine Learning Workbench
-En este documento se proporciona información acerca de cómo Azure Machine Learning Workbench usa GIT para proporcionar control de versiones y garantizar la reproducibilidad en el experimento de ciencia de datos. También se proporcionan instrucciones sobre cómo asociar el proyecto con un repositorio de Git en la nube.
+# <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Uso de un repositorio de Git con un proyecto de Machine Learning Workbench
+Aprenda cómo Azure Machine Learning Workbench usa Git para proporcionar control de versiones y garantizar la capacidad de reproducción en el experimento de ciencia de datos. Aprenda a asociar el proyecto con un repositorio de Git en la nube.
 
-## <a name="introduction"></a>Introducción
-Azure Machine Learning Workbench está diseñado desde cero con la integración de Git. Al crear un nuevo proyecto, la carpeta del proyecto se inicializa automáticamente en GIT como un repositorio de GIT local (repositorio). Mientras tanto, también se crea un segundo repositorio de GIT local oculto con una rama denominada _AzureMLHistory/<project_GUID>_ para realizar un seguimiento de los cambios en la carpeta de proyecto para cada ejecución. 
+Machine Learning Studio se ha diseñado para la integración de Git. Al crear un nuevo proyecto, la carpeta del proyecto se inicializa automáticamente en Git como un repositorio de Git local. También se crea un segundo repositorio de Git local oculto, con una rama denominada AzureMLHistory/\<GUID del proyecto\>. La rama realiza un seguimiento de los cambios de la carpeta de proyecto para cada ejecución. 
 
-Al asociar el proyecto de Azure ML con un repositorio de Git, hospedado en un proyecto de Visual Studio Team Service (VSTS), se habilita el control automático de versiones tanto de forma local como remota. Esta asociación permite que cualquiera con acceso al repositorio remoto descargue el código fuente más reciente en otro equipo (roaming).  
-
-> [!NOTE]
-> VSTS tiene su propia lista de control de acceso que es independiente del servicio Experimentación de Azure Machine Learning. El acceso de usuario puede variar entre un repositorio de Git y un área de trabajo o proyecto de Azure ML, y puede que sea necesario administrarlo. Así que, si quiere compartir su proyecto de Azure ML con un miembro del equipo, lo que incluye el acceso de nivel de código, además de compartir únicamente el área de trabajo, deberá concederle el acceso adecuado al repositorio de Git de VSTS. 
-
-Con Git, también es posible administrar el control de versiones explícitamente mediante la rama _master_ o creando otras ramas en el repositorio. Puede usar simplemente el repositorio de Git local y también puede insertarlo en el repositorio de Git remoto si se aprovisiona.
-
-Este diagrama representa la relación entre un repositorio de Git de VSTS y un proyecto de Azure ML:
-
-![Git de AML](media/using-git-ml-project/aml_git.png)
-
-Para comenzar a usar un repositorio de Git remoto, siga estas instrucciones básicas.
+La asociación del proyecto de Azure Machine Learning a un repositorio de Git habilita el control automático de versiones, local y remotamente. El repositorio de Git está hospedado en Visual Studio Team Services (Team Services). Dado que el proyecto de Machine Learning está asociado a un repositorio de Git, cualquier persona que tenga acceso al repositorio remoto puede descargar el código fuente más reciente a otro equipo (itinerancia).  
 
 > [!NOTE]
-> Actualmente, Azure Machine Learning solo admite repositorios de Git en cuentas de VSTS. La compatibilidad con repositorios de Git generales (como GitHub, etc.) está prevista en un futuro.
+> Team Services tiene su propia lista de control de acceso (ACL) que es independiente del servicio Experimentación de Azure Machine Learning. El acceso de usuario podría variar entre un repositorio de Git y un proyecto o área de trabajo de Machine Learning. Puede que tenga que administrar el acceso. 
+> 
+> Si desea conceder a un miembro del equipo acceso de nivel de código a su proyecto de Machine Learning o simplemente compartir el área de trabajo, debe conceder al usuario los permisos correctos para acceder al repositorio de Git de Team Services. 
 
-## <a name="step-1-create-an-azure-ml-experimentation-account"></a>Paso 1. Creación de una cuenta de Experimentación de Azure ML
-Si no lo ha hecho ya, cree una cuenta de Experimentación de Azure ML e instale la aplicación de Azure ML Workbench. Consulte más detalles en la [guía de inicio rápido de instalación y creación](quickstart-installation.md).
+Para administrar el control de versiones con Git, puede usar la rama maestra o crear otras ramas en el repositorio. También puede usar el repositorio de Git local e insertarlo en el repositorio de Git remoto, si está aprovisionado.
 
-## <a name="step-2-create-a-team-project-or-use-an-existing-team-project"></a>Paso 2: Creación de un proyecto de equipo o uso de un proyecto de equipo existente
-En [Azure Portal](https://portal.azure.com/), cree un nuevo **proyecto de equipo**.
-1. Haga clic en **+**.
-2. Busque **"Proyecto de equipo"**.
-3. Escriba la información necesaria.
-    - Nombre: nombre de equipo.
-    - Control de versiones: **Git**
-    - Suscripción: la que tiene una cuenta de Experimentación de Azure Machine Learning.
-    - Ubicación: lo ideal es que esté en una región cercana a sus recursos de Experimentación de Azure Machine Learning.
-4. Haga clic en **Crear**. 
+Este diagrama representa la relación entre un repositorio de Git de Team Services y un proyecto de Machine Learning:
 
-![Creación de un proyecto de equipo desde Azure Portal](media/using-git-ml-project/create_vsts_team.png)
+![Git de Azure Machine Learning](media/using-git-ml-project/aml_git.png)
 
-Asegúrese de que inicia sesión con la misma cuenta de Azure Active Directory (AAD) que usa para acceder a Azure Machine Learning Workbench. En caso contrario, el sistema no podrá acceder con sus credenciales de AAD, a menos que use la línea de comandos para crear el proyecto de Azure Machine Learning y proporcione un token de acceso personal para tener acceso al repositorio de GIT. Más información sobre esto más adelante.
+Para comenzar a usar un repositorio de Git remoto, complete los pasos que se describen en las secciones siguientes.
 
-Una vez creado el proyecto de equipo, está listo para continuar con el paso siguiente.
+> [!NOTE]
+> Actualmente, Azure Machine Learning admite repositorios de Git solo en cuentas de Team Services. La compatibilidad con repositorios de Git generales, como GitHub, está prevista para el futuro.
 
-Para desplazarse directamente al proyecto de equipo que acaba de crear, la dirección URL es `https://<team_project_name>.visualstudio.com`.
+## <a name="step-1-create-a-machine-learning-experimentation-account"></a>Paso 1. Crear una cuenta de Experimentación de Machine Learning
+Cree una cuenta de Experimentación de Machine Learning e instale la aplicación Azure Machine Learning Workbench. Para más información, vea [Creación de cuentas de la versión preliminar de Azure Machine Learning e instalación de Azure Machine Learning Workbench](quickstart-installation.md).
 
-## <a name="step-3-create-a-new-azure-ml-project-with-a-remote-git-repo"></a>Paso 3: Creación de un proyecto de Azure ML con un repositorio de Git remoto
-Inicie Azure ML Workbench y cree un nuevo proyecto. Rellene el cuadro de texto del repositorio de Git con la dirección URL del repositorio de Git de VSTS que obtuvo en el paso 2. Por lo general, suele tener el aspecto siguiente: `http://<vsts_account_name>.visualstudio.com/_git/<project_name>`
+## <a name="step-2-create-a-team-project-or-use-an-existing-team-project"></a>Paso 2: Crear un proyecto de equipo o usar un proyecto de equipo existente
+En [Azure Portal](https://portal.azure.com/), cree un nuevo proyecto de equipo:
+1. Seleccione **+**.
+2. Busque **Proyecto de equipo**.
+3. Escriba la información necesaria:
+    - **Nombre**: nombre de equipo.
+    - **Control de versiones**: seleccione **Git**.
+    - **Suscripción**: seleccione una suscripción que tenga una cuenta de Experimentación de Machine Learning.
+    - **Ubicación**: lo ideal es elegir una región cercana a los recursos de Experimentación de Machine Learning.
+4. Seleccione **Crear**. 
 
-![Creación de un proyecto de Azure ML con un repositorio de Git](media/using-git-ml-project/create_project_with_git_rep.png)
+![Creación de un proyecto de equipo en Azure Portal](media/using-git-ml-project/create_vsts_team.png)
 
-También puede crear el proyecto con la herramienta de línea de comandos. Tiene la opción de proporcionar un token de acceso personal. Azure ML podrá utilizar ese token para acceder al repositorio de GIT en su nombre, en lugar de depender de sus credenciales de AAD:
+Asegúrese de que inicia sesión con la misma cuenta de Azure Active Directory (Azure AD) que usa para acceder a Machine Learning Workbench. En caso contrario, el sistema no puede acceder a Machine Learning Workbench mediante las credenciales de Azure AD. Una excepción es si usa la línea de comandos para crear el proyecto de Machine Learning y proporciona un token de acceso personal para acceder al repositorio de Git. Analizaremos esto con más detalle más adelante en el artículo.
+
+Para ir directamente al proyecto de equipo que ha creado, use la dirección URL https://\<nombre del proyecto de equipo\>.visualstudio.com.
+
+## <a name="step-3-set-up-a-machine-learning-project-and-git-repo"></a>Paso 3: Configurar un proyecto de Machine Learning y el repositorio de Git
+
+Para configurar un proyecto de Machine Learning, tiene dos opciones:
+- Crear un proyecto de Machine Learning que tiene un repositorio de Git remoto
+- Asociar un proyecto de Machine Learning existente a un repositorio de Git de Team Services
+
+### <a name="create-a-machine-learning-project-that-has-a-remote-git-repo"></a>Creación de un proyecto de Machine Learning que tiene un repositorio de Git remoto
+Abra Machine Learning Workbench y cree un nuevo proyecto. En el cuadro **Git repo** (Repositorio de Git), escriba la dirección URL del repositorio de Git de Team Services del paso 2. Normalmente tendrá este formato: https://\<nombre de cuenta de Team Services\>.visualstudio.com/_git/\<nombre del proyecto\>
+
+![Creación de un proyecto de Machine Learning que tiene un repositorio de Git](media/using-git-ml-project/create_project_with_git_rep.png)
+
+También se puede crear el proyecto mediante la herramienta de la línea de comandos de Azure (CLI de Azure). Tiene la opción de especificar un token de acceso personal. Machine Learning puede utilizar este token para acceder al repositorio de Git en lugar de usar sus credenciales de Azure AD:
 
 ```
-# create a new project with a Git repo and personal access token.
-$ az ml project create -a <experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <VSTS personal access token>
+# Create a new project that has a Git repo by using a personal access token.
+$ az ml project create -a <Experimentation account name> -n <project name> -g <resource group name> -w <workspace name> -r <Git repo URL> --vststoken <Team Services personal access token>
 ```
+
 > [!IMPORTANT]
-> Si elige la plantilla de proyecto en blanco, es correcto si el repositorio de GIT elegido ya tiene una rama _master_. Azure ML simplemente clona la rama _master_ localmente y agrega la carpeta `aml_config` y otros archivos de metadatos del proyecto a la carpeta del proyecto local. Sin embargo, si elige cualquier otra plantilla del proyecto, su repositorio de GIT aún no debe tener una rama _master_ o se mostrará un error. La alternativa es usar la herramienta de línea de comandos `az ml project create` para crear el proyecto y proporcionar un modificador `--force`. Esta acción elimina los archivos de la rama "master" original y los reemplaza con los nuevos archivos en la plantilla que elija.
+> Si elige la plantilla de proyecto en blanco, el repositorio de Git que elije para usar ya podría tener una rama maestra. Machine Learning simplemente clona la rama maestra localmente. Agrega la carpeta aml_config y otros archivos de metadatos de proyecto a la carpeta del proyecto local. 
+>
+> Si elige cualquier otra plantilla de proyecto, su repositorio de Git ya *no puede* tener una rama maestra. Si la tiene, aparecerá un error. La alternativa es usar el comando `az ml project create` para crear el proyecto, con un modificador `--force`. Esta acción elimina los archivos de la rama maestra original y los reemplaza por los nuevos archivos en la plantilla que elija.
 
-Ahora se crea un nuevo proyecto de Azure ML con la integración del repositorio de Git habilitada y listo para funcionar. La carpeta de proyecto siempre se inicializa en Git como un repositorio de Git local. Y el Git _remote_ se establece en el repositorio de Git de VSTS remoto de forma que se puedan insertar en él las confirmaciones.
+Se crea un nuevo proyecto de Machine Learning, con la integración del repositorio de Git habilitada. La carpeta de proyecto siempre se inicializa en Git como un repositorio de Git local. El Git remoto se establece en el repositorio de Git de Team Services remoto de forma que se pueden insertar confirmaciones en el repositorio de Git remoto.
 
-## <a name="step-3a-associate-an-existing-azure-ml-project-with-a-vsts-git-repo"></a>Paso 3a. Asociación de un proyecto de Azure ML existente con un repositorio de GIT de VSTS
-Opcionalmente, puede crear también un proyecto de Azure ML sin un repositorio de Git de VSTS y confiar solamente en el repositorio de Git local para las instantáneas del historial de ejecución. Además, puede asociar posteriormente un repositorio de Git de VSTS con este proyecto de Azure ML existente mediante el siguiente comando:
+### <a name="associate-an-existing-machine-learning-project-with-a-team-services-git-repo"></a>Asociación de un proyecto de Machine Learning existente a un repositorio de Git de Team Services
+Puede crear un proyecto de Machine Learning sin un repositorio de Git de Team Services y confiar solamente en el repositorio de Git local para las instantáneas del historial de ejecución. Más adelante, puede asociar un repositorio de Git de Team Services a este proyecto de Machine Learning existente mediante el comando siguiente:
 
 ```azurecli
-# make sure you are in the project path so CLI has context of your current project
-$ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<project_name>
+# Ensure that you are in the project path so Azure CLI has the context of your current project.
+$ az ml project update --repo https://<Team Services account name>.visualstudio.com/_git/<project name>
 ```
 
 > [!NOTE] 
-> Solo puede realizar la operación de actualización de repositorio en un proyecto de Azure ML que no tenga un repositorio de GIT asociado. Además, una vez que el repositorio de GIT está asociado, no se puede quitar.
+> Puede realizar la operación de actualización de repositorio solo en un proyecto de Machine Learning que no tenga un repositorio de Git asociado. Además, después de asociar un repositorio de Git a Machine Learning, no puede quitarlo.
 
-## <a name="step-4-capture-project-snapshot-in-git-repo"></a>Paso 4 Captura de una instantánea de proyecto en el repositorio de Git
-Ahora puede ejecutar unas cuantas ejecuciones de script en el proyecto y realizar algunos cambios entre ellas. Puede hacerlo desde la aplicación de escritorio o desde la CLI con el comando `az ml experiment submit`. Para más información, puede seguir el [tutorial de clasificación de Iris](tutorial-classifying-iris-part-1.md). En cada ejecución, si se realiza algún cambio en los archivos de la carpeta de proyecto, se confirma e inserta una instantánea de la carpeta de proyecto entera en el repositorio de GIT remoto en una rama denominada `AzureMLHistory/<Project_GUID>`. Para ver las ramas y las confirmaciones, vaya a la dirección URL del repositorio de GIT de VSTS y busque esta rama. 
+## <a name="step-4-capture-a-project-snapshot-in-the-git-repo"></a>Paso 4 Capturar una instantánea de proyecto en el repositorio de Git
+Lleve a cabo unas cuantas ejecuciones de script en el proyecto y realice algunos cambios entre ellas. Puede hacerlo en la aplicación de escritorio o desde la CLI de Azure con el comando `az ml experiment submit`. Para más información, consulte el [tutorial de la clasificación de Iris](tutorial-classifying-iris-part-1.md). En cada ejecución, si se realiza algún cambio en los archivos de la carpeta de proyecto, se confirma e inserta una instantánea de la carpeta de proyecto entera en el repositorio de Git remoto en una rama denominada AzureMLHistory/\<GUID del proyecto\>. Para ver las ramas y las confirmaciones, incluida la rama AzureMLHistory/\<GUID del proyecto\>, vaya a la dirección URL del repositorio de Git de Team Services. 
 
 > [!NOTE] 
 > La instantánea solo se confirma antes de una ejecución de script. Actualmente, una ejecución de preparación de datos o una ejecución de celdas de Notebook no desencadena la instantánea.
 
-![rama de historial de ejecución](media/using-git-ml-project/run_history_branch.png)
+![Rama de historial de ejecución](media/using-git-ml-project/run_history_branch.png)
 
 > [!IMPORTANT] 
-> Es mejor si no trabaja en la rama de historial con comandos de GIT. Si lo hace, podría estropearse el historial de ejecución. Use la rama "master" o cree otras ramas para sus propias operaciones de GIT.
+> Es mejor si no trabaja en la rama de historial mediante comandos de Git. Podría interferir con el historial de ejecución. En su lugar, use la rama maestra o cree otras ramas para sus propias operaciones de Git.
 
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>Paso 5. Restauración de una instantánea anterior del proyecto 
-Para restaurar toda la carpeta de proyecto al estado de una instantánea de estado anterior del proyecto de historial de ejecución, desde Azure ML Workbench, siga estos pasos:
-1. Haga clic en **Ejecuciones** en la barra de actividad (icono de reloj de arena).
-2. En la vista **Lista de ejecuciones**, haga clic en la ejecución que quiere restaurar.
-3. En la vista **Detalles de ejecución**, haga clic en **Restaurar**.
+Para restaurar la carpeta de proyecto entera al estado de una instantánea de historial de ejecución, en Machine Learning Workbench:
+1. En la barra de actividad (icono de reloj de arena), seleccione **Ejecuciones**.
+2. En la vista **Lista de ejecuciones**, seleccione la ejecución que desea restaurar.
+3. En la vista **Run Detail** (Detalle de la ejecución), seleccione **Restaurar**.
 
-![rama de historial de ejecución](media/using-git-ml-project/restore_project.png)
+![Rama de historial de ejecución](media/using-git-ml-project/restore_project.png)
 
-Como alternativa, puede usar el siguiente comando desde la ventana de la CLI de Azure ML Workbench.
+Si lo desea, puede usar los siguientes comandos en la ventana de la CLI de Azure en Machine Learning Workbench:
 
 ```azurecli
-# discover the run I want to restore snapshot from:
+# Discover the run I want to restore a snapshot from.
 $ az ml history list -o table
 
-# restore the snapshot from a particular run
-$ az ml project restore --run-id <run_id>
+# Restore the snapshot from a specific run.
+$ az ml project restore --run-id <run ID>
 ```
 
-Al ejecutar este comando, se sobrescribirá la carpeta de proyecto entera con la instantánea realizada cuando se inició esa ejecución en particular. Sin embargo, el proyecto se mantiene en la rama actual. Esto significa que **perderá todos los cambios** de la carpeta de proyecto actual. Por lo tanto, tener especial cuidado al ejecutar este comando. Es posible que quiera que GIT confirme los cambios en la rama actual antes de realizar la operación anterior. Vaya más arriba para obtener más información.
+Tenga cuidado cuando ejecute este comando. La ejecución de este comando sobrescribe la carpeta de proyecto entera con la instantánea realizada cuando se inició esa ejecución en particular. El proyecto se mantiene en la rama actual. Esto significa que **pierde todos los cambios** de la carpeta de proyecto actual.  
+
+Es posible que quiera usar Git para confirmar los cambios en la rama actual antes de realizar esta operación.
 
 ## <a name="step-6-use-the-master-branch"></a>Paso 6. Uso de la rama "master"
-Una manera de evitar la pérdida accidental del estado actual del proyecto, es confirmar el proyecto en la rama "master"(o cualquier rama que haya creado) del repositorio de GIT. Puede usar directamente Git desde la línea de comandos (u otra herramienta de cliente Git favorita que prefiera) para operar en la rama "master". Por ejemplo:
+Una manera de evitar la pérdida accidental del estado actual del proyecto, es confirmar el proyecto en la rama maestra del repositorio de Git (o en cualquier rama que haya creado). Puede usar Git desde la línea de comandos o desde su herramienta de cliente Git favorita para operar en la rama maestra. Por ejemplo:
 
 ```sh
-# check status to make sure you are on the master branch (or branch of your choice)
+# Check status to make sure you are on the master branch (or branch of your choice).
 $ git status
 
-# stage all changes
+# Stage all changes.
 $ git add -A
 
-# commit all changes locally on the master branch
+# Commit all changes locally on the master branch.
 $ git commit -m 'these are my updates so far'
 
-# push changes into the remote VSTS Git repo master branch.
+# Push changes to the remote Team Services Git repo master branch.
 $ git push origin master
 ```
 
-Ahora puede restaurar sin ningún riesgo el proyecto en una instantánea anterior siguiendo el paso 5, ya que sabe que siempre puede volver a la confirmación que acaba de realizar en la rama "master".
+Ahora, puede restaurar sin ningún riesgo el proyecto a una instantánea anterior completando el paso 5. Siempre puede volver a la confirmación que acaba de realizar en la rama maestra.
 
 ## <a name="authentication"></a>Autenticación
-Si confía en las funciones del historial de ejecución de Azure ML para realizar instantáneas del proyecto y restaurarlas, no tiene que preocuparse por la autenticación del repositorio de Git. De ello se ocupa la capa del servicio Experimentación.
+Si solo confía en las funciones del historial de ejecución de Machine Learning para realizar instantáneas del proyecto y restaurarlas, no tiene que preocuparse por la autenticación del repositorio de Git. La autenticación se controla mediante el nivel de servicio de Experimentación de Machine Learning.
 
-Sin embargo, si usa sus propias herramientas de Git para administrar el control de versiones, deberá tratar de forma correcta la autenticación en el repositorio de Git remoto en VSTS. En Azure ML, el repositorio de GIT remoto se agrega al repositorio local como un GIT remoto con el protocolo HTTPS. Esto significa que cuando emita comandos de GIT al equipo remoto (como de inserción o de extracción), deberá proporcionar el nombre de usuario y una contraseña o un token de acceso personal. Siga [estas instrucciones](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) para crear el token de acceso personal en un repositorio de GIT de VSTS.
+Sin embargo, si usa sus propias herramientas de Git para administrar el control de versiones, debe controlar la autenticación en el repositorio de Git remoto en Team Services. En Machine Learning, el repositorio de Git remoto se agrega al repositorio local como un Git remoto mediante el protocolo HTTPS. Esto significa que cuando emita comandos de Git (como de inserción o de extracción) al equipo remoto, deberá proporcionar el nombre de usuario y una contraseña o un token de acceso personal. Para crear un token de acceso personal en un repositorio de Git de Team Services, siga las instrucciones de [Use a personal access token to authenticate](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) (Uso de un token de acceso personal para autenticar).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Aprenda a usar el Proceso de ciencia de datos en equipo para organizar la estructura del proyecto. Consulte [Estructuración de un proyecto con TDSP](how-to-use-tdsp-in-azure-ml.md)
+- Aprenda a [usar el Proceso de ciencia de datos en equipo para organizar la estructura del proyecto](how-to-use-tdsp-in-azure-ml.md).

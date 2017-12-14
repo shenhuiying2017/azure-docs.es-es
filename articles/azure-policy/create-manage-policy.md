@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
@@ -26,22 +26,6 @@ Comprender cómo se crean y administran las directivas en Azure es importante pa
 > * Implementar una nueva directiva en toda la organización
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="opt-in-to-azure-policy"></a>Participación en Azure Policy
-
-Azure Policy ya se encuentra disponible en versión preliminar limitada y es necesario registrarse para solicitar el acceso.
-
-1. Vaya a Azure Policy en https://aka.ms/getpolicy y seleccione **Sign Up** (Suscribirse) en el panel izquierdo.
-
-   ![Búsqueda de directivas](media/assign-policy-definition/sign-up.png)
-
-2. Para participar en Azure Policy, seleccione las suscripciones con las que le gustaría trabajar en la lista **Subscription** (Suscripción). Después, seleccione **Register** (Registrar).
-
-   La lista de suscripciones incluye todas sus suscripciones de Azure.
-
-   ![Participación en el uso de Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Dependiendo de la demanda, la aceptación de la solicitud de registro puede tardar un par de días. Una vez aceptada la solicitud, se le envía un correo electrónico para notificarle que ya puede empezar a usar el servicio.
 
 ## <a name="assign-a-policy"></a>Asignación de una directiva
 
@@ -69,7 +53,7 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
    Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como se trata de la versión preliminar limitada, aún no se ha publicado el modelo de precios, por lo que no recibirá ninguna factura si selecciona el plan *Standard* (Estándar). Para más información sobre los precios, vea la página sobre [precios de Azure Policy](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Seleccione una opción en **Scope** (Ámbito): la suscripción o el grupo de recursos que registró anteriormente cuando empezó a participar en Azure Policy. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
+8. Seleccione una opción en **Scope** (Ámbito): la suscripción o el grupo de recursos que registró anteriormente. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
 
    En este ejemplo, se usa la suscripción **Azure Analytics Capacity Dev**. Su suscripción variará.
 
@@ -94,9 +78,9 @@ Ahora que se ha asignado la definición de directiva, vamos a crear una directiv
       - Las reglas/condiciones de la directiva, en este caso: tamaño de SKU de máquina virtual igual a la serie G
       - El efecto de la directiva, en este caso: **Deny** (Denegar).
 
-   Este es el aspecto que debe tener el json
+    Este es el aspecto que debe tener el json
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Ahora que se ha asignado la definición de directiva, vamos a crear una directiv
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Para ver ejemplos de código de JSON, consulte este artículo: [Templates for Azure Policy](json-samples.md) (Plantillas para Azure Policy)
+    Para ver ejemplos de código de JSON, lea el artículo [Templates for Azure Policy](json-samples.md) (Plantillas para Azure Policy).
 
 4. Seleccione **Guardar**.
 

@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
 El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos con los que ya cuenta. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
@@ -21,20 +21,6 @@ El primer paso para comprender cómo funciona el cumplimiento en Azure consiste 
 Al final de este proceso, habrá identificado correctamente máquinas virtuales que no utilizan discos administrados y que, por tanto, *no son compatibles*.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-## <a name="opt-in-to-azure-policy"></a>Participación en Azure Policy
-
-Azure Policy ya se encuentra disponible en versión preliminar pública y es necesario registrarse para solicitar el acceso.
-
-1. Vaya a Azure Policy en https://aka.ms/getpolicy y seleccione **Sign Up** (Suscribirse) en el panel izquierdo.
-
-   ![Búsqueda de directivas](media/assign-policy-definition/sign-up.png)
-
-2. Para participar en Azure Policy, seleccione las suscripciones con las que le gustaría trabajar en la lista **Subscription** (Suscripción). Después, seleccione **Registrar**.
-
-   ![Participación en el uso de Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Su solicitud se aprueba automáticamente para la versión preliminar. Espere 30 minutos para que el sistema procese el registro.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
@@ -65,7 +51,7 @@ En este tutorial rápido, se crea una asignación de directiva y se le asigna la
    Azure Policy ofrece dos planes de tarifa: *Free* (Gratis) y *Standard* (Estándar). Con el nivel Gratis, solo puede implementar las directivas en futuros recursos, mientras que con el plan Estándar, también puede hacerlo en los recursos ya existentes, para identificar mejor el estado de cumplimiento. Como se trata de la versión preliminar limitada, aún no se ha publicado el modelo de precios, por lo que no recibirá ninguna factura si selecciona el plan *Standard* (Estándar). Para más información sobre los precios, vea la página de [precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Seleccione el **ámbito** al que desea que se aplique la directiva.  Un ámbito determina en qué recursos o agrupación de recursos se exige la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
-8. Seleccione la suscripción o el grupo de recursos que registró anteriormente cuando empezó a participar en Azure Policy. En este ejemplo, se usa la suscripción **Azure Analytics Capacity Dev**, pero sus opciones variarán.
+8. Seleccione la suscripción (o el grupo de recursos) que registró anteriormente. En este ejemplo, se usa la suscripción **Azure Analytics Capacity Dev**, pero sus opciones variarán.
 
    ![Búsqueda de la definición de directiva correcta](media/assign-policy-definition/assign-policy.png)
 

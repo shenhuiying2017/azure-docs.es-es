@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Información general sobre las plantillas de licencias de Widevine
-## <a name="overview"></a>Información general
-Servicios multimedia de Azure ahora permite configurar y solicitar licencias de Widevine. Cuando el reproductor del usuario final intenta reproducir el contenido protegido de Widevine, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se puede usar para descifrar y reproducir el contenido especificado.
+Azure Media Services permite configurar y solicitar licencias de Widevine. Cuando el reproductor del usuario final intenta reproducir el contenido protegido de Widevine, se envía una solicitud al servicio de entrega de licencias para obtener una licencia. Si el servicio de licencia aprueba la solicitud, emite la licencia, la que se envía al cliente y se puede usar para descifrar y reproducir el contenido especificado.
 
 La solicitud de licencia de Widevine recibe el formato de un mensaje JSON.  
 
@@ -108,9 +107,9 @@ Cada valor content_key_specs debe especificarse para todas las pistas, independi
 | override_provider_client_token |valor booleano. true o false |Si es false y la solicitud de licencia contiene un token de cliente, use el token de la solicitud incluso si se especificó un token de cliente en esta estructura.  Si es true, utilice siempre el token especificado en esta estructura. |
 
 ## <a name="configure-your-widevine-licenses-using-net-types"></a>Configuración de las licencias de Widevine utilizando tipos de .NET
-Servicios multimedia proporciona las API de .NET que le permiten configurar sus licencias de Widevine. 
+Media Services proporciona las API de .NET que le permiten configurar sus licencias de Widevine. 
 
-### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>Clases tal y como se definen en el SDK de .NET de Servicios multimedia
+### <a name="classes-as-defined-in-the-media-services-net-sdk"></a>Clases tal y como se definen en el SDK de .NET de Media Services
 A continuación se definen estos tipos.
 
     public class WidevineMessage
@@ -190,12 +189,12 @@ En el ejemplo siguiente se muestra cómo utilizar las API de .NET para configura
     }
 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consulte también
-[Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-drm.md)
+[Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-playready-widevine.md)
 

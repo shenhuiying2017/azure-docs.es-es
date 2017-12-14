@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Uso del servicio StorSimple Device Manager de Azure Portal para clonar un volumen
 
@@ -69,12 +69,7 @@ Realice los pasos siguientes para crear un clon del volumen desde el catálogo d
    
     ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Estos volúmenes deben desconectarse en el host y en el dispositivo para que pueda restaurarlos. Acceda a los volúmenes de la hoja **Volúmenes** de su dispositivo y luego siga los pasos indicados en [Take a volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) (Desconexión de un volumen) para desconectarlos.
-   
-   > [!IMPORTANT]
-   > Asegúrese de desconectar primero los volúmenes del host y, después, desconectar los volúmenes del dispositivo. Si no establece los volúmenes sin conexión en el host, esto podría causar daños en los datos.
-   
-4. Vuelva a la pestaña **Catálogo de copias de seguridad** y seleccione un volumen de un conjunto de copia de seguridad. Haga clic con el botón derecho y, en el menú contextual, seleccione **Clonar**.
+3. Expanda el conjunto de copia de seguridad para ver el volumen asociado y seleccione un volumen en un conjunto de copia de seguridad. Haga clic con el botón derecho y, en el menú contextual, seleccione **Clonar**.
 
    ![Lista de conjuntos de copia de seguridad](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

@@ -14,36 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 67b3fa9936daebeafb7e87fe3a7b0c7e0105b3b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc766abb5df38813b3eb6dde98cdc9afd24ac6b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configuración de directivas de protección de contenido mediante Azure Portal
-> [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-> 
-> 
-
-## <a name="overview"></a>Información general
 Microsoft Azure Media Services (AMS) le permite proteger su contenido multimedia desde el momento en que deja el equipo a través de almacenamiento, procesamiento y entrega. Media Services permite entregar el contenido cifrado de forma dinámica con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y cifrado común (CENC) mediante PlayReady o Widevine DRM, and Apple FairPlay. 
 
 AMS proporciona un servicio para proporcionar licencias de DRM y claves sin cifrado de AES a clientes autorizados. Azure Portal le permite crear una **directiva de autorización de licencias o claves** para todos los tipos de cifrado.
 
-En este artículo se muestra cómo configurar las directivas de protección de contenido con Azure Portal. El artículo también muestra cómo aplicar el cifrado dinámico a los recursos.
-
-
-> [!NOTE]
-> Si utiliza el Portal de Azure clásico para crear directivas de protección, es posible que las directivas no aparezcan en [Azure Portal](https://portal.azure.com/). Sin embargo, siguen existiendo todavía las directivas antiguas. Puede examinarlas mediante el SDK de .NET de Azure Media Services o la herramienta [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) (para ver las directivas, haga clic con el botón derecho en el recurso -> Mostrar información (F4) -> haga clic en la pestaña de claves de contenido -> haga clic en la clave). 
-> 
-> Si quiere cifrar el recurso con nuevas directivas, configúrelas con Azure Portal, haga clic en Guardar y vuelva a aplicar el cifrado dinámico. 
-> 
-> 
+En este artículo se muestra cómo configurar una directiva de protección de contenido con Azure Portal. El artículo también muestra cómo aplicar el cifrado dinámico a los recursos.
 
 ## <a name="start-configuring-content-protection"></a>Empezar a configurar la protección de contenido
 Para usar el portal para empezar a configurar la protección de contenido, para su cuenta de AMS, realice lo siguiente:
-
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. Seleccione **Ajustes** > **Protección de contenido**.
 
@@ -54,18 +39,18 @@ AMS admite varias formas de autenticar a los usuarios que realizan solicitudes d
 
 Azure Portal le permite crear una **directiva de autorización de licencias o claves** para todos los tipos de cifrado.
 
-### <a name="open"></a>Abrir
+### <a name="open-authorization"></a>Autorización open
 La restricción open significa que el sistema entregará la clave a cualquier persona que realice una solicitud de clave. Esta restricción puede ser útil para realizar pruebas. 
 
-### <a name="token"></a>token
-La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato Token de web simple (SWT) y en formato Token de web JSON (JWT). Los Servicios multimedia no proporcionan Servicios de tokens seguros. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de Servicios multimedia devolverá la clave solicitada (o licencia) al cliente si el token es válido y las reclamaciones del token coinciden con las configuradas para la clave (o licencia).
+### <a name="token-authorization"></a>Autorización token
+La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Media Services admite tokens en formato Token de web simple (SWT) y en formato Token de web JSON (JWT). Media Services no proporciona Servicios de tokens seguros. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de Media Services devolverá la clave solicitada (o licencia) al cliente si el token es válido y las reclamaciones del token coinciden con las configuradas para la clave (o licencia).
 
-Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, emisor y público. La clave de comprobación principal contiene la clave con la que se firmó el token y el emisor es el servicio de tokens seguros que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
+Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, emisor y público. La clave de comprobación principal contiene la clave con la que se firmó el token y el emisor es el servicio de tokens seguros que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 
 ![Proteger contenido](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
-## <a name="playready-rights-template"></a>Plantilla de derechos de PlayReady
-Para más información sobre la plantilla de derechos de PlayReady, consulte [Información general de plantillas de licencias de PlayReady de Media Services](media-services-playready-license-template-overview.md).
+## <a name="playready-license-template"></a>Plantilla de licencia de PlayReady
+La plantilla de licencia de PlayReady establece la funcionalidad habilitada en la licencia de PlayReady. Para más información sobre la plantilla de licencia de PlayReady, consulte [Información general de plantillas de licencias de PlayReady de Media Services](media-services-playready-license-template-overview.md).
 
 ### <a name="non-persistent"></a>No persistente
 Si configura la licencia como no persistente, solo se mantiene en memoria mientras el reproductor está usando la licencia.  
@@ -77,19 +62,19 @@ Si configura la licencia como persistente, se guarda en el almacenamiento persis
 
 ![Proteger contenido](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
-## <a name="widevine-rights-template"></a>Plantilla de derechos de Widevine
-Para más información sobre la plantilla de derechos de Widevine, consulte [Información general sobre las plantillas de licencias de Widevine](media-services-widevine-license-template-overview.md).
+## <a name="widevine-license-template"></a>Plantilla de licencia de Widevine
+La plantilla de licencia de Widevine establece la funcionalidad habilitada en las licencias de Widevine.
 
 ### <a name="basic"></a>Básica
 Al seleccionar **Básico**, la plantilla se creará con todos los valores predeterminados.
 
 ### <a name="advanced"></a>Avanzado
-Para una explicación detallada acerca de la opción avanzada de configuraciones de Widevine, consulte [este tema](media-services-widevine-license-template-overview.md) .
+Para más información sobre la plantilla de derechos de Widevine, consulte [Información general sobre las plantillas de licencias de Widevine](media-services-widevine-license-template-overview.md).
 
 ![Proteger contenido](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>Configuración de FairPlay
-Para habilitar el cifrado de FairPlay, debe proporcionar el certificado de la aplicación y la clave de secreto de aplicación (ASK) mediante la opción de configuración de FairPlay. Para más información sobre la configuración y los requisitos de FairPlay, consulte [este artículo](media-services-protect-hls-with-fairplay.md) .
+Para habilitar el cifrado de FairPlay, debe proporcionar el certificado de la aplicación y la clave de secreto de aplicación (ASK) mediante la opción de configuración de FairPlay. Para más información sobre la configuración y los requisitos de FairPlay, consulte [este artículo](media-services-protect-hls-with-FairPlay.md) .
 
 ![Proteger contenido](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -125,10 +110,10 @@ Para habilitar el cifrado de FairPlay, debe proporcionar el certificado de la ap
 Una vez realizada la selección de cifrado, pulse **Aplicar**.
 
 >[!NOTE] 
->Si va a planear la reproducción de una instancia de HLS cifrada mediante AES en Safari, vea [este blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Si va a planear la reproducción de una instancia de HLS cifrada mediante AES en Safari, vea [la entrada de blog sobre HLS cifrado en Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte las rutas de aprendizaje de Servicios multimedia.
+Consulte las rutas de aprendizaje de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

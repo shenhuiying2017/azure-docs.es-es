@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -37,10 +37,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **VMware**: necesita al menos una VM de VMware ubicada en un host ESXi o en un clúster que ejecute la versión 5.0 o posterior. El host o clúster debe administrarse mediante un servidor vCenter que ejecute la versión 5.5, 6.0 o 6.5.
-- **Cuenta de vCenter**: se necesita una cuenta de solo lectura con credenciales de administrador para el servidor vCenter. Azure Migrate usa esta cuenta para detectar VM.
-- **Permisos**: en el servidor vCenter, necesitará permisos para crear una VM mediante la importación de un archivo en formato .OVA. 
-- **Configuración de estadísticas**: la configuración de las estadísticas del servidor vCenter se debe establecer en el nivel 3 antes de empezar la implementación. Si el nivel es inferior al 3, la evaluación funcionará, pero no se recopilarán datos de rendimiento del almacenamiento y la red.
+- **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server, versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador. 
+ 
+> [!NOTE]
+> La compatibilidad con Hyper-V está en el mapa de ruta y se habilitará próximamente. 
+
+- **Cuenta de vCenter Server** : necesita una cuenta de solo lectura para acceder el servidor vCenter. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
+- **Permisos**: en el servidor vCenter Server, necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato .OVA. 
+- **Configuración de estadísticas**: la configuración de las estadísticas del servidor vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. Si el nivel es inferior al 3, la valoración funcionará, pero no se recopilarán datos de rendimiento del almacenamiento y la red. El tamaño de las recomendaciones en este caso se hará según los datos de rendimiento de los datos de CPU y memoria, y de los datos de configuración de adaptadores de red y disco. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 Inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -51,7 +55,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Busque **Azure Migrate** y seleccione el servicio (**Azure Migrate (versión preliminar)** en los resultados de búsqueda. A continuación, haga clic en **Crear**.
 3. Especifique un nombre de proyecto y la suscripción de Azure para el proyecto.
 4. Cree un nuevo grupo de recursos.
-5. Especifique la región en la que se va a crear el proyecto y haga clic en **Crear**. Los metadatos recopilados a partir de VM locales se almacenarán en esta región. Los proyectos de Azure Migrate solo se pueden crear en la región Oeste del centro de EE. UU. para esta versión preliminar. Sin embargo, puede evaluar VM para una ubicación diferente.
+5. Especifique la región en la que se va a crear el proyecto y haga clic en **Crear**. Los metadatos recopilados a partir de VM locales se almacenarán en esta región. Los proyectos de Azure Migrate solo se pueden crear en la región Oeste del centro de EE. UU. para esta versión preliminar. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -93,7 +97,7 @@ Compruebe que el archivo .OVA es seguro, antes de implementarlo.
 
 ## <a name="create-the-collector-vm"></a>Creación de la VM de recopilador
 
-Importe el archivo descargado en el servidor vCenter.
+Importe el archivo descargado en el servidor vCenter Server.
 
 1. En la consola de cliente de vSphere, haga clic en **File** (Archivo) > **Deploy OVF Template** (Implementar plantilla de OVF).
 
@@ -143,7 +147,7 @@ El tiempo de detección depende de cuántas VM se están detectando. Normalmente
 Después de detectar las VM, las agrupará y creará una evaluación. 
 
 1. En la página **Introducción** del proyecto, haga clic en **+Crear evaluación**.
-2. Haga clic en **View all** (Ver todo) para revisar la configuración de la evaluación.
+2. Haga clic en **View all** (Ver todo) para revisar la configuración de la valoración.
 3. Cree el grupo y especifique un nombre para él.
 4. Seleccione las máquinas que desee agregar al grupo.
 5. Haga clic en **Crear evaluación** para crear el grupo y la evaluación.
@@ -168,13 +172,16 @@ Esta vista muestra el estado de preparación para cada máquina.
 
 #### <a name="monthly-cost-estimate"></a>Costo mensual estimado
 
-Esta vista muestra el costo de proceso y almacenamiento para cada máquina. Las estimaciones de costos se calculan mediante las recomendaciones de tamaño basadas en el rendimiento para una máquina y sus discos y las propiedades de la evaluación.
+Esta vista muestra el cálculo total y el costo de almacenamiento por ejecutar las máquinas virtuales en ejecución en Azure, además de los detalles de cada máquina. Las estimaciones de costos se calculan mediante las recomendaciones de tamaño basadas en el rendimiento para una máquina y sus discos y las propiedades de la evaluación. 
 
-Los costos mensuales estimados para el proceso y almacenamiento se agregan para todas las VM del grupo. Puede hacer clic en cada máquina para obtener un desglose detallado. 
+> [!NOTE]
+> La estimación de costos que proporciona Azure Migrate es por ejecutar las máquinas virtuales locales como infraestructura de Azure como máquinas virtuales de infraestructura como servicio (IaaS) de Azure. No se tienen en cuenta los costos de cualquier plataforma como servicio (PaaS) o software como servicio (SaaS). 
+
+Los costos mensuales estimados para el proceso y almacenamiento se agregan para todas las VM del grupo. 
 
 ![Costo de VM de evaluación](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-Puede obtener un desglose para ver los costos para una máquina específica.
+Puede obtener un desglose para ver los detalles de una máquina específica.
 
 ![Costo de VM de evaluación](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

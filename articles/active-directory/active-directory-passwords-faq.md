@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -81,6 +81,19 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
 ## <a name="password-reset"></a>Restablecimiento de contraseña
 
+* **P: ¿Se impide que los usuarios realicen varios intentos para restablecer una contraseña en un breve período de tiempo?**
+
+  > **R:** Sí, existen características de seguridad integradas en el restablecimiento de contraseña a fin de ofrecer protección frente al uso indebido. 
+  >
+  > Los usuarios solo pueden intentar cinco restablecimientos de contraseña en un período de 24 horas antes de que se les bloquee durante 24 horas. 
+  >
+  > Los usuarios pueden intentar validar un número de teléfono, enviar un SMS o validar preguntas y respuestas de seguridad solo cinco veces en un período de una hora antes de que se les bloquee durante 24 horas. 
+  >
+  > Los usuarios pueden enviar un correo electrónico un máximo de 10 veces en un período de 10 minutos antes de que se les bloquee durante 24 horas.
+  >
+  > Los contadores se restablecen una vez que un usuario restablece su contraseña.
+  >
+  >
 * **P: ¿Cuánto tiempo tengo que esperar para recibir un correo electrónico, un SMS o una llamada telefónica para el restablecimiento de contraseña?**
 
   > **R:** Los mensajes de correo electrónico, los mensajes SMS y las llamadas telefónicas se recibirán en menos de un minuto. Lo más común es que tarden entre 5 y 20 segundos.
@@ -163,11 +176,6 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * **P: Si un usuario ha registrado más del número máximo de preguntas necesarias para el restablecimiento, ¿cómo se seleccionan las preguntas de seguridad durante el proceso de restablecimiento?**
 
   > **R:** De manera aleatoria se seleccionan *N* preguntas de seguridad del número total de preguntas para las cuales se ha registrado un usuario, donde *N* es la cantidad establecida para la opción **Número de preguntas necesarias para el restablecimiento**. Por ejemplo, si un usuario ha registrado cinco preguntas de seguridad pero solo se requieren tres para restablecer una contraseña, se seleccionarán aleatoriamente tres de las cinco preguntas para presentarlas tras el restablecimiento. Si el usuario se equivoca al responder las preguntas, el proceso de selección volverá a ejecutarse para evitar la repetición (hammering) de las preguntas.
-  >
-  >
-* **P: ¿Se impide que los usuarios realicen varios intentos para restablecer una contraseña en un breve período de tiempo?**
-
-  > **R:** Sí, existen características de seguridad integradas en el restablecimiento de contraseña a fin de ofrecer protección frente al uso indebido. Los usuarios solo pueden intentar cinco restablecimientos de contraseña en un período de una hora antes de que se les bloquee durante 24 horas. Los usuarios solo pueden intentar cinco validaciones de un número de teléfono en un período de una hora antes de que se les bloquee durante 24 horas. Los usuarios solo pueden probar cinco veces un único método de autenticación en un período de una hora antes de que se les bloquee durante 24 horas.
   >
   >
 * **P: ¿Durante cuánto tiempo es válido el código de acceso de un solo uso que se recibe por correo electrónico o mensaje SMS?**

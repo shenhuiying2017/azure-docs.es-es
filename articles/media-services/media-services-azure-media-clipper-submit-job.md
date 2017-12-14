@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a142648793f934e939be26378504c19facf40e1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Envío de trabajos de clips desde Azure Media Clipper
 Azure Media Clipper requiere que se implemente un método **submitSubclipCallback** para gestionar el envío de trabajos de clips. Esta función sirve para implementar un método HTTP POST de la salida de Clipper en un servicio web. Este servicio web es el lugar adonde puede enviar el trabajo de codificación. La salida de Clipper es un valor preestablecido de Media Encoder Standard para trabajos representados o la carga útil de la API de REST para llamadas de filtro de manifiesto dinámico. Este modelo de paso es necesario porque las credenciales de la cuenta de servicios multimedia no son seguras en el explorador del cliente.
 
-En el ejemplo siguiente se ilustra un método **submitSubclipCallback** de ejemplo. En este método, se implementa el método HTTP POST del valor preestablecido de codificación MES. Si POST se realizó correctamente (**result**), se resuelve **Promise**; de lo contrario, se rechaza con detalles del error.
+En el diagrama de secuencia siguiente se ilustra el flujo de trabajo entre el cliente del explorador, su servicio web y Azure Media Services: ![Diagrama de secuencia de Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+En el diagrama anterior, las cuatro entidades son: el explorador del usuario final, su servicio web, el extremo de red CDN que hospeda los recursos de Clipper y Azure Media Services. Cuando el usuario final navega a su página web, la página obtiene los recursos CSS y JavaScript de Clipper desde el extremo de red CDN de hospedaje. El usuario final configura el trabajo de creación de clips o la llamada de creación de un filtro de manifiesto dinámico desde el explorador. Cuando el usuario final envía el trabajo o la llamada de creación de filtro, el explorador coloca la carga de trabajo en un servicio web que se debe implementar. A la larga, el servicio web envía el trabajo de creación de clips o la llamada de creación de filtro a Azure Media Services con las credenciales de la cuenta de Media Services.
+
+En el ejemplo siguiente se ilustra un método **submitSubclipCallback** de ejemplo. En este método, se implementa el método HTTP POST del valor preestablecido de codificación de Media Encoder Standard. Si POST se realizó correctamente (**result**), se resuelve **Promise**; de lo contrario, se rechaza con detalles del error.
 
 ```javascript
 // Submit Subclip Callback
@@ -49,9 +53,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-La salida del envío del trabajo es el valor preestablecido de codificación MES para el trabajo representado o la carga útil de la API de REST para los filtros de manifiesto dinámico.
+La salida del envío del trabajo es el valor preestablecido de codificación Media Encoder Standard para el trabajo representado o la carga útil de la API de REST para los filtros de manifiesto dinámico.
 
-## <a name="rendered-output"></a>Salida representada
+## <a name="submitting-encoding-job-to-create-video"></a>Envío del trabajo de codificación para crear vídeo
+Puede enviar un trabajo de codificación de Media Encoder Standard para crear un clip de vídeo con precisión a nivel de fotograma. El trabajo de codificación genera vídeos representados, un nuevo archivo MP4 fragmentado.
+
 El contrato de salida del trabajo para el clip representado es un objeto JSON con las siguientes propiedades:
 
 ```json
@@ -145,8 +151,10 @@ El contrato de salida del trabajo para el clip representado es un objeto JSON co
 }
 ```
 
-## <a name="filter-output"></a>Salida de filtro
-El contrato de salida de un clip de filtro es un objeto JSON con las siguientes propiedades:
+Para realizar el trabajo de codificación, envíe el trabajo de codificación de Media Encoder Standard con el valor preestablecido asociado. Consulte este artículo para detalles sobre cómo enviar trabajos de codificación con el [SDK de .NET](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) o la [API de REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## <a name="quickly-creating-video-clips-without-encoding"></a>Creación rápida de clips de vídeo sin codificación
+Como alternativa para la creación de un trabajo de codificación, puede usar Azure Media Clipper para crear filtros de manifiesto dinámico. Los filtros no requieren codificación y se pueden crear rápidamente ya que no se crea ningún activo. El contrato de salida de un clip de filtro es un objeto JSON con las siguientes propiedades:
 
 ```json
 {
@@ -218,3 +226,5 @@ El contrato de salida de un clip de filtro es un objeto JSON con las siguientes 
   }
 }
 ```
+
+Para enviar la llamada de REST para crear un filtro de manifiesto dinámico, envíe la carga de trabajo de filtro asociada mediante la [API de REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Desagrupación, ámbitos y bucles de aplicaciones lógicas
   
@@ -26,7 +26,7 @@ Logic Apps proporciona una serie de métodos para trabajar con matrices, colecci
   
 ## <a name="foreach-loop-and-arrays"></a>Matrices y bucle ForEach
   
-Las aplicaciones lógicas permiten crear bucles en un conjunto de datos y realizar una acción en cada elemento.  Esto es posible gracias a la acción `foreach` .  En el diseñador, puede especificar que se agregue un bucle ForEach.  Después de seleccionar la matriz en la que desea realizar la iteración, puede empezar a agregar acciones.  En estos momentos, solo puede agregar una acción por cada bucle ForEach, pero esta restricción se eliminará en las próximas semanas.  En el bucle se puede empezar a especificar qué debe ocurrir en cada valor de la matriz.
+Las aplicaciones lógicas permiten crear bucles en un conjunto de datos y realizar una acción en cada elemento.  Esto es posible gracias a la acción `foreach` .  En el diseñador, puede especificar que se agregue un bucle ForEach.  Después de seleccionar la matriz en la que desea realizar la iteración, puede empezar a agregar acciones.  Puede agregar varias acciones por bucle ForEach.  En el bucle se puede empezar a especificar qué debe ocurrir en cada valor de la matriz.
 
 Si utiliza la vista de código, puede especificar un bucle ForEach como el siguiente.  Se trata de un ejemplo de un bucle ForEach que envía un correo electrónico a cada dirección de correo electrónico que contenga "microsoft.com":
 

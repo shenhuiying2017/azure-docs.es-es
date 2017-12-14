@@ -5,42 +5,27 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 6ea39618a24249d92b77afdf5cb0ea284b180223
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 88ceb47d46b66e716c6c263098d5b9458e4aff22
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure con la CLI de Azure
 
 El primer paso para comprender cómo funciona el cumplimiento en Azure consiste en determinar cuál es la situación de los recursos con los que ya cuenta. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
 
 Al final de este proceso, habrá identificado correctamente qué máquinas virtuales no utilizan discos administrados y, por tanto, *no son compatibles*.
-.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="opt-in-to-azure-policy"></a>Participación en Azure Policy
-
-Azure Policy ya se encuentra disponible en versión preliminar pública y es necesario registrarse para solicitar el acceso.
-
-1. Vaya a Azure Policy en https://aka.ms/getpolicy y seleccione **Sign Up** (Suscribirse) en el panel izquierdo.
-
-   ![Búsqueda de directivas](media/assign-policy-definition/sign-up.png)
-
-2. Para participar en Azure Policy, seleccione las suscripciones con las que le gustaría trabajar en la lista **Subscription** (Suscripción). Después, seleccione **Registrar**.
-
-   ![Participación en el uso de Azure Policy](media/assign-policy-definition/preview-opt-in.png)
-
-   Su solicitud se aprueba automáticamente para la versión preliminar. Espere 30 minutos para que el sistema procese el registro.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
@@ -66,7 +51,7 @@ A continuación, proporcione la información siguiente y ejecute el comando sigu
 - **Directiva**: se trata de la definición de directiva, según la opción utilizada para crear la asignación. En este caso, es la definición de la directiva: *Auditoría de máquinas virtuales sin discos administrados*.
 - Un **ámbito**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos.
 
-  Use la suscripción o el grupo de recursos que registró anteriormente cuando empezó a participar en Azure Policy; en este ejemplo, se va a usar el identificador de suscripción **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** y el nombre de grupo de recursos **FabrikamOMS**. No olvide cambiar estos valores por el identificador de la suscripción y el nombre del grupo de recursos con los que trabaja.
+  Use la suscripción (o el grupo de recursos) que registró anteriormente. En este ejemplo se usa este identificador de suscripción, **bc75htn-a0fhsi-349b-56gh-4fghti-f84852**, y el nombre del grupo de recursos **FabrikamOMS**. No olvide cambiar estos valores por el identificador de la suscripción y el nombre del grupo de recursos con los que trabaja.
 
 El comando debe presentar un aspecto similar a este:
 

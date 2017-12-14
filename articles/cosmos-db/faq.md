@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceptos básicos de Azure Cosmos DB
@@ -195,7 +195,6 @@ Hay algunas diferencias de comportamiento que los usuarios acostumbrados a Azure
 * Los resultados de las consultas devueltos por Table API no se ordenan por la clave de fila o por la clave de partición, como aparecen en Azure Table Storage.
 * Las claves de fila solo pueden ser de hasta 255 bytes
 * Los lotes solo pueden contener hasta 2 MB
-* Las llamadas a CreateIfNotExists están limitadas por una limitación de administración fija e independiente de otras operaciones de tabla que están cubiertas por RU. Esto significa que los que hacen grandes cantidades de CreateIfNotExists son limitados y no podrán hacer nada porque el límite no procede de sus RU.
 * CORS no se admite actualmente
 * En los nombres de tabla de Azure Table Storage no se distinguen mayúsculas de minúsculas, a diferencia de lo que ocurre en Table API de Azure Cosmos DB
 * Algunos de los formatos internos de Azure Cosmos DB para codificar la información, como los campos binarios, no son actualmente tan eficientes como se podría desear. Por lo tanto, esto puede causar limitaciones inesperadas en el tamaño de los datos. Por ejemplo, actualmente no se puede utilizar el Meg completo de una entidad de tabla para almacenar datos binarios porque la codificación aumenta el tamaño de los datos.
@@ -504,7 +503,7 @@ Use [Métricas](use-metrics.md). Use [registros de diagnóstico](logging.md).
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>¿Los SDK de cliente pueden funcionar con la API de Apache Cassandra de Azure Cosmos DB?
 En la versión preliminar privada, los controladores del cliente del SDK de Apache Cassandra que usan CQLv3 se utilizaban para los programas cliente. Si usa otros controladores o si está teniendo problemas, envíe un correo electrónico a [askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com). 
 
-### <a name="is-composite-primary-key-supported"></a>¿Se admite la clave principal compuesta?
+### <a name="is-composite-partition-key-supported"></a>¿Se admite la clave de partición compuesta?
 Sí, puede usar la sintaxis normal para crear una clave de partición compuesta. 
 
 ### <a name="can-i-use-sstable-loader-for-data-loading"></a>¿Puedo usar el cargador sstable para cargar los datos?

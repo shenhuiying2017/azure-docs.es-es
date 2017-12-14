@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Actualización del runtime de un clúster de Service Fabric
 
-Este tutorial es la cuarta parte de una serie, y muestra cómo actualizar el runtime de Service Fabric en un clúster de Azure Service Fabric. Esta parte del tutorial se escribe para los clústeres de Service Fabric que se ejecutan en Azure y no se aplica a los clústeres de Service Fabric autohospedados.
+Este tutorial es la tercera parte de una serie, y muestra cómo actualizar el entorno en tiempo de ejecución de Service Fabric en un clúster de Azure Service Fabric. Esta parte del tutorial se escribe para los clústeres de Service Fabric que se ejecutan en Azure y no se aplica a los clústeres de Service Fabric independientes.
 
 > [!WARNING]
 > Esta parte del tutorial requiere PowerShell. La actualización del runtime del clúster no se admite todavía con las herramientas de la CLI de Azure. Como alternativa, un clúster se puede actualizar en el portal. Para obtener más información, consulte [Actualización de un clúster de Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Leer la versión del clúster
 > * Establecer la versión del clúster
+
+En esta serie de tutoriales, se aprende a:
+> [!div class="checklist"]
+> * Cree un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
+> * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
+> * Actualización del entorno en tiempo de ejecución de un clúster
+> * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial:
@@ -190,3 +197,7 @@ En este tutorial, ha aprendido cómo:
 > * Obtener la versión del runtime del clúster
 > * Actualizar el runtime del clúster
 > * Supervisar la actualización
+
+A continuación, avance hasta el siguiente tutorial para aprender a implementar API Management con un clúster de Service Fabric.
+> [!div class="nextstepaction"]
+> [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)

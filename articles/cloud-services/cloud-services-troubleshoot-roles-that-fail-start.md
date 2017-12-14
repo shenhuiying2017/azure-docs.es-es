@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solución de problemas de roles de servicios en la nube que no se inician
 Presentamos algunos problemas y soluciones comunes relacionados con los roles de Azure Cloud Services que no se inician.
@@ -62,9 +62,8 @@ Una vez que se vuelva a implementar el servicio, verá un mensaje de error con e
 Puede usar Escritorio remoto para acceder al rol y ver información más completa sobre los errores de forma remota. Use los pasos siguientes para ver los errores desde Escritorio remoto:
 
 1. Asegúrese de que está instalado el SDK 1.3 de Azure, o una versión posterior.
-2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto...". Para más información sobre cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con los roles de Azure](../vs-azure-tools-remote-desktop-roles.md).
-3. En el Portal de Microsoft Azure clásico, cuando la instancia muestre el estado **Listo**, haga clic en una de las instancias de rol.
-4. Haga clic en el icono **Conectar** del área **Acceso remoto** de la cinta de opciones.
+2. Durante la implementación de la solución con Visual Studio, elija "Configurar conexiones a Escritorio remoto". Para más información sobre cómo configurar la conexión a Escritorio remoto, consulte [Uso de Escritorio remoto con los roles de Azure](../vs-azure-tools-remote-desktop-roles.md).
+3. En el Portal de Microsoft Azure clásico, cuando la instancia muestre el estado **Listo**, establezca una conexión remota a la instancia. Para más información sobre cómo usar Escritorio remoto con Cloud Services, consulte [Acceso remoto en instancias de rol](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Inicie sesión en la máquina virtual con las credenciales especificadas en la configuración de Escritorio remoto.
 6. Abra el símbolo del sistema.
 7. Escriba `IPconfig`.

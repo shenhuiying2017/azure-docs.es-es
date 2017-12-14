@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -33,6 +33,27 @@ En este artículo se explica cómo usar enlaces de [Azure Event Hubs](../event-h
 Use el desencadenador de Event Hubs para responder a un evento enviado a una secuencia de eventos de centro de eventos. Debe tener acceso de lectura al centro de eventos para configurar el desencadenador.
 
 Cuando se activa una función de desencadenador de Event Hubs, el mensaje que la activa se pasa a la función como una cadena.
+
+## <a name="trigger---scaling"></a>Desencadenador: escalado
+
+Cada instancia de una función de desencadenador de Event Hubs está respaldado por solo 1 instancia de EventProcessorHost (EPH). Event Hubs garantizan que solo 1 EPH puede obtener una concesión en una partición determinada.
+
+Por ejemplo, supongamos que comienza con la instalación y las suposiciones siguientes para un centro de Event Hubs:
+
+1. 10 particiones.
+1. 1000 eventos distribuidos uniformemente en todas las particiones = > 100 mensajes en cada partición.
+
+Cuando se habilita la función por primera vez, solo hay 1 instancia de la función. Vamos a llamar a esta instancia de función Function_0. Function_0 tendrá 1 EPH que administra para obtener una concesión en las 10 particiones. Comenzará a leer eventos de las particiones 0-9. Desde este punto en adelante, se producirá una de las siguientes acciones:
+
+* **Solo se necesita 1 función**: Function_0 puede procesar todos los 1000 antes de que la lógica de escalado de Azure Functions se inicie. Por lo tanto, se procesan todos los mensajes de 1000 mediante Function_0.
+
+* **Agregue 1 más instancia de función**: la lógica de escalado de Azure Functions determina que Function_0 tiene más mensajes de los que puede procesar, por lo que se crea una nueva instancia, Function_1. Event Hubs detecta que una nueva instancia de EPH está tratando leer los mensajes. Event Hubs comenzará a equilibrar la carga de las particiones entre las instancias de EPH, p. ej., 0-4 particiones se asignan a Function_0 y 5-9 particiones se asignan a Function_1. 
+
+* **Agregue N instancias de función más**: la lógica de escalado de Azure Functions determina que Function_0 y Function_1 tiene más mensajes que los que puede procesar. Se volverá a escalar para Function_2... N, donde N es mayor que las particiones de Event Hubs. Event Hubs equilibrará la carga de las particiones entre las instancias de Function_0...9.
+
+El hecho de que N sea mayor que el número de particiones es algo que solo pasa en la lógica de escalado actual de Azure Functions. Esto se hace para garantizar que siempre haya instancias de EPH disponibles listas para su uso para obtener rápidamente un bloqueo en las particiones cuando estén disponibles de otras instancias. Solo se cobra a los usuarios por los recursos usados cuando se ejecuta la instancia de la función, y no por este aprovisionamiento en exceso.
+
+Si todas las ejecuciones de funciones se realizan sin errores, se agregan puntos de comprobación a la cuenta de almacenamiento asociada. Cuando se agreguen correctamente, los mensajes de 1000 no deberían poderse recuperar.
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 
@@ -190,7 +211,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Para obtener un ejemplo completo, vea [Desencadenador: ejemplo de C# precompilado](#trigger---c-example).
+Para un ejemplo completo, consulte [Desencadenador: ejemplo de C# precompilado](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Desencadenador: configuración
 
@@ -363,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Para obtener un ejemplo completo, vea [Salida: ejemplo de C# precompilado](#output---c-example).
+Para un ejemplo completo, consulte [Salida: ejemplo de C# precompilado](#output---c-example).
 
 ## <a name="output---configuration"></a>Salida: configuración
 

@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a5bb66db889dc1c52252773e3f129ba2c3d55f1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9bb55d5af16056ebafc131e73ac4b9da181bd8c7
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Creación de clips con Azure Media Clipper
 Azure Media Clipper es una biblioteca gratuita de JavaScript que permite que los desarrolladores web proporcionen a sus usuarios una interfaz para crear clips multimedia. Esta herramienta se puede integrar en cualquier página web y proporciona API para cargar activos y enviar trabajos de creación de clips.
@@ -29,8 +29,11 @@ Azure Media Clipper permite:
 
 Para solicitar características nuevas, proporcionar ideas o comentarios, envíelos a [UserVoice para Azure Media Services](http://aka.ms/amsvoice/). Si tiene problemas específicos, preguntas o encontró algún error, envíe un correo electrónico al equipo de Media Services a amcinfo@microsoft.com.
 
+En la imagen siguiente se ilustra la interfaz de Clipper: ![Azure Media Clipper](media/media-services-azure-media-clipper-getting-started/media-services-azure-media-clipper-interface.PNG)
+
 ## <a name="release-notes"></a>Notas de la versión
-En la lista siguiente se describen varios problemas conocidos y el registro de cambios para la versión más reciente de Clipper:
+Consulte la lista siguiente para ver la entrada de blog de Clipper, diversos problemas conocidos y el registro de cambios de la versión más reciente de Clipper:
+- [Entrada de blog](https://azure.microsoft.com/blog/azure-media-clipper/)
 - [Lista de problemas conocidos](https://amp.azure.net/libs/amc/latest/docs/known_issues.html)
 - [Registro de cambios](https://amp.azure.net/libs/amc/latest/docs/changelog.html)
 

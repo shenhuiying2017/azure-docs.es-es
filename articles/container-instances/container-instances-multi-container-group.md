@@ -1,41 +1,33 @@
 ---
-title: 'Azure Container Instances: grupo con varios contenedores | Azure Docs'
-description: 'Azure Container Instances: grupo con varios contenedores'
+title: "Implementación de grupos de varios contenedores en Azure Container Instances"
+description: "Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Implementación de un grupo de contenedores
 
-Azure Container Instances admite compatible la implementación de varios contenedores en un solo host mediante un *grupo de contenedores*. Esto es útil cuando se crea un sidecar de aplicación para el registro, la supervisión o cualquier otra configuración donde un servicio necesita un segundo proceso asociado. 
+Azure Container Instances admite compatible la implementación de varios contenedores en un solo host mediante un *grupo de contenedores*. Esto es útil cuando se crea un sidecar de aplicación para el registro, la supervisión o cualquier otra configuración donde un servicio necesita un segundo proceso asociado.
 
 Este documento describe la ejecución de una configuración de sidecar de varios contenedores sencilla mediante una plantilla de Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Configuración de la plantilla
 
-Cree un archivo denominado `azuredeploy.json` y copie el siguiente código json en él. 
+Cree un archivo denominado `azuredeploy.json` y copie el siguiente código json en él.
 
-En este ejemplo, se definen un grupo de contenedores con dos contenedores y una dirección IP pública. El primer contenedor del grupo ejecuta una aplicación accesible desde Internet. El segundo contenedor, el sidecar, realiza una solicitud HTTP a la aplicación web principal a través de la red local del grupo. 
+En este ejemplo, se definen un grupo de contenedores con dos contenedores y una dirección IP pública. El primer contenedor del grupo ejecuta una aplicación accesible desde Internet. El segundo contenedor, el sidecar, realiza una solicitud HTTP a la aplicación web principal a través de la red local del grupo.
 
-Este ejemplo de sidecar podría ampliarse para desencadenar una alerta si recibe un código de respuesta HTTP distinto de 200 OK. 
+Este ejemplo de sidecar podría ampliarse para desencadenar una alerta si recibe un código de respuesta HTTP distinto de 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ Este ejemplo de sidecar podría ampliarse para desencadenar una alerta si recibe
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Implemente la plantilla con el comando [az group deployment create](/cli/azure/g
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Al cabo de unos segundos, recibirá una respuesta inicial de Azure. 
+Al cabo de unos segundos, recibirá una respuesta inicial de Azure.
 
 ## <a name="view-deployment-state"></a>Visualización del estado de la implementación
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Ver registros   
+## <a name="view-logs"></a>Ver registros
 
-Vea la salida del registro de un contenedor mediante el comando `az container logs`. El argumento `--container-name` especifica el contenedor del que se van a extraer registros. En este ejemplo, se especifica el primer contenedor. 
+Vea la salida del registro de un contenedor mediante el comando `az container logs`. El argumento `--container-name` especifica el contenedor del que se van a extraer registros. En este ejemplo, se especifica el primer contenedor.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

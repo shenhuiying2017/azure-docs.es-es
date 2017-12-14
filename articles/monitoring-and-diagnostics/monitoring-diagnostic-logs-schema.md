@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -29,6 +29,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 
 | Servicio | Esquema y documentos |
 | --- | --- |
+| Analysis Services | Esquema no disponible. |
 | API Management | [Registros de diagnóstico de API Management](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Puertas de enlace de aplicaciones |[Registro de diagnóstico para Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics para Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,7 +46,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protección contra DDOS | Esquema no disponible. |
-| Recovery Services | Esquema no disponible.|
+| Recovery Services | [Modelo de datos para Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../search/search-traffic-analytics.md) |
 | Servidor de administración | Esquema no disponible. |
 | Service Bus |[Registros de diagnóstico de Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -56,6 +57,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
 |Tipo de recurso|Categoría|Nombre para mostrar de categoría|
 |---|---|---|
+|microsoft.aadiam/tenants|Inicio de sesión|Inicio de sesión|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Servicio|Servicio|
 |Microsoft.ApiManagement/service|GatewayLogs|Registros relacionados con la puerta de enlace de ApiManagement|
@@ -63,6 +65,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Automation/automationAccounts|JobStreams|Flujos de trabajo|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Estado del nodo de DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Registros de servicios|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtiene las métricas del punto de conexión; por ejemplo, ancho de banda, salida, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Registro de ejecuciones de actividad de canalización|
 |Microsoft.DataFactory/factories|PipelineRuns|Registro de ejecuciones de canalización|

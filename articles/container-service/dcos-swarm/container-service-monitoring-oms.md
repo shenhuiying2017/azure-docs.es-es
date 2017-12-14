@@ -1,26 +1,19 @@
 ---
-title: "Supervisión de un clúster de Azure DC/OS - Operations Management | Microsoft Docs"
+title: "Supervisión de un clúster de Azure DC/OS: Operations Management"
 description: "Uso de Microsoft Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service."
 services: container-service
-documentationcenter: 
 author: keikhara
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 9b8f96b34b53982c469273a3df9751ceb7930d60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Uso de Operations Management Suite para supervisar un clúster DC/OS de Azure Container Service
 
@@ -74,7 +67,7 @@ Una vez que haya seleccionado la solución de contenedor, verá el icono en la p
 
 ![](media/container-service-monitoring-oms/image8.png)
 
-### <a name="azure-portal"></a>Portal de Azure 
+### <a name="azure-portal"></a>Azure Portal 
 
 Inicie sesión en Azure Portal en <https://portal.microsoft.com/>. Vaya a **Marketplace**, seleccione **Supervisión y administración** y haga clic en **See All** (Ver todo). A continuación, escriba `containers` en la búsqueda. Verá "contenedores" en los resultados de búsqueda. Seleccione **Contenedores** y haga clic en **Crear**.
 

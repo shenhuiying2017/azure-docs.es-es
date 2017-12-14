@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Uso de funciones definidas por el usuario (UDF) de Python con Hive y Pig en HDInsight
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-En el ejemplo de Pig Latin hemos definido la entrada `LINE` como chararray porque no había un esquema coherente para la entrada. El script de Python transforma los datos en un esquema coherente para la salida.
+En el ejemplo de Pig Latin, la entrada `LINE` se define como chararray porque no había un esquema coherente para la entrada. El script de Python transforma los datos en un esquema coherente para la salida.
 
 1. La instrucción `@outputSchema` define el formato de los datos que se devuelven a Pig. En este caso es un **contenedor de datos**, que es un tipo de datos de Pig. El contenedor contiene los siguientes campos, los cuales son todos chararray (cadenas):
 
@@ -178,7 +178,7 @@ En el ejemplo de Pig Latin hemos definido la entrada `LINE` como chararray porqu
 
 2. A continuación, `def create_structure(input)` define la función a la que Pig pasa elementos de línea.
 
-3. Los datos de ejemplo, `sample.log`se ajustan principalmente al esquema de date, time, classname, level y detail que queremos devolver. Sin embargo, contiene unas pocas líneas que comienzan por `*java.lang.Exception*`. Estas líneas deben modificarse para que coincidan con el esquema. La instrucción `if` las busca y luego modifica los datos de entrada para mover la cadena `*java.lang.Exception*` al final, de forma que pone los datos en línea con nuestro esquema de salida esperado.
+3. En los datos de ejemplo, `sample.log`, se ajusta principalmente al esquema de date, time, classname, level y detail. Sin embargo, contiene unas pocas líneas que comienzan por `*java.lang.Exception*`. Estas líneas deben modificarse para que coincidan con el esquema. La instrucción `if` las busca y luego modifica los datos de entrada para mover la cadena `*java.lang.Exception*` al final, de forma que pone los datos en línea con el esquema de salida esperado.
 
 4. A continuación, se usa el comando `split` para dividir los datos en los primeros cuatro caracteres de espacio. La salida se asigna a `date`, `time`, `classname`, `level` y `detail`.
 
@@ -291,7 +291,7 @@ Después de cargar los archivos, siga los pasos siguientes para ejecutar los tra
     #from pig_util import outputSchema
     ```
 
-    De esta forma se modifica el script de Python para trabajar con Python C, en lugar de con Jython. Cuando se haya realizado el cambio, use **Ctrl + X** para salir del editor. Seleccione **Y** y, a continuación, **Intro** para guardar los cambios.
+    Esta línea modifica el script de Python para trabajar con Python C, en lugar de con Jython. Cuando se haya realizado el cambio, use **Ctrl + X** para salir del editor. Seleccione **Y** y, a continuación, **Intro** para guardar los cambios.
 
 6. Use el comando `pig` para iniciar de nuevo el shell. Cuando esté en el símbolo del sistema `grunt>` , use lo siguiente para ejecutar el script de Python con el intérprete de C Python.
 

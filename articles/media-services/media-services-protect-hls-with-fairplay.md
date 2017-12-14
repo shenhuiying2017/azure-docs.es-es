@@ -1,6 +1,6 @@
 ---
 title: "Protección del contenido HLS con Microsoft PlayReady o Apple FairPlay | Microsoft Docs"
-description: "Este tema ofrece información general y muestra cómo usar Servicios multimedia de Azure para cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. También muestra cómo utilizar el servicio de entrega de licencias de Servicios multimedia para entregar licencias de FairPlay a los clientes."
+description: "Este tema ofrece información general y muestra cómo usar Azure Media Services para cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. También muestra cómo utilizar el servicio de entrega de licencias de Media Services para entregar licencias de FairPlay a los clientes."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady
 Azure Media Services permite cifrar dinámicamente el contenido HTTP Live Streaming (HLS) usando los siguientes formatos:  
@@ -33,12 +33,12 @@ Azure Media Services permite cifrar dinámicamente el contenido HTTP Live Stream
 
 La siguiente imagen muestra el flujo de trabajo del **cifrado dinámico de HLS más FairPlay o PlayReady**.
 
-![Diagrama de flujo de trabajo de cifrado dinámico](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagrama de flujo de trabajo de cifrado dinámico](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Este tema muestra cómo usar Media Services para cifrar dinámicamente el contenido HLS con FairPlay de Apple. También muestra cómo utilizar el servicio de entrega de licencias de Servicios multimedia para entregar licencias de FairPlay a los clientes.
+En este artículo se muestra cómo usar Media Services para cifrar dinámicamente el contenido HLS con FairPlay de Apple. También muestra cómo utilizar el servicio de entrega de licencias de Media Services para entregar licencias de FairPlay a los clientes.
 
 > [!NOTE]
-> Si también quiere cifrar el contenido HLS con PlayReady, debe crear una clave de contenido común y asociarla con el recurso. También tiene que configurar la directiva de autorización de la clave de contenido, como se describe en el tema [Uso de cifrado dinámico común de PlayReady](media-services-protect-with-drm.md).
+> Si también quiere cifrar el contenido HLS con PlayReady, debe crear una clave de contenido común y asociarla con el recurso. También tiene que configurar la directiva de autorización de la clave de contenido, como se describe en el tema [Uso de cifrado dinámico común de PlayReady](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -47,10 +47,10 @@ Este tema muestra cómo usar Media Services para cifrar dinámicamente el conten
 Cuando se usa Media Services para proporcionar HLS cifrado con FairPlay y entregar licencias de FairPlay se necesita lo siguiente:
 
   * Una cuenta de Azure. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-  * Una cuenta de Servicios multimedia. Para crear una, consulte [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
+  * Una cuenta de Media Services. Para crear una, consulte [Creación de una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
   * Suscríbase al [programa de desarrollo de Apple](https://developer.apple.com/).
   * En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique que ya ha implementado el módulo principal de seguridad (KSM) con Media Services y que está solicitando el paquete FPS final. Hay instrucciones que aparecen en el paquete FPS final para generar certificados y obtener la clave secreta de la aplicación (ASK). Utilice la ASK para configurar FairPlay.
-  * Versión **3.6.0** del SDK .NET de Servicios multimedia de Azure.
+  * Versión **3.6.0** del SDK .NET de Azure Media Services.
 
 En la entrega de claves de Media Services se debe establecer lo siguiente:
 
@@ -65,14 +65,14 @@ En la entrega de claves de Media Services se debe establecer lo siguiente:
         Vaya a la carpeta donde están los certificados FairPlay y otros archivos cuyo emisor sea Apple.
     2. Ejecute el siguiente comando desde la línea de comando. Esto convierte el archivo .cer en un archivo .pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Ejecute el siguiente comando desde la línea de comando. Esto convierte el archivo .pem a un archivo .pfx con la clave privada. A continuación, OpenSSL pide la contraseña para el archivo .pfx.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **Contraseña de certificado de la aplicación**: la contraseña para crear el archivo .pfx.
   * **Identificador de la contraseña de certificado de la aplicación**: tiene que cargar la contraseña de forma similar a como cargan otras claves de Media Services. Use el valor de enumeración **ContentKeyType.FairPlayPfxPassword** para obtener el identificador de Media Services. Esto es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
   * **iv**: se trata de un valor aleatorio de 16 bytes. Tiene que coincidir con el iv de la directiva de entrega de recursos. El cliente genera el iv y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves.
-  * **ASK**: esta clave se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Tendrá que configurar la ASK como FairPlayAsk en Media Services más adelante.
+  * **ASK**: esta clave se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibe una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Necesita configurar la ASK como FairPlayAsk en Media Services más adelante.
   * **Identificador de ASK**: este identificador se obtiene cuando se carga la ASK en Media Services. Tiene que cargar la ASK mediante el valor de enumeración **ContentKeyType.FairPlayAsk**. Como resultado, se obtiene el identificador de Media Services, que debe utilizarse al establecer la opción de directiva de entrega de claves.
 
 En el lado cliente FPS se debe establecer lo siguiente:
@@ -125,7 +125,7 @@ Puede desarrollar aplicaciones de reproductor usando el SDK de iOS. Para poder r
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Reproductor multimedia de Azure no admite la reproducción de FairPlay de fábrica. Para tener la reproducción de FairPlay en MAC OS X, obtenga el reproductor de ejemplo de la cuenta de desarrollador de Apple.
+> Azure Media Player admite la reproducción de FairPlay. Consulte la [documentación de Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) para más información.
 >
 >
 
@@ -157,7 +157,7 @@ El ejemplo siguiente muestra la capacidad para usar Media Services para entregar
 Sobrescriba el código del archivo Program.cs con el código mostrado en esta sección.
 
 >[!NOTE]
->Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artículo.
 
 Asegúrese de actualizar las variables para que apunten a las carpetas donde se encuentran los archivos de entrada.
 
@@ -539,7 +539,7 @@ Asegúrese de actualizar las variables para que apunten a las carpetas donde se 
     }
 
 
-## <a name="next-steps-media-services-learning-paths"></a>Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
+## <a name="next-steps-media-services-learning-paths"></a>Siguientes pasos: Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

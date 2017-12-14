@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
@@ -68,7 +68,7 @@ Azure Cosmos DB admite tres modos de indexación que se pueden configurar median
 
 **Coherente**: si la directiva de la colección de Azure Cosmos DB se designa como "coherente", las consultas realizadas en una colección Azure Cosmos DB determinada siguen el mismo nivel de coherencia que se especifique para las lecturas de punto (es decir, alta, de uso vinculado, sesión y eventual). El índice se actualiza de forma sincrónica como parte de la actualización del documento (es decir, inserción, reemplazo, actualización y eliminación de un documento en una colección de Azure Cosmos DB).  La indexación coherente admite consultas coherentes a costa de una posible reducción en el rendimiento de escritura. Esta reducción depende de las rutas de acceso únicas que se deben indexar y del "nivel de coherencia". El modo de indexación coherente está diseñado para cargas de trabajo de tipo "escribir rápidamente, consultar inmediatamente".
 
-**Diferida**: para permitir el rendimiento máximo de ingesta de documentos, se puede configurar una colección Azure Cosmos DB con coherencia diferida; lo que significa que las consultas terminan siendo coherentes. El índice se actualiza de forma asincrónica cuando una colección Azure Cosmos DB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos sin obstáculos, es posible que el modo de indexación "diferido" sea el adecuado.
+**Diferido**: el índice se actualiza de forma asincrónica cuando una colección Azure Cosmos DB está inactiva, es decir, cuando la capacidad de rendimiento de la colección no se usa por completo para atender las solicitudes de usuario. Para cargas de trabajo de tipo "introducir ahora, consultar más adelante" que requieran ingesta de documentos, es posible que el modo de indexación "diferido" sea el adecuado. Observe que podría obtener resultados incoherentes puesto que los datos se ingieren e indexan lentamente. Esto significa que no se garantiza que las consultas de recuento o los resultados de consultas específicas sean correctos ni repetibles hasta que se indexen los datos. El índice normalmente está en el modo de puesta al día. Indexación diferida de WRT: un cambio de TTL genera que el índice se elimine y se vuelva a crear, por lo que esta actividad puede producir resultados inesperados. La mayoría de los clientes debe usar la indexación coherente.
 
 **Ninguna**: una colección marcada con el modo de indexación de "Ninguna" no tiene ningún índice asociado. Esto se suele usar si Azure Cosmos DB se emplea como almacenamiento de clave-valor y solo se puede acceder a los documentos mediante su propiedad de identificador. 
 

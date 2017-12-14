@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicación remota de servicio con Reliable Services
 Para los servicios que no están vinculados a una pila o un protocolo de comunicación concretos, como WebAPI, Windows Communication Foundation (WCF) u otros, el marco de trabajo de Reliable Services ofrece un mecanismo de comunicación remota para configurar de manera rápida y sencilla una llamada a procedimiento remoto para servicios.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-El marco de trabajo de comunicación remota propaga las excepciones generadas en el servicio al cliente. Por lo tanto, la lógica de control de excepciones en el cliente mediante `ServiceProxy` puede controlar excepciones directamente que el servicio genera.
+El marco de trabajo de comunicación remota propaga las excepciones generadas por el servicio al cliente. Como resultado, al usar `ServiceProxy`, el cliente es responsable de controlar las excepciones generadas por el servicio.
 
 ## <a name="service-proxy-lifetime"></a>Duración del proxy de servicio
-La creación de ServiceProxy es una operación ligera, por lo que los usuarios pueden crearla todas las veces que lo necesiten. Las instancias de ServiceProxy pueden volver a usarse siempre que los usuarios lo necesiten. Si una llamada a procedimiento remoto inicia una excepción, los usuarios pueden reutilizar la misma instancia de proxy. Cada ServiceProxy contiene un cliente de comunicación que se usa para enviar mensajes a través de la conexión. Mientras se invocan llamadas remotas, internamente se comprueba si el cliente de comunicación es válido. En función de ese resultado, volvemos a crear el cliente de comunicación si se necesita. Por lo tanto, si se produce la excepción, los usuarios no tienen que volver a crear el proxy de servicio sino que se realiza de manera transparente.
+La creación de ServiceProxy es una operación ligera, por lo que los usuarios pueden crearla todas las veces que lo necesiten. Las instancias de ServiceProxy pueden volver a usarse siempre que los usuarios lo necesiten. Si una llamada a procedimiento remoto inicia una excepción, los usuarios pueden reutilizar la misma instancia de proxy. Cada ServiceProxy contiene un cliente de comunicación que se usa para enviar mensajes a través de la conexión. Mientras se invocan llamadas remotas, internamente se comprueba si el cliente de comunicación es válido. En función de ese resultado, volvemos a crear el cliente de comunicación si se necesita. Por lo tanto, si se produce la excepción, los usuarios no tienen que volver a crear `ServiceProxy` porque se realiza de manera transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Duración de ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxy.Create` para crear el proxy, el marco crea un singleton ServiceProxy.
@@ -91,12 +91,13 @@ La creación de fábricas es una operación costosa. ServiceProxyFactory mantien
 El procedimiento recomendado consiste en almacenar en caché ServiceProxyFactory tanto como sea posible.
 
 ## <a name="remoting-exception-handling"></a>Control de excepciones remota
-Toda la excepción remota generada por la API de servicio se vuelve a enviar al cliente como AggregateException. RemoteExceptions debe ser DataContract Serializable, en caso contrario, se genera [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) en la API del proxy con el error de serialización en ella.
+Todas las excepciones remotas generadas por la API de servicio se vuelven a enviar al cliente como AggregateException. RemoteExceptions debe ser serializable con DataContract; en caso contrario, la API del proxy genera [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) con el error de serialización en ella.
 
-ServiceProxy controla todas las excepciones de conmutación por error para la partición de servicio para la que se crea. Vuelve a resolver los puntos de conexión si existen excepciones de conmutación por error (excepciones no transitorias) y recupera la llamada con el punto de conexión correcto. El número de reintentos para la excepción de conmutación por error es indefinido.
+ServiceProxy controla todas las excepciones de conmutación por error para la partición de servicio para la que se crea. Vuelve a resolver los puntos de conexión si existen excepciones de conmutación por error (excepciones no transitorias) y recupera la llamada con el punto de conexión correcto. El número de reintentos para las excepciones de conmutación por error es indefinido.
 Si se producen excepciones transitorias, el proxy vuelve a intentar la llamada.
 
-[OperationRetrySettings] proporciona los parámetros de reintento predeterminados. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) El usuario puede configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
+[OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) proporciona los parámetros de reintento predeterminados.
+El usuario puede configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
 ## <a name="how-to-use-remoting-v2-stack"></a>Cómo usar la pila de comunicación remota V2
 Con el paquete de comunicación remota de NuGet 2.8, tiene la opción para usar la pila de comunicación remota V2. La pila de comunicación remota V2 tiene un mejor rendimiento y proporciona características como serialización personalizada y más API que puedan conectarse.
 De manera predeterminada, si no hace los siguientes cambios, continúa usando la pila de comunicación remota V1.

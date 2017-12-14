@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de conectividad y redes en Azure Cloud Services: preguntas más frecuentes (P+F)
 
-Este artículo incluye las preguntas frecuentes sobre conectividad y redes para [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de los servicios en la nube](cloud-services-sizes-specs.md) para obtener información de tamaño.
+Este artículo incluye las preguntas frecuentes sobre conectividad y redes para [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -48,8 +48,8 @@ También puede crear una tarea de inicio para bloquear de manera selectiva algun
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Cuando intento ejecutar el protocolo de escritorio remoto (RDP) para la instancia de servicio de nube, obtengo el mensaje, "La cuenta de usuario ha expirado".
 Puede obtener el mensaje de error "Esta cuenta de usuario expiró" cuando ignora la fecha de expiración que está configurada en los ajustes de RDP. Puede cambiar la fecha de expiración desde el portal siguiendo estos pasos:
-1. Inicie sesión en la consola de administración de Azure (https://manage.windowsazure.com), vaya a su servicio en la nube y seleccione la pestaña **Configurar**.
-2. Seleccione **Remoto**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com), vaya a su servicio en la nube y seleccione la pestaña **Escritorio remoto**.
+2. Seleccione la ranura de implementación **Producción** o **Ensayo**.
 3. Cambie la fecha "Expira en" y, a continuación, guarde la configuración.
 
 Ahora podrá ejecutar el RDP en el equipo.

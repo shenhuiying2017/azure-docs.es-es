@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 En este artículo se explican los procedimientos recomendadas para el escalado automático de Azure. El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Otros servicios de Azure usan distintos métodos de escalado.
@@ -30,8 +30,8 @@ En este artículo se explican los procedimientos recomendadas para el escalado a
   Una configuración de escalado automático presenta unos valores máximo, mínimo y predeterminado de instancias.
 * Un trabajo de escalado automático siempre lee la métrica asociada por la que realizar la escala y comprueba si se rebasó el umbral establecido para el escalado horizontal o la reducción horizontal. En [Métricas comunes de escalado automático de Azure Monitor](insights-autoscale-common-metrics.md) encontrará una lista de métricas por las que el escalado automático puede escalar.
 * Todos los umbrales se calculan en el nivel de instancia. Por ejemplo, "escalar horizontalmente por 1 instancia cuando el uso medio de CPU > 80 % cuando el número de instancias es 2" significa escalar horizontalmente cuando el uso medio de CPU en todas las instancias sea superior al 80 %.
-* Las notificaciones de error siempre se reciben por correo electrónico. Las reciben, concretamente, el propietario, el colaborador y los lectores del recurso de destino. Además, siempre se recibe un correo electrónico de *recuperación* cuando el escalado automático se recupere de un error y comience a funcionar con normalidad.
-* Puede optar por recibir una notificación de acción de escalado correcta por correo electrónico y por webhooks.
+* Todos los errores de escalado automático se registran en el registro de actividad. Después, puede configurar una [alerta de registro de actividad](./monitoring-activity-log-alerts.md) de forma que pueda recibir una notificación por correo electrónico, SMS, webhook, etc., siempre que haya un error de escalado automático.
+* De forma similar, todas las acciones de escalado correctas se publican en el registro de actividad. Después, puede configurar una alerta de registro de actividad de forma que pueda recibir una notificación por correo electrónico, SMS, webhook, etc., siempre que haya una acción de escalado automático correcta. Puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta a través de la pestaña de notificaciones de la configuración de escalado automático.
 
 ## <a name="autoscale-best-practices"></a>Procedimientos recomendados de escalado automático
 Use los procedimientos recomendados al usar el escalado automático.
@@ -40,7 +40,7 @@ Use los procedimientos recomendados al usar el escalado automático.
 Si tiene una configuración en la que el valor mínimo es 2, el valor máximo es 2 y el número de instancias es 2, no se puede ejecutar ninguna acción de escalado. Mantenga un margen suficiente entre los números de instancias máximo y mínimo, que son inclusivos. El escalado automático siempre escala entre estos límites.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>El escalado manual se restablece al valor máximo y mínimo de escalado automático.
-Si actualiza manualmente el recuento de instancias a un valor superior o inferior al máximo, el motor de escalado automático se ajusta automáticamente al valor mínimo (si está por debajo) o al máximo (si está por encima). Por ejemplo, establezca el intervalo entre 3 y 6. Si tiene una instancia en ejecución, el motor de escalado automático escala a 3 instancias cuando vuelva a ejecutarse. Del mismo modo, podría reducir horizontalmente de 8 instancias a 6 en su siguiente ejecución.  El escalado manual es muy temporal a menos que restablezca también las reglas de escalado automático.
+Si actualiza manualmente el recuento de instancias a un valor superior o inferior al máximo, el motor de escalado automático se ajusta automáticamente al valor mínimo (si está por debajo) o al máximo (si está por encima). Por ejemplo, establezca el intervalo entre 3 y 6. Si tiene una instancia en ejecución, el motor de escalado automático escala a 3 instancias cuando vuelva a ejecutarse. Del mismo modo, si establece manualmente el escalado en ocho instancias, en la siguiente ejecución de escalado automático se volverá a escalar a seis instancias en su siguiente ejecución.  El escalado manual es muy temporal a menos que restablezca también las reglas de escalado automático.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Use siempre una combinación de reglas de escalado horizontal y reducción horizontal que realice un aumento y una disminución.
 Si usa solo una parte de la combinación, el escalado automático escala o reduce horizontalmente (y a la inversa) hasta alcanzar el valor máximo o mínimo.
@@ -83,7 +83,7 @@ En este caso
 5. La próxima vez que comprueba el escalado automático, la CPU ha seguido cayendo a 50. Vuelve a calcular: 50 x 3 instancias = 150/2 instancias = 75, lo que está por debajo del umbral de escalado horizontal de 80. Por tanto, reduce horizontalmente a 2 instancias.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Consideraciones para establecer valores de umbral de escalado en métricas especiales
- En el caso de las métricas especiales, como la métrica longitud de cola de Service Bus o de almacenamiento, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
+ En el caso de las métricas especiales, como la métrica longitud de cola de Service Bus o de Storage, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
 
 Veamos esto con un ejemplo para procurar que entienda el comportamiento de mejor forma.
 
@@ -113,7 +113,7 @@ Analicemos esto con un ejemplo:
 
 La siguiente imagen muestra una configuración de escalado automático con un perfil predeterminado con un número de instancias mínimo = 2 y un número de instancias máximo = 10. En este ejemplo, las reglas están configuradas para escalar horizontalmente cuando el número de mensajes en la cola sea mayor que 10 y, asimismo, reducir horizontalmente cuando el número de mensajes en la cola sea inferior a 3. Ahora el recurso puede escalar entre 2 y 10 instancias.
 
-Además, hay un perfil periódico establecido para el lunes. Está configurado para un número de instancias mínimo = 2 y un número de instancias máximo = 12. Esto significa que, la primera vez que el escalado automático compruebe esta condición el lunes, si el recuento de instancias es 2, lo escala al nuevo mínimo de 3. Mientras el escalado automático siga encontrando una coincidencia con esta condición de perfil (lunes), solo procesa las reglas de escalado/reducción horizontal basadas en CPU configuradas en este perfil. En este momento, no comprueba la longitud de la cola. Sin embargo, si queremos que compruebe la condición de longitud de cola, tendremos que incluir esas reglas del perfil predeterminado también en el perfil del lunes.
+Además, hay un perfil periódico establecido para el lunes. Está configurado para un número de instancias mínimo de tres y un número de instancias máximo de diez. Esto significa que, la primera vez que el escalado automático compruebe esta condición el lunes, si el recuento de instancias es 2, lo escala al nuevo mínimo de 3. Mientras el escalado automático siga encontrando una coincidencia con esta condición de perfil (lunes), solo procesa las reglas de escalado/reducción horizontal basadas en CPU configuradas en este perfil. En este momento, no comprueba la longitud de la cola. Sin embargo, si queremos que compruebe la condición de longitud de cola, tendremos que incluir esas reglas del perfil predeterminado también en el perfil del lunes.
 
 De forma similar, cuando el escalado automático regresa al perfil predeterminado, primero comprueba si se cumplen las condiciones mínima y máxima. Si el número de instancias en ese momento es 12, reducirá horizontalmente a 10, que es el máximo permitido en el perfil predeterminado.
 
@@ -143,14 +143,17 @@ Por otro lado, con una CPU del 25 % y una memoria del 51 %, el escalado autom�
 El número predeterminado de instancias es importante, porque el escalado automático escala el servicio a dicho número cuando no haya métricas disponibles. Por tanto, seleccione un número predeterminado de instancias que sea seguro para sus cargas de trabajo.
 
 ### <a name="configure-autoscale-notifications"></a>Configure notificaciones de escalado automático
-El escalado automático notifica a los administradores y a los colaboradores del recurso por correo electrónico cuando se produce alguna de las siguientes condiciones:
+El escalado automático se publicará en el registro de actividad si se produce alguna de las condiciones siguientes:
 
-* El servicio de escalado automático no puede realizar una acción.
+* Problemas de escalado automático en una operación de escala
+* El servicio de escalado automático completa correctamente una acción de escalado
+* El servicio de escalado automático no puede realizar una acción de escalado.
 * No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
 * Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado.
-  Aparte de las condiciones anteriores, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta.
-  
+
 También puede usar una alerta de registro de actividades para supervisar el mantenimiento del motor de escalado automático. Aquí puede ver ejemplos para [crear una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) o para [crear una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Además de utilizar alertas de registro de actividad, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta a través de la pestaña de notificaciones de la configuración de escalado automático.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

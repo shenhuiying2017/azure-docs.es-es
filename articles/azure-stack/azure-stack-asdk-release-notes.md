@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión de Azure Stack Development Kit
 
@@ -56,7 +56,7 @@ Estas notas de la versión proporcionan información sobre las mejoras, correcci
    Para evitar los dos últimos problemas, puede escribir el nombre de la suscripción o el grupo de recursos (si lo conoce), o puede usar PowerShell en su lugar.
 
 - Verá una altera de advertencia **Activación necesaria** que le informa de que debe registrar Azure Stack Development Kit. Este comportamiento es normal.
-- En los detalles de alerta de advertencia de **Activación necesaria**, no haga clic en el vínculo al componente **AzureBridge**. Si lo hace, la hoja **Información general** intentará cargarse sin éxito y no se agotará el tiempo de espera.
+- Si se hace clic al vínculo **Componente** desde cualquier alerta de **rol de infraestructura**, la hoja **Introducción** resultante trata de cargarse y se produce un error. Además, en la hoja **Introducción** no se agota el tiempo de espera.
 - La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
 - No es posible ver los permisos para la suscripción con los portales de Azure Stack. Como solución alternativa, se pueden comprobar los permisos con PowerShell.
  

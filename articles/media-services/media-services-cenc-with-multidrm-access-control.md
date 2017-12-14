@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e4a53d053a4c792f54e215c19a8f0c4064815839
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 50bcb71cd4f52386e9ea428fc124ac30ae9a862b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC con varios DRM y control de acceso: diseño e implementación de referencia en Azure y Azure Media Services
  
@@ -186,8 +186,8 @@ La implementación incluye los pasos siguientes:
 
 1. Preparar los activos de prueba: codificar o empaquetar un vídeo de prueba en MP4 fragmentado de varias velocidades de bits en Azure Media Services. Este activo NO está protegido con DRM. La protección DRM se realizará posteriormente mediante protección dinámica.
 2. Crear el id. de clave y la clave de contenido (opcionalmente a partir de la inicialización de clave). Para nuestro propósito, el sistema de administración de claves no es necesario puesto que estamos trabajando con un solo conjunto de id. de clave y clave de contenido para un par de activos de prueba.
-3. Usar la API de AMS para configurar servicios de entrega de licencias de varios DRM para el activo de prueba. Si usa servidores de licencia personalizados por su empresa o proveedores de su empresa en lugar de los servicios de licencia de Azure Media Services, puede omitir este paso y especificar las direcciones URL de adquisición de licencias en el paso para configurar la entrega de licencias. Las API de AMS son necesarias para especificar algunas configuraciones detalladas, como restricción de directivas de autorización, plantillas de respuesta de licencia para distintos servicios de licencias DRM, etc. En este momento, el Portal de Azure no proporciona aún la interfaz de usuario necesaria para esta configuración. Puede encontrar información de nivel de API y código de ejemplo en el documento de Julia Kornich: [Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-drm.md).
-4. Usar la API de AMS para configurar la directiva de entrega de activos para el activo de prueba. Puede encontrar información de nivel de API y código de ejemplo en el documento de Julia Kornich: [Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-drm.md).
+3. Usar la API de AMS para configurar servicios de entrega de licencias de varios DRM para el activo de prueba. Si usa servidores de licencia personalizados por su empresa o proveedores de su empresa en lugar de los servicios de licencia de Azure Media Services, puede omitir este paso y especificar las direcciones URL de adquisición de licencias en el paso para configurar la entrega de licencias. Las API de AMS son necesarias para especificar algunas configuraciones detalladas, como restricción de directivas de autorización, plantillas de respuesta de licencia para distintos servicios de licencias DRM, etc. En este momento, el Portal de Azure no proporciona aún la interfaz de usuario necesaria para esta configuración. Puede encontrar información de nivel de API y código de ejemplo en el artículo siguiente: [Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-playready-widevine.md).
+4. Usar la API de AMS para configurar la directiva de entrega de activos para el activo de prueba. Puede encontrar información de nivel de API y código de ejemplo en el artículo siguiente: [Uso de cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-playready-widevine.md).
 5. Crear y configurar un inquilino de Azure Active Directory en Azure.
 6. Crear algunas cuentas y grupos de usuarios en el inquilino de Azure Active Directory: debe crear al menos el grupo "EntitledUser" y agregar un usuario a este grupo. Los usuarios de este grupo pasarán la comprobación de derechos en la adquisición de licencias y los usuarios que no están en este grupo no podrán pasar la comprobación de autenticación y no podrán adquirir ninguna licencia. Ser miembro del grupo "EntitledUser" es una notificación de "grupos" necesaria en el token de JWT emitido por Azure AD. Este requisito de notificación debe especificarse en la configuración del paso de servicios de entrega de licencias de varios DRM.
 7. Crear una aplicación de ASP.NET MVC que hospedará el reproductor de vídeo. Esta aplicación ASP.NET estará protegida con autenticación de usuario con respecto al inquilino de Azure Active Directory. Se incluirán las notificaciones adecuadas en los tokens de acceso obtenidos después de la autenticación de usuario. Para este paso se recomienda la API de OpenID Connect. Deberá instalar los siguientes paquetes de NuGet:
@@ -362,7 +362,7 @@ Si utiliza .NET Framework o C# como plataforma de desarrollo, el certificado X50
 IDX10630: El valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' de la firma no puede ser inferior a '2048' bits.
 
 ## <a name="the-completed-system-and-test"></a>Finalización del sistema y prueba
-Recorreremos algunos escenarios en el sistema de un extremo a otro completado para que los lectores puedan tener una idea general del comportamiento antes de obtener una cuenta de inicio de sesión.
+Recorremos algunos escenarios en el sistema de un extremo a otro completado para que los lectores puedan tener una idea general del comportamiento antes de obtener una cuenta de inicio de sesión.
 
 Puede encontrar la aplicación web de reproductor y su inicio de sesión [aquí](https://openidconnectweb.azurewebsites.net/).
 
@@ -414,7 +414,7 @@ La siguiente pantalla muestra los complementos y la compatibilidad con MSE/EME d
 
 EME en Microsoft Edge e Internet Explorer 11 en Windows 10 permiten invocar [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) en dispositivos de Windows 10 que lo admitan. PlayReady SL3000 desbloquea el flujo del contenido premium mejorado (4K, HDR, etc.) y los nuevos modelos de entrega de contenido (ventana anticipada para el contenido mejorado).
 
-Céntrese en los dispositivos de Windows: PlayReady es el único DRM en el hardware disponible en dispositivos de Windows (PlayReady SL3000). Un servicio de streaming puede usar PlayReady mediante EME o una aplicación de UWP y ofrecer una mayor calidad de vídeo con PlayReady SL3000 que otro DRM. Normalmente, el contenido de 2K se propagará a través de Chrome o Firefox y el contenido de 4K lo hará a través de Microsoft Edge/IE11 o una aplicación de UWP en el mismo dispositivo (según la configuración e implementación del servicio).
+Céntrese en los dispositivos de Windows: PlayReady es el único DRM en el hardware disponible en dispositivos de Windows (PlayReady SL3000). Un servicio de streaming puede usar PlayReady mediante EME o una aplicación de UWP y ofrecer una mayor calidad de vídeo con PlayReady SL3000 que otro DRM. Normalmente, el contenido de 2K se propaga a través de Chrome o Firefox y el contenido de 4K lo hará a través de Microsoft Edge/IE11 o una aplicación de UWP en el mismo dispositivo (según la configuración e implementación del servicio).
 
 #### <a name="using-eme-for-widevine"></a>Uso de EME para Widevine
 En un explorador moderno con compatibilidad con EME/Widevine, como Chrome 41+ en Windows 10, Windows 8.1, Mac OSX Yosemite y Chrome en Android 4.4.4, Google Widevine es el DRM que subyace a EME.
@@ -431,7 +431,7 @@ Si un usuario no es miembro del grupo "Usuarios autorizados", el usuario no podr
 ![Usuarios no autorizados](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
 ### <a name="running-custom-secure-token-service"></a>Ejecución del servicio de token seguro personalizado
-Para el escenario de ejecución del servicio de token seguro (STS) personalizado, el STS personalizado emitirá el token de JWT mediante la clave simétrica o asimétrica.
+Para el escenario de ejecución del servicio de token seguro (STS) personalizado, el STS personalizado emite el token de JWT mediante la clave simétrica o asimétrica.
 
 Caso de uso de clave simétrica (con Chrome):
 
@@ -441,7 +441,7 @@ El caso de uso de una clave asimétrica mediante un certificado X 509 (con el ex
 
 ![Ejecución del STS personalizado](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts2.png)
 
-En los dos casos mencionados anteriormente, la autenticación de usuario indica lo mismo: mediante Azure AD. La única diferencia es que los tokens los emite el STS personalizado en lugar de Azure AD. Desde luego, al configurar la protección CENC dinámica, la restricción del servicio de entrega de licencias especifica el tipo de token de JWT: clave simétrica o asimétrica.
+En los dos casos mencionados anteriormente, la autenticación de usuario indica lo mismo: mediante Azure AD. La única diferencia es que los tokens los emite el STS personalizado en lugar de Azure AD. Al configurar la protección CENC dinámica, la restricción del servicio de entrega de licencias especifica el tipo de token de JWT: clave simétrica o asimétrica.
 
 ## <a name="summary"></a>Resumen
 En este documento, hemos examinado el CENC con varios DRM nativos y el control de acceso mediante la autenticación con tokens: su diseño y su implementación mediante Azure, Azure Media Services y Azure Media Player.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
@@ -149,6 +149,8 @@ Para deshabilitar TTL completamente en una colección y detener el proceso en se
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>Interacción del período de vida (TTL) y el índice
+La adición o modificación del TTL supone un cambio en un índice subyacente. Cuando no hay ningún TTL y se proporciona un valor de TTL válido, se produce una operación de reindexación. Para que el índice sea coherente, el usuario no verá ningún cambio en el estado del índice. En el caso de un índice diferido, el índice siempre se actualiza primero y con este cambio en el TTL, se vuelve a crear desde cero. El efecto en este último caso es que las consultas realizadas durante la regeneración del índice no devolverán resultados correctos o completos. No cambie el TTL en índices diferidos si necesita un recuento exacto de los datos, dado que el modo de indexación propiamente dicho es diferido.  Lo ideal es elegir siempre un índice coherente. 
 
 ## <a name="faq"></a>P+F
 **¿Cuánto me costará el TTL?**

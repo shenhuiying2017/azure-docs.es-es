@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 37a3a990b5f0164b1b6f53727e92e09fece7f6fb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8629f069440299690c68887b0d23d9f4ed7dfcc5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para Azure Cloud Services
-Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates) cuando se usa el Portal de Azure clásico y la versión no clásica de Azure Portal). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
+Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates)). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
 
 Los certificados usados en Azure son certificados x.509 v3 y pueden estar firmados por otro certificado de confianza o estar autofirmados. Un certificado autofirmado está firmado por su propio creador; por lo tanto, no es de confianza de forma predeterminada. La mayoría de los exploradores pueden pasar por alto este problema. Solo debe usar certificados autofirmados cuando desarrolle y pruebe sus servicios en la nube. 
 
@@ -30,7 +30,7 @@ Los certificados utilizados por Azure pueden contener una clave privada o públi
 ## <a name="what-are-service-certificates"></a>¿Qué son los certificados de servicio?
 Los certificados de servicio están vinculados a los servicios en la nube y posibilitan la comunicación segura hacia y desde el servicio. Por ejemplo, si implementó un rol web, desearía proporcionar un certificado que pueda autenticar un punto de conexión HTTPS expuesto. Los certificados de servicio, definidos en la definición de servicio, se implementan automáticamente en la máquina virtual que está ejecutando una instancia del rol. 
 
-Puede cargar certificados de servicio en el Portal de Azure clásico mediante el Portal de Azure clásico o mediante el modelo de implementación clásica. Los certificados de servicio están asociados a un servicio en la nube específico. Se asignan a una implementación en el archivo de definición de servicio.
+Puede cargar certificados de servicio en Azure mediante Azure Portal o mediante el modelo de implementación clásica. Los certificados de servicio están asociados a un servicio en la nube específico. Se asignan a una implementación en el archivo de definición de servicio.
 
 Los certificados de servicio se pueden administrar independientemente de los servicios y pueden ser administrados por distintas personas. Por ejemplo, un desarrollador puede cargar un paquete de servicio que hace referencia a un certificado que un administrador de TI ha cargado previamente en Azure. Un administrador de TI puede administrar y renovar el certificado (cambiando la configuración del servicio) sin necesidad de cargar un nuevo paquete de servicio. La actualización sin un nuevo paquete de servicio es posible porque el nombre lógico, el nombre y la ubicación del certificado se encuentran en el archivo de definición de servicio y la huella digital del certificado se especifica en el archivo de configuración de servicio. Para actualizar el certificado, solo es necesario cargar un nuevo certificado y cambiar el valor de huella digital en el archivo de configuración de servicio.
 
@@ -95,5 +95,5 @@ Hay muchas páginas en Internet que explican cómo hacer esto con IIS. [Aquí](h
 ## <a name="next-steps"></a>Pasos siguientes
 [Cargue el certificado de servicio en Azure Portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Cargue un [certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure clásico. Azure Portal no usa certificados de administración para la autenticación.
+Cargue un [certificado de API de administración](../azure-api-management-certs.md) en Azure Portal.
 

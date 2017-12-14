@@ -8,15 +8,7 @@ Los tamaños de VM de uso general proporcionan una relación equilibrada entre C
 
 - Los tamaños de niveles básicos se utilizan sobre todo para cargas de trabajo de desarrollo y otras aplicaciones que no requieren equilibrio de carga, escalado automático o máquinas virtuales de uso intensivo de memoria. Para más información sobre los tamaños de máquinas virtuales más adecuados para las aplicaciones de producción, consulte (Tamaños de las máquinas virtuales) [virtual-machines-size-specs.md] y para obtener información sobre sus precios, consulte [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="b-series-preview"></a>Serie B (versión preliminar)
-
-> [!NOTE] 
-> Las versiones preliminares están a su disposición con la condición de que acepte los términos de uso. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Esta versión preliminar se limitará a las siguientes regiones:
-> - Oeste de EE. UU. 2
-> - Este de EE. UU.
-> - Oeste de Europa
-> - Sudeste de Asia Pacífico
+## <a name="b-series"></a>Serie B
 
 Las máquinas virtuales ampliables de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, pequeñas bases de datos y entornos de desarrollo y de prueba. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. La serie B ofrece a estos clientes la posibilidad de comprar un tamaño de máquina virtual con un rendimiento base sensible al precio y que permita a la instancia de la máquina virtual acumular crédito cuando su rendimiento sea inferior al rendimiento base. Cuando la máquina virtual ha acumulado crédito se puede ampliar por encima de la base de referencia de esta con un uso de hasta un 100% de la CPU si la aplicación necesita el mayor rendimiento posible.
 
@@ -31,7 +23,7 @@ Las máquinas virtuales ampliables de la serie B son idóneas para cargas de tra
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Serie Dsv3
+## <a name="dsv3-series"></a>Serie Dsv3*
 
 ACU: 160-190
 
@@ -46,9 +38,9 @@ Los tamaños de la serie Dsv3 se basan en el procesador Intel XEON® E5-2673 v4 
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / alto                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / extremadamente alto                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1200                              | 8 / extremadamente alto                                       |
+*Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®
 
-
-## <a name="dv3-series"></a>Serie Dv3
+## <a name="dv3-series"></a>Serie Dv3* 
 
 ACU: 160-190
 
@@ -65,7 +57,7 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / alto                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / extremadamente alto                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / extremadamente alto                     |
-
+*Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®
 
 ## <a name="dsv2-series"></a>DSv2-series
 

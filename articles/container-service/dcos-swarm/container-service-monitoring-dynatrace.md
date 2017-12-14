@@ -1,29 +1,22 @@
 ---
-title: "Supervisión de un clúster de Azure DC/OS - Dynatrace | Microsoft Docs"
+title: "Supervisión de un clúster de Azure DC/OS: Dynatrace"
 description: "Supervisión de un clúster de Azure Container Service DC/OS con Dynatrace. Implemente Dynatrace OneAgent mediante el panel DC/OS."
 services: container-service
-documentationcenter: 
 author: MartinGoodwell
-manager: 
-editor: 
-tags: acs, azure-container-service
-keywords: Contenedores, DC/OS, Azure
-ms.assetid: 
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 6fa23728680779e33eda7bb9aa8a01b9cad9a82b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52a8a05f050017f5062ff986bad7ec2e6a650aa5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Supervisión de un clúster DC/OS de Azure Container Service con Dynatrace SaaS/Managed
+
 En este artículo, le mostramos cómo implementar [Dynatrace](https://www.dynatrace.com/) OneAgent para supervisar todos los nodos de agente en el clúster de Azure Container Service. Necesita una cuenta con Dynatrace SaaS/Managed para esta configuración. 
 
 ## <a name="dynatrace-saasmanaged"></a>Dynatrace SaaS/Managed

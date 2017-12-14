@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: Guía de solución de problemas conocidos 
 En este artículo se le ayuda a buscar y corregir los errores que se producen como parte del uso de la aplicación de Azure Machine Learning Workbench. 
@@ -113,6 +113,19 @@ Lamentablemente, esto no tiene solución fácil. Tendrá que realizar los pasos 
    - quite el script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`,
    - quite el acceso directo de escritorio que se inicia el script anterior,
    - descargue el instalador https://aka.ms/azureml-wb-msi y repita la instalación.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Atasco en la pantalla "Checking experimentation account" (Comprobando cuenta de experimentación) después de iniciar sesión
+Después de iniciar sesión, la aplicación Workbench podría bloquearse en una pantalla en blanco con un mensaje que indica "Checking experimentation account" (Comprobando cuenta de experimentación) con una rueda girando. Para resolver este problema, realice los siguientes pasos:
+1. Apagado de la aplicación
+2. Elimine el siguiente archivo:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Reinicie la aplicación.
 
 ## <a name="cant-delete-experimentation-account"></a>La cuenta de Experimentación no se puede eliminar
 Puede utilizar la CLI para eliminar una cuenta de Experimentación, pero debe eliminar primero las áreas de trabajo secundarias y los proyectos secundarios dentro de esas áreas de trabajo secundarias. De lo contrario, aparece un error.

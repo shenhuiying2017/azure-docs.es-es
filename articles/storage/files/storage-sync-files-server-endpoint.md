@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 92ac80953623a5a94d3104f30787c9636308c707
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Adición o eliminación de un punto de conexión de servidor de Azure File Sync (versión preliminar)
 Azure File Sync (versión preliminar) permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello la transformación de los servidores Windows Server en una caché rápida de los recursos compartidos de Azure Files. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -41,10 +41,10 @@ Para agregar un punto de conexión de servidor, vaya al grupo de sincronización
 
 La siguiente información es necesaria en **Agregar punto de conexión del servidor**:
 
-- **Servidor registrado**: el nombre del servidor o el clúster en el que crear el punto de conexión de servidor.
-- **Ruta de acceso**: la ruta de acceso en Windows Server que se sincronizará como parte del grupo de sincronización.
+- **Servidor registrado**: nombre del servidor o el clúster en el que crear el punto de conexión de servidor.
+- **Ruta de acceso**: ruta de acceso del servidor de Windows Server que se va a sincronizar como parte del grupo de sincronización.
 - **Niveles de la nube**: un conmutador para habilitar o deshabilitar niveles de nube, que permite que los archivos a los que se accede o que se usan con poca frecuencia se apilen en Azure Files.
-- **Espacio disponible del volumen**: la cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se apilarán en Azure Files. Con independencia de si la característica de niveles de nube está habilitada, el recurso compartido de Azure Files siempre tiene una copia completa de los datos en el grupo de sincronización.
+- **Espacio disponible del volumen**: cantidad de espacio libre que se reserva en el volumen en el que reside el punto de conexión de servidor. Por ejemplo, si el espacio disponible del volumen se establece en el 50 % en un volumen con un único punto de conexión de servidor, casi la mitad de la cantidad de datos se coloca en niveles en Azure Files. Con independencia de si la característica de niveles de nube está habilitada, el recurso compartido de archivos de Azure siempre tiene una copia completa de los datos en el grupo de sincronización.
 
 Seleccione **Crear** para agregar el punto de conexión de servidor. Los archivos de un espacio de nombres de un grupo de sincronización se mantienen ahora sincronizados. 
 

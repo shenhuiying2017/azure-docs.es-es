@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Opciones de configuración de un clúster de Windows independiente
-En este artículo se describe cómo configurar un clúster de Azure Service Fabric independiente con el archivo ClusterConfig.JSON. Puede utilizar este archivo para especificar información como los nodos de Service Fabric y sus direcciones IP y los diferentes tipos de nodos en el clúster. También puede especificar las configuraciones de seguridad, así como la topología de red en cuanto a dominios de error o actualización para el clúster independiente.
+En este artículo se describe cómo configurar un clúster de Azure Service Fabric independiente con el archivo ClusterConfig.json. Usará este archivo para especificar la información acerca de los nodos del clúster y las configuraciones de seguridad, así como la topología de red en cuanto a dominios de error y actualización.
 
-Cuando [descarga el paquete de Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), se descargan unos pocos ejemplos del archivo ClusterConfig.JSON en la máquina de trabajo. Los ejemplos que tengan DevCluster en sus nombres le permiten crear un clúster con los tres nodos en la misma máquina, como nodos lógicos. Fuera de estos nodos, al menos un nodo debe marcarse como nodo principal. Este clúster es útil para un entorno de desarrollo o de prueba. No se admite como un clúster de producción. Los ejemplos que tengan MultiMachine en sus nombres le ayudan a crear un clúster de calidad de producción, con cada nodo en una máquina independiente. El número de nodos principales en estos clústeres se basa en el [nivel de confiabilidad](#reliability). En la API 5.7, versión de mayo de 2017, se eliminó la propiedad de nivel de confiabilidad. En su lugar, el código calcula el nivel de confiabilidad más optimizado para su clúster. No use esta propiedad en la versión de código 5.7 y posteriores.
+Cuando se [descarga el paquete de Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), también se incluyen ejemplos de ClusterConfig.json. Los ejemplos que tengan "DevCluster" en sus nombres crean un clúster con los tres nodos en la misma máquina, con nodos lógicos. Fuera de estos nodos, al menos un nodo debe marcarse como nodo principal. Este tipo de clúster es útil para un entorno de desarrollo o de prueba. No se admite como un clúster de producción. Los ejemplos que tengan "MultiMachine" en sus nombres ayudan a crear un clúster de calidad de producción, con cada nodo en una máquina independiente. El número de nodos principales en estos clústeres se basa en el [nivel de confiabilidad](#reliability) del clúster. En la API 5.7, versión de mayo de 2017, se eliminó la propiedad de nivel de confiabilidad. En su lugar, el código calcula el nivel de confiabilidad más optimizado para su clúster. No intente establecer un valor para esta propiedad en la versión 5.7 y posteriores.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON y ClusterConfig.Unsecure.MultiMachine.JSON muestran cómo crear un clúster no seguro de prueba o producción, respectivamente.
+* ClusterConfig.Unsecure.DevCluster.json y ClusterConfig.Unsecure.MultiMachine.json muestran cómo crear un clúster no seguro de prueba o producción, respectivamente.
 
-* ClusterConfig.Windows.DevCluster.JSON y ClusterConfig.Windows.MultiMachine.JSON muestran cómo crear un clúster de prueba o producción protegido con [seguridad de Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json y ClusterConfig.Windows.MultiMachine.json muestran cómo crear un clúster de prueba o producción protegido con [seguridad de Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON y ClusterConfig.X509.MultiMachine.JSON muestran cómo crear un clúster de prueba o producción protegido con [seguridad basada en certificados X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json y ClusterConfig.X509.MultiMachine.json muestran cómo crear un clúster de prueba o producción protegido con [seguridad basada en certificados X509](service-fabric-windows-cluster-x509-security.md).
 
-Ahora examinaremos las distintas secciones de un archivo ClusterConfig.JSON.
+Ahora examinaremos las distintas secciones de un archivo ClusterConfig.json.
 
 ## <a name="general-cluster-configurations"></a>Opciones generales de configuración de clústeres
 Las configuraciones de clúster generales abarcan las configuraciones específicas del clúster amplias, como se muestra en el siguiente fragmento JSON:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 Asigne cualquier nombre descriptivo al clúster de Service Fabric en la variable name. El valor de clusterConfigurationVersion representa el número de versión del clúster. Increméntelo cada vez que actualice el clúster de Service Fabric. Deje el elemento apiVersion con el valor predeterminado.
 
+## <a name="nodes-on-the-cluster"></a>Nodos del clúster
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Nodos del clúster
 Puede configurar los nodos en el clúster de Service Fabric mediante la sección nodes, como se muestra en el siguiente fragmento de código:
 
     "nodes": [{
@@ -79,12 +82,12 @@ Un clúster de Service Fabric debe contener al menos tres nodos. Puede agregar m
 | upgradeDomain |Los dominios de actualización describen conjuntos de nodos que se apagan para las actualizaciones de Service Fabric aproximadamente al mismo tiempo. Puede elegir qué nodos desea asignar a cada dominio de actualización, porque no están limitados por ningún requisito físico. |
 
 ## <a name="cluster-properties"></a>Propiedades de clúster
-La sección properties del archivo ClusterConfig.JSON se usa para configurar el clúster de la siguiente manera:
-
-    <a id="reliability"></a>
+La sección properties del archivo ClusterConfig.json se usa para configurar el clúster de la siguiente manera:
 
 ### <a name="reliability"></a>Confiabilidad
 El concepto de reliabilityLevel define el número de réplicas o instancias de los servicios del sistema de Service Fabric que se pueden ejecutar en los nodos principales del clúster. Esto determina la confiabilidad de estos servicios y, por lo tanto, el clúster. El sistema calcula el valor en la creación del clúster y durante la actualización.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Diagnóstico
 La sección diagnosticsStore permite configurar parámetros para habilitar el diagnóstico y la solución de problemas de errores de nodos o clústeres, tal y como se muestra en el siguiente fragmento de código: 
@@ -119,9 +122,10 @@ La sección security es necesaria para un clúster de Service Fabric independien
 
 El valor metadata es una descripción del clúster protegido y se puede establecer según su configuración. Los valores de ClusterCredentialType y ServerCredentialType determinan el tipo de seguridad que implementan el clúster y los nodos. Se pueden establecer en *X509* para una seguridad basada en certificados, o en *Windows* para una seguridad basada en Azure Active Directory. El resto de la sección security se basará en el tipo de la seguridad. Lea [Protección de un clúster independiente en Windows mediante certificados ](service-fabric-windows-cluster-x509-security.md) o [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) para obtener más información sobre cómo rellenar el resto de la sección security.
 
+### <a name="node-types"></a>Tipos de nodo
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Tipos de nodo
 La sección nodeTypes describe el tipo de los nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código: 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Para habilitar la compatibilidad con un contenedor de Windows Server o Hyper-V p
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez que haya configurado un archivo ClusterConfig.JSON completo de acuerdo con la configuración de clúster independiente, puede implementar el clúster. Siga los pasos de [Creación de un clúster de Azure Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md). A continuación, continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) y siga los pasos.
+Una vez que haya configurado un archivo ClusterConfig.json completo de acuerdo con la configuración de clúster independiente, puede implementar el clúster. Siga los pasos de [Creación de un clúster de Azure Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md). A continuación, continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) y siga los pasos.
 

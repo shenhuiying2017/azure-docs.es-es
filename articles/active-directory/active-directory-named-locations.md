@@ -1,6 +1,6 @@
 ---
 title: Ubicaciones con nombre en Azure Active Directory | Microsoft Docs
-description: "Al configurar ubicaciones con nombre, puede evitar el hecho de tener direcciones IP pertenecientes a su organización que generan falsos positivos para el tipo de evento de riesgo Viaje imposible a ubicaciones inusuales."
+description: "Más información acerca de las ubicaciones con nombre y cómo configurarlas."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Ubicaciones con nombre en Azure Active Directory
 
-Gracias a las ubicaciones con nombre de Azure Active Directory puede etiquetar intervalos de direcciones IP de confianza en sus organizaciones. En su entorno, puede usar las ubicaciones con nombre en el contexto de la detección de [eventos de riesgo](active-directory-reporting-risk-events.md). La característica ayuda a reducir el número de falsos positivos incluidos para el tipo de evento de riesgo de *Viaje imposible a ubicaciones inusuales*. 
+Con las ubicaciones con nombre, puede etiquetar intervalos de direcciones IP de confianza en su organización. Azure Active Directory usa las ubicaciones con nombre en el contexto de:
 
-## <a name="configuration"></a>Configuración
+- La detección de [eventos de riesgo](active-directory-reporting-risk-events.md) para reducir el número de falsos positivos notificados.  
 
-Para configurar una ubicación con nombre:
+- El [acceso condicional basado en la ubicación](active-directory-conditional-access-azure-portal.md#locations).
+
+
+En este artículo se explica cómo puede configurar las ubicaciones con nombre en su entorno.
+
+
+## <a name="entry-points"></a>Puntos de entrada
+
+Puede tener acceso a la página de configuración de la ubicación con nombre en la sección **Seguridad** de la página de Azure Active Directory haciendo clic en:
+
+![Puntos de entrada](./media/active-directory-named-locations/34.png)
+
+- **Acceso condicional:**
+
+    - En la sección **Administrar**, haga clic en **Ubicaciones con nombre**.
+    
+        ![El comando Ubicaciones con nombre](./media/active-directory-named-locations/06.png)
+
+- **Inicios de sesión no seguros:**
+
+    - En la barra de herramientas de la parte superior, haga clic en **Agregar intervalo de direcciones IP conocidas**.
+
+       ![El comando Ubicaciones con nombre](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Ejemplo de configuración
+
+**Para configurar una ubicación con nombre:**
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
 
@@ -34,22 +62,22 @@ Para configurar una ubicación con nombre:
 
     ![El vínculo Azure Active Directory en el panel izquierdo](./media/active-directory-named-locations/01.png)
 
-3. En la hoja **Azure Active Directory**, en la sección **Seguridad**, haga clic en **Acceso condicional**.
+3. En la página **Azure Active Directory**, en la sección **Seguridad**, haga clic en **Acceso condicional**.
 
     ![El comando Acceso condicional](./media/active-directory-named-locations/05.png)
 
 
-4. En la hoja **Acceso condicional**, en la sección **Administrar**, haga clic en **Ubicaciones con nombre**.
+4. En la página **Acceso condicional**, en la sección **Administrar**, haga clic en **Ubicaciones con nombre**.
 
     ![El comando Ubicaciones con nombre](./media/active-directory-named-locations/06.png)
 
 
-5. En la hoja **Ubicaciones con nombre**, haga clic en **Nueva ubicación**.
+5. En la página **Ubicaciones con nombre**, haga clic en **Nueva ubicación**.
 
     ![El comando Nueva ubicación](./media/active-directory-named-locations/07.png)
 
 
-6. En la hoja **Nuevo**, haga lo siguiente:
+6. En la página **Nuevo**, haga lo siguiente:
 
     ![La hoja Nuevo](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Para configurar una ubicación con nombre:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de los eventos de riesgo, consulte [Eventos de riesgo de Azure Active Directory](active-directory-reporting-risk-events.md).
+Para más información sobre:
 
+- **Eventos de riesgo**, consulte los [eventos de riesgo de Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- **Acceso condicional**, consulte [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Informes de inicios de sesión poco seguros**, consulte [Informe de inicios de sesión poco seguros del portal de Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

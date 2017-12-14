@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementación y supervisión de módulos de IoT Edge a escala (versión preliminar)
 
@@ -42,19 +42,21 @@ Para más información sobre los dispositivos gemelos y etiquetas, consulte [Inf
 
 1. Inicie sesión en [Azure Portal][lnk-portal] y vaya a IoT Hub. 
 1. Seleccione **IoT Edge (versión preliminar)**.
-1. Seleccione **Create Edge Deployment** (Crear implementación perimetral).
+1. Seleccione **Agregar implementación de IoT Edge**.
 
 Hay cinco pasos para crear una implementación. En las siguientes secciones se abordan cada uno de ellos. 
 
-### <a name="step-1-label-deployment"></a>Paso 1: Implementación de etiquetas
+### <a name="step-1-name-and-label"></a>Paso 1: Nombre y etiqueta
 
-1. Proporcione a la implementación un identificador único. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
+1. Proporcione a la implementación un nombre único. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
 1. Agregue etiquetas para realizar un mejor seguimiento de las implementaciones. Las etiquetas son pares de **nombre** y **valor** que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
 1. Seleccione **Siguiente** para ir al segundo paso. 
 
-### <a name="step-2-add-modules"></a>Paso 2: Adición de módulos
+### <a name="step-2-add-modules-optional"></a>Paso 2: Adición de módulos (opcional)
 
 Hay dos tipos de módulos que se pueden agregar a una implementación. El primero es un módulo basado en un servicio de Azure, como una cuenta de Storage o Stream Analytics. El segundo es un módulo basado en su propio código. Puede agregar varios módulos de cualquier tipo a una implementación. 
+
+Si se crea una implementación sin módulos, quita cualquier módulo existente de los dispositivos. 
 
 >[!NOTE]
 >Azure Machine Learning y Azure Functions todavía no admiten la implementación del servicio de Azure automatizada. Use la implementación de módulo personalizada para agregar manualmente esos servicios a la implementación. 
@@ -83,7 +85,7 @@ Para agregar código personalizado como un módulo, o para agregar manualmente u
 
 Cuando tenga todos los módulos configurados para una implementación, seleccione **Siguiente** para ir al tercer paso.
 
-### <a name="step-3-specify-routes-optional"></a>Paso 3: Especificación de rutas (opcionales)
+### <a name="step-3-specify-routes-optional"></a>Paso 3: Especificación de rutas (opcional)
 
 Las rutas definen cómo los módulos se comunican entre sí dentro de una implementación. Especifique las rutas para la implementación y seleccione **Siguiente** para ir al cuarto paso. 
 
