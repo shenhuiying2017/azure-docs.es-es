@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network
 > [!div class="op_single_selector"]
@@ -29,14 +29,14 @@ ms.lasthandoff: 12/06/2017
 
 El [servicio Blob Storage](../storage/common/storage-introduction.md#blob-storage) de Azure Storage es uno de los distintos orígenes basados en Azure que están integrados en Azure Content Delivery Network (CDN). Cualquier contenido de blob accesible públicamente se puede almacenar en caché en la red CDN de Azure hasta que transcurra su tiempo de vida (TTL). El período de vida viene determinado por el encabezado `Cache-Control` en la respuesta HTTP del servidor de origen. En este artículo se describen las distintas maneras en que se puede establecer el encabezado `Cache-Control` de un blob en Azure Storage.
 
-También puede controlar la configuración de caché desde Azure Portal estableciendo [reglas de almacenamiento en caché de la red CDN](cdn-caching-rules.md). Si configura una o más reglas de almacenamiento en caché y establece el comportamiento de dicho almacenamiento en **Invalidar** u **Omitir caché**, se omite la configuración de almacenamiento en caché proporcionada por el origen que se trata en este artículo. Para información sobre conceptos generales de almacenamiento en caché, vea [How caching works](cdn-how-caching-works.md) (Funcionamiento del almacenamiento en caché).
+También puede controlar la configuración de caché desde Azure Portal estableciendo [reglas de almacenamiento en caché de la red CDN](cdn-caching-rules.md). Si configura una o más reglas de almacenamiento en caché y establece el comportamiento de dicho almacenamiento en **Invalidar** u **Omitir caché**, se omite la configuración de almacenamiento en caché proporcionada por el origen que se trata en este artículo. Para información sobre conceptos generales de almacenamiento en caché, consulte [Funcionamiento del almacenamiento en caché](cdn-how-caching-works.md).
 
 > [!TIP]
-> Puede optar por no configurar ningún TTL en un blob. En este caso, la red CDN de Azure aplica automáticamente un TTL predeterminado de siete días, a menos que haya configurado reglas de almacenamiento en caché en Azure Portal. Este TTL predeterminado solo se aplica a las optimizaciones de entrega web general. Para las optimizaciones de archivos de gran tamaño, el TTL predeterminado es un día, y para las optimizaciones de streaming multimedia, el TTL predeterminado es un año.
+> Puede optar por no configurar ningún TTL en un blob. En este caso, Azure CDN aplica automáticamente un TTL predeterminado de siete días, a menos que haya configurado reglas de almacenamiento en caché en Azure Portal. Este TTL predeterminado solo se aplica a las optimizaciones de entrega web general. Para las optimizaciones de archivos de gran tamaño, el TTL predeterminado es un día, y para las optimizaciones de streaming multimedia, el TTL predeterminado es un año.
 > 
 > Para obtener más información sobre el funcionamiento de Azure CDN para acelerar el acceso a los blobs y a otros archivos, consulte [Información general de Azure Content Delivery Network](cdn-overview.md).
 > 
-> Para obtener más información acerca de Azure Blob Storage, consulte [Introducción a Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+> Para obtener más información acerca de Azure Blob Storage, consulte [Introducción a Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Establecimiento de los encabezados Cache-Control mediante Azure PowerShell
@@ -113,7 +113,7 @@ Para actualizar la propiedad *CacheControl* de un blob con el Explorador de Azur
 ![Propiedades del Explorador de Azure Storage](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interfaz de la línea de comandos de Azure
-Con la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) (CLI), puede administrar recursos de blob de Azure desde la línea de comandos. Para establecer el encabezado de control de caché cuando cargue un blob con la CLI de Azure, establezca la propiedad *cacheControl* mediante el uso del modificador `-p`. En el siguiente ejemplo, se muestra cómo se establece el período de vida en una hora (3600 segundos):
+Con la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) (CLI), puede administrar recursos de blob de Azure desde la línea de comandos. Para establecer el encabezado de control de caché cuando cargue un blob con la CLI de Azure, establezca la propiedad *cacheControl* mediante el uso del modificador `-p`. En el siguiente ejemplo, se muestra cómo se establece el período de vida en una hora (3600 segundos):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt

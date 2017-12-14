@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: a91d676a4513e5e96f3ac8a224666f3eacec16f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicación remota de servicio con Reliable Services
 Para los servicios que no están vinculados a una pila o un protocolo de comunicación concretos, como WebAPI, Windows Communication Foundation (WCF) u otros, el marco de trabajo de Reliable Services ofrece un mecanismo de comunicación remota para configurar de manera rápida y sencilla una llamada a procedimiento remoto para servicios.
@@ -85,18 +85,18 @@ El marco de trabajo de comunicación remota propaga las excepciones generadas po
 La creación de ServiceProxy es una operación ligera, por lo que los usuarios pueden crearla todas las veces que lo necesiten. Las instancias de ServiceProxy pueden volver a usarse siempre que los usuarios lo necesiten. Si una llamada a procedimiento remoto inicia una excepción, los usuarios pueden reutilizar la misma instancia de proxy. Cada ServiceProxy contiene un cliente de comunicación que se usa para enviar mensajes a través de la conexión. Mientras se invocan llamadas remotas, internamente se comprueba si el cliente de comunicación es válido. En función de ese resultado, volvemos a crear el cliente de comunicación si se necesita. Por lo tanto, si se produce la excepción, los usuarios no tienen que volver a crear `ServiceProxy` porque se realiza de manera transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Duración de ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxy.Create` para crear el proxy, el marco crea un singleton ServiceProxy.
-Es útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) es una fábrica que crea instancias de proxy para interfaces remotas diferentes. Si usa la API `ServiceProxy.Create` para crear el proxy, el marco crea un singleton ServiceProxy.
+Es útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
 La creación de fábricas es una operación costosa. ServiceProxyFactory mantiene una memoria caché interna del cliente de comunicación.
 El procedimiento recomendado consiste en almacenar en caché ServiceProxyFactory tanto como sea posible.
 
 ## <a name="remoting-exception-handling"></a>Control de excepciones remota
-Todas las excepciones remotas generadas por la API de servicio se vuelven a enviar al cliente como AggregateException. RemoteExceptions debe ser serializable con DataContract; en caso contrario, la API del proxy genera [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) con el error de serialización en ella.
+Todas las excepciones remotas generadas por la API de servicio se vuelven a enviar al cliente como AggregateException. RemoteExceptions debe ser serializable con DataContract; en caso contrario, la API del proxy genera [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) con el error de serialización en ella.
 
 ServiceProxy controla todas las excepciones de conmutación por error para la partición de servicio para la que se crea. Vuelve a resolver los puntos de conexión si existen excepciones de conmutación por error (excepciones no transitorias) y recupera la llamada con el punto de conexión correcto. El número de reintentos para las excepciones de conmutación por error es indefinido.
 Si se producen excepciones transitorias, el proxy vuelve a intentar la llamada.
 
-[OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) proporciona los parámetros de reintento predeterminados.
+[OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) proporciona los parámetros de reintento predeterminados.
 El usuario puede configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
 ## <a name="how-to-use-remoting-v2-stack"></a>Cómo usar la pila de comunicación remota V2
 Con el paquete de comunicación remota de NuGet 2.8, tiene la opción para usar la pila de comunicación remota V2. La pila de comunicación remota V2 tiene un mejor rendimiento y proporciona características como serialización personalizada y más API que puedan conectarse.
@@ -146,7 +146,7 @@ Estos son los pasos que debe seguir.
   </Resources>
   ```
 
-2. Use el [agente de escucha de comunicación remota V2](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). El nombre predeterminado del recurso de extremo de servicio que se usa es "ServiceEndpointV2" y debe definirse en el manifiesto de servicio.
+2. Use el [agente de escucha de comunicación remota V2](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). El nombre predeterminado del recurso de extremo de servicio que se usa es "ServiceEndpointV2" y debe definirse en el manifiesto de servicio.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -162,7 +162,7 @@ Estos son los pasos que debe seguir.
     }
   ```
 
-3. Use [ClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) V2.
+3. Use [ClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) V2.
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {

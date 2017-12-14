@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: d8257056fddda408b622d3da11c707ff39e180db
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: fb77ec001f9f52e0a974f8765f458f831fb63908
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Preguntas más frecuentes sobre Azure Databricks
 
@@ -94,7 +94,7 @@ Si no creó el área de trabajo y se le agrega como usuario, póngase en contact
 
 #### <a name="solution"></a>Solución
 
-Los clústeres de Databricks usan una dirección IP pública por nodo. Si la suscripción ya ha utilizado todas sus direcciones IP públicas, debe [solicitar aumentar la cuota](https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request). Elija **Cuota** como el **Tipo de problema** y **Redes: ARM** como el **Tipo de cuota**. En **Details**, solicite un aumento de la cuota de la dirección IP pública. Por ejemplo, si el límite es actualmente 60 y desea crear un clúster de 100 nodos, solicite un aumento del límite hasta 160.
+Los clústeres de Databricks usan una dirección IP pública por nodo. Si la suscripción ya ha utilizado todas sus direcciones IP públicas, debe [solicitar aumentar la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Elija **Cuota** como el **Tipo de problema** y **Redes: ARM** como el **Tipo de cuota**. En **Details**, solicite un aumento de la cuota de la dirección IP pública. Por ejemplo, si el límite es actualmente 60 y desea crear un clúster de 100 nodos, solicite un aumento del límite hasta 160.
 
 ### <a name="a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster"></a>Un segundo tipo de error al iniciar el proveedor de nube al configurar el clúster
 

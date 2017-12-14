@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>FairPlay Streaming sin conexión
 Microsoft Azure Media Services proporciona [servicios de protección de contenido](https://azure.microsoft.com/services/media-services/content-protection/) de alto diseño, como:
@@ -189,7 +189,7 @@ Preguntas frecuentes para la solución de problemas:
 - **¿Qué significa el último parámetro en la siguiente API para el modo sin conexión de FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-La documentación para esta API se puede encontrar [aquí](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). El parámetro representa la duración del alquiler sin conexión con la hora como unidad.
+La documentación para esta API se puede encontrar [aquí](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). El parámetro representa la duración del alquiler sin conexión con la hora como unidad.
 - **¿Cuál es la estructura del archivo descargado o sin conexión en dispositivos iOS?** La estructura del archivo descargado en un dispositivo iOS es similar a la siguiente (captura de pantalla). La carpeta `_keys` almacena licencias FPS descargadas, un archivo de almacén para cada host de servicio de licencia. La carpeta `.movpkg` almacena el contenido de audio y vídeo. La primera carpeta, cuyo nombre termina con un guion seguido de un valor numérico, contiene datos de vídeo. El valor numérico es el valor "PeakBandwidth" de la reproducción de vídeo. La segunda carpeta, cuyo nombre termina con un guión seguido de 0, contiene datos de audio. La tercera carpeta, denominada "Data", contiene la lista de reproducción maestra del contenido FPS. Boot.xml proporciona una descripción completa del contenido de la carpeta `.movpkg` (vea a continuación un archivo de ejemplo de boot.xml).
 
 ![Estructura del archivo de aplicación de ejemplo de iOS de FairPlay sin conexión](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)

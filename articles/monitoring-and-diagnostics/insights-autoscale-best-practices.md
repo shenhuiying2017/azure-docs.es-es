@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 En este artículo se explican los procedimientos recomendadas para el escalado automático de Azure. El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Otros servicios de Azure usan distintos métodos de escalado.
@@ -44,9 +44,6 @@ Si actualiza manualmente el recuento de instancias a un valor superior o inferio
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Use siempre una combinación de reglas de escalado horizontal y reducción horizontal que realice un aumento y una disminución.
 Si usa solo una parte de la combinación, el escalado automático escala o reduce horizontalmente (y a la inversa) hasta alcanzar el valor máximo o mínimo.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>No alterne entre Azure Portal y el Portal de Azure clásico al administrar el escalado automático
-Para Cloud Services y App Services (Web Apps), use Azure Portal (portal.azure.com) para crear y administrar la configuración de escalado automático. Para los conjuntos de escalado de máquinas virtuales, use PowerShell, CLI o la API de REST para crear y administrar la configuración de escalado automático. No alterne entre el Portal de Azure clásico (manage.windowsazure.com) y Azure Portal (portal.azure.com) al administrar configuraciones de escalado automático. El Portal de Azure clásico y su back-end subyacente presentan una serie de limitaciones. Vaya al Azure Portal para administrar el escalado automático mediante una interfaz gráfica de usuario. Las opciones son usar PowerShell de escalado automático, CLI o la API de REST (a través del Explorador de recursos de Azure).
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Elija la estadística adecuada para la métrica de diagnósticos
 Para las métricas de diagnóstico, puede elegir entre *Promedio*, *Mínimo*, *Máximo* y *Total* como métrica a partir de la que escalar. La estadística más común es *Promedio*.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 002841ff59e7b151ee2288ee4045de5c423df573
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: d34862d96744e038d7c1890f703ead79c416ddfa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-a-spring-boot-application"></a>Implementación de una aplicación de Spring Boot
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
@@ -39,10 +39,10 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar esta guía de inicio rápido:
-1. [Instale el SDK de Service Fabric y la interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+1. [Instale el SDK de Service Fabric y la interfaz de la línea de comandos (CLI) de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 2. [Instalación de Git](https://git-scm.com/)
-3. [Instalación de Yeoman](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. [Configuración del entorno de Java](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+3. [Instalación de Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+4. [Configuración del entorno de Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 En una ventana de comandos, ejecute el comando siguiente para clonar la aplicación de ejemplo Getting Started de Spring Boot en la máquina local.
