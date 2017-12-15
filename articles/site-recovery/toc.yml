@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: Administración de servidores vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Administración de servicios multiinquilino con CSP
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Quitar servidores y deshabilitar la protección
           href: site-recovery-manage-registration-and-protection.md
         - name: Eliminación de un almacén

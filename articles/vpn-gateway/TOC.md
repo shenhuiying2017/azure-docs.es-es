@@ -1,6 +1,6 @@
 # Información general
 ## [Acerca de VPN Gateway](vpn-gateway-about-vpngateways.md)
-## [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md)
+## [Preguntas más frecuentes sobre VPN Gateway](vpn-gateway-vpn-faq.md)
 ## [Límites del servicio y la suscripción](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Introducción
@@ -75,6 +75,7 @@
 ## Configuración de dispositivos VPN de terceros
 ### [Introducción y configuración de Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Ejemplo: dispositivo Cisco ASA (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Migración del modelo clásico al de Resource Manager](vpn-gateway-classic-resource-manager-migration.md)
 ## Solución de problemas
 ### [Validación del rendimiento de la VPN en una red virtual](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Configuración de dispositivos de firewall o VPN sugeridos por la comunidad](vpn-gateway-third-party-settings.md)
@@ -92,9 +93,9 @@
 
 # Temas relacionados
 ## [Virtual Network](/azure/virtual-network/)
-## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Application Gateway](/azure/application-gateway/)
 ## [DNS de Azure](/azure/dns/)
-## [Administrador de tráfico](/azure/traffic-manager/)
+## [Traffic Manager](/azure/traffic-manager/)
 ## [Equilibrador de carga](/azure/load-balancer/)
 ## [ExpressRoute](/azure/expressroute/)
 

@@ -44,6 +44,8 @@
       href: time-series-insights-send-events.md
     - name: Escalado del entorno
       href: time-series-insights-how-to-scale-your-environment.md
+    - name: Administración de recursos mediante plantillas
+      href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
 - name: Referencia
   items:
     - name: API de consulta

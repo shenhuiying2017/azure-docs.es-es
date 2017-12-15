@@ -107,6 +107,8 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Administración de recursos de almacenamiento
           href: azure-stack-manage-storage-accounts.md
+        - name: Administración de la capacidad de almacenamiento
+          href: azure-stack-manage-storage-shares.md
         - name: Administración de máquinas virtuales de Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
         - name: Reemplazo de hardware

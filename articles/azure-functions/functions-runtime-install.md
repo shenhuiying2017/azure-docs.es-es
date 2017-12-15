@@ -61,7 +61,7 @@ El instalador de la versión preliminar del Sistema en tiempo de ejecución de A
     > [!NOTE]
     > Puede instalar **Functions Worker Role** (Rol de trabajo de Functions) en muchas otras máquinas. Para ello, siga estas instrucciones y seleccione únicamente **Functions Worker Role** (Rol de trabajo de Functions) en el instalador.
 
-1. Haga clic en **Next** (Siguiente) tener que **Azure Functions Runtime Setup Wizard** (Asistente para la instalación del Sistema en tiempo de ejecución de Azure funciones) comience el proceso de instalación en la máquina.
+1. Haga clic en **Next** (Siguiente) tener que **Azure Functions Runtime Setup Wizard** (Asistente para la instalación del Sistema en tiempo de ejecución de Azure Functions) comience el proceso de instalación en la máquina.
 1. Una vez completado el Asistente para la instalación, se iniciará la herramienta de configuración del **entorno en tiempo de ejecución de Azure Functions**.
 
     ![Instalador de la versión preliminar del entorno en tiempo de ejecución de Azure Functions completado][6]

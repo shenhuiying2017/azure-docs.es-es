@@ -92,17 +92,17 @@ Consulte [specification](https://github.com/opentracing/specification/blob/maste
 
 Con el tiempo, .NET ha definido varias formas de poner en correlación la telemetría y registros de diagnósticos. Hay un elemento, `System.Diagnostics.CorrelationManager`, que permite realizar un seguimiento de [LogicalOperationStack y ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). `System.Diagnostics.Tracing.EventSource` y el seguimiento de eventos para Windows definen el método [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx). `ILogger` usa [ámbitos de registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). WCF y HTTP conectan la propagación del contexto "actual".
 
-Sin embargo, esos métodos no han habilitado la compatibilidad con el seguimiento distribuido automático. `DiagnosticsSource` es una forma de admitir la correlación entre máquinas. Las bibliotecas de .NET admiten Diagnostics Source (Origen de diagnóstico) y permiten la propagación entre máquinas del contexto de propagación a través del transporte como http.
+Sin embargo, esos métodos no han habilitado la compatibilidad con el seguimiento distribuido automático. `DiagnosticsSource` es una forma de admitir la correlación entre máquinas. Las bibliotecas de .NET admiten DiagnosticsSource y permiten la propagación entre máquinas del contexto de propagación a través del transporte como http.
 
-En la [guía de Activities](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) (Actividades) de Diagnostics Source (Origen de diagnóstico) se explican los conceptos básicos de Activities (Actividades) de seguimiento. 
+En la [guía de actividades](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) de DiagnosticsSource se explican los conceptos básicos de actividades de seguimiento. 
 
-ASP.NET Core 2.0 admite la extracción de encabezados HTTP e inicia la nueva Activity (Actividad). 
+ASP.NET Core 2.0 admite la extracción de encabezados HTTP e inicia la nueva actividad. 
 
-La versión inicial de `System.Net.HttpClient`, `<fill in>`, admite la inserción automática de los encabezados HTTP de correlación y realiza un seguimiento de la llamada HTTP como Activity (Actividad).
+La versión inicial de `System.Net.HttpClient`, `<fill in>`, admite la inserción automática de los encabezados HTTP de correlación y realiza un seguimiento de la llamada HTTP como actividad.
 
-Hay un nuevo módulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) de ASP.NET clásico. En este módulo se implementa la correlación de telemetría mediante DiagnosticsSource (Origen de diagnóstico). Inicia la actividad en función de los encabezados de solicitud entrantes.  También pone en correlación la telemetría de las diversas fases del procesamiento de solicitudes. Incluso en los casos en que se ejecutan todas las fases del procesamiento de IIS en un subproceso administrado distinto.
+Hay un nuevo módulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) de ASP.NET clásico. En este módulo se implementa la correlación de telemetría mediante DiagnosticsSource. Inicia la actividad en función de los encabezados de solicitud entrantes.  También pone en correlación la telemetría de las diversas fases del procesamiento de solicitudes. Incluso en los casos en que se ejecutan todas las fases del procesamiento de IIS en un subproceso administrado distinto.
 
-La versión inicial del SDK de Application Insights, `2.4.0-beta1`, usa DiagnosticsSource (Origen de diagnóstico) y Activity (Actividad) para recolectar la telemetría y asociarla a la actividad actual. 
+La versión inicial del SDK de Application Insights, `2.4.0-beta1`, usa DiagnosticsSource y Activity para recolectar la telemetría y asociarla a la actividad actual. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

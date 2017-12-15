@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre Azure Time Series Insights
+title: "Documentación sobre Azure Time Series Insights"
 metadata:
-  title: 'Documentación sobre Azure Time Series Insights: tutoriales y referencia de API | Microsoft Docs'
-  description: 'Aprenda a ejecutar análisis de IoT en la nube con procesamiento de eventos totalmente administrado. Analice en tiempo real datos procedentes de aplicaciones, sensores y dispositivos, entre otros.'
+  title: "Documentación sobre Azure Time Series Insights: tutoriales y referencia de API | Microsoft Docs"
+  description: "Aprenda a ejecutar análisis de IoT en la nube con procesamiento de eventos totalmente administrado. Analice en tiempo real datos procedentes de aplicaciones, sensores y dispositivos, entre otros."
   services: time-series-insights
   author: kfile
   manager: jhubbard
@@ -13,25 +13,30 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/13/2017
   ms.author: kfile
+  ms.openlocfilehash: 3c181142dcdb4132964ba5da9582b9f2b1ad817e
+  ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/14/2017
 abstract:
-  description: 'Aprenda a configurar el entorno de Time Series Insights, a explorar y a analizar los datos de series temporales de las soluciones de IoT o de otros elementos conectados. La documentación describe los requisitos previos, los procedimientos, las referencias de API y cualquier otro artículo necesario para ayudarle a empezar a trabajar en cuestión de minutos.'
+  description: "Aprenda a configurar el entorno de Time Series Insights, a explorar y a analizar los datos de series temporales de las soluciones de IoT o de otros elementos conectados. La documentación describe los requisitos previos, los procedimientos, las referencias de API y cualquier otro artículo necesario para ayudarle a empezar a trabajar en cuestión de minutos."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Aprenda a implementar Log Analytics y a configurar la recopilación de datos desde Azure, otros proveedores de nube y recursos locales."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Aprenda a implementar Log Analytics y a configurar la recopilación de datos desde Azure, otros proveedores de nube y recursos locales.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg'
-            text: Exploración de Azure Time Series Insights
-            href: /azure/time-series-insights/time-series-quickstart
-  - title: Referencia
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg
+      text: "Exploración de Azure Time Series Insights"
+      href: /azure/time-series-insights/time-series-quickstart
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API existentes
-            html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">API de consulta</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Sintaxis de consulta</a></p>
+    - title: API existentes
+      html: "<p><a href=\"/rest/api/time-series-insights-management\">API de administración de recursos</a></p>   <p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">API de consulta</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Sintaxis de consulta</a></p>"
