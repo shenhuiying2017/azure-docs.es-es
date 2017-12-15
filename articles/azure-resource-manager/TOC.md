@@ -15,12 +15,11 @@
 #### [Parámetros](resource-manager-templates-parameters.md)
 #### [Variables](resource-manager-templates-variables.md)
 #### [Recursos](resource-manager-templates-resources.md)
-### [Procedimientos recomendados para las plantillas](resource-manager-template-best-practices.md)
+#### [Outputs](resource-manager-templates-outputs.md)
 ### [Vínculo a otras plantillas](resource-group-linked-templates.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
 ### [Creación de varias instancias](resource-group-create-multiple.md)
-### [Actualización de recursos](resource-manager-update.md)
-### [Compartición del estado entre plantillas vinculadas](best-practices-resource-manager-state.md)
+### [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Patrones para diseñar plantillas](best-practices-resource-manager-design-templates.md)
 
 
