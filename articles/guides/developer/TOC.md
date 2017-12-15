@@ -64,8 +64,8 @@
 ## Almacenamiento de datos
 ### [Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [Recursos compartidos de archivos](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Pares de clave-valor](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [Documentos JSON](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Pares de clave-valor](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [Documentos JSON](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Tablas relacionales](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Colas de mensajes](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 

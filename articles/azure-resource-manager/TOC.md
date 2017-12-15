@@ -19,11 +19,7 @@
 ### [Vínculo a otras plantillas](resource-group-linked-templates.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
 ### [Creación de varias instancias](resource-group-create-multiple.md)
-### [Establecimiento de la ubicación](resource-manager-template-location.md)
-### [Asignación de etiquetas](resource-manager-template-tags.md)
-### [Establecimiento del nombre y tipo del recurso secundario](resource-manager-template-child-resource.md)
 ### [Actualización de recursos](resource-manager-update.md)
-### [Uso de objetos para parámetros](resource-manager-objects-as-parameters.md)
 ### [Compartición del estado entre plantillas vinculadas](best-practices-resource-manager-state.md)
 ### [Patrones para diseñar plantillas](best-practices-resource-manager-design-templates.md)
 
