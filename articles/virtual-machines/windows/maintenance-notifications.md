@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: 80c029866f3d28712be823692f3bf4ce6e210405
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Windows
 
@@ -32,9 +32,9 @@ Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el 
 
 El mantenimiento planeado que requiere un reinicio se programa en olas. Cada ola tiene un ámbito diferente (regiones).
 
-- Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Puede agregar más destinatarios y opciones de mensajes como correo electrónico, SMS y Webhooks a las notificaciones.  
-- Poco después de la notificación, se establece una ventana de autoservicio. Durante este período, puede averiguar qué máquinas virtuales se incluyen en esta ola e iniciar el mantenimiento mediante una reimplementación proactiva. 
-- A continuación de la ventana de autoservicio, comienza la ventana de mantenimiento programado. En este momento, Azure programa y aplica el mantenimiento necesario para la máquina virtual. 
+- Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Con las [alertas del registro de actividad](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) de Azure es posible agregar más destinatarios y opciones de mensajería, como el correo electrónico, los SMS y los webhooks, a las notificaciones.  
+- En el momento de la notificación, aparece una *ventana de autoservicio*. En ella, puede ver qué máquinas virtuales se incluyen en esta ola e iniciar de forma proactiva el mantenimiento en función de las necesidades que dicte su programación.
+- Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado*. Mientras está ventana está activa Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
 
 El objetivo de tener dos ventanas es proporcionar tiempo suficiente para que pueda iniciar el mantenimiento y reiniciar la máquina virtual sabiendo cuando iniciará Azure el mantenimiento automáticamente.
 
@@ -42,8 +42,38 @@ El objetivo de tener dos ventanas es proporcionar tiempo suficiente para que pue
 Puede usar Azure Portal, PowerShell, la API de REST y la CLI para consultar las ventanas de mantenimiento de las máquinas virtuales e iniciar el mantenimiento de autoservicio.
 
  > [!NOTE]
- > Si intenta iniciar el mantenimiento y se produce un error, Azure marca la máquina virtual como **omitida** y no se reinicia durante la ventana de mantenimiento programado. En su lugar, le llegará un contacto posterior con una nueva programación. 
+ > Si intenta iniciar el mantenimiento y se produce un error en la solicitud, Azure marca la máquina virtual como **omitida**. Ya no podrá utilizar la opción de mantenimiento iniciado por el cliente. Azure tendrá que reiniciar la máquina virtual durante la fase de mantenimiento programado.
 
+
+ 
+## <a name="should-you-start-maintenance-using-during-the-self-service-window"></a>¿Debe comenzar el mantenimiento durante la ventana de autoservicio?  
+
+Las instrucciones siguientes le deberían ayudar a decidir si debe utilizar esta funcionalidad e iniciar el mantenimiento a su ritmo.
+
+> [!NOTE] 
+> Es posible que el mantenimiento de autoservicio no esté disponible para todas las máquinas virtuales. Para determinar si su máquina virtual se puede volver a implementar de forma proactiva, busque **Iniciar ahora** en el estado del mantenimiento. El mantenimiento de autoservicio no está disponible para Cloud Services (rol de trabajo o web), Service Fabric y conjuntos de escalado de máquinas virtuales.
+
+
+El mantenimiento de autoservicio no se recomienda para implementaciones que usen **conjuntos de disponibilidad**, ya que éstas son configuraciones de alta disponibilidad, en las que en un momento dado solo resulta afectado un dominio de actualización. 
+    - Deje que Azure desencadene el mantenimiento, pero tenga en cuenta que el orden de los dominios de actualización afectados no siempre es secuencial y que hay una pausa de 30 minutos entre los dominios de actualización.
+    - Si una pérdida temporal de una parte de su capacidad (1/recuento de dominio de actualización) supone un problema, se puede compensar fácilmente mediante la asignación de más instancias durante el período de mantenimiento. 
+
+**No** utilice el mantenimiento de autoservicio en los escenarios siguientes: 
+    - Si apaga las máquinas virtuales con frecuencia, ya sea manualmente, mediante DevTest Labs, con el apagado automático o de forma programada, pudo revertir el estado de mantenimiento y, por tanto, provocar mayor tiempo de inactividad.
+    - En las máquinas virtuales de corta duración que sepa que se van a eliminar antes del final del mantenimiento. 
+    - En el caso de las cargas de trabajo con un estado grande almacenadas en el disco local (efímero) en el que se desea realizar el mantenimiento tras la actualización. 
+    - En los casos en los que se cambia el tamaño de una máquina virtual con frecuencia, ya que pudo revertir el estado de mantenimiento. 
+    - Si se ha realizado eventos programados que permiten una conmutación por error proactiva o un apagado ordenado de la carga de trabajo, 15 minutos antes de que comience el apagado de mantenimiento
+
+**Use** el mantenimiento de autoservicio si tiene planeado ejecutar la máquina virtual de forma ininterrumpida durante la fase de mantenimiento programado y no se produce ninguna de las contraindicaciones anteriores. 
+
+Se recomienda usar el mantenimiento de autoservicio en los siguientes casos:
+    - Es preciso comunicar una ventana de mantenimiento exacta a la dirección o al cliente final. 
+    - Es preciso completar el mantenimiento en una fecha determinada. 
+    - Es preciso controlar la secuencia de mantenimiento, por ejemplo, la aplicación en varios niveles para garantizar la recuperación segura.
+    - Se necesitan más de 30 minutos de recuperación de la máquina virtual entre dos dominios de actualización (UD). Para controlar el tiempo entre los dominios de actualización, no puede desencadenar el mantenimiento en las máquinas virtuales en más de un dominio de actualización (UD) a la vez.
+
+ 
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
 
@@ -120,7 +150,7 @@ Para obtener el estado de mantenimiento de una máquina virtual, escriba lo sigu
 Get-AzureVM -ServiceName <Service name> -Name <VM name>
 ```
 
-Para iniciar el mantenimiento de la máquina virtual clásica, escriba lo siguiente:
+Para iniciar el mantenimiento en una máquina virtual clásica, escriba lo siguiente:
 
 ```
 Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
@@ -138,13 +168,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **R:**Las máquinas virtuales implementadas en un conjunto de disponibilidad o en conjuntos de escalado de máquinas virtuales tienen la noción de dominios de actualización (UD). Al realizar mantenimiento, Azure respeta la restricción de UD, por lo que no reiniciará máquinas virtuales de diferentes UD (del mismo conjunto de disponibilidad).  Azure también espera al menos 30 minutos antes de pasar al siguiente grupo de máquinas virtuales. 
 
-Para más información acerca de la alta disponibilidad, consulte Administración de la disponibilidad de las máquinas virtuales Windows en Azure o Administración de la disponibilidad de las máquinas virtuales Linux en Azure.
-
-**P: Tengo la recuperación ante desastres establecida en otra región. ¿Estoy seguro?**
-
-**R:** Cada región de Azure se empareja con otra región de la misma zona geográfica (por ejemplo, EE. UU., Europa o Asia). Las actualizaciones planeadas de Azure se implementan una a una en regiones emparejadas para minimizar el tiempo de inactividad y el riesgo de interrupción de la aplicación. Durante el mantenimiento planeado, Azure puede programar una ventana similar para que los usuarios inicie el mantenimiento; sin embargo, la ventana de mantenimiento programada será diferente entre las regiones emparejadas.  
-
-Para más información acerca de las regiones de Azure, consulte Regiones y disponibilidad de máquinas virtuales en Azure.  Aquí se puede ver la lista completa de pares regionales.
+Para más información acerca de la alta disponibilidad, consulte [Regiones y disponibilidad de máquinas virtuales en Azure](regions-and-availability.MD).
 
 **P: ¿Cómo recibo notificaciones acerca del mantenimiento planeado?**
 
@@ -154,38 +178,28 @@ Para más información acerca de las regiones de Azure, consulte Regiones y disp
 
 **R:** La información relacionada con el mantenimiento planeado está disponible durante una oleada de mantenimiento planeado solo para las máquinas virtuales que se va a verse afectadas por ella. En otras palabras, si no ve datos, es posible que la oleada de mantenimiento se haya completado (o que no haya empezado) o que la máquina virtual ya esté alojada en un servidor actualizado.
 
-**P: ¿Debo iniciar el mantenimiento en mi máquina virtual?**
-
-**R:** En general, las cargas de trabajo que se implementan en un servicio en la nube, el conjunto de disponibilidad o el conjunto de escalado de máquinas virtuales, son resistentes al mantenimiento planeado.  Durante el mantenimiento planeado, solo un dominio de actualización se ve afectado en un momento dado. Tenga en cuenta que el orden de los dominios de actualización afectados no siempre ocurre de manera secuencial.
-
-Puede que desee iniciar a realizar usted mismo el mantenimiento en los casos siguientes:
-- La aplicación se ejecuta en una única máquina virtual y todo el mantenimiento durante debe realizarse fuera de las horas de trabajo
-- Necesita coordinar la hora del mantenimiento como parte de su SLA
-- Necesita más de 30 minutos entre cada reinicio de máquinas virtuales, incluso dentro de un conjunto de disponibilidad.
-- Desea dar de baja toda la aplicación (varios niveles y varios dominios de actualización) para completar el mantenimiento más rápidamente.
-
 **P: ¿Existe alguna una manera de saber exactamente cuándo se verá afectada mi máquina virtual?**
 
-**R:** Al establecer la programación, definimos una ventana de tiempo de varios días. Sin embargo, se desconoce la secuencia exacta de los servidores (y las máquinas virtuales) en esta ventana. Los clientes que deseen conocer el tiempo exacto de sus máquinas virtuales pueden usar eventos programados y realizar consultas desde la máquina virtual y recibir una notificación de 10 minutos antes de que se reinicie la máquina virtual.
-  
+**R:** Al establecer la programación, definimos una ventana de tiempo de varios días. Sin embargo, se desconoce la secuencia exacta de los servidores (y las máquinas virtuales) en esta ventana. Los clientes que deseen conocer el tiempo exacto de sus máquinas virtuales pueden usar [eventos programados](scheduled-events.md) y realizar consultas desde la propia máquina virtual y recibir una notificación 15 minutos antes de que una máquina virtual se reinicie.
+
 **P: ¿Cuánto tiempo tardará en reiniciar mi máquina virtual?**
 
-**R:** En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos. Tenga en cuenta que si usa servicios en la nube, conjuntos de escalado o un conjunto de disponibilidad, se le proporcionarán 30 minutos entre cada grupo de máquinas virtuales (UD). 
+**R:** En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos. Tenga en cuenta que si usa Cloud Services (roles de trabajo o web), conjuntos de escalado de máquinas virtuales o conjuntos de disponibilidad, se le proporcionarán 30 minutos entre cada grupo de máquinas virtuales (UD). 
 
-**P: ¿Cuál será la experiencia en el caso de los servicios en la nube, conjuntos de escalado y Service Fabric?**
+**P: ¿Cómo es en el caso de Cloud Services (roles de trabajo o web), Service Fabric y conjuntos de escalado de máquinas virtuales?**
 
-**R:** Aunque estas plataformas resultan afectadas por el mantenimiento planeado, se considera que los clientes que las usan están seguros, ya que solo resultarán afectadas en cualquier momento las máquinas virtuales de un dominio de actualización (UD) individual.  
+**R:** Aunque estas plataformas resultan afectadas por el mantenimiento planeado, se considera que los clientes que las usan están seguros, ya que solo resultarán afectadas en cualquier momento las máquinas virtuales de un dominio de actualización (UD) individual. El mantenimiento de autoservicio no está disponible para Cloud Services (rol de trabajo o web), Service Fabric y conjuntos de escalado de máquinas virtuales.
 
 **P: He recibido un correo electrónico acerca de la retirada de hardware, ¿es lo mismo que el mantenimiento planeado?**
 
-**R:** Aunque la retirada de hardware es un evento de mantenimiento planeado, este caso de uso aún no se ha incorporado a la nueva experiencia.  Suponemos que los clientes pueden sentir confusión si reciben dos mensajes de correo electrónico similares acerca de dos oleadas de mantenimiento planeado diferentes.
+**R:** Aunque la retirada de hardware es un evento de mantenimiento planeado, este caso de uso aún no se ha incorporado a la nueva experiencia.  
 
 **P: No veo información de mantenimiento en mis máquinas virtuales. ¿A qué se debe?**
 
 **R:** Hay varios motivos por los que no ve información de mantenimiento en sus máquinas virtuales:
 1.  Utiliza una suscripción marcada como interna de Microsoft.
 2.  Las máquinas virtuales no están programadas para su mantenimiento. Es posible que la oleada de mantenimiento haya finalizado, se haya cancelado o se haya modificado para que las máquinas virtuales dejen de verse afectadas por ella.
-3.  La columna de "mantenimiento" no se ha agregado a la vista de la lista de máquinas virtuales. Aunque hemos agregado esta columna a la vista predeterminada, los clientes que se han configurado para ver las columnas no predeterminadas deben agregar manualmente la columna de **mantenimiento** a la vista de lista de máquinas virtuales.
+3.  La columna **Mantenimiento** no se ha agregado a la vista de la lista de máquinas virtuales. Aunque hemos agregado esta columna a la vista predeterminada, los clientes que se han configurado para ver las columnas no predeterminadas deben agregar manualmente la columna de **mantenimiento** a la vista de lista de máquinas virtuales.
 
 **P: Está programado que se realice un segundo mantenimiento programado de mi máquina virtual. ¿Por qué?**
 
@@ -194,6 +208,11 @@ Puede que desee iniciar a realizar usted mismo el mantenimiento en los casos sig
 2.  El *servicio de una máquina virtual se ha reparado* en otro nodo debido a un error de hardware
 3.  Ha seleccionado detener (desasignar) y reiniciar la máquina virtual
 4.  El **apagado automático** se ha activado en la máquina virtual
+
+
+**P: El mantenimiento de un conjunto de disponibilidad tarda mucho tiempo y ahora veo el estado "omitida" en algunas de las instancias del conjunto de disponibilidad. ¿Por qué?** 
+
+**R:** Si ha hecho clic para actualizar varias instancias múltiples de un conjunto de disponibilidad muy rápidamente, Azure colocará dichas solicitudes en cola y empezará a actualizar las máquinas virtuales de un solo dominio de una actualización (UD), después de otro, y así hasta completar todos. Sin embargo, dado que podría haber una pausa entre los dominios de actualización, podría parecer que la actualización tarda más tiempo. Si la cola de actualización tarda más de 60 minutos, algunas instancias mostrarán el estado **omitida** aunque se hayan actualizado correctamente. Para evitar este estado incorrecto, actualice los conjuntos de su disponibilidad, para lo que debe hacer clic solo en una instancia de un conjunto de disponibilidad y esperar a la actualización de dicha máquina virtual se complete antes de hacer clic en la siguiente máquina virtual de otro dominio de actualización.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
