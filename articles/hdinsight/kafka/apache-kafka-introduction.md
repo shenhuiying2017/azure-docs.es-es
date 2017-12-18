@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introducción a Apache Kafka en HDInsight
 
@@ -62,6 +62,8 @@ Kafka en HDInsight proporciona las siguientes características:
 ![Configuración del clúster de Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
 
 Este diagrama muestra una configuración típica de Kafka que usa grupos de consumidores, particiones y replicación para ofrecer la lectura paralela de eventos con tolerancia a errores. Apache ZooKeeper se genera para las transacciones simultáneas, resistentes y de baja latencia, que administra el estado del clúster Kafka. Kafka almacena los registros en *temas*. Los registros se generan mediante *productores* y se consumen mediante *consumidores*. Los productores recuperan registros de *agentes* de Kafka. Cada nodo de trabajo del clúster de HDInsight es un agente de Kafka. Se crea una partición para cada consumidor, permitiendo el procesamiento paralelo de los datos de streaming. La replicación se emplea para distribuir las particiones en nodos, protegiendo contra las desconexiones de nodos (agente). Una partición con una *(L)* es la líder para la partición dada. El tráfico del productor se enruta al líder de cada nodo, con el estado administrado por ZooKeeper.
+
+Cada agente Kafka utiliza discos administrados de Azure. El número de discos está definido por el usuario y puede proporcionar hasta 16 TB de almacenamiento por agente.
 
 > [!IMPORTANT]
 > Kafka no es consciente del hardware subyacente (rack) en el centro de datos de Azure. Para asegurarse de que las particiones están equilibradas correctamente en el hardware subyacente, consulte [configuración de una alta disponibilidad de los datos (Kafka)](apache-kafka-high-availability.md).

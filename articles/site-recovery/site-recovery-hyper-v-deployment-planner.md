@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de Hyper-V a Azure.
@@ -34,12 +34,15 @@ La herramienta proporciona los detalles siguientes:
 
 **Evaluación de compatibilidad**
 
-* Evaluación de la idoneidad de las máquinas virtuales en función del número de discos, el tamaño de estos, las IOPS, la renovación del código y algunas otras características de las máquinas virtuales.
+* Evaluación de la idoneidad de las máquinas virtuales en función del número de discos, el tamaño de estos, las IOPS, la actividad de datos y algunas otras características de las máquinas virtuales.
 
 **Necesidad de ancho de banda de red frente a evaluación de RPO**
 
 * El ancho de banda de red necesario para la replicación diferencial
 * Rendimiento que Azure Site Recovery puede obtener desde el entorno local en Azure
+* RPO que se puede conseguir para un ancho de banda determinado
+* Impacto en el RPO deseado si se aprovisiona un ancho de banda inferior.
+
     
 **Requisitos de infraestructura de Azure**
 
@@ -52,6 +55,7 @@ La herramienta proporciona los detalles siguientes:
 
 **Requisitos de la infraestructura local**
 * El espacio de almacenamiento disponible requerido en cada volumen del almacenamiento de Hyper-V para la replicación inicial correcta y la replicación diferencial a fin de asegurarse de que la replicación de las máquinas virtuales no provocará ningún tiempo de inactividad no deseado para las aplicaciones en producción
+* Frecuencia de copias máxima que se debe establecer para la replicación de Hyper-V
 
 **Guía para el procesamiento por lotes de la replicación inicial** 
 * Número de lotes de máquina virtual que se van a utilizar para protección

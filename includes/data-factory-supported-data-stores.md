@@ -1,7 +1,7 @@
 | Categoría | Almacén de datos | Se admite como origen | Se admite como receptor |
 |:--- |:--- |:--- |:--- |
-| **Las tablas de Azure** |[Almacenamiento de blobs de Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓  |✓  |
-| &nbsp; |[Azure Cosmos DB (API de DocumentDB)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓  |✓  |
+| **Las tablas de Azure** |[Almacenamiento de blobs de Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓  |✓ |
+| &nbsp; |[Azure Cosmos DB (API de SQL)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓  |
 | &nbsp; |[Almacén de Azure Data Lake](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓  |✓  |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓  |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓  |✓  |

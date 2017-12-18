@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/31/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c66488ce4381a3c5f796aa9826810195b2738769
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introducción a la entrega de contenido a petición mediante .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -86,22 +86,26 @@ Para iniciar el punto de conexión de streaming, haga lo siguiente:
 
 Cuando se usa Media Services con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Media Services: conexión a la cuenta de Media Services; creación, actualización, acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
 
-Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Media Services. Para más información, consulte [Conexión a la API de Media Services](media-services-use-aad-auth-to-access-ams-api.md).
+Sobrescriba la clase Program predeterminada con el código siguiente, que muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Media Services. Para más información, consulte [Conexión a la API de Media Services](media-services-use-aad-auth-to-access-ams-api.md).
 
 No olvide actualizar el nombre de archivo y la ruta de acceso con la ubicación del archivo multimedia.
 
 La función **Main** llama a métodos que se definirán más adelante en esta sección.
 
 > [!NOTE]
-> Recibirá errores de compilación hasta que agregue las definiciones para todas las funciones.
+> Recibirá errores de compilación hasta que agregue las definiciones para todas las funciones que se definen más adelante en este artículo.
 
     class Program
     {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context = null;
 
@@ -109,7 +113,11 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
         {
         try
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -137,7 +145,7 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
             Console.ReadLine();
         }
         }
-    }
+    
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Creación de un nuevo recurso y carga de un archivo de vídeo
 
@@ -145,11 +153,11 @@ En Media Services, cargará (o especificará) los archivos digitales en un recur
 
 El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo recurso en el que se carga el archivo de origen especificado.
 
-El método **CreateFromFile** toma **AssetCreationOptions**, que permite especificar una de las siguientes opciones de creación de recursos:
+El método **CreateFromFile** toma **AssetCreationOptions, que permite especificar una de las siguientes opciones de creación de recursos:
 
 * **Ninguno** : no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al usar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento.
   Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
-* **StorageEncrypted**: use esta opción para cifrar el contenido no cifrado de manera local mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo en Azure Storage, donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+* **StorageEncrypted** : use esta opción para cifrar el contenido no cifrado de manera local mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo en Azure Storage donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 * **CommonEncryptionProtected** : use esta opción si va a cargar contenido que ya se cifró y protegió con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 * **EnvelopeEncryptionProtected** : use esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 
@@ -228,7 +236,7 @@ Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creaci
 
 ### <a name="some-details-about-url-formats"></a>Algunos detalles sobre los formatos de direcciones URL
 
-Una vez creados los localizadores, puede generar las direcciones URL que se van a utilizar para reproducir los archivos en streaming o descargarlos. En el ejemplo de este tutorial, la salida mostrará direcciones URL, que puede pegar en los exploradores correspondientes. En esta sección se incluyen breves ejemplos del aspecto de los diferentes formatos.
+Una vez creados los localizadores, puede generar las direcciones URL que se van a utilizar para reproducir los archivos en streaming o descargarlos. En el ejemplo de este tutorial, la salida muestra direcciones URL que puede pegar en los exploradores correspondientes. En esta sección se incluyen breves ejemplos del aspecto de los diferentes formatos.
 
 #### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Una dirección URL de streaming de MPEG DASH tiene el formato siguiente:
 
@@ -363,7 +371,7 @@ Para obtener más información, consulte los temas siguientes:
 
 - [Reproducir contenido con reproductores existentes](media-services-playback-content-with-existing-players.md)
 - [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
-- [Incrustación de un vídeo de transmisión por secuencias adaptativa MPEG-DASH en una aplicación HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
+- [Incrustación de un vídeo de streaming adaptativo MPEG-DASH en una aplicación HTML5 con DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Descarga de un ejemplo
 El ejemplo siguiente contiene el código que creó en este tutorial: [ejemplo](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).

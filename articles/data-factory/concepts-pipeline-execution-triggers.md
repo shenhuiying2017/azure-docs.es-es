@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Consulte el [Inicio rápido: Create a data factory using .NET](quickstart-create
 ## <a name="triggers"></a>Desencadenadores
 Los desencadenadores ofrecen la segunda manera de ejecutar una ejecución de canalización. Los desencadenadores representan una unidad de procesamiento que determina cuándo es necesario poner en marcha una ejecución de canalización. Actualmente, Data Factory admite un desencadenador que invoca una canalización en una programación de reloj. Se llama **desencadenador de programador**. Actualmente, Data Factory no admite desencadenadores basados en eventos, como un desencadenador de una canalización que se ejecuta en el evento de la llegada de un archivo.
 
-Las canalizaciones y los desencadenadores tienen una relación “de n a m”. Varios desencadenadores pueden dar comienzo a una única canalización y el mismo desencadenador puede iniciar varias canalizaciones. En la siguiente definición de JSON de un desencadenador, la propiedad **pipelines** hace referencia a una lista de canalizaciones que desencadena un desencadenador en particular, así como a los valores para parámetros de canalización.
+Las canalizaciones y los desencadenadores tienen una relación de varios a varios. Varios desencadenadores pueden dar comienzo a una única canalización o el mismo desencadenador puede iniciar varias canalizaciones. En la siguiente definición de JSON de un desencadenador, la propiedad **pipelines** hace referencia a una lista de canalizaciones que desencadena un desencadenador en particular, así como a los valores para parámetros de canalización.
 
 ### <a name="basic-trigger-definition"></a>Definición básica del desencadenador: 
 ```json
@@ -165,7 +165,7 @@ El desencadenador de programador ejecuta canalizaciones según una programación
 ### <a name="scheduler-trigger-json-definition"></a>Definición JSON del desencadenador de programador
 Cuando se crea un desencadenador de programador, puede especificar la programación y periodicidad mediante JSON, como se muestra en el ejemplo de esta sección. 
 
-Para hacer que el desencadenador de programador dé inicio a una ejecución de canalización, incluya una referencia de canalización de la canalización en particular en la definición del desencadenador. Las canalizaciones y los desencadenadores tienen una relación “de n a m”. Varios desencadenadores pueden comenzar una única canalización. El mismo desencadenador puede iniciar varias canalizaciones.
+Para hacer que el desencadenador de programador dé inicio a una ejecución de canalización, incluya una referencia de canalización de la canalización en particular en la definición del desencadenador. Las canalizaciones y los desencadenadores tienen una relación de varios a varios. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones.
 
 ```json
 {

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
 
-La función Aplicaciones web Servicio de aplicaciones de Azure ya proporciona la funcionalidad de enrutamiento del tráfico de conmutación por error y round robin para sitios web en un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico de Azure permite especificar el enrutamiento del tráfico de conmutación por error y round robin para sitios web y servicios en la nube en distintos centros de datos. El primer paso necesario para proporcionar esa funcionalidad es agregar el extremo del sitio web o del servicio en la nube al Administrador de tráfico.
+La función Web Apps de Azure App Service ya proporciona la funcionalidad de enrutamiento del tráfico de conmutación por error y round robin para sitios web en un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico de Azure permite especificar el enrutamiento del tráfico de conmutación por error y round robin para sitios web y servicios en la nube en distintos centros de datos. El primer paso necesario para proporcionar esa funcionalidad es agregar el extremo del sitio web o del servicio en la nube al Administrador de tráfico.
 
 También puede deshabilitar los extremos individuales que forman parte de un perfil del Administrador de tráfico. Al deshabilitar un extremo, se deja como parte del perfil, pero el perfil actúa como si el extremo no estuviera incluido en él. Esta acción es útil para quitar temporalmente un punto de conexión que se encuentre en modo de mantenimiento o que se vaya a implementar. Cuando el extremo vuelva a estar en funcionamiento, se puede habilitar
 
@@ -39,7 +39,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
     1. En **Tipo**, haga clic en **Punto de conexión de Azure**.
     2. Proporcione un **nombre** con el que desea reconocer este punto de conexión.
     3. En **Tipo de recurso de destino**, en la lista desplegable, elija el tipo de recurso apropiado.
-    4. En **Recurso de destino**, en la lista desplegable, elija el recurso de destino apropiado para mostrar los recursos de la lista que estén en la misma suscripción en la **hoja Recursos**. En la hoja **Recursos** que aparece, elija el servicio de aplicaciones que desea agregar como primer punto de conexión.
+    4. Para el **Recurso de destino**, haga clic en el selector **Elegir...**  para enumerar los recursos de la lista bajo la misma suscripción en la **hoja de recursos**. En la hoja **Recursos** que aparece, elija el servicio de aplicaciones que desea agregar como primer punto de conexión.
     5. En **Prioridad**, seleccione **1**. Esto hace que todo el tráfico vaya a este punto de conexión si funciona correctamente.
     6. No active la opción **Agregar como deshabilitado**.
     7. Haga clic en **Aceptar**

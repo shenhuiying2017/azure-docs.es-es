@@ -3,7 +3,7 @@ title: "Creación de una cuenta de usuario de Azure AD | Microsoft Docs"
 description: "En este artículo se describe cómo crear credenciales de cuentas de usuario de Azure AD para runbooks en Azure Automation para autenticarse en Azure y en Azure clásico."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: "usuario de azure active directory, administración de servicios de azure, cuenta de usuario de azure ad"
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticación de runbooks con la implementación clásica de Azure y Resource Manager
 En este artículo se describen los pasos que debe realizar para configurar una cuenta de usuario de Azure AD para runbooks de Azure Automation que se ejecutan en recursos del modelo de implementación clásica de Azure o en Azure Resource Manager (ARM).  Aunque esta sigue siendo una identidad de autenticación admitida para sus runbooks basados en Azure Resource Manager, el método recomendado es usar una cuenta de ejecución de Azure.       
@@ -42,7 +42,7 @@ En este artículo se describen los pasos que debe realizar para configurar una c
 En esta sección, llevará a cabo los pasos siguientes en Azure Portal para crear una cuenta de Azure Automation que se usará con sus recursos de administración de runbooks en la implementación clásica de Azure.  
 
 > [!NOTE]
-> Las cuentas de Automation que se crean con el Portal de Azure clásico se pueden administrar tanto con el Portal clásico como con Azure Portal, y con cualquiera de los conjuntos de cmdlets. Tras crear la cuenta da igual la forma en que cree y administre los recursos en la misma. Si piensa seguir usando el Portal de Azure clásico, debe utilizarlo en lugar de Azure Portal para crear las cuentas de Automation.
+> Las cuentas de Automation que se crean con el Portal de Azure clásico se pueden administrar tanto con el Portal clásico como con Azure Portal, y con cualquiera de los conjuntos de cmdlets. Tras crear la cuenta da igual la forma en que cree y administre los recursos en la misma. Si piensa seguir usando el Portal de Azure clásico, debe utilizarlo en lugar del Portal de Azure para crear las cuentas de automatización.
 > 
 > 
 

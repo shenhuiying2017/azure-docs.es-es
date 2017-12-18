@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 10/26/2017
 ms.author: juliako
-ms.openlocfilehash: ad022eb8d3a0a22e679962d75c05eed799976ece
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: bbfe7fedb1d5216b8a159faa9543ade74176181f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introducción al SDK de cliente de Java para Azure Media Services
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -42,7 +42,7 @@ Por ejemplo, si la herramienta de compilación es `gradle`, agregue la siguiente
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->A partir de la versión `0.9.8` del paquete `azure-media`, el SDK agrega compatibilidad con la autenticación de Azure Active Directory (AAD) y quita la compatibilidad con la autenticación de Azure Access Control Service (ACS). Los servicios de ACS dejarán de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD. Para más información sobre la migración, lea el artículo [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+>A partir de la versión `0.9.8` del paquete `azure-media`, el SDK agregó compatibilidad con la autenticación de Azure Active Directory (AAD) y quitó la compatibilidad con la de Azure Access Control Service (ACS). Los servicios de ACS dejarán de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD. Para más información sobre la migración, lea el artículo [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
 >Puede encontrar el código fuente del SDK de Java de Azure Media Services en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Asegúrese de cambiar a la rama 0.9 y no a la rama principal. 
@@ -300,7 +300,7 @@ El código también se basa en un archivo de vídeo almacenado localmente. Deber
     }
 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

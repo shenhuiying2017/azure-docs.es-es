@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicación adaptables en Azure Security Center (versión preliminar)
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
@@ -32,9 +32,6 @@ Los controles de aplicación adaptables ayudan a controlar qué aplicaciones se 
 - Evitar la ejecución de aplicaciones anteriores y no compatibles.
 - Impedir herramientas de software específicas no permitidas en la organización.
 - Permiten que TI controle el acceso a información confidencial a través del uso de aplicaciones.
-
-> [!NOTE]
-> Los controles de aplicación adaptables están disponibles para los clientes de Azure Security Center Estándar como una versión preliminar pública limitada. Envíe un correo electrónico con los identificadores de suscripción a [nuestro equipo](mailto:ASC_appcontrol@microsoft.com) para unirse a la versión preliminar.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>¿Cómo habilitar los controles de aplicación adaptables?
 Los controles de aplicación adaptables ayudan a definir un conjunto de aplicaciones que se pueden ejecutar en los grupos de recursos configurados. Esta característica solo está disponible para máquinas de Windows (todas las versiones, clásica o Azure Resource Manager). Los pasos siguientes se pueden usar para configurar la inclusión de aplicaciones en las listas de permitidos de Security Center:
@@ -72,7 +69,7 @@ En **Seleccionar máquinas virtuales**, revise la lista de máquinas virtuales r
 
 - **NOMBRE**: la ruta de acceso completa de la aplicación
 - **PROCESOS**: el número de aplicaciones que residen dentro de cada ruta de acceso
-- **COMÚN**: true indica que estos procesos se han ejecutado en la mayoría de las máquinas virtuales de este grupo de recursos.
+- **COMÚN**: "Yes" indica que estos procesos se han ejecutado en la mayoría de las máquinas virtuales de este grupo de recursos.
 - **INFRINGIBLE**: un icono de advertencia indica si un atacante podría usar las aplicaciones para evitar las listas de aplicaciones permitidas. Se recomienda revisar estas aplicaciones antes de su aprobación. 
 
 Cuando haya terminado las selecciones, haga clic en el botón **Crear**. De forma predeterminada, Security Center siempre habilita el control de aplicación en modo *Auditoría*. Después de comprobar que la lista de permitidos no tenga efectos negativos en la carga de trabajo, puede cambiar al modo *Forzar*.

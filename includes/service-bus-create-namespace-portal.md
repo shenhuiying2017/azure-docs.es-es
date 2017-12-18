@@ -1,9 +1,9 @@
-Para empezar a usar entidades de mensajería de Service Bus en Azure, primero hay que crear un espacio de nombres con un nombre que sea único en Azure. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
+Para empezar a usar entidades de mensajería de Service Bus en Azure, primero hay que crear un espacio de nombres con un nombre que sea único en Azure. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos de Service Bus en la aplicación.
 
 Para crear un espacio de nombres:
 
 1. Inicie sesión en [Azure Portal][Azure portal].
-2. En el panel de navegación izquierdo del portal, haga clic en **Nuevo**, a continuación, haga clic en **Enterprise Integration** y, a continuación, haga clic en **Service Bus**.
+2. En el panel de navegación izquierdo del portal, haga clic en **+ Crear un recurso**, luego, en **Enterprise Integration** y, finalmente, en **Service Bus**.
 3. En el cuadro de diálogo **Crear un espacio de nombres** , especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 4. Después de asegurarse de que el espacio de nombres está disponible, elija el plan de tarifas (Básico, Estándar o Premium).
 5. En el campo **Suscripción** elija la suscripción de Azure en la que se va a crear el espacio de nombres.
@@ -14,14 +14,14 @@ Para crear un espacio de nombres:
 8. Haga clic en **Crear**. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 ### <a name="obtain-the-management-credentials"></a>Obtención de las credenciales de administración
-Al crear un nuevo espacio de nombres se genera automáticamente una regla inicial de firma de acceso compartido (SAS) con un par asociado de clave principal y secundaria que concede control completo sobre todos los aspectos del espacio de nombres. Consulte [Autenticación y autorización de Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) para aprender a crear reglas adicionales con derechos más restringidos para remitentes y receptores normales. Para copiar la regla inicial, siga estos pasos: 
+La creación un nuevo espacio de nombres genera automáticamente una regla de firma de acceso compartido (SAS) inicial con un par asociado de claves principal y secundaria en el que ambas conceden control total sobre todos los aspectos del espacio de nombres. Para obtener información acerca de cómo crear reglas adicionales con derechos más restringidos para remitentes y destinatarios normales, consulte [Autenticación y autorización de Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). Para copiar la regla inicial, siga estos pasos: 
 
 1. En la lista de espacios de nombres, haga clic en el nombre del espacio de nombres recién creado.
-2. En la hoja del espacio de nombres, haga clic en **Directivas de acceso compartido**.
-3. En la hoja **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
+2. En la ventana del espacio de nombres, haga clic en **Directivas de acceso compartido**.
+3. En la pantalla **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
    
     ![información de conexión][connection-info]
-4. En la hoja **Directiva: RootManageSharedAccessKey**, haga clic en el botón Copiar junto a **Cadena de conexión-clave principal**, para copiar la cadena de conexión en el portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
+4. En la ventana **Directiva: RootManageSharedAccessKey**, haga clic en el botón Copiar que hay junto a **Cadena de conexión: clave principal** para copiar la cadena de conexión en el portapapeles para su uso posterior. Pegue este valor en el Bloc de notas o cualquier otra ubicación temporal.
    
     ![connection-string][connection-string]
 

@@ -27,17 +27,17 @@
 ### [Descripción del uso de las instancias reservadas en el nivel Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Administrar suscripciones
+### [Búsqueda de la suscripción o grupo de administración](billing-enterprise-mgmt-grp-find.md)
 ### [Administración de roles de administrador](billing-add-change-azure-subscription-administrator.md)
 ### [Transferencia de la propiedad de la suscripción](billing-subscription-transfer.md)
 ### [Reactivación de una suscripción deshabilitada](billing-subscription-become-disable.md)
 ### [Actualización de suscripción gratis](billing-upgrade-azure-subscription.md)
 ### [Cambio de oferta de suscripción](billing-how-to-switch-azure-offer.md)
+### [Vinculación con el inquilino de Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Cancelación de la suscripción](billing-how-to-cancel-azure-subscription.md)
-### [Búsqueda de la suscripción o grupo de administración](billing-enterprise-mgmt-grp-find.md)
 ## Administración de una cuenta
 ### [Edición de perfil](billing-how-to-change-azure-account-profile.md)
 ### [Actualización de la información de pago](billing-how-to-change-credit-card.md)
-### [Vinculación al inquilino de Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pago de suscripciones por factura](billing-how-to-pay-by-invoice.md)
 ## [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
 ## Solución de problemas

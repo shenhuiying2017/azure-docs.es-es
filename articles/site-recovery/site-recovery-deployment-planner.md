@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner para VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -42,6 +42,8 @@ La herramienta proporciona los detalles siguientes:
 * El ancho de banda de red necesario para la replicación diferencial
 * El rendimiento que Site Recovery puede obtener del paso de local a Azure
 * El número de máquinas virtuales que se agrupan en lotes, en función del ancho de banda estimado para completar la replicación inicial en un período determinado de tiempo
+* RPO que se puede conseguir para un ancho de banda determinado
+* Impacto en el RPO deseado si se aprovisiona un ancho de banda inferior.
 
 **Requisitos de infraestructura de Azure**
 
@@ -55,7 +57,7 @@ La herramienta proporciona los detalles siguientes:
 **Requisitos de la infraestructura local**
 * El número requerido de servidores de configuración y de proceso que se van a implementar localmente
 
-**Costo estimado de la recuperación ante desastres en Azure** 
+**Costo estimado de la recuperación ante desastres en Azure**
 * Costo total estimado de la recuperación ante desastres en Azure: costo de licencia de Azure Site Recovery, almacenamiento, red y proceso
 * Detalles del análisis del costo por máquina virtual
 

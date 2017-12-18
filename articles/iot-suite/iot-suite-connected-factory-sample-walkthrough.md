@@ -1,6 +1,6 @@
 ---
 title: "Tutorial de la solución de fábrica conectada: Azure | Microsoft Docs"
-description: "Una descripción de la solución de fábrica preconfigurada conectada de Azure IoT y su arquitectura."
+description: "Una descripción la solución preconfigurada de Azure IoT Factoría conectada y de su arquitectura."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Tutorial de la solución de fábrica preconfigurada conectada
 
-La solución de fábrica [preconfigurada][lnk-preconfigured-solutions] conectada del conjunto de aplicaciones de IoT es una implementación de una solución industrial completa que:
+La [solución preconfigurada][lnk-preconfigured-solutions] de IoT Suite Factoría conectada es una implementación de una solución industrial de un extremo a otro que:
 
 * Se conecta a dispositivos industriales simulados que ejecutan servidores OPC UA en líneas de producción de fábrica simuladas y en dispositivos de servidor OPC UA reales. Para más información acerca de OPC UA, consulte las [preguntas frecuentes sobre la fábrica conectada](iot-suite-faq-cf.md).
 * Muestra las claves KPI operativas y el OEE de esos servicios y líneas de producción.
@@ -34,7 +34,7 @@ La solución de fábrica [preconfigurada][lnk-preconfigured-solutions] conectada
 
 Puede usar la solución como punto de partida para su propia implementación, así como [personalizarla][lnk-customize] para cubrir sus requisitos empresariales específicos.
 
-Este artículo le guía a través de algunos de los elementos clave de la solución de fábrica conectada para que pueda entender cómo funciona. En el artículo también se describe cómo fluyen los datos a través de la solución. Esta información le ayuda a:
+Este artículo le guía a través de algunos de los principales elementos de la solución Factoría conectada para que sepa cómo funciona. En el artículo también se describe cómo fluyen los datos a través de la solución. Esta información le ayuda a:
 
 * Solucionar problemas de la solución.
 * Planear cómo personalizar la solución para satisfacer sus propios requisitos específicos.
@@ -166,11 +166,11 @@ La aplicación web implementada como parte de la solución preconfigurada consta
     - Usa comunicación protegida a través de TCP/TLS.
     - Este paso es interno del centro de datos.
 
-11. El explorador web se conecta a la instancia de WebApp de fábrica conectada.
-    - Representa el panel de fábrica conectado.
+11. El explorador web se conecta a la instancia de WebApp de Factoría conectada.
+    - Representa el panel de Factoría conectado.
     - Se conecta a través de HTTPS.
-    - El acceso a la aplicación de fábrica conectada requiere la autenticación del usuario a través de Azure Active Directory.
-    - Las llamadas de API web a la aplicación de fábrica conectada están protegidas con tokens antifalsificación.
+    - El acceso a la aplicación Factoría conectada requiere la autenticación del usuario a través de Azure Active Directory.
+    - Las llamadas de WebApi a la aplicación Factoría conectada están protegidas con tokens antifalsificación.
 
 12. En las actualizaciones de datos, la instancia de WebApp de fábrica conectada envía los datos actualizados al explorador web.
     - Usa el protocolo de SignalR.
@@ -190,7 +190,7 @@ La aplicación web implementada como parte de la solución preconfigurada consta
     - Lee todos sus dispositivos conocidos de IoT Hub.
     - Usa MQTT sobre TLS a través de Socket o Websocket seguro.
 
-3. El explorador web se conecta a la aplicación web de fábrica conectada y representa el panel de fábrica conectado.
+3. El explorador web se conecta a la aplicación web Factoría conectada y representa el panel de dicha aplicación.
     - Usa HTTPS.
     - Un usuario selecciona un servidor de agente de usuario de OPC al que conectarse.
 
@@ -199,7 +199,7 @@ La aplicación web implementada como parte de la solución preconfigurada consta
 
 5. El transporte del proxy de OPC recibe una solicitud de la pila del agente de usuario de OPC de establecer una conexión mediante TCP Socket al servidor de agente de usuario OPC.
     - Solo recupera la carga de TCP y la utiliza sin cambios.
-    - Este paso es interno de la instancia de WebApp de fábrica conectada.
+    - Este paso es interno de la instancia de WebApp de Factoría conectada.
 
 6. El proxy de OPC (componente de cliente) busca en el registro de dispositivos de IoT Hub el dispositivo del proxy OPC (componente del servidor). A continuación, llama a un método de dispositivo del dispositivo del proxy de OPC (componente de servidor) en IoT Hub.
     - Usa HTTPS a través de TCP/TLS para buscar el proxy de OPC.
@@ -215,7 +215,7 @@ La aplicación web implementada como parte de la solución preconfigurada consta
 
 10. Socket del proxy de OPC (componente de servidor) recibe la respuesta.
     - El proxy de OPC envía los datos como valor devuelto del método de dispositivo a IoT Hub y al proxy de OPC (componente de cliente).
-    - Estos datos se entregan a la pila del agente de usuario de OPC en la aplicación de fábrica conectada.
+    - Estos datos se entregan a la pila del agente de usuario de OPC de la aplicación Factoría conectada.
 
 11. La instancia de WebApp de fábrica conectada devuelve una experiencia de usuario de explorador de OPC enriquecida con la información específica del agente de usuario de OPC recibida desde el servidor del agente de usuario de OPC en el explorador web para representarla.
     - Mientras navega por el espacio de direcciones de OPC y aplicar funciones a los nodos en él, la parte del cliente de la experiencia de usuario de explorador de OPC usa llamadas AJAX sobre HTTPS protegidas con tokens antifalsificación para obtener datos de la instancia de WebApp de fábrica conectada.
@@ -225,14 +225,14 @@ La aplicación web implementada como parte de la solución preconfigurada consta
 > EL proxy de OPC (componente de servidor) y el proxy de OPC (componente de cliente) llevan a cabo los pasos 4-10 para todo el tráfico de TCP asociado a la comunicación del agente de usuario de OPC.
 
 > [!NOTE]
-> Para el servidor del agente de usuario de OPC y la pila de agente de usuario de OPC de la instancia de WebApp de fábrica conectada, la comunicación con el proxy de OPC es transparente y se aplican todas las características de seguridad de autenticación y cifrado para el agente de usuario de OPC.
+> En el caso del servidor del agente de usuario de OPC y de la pila de agente de usuario de OPC de la instancia de WebApp de Factoría conectada, la comunicación con el proxy de OPC es transparente y se aplican todas las características de seguridad de autenticación y cifrado del agente de usuario de OPC.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectura de los siguientes artículos:
 
 * [Permisos en el sitio azureiotsuite.com][lnk-permissions]
-* [Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada de fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
+* [Implementación de una puerta de enlace en Windows o Linux para la solución preconfigurada Fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
 * [Implementación de referencia de OPC Publisher](iot-suite-connected-factory-publisher.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png

@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
@@ -37,6 +37,10 @@ Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento d
 9. Determinar cuándo desea forzar el registro. Puede elegir forzar el registro en cualquier momento. También puede solicitar que los usuarios vuelvan a confirmar la información de autenticación tras un tiempo determinado.
 10. Use la funcionalidad de informes. Con el tiempo, puede revisar el registro de los usuarios y el uso con la [funcionalidad de informes que proporciona Azure AD](active-directory-passwords-reporting.md).
 11. Habilitar restablecimiento de contraseña. Cuando esté listo, habilite el restablecimiento de contraseña para todos los usuarios al establecer **Se habilitó el restablecimiento de contraseña del autoservicio** en **Todos**. 
+
+   > [!NOTE]
+   > Cambiar esta opción de un grupo seleccionado a todos los usuarios no invalida los datos de autenticación existentes que un usuario haya registrado como parte de un grupo de prueba. Los usuarios que están configurados y tienen datos de autenticación válidos registrados pueden continuar funcionando.
+
 12. [Permitir que los usuarios de Windows 10 restablezcan su contraseña en la pantalla de inicio de sesión](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Muchos clientes opinan que una campaña de correo electrónico, con instruccione
 
 Muchos clientes eligen hospedar una página web y crear una entrada DNS raíz, como https://passwords.contoso.com. Rellenan esta página con vínculos a la información siguiente:
 
-* [Portal de restablecimiento de contraseña de Azure AD](https://aka.ms/sspr)
-* [Portal de registro de restablecimiento de contraseña de Azure AD](http://aka.ms/ssprsetup)
-* [Portal de cambio de contraseñas de Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portal de restablecimiento de contraseña de Azure AD: https://aka.ms/sspr](https://aka.ms/sspr)
+* [Portal de registro para el restablecimiento de contraseña de Azure AD: http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portal para el cambio de contraseña de Azure AD: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Otra información específica de la organización
 
 En las comunicaciones por correo electrónico o los folletos que envíe, puede incluir una dirección URL de la marca fácil de recordar que los usuarios puedan visitar cuando necesiten usar los servicios. Para ayudarle, hemos creado una [página de ejemplo de restablecimiento de contraseña](https://github.com/ajamess/password-reset-page) que puede usar y personalizar para las necesidades de su organización.

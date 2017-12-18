@@ -10,7 +10,7 @@ Sí, puede usar sus propios ASN públicos o privados para sus redes locales y re
 ### <a name="are-there-asns-reserved-by-azure"></a>¿Hay ASN reservados por Azure?
 Sí, los siguientes ASN están reservados por Azure para emparejamientos internos y externos:
 
-* ASN públicos: 8075, 8076, 12076
+* ASN públicos: 8074, 8075, 12076
 * ASN privados: 65515, 65517, 65518, 65519, 65520
 
 Estos ASN no se pueden especificar para sus dispositivos VPN locales al conectar con puertas de enlace de VPN.
@@ -21,7 +21,7 @@ Sí, los siguientes ASN están [reservados por IANA](http://www.iana.org/assignm
 23456, 64496-64511, 65535-65551 y 429496729
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>¿Puedo usar el mismo ASN para redes VPN locales y redes virtuales de Azure?
-No, debe asignar ASN diferentes entre las redes locales y sus redes virtuales de Azure si las está conectando con BGP. Las puertas de enlace de VPN de Azure tienen un ASN de 65515 predeterminado asignado, independientemente de que BGP esté habilitado, o no, para la conectividad entre locales. Para invalidar este valor predeterminado, asigne otro ASN al crear la puerta de enlace de VPN o cambie el ASN después de crearla. Debe asignar los ASN locales a las puertas de enlace de red local de Azure correspondientes.
+No, debe asignar ASN diferentes entre las redes locales y sus redes virtuales de Azure si las está conectando con BGP. Azure VPN Gateway tiene un ASN de 65515 predeterminado asignado, independientemente de que BGP esté habilitado, o no, para la conectividad entre locales. Para invalidar este valor predeterminado, asigne otro ASN al crear la puerta de enlace de VPN o cambie el ASN después de crearla. Debe asignar los ASN locales a las puertas de enlace de red local de Azure correspondientes.
 
 ### <a name="what-address-prefixes-will-azure-vpn-gateways-advertise-to-me"></a>¿Qué prefijos de direcciones de puertas de enlace de VPN de Azure se me anunciarán?
 La puerta de enlace de VPN de Azure anunciará las siguientes rutas a sus dispositivos BGP locales:

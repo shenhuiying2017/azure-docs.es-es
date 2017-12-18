@@ -1,6 +1,6 @@
 ---
 title: "Exclusión de discos de la protección con Azure Site Recovery | Microsoft Docs"
-description: "Describe por qué y cómo excluir discos de máquina virtual de la replicación de VMware a Azure."
+description: "Describe por qué y cómo excluir discos de máquina virtual de la replicación de Hyper-V a Azure."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,24 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/12/2017
 ms.author: nisoneji
-ms.openlocfilehash: af3f934c0572b50b22cdfb99a8a94bb856042b1b
+ms.openlocfilehash: 17a7f8032cc40b8b4a18240e7d20570d73ec9c49
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Exclusión de discos de replicación en el escenario de VMware a Azure
-En este artículo se describe cómo excluir discos de la replicación. Esta exclusión puede optimizar el ancho de banda consumido con la replicación u optimizar los recursos del lado del destino que utilizan estos discos. 
+# <a name="exclude-disks-from-replication"></a>Excluir discos de la replicación
+En este artículo se describe cómo excluir discos de la replicación. Esta exclusión puede optimizar el ancho de banda consumido con la replicación u optimizar los recursos del lado del destino que utilizan estos discos.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 **Característica** | **VMware a Azure** | **Hyper-V en Azure** | **De Azure a Azure**| **De Hyper-V a Hyper-V** 
 --|--|--|--|--
 Excluir el disco | Sí | Sí | No | No
-
-## <a name="prerequisites"></a>Requisitos previos
-
-De manera predeterminada, se replican todos los discos de una máquina. Si se va a replicar de VMware a Azure, para excluir un disco, la instancia de Mobility Service debe instalarse manualmente en la máquina antes de habilitar la replicación.
-
 
 ## <a name="why-exclude-disks-from-replication"></a>¿Por qué excluir discos de la replicación?
 A menudo es necesario excluir discos de replicación porque:
@@ -51,23 +46,17 @@ De forma similar, puede usar los siguientes pasos para optimizar un disco que te
 1. Guarde la base de datos del sistema y tempdb en dos discos diferentes.
 2. Excluya el disco de tempdb de la replicación.
 
-## <a name="how-to-exclude-disks-from-replication"></a>¿Cómo se excluyen discos de la replicación?
+## <a name="how-to-exclude-disks"></a>Exclusión de discos
+Siga el flujo de trabajo de [Habilitación de la replicación](site-recovery-hyper-v-site-to-azure.md) para proteger una máquina virtual desde el portal de Azure Site Recovery. En el cuarto paso del flujo de trabajo, use la columna **DISCOS PARA REPLICAR** para excluir los discos de la replicación. De forma predeterminada se seleccionan todos los discos para la replicación. Anule la selección de la casilla del disco que desee excluir y complete los pasos para habilitar la replicación.
 
-Siga el flujo de trabajo de [Habilitación de la replicación](site-recovery-vmware-to-azure.md) para proteger una máquina virtual desde el portal de Azure Site Recovery. En el cuarto paso del flujo de trabajo, use la columna **DISCOS PARA REPLICAR** para excluir los discos de la replicación. De forma predeterminada se seleccionan todos los discos para la replicación. Anule la selección de la casilla del disco que desee excluir y complete los pasos para habilitar la replicación.
-
-![Exclusión de discos y habilitación de la replicación de VMware en la conmutación por recuperación de Azure](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
-
+![Exclusión de discos y habilitación de la replicación de Hyper-V en la conmutación por recuperación de Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * Solo puede excluir discos que tengan instalado Mobility Service. Mobility Service se instala manualmente, ya que la instalación solo se puede hacer con el mecanismo de notificación push una vez habilitada la replicación.
-> * Solo se pueden excluir los discos básicos de la replicación. No se pueden excluir los discos dinámicos ni del sistema operativo.
-> * Una vez habilitada la replicación, no puede agregar ni quitar discos de la replicación. Si desea agregar o excluir un disco, deberá deshabilitar la protección de la máquina y volver a habilitarla.
+> * De la replicación solo se pueden excluir discos básicos. No se pueden excluir los discos del sistema operativo. Se recomienda no excluir discos dinámicos. Azure Site Recovery no puede identificar qué disco duro virtual (VHD) es básico o dinámico en la máquina virtual invitada.  Si no se excluye ningún disco del volumen dinámico dependiente, el disco dinámico protegido aparecerá como erróneo en la máquina virtual de conmutación por error y no se podrá acceder a los datos de ese disco.
+> * Una vez habilitada la replicación, no puede agregar ni quitar discos de la replicación. Si desea agregar o excluir un disco, deberá deshabilitar la protección de la máquina virtual y volver a habilitarla.
 > * Si excluye un disco necesario para que una aplicación funcione, después de la conmutación por error a Azure, debe crearlo manualmente en Azure para poder ejecutar la aplicación replicada. También puede integrar Azure Automation en un plan de recuperación para crear el disco durante la conmutación por error de la máquina.
-> * Máquina virtual Windows: no se producirá una conmutación por recuperación de los discos creados manualmente en Azure. Por ejemplo, si realiza la conmutación por error de tres discos y crea dos directamente en Azure Virtual Machines, solo los tres discos que se conmutaran por error se conmutarán por recuperación. No puede incluir los discos creados manualmente en la conmutación por recuperación ni volver a protegerlos de un entorno local a Azure.
-> * Máquina virtual Linux: se producirá una conmutación por recuperación de los discos creados manualmente en Azure. Por ejemplo, si realiza una conmutación por error de tres discos y crea dos directamente en Azure Virtual Machines, los cinco experimentarán conmutación por recuperación. No se pueden excluir discos creados manualmente de la conmutación por recuperación.
->
-
+> * No se producirá una conmutación por recuperación de los discos creados manualmente en Azure. Por ejemplo, si realiza la conmutación por error de tres discos y crea dos directamente en Azure Virtual Machines, solo los tres discos que se conmutaron por error se conmutarán por recuperación de Azure a Hyper-V. No puede incluir los discos creados manualmente en la conmutación por recuperación ni en la replicación inversa de Hyper-V a Azure.
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>Escenarios completos de exclusión de discos
 Veamos dos escenarios para comprender la característica de exclusión de discos:
@@ -75,7 +64,7 @@ Veamos dos escenarios para comprender la característica de exclusión de discos
 - Disco de la base de datos tempdb de SQL Server
 - Disco del archivo de paginación (pagefile.sys)
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Ejemplo 1: Exclusión del disco de la base de datos tempdb de SQL Server
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Ejemplo 1: Exclusión del disco de la base de datos tempdb de SQL Server
 Veamos una máquina virtual de SQL Server con una base de datos tempdb que se puede excluir.
 
 El nombre del disco virtual es SalesDB.
@@ -153,7 +142,7 @@ Consulte las siguientes directrices de Azure para el disco de almacenamiento tem
 * [Procedimientos recomendados para SQL Server en Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>Conmutación por recuperación (de Azure a un host local)
-Ahora debemos conocer los discos que se replican al realizar la conmutación por error de Azure al host de VMware. Los discos creados manualmente en Azure no se replicarán. Por ejemplo, si realiza la conmutación por error de tres discos y crea dos directamente en Azure Virtual Machines, solo los tres discos que se conmutaran por error se conmutarán por recuperación. No puede incluir los discos creados manualmente en la conmutación por recuperación ni volver a protegerlos de un entorno local a Azure. Tampoco se replicará el disco de almacenamiento temporal en el host local.
+Ahora debemos conocer los discos que se replican al realizar la conmutación por error de Azure al host de Hyper-V local. Los discos creados manualmente en Azure no se replicarán. Por ejemplo, si realiza la conmutación por error de tres discos y crea dos directamente en Azure Virtual Machines, solo los tres discos que se conmutaran por error se conmutarán por recuperación. No puede incluir los discos creados manualmente en la conmutación por recuperación ni volver a protegerlos de un entorno local a Azure. Tampoco se replicará el disco de almacenamiento temporal en el host local.
 
 ### <a name="failback-to-original-location-recovery"></a>Conmutación por recuperación en la ubicación original
 
@@ -166,15 +155,17 @@ Disk1 | E:\ | Almacenamiento temporal</br /> </br />Azure agrega este disco y as
 Disk2 | D:\ | Base de datos del sistema SQL y Database1 del usuario
 Disk3 | G:\ | Database2 del usuario
 
-Cuando se realiza la conmutación por recuperación en la ubicación original, la configuración del disco de la máquina virtual de conmutación por recuperación no tiene exclusiones. Los discos que excluyeran de VMware a Azure, no estarán disponibles en la máquina virtual de conmutación por recuperación.
+Cuando se realiza la conmutación por recuperación en la ubicación original, la configuración del disco de la máquina virtual de conmutación por recuperación es la misma que la original del disco de la máquina virtual para Hyper-V. Los discos que se excluyeran del sitio de Hyper-V a Azure no estarán disponibles en la máquina virtual de conmutación por recuperación.
 
-Discos de la máquina virtual de VMWare (ubicación original) después de la conmutación por error planeada de Azure a VMware local:
+Discos de la máquina virtual de Hyper-V (ubicación original) después de la conmutación por error planeada de Azure a Hyper-V local:
 
-**Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
---- | --- | ---
-DISK0 | C:\ | Disco del sistema operativo
-Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
-Disk2 | G:\ | Database2 del usuario
+**Nombre del disco** | **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
+--- | --- | --- | ---
+DB-Disk0-OS | DISK0 |   C:\ | Disco del sistema operativo
+DB-Disk1 | Disk1 | D:\ | Base de datos del sistema SQL y Database1 del usuario
+DB-Disk2 (disco excluido) | Disk2 | E:\ | Archivos temporales
+DB-Disk3 (disco excluido) | Disk3 | F:\ | Base de datos tempdb de SQL (ruta de acceso de carpeta): F:\MSSQL\Data\)
+DB-Disk4 | Disk4 | G:\ | Database2 del usuario
 
 ## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Ejemplo 2: Exclusión del disco del archivo de paginación (pagefile.sys)
 
@@ -195,8 +186,7 @@ Esta es la configuración del archivo de paginación en la máquina virtual de o
 
 ![Configuración del archivo de paginación en la máquina virtual de origen](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
-
-Después de la conmutación por error de la máquina virtual de VMware a Azure, los discos de la máquina virtual de Azure son los siguientes:
+Después de la conmutación por error de la máquina virtual de Hyper-V a Azure, los discos de la máquina virtual de Azure son los siguientes:
 
 **Nombre del disco** | **Sistema operativo invitado** | **Unidad** | **Tipo de datos en el disco**
 --- | --- | --- | ---
@@ -226,7 +216,7 @@ Esta es la configuración del archivo de paginación en la máquina virtual loca
 
 ![Configuración del archivo de paginación en la máquina virtual local](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-Después de la conmutación por error de la máquina virtual de VMware a Azure, los discos de la máquina virtual de Azure son los siguientes:
+Después de la conmutación por error de la máquina virtual de Hyper-V a Azure, los discos de la máquina virtual de Azure son los siguientes:
 
 **Nombre del disco**| **Sistema operativo invitado**| **Unidad** | **Tipo de datos en el disco**
 --- | --- | --- | ---

@@ -3,7 +3,7 @@ title: "Introducción a Azure Automation | Microsoft Docs"
 description: "Este artículo proporciona una introducción al servicio Azure Automation, y se revisan el diseño y los detalles de implementación como preparación para incorporar las ofertas de Azure Marketplace."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Introducción a Azure Automation
 
@@ -89,7 +89,7 @@ Todas las tareas de automatización que realice con recursos mediante los cmdlet
 Los recursos de Automation de cada cuenta de Automation están asociados con una sola región de Azure, pero las cuentas de Automation pueden administrar recursos en su suscripción. Cree cuentas de Automation en distintas regiones si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
 > [!NOTE]
-> A las cuentas de automatización y los recursos que contienen, que se crean en Azure Portal, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
+> A las cuentas de Automation y los recursos que contienen, que se crean en Azure Portal, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
 > 
 
 Al crear una cuenta de Automation en Azure Portal, crea automáticamente dos entidades de autenticación:
@@ -112,7 +112,7 @@ La tabla siguiente resume los diferentes métodos de autenticación para cada en
 En la sección **Procedimientos\Autenticación y seguridad** puede encontrar artículos de ayuda que proporcionan un resumen y pasos de implementación para configurar la autenticación para esos entornos, ya sea con una cuenta existente o una nueva dedicada para ese entorno.  Para la cuenta de ejecución de Azure y la cuenta de ejecución de Azure clásica, el tema [Actualización de una cuenta de ejecución de Automation](automation-create-runas-account.md) describe cómo actualizar la cuenta de Automation existente con las cuentas de ejecución desde el portal o mediante PowerShell si no se configuró originalmente con una cuenta de ejecución o una cuenta de ejecución de Azure clásica. Si desea crear una cuenta de ejecución y una cuenta de ejecución de Azure clásica con un certificado emitido por la entidad de certificación (CA), revise este artículo para obtener información sobre cómo crear cuentas con esta configuración.     
  
 ## <a name="network-planning"></a>Planeamiento de red
-Para que la instancia de Hybrid Runbook Worker se conecte a Microsoft Operations Management Suite (OMS) y se registre en él, debe tener acceso al número de puerto y a las direcciones URL que se describen a continuación.  Y esto aparte de los [puertos y las direcciones URL necesarios para que Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) se conecte a OMS. Si se usa un servidor proxy para realizar la comunicación entre el agente y el servicio de OMS, debe asegurarse de que es posible tener acceso a los recursos adecuados. Si usa un firewall para restringir el acceso a Internet, deberá configurarlo para que permita el acceso.
+Para que la instancia de Hybrid Runbook Worker se conecte a Microsoft Operations Management Suite (OMS) y se registre en él, debe tener acceso al número de puerto y a las direcciones URL que se describen a continuación.  Y esto aparte de los [puertos y las direcciones URL necesarios para que Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) se conecte a OMS. Si se usa un servidor proxy para realizar la comunicación entre el agente y el servicio de OMS, debe asegurarse de que es posible tener acceso a los recursos adecuados. Si usa un firewall para restringir el acceso a Internet, deberá configurarlo para que permita el acceso.
 
 A continuación se indican los puertos y las direcciones URL que son necesarios para que Hybrid Runbook Worker se comunique con Automation.
 
