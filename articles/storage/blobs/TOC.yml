@@ -72,10 +72,10 @@
   items:
     - name: Planeamiento y diseño
       items:
+        - name: Opciones de la cuenta de almacenamiento
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replicación
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Opciones de la cuenta de almacenamiento
-          href: storage-account-options.md
         - name: 'Capas de almacenamiento en caliente, en frío y en archivos'
           href: storage-blob-storage-tiers.md
         - name: Reacción a eventos
