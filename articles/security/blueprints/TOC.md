@@ -54,6 +54,8 @@
 #### [Cumplimiento: UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Información general](uk-official-three-tier-applications-overview.md)
 ##### [Información general acerca de los principios](uk-official-three-tier-applications-principles-overview.md)
+#### [Cumplimiento normativo: Servicios financieros](financial-services-regulated-workloads.md)
+##### [Servicios financieros para cargas de trabajo reguladas](financial-services-regulated-workloads.md)
 
 # Introducción
 ## [Introducción a la seguridad de Azure](../azure-security-getting-started.md)

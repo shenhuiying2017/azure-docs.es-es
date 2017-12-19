@@ -61,6 +61,9 @@
 
 ## [Escala de un laboratorio](devtest-lab-scale-lab.md)
 
+## Integración con CI/CD
+### [Integración de laboratorios en la canalización de integración y entrega continuas de VSTS](devtest-lab-integrate-ci-cd-vsts.md)
+
 # Referencia
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)

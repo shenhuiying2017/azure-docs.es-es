@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación de Azure Location Based Services (versión preliminar)
+title: "Documentación de Azure Location Based Services (versión preliminar)"
 metadata:
-  document_id: null
-  title: Documentación de Azure Location Based Services (versión preliminar) | Microsoft Docs
+  document_id: 
+  title: "Documentación de Azure Location Based Services (versión preliminar) | Microsoft Docs"
   meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
   services: location-based-services
   author: philmea
@@ -14,27 +14,42 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
+  ms.openlocfilehash: d3a547418d9b5c412584aaa2f27a40024130335b
+  ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/19/2017
 abstract:
-  description: 'Azure Location Based Services (versión preliminar) ofrece a los desarrolladores de todos los sectores unas potentes funcionalidades geoespaciales, integradas con unos nuevos datos de asignación que son necesarios para proporcionar contexto geográfico a aplicaciones web y móviles. Este servicio es un conjunto de API de REST compatible con One API de Azure, acompañado de un control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios.'
+  description: "Azure Location Based Services (versión preliminar) ofrece a los desarrolladores de todos los sectores unas potentes funcionalidades geoespaciales, integradas con unos nuevos datos de asignación que son necesarios para proporcionar contexto geográfico a aplicaciones web y móviles. Este servicio es un conjunto de API de REST compatible con One API de Azure, acompañado de un control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Inicie una aplicación de búsqueda de mapas mediante Azure Location Based Services (versión preliminar)."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Inicie una aplicación de búsqueda de mapas mediante Azure Location Based Services (versión preliminar).
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Iniciar demostración de aplicación de mapas
-            href: /azure/location-based-services/quick-demo-map-app
-  - title: Tutoriales detallados
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Iniciar demostración de aplicación de mapas"
+      href: /azure/location-based-services/quick-demo-map-app
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: "Compile una aplicación web geoespacial que busque puntos de interés y rutas a ubicaciones mediante Azure Location Based Services (versión preliminar)."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Compile una aplicación web geoespacial que busque puntos de interés y rutas a ubicaciones mediante Azure Location Based Services (versión preliminar).
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/location-based-services/tutorial-search-location">Búsqueda de puntos de interés</a>
-          - html: <a href="/azure/location-based-services/tutorial-route-location">Ruta a un punto de interés</a>
-          - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Rutas por modo de viaje</a>
+    - html: "<a href=\"/azure/location-based-services/tutorial-search-location\">Búsqueda de puntos de interés</a>"
+    - html: "<a href=\"/azure/location-based-services/tutorial-route-location\">Ruta a un punto de interés</a>"
+    - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Rutas por modo de viaje</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsW
+    items:
+    - title: Idiomas
+      html: '<p><a href="https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/">Map Control API: Javascript</a></p>'
+    - title: REST
+      html: '<p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services/">Functional API: REST</a></p><p><a href="https://docs.microsoft.com/en-us/rest/api/location-based-services-management/">Management API: REST</a></p>'

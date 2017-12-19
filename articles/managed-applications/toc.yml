@@ -6,11 +6,11 @@
       href: overview.md
 - name: Inicios rápidos
   items:
-    - name: Creación de una aplicación administrada con la CLI de Azure
+    - name: Creación de aplicación administrada
       href: managed-apps-quickstart-cli.md
 - name: Tutoriales
   items:
-    - name: Creación de la aplicación de catálogo de servicios
+    - name: Creación de archivos de aplicación administrados
       href: publish-service-catalog-app.md
 - name: Muestras
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Actualización de los recursos administrados
       href: update-managed-resources.md
-    - name: 'Publicación de la aplicación de catálogo de servicios: Portal'
+    - name: Uso del portal para publicación
       href: publish-portal.md
 - name: Referencia
   items:

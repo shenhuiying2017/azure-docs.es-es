@@ -32,6 +32,12 @@
       href: how-to-deploy-monitor.md
     - name: Aprovisionamiento de un dispositivo de IoT Core
       href: how-to-install-iot-core.md
+    - name: Uso de código de VS para desarrollar soluciones de IoT Edge
+      items:
+        - name: 'Desarrollo e implementación de un módulo de C#'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: 'Depuración del módulo de C#'
+          href: how-to-vscode-debug-csharp-module.md
     - name: Solución de problemas
       href: troubleshoot.md
 - name: Conceptos
