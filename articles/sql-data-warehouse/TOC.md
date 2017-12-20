@@ -32,7 +32,7 @@
 
 ## Carga y movimiento de datos
 ### [Información general](design-elt-data-loading.md)
-### [Guía](guidance-for-loading-data.md)
+### [procedimientos recomendados](guidance-for-loading-data.md)
 
 
 ## Integrate

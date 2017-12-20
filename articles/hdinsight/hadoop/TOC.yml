@@ -355,7 +355,7 @@
       maintainContext: true
     - name: Acceso de red
       items:
-        - name: HDInsight en la red virtual de Azure
+        - name: HDInsight en redes virtuales de Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md
           maintainContext: true
         - name: Conexión de HDInsight con la red local
@@ -427,9 +427,6 @@
           maintainContext: true
         - name: Acceso a registros de aplicaciones en YARN
           href: ../hdinsight-hadoop-access-yarn-app-logs.md
-          maintainContext: true
-        - name: Uso de Apache Phoenix y SQuirrel
-          href: ../hdinsight-hbase-phoenix-squirrel.md
           maintainContext: true
         - name: Generación de recomendaciones con Mahout
           href: ../hdinsight-mahout.md
