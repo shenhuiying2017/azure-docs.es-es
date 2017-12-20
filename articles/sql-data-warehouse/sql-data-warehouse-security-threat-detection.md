@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Detección de amenazas de Almacenamiento de datos SQL"
+title: "Introducción a Detección de amenazas de SQL Data Warehouse"
 description: "Cómo empezar a trabajar con la detección de amenazas"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Introducción a la detección de amenazas
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Información general
-Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos. Detección de amenazas está en vista previa y es compatible con Almacenamiento de datos SQL.
+Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos. Detección de amenazas está en vista previa y es compatible con SQL Data Warehouse.
 
 Detección de amenazas ofrece un nuevo nivel de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas a medida que se producen, gracias a las alertas de seguridad sobre actividades anómalas que se proporcionan. Los usuarios pueden explorar los eventos sospechosos mediante la [auditoría de Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) para determinar si proceden de un intento de acceder a los datos del almacenamiento de datos, infringir su seguridad o aprovecharlos.
 Detección de amenazas facilita la solución de las posibles amenazas al almacenamiento sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada.
@@ -37,8 +37,8 @@ Detección de amenazas facilita la solución de las posibles amenazas al almacen
 Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas en la base de datos que sugieren posibles intentos de inyección de código SQL. La inyección de código SQL es uno de los problemas de seguridad habituales entre las aplicaciones web en Internet y se usa para atacar aplicaciones controladas por datos. Los atacantes aprovechan las vulnerabilidades de la aplicación para inyectar instrucciones SQL malintencionadas en los campos de entrada de la aplicación, con el fin de infringir la seguridad o modificar datos en la base de datos.
 
 ## <a name="set-up-threat-detection-for-your-database"></a>Configuración de la detección de amenazas para la base de datos
-1. Inicie el Portal de Azure en [https://portal.azure.com](https://portal.azure.com).
-2. Vaya a la hoja de configuración de Almacenamiento de datos SQL que desea supervisar. En la hoja Configuración, seleccione **Auditoría y detección de amenazas**.
+1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+2. Vaya a la hoja de configuración de SQL Data Warehouse que desea supervisar. En la hoja Configuración, seleccione **Auditoría y detección de amenazas**.
    
     ![Panel de navegación][1]
 3. En la hoja de configuración de **Auditoría y detección de amenazas**, **active** la auditoría; se mostrará la configuración de Detección de amenazas.
@@ -55,14 +55,14 @@ Por ejemplo, Detección de amenazas detecta determinadas actividades anómalas e
    El correo electrónico proporciona información sobre el evento de seguridad sospechoso, en la que se incluyen la naturaleza de las actividades anómalas, el nombre de la base de datos, el nombre del servidor y la hora del evento. Además, se proporcionará información sobre las posibles causas y las medidas recomendadas para investigar y mitigar la amenaza potencial para la base de datos.<br/>
    
     ![Panel de navegación][4]
-2. En el correo electrónico, haga clic en el vínculo **Registro de auditoría SQL de Azure** , lo que iniciará el Portal de Azure clásico y mostrará los registros de auditoría pertinentes en torno a la hora del evento sospechoso.
+2. En el correo electrónico, haga clic en el vínculo **Registro de auditoría SQL de Azure** , lo que iniciará el Portal de Azure y mostrará los registros de auditoría pertinentes en torno a la hora del evento sospechoso.
    
     ![Panel de navegación][5]
 3. Haga clic en los registros de auditoría para ver más detalles sobre las actividades sospechosas en la base de datos, como instrucción SQL, motivo del error e IP de cliente.
    
     ![Panel de navegación][6]
 4. En la hoja Registros de auditoría, haga clic en **Abrir en Excel** para abrir una plantilla de Excel ya configurada para importar y ejecutar un análisis más profundo del registro de auditoría en torno a la hora del evento sospechoso.<br/>
-   **Nota**: en Excel 2010 o posterior, se necesitan Power Query y la configuración **Combinación rápida**.
+   **Nota:** en Excel 2010 o posterior, se necesitan Power Query y la opción **Combinación rápida**
    
     ![Panel de navegación][7]
 5. Para definir la configuración **Combinación rápida**: en la pestaña **POWER QUERY** de la cinta, seleccione **Opciones** para mostrar el cuadro de diálogo Opciones. Seleccione la sección Privacidad y elija la segunda opción, "Omitir los niveles de privacidad para mejorar el rendimiento":

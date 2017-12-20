@@ -1,6 +1,6 @@
 ---
 title: "Creación de un clúster de Service Fabric en Azure Portal | Microsoft Azure"
-description: "En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante el Portal de Azure y el Almacén de claves de Azure."
+description: "En este artículo se describe cómo configurar un clúster de Service Fabric seguro en Azure mediante Azure Portal y Azure Key Vault."
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creación de un clúster de Service Fabric en Azure mediante el Portal de Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/18/2017
 
 Esta guía paso a paso le lleva por la configuración de un clúster de Service Fabric seguro en Azure mediante el Portal de Azure. Estos pasos son los siguientes:
 
-* Configuración del Almacén de claves para administrar las claves de cara a la seguridad del clúster.
+* Configuración de Key Vault para administrar las claves de cara a la seguridad del clúster.
 * Creación de un clúster protegido en Azure a través del Portal de Azure.
 * Autenticación de los administradores mediante certificados.
 
@@ -40,7 +40,7 @@ Esta guía paso a paso le lleva por la configuración de un clúster de Service 
 
 Un clúster seguro es un clúster que impide el acceso no autorizado a operaciones de administración, lo que incluye la implementación, actualización y eliminación de aplicaciones y servicios y los datos que contienen. Un clúster no seguro es un clúster al que cualquiera puede conectarse en cualquier momento y realizar operaciones de administración. Aunque se puede crear un clúster no seguro, se **recomienda firmemente crear uno seguro**. Un clúster no seguro **no se puede proteger en un momento posterior** -se debe crear uno nuevo.
 
-Los conceptos son los mismos para crear clústeres seguros, tanto si se trata de clústeres de Linux como de Windows. Para más información y scripts de aplicaciones auxiliares para crear clústeres seguros de Linux, consulte [Creación de clústeres seguros en Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Los parámetros obtenidos por el script de la aplicación auxiliar pueden especificarse en el portal como se describe en la sección [Creación de un clúster en Azure Portal](#create-cluster-portal).
+Los conceptos son los mismos para crear clústeres seguros, tanto si se trata de clústeres de Linux como de Windows. Para más información y scripts de aplicaciones auxiliares para crear clústeres seguros de Linux, consulte [Creación de clústeres seguros](service-fabric-cluster-creation-via-arm.md). Los parámetros obtenidos por el script de la aplicación auxiliar pueden especificarse en el portal como se describe en la sección [Creación de un clúster en Azure Portal](#create-cluster-portal).
 
 ## <a name="configure-key-vault"></a>Configuración de Key Vault 
 ### <a name="log-in-to-azure"></a>Inicie sesión en Azure.
@@ -59,17 +59,17 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-### <a name="set-up-key-vault"></a>Configuración del Almacén de claves
-Esta parte de la guía le lleva por la creación de un Almacén de claves para un clúster de Service Fabric de Azure y para aplicaciones de Service Fabric. Para obtener una guía completa sobre Key Vault, consulte [Introducción a Key Vault][key-vault-get-started].
+### <a name="set-up-key-vault"></a>Configuración de Key Vault
+Esta parte de la guía le lleva por la creación de un almacén de claves para un clúster de Service Fabric de Azure y para aplicaciones de Service Fabric. Para obtener una guía completa sobre Key Vault, consulte [Introducción a Key Vault][key-vault-get-started].
 
-Service Fabric usa certificados X.509 para proteger un clúster. El Almacén de claves de Azure se usa para administrar certificados para clústeres de Service Fabric en Azure. Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados del Almacén de claves y los instala en las máquinas virtuales del clúster.
+Service Fabric usa certificados X.509 para proteger un clúster. Azure Key Vault se usa para administrar certificados para clústeres de Service Fabric en Azure. Cuando un clúster se implementa en Azure, el proveedor de recursos de Azure responsable de crear clústeres de Service Fabric extrae los certificados de Key Vault y los instala en las máquinas virtuales del clúster.
 
-En el diagrama siguiente se ilustra la relación entre el Almacén de claves, un clúster de Service Fabric y el proveedor de recursos de Azure que usa los certificados almacenados en el Almacén de claves cuando se crea el clúster:
+En el diagrama siguiente se ilustra la relación entre Key Vault, un clúster de Service Fabric y el proveedor de recursos de Azure que usa los certificados almacenados en Key Vault cuando se crea el clúster:
 
 ![Instalación del certificado][cluster-security-cert-installation]
 
 #### <a name="create-a-resource-group"></a>Creación de un grupo de recursos
-El primer paso es crear un nuevo grupo de recursos específicamente para el Almacén de claves. Se recomienda colocar el Almacén de claves en su propio grupo de recursos, así puede quitar los grupos de recursos de almacenamiento y de proceso, como el grupo de recursos que tiene el clúster de Service Fabric, sin perder sus claves y secretos. El grupo de recursos que tiene el Almacén de claves debe estar en la misma región que el clúster que lo usa.
+El primer paso es crear un nuevo grupo de recursos específicamente para Key Vault. Se recomienda colocar el almacén de claves en su propio grupo de recursos, así puede quitar los grupos de recursos de almacenamiento y de proceso, como el grupo de recursos que tiene el clúster de Service Fabric, sin perder sus claves y secretos. El grupo de recursos que tiene el almacén de claves debe estar en la misma región que el clúster que lo usa.
 
 ```powershell
 
@@ -85,7 +85,7 @@ El primer paso es crear un nuevo grupo de recursos específicamente para el Alma
 ```
 
 #### <a name="create-key-vault"></a>Create Key Vault
-Cree un Almacén de claves en el nuevo grupo de recursos. El Almacén de claves **debe estar habilitado para implementación** de forma que el proveedor de recursos de Service Fabric pueda recibir de él certificados e instalarlos en nodos del clúster:
+Cree un almacén de claves en el nuevo grupo de recursos. El almacén de claves **debe estar habilitado para implementación** de forma que el proveedor de recursos de Service Fabric pueda recibir de él certificados e instalarlos en nodos del clúster:
 
 ```powershell
 
@@ -114,7 +114,15 @@ Cree un Almacén de claves en el nuevo grupo de recursos. El Almacén de claves 
     Tags                             :
 ```
 
-Si tiene un Almacén de claves existente, puede habilitarlo para implementación mediante la CLI de Azure:
+Si ya tiene un almacén de claves, puede habilitarlo para implementación mediante alguno de estos métodos:
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>CLI de Azure:
 
 ```cli
 > azure login
@@ -125,7 +133,7 @@ Si tiene un Almacén de claves existente, puede habilitarlo para implementación
 ```
 
 
-### <a name="add-certificates-to-key-vault"></a>Adición de certificados al Almacén de claves
+### <a name="add-certificates-to-key-vault"></a>Adición de certificados al almacén de claves
 Los certificados se usan en Service Fabric para proporcionar autenticación y cifrado con el fin de proteger diversos aspectos de un clúster y sus aplicaciones. Para obtener más información sobre el modo en que se usan los certificados en Service Fabric, consulte los [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security].
 
 #### <a name="cluster-and-server-certificate-required"></a>Certificado de clúster y servidor (obligatorio)
@@ -159,7 +167,7 @@ Se puede instalar un número cualquiera de certificados adicionales en un clúst
 No se pueden configurar certificados de la aplicación al crear un clúster mediante el Portal de Azure. Para configurar certificados de aplicación en el momento de configuración del clúster, debe [crear un clúster mediante Azure Resource Manager][create-cluster-arm]. También puede agregar certificados de aplicación al clúster después de que se ha creado.
 
 #### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Formato de certificados para el uso del proveedor de recursos de Azure
-Los archivos de clave privada (.pfx) se pueden agregar y usar directamente mediante el Almacén de claves. Sin embargo, el proveedor de recursos de Azure requiere que las claves se almacenen en un formato JSON especial que incluye el .pfx como una cadena codificada con base-64 y la contraseña de clave privada. Para hacer frente a estos requisitos, las claves deben estar colocadas en una cadena JSON y luego almacenarse como *secretos* en el Almacén de claves.
+Los archivos de clave privada (.pfx) se pueden agregar y usar directamente mediante Key Vault. Sin embargo, el proveedor de recursos de Azure requiere que las claves se almacenen en un formato JSON especial que incluye el .pfx como una cadena codificada con base-64 y la contraseña de clave privada. Para hacer frente a estos requisitos, las claves deben estar colocadas en una cadena JSON y luego almacenarse como *secretos* en Key Vault.
 
 Para facilitar este proceso, hay un módulo de PowerShell [disponible en GitHub][service-fabric-rp-helpers]. Siga estos pasos para utilizar el módulo:
 
@@ -170,7 +178,7 @@ Para facilitar este proceso, hay un módulo de PowerShell [disponible en GitHub]
   PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
 
-El comando `Invoke-AddCertToKeyVault` de este módulo de PowerShell convierte automáticamente una clave privada de certificado en una cadena JSON y la carga en el Almacén de claves. Úsela para agregar el certificado de clúster y cualquier certificado de aplicación adicional al Almacén de claves. Repita este paso con cualquier certificado adicional que quiera instalar en el clúster.
+El comando `Invoke-AddCertToKeyVault` de este módulo de PowerShell convierte automáticamente una clave privada de certificado en una cadena JSON y la carga en Key Vault. Úsela para agregar el certificado de clúster y cualquier certificado de aplicación adicional a Key Vault. Repita este paso con cualquier certificado adicional que quiera instalar en el clúster.
 
 ```powershell
 PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
@@ -194,10 +202,10 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 ```
 
-Estos son todos los requisitos previos del Almacén de claves para configurar una plantilla de Resource Manager para el clúster de Service Fabric que instala certificados para la autenticación de nodos, la seguridad de los puntos de conexión de administración y la autenticación, y cualquier característica de seguridad de aplicación adicional que use certificados X.509. En este punto, debería tener ahora la siguiente configuración en Azure:
+Estos son todos los requisitos previos de Key Vault para configurar una plantilla de Resource Manager para el clúster de Service Fabric que instala certificados para la autenticación de nodos, la seguridad de los puntos de conexión de administración y la autenticación, y cualquier característica de seguridad de aplicación adicional que use certificados X.509. En este punto, debería tener ahora la siguiente configuración en Azure:
 
-* Grupo de recursos del Almacén de claves
-  * Almacén de claves
+* Grupo de recursos de Key Vault
+  * Key Vault
     * Certificado de autenticación de servidor de clúster
 
 </a "create-cluster-portal" ></a>
@@ -226,7 +234,7 @@ En la hoja Básico, se deben proporcionar los datos básicos del clúster.
    > Aunque puede decidir utilizar un grupo de recursos existente, es conveniente crear uno nuevo. Esto facilita la eliminación de los clústeres que no son necesarios.
    > 
    > 
-5. Seleccione la **región** en la que quiere crear el clúster. Debe usar la misma región que aquella en la que se encuentra el Almacén de claves.
+5. Seleccione la **región** en la que quiere crear el clúster. Debe usar la misma región que aquella en la que se encuentra el almacén de claves.
 
 #### <a name="2-cluster-configuration"></a>2. Configuración del clúster
 ![Creación de un tipo de nodo][CreateNodeType]
@@ -255,7 +263,7 @@ Configure los nodos del clúster. Los tipos de nodos definen los tamaños de má
 #### <a name="3-security"></a>3. Seguridad
 ![Captura de pantalla de las configuraciones de seguridad del Portal de Azure.][SecurityConfigs]
 
-El paso final consiste en proporcionar información del certificado para proteger el clúster mediante el Almacén de claves y la información del certificado creada anteriormente.
+El paso final consiste en proporcionar información del certificado para proteger el clúster mediante Key Vault y la información del certificado creada anteriormente.
 
 * Rellene los campos del certificado principal con el resultado obtenido de cargar el **certificado del clúster** en Key Vault mediante el comando `Invoke-AddCertToKeyVault` de PowerShell.
 

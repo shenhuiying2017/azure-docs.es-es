@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Configuración de grupos de disponibilidad Always On en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Portal de Azure clásico: interfaz de usuario](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Clásico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Portal de Azure clásico: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Antes de comenzar, considere que ahora puede completar esta tarea en un modelo de Azure Resource Manager. Se recomienda el modelo de Azure Resource Manager para las implementaciones nuevas. Consulte [Grupos de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
@@ -62,7 +62,7 @@ En este tutorial se da por hecho lo siguiente:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>Creación de la red virtual y el servidor del controlador de dominio
-Comience con una nueva cuenta de prueba de Azure. Una vez que haya configurado la cuenta, debería estar en la pantalla de inicio del Portal de Azure clásico.
+Comience con una nueva cuenta de prueba de Azure. Una vez que ha configurado la cuenta, debería estar en la pantalla de inicio de Azure Portal.
 
 1. Haga clic en el botón **Nuevo** de la esquina izquierda de la parte inferior de la página, como se muestra en la captura de pantalla siguiente.
    
@@ -89,7 +89,7 @@ Comience con una nueva cuenta de prueba de Azure. Una vez que haya configurado l
    | Configuración de la máquina virtual |**SERVICIO EN LA NUBE**: Crear un nuevo servicio en la nube<br/>**NOMBRE DE DNS DEL SERVICIO EN LA NUBE** = un nombre de servicio en la nube único<br/>**NOMBRE DNS** = un nombre único (por ejemplo, ContosoDC123)<br/>**REGION/GRUPO DE AFINIDAD/RED VIRTUAL** = ContosoNET<br/>**SUBREDES DE LA RED VIRTUAL** = Back(10.10.2.0/24)<br/>**CUENTA DE ALMACENAMIENTO** = usar una cuenta de almacenamiento generada automáticamente<br/>**CONJUNTO DE DISPONIBILIDAD**: (Ninguno) |
    | Opciones de la máquina virtual |Usar predeterminados |
 
-Después de configurar la nueva máquina virtual, espere a que se realice el aprovisionamiento de la máquina virtual. Este proceso tarda algo de tiempo en finalizarse. Si hace clic en la pestaña **Máquina virtual** en el Portal de Azure clásico, puede ver que ContosoDC recorre los estados de **Iniciando (aprovisionamiento)** a **Detenido**, **Iniciando**, **En ejecución (aprovisionamiento)** y, finalmente, **En ejecución**.
+Después de configurar la nueva máquina virtual, espere a que se realice el aprovisionamiento de la máquina virtual. Este proceso tarda algo de tiempo en finalizarse. Si hace clic en la pestaña **Máquina virtual** en Azure Portal, puede ver que ContosoDC pasa por los estados **Iniciando (aprovisionamiento)**, **Detenido**, **Iniciando**, **En ejecución (aprovisionamiento)** y, finalmente, **En ejecución**.
 
 El servidor DC ya está aprovisionado correctamente. A continuación, configurará el dominio de Active Directory en este servidor DC.
 
@@ -121,7 +121,7 @@ En los pasos siguientes configurará la máquina ContosoDC como controlador de d
     
      ![Cuadro de diálogo de AD DS en la máquina virtual del servidor DNS](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784625.png)
 12. En la columna **Acción** del cuadro de diálogo **Todos los detalles de la tarea del servidor**, haga clic en **Promover este servidor a controlador de dominio**.
-13. En el **Asistente de configuración de Servicios de dominio de Active Directory**, use los siguientes valores:
+13. En el **Asistente de configuración de Active Directory Domain Services**, use los siguientes valores:
     
     | Page | Configuración |
     | --- | --- |
@@ -176,7 +176,7 @@ Cree tres máquinas virtuales. Una es para un nodo de clúster y dos para SQL Se
 <br/>
 
 > [!NOTE]
-> La configuración anterior le sugiere usar máquinas virtuales de nivel ESTÁNDAR, porque las máquinas de nivel BÁSICO no admiten puntos de conexión de carga equilibrada. Necesitará puntos de conexión de carga equilibrada más adelante para crear un agente de escucha del grupo de disponibilidad. Asimismo, los tamaños de máquina que se sugieren aquí están diseñados para probar los grupos de disponibilidad en Azure Virtual Machines. Para optimizar el rendimiento de las cargas de trabajo de producción, consulte las recomendaciones de tamaños de máquina y la configuración de SQL Server en [Procedimientos recomendados de SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-performance.md).
+> La configuración anterior le sugiere usar máquinas virtuales de nivel ESTÁNDAR, porque las máquinas de nivel BÁSICO no admiten puntos de conexión de carga equilibrada. Necesitará puntos de conexión de carga equilibrada más adelante para crear un agente de escucha del grupo de disponibilidad. Asimismo, los tamaños de máquina que se sugieren aquí están diseñados para probar los grupos de disponibilidad en Azure Virtual Machines. Para optimizar el rendimiento de las cargas de trabajo de producción, consulte las recomendaciones de tamaños de máquina y la configuración de SQL Server en [Procedimientos recomendados de SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-performance.md).
 > 
 > 
 
@@ -413,5 +413,5 @@ Ahora está en disposición de configurar un grupo de disponibilidad. A continua
 ## <a name="next-steps"></a>Pasos siguientes
 Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-int-listener.md).
 
-Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para obtener más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

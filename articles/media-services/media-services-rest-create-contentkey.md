@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Creación de claves de contenido con REST
 > [!div class="op_single_selector"]
@@ -35,18 +35,18 @@ Al entregar recursos a los clientes, puede [configurar que los recursos se cifre
 
 Los recursos cifrados tienen que estar asociados con **ContentKey**. En este artículo se describe cómo crear una clave de contenido.
 
-A continuación se muestran los pasos generales para generar claves de contenido que asociará a los recursos que desee cifrar. 
+A continuación, se muestran los pasos generales para generar claves de contenido que asocia a los recursos que desee cifrar. 
 
 1. Genere de forma aleatoria una clave AES de 16 bytes (para el cifrado común y de sobre) o una clave AES de 32 bytes (para el cifrado de almacenamiento). 
    
-    Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado. 
+    Esta es la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado. 
 2. Llame a los métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
 3. Cifre la clave de contenido con la clave pública del certificado X.509. 
    
    El SDK de Media Services para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Cree un valor de suma de comprobación (según el algoritmo de suma de comprobación de claves AES de PlayReady) calculado con el identificador de clave y la clave de contenido. Para obtener más información, vea la sección "Algoritmo de sumas de comprobación de claves AES de PlayReady" del documento Objeto de encabezado de PlayReady que se encuentra [aquí](http://www.microsoft.com/playready/documents/).
    
-   El siguiente es un ejemplo de .NET que calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
+   El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +68,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
 5. Cree la clave de contenido con los valores **EncryptedContentKey** (convertida en cadena codificada en base 64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** y **Checksum** que recibió en los pasos anteriores.
 6. Asocie la entidad **ContentKey** a su entidad **Asset** mediante la operación $links.
 
-Tenga en cuenta que en este tema no se muestra cómo generar una clave AES, cifrar la clave o calcular la suma de comprobación. 
+En este artículo no se muestra cómo generar una clave AES, cifrar la clave y calcular la suma de comprobación. 
 
 >[!NOTE]
 
@@ -77,9 +77,6 @@ Tenga en cuenta que en este tema no se muestra cómo generar una clave AES, cifr
 ## <a name="connect-to-media-services"></a>Conexión con Media Services
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="retrieve-the-protectionkeyid"></a>Recuperación de ProtectionKeyId
 En el ejemplo siguiente se muestra cómo recuperar ProtectionKeyId, una huella digital de certificado, para el certificado que debe usar al cifrar la clave de contenido. Realice este paso para asegurarse de que ya tiene el certificado apropiado en el equipo.
@@ -92,7 +89,7 @@ Solicitud:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +121,7 @@ Solicitud:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +149,7 @@ Respuesta:
 ## <a name="create-the-contentkey"></a>Creación de ContentKey
 Después de recuperar el certificado X.509 y usar su clave pública para cifrar la clave de contenido, cree una entidad **ContentKey** y establezca sus valores de propiedad según corresponda.
 
-Uno de los valores que debe establecer al crear la clave de contenido es el tipo. Elija uno de los valores siguientes.
+Uno de los valores que debe establecer al crear la clave de contenido es el tipo. Elija uno de los valores siguientes:
 
     public enum ContentKeyType
     {
@@ -179,7 +176,7 @@ Uno de los valores que debe establecer al crear la clave de contenido es el tipo
     }
 
 
-En el ejemplo siguiente se muestra cómo crear una entidad **ContentKey** con una entidad **ContentKeyType** establecida para el cifrado de almacenamiento("1") y la entidad **ProtectionKeyType** establecida en "0" para indicar que el identificador de clave de protección sea la huella digital del certificado X.509.  
+En el ejemplo siguiente se muestra cómo crear una entidad **ContentKey** con una entidad **ContentKeyType** establecida para el cifrado de almacenamiento ("1") y la entidad **ProtectionKeyType** establecida en "0" para indicar que el identificador de clave de protección sea la huella digital del certificado X.509.  
 
 Solicitud
 
@@ -191,7 +188,7 @@ Solicitud
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +238,7 @@ Solicitud:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

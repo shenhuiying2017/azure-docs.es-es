@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Crear una puerta de enlace de aplicaciones mediante el enrutamiento basado en rutas de acceso
 
@@ -55,7 +55,7 @@ Las solicitudes de http://contoso.com/image* se enrutan al grupo de servidores d
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-La diferencia entre usar el portal clásico de Azure y Azure Resource Manager es el orden en el que se crea la puerta de enlace de aplicaciones y los elementos que se deben configurar.
+La diferencia entre usar el modelo clásico de implementación y el de Azure Resource Manager es el orden en el que se crea la puerta de enlace de aplicaciones y los elementos que se deben configurar.
 
 Con Resource Manager, todos los elementos que componen una puerta de enlace de aplicaciones se configurarán individualmente y, luego, se unirán para crear el recurso de puerta de enlace de aplicaciones.
 

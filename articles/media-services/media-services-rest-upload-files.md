@@ -1,6 +1,6 @@
 ---
 title: Carga de archivos en una cuenta de Media Services mediante REST | Microsoft Docs
-description: "Aprenda a obtener contenido multimedia en Servicios multimedia mediante la creación y carga de recursos."
+description: "Aprenda a obtener contenido multimedia en Media Services mediante la creación y carga de recursos."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 955356ffe6fc524c1528364add7e2c2a336137b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f198de0bf212f4ae566193954a319bece1e421f6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
+# <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
@@ -28,14 +28,14 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
+En Media Services, cargue los archivos digitales en un recurso. La entidad [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
 
 > [!NOTE]
 > Se aplican las siguientes consideraciones:
 > 
-> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un '.' para la extensión del nombre de archivo.
+> * Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un '.' para la extensión del nombre de archivo.
 > * La longitud del nombre no debe ser superior a 260 caracteres.
-> * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) tema para obtener información más detallada acerca de la limitación de tamaño de archivo.
+> * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) artículo para obtener información más detallada acerca de la limitación de tamaño de archivo.
 > 
 
 El flujo de trabajo básico para la carga de activos se divide en las secciones siguientes:
@@ -47,34 +47,31 @@ El flujo de trabajo básico para la carga de activos se divide en las secciones 
 AMS también permite cargar activos en bloque. Para obtener más información, consulte [esta](media-services-rest-upload-files.md#upload_in_bulk) sección.
 
 > [!NOTE]
-> Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+> Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
+## <a name="connect-to-media-services"></a>Conexión con Media Services
 
 Para obtener más información sobre cómo conectarse a la API de Azure Media Services, consulte [Acceso a la API de Azure Media Services con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 
 ## <a name="upload-assets"></a>Carga de activos
 
 ### <a name="create-an-asset"></a>Creación de un recurso
 
-Un recurso es un contenedor para varios tipos o conjuntos de objetos en Servicios multimedia, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Servicios multimedia y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
+Un recurso es un contenedor para varios tipos o conjuntos de objetos en Media Services, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Media Services y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
 
 Una de las propiedades que se pueden especificar al crear un recurso es **Options**. **Options** es un valor de enumeración que describe las opciones de cifrado con las que se puede crear un recurso. Un valor válido es uno de los valores de la lista siguiente, no una combinación de valores. 
 
-* **None** = **0**: no se usará cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento.
+* **None** = **0**: no se utiliza cifrado. Este es el valor predeterminado. Cuando se utiliza esta opción, el contenido no está protegido en tránsito o en reposo en el almacenamiento.
     Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
 * **StorageEncrypted** = **1**: especifique si desea que los archivos se cifren con cifrado AES de 256 bits para la carga y el almacenamiento.
   
-    Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+    Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 * **CommonEncryptionProtected** = **2**: especifique si va a cargar archivos protegidos con un método de cifrado común (por ejemplo, PlayReady). 
-* **EnvelopeEncryptionProtected** = **4**: especifique si va a cargar HLS cifrado con archivos AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
+* **EnvelopeEncryptionProtected** = **4**: especifique si va a cargar HLS cifrado con archivos AES. Los archivos deben haberse codificado y cifrado con Transform Manager.
 
 > [!NOTE]
-> Si el recurso usa cifrado, debe crear una **ContentKey** y vincularla al recurso, tal como se describe en el siguiente tema:[Creación de ContentKey](media-services-rest-create-contentkey.md). Tenga en cuenta que después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE** . 
+> Si el recurso usa cifrado, debe crear una **ContentKey** y vincularla al recurso, tal como se describe en el siguiente artículo:[Creación de ContentKey](media-services-rest-create-contentkey.md). Después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE** . 
 > 
 > 
 
@@ -89,7 +86,7 @@ En el ejemplo siguiente se muestra cómo crear un recurso.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"BigBuckBunny.mp4"}
@@ -125,11 +122,11 @@ Si se realiza correctamente, se devuelve lo siguiente:
     }
 
 ### <a name="create-an-assetfile"></a>Creación de AssetFile
-La entidad [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa un archivo de audio o vídeo que se almacena en un contenedor de blobs. Un archivo de recursos siempre está asociado a un recurso y un recurso puede contener uno o varios archivos de recursos. La tarea de Servicios multimedia produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
+La entidad [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa un archivo de audio o vídeo que se almacena en un contenedor de blobs. Un archivo de recursos siempre está asociado a un recurso y un recurso puede contener uno o varios archivos de recursos. La tarea de Media Services produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
 
-Tenga en cuenta que la instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
+La instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
 
-Después de cargar el archivo multimedia digital en un contenedor de blobs, usará la solicitud HTTP **MERGE** para actualizar la entidad AssetFile con información sobre el archivo multimedia (tal como se muestra más adelante en este tema). 
+Después de cargar el archivo multimedia digital en un contenedor de blobs, usará la solicitud HTTP **MERGE** para actualizar la entidad AssetFile con información sobre el archivo multimedia (tal como se muestra más adelante en este artículo). 
 
 **Solicitud HTTP**
 
@@ -140,7 +137,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     Content-Length: 164
 
@@ -189,9 +186,9 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>Creación de AccessPolicy con permiso de escritura.
 
 >[!NOTE]
->Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
+>Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artículo.
 
-Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes durante la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes tras la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
 En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
 
@@ -204,7 +201,7 @@ En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
@@ -246,7 +243,7 @@ Una dirección URL de SAS tiene el formato siguiente:
 Se aplican algunas consideraciones:
 
 * No puede tener más de cinco localizadores únicos asociados a un recurso determinado a la vez. Para obtener más información, consulte Localizador.
-* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Servicios multimedia. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").    
+* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Media Services. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").    
 * Puede haber un retraso de 30 a 40 segundos desde el momento en que se crea un localizador hasta que este está disponible para su uso. Este problema afecta a la dirección URL de SAS y a localizadores de origen.
 
 En el ejemplo siguiente se muestra cómo crear un localizador de dirección URL de SAS, tal como se define en la propiedad Type del cuerpo de solicitud ("1" para un localizador de SAS y "2" para un localizador de origen bajo demanda). La propiedad **Path** devuelta contiene la dirección URL que debe usar para cargar el archivo.
@@ -260,7 +257,7 @@ En el ejemplo siguiente se muestra cómo crear un localizador de dirección URL 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {  
        "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
@@ -302,7 +299,7 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
     }
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>Carga de un archivo en un contenedor de almacenamiento de blobs
-Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un contenedor de almacenamiento de blobs de Azure mediante las API de REST de almacenamiento de Azure. Debe cargar los archivos como blobs en bloques. Azure Media Services no admite los blobs en páginas.  
+Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un contenedor de Azure Blob Storage mediante las API de REST de Azure Storage. Debe cargar los archivos como blobs en bloques. Azure Media Services no admite los blobs en páginas.  
 
 > [!NOTE]
 > Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
@@ -321,7 +318,7 @@ Ahora que ha cargado el archivo, actualice la información de tamaño de FileAss
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
     {  
@@ -346,7 +343,7 @@ Si se realiza correctamente, se devuelve lo siguiente: HTTP/1.1 204 No Content
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **Respuesta HTTP**
@@ -364,7 +361,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421662918&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=utmoXXbm9Q7j4tW1yJuMVA3egRiQy5FPygwadkmPeaY%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 **Respuesta HTTP**
@@ -385,7 +382,7 @@ IngestManifest es un contenedor para un conjunto de activos, archivos de activos
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 36
@@ -394,7 +391,7 @@ IngestManifest es un contenedor para un conjunto de activos, archivos de activos
     { "Name" : "ExampleManifestREST" }
 
 ### <a name="create-assets"></a>Creación de activos
-Antes de crear IngestManifestAsset, deberá crear el activo que se completará con la ingesta en bloque. Un recurso es un contenedor para varios tipos o conjuntos de objetos en Servicios multimedia, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, para crear un activo hay que enviar una solicitud HTTP POST a los Servicios multimedia de Microsoft Azure y colocar cualquier información sobre las propiedades del activo en el cuerpo de solicitud. En este ejemplo, el activo se crea mediante la opción StorageEncrption(1) incluida en el cuerpo de solicitud.
+Antes de crear IngestManifestAsset, deberá crear el activo que se completará con la ingesta en bloque. Un recurso es un contenedor para varios tipos o conjuntos de objetos en Media Services, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, para crear un activo hay que enviar una solicitud HTTP POST a los Microsoft Azure Media Services y colocar cualquier información sobre las propiedades del activo en el cuerpo de solicitud. En este ejemplo, el activo se crea mediante la opción StorageEncrption(1) incluida en el cuerpo de solicitud.
 
 **Respuesta HTTP**
 
@@ -403,7 +400,7 @@ Antes de crear IngestManifestAsset, deberá crear el activo que se completará c
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 55
@@ -412,7 +409,7 @@ Antes de crear IngestManifestAsset, deberá crear el activo que se completará c
     { "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
 
 ### <a name="create-the-ingestmanifestassets"></a>Creación de IngestManifestAssets
-IngestManifestAssets representan los activos dentro de un IngestManifest que se utilizan con la ingesta en bloque. Básicamente, lo que hacen es vincular el activo al manifiesto. Los Servicios multimedia de Azure buscan internamente el archivo cargado en función de la colección de IngestManifestFiles asociada a IngestManifestAsset. Una vez que se hayan cargado los archivos, el activo estará completo. Puede crear un nuevo IngestManifestAsset con una solicitud HTTP POST. En el cuerpo de solicitud, incluya el identificador de IngestManifest y el identificador del activo que IngestManifestAsset debe vincular para la ingesta en bloque.
+IngestManifestAssets representan los activos dentro de un IngestManifest que se utilizan con la ingesta en bloque. Básicamente, lo que hacen es vincular el activo al manifiesto. Azure Media Services buscan internamente el archivo cargado en función de la colección de IngestManifestFiles asociada a IngestManifestAsset. Una vez que se hayan cargado los archivos, el activo estará completo. Puede crear un nuevo IngestManifestAsset con una solicitud HTTP POST. En el cuerpo de solicitud, incluya el identificador de IngestManifest y el identificador del activo que IngestManifestAsset debe vincular para la ingesta en bloque.
 
 **Respuesta HTTP**
 
@@ -421,7 +418,7 @@ IngestManifestAssets representan los activos dentro de un IngestManifest que se 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 152
@@ -430,7 +427,7 @@ IngestManifestAssets representan los activos dentro de un IngestManifest que se 
 
 
 ### <a name="create-the-ingestmanifestfiles-for-each-asset"></a>Creación de IngestManifestFiles para cada activo
-Un IngestManifestFile representa un objeto blob de audio o vídeo real que se cargará como parte de la ingesta en bloque de un activo. Propiedades de cifrado relacionadas que no son necesarias, a menos que el recurso esté usando una opción de cifrado. El ejemplo utilizado en esta sección muestra la creación de un IngestManifestFile que usa StorageEncryption para el activo creado anteriormente.
+Un IngestManifestFile representa un objeto blob de audio o vídeo real que se carga como parte de la ingesta en bloque de un activo. Propiedades de cifrado relacionadas que no son necesarias, a menos que el recurso esté usando una opción de cifrado. El ejemplo utilizado en esta sección muestra la creación de un IngestManifestFile que usa StorageEncryption para el activo creado anteriormente.
 
 **Respuesta HTTP**
 
@@ -439,7 +436,7 @@ Un IngestManifestFile representa un objeto blob de audio o vídeo real que se ca
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 367
@@ -447,20 +444,20 @@ Un IngestManifestFile representa un objeto blob de audio o vídeo real que se ca
 
     { "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
 
-### <a name="upload-the-files-to-blob-storage"></a>Carga de archivos en el almacenamiento de blobs
+### <a name="upload-the-files-to-blob-storage"></a>Carga de archivos en Blob Storage
 Puede usar cualquier aplicación cliente de alta velocidad capaz de cargar los archivos de activos en el URI del contenedor de almacenamiento de blobs proporcionado por la propiedad BlobStorageUriForUpload de IngestManifest. Un servicio de carga de alta velocidad destacado es [Aspera On Demand para la aplicación de Azure](http://go.microsoft.com/fwlink/?LinkId=272001).
 
 ### <a name="monitor-bulk-ingest-progress"></a>Supervisión del progreso de la ingesta en bloque
-Puede supervisar el progreso de las operaciones de ingesta en bloque para un IngestManifest mediante el sondeo de la propiedad Statistics de IngestManifest. Esta propiedad es de tipo complejo, [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). Para sondear la propiedad Statistics, envíe una solicitud HTTP GET pasando el identificador de IngestManifest
+Puede supervisar el progreso de las operaciones de ingesta en bloque para un IngestManifest mediante el sondeo de la propiedad Statistics de IngestManifest. Esta propiedad es de tipo complejo, [IngestManifestStatistics](https://docs.microsoft.com/rest/api/media/operations/ingestmanifeststatistics). Para sondear la propiedad Statistics, envíe una solicitud HTTP GET pasando el identificador de IngestManifest.
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Creación de ContentKeys para el cifrado
-Si el activo va a usar cifrado, debe crear la ContentKey que se utilizará para el cifrado antes de crear los archivos de recurso. Para el cifrado de almacenamiento, se deben incluir las siguientes propiedades en el cuerpo de la solicitud.
+Si el activo usa cifrado, debe crear la ContentKey que se utilizará para el cifrado antes de crear los archivos de recurso. Para el cifrado de almacenamiento, se deben incluir las siguientes propiedades en el cuerpo de la solicitud.
 
 | Propiedad del cuerpo de la solicitud | Description |
 | --- | --- |
 | Id |El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato “nb:kid:UUID:<NEW GUID>”. |
 | ContentKeyType |Este es el tipo de clave de contenido en forma de entero para esta clave de contenido. Pasamos el valor 1 para el cifrado del almacenamiento. |
-| EncryptedContentKey |Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Servicios multimedia de Microsoft Azure mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. |
+| EncryptedContentKey |Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Microsoft Azure Media Services mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. |
 | ProtectionKeyId |Es el identificador de la clave de protección para el certificado X.509 de cifrado de almacenamiento que se usó para cifrar la clave de contenido. |
 | ProtectionKeyType |Es el tipo de cifrado para la clave de protección que se usó para cifrar la clave de contenido. Este valor es StorageEncryption(1) en nuestro ejemplo. |
 | Checksum |Suma de comprobación calculada de MD5 para la clave de contenido. Se calcula mediante el cifrado del identificador de contenido con la clave de contenido. El código de ejemplo muestra cómo calcular la suma de comprobación. |
@@ -472,7 +469,7 @@ Si el activo va a usar cifrado, debe crear la ContentKey que se utilizará para 
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 572
@@ -481,7 +478,7 @@ Si el activo va a usar cifrado, debe crear la ContentKey que se utilizará para 
     {"Id" : "nb:kid:UUID:316d14d4-b603-4d90-b8db-0fede8aa48f8", "ContentKeyType" : 1, "EncryptedContentKey" : "Y4NPej7heOFa2vsd8ZEOcjjpu/qOq3RJ6GRfxa8CCwtAM83d6J2mKOeQFUmMyVXUSsBCCOdufmieTKi+hOUtNAbyNM4lY4AXI537b9GaY8oSeje0NGU8+QCOuf7jGdRac5B9uIk7WwD76RAJnqyep6U/OdvQV4RLvvZ9w7nO4bY8RHaUaLxC2u4aIRRaZtLu5rm8GKBPy87OzQVXNgnLM01I8s3Z4wJ3i7jXqkknDy4VkIyLBSQvIvUzxYHeNdMVWDmS+jPN9ScVmolUwGzH1A23td8UWFHOjTjXHLjNm5Yq+7MIOoaxeMlKPYXRFKofRY8Qh5o5tqvycSAJ9KUqfg==", "ProtectionKeyId" : "7D9BB04D9D0A4A24800CADBFEF232689E048F69C", "ProtectionKeyType" : 1, "Checksum" : "TfXtjCIlq1Y=" }
 
 ### <a name="link-the-contentkey-to-the-asset"></a>Vinculación de ContentKey al activo
-ContentKey se asocia a uno o varios activos al enviar una solicitud HTTP POST. La solicitud siguiente es un ejemplo para vincular la ContentKey de ejemplo con el conjunto de activos de ejemplo en función del identificador.
+ContentKey se asocia a uno o varios recursos al enviar una solicitud HTTP POST. La solicitud siguiente es un ejemplo para vincular la ContentKey de ejemplo con el conjunto de activos de ejemplo en función del identificador.
 
 **Respuesta HTTP**
 
@@ -490,7 +487,7 @@ ContentKey se asocia a uno o varios activos al enviar una solicitud HTTP POST. L
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
     Content-Length: 113
@@ -505,7 +502,7 @@ ContentKey se asocia a uno o varios activos al enviar una solicitud HTTP POST. L
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
     Host: media.windows.net
 

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Table API .NET de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -50,6 +50,8 @@ ms.lasthandoff: 11/20/2017
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
+El paquete de versión preliminar [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) está en desuso y se ha sustituido por el paquete [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). El SDK de WindowsAzure.Storage PremiumTable se retirará el 15 de noviembre de 2018, momento en el cual las solicitudes al SDK retirado no se permitirán.
+
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
 
 El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un SDK retirado.
@@ -58,7 +60,7 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de noviembre de 2017|--- |
-| [0.9.0-preview](#0.1.0-preview) |11 de noviembre de 2017 |--- |
+| [0.9.0-preview](#0.9.0-preview) |11 de noviembre de 2017 |--- |
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

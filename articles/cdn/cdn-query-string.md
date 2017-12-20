@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con cadenas de consulta
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ Existen tres modos de cadena de consulta:
    
    ![Puntos de conexión de perfil de la red CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-2. En Configuración, haga clic en **Caché**.
+2. En el panel izquierdo, en Configuración, haga clic en **Reglas de caché**.
    
-    ![Botón Caché de perfil de CDN](./media/cdn-query-string/cdn-cache-btn.png)
+    ![Botón Reglas de caché de CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. En la lista **Comportamiento del almacenamiento en caché de cadenas de consulta**, seleccione un modo de cadena de consulta y, después, haga clic en **Guardar**.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![Opciones del almacenamiento en caché de cadenas de consultas de CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > Es posible que los cambios en la configuración de la cadena de caché no sean visibles de forma inmediata, ya que el registro puede tardar en propagarse a través de CDN. Para los perfiles de la **red CDN de Azure de Akamai** , la propagación normalmente se completa en un minuto. Para los perfiles de la **red CDN de Azure de Verizon**, la propagación normalmente se completa en 90 minutos, pero en algunos casos puede tardar más tiempo.
