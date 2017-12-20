@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Redis Cache con Python | Microsoft Docs
-description: "Introducción a Caché en Redis de Azure usando Python"
+description: "Introducción a Azure Redis Cache usando Python"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
 ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="how-to-use-azure-redis-cache-with-python"></a>Uso de Caché en Redis de Azure con Python
+# <a name="how-to-use-azure-redis-cache-with-python"></a>Uso de Azure Redis Cache con Python
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-En este tema se explica cómo comenzar a usar Caché en Redis de Azure mediante Python.
+En este tema se explica cómo comenzar a usar Azure Redis Cache mediante Python.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Instale [redis-py](https://github.com/andymccurdy/redis-py).
@@ -42,7 +42,7 @@ Instale [redis-py](https://github.com/andymccurdy/redis-py).
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## <a name="enable-the-non-ssl-endpoint"></a>Habilitar el extremo no SSL
-Algunos clientes de Redis no son compatibles con SSL y, de forma predeterminada, el [puerto no SSL está deshabilitado para las nuevas instancias de Caché en Redis de Azure](cache-configure.md#access-ports). En el momento de redactar este artículo, el cliente de [redis-py](https://github.com/andymccurdy/redis-py) no es compatible con SSL. 
+Algunos clientes de Redis no son compatibles con SSL y, de forma predeterminada, el [puerto no SSL está deshabilitado para las nuevas instancias de Azure Redis Cache](cache-configure.md#access-ports). En el momento de redactar este artículo, el cliente de [redis-py](https://github.com/andymccurdy/redis-py) no es compatible con SSL. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 

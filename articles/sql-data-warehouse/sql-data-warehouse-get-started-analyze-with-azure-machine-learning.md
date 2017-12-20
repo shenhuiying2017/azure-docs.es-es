@@ -1,6 +1,6 @@
 ---
 title: "Análisis de datos con Azure Machine Learning | Microsoft Docs"
-description: "Use Aprendizaje automático de Azure para crear un aprendizaje automático predictivo con los datos almacenados en Almacenamiento de datos SQL de Azure."
+description: "Use Azure Machine Learning para crear un modelo de aprendizaje automático predictivo con los datos almacenados en Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -16,12 +16,12 @@ ms.custom: integrate
 ms.date: 03/02/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: 3197948e32fe5c95b111fe5495a0e5f85966a24b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Aprendizaje automático de Azure
+# <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Este tutorial usa Aprendizaje automático de Azure para crear un aprendizaje automático predictivo con los datos almacenados en Almacenamiento de datos SQL de Azure. En concreto, crearemos una campaña de marketing dirigida para Adventure Works, una tienda de bicicletas, mediante la predicción de la probabilidad que existe de que un cliente compre una bicicleta.
+En este tutorial se usa Azure Machine Learning para crear un modelo de aprendizaje automático predictivo con los datos almacenados en Azure SQL Data Warehouse. En concreto, crearemos una campaña de marketing dirigida para Adventure Works, una tienda de bicicletas, mediante la predicción de la probabilidad que existe de que un cliente compre una bicicleta.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
@@ -40,7 +40,7 @@ Este tutorial usa Aprendizaje automático de Azure para crear un aprendizaje aut
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
-* Una instancia de Almacenamiento de datos SQL con la base de datos de ejemplo AdventureWorksDW previamente cargada. Para aprovisionarla, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][load sample data manually].
+* Una instancia de SQL Data Warehouse con la base de datos de ejemplo AdventureWorksDW previamente cargada. Para aprovisionarla, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][load sample data manually].
 
 ## <a name="1-get-the-data"></a>1. Obtener los datos
 Los datos están en la vista dbo.vTargetMail en la base de datos AdventureWorksDW. Para leer estos datos:
@@ -49,7 +49,7 @@ Los datos están en la vista dbo.vTargetMail en la base de datos AdventureWorksD
 2. Haga clic en **+NUEVO** y seleccione **Experimento en blanco**.
 3. Escriba un nombre para el experimento: Targeted Marketing.
 4. Arrastre el módulo **Lector** del panel de módulos al lienzo.
-5. Especifique los detalles de la base de datos de Almacenamiento de datos SQL en el panel Propiedades.
+5. Especifique los detalles de la base de datos de SQL Data Warehouse en el panel Propiedades.
 6. Especifique la **consulta** de la base de datos para leer los datos de interés.
 
 ```sql
@@ -122,7 +122,7 @@ Verá dos columnas más agregadas al conjunto de datos de prueba.
 * Probabilidades puntuadas: la probabilidad de que un cliente sea comprador de bicicletas.
 * Etiquetas puntuadas: la clasificación realizada por el modelo – comprador de bicicletas (1) o no (0). Este umbral de probabilidad para etiquetar se establece en 50% y se puede ajustar.
 
-Comparación de la columna BikeBuyer (real) con las etiquetas puntuadas (predicción), puede ver cómo ha funcionado el modelo. Como pasos siguientes, puede usar este modelo para realizar predicciones para los nuevos clientes y publicar este modelo como un servicio web o volver a escribir los resultados en Almacenamiento de datos SQL.
+Comparación de la columna BikeBuyer (real) con las etiquetas puntuadas (predicción), puede ver cómo ha funcionado el modelo. Como pasos siguientes, puede usar este modelo para realizar predicciones para los nuevos clientes y publicar este modelo como un servicio web o volver a escribir los resultados en SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la creación de modelos de aprendizaje automático predictivo, consulte [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].

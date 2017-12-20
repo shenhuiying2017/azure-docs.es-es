@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: f3523f17b5b39da94177038584d983aa3592199f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de plantillas de Azure Resource Manager para crear una canalización de Data Factory para copiar datos 
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 11/02/2017
 > 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-dot-net.md). 
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-dot-net.md). 
 
 En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure Data Factory. La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. No transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
@@ -55,7 +55,7 @@ En este tutorial, va a crear una factoría de datos con las siguientes entidades
 
 | Entidad | Description |
 | --- | --- |
-| Servicio vinculado de Almacenamiento de Azure |Vincula la cuenta de Azure Storage a la factoría de datos. Almacenamiento de Azure es el almacén de datos de origen y base de datos de Azure SQL es el almacén de datos del receptor para la actividad de copia en el tutorial. Especifica la cuenta de almacenamiento que contiene los datos de entrada para la actividad de copia. |
+| Servicio vinculado de Azure Storage |Vincula la cuenta de Azure Storage a la factoría de datos. Azure Storage es el almacén de datos de origen y Azure SQL Database es el almacén de datos del receptor para la actividad de copia en el tutorial. Especifica la cuenta de almacenamiento que contiene los datos de entrada para la actividad de copia. |
 | Servicio vinculado a Azure SQL Database |Vincula la instancia de Azure SQL Database a la factoría de datos. Especifica la instancia de Azure SQL Database que contiene los datos de salida para la actividad de copia. |
 | Conjunto de datos de entrada de blob de Azure |Hace referencia al servicio vinculado de Azure Storage. El servicio vinculado hace referencia a una cuenta de Azure Storage y los conjuntos de datos del blob de Azure especifican el contenedor, la carpeta y el nombre de archivo del almacenamiento que contiene los datos de entrada. |
 | Conjunto de datos de salida SQL de Azure |Hace referencia al servicio vinculado de Azure SQL. El servicio vinculado de SQL Azure hace referencia a un servidor de Azure SQL y el conjunto de datos de Azure SQL especifica el nombre de la tabla que contiene los datos de salida. |
@@ -382,13 +382,13 @@ Es una cadena única basada en el identificador del grupo de recursos.
 ### <a name="defining-data-factory-entities"></a>Definición de las entidades de Data Factory
 Las siguientes entidades de Data Factory se definen en la plantilla JSON: 
 
-1. [Servicio vinculado de Almacenamiento de Azure](#azure-storage-linked-service)
+1. [Servicio vinculado de Azure Storage](#azure-storage-linked-service)
 2. [Servicio vinculado de Azure SQL](#azure-sql-database-linked-service)
 3. [Conjunto de datos del blob de Azure](#azure-blob-dataset)
 4. [Conjunto de datos de Azure SQL](#azure-sql-dataset)
 5. [Canalización de datos con una actividad de copia](#data-pipeline)
 
-#### <a name="azure-storage-linked-service"></a>Servicio vinculado de Almacenamiento de Azure
+#### <a name="azure-storage-linked-service"></a>Servicio vinculado de Azure Storage
 AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó un contenedor y se cargaron datos en esta cuenta de almacenamiento. Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta sección. Consulte [Servicio vinculado de Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage. 
 
 ```json

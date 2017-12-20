@@ -1,6 +1,6 @@
-Emplee el foro [UserVoice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) para proporcionar comentarios y realizar sugerencias sobre cómo mejorar los Servicios multimedia de Azure. También puede ir directamente a una de las siguientes categorías:
+Emplee el foro [UserVoice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) para proporcionar comentarios y realizar sugerencias sobre cómo mejorar Azure Media Services. También puede ir directamente a una de las siguientes categorías:
 
-* [Reproductor multimedia de Azure](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
+* [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [Bibliotecas de SDK de cliente](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
 * [Codificación y procesamiento](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Streaming en directo](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)

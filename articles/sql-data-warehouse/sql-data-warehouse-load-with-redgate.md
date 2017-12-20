@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: a38b237d5bfc0450c1ca79b53a5784dbb9bf8602
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Carga de datos con Redgate's Data Platform Studio
 > [!div class="op_single_selector"]
@@ -132,7 +132,7 @@ Para más información acerca de Redgate’s Data Platform Studio:
 Para obtener información general acerca de otras formas de migrar y cargar los datos en SQL Data Warehouse, consulte:
 
 * [Migración de una solución a SQL Data Warehouse][Migrate your solution to SQL Data Warehouse]
-* [Carga de datos en Almacenamiento de datos SQL de Azure](sql-data-warehouse-overview-load.md)
+* [Carga de datos en Azure SQL Data Warehouse](sql-data-warehouse-overview-load.md)
 
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
 

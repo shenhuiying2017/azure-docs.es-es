@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: sdanie
 ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-use-azure-redis-cache"></a>Uso de Azure Redis Cache
 > [!div class="op_single_selector"]
@@ -213,7 +213,7 @@ Ahora que está familiarizado con los aspectos básicos, siga estos vínculos pa
 
 * Consulte los proveedores de ASP.NET para Azure Redis Cache.
   * [Proveedor de estado de sesión de Redis de Azure](cache-aspnet-session-state-provider.md)
-  * [Proveedor de caché de resultados de ASP.NET de caché en Redis de Azure](cache-aspnet-output-cache-provider.md)
+  * [Proveedor de caché de resultados de ASP.NET de Azure Redis Cache](cache-aspnet-output-cache-provider.md)
 * [Habilite los diagnósticos de cache](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) el estado de la memoria caché. Puede ver las métricas en Azure Portal y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) mediante las herramientas que prefiera.
 * Compruebe la [documentación del cliente de caché StackExchange.Redis][StackExchange.Redis cache client documentation].
   * Se puede obtener acceso a Azure Redis Cache desde numerosos clientes de Redis y lenguajes de desarrollo. Para más información, consulte [http://redis.io/clients][http://redis.io/clients].

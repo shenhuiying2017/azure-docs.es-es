@@ -1,6 +1,6 @@
 ---
-title: "Visualización de datos de Almacenamiento de datos SQL con Power BI | Microsoft Azure"
-description: "Visualización de datos de Almacenamiento de datos SQL con Power BI"
+title: "Visualización de datos de SQL Data Warehouse con Power BI | Microsoft Azure"
+description: "Visualización de datos de SQL Data Warehouse con Power BI"
 services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de datos SQL y crear unas visualizaciones básicas.
+Este tutorial muestra cómo usar Power BI para conectar con SQL Data Warehouse y crear unas visualizaciones básicas.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
@@ -40,22 +40,22 @@ Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de da
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
-* Una instancia de Almacenamiento de datos SQL cargada previamente con la base de datos de AdventureWorksDW. Para aprovisionarla, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][load sample data manually].
+* Una instancia de SQL Data Warehouse cargada previamente con la base de datos de AdventureWorksDW. Para aprovisionarla, consulte [Creación de una instancia de SQL Data Warehouse][Create a SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][load sample data manually].
 
 ## <a name="1-connect-to-your-database"></a>1. Conectarse a la base de datos
 Para abrir Power BI y conectarse a la base de datos AdventureWorksDW:
 
 1. Inicie sesión en [Azure Portal][Azure portal].
-2. Haga clic en **Bases de datos SQL** y elija su base de datos de Almacenamiento de datos SQL de AdventureWorks.
+2. Haga clic en **SQL Database** y elija su base de datos de SQL Data Warehouse de AdventureWorks.
    
     ![Buscar la base de datos][1]
 3. Haga clic en el botón "Abrir en Power BI".
    
     ![Botón Power BI][2]
-4. Deberá ver la página de conexión de Almacenamiento de datos SQL que muestra la dirección web de la base de datos. Haga clic en Siguiente.
+4. Deberá ver la página de conexión de SQL Data Warehouse que muestra la dirección web de la base de datos. Haga clic en Siguiente.
    
     ![Conexión de Power BI][3]
-5. Escriba el nombre de usuario y la contraseña de Azure SQL Server y se conectará completamente a la base de datos de Almacenamiento de datos SQL.
+5. Escriba el nombre de usuario y la contraseña de Azure SQL Server y se conectará completamente a la base de datos de SQL Data Warehouse.
    
     ![Inicio de sesión de Power BI][4]
 6. Una vez que haya iniciado sesión en Power BI, haga clic en el conjunto de datos AdventureWorksDW en la hoja izquierda. Se abrirá la base de datos.

@@ -1,6 +1,6 @@
 ---
 title: Crear SQL Data Warehouse mediante el uso de Powershell | Microsoft Docs
-description: "Creación de Almacenamiento de datos SQL con Powershell"
+description: "Creación de SQL Data Warehouse con Powershell"
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -16,12 +16,12 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: a763f1c600c1a3f37cb565a8eb7db3c3f27dcf75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-sql-data-warehouse-using-powershell"></a>Creación de Almacenamiento de datos SQL con Powershell
+# <a name="create-sql-data-warehouse-using-powershell"></a>Creación de SQL Data Warehouse con Powershell
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-En este artículo se explica cómo crear un Almacenamiento de datos SQL mediante PowerShell.
+En este artículo se explica cómo crear un SQL Data Warehouse mediante PowerShell.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para empezar, necesitará lo siguiente:
@@ -40,11 +40,11 @@ Para empezar, necesitará lo siguiente:
 * **PowerShell versión 1.0.3 o posterior**: para comprobar la versión, ejecute **Get-Module -ListAvailable -Name Azure**.  Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][Microsoft Web Platform Installer].  Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][How to install and configure Azure PowerShell].
 
 > [!NOTE]
-> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse][SQL Data Warehouse pricing] para más información sobre los precios.
+> La creación de una instancia de SQL Data Warehouse puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse][SQL Data Warehouse pricing] para más información sobre los precios.
 >
 >
 
-## <a name="create-a-sql-data-warehouse"></a>Creación de Almacenamiento de datos SQL
+## <a name="create-a-sql-data-warehouse"></a>Creación de SQL Data Warehouse
 1. Abra Windows PowerShell.
 2. Ejecute este cmdlet para iniciar sesión en el Administrador de recursos de Azure.
 
@@ -65,10 +65,10 @@ Para empezar, necesitará lo siguiente:
 Los parámetros obligatorios son:
 
 * **RequestedServiceObjectiveName**: la cantidad de [DWU][DWU] solicitada.  Los valores admitidos son: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 y DW6000.
-* **DatabaseName**: el nombre del Almacenamiento de datos SQL que está creando.
+* **DatabaseName**: el nombre de SQL Data Warehouse que está creando.
 * **ServerName**: el nombre del servidor que se usa para la creación (tiene que ser V12).
 * **ResourceGroupName**: el grupo de recursos que está usando.  Para buscar grupos de recursos que estén disponibles en su suscripción, use Get-AzureResource.
-* **Edition**: la edición debe ser "DataWarehouse" para crear un Almacenamiento de datos SQL.
+* **Edition**: la edición debe ser "DataWarehouse" para crear un SQL Data Warehouse.
 
 Los parámetros opcionales son:
 

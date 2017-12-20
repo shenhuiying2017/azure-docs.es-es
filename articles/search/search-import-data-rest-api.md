@@ -1,6 +1,6 @@
 ---
 title: Carga de datos (API de REST - Azure Search) | Microsoft Docs
-description: "Aprenda cómo cargar datos en un índice de Búsqueda de Azure con la API de REST."
+description: "Aprenda cómo cargar datos en un índice de Azure Search con la API de REST."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carga de datos en Búsqueda de Azure con la API de REST
+# <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carga de datos en Azure Search con la API de REST
 > [!div class="op_single_selector"]
 >
 > * [Información general](search-what-is-data-import.md)
@@ -30,17 +30,17 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-En este artículo mostraré cómo usar la [API de REST de Búsqueda de Azure](https://docs.microsoft.com/rest/api/searchservice/) para importar datos en un índice de Búsqueda de Azure.
+En este artículo mostraré cómo usar la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) para importar datos en un índice de Azure Search.
 
-Antes de comenzar este tutorial, debe haber [creado ya un índice de Búsqueda de Azure](search-what-is-an-index.md).
+Antes de comenzar este tutorial, debe haber [creado ya un índice de Azure Search](search-what-is-an-index.md).
 
 Para poder insertar documentos en el índice mediante la API de REST, deberá emitir una solicitud HTTP POST al punto de conexión de la dirección URL del índice. El cuerpo de la solicitud HTTP es un objeto JSON que contiene los documentos que se van a agregar, modificar o eliminar.
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio de Búsqueda de Azure
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio Azure Search
 Al emitir solicitudes HTTP en el servicio mediante la API de REST, *cada* solicitud de API debe incluir la clave de API que se generó para el servicio de Búsqueda que aprovisionó. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
 1. Para buscar las claves de API del servicio, puede iniciar sesión en [Azure Portal](https://portal.azure.com/)
-2. Vaya a la hoja de servicio de Búsqueda de Azure
+2. Vaya a la hoja de servicio Azure Search
 3. Haga clic en el icono "Claves"
 
 El servicio tendrá *claves de administración* y *claves de consulta*.
@@ -51,7 +51,7 @@ El servicio tendrá *claves de administración* y *claves de consulta*.
 Para importar datos en un índice, puede usar su clave de administración principal o la secundaria.
 
 ## <a name="decide-which-indexing-action-to-use"></a>Elección de la acción de indexación que va a usar
-Al utilizar la API de REST, emitirá solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del punto de conexión del índice de Búsqueda de Azure. El objeto JSON en el cuerpo de la solicitud HTTP contiene una única matriz JSON denominada "value" que contiene los objetos JSON que representan los documentos que le gustaría agregar, actualizar o eliminar del índice.
+Al utilizar la API de REST, emitirá solicitudes HTTP POST con cuerpos de solicitud JSON a la dirección URL del punto de conexión del índice de Azure Search. El objeto JSON en el cuerpo de la solicitud HTTP contiene una única matriz JSON denominada "value" que contiene los objetos JSON que representan los documentos que le gustaría agregar, actualizar o eliminar del índice.
 
 Cada objeto JSON de la matriz de "value" representa un documento que se va a indexar. Cada uno de estos objetos contiene la clave del documento y especifica la acción de indexación deseada (cargar, combinar, eliminar, etc.). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
 
@@ -175,7 +175,7 @@ Se devolverá un código de estado de `503` si ninguno de los elementos de la so
 >
 >
 
-Para más información sobre las acciones de documentos y las respuestas de éxito o error, consulte [Agregar, actualizar o eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Para más información sobre las acciones de documentos y las respuestas de éxito o error, consulte [Agregar, actualizar o eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de rellenar el índice de Búsqueda de Azure, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Búsqueda de Azure](search-query-overview.md) .
+Después de rellenar el índice de Azure Search, estará listo para iniciar la emisión de consultas para buscar documentos. Para más información, vea [Consultas en Azure Search](search-query-overview.md) .

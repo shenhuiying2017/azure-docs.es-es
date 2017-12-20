@@ -1,6 +1,6 @@
 ---
 title: "Creación de una instancia de SQL Data Warehouse con TSQL | Microsoft Docs"
-description: Aprenda a crear una base de datos de Almacenamiento de datos SQL de Azure con TSQL
+description: Aprenda a crear una base de datos de Azure SQL Data Warehouse con TSQL
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -17,12 +17,12 @@ ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Creación de una base de datos de Almacenamiento de datos SQL mediante Transact-SQL (TSQL)
+# <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Creación de una base de datos de SQL Data Warehouse mediante Transact-SQL (TSQL)
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-En este artículo se explica cómo crear un Almacenamiento de datos SQL mediante T-SQL.
+En este artículo se explica cómo crear un SQL Data Warehouse mediante T-SQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para empezar, necesitará lo siguiente:
@@ -41,12 +41,12 @@ Para empezar, necesitará lo siguiente:
 * **Entorno para ejecutar T-SQL**: puede usar [Visual Studio][Installing Visual Studio and SSDT], [sqlcmd][sqlcmd] o [SSMS][SSMS] para ejecutar T-SQL.
 
 > [!NOTE]
-> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse][SQL Data Warehouse pricing] para más información sobre los precios.
+> La creación de una instancia de SQL Data Warehouse puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse][SQL Data Warehouse pricing] para más información sobre los precios.
 >
 >
 
 ## <a name="create-a-database-with-visual-studio"></a>Creación de una base de datos con Visual Studio
-Si no está familiarizado con Visual Studio, consulte el artículo [Consultas en Azure SQL Data Warehouse (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)].  Para comenzar, abra el Explorador de objetos de SQL Server en Visual Studio y conéctese al servidor que hospedará la base de datos de Almacenamiento de datos SQL.  Una vez conectado, puede crear una instancia de Almacenamiento de datos SQL mediante la ejecución del siguiente comando SQL en la base de datos **maestra** .  Este comando crea la base de datos MySqlDwDb con un objetivo de servicio de DW400 y permite que crezca hasta un tamaño máximo de 10 TB.
+Si no está familiarizado con Visual Studio, consulte el artículo [Consultas en Azure SQL Data Warehouse (Visual Studio)][Query Azure SQL Data Warehouse (Visual Studio)].  Para comenzar, abra el Explorador de objetos de SQL Server en Visual Studio y conéctese al servidor que hospedará la base de datos de SQL Data Warehouse.  Una vez conectado, puede crear una instancia de SQL Data Warehouse mediante la ejecución del siguiente comando SQL en la base de datos **maestra** .  Este comando crea la base de datos MySqlDwDb con un objetivo de servicio de DW400 y permite que crezca hasta un tamaño máximo de 10 TB.
 
 ```sql
 CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);

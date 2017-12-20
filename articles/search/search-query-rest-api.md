@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
 ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="query-your-azure-search-index-using-the-rest-api"></a>Realización de una consulta al índice de Búsqueda de Azure con la API de REST
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>Realización de una consulta al índice de Azure Search con la API de REST
 > [!div class="op_single_selector"]
 >
 > * [Información general](search-query-overview.md)
@@ -33,8 +33,8 @@ Este artículo muestra cómo realizar consultas en un índice con la [API de RES
 
 Antes de comenzar este tutorial, debe haber [creado ya un índice de Azure Search](search-what-is-an-index.md) y [haberlo rellenado con datos](search-what-is-data-import.md). Para información preliminar, vea [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md).
 
-## <a name="identify-your-azure-search-services-query-api-key"></a>Identificación de la clave de API de consulta del servicio de Búsqueda de Azure
-Un componente clave de cada operación de búsqueda en la API de REST de Búsqueda de Azure es la *clave de API* que se generó para el servicio que ha aprovisionado. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identificación de la clave de API de consulta del servicio Azure Search
+Un componente clave de cada operación de búsqueda en la API de REST de Azure Search es la *clave de API* que se generó para el servicio que ha aprovisionado. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
 1. Para buscar las claves de API del servicio, puede iniciar sesión en [Azure Portal](https://portal.azure.com/)
 2. Vaya a la hoja de servicio de Azure Search
@@ -59,7 +59,7 @@ El formato de la solicitud POST es el mismo, pero solo con la versión de API en
 #### <a name="example-queries"></a>Consultas de ejemplo
 Presentamos algunas consultas de ejemplo en un índice llamado "hoteles". Estas consultas se muestran en el formato de las solicitudes GET y POST.
 
-Busque en todo el índice el término "presupuesto" y devuelva solo el campo `hotelName`:
+Busque en todo el índice el término "presupuesto" y devuelva solo el campo `hotelName` :
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
@@ -129,7 +129,7 @@ api-key: [query key]
 }
 ```
 
-Una solicitud de consulta correcta dará como resultado un código de estado de `200 OK` y los resultados de la búsqueda se devuelven como JSON en el cuerpo de la respuesta. Aquí se muestra el aspecto de los resultados de la consulta anterior, suponiendo que el índice "hoteles" se ha rellenado con los datos de ejemplo de [Importación de datos en Búsqueda de Azure con la API de REST](search-import-data-rest-api.md) (tenga en cuenta que se ha aplicado formato a JSON para mayor claridad).
+Una solicitud de consulta correcta dará como resultado un código de estado de `200 OK` y los resultados de la búsqueda se devuelven como JSON en el cuerpo de la respuesta. Aquí se muestra el aspecto de los resultados de la consulta anterior, suponiendo que el índice "hoteles" se ha rellenado con los datos de ejemplo de [Importación de datos en Azure Search con la API de REST](search-import-data-rest-api.md) (tenga en cuenta que se ha aplicado formato a JSON para mayor claridad).
 
 ```JSON
 {
@@ -162,4 +162,4 @@ Una solicitud de consulta correcta dará como resultado un código de estado de 
 }
 ```
 
-Para más información, visite la sección "Respuesta" de [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Para más información, visite la sección "Respuesta" de [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).

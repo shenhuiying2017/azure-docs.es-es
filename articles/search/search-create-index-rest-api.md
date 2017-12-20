@@ -1,6 +1,6 @@
 ---
 title: "Creación de un índice (API de REST - Azure Search) | Microsoft Docs"
-description: "Creación de un índice en código con Búsqueda de Azure y la API de REST de HTTP."
+description: "Creación de un índice en código con Azure Search y la API de REST de HTTP."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="create-an-azure-search-index-using-the-rest-api"></a>Creación de un índice de Búsqueda de Azure con la API de REST
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>Creación de un índice de Azure Search con la API de REST
 > [!div class="op_single_selector"]
 >
 > * [Información general](search-what-is-an-index.md)
@@ -31,17 +31,17 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-Este artículo le guiará a través del proceso de creación de un [índice](https://docs.microsoft.com/rest/api/searchservice/Create-Index) de Búsqueda de Azure mediante la API de REST de Búsqueda de Azure.
+Este artículo le guiará a través del proceso de creación de un [índice](https://docs.microsoft.com/rest/api/searchservice/Create-Index) de Azure Search mediante la API de REST de Azure Search.
 
-Antes de seguir con esta guía y crear un índice, debe haber [creado ya un servicio de Búsqueda de Azure](search-create-service-portal.md).
+Antes de seguir con esta guía y crear un índice, ya debe haber [creado un servicio Azure Search](search-create-service-portal.md).
 
-Para crear un índice de Búsqueda de Azure mediante la API de REST, emita una solicitud HTTP POST al punto de conexión de la dirección URL del servicio Búsqueda de Azure. La definición del índice se incluirá en el cuerpo de la solicitud como contenido JSON con formato correcto.
+Para crear un índice de Azure Search mediante la API de REST, emita una solicitud HTTP POST al punto de conexión de la dirección URL del servicio Azure Search. La definición del índice se incluirá en el cuerpo de la solicitud como contenido JSON con formato correcto.
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio de Búsqueda de Azure
-Ahora que ha aprovisionado un servicio de Búsqueda de Azure, puede emitir solicitudes HTTP en el punto de conexión de la dirección URL de su servicio mediante la API de REST. *Todas* las solicitudes de API deben incluir la clave de API que se generó para el servicio Search que aprovisionó. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificación de la clave de API de administración del servicio Azure Search
+Ahora que ha aprovisionado un servicio Azure Search, puede emitir solicitudes HTTP en el punto de conexión de la dirección URL de su servicio mediante la API de REST. *Todas* las solicitudes de API deben incluir la clave de API que se generó para el servicio Search que aprovisionó. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
 1. Para buscar las claves de API del servicio, debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
-2. Vaya a la hoja de servicio de Búsqueda de Azure
+2. Vaya a la hoja de servicio Azure Search
 3. Haga clic en el icono "Claves"
 
 El servicio tendrá *claves de administración* y *claves de consulta*.
@@ -51,8 +51,8 @@ El servicio tendrá *claves de administración* y *claves de consulta*.
 
 Para crear un índice, puede usar su clave de administración principal o la secundaria.
 
-## <a name="define-your-azure-search-index-using-well-formed-json"></a>Definición del índice de Búsqueda de Azure mediante JSON con formato correcto
-Una única solicitud HTTP POST al servicio permitirá crear el índice. El cuerpo de la solicitud HTTP POST contendrá un único objeto JSON que define el índice de Búsqueda de Azure.
+## <a name="define-your-azure-search-index-using-well-formed-json"></a>Definición del índice de Azure Search mediante JSON con formato correcto
+Una única solicitud HTTP POST al servicio permitirá crear el índice. El cuerpo de la solicitud HTTP POST contendrá un único objeto JSON que define el índice de Azure Search.
 
 1. La primera propiedad de este objeto JSON es el nombre del índice.
 2. La segunda propiedad de este objeto JSON es una matriz JSON denominada `fields` que contiene un objeto JSON independiente para cada campo en el índice. Cada uno de estos objetos JSON contiene varios pares de nombre/valor para cada uno de los atributos del campo incluido "name", "type", etc.
@@ -88,7 +88,7 @@ Tenga en cuenta que solo puede designar un campo en el tipo de índice `Edm.Stri
 La definición del índice anterior usa un analizador de lenguaje para el campo `description_fr` porque está diseñado para almacenar texto en francés. Consulte [el tema de compatibilidad de idiomas](https://docs.microsoft.com/rest/api/searchservice/Language-support) así como la correspondiente [entrada de blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) para más información sobre los analizadores de idiomas.
 
 ## <a name="issue-the-http-request"></a>Emisión de la solicitud HTTP
-1. Mediante el uso de la definición del índice como cuerpo de la solicitud, emita una solicitud HTTP POST a la URL del punto de conexión de servicio de Búsqueda de Azure. En la dirección URL, asegúrese de usar el nombre del servicio como nombre de host y ponga la `api-version` adecuada como parámetro de la cadena de consulta (la versión actual de la API es `2016-09-01` en el momento de publicar este documento).
+1. Mediante el uso de la definición del índice como cuerpo de la solicitud, emita una solicitud HTTP POST a la URL del punto de conexión de servicio Azure Search. En la dirección URL, asegúrese de usar el nombre del servicio como nombre de host y ponga la `api-version` adecuada como parámetro de la cadena de consulta (la versión actual de la API es `2016-09-01` en el momento de publicar este documento).
 2. En los encabezados de solicitud, especifique el `Content-Type` como `application/json`. También necesitará proporcionar la clave de administración del servicio que identificó en el paso I en el encabezado `api-key` .
 
 Tendrá que proporcionar su propia clave de API y su nombre de servicio para emitir la solicitud siguiente:
@@ -98,7 +98,7 @@ Tendrá que proporcionar su propia clave de API y su nombre de servicio para emi
     api-key: [api-key]
 
 
-Para una solicitud correcta, debería ver el código de estado "201 (Created)". Para más información sobre la creación de un índice mediante la API de REST, visite la [referencia sobre la API aquí](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Para una solicitud correcta, debería ver el código de estado "201 (Created)". Para más información sobre la creación de un índice mediante la API de REST, visite la [referencia sobre la API aquí](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 Cuando haya terminado con un índice y desee eliminarlo, simplemente emita una solicitud HTTP DELETE. Por ejemplo, así es cómo se eliminaría el índice "hoteles":
 
@@ -107,4 +107,4 @@ Cuando haya terminado con un índice y desee eliminarlo, simplemente emita una s
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de crear un índice de Búsqueda de Azure, ya podrá [cargar el contenido en el índice](search-what-is-data-import.md) y empezar la búsqueda de los datos.
+Después de crear un índice de Azure Search, ya podrá [cargar el contenido en el índice](search-what-is-data-import.md) y empezar la búsqueda de los datos.

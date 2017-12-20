@@ -1,6 +1,6 @@
 ---
 title: "Conexión a Azure SQL Data Warehouse: VSTS | Microsoft Docs"
-description: Consultas en Almacenamiento de datos SQL con Visual Studio.
+description: Consultas en SQL Data Warehouse con Visual Studio.
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -16,10 +16,10 @@ ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: 1e44c6c3c47034a892753c69c5ef22a5eac18c0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Conexión a SQL Data Warehouse con Visual Studio y SSDT
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Utilice Visual Studio para realizar consultas en Almacenamiento de datos SQL de Azure en unos minutos. Este método usa la extensión SQL Server Data Tools (SSDT) de Visual Studio. 
+Utilice Visual Studio para realizar consultas en Azure SQL Data Warehouse en unos minutos. Este método usa la extensión SQL Server Data Tools (SSDT) de Visual Studio. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar este tutorial, necesitará:
@@ -40,7 +40,7 @@ Para utilizar este tutorial, necesitará:
 * SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga este componente. Para ver opciones e instrucciones de instalación, consulte [Instalación de Visual Studio 2015 y SSDT para SQL Data Warehouse][Installing Visual Studio and SSDT].
 * El nombre del servidor SQL completo. Para encontrarlo, consulte [Conexión a Azure SQL Data Warehouse][Connect to SQL Data Warehouse].
 
-## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conexión a la instancia de Almacenamiento de datos SQL
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conexión a la instancia de SQL Data Warehouse
 1. Abra Visual Studio 2013 o 2015
 2. Abra el Explorador de objetos de SQL Server. Para ello, seleccione **Ver** > **Explorador de objetos de SQL Server**.
    

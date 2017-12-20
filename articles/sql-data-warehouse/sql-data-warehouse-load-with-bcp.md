@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 7596eac10fdf53380d85128265430ce07b551fe3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="load-data-with-bcp"></a>Carga de datos con BCP
 > [!div class="op_single_selector"]
@@ -30,14 +30,14 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-**[bcp][bcp]** es una utilidad de carga masiva de línea de comandos que permite copiar datos entre SQL Server, archivos de datos y SQL Data Warehouse. Use bcp para importar grandes cantidades de filas en tablas de Almacenamiento de datos SQL o para exportar datos de tablas de SQL Server a archivos de datos. Excepto cuando se usa con la opción queryout, bcp no exige ningún conocimiento de Transact-SQL.
+**[bcp][bcp]** es una utilidad de carga masiva de línea de comandos que permite copiar datos entre SQL Server, archivos de datos y SQL Data Warehouse. Use bcp para importar grandes cantidades de filas en tablas de SQL Data Warehouse o para exportar datos de tablas de SQL Server a archivos de datos. Excepto cuando se usa con la opción queryout, bcp no exige ningún conocimiento de Transact-SQL.
 
-bcp es una forma rápida y sencilla de realizar operaciones de introducción y extracción de datos en una base de datos de Almacenamiento de datos SQL. La cantidad exacta de datos que se recomienda para la carga o extracción mediante bcp dependerá de la conexión de red con el centro de datos de Azure.  Por lo general, las tablas de dimensiones se pueden cargar y extraer fácilmente con bcp; sin embargo, no se recomienda bcp para cargar o extraer grandes volúmenes de datos.  Polybase es la herramienta recomendada para cargar y extraer grandes volúmenes de datos, ya que funciona mejor al aprovechar la arquitectura de procesamiento masivamente paralela de Almacenamiento de datos SQL.
+bcp es una forma rápida y sencilla de realizar operaciones de introducción y extracción de datos en una base de datos de SQL Data Warehouse. La cantidad exacta de datos que se recomienda para la carga o extracción mediante bcp dependerá de la conexión de red con el centro de datos de Azure.  Por lo general, las tablas de dimensiones se pueden cargar y extraer fácilmente con bcp; sin embargo, no se recomienda bcp para cargar o extraer grandes volúmenes de datos.  Polybase es la herramienta recomendada para cargar y extraer grandes volúmenes de datos, ya que funciona mejor al aprovechar la arquitectura de procesamiento masivamente paralela de SQL Data Warehouse.
 
 Con bcp puede:
 
-* Usar una utilidad de línea de comandos sencilla para cargar datos en Almacenamiento de datos SQL.
-* Usar una utilidad de línea de comandos sencilla para extraer datos de Almacenamiento de datos SQL.
+* Usar una utilidad de línea de comandos sencilla para cargar datos en SQL Data Warehouse.
+* Usar una utilidad de línea de comandos sencilla para extraer datos de SQL Data Warehouse.
 
 Este tutorial le mostrará cómo:
 
@@ -51,7 +51,7 @@ Este tutorial le mostrará cómo:
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
-* Una base de datos de Almacenamiento de datos SQL
+* Una base de datos de SQL Data Warehouse
 * La utilidad de línea de comandos bcp instalada
 * La utilidad de línea de comandos SQLCMD instalada
 
@@ -60,10 +60,10 @@ Para seguir paso a paso este tutorial, necesita:
 > 
 > 
 
-## <a name="import-data-into-sql-data-warehouse"></a>Importación de datos en Almacenamiento de datos SQL
-En este tutorial, creará una tabla en Almacenamiento de datos SQL de Azure e importará datos en la tabla.
+## <a name="import-data-into-sql-data-warehouse"></a>Importación de datos en SQL Data Warehouse
+En este tutorial, creará una tabla en Azure SQL Data Warehouse e importará datos en la tabla.
 
-### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>Paso 1: Crear una tabla en Almacenamiento de datos SQL de Azure
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>Paso 1: Crear una tabla en Azure SQL Data Warehouse
 Desde un símbolo del sistema, use sqlcmd para ejecutar la consulta siguiente para crear una tabla en la instancia:
 
 ```sql
@@ -141,7 +141,7 @@ Esto debe devolver los siguientes resultados:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Paso 4: Crear estadísticas de los datos recién cargados
-Almacenamiento de datos SQL de Azure todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][Statistics] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
+Azure SQL Data Warehouse todavía no permite crear ni actualizar automáticamente las estadísticas. Con la finalidad de obtener el mejor rendimiento a partir de las consultas, es importante crear estadísticas en todas las columnas de todas las tablas después de la primera carga o después de que se realiza cualquier cambio importante en los datos. Si desea ver una explicación detallada de las estadísticas, consulte el tema [Estadísticas][Statistics] en el grupo de temas relacionados con el desarrollo. A continuación, puede ver un ejemplo rápido de cómo crear estadísticas sobre los datos cargados y organizados en tablas que aparecen en este ejemplo.
 
 Ejecute las siguientes instrucciones CREATE STATISTICS desde un símbolo del sistema sqlcmd:
 
@@ -153,8 +153,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## <a name="export-data-from-sql-data-warehouse"></a>Exportación de datos de Almacenamiento de datos SQL
-En este tutorial, creará un archivo de datos a partir de una tabla de Almacenamiento de datos SQL. Se exportarán los datos creados anteriormente a un nuevo archivo de datos denominado DimDate2_export.txt.
+## <a name="export-data-from-sql-data-warehouse"></a>Exportación de datos de SQL Data Warehouse
+En este tutorial, creará un archivo de datos a partir de una tabla de SQL Data Warehouse. Se exportarán los datos creados anteriormente a un nuevo archivo de datos denominado DimDate2_export.txt.
 
 ### <a name="step-1-export-the-data"></a>Paso 1: Exportar los datos
 Con la utilidad bcp, puede conectarse y exportar los datos con el comando siguiente, reemplazando los valores según corresponda:
@@ -180,13 +180,13 @@ Puede comprobar que los datos se exportaron correctamente abriendo el nuevo arch
 ```
 
 > [!NOTE]
-> Dada la naturaleza de los sistemas distribuidos, puede que el orden de los datos no sea el mismo en todas las bases de datos de Almacenamiento de datos SQL. Otra opción es utilizar la función **queryout** de bcp para escribir una extracción de consultas en lugar de exportar toda la tabla.
+> Dada la naturaleza de los sistemas distribuidos, puede que el orden de los datos no sea el mismo en todas las bases de datos de SQL Data Warehouse. Otra opción es utilizar la función **queryout** de bcp para escribir una extracción de consultas en lugar de exportar toda la tabla.
 > 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información general sobre la carga, vea [Carga de datos en SQL Data Warehouse][Load data into SQL Data Warehouse].
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][SQL Data Warehouse development overview].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
 ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Carga de archivos en una cuenta de Media Services en Azure Portal
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ En Azure Media Services, cargue los archivos digitales en un recurso. El recurso
 
 Cuando haya finalizado la carga, el nuevo recurso se muestra en el panel **Recursos**. 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

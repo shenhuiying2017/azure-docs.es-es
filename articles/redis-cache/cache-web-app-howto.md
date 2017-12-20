@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
 ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>Creación de una aplicación web con Caché en Redis
 > [!div class="op_single_selector"]
@@ -30,13 +30,13 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Este tutorial muestra cómo crear e implementar una aplicación web ASP.NET en una aplicación web de Azure App Service mediante Visual Studio 2017. La aplicación de ejemplo muestra una lista de estadísticas de equipos de una base de datos con distintas formas de usar Caché en Redis de Azure para almacenar y recuperar datos de la caché. Al finalizar el tutorial tendrá una aplicación web en ejecución que lee y escribe en una base de datos, optimizada con Caché en Redis de Azure y hospedada en Azure.
+Este tutorial muestra cómo crear e implementar una aplicación web ASP.NET en una aplicación web de Azure App Service mediante Visual Studio 2017. La aplicación de ejemplo muestra una lista de estadísticas de equipos de una base de datos con distintas formas de usar Azure Redis Cache para almacenar y recuperar datos de la caché. Al finalizar el tutorial tendrá una aplicación web en ejecución que lee y escribe en una base de datos, optimizada con Azure Redis Cache y hospedada en Azure.
 
 Aprenderá a realizar los siguientes procedimientos:
 
 * Crear una aplicación web ASP.NET MVC 5 en Visual Studio.
 * Tener acceso a datos desde una base de datos mediante Entity Framework.
-* Mejorar el rendimiento de los datos y reducir la carga de la base de datos mediante el almacenamiento y la recuperación de los datos con Caché en Redis de Azure.
+* Mejorar el rendimiento de los datos y reducir la carga de la base de datos mediante el almacenamiento y la recuperación de los datos con Azure Redis Cache.
 * Usar un conjunto ordenado de Redis para recuperar los 5 equipos principales.
 * Aprovisionar los recursos de Azure para la aplicación mediante una plantilla de Resource Manager.
 * Publicar la aplicación en Azure con Visual Studio.
@@ -69,7 +69,7 @@ Si tiene Visual Studio 2013, puede [descargar el último SDK de Azure para Visua
 
     Asegúrese de especificar **Sin autenticación** en la opción **Autenticación**. Dependiendo de la versión de Visual Studio, puede establecerse otro valor predeterminado. Para cambiarlo, haga clic en **Cambiar autenticación** y seleccione **Sin autenticación**.
 
-    Si está trabajando con Visual Studio 2015, desactive la casilla **Host en la nube**. En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web del Servicio de aplicaciones desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Implementación de una aplicación web creada con ASP.NET en el Servicio de aplicaciones de Azure mediante Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
+    Si está trabajando con Visual Studio 2015, desactive la casilla **Host en la nube**. En los pasos siguientes del tutorial, deberá [aprovisionar los recursos de Azure](#provision-the-azure-resources) y [publicar la aplicación en Azure](#publish-the-application-to-azure). Para ver un ejemplo de aprovisionamiento de una aplicación web de App Service desde Visual Studio si se deja la casilla **Host en la nube** activada, consulte [Implementación de una aplicación web creada con ASP.NET en Azure App Service mediante Visual Studio](../app-service/app-service-web-get-started-dotnet.md).
    
     ![Seleccionar plantilla de proyecto][cache-select-template]
 4. Haga clic en **Aceptar** para crear el proyecto.
@@ -275,7 +275,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
 ![Aplicación de inicio][cache-starter-application]
 
 ## <a name="configure-the-application-to-use-redis-cache"></a>Configuración de la aplicación para usar Caché en Redis
-En esta sección del tutorial, configurará la aplicación de ejemplo para almacenar y recuperar estadísticas de equipos de Contoso de una instancia de Caché en Redis de Azure mediante el cliente de caché de [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .
+En esta sección del tutorial, configurará la aplicación de ejemplo para almacenar y recuperar estadísticas de equipos de Contoso de una instancia de Azure Redis Cache mediante el cliente de caché de [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .
 
 * [Configurar la aplicación para usar StackExchange.Redis](#configure-the-application-to-use-stackexchangeredis)
 * [Actualizar la clase TeamsController para devolver resultados de la caché o la base de datos](#update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database)
@@ -290,7 +290,7 @@ En esta sección del tutorial, configurará la aplicación de ejemplo para almac
     Install-Package StackExchange.Redis
     ```
    
-    El paquete de NuGet se descarga y agrega las referencias de ensamblado requeridas para que la aplicación cliente acceda a Caché en Redis de Azure con el cliente de caché StackExchange.Redis. Si prefiere usar una versión con nombre seguro de la biblioteca de cliente `StackExchange.Redis`, instale el paquete `StackExchange.Redis.StrongName`.
+    El paquete de NuGet se descarga y agrega las referencias de ensamblado requeridas para que la aplicación cliente acceda a Azure Redis Cache con el cliente de caché StackExchange.Redis. Si prefiere usar una versión con nombre seguro de la biblioteca de cliente `StackExchange.Redis`, instale el paquete `StackExchange.Redis.StrongName`.
 3. En el **Explorador de soluciones**, expanda la carpeta **Controladores** y haga doble clic en **TeamsController.cs** para abrirlo.
    
     ![Controlador de equipos][cache-teamscontroller]
@@ -322,7 +322,7 @@ En esta sección del tutorial, configurará la aplicación de ejemplo para almac
 
 6. Cree un archivo en el equipo llamado `WebAppPlusCacheAppSecrets.config` y colóquelo en una ubicación que no se inserte en el repositorio con el código fuente de la aplicación de ejemplo, si decide insertarlo en alguna parte. En este ejemplo, el archivo `AppSettingsSecrets.config` se encuentra en `C:\AppSecrets\WebAppPlusCacheAppSecrets.config`.
    
-    Edite el archivo `WebAppPlusCacheAppSecrets.config` y agregue el siguiente contenido. Si ejecuta la aplicación localmente, esta información se utiliza para conectarse a la instancia de Caché en Redis de Azure. Más adelante en el tutorial aprovisionará una Caché en Redis de Azure y actualizará el nombre de la caché y la contraseña. Si no tiene pensado ejecutar la aplicación de ejemplo localmente, puede omitir la creación de este archivo y los pasos siguientes que hacen referencia a él, porque cuando realice la implementación en Azure la aplicación no recupera la información de conexión de la caché para la aplicación web de este archivo, sino de la configuración de la aplicación. Dado que `WebAppPlusCacheAppSecrets.config` no se implementa en Azure con la aplicación, no lo necesita a menos que vaya a ejecutar la aplicación de manera local.
+    Edite el archivo `WebAppPlusCacheAppSecrets.config` y agregue el siguiente contenido. Si ejecuta la aplicación localmente, esta información se utiliza para conectarse a la instancia de Azure Redis Cache. Más adelante en el tutorial aprovisionará una instancia de Azure Redis Cache y actualizará el nombre de la caché y la contraseña. Si no tiene pensado ejecutar la aplicación de ejemplo localmente, puede omitir la creación de este archivo y los pasos siguientes que hacen referencia a él, porque cuando realice la implementación en Azure la aplicación no recupera la información de conexión de la caché para la aplicación web de este archivo, sino de la configuración de la aplicación. Dado que `WebAppPlusCacheAppSecrets.config` no se implementa en Azure con la aplicación, no lo necesita a menos que vaya a ejecutar la aplicación de manera local.
 
     ```xml
     <appSettings>
@@ -345,7 +345,7 @@ En esta sección del tutorial, configurará la aplicación de ejemplo para almac
 En este ejemplo, se pueden recuperar estadísticas de equipos de la base de datos o de la caché. Las estadísticas de equipos se almacenan en la memoria caché como un elemento `List<Team>`serializado y también como un conjunto ordenado mediante tipos de datos de Redis. Al recuperar elementos de un conjunto ordenado, puede recuperar algunos, todos o consultar algunos de ellos. En este ejemplo se consulta el conjunto de los 5 equipos principales ordenado por el número de victorias.
 
 > [!NOTE]
-> No es necesario almacenar las estadísticas de equipos en varios formatos en la caché para usar Caché en Redis de Azure. En este tutorial se utilizan varios formatos para demostrar algunas de las diferentes maneras y diferentes tipos de datos que puede usar para almacenar datos en caché.
+> No es necesario almacenar las estadísticas de equipos en varios formatos en la caché para usar Azure Redis Cache. En este tutorial se utilizan varios formatos para demostrar algunas de las diferentes maneras y diferentes tipos de datos que puede usar para almacenar datos en caché.
 > 
 > 
 
@@ -700,9 +700,9 @@ El código de scaffolding que se generó como parte de este ejemplo incluye mét
 ## <a name="provision-the-azure-resources"></a>aprovisionar los recursos de Azure
 Para hospedar la aplicación en Azure, primero debe aprovisionar los servicios de Azure que necesita su aplicación. La aplicación de ejemplo de este tutorial utiliza los siguientes servicios de Azure.
 
-* Caché en Redis de Azure
-* Aplicación web del Servicio de aplicaciones
-* Base de datos SQL
+* Azure Redis Cache
+* Aplicación web de App Service
+* SQL Database
 
 Para implementar estos servicios en un grupo de recursos nuevo o existente de su elección, haga clic en el siguiente botón **Implementar en Azure** .
 
@@ -738,7 +738,7 @@ Puede ver el estado de la implementación en la hoja **Microsoft.Template** .
 Cuando finalice el aprovisionamiento, puede publicar la aplicación en Azure desde Visual Studio.
 
 > [!NOTE]
-> Los errores que pueden producirse durante el proceso de aprovisionamiento se muestran en la hoja **Microsoft.Template** . Algunos errores comunes son demasiadas instancias de SQL Server o demasiados planes de hospedaje del Servicio de aplicaciones gratis por suscripción. Resuelva los errores y reinicie el proceso haciendo clic en **Volver a implementar** en la hoja **Microsoft.Template** o en el botón **Implementar en Azure** de este tutorial.
+> Los errores que pueden producirse durante el proceso de aprovisionamiento se muestran en la hoja **Microsoft.Template** . Algunos errores comunes son demasiadas instancias de SQL Server o demasiados planes de hospedaje de App Service gratis por suscripción. Resuelva los errores y reinicie el proceso haciendo clic en **Volver a implementar** en la hoja **Microsoft.Template** o en el botón **Implementar en Azure** de este tutorial.
 > 
 > 
 
@@ -795,11 +795,11 @@ Transcurridos unos segundos, el grupo de recursos y todos los recursos que conti
 > 
 
 ## <a name="run-the-sample-application-on-your-local-machine"></a>Ejecución de la aplicación de ejemplo en la máquina local
-Para ejecutar la aplicación localmente en su equipo, necesitará una instancia de Caché en Redis de Azure en la que almacenar los datos. 
+Para ejecutar la aplicación localmente en su equipo, necesitará una instancia de Azure Redis Cache en la que almacenar los datos. 
 
-* Si ha publicado la aplicación en Azure como se describe en la sección anterior, puede utilizar la instancia de Caché en Redis de Azure aprovisionada durante ese paso.
-* Si tiene otra instancia de Caché en Redis de Azure, puede utilizarla para ejecutar este ejemplo localmente.
-* Si necesita crear una instancia de Caché en Redis de Azure, puede seguir los pasos que se describen en [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+* Si ha publicado la aplicación en Azure como se describe en la sección anterior, puede utilizar la instancia de Azure Redis Cache aprovisionada durante ese paso.
+* Si tiene otra instancia de Azure Redis Cache, puede utilizarla para ejecutar este ejemplo localmente.
+* Si necesita crear una instancia de Azure Redis Cache, puede seguir los pasos que se describen en [Creación de una caché](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
 Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya hasta ella en Azure Portal y recupere su [nombre de host](cache-configure.md#properties) y sus [claves de acceso](cache-configure.md#access-keys). Para obtener instrucciones, consulte [Configuración de opciones de la memoria caché en Redis](cache-configure.md#configure-redis-cache-settings).
 
@@ -816,7 +816,7 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 1. Presione **Ctrl+F5** para ejecutar la aplicación.
 
 > [!NOTE]
-> Tenga en cuenta que como la aplicación, incluida la base de datos, se ejecuta localmente y Redis Cache está hospedado en Azure, puede parecer que la memoria caché reduce el rendimiento de la base de datos. Para obtener el mejor rendimiento, la aplicación cliente y la instancia de Caché en Redis de Azure deben estar en la misma ubicación. 
+> Tenga en cuenta que como la aplicación, incluida la base de datos, se ejecuta localmente y Redis Cache está hospedado en Azure, puede parecer que la memoria caché reduce el rendimiento de la base de datos. Para obtener el mejor rendimiento, la aplicación cliente y la instancia de Azure Redis Cache deben estar en la misma ubicación. 
 > 
 > 
 
@@ -825,14 +825,14 @@ Cuando haya seleccionado o creado la memoria caché que desea utilizar, vaya has
 * Para obtener más ejemplos de creación de una aplicación web ASP.NET en el Servicio de aplicaciones, consulte [Creación e implementación de una aplicación web ASP.NET en Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) desde la [demostración](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect.
   * Para ver más guías rápidas de la demostración de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 * Más información sobre el enfoque [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542) en Entity Framework que se utiliza en este tutorial.
-* Más información sobre las [aplicaciones web del Servicio de aplicaciones de Azure](../app-service/app-service-web-overview.md).
+* Más información sobre las [aplicaciones web de Azure App Service](../app-service/app-service-web-overview.md).
 * Más información sobre cómo [supervisar](cache-how-to-monitor.md) la memoria caché en el Portal de Azure.
-* Exploración de las características premium de Caché en Redis de Azure
+* Exploración de las características premium de Azure Redis Cache
   
-  * [Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
-  * [Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
-  * [Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
-  * Consulte el artículo [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché de nivel premium.
+  * [Cómo configurar la persistencia para una instancia Azure Redis Cache Premium](cache-how-to-premium-persistence.md)
+  * [Cómo configurar la agrupación en clústeres para una instancia de Azure Redis Cache Premium](cache-how-to-premium-clustering.md)
+  * [Cómo configurar la compatibilidad de red virtual para una instancia de Azure Redis Cache Premium](cache-how-to-premium-vnet.md)
+  * Consulte el artículo [P+F de Azure Redis Cache](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para más información sobre el tamaño, el rendimiento y el ancho de banda de las memorias caché de nivel premium.
 
 <!-- IMAGES -->
 [cache-starter-application]: ./media/cache-web-app-howto/cache-starter-application.png

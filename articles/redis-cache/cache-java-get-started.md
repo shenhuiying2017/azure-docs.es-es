@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Redis Cache con Java | Microsoft Docs
-description: "Introducción a Caché en Redis de Azure usando Java"
+description: "Introducción a Azure Redis Cache usando Java"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 08/31/2017
 ms.author: sdanie
 ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="how-to-use-azure-redis-cache-with-java"></a>Uso de Caché en Redis de Azure con Java
+# <a name="how-to-use-azure-redis-cache-with-java"></a>Uso de Azure Redis Cache con Java
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Caché en Redis de Azure le proporciona acceso a una caché en Redis dedicada, administrada por Microsoft. Se puede obtener acceso a su caché desde cualquier aplicación dentro de Microsoft Azure.
+Azure Redis Cache le proporciona acceso a una caché en Redis dedicada, administrada por Microsoft. Se puede obtener acceso a su caché desde cualquier aplicación dentro de Microsoft Azure.
 
-En este tema se explica cómo comenzar a usar Caché en Redis de Azure mediante Java.
+En este tema se explica cómo comenzar a usar Azure Redis Cache mediante Java.
 
 ## <a name="prerequisites"></a>Requisitos previos
 [Jedis](https://github.com/xetorthio/jedis) - Cliente de Java para Redis
@@ -46,7 +46,7 @@ Este tutorial usa Jedis, pero puede usar cualquier cliente de Java enumerado en 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## <a name="connect-to-the-cache-securely-using-ssl"></a>Conexión a la caché de forma segura mediante SSL
-Las últimas compilaciones de [jedis](https://github.com/xetorthio/jedis) permiten conectarse a Azure Redis Cache mediante SSL. En el ejemplo siguiente se muestra cómo conectarse a Caché en Redis de Azure con el punto de conexión SSL de 6380. Reemplace `<name>` por el nombre de la memoria caché y `<key>` por su clave principal o secundaria, tal como se ha descrito en la sección anterior, [Recuperación del nombre de host y las claves de acceso](#retrieve-the-host-name-and-access-keys).
+Las últimas compilaciones de [jedis](https://github.com/xetorthio/jedis) permiten conectarse a Azure Redis Cache mediante SSL. En el ejemplo siguiente se muestra cómo conectarse a Azure Redis Cache con el punto de conexión SSL de 6380. Reemplace `<name>` por el nombre de la memoria caché y `<key>` por su clave principal o secundaria, tal como se ha descrito en la sección anterior, [Recuperación del nombre de host y las claves de acceso](#retrieve-the-host-name-and-access-keys).
 
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */

@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: fbf538383a96fc1789f54994c1c4a1c1d9f96bec
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de una API de REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/02/2017
 > 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-rest-api.md). 
+> Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, vea el [tutorial de la actividad de copia en la documentación de la versión 2](../quickstart-create-data-factory-rest-api.md). 
 
 En este artículo, aprenderá a usar una API de REST para crear una factoría de datos con una canalización que copia datos desde Azure Blob Storage en Azure SQL Database. Si no está familiarizado con Azure Data Factory, lea el artículo [Introducción a Azure Data Factory](data-factory-introduction.md) antes de realizar este tutorial.   
 
@@ -327,7 +327,7 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
 ```
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
-En este paso, creará una instancia de Data Factory de Azure llamada **ADFCopyTutorialDF**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos de un almacén de datos de origen a uno de destino. Una actividad de Hive de HDInsight para ejecutar un script de Hive y convertir los datos de entrada en datos de salida del producto. Ejecute los siguientes comandos para crear la factoría de datos: 
+En este paso, creará una instancia de Azure Data Factory llamada **ADFCopyTutorialDF**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos de un almacén de datos de origen a uno de destino. Una actividad de Hive de HDInsight para ejecutar un script de Hive y convertir los datos de entrada en datos de salida del producto. Ejecute los siguientes comandos para crear la factoría de datos: 
 
 1. Asigne el comando a la variable denominada **cmd**. 
    
@@ -350,7 +350,7 @@ En este paso, creará una instancia de Data Factory de Azure llamada **ADFCopyTu
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre de la Factoría de datos de Azure debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:  
+* El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:  
   
   1. Cambie el nombre (por ejemplo, suNombreADFCopyTutorialDF) en el archivo **datafactory.json** .
   2. En el primer comando donde se asigna un valor a la variable **$cmd** , reemplace ADFCopyTutorialDF por el nuevo nombre y ejecute el comando. 
@@ -382,7 +382,7 @@ AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de 
 
 AzureSqlLinkedService vincula la base de datos SQL de Azure con la factoría de datos. Los datos que se copian desde Blob Storage se almacenan en esta base de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó la tabla emp en esta base de datos.  
 
-### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Almacenamiento de Azure
+### <a name="create-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
 En este paso, vinculará su cuenta de Azure Storage con su factoría de datos. Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta sección. Consulte [Servicio vinculado de Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) para más información sobre las propiedades JSON usadas para definir un servicio vinculado de Azure Storage.  
 
 1. Asigne el comando a la variable denominada **cmd**. 
@@ -486,7 +486,7 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
     Write-Host $results
     ```
 
-**¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, con una canalización que copia datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
+**¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, con una canalización que copia datos desde Azure Blob Storage a Azure SQL Database.
 
 ## <a name="monitor-pipeline"></a>Supervisión de la canalización
 En este paso, utilizará la API de REST de Data Factory para supervisar los segmentos que la canalización está produciendo.
@@ -523,7 +523,7 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 
 1. Ha creado una **factoría de datos**de Azure.
 2. Ha creado **servicios vinculados**:
-   1. Un servicio vinculado Almacenamiento de Azure para vincular la cuenta de Almacenamiento de Azure que contiene datos de entrada.     
+   1. Un servicio vinculado Azure Storage para vincular la cuenta de Azure Storage que contiene datos de entrada.     
    2. Un servicio vinculado SQL Azure para vincular la base de datos SQL de Azure que contiene los datos de salida. 
 3. Ha creado **conjuntos de datos**que describen los datos de entrada y salida para las canalizaciones.
 4. Ha creado una **canalización** con una actividad de copia con un origen BlobSource y un receptor SqlSink. 
