@@ -3,8 +3,8 @@ title: "Introducción a DNS de Azure con Azure Portal | Microsoft Docs"
 description: "Obtenga información sobre cómo crear una zona y un registro DNS en Azure DNS. Esta es una guía paso a paso para crear y administrar su primera zona y su primer registro DNS con Azure Portal."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Introducción a DNS de Azure con Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [CLI de Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [CLI de Azure 2.0](dns-getstarted-cli.md)
 
 Este artículo lo guiará por los pasos necesarios para crear su primera zona y su primer registro DNS con Azure Portal. También puede llevar a cabo estos pasos con Azure PowerShell o la CLI de Azure multiplataforma.
@@ -36,11 +35,11 @@ Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
 1. Inicie sesión en el Portal de Azure.
-2. En el menú Concentrador, haga clic en **Nuevo > Redes >** y, luego, en **Zona DNS** para abrir la hoja Crear zona DNS.
+2. En el menú central, haga clic en **Nuevo > Redes >** y en **Zona DNS** para abrir la página **Crear zona DNS**.
 
     ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. En la hoja **Crear zona DNS**, escriba los valores siguientes y haga clic en **Crear**:
+4. En la página **Crear zona DNS**, escriba los valores siguientes y haga clic en **Crear**:
 
 
    | **Configuración** | **Valor** | **Detalles** |
@@ -57,11 +56,11 @@ Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para
 
 En el ejemplo siguiente, se le guiará a través del proceso de creación de un registro A. Para crear otros tipos de registros y modificar los que ya existan, consulte [Administración de registros y conjuntos de registros DNS mediante Azure Portal](dns-operations-recordsets-portal.md). 
 
-1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en la zona DNS **contoso.com** en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **contoso.com** en el cuadro **Filtrar por nombre...** para acceder fácilmente a la zona DNS.
+1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en la zona DNS **contoso.com** en la página Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir **contoso.com** en el cuadro **Filtrar por nombre...** para acceder fácilmente a la zona DNS.
 
-1. En la parte superior de la hoja **Zona DNS**, seleccione **+ Conjunto de registros** para abrir la hoja **Agregar conjunto de registros**.
+1. En la parte superior de la página **Zona DNS**, seleccione **+ Conjunto de registros** para abrir la página **Agregar conjunto de registros**.
 
-1. En la hoja **Agregar conjunto de registros**, escriba los valores siguientes y haga clic en **Aceptar**. En este ejemplo, va a crear un registro A.
+1. En la página **Agregar conjunto de registros**, escriba los valores siguientes y haga clic en **Aceptar**. En este ejemplo, va a crear un registro A.
 
    |**Configuración** | **Valor** | **Detalles** |
    |---|---|---|
@@ -73,7 +72,7 @@ En el ejemplo siguiente, se le guiará a través del proceso de creación de un 
 
 ## <a name="view-records"></a>Visualización de los registros
 
-En la parte inferior de la hoja Zona DNS, puede consultar los registros correspondientes a la zona DNS. Debería ver los registros SOA y DNS predeterminados, que se crean en cada zona, además de todos los nuevos que haya creado.
+En la parte inferior de la página Zona DNS, puede consultar los registros correspondientes a la zona DNS. Debería ver los registros SOA y DNS predeterminados, que se crean en cada zona, además de todos los nuevos que haya creado.
 
 ![zona](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Estos servidores de nombres deben configurarse con el registrador de nombres de 
 
 Para eliminar todos los recursos creados en este artículo, complete los pasos siguientes:
 
-1. En el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en el grupo de recursos **MyResourceGroup** en la hoja Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, escriba **MyResourceGroup** en el cuadro **Filtrar por nombre...** para acceder fácilmente al grupo de recursos.
-1. En la hoja **MyResourceGroup**, haga clic en el botón **Eliminar**.
+1. En el panel **Favoritos** de Azure Portal, haga clic en **Todos los recursos**. Haga clic en el grupo de recursos **MyResourceGroup** en la página Todos los recursos. Si la suscripción que seleccionó ya tiene varios recursos en ella, escriba **MyResourceGroup** en el cuadro **Filtrar por nombre...** para acceder fácilmente al grupo de recursos.
+1. En la página **MyResourceGroup**, haga clic en el botón **Eliminar**.
 1. El portal requiere que escriba el nombre del grupo de recursos para confirmar que desea eliminarlo. Haga clic en **Eliminar**, escriba *MyResourceGroup* para el nombre de grupo de recursos y haga clic en **Eliminar**. Al eliminarse un grupo de recursos, se eliminan todos los recursos que contiene, por lo que siempre debe asegurarse de comprobar su contenido antes de eliminarlo. El portal elimina todos los recursos incluidos en el grupo de recursos y, después, el grupo de recursos en sí. Este proceso tarda varios minutos.
 
 

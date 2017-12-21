@@ -38,6 +38,10 @@
           href: how-to-vscode-develop-csharp-module.md
         - name: 'Depuración del módulo de C#'
           href: how-to-vscode-debug-csharp-module.md
+        - name: Desarrollo e implementación de Azure Functions
+          href: how-to-vscode-develop-azure-function.md
+        - name: Depuración de Azure Functions
+          href: how-to-vscode-debug-azure-function.md
     - name: Solución de problemas
       href: troubleshoot.md
 - name: Conceptos

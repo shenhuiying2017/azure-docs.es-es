@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Documentación de Azure Policy"
+metadata:
+  title: "Documentación de Azure Policy: tutoriales y referencia de API | Microsoft Docs"
+  description: "Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y acciones a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas."
+  services: azure-policy
+  author: czeumault
+  manager: carolz
+  ms.service: azure-policy
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/18/2017
+  ms.author: carolz
+  ms.openlocfilehash: b5945fe76973aba267b529078466c7a97e5e6421
+  ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 12/20/2017
+abstract:
+  description: "Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y acciones a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas."
+sections:
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: Aprenda a crear, asignar y administrar definiciones de directivas en Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/azure-policy/assign-policy-definition
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/azure-policy/assign-policy-definition-ps
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+      text: CLI de Azure
+      href: /azure/azure-policy/assign-policy-definition-cli
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a crear, asignar y administrar definiciones de directivas en Azure.
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/azure-policy/create-manage-policy\">Creación y administración de Azure Policy</a>"
+- title: Muestras
+  items:
+  - type: paragraph
+    text: Los siguientes ejemplos de JSON pueden ayudarle a crear definiciones de directivas en Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Línea de comandos"
+      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/policy">CLI de Azure</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>

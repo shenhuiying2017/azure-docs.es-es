@@ -22,6 +22,8 @@
 
 # Procedimientos
 ## Planeamiento y diseño
+### [Identidad de servicio administrada (versión preliminar)](event-hubs-managed-service-identity.md)
+### [Control de acceso basado en rol (versión preliminar)](event-hubs-role-based-access-control.md)
 ### [Recuperación ante desastres con localización geográfica y replicación geográfica](event-hubs-geo-dr.md)
 ### [Event Hubs dedicado](event-hubs-dedicated-overview.md)
 ### [Introducción al modelo de autenticación y seguridad](event-hubs-authentication-and-security-model-overview.md)

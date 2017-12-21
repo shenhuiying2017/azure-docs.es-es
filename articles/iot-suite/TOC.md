@@ -48,6 +48,10 @@
 ### [Introducción a la solución de fábrica conectada](iot-suite-connected-factory-overview.md)
 ### [Tutorial de soluciones de fábrica conectadas](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Simulación de dispositivos
+### [Implementación de simulación de dispositivos](iot-suite-device-simulation-deploy.md)
+### [Exploración de simulación de dispositivos](iot-suite-device-simulation-explore.md)
+
 # Guías de procedimientos
 ## Supervisión remota
 ### [Supervisión avanzada](iot-suite-remote-monitoring-monitor.md)

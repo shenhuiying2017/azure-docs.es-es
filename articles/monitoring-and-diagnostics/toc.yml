@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Usar Autoscale
       items:
+        - name: Información acerca de la configuración de escalado automático
+          href: monitoring-understanding-autoscale-settings.md
         - name: Prácticas recomendadas
           href: insights-autoscale-best-practices.md
         - name: Métricas comunes

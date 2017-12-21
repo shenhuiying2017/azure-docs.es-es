@@ -26,6 +26,8 @@
 
 # Procedimientos
 ## Planeamiento y diseño
+### [Identidad de servicio administrada (versión preliminar)](service-bus-managed-service-identity.md)
+### [Control de acceso basado en rol (versión preliminar)](service-bus-role-based-access-control.md)
 ### [Mensajería premium](service-bus-premium-messaging.md)
 ### [Comparación de colas de Azure con colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Optimización del rendimiento](service-bus-performance-improvements.md)

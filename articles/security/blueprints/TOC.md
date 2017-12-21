@@ -18,7 +18,8 @@
 ### [Gobierno en Azure](../governance-in-azure.md)
 ### [Cifrado de datos en reposo](../azure-security-encryption-atrest.md)
 ### Proyectos de arquitectura
-#### [Cumplimiento: PCI DSS](payment-processing-blueprint.md)
+#### Cumplimiento: PCI DSS
+##### [Procesamiento de pagos para entornos compatibles con PCI DSS](payment-processing-blueprint.md)
 ##### [Información general sobre requisitos](pci-dss-requirements-overview.md)
 ##### [Requisito 1: firewalls](pci-dss-requirement-1-firewall.md)
 ##### [Requisito 2: contraseñas](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Requisito 10: supervisión](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11: pruebas](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12: directiva](pci-dss-requirement-12-policy.md)
-#### [Cumplimiento: FedRAMP](fedramp.md)
+#### Cumplimiento: FedRAMP
+##### [Aplicaciones web para FedRAMP](fedramp.md)
 ##### [Introducción a los controles de seguridad](fedramp-controls-overview.md)
 ##### [Control de acceso](fedramp-access-controls.md)
 ##### [Auditoría y responsabilidad](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Protección del sistema y de las comunicaciones](fedramp-system-communications-protection-controls.md)
 ##### [Integridad del sistema y de la información](fedramp-system-information-integrity-controls.md)
 ##### [Adquisición del sistema y los servicios](fedramp-system-services-acquisition-controls.md)
-#### [Cumplimiento: UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### Cumplimiento: UK-OFFICIAL
+##### [Aplicaciones web de tres niveles para UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Información general](uk-official-three-tier-applications-overview.md)
 ##### [Información general acerca de los principios](uk-official-three-tier-applications-principles-overview.md)
-#### [Cumplimiento normativo: Servicios financieros](financial-services-regulated-workloads.md)
+#### Cumplimiento normativo: Servicios financieros
 ##### [Servicios financieros para cargas de trabajo reguladas](financial-services-regulated-workloads.md)
 
 # Introducción

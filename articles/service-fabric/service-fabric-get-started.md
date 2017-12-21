@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: c22d516506ae89d8591e8fe162347e115a89cb34
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Se admiten las siguientes versiones de sistemas operativos para desarrollo:
 
 ## <a name="install-the-sdk-and-tools"></a>Instalación de SDK y herramientas
 ### <a name="to-use-visual-studio-2017"></a>Cómo usar Visual Studio 2017
-Las herramientas de Service Fabric forman parte de la carga de trabajo de Azure Development and Management de Visual Studio 2017. Habilite esta carga de trabajo durante la instalación de Visual Studio.
+Las herramientas de Service Fabric forman parte de la carga de trabajo de Azure Development de Visual Studio 2017. Habilite esta carga de trabajo durante la instalación de Visual Studio.
 Además, debe instalar el SDK de Microsoft Azure Service Fabric mediante el Instalador de plataforma web.
 
 * [Instalación del SDK de Microsoft Azure Service Fabric][core-sdk]

@@ -13,18 +13,21 @@
 ## [Creación de un modelo en Azure Portal (versión preliminar)](analysis-services-create-model-portal.md)
 
 # Procedimiento 
-## [Administración de un servicio](analysis-services-manage.md)
-## [Administración de usuarios de base de datos](analysis-services-database-users.md)
-## [Administración de administradores de servidor](analysis-services-server-admins.md)
-## [Supervisión de las métricas del servidor](analysis-services-monitor.md)
 ## [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)
-## [Obtención de bibliotecas de clientes](analysis-services-data-providers.md)
 ## [Copia de seguridad y restauración](analysis-services-backup.md)
+## [Realización de una actualización con la API de REST](analysis-services-async-refresh.md)
 ## [Configuración de la escalabilidad horizontal](analysis-services-scale-out.md)
-## [Configuración de un alias de nombre del servidor](analysis-services-server-alias.md)
-## [Conexión con Excel](analysis-services-connect-excel.md)
-## [Conexión con Power BI](analysis-services-connect-pbi.md)
-## [Creación de un archivo .odc](analysis-services-odc.md)
+## Administración de servidor
+### [Configuración de un alias de nombre del servidor](analysis-services-server-alias.md)
+### [Administración de un servicio](analysis-services-manage.md)
+### [Administración de usuarios de base de datos](analysis-services-database-users.md)
+### [Administración de administradores de servidor](analysis-services-server-admins.md)
+### [Supervisión de las métricas del servidor](analysis-services-monitor.md)
+## Conectar
+### [Obtención de bibliotecas de clientes](analysis-services-data-providers.md)
+### [Conexión con Excel](analysis-services-connect-excel.md)
+### [Conexión con Power BI](analysis-services-connect-pbi.md)
+### [Creación de un archivo .odc](analysis-services-odc.md)
 ## Tutoriales
 ### [Tutorial de Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lección 1: Creación de un nuevo proyecto de modelo tabular](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

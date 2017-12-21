@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Introducción a la creación de soluciones con la biblioteca de cliente de Batch para .NET
 
@@ -123,11 +123,11 @@ En las secciones siguientes, se desglosarán los pasos que lleva a cabo la aplic
 
 Para comenzar con el paso 1, vaya a la parte superior del método `MainAsync` en el archivo `Program.cs` del proyecto *DotNetTutorial*. Los pasos que se describen a continuación siguen aproximadamente la progresión de las llamadas al método en `MainAsync`.
 
-## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Storage
+## <a name="step-1-create-storage-containers"></a>Paso 1: Crear contenedores de Almacenamiento
 ![Crear contenedores en Azure Storage][1]
 <br/>
 
-Batch incluye compatibilidad integrada para interactuar con Azure Storage. Los contenedores de la cuenta de Storage proporcionarán los archivos que necesitarán las tareas que se ejecutan en la cuenta de Batch. Los contenedores también proporcionan un lugar para almacenar los datos de salida que producen las tareas. Lo primero que hace la aplicación cliente *DotNetTutorial* es crear tres contenedores en [Azure Blob Storage](../storage/common/storage-introduction.md):
+Batch incluye compatibilidad integrada con la interacción con Azure Storage. Los contenedores de la cuenta de Storage proporcionarán los archivos que necesitarán las tareas que se ejecutan en la cuenta de Batch. Los contenedores también proporcionan un lugar para almacenar los datos de salida que producen las tareas. Lo primero que hace la aplicación cliente *DotNetTutorial* es crear tres contenedores en [Azure Blob Storage](../storage/common/storage-introduction.md):
 
 * **application**: este contenedor almacenará la aplicación ejecutada por las tareas, así como todas sus dependencias, como los archivos DLL.
 * **input**: las tareas descargarán los archivos de datos que se van a procesar desde el contenedor *input* .
@@ -509,7 +509,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## <a name="step-6-monitor-tasks"></a>Paso 6: Supervisar tareas
 ![Supervisar tareas][6]<br/>
-*La aplicación cliente (1) supervisa las tareas para comprobar que han finalizado y que el estado es correcto y (2) las tareas cargan los datos resultantes en Azure Storage.*
+*La aplicación cliente (1) supervisa las tareas que comprueban la finalización y que el estado es correcto y (2) las tareas cargan los datos resultantes en Azure Storage.*
 
 Cuando las tareas se agregan a un trabajo, automáticamente se ponen en cola y se programan para su ejecución en los nodos de ejecución del grupo asociado al trabajo. Según la configuración que especifique, Batch controla la administración de las colas, programación y reintentos de todas las tareas, así como otros cometidos de administración de tareas por usted.
 
