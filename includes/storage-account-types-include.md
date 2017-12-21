@@ -19,7 +19,7 @@ Las cuentas de Almacenamiento de blobs exponen el atributo **Nivel de acceso** q
 * Un nivel de acceso **Frecuente** que indica que se accederá con mayor frecuencia a los objetos de la cuenta de almacenamiento. Esto le permite almacenar datos a un costo de acceso mucho menor.
 * Un nivel de acceso **Esporádico** que indica que se accederá con menor frecuencia a los objetos de la cuenta de almacenamiento. Esto le permite almacenar datos a un costo de almacenamiento de datos mucho menor.
 
-Si hay un cambio en el patrón de uso de los datos, también se puede cambiar de nivel de acceso en cualquier momento. El cambio del nivel de acceso puede conllevar cargos adicionales. Para más información, consulte [Precios y facturación](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) .
+Si hay un cambio en el patrón de uso de los datos, también se puede cambiar de nivel de acceso en cualquier momento. El cambio del nivel de acceso puede conllevar cargos adicionales. Para más información, consulte [Precios y facturación](../articles/storage/common/storage-account-options.md#pricing-and-billing) .
 
 Para más información acerca de las cuentas de Blob Storage, consulte [Azure Blob Storage: niveles de acceso Esporádico y Frecuente](../articles/storage/blobs/storage-blob-storage-tiers.md).
 

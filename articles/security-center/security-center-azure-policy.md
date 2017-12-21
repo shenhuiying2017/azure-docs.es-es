@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integración de las directivas de seguridad de Security Center con Azure Policy
 Este artículo le ayuda a configurar las directivas de seguridad de Azure Security Center, que se basan en Azure Policy. 
@@ -39,14 +39,14 @@ Puede editar la directiva de seguridad predeterminada de cada una de las suscrip
 
 2. En el panel **Security Center**, en **General**, seleccione **Directiva de seguridad**.
 
-    ![El panel Administración de directivas](./media/security-center-policies/security-center-policies-fig10.png)
+    ![El panel Administración de directivas](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Seleccione la suscripción para la que quiere habilitar una directiva de seguridad.  
 
 4. En la sección **Componentes de la directiva**, seleccione **Directiva de seguridad**.  
     Se abre la ventana **Aspectos básicos**.
 
-    ![Componentes de la directiva](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Componentes de la directiva](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Para eliminar una definición de directiva, en **Policies and Parameters** (Directivas y parámetros), al lado de la definición que quiere eliminar, seleccione **Eliminar**.
 
@@ -57,12 +57,12 @@ Puede editar la directiva de seguridad predeterminada de cada una de las suscrip
 
     * Para agregar una definición de directiva, seleccione el signo más (+) situado junto a la definición.
 
-    ![Definiciones de directiva disponibles](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Definiciones de directiva disponibles](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Para obtener una explicación detallada de una directiva, selecciónela.  
     Se abre una ventana de **vista previa** de la definición. En ella se muestra una descripción de la definición y un vínculo al código JSON que proporciona la estructura de la [definición de directiva](../azure-policy/policy-definition.md).
 
-    ![La ventana de vista previa de la definición](./media/security-center-policies/security-center-policies-fig14.png)
+    ![La ventana de vista previa de la definición](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Cuando termine de editar, seleccione **Guardar**.
 

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: 6e20cf37f039f6bec32aee712a4d3c564d54cfc6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Acerca de las cuentas de almacenamiento de Azure
 
@@ -99,7 +99,7 @@ Después de crear la cuenta de almacenamiento, puede modificar su configuración
 
 Si se cambia la opción de replicación, cambiarán los precios. Consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para más información.
 
-Para las cuentas de Almacenamiento de blobs, cambiar el nivel de acceso puede generar cargos por el cambio, además de cambios en el precio. Consulte [Cuentas de Almacenamiento de blobs: precios y facturación](../blobs/storage-account-options.md#pricing-and-billing) para más información.
+Para las cuentas de Almacenamiento de blobs, cambiar el nivel de acceso puede generar cargos por el cambio, además de cambios en el precio. Consulte [Cuentas de Almacenamiento de blobs: precios y facturación](storage-account-options.md#pricing-and-billing) para más información.
 
 ### <a name="manage-your-storage-access-keys"></a>Administración de las claves de acceso de almacenamiento
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.

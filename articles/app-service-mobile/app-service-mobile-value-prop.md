@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started"></a>Acerca de Mobile Apps en Azure App Service
 Azure App Service es una [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) completamente administrada para desarrolladores profesionales. El servicio ofrece un amplio conjunto de funcionalidades para escenarios web, móviles y de integración. 
@@ -88,7 +88,7 @@ Para obtener más información sobre la plataforma Azure App Service, consulte [
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [introducción]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [características de autenticación]: ./app-service-mobile-auth.md
 [características de datos]: ./app-service-mobile-offline-data-sync.md
 [características de notificaciones push]: ../notification-hubs/notification-hubs-push-notification-overview.md

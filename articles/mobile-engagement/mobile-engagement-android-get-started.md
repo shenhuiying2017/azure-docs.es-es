@@ -14,17 +14,17 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso de su aplicación y cómo enviar notificaciones push a los usuarios segmentados de una aplicación de Android.
-En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, creará una aplicación en blanco de Android que recopila datos básicos y recibe notificaciones de inserción con el Servicio de mensajería en la nube de Google (GCM).
+En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, creará una aplicación vacía de Android que recopile datos básicos y reciba notificaciones push mediante Google Cloud Messaging (GCM).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial se requieren la [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html), que incluyen el entorno de desarrollo integrado de Android Studio y la última plataforma de Android.
@@ -93,7 +93,8 @@ Ahora Android Studio crea la aplicación de demostración en la que integraremos
         import com.microsoft.azure.engagement.EngagementConfiguration;
 3. Vuelva al Portal de Azure clásico en la página **Información de conexión** de la aplicación y copie el valor de **Cadena de conexión**.
 
-      ![][9]
+      ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
+
 4. Péguelo en el parámetro `setConnectionString`, reemplazando la cadena completa que se muestra en el código siguiente:
 
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
