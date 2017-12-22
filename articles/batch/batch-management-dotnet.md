@@ -17,24 +17,24 @@ ms.date: 04/24/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eafde9258222a2ab09ade2e366f9cc595a303dec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Administración de cuentas y cuotas de Batch con la biblioteca cliente de administración de Batch para .NET
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](batch-account-create-portal.md)
-> * [NET de Administración de Lote](batch-management-dotnet.md)
+> * [Batch Management .NET](batch-management-dotnet.md)
 > 
 > 
 
 Puede reducir la sobrecarga de mantenimiento en las aplicaciones de Azure Batch con la biblioteca [Batch Management .NET][api_mgmt_net] para automatizar la creación, eliminación, administración de claves y detección de cuota de las cuentas de Batch.
 
-* **Cree y elimine cuentas de Lote** en cualquier región. Por ejemplo, si como proveedor de software independiente (ISV) proporciona un servicio a los clientes en el que a cada uno se le asigna una cuenta de Lote independiente para la facturación, puede agregar capacidades de creación y eliminación de la cuenta al portal del cliente.
-* **Recupere y regenere claves de la cuenta** mediante programación para cualquiera de sus cuentas de Lote. Esto puede ayudarle a cumplir las directivas de seguridad que exigen la sustitución periódica de las claves de cuenta. Si tiene varias cuentas de Batch en distintas regiones de Azure, la automatización de este proceso de sustitución mejorará la eficacia de la solución.
-* **Compruebe las cuotas de la cuenta** y elimine las incertidumbres al determina los límites de cada cuenta de Lote. Si comprueba las cuotas de las cuentas antes de iniciar un trabajo, crear un grupo o agregar un nodo de procesos, podrá ajustar de forma proactiva el lugar y el momento en que se crean estos recursos de proceso. Puede determinar qué cuentas requieren un aumento de la cuota antes de asignarles recursos adicionales.
+* **Cree y elimine cuentas de Batch** en cualquier región. Por ejemplo, si como proveedor de software independiente (ISV) proporciona un servicio a los clientes en el que a cada uno se le asigna una cuenta de Batch independiente para la facturación, puede agregar capacidades de creación y eliminación de la cuenta al portal del cliente.
+* **Recupere y regenere claves de la cuenta** mediante programación para cualquiera de sus cuentas de Batch. Esto puede ayudarle a cumplir las directivas de seguridad que exigen la sustitución periódica de las claves de cuenta. Si tiene varias cuentas de Batch en distintas regiones de Azure, la automatización de este proceso de sustitución mejorará la eficacia de la solución.
+* **Compruebe las cuotas de la cuenta** y elimine las incertidumbres al determina los límites de cada cuenta de Batch. Si comprueba las cuotas de las cuentas antes de iniciar un trabajo, crear un grupo o agregar un nodo de procesos, podrá ajustar de forma proactiva el lugar y el momento en que se crean estos recursos de proceso. Puede determinar qué cuentas requieren un aumento de la cuota antes de asignarles recursos adicionales.
 * **Combine las características de otros servicios de Azure** para una experiencia completa de administración, para lo que debe sacar provecho a la vez de la biblioteca Batch Management .NET, [Azure Active Directory][aad_about] y [Azure Resource Manager][resman_overview] en la misma aplicación. Mediante el uso de estas características y sus API puede proporcionar una experiencia de autenticación sin fricciones, la capacidad para crear y eliminar grupos de recursos, y las funcionalidades que se han descrito anteriormente para una solución de administración de un extremo a otro.
 
 > [!NOTE]
@@ -42,10 +42,10 @@ Puede reducir la sobrecarga de mantenimiento en las aplicaciones de Azure Batch 
 > 
 > 
 
-## <a name="create-and-delete-batch-accounts"></a>Cree y elimine cuentas de Lote
+## <a name="create-and-delete-batch-accounts"></a>Cree y elimine cuentas de Batch
 Tal y como se mencionó anteriormente, una de las principales características de Batch Management API es la creación y eliminación de cuentas de Batch en una región de Azure. Para ello, usará [BatchManagementClient.Account.CreateAsync][net_create] y [DeleteAsync][net_delete], o sus contrapartidas sincrónicas.
 
-El fragmento de código siguiente crea una cuenta, obtiene la cuenta recién creada del servicio Lote y la elimina. En este y otros fragmentos de código que aparecen en el artículo, `batchManagementClient` es una instancia completamente inicializada de [BatchManagementClient][net_mgmt_client].
+El fragmento de código siguiente crea una cuenta, obtiene la cuenta recién creada del servicio Batch y la elimina. En este y otros fragmentos de código que aparecen en el artículo, `batchManagementClient` es una instancia completamente inicializada de [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
@@ -94,11 +94,11 @@ BatchAccountRegenerateKeyResponse newKeys =
 > 
 > 
 
-## <a name="check-azure-subscription-and-batch-account-quotas"></a>Comprobación de la suscripción de Azure y cuotas de la cuenta de Lote
-Las suscripciones de Azure y los servicios individuales de Azure, como Lote, tienen cuotas predeterminadas que limitan el número de determinadas entidades que contienen. Para conocer las cuotas predeterminadas de las suscripciones de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md). Para conocer las cuotas predeterminadas del servicio Lote, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md). Con la biblioteca Batch Management .NET, pude comprobar estas cuotas en sus aplicaciones. Esto le permite tomar decisiones sobre la asignación antes de agregar cuentas o recursos de proceso como los grupos y nodos de ejecución.
+## <a name="check-azure-subscription-and-batch-account-quotas"></a>Comprobación de la suscripción de Azure y cuotas de la cuenta de Batch
+Las suscripciones de Azure y los servicios individuales de Azure, como Batch, tienen cuotas predeterminadas que limitan el número de determinadas entidades que contienen. Para conocer las cuotas predeterminadas de las suscripciones de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md). Para conocer las cuotas predeterminadas del servicio Batch, consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md). Con la biblioteca Batch Management .NET, pude comprobar estas cuotas en sus aplicaciones. Esto le permite tomar decisiones sobre la asignación antes de agregar cuentas o recursos de proceso como los grupos y nodos de ejecución.
 
-### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Comprobación de una suscripción de Azure para las cuotas de cuentas de Lote
-Antes de crear una cuenta de Lote en una región, puede comprobar la suscripción de Azure para ver si se puede agregar una cuenta en esa región.
+### <a name="check-an-azure-subscription-for-batch-account-quotas"></a>Comprobación de una suscripción de Azure para las cuotas de cuentas de Batch
+Antes de crear una cuenta de Batch en una región, puede comprobar la suscripción de Azure para ver si se puede agregar una cuenta en esa región.
 
 En el siguiente fragmento de código, primero se usa [BatchManagementClient.Accounts.ListAsync][net_mgmt_listaccounts] para obtener una colección de todas las cuentas de Batch que están en una suscripción. Una vez obtenida esta colección, se determina el número de cuentas que están en la región de destino. Posteriormente, se usa [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] para obtener la cuota de la cuenta de Batch y determinar el número de cuentas que se pueden crear en dicha región (si se puede crear alguna).
 
@@ -126,7 +126,7 @@ Console.WriteLine("You can create {0} accounts in the {1} region.", quotaRespons
 
 En el fragmento de código anterior, `creds` es una instancia de [TokenCloudCredentials][azure_tokencreds]. Para ver un ejemplo de creación de este objeto, consulte el ejemplo de código [AccountManagement][acct_mgmt_sample] en GitHub.
 
-### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Comprobación de una cuenta de Lote para las cuotas de recursos de proceso
+### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Comprobación de una cuenta de Batch para las cuotas de recursos de proceso
 Antes de incrementar los recursos de proceso en la solución de Batch, puede hacer una comprobación para asegurarse de que los recursos que quiere asignar no sobrepasan las cuotas de la cuenta. En el fragmento de código siguiente, se imprime la información de cuota de la cuenta de Batch llamada `mybatchaccount`. Puede utilizar esta información en su aplicación para determinar si la cuenta es capaz de administrar los recursos adicionales que se van a crear.
 
 ```csharp
@@ -142,7 +142,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> Aunque existen cuotas predeterminadas para los servicios y las suscripciones de Azure, muchos de estos límites se pueden aumentar mediante una solicitud en [Azure Portal][azure_portal]. Por ejemplo, consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para obtener instrucciones sobre cómo aumentar las cuotas de la cuenta de Lote.
+> Aunque existen cuotas predeterminadas para los servicios y las suscripciones de Azure, muchos de estos límites se pueden aumentar mediante una solicitud en [Azure Portal][azure_portal]. Por ejemplo, consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) para obtener instrucciones sobre cómo aumentar las cuotas de la cuenta de Batch.
 > 
 > 
 
@@ -161,7 +161,7 @@ Para ver Batch Management .NET en acción, consulte el proyecto de ejemplo [Acco
 5. Use un objeto [ResourceManagementClient][resman_client] para crear un grupo de recursos.
 6. Use un objeto [BatchManagementClient][net_mgmt_client] para realizar varias operaciones de cuenta de Batch:
    * Crear una cuenta de Batch en el nuevo grupo de recursos.
-   * Obtener la cuenta recién creada desde el servicio Lote.
+   * Obtener la cuenta recién creada desde el servicio Batch.
    * Imprimir las claves de la nueva cuenta.
    * Regenerar una nueva clave principal para la cuenta.
    * Imprimir la información de cuota de la cuenta.

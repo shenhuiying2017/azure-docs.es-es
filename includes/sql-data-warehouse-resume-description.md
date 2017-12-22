@@ -12,7 +12,7 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 -->
 Al reanudar una base de datos:
 
-* Almacenamiento de datos SQL adquiere recursos de memoria y proceso para su valor de DWU.
+* SQL Data Warehouse adquiere recursos de memoria y proceso para su valor de DWU.
 * Calcule los gastos correspondientes a la reanudación de DWU.
 * Sus datos estarán disponibles.
 * Tendrá que reiniciar las consultas de la carga de trabajo.

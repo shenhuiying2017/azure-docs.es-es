@@ -1,6 +1,6 @@
 ---
 title: "Aplicación de revisión automatizada para VM con SQL Server (Resource Manager) | Microsoft Docs"
-description: "Explica la característica Aplicación de revisión automatizada para máquinas virtuales de SQL Server que se ejecutan en Azure mediante Resource Manager."
+description: "Explica la característica Automated Patching para máquinas virtuales de SQL Server que se ejecutan en Azure mediante Resource Manager."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Aplicación de revisión automatizada para SQL Server en máquinas virtuales de Azure (Resource Manager)
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [Clásico](../classic/sql-automated-patching.md)
@@ -32,7 +32,7 @@ Aplicación de revisión automatizada establece una ventana de mantenimiento par
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para ver la versión clásica de este artículo, consulte [Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)](../classic/sql-automated-patching.md).
+Para ver la versión clásica de este artículo, consulte [Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)](../classic/sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguientes requisitos previos:
@@ -126,5 +126,5 @@ Para deshabilitar Aplicación de revisión automatizada, ejecute el mismo script
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-Para más información sobre cómo ejecutar SQL Server en máquinas virtuales de Azure, consulte [Introducción a SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+Para más información sobre cómo ejecutar SQL Server en Azure Virtual Machines, consulte [Introducción a SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Carga de datos de SQL Server en Azure SQL Data Warehouse (SSIS) | Microsoft Docs
-description: "Se muestra cómo crear un paquete de SQL Server Integration Services (SSIS) para mover datos desde una gran variedad de orígenes de datos a Almacenamiento de datos SQL."
+description: "Se muestra cómo crear un paquete de SQL Server Integration Services (SSIS) para mover datos desde una gran variedad de orígenes de datos a SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -16,12 +16,12 @@ ms.custom: loading
 ms.date: 03/30/2017
 ms.author: cakarst;douglasl;barbkess
 ms.openlocfilehash: 6c9cebdd715b6997d0633bc725a3945ba9e0c357
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Carga de datos de SQL Server en Almacenamiento de datos SQL de Azure (SSIS)
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>Carga de datos de SQL Server en Azure SQL Data Warehouse (SSIS)
 > [!div class="op_single_selector"]
 > * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 > * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Cree un paquete de SQL Server Integration Services (SSIS) para cargar datos de SQL Server en Almacenamiento de datos SQL de Azure. Opcionalmente, puede reestructurar, transformar y limpiar los datos cuando pasen por el flujo de datos de SSIS.
+Cree un paquete de SQL Server Integration Services (SSIS) para cargar datos de SQL Server en Azure SQL Data Warehouse. Opcionalmente, puede reestructurar, transformar y limpiar los datos cuando pasen por el flujo de datos de SSIS.
 
 En este tutorial, aprenderá lo siguiente:
 
 * Crear un proyecto de Integration Services en Visual Studio.
-* Conectarse a orígenes de datos, incluidos SQL Server (como origen) y Almacenamiento de datos SQL (como destino).
+* Conectarse a orígenes de datos, incluidos SQL Server (como origen) y SQL Data Warehouse (como destino).
 * Diseñar un paquete de SSIS que carga datos desde el origen en el destino.
 * Ejecutar el paquete de SSIS para cargar los datos.
 
@@ -44,11 +44,11 @@ En este tutorial se utiliza SQL Server como origen de datos. SQL Server se puede
 El paquete es la unidad de trabajo de SSIS. Los paquetes relacionados se agrupan en proyectos. Los proyectos se crean y los paquetes se diseñan en Visual Studio con SQL Server Data Tools. El proceso de diseño es un proceso visual en el que se arrastran componentes desde el cuadro de herramientas y se colocan en la superficie de diseño, se conectan y se establecen sus propiedades. Después de finalizar el paquete, puede implementarlo opcionalmente en SQL Server para disponer de funcionalidad completa de administración, supervisión y seguridad.
 
 ## <a name="options-for-loading-data-with-ssis"></a>Opciones para cargar datos con SSIS
-SQL Server Integration Services (SSIS) es un conjunto flexible de herramientas que proporciona un abanico de opciones para conectarse a datos y cargarlos en Almacenamiento de datos SQL.
+SQL Server Integration Services (SSIS) es un conjunto flexible de herramientas que proporciona un abanico de opciones para conectarse a datos y cargarlos en SQL Data Warehouse.
 
-1. Use un destino de ADO.NET para conectarse a Almacenamiento de datos SQL. En este tutorial se usa un destino de ADO.NET porque es el que tiene menos opciones de configuración.
-2. Use un destino de OLE DB para conectarse a Almacenamiento de datos SQL. Esta opción puede proporcionar un rendimiento algo mejor que el destino de ADO.NET.
-3. Utilice la tarea de carga de blobs de Azure para copiar los datos provisionalmente al Almacenamiento de blobs de Azure. Después, use la tarea Ejecutar SQL de SSIS para iniciar un script de Polybase que carga los datos en Almacenamiento de datos SQL. Esta opción proporciona el mejor rendimiento de las tres que se muestran aquí. Para obtener la tarea de carga de blobs de Azure, tiene que descargar el paquete [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][Microsoft SQL Server 2016 Integration Services Feature Pack for Azure] (Microsoft SQL Server 2016 Integration Services Feature Pack para Azure). Para aprender más sobre Polybase, consulte [PolyBase Guide][PolyBase Guide] (Guía de PolyBase).
+1. Use un destino de ADO.NET para conectarse a SQL Data Warehouse. En este tutorial se usa un destino de ADO.NET porque es el que tiene menos opciones de configuración.
+2. Use un destino de OLE DB para conectarse a SQL Data Warehouse. Esta opción puede proporcionar un rendimiento algo mejor que el destino de ADO.NET.
+3. Utilice la tarea de carga de blobs de Azure para copiar los datos provisionalmente al Azure Blob Storage. Después, use la tarea Ejecutar SQL de SSIS para iniciar un script de Polybase que carga los datos en SQL Data Warehouse. Esta opción proporciona el mejor rendimiento de las tres que se muestran aquí. Para obtener la tarea de carga de blobs de Azure, tiene que descargar el paquete [Microsoft SQL Server 2016 Integration Services Feature Pack for Azure][Microsoft SQL Server 2016 Integration Services Feature Pack for Azure] (Microsoft SQL Server 2016 Integration Services Feature Pack para Azure). Para aprender más sobre Polybase, consulte [PolyBase Guide][PolyBase Guide] (Guía de PolyBase).
 
 ## <a name="before-you-start"></a>Antes de comenzar
 Para seguir paso a paso este tutorial, necesita:
@@ -56,9 +56,9 @@ Para seguir paso a paso este tutorial, necesita:
 1. **SQL Server Integration Services (SSIS)**. SSIS es un componente de SQL Server y requiere una versión de evaluación o una versión con licencia de SQL Server. Para conseguir una versión de evaluación de SQL Server 2016 Preview, consulte [Evaluaciones de SQL Server][SQL Server Evaluations].
 2. **Visual Studio**. Para conseguir de forma gratuita Visual Studio Community Edition, vaya a [Visual Studio Community][Visual Studio Community].
 3. **SQL Server Data Tools para Visual Studio (SSDT)**. Para obtener SQL Server Data Tools para Visual Studio, vaya a [Descargar SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)].
-4. **Datos de ejemplo**. En este tutorial, se usan datos de ejemplo almacenados en SQL Server (en la base de datos de ejemplo AdventureWorks) como datos de origen que se cargan en Almacenamiento de datos SQL. Para conseguir la base de datos de ejemplo AdventureWorks, consulte [AdventureWorks 2014 Sample Databases][AdventureWorks 2014 Sample Databases] (Bases de datos de ejemplo AdventureWorks 2014).
-5. **Una base de datos de Almacenamiento de datos SQL y permisos**. En este tutorial se conecta a una instancia de Almacenamiento de datos SQL y se cargan datos en ella. Necesita permisos para crear una tabla y para cargar datos.
-6. **Una regla de firewall**. Tendrá que crear una regla de firewall en Almacenamiento de datos SQL con la dirección IP del equipo local antes de cargar datos en Almacenamiento de datos SQL.
+4. **Datos de ejemplo**. En este tutorial, se usan datos de ejemplo almacenados en SQL Server (en la base de datos de ejemplo AdventureWorks) como datos de origen que se cargan en SQL Data Warehouse. Para conseguir la base de datos de ejemplo AdventureWorks, consulte [AdventureWorks 2014 Sample Databases][AdventureWorks 2014 Sample Databases] (Bases de datos de ejemplo AdventureWorks 2014).
+5. **Una base de datos de SQL Data Warehouse y permisos**. En este tutorial se conecta a una instancia de SQL Data Warehouse y se cargan datos en ella. Necesita permisos para crear una tabla y para cargar datos.
+6. **Una regla de firewall**. Tendrá que crear una regla de firewall en SQL Data Warehouse con la dirección IP del equipo local antes de cargar datos en SQL Data Warehouse.
 
 ## <a name="step-1-create-a-new-integration-services-project"></a>Paso 1: Creación de un proyecto de Integration Services
 1. Inicie Visual Studio.
@@ -131,9 +131,9 @@ Se abre Visual Studio y se crea un proyecto de Integration Services (SSIS). Desp
 3. En el cuadro de diálogo **Configurar el administrador de conexiones ADO.NET**, haga clic en el botón **Nuevo** para abrir el cuadro de diálogo **Administrador de conexiones y cree una conexión de datos**.
 4. En el cuadro de diálogo **Administrador de conexiones** , realice lo siguiente.
    1. Para **Proveedor**, seleccione el proveedor de datos SqlClient.
-   2. Para **Nombre del servidor**, escriba el nombre de Almacenamiento de datos SQL.
+   2. Para **Nombre del servidor**, escriba el nombre de SQL Data Warehouse.
    3. En la sección **Iniciar sesión en el servidor**, seleccione **Usar autenticación de SQL Server** y escriba la información de autenticación.
-   4. En la sección **Conectar con una base de datos** , seleccione una base de datos de Almacenamiento de datos SQL existente.
+   4. En la sección **Conectar con una base de datos** , seleccione una base de datos de SQL Data Warehouse existente.
    5. Haga clic en **Probar conexión**.
    6. En el cuadro de diálogo que muestra los resultados de la prueba de conexión, haga clic en **Aceptar** para volver al cuadro de diálogo **Administrador de conexiones**.
    7. En el cuadro de diálogo **Administrador de conexiones**, haga clic en **Aceptar** para volver al cuadro de diálogo **Configurar el administrador de conexiones ADO.NET**.
@@ -144,8 +144,8 @@ Se abre Visual Studio y se crea un proyecto de Integration Services (SSIS). Desp
 7. En el cuadro de diálogo **Crear tabla** , realice lo siguiente.
    
    1. Cambie el nombre de la tabla de destino a **SalesOrderDetail**.
-   2. Quite la columna **rowguid** . El tipo de datos **uniqueidentifier** no se admite en Almacenamiento de datos SQL.
-   3. Cambie el tipo de datos de la columna **LineTotal** a **money**. El tipo de datos **decimal** no se admite en Almacenamiento de datos SQL. Para información sobre los tipos de datos compatibles, consulte [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)] [CREATE TABLE (SQL Data Warehouse de Azure, Almacenamiento de datos paralelos)].
+   2. Quite la columna **rowguid** . El tipo de datos **uniqueidentifier** no se admite en SQL Data Warehouse.
+   3. Cambie el tipo de datos de la columna **LineTotal** a **money**. El tipo de datos **decimal** no se admite en SQL Data Warehouse. Para información sobre los tipos de datos compatibles, consulte [CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)][CREATE TABLE (Azure SQL Data Warehouse, Parallel Data Warehouse)] [CREATE TABLE (SQL Data Warehouse de Azure, Almacenamiento de datos paralelos)].
       
        ![][12b]
    4. Haga clic en **Aceptar** para crear la tabla y volver al **Editor de destinos de ADO.NET**.
@@ -165,7 +165,7 @@ Cuando se termine de ejecutar el paquete, verá marcas de verificación verdes p
 
 ![][15]
 
-¡Enhorabuena! Ha usado correctamente SQL Server Integration Services para cargar datos en Almacenamiento de datos SQL de Azure.
+¡Enhorabuena! Ha usado correctamente SQL Server Integration Services para cargar datos en Azure SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda más sobre el flujo de datos de SSIS. Comience aquí: [Flujo de datos][Data Flow].

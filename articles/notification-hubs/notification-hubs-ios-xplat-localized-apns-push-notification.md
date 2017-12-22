@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de últimas noticias localizadas sobre los Centros de notificaciones para iOS"
-description: "Obtenga información acerca de los Centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas (iOS)."
+title: "Tutorial de últimas noticias localizadas sobre Notification Hubs para iOS"
+description: "Aprenda a usar Azure Service Bus Notification Hubs para enviar notificaciones de noticias de última hora localizadas (iOS)."
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Uso de los Centros de notificaciones para enviar noticias de última hora localizadas a dispositivos iOS
+# <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>Uso de Notification Hubs para enviar noticias de última hora localizadas a dispositivos iOS
 > [!div class="op_single_selector"]
 > * [C# para Tienda Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Información general
-En este tema se muestra cómo usar la característica de [plantillas](notification-hubs-templates-cross-platform-push-messages.md) de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de iOS que se creó en [Uso de Centros de notificaciones para enviar noticias de última hora]. Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
+En este tema se muestra cómo usar la característica de [plantillas](notification-hubs-templates-cross-platform-push-messages.md) de Azure Notification Hubs para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de iOS que se creó en [Uso de Notification Hubs para enviar noticias de última hora]. Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
 
 Este escenario tiene dos partes:
 
@@ -36,12 +36,12 @@ Este escenario tiene dos partes:
 * El back-end difunde las notificaciones mediante las características **etiqueta** y **plantilla** de Azure Notification Hubs.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Debe haber completado el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
+Debe haber completado el tutorial [Uso de Notification Hubs para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
 
 Visual Studio 2012 o posterior es opcional.
 
 ## <a name="template-concepts"></a>Conceptos de plantilla
-En el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora] creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias.
+En el tutorial [Uso de Notification Hubs para enviar noticias de última hora] creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias.
 Sin embargo, muchas aplicaciones están dirigidas a varios mercados y requieren localización. Esto significa que el contenido de las notificaciones mismas se debe localizar y entregar al conjunto de dispositivos correcto.
 En este tema podremos mostrar cómo usar la característica de **plantilla** de Notification Hubs para entregar fácilmente notificaciones de noticias de última hora localizadas.
 
@@ -66,7 +66,7 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
 Las plantillas son una característica muy eficaz de la que puede obtener más información en nuestro artículo [Plantillas](notification-hubs-templates-cross-platform-push-messages.md) .
 
 ## <a name="the-app-user-interface"></a>Interfaz de usuario de la aplicación
-Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de Centros de notificaciones para enviar noticias de última hora] a fin de enviar noticias de este tipo localizadas con la utilización de las plantillas.
+Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de Notification Hubs para enviar noticias de última hora] para enviar noticias de última hora localizadas con plantillas.
 
 En MainStoryboard_iPhone.storyboard, agregue un control segmentado con los tres idiomas compatibles: inglés, francés y chino mandarín.
 
@@ -233,8 +233,10 @@ Si no tiene acceso a Visual Studio, o simplemente quiere probar el envío de las
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre el uso de plantillas, consulte:
 
-* [Notificación a los usuarios con los Centros de notificaciones de Azure: ASP.NET]
-* [Notificación a los usuarios con los Centros de notificaciones de Azure: Servicios móviles]
+* 
+            [Notificación a los usuarios con Notification Hubs: ASP.NET]
+* 
+            [Notificación a los usuarios con Notification Hubs: Mobile Services]
 
 <!-- Images. -->
 
@@ -248,10 +250,13 @@ Para obtener más información sobre el uso de plantillas, consulte:
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Uso de Centros de notificaciones para enviar noticias de última hora]: /manage/services/notification-hubs/breaking-news-ios
+
+            [Uso de Notification Hubs para enviar noticias de última hora]: /manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notificación a los usuarios con los Centros de notificaciones de Azure: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notificación a los usuarios con los Centros de notificaciones de Azure: Servicios móviles]: /manage/services/notification-hubs/notify-users
+
+            [Notificación a los usuarios con Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+
+            [Notificación a los usuarios con Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

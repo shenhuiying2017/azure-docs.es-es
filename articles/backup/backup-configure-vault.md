@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 3e3ea323e00d64e6848850c22073f5948dd0b7e2
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 947b985fe242c026e94d78664fa41f666334392a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
-> [!div class="op_single_selector"]
-> * [Portal de Azure](backup-configure-vault.md)
-> * [Portal clásico](backup-configure-vault-classic.md)
->
->
-
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]

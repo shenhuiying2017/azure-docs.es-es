@@ -1,6 +1,6 @@
 ---
 title: Registro del usuario actual para notificaciones push mediante una API web | Microsoft Docs
-description: "Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los Centros de notificaciones de Azure al realizar el registro por la API web de ASP.NET."
+description: "Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con Azure Notification Hubs al realizar el registro por la API web de ASP.NET."
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Información general
-En este tema se describe cómo solicitar el registro de las notificaciones de inserción con los Centros de notificaciones de Azure al realizar el registro mediante ASP.NET Web API. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones]. Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones].
+En este tema se describe cómo solicitar el registro de las notificaciones de inserción con Azure Notification Hubs al realizar el registro mediante ASP.NET Web API. Este tema amplía el tutorial [Notificación a los usuarios con Notification Hubs]. Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con Notification Hubs].
 
 ## <a name="update-your-app"></a>Actualización de la aplicación
 1. En su MainStoryboard_iPhone.storyboard, agregue los siguientes componentes desde la biblioteca de objetos:
@@ -98,7 +98,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    La primera línea inicializa el singleton **DeviceInfo** . La segunda línea inicia el registro de notificaciones de inserción, que ya existe si ya ha completado el tutorial [Introducción a los Centros de notificaciones] .
+    La primera línea inicializa el singleton **DeviceInfo** . La segunda línea inicia el registro de notificaciones de inserción, que ya existe si ya ha completado el tutorial [Introducción a Notification Hubs] .
 7. En PushToUserAppDelegate.m, implemente el método **didRegisterForRemoteNotificationsWithDeviceToken** en su AppDelegate y agregue el siguiente código:
    
         self.deviceInfo.deviceToken = deviceToken;
@@ -106,7 +106,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
     De este modo se configura el token del dispositivo para la solicitud.
    
    > [!NOTE]
-   > En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/manage/services/notification-hubs/get-started-notification-hubs-ios/) , debe convertir la llamada en comentario o borrarla.
+   > En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) , debe convertir la llamada en comentario o borrarla.
    > 
    > 
 8. En el archivo PushToUserAppDelegate.m, agregue el siguiente método de controlador:
@@ -206,9 +206,9 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
                 }
             }];
     
-    Este método obtiene un ID de instalación y un canal para las notificaciones de inserción y los envía, junto con el tipo de dispositivo, al método de Web API autenticado que crea un registro en los Centros de notificaciones. Esta API web se definió en [Notificación a los usuarios con los Centros de notificaciones].
+    Este método obtiene un ID de instalación y un canal para las notificaciones de inserción y los envía, junto con el tipo de dispositivo, al método de Web API autenticado que crea un registro en Notification Hubs. Esta API web se definió en [Notificación a los usuarios con Notification Hubs].
 
-Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones] y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
+Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con Notification Hubs] y actualice el servicio móvil para enviar notificaciones mediante Notification Hubs.
 
 <!-- Anchors. -->
 
@@ -217,6 +217,8 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+            [Notificación a los usuarios con Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+
+
+            [Introducción a Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios

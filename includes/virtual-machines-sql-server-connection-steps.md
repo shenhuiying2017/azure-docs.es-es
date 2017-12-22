@@ -35,7 +35,7 @@ Abra puertos adicionales para otros componentes cada vez que sea necesario. Para
 El motor de base de datos de SQL Server no puede utilizar la autenticación de Windows sin un entorno de dominio. Para conectarse al motor de base de datos desde otro equipo, configure SQL Server para autenticación de modo mixto. La autenticación de modo mixto permite la autenticación de SQL Server y la autenticación de Windows.
 
 > [!NOTE]
-> Si ha configurado una red virtual de Azure con un entorno de dominio configurado, es posible que no sea necesario configurar la autenticación de modo mixto.
+> Si ha configurado una instancia de Azure Virtual Network con un entorno de dominio configurado, es posible que no sea necesario configurar la autenticación de modo mixto.
 > 
 > 
 

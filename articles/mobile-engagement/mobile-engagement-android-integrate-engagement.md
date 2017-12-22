@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Integración de Engagement en Android
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Especifique la cadena de conexión de Engagement mediante la llamada al siguient
             engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
             EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-La cadena de conexión de la aplicación se muestra en el portal de Azure.
+La cadena de conexión de la aplicación se muestra en Azure Portal.
 
 * Si no está, agregue los siguientes permisos de Android (delante de la etiqueta `<application>`):
   

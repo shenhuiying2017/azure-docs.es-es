@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: 
 ms.openlocfilehash: 1097b853ca0f461300f294e9f5baabf2ae4e15a1
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Table API de Azure Cosmos DB para Node.js: notas de la versión y recursos
 > [!div class="op_single_selector"]

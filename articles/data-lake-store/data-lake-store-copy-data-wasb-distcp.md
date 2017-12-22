@@ -1,6 +1,6 @@
 ---
 title: Copia de datos a y desde WASB en Data Lake Store mediante Distcp| Microsoft Docs
-description: "Use la herramienta Distcp para copiar datos a y desde los blobs de Almacenamiento de Azure al Almacén de Data Lake."
+description: Use la herramienta Distcp para copiar datos a y desde Azure Storage Blob a Data Lake Store.
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,12 +15,12 @@ ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
 ms.openlocfilehash: 1c9e100b4a0e7781f0782a49835d50492895ded1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Utilice Distcp para copiar datos entre los blobs de Almacenamiento de Azure y el Almacén de Data Lake
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-store"></a>Utilice Distcp para copiar datos entre Azure Storage Blob y Data Lake Store
 > [!div class="op_single_selector"]
 > * [Uso de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 > * [Uso de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
@@ -36,7 +36,7 @@ Si ha creado un clúster de HDInsight con acceso a Data Lake Store, puede usar h
 * **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
 
 ## <a name="do-you-learn-fast-with-videos"></a>¿Obtener información más rápidamente con vídeos?
-[Vea este vídeo](https://mix.office.com/watch/1liuojvdx6sie) para saber cómo copiar datos entre los blobs de Almacenamiento de Azure y Almacén de Data Lake mediante DistCp.
+[Vea este vídeo](https://mix.office.com/watch/1liuojvdx6sie) para saber cómo copiar datos entre los blobs de Azure Storage y Data Lake Store mediante DistCp.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usar Distcp desde un clúster de HDInsight de Linux
 
@@ -44,7 +44,7 @@ Un clúster de HDInsight incluye la utilidad Distcp, que puede utilizarse para c
 
 1. Desde el escritorio, use SSH para conectarse al clúster. Consulte [Conexión a un clúster de HDInsight basado en Linux](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Ejecute los comandos desde el símbolo del sistema SSH.
 
-2. Compruebe si puede tener acceso a los blobs de Almacenamiento de Azure (WASB). Ejecute el siguiente comando:
+2. Compruebe si puede tener acceso a Azure Storage Blob (WASB). Ejecute el siguiente comando:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 
@@ -115,7 +115,7 @@ Cuando el tamaño del conjunto de datos que se va a mover es grande (por ejemplo
 * Si va a copiar desde una cuenta de Azure Blob Storage, el trabajo de copia puede estar limitado por el lado del almacenamiento de blobs. Esta situación degrada el rendimiento de su trabajo de copia. Para aprender sobre los límites de Azure Blob Storage, consulte la información al respecto en [Límites de suscripciones y servicios de Azure](../azure-subscription-service-limits.md).
 
 ## <a name="see-also"></a>Consulte también
-* [Copiar datos de los blobs de almacenamiento de Azure en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
+* [Copiar datos de los blobs de Azure Storage en el Almacén Data Lake](data-lake-store-copy-data-azure-storage-blob.md)
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

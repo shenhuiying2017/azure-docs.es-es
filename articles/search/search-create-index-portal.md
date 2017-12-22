@@ -1,6 +1,6 @@
 ---
 title: "Crear un índice (portal - Azure Search) | Microsoft Docs"
-description: "Cree un índice mediante el Portal de Azure."
+description: "Cree un índice mediante Azure Portal."
 services: search
 manager: jhubbard
 author: heidisteen
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Creación de un índice de Búsqueda de Azure en el Portal de Azure
+# <a name="create-an-azure-search-index-using-the-azure-portal"></a>Creación de un índice de Azure Search en Azure Portal
 > [!div class="op_single_selector"]
 > * [Información general](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -41,7 +41,7 @@ En este artículo se dan por hecho una [suscripción de Azure](https://azure.mic
 ## <a name="name-the-index"></a>Nombre del índice
 
 1. Haga clic en el botón **Agregar índice** de la barra de comandos de la parte superior de la página.
-2. Asigne un nombre a su índice de Búsqueda de Azure. 
+2. Asigne un nombre a su índice de Azure Search. 
    * Empiece con una letra.
    * Use únicamente letras minúsculas, números o guiones ("-").
    * Limite el nombre a 60 caracteres.

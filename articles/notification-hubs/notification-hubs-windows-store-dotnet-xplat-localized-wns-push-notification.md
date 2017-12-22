@@ -1,6 +1,6 @@
 ---
-title: "Tutorial de últimas noticias localizadas sobre los Centros de notificaciones"
-description: "Obtenga información sobre cómo usar Centros de notificaciones de Azure para enviar notificaciones de noticias de última hora localizadas."
+title: "Tutorial de últimas noticias localizadas sobre Notification Hubs"
+description: "Obtenga información sobre cómo usar Azure Notification Hubs para enviar notificaciones de noticias de última hora localizadas."
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 8f205188bd68e53b187b71981ed36dcf9129ec62
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Uso de los Centros de notificaciones para enviar noticias de última hora localizadas
+# <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Uso de Notification Hubs para enviar noticias de última hora localizadas
 > [!div class="op_single_selector"]
 > * [C# para Tienda Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Información general
-Este tema muestra cómo usar la característica de **plantilla** de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de la Tienda Windows que se creó en el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora]. Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
+Este tema muestra cómo usar la característica de **plantilla** de Azure Notification Hubs para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de la Tienda Windows que se creó en el tutorial [Uso de Notification Hubs para enviar noticias de última hora]. Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
 
 Este escenario tiene dos partes:
 
@@ -36,12 +36,12 @@ Este escenario tiene dos partes:
 * el back-end difunde las notificaciones, mediante las características de **etiqueta** y **plantilla** de los Azure Notification Hubs.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Debe haber completado el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
+Debe haber completado el tutorial [Uso de Notification Hubs para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
 
 También necesita Visual Studio 2012 o posterior.
 
 ## <a name="template-concepts"></a>Conceptos de plantilla
-En el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora] creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias.
+En el tutorial [Uso de Notification Hubs para enviar noticias de última hora] creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias.
 Sin embargo, muchas aplicaciones están dirigidas a varios mercados y requieren localización. Esto significa que el contenido de las notificaciones mismas se debe localizar y entregar al conjunto de dispositivos correcto.
 En este tema podremos mostrar cómo usar la característica de **plantilla** de Notification Hubs para entregar fácilmente notificaciones de noticias de última hora localizadas.
 
@@ -70,7 +70,7 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
 Las plantillas son una característica muy eficaz de la que puede obtener más información en nuestro artículo [Plantillas](notification-hubs-templates-cross-platform-push-messages.md) . 
 
 ## <a name="the-app-user-interface"></a>Interfaz de usuario de la aplicación
-Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora] a fin de enviar noticias de este tipo localizadas con la utilización de las plantillas.
+Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de Notification Hubs para enviar noticias de última hora] para enviar noticias de última hora localizadas con plantillas.
 
 En la aplicación de la Tienda Windows:
 
@@ -194,7 +194,8 @@ Modifique el archivo MainPage.xaml para que incluya un cuadro combinado de confi
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+
+            [Uso de Notification Hubs para enviar noticias de última hora]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

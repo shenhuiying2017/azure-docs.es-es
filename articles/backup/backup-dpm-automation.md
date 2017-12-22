@@ -1,6 +1,6 @@
 ---
 title: Azure Backup - Uso de PowerShell para hacer copias de seguridad de cargas de trabajo DPM | Microsoft Docs
-description: "Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell"
+description: "Obtenga información acerca de cómo implementar y administrar Azure Backup para Data Protection Manager (DPM) mediante PowerShell"
 services: backup
 documentationcenter: 
 author: NKolli1
@@ -14,20 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 6e88e8f5d385d63d491415583e1d8c7f89324cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
-> [!div class="op_single_selector"]
-> * [ARM](backup-dpm-automation.md)
-> * [Clásico](backup-dpm-automation-classic.md)
->
->
-
-En este artículo se muestra cómo usar PowerShell para configurar la copia de seguridad de Azure en un servidor DPM y para administrar copias de seguridad y recuperaciones.
+En este artículo se muestra cómo usar PowerShell para configurar Azure Backup en un servidor DPM y para administrar copias de seguridad y recuperaciones.
 
 ## <a name="setting-up-the-powershell-environment"></a>Configuración del entorno de PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -51,7 +45,7 @@ Sample DPM scripts: Get-DPMSampleScript
 Para empezar:
 
 1. [Descargue la última versión de PowerShell](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es: 1.0.0).
-2. Para empezar, habilite los commandlets de Copia de seguridad de Azure, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode** :
+2. Para empezar, habilite los commandlets de Azure Backup, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode**:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -59,21 +53,21 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 Las siguientes tareas de instalación y registro se pueden automatizar con PowerShell:
 
-* Creación de un almacén de Servicios de recuperación
-* Instalación del agente de Copia de seguridad de Azure
-* Registro con el servicio de Copia de seguridad de Azure
+* Creación de un almacén de Recovery Services
+* Instalación del agente de Azure Backup
+* Registro con el servicio Azure Backup
 * Configuración de redes
 * Configuración de cifrado
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-Los siguientes pasos le guiarán por el proceso de creación de un almacén de Recovery Services. Un almacén de Servicios de recuperación no es lo mismo que un almacén de copia de seguridad.
+Los siguientes pasos le guiarán por el proceso de creación de un almacén de Recovery Services. Un almacén de Recovery Services no es lo mismo que un almacén de copia de seguridad.
 
 1. Si utiliza Azure Backup por primera vez, debe utilizar el cmdlet **Register-AzureRMResourceProvider** para registrar el proveedor de Azure Recovery Services con su suscripción.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. El almacén de Servicios de recuperación es un recurso de ARM, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. Al crear un nuevo grupo de recursos, especifique su nombre y su ubicación.  
+2. El almacén de Recovery Services es un recurso de ARM, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. Al crear un nuevo grupo de recursos, especifique su nombre y su ubicación.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
@@ -112,8 +106,8 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalación del agente de copia de seguridad de Azure en un servidor DPM
-Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de Servicios de recuperación. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\Downloads\*.
+## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalación del agente de Azure Backup en un servidor DPM
+Antes de instalar el agente de Azure Backup, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de Recovery Services. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\Downloads\*.
 
 Para instalar el agente, ejecute el comando siguiente en una consola de PowerShell con privilegios elevados **en el servidor DPM**:
 
@@ -149,8 +143,8 @@ Las opciones disponibles incluyen:
 | /pu |Nombre de usuario del host de proxy |- |
 | /pw |Contraseña de proxy |- |
 
-## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registro de DPM en un almacén de Servicios de recuperación
-Después de crear el almacén de Servicios de recuperación, descargue el agente más reciente y las credenciales de almacén y guárdelas en una ubicación adecuada como C:\Downloads.
+## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registro de DPM en un almacén de Recovery Services
+Después de crear el almacén de Recovery Services, descargue el agente más reciente y las credenciales de almacén y guárdelas en una ubicación adecuada como C:\Downloads.
 
 ```
 PS C:\> $credspath = "C:\downloads"
@@ -178,7 +172,7 @@ Una vez que el servidor DPM se registra con el almacén de Recovery Services, se
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Todas las modificaciones se realizan en este objeto de PowerShell local ```$setting``` y, a continuación, el objeto completo se confirma en DPM y Azure Backup para guardarlos con el cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Deberá usar la marca ```–Commit``` para asegurarse de que los cambios se conservan. Copia de seguridad de Azure no aplicará ni usará la configuración a menos que se confirme.
+Todas las modificaciones se realizan en este objeto de PowerShell local ```$setting``` y, a continuación, el objeto completo se confirma en DPM y Azure Backup para guardarlos con el cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Deberá usar la marca ```–Commit``` para asegurarse de que los cambios se conservan. Azure Backup no aplicará ni usará la configuración a menos que se confirme.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -198,7 +192,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 ```
 
 ## <a name="configuring-the-staging-area"></a>Configuración del área de ensayo
-El agente de Copia de seguridad de Azure que se ejecuta en el servidor DPM necesita almacenamiento temporal para los datos restaurados desde la nube (área de almacenamiento provisional local). Configure el área de ensayo mediante el cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) y el parámetro ```-StagingAreaPath```.
+El agente de Azure Backup que se ejecuta en el servidor DPM necesita almacenamiento temporal para los datos restaurados desde la nube (área de almacenamiento provisional local). Configure el área de ensayo mediante el cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) y el parámetro ```-StagingAreaPath```.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
@@ -228,8 +222,8 @@ En este punto, debería haber realizado todos los cambios necesarios al objeto `
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="protect-data-to-azure-backup"></a>Proteger los datos en Copia de seguridad de Azure
-En esta sección, agregará un servidor de producción a DPM y, a continuación, protegerá los datos en el almacenamiento de DPM local y, a continuación, en la copia de seguridad de Azure. En los ejemplos, se mostrará cómo realizar copias de seguridad de archivos y carpetas. La lógica se puede ampliar fácilmente para efectuar una copia de seguridad de cualquier origen de datos compatible con DPM. Las copias de seguridad de DPM se rigen por un grupo de protección (PG) con cuatro partes:
+## <a name="protect-data-to-azure-backup"></a>Proteger los datos en Azure Backup
+En esta sección, agregará un servidor de producción a DPM y, a continuación, protegerá los datos en el almacenamiento de DPM local y, a continuación, en Azure Backup. En los ejemplos, se mostrará cómo realizar copias de seguridad de archivos y carpetas. La lógica se puede ampliar fácilmente para efectuar una copia de seguridad de cualquier origen de datos compatible con DPM. Las copias de seguridad de DPM se rigen por un grupo de protección (PG) con cuatro partes:
 
 1. **Miembros del grupo** es una lista de todos los objetos que se pueden proteger (también conocidos como *Orígenes de datos* en DPM) que desea proteger en el mismo grupo de protección. Por ejemplo, puede proteger las máquinas virtuales de producción en un grupo de protección y las bases de datos de SQL Server en otro grupo de protección, ya que pueden tener distintos requisitos de copia de seguridad. Antes de que puedan realizar una copia de seguridad de cualquier origen de datos en un servidor de producción, deberá asegurarse de que el agente de DPM esté instalado en el servidor y administrado por DPM. Siga los pasos para [instalar el agente de DPM](https://technet.microsoft.com/library/bb870935.aspx) y vincularlo al servidor DPM apropiado.
 2. **Método de protección de datos** especifica las ubicaciones de copia de seguridad de destino: cinta, disco y nube. En nuestro ejemplo se protegerán los datos en el disco local y en la nube.
@@ -353,7 +347,7 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ## <a name="restore-data-protected-on-azure"></a>Restauración de datos protegidos en Azure
 Restauración de datos es una combinación de un objeto ```RecoverableItem``` y un objeto ```RecoveryOption```. En la sección anterior se facilita una lista de los puntos de la copia de seguridad de un origen de datos.
 
-En el ejemplo siguiente, demostraremos cómo restaurar una máquina virtual de Hyper-V de Copia de seguridad de Azure mediante la combinación de puntos de copia de seguridad con el destino para la recuperación. Este ejemplo incluye:
+En el ejemplo siguiente, demostraremos cómo restaurar una máquina virtual de Hyper-V de Azure Backup mediante la combinación de puntos de copia de seguridad con el destino para la recuperación. Este ejemplo incluye:
 
 * Creación de una opción de recuperación mediante el cmdlet [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592).
 * Recuperación de la matriz de puntos de copia de seguridad mediante el cmdlet ```Get-DPMRecoveryPoint``` .

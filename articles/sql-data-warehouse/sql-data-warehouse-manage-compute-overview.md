@@ -1,6 +1,6 @@
 ---
 title: "Administración de la potencia de proceso en Azure SQL Data Warehouse (introducción) | Microsoft Docs"
-description: Funcionalidades de escalado horizontal del rendimiento en Almacenamiento de datos SQL de Azure. Realice el escalado horizontal ajustando las DWU o pause y reanude los recursos de proceso para ahorrar costos.
+description: Funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Realice el escalado horizontal ajustando las DWU o pause y reanude los recursos de proceso para ahorrar costos.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -16,12 +16,12 @@ ms.custom: manage
 ms.date: 3/23/2017
 ms.author: elbutter
 ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)
 > [!div class="op_single_selector"]
 > * [Información general](sql-data-warehouse-manage-compute-overview.md)
 > * [Portal](sql-data-warehouse-manage-compute-portal.md)
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/25/2017
 >
 >
 
-La arquitectura del Almacenamiento de datos SQL separa el proceso y el almacenamiento, lo que permite a cada uno escalar de manera independiente. Por consiguiente, el proceso se puede escalar para satisfacer las demandas de rendimiento independientemente de la cantidad de datos. Una consecuencia natural de esta arquitectura es que la [facturación][billed] para el proceso y almacenamiento es independiente. 
+La arquitectura de SQL Data Warehouse separa el proceso y el almacenamiento, lo que permite a cada uno escalar de manera independiente. Por consiguiente, el proceso se puede escalar para satisfacer las demandas de rendimiento independientemente de la cantidad de datos. Una consecuencia natural de esta arquitectura es que la [facturación][billed] para el proceso y almacenamiento es independiente. 
 
 En esta introducción se describe cómo funciona el escalado horizontal con SQL Data Warehouse y cómo utilizar las funcionalidades de pausa, reanudación y escala de SQL Data Warehouse. 
 

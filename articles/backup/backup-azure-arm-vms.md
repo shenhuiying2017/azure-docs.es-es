@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
-> [!div class="op_single_selector"]
-> * [Copia de seguridad de VM en el almacén de servicios de recuperación](backup-azure-arm-vms.md)
-> * [Copia de seguridad de VM en el almacén de Copia de seguridad](backup-azure-vms.md)
->
->
 
 En este artículo se proporcionan detalles para realizar una copia de seguridad de VM de Azure (con el modelo de implementación de Resource Manager y el modelo clásico) en un almacén de Recovery Services. La mayoría del trabajo de la copia de seguridad de máquinas virtuales se basa en la preparación. Antes de poder realizar una copia de seguridad de una máquina virtual, o protegerla, es necesario realizar una serie de tareas que son [requisito previo](backup-azure-arm-vms-prepare.md) con el fin de preparar el entorno para la protección de las máquinas virtuales. Cuando haya realizado estas tareas, puede iniciar la operación de copia de seguridad para tomar instantáneas de la máquina virtual.
 
@@ -72,7 +67,7 @@ Para ejecutar el trabajo de copia de seguridad inicial:
 
   ![Menú contextual](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  Se abrirá la hoja Realizar copia de seguridad ahora.
+  Se abre la hoja Realizar copia de seguridad ahora.
 
   ![muestra la hoja Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -82,7 +77,7 @@ Para ejecutar el trabajo de copia de seguridad inicial:
 
   Las notificaciones de implementación le permiten saber si se ha desencadenado el trabajo de copia de seguridad y que puede supervisar el progreso del trabajo en la página de trabajos de copia de seguridad. Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
-6. Para ver o realizar el seguimiento del estado de la copia de seguridad inicial, en el panel del almacén, en el icono **Trabajos de copia de seguridad**, haga clic en **En curso**.
+6. Para ver o realizar el seguimiento del estado de la copia de seguridad inicial, en el panel del almacén, en el icono **Trabajos de Backup**, haga clic en **En curso**.
 
   ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 

@@ -54,7 +54,7 @@ Modifique el método `SendTemplateNotificationAsync` en la aplicación de consol
 
 Tenga en cuenta que esta simple llamada entregará la noticia localizada a **todos** los dispositivos, con independencia de la plataforma, puesto que el Centro de notificaciones crea y entrega la carga nativa correcta a todos los dispositivos suscritos a una etiqueta específica.
 
-### <a name="sending-the-notification-with-mobile-services"></a>Envío de la notificación con Servicios móviles
+### <a name="sending-the-notification-with-mobile-services"></a>Envío de la notificación con Mobile Services
 En el programador de servicios móviles, puede usar el siguiente script:
 
     var azure = require('azure');

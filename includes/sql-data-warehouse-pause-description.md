@@ -17,5 +17,5 @@ Al pausar una base de datos:
 * Los recursos de memoria y proceso se devuelven al grupo de recursos disponibles en el centro de datos
 * Durante la pausa, DWU no tiene costo alguno.
 * El almacenamiento de datos no se ve afectado y sus datos permanecen intactos. 
-* Almacenamiento de datos SQL cancela todas las operaciones de ejecución o en cola.
+* SQL Data Warehouse cancela todas las operaciones de ejecución o en cola.
 

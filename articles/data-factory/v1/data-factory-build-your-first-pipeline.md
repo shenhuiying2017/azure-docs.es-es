@@ -1,6 +1,6 @@
 ---
 title: "Tutorial de Data Factory: primera canalización de datos | Microsoft Docs"
-description: "En este tutorial de Data Factory de Azure se muestra cómo crear y programar una factoría de datos que procese los datos mediante el script de Hive en un clúster de Hadoop."
+description: "En este tutorial de Azure Data Factory se muestra cómo crear y programar una factoría de datos que procese los datos mediante el script de Hive en un clúster de Hadoop."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ En este tutorial, realizará los siguientes pasos:
 2. Crear una **canalización**. Una canalización puede tener una o varias actividades (ejemplos: actividad de copia, actividad de Hive en HDInsight). Este ejemplo usa la actividad de Hive de HDInsight que ejecuta un script de Hive en un clúster de Hadoop de HDInsight. El script crea primero una tabla que hace referencia a los datos de blog sin procesar almacenados en Azure Blob Storage y, después, divide los datos sin procesar por año y mes.
 
     En este tutorial, la canalización usa Actividad de Hive para transformar datos, para lo que ejecuta una consulta de Hive en un clúster de Hadoop de Azure HDInsight. 
-3. Cree **servicios vinculados**. Un servicio vinculado se crea para vincular un almacén de datos o servicio de proceso a la factoría de datos. Un almacén de datos como Almacenamiento de Azure contiene los datos de entrada y salida de las actividades de la canalización. Un servicio de proceso como un clúster de Hadoop de HDInsight procesa y transforma los datos.
+3. Cree **servicios vinculados**. Un servicio vinculado se crea para vincular un almacén de datos o servicio de proceso a la factoría de datos. Un almacén de datos como Azure Storage contiene los datos de entrada y salida de las actividades de la canalización. Un servicio de proceso como un clúster de Hadoop de HDInsight procesa y transforma los datos.
 
     En este tutorial se crean dos servicios vinculados: **Azure Storage** y **Azure HDInsight**. El servicio vinculado Azure Storage vincula una cuenta de Azure Storage que contiene los datos de entrada/salida con la factoría de datos. El servicio vinculado Azure HDInsight vincula un clúster de Azure HDInsight que se utiliza para transformar los datos con la factoría de datos. 
 3. Crear **conjuntos de datos**de entrada y salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
@@ -84,7 +84,7 @@ De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2016
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 1. **Suscripción de Azure** : si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
-2. **Almacenamiento de Azure** : para almacenar los datos de este tutorial usará una cuenta de Almacenamiento de Azure. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2. **Azure Storage** : para almacenar los datos de este tutorial usará una cuenta de Azure Storage. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 3. Descargue y revise el archivo de consulta de Hive (**HQL**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
 4. Descargue y revise el archivo de entrada de ejemplo (**input.log**), que se encuentra en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Crear un contenedor de blobs denominado **adfgetstarted** en Azure Blob Storage. 

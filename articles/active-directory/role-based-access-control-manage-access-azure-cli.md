@@ -15,10 +15,10 @@ ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure
 > [!div class="op_single_selector"]

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 > [!div class="op_single_selector"]
@@ -353,7 +353,7 @@ Recuperamos una matriz vacía.  Esto es normal ya que no tenemos ningún perfil 
 
 Ahora, vamos a agregar un punto de conexión.
 
-![Crear extremo](./media/cdn-app-dev-node/cdn-create-endpoint.png)
+![Crear punto de conexión](./media/cdn-app-dev-node/cdn-create-endpoint.png)
 
 Por último, vamos a eliminar el perfil.
 

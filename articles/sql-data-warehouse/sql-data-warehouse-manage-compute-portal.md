@@ -16,12 +16,12 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (Portal de Azure)
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Administración de la potencia de proceso en Azure SQL Data Warehouse (Azure Portal)
 > [!div class="op_single_selector"]
 > * [Información general](sql-data-warehouse-manage-compute-overview.md)
 > * [Portal](sql-data-warehouse-manage-compute-portal.md)
@@ -60,7 +60,7 @@ Para pausar una base de datos:
 2. Para suspender los recursos de proceso y memoria, haga clic en **Pausar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
     ![Confirme la pausa][7]
-3. Mientras Almacenamiento de datos SQL está iniciando la base de datos, el estado será **En pausa**.
+3. Mientras SQL Data Warehouse está iniciando la base de datos, el estado será **En pausa**.
 4. Cuando el estado sea **En pausa**, se realizará la operación de pausa y ya no se le cobrará por DWU.
 
     ![Estado de pausa][4]
@@ -78,7 +78,7 @@ Para reanudar una base de datos:
 2. Para reanudar la base de datos, haga clic en **Iniciar**. Aparece un mensaje de confirmación. Haga clic en **Sí** para confirmar o **No** para cancelar.
 
     ![Confirme la reanudación][5]
-3. Mientras Almacenamiento de datos SQL está iniciando la base de datos, el estado será "Reanudando".
+3. Mientras SQL Data Warehouse está iniciando la base de datos, el estado será "Reanudando".
 4. Cuando el estado sea **En línea**, la base de datos estará lista.
 
     ![Estado En línea][6]

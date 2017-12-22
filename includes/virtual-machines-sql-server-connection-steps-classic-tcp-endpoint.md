@@ -6,7 +6,7 @@ Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener u
 > 
 > 
 
-1. En el Portal de Azure, seleccione **Máquinas virtuales (clásico)**.
+1. En Azure Portal, seleccione **Máquinas virtuales (clásico)**.
 2. Luego seleccione la máquina virtual de SQL Server.
 3. Seleccione **Puntos de conexión** y, después, haga clic en el botón **Agregar** de la parte superior de la hoja Puntos de conexión.
    

@@ -16,10 +16,10 @@ ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 74c9032aababdce91ed617cd7a4c628915b42504
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introducción al cifrado de datos transparente (TDE)
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 > 
 
 ## <a name="verifying-encryption"></a>Comprobación del cifrado
-Para comprobar el estado del cifrado para un Almacenamiento de datos SQL, siga estos pasos:
+Para comprobar el estado del cifrado para un SQL Data Warehouse, siga estos pasos:
 
 1. Conéctese a la base de datos *maestra* o de instancia mediante un inicio de sesión que es un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
 2. Ejecute la siguiente instrucción para cifrar la base de datos.

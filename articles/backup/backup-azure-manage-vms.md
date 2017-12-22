@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Administración de copias de seguridad de máquinas virtuales de Azure
-> [!div class="op_single_selector"]
-> * [Administrar copias de seguridad de máquina virtual de Azure](backup-azure-manage-vms.md)
-> * [Administrar copias de seguridad de máquina virtual clásica](backup-azure-manage-vms-classic.md)
->
->
 
 Este artículo proporciona orientación acerca de cómo administrar copias de seguridad de máquinas virtuales y explica la información disponible sobre alertas de copia de seguridad en el panel del portal. La orientación de este artículo se aplica al uso de máquinas virtuales con almacenes de Recovery Services. Este artículo no trata sobre la creación de máquinas virtuales ni explica cómo protegerlas. Para ver una introducción sobre la protección de las máquinas virtuales implementadas por Azure Resource Manager en Azure con un almacén de Recovery Services, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md).
 
@@ -224,4 +219,4 @@ Para eliminar datos de copia de seguridad en una máquina virtual con la *copia 
     Un mensaje de notificación le confirma que se han eliminado los datos de copia de seguridad.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md). Para más información sobre la supervisión de eventos, consulte [Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure](backup-azure-monitor-vms.md).
+Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-arm-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md). Para más información sobre la supervisión de eventos, consulte [Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure](backup-azure-monitor-vms.md).

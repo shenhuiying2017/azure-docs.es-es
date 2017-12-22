@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
-> [!div class="op_single_selector"]
-> * [Almacén de Servicios de recuperación](backup-azure-vms-troubleshoot.md)
-> * [Almacén de Backup](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Puede solucionar los errores detectados al usar Azure Backup con la información incluida en la tabla siguiente.
 
 ## <a name="backup"></a>Backup
@@ -137,7 +131,7 @@ Cómo comprobar la versión del agente de la máquina virtual en máquinas virtu
 La copia de seguridad de máquinas virtuales se basa en la emisión de comandos de instantánea para el almacenamiento subyacente. No tener acceso al almacenamiento o los retrasos en la ejecución de las tarea de instantáneas puede generar un error en el trabajo de copia de seguridad. Lo siguiente puede producir un error en la tarea de instantáneas.
 
 1. Se bloquea el acceso de red a Almacenamiento mediante NSG<br>
-    Aprenda más sobre cómo [habilitar el acceso de red](backup-azure-vms-prepare.md#network-connectivity) en Storage mediante la lista blanca de direcciones IP o a través del servidor proxy.
+    Aprenda más sobre cómo [habilitar el acceso de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity) en Storage mediante la lista blanca de direcciones IP o a través del servidor proxy.
 2. Las máquinas virtuales con copia de seguridad de SQL Server configurado pueden provocar un retraso de la tarea de instantánea <br>
    De forma predeterminada, la copia de seguridad de máquinas virtuales genera una copia de seguridad completa de VSS en máquinas virtuales de Windows. En las máquinas virtuales que ejecutan servidores SQL Server y la copia de seguridad de SQL Server está configurada, esto podría provocar el retraso en la ejecución de la instantánea. Establezca la siguiente clave del Registro si se producen errores de la copia de seguridad debido a problemas de instantáneas.
 
@@ -169,7 +163,7 @@ Una vez que la resolución de nombres se haya realizado correctamente, también 
    * Desbloquee las direcciones IP usando el cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Ejecute este cmdlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
    * Agregar reglas al NSG (si dispone de uno implementado) para permitir el acceso a las direcciones IP.
 2. Crear una ruta de acceso para el flujo del tráfico HTTP
-   * Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico. [Aquí](backup-azure-vms-prepare.md#network-connectivity) se pueden encontrar los pasos necesarios para implementar un servidor proxy HTTP.
+   * Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTP para enrutar el tráfico. [Aquí](backup-azure-arm-vms-prepare.md#establish-network-connectivity) se pueden encontrar los pasos necesarios para implementar un servidor proxy HTTP.
    * Agregue reglas al NSG (si dispone de uno implementado) para permitir el acceso a INTERNET desde el proxy HTTP.
 
 > [!NOTE]

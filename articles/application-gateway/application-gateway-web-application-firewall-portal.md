@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web en el portal
 
@@ -86,7 +86,7 @@ En este escenario:
 
 2. En el panel **Favoritos** del portal, seleccione **Nuevo**.
 
-3. En la hoja **Nuevo**, seleccione **Redes**. En la hoja **Redes**, seleccione **Puerta de enlace de aplicaciones**, tal y como se muestra en la siguiente imagen:
+3. En la hoja **Nuevo**, seleccione **Redes**. En la hoja **Redes**, seleccione **Azure Application Gateway**, tal y como se muestra en la siguiente imagen:
 
     ![Creación de puertas de enlace de aplicaciones][1]
 

@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
-> [!div class="op_single_selector"]
-> * [Restauración de máquinas virtuales en el portal clásico](backup-azure-restore-vms.md)
-> * [Restauración de máquinas virtuales en Azure Portal](backup-azure-arm-restore-vms.md)
->
->
-
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
 
 * Crear una nueva máquina virtual que sea una representación de un momento dado de la máquina virtual de copia de seguridad.
@@ -50,13 +44,13 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
 ## <a name="select-a-restore-point-for-restore"></a>Seleccionar un punto de restauración
 1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/).
 
-2. En el menú de Azure, seleccione **Examinar**. En la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Servicios de recuperación**, haga clic en ella.
+2. En el menú de Azure, seleccione **Examinar**. En la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
     ![Almacén de Recovery Services](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     Se muestra la lista de almacenes de la suscripción.
 
-    ![Lista de almacenes de Servicios de recuperación](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
+    ![Lista de almacenes de Recovery Services](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 3. En la lista, seleccione el almacén asociado a la máquina virtual que desea restaurar. Al hacer clic en el almacén, se abre su panel.
 
     ![Almacén de Recovery Services seleccionado](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
@@ -160,13 +154,13 @@ Una vez que se desencadene la operación de restauración, el servicio de copia 
 
 Para ver la operación mientras se está procesando, o para verla cuando se ha completado, abra la lista **Trabajos de copia de seguridad**.
 
-1. En el menú de Azure, seleccione **Examinar** y, en la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Servicios de recuperación**, haga clic en ella.
+1. En el menú de Azure, seleccione **Examinar** y, en la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
-    ![Abrir el almacén de Servicios de recuperación](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
+    ![Abrir el almacén de Recovery Services](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     Se muestra la lista de almacenes de la suscripción.
 
-    ![Lista de almacenes de Servicios de recuperación](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
+    ![Lista de almacenes de Recovery Services](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
 2. En la lista, seleccione el almacén asociado a la máquina virtual ha restaurado. Al hacer clic en el almacén, se abre su panel.
 
 3. En el panel del almacén en el icono **Trabajos de copia de seguridad**, haga clic en **Azure Virtual Machines** para mostrar los trabajos asociados al almacén.

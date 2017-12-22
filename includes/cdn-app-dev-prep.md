@@ -6,7 +6,7 @@ Antes de escribir el código de administración de la red CDN, tenemos que reali
 * Aplicar permisos al grupo de recursos para que solo los usuarios autorizados de nuestro inquilino de Azure AD puedan interactuar con el perfil de CDN
 
 ### <a name="creating-the-resource-group"></a>Creación del grupo de recursos
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic sucesivamente en el botón **Nuevo** de la parte superior izquierda, en **Administración** y en **Grupo de recursos**.
 
     ![Crear un grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)

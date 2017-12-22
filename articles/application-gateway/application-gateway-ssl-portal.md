@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
 ms.openlocfilehash: 2f7f5d4132e28c8c192d90d5f4bfb2a9034f8b8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-azure-portal"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante Azure Portal
 
@@ -46,7 +46,7 @@ El agente de escucha HTTPS busca el tráfico en función de su configuración y 
 
    2. Para agregar un agente de escucha, seleccione **Agentes de escucha** y el botón **Agregar**.
 
-   ![Panel de información general de la puerta de enlace de aplicaciones][1]
+   ![Panel de información general de Application Gateway][1]
 
 
    3. Rellene la información necesaria para el agente de escucha que se indica a continuación y cargue el certificado .pfx:

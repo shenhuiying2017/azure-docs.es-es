@@ -16,12 +16,12 @@ ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 6a185d96447c2e1b0b463439dd062081e783da5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (PowerShell)
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-powershell"></a>Administración de la potencia de proceso en Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
 > * [Información general](sql-data-warehouse-manage-compute-overview.md)
 > * [Portal](sql-data-warehouse-manage-compute-portal.md)
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="before-you-begin"></a>Antes de empezar
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Instalar la versión más reciente de Azure PowerShell
 > [!NOTE]
-> Para usar Azure PowerShell con Almacenamiento de datos SQL, es necesaria la versión 1.0.3 o posterior de Azure PowerShell.  Para comprobar su versión actual, ejecute el comando **Get-Module -ListAvailable -Name Azure**. Puede instalar la versión más reciente desde [Instalador de plataforma web de Microsoft][Microsoft Web Platform Installer].  Para obtener más información, vea [Instalación y configuración de Azure PowerShell][How to install and configure Azure PowerShell].
+> Para usar Azure PowerShell con SQL Data Warehouse, es necesaria la versión 1.0.3 o posterior de Azure PowerShell.  Para comprobar su versión actual, ejecute el comando **Get-Module -ListAvailable -Name Azure**. Puede instalar la versión más reciente desde [Instalador de plataforma web de Microsoft][Microsoft Web Platform Installer].  Para obtener más información, vea [Instalación y configuración de Azure PowerShell][How to install and configure Azure PowerShell].
 >
 > 
 

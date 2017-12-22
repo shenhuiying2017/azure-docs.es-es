@@ -1,6 +1,6 @@
 ---
 title: "Auditoría en Azure SQL Data Warehouse | Microsoft Docs"
-description: "Introducción a la auditoría en Almacenamiento de datos SQL de Azure"
+description: "Introducción a la auditoría en Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: 
 author: ronortloff
@@ -16,12 +16,12 @@ ms.custom: security
 ms.date: 08/21/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: f851c82ebeaa647f663d499a4d327c3479e36121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Almacenamiento de datos SQL de Azure
+# <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoría en Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Auditoría](sql-data-warehouse-auditing-overview.md)
 > * [Detección de amenazas](sql-data-warehouse-security-threat-detection.md)
@@ -36,8 +36,8 @@ Las herramientas de auditoría posibilitan y facilitan la observancia de estánd
 * [Configuración de la auditoría para su base de datos]
 * [Análisis de registros e informes de auditoría]
 
-## <a id="subheading-1"></a>Conceptos básicos de auditoría de Almacenamiento de datos SQL de Azure
-La auditoría de Almacenamiento de datos SQL la permite que:
+## <a id="subheading-1"></a>Conceptos básicos de auditoría de Azure SQL Data Warehouse
+La auditoría de SQL Data Warehouse la permite que:
 
 * **Conservar** una traza de auditoría de eventos seleccionados. Puede definir categorías de acciones de base de datos para auditar.
 * **Informar** sobre la actividad de la base de datos. Puede usar informes preconfigurados y un panel para empezar rápidamente con el informe de actividades y eventos.
@@ -82,7 +82,7 @@ Antes de configurar la auditoría, compruebe si usa un ["Cliente de nivel inferi
 8. Haga clic en **Aceptar**.
 
 ## <a id="subheading-3"></a>Análisis de registros e informes de auditoría
-Los registros de auditoría se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver los archivos de registro usando una herramienta como el <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Explorador de almacenamiento de Azure</a>.
+Los registros de auditoría se agregan en una recopilación de tablas de Almacenamiento con el prefijo **SQLDBAuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver archivos de registro usando una herramienta como el <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">Explorador de Azure Storage</a>.
 
 Hay una plantilla de informe de panel preconfigurada disponible como <a href="http://go.microsoft.com/fwlink/?LinkId=403540" target="_blank">hoja de cálculo de Excel descargable</a> para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede descargar <a href="http://www.microsoft.com/download/details.aspx?id=39379">aquí</a>.
 
@@ -98,7 +98,9 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 3. Vuelva a la hoja de configuración de auditoría, cambie el valor de **Clave de acceso de almacenamiento** de *Secundaria* a *Principal* y presione **GUARDAR**.
 4. Vuelva a la interfaz de usuario de almacenamiento y **regenere** la *Clave de acceso secundaria* (como preparación para el siguiente ciclo de actualización de las claves).
 
-## <a id="subheading-5"></a>Automatización (PowerShell o API de REST)
+## 
+            <a id="subheading-5">
+            </a>Automation (PowerShell o API de REST)
 También puede configurar la auditoría en Azure SQL Data Warehouse mediante las siguientes herramientas de automatización:
 
 * **Cmdlets de PowerShell**:

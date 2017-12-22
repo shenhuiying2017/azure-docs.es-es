@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 03/30/2017
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 9221d72ecf8ab2ba8b04e4bc97eeef7157817cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (T-SQL)
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-t-sql"></a>Administración de la potencia de proceso en Azure SQL Data Warehouse (T-SQL)
 > [!div class="op_single_selector"]
 > * [Información general](sql-data-warehouse-manage-compute-overview.md)
 > * [Portal](sql-data-warehouse-manage-compute-portal.md)
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 Para ver la configuración actual de DWU para las bases de datos:
 
 1. Abra el Explorador de objetos de SQL Server en Visual Studio.
-2. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
+2. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
 3. Seleccione en la vista de administración dinámica sys.database_service_objectives. Este es un ejemplo: 
 
 ```sql
@@ -58,7 +58,7 @@ JOIN
 
 Para cambiar las DWU:
 
-1. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
+1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
 2. Use la instrucción TSQL [ALTER DATABASE][ALTER DATABASE]. En el ejemplo siguiente se establece el objetivo de nivel de servicio en DW1000 para la base de datos MySQLDW. 
 
 ```Sql
@@ -71,7 +71,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ## <a name="check-database-state-and-operation-progress"></a>Comprobación del estado de la base de datos y del progreso de la operación
 
-1. Conéctese a la base de datos maestra asociada al servidor lógico de Base de datos SQL.
+1. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
 2. Envío de una consulta para comprobar el estado de la base de datos
 
 ```sql
@@ -92,7 +92,7 @@ AND
     major_resource_id = 'MySQLDW'
 ```
 
-Esta DMV devolverá información sobre varias operaciones de administración en el almacenamiento de datos de SQL, como la operación y el estado de esta, que será IN_PROGRESS o COMPLETED.
+Esta DMV devolverá información sobre varias operaciones de administración en Azure SQL Data Warehouse, como la operación y el estado de esta, que será IN_PROGRESS o COMPLETED.
 
 
 

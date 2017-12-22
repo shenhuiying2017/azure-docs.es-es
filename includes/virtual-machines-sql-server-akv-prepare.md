@@ -1,5 +1,5 @@
 ## <a name="prepare-for-akv-integration"></a>Preparación para la integración de AKV
-Para usar la Integración de Almacén de claves de Azure para configurar la máquina virtual de SQL Server, hay varios requisitos previos: 
+Para usar la Integración de Azure Key Vault para configurar la máquina virtual de SQL Server, hay varios requisitos previos: 
 
 1. [Instalar Azure Powershell](#install-azure-powershell)
 2. [Crear un directorio de Azure Active Directory](#create-an-azure-active-directory)
@@ -23,11 +23,11 @@ A continuación, registre una aplicación con AAD. Esto le dará una cuenta de e
 * Tiene que autorizar este nuevo identificador de cliente tenga los siguientes permisos de acceso: **encrypt**, **decrypt**, **wrapKey**, **unwrapKey**, **sign** y **verify**. Esto se hace con el cmdlet [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx). Para más información, consulte [Autorización de la aplicación para que use la clave o el secreto](../articles/key-vault/key-vault-get-started.md#authorize).
 
 ### <a name="create-a-key-vault"></a>Creación de un Almacén de claves
-Para poder usar Almacén de claves de Azure para guardar las claves que se utilizarán para el cifrado en la máquina virtual, tiene que tener acceso a un Almacén de claves. Si no ha configurado ya su Almacén de claves, cree uno siguiendo los pasos que se mencionan en el tema [Introducción al Almacén de claves de Azure](../articles/key-vault/key-vault-get-started.md) . Antes de completar estos pasos, tenga en cuenta que durante esta configuración tiene que recopilar la alguna información que necesitará más adelante cuando habilite la integración de Almacén de claves de Azure en la máquina virtual de SQL.
+Para poder usar Azure Key Vault para guardar las claves que se utilizarán para el cifrado en la máquina virtual, tiene que tener acceso a un almacén de claves. Si no ha configurado ya su almacén de claves, cree uno siguiendo los pasos que se mencionan en el tema [Introducción a Azure Key Vault](../articles/key-vault/key-vault-get-started.md) . Antes de completar estos pasos, tenga en cuenta que durante esta configuración tiene que recopilar la alguna información que necesitará más adelante cuando habilite la integración de Azure Key Vault en la máquina virtual de SQL.
 
 Cuando llegue al paso Creación de un Almacén de claves, tenga en cuenta la propiedad **vaultUri** devuelta, que es la dirección URL del Almacén de claves. En el ejemplo que se proporciona en ese paso, que se muestra a continuación, el nombre de Key Vault es ContosoKeyVault, por lo que su dirección URL sería https://contosokeyvault.vault.azure.net/.
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-La URL del Almacén de claves se asigna posteriormente al parámetro **$akvURL** en el script de PowerShell para habilitar la integración de Almacén de claves de Azure.
+La URL de Key Vault se asigna posteriormente al parámetro **$akvURL** en el script de PowerShell para habilitar la integración de Azure Key Vault.
 

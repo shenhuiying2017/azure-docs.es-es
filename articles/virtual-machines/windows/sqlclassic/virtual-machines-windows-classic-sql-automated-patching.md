@@ -1,6 +1,6 @@
 ---
 title: "Aplicación de revisiones automatizada para máquinas virtuales SQL Server (implementación clásica) | Microsoft Docs"
-description: "Explica la característica Aplicación de revisión automatizada para máquinas virtuales SQL Server que se ejecutan en Azure mediante el modelo de implementación clásica."
+description: "Explica la característica Automated Patching para máquinas virtuales SQL Server que se ejecutan en Azure mediante el modelo de implementación clásica."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
 ms.openlocfilehash: 1959871141f196ba80ffd7b37e62e5ea5b42dba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Aplicación de revisiones automatizadas para SQL Server en máquinas virtuales de Azure (implementación clásica)
+# <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
 > * [Clásico](../classic/sql-automated-patching.md)
