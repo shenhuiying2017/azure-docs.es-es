@@ -12,9 +12,35 @@
     - name: Creación de un dispositivo simulado
       items:
         - name: TPM
-          href: quick-create-simulated-device.md
+          items:
+            - name: C
+              href: quick-create-simulated-device.md
+            - name: Java
+              href: quick-create-simulated-device-tpm-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-tpm-csharp.md
+            - name: Python
+              href: quick-create-simulated-device-tpm-python.md
         - name: X.509
-          href: quick-create-simulated-device-x509.md
+          items:
+            - name: C
+              href: quick-create-simulated-device-x509.md
+            - name: Java
+              href: quick-create-simulated-device-x509-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-x509-csharp.md
+            - name: Python
+              href: quick-create-simulated-device-x509-python.md
+    - name: Inscripción de dispositivo
+      items:
+        - name: TPM
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+        - name: X.509
+          items:
+            - name: Java
+              href: quick-enroll-device-x509-java.md
 - name: Tutoriales
   items:
     - name: '1: Configuración de recursos en la nube'

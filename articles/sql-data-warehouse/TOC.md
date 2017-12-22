@@ -1,6 +1,7 @@
 # Información general
 
 ## [Acerca de Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Hoja de referencia rápida](cheat-sheet.md)
 
 # Inicios rápidos
 

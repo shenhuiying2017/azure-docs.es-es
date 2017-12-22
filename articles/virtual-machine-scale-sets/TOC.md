@@ -2,9 +2,12 @@
 ## [¿Qué son los conjuntos de escalado de máquinas virtuales?](virtual-machine-scale-sets-overview.md)
 
 # Introducción
-## [Implementación de un conjunto de escalado en Azure Portal](virtual-machine-scale-sets-portal-create.md)
-## [Implementación de un conjunto de escalado con PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
-## [Implementación de una aplicación de escalado automático con una plantilla](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Creación en Azure Portal](virtual-machine-scale-sets-create-portal.md)
+## [Creación con la CLI de Azure 2.0](virtual-machine-scale-sets-create-cli.md)
+## [Creación con Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Creación con una plantilla
+### [Conjunto de escalado de Linux](virtual-machine-scale-sets-create-template-linux.md)
+### [Conjunto de escalado de Windows](virtual-machine-scale-sets-create-template-windows.md)
 
 # Procedimientos
 ## Planeamiento y diseño
@@ -17,9 +20,7 @@
 ### [Uso del escalado automático basado en invitado con una plantilla del conjunto de escalado de Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Implementación
-### [Creación con Azure Portal](virtual-machine-scale-sets-portal-create.md)
 ### [Creación con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Creación con Azure PowerShell o la CLI de Azure](virtual-machine-scale-sets-create.md)
 ### [Conjunto de escalado con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Escalado automático de un conjunto de escalado](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Uso de Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
