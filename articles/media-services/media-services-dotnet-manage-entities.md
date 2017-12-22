@@ -1,6 +1,6 @@
 ---
-title: "Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET"
-description: "Obtenga información acerca de cómo administrar los recursos y las entidades relacionadas con el SDK de Servicios multimedia para .NET."
+title: "Administración de activos y entidades relacionadas con el SDK de Media Services para .NET"
+description: "Obtenga información acerca de cómo administrar los recursos y las entidades relacionadas con el SDK de Media Services para .NET."
 author: juliako
 manager: cfowler
 editor: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
+# <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Media Services para .NET
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)
@@ -37,7 +37,7 @@ En este tema se muestra cómo administrar entidades de Azure Media Services con.
 Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="get-an-asset-reference"></a>Obtención de una referencia de recurso
-Una tarea frecuente es obtener una referencia a un recurso existente en Servicios multimedia. En el ejemplo de código siguiente se muestra cómo puede obtener una referencia de recurso de la colección de recursos en el objeto de contexto del servidor mediante un Id. de recurso. En el ejemplo de código siguiente se usa una consulta Linq para obtener una referencia a un objeto IAsset existente.
+Una tarea frecuente es obtener una referencia a un recurso existente en Media Services. En el ejemplo de código siguiente se muestra cómo puede obtener una referencia de recurso de la colección de recursos en el objeto de contexto del servidor mediante un Id. de recurso. En el ejemplo de código siguiente se usa una consulta Linq para obtener una referencia a un objeto IAsset existente.
 
     static IAsset GetAsset(string assetId)
     {
@@ -93,7 +93,7 @@ A medida que crece el número de recursos de almacenamiento, resulta útil mostr
 
 ## <a name="get-a-job-reference"></a>Obtención de una referencia de trabajo
 
-Cuando se trabaja con tareas de procesamiento en el código de Servicios multimedia, a menudo necesitará obtener una referencia a un trabajo existente basado en un identificador. En el ejemplo de código siguiente se muestra cómo obtener una referencia a un objeto IJob de la colección de trabajos.
+Cuando se trabaja con tareas de procesamiento en el código de Media Services, a menudo necesitará obtener una referencia a un trabajo existente basado en un identificador. En el ejemplo de código siguiente se muestra cómo obtener una referencia a un objeto IJob de la colección de trabajos.
 
 Puede ser necesario obtener una referencia de trabajo cuando se inicia un trabajo de codificación que tarda mucho en ejecutarse y debe comprobar el estado del trabajo en un subproceso. En casos como éste, cuando el método devuelve un subproceso, deberá recuperar una referencia actualizada a un trabajo.
 
@@ -112,9 +112,9 @@ Puede ser necesario obtener una referencia de trabajo cuando se inicia un trabaj
     }
 
 ## <a name="list-jobs-and-assets"></a>Lista de trabajos y recursos
-Una tarea relacionada importante es enumerar los recursos con sus respectivos trabajos asociados en Servicios multimedia. En el ejemplo de código siguiente se muestra cómo enumerar cada objeto IJob y, a continuación, para cada trabajo, muestra propiedades acerca del trabajo, todas las tareas relacionadas, todos los recursos de entrada y todos los recursos de salida. El código de este ejemplo puede ser útil para muchas otras tareas. Por ejemplo, si desea mostrar una lista de los recursos de salida de uno o más trabajos de codificación que ejecutó anteriormente, este código muestra cómo obtener acceso a los recursos de salida. Cuando tenga una referencia a un recurso de salida, puede entregar el contenido a otros usuarios o aplicaciones descargándolo o proporcionando direcciones URL. 
+Una tarea relacionada importante es enumerar los recursos con sus respectivos trabajos asociados en Media Services. En el ejemplo de código siguiente se muestra cómo enumerar cada objeto IJob y, a continuación, para cada trabajo, muestra propiedades acerca del trabajo, todas las tareas relacionadas, todos los recursos de entrada y todos los recursos de salida. El código de este ejemplo puede ser útil para muchas otras tareas. Por ejemplo, si desea mostrar una lista de los recursos de salida de uno o más trabajos de codificación que ejecutó anteriormente, este código muestra cómo obtener acceso a los recursos de salida. Cuando tenga una referencia a un recurso de salida, puede entregar el contenido a otros usuarios o aplicaciones descargándolo o proporcionando direcciones URL. 
 
-Para obtener más información sobre las opciones de entrega de recursos, consulte [Entrega de recursos con el SDK de Servicios multimedia para .NET](media-services-deliver-streaming-content.md).
+Para obtener más información sobre las opciones de entrega de recursos, consulte [Entrega de recursos con el SDK de Media Services para .NET](media-services-deliver-streaming-content.md).
 
     // List all jobs on the server, and for each job, also list 
     // all tasks, all input assets, all output assets.
@@ -192,7 +192,7 @@ Para obtener más información sobre las opciones de entrega de recursos, consul
     }
 
 ## <a name="list-all-access-policies"></a>Lista de todas las directivas de acceso
-En Servicios multimedia, puede definir una directiva de acceso en un recurso o sus archivos. Una directiva de acceso define los permisos de un archivo o un recurso (tipo de acceso y la duración). En el código de Servicios multimedia, normalmente se define una directiva de acceso mediante la creación de un objeto IAccessPolicy y, a continuación, su asociación a un recurso existente. A continuación, cree un objeto ILocator, que permite proporcionar acceso directo a los recursos de Servicios multimedia. El proyecto de Visual Studio que acompaña a esta serie de documentación contiene varios ejemplos de código que muestran cómo crear y asignar directivas de acceso y localizadores a los activos.
+En Media Services, puede definir una directiva de acceso en un recurso o sus archivos. Una directiva de acceso define los permisos de un archivo o un recurso (tipo de acceso y la duración). En el código de Media Services, normalmente se define una directiva de acceso mediante la creación de un objeto IAccessPolicy y, a continuación, su asociación a un recurso existente. A continuación, cree un objeto ILocator, que permite proporcionar acceso directo a los recursos de Media Services. El proyecto de Visual Studio que acompaña a esta serie de documentación contiene varios ejemplos de código que muestran cómo crear y asignar directivas de acceso y localizadores a los activos.
 
 En el ejemplo de código siguiente se muestra cómo enumerar todas las directivas de acceso del servidor y se muestra el tipo de permisos asociado a cada uno. Otra manera útil para ver las directivas de acceso es enumerar todos los objetos de ILocator en el servidor y, a continuación, para cada localizador, puede enumerar su directiva de acceso asociada mediante su propiedad AccessPolicy.
 
@@ -253,7 +253,7 @@ Un localizador es una dirección URL que proporciona una ruta de acceso directo 
 
 En el ejemplo de código siguiente se enumeran todos los localizadores del servidor. Para cada localizador, muestra el identificador para la directiva de acceso y recursos relacionado. También muestra el tipo de permisos, la fecha de caducidad y la ruta de acceso completa al recurso.
 
-Tenga en cuenta que una ruta de acceso del localizador a un recurso solo es una dirección URL base para el recurso. Para crear una ruta directa a archivos individuales a los que podría desplazarse un usuario o una aplicación, el código debe agregar la ruta de acceso del archivo específico a la ruta del localizador. Para obtener más información sobre cómo hacerlo, consulte el tema [Entrega de recursos con el SDK de Servicios multimedia para .NET](media-services-deliver-streaming-content.md).
+Tenga en cuenta que una ruta de acceso del localizador a un recurso solo es una dirección URL base para el recurso. Para crear una ruta directa a archivos individuales a los que podría desplazarse un usuario o una aplicación, el código debe agregar la ruta de acceso del archivo específico a la ruta del localizador. Para obtener más información sobre cómo hacerlo, consulte el tema [Entrega de recursos con el SDK de Media Services para .NET](media-services-deliver-streaming-content.md).
 
     static void ListAllLocators()
     {
@@ -276,7 +276,7 @@ Tenga en cuenta que una ruta de acceso del localizador a un recurso solo es una 
 ## <a name="enumerating-through-large-collections-of-entities"></a>Enumeración de grandes colecciones de entidades
 Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Debe usar Skip y Take al enumerar grandes colecciones de entidades. 
 
-La siguiente función recorre todos los trabajos en la cuenta de Servicios multimedia proporcionada. Servicios multimedia devuelve 1000 trabajos en la colección de trabajos. La función usa Skip y Take para asegurarse de que se enumeran todos los trabajos (en el caso de que tenga más de 1000 trabajos en su cuenta).
+La siguiente función recorre todos los trabajos en la cuenta de Media Services proporcionada. Media Services devuelve 1000 trabajos en la colección de trabajos. La función usa Skip y Take para asegurarse de que se enumeran todos los trabajos (en el caso de que tenga más de 1000 trabajos en su cuenta).
 
     static void ProcessJobs()
     {
@@ -398,7 +398,7 @@ En el ejemplo de código siguiente se muestra cómo obtener una referencia a una
 
 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

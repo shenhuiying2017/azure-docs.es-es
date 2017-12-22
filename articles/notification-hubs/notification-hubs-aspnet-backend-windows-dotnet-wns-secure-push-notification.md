@@ -1,5 +1,5 @@
 ---
-title: "Inserción segura de los Centros de notificaciones de Azure"
+title: Notificaciones push seguras de Azure Notification Hubs
 description: "Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET."
 documentationcenter: windows
 author: ysxu
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 9c626ec1534c4899588150a58c0da57b9d963f6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="azure-notification-hubs-secure-push"></a>Inserción segura de los Centros de notificaciones de Azure
+# <a name="azure-notification-hubs-secure-push"></a>Notificaciones push seguras de Azure Notification Hubs
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
@@ -47,7 +47,7 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asu
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial [Notificar a los usuarios](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , por lo que debe completar los pasos de ese tutorial primero.
 
 > [!NOTE]
-> En este tutorial se supone que ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Tienda Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+> En este tutorial se supone que ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a Notification Hubs (Tienda Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 > Asimismo, tenga en cuenta que Windows Phone 8.1 requiere credenciales de Windows (no de Windows Phone) y que las tareas en segundo plano no funcionan en Windows Phone 8.0 o Silverlight 8.1. Para aplicaciones de la Tienda Windows, puede recibir notificaciones a través de una tarea en segundo plano solamente si la aplicación tiene la pantalla de bloqueo habilitada (haga clic en la casilla en el manifiesto de la aplicación).
 > 
 > 

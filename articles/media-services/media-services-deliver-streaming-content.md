@@ -1,6 +1,6 @@
 ---
 title: "Publicación de contenido de Azure Media Services mediante .NET | Microsoft Docs"
-description: "Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET."
+description: "Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. Los ejemplos de código están escritos en C# y utilizan el SDK de Media Services para .NET."
 author: juliako
 manager: cfowler
 editor: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
 ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="publish-azure-media-services-content-using-net"></a>Publicación de contenido de Servicios multimedia de Azure con.NET
+# <a name="publish-azure-media-services-content-using-net"></a>Publicación de contenido de Azure Media Services con.NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -54,7 +54,7 @@ Para crear el localizador de streaming a petición y obtener las direcciones URL
 >[!NOTE]
 >Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Utilice el mismo identificador de directiva si siempre usa los mismos días o permisos de acceso. Por ejemplo, directivas para localizadores que van a permanecer durante mucho tiempo (directivas no de carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
 
-### <a name="use-media-services-net-sdk"></a>Uso del SDK de .NET de Servicios multimedia
+### <a name="use-media-services-net-sdk"></a>Uso del SDK de .NET de Media Services
 Generación de direcciones URL de streaming 
 
     private static void BuildStreamingURLs(IAsset asset)
@@ -148,7 +148,7 @@ Las salidas:
 
     . . . 
 
-### <a name="use-media-services-net-sdk-extensions"></a>Uso de Extensiones del SDK .NET de Servicios multimedia
+### <a name="use-media-services-net-sdk-extensions"></a>Uso de Extensiones del SDK .NET de Media Services
 El código siguiente llama a los métodos de extensiones del SDK de .NET que crean un localizador y generan las direcciones URL de Smooth Streaming, HLS y MPEG-DASH para el streaming adaptable.
 
     // Create a loctor.
@@ -168,7 +168,7 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
     Console.WriteLine(mpegDashUri);
 
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

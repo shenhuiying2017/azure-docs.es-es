@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
 ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creación y modificación de un circuito ExpressRoute mediante la CLI
 
@@ -39,7 +39,7 @@ En este artículo se describe cómo crear un circuito Azure ExpressRoute con la 
 * Antes de empezar, instale la versión más reciente de los comandos de la CLI (2.0 o posteriores). Para más información acerca de la instalación de los comandos de la CLI, consulte [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Instalación de la CLI de Azure 2.0) y [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introducción a la CLI de Azure 2.0).
 * Revise los [Requisitos previos y lista de comprobación de ExpressRoute](expressroute-prerequisites.md) y los [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md) antes de comenzar la configuración.
 
-## <a name="create"></a>Creación y aprovisionamiento de un circuito ExpressRoute
+## <a name="create"></a>Crear y aprovisionar un circuito ExpressRoute
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 
@@ -351,7 +351,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 Revise las instrucciones que se ofrecen en [Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager](expressroute-howto-move-arm.md).
 
-## <a name="delete"></a>Desaprovisionamiento y eliminación de un circuito ExpressRoute
+## <a name="delete"></a>Desaprovisionar y eliminar un circuito ExpressRoute
 
 Para desaprovisionar y eliminar un circuito ExpressRoute, asegúrese de comprender los criterios siguientes:
 

@@ -1,5 +1,5 @@
 ---
-title: "Envío de notificaciones push seguras a los Centros de notificaciones de Azure"
+title: "Envío de notificaciones push seguras a Azure Notification Hubs"
 description: "Obtenga información acerca de cómo enviar notificaciones de inserción seguras en una aplicación Android desde Azure. Ejemplos de código escritos en Java y C#."
 documentationcenter: android
 keywords: push notification,push notifications,push messages,android push notifications
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Envío de notificaciones push seguras a los Centros de notificaciones de Azure
+# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Envío de notificaciones push seguras a Azure Notification Hubs
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
@@ -53,7 +53,7 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asu
 Este tutorial muestra cómo enviar notificaciones push seguras. Se basa en el tutorial sobre [notificar a los usuarios](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , por lo que debe completar los pasos de ese tutorial primero si no lo ha hecho todavía.
 
 > [!NOTE]
-> En este tutorial se supone que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> En este tutorial se supone que se ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
 > 
 > 
 

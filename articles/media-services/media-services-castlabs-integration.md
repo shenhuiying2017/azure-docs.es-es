@@ -1,6 +1,6 @@
 ---
 title: Uso de castLabs para proporcionar licencias de Widevine a Azure Media Services | Microsoft Docs
-description: "En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs."
+description: "En este artículo se describe cómo puede usar Azure Media Services (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Media Services y la licencia de Widevine se entrega al servidor de licencias de castLabs."
 services: media-services
 documentationcenter: 
 author: Mingfeiy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de castLabs para entregar licencias de Widevine a Servicios multimedia de Azure
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de castLabs para entregar licencias de Widevine a Azure Media Services
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -28,11 +28,11 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Información general
-En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias de PlayReady de Servicios multimedia y la licencia de Widevine se entrega por el servidor de licencias **castLabs** .
+En este artículo se describe cómo puede usar Azure Media Services (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias de PlayReady de Media Services y la licencia de Widevine se entrega por el servidor de licencias **castLabs** .
 
 Para la reproducción de contenido en streaming protegido por CENC (PlayReady o Widevine), puede usar [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Consulte el [documento AMP](http://amp.azure.net/libs/amp/latest/docs/) para obtener información detallada.
 
-En el siguiente diagrama se muestra una arquitectura de integración de castLabs y Servicios multimedia de Azure de alto nivel.
+En el siguiente diagrama se muestra una arquitectura de integración de castLabs y Azure Media Services de alto nivel.
 
 ![integración](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
@@ -89,14 +89,14 @@ Para usar la aplicación de consola:
 Para usar la aplicación web (STS):
 
 1. Cambie el archivo web.config para configurar el id. de comerciante de castlabs, la configuración de STS y la clave compartida.
-2. Implemente en Sitios web de Azure.
+2. Implemente en Azure Websites.
 3. Vaya al sitio web.
 
 ## <a name="playing-back-a-video"></a>Reproducir un vídeo
 Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), puede usar [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Cuando se ejecuta la aplicación de consola, se reflejan el id. de clave de contenido y la dirección URL del manifiesto.
 
 1. Abra una nueva pestaña e inicie STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
-2. Vaya al [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Vaya a [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3. Pegue la dirección URL de streaming.
 4. Haga clic en la casilla **Opciones avanzadas** .
 5. En el menú desplegable **Protección** , seleccione PlayReady o Widevine.
@@ -106,7 +106,7 @@ Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), pue
 7. Actualice el reproductor.
 8. El vídeo se debe estar reproduciendo.
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

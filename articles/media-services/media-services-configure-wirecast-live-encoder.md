@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: c4df14f24650ce431dfb31cc774cab6d3cf3aef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única
 > [!div class="op_single_selector"]
@@ -29,13 +29,13 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-En este tema se muestra cómo configurar el codificador en directo [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo.  Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
+En este tema se muestra cómo configurar el codificador en directo [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en directo.  Para obtener más información, consulte [Uso de canales habilitados para Live Encoding con Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-En este tutorial se muestra cómo administrar Servicios multimedia de Azure (AMS) con la herramienta Explorador de Servicios multimedia de Azure (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use Azure Portal para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
+En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la herramienta Explorador de Azure Media Services (AMSE). Esta herramienta solo se ejecuta en Windows PC. Si se encuentra en Mac o Linux, use Azure Portal para crear [canales](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) y [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Creación de una cuenta de Azure Media Services](media-services-portal-create-account.md)
-* Asegúrese de que hay un punto de conexión de streaming en ejecución. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md)
+* Asegúrese de que hay un punto de conexión de streaming en ejecución. Para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Debe instalar la última versión de la herramienta [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .
 * Inicie la herramienta y conéctese a la cuenta de AMS.
 
@@ -94,7 +94,7 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 3. Haga clic en **OK**.
 4. En la página de configuración, establezca el campo **Destination** (Destino) en **Azure Media Services**.
 
-    El perfil de codificación está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)**. Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y, luego, elija **New Preset**(Nuevo valor preestablecido).
+    El perfil de Encoding está previamente seleccionado como **Azure H.264 720 p 16:9 (1280 x 720)**. Para personalizar esta configuración, seleccione el icono de engranaje a la derecha de la lista desplegable y, luego, elija **New Preset**(Nuevo valor preestablecido).
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Configure los valores preestablecidos del codificador.
@@ -171,7 +171,7 @@ La transmisión está ahora preparada para insertarse en un reproductor o distri
 ## <a name="troubleshooting"></a>solución de problemas
 Consulte el tema de [solución de problemas](media-services-troubleshooting-live-streaming.md) para obtener instrucciones.
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

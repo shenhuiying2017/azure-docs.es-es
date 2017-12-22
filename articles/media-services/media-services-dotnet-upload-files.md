@@ -1,6 +1,6 @@
 ---
 title: Carga de archivos en una cuenta de Media Services mediante .NET | Microsoft Docs
-description: "Aprenda a obtener contenido multimedia en Servicios multimedia mediante la creación y carga de recursos."
+description: "Aprenda a obtener contenido multimedia en Media Services mediante la creación y carga de recursos."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
 ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-net"></a>Cargar archivos en una cuenta de Servicios multimedia mediante .NET
+# <a name="upload-files-into-a-media-services-account-using-net"></a>Cargar archivos en una cuenta de Media Services mediante .NET
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
@@ -28,14 +28,14 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Asset** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
+En Media Services, cargará (o ingerirá) los archivos digitales en un recurso. La entidad **Asset** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
 Los archivos del recurso se denominan **archivos de recursos**. La instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
 
 > [!NOTE]
 > Se aplican las siguientes consideraciones:
 > 
-> * Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un '.' para la extensión del nombre de archivo.
+> * Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name**no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):!*'();:@&=+$,/?%#[]"  Además, solo puede haber un '.' para la extensión del nombre de archivo.
 > * La longitud del nombre no debe ser superior a 260 caracteres.
 > * Existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. Consulte [este](media-services-quotas-and-limitations.md) tema para obtener información más detallada acerca de la limitación de tamaño de archivo.
 > * Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este tema](media-services-dotnet-manage-entities.md#limit-access-policies) .
@@ -47,9 +47,9 @@ Al crear recursos, puede especificar las siguientes opciones de cifrado.
   Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
 * **CommonEncryption** : utilice esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 * **EnvelopeEncrypted** : utilice esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
-* **StorageEncrypted** : cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+* **StorageEncrypted** : cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en Azure Storage donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
   
-    Los Servicios multimedia proporcionan cifrado de almacenamiento en disco para sus recursos, no por cable como el administrador de derechos digitales (DRM).
+    Media Services proporciona cifrado de almacenamiento en disco para sus recursos, no por cable como Digital Rights Manager (DRM).
   
     Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
@@ -57,9 +57,9 @@ Si especifica que el recurso se cifre con una opción **CommonEncrypted** o una 
 
 Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Media Services para .NET creará un elemento **ContentKey** de **StorageEncrypted** para el recurso.
 
-En este tema se muestra cómo usar el SDK de Servicios multimedia para .NET, así como las extensiones del SDK de Servicios multimedia para .NET para cargar archivos en un recurso de Servicios multimedia.
+En este tema se muestra cómo usar el SDK de Media Services para .NET, así como las extensiones del SDK de Media Services para .NET para cargar archivos en un recurso de Media Services.
 
-## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Carga de un solo archivo con el SDK .NET de Servicios multimedia
+## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Carga de un solo archivo con el SDK .NET de Media Services
 El código de ejemplo siguiente usa el SDK de .NET para cargar un único archivo. Se crean y se destruyen las instancias AccessPolicy y Locator mediante la función Upload. 
 
 
@@ -85,7 +85,7 @@ El código de ejemplo siguiente usa el SDK de .NET para cargar un único archivo
         }
 
 
-## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Carga de varios archivos con el SDK .NET de Servicios multimedia
+## <a name="upload-multiple-files-with-media-services-net-sdk"></a>Carga de varios archivos con el SDK .NET de Media Services
 El código siguiente muestra cómo crear un recurso y cargar varios archivos.
 
 El código hace lo siguiente:
@@ -95,7 +95,7 @@ El código hace lo siguiente:
 * Crea una instancia de **Locator** que proporciona acceso al recurso.
 * Crea una instancia de **BlobTransferClient** . Este tipo representa a un cliente que funciona en los blobs de Azure. En este ejemplo, usamos al cliente para supervisar el progreso de carga. 
 * Enumera los archivos en el directorio especificado y crea una instancia de **AssetFile** para cada archivo.
-* Carga los archivos en los Servicios multimedia con el método **UploadAsync** . 
+* Carga los archivos en los Media Services con el método **UploadAsync** . 
 
 > [!NOTE]
 > Use el método UploadAsync para asegurarse de que las llamadas no provocan un bloqueo y los archivos se cargan en paralelo.
@@ -166,8 +166,10 @@ Al cargar un número elevado de recursos, tenga en cuenta lo siguiente.
 * Aumente NumberOfConcurrentTransfers desde el valor predeterminado de 2 a un valor superior como 5. La configuración de esta propiedad afecta a todas las instancias de **CloudMediaContext**. 
 * Mantenga ParallelTransferThreadCount en el valor predeterminado de 10.
 
-## <a id="ingest_in_bulk"></a>Ingesta de activos en bloque con SDK .NET de Servicios multimedia
-La carga de archivos de recursos de gran tamaño puede ser un obstáculo durante la creación de recursos. La ingesta de recursos en masa o "Ingesta en masa" implica la separación de la creación de recursos del proceso de carga. Para adoptar un enfoque de ingesta en masa, cree un manifiesto (IngestManifest) que describa el recurso y sus archivos asociados. A continuación, use el método de carga que prefiera para cargar los archivos asociados al contenedor de blobs del manifiesto. Los Servicios multimedia de Microsoft Azure ven el contenedor de blobs asociado al manifesto. Una vez que se carga un archivo en el contenedor de blobs, los Servicios multimedia de Microsoft Azure completan la creación de recursos según la configuración del recurso en el manifiesto (IngestManifestAsset).
+## 
+            <a id="ingest_in_bulk">
+            </a>Ingesta de activos en bloque con SDK .NET de Media Services
+La carga de archivos de recursos de gran tamaño puede ser un obstáculo durante la creación de recursos. La ingesta de recursos en masa o "Ingesta en masa" implica la separación de la creación de recursos del proceso de carga. Para adoptar un enfoque de ingesta en masa, cree un manifiesto (IngestManifest) que describa el recurso y sus archivos asociados. A continuación, use el método de carga que prefiera para cargar los archivos asociados al contenedor de blobs del manifiesto. Los Microsoft Azure Media Services ven el contenedor de blobs asociado al manifesto. Una vez que se carga un archivo en el contenedor de blobs, los Microsoft Azure Media Services completan la creación de recursos según la configuración del recurso en el manifiesto (IngestManifestAsset).
 
 Para crear un nuevo IngestManifest, llame al método Create expuesto por la colección de IngestManifests en CloudMediaContext. Este método creará un nuevo IngestManifest con el nombre de manifesto proporcionado.
 

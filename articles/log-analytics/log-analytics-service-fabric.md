@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: nini
 ms.openlocfilehash: ca86787e344aa5e9e68934dee6e9e83aeb4cc340
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="assess-azure-service-fabric-applications-and-micro-services-with-powershell"></a>Evaluación de aplicaciones y microservicios de Azure Service Fabric con PowerShell
 > [!div class="op_single_selector"]
@@ -374,7 +374,7 @@ Haga clic en el icono de **Service Fabric** icono para abrir el panel de Service
 
 En la siguiente tabla se muestran los métodos de recolección de datos y otros detalles sobre cómo se recopilan los datos para Service Fabric:
 
-| plataforma | Agente directo | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de Operations Manager | Azure Storage | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |  |  | &#8226; |  |  |10 minutos |
 
