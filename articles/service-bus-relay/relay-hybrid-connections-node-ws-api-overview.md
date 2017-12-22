@@ -47,7 +47,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-Los métodos auxiliares son para utilizarse con este paquete, pero también los puede usar un servidor de nodo para permitir que los clientes web o de dispositivo creen agentes de escucha o remitentes. El servidor utiliza estos métodos pasándoles URI que insertan tokens de corta duración. Estos URI también se pueden usar con pilas WebSocket comunes que no admiten que se establezcan encabezados HTTP para el protocolo de enlace WebSocket. Se admite la inserción de tokens de autorización en el URI principalmente para los escenarios de uso con biblioteca externa. 
+Los métodos auxiliares son para utilizarse con este paquete, pero también los puede usar un servidor de Node para permitir que los clientes web o de dispositivo creen agentes de escucha o remitentes. El servidor utiliza estos métodos pasándoles URI que insertan tokens de corta duración. Estos URI también se pueden usar con pilas WebSocket comunes que no admiten que se establezcan encabezados HTTP para el protocolo de enlace WebSocket. Se admite la inserción de tokens de autorización en el URI principalmente para los escenarios de uso con biblioteca externa. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 
