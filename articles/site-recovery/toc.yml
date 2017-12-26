@@ -79,6 +79,8 @@
           href: concepts-on-premises-to-azure-networking.md
         - name: Configuración de direcciones IP para el acceso a un sitio secundario después de una conmutación por error
           href: concepts-on-premises-to-on-premises-networking.md
+        - name: Administración de interfaz de red para escenarios de entornos locales a Azure
+          href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Recuperación ante desastres
       items:
         - name: Máquinas virtuales de Hyper-V en Azure

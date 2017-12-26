@@ -1,0 +1,31 @@
+- name: Managed Service Identity (asignado por el usuario)
+  href: msi-overview.md
+  items:
+    - name: Configuración de MSI para una máquina virtual de Azure
+      items:
+        - name: Uso de la CLI de Azure
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Uso del SDK de Azure
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Concesión de acceso de MSI a Resource Manager
+      items:
+        - name: Uso de la CLI de Azure
+          href: msi-howto-assign-access-cli.md
+    - name: Uso de una identidad MSI de máquina virtual
+      items:
+        - name: Adquisición de un token de acceso
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Inicio de sesión en la CLI de Azure
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Uso con los SDK de Azure
+          href: msi-how-to-use-vm-msi-sdk.md
+    - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Resource Manager
+      items:
+        - name: Desde una máquina virtual Linux
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Storage
+      items:
+        - name: Desde una máquina virtual Linux mediante clave de acceso
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Preguntas frecuentes y problemas conocidos
+      href: msi-known-issues.md
