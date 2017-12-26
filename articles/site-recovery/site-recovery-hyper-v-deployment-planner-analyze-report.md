@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 El informe de Microsoft Excel generado contiene las siguientes hojas:
@@ -188,7 +188,7 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Peak R/W IOPS (with Growth Factor)**: el valor máximo de IOPS de lectura y escritura en carga de trabajo en el disco (el percentil 95 es el predeterminado) incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de una máquina virtual no son siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual son el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
 
-**Peak Data Churn in MBps (with Growth Factor)**: el índice máximo de renovación en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
+**Actividad de datos en MB/s (con factor de crecimiento)**: el máximo índice de actividad en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
 
 **Tamaño de la máquina virtual de Azure**: el tamaño ideal de la máquina virtual de Azure Cloud Services asignada para esta máquina virtual local. La asignación basada en la memoria, el número de núcleos de discos/núcleos/NIC y las IOPS de lectura y escritura de la máquina virtual local. La recomendación es usar siempre el menor tamaño de máquina virtual de Azure que cumpla todas las características de la máquina virtual local.
 
@@ -235,15 +235,15 @@ El informe de Microsoft Excel generado por Azure Site Recovery Deployment Planne
 
 * El valor de IOPS de origen supera el límite que admite el almacenamiento, 80 000 por máquina virtual.
 
-* La renovación de datos media supera el límite que admite Azure Site Recovery, 10 MBps para el tamaño medio de E/S de disco.
+* La actividad de datos media de la máquina virtual de origen supera el límite que admite Azure Site Recovery, 10 MB/s para el tamaño medio de E/S de disco.
 
-* El valor de IOPS de escritura efectiva medio supera el límite admitido de Azure Site Recovery de 840 por disco.
+* El valor de IOPS de escritura efectiva medio de la máquina virtual de origen supera el límite admitido de Azure Site Recovery de 840.
 
 * El almacenamiento de instantáneas estimado supera el límite admitido de 10 TB.
 
 **Peak R/W IOPS (with Growth Factor)**: el valor máximo de IOPS en carga de trabajo en el disco (el percentil 95 es el predeterminado) incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de IOPS de lectura y escritura de la máquina virtual no es siempre la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual, ya que las IOPS de lectura y escritura máximas de la máquina virtual es el máximo de la suma de las IOPS de lectura y escritura sus discos individuales durante cada minuto del período de generación de perfiles.
 
-**Peak Data Churn in MBps (with Growth Factor)**: el máximo índice de actividad en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
+**Actividad de datos en MB/s (con factor de crecimiento)**: el máximo índice de actividad en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Tenga en cuenta que el total de actividad de datos de la máquina virtual no siempre es la suma de la actividad de datos de los discos individuales de la máquina virtual, ya que la actividad de datos máxima de la máquina virtual es el máximo de la suma de las actividades de los discos individuales durante cada minuto del período de generación de perfiles.
 
 **Number of Disks**: el número total de discos duros virtuales de la máquina virtual.
 
@@ -260,14 +260,11 @@ El informe de Microsoft Excel generado por Azure Site Recovery Deployment Planne
 ## <a name="azure-site-recovery-limits"></a>Límites de Azure Site Recovery
 En la tabla siguiente se proporcionan los límites de Azure Site Recovery. Estos límites se basan en nuestras pruebas, pero no pueden cubrir todas las combinaciones de E/S posibles de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación. Para unos mejores resultados, incluso después del planeamiento de la implementación, es aconsejable probar siempre la aplicación de forma exhaustiva mediante una conmutación por error de prueba para obtener una imagen real del rendimiento de la aplicación.
  
-**Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
+**Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de la máquina virtual de origen** |**Actividad de datos media de la máquina virtual de origen** | **Actividad de datos total de la máquina virtual de origen por día**
 ---|---|---|---
-Standard storage | 8 KB | 2 MBps | 168 GB por disco
-Disco Premium P10 o P15 | 8 KB  | 2 MBps | 168 GB por disco
-Disco Premium P10 o P15 | 16 KB | 4 MBps |  336 GB por disco
-Disco Premium P10 o P15 | 32 KB, o más | 8 MBps | 672 GB por disco
-Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MBps | 421 GB por disco
-Disco Premium P20, P30, P40 o P50 | 16 KB, o más |10 MBps | 842 GB por disco
+Standard storage | 8 KB | 2 MB/s por máquina virtual | 168 GB por máquina virtual
+Premium Storage | 8 KB  | 5 MB/s por máquina virtual | 421 GB por máquina virtual
+Premium Storage | 16 KB o superior| 10 MB/s por máquina virtual | 842 GB por máquina virtual
 
 Estos límites son los números promedio si la superposición de E/S es del 30 %. Azure Site Recovery es capaz de administrar un mayor rendimiento en función de la relación de superposición, los tamaños más grandes de escritura y el comportamiento real de E/S de la carga de trabajo. Los números anteriores asumen un trabajo pendiente típico de aproximadamente cinco minutos. Es decir, una vez que se cargan los datos, se procesan y se crea un punto de recuperación en menos de cinco minutos.
 

@@ -5,6 +5,6 @@ Se paga por dos cosas: los costos de proceso por horas de la puerta de enlace de
 **Costos de la transferencia de datos**<br>Los costos de transferencia de datos se calculan en función del tráfico de salida de la puerta de enlace de red virtual de origen.
 
 * Si va a enviar tráfico al dispositivo VPN local, se le cobrará por la tasa de transferencia de datos de salida de Internet.
-* Si va a enviar tráfico entre redes virtuales en diferentes regiones, el precio será según la región.
+* Si va a enviar tráfico entre redes virtuales que se encuentren en diferentes regiones, el precio dependerá de la región.
 * Si va a enviar tráfico solo entre redes virtuales que están en la misma región, no habrá ningún costo por datos. El tráfico entre redes virtuales de la misma región es gratuito.
 

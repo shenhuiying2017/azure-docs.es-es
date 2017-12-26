@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Característica Términos de uso de Azure Active Directory (versión preliminar)
 Términos de uso de Azure AD proporciona un método sencillo que las organizaciones pueden usar para presentar la información a los usuarios finales.  Esto garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes para los requisitos legales o de cumplimiento.
@@ -52,14 +52,16 @@ Una vez que haya finalizado los Términos de uso, utilice el procedimiento sigui
 ### <a name="to-add-terms-of-use"></a>Para agregar Términos de uso
 1. Vaya al panel en [https://aka.ms/catou](https://aka.ms/catou)
 2. Haga clic en Agregar.</br>
-![Agregar condiciones de uso](media/active-directory-tou/tou2.png)
+![Agregar condiciones de uso](media/active-directory-tou/tou12.png)
 3. Escriba el **Nombre** para los Términos de uso
 4. Escriba el **Nombre para mostrar**.  Este encabezado es lo que ven los usuarios cuando inician sesión.
 5. Con **Examinar** vaya hasta el pdf de los términos de uso finalizados y selecciónelo.  El tamaño de fuente recomendado es 24.
-6. También puede **Forzar** los términos de uso cargados mediante una plantilla o una directiva personalizada de acceso condicional.  Las directivas personalizadas de acceso condicional permiten términos de uso pormenorizados, hasta una aplicación de nube específica o un grupo de usuarios.  Para más información, consulte el artículo sobre [configuración de directivas de acceso condicional](active-directory-conditional-access-best-practices.md)
-7. Haga clic en **Crear**.
-8. Si ha seleccionado una plantilla personalizada de acceso condicional, a continuación, aparece una nueva pantalla que le permite personalizar la directiva de entidad emisora de certificados.
-7. Ahora debería ver los nuevos Términos de uso.</br>
+6. **Seleccionar** un idioma para los términos de uso.  La opción de idioma permite cargar varios términos de uso, cada uno con un idioma diferente.  La versión de los términos de uso que verá un usuario final se basará en sus preferencias del explorador.
+7. Seleccione activado o desactivado para **Requerir a los usuarios que expandan las condiciones de uso**.  Si se establece en activado, los usuarios finales deberán consultar las condiciones de uso antes de aceptarlas.
+8. En la sección **Acceso condicional**, puede **Forzar** los términos de uso cargados mediante una plantilla o una directiva personalizada de acceso condicional.  Las directivas personalizadas de acceso condicional permiten términos de uso pormenorizados, hasta una aplicación de nube específica o un grupo de usuarios.  Para más información, consulte el artículo sobre [configuración de directivas de acceso condicional](active-directory-conditional-access-best-practices.md)
+9. Haga clic en **Crear**.
+10. Si ha seleccionado una plantilla personalizada de acceso condicional, a continuación, aparece una nueva pantalla que le permite personalizar la directiva de entidad emisora de certificados.
+11. Ahora debería ver los nuevos Términos de uso.</br>
 
 ![Agregar condiciones de uso](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Los usuarios que están dentro del ámbito apropiado, verán lo siguiente una ve
 ![Evento de auditoría](media/active-directory-tou/tou10.png)
 -   Esta pantalla es como aparece en dispositivos móviles</br></br>
 ![Evento de auditoría](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Revisión de los términos de uso
+Los usuarios pueden revisar y ver los términos de uso que han aceptado.  Se puede realizar mediante cualquiera de los procedimientos siguientes:
+
+1. Navegue e inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
+2. En la esquina superior derecha, haga clic en su nombre y seleccione **Perfil** en la lista desplegable.
+![Perfil](media/active-directory-tou/tou14.png)
+
+3. En Perfil, haga clic en **Revisar los términos de uso**.
+![Evento de auditoría](media/active-directory-tou/tou13a.png)
+
+4.  Desde allí puede revisar los términos de uso que ha aceptado. 
+
 
 ## <a name="additional-information"></a>Información adicional
 La siguiente información es algo a tener en cuenta y puede ayudarle con los términos de uso.

@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -31,7 +31,7 @@ Hay dos tipos de pruebas de disponibilidad:
 
 Puede crear hasta 100 pruebas de disponibilidad por recurso de aplicación.
 
-## <a name="create"></a>1. Apertura de un recurso para los informes de pruebas de disponibilidad
+## <a name="create"></a>Apertura de un recurso para los informes de pruebas de disponibilidad
 
 **Si ya ha configurado Application Insights** para la aplicación web, abra el recurso de Application Insights en [Azure Portal](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Puede crear hasta 100 pruebas de disponibilidad por recurso de aplicación.
 
 Haga clic en **Todos los recursos** para abrir la hoja Información general del nuevo recurso.
 
-## <a name="setup"></a>2. Creación de una prueba de ping de la dirección URL
+## <a name="setup"></a>Creación de una prueba de ping de la dirección URL
 Abra la hoja Disponibilidad y agregue una prueba.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Abra la hoja Disponibilidad y agregue una prueba.
 Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando si prueba la URL con una búsqueda.
 
 
-## <a name="monitor"></a>3. Visualización de los resultados de las pruebas de disponibilidad
+## <a name="monitor"></a>Visualización de los resultados de las pruebas de disponibilidad
 
 Después de unos minutos, haga clic en **Actualizar** para ver los resultados de las pruebas. 
 
@@ -102,14 +102,11 @@ Haga clic en un punto rojo.
 Desde un resultado de la prueba de disponibilidad, puede hacer lo siguiente:
 
 * Inspeccionar la respuesta recibida desde el servidor.
-* Abrir la telemetría enviada por la aplicación de servidor durante el procesamiento de la instancia de solicitud con error.
+* Diagnosticar errores con la telemetría de lado de servidor recopilada durante el procesamiento de la instancia de solicitudes con error.
 * Registrar un problema o elemento de trabajo en GIT o VSTS para realizar un seguimiento del problema. El error contiene un vínculo a este evento.
 * Abra el resultado de la prueba web en Visual Studio.
 
-
-*¿Parece que se ha completado correctamente pero se notifica como un error?* Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
-
-*¿No hay elementos relacionados?* Si tiene Application Insights configurado para la aplicación de servidor, esto puede deberse a que se está llevando a cabo un [muestreo](app-insights-sampling.md). 
+*¿Parece que se ha completado correctamente pero se notifica como un error?* Vea [Preguntas más frecuentes](#qna) sobre cómo reducir el ruido.
 
 ## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.
@@ -256,6 +253,20 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 * Configure un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que se llama cuando se genera una alerta.
 
 ## <a name="qna"></a>¿Tiene preguntas? ¿Tiene problemas?
+* *Error de prueba intermitente con un error de infracción de protocolo*
+
+    El error ("infracción del protocolo... CR debe ir seguido de LF") indica un problema con el servidor (o las dependencias). Aparece cuando se establecen los encabezados con formato incorrecto en la respuesta. Puede deberse a equilibradores de carga o CDN. En concreto, algunos encabezados podrían no estar usando CRLF para indicar el final de línea, lo que provoca una infracción de la especificación del HTTP y, por tanto, no superan la validación en el nivel de WebRequest de .NET. Inspeccione la respuesta para detectar encabezados que podrían estar cometiendo una infracción.
+    
+    Nota: La dirección URL podría no dar error en los exploradores que tienen una validación poco minuciosa de encabezados HTTP. Consulte esta entrada de blog para obtener una explicación detallada sobre este problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *¿Este sitio parece correcto pero se ven errores de pruebas?*
+
+    * Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente. Para reducir la sensibilidad de la prueba para tales errores de recursos, simplemente desactive "Analizar las solicitudes dependientes" de la configuración de pruebas. 
+
+    * Para reducir las probabilidades de ruido de señales de red transitorias etc., asegúrese de que se comprueba la configuración "Habilitar reintentos para errores de pruebas". También puede probar desde más ubicaciones y administrar el umbral de la regla de alertas en consecuencia para evitar problemas específicos de ubicación que causan las alertas innecesarias.
+    
+* *No veo telemetría relacionada del lado servidor para diagnosticar errores de pruebas*
+    
+    Si tiene Application Insights configurado para la aplicación de servidor, esto puede deberse a que se está llevando a cabo un [muestreo](app-insights-sampling.md).
 * *¿Puedo llamar el código desde mi prueba web?*
 
     No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implementación de Azure Stack Development Kit
 
@@ -104,7 +104,7 @@ Después de preparar el equipo host de ASDK, este se puede implementar en la ima
 1. Una vez que el equipo host arranque correctamente en la imagen de CloudBuilder.vhdx, inicie sesión mediante las credenciales de administrador especificadas en los pasos anteriores. 
 2. Abra una consola de PowerShell con privilegios elevados y ejecute el script **\AzureStack_Installer\asdk-installer.ps1** (que puede estar en una unidad diferente en la imagen de Cloudbuilder.vhdx). Haga clic en **Instalar**.
 3. En el cuadro desplegable **Tipo**, seleccione **Azure Cloud** o **ADFS**.
-    - **Azure Cloud**: permite configurar Azure Active Directory (Azure AD) como proveedor de identidades. Para usar esta opción, necesita una conexión a Internet, el nombre completo de un inquilino del directorio de Azure AD con la forma *nombredominio*.onmicrosoft.com y credenciales de administrador global para el directorio especificado. 
+    - **Azure Cloud**: permite configurar Azure Active Directory (Azure AD) como proveedor de identidades. Para usar esta opción, se necesitan una conexión a Internet, el nombre completo de un inquilino del directorio de Azure AD con la forma *nombreDeDominio*.onmicrosoft.com, o un nombre de dominio personalizado comprobado, y credenciales de administrador global para el directorio especificado. 
     - **AD FS**: el servicio de directorio con la marca predeterminada se usará como proveedor de identidades. La cuenta predeterminada con la que iniciar sesión es azurestackadmin@azurestack.local y la contraseña que debe utilizar es la que proporcionó como parte de la configuración.
 4. En **Contraseña del administrador local**, en el cuadro **Contraseña**, escriba la contraseña del administrador local (que debe coincidir con la configurada en la actualidad) y, a continuación, haga clic en **Siguiente**.
 5. Seleccione un adaptador de red para usarlo para el kit de desarrollo y, a continuación, haga clic en **Siguiente**.
@@ -206,7 +206,7 @@ Si la identidad de Azure AD está asociada con **más de un** directorio de Azur
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Si su entorno **no** tiene DHCP habilitado, debe incluir los siguientes parámetros adicionales a una de las opciones anteriores (se proporciona un ejemplo de uso): 
@@ -219,7 +219,7 @@ Si su entorno **no** tiene DHCP habilitado, debe incluir los siguientes parámet
 |Parámetro|Obligatorio/opcional|Descripción|
 |-----|-----|-----|
 |AdminPassword|Obligatorio|Establece la cuenta de administrador local y el resto de cuentas de usuario en todas las máquinas virtuales que se crean como parte de la implementación del kit de desarrollo. Esta contraseña debe coincidir con la contraseña de administrador local actual del host.|
-|InfraAzureDirectoryTenantName|Obligatorio|Establece el directorio del inquilino. Utilice este parámetro para especificar un directorio concreto en el que la cuenta de AAD tenga permisos para administrar varios directorios. Nombre completo de un inquilino de Azure Active Directory con el formato .onmicrosoft.com.|
+|InfraAzureDirectoryTenantName|Obligatorio|Establece el directorio del inquilino. Utilice este parámetro para especificar un directorio concreto en el que la cuenta de AAD tenga permisos para administrar varios directorios. Nombre completo de un inquilino de Azure Active Directory con el formato .onmicrosoft.com, o bien un nombre de dominio personalizado de Azure AD.|
 |TimeServer|Obligatorio|Utilice este parámetro para especificar un servidor horario específico. Este parámetro se debe proporcionar como una dirección IP válida del servidor horario. No se admiten nombres del servidor.|
 |InfraAzureDirectoryTenantAdminCredential|Opcional|Permite establecer el nombre de usuario y la contraseña de Azure Active Directory. Estas credenciales de Azure deben ser un identificador de organización.|
 |InfraAzureEnvironment|Opcional|Seleccione el entorno de Azure con el que desea registrar esta implementación de Azure Stack. Las opciones incluyen Azure público, Azure China, Azure Gobierno de EE.UU.|

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
 
@@ -49,21 +49,20 @@ Site Recovery contribuye a la recuperación y protección de nivel de aplicació
 ## <a name="workload-summary"></a>Resumen de cargas de trabajo
 Site Recovery puede replicar cualquier aplicación que se ejecute en una máquina compatible. Además, nos hemos asociado con los equipos de producto para llevar a cabo pruebas de adicionales específicas de la aplicación.
 
-| **Carga de trabajo** | **Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |Y |Y |Y |Y |
-| Aplicaciones web (IIS, SQL) |Y |Y |Y |Y |
-| System Center Operations Manager |Y |Y |Y |Y |
-| SharePoint |Y |Y |Y |Y |
-| SAP<br/><br/>Replicación de un sitio de SAP en Azure para no clúster |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |
-| Exchange (no DAG) |Y |Y |Y |Y |
-| Escritorio remoto/VDI |Y |Y |Y |N/D |
-| Linux (sistema operativo y aplicaciones) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |
-| Dynamics AX |Y |Y |Y |Y |
-| Dynamics CRM |Y |Próximamente |Y |Próximamente |
-| Oracle |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |
-| Servidor de archivos de Windows |Y |Y |Y |Y |
-| Citrix XenApp y XenDesktop |N/D |Y |N/D |Y |
+| **Carga de trabajo** |**Replicación de máquinas virtuales de Azure en Azure** |**Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |Y |Y |Y |Y |Y|
+| Aplicaciones web (IIS, SQL) |Y |Y |Y |Y |Y|
+| System Center Operations Manager |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
+| SAP<br/><br/>Replicación de un sitio de SAP en Azure para no clúster |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft)|
+| Exchange (no DAG) |Y |Y |Y |Y |Y|
+| Escritorio remoto/VDI |Y |Y |Y |Y |Y|
+| Linux (sistema operativo y aplicaciones) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft)|
+| Dynamics AX |Y |Y |Y |Y |Y|
+| Oracle |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft) |S (probado por Microsoft)|
+| Servidor de archivos de Windows |Y |Y |Y |Y |Y|
+| Citrix XenApp y XenDesktop |Y|N/D |Y |N/D |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replicación de Active Directory y DNS
 Las infraestructuras de DNS y Active Directory son esenciales para la mayoría de las aplicaciones empresariales. Durante la recuperación ante desastres será preciso que proteja y recupere estos componentes de la infraestructura antes de recuperar las aplicaciones y las cargas de trabajo.
@@ -106,20 +105,23 @@ Azure Site Recovery le ayuda a proteger soluciones ERP de Dynamics AX mediante:
 Servicios de Escritorio remoto (RDS) habilita Infraestructura de escritorio virtual (VDI), escritorios basados en sesión y aplicaciones, lo que permite a los usuarios trabajar desde cualquier lugar. Con Azure Site Recovery, puede:
 
 * Replicar escritorios virtuales agrupados administrados o no administrados en un sitio secundario y aplicaciones remotas y sesiones en un sitio secundario o Azure.
+
 * Esto es lo que se puede replicar:
 
-| **RDS** | **Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure** | **Replicación de servidores físicos en un sitio secundario** | **Replicación de servidores físicos a Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Escritorio virtual agrupado (no administrado)** |Sí |No |Sí |No |Sí |No |
-| **Escritorio virtual agrupado (administrado y sin UPD)** |Sí |No |Sí |No |Sí |No |
-| **Aplicaciones remotas y sesiones de escritorio (sin UPD)** |Sí |Sí |Sí |Sí |Sí |Sí |
+| **RDS** |**Replicación de máquinas virtuales de Azure en Azure** | **Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure** | **Replicación de servidores físicos en un sitio secundario** | **Replicación de servidores físicos a Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Escritorio virtual agrupado (no administrado)** |No|Sí |No |Sí |No |Sí |No |
+| **Escritorio virtual agrupado (administrado y sin UPD)** |No|Sí |No |Sí |No |Sí |No |
+| **Aplicaciones remotas y sesiones de escritorio (sin UPD)** |Sí|Sí |Sí |Sí |Sí |Sí |Sí |
+
+[Configuración de la recuperación ante desastres para RDS mediante Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Más información](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sobre cómo proteger RDS.
 
 ## <a name="protect-exchange"></a>Protección de Exchange
 Site Recovery ayuda a proteger Exchange como se indica a continuación:
 
-* En implementaciones de Exchange pequeñas, como servidores individuales o independientes, Site Recovery puede realizar la replicación y la conmutación por error en Azure o en un sitio secundario.
+* En implementaciones de Exchange pequeñas, como servidor individual o independiente, Site Recovery puede realizar la replicación y la conmutación por error en Azure o en un sitio secundario.
 * En implementaciones mayores Site Recovery se integra con los DAG de Exchange.
 * Los DAG de Exchange son la solución recomendada para la recuperación ante desastres de Exchange en una empresa.  Los planes de recuperación de Site Recovery pueden incluir varios DAG para organizar la conmutación por error de DAG entre sitios.
 
@@ -138,7 +140,7 @@ Use Site Recovery para proteger una implementación de SAP como se indica a cont
 ## <a name="protect-iis"></a>Protección de IIS
 Use Site Recovery para proteger una implementación de IIS como se indica a continuación:
 
-Azure Site Recovery proporciona la función de recuperación ante desastres mediante la replicación de los componentes críticos de su entorno en un sitio remoto inactivo o en una nube pública, como Microsoft Azure. Dado que la máquina virtual con el servidor web y la base de datos se replica en el sitio de recuperación, no es preciso realizar copias de seguridad de los archivos de configuración o de los certificados por separado. Los enlaces y las asignaciones de las aplicaciones que dependen de las variables de entorno que se cambian después de la conmutación por error se pueden actualizar a través de los scripts integrados en los planes de la recuperación ante desastres. Las máquinas virtuales solo se muestran en el sitio de recuperación en caso de conmutación por error. Y no solo esto, Azure Site Recovery también le ayuda a orquestar la conmutación por error de un extremo a otro a través de las siguientes funcionalidades:
+Azure Site Recovery proporciona la función de recuperación ante desastres mediante la replicación de los componentes críticos de su entorno en un sitio remoto inactivo o en una nube pública, como Microsoft Azure. Dado que las máquinas virtuales con el servidor web y la base de datos se replica en el sitio de recuperación, no es preciso realizar copias de seguridad de los archivos de configuración o de los certificados por separado. Los enlaces y las asignaciones de las aplicaciones que dependen de las variables de entorno que se cambian después de la conmutación por error se pueden actualizar a través de los scripts integrados en los planes de la recuperación ante desastres. Las máquinas virtuales solo se muestran en el sitio de recuperación en caso de conmutación por error. Y no solo esto, Azure Site Recovery también le ayuda a orquestar la conmutación por error de un extremo a otro a través de las siguientes funcionalidades:
 
 -   Secuenciación del apagado e inicio de las máquinas virtuales en los distintos niveles.
 -   Incorporación de scripts que permiten la actualización de las dependencias y los enlaces de las aplicaciones después de que se hayan iniciado. Los scripts también se pueden utilizar para actualizar el servidor DNS para que apunte al sitio de recuperación.

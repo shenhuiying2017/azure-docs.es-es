@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/17/2017
 ms.author: samacha
-ms.openlocfilehash: 889aaa697a04a81075b85c834d534bfeb4faf79b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 5747f2f1d3eed3905e0ae3123dab74287beccf66
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-stream-analytics"></a>¿Qué es Stream Analytics?
 
@@ -42,7 +42,7 @@ En el diagrama se muestra la canalización de Stream Analytics y cómo se ingier
 
 Stream Analytics comienza con un origen de datos en streaming. Los datos se pueden ingerir en Azure desde un dispositivo mediante Azure Event Hubs o IoT Hub. También se pueden extraer los datos de un almacén de datos como Azure Blob Storage. 
 
-Para examinar el flujo, se crea un *trabajo* de Stream Analytics que especifica de dónde provienen los datos. Además, el trabajo especifica una *transformación*: cómo buscar datos, patrones o relaciones. Para esta tarea, Stream Analytics admite un lenguaje de consulta similar a SQL para filtrar, ordenar, agregar y combinar datos en streaming durante un período de tiempo.
+Para examinar el flujo, se crea un *trabajo* de Stream Analytics que especifica de dónde provienen los datos. El trabajo también especifica una *transformación*; cómo buscar datos, patrones o relaciones. Para esta tarea, Stream Analytics admite un lenguaje de consulta similar a SQL para filtrar, ordenar, agregar y combinar datos en streaming durante un período de tiempo.
 
 Por último, el trabajo especifica una salida para esos datos transformados. Se controla lo que hacer en respuesta a la información que se ha analizado. Por ejemplo, en respuesta al análisis, puede:
 

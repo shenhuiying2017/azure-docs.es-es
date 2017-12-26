@@ -16,7 +16,7 @@ Para crear un espacio de nombres:
 ### <a name="obtain-the-management-credentials"></a>Obtención de las credenciales de administración
 La creación un nuevo espacio de nombres genera automáticamente una regla de firma de acceso compartido (SAS) inicial con un par asociado de claves principal y secundaria en el que ambas conceden control total sobre todos los aspectos del espacio de nombres. Para obtener información acerca de cómo crear reglas adicionales con derechos más restringidos para remitentes y destinatarios normales, consulte [Autenticación y autorización de Service Bus](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). Para copiar la regla inicial, siga estos pasos: 
 
-1. En la lista de espacios de nombres, haga clic en el nombre del espacio de nombres recién creado.
+1.  Haga clic en **Todos los recursos** y, después, en el nombre del espacio de nombres recién creado.
 2. En la ventana del espacio de nombres, haga clic en **Directivas de acceso compartido**.
 3. En la pantalla **Directivas de acceso compartido**, haga clic en **RootManageSharedAccessKey**.
    

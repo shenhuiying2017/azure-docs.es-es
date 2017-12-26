@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -63,13 +63,15 @@ Al configurar el emparejamiento de red virtual, puede abrir o cerrar las reglas 
 
 ## <a name="service-chaining"></a>Encadenamiento de servicios
 
-Puede configurar las rutas definidas por el usuario que apuntan a máquinas virtuales de redes virtuales emparejadas como la dirección IP del "próximo salto" para permitir el encadenamiento de servicios. El encadenamiento de servicios permite dirigir el tráfico desde una red virtual hasta una aplicación virtual de una red virtual emparejada mediante rutas definidas por el usuario.
+Puede configurar las rutas definidas por el usuario que apuntan a máquinas virtuales de redes virtuales emparejadas como la dirección IP del *próximo salto*, o a puertas de enlace de red virtual, para permitir el encadenamiento de servicios. El encadenamiento de servicios permite dirigir el tráfico desde una red virtual hasta una aplicación virtual, o una puerta de enlace de red virtual, en una red virtual emparejada mediante rutas definidas por el usuario.
 
-También puede crear eficazmente entornos del tipo de concentrador y radio, en los que el concentrador puede hospedar componentes de la infraestructura, como una aplicación virtual de red. Todas las redes virtuales de radio se pueden emparejar con la red virtual de concentrador. El tráfico puede fluir por las aplicaciones virtuales de red que se ejecutan en la red virtual de concentrador. En resumen, el emparejamiento de red virtual permite que la dirección IP de próximo salto de la ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada. Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md). Para aprender a crear una topología de red en estrella tipo hub-and-spoke, consulte [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implementación de una topología en estrella tipo hub-and-spoke en Azure).
+Puede implementar redes del tipo de concentrador y radio, en los que el concentrador puede hospedar componentes de la infraestructura, como una aplicación virtual de red o puerta de enlace de VPN. Todas las redes virtuales de radio se pueden emparejar con la red virtual de concentrador. El tráfico puede fluir por las aplicaciones virtuales de red o puertas de enlace de VPN que se ejecutan en la red virtual de concentrador. 
+
+El emparejamiento de red virtual permite que el próximo salto de una ruta definida por el usuario sea la dirección IP de una máquina virtual de la red virtual emparejada o en una puerta de enlace de VPN. Sin embargo, no puede enrutar entre redes virtuales con una ruta definida por el usuario que especifique una puerta de enlace ExpressRoute como el tipo de salto siguiente. Para obtener más información sobre las rutas definidas por el usuario, consulte [Introducción a las rutas definidas por el usuario](virtual-networks-udr-overview.md#user-defined). Para aprender a crear una topología de red en estrella tipo hub-and-spoke, consulte [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) (Implementación de una topología en estrella tipo hub-and-spoke en Azure).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Puertas de enlace y conectividad local
 
-Todas las redes virtuales, con independencia de que estén emparejadas con otra, pueden tener su propia puerta de enlace y usarla para conectarse a una red local. También puede configurar [conexiones de red virtual a red virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) mediante puertas de enlace, incluso aunque las redes virtuales estén emparejadas.
+Todas las redes virtuales, con independencia de que estén emparejadas con otra, pueden tener su propia puerta de enlace y usarla para conectarse a una red local. También puede configurar [conexiones de red virtual a red virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) mediante puertas de enlace, incluso aunque las redes virtuales estén emparejadas.
 
 Cuando están configuradas las dos opciones de interconectividad de redes virtual, el tráfico entre las redes virtuales se propaga a través de la configuración del emparejamiento (es decir, a través de la red troncal de Azure).
 
@@ -98,20 +100,17 @@ Por ejemplo, si fuera a emparejar las redes virtuales denominadas myvirtual netw
 
 ## <a name="monitor"></a>Supervisión
 
-Cuando se emparejan dos redes virtuales creadas mediante el Administrador de recursos, debe configurarse un emparejamiento para cada red virtual en el emparejamiento.
-Puede supervisar el estado de la conexión de emparejamiento. El estado de emparejamiento es uno de los siguientes:
+Cuando se emparejan dos redes virtuales creadas mediante el Administrador de recursos, debe configurarse un emparejamiento para cada red virtual en el emparejamiento. Puede supervisar el estado de la conexión de emparejamiento. El estado de emparejamiento es uno de los siguientes:
 
-* **Iniciado**: cuando se crea el emparejamiento a la segunda red virtual desde la primera red virtual, el estado de emparejamiento es Iniciado.
-
-* **Conectado**: cuando se crea el emparejamiento desde la segunda red virtual a la primera red virtual, el estado de emparejamiento es Conectado. Si consulta el estado de emparejamiento de la primera red virtual, verá que ha cambiado de Iniciado a Conectado. El emparejamiento no se habrá establecido correctamente mientras el estado de ambos emparejamientos de red virtual no sea Conectado.
-
-* **Desconectado**: si uno de los vínculos de emparejamiento se elimina después de que se estableció una conexión, el estado de emparejamiento es Desconectado.
+* **Iniciado**: el estado que se muestra cuando se crea el emparejamiento desde la primera red virtual a la segunda red virtual.
+* **Conectado**: el estado que se muestra una vez que ha creado el emparejamiento desde la segunda red virtual a la primera red virtual. El estado de emparejamiento para la primera red virtual cambia de *Iniciado* a *Conectado*. Un emparejamiento de red virtual no se habrá establecido correctamente hasta que el estado de ambos emparejamientos de red virtual no sea *Conectado*.
+* **Desconectado**: el estado que se muestra si el emparejamiento de una red virtual a otra se elimina después de que se haya establecido un emparejamiento entre dos redes virtuales.
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Para solucionar problemas de tráfico a través de la conexión de emparejamiento, puede [comprobar sus rutas eficaces.](virtual-network-routes-troubleshoot-portal.md)
+Para confirmar un emparejamiento de redes virtuales puede [comprobar rutas efectivas](virtual-network-routes-troubleshoot-portal.md) para una interfaz de red en cualquier subred de una red virtual. Si el emparejamiento de redes virtuales existe, todas las subredes de la red virtual tienen rutas con próximo salto del tipo *emparejamiento de VNet*, para cada espacio de direcciones en cada red virtual emparejada.
 
-También puede solucionar problemas con la conectividad de una máquina virtual en una red virtual emparejada con la [comprobación de conectividad](../network-watcher/network-watcher-connectivity-portal.md) de Network Watcher. La comprobación de conectividad permite ver cómo se enruta directamente de la interfaz de red de la máquina virtual de origen a la interfaz de red de la máquina virtual de destino.
+También puede solucionar problemas con la conectividad de una máquina virtual en una red virtual emparejada con la [comprobación de conectividad](../network-watcher/network-watcher-connectivity-portal.md) de Network Watcher. La comprobación de conectividad le permite ver cómo se enruta el tráfico desde la interfaz de red de una máquina virtual de origen a la interfaz de red de una máquina virtual de destino.
 
 ## <a name="limits"></a>límites
 

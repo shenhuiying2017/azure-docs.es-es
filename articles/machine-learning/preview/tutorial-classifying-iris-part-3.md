@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/29/2017
-ms.openlocfilehash: b48e5bc2552c92b45e0417e5a8a34705a473073e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 70286104db1b70aebd2f8b0feb4a0854b3cc2bb9
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Parte 3 de la clasificación de Iris: implementación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -206,7 +206,7 @@ Ya está listo para crear el servicio web en tiempo real.
 1. Use el comando siguiente para crear un servicio web en tiempo real:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
    ```
    Este comando genera un identificador del servicio web que puede usar más adelante.
 
@@ -216,6 +216,7 @@ Ya está listo para crear el servicio web en tiempo real.
    * `--model-file`: el archivo de modelo. En este caso, es el archivo model.pkl de pickle.
    * `-r`: el tipo de modelo. En este caso, es un modelo de Python.
    * `--collect-model-data true`: esto permite la recopilación de datos.
+   * `-c`: ruta de acceso al archivo de dependencias de conda en el que se especifican los paquetes adicionales.
 
    >[!IMPORTANT]
    >El nombre del servicio, que también es el nuevo nombre de la imagen de Docker, debe estar en minúsculas. De lo contrario, obtiene un error. 
@@ -254,10 +255,10 @@ En primer lugar, registre el modelo. A continuación, genere el manifiesto, comp
 
 3. Cree una imagen de Docker.
 
-   Para crear una imagen de Docker, use el siguiente comando y proporcione el valor del identificador de manifiesto del paso anterior:
+   Para crear una imagen de Docker, use el siguiente comando y especifique la salida del valor del identificador de manifiesto del paso anterior. Opcionalmente, también puede incluir las dependencias de conda mediante el modificador `-c`.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID>
+   az ml image create -n irisimage --manifest-id <manifest ID> -c amlconfig\conda_dependencies.yml
    ```
    Este comando genera un identificador de imagen de Docker.
    

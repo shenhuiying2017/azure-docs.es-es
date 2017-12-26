@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento estándar de uso general con el comando [az storage account create](/cli/azure/storage/account#create). La cuenta de almacenamiento estándar de uso general puede utilizarse para los cuatro servicios: blobs, archivos, tablas y colas. 
+Las cuentas de almacenamiento de uso general se crean con el comando [az storage account create](/cli/azure/storage/account#create). Las cuentas de almacenamiento de uso general se pueden para los cuatro servicios: blobs, archivos, tablas y colas. 
 
 ```azurecli-interactive
 az storage account create \
@@ -23,7 +23,7 @@ az storage account create \
 
 ## <a name="specify-storage-account-credentials"></a>Especificación de las credenciales de la cuenta de almacenamiento
 
-La CLI de Azure necesita las credenciales de la cuenta de almacenamiento para la mayoría de los comandos en este tutorial. Aunque hay varias opciones para hacerlo, una de las formas más sencillas para proporcionarlas consiste en establecer las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY`.
+La CLI de Azure necesita las credenciales de la cuenta de almacenamiento para la mayoría de los comandos en este tutorial. Aunque hay varias opciones para hacerlo, una de las formas más sencillas de especificarlas es establecer las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY`.
 
 En primer lugar, muestre las claves de la cuenta de almacenamiento con el comando [az storage account keys list](/cli/azure/storage/account/keys#list):
 

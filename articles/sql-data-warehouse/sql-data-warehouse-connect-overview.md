@@ -13,23 +13,23 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: anvang;barbkess;kevin
+ms.openlocfilehash: bd2e89f39d54a2186fa9ca343d04135b2da5d352
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="connect-to-azure-sql-data-warehouse"></a>Conexión a Almacenamiento de datos SQL de Azure
+# <a name="connect-to-azure-sql-data-warehouse"></a>Conexión a Azure SQL Data Warehouse
 Este artículo le ayuda a conectarse a SQL Data Warehouse por primera vez.
 
 ## <a name="find-your-server-name"></a>Búsqueda del nombre de servidor
-El primer paso para conectarse a SQL Data Warehouse es saber cómo encontrar el nombre del servidor.  Por ejemplo, el nombre del servidor del ejemplo siguiente es sample.database.windows.net. Para buscar el nombre del servidor completo:
+El primer paso para conectarse a SQL Data Warehouse es saber cómo encontrar el nombre del servidor.  Por ejemplo, el nombre del servidor del ejemplo siguiente es samplesvr.database.windows.net. Para buscar el nombre del servidor completo:
 
 1. Vaya a [Azure Portal][Azure portal].
-2. Haga clic en **Bases de datos SQL** 
-3. Haga clic en la base de datos a la que desea conectarse.
+2. Haga clic en **Almacenes de SQL Data Warehouse**.
+3. Haga clic en el almacén de datos al que desea conectarse.
 4. Busque el nombre del servidor completo:
    
     ![Nombre del servidor completo][1]
@@ -93,6 +93,6 @@ Para conectarse y realizar consultas con Visual Studio, consulte [Conexión a SQ
 [Azure portal]: https://portal.azure.com
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-connect-overview/get-server-name.png
+[1]: media/sql-data-warehouse-connect-overview/server-connect.PNG
 
 

@@ -1,6 +1,6 @@
 ---
 title: Llamada a un runbook de Azure Automation desde una alerta de Log Analytics | Microsoft Docs
-description: "Este artículo ofrece información general sobre cómo invocar un runbook de Automation desde una alerta de Log Analytics de Microsoft OMS."
+description: "En este artículo se ofrece información general acerca cómo invocar un runbook de Automation desde una alerta de Log Analytics de Operations Management Suite."
 services: automation
 documentationcenter: 
 author: georgewallace
@@ -14,79 +14,95 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Llamada a un runbook de Azure Automation desde una alerta de Log Analytics de OMS
+# <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Llamada a un runbook de Azure Automation desde una alerta de Log Analytics
 
-Si se configura una alerta en Log Analytics para crear un registro de alertas cuando los resultados coinciden con un criterio concreto, como un incremento prolongado del uso del procesador o un error de un proceso de aplicación crítico para el funcionamiento de una aplicación empresarial y la escritura del evento correspondiente en el registro de eventos de Windows, esa alerta puede ejecutar automáticamente un runbook de Automation para intentar corregir el problema.  
+En Azure Log Analytics se puede configurar una alerta para crear un registro de alertas cuando los resultados coincidan con los criterios. Luego, dicha alerta puede ejecutar automáticamente un runbook de Azure Automation en un intento de remediar automáticamente el problema. 
 
-Hay dos opciones para llamar a un runbook al configurar la alerta, que son:
+Por ejemplo, una alerta puede indicar un pico prolongado en el uso del procesador. O bien, puede indicar si se produce un error en un proceso que resulta fundamental para la funcionalidad de una aplicación empresarial. Luego, un runbook puede escribir un evento correspondiente en el registro de eventos de Windows.  
 
-1. Usar un webhook.
-   * Es la única opción disponible si el área de trabajo de OMS no está vinculada a una cuenta de Automation.
-   * Si ya tiene una cuenta de Automation vinculada a un área de trabajo de OMS, esta opción seguirá estando disponible.  
+Hay dos opciones para llamar a un runbook en la configuración de alertas:
 
-2. Seleccionar un runbook directamente.
-   * Esta opción solo está disponible cuando el área de trabajo de OMS está vinculada a una cuenta de Automation.
+* Usar un webhook.
+   * Esta es la única opción disponible si el área de trabajo de Operations Management Suite no está vinculada a una cuenta de Automation.
+   * Si ya hay una cuenta de Automation vinculada a un área de trabajo de Operations Management Suite, esta opción seguirá estando disponible.  
 
-## <a name="calling-a-runbook-using-a-webhook"></a>Llamada a un runbook con un webhook
+* Seleccionar un runbook directamente.
+   * Esta opción solo está disponible si el área de trabajo de Operations Management Suite está vinculada a una cuenta de Automation.
 
-Un webhook le permite iniciar un runbook determinado en Azure Automation a través de una sola solicitud HTTP. Antes de configurar la [alerta de Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules) para llamar al runbook mediante un webhook como una acción de alerta, debe crear primero un webhook para el runbook al que se llamará con este método. Siga los pasos descritos en el artículo acerca de cómo [crear un webhook](automation-webhooks.md#creating-a-webhook) y recuerde registrar la dirección URL del webhook para poder hacer referencia a ella al configurar la regla de alerta.   
+## <a name="calling-a-runbook-by-using-a-webhook"></a>Llamada a un runbook mediante un webhook
 
-## <a name="calling-a-runbook-directly"></a>Llamada a runbook directamente
+Puede usar un webhook para iniciar un runbook determinado en Azure Automation a través de una sola solicitud HTTP. Antes de configurar la [alerta de Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules) para que llame al runbook mediante el uso de un webhook como acción de alerta, es preciso [crear un webhook](automation-webhooks.md#creating-a-webhook) para el runbook al que se llama a través de este método. No olvide registrar la dirección URL del webhook para poder hacer referencia a ella al configurar la regla de alerta.   
 
-Si tiene la oferta de Automation & Control instalada y configurada en el área de trabajo de OMS, al configurar la opción de acciones de runbook para la alerta, puede ver todos los runbooks en la lista desplegable **Seleccionar un Runbook** y seleccionar el runbook específico que desea ejecutar en respuesta a la alerta. Puede ejecutar el runbook seleccionado en un área de trabajo en la nube de Azure o en Hybrid Runbook Worker. Una vez que la alerta se crea mediante la opción del runbook, se crea un webhook para el runbook. Puede ver el webhook si va a la cuenta de Automation y se desplaza al panel del webhook del runbook seleccionado. Si elimina la alerta, el webhook no se eliminará, pero el usuario podrá eliminarlo manualmente. Que el webhook no se elimine no supone ningún problema, ya que se trata simplemente de un elemento huérfano que será necesario eliminar a la larga para mantener organizada la cuenta de Automation.  
+## <a name="calling-a-runbook-directly"></a>Llamada directa al runbook
 
-## <a name="characteristics-of-a-runbook-for-both-options"></a>Características de un runbook (para ambas opciones)
+Puede instalar y configurar la oferta de Automation and Control en el área de trabajo de Operations Management Suite. Al configurar la opción de acciones de runbook para la alerta, puede ver todos los runbooks en la lista desplegable **Seleccionar un runbook** y seleccionar el runbook concreto que desea ejecutar en respuesta a la alerta. Este se puede ejecutar tanto en un área de trabajo de Azure como en un trabajo de runbook híbrido. 
 
-Los dos métodos para llamar al runbook desde la alerta de Log Analytics tienen distintas características que es necesario comprender antes de configurar las reglas de alertas. Los datos de la alerta están en formato json en una propiedad única denominada **SearchResult**. Este formato es para las acciones de runbook y webhook con una carga estándar. Para acciones de webhook con cargas personalizadas que incluyen **IncludeSearchResults:True** en **RequestBody**, la propiedad es **SearchResults**.
+Tras crear la alerta mediante la opción del runbook, se crea un webhook para el runbook. Para ver el webhook, vaya a la cuenta de Automation y abra al panel de webhooks del runbook seleccionado. 
 
-* Debe tener un parámetro de entrada de runbook denominado **WebhookData** del tipo **Objeto**. Esto puede ser obligatorio u opcional. La alerta transmite los resultados de búsqueda al runbook mediante este parámetro de entrada.
+Aunque elimine la alerta, el webhook no se elimina. Pero esto no supone ningún problema. El webhook simplemente se convierte en un elemento huérfano que tarde o temprano hay que eliminar manualmente para que no se desorganice la cuenta Automation.  
 
-    ```powershell
-    param  
-        (  
-        [Parameter (Mandatory=$true)]  
-        [object] $WebhookData  
-        )
-    ```
-*  Debe tener el código para convertir el parámetro WebhookData en un objeto de PowerShell.
+## <a name="characteristics-of-a-runbook"></a>Características de un runbook
 
-    ```powershell
-    $SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
-    ```
+Los dos métodos para llamar al runbook desde la alerta de Log Analytics tienen distintas características que hay que conocer antes de configurar las reglas de alerta. 
 
-    *$SearchResults* es una matriz de objetos, cada uno de los cuales contiene los campos con valores de un resultado de búsqueda.
+Los datos de la alerta están en formato JSON en una propiedad única denominada **SearchResult**. Este formato es para las acciones de runbook y webhook con una carga estándar. En el caso de las acciones de webhook con cargas personalizadas (que incluyen **IncludeSearchResults:True** en **RequestBody**) la propiedad es **SearchResults**.
+
+Debe tener un parámetro de entrada de runbook denominado **WebhookData** del tipo **Objeto**. Esto puede ser obligatorio u opcional. Dicho parámetro se usa para que la alerta pase los resultados de búsqueda al runbook.
+
+```powershell
+param  
+    (  
+    [Parameter (Mandatory=$true)]  
+    [object] $WebhookData  
+    )
+```
+También debe tener código para convertir **WebhookData** en un objeto de PowerShell.
+
+```powershell
+$SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
+```
+
+**$SearchResult** es una matriz de objetos, cada uno de los cuales contiene los campos con valores de un resultado de búsqueda.
 
 
 ## <a name="example-walkthrough"></a>Tutorial de ejemplo
 
-Para demostrar el funcionamiento de este proceso se usa el ejemplo siguiente de runbook gráfico, que inicia un servicio de Windows.<br><br> ![Runbook gráfico de inicio de servicio de Windows](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)<br>
+El siguiente ejemplo de un runbook gráfico muestra cómo funciona este proceso. Inicia un servicio de Windows.
 
-El runbook tiene un parámetro de entrada de tipo **Objeto** que se llama **WebhookData** e incluye los datos del webhook transferidos desde la alerta que contiene \*.SearchResult\*.<br><br> ![Parámetros de entrada de Runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)<br>
+![Runbook gráfico para iniciar un servicio de Windows](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice.png)
 
-En este ejemplo, se han creado dos campos personalizados en Log Analytics, \*SvcDisplayName\_CF\* y \*SvcState\_CF\* para obtener el nombre para mostrar del servicio y el estado del servicio (por ejemplo, en ejecución o detenido) desde el evento escrito en el registro de eventos del sistema. A continuación, se crea una regla de alerta con la siguiente consulta de búsqueda: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"`, a fin de poder detectar cuándo se detiene el servicio del administrador de trabajos de impresión en el sistema de Windows. Aunque en este ejemplo se hace referencia a uno de los servicios preexistentes que se incluyen con el sistema operativo Windows, puede ser cualquier servicio que le interese. La acción de alerta se configura para ejecutar el runbook utilizado en este ejemplo y para ejecutarse en Hybrid Runbook Worker, que están habilitados en el sistema de destino.   
+El runbook tiene un parámetro de entrada del tipo **Objeto** que se llama **WebhookData**. Incluye los datos de webhook pasados desde la alerta que contiene **SearchResult**.
 
-La actividad de código del runbook **Get Service Name from LA** convierte la cadena con formato JSON en un tipo de objeto y filtra por el elemento \*SvcDisplayName_CF\_CF\* para obtener el nombre para mostrar del servicio de Windows y transferirlo a la siguiente actividad, que comprueba que el servicio está detenido antes de intentar reiniciarlo. *SvcDisplayName_CF* es un [campo personalizado](../log-analytics/log-analytics-custom-fields.md) creado en Log Analytics para demostrar este ejemplo.
+![Parámetros de entrada de Runbook](media/automation-invoke-runbook-from-omsla-alert/automation-runbook-restartservice-inputparameter.png)
+
+En este ejemplo, hemos creado dos campos personalizados en Log Analytics: **SvcDisplayName_CF** y **SvcState_CF**. Dichos campos extraen el nombre para mostrar y el estado del servicio (en ejecución o detenido) del evento que está escrito en el registro de eventos del sistema. Luego, se crea una regla de alerta con la siguiente consulta de búsqueda:, con el fin de poder detectar cuándo se detiene el servicio del Administrador de trabajos de impresión en el sistema de Windows:
+
+`Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"` 
+
+Puede ser cualquier servicio que le interese, pero en este ejemplo se hace referencia a uno de los servicios preexistentes que se incluyen con el sistema operativo Windows. La acción de la alerta se configura para ejecutar el runbook que se usa en este ejemplo y se ejecuta en el trabajo de runbook híbrido, que se habilita en el sistema de destino.   
+
+La actividad del código del runbook **Get Service Name from LA** convierte la cadena con formato JSON en un tipo de objeto y filtra por el elemento **SvcDisplayName_CF**. Extrae el nombre para mostrar del servicio de Windows y pasa dicho valor a la siguiente actividad, que comprueba que el servicio está detenido antes de intentar reiniciarlo. **SvcDisplayName_CF** es un [campo personalizado](../log-analytics/log-analytics-custom-fields.md) que se crea en Log Analytics para demostrar este ejemplo.
 
 ```powershell
 $SearchResult = (ConvertFrom-Json $WebhookData.RequestBody).SearchResult.value
 $SearchResult.SvcDisplayName_CF  
 ```
 
-Cuando se detiene el servicio, la regla de alerta de Log Analytics detecta una coincidencia, y desencadena el runbook y le envía el contexto de la alerta. El runbook actúa para comprobar que el servicio está detenido y, en tal caso, intenta reiniciarlo, comprueba que se ha iniciado correctamente y genera la salida.     
+Cuando se detiene el servicio, la regla de alerta de Log Analytics detecta una coincidencia, desencadena el runbook y le envía el contexto de la alerta. El runbook intenta comprobar que el servicio se detiene. En ese caso, el runbook intenta reiniciar el servicio, comprobar que se ha iniciado correctamente y muestra los resultados.     
 
-En el caso de que no tenga su cuenta de Automation vinculada a su área de trabajo de OMS, deberá configurar la regla de alerta con una acción de webhook para desencadenar el runbook y configurar el runbook para convertir la cadena con formato JSON y filtrar por \*.SearchResult\* siguiendo las instrucciones indicadas anteriormente.    
+O bien, si no tiene la cuenta de Automation vinculada a un área de trabajo de Operations Management Suite, puede configurar la regla de alerta con una acción de webhook. La acción de webhook desencadena el runbook. También configura el runbook para convertir la cadena con formato JSON y filtrar por **SearchResult** siguiendo las instrucciones anteriores.    
 
 >[!NOTE]
-> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), la carga del webhook ha cambiado.  Los detalles del formato se encuentran en la [API de REST de Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
+> Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), la carga del webhook ha cambiado. Los detalles del formato se encuentran en la [API de REST de Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información acerca de las alertas de Log Analytics y cómo crear una, consulte [Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md).
 
-* Para entender cómo desencadenar runbooks mediante un webhook, consulte [Webhooks de Azure Automation](automation-webhooks.md).
+* Para saber cómo desencadenar runbooks mediante un webhook, consulte [Inicio de un runbook de Azure Automation con un webhook](automation-webhooks.md).

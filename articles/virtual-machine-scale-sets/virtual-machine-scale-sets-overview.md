@@ -3,8 +3,8 @@ title: "Introducción a los conjuntos de escalado de máquinas virtuales de Azur
 description: "Más información sobre los conjuntos de escalado de máquinas virtuales de Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>¿Qué son los conjuntos de escalado de máquinas virtuales en Azure?
-Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado están diseñados para admitir el escalado automático verdadero y no es necesario aprovisionar las máquinas virtuales antes. Esto facilita la creación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
+Los conjuntos de escalado de máquinas virtuales son un recurso de Azure Compute que se puede usar para implementar y administrar un conjunto de máquinas virtuales idénticas. Con todas las máquinas virtuales configuradas de la misma manera, los conjuntos de escalado están diseñados para admitir el escalado automático verdadero y no es necesario aprovisionar las máquinas virtuales antes. Esto facilita la compilación de servicios a gran escala cuyo objetivo son las cargas de trabajo en contenedor, de macroproceso y macrodatos.
 
 Para las aplicaciones que necesiten escalar y reducir horizontalmente los recursos de proceso, las operaciones de escala se equilibran implícitamente en dominios de actualización y de error. Para una introducción a los conjuntos de escalado, consulte el [anuncio en el blog de Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
@@ -50,7 +50,7 @@ Para los ejemplos de plantilla de inicio rápido, hay un botón "Implementar en 
 ## <a name="autoscale"></a>Autoscale
 Para mantener el rendimiento de la aplicación coherente, puede aumentar o reducir automáticamente el número de instancias de máquina virtual del conjunto de escalado. Esta capacidad de escalado automático reduce la sobrecarga de administración para supervisar y ajustar el escalado automático como cambios a demanda del cliente a lo largo del tiempo. El usuario define las reglas en función de las métricas de rendimiento, la respuesta de la aplicación o una programación fija y el conjunto de escalado se escala automáticamente según sea necesario.
 
-Como reglas básicas de escalado automático, puede usar las métricas de rendimiento basadas en el host, como el uso de CPU o las E/S del disco. Estas métricas basadas en el host están disponibles desde el principio, sin agentes o extensiones adicionales que instalar y configurar. Las reglas de escalado automático que usan métricas basadas en el host se crean con una de las herramientas siguientes:
+Como reglas básicas de escalado automático, puede usar las métricas de rendimiento basadas en el host, como el uso de CPU o las E/S del disco. Estas métricas basadas en el host están disponibles de forma automática, sin agentes o extensiones adicionales que instalar y configurar. Las reglas de escalado automático que usan métricas basadas en el host se crean con una de las herramientas siguientes:
 
 - [Portal de Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,10 +159,10 @@ En esta sección se enumeran algunos escenarios típicos de conjuntos de escalad
 
 **P.** Si se usan varias extensiones en un conjunto de escalado, ¿se puede exigir una secuencia de ejecución?
 
-**R.** No directamente, pero en el caso de la extensión customScript, el script puede esperar hasta que finalice otra extensión. Puede obtener más instrucciones acerca de la secuenciación de extensiones en esta entrada de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Secuenciación de extensiones en conjuntos de escalado de máquinas virtuales de Azure).
+**R.** No directamente, pero en el caso de la extensión customScript, el script puede esperar hasta que finalice otra extensión. Encontrará más instrucciones acerca de la secuenciación de extensiones en la siguiente entrada de blog: [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Secuenciación de extensiones en conjuntos de escalado de máquinas virtuales de Azure).
 
 **P.** ¿Funcionan los conjuntos de escalado con los conjuntos de disponibilidad de Azure?
 
-**R.** Sí. Un conjunto de escalado es un conjunto de disponibilidad implícita con 5 dominios de error y 5 dominios de actualización. Los conjuntos de escalado de más de 100 máquinas virtuales abarcan varios *grupos de ubicación*, que son equivalentes a varios conjuntos de disponibilidad. Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). Puede existir un conjunto de disponibilidad de máquinas virtuales en la misma red virtual que un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control (que a menudo necesitan una configuración única) en un conjunto de disponibilidad y nodos de datos en el conjunto de escalado.
+**R.** Sí. Un conjunto de escalado es un conjunto de disponibilidad implícita con cinco dominios de error y cinco dominios de actualización. Los conjuntos de escalado de más de 100 máquinas virtuales abarcan varios *grupos de ubicación*, que son equivalentes a varios conjuntos de disponibilidad. Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). Puede existir un conjunto de disponibilidad de máquinas virtuales en la misma red virtual que un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control (que a menudo necesitan una configuración única) en un conjunto de disponibilidad y nodos de datos en el conjunto de escalado.
 
 Encontrará más respuestas a las preguntas acerca de los conjuntos de escalado en [Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure](virtual-machine-scale-sets-faq.md).

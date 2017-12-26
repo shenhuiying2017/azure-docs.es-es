@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39fbdba404bda9383c9164dd1ecd9cb23bfb5cd7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Habilitación de la funcionalidad de captura de Event Hubs mediante Azure Portal
 
@@ -55,9 +55,9 @@ Para capturar datos en Azure Data Lake Store, cree una cuenta de Data Lake Store
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Adición o configuración de Capture en un centro de eventos existente
 
-Se puede configurar Capture en los centros de eventos existentes que se encuentran en los espacios de nombres de Event Hubs. Para habilitar Capture en un centro de eventos existente o para cambiar la configuración de Capture, haga clic en el espacio de nombres para cargar la pantalla **Essentials** y, después, haga clic en el centro de eventos para el que desea habilitar o cambiar la configuración de Capture. Por último, haga clic en la sección **Propiedades** de la página abierta y después edite la configuración de Capture, tal como se muestra en la ilustración siguiente:
+Se puede configurar Capture en los centros de eventos existentes que se encuentran en los espacios de nombres de Event Hubs. Para habilitar Capture en un centro de eventos existente o para cambiar la configuración de Capture, haga clic en el espacio de nombres para cargar la pantalla de la introducción y, después, haga clic en el centro de eventos para el que desea habilitar o cambiar la configuración de Capture. Por último, haga clic en la opción **Capture** del lado izquierdo de la página abierta y después edite la configuración, tal como se muestra en las ilustraciones siguientes:
 
-### <a name="azure-blob-storage"></a>Almacenamiento de blobs de Azure
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 ![][2]
 
