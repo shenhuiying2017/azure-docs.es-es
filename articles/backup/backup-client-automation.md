@@ -1,6 +1,6 @@
 ---
 title: Uso de PowerShell para hacer una copia de seguridad de Windows Server en Azure | Microsoft Docs
-description: "Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell"
+description: "Obtenga información sobre cómo implementar y administrar Azure Backup mediante PowerShell"
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -14,20 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a7189d9ccc8ab7aee61cd32e465b2c9b63680d2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
-> [!div class="op_single_selector"]
-> * [ARM](backup-client-automation.md)
-> * [Clásico](backup-client-automation-classic.md)
->
->
-
-En este artículo se muestra cómo usar PowerShell para configurar la Copia de seguridad de Azure en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
+En este artículo se muestra cómo usar PowerShell para configurar Azure Backup en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
@@ -43,14 +37,14 @@ Si desea utilizar scripts escritos para los entornos de 0.9.8, de 1.0 o posterio
 [!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
-Los siguientes pasos le guiarán por el proceso de creación de un almacén de Recovery Services. Un almacén de Servicios de recuperación no es lo mismo que un almacén de copia de seguridad.
+Los siguientes pasos le guiarán por el proceso de creación de un almacén de Recovery Services. Un almacén de Recovery Services no es lo mismo que un almacén de copia de seguridad.
 
 1. Si utiliza Azure Backup por primera vez, debe utilizar el cmdlet **Register-AzureRMResourceProvider** para registrar el proveedor de Azure Recovery Services con su suscripción.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. El almacén de Servicios de recuperación es un recurso de ARM, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. Al crear un nuevo grupo de recursos, especifique su nombre y su ubicación.  
+2. El almacén de Recovery Services es un recurso de ARM, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. Al crear un nuevo grupo de recursos, especifique su nombre y su ubicación.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
@@ -90,7 +84,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 
 ## <a name="installing-the-azure-backup-agent"></a>Instalación del agente de Azure Backup
-Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de Servicios de recuperación. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\Downloads\*.
+Antes de instalar el agente de Azure Backup, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de Recovery Services. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\Downloads\*.
 
 Como alternativa, use PowerShell para obtener la aplicación de descarga:
  
@@ -135,8 +129,8 @@ Las opciones disponibles incluyen:
 | /pu |Nombre de usuario del host de proxy |- |
 | /pw |Contraseña de proxy |- |
 
-## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registro de Windows Server o el equipo cliente de Windows en un almacén de Servicios de recuperación
-Después de crear el almacén de Servicios de recuperación, descargue el agente más reciente y las credenciales de almacén y guárdelas en una ubicación adecuada como C:\Downloads.
+## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registro de Windows Server o el equipo cliente de Windows en un almacén de Recovery Services
+Después de crear el almacén de Recovery Services, descargue el agente más reciente y las credenciales de almacén y guárdelas en una ubicación adecuada como C:\Downloads.
 
 ```
 PS C:\> $credspath = "C:\downloads"
@@ -204,12 +198,12 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
+> Mantenga la información de la frase de contraseña segura una vez establecida. No puede restaurar los datos de Azure sin esta frase de contraseña.
 >
 >
 
 ## <a name="back-up-files-and-folders"></a>Realizar copias de seguridad de archivos y carpetas
-Todas las copias de seguridad de servidores y clientes de Windows en Copia de seguridad de Azure se rigen por una directiva. La directiva consta de tres partes:
+Todas las copias de seguridad de servidores y clientes de Windows en Azure Backup se rigen por una directiva. La directiva consta de tres partes:
 
 1. Un **programa de copia de seguridad** que especifica cuándo deben efectuarse y sincronizarse las copias de seguridad con el servicio.
 2. Una **programación de retención** que especifica cuánto tiempo se conservarán los puntos de recuperación en Azure.
@@ -242,7 +236,7 @@ PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### <a name="configuring-a-retention-policy"></a>Configuración de una directiva de retención
-La directiva de retención define cuánto tiempo se conservan los puntos de recuperación de los trabajos de copia de seguridad. Al crear una nueva directiva de retención mediante el cmdlet [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425), puede especificar el número de días que los puntos de recuperación de copia de seguridad deben conservarse con Azure Backup. En el ejemplo siguiente se establece una directiva de retención de 7 días.
+La directiva de retención define cuánto tiempo se conservan los puntos de recuperación de los trabajos de copia de seguridad. Al crear una nueva directiva de retención mediante el cmdlet [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) , puede especificar el número de días que los puntos de recuperación de copia de seguridad deben conservarse con Azure Backup. En el ejemplo siguiente se establece una directiva de retención de 7 días.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -425,7 +419,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Puede ver los detalles de la directiva de copia de seguridad existente con el cmdlet [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) . Puede profundizar más mediante el cmdlet [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) de la programación de copia de seguridad y el cmdlet [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) de las directivas de retención
+Puede ver los detalles de la directiva de copia de seguridad existente con el cmdlet [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) . Puede profundizar más mediante el cmdlet [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) para la programación de copia de seguridad y el cmdlet [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) para las directivas de retención.
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -465,8 +459,8 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>Realización de una copia de seguridad ad-hoc
-Una vez establecida una directiva de copia de seguridad, las copias de seguridad se producirán en función de la programación. Desencadenar una copia de seguridad ad-hoc también es posible usando el cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426) :
+### <a name="performing-an-ad-hoc-backup"></a>Realización de una copia de seguridad ad hoc
+Una vez establecida una directiva de copia de seguridad, las copias de seguridad se producirán en función de la programación. También es posible desencadenar una copia de seguridad ad hoc con el cmdlet [Start-OBBackup](https://technet.microsoft.com/library/hh770426):
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup

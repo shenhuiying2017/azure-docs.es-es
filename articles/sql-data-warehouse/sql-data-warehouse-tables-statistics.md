@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4d5777e69b7ea3fa206bf8909c255b998be69e8a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Administración de estadísticas en tablas en SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,32 +33,30 @@ ms.lasthandoff: 12/07/2017
 > 
 > 
 
-Cuanto más sepa SQL Data Warehouse acerca de los datos, más rápido podrá ejecutar consultas en ellos.  La manera en que se informa a SQL Data Warehouse acerca de los datos es mediante la recopilación de estadísticas sobre los datos.  La obtención de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas.  Las estadísticas ayudan a SQL Data Warehouse a crear el plan óptimo para las consultas.  Esto se debe a que el optimizador de consultas de SQL Data Warehouse se basa en costos.  Es decir, compara el costo de varios planes de consulta y elige el de menor costo, que también debe ser el que se ejecutará más rápidamente.
+Cuanto más sepa SQL Data Warehouse acerca de los datos, más rápido podrá ejecutar consultas en ellos.  La manera en que se informa a SQL Data Warehouse acerca de los datos es mediante la recopilación de estadísticas sobre los datos. La obtención de estadísticas sobre los datos es una de las tareas más importantes que se pueden realizar para optimizar las consultas. Esto se debe a que el optimizador de consultas de SQL Data Warehouse se basa en costos. Compara el costo de varios planes de consulta y elige el de menor costo, que también debe ser el que se ejecutará más rápidamente. Por ejemplo, si el optimizador estima que la fecha de filtro de la consulta devolverá una fila, puede elegir un plan completamente diferente del que elegiría si estima que la fecha seleccionada devolverá un millón de filas.
 
-Se pueden crear estadísticas de una sola columna, de varias columnas o de un índice de una tabla.  Las estadísticas se almacenan en un histograma que captura el intervalo y la selectividad de valores.  Esto es de especial interés cuando el optimizador debe evaluar las cláusulas JOIN, GROUP BY, HAVING y WHERE en una consulta.  Por ejemplo, si el optimizador estima que la fecha de filtro de la consulta devolverá una fila, puede elegir un plan completamente diferente del que elegiría si estima que la fecha seleccionada devolverá un millón de filas.  Aunque la creación de estadísticas es muy importante, no lo es menos que las estadísticas reflejen *con precisión* el estado actual de la tabla.  La existencia de las estadísticas actualizadas garantiza que el optimizador selecciona un buen plan.  Los planes que crea el optimizador son igual de buenos que las estadísticas de los datos.
-
-En la actualidad, el proceso de creación y actualización de estadísticas es un proceso manual, pero muy fácil.  Esto es diferente de lo que sucede en SQL Server, que crea y actualiza automáticamente estadísticas de columnas únicas e índices.  Mediante la información que proporciona a continuación, se puede automatizar en gran medida la administración de las estadísticas de los datos. 
+En la actualidad, el proceso de creación y actualización de estadísticas es un proceso manual, pero muy fácil.  Pronto podrá crear y actualizar automáticamente las estadísticas en columnas únicas e índices.  Mediante la información que proporciona a continuación, se puede automatizar en gran medida la administración de las estadísticas de los datos. 
 
 ## <a name="getting-started-with-statistics"></a>Introducción a las estadísticas
- Crear estadísticas de muestra en cada columna es una forma sencilla de empezar a trabajar con las estadísticas.  Dado que también es muy importante que las estadísticas estén actualizadas, un enfoque conservador puede ser actualizar las estadísticas diariamente o después de cada carga. Existen inconvenientes entre el rendimiento y el costo de crear y actualizar las estadísticas.  Si cree que tarda demasiado en realizar el mantenimiento de todas las estadísticas, puede intentar ser más selectivo acerca de las columnas con estadísticas o las que necesitan actualizarse con frecuencia.  Por ejemplo, puede preferir actualizar las columnas de fecha diariamente, ya que se pueden agregar nuevos valores, en lugar de después de cada carga. Una vez más, la mayor ventaja se logrará si se tienen estadísticas de las columnas implicadas las cláusulas JOINs, GROUP BY, HAVING y WHERE.  Si tiene una tabla con muchas columnas que solo se utilizan en la cláusula SELECT, es posible que las estadísticas de estas columnas no sirvan de ayuda, mientras que realizar ciertos esfuerzos para identificar solo las columnas en que las estadísticas servirán de ayuda puede reducir el tiempo necesario para mantener las estadísticas.
+Crear estadísticas de muestra en cada columna es una forma sencilla de empezar a trabajar con las estadísticas. Las estadísticas obsoletas provocarán a rendimiento de las consultas que no llega a ser óptimo. Sin embargo, cuando los datos crezcan, la actualización de los datos de todas las columnas puede consumir la memoria. 
 
-## <a name="multi-column-statistics"></a>Estadísticas de varias columnas
-Además de crear estadísticas de columnas individuales, es posible que las consultas se beneficien de las estadísticas de varias columnas.  Las estadísticas de varias columnas son las estadísticas creadas en una lista de columnas.  Incluyen las estadísticas de columna única en la primera columna de la lista, además de cierta información de correlación entre las columnas denominada densidades.  Por ejemplo, si tiene una tabla que se une a otro en dos columnas, es posible que SQL Data Warehouse pueda optimizar mejor el plan si conoce la relación entre las dos columnas.   Las estadísticas de varias columnas pueden mejorar el rendimiento de las consultas en algunas operaciones, como las cláusulas compuestas JOINs y GROUP BY.
+Estas son algunas de las recomendaciones para los diferentes escenarios:
+| **Escenarios** | Recomendación |
+|:--- |:--- |
+| **Introducción** | Actualice todas las columnas después de migrar a SQL Data Warehouse |
+| **Columna más importante para estadísticas** | Clave de distribución hash |
+| **Segunda columna más importante para estadísticas** | Partition Key |
+| **Otras columnas importantes para estadísticas** | Fecha, combinaciones frecuentes, GROUP BY, HAVING y WHERE |
+| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: a diario <br></br> Después de cargar o transformar los datos |
+| **Muestreo** |  Por debajo de 1 fila B, use el muestreo predeterminado (20%) <br></br> Si hay más de 1 tabla de filas B, las estadísticas de un intervalo del 2 % es buena |
 
 ## <a name="updating-statistics"></a>Actualización de estadísticas
-La actualización de estadísticas es una parte importante de la rutina de administración de base de datos.  Cuando se cambia la distribución de datos en la base de datos, las estadísticas deben actualizarse.  Las estadísticas obsoletas provocarán a rendimiento de las consultas que no llega a ser óptimo.
 
-Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas.  Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de datos y hacen que las estadísticas se queden obsoletas. Por el contrario, es posible que las estadísticas de una columna de país en una tabla de clientes nunca deban actualizarse, pues la distribución de valores no suele cambiar. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si su almacenamiento de datos solo contiene un país y trae datos de un nuevo país, dando esto lugar al almacenamiento de datos de varios países, definitivamente debe actualizar estadísticas en la columna de país.
+Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de datos y hacen que las estadísticas se queden obsoletas. Por el contrario, es posible que las estadísticas de una columna de país en una tabla de clientes nunca deban actualizarse, pues la distribución de valores no suele cambiar. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si su almacenamiento de datos solo contiene un país y trae datos de un nuevo país, dando esto lugar al almacenamiento de datos de varios países, definitivamente debe actualizar estadísticas en la columna de país.
 
-Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es "¿Están actualizadas las estadísticas?".
+Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es **"¿Están actualizadas las estadísticas?"**
 
-No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser muy antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de valores para una columna determinada, *entonces* será el momento de actualizar estadísticas.  
-
-Como referencia, **SQL Server** (no SQL Data Warehouse) actualiza automáticamente las estadísticas para estas situaciones:
-
-* Si tiene cero filas en la tabla, al agregar una filas, las estadísticas se actualizarán automáticamente
-* Al agregar más de 500 filas a una tabla comenzando con menos de 500 filas (p. ej., al principio tiene 499 y después agrega 500 filas a un total de 999 filas), obtendrá una actualización automática 
-* Una vez que haya más de 500 filas, deberá agregar 500 filas adicionales + el 20% del tamaño de la tabla antes de ver una actualización automática en las estadísticas
+No se trata de una pregunta que se pueda responder por la antigüedad de los datos. Un objeto de estadísticas actualizadas podría ser muy antiguo si no ha habido ningún cambio material en los datos subyacentes. Si el número de filas ha cambiado significativamente o hay un cambio material en la distribución de valores para una columna determinada, *entonces* será el momento de actualizar estadísticas.
 
 Al no haber DMV para determinar si los datos de la tabla han cambiado desde la última actualización de estadísticas, estar al tanto de la antigüedad de estas puede proporcionarle una visión parcial.  Puede usar la siguiente consulta para determinar la última vez que se actualizaron las estadísticas en cada tabla.  
 
@@ -94,7 +92,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-Las columnas de fecha en un almacenamiento de datos, por ejemplo, normalmente necesitan frecuentes actualizaciones de estadísticas. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de datos y hacen que las estadísticas se queden obsoletas.  Por el contrario, las estadísticas en una columna de género en una tabla de clientes nunca necesita actualizarse. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si el almacén de datos contiene solo un sexo y un nuevo requisito da como resultado varios sexos, definitivamente necesitará actualizar las estadísticas en la columna de sexo.
+Las **columnas de fecha** en un almacenamiento de datos, por ejemplo, normalmente necesitan que las estadísticas se actualicen con frecuencia. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de datos y hacen que las estadísticas se queden obsoletas.  Por el contrario, las estadísticas en una columna de género en una tabla de clientes nunca necesita actualizarse. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si el almacén de datos contiene solo un sexo y un nuevo requisito da como resultado varios sexos, definitivamente necesitará actualizar las estadísticas en la columna de sexo.
 
 Para obtener más información, consulte [Estadísticas][Statistics] en MSDN.
 
@@ -122,7 +120,7 @@ Estos ejemplos muestran cómo utilizar diversas opciones de creación de estadí
 ### <a name="a-create-single-column-statistics-with-default-options"></a>A. Crear estadísticas de columna única con las opciones predeterminadas
 Para crear estadísticas de una columna, basta con proporcionar un nombre para el objeto de estadística y el nombre de la columna.
 
-Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, SQL Data Warehouse ofrece un ejemplo del 20 % de la tabla cuando crea estadísticas.
+Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminada, SQL Data Warehouse **muestrea el 20 %** de la tabla cuando crea estadísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -189,7 +187,7 @@ Para crear estadísticas de varias columnas, simplemente use los ejemplos anteri
 > 
 > 
 
-En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_c\ategory*:
+En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;

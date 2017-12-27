@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 04a03436d554d9f06eed0fbdf5cf34a786061e21
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c22e6fc85e88d89007107c8c3bad142ac91e9d12
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparación para la copia de seguridad de cargas de trabajo en Azure con DPM
 > [!div class="op_single_selector"]
 > * [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
-> * [Azure Backup Server (clásico)](backup-azure-microsoft-azure-backup-classic.md)
-> * [SCDPM (clásico)](backup-azure-dpm-introduction-classic.md)
 >
 >
 
@@ -42,7 +40,7 @@ En este artículo se proporciona una introducción al uso de Microsoft Azure Bac
 >
 >
 
-Datos de aplicación y archivo de copia de seguridad de [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview). Puede encontrar más información sobre cargas de trabajo compatibles [aquí](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Los datos con copia de seguridad en DPM se pueden almacenar en una cinta o en un disco, o se puede crear una copia de seguridad de ellos en Azure con Microsoft Azure Backup. DPM interactúa con Azure Backup de la manera siguiente:
+Datos de aplicación y archivo de copia de seguridad de [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview). Se puede encontrar más información sobre las cargas de trabajo admitidas [aquí](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix). Los datos con copia de seguridad en DPM se pueden almacenar en una cinta o en un disco, o se puede crear una copia de seguridad de ellos en Azure con Microsoft Azure Backup. DPM interactúa con Azure Backup de la manera siguiente:
 
 * **DPM implementado como un servidor físico o una máquina virtual local** : si DPM se implementa como un servidor físico o una máquina virtual de Hyper-V local, además de en disco y cinta, puede crear una copia de seguridad de los datos en un almacén de Recovery Services.
 * **DPM implementado como una máquina virtual de Azure** : desde System Center 2012 R2 con Update 3, DPM puede implementarse como una máquina virtual de Azure. Si DPM se implementa como una máquina virtual de Azure, puede crear una copia de seguridad de los datos en discos de Azure conectados a la máquina virtual de DPM Azure, o puede descargar el almacenamiento de datos creando una copia de seguridad de ellos en un almacén de Recovery Services.
@@ -113,7 +111,7 @@ El archivo de credenciales de almacén se usa solo durante el flujo de trabajo d
 El archivo de credenciales de almacén se descarga a través de un canal seguro desde el Portal de Azure. El servicio Azure Backup no conoce la clave privada del certificado, y la clave privada no se conserva en el portal o el servicio. Siga estos pasos para descargar el archivo de credenciales de almacén a una máquina local.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Abra almacén de Recovery Services en que quiere registrar el equipo DPM.
+2. Abra el almacén de Recovery Services en el que quiere registrar la máquina DPM.
 3. La hoja Configuración se abre de forma predeterminada. Si está cerrada, haga clic en **Configuración** en el panel de almacén para abrirla. En dicha hoja, haga clic en **Propiedades**.
 
     ![Hoja del almacén abierta](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -131,7 +129,7 @@ El portal generará una credencial de almacén mediante una combinación del nom
 ### <a name="3-install-backup-agent"></a>3. Instalación del agente de copia de seguridad
 Después de crear el almacén de Azure Backup, se debe instalar un agente en cada una de las máquinas de Windows (servidor de Windows Server, cliente de Windows, servidor de System Center Data Protection Manager o la máquina de Azure Backup Server) que habilite la copia de seguridad de los datos y las aplicaciones en Azure.
 
-1. Abra almacén de Recovery Services en que quiere registrar el equipo DPM.
+1. Abra el almacén de Recovery Services en el que quiere registrar la máquina DPM.
 2. La hoja Configuración se abre de forma predeterminada. Si está cerrada, haga clic en **Configuración** para abrirla. En dicha hoja, haga clic en **Propiedades**.
 
     ![Hoja del almacén abierta](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
@@ -139,7 +137,7 @@ Después de crear el almacén de Azure Backup, se debe instalar un agente en cad
 
     ![Descargar](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Después de instalar el agente, haga doble clic en MARSAgentInstaller.exe para iniciar la instalación de Azure Backup Agent. Elija la carpeta de instalación y la carpeta temporal requerido para el agente. La ubicación de caché especificada debe tener un espacio libre de al menos el 5% de los datos de copia de seguridad.
+   Después de instalar el agente, ejecute MARSAgentInstaller.exe para iniciar la instalación del agente de Azure Backup. Elija la carpeta de instalación y la carpeta temporal requerido para el agente. La ubicación de caché especificada debe tener un espacio libre de al menos el 5% de los datos de copia de seguridad.
 4. Si usa un servidor proxy para conectarse a Internet, en la pantalla **Configuración de proxy** , especifique los detalles del servidor proxy. Si utiliza a un servidor proxy autenticado, escriba los detalles de nombre y la contraseña del usuario en esta pantalla.
 5. El agente de Azure Backup instala .NET Framework 4.5 y Windows PowerShell (si aún no está disponible) para completar la instalación.
 6. Una vez instalado el agente, **cierre** la ventana.

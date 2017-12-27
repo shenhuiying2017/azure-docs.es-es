@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 72a8729d22a9e76c8076d7a3347619a2163e4f09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Escalado de codificación con el SDK de .NET
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 10/11/2017
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 > 
+
+> [!NOTE]
+> Para obtener la versión más reciente del SDK de Java y empezar a realizar desarrollos con Java, consulte [Introducción al SDK de cliente de Java para Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para descargar el SDK de PHP más reciente para Media Services, busque la versión 0.5.7 del paquete de Microsoft/WindowAzure en el [repositorio Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Información general
 > [!IMPORTANT]
@@ -49,7 +53,7 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>Apertura de una incidencia de soporte técnico
-De manera predeterminada las cuentas de Servicios multimedia pueden escalar hasta 25 unidades reservadas de codificación y 5 de streaming a petición. Si desea solicitar un límite mayor, abra una incidencia de soporte técnico.
+De manera predeterminada las cuentas de Media Services pueden escalar hasta 25 unidades reservadas de codificación y 5 de streaming a petición. Si desea solicitar un límite mayor, abra una incidencia de soporte técnico.
 
 ### <a name="open-a-support-ticket"></a>Abrir una incidencia de soporte técnico
 Para abrir una incidencia de soporte técnico, haga lo siguiente:
@@ -58,13 +62,13 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 2. Seleccione su suscripción.
 3. En el tipo de soporte, seleccione "Técnico".
 4. Haga clic en "Crear incidencia".
-5. Seleccione "Servicios multimedia de Microsoft Azure" en la lista de productos que se muestran en la página siguiente.
+5. Seleccione "Microsoft Azure Media Services" en la lista de productos que se muestran en la página siguiente.
 6. Seleccione un "Tipo de problema" que sea pertinente en relación con su problema.
 7. Haga clic en Continue.
 8. Siga las instrucciones que aparecen en la página siguiente y, a continuación, escriba los detalles de su problema.
 9. Haga clic en Submit para abrir la incidencia.
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
