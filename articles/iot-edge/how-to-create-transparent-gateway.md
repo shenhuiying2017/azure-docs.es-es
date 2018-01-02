@@ -94,7 +94,7 @@ Cree el certificado de dispositivo nuevo:
    New-CACertsEdgeDevice myGateway
    ```
 
-Se crean nuevos archivos myEdgeDevice*, que contienen la clave pública, la clave privada y el archivo PFX de este certificado. 
+Se crean nuevos archivos myEdgeDevice\* , que contienen la clave pública, la clave privada y el archivo PFX de este certificado. 
 
 Cuando se le pida una contraseña durante el proceso de firma, escriba "1234".
 
