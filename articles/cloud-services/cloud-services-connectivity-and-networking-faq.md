@@ -68,7 +68,7 @@ El módulo URL Rewrite de IIS podría usarse para redirigir el tráfico que entr
 
 ## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>¿Cómo puedo bloquear o deshabilitar el tráfico entrante a la dirección URL predeterminada de mi servicio en la nube? 
 
-Puede impedir la entrada de tráfico en la dirección URL o nombre predeterminados de su servicio en la nube (por ejemplo, \*.cloudapp.net) si establece el encabezado host en un nombre DNS personalizado (por ejemplo, www.MyCloudService.com) en la configuración de enlace de sitio en el archivo de definición de servicio en la nube (*.csdef), como se indica a continuación: 
+Puede impedir la entrada de tráfico en la dirección URL o nombre predeterminados de su servicio en la nube (por ejemplo, \*.cloudapp.net) si establece el encabezado host en un nombre DNS personalizado (por ejemplo, www.MyCloudService.com) en la configuración de enlace de sitio en el archivo de definición de servicio en la nube ( * .csdef), como se indica a continuación: 
  
 
     <?xml version="1.0" encoding="utf-8"?> 
@@ -90,7 +90,7 @@ Puede impedir la entrada de tráfico en la dirección URL o nombre predeterminad
       </WebRole> 
     </ServiceDefinition> 
  
-Dado que este enlace de encabezado host se aplica mediante un archivo csdef, el servicio solo será accesible mediante el nombre personalizado "www.MyCloudService.com", siempre y cuando todas las solicitudes entrantes al dominio "*.cloudapp.net" produzcan error en todo momento. Dicho esto, si usa un sondeo de SLB personalizado o un equilibrador de carga interno en el servicio, el bloqueo de la dirección URL o el nombre predeterminados del servicio puede interferir con el comportamiento de sondeo. 
+Dado que este enlace de encabezado host se aplica mediante un archivo csdef, el servicio solo será accesible mediante el nombre personalizado "www.MyCloudService.com", siempre y cuando todas las solicitudes entrantes al dominio " * .cloudapp.net" produzcan error en todo momento. Dicho esto, si usa un sondeo de SLB personalizado o un equilibrador de carga interno en el servicio, el bloqueo de la dirección URL o el nombre predeterminados del servicio puede interferir con el comportamiento de sondeo. 
 
 ## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>¿Cómo se puede tener la seguridad de que la dirección IP de acceso público de un servicio en la nube (también conocida como VIP) no cambie nunca para que algunos clientes concretos puedan incluirla habitualmente en la lista de permitidos?
 
