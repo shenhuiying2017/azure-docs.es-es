@@ -1,5 +1,9 @@
 - name: Documentación de Site Recovery
   href: index.yml
+- name: Migración de máquinas locales y máquinas virtuales de Azure
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Recuperación ante desastres de Azure a Azure
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Información general
   items:
     - name: ¿Qué es Site Recovery?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Matriz de compatibilidad de local a Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Matriz de compatibilidad de Hyper-V a Azure
+      href: support-matrix-hyper-v-to-azure.md
     - name: Matriz de compatibilidad de local a sitio secundario
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Recuperación ante desastres para cargas de trabajo
@@ -63,7 +69,7 @@
       href: site-recovery-migrate-to-azure.md
     - name: Permisos de acceso basados en rol
       href: site-recovery-role-based-linked-access-control.md
-    - name: P+F
+    - name: Preguntas más frecuentes
       href: site-recovery-faq.md
 - name: Guías de procedimientos
   items:
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Recuperación ante desastres
       items:
+        - name: Preparación de Hyper-V para la replicación en Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Máquinas virtuales de Hyper-V en Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Máquinas virtuales de Hyper-V de nubes VMM en Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Servidores físicos en Azure
           href: tutorial-physical-to-azure.md
         - name: Máquinas virtuales de Hyper-V en un sitio secundario
@@ -235,7 +245,7 @@
           href: site-recovery-citrix-xenapp-and-xendesktop.md
         - name: Otras cargas de trabajo
           href: 'site-recovery-workload.md#workload-summary'
-    - name: Administrar
+    - name: administración
       items:
         - name: Actualización a un almacén de Recovery Services
           href: upgrade-site-recovery-vaults.md

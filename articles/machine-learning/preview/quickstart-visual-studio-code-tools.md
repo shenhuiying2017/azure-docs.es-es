@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: b9e9141cd17ab5a45c0f3db33d2777d52c112fb5
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 7ec74dd9901171b7ec62b0bac5bfb1da80fee5ca
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>Herramientas de Visual Studio Code para AI
 Herramientas de Visual Studio Code para AI es una extensión de desarrollo para compilar, probar e implementar soluciones de aprendizaje profundo/AI. Ofrece una integración sin problemas con Azure Machine Learning, principalmente, una vista del historial de ejecución que detalla el rendimiento de aprendizajes anteriores y métricas personalizadas. Ofrece una vista de explorador de ejemplos que permite examinar y arrancar un proyecto nuevo con [Microsoft Cognitive Toolkit (anteriormente, CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) y otro marco de aprendizaje profundo. Por último, proporciona un explorador para destinos de proceso que permite enviar trabajos para entrenar modelos en entornos remotos, como máquinas virtuales de Azure o servidores Linux con GPU. 
@@ -77,6 +77,6 @@ La vista de lista de trabajos se abre y muestra todas las ejecuciones y alguna i
 Con la vista de lista de trabajos abierta, haga clic en la primera ejecución de la lista.
 Para profundizar en los resultados de un trabajo, haga clic en **Id. de trabajo** en la parte superior para ver información detallada. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
 > [Cómo configurar Azure Machine Learning para que funcione con un IDE](./how-to-configure-your-IDE.md)

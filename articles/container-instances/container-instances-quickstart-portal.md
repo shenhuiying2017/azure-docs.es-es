@@ -6,20 +6,20 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7007fa8989f6d87028906918dbbc9c2998cd3bf4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creación del primer contenedor en Azure Container Instances
 
 Azure Container Instances facilita la creación y administración de contenedores en Azure. En esta guía de inicio rápido, crearemos un contenedor en Azure y lo expondremos en Internet con una dirección IP pública. Esta operación se completa con Azure Portal. Con solo unos clics, podrá ver esto en el explorador:
 
-![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-app-browser]
+![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-portal-07]
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
@@ -59,7 +59,7 @@ Seleccione el grupo de contenedores **mycontainer-myc1** para ver sus propiedade
 
 Una vez que el contenedor pasa al estado **En ejecución**, vaya a la dirección IP que anotó en el paso anterior para mostrar la aplicación hospedada en el contenedor nuevo.
 
-![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-app-browser]
+![Aplicación implementada mediante Azure Container Instances vista en el explorador][aci-portal-07]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
@@ -68,10 +68,10 @@ Una vez que el contenedor pasa al estado **En ejecución**, vaya a la dirección
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha creado una instancia de Azure Container Instances a partir de una imagen en un repositorio público de Docker Hub. Si quiere intentar compilar un contenedor usted mismo e implementarlo en Azure Container Instances mediante Azure Container Registry, vaya al tutorial de Azure Container Instances.
 

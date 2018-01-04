@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: ca771648e9be9b8fd2b5d930c65610311820c7ba
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 
@@ -32,7 +32,7 @@ En este tutorial se describen los pasos siguientes:
 4. Escriba una aplicación de consola de .NET Core para enviar un conjunto de mensajes al tema.
 5. Escriba una aplicación de consola de .NET Core para recibir esos mensajes de la suscripción.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 1. [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](http://www.visualstudio.com/vs) o posterior.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
@@ -377,7 +377,7 @@ Para recibir los mensajes que acaba de enviar, cree otra aplicación de consola 
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
             {
-                // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
                 var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
                 {
                     // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
@@ -424,9 +424,9 @@ Para recibir los mensajes que acaba de enviar, cree otra aplicación de consola 
    
     ![Longitud del tema][topic-message-receive]
 
-¡Enhorabuena! Con la biblioteca estándar. NET, ahora ha creado un tema y una suscripción, y enviado y recibido diez mensajes.
+Felicidades. Con la biblioteca estándar. NET, ahora ha creado un tema y una suscripción, y enviado y recibido diez mensajes.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte nuestro [repositorio de GitHub con ejemplos](https://github.com/Azure/azure-service-bus/tree/master/samples), donde se muestran algunas de las características más avanzadas de la mensajería de Service Bus.
 

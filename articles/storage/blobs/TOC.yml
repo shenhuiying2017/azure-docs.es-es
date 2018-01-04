@@ -46,6 +46,8 @@
           href: storage-create-geo-redundant-storage.md
         - name: Simulación de un error con el almacenamiento con RA-GRS
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: Migración de datos locales a la nube con AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Búsqueda de datos no estructurados en almacenamiento en la nube
       href: storage-unstructured-search.md
     - name: Optimización del rendimiento y la escalabilidad de la aplicación de almacenamiento
@@ -66,7 +68,7 @@
       href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: storage-samples-blobs-cli.md
 - name: Conceptos
   items:
@@ -138,7 +140,7 @@
               href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Habilitación y visualización de métricas
               href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-- name: Cómo
+- name: Procedimientos
   items:
     - name: Crear una cuenta de almacenamiento
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -168,7 +170,7 @@
           href: storage-how-to-use-blobs-cli.md
         - name: REST
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Administrar
+    - name: administración
       items:
         - name: PowerShell para Azure Blobs
           href: storage-how-to-use-blobs-powershell.md
@@ -184,7 +186,7 @@
           href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Azure Automation
           href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: cifrado de cliente
+    - name: Cifrado de cliente
       items:
         - name: .NET
           href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -299,7 +301,7 @@
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/storage
     - name: .NET
       items:

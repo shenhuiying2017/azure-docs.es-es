@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentación de Microsoft Azure"
 description: "Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc."
 featureFlags: clicktale
-ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/02/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -120,7 +120,7 @@ ms.lasthandoff: 12/20/2017
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Híbrida</h3>
+                                                <h3>Híbrido</h3>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/azure-stack/">Azure Stack</a></li>
                                                 </ul>
@@ -384,7 +384,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Caché en Redis</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -427,7 +427,7 @@ ms.lasthandoff: 12/20/2017
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Integración empresarial</h3>
+                                    <h3>Enterprise Integration</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
@@ -825,7 +825,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Almacén de Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -912,7 +912,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Almacén de Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1787,7 +1787,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Almacén de Data Lake</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -1982,7 +1982,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Búsqueda de Azure</h3>
+                                                    <h3>Azure Search</h3>
                                                     <p>Búsqueda como servicio completamente administrada</p>
                                                 </div>
                                             </div>
@@ -2296,7 +2296,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
+                                                    <h3>Caché en Redis</h3>
                                                     <p>Acceso a datos de baja latencia y alto rendimiento para compilar aplicaciones rápidas y escalables</p>
                                                 </div>
                                             </div>
@@ -2510,7 +2510,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Almacén de Data Lake</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -2666,7 +2666,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>language</h3>
+                                                        <h3>Idioma</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check</a>
@@ -3914,7 +3914,7 @@ Equilibrador de carga de nivel 7 con equilibrio de carga HTTP integrado y contro
                                                     <a href="/nodejs/azure/node-sdk-azure-install">Obtención de bibliotecas de Azure para Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/">Introducción</a>
+                                                    <a href="/nodejs/azure/">Primeros pasos</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">Referencia de API</a>
@@ -4069,7 +4069,7 @@ CLI de Azure 2.0 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-CLI de Azure </h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introducción</a>
                                                 </p>
@@ -4161,6 +4161,34 @@ CLI de Azure </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Descargar</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Herramientas SQL </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>VERSIÓN PRELIMINAR</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">Consultar todas las herramientas SQL</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Creación de cuentas de la versión preliminar de Azure Machine Learning e instalación de Azure Machine Learning Workbench
 Los servicios de Azure Machine Learning (versión preliminar) solo son una solución de análisis avanzado y ciencia de datos integrada y completa. Ayuda a los científicos de datos profesionales a preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -24,7 +24,7 @@ Esta guía de inicio rápido muestra cómo crear cuentas de administración de m
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Actualmente, la aplicación de escritorio de Azure Machine Learning Workbench se puede instalar solo en los siguientes sistemas operativos: 
 - Windows 10
@@ -33,7 +33,7 @@ Actualmente, la aplicación de escritorio de Azure Machine Learning Workbench se
 - macOS High Sierra
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
-Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-azure-machine-learning-accounts"></a>Creación de cuentas de Azure Machine Learning
 Use Azure Portal para aprovisionar cuentas de Azure Machine Learning: 
@@ -49,12 +49,12 @@ Use Azure Portal para aprovisionar cuentas de Azure Machine Learning:
 
 4. Complete el formulario de Experimentación de Machine Learning con la siguiente información:
 
-   Configuración|Valor sugerido|Descripción
+   Configuración|Valor sugerido|DESCRIPCIÓN
    ---|---|---
    Nombre de cuenta de Experimentación | _Nombre único_ |Elija un nombre único que identifique la cuenta. Puede usar su propio nombre o el nombre de departamento o proyecto que mejor identifique el experimento. El nombre debe tener entre 2 y 32 caracteres. Debe incluir solo caracteres alfanuméricos y el carácter de guión (-). 
    La suscripción | _Su suscripción_ |Elija la suscripción de Azure que desee usar para el experimento. Si tiene varias suscripciones, elija en la que se factura el recurso.
    Grupos de recursos | _El grupo de recursos_ | Puede crear un nuevo nombre de grupo de recursos o usar uno que ya exista en la suscripción.
-   Ubicación | _Región más cercana a los usuarios_ | Elija la ubicación más cercana a los usuarios y los recursos de datos.
+   La ubicación | _Región más cercana a los usuarios_ | Elija la ubicación más cercana a los usuarios y los recursos de datos.
    Número de puestos | 2 | Escriba el número de puestos. Esta selección afecta a los [precios](https://azure.microsoft.com/pricing/details/machine-learning/). Los dos primeros puestos son gratuitos. Para esta guía de inicio rápido, use dos puestos. Puede actualizar el número de puestos posteriormente según sea necesario en Azure Portal.
    Cuenta de almacenamiento | _Nombre único_ | Seleccione **Crear nuevo** y especifique un nombre para crear una cuenta de Azure Storage. O bien, seleccione **Usar existente** y, después, seleccione una de las cuentas de almacenamiento de la lista desplegable. La cuenta de almacenamiento es necesaria y se utiliza para almacenar los artefactos de proyecto y ejecutar datos de historial. 
    Cuenta de Workspace para Experimentación | _Nombre único_ | Proporcione un nombre para la nueva área de trabajo. El nombre debe tener entre 2 y 32 caracteres. Debe incluir solo caracteres alfanuméricos y el carácter de guión (-).
@@ -167,7 +167,7 @@ Ejecutaremos un script en el equipo local.
 
 3. Seleccione una ejecución que se haya completado y obtendrá una vista detallada de la misma. Los detalles incluyen otras métricas, los archivos que produce y otros registros potencialmente útiles.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ya ha creado correctamente una cuenta de Experimentación de Azure Machine Learning y una cuenta de Administración de modelos de Azure Machine Learning. Ha instalado la aplicación de escritorio Azure Machine Learning Workbench y la interfaz de línea de comandos. Ha creado un proyecto nuevo, creado un modelo mediante la ejecución de script y explorado el historial de ejecución del script.
 
 Para obtener una experiencia más detallada de este flujo de trabajo, incluida la forma de implementar el modelo Iris como servicio web, siga el completo tutorial de *clasificación de Iris*. El tutorial contiene los pasos detallados para la [preparación de datos](tutorial-classifying-iris-part-1.md), [experimentación](tutorial-classifying-iris-part-2.md) y [administración de modelos](tutorial-classifying-iris-part-3.md). 

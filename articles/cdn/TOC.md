@@ -8,7 +8,9 @@
 ## Integrate
 ### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Storage](cdn-create-a-storage-account-with-cdn.md)
+### Storage
+#### [Integración de una cuenta de almacenamiento](cdn-create-a-storage-account-with-cdn.md)
+#### [Soporte técnico para el almacenamiento de SAS](cdn-sas-storage-support.md)
 ### [Uso compartido de recursos entre orígenes](cdn-cors.md)
 ### [Adición de un dominio personalizado al punto de conexión de CDN](cdn-map-content-to-custom-domain.md)
 ### [Configuración de HTTPS en un dominio personalizado](cdn-custom-ssl.md)
@@ -18,7 +20,7 @@
 ####[Optimización de streaming multimedia](cdn-media-streaming-optimization.md)
 ####[Aceleración de sitios dinámicos](cdn-dynamic-site-acceleration.md)
  
-## Administrar
+## administración
 ### [Administración con Azure PowerShell](cdn-manage-powershell.md)
 ### [Restricción del acceso por países](cdn-restrict-access-by-country.md)
 ### [Mejora del rendimiento mediante la compresión de archivos](cdn-improve-performance.md)
@@ -76,6 +78,6 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/cdn/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=cdn)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 

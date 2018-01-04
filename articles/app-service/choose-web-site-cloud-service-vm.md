@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparación de Azure App Service, Virtual Machines, Service Fabric y Cloud Services
 ## <a name="overview"></a>Información general
@@ -34,7 +34,7 @@ Si tiene una aplicación que requiera modificaciones sustanciales para ejecutars
 ## <a name="features"></a>Comparación de características
 La siguiente tabla compara las funcionalidades de App Service, Cloud Services, Virtual Machines y Service Fabric para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](https://azure.microsoft.com/support/legal/sla/).
 
-| Característica | App Service (aplicaciones web) | Cloud Services (roles web) | Máquinas virtuales | Service Fabric | Notas |
+| Característica | App Service (aplicaciones web) | Cloud Services (roles web) | Virtual Machines | Service Fabric | Notas |
 | --- | --- | --- | --- | --- | --- |
 | Implementación casi instantánea |X | | |X |La implementación de una aplicación o la actualización de una aplicación a un Servicio en la nube, o la creación de una máquina virtual, toma varios minutos; la implementación de una aplicación a una aplicación web tarda segundos. |
 | Escalado horizontal a máquinas más grandes sin volver a implementar |X | | |X | |
@@ -110,6 +110,8 @@ Azure App Service es una solución excelente para este escenario, porque puede e
 * Usar la Galería de aplicaciones para configurar rápidamente aplicaciones web conocidas, como WordPress.
 * Agregar servicios y características de Azure adicionales a su aplicación, según sea necesario.
 * Proteger su aplicación web con HTTPS.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a id="designer"></a> Soy un diseñador gráfico o web y deseo diseñar y compilar sitios web para mis clientes.
 Para diseñadores y desarrolladores web, Azure App Service se integra fácilmente con diversos marcos y herramientas, admite la implementación de Git y FTP y ofrece una integración estrecha con herramientas y servicios como Visual Studio y SQL Database. Con App Service, puede:

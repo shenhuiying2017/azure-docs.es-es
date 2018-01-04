@@ -15,7 +15,7 @@
     - name: Planificación de capacidad
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Cómo
+- name: Procedimientos
   items:
     - name: Uso del almacenamiento de clúster
       items:
@@ -98,6 +98,8 @@
         - name: Análisis del uso de Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Conexión de Power BI a Interactive Query
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Conexión de Power BI a Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
@@ -160,7 +162,7 @@
         - name: Autorización de usuarios para vistas de Ambari
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-    - name: Administrar
+    - name: administración
       items:
         - name: Creación de clústeres
           href: ../hdinsight-hadoop-provision-linux-clusters.md
@@ -178,7 +180,7 @@
             - name: Uso de la CLI de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: Uso del Portal de Azure
+            - name: Uso de Azure Portal
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Utilización de plantillas del Administrador de recursos de Azure
@@ -297,7 +299,7 @@
       maintainContext: true
     - name: Acceso de red
       items:
-        - name: HDInsight en la red virtual de Azure
+        - name: HDInsight en redes virtuales de Azure
           href: ../hdinsight-extend-hadoop-virtual-network.md
           maintainContext: true
         - name: Conexión de HDInsight con la red local

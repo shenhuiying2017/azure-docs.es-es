@@ -2,29 +2,24 @@
 title: "Inicio rápido de Azure: transferencia de objetos a y desde Azure Blob Storage mediante Python | Microsoft Docs"
 description: "Aprendizaje rápido para transferir objetos a y desde Azure Blob Storage mediante Python"
 services: storage
-documentationcenter: storage
 author: ruthogunnnaike
-manager: cwatson
-editor: tysonn
-ms.assetid: 
-ms.custom: mvc
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 50f43e6ef9ee60cbf489bb8d0c1c64ca61a393e1
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/02/2018
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Python
 En este tutorial de inicio rápido, aprenderá a usar Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar esta guía de inicio rápido: 
 * Instalación de [Python](https://www.python.org/downloads/)
@@ -166,7 +161,7 @@ os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
  
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage mediante Python. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 462fa0a6e86237b8c9d9ba97aa377f8d112a8b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e299ccfe587d37757cd67cb4367f019b21a09b4a
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Mensajería de Bus de servicio: entrega flexible de datos en la nube
+# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Mensajería de Service Bus: entrega flexible de datos en la nube
 
 Microsoft Azure Service Bus es un servicio de entrega de información confiable. El propósito de este servicio es facilitar la comunicación. Cuando dos o más partes quieren intercambiar información, necesitan un facilitador de la comunicación. Service Bus es un mecanismo de comunicación asincrónica o de terceros. Esto es similar a un servicio postal en el mundo físico. Los servicios postales facilitan el envío distintos tipos de cartas y paquetes, con una variedad de garantías de entrega, a cualquier lugar del mundo.
 
@@ -32,11 +32,11 @@ Service Bus admite dos patrones de mensajería distintos: *Azure Relay* y *Servi
 
 ## <a name="azure-relay"></a>Azure Relay
 
-El componente [WCF Relay](../service-bus-relay/relay-what-is-it.md) de Azure Relay es un servicio centralizado (pero de carga muy equilibrada) que admite varios protocolos de transporte y estándares de servicios web diferentes. Incluye SOAP, WS-* e incluso REST. El [servicio de retransmisión](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) ofrece una variedad de opciones de conectividad de retransmisión diferentes y puede ayudar a facilitar la negociación de conexiones directas de punto a punto cuando sea posible. El Bus de servicio está optimizado para los desarrolladores de .NET que usan Windows Communication Foundation (WCF), tanto en términos de rendimiento como de facilidad de uso, y ofrece acceso completo a su servicio de retransmisión a través de interfaces SOAP y REST. Esto permite que cualquier entorno de programación SOAP o REST se integre con el Bus de servicio.
+El componente [WCF Relay](../service-bus-relay/relay-what-is-it.md) de Azure Relay es un servicio centralizado (pero de carga muy equilibrada) que admite varios protocolos de transporte y estándares de servicios web diferentes. Incluye SOAP, WS-* e incluso REST. El [servicio de retransmisión](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) ofrece una variedad de opciones de conectividad de retransmisión diferentes y puede ayudar a facilitar la negociación de conexiones directas de punto a punto cuando sea posible. Service Bus está optimizado para los desarrolladores de .NET que usan Windows Communication Foundation (WCF), tanto en términos de rendimiento como de facilidad de uso, y ofrece acceso completo a su servicio de retransmisión a través de interfaces SOAP y REST. Esto permite que cualquier entorno de programación SOAP o REST se integre con Service Bus.
 
 El servicio de retransmisión admite mensajería unidireccional tradicional, mensajería de solicitud/respuesta y mensajería de punto a punto. También admite la distribución de eventos en el ámbito de Internet para habilitar escenarios de publicación-suscripción y la comunicación de socket bidireccional para aumentar la eficacia punto a punto. En el patrón de mensajería retransmitida, un servicio local se conecta al servicio de relé mediante un puerto de salida y crea un socket bidireccional para la comunicación enlazada a una dirección de encuentro concreta. Después el cliente puede comunicarse con el servicio local enviando mensajes al servicio de retransmisión destinados a la dirección de rendezvous. El servicio de retransmisión “retransmite” los mensajes al servicio local a través del socket bidireccional existente. El cliente no necesita una conexión directa al servicio local ni es necesario saber dónde reside el servicio, y el servicio local no necesita ningún puerto de entrada abierto en el firewall.
 
-La conexión entre el servicio local y el servicio de retransmisión se inicia mediante un conjunto de enlaces de “retransmisión” WCF. En segundo plano, los enlaces de retransmisión se asignan a elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con el Bus de servicio en la nube.
+La conexión entre el servicio local y el servicio de retransmisión se inicia mediante un conjunto de enlaces de “retransmisión” WCF. En segundo plano, los enlaces de retransmisión se asignan a elementos de enlace de transporte diseñados para crear componentes de canal WCF que se integran con Service Bus en la nube.
 
 WCF Relay ofrece muchas ventajas, pero requiere que tanto el servidor como el cliente estén en línea al mismo tiempo para enviar y recibir mensajes. Esto no es óptimo para la comunicación de estilo HTTP, en la que puede que las solicitudes no sean normalmente de larga duración, ni para los clientes que solo se conectan ocasionalmente, como exploradores, aplicaciones móviles, etc. La mensajería asíncrona admite la comunicación desacoplada y tiene sus propias ventajas; los clientes y servidores se pueden conectar cuando sea necesario y realizar sus operaciones de forma asincrónica.
 
@@ -48,11 +48,11 @@ Los componentes principales de la infraestructura de mensajería de Service Bus 
 
 Al igual que con la infraestructura de WCF Relay, se ofrece funcionalidad de mensajería asincrónica para los programadores de WCF y de .NET Framework, y también a través de REST.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
 
-* [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
+* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

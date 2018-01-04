@@ -35,9 +35,9 @@
   items:
     - name: 1 - Diseño de una base de datos
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: tutorial-design-database-using-portal.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: tutorial-design-database-using-cli.md
     - name: 2 - Creación de una aplicación web
       items:
@@ -87,19 +87,19 @@
   items:
     - name: Administración de un servicio
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-manage-firewall-using-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Portal de Azure
+        - name: Azure Portal
           href: howto-restore-server-portal.md
-        - name: CLI de Azure
+        - name: Azure CLI
           href: howto-restore-server-cli.md
     - name: Migración de una base de datos
       items:
@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: Import/Export
           href: concepts-migrate-import-export.md
+        - name: Migración con tiempo de inactividad mínimo
+          href: howto-migrate-online.md
     - name: Conexión de aplicaciones
       items:
         - name: Creación de usuarios
@@ -135,9 +137,9 @@
           href: howto-alert-on-metric.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/mysql
-    - name: API de REST
+    - name: API DE REST
       href: /rest/api/mysql
 - name: Recursos
   items:

@@ -127,7 +127,7 @@
           href: tutorial-functions-http-trigger.md
 - name: Muestras
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -143,7 +143,7 @@
       href: unique-keys.md
     - name: Coherencia
       href: consistency-levels.md
-    - name: Rendimiento
+    - name: Throughput
       href: request-units.md
     - name: API de varios modelos
       items:
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Pruebas de rendimiento
               href: performance-testing.md
-            - name: Consejos de rendimiento
+            - name: Sugerencias de rendimiento para .NET
               href: performance-tips.md
+            - name: Sugerencias de rendimiento para Java
+              href: performance-tips-java.md
             - name: Configuración de varios maestros
               href: multi-region-writers.md
             - name: DateTimes
@@ -318,7 +320,7 @@
           href: indexing-policies.md
         - name: Servicio conectado en Visual Studio
           href: connected-service.md
-    - name: Administrar
+    - name: administración
       items:
         - name: Escrituras y lecturas rentables
           href: key-value-store-cost.md
@@ -424,7 +426,7 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
-    - name: P+F
+    - name: Preguntas más frecuentes
       href: faq.md
     - name: Stackoverflow
       href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'

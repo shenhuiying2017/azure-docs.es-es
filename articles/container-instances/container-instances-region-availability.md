@@ -6,22 +6,22 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 08/31/2017
+ms.date: 12/15/2017
 ms.author: marsma
-ms.openlocfilehash: ace4eb6b284f2c1b2caeb54c1d686e68cacb1725
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: ec7f469c47924f4ae22d6509996ca9cf498fc9ad
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="region-availability-for-azure-container-instances"></a>Disponibilidad de regiones en Azure Container Instances
 
 En la versión preliminar, Azure Container Instances está disponible en las siguientes regiones con los límites de memoria y de CPU especificados.
 
-| Ubicación | SO | CPU | Memoria (GB) |
+| La ubicación | SO | CPU | Memoria (GB) |
 | -------- | -- | :---: | :-----------: |
-| Europa occidental, Oeste de EE. UU., Este de EE. UU.  | Linux | 2 | 7 |
-| Europa occidental, Oeste de EE. UU., Este de EE. UU.  | Windows | 2 | 3,5 |
+| Europa occidental, Oeste de EE. UU., Este de EE. UU.  | Linux | 4 | 14 |
+| Europa occidental, Oeste de EE. UU., Este de EE. UU.  | Windows | 4 | 14 |
 
 ## <a name="resource-availability"></a>Disponibilidad de recursos
 
@@ -29,6 +29,6 @@ Las instancias de contenedor creadas dentro de estos límites de recursos están
 
 Para mitigar este tipo de error de implementación, intente implementar las instancias con una configuración inferior de memoria y de CPU, o intente realizar la implementación en un momento posterior.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre cómo solucionar problemas de la implementación de instancias de contenedor, consulte [Solución de problemas en las implementaciones en Azure Container Instances](container-instances-troubleshooting.md).

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3b93cdfbfb143c1597d190d87d270b5e6ede9537
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 8282c30a2b9aa4341f3e7d720f2d3cfc0b4a6fa0
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Creación de una máquina virtual Linux con PowerShell
 
@@ -149,11 +149,11 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-ngix-welcome-page"></a>Página principal de NGIX
+## <a name="view-the-nginx-welcome-page"></a>Visualización de la página de bienvenida de NGINX
 
 Con NGINX instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de NGINX. Asegúrese de utilizar la dirección IP pública que ha anotado antes para visitar la página predeterminada. 
 
-![Sitio predeterminado de NGINX](./media/quick-create-cli/nginx.png) 
+![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -163,7 +163,7 @@ Cuando ya no se necesiten, puede usar el comando [Remove-AzureRmResourceGroup](/
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Linux.
 

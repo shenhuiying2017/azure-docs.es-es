@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -55,7 +55,7 @@ Si no está seguro de qué componentes de Azure Backup vienen bien para sus nece
 | --- | --- | --- | --- | --- |
 | Agente de Azure Backup (MARS) |<li>Copia de seguridad de archivos y carpetas en el sistema operativo Windows físico o virtual (las máquinas virtuales pueden estar en el entorno local o en Azure)<li>No se necesita ningún servidor de copia de seguridad independiente. |<li>Copia de seguridad tres veces al día <li>No es compatible con la aplicación; restauración solo a nivel de archivo, carpeta y volumen. <li>  No se admite Linux. |<li>Archivos <li>Carpetas <li>Estado del sistema |Almacén de Recovery Services |
 | System Center DPM |<li>Instantáneas compatibles con aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar un almacén de Recovery Services<li>Linux Support en máquinas virtuales de Hyper-V y VMware <li>Copia de seguridad y restauración de máquinas virtuales de VMware mediante DPM 2012 R2 |No puede realizar la copia de seguridad de una carga de trabajo de Oracle.|<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Recovery Services,<li> Disco conectado localmente<li>  Cinta (solo local) |
-| Azure Backup Server |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar un almacén de Recovery Services<li>Linux Support en máquinas virtuales de Hyper-V y VMware<li>Creación de copias de seguridad y restauración de máquinas virtuales de VMware <li>No requiere licencia de System Center |<li>No puede realizar la copia de seguridad de una carga de trabajo de Oracle.<li>Siempre requiere una suscripción de Azure activa<li>No se admite la copia de seguridad en cinta |<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Recovery Services,<li> Disco conectado localmente |
+| Servidor de Azure Backup |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar un almacén de Recovery Services<li>Linux Support en máquinas virtuales de Hyper-V y VMware<li>Creación de copias de seguridad y restauración de máquinas virtuales de VMware <li>No requiere licencia de System Center |<li>No puede realizar la copia de seguridad de una carga de trabajo de Oracle.<li>Siempre requiere una suscripción de Azure activa<li>No se admite la copia de seguridad en cinta |<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Recovery Services,<li> Disco conectado localmente |
 | Copia de seguridad de máquina virtual de IaaS de Azure |<li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad |<li>Copia de seguridad de máquinas virtuales una vez al día <li>Restauración de máquinas virtuales solo en el nivel de disco<li>No puede realizar copias de seguridad locales |<li>Máquinas virtuales <li>Todos los discos (con PowerShell) |<p>Almacén de Recovery Services</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>¿Cuáles son los escenarios de implementación de cada componente?
@@ -63,7 +63,7 @@ Si no está seguro de qué componentes de Azure Backup vienen bien para sus nece
 | --- | --- | --- | --- |
 | Agente de Azure Backup (MARS) |<p>**Sí**</p> <p>El agente de Azure Backup se puede implementar en cualquier máquina virtual Windows que se ejecute en Azure.</p> |<p>**Sí**</p> <p>El agente de Backup se puede implementar en cualquier máquina física o virtual de Windows Server.</p> |<p>Almacén de Recovery Services</p> |
 | System Center DPM |<p>**Sí**</p><p>Más información [sobre cómo proteger las cargas de trabajo en Azure mediante System Center DPM](backup-azure-dpm-introduction.md).</p> |<p>**Sí**</p> <p>Más información sobre [cómo proteger cargas de trabajo y máquinas virtuales en su centro de datos](https://technet.microsoft.com/system-center-docs/dpm/data-protection-manager).</p> |<p>Disco conectado localmente</p> <p>Almacén de Recovery Services,</p> <p>Cinta (solo local)</p> |
-| Azure Backup Server |<p>**Sí**</p><p>Más información sobre [cómo proteger cargas de trabajo en Azure con Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>**Sí**</p> <p>Más información sobre [cómo proteger cargas de trabajo en Azure con Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>Disco conectado localmente</p> <p>Almacén de Recovery Services</p> |
+| Servidor de Azure Backup |<p>**Sí**</p><p>Más información sobre [cómo proteger cargas de trabajo en Azure con Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>**Sí**</p> <p>Más información sobre [cómo proteger cargas de trabajo en Azure con el Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> |<p>Disco conectado localmente</p> <p>Almacén de Recovery Services</p> |
 | Copia de seguridad de máquina virtual de IaaS de Azure |<p>**Sí**</p><p>Parte del tejido de Azure</p><p>Especializado para [copia de seguridad de máquinas virtuales de infraestructura como servicio (IaaS) de Azure](backup-azure-vms-introduction.md).</p> |<p>**No**</p> <p>Use System Center DPM para hacer copias de seguridad de máquinas virtuales en su centro de datos.</p> |<p>Almacén de Recovery Services</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>¿De qué aplicaciones y cargas de trabajo puedo hacer copias de seguridad?
@@ -89,7 +89,7 @@ En la siguiente tabla se muestran los componentes de Azure Backup que son compat
 | --- | --- |
 | Agente de Azure Backup (MARS) |No (solo agente basado en Windows) |
 | System Center DPM |<li> Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/> <li> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare </br> </br>  *Copia de seguridad coherente con archivo no disponible para la máquina virtual de Azure* <br/> |
-| Azure Backup Server |<li>Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/> <li> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare </br></br> *Copia de seguridad coherente con archivo no disponible para la máquina virtual de Azure*  |
+| Servidor de Azure Backup |<li>Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/> <li> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare </br></br> *Copia de seguridad coherente con archivo no disponible para la máquina virtual de Azure*  |
 | Copia de seguridad de máquina virtual de IaaS de Azure |Copia de seguridad coherente con la aplicación mediante un [marco de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/> [Recuperación de archivos pormenorizada](backup-azure-restore-files-from-vm.md)<br/> [Restauración de todos los discos de máquina virtual](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauración de máquina virtual](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso de máquinas virtuales de Premium Storage con Azure Backup
@@ -181,7 +181,7 @@ La realización de copias de seguridad de máquinas virtuales de Azure requiere 
 ### <a name="network"></a>Red
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
-| Compresión de red <br/>(en el **servidor de copia de seguridad**) | |![Sí][green] |![yes][green] | |
+| Compresión de red <br/>(en el **servidor de copia de seguridad**) | |![Sí][green] |![Sí][green] | |
 | Compresión de red <br/>(en el **almacén de Recovery Services**) |![Sí][green] |![Sí][green] |![Sí][green] | |
 | Protocolo de red <br/>(en el **servidor de copia de seguridad**) | |TCP |TCP | |
 | Protocolo de red <br/>(en el **almacén de Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
@@ -207,11 +207,11 @@ Azure Backup tiene un límite de 9999 puntos de recuperación, también conocido
 | Número máximo de puntos de recuperación por instancia protegida |9.999|9.999|9.999|9.999|
 | Período de retención máximo |Depende de la frecuencia de la copia de seguridad |Depende de la frecuencia de la copia de seguridad |Depende de la frecuencia de la copia de seguridad |Depende de la frecuencia de la copia de seguridad |
 | Puntos de recuperación en disco local |No aplicable |<li>64 en el caso de servidores de archivos,<li>448 en el caso de servidores de aplicaciones |<li>64 en el caso de servidores de archivos,<li>448 en el caso de servidores de aplicaciones |No aplicable |
-| Puntos de recuperación en cinta |No aplicable |Sin límite |No aplicable |No aplicable |
+| Puntos de recuperación en cinta |No aplicable |Ilimitado |No aplicable |No aplicable |
 
 ## <a name="what-is-a-protected-instance"></a>Descripción de una instancia protegida
 Una instancia protegida es una referencia genérica a un equipo de Windows, un servidor (físico o virtual) o una instancia de SQL Database que se ha configurado para realizar una copia de seguridad en Azure. Una instancia está protegida después de configurar una directiva de copia de seguridad para el equipo, el servidor o la base de datos y crear una copia de seguridad de los datos. Las copias de seguridad de los datos posteriores para esa instancia protegida (denominadas puntos de recuperación), aumenta la cantidad de almacenamiento utilizada. Puede crear hasta 9999 puntos de recuperación para una instancia protegida. Si elimina un punto de recuperación del almacenamiento, no cuenta con respecto al total de puntos de recuperación (9999).
-Algunos ejemplos comunes de instancias protegidas son máquinas virtuales, servidores de aplicaciones, bases de datos y equipos personales que ejecutan el sistema operativo Windows. Por ejemplo:
+Algunos ejemplos comunes de instancias protegidas son máquinas virtuales, servidores de aplicaciones, bases de datos y equipos personales que ejecutan el sistema operativo Windows. Por ejemplo: 
 
 * Una máquina virtual que ejecuta el tejido de hipervisor de Hyper-V o IaaS de Azure. Los sistemas operativos invitados de la máquina virtual puede ser Windows Server o Linux.
 * Un servidor de aplicaciones: el servidor de aplicaciones puede ser una máquina física o virtual con Windows Server y las cargas de trabajo con los datos de los que es necesario realizar copias de seguridad. Las cargas de trabajo habituales son las siguientes: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server y el rol Servidor de archivos en Windows Server. Para realizar copias de seguridad de estas cargas de trabajo se necesita System Center Data Protection Manager (DPM) o Azure Backup Server.
@@ -238,13 +238,13 @@ Azure Backup protege los datos locales y en la nube. Azure Site Recovery coordin
 
 Los siguientes conceptos pueden ayudarle a tomar decisiones importantes en torno a la copia de seguridad y la recuperación ante desastres.
 
-| Concepto | Detalles | Copia de seguridad | Recuperación ante desastres (DR) |
+| Concepto | Detalles | Backup | Recuperación ante desastres (DR) |
 | --- | --- | --- | --- |
 | Objetivo de punto de recuperación (RPO) |La cantidad aceptable de pérdida de datos si debe realizarse una recuperación. |Las soluciones de copia de seguridad tienen una gran variabilidad en su RPO aceptable. Las copias de seguridad de máquina virtual normalmente tienen un RPO de un día, mientras que las copias de seguridad de base de datos tienen RPO bajos, de hasta 15 minutos. |Las soluciones de recuperación ante desastres tienen RPO bajos. La copia de DR puede estar detrás de algunos segundos o minutos. |
 | Objetivo de tiempo de recuperación (RTO) |La cantidad de tiempo que se tarda en completar una recuperación o restauración. |Debido a un RPO mayor, la cantidad de datos que una solución de copia de seguridad debe procesar es normalmente mucho mayor, lo que da lugar a RTO más largos. Por ejemplo, la restauración de datos de cintas puede tardar días, dependiendo del tiempo necesario para transportar la cinta desde una ubicación externa. |Las soluciones de recuperación ante desastres tienen RTO más pequeños, ya que están más en sincronización con el origen. Además, se necesita procesar menos cambios. |
 | Retención |¿Cuánto tiempo necesitan almacenarse los datos? |En escenarios que requieren recuperación de operaciones (daños en los datos, eliminación involuntaria de archivos o errores del SO), los datos de copia de seguridad normalmente se conservan durante 30 días o menos.<br>Desde el punto de vista del cumplimiento de normativas, los datos podrían tener que almacenarse durante meses o incluso años. Los datos de copia de seguridad son perfectos para el archivado en tales casos. |La recuperación ante desastres solo necesita datos de recuperación operativos, lo que normalmente tarda unas pocas horas o hasta un día. Debido a la captura de datos específicos que se usa en soluciones de recuperación ante desastres, la retención a largo plazo no se recomienda si se usan datos de recuperación ante desastres. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Use uno de los siguientes tutoriales para obtener instrucciones paso a paso para proteger los datos en Windows Server o proteger una máquina virtual (VM) en Azure:
 
 * [Realizar copias de seguridad de archivos y carpetas](backup-try-azure-backup-in-10-mins.md)
@@ -254,7 +254,7 @@ Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno 
 
 * [Copia de seguridad de Windows Server](backup-configure-vault.md)
 * [Copia de seguridad de cargas de trabajo de aplicaciones](backup-azure-microsoft-azure-backup.md)
-* [Copia de seguridad de máquinas virtuales de IaaS de Azure](backup-azure-vms-prepare.md)
+* [Copia de seguridad de máquinas virtuales de IaaS de Azure](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

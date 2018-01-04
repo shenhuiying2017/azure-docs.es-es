@@ -110,7 +110,7 @@ Lleve a cabo unas cuantas ejecuciones de script en el proyecto y realice algunos
 Para restaurar la carpeta de proyecto entera al estado de una instantánea de historial de ejecución, en Machine Learning Workbench:
 1. En la barra de actividad (icono de reloj de arena), seleccione **Ejecuciones**.
 2. En la vista **Lista de ejecuciones**, seleccione la ejecución que desea restaurar.
-3. En la vista **Run Detail** (Detalle de la ejecución), seleccione **Restaurar**.
+3. En la vista **Detalles de ejecución**, seleccione **Restaurar**.
 
 ![Rama de historial de ejecución](media/using-git-ml-project/restore_project.png)
 

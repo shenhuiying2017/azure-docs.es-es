@@ -6,7 +6,7 @@
 ## [Nivel de compatibilidad](analysis-services-compat-level.md)
 ## [Alta disponibilidad](analysis-services-bcdr.md)
 
-# Primeros pasos
+# Introducción
 ## [Creación de un servidor de Azure Portal](analysis-services-create-server.md)
 ## [Creación de un servidor con Azure PowerShell](analysis-services-create-powershell.md)
 ## [Implementación de un modelo de Visual Studio](analysis-services-deploy.md)
@@ -23,6 +23,7 @@
 ### [Administración de usuarios de base de datos](analysis-services-database-users.md)
 ### [Administración de administradores de servidor](analysis-services-server-admins.md)
 ### [Supervisión de las métricas del servidor](analysis-services-monitor.md)
+### [Configuración del registro de diagnósticos](analysis-services-logging.md)
 ## Conectar
 ### [Obtención de bibliotecas de clientes](analysis-services-data-providers.md)
 ### [Conexión con Excel](analysis-services-connect-excel.md)
@@ -55,7 +56,7 @@
 ## [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Recursos
-## [Ejemplos](analysis-services-samples.md)
+## [Muestras](analysis-services-samples.md)
 ## [Blog del equipo de Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Foro de Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

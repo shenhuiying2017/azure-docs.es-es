@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: ff9bf262fecd7307a1150dd6ea59f0f7c4b87258
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e14de80dc1fdf82c57f2a38d4ae2719ec83e01ed
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Uso de Data Lake Store con clústeres de Azure HDInsight
 
@@ -48,9 +48,9 @@ A partir de ahora, solo algunos tipos o versiones de clústeres de HDInsight adm
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight versión 3.6 | Sí | Sí | |
 | Versión de HDInsight 3.5 | Sí | Sí | Con la excepción de HBase|
-| Versión de HDInsight 3.4 | No | Sí | |
-| HDInsight versión 3.3 | No | No | |
-| HDInsight versión 3.2 | No | Sí | |
+| Versión de HDInsight 3.4 | Sin  | Sí | |
+| HDInsight versión 3.3 | Sin  | Sin  | |
+| HDInsight versión 3.2 | Sin  | Sí | |
 | Storm | | |Data Lake Store se puede usar para escribir datos de una topología de Storm. Puede usar Data Lake Store para datos de referencia que luego puede leer una topología de Storm.|
 
 El uso de Data Lake Store como una cuenta de almacenamiento adicional no afecta al rendimiento o la capacidad de lectura o escritura en Azure Storage desde el clúster.
@@ -80,13 +80,13 @@ Para más información sobre cómo crear la entidad de servicio y concederle acc
 
 ## <a name="use-data-lake-store-as-additional-storage"></a>Uso de Data Lake Store como almacenamiento adicional
 
-También puede usar Data Lake Store como almacenamiento adicional para el clúster. En tales casos, el almacenamiento predeterminado del clúster puede ser una cuenta de Azure Storage Blob o de Data Lake Store. Si va a ejecutar trabajos de HDInsight con los datos almacenados en Data Lake Store como almacenamiento adicional, debe usar la ruta de acceso completa a los archivos. Por ejemplo:
+También puede usar Data Lake Store como almacenamiento adicional para el clúster. En tales casos, el almacenamiento predeterminado del clúster puede ser una cuenta de Azure Storage Blob o de Data Lake Store. Si va a ejecutar trabajos de HDInsight con los datos almacenados en Data Lake Store como almacenamiento adicional, debe usar la ruta de acceso completa a los archivos. Por ejemplo: 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Tenga en cuenta que ahora no hay ningún elemento **cluster_root_path** en la dirección URL. Esto se debe a que, en este caso, Data Lake Store no es un almacenamiento predeterminado, así que todo lo que debe hacer es proporcionar la ruta de acceso a los archivos.
 
-Para poder usar Data Lake Store como almacenamiento adicional solo debe conceder a la entidad de servicio acceso a las rutas en las que se almacenan los archivos.  Por ejemplo:
+Para poder usar Data Lake Store como almacenamiento adicional solo debe conceder a la entidad de servicio acceso a las rutas en las que se almacenan los archivos.  Por ejemplo: 
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -135,10 +135,10 @@ Use los vínculos siguientes para obtener instrucciones detalladas sobre cómo c
 * [Uso de plantillas de Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, aprendió a usar Azure Data Lake Store compatible con HDFS con HDInsight. Esto le permite crear soluciones de adquisición de datos de archivado escalables y a largo plazo y usar HDInsight para desbloquear la información que hay dentro de los datos estructurados y no estructurados almacenados.
 
-Para más información, consulte:
+Para obtener más información, consulte 
 
 * [Introducción a Azure HDInsight][hdinsight-get-started]
 * [Introducción Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
