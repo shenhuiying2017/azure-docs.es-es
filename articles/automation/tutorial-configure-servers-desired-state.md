@@ -3,7 +3,7 @@ title: "Configuración de servidores en un estado deseado y administración de d
 description: "Tutorial: administración de configuraciones de servidor con DSC de Azure Automation"
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 9c0a44b37ac303f3e93c54e3bf691f14ba1d65e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configuración de servidores en un estado deseado y administración de desviaciones
 
@@ -35,7 +35,7 @@ Configuración de estado deseado (DSC) de Azure Automation permite especificar c
 > * Asignación de una configuración de nodo a un nodo administrado
 > * Comprobación del estado de cumplimiento de un nodo administrado
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial, necesitará:
 
@@ -158,7 +158,7 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para obtener información sobre cómo incorporar nodos para que se administren con DSC de Azure Automation, consulte [Incorporación de máquinas para administrarlas con DSC de Azure Automation](automation-dsc-onboarding.md).
 * Para más información acerca del uso de Azure Portal para la utilización de DSC de Automation, consulte [Introducción a DSC de Azure Automation](automation-dsc-getting-started.md)

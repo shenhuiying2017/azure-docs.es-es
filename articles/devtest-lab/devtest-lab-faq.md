@@ -3,7 +3,7 @@ title: "Preguntas más frecuentes sobre Azure DevTest Labs | Microsoft Docs"
 description: Encuentre respuestas a preguntas comunes sobre Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
-ms.author: tarcher
-ms.openlocfilehash: 0a5e686a7f60b15b55d8f4365b73c71de02c4bad
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -140,7 +140,7 @@ Para automatizar la carga de archivos VHD para crear imágenes personalizadas, d
 
 Para buscar la cuenta de almacenamiento de destino asociada al laboratorio:
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. En el menú de la izquierda, seleccione **Grupos de recursos**.
 3. Busque y seleccione el grupo de recursos asociado al laboratorio.
 4. En **Información general**, seleccione una de las cuentas de almacenamiento.

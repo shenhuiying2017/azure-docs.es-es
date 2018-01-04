@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Realización de operaciones en Azure Blob Storage con Azure PowerShell
 
-El Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos de objetos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Este artículo trata las operaciones básicas en Azure Blob Storage como la carga, descarga y eliminación de blobs. Aprenderá a:
+El Almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos de objetos no estructurados, como texto o datos binarios, a los que puede acceder desde cualquier lugar del mundo a través de HTTP o HTTPS. Este artículo trata sobre operaciones básicas en Azure Blob Storage, como la carga, la descarga y la eliminación de blobs. Aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un contenedor 
@@ -40,13 +40,13 @@ Para realizar este tutorial es necesaria la versión 3.6 del módulo de Azure Po
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Los blobs siempre se cargan a un contenedor. Los contenedores son similares a los directorios de su equipo, ya que permiten organizar grupos de blobs en un contenedor igual que organiza los archivos en carpetas en el equipo. Una cuenta de almacenamiento puede tener cualquier número de contenedores. La única limitación es la cantidad de espacio ocupado en la cuenta de almacenamiento (hasta 500 TB). 
+Los blobs siempre se cargan en un contenedor. Los contenedores son similares a los directorios de su equipo, ya que permiten organizar grupos de blobs en un contenedor igual que organiza los archivos en carpetas en el equipo. Una cuenta de almacenamiento puede tener cualquier número de contenedores. La única limitación es la cantidad de espacio ocupado en la cuenta (hasta 500 TB). 
 
 Al crear un contenedor, puede establecer el nivel de acceso, lo que ayuda a definir quién puede acceder a los blobs en ese contenedor. Por ejemplo, puede definirse como privado (nivel de acceso = `Off`), de forma que nadie pueda acceder sin una firma de acceso compartido o sin las claves de acceso de la cuenta de almacenamiento. Si no se especifica el nivel de acceso al crear el contenedor, el valor predeterminado es privado.
 
-Puede que desee que las imágenes del contenedor sean accesibles públicamente. Por ejemplo, si desea almacenar imágenes para mostrarlas en su sitio web, necesitará que sean públicas. En este caso, establezca el nivel de acceso al contenedor en `blob`, y cualquier persona con una dirección URL que dirija a un blob del contenedor podrá tener acceso al blob.
+Puede que desee que las imágenes del contenedor sean accesibles públicamente. Por ejemplo, si desea almacenar imágenes para mostrarlas en su sitio web, necesitará que sean públicas. En este caso, establecería el nivel de acceso al contenedor en `blob` para que cualquiera que tenga una dirección URL que apunte a un blob de ese contenedor tenga acceso al blob.
 
-Para crear el contenedor, defina el nombre del contenedor y luego créelo, estableciendo los permisos en "blob". Los nombres de contenedor deben comenzar por una letra o un número, y solo pueden contener letras, números y el carácter de guión (-). Para conocer más reglas sobre la nomenclatura de contenedores de almacenamiento, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+Para crear el contenedor, defina el nombre del contenedor y luego créelo, estableciendo los permisos en "blob". Los nombres de contenedor deben comenzar por una letra o un número, y solo pueden contener letras, números y el carácter de guión (-). Para conocer más reglas de asignación de nombres de blobs y contenedores, consulte [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Asignación de nombres y referencias a contenedores, blobs y metadatos).
 
 Cree un nuevo contenedor con [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Establezca el nivel de acceso en público. El nombre del contenedor en este ejemplo es *howtoblobs*.
 
@@ -59,7 +59,7 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 Azure Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas.  Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Los blobs en anexos se utilizan para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques. 
 
-Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego consiga una referencia al blob en bloques en ese contenedor. Una vez que tenga la referencia de blob, puede cargar datos en él mediante [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Esta operación crea el blob si todavía no existe o lo sobrescribe si ya existe.
+Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego obtenga una referencia al blob en bloques en ese contenedor. Una vez que tenga la referencia de blob, puede cargar datos en él mediante [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Esta operación crea el blob si todavía no existe o lo sobrescribe si ya existe.
 
 A continuación se describe cómo cargar un blob en un contenedor. En primer lugar, establezca las variables que señalen al directorio en el equipo local donde se encuentran los archivos y establezca otra variable para el nombre del archivo que se va a cargar. Esto resulta útil cuando desea realizar la misma operación varias veces. Cargue un par de archivos para que pueda ver varias entradas al enumerar los blobs del contenedor.
 
@@ -152,7 +152,7 @@ Puede que desee copiar un blob en una cuenta de almacenamiento independiente. Pa
 Configure una segunda cuenta de almacenamiento, recupere el contexto, configure un contenedor en esa cuenta de almacenamiento y realice la copia. Esta parte del script es casi idéntica al script anterior salvo en que usa la segunda cuenta de almacenamiento, en lugar de la primera.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `
@@ -298,7 +298,7 @@ $cloudBlockBlob.Metadata
 
 ## <a name="managing-security-for-blobs"></a>Administración de la seguridad para blobs 
 
-De forma predeterminada, Azure Storage protege sus datos al limitar el acceso al propietario de la cuenta, quien está en posesión de las claves de acceso a la cuenta de almacenamiento. Cuando necesite compartir datos Blob en su cuenta de almacenamiento, es importante hacerlo sin poner en peligro la seguridad de las claves de acceso de la cuenta. Para ello, puede usar una dirección URL de firma de acceso compartido, que es una dirección URL al recurso que incluye parámetros de consulta y un token de seguridad que permite un nivel específico de permiso durante un período de tiempo determinado. Por ejemplo, puede que quiera otorgar acceso de lectura a un blob privado durante cinco minutos para que alguien pueda verlo. 
+De forma predeterminada, Azure Storage protege sus datos al limitar el acceso al propietario de la cuenta, quien está en posesión de las claves de acceso a la cuenta de almacenamiento. Cuando necesite compartir datos Blob en su cuenta de almacenamiento, es importante hacerlo sin poner en peligro la seguridad de las claves de acceso de la cuenta. Para ello, puede usar una dirección URL de firma de acceso compartido, que es una dirección URL al recurso que incluye parámetros de consulta y un token de seguridad que concede un nivel específico de permiso durante un período de tiempo determinado. Por ejemplo, puede que quiera otorgar acceso de lectura a un blob privado durante cinco minutos para que alguien pueda verlo. 
 
 ### <a name="set-the-access-level-of-the-container-and-its-blobs-to-private"></a>Establecimiento del nivel de acceso del contenedor y sus blobs en privado
 
@@ -355,7 +355,7 @@ Write-Host "URL with SAS = " $SASURI
 
 Copie el URI de SAS y colóquelo en una ventana privada del explorador. Al hacerlo, se mostrará la imagen.
 
-Espere el tiempo suficiente para que la dirección URL expire (dos minutos en este ejemplo) y, después, pegue la dirección URL en otra ventana privada del explorador. Esta vez, obtendrá un error de autorización y no se mostrará la imagen, porque el URI de SAS ha expirado.
+Espere a que la dirección URL expire durante el tiempo suficiente (dos minutos en este ejemplo) y, después, pegue la dirección URL en otra ventana privada del explorador. Esta vez obtendrá un error de autorización y no se mostrará la imagen, porque el URI de SAS ha expirado.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -365,7 +365,7 @@ Quite todos los recursos que ha creado. Para ello, puede quitar el grupo de recu
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha aprendido conceptos básicos sobre la administración del almacenamiento de blobs. Por ejemplo:
 

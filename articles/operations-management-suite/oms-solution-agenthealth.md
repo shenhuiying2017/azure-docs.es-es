@@ -11,19 +11,19 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solución Agent Health en OMS
 La solución Agent Health en OMS le ayuda a entender, para todos los agentes que informan directamente al área de trabajo de OMS o a un grupo de administración de System Center Operations Manager conectado a OMS, cuáles no responden y envían datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de implementar esta solución, confirme que tiene actualmente [agentes de Windows](../log-analytics/log-analytics-windows-agent.md) compatibles que informan al área de trabajo de OMS o a un [grupo de administración de Operations Manager](../log-analytics/log-analytics-om-agents.md) integrado con el área de trabajo de OMS.    
 
 ## <a name="solution-components"></a>Componentes de soluciones
@@ -45,7 +45,7 @@ Agregue la solución Agent Health al área de trabajo de OMS mediante el proceso
 ### <a name="supported-agents"></a>Agentes admitidos
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
-| Origen conectado | Compatible | Description |
+| Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
 | Agentes de Windows | Sí | Se recopilan eventos de latido de agentes directos de Windows.|
 | Grupo de administración de System Center Operations Manager | Sí | Se recopilan eventos de latido de agentes que informan al grupo de administración cada 60 segundos y después se reenvían a Log Analytics. No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de eventos de latido se reenvían desde el grupo de administración al repositorio de Log Analytics.|
@@ -55,7 +55,7 @@ Al agregar la solución al área de trabajo de OMS, se agrega el icono **Agent H
 
 Haga clic en el icono **Agent Health** para abrir el panel **Agent Health**.  El panel incluye las columnas de la tabla siguiente. Cada columna muestra los diez principales eventos por recuento que coinciden con los criterios de esa columna para el intervalo de tiempo especificado. Puede ejecutar una búsqueda de registros que proporcione toda la lista si selecciona **Ver todo** en la parte inferior derecha de la columna o hace clic en el encabezado de columna.
 
-| Columna | Descripción |
+| Columna | DESCRIPCIÓN |
 |--------|-------------|
 | Agent count over time (Número de agentes a lo largo del tiempo) | Una tendencia del número de agentes durante un período de siete días para agentes de Linux y Windows.|
 | Count of unresponsive agents (Número de agentes que no responden) | Una lista de agentes que no ha enviado ningún latido en las últimas 24 horas.|
@@ -74,9 +74,9 @@ La solución crea un tipo de registro en el repositorio de OMS.
 ### <a name="heartbeat-records"></a>Registros de latidos
 Se crea un registro del tipo **Heartbeat**.  Estos registros tienen las propiedades de la tabla siguiente.  
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Tipo | *Heartbeat*|
+| type | *Heartbeat*|
 | Categoría | El valor es *Direct Agent*, *SCOM Agent* o *SCOM Management Server*.|
 | Equipo | Nombre del equipo.|
 | OSType | Sistema operativo Windows o Linux.|
@@ -97,7 +97,7 @@ Cada agente que informa a un servidor de administración de Operations Manager e
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para los registros recopilados por esta solución.
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 | --- | --- |
 | Type=Heartbeat &#124; distinct Computer |Número total de agentes |
 | Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Número de agentes que no responden en las últimas 24 horas |
@@ -116,7 +116,7 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 >[!NOTE]
 > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), las consultas anteriores cambiarían como sigue.
 >
->| Consultar | Descripción |
+>| Consultar | DESCRIPCIÓN |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Número de agentes que no responden en las últimas 24 horas |
@@ -131,6 +131,6 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Geo-location of Agents (Geolocalización de los agentes) |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Número de puertas de enlace de OMS instaladas |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Obtenga información sobre [alertas en Log Analytics](../log-analytics/log-analytics-alerts.md) para más detalles sobre la generación de alertas desde Log Analytics.

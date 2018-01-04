@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial, azure
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: e71680887c4e81eba831ab0b7af9fa2cceed74a0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 69f6911a95be382b06313d984f09c7e85aec10df
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de uso compartido de bicicletas: preparación avanzada de datos con Azure Machine Learning Workbench
 Los servicios de Azure Machine Learning (versión preliminar) son una solución integrada de análisis avanzado y ciencia de datos de un extremo a otro diseñada para que los científicos de datos profesionales preparen datos, desarrollen experimentos e implementen modelos a escala de nube.
@@ -33,7 +33,7 @@ En este tutorial, usará los servicios de Azure Machine Learning (versión preli
 >
 > Puede usar los datos preparados para entrenar sus propios modelos de predicción. Por ejemplo, podría crear un modelo para predecir la demanda de bicicletas durante un período de 2 horas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Azure Machine Learning Workbench debe instalarse localmente. Para obtener más información, siga la [guía de inicio rápido de instalación](quickstart-installation.md).
 * Debe estar familiarizado con la creación de un proyecto en Workbench.
 
@@ -97,7 +97,7 @@ En este tutorial se usa el [conjunto de datos de Boston Hubway](https://s3.amazo
 
    ![Imagen de la entrada Archivos o directorio](media/tutorial-bikeshare-dataprep/datasources.png)
 
-2. **Selección de archivos**: agregue los datos meteorológicos. Busque y seleccione el archivo `BostonWeather.csv` que ha descargado anteriormente. Haga clic en **Siguiente**.
+2. **Selección de archivos**: agregue los datos meteorológicos. Busque y seleccione el archivo `BostonWeather.csv` que ha descargado anteriormente. Haga clic en **Next**.
 
    ![Imagen de la selección de archivos con BostonWeater.csv seleccionado](media/tutorial-bikeshare-dataprep/pickweatherdatafile.png)
 
@@ -647,7 +647,7 @@ df.to_csv('Your Training Data File Path here')
 
 Para enviar un trabajo nuevo, use el icono **Ejecutar** situado en la parte superior de la página. Se envía un **trabajo** con la configuración nueva. La salida de este trabajo son los datos de aprendizaje. Estos datos se crean mediante los mismos pasos de preparación de datos que ha creado anteriormente. El trabajo podría tardar varios minutos en completarse.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ha completado el tutorial de preparación de datos de uso compartido de bicicletas. En este tutorial, ha usado los servicios de Azure Machine Learning (versión preliminar) para obtener información sobre cómo:
 > [!div class="checklist"]
 > * Preparar datos de forma interactiva con la herramienta de preparación de datos de Azure Machine Learning

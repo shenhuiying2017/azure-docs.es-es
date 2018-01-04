@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 0660e68f83b3fcfa55135e5bd5175a423ad246e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 Descargue esta introducción infográfica de comprender sobre conceptos básicos de aprendizaje automático para aprender sobre populares utilizados para responder a preguntas comunes sobre el aprendizaje automático. Los ejemplos de algoritmos ayudan a los que empiezan a usar el aprendizaje automático a comprender qué algoritmos usar y para qué.
 
-## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares en Estudio de aprendizaje automático
-[Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. La infografía identifica cuatro populares familias de algoritmos (regresión, detección de anomalías, agrupación en clústeres y clasificación) y proporciona vínculos a ejemplos de trabajo en la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La galería contiene tutoriales y experimentos de ejemplo que muestran cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real.
+## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares en Machine Learning Studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) incluye un gran biblioteca de algoritmos para el análisis predictivo. La infografía identifica cuatro populares familias de algoritmos (regresión, detección de anomalías, agrupación en clústeres y clasificación) y proporciona vínculos a ejemplos de trabajo en la [Galería de Cortana Intelligence](https://gallery.cortanaintelligence.com/). La galería contiene tutoriales y experimentos de ejemplo que muestran cómo se pueden aplicar estos algoritmos en muchas soluciones del mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Descargue la infografía con ejemplos de algoritmos
 **[Descarga: Infografía de conceptos básicos del aprendizaje automático con vínculos a ejemplos de algoritmos (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -33,10 +33,10 @@ Descargue esta introducción infográfica de comprender sobre conceptos básicos
 ![Infografía: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos. Algoritmos populares. Aprendizaje automático para principiantes.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Más ayuda con los algoritmos para principiantes y usuarios avanzados
-* Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo elegir el correcto para su solución, consulte [Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure](algorithm-choice.md).
+* Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo elegir el correcto para su solución, consulte [Cómo elegir algoritmos para Microsoft Azure Machine Learning](algorithm-choice.md).
 * Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Machine Learning Studio, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Machine Learning Studio.
 * Para ver una lista completa de todos los algoritmos de Machine Learning Studio, consulte [Lista de la A a la Z de módulos de Machine Learning Studio][a-z-list] (Lista de la A a la Z de módulos de Machine Learning Studio) en la Ayuda de módulos y algoritmos de Machine Learning Studio.
-* Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](studio-overview-diagram.md).
+* Para descargar e imprimir un diagrama con información general de las funcionalidades de Machine Learning Studio, vea [Diagrama de información general de las funcionalidades de Azure Machine Learning Studio](studio-overview-diagram.md).
 * Para obtener información general de la Galería de Cortana Intelligence y los numerosos recursos generados por la comunidad que allí se encuentran, vea [Uso compartido y descubrimiento de recursos en la Galería de Cortana Intelligence](gallery-how-to-use-contribute-publish.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

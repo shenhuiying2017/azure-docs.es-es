@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 3423f704a435c3bab463461d05ede468a7a2dd93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f3d8d5c2e7cf1ebc88dc1ff1d7d03bf85383884
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Realización de preguntas que pueden responderse con datos
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciencia de datos para principiantes
 Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Este vídeo incluye una comparación de preguntas para algoritmos de clasificación y regresión.
 
-Para obtener el máximo partido de la serie, véalos en orden. [Vaya a la lista de vídeos](#other-videos-in-this-series)
+Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
@@ -93,8 +93,8 @@ Y más importante aún, formule esa pregunta directa, la pregunta que se pueda r
 
 Hemos hablado de algunos principios básicos para formular una pregunta que se pueda responder con datos.
 
-Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Aprendizaje automático de Microsoft Azure.
+Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)
-* [Introducción a Aprendizaje automático en Microsoft Azure](what-is-machine-learning.md)
+* [Introducción a Machine Learning en Microsoft Azure](what-is-machine-learning.md)

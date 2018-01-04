@@ -3,7 +3,7 @@ title: "Creación o modificación de laboratorios automáticamente con plantilla
 description: "Obtenga información sobre cómo usar plantillas de Azure Resource Manager con PowerShell para crear o modificar laboratorios automáticamente en un laboratorio de DevTest"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: dad9944c-0b20-48be-ba80-8f4aa0950903
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
-ms.author: tarcher
-ms.openlocfilehash: c9f293c7c96633cd0116dc3c19189085d24048b4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: 0aa55d1bc1f459e6757ecb27de043d4742a77c9f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Creación o modificación de laboratorios automáticamente con plantillas de Azure Resource Manager y PowerShell
 
@@ -46,6 +46,6 @@ Hay muchas otras tareas habituales que puede automatizar mediante PowerShell. La
 * [Incorporación de un usuario externo a un laboratorio mediante PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 * [Creación de un rol personalizado de laboratorio con PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 * Obtenga información sobre cómo crear un [repositorio Git privado](devtest-lab-add-artifact-repo.md) en el que almacenar los scripts o plantillas personalizados.
 * Explore las [plantillas de Azure Resource Manager de la galería de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).

@@ -3,7 +3,7 @@ title: Agregar etiquetas a un laboratorio de Azure DevTest Labs | Microsoft Docs
 description: "Obtenga información sobre cómo agregar una etiqueta a un laboratorio de Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: dc5b327a-62e4-41bc-80ef-deb3c23d51b2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: tarcher
-ms.openlocfilehash: c268c1a10e4a313d0520f96e452ef978b6201115
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 38b6612bc33326b758b357dca09081c02d294e5d
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Agregar etiquetas a un laboratorio de Azure DevTest Labs
 
@@ -39,7 +39,7 @@ Cada etiqueta se compone de un par **nombre**/**valor**. Por ejemplo, se podría
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Pasos para administrar etiquetas en un laboratorio existente
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Más servicios** y, luego, **DevTest Labs** en la lista. Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**.
 1. En la lista de laboratorios, seleccione aquel en el que quiera agregar o administrar etiquetas.  
 1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.  
@@ -63,6 +63,6 @@ En [Uso de etiquetas para organizar los recursos de Azure](https://docs.microsof
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Puede aplicar restricciones y convenciones a través de su suscripción con directivas personalizadas. La directiva que define podría requerir que todos los recursos tengan un valor para una etiqueta determinada. Para más información, vea [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md).
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

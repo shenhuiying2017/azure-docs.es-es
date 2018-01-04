@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Uso de las retransmisiones WCF de Azure Relay con .NET
-En este artículo se describe cómo usar el servicio Azure Relay. Los ejemplos se escriben en C# y usan la API de Windows Communication Foundation (WCF) con extensiones contenidas en el conjunto del bus de servicio. Para obtener más información sobre Azure Relay, consulte la sección [Introducción a Azure Relay](relay-what-is-it.md).
+En este artículo se describe cómo usar el servicio Azure Relay. Los ejemplos se escriben en C# y usan la API de Windows Communication Foundation (WCF) con extensiones contenidas en el conjunto de Service Bus. Para obtener más información sobre Azure Relay, consulte la sección [Introducción a Azure Relay](relay-what-is-it.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -37,11 +37,11 @@ En este artículo se muestra cómo usar Azure Relay para crear un servicio web d
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="get-the-service-bus-nuget-package"></a>Obtenga el paquete NuGet del bus de servicio
-El [paquete NuGet del bus de servicio](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. Realice los pasos siguientes para instalar el paquete NuGet en su proyecto:
+## <a name="get-the-service-bus-nuget-package"></a>Obtenga el paquete NuGet de Service Bus
+El [paquete NuGet de Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API de Service Bus y configurar su aplicación con todas las dependencias de Service Bus. Realice los pasos siguientes para instalar el paquete NuGet en su proyecto:
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y, a continuación, en **Administrar paquetes NuGet**.
-2. Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure** . Haga clic en **Instalar** para completar la instalación y, a continuación, cierre el siguiente cuadro de diálogo:
+2. Busque "Service Bus" y seleccione el elemento **Microsoft Azure Service Bus** . Haga clic en **Instalar** para completar la instalación y, a continuación, cierre el siguiente cuadro de diálogo:
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
@@ -160,7 +160,7 @@ Una vez que realice estos cambios, el servicio se iniciará como antes, pero con
 
 ### <a name="create-the-client"></a>Creación del cliente
 #### <a name="configure-a-client-programmatically"></a>Configuración de un cliente mediante programación
-Para consumir el servicio, puede construir un cliente WCF mediante un objeto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). El Bus de servicio usa un modelo basado en tokens de seguridad implementado mediante SAS. La clase [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representa un proveedor de tokens de seguridad con patrones de diseño Factory Method integrados que devuelven algunos proveedores de tokens conocidos. El ejemplo siguiente usa el método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) para controlar la adquisición del token SAS adecuado. El nombre y la clave son los que se obtienen del portal tal y como se describió en la sección anterior.
+Para consumir el servicio, puede construir un cliente WCF mediante un objeto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). Service Bus usa un modelo basado en tokens de seguridad implementado mediante SAS. La clase [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) representa un proveedor de tokens de seguridad con patrones de diseño Factory Method integrados que devuelven algunos proveedores de tokens conocidos. El ejemplo siguiente usa el método [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) para controlar la adquisición del token SAS adecuado. El nombre y la clave son los que se obtienen del portal tal y como se describió en la sección anterior.
 
 Primero, haga referencia al código del contrato `IProblemSolver` o cópielo del servicio en el proyecto del cliente.
 
@@ -215,7 +215,7 @@ Las definiciones del extremo se trasladan al archivo App.config. El siguiente ej
 </behaviors>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que conoce los fundamentos de los temas de Azure Relay, siga estos vínculos para obtener más información.
 
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)

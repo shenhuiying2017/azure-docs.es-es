@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Información general de las características de Threat Modeling Tool
 
@@ -29,11 +29,11 @@ Threat Modeling Tool puede ayudarle con sus necesidades de modelado de amenazas.
 
 Para abrir una página en blanco, seleccione **Crear un modelo**.
 
-![Página en blanco](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Página en blanco](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 Para ver las características actualmente disponibles en la herramienta, utilice el modelo de amenazas creado por nuestro equipo en el ejemplo de [Introducción](./azure-security-threat-modeling-tool-getting-started.md).
 
-![Modelo de amenaza básico](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Modelo de amenaza básico](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 ## <a name="navigation"></a>Navegación
 
@@ -43,7 +43,7 @@ Antes de profundizar en las características integradas, veamos los componentes 
 
 La experiencia es similar a la de otros productos de Microsoft. Vamos a revisar los elementos del menú de nivel superior.
 
-![Elementos de menú](./media/azure-security-threat-modeling-tool/menuitems.png)
+![Elementos de menú](./media/azure-security-threat-modeling-tool-feature-overview/menuitems.png)
 
 | Etiqueta                               | Detalles      |
 | --------------------------------------- | ------------ |
@@ -75,11 +75,11 @@ El lienzo es el espacio donde arrastrar y colocar elementos. Arrastrar y colocar
 
 #### <a name="drop-the-stencil-on-the-canvas"></a>Colocar la galería de símbolos en el lienzo
 
-![Colocar en el lienzo](./media/azure-security-threat-modeling-tool/canvasdrop1.png)
+![Colocar en el lienzo](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop1.png)
 
 #### <a name="select-the-stencil"></a>Seleccionar la galería de símbolos
 
-![Propiedades del elemento](./media/azure-security-threat-modeling-tool/canvasdrop2.png)
+![Propiedades del elemento](./media/azure-security-threat-modeling-tool-feature-overview/canvasdrop2.png)
 
 ### <a name="stencils"></a>Galerías de símbolos
 
@@ -120,15 +120,15 @@ Cuando se abre la aplicación, verá la pantalla de **Bienvenida**.
 
 Mantenga el ratón sobre **Abrir un modelo** para mostrar dos opciones: **Abrir desde este equipo** y **Abrir desde OneDrive**. La primera opción abre la pantalla **Abrir archivo**. La segunda opción le guiará por el proceso de inicio de sesión en OneDrive. Tras la autenticación correcta, puede seleccionar los archivos y carpetas.
 
-![Abrir modelo](./media/azure-security-threat-modeling-tool/openmodel.png)
+![Abrir modelo](./media/azure-security-threat-modeling-tool-feature-overview/openmodel.png)
 
-![Abrir desde el equipo o desde OneDrive](./media/azure-security-threat-modeling-tool/openmodel2.png)
+![Abrir desde el equipo o desde OneDrive](./media/azure-security-threat-modeling-tool-feature-overview/openmodel2.png)
 
 ### <a name="feedback-suggestions-and-issues"></a>Comentarios, sugerencias y problemas
 
 Cuando se selecciona **Comentarios, sugerencias y problemas**, se abre el foro de MSDN para herramientas de SDL. Puede leer lo que dicen otros usuarios acerca de la herramienta, incluidas nuevas ideas y soluciones.
 
-![Comentarios](./media/azure-security-threat-modeling-tool/feedback.png)
+![Comentarios](./media/azure-security-threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Vista de diseño
 
@@ -148,23 +148,23 @@ Puede conectar elementos de dos maneras:
 - **Arrastrar y colocar**: arrastre el flujo de datos deseado a la cuadrícula y conecte ambos extremos a los elementos correspondientes.
 - **Hacer clic + Mayús**: haga clic en el primer elemento (enviar datos) y mantenga presionada la tecla Mayús y luego seleccione el segundo elemento (recibir datos). Haga clic con el botón derecho y seleccione **Conectar**. Si usa un flujo de datos bidireccional, el orden no es tan importante.
 
-### <a name="properties"></a>Propiedades
+### <a name="properties"></a>Properties (Propiedades)
 
  Para ver las propiedades que pueden modificarse en las galerías de símbolos, seleccione la galería de símbolos y la información se rellena en consecuencia. En el ejemplo siguiente se muestra la situación antes y después de arrastrar una galería de símbolos **Base de datos** al diagrama:
 
 #### <a name="before"></a>Antes
 
-![Antes](./media/azure-security-threat-modeling-tool/properties1.png)
+![Antes](./media/azure-security-threat-modeling-tool-feature-overview/properties1.png)
 
 #### <a name="after"></a>Después
 
-![Después](./media/azure-security-threat-modeling-tool/properties2.png)
+![Después](./media/azure-security-threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>error de Hadoop
 
 Si crea un modelo de amenazas y olvida conectar los flujos de datos a los elementos, recibirá una notificación. Puede elegir omitirla o seguir las instrucciones para solucionar el problema. 
 
-![error de Hadoop](./media/azure-security-threat-modeling-tool/messages.png)
+![error de Hadoop](./media/azure-security-threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Notas
 
@@ -174,7 +174,7 @@ Para agregar notas al diagrama, cambie de la pestaña **Mensajes** a la pestaña
 
 Después de crear el diagrama, seleccione el símbolo **Análisis** (Lupa) en la barra de herramientas de accesos directos para cambiar a la vista **Análisis**.
 
-![Vista de análisis](./media/azure-security-threat-modeling-tool/analysisview.png)
+![Vista de análisis](./media/azure-security-threat-modeling-tool-feature-overview/analysisview.png)
 
 ### <a name="generated-threat-selection"></a>Selección de amenaza generada
 
@@ -182,29 +182,29 @@ Cuando se selecciona una amenaza, puede usar tres funciones distintas:
 
 | Característica                               | Información      |
 | --------------------------------------- | ------------ |
-| **Indicador de leído** | <p>La amenaza se marca como leída, lo que ayuda a realizar un seguimiento de los elementos que ha revisado.</p><p>![Indicador de leído o no leído](./media/azure-security-threat-modeling-tool/readmode.png)</p> |
-| **Foco de interacción** | <p>Se resalta la interacción en el diagrama que pertenece a una amenaza.</p><p>![Foco de interacción](./media/azure-security-threat-modeling-tool/interactionfocus.png)</p> |
-| **Propiedades de la amenaza** | <p>Aparece información adicional sobre la amenaza en la ventana **Propiedades de la amenaza**.</p><p>![Propiedades de la amenaza](./media/azure-security-threat-modeling-tool/threatproperties.png)</p> |
+| **Indicador de leído** | <p>La amenaza se marca como leída, lo que ayuda a realizar un seguimiento de los elementos que ha revisado.</p><p>![Indicador de leído o no leído](./media/azure-security-threat-modeling-tool-feature-overview/readmode.png)</p> |
+| **Foco de interacción** | <p>Se resalta la interacción en el diagrama que pertenece a una amenaza.</p><p>![Foco de interacción](./media/azure-security-threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
+| **Propiedades de la amenaza** | <p>Aparece información adicional sobre la amenaza en la ventana **Propiedades de la amenaza**.</p><p>![Propiedades de la amenaza](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Priority change (Cambio de prioridad)
 
 Puede cambiar el nivel de prioridad de cada amenaza generada. Colores diferentes hacen fácil identificar las amenazas de prioridad alta, media y baja.
 
-![Priority change (Cambio de prioridad)](./media/azure-security-threat-modeling-tool/prioritychange.png)
+![Priority change (Cambio de prioridad)](./media/azure-security-threat-modeling-tool-feature-overview/prioritychange.png)
 
 ### <a name="threat-properties-editable-fields"></a>Campos modificables de las propiedades de amenaza
 
 Tal como se muestra en la imagen anterior, puede cambiar la información generada por la herramienta. También puede agregar información a algunos de los campos, como la justificación. Estos campos son generados por la plantilla. Si necesita más información para cada amenaza, puede realizar modificaciones.
 
-![Propiedades de la amenaza](./media/azure-security-threat-modeling-tool/threatproperties.png)
+![Propiedades de la amenaza](./media/azure-security-threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Informes
 
 Una vez que haya terminado de cambiar las prioridades y de actualizar el estado de cada amenaza generada, puede guardar el archivo o imprimir un informe. Vaya a **Informe** > **Crear informe completo**. Asigne nombre al informe y debería ver algo similar a la siguiente imagen:
 
-![Informe](./media/azure-security-threat-modeling-tool/report.png)
+![Informe](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para contribuir con una plantilla para la comunidad, vaya a nuestra página de [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Para empezar a usar la herramienta, vaya a la página de [Descarga](https://aka.ms/tmtpreview).

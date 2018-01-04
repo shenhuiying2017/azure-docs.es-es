@@ -3,7 +3,7 @@ title: "Adición de un repositorio de Git a un laboratorio en Azure DevTest Labs
 description: Aprenda a agregar un repositorio Git de GitHub o Visual Studio Team Services para el origen de artefactos personalizados en Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 01b459f7-eaf2-45a8-b4b5-2c0a821b33c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 345d095762b75b7a177bf4c6e7a07360a9c14068
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adición de un repositorio de Git para almacenar artefactos personalizados y plantillas de Resource Manager
 
@@ -70,7 +70,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 10. Continúe con la sección [Conexión del laboratorio al repositorio](#connect-your-lab-to-the-repository) .
 
 ## <a name="connect-your-lab-to-the-repository"></a>Conexión del laboratorio al repositorio
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista de servicios.
 3. En la lista de laboratorios, seleccione el suyo. 
 4. Seleccione **Configuration and policies** (Directivas y configuración)  > **Repositorios** > **+ Agregar**.
@@ -92,7 +92,7 @@ Para agregar un repositorio al laboratorio, obtenga cierta información clave de
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Después de haber creado el repositorio Git privado, puede hacer una o ambas de las acciones siguientes, dependiendo de sus necesidades:
 * Almacene sus [artefactos personalizados](devtest-lab-artifact-author.md). Puede usarlos más tarde para crear nuevas máquinas virtuales.
 * [Creación de entornos con varias máquinas virtuales y recursos de PaaS mediante plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md). A continuación, puede almacenar las plantillas en el repositorio privado.

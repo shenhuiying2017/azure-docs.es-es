@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
-En este artículo se describe cómo usar las vistas de administración dinámica (DMV) para supervisar la carga de trabajo e investigar la ejecución de la consulta en Almacenamiento de datos SQL de Azure.
+En este artículo se describe cómo usar las vistas de administración dinámica (DMV) para supervisar la carga de trabajo e investigar la ejecución de la consulta en Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Permisos
 Para consultar las DMV de este artículo, necesita el permiso VER ESTADO DE BASE DE DATOS o CONTROL. Normalmente la concesión VER ESTADO DE BASE DE DATOS es el permiso preferido ya que es mucho más restrictivo.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la consulta espera activamente recursos de otra consulta, el estado será **AcquireResources**.  Si la consulta tiene todos los recursos necesarios, el estado será **Concedido**.
 
 ## <a name="monitor-tempdb"></a>Supervisión de tempdb
-El uso elevado de tempdb puede ser la causa principal de problemas de rendimiento lento y falta de memoria. Compruebe primero si tiene asimetría de datos o grupos de filas de calidad baja y emprenda las acciones adecuadas. Si observa que tempdb llega a su limite durante la ejecución de consultas, considere la posibilidad de escalar el almacenamiento de datos. A continuación se describe cómo identificar el uso de tempdb por consulta en cada nodo. 
+El uso elevado de tempdb puede ser la causa principal de problemas de rendimiento lento y falta de memoria. Si observa que tempdb llega a su limite durante la ejecución de consultas, considere la posibilidad de escalar el almacenamiento de datos. A continuación se describe cómo identificar el uso de tempdb por consulta en cada nodo. 
 
 Cree la siguiente vista para asociar el identificador de nodo apropiado para sys.dm_pdw_sql_requests. Esto le permitirá aprovechar otras DMV de paso y combinar esas tablas con sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Supervisión de memoria
 
-La causa principal de los problemas relacionados con el rendimiento lento y la falta de memoria puede ser la memoria. Compruebe primero si tiene asimetría de datos o grupos de filas de calidad baja y emprenda las acciones adecuadas. Si observa que el uso de memoria de SQL Server llega a su limite durante la ejecución de consultas, considere la posibilidad de escalar el almacenamiento de datos.
+La causa principal de los problemas relacionados con el rendimiento lento y la falta de memoria puede ser la memoria. Si observa que el uso de memoria de SQL Server llega a su limite durante la ejecución de consultas, considere la posibilidad de escalar el almacenamiento de datos.
 
 La consulta siguiente devuelve el uso y la presión de memoria de SQL Server por nodo:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Supervisión del tamaño del registro de transacciones
-La siguiente consulta devuelve el tamaño del registro de transacciones en cada distribución. Compruebe primero si tiene asimetría de datos o grupos de filas de calidad baja y emprenda las acciones adecuadas. Si uno de los archivos de registro está llegando a 160 GB, debería considerar la posibilidad de escalar verticalmente su instancia o limitar el tamaño de transacción. 
+La siguiente consulta devuelve el tamaño del registro de transacciones en cada distribución. Si uno de los archivos de registro está llegando a 160 GB, debería considerar la posibilidad de escalar verticalmente su instancia o limitar el tamaño de transacción. 
 ```sql
 -- Transaction log size
 SELECT
@@ -284,7 +284,7 @@ JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de las DMV, consulte [Vistas del sistema][System views].
 Para más información acerca de los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse][SQL Data Warehouse best practices]
 

@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>Solución Administración de actualizaciones de OMS
 
@@ -56,7 +56,7 @@ Puede implementar e instalar las actualizaciones de software en equipos que requ
 
 En la fecha y hora especificadas en la implementación de actualizaciones, los equipos de destino ejecutan la implementación en paralelo.  En primer lugar, se realiza un examen para comprobar si las actualizaciones siguen siendo necesarias y las instala.  Para los equipos cliente WSUS, es importante tener en cuenta que, si no se aprueban las actualizaciones en WSUS, se producirá un error en la implementación de actualizaciones.  Los resultados de las actualizaciones aplicadas se reenvían a OMS para que se procesen y se resuman en los paneles o para la búsqueda de eventos.     
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * La solución permite realizar evaluaciones de las actualizaciones en Windows Server 2008 y versiones posteriores, e implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores.  Nano Server no se admite.
 
     > [!NOTE]
@@ -142,12 +142,12 @@ Para confirmar que un grupo de administración de Operations Manager se comunica
 ### <a name="supported-agents"></a>Agentes admitidos
 En la tabla siguiente se describen los orígenes conectados que son compatibles con esta solución.
 
-| Origen conectado | Compatible | Description |
+| Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
 | Agentes de Windows |Sí |La solución recopila información acerca de las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
 | Agentes de Linux |Sí |La solución recopila información acerca de las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
 | Grupo de administración de Operations Manager |Sí |La solución recopila información acerca de las actualizaciones del sistema de agentes en un grupo de administración conectado.<br>No se requiere ninguna conexión directa entre el agente de Operations Manager y Log Analytics. Los datos se reenvían del grupo de administración al repositorio de OMS. |
-| Cuenta de almacenamiento de Azure |No |Azure Storage no incluye información acerca de las actualizaciones del sistema. |
+| Cuenta de almacenamiento de Azure |Sin  |Azure Storage no incluye información acerca de las actualizaciones del sistema. |
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
 Para cada equipo Windows administrado, se realiza un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado y, de ser así, se inicia un examen de cumplimiento.  Para cada equipo Linux administrado, se realiza un examen cada tres horas.
@@ -179,18 +179,18 @@ Haga clic en el icono **Implementación de actualizaciones** para ver la lista d
 
 Las propiedades mostradas para cada implementación de actualizaciones se describen en la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Nombre |Nombre de la implementación de actualizaciones. |
+| NOMBRE |Nombre de la implementación de actualizaciones. |
 | Schedule |Tipo de programación.  Las opciones disponibles son *Una vez*, *Periodicidad semanal* o *Periodicidad mensual*. |
 | Hora de inicio |Fecha y hora programada para iniciar la implementación de actualizaciones. |
-| Duración |Número de minutos que la implementación de actualizaciones puede ejecutarse.  Si todas las actualizaciones no se instalan en este tiempo, el resto de las actualizaciones debe esperar hasta la siguiente implementación de actualizaciones. |
+| Duration |Número de minutos que la implementación de actualizaciones puede ejecutarse.  Si todas las actualizaciones no se instalan en este tiempo, el resto de las actualizaciones debe esperar hasta la siguiente implementación de actualizaciones. |
 | Servidores |Número de equipos afectados por la implementación de actualizaciones.  |
-| Estado |Estado actual de la implementación de actualizaciones.<br><br>Los valores posibles son:<br>- No iniciado<br>- En ejecución<br>- Finalizado |
+| Status |Estado actual de la implementación de actualizaciones.<br><br>Los valores posibles son:<br>- No iniciado<br>- En ejecución<br>- Finalizado |
 
 Seleccione una implementación de actualizaciones completada para ver su pantalla de detalles, que incluye las columnas de la tabla siguiente.  Estas columnas no estarán rellenas si aún no ha comenzado la implementación de actualizaciones.<br><br> ![Información general de los resultados de la implementación de actualizaciones](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
 
-| Columna | Descripción |
+| Columna | DESCRIPCIÓN |
 | --- | --- |
 | **Vista de equipos** | |
 | Equipos Windows |Enumera el número de equipos Windows de la implementación de actualizaciones por estado.  Haga clic en un estado para ejecutar una búsqueda de registros que devuelva todos los registros de actualización con ese estado para la implementación de actualizaciones. |
@@ -203,13 +203,13 @@ Seleccione una implementación de actualizaciones completada para ver su pantall
 ### <a name="creating-an-update-deployment"></a>Creación de una implementación de actualizaciones
 Para crear una implementación de actualizaciones, haga clic en el botón **Agregar**, situado en la parte superior de la pantalla para abrir la página **New Update Deployment** (Nueva implementación de actualizaciones).  Debe proporcionar valores para las propiedades en la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Nombre |Nombre único para identificar la implementación de actualizaciones. |
+| NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
 | Zona horaria |Zona horaria que se utilizará para la hora de inicio. |
 | Tipo de programación | Tipo de programación.  Las opciones disponibles son *Una vez*, *Periodicidad semanal* o *Periodicidad mensual*.  
 | Hora de inicio |Fecha y hora para iniciar la implementación de actualizaciones. **Nota:** El tiempo mínimo de ejecución de una implementación es de 30 minutos desde la hora actual si necesita implementar de inmediato. |
-| Duración |Número de minutos que la implementación de actualizaciones puede ejecutarse.  Si todas las actualizaciones no se instalan en este tiempo, el resto de las actualizaciones debe esperar hasta la siguiente implementación de actualizaciones. |
+| Duration |Número de minutos que la implementación de actualizaciones puede ejecutarse.  Si todas las actualizaciones no se instalan en este tiempo, el resto de las actualizaciones debe esperar hasta la siguiente implementación de actualizaciones. |
 | Equipos |Nombres de equipos o grupos de equipos de destino a incluir en la implementación de actualizaciones.  Seleccione una o más entradas de la lista desplegable. |
 
 <br><br> ![Página New Update Deployment (Nueva implementación de actualizaciones)](./media/oms-solution-update-management/update-newupdaterun-page.png)
@@ -225,9 +225,9 @@ La solución Administración de actualizaciones crea dos tipos de registros en e
 ### <a name="update-records"></a>Registros de actualización
 Se crea un registro con el tipo **Actualizar** para cada actualización que está instalada o es necesaria en cada equipo. Los registros de actualización tienen las propiedades de la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Tipo |*Actualizar* |
+| type |*Actualizar* |
 | SourceSystem |El origen que ha aprobado la instalación de la actualización.<br>Los valores posibles son:<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Servidores Linux (recuperado de los administradores de paquetes) |
 | Aprobado |Especifica si se ha aprobado la actualización para la instalación.<br> Para los servidores Linux, actualmente es opcional, ya que la aplicación de revisiones no está administrada por OMS. |
 | Clasificación para Windows |Clasificación de la actualización.<br>Los valores posibles son:<br>- Aplicaciones<br>- Actualizaciones críticas<br>- Actualizaciones de definiciones<br>- Feature Packs<br>- Actualizaciones de seguridad<br>- Service Packs<br>- Paquetes acumulativos de actualizaciones<br>- Actualizaciones |
@@ -266,9 +266,9 @@ En la vista **Lista**, haga clic en el vínculo **Ver** situado junto al KBID pa
 ### <a name="updatesummary-records"></a>Registros de UpdateSummary
 Se crea un registro con un tipo de **UpdateSummary** para cada equipo del agente de Windows. Este registro se actualiza cada vez que se buscan actualizaciones en el equipo. Los registros **UpdateSummary** tienen las propiedades en la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| Tipo |UpdateSummary |
+| type |UpdateSummary |
 | SourceSystem |OpsManager |
 | Equipo |Nombre del equipo. |
 | CriticalUpdatesMissing |Número de actualizaciones críticas pendientes en el equipo. |
@@ -289,7 +289,7 @@ Se crea un registro con un tipo de **UpdateSummary** para cada equipo del agente
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de actualización recopilados por esta solución.
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 | --- | --- |
 | Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Servidores basados en Windows que necesitan actualizaciones |
 | Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Servidores Linux que necesitan actualizaciones | 
@@ -319,7 +319,7 @@ Los clientes que han invertido en System Center Configuration Manager para admin
 
 Para aprender a integrar la solución OMS Update Management con System Center Configuration Manager, consulte [Integrar System Center Configuration Manager con Update Management de OMS [versión preliminar]](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 En esta sección se proporciona información para resolver problemas con la solución de administración de actualizaciones.
 
@@ -339,7 +339,7 @@ Puede ver los resultados del runbook responsable de implementar las actualizacio
 
 Para más información, consulte [Mensajes y salidas del runbook de Automation](../automation/automation-runbook-output-and-messages.md).   
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Usar Búsquedas de registros en [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre la actualización.
 * [Crear sus propios paneles](../log-analytics/log-analytics-dashboards.md) que muestren el cumplimiento de las actualizaciones de los equipos administrados.
 * [Crear alertas](../log-analytics/log-analytics-alerts.md) cuando se detectan actualizaciones críticas pendientes en equipos, o bien cuando un equipo tiene las actualizaciones automáticas deshabilitadas.  

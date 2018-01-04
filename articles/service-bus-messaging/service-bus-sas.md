@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Autenticación en Service Bus con Firmas de acceso compartido
 
 Las *firmas de acceso compartido* (SAS) son el mecanismo de seguridad principal de la mensajería de Service Bus. En este artículo se tratan las firmas acceso compartido, cómo funcionan y cómo usarlas independientemente de la plataforma.
 
-La autenticación con SAS permite a las aplicaciones autenticarse en Service Bus mediante una clave de acceso configurada en el espacio de nombres o en la entidad de mensajería (cola o tema) al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token SAS que a su vez, los clientes pueden usar para autenticarse en el Bus de servicio.
+La autenticación con SAS permite a las aplicaciones autenticarse en Service Bus mediante una clave de acceso configurada en el espacio de nombres o en la entidad de mensajería (cola o tema) al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token SAS que a su vez, los clientes pueden usar para autenticarse en Service Bus.
 
 La compatibilidad con la autenticación SAS se incluye en el SDK de Azure 2.0 y versiones posteriores.
 
 ## <a name="overview-of-sas"></a>Información general de SAS
 
-Firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. SAS es un mecanismo muy eficaz que se usa por todos los servicios del Bus de servicio. En el uso real, SAS tiene dos componentes: una *directiva de acceso compartido* y una *firma de acceso compartido* (a menudo denominada *token*).
+Firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. SAS es un mecanismo muy eficaz que se usa por todos los servicios de Service Bus. En el uso real, SAS tiene dos componentes: una *directiva de acceso compartido* y una *firma de acceso compartido* (a menudo denominada *token*).
 
-La autenticación SAS en el Bus de servicio implica la configuración de una clave criptográfica con derechos asociados en un recurso del Bus de servicio. Los clientes reclaman acceso a los recursos del Bus de servicio mediante la presentación de un token SAS. Este token consta del URI del recurso al que se accede y una caducidad firmada con la clave configurada.
+La autenticación SAS en Service Bus implica la configuración de una clave criptográfica con derechos asociados en un recurso de Service Bus. Los clientes reclaman acceso a los recursos de Service Bus mediante la presentación de un token SAS. Este token consta del URI del recurso al que se accede y una caducidad firmada con la clave configurada.
 
 Puede configurar reglas de autorización de firma de acceso compartido en [retransmisiones](service-bus-fundamentals-hybrid-solutions.md#relays), [colas](service-bus-fundamentals-hybrid-solutions.md#queues) y [temas](service-bus-fundamentals-hybrid-solutions.md#topics) de Service Bus.
 
@@ -49,16 +49,16 @@ Los permisos disponibles para una directiva son en gran parte explicativos:
 
 * Los métodos Send
 * Escuchar
-* Administrar
+* administración
 
 Después de crear la directiva, se le asigna una *clave principal* y una *clave secundaria*. Son claves de alta seguridad criptográfica. No las pierda ni las revele; siempre estarán disponibles en [Azure Portal][Azure portal]. Puede usar cualquiera de las claves generadas y regenerarlas en cualquier momento. Sin embargo, si regenera o cambia la clave principal en la directiva, se invalidará cualquier firma de acceso compartido creada a partir de ella.
 
 Cuando se crea un espacio de nombres de Service Bus, se crea automáticamente una directiva para todo el espacio de nombres denominado **RootManageSharedAccessKey** y esta directiva tiene todos los permisos. No inicia sesión como **raíz**; por tanto, no use esta directiva a menos que exista realmente una buena razón. Puede crear directivas adicionales en la pestaña **Configurar** para el espacio de nombres en el portal. Es importante tener en cuenta que un nivel de árbol único en Service Bus (espacio de nombres, cola, etc.) solo puede tener hasta 12 directivas asociadas.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuración de la autenticación de firma de acceso compartido
-Puede configurar la regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en los espacios de nombres, las colas o los temas del Bus de servicio. La configuración de una regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en una suscripción del Bus de servicio no se admite, pero puede usar las reglas configuradas en un espacio de nombres o un tema para asegurar el acceso a las suscripciones. Para ver un ejemplo funcional que ilustra este procedimiento, consulte el ejemplo [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones del Bus de servicio](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
+Puede configurar la regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en los espacios de nombres, las colas o los temas de Service Bus. La configuración de una regla [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en una suscripción de Service Bus no se admite, pero puede usar las reglas configuradas en un espacio de nombres o un tema para asegurar el acceso a las suscripciones. Para ver un ejemplo funcional que ilustra este procedimiento, consulte el ejemplo [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones de Service Bus](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
 
-Puede configurarse un máximo de 12 reglas en un espacio de nombres, una cola o un tema del Bus de servicio. Las reglas que se configuran en un espacio de nombres del Bus de servicio se aplican a todas las entidades en ese espacio de nombres.
+Puede configurarse un máximo de 12 reglas en un espacio de nombres, una cola o un tema de Service Bus. Las reglas que se configuran en un espacio de nombres de Service Bus se aplican a todas las entidades en ese espacio de nombres.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -66,7 +66,7 @@ En esta ilustración, las reglas de autorización *manageRuleNS*, *sendRuleNS* y
 
 Los parámetros clave de un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) son los siguientes:
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | *KeyName* |Una cadena que describe la regla de autorización. |
 | *PrimaryKey* |Una clave principal de 256 bits con codificación base64 para firmar y validar el token SAS. |
@@ -77,7 +77,7 @@ Cuando se aprovisiona un espacio de nombres de Service Bus, se crea de forma pre
 
 ## <a name="generate-a-shared-access-signature-token"></a>Generación de firmas de acceso compartido (tokens)
 
-La propia directiva no es el token de acceso para el Bus de servicio. Es el objeto desde el que se genera el token de acceso, mediante la clave principal o la clave secundaria. Cualquier cliente que tenga acceso a las claves de firma especificadas en la regla de autorización de acceso compartido puede generar el token SAS. El token se genera elaborando cuidadosamente una cadena con el siguiente formato:
+La propia directiva no es el token de acceso para Service Bus. Es el objeto desde el que se genera el token de acceso, mediante la clave principal o la clave secundaria. Cualquier cliente que tenga acceso a las claves de firma especificadas en la regla de autorización de acceso compartido puede generar el token SAS. El token se genera elaborando cuidadosamente una cadena con el siguiente formato:
 
 ```
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
@@ -96,9 +96,9 @@ El hash es similar al siguiente pseudocódigo y devuelve 32 bytes.
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Los valores que no son de hash se encuentran en la cadena **SharedAccessSignature** para que el destinatario puede calcular el hash con los mismos parámetros, para asegurarse de que devuelve el mismo resultado. El URI especifica el ámbito y el nombre de la clave identifica la directiva que se usará para calcular el hash. Esto es importante desde una perspectiva de seguridad. Si la firma no coincide con la que el destinatario calcula (Bus de servicio), se denegará el acceso. En este punto puede estar seguro de que el remitente ha tenido acceso a la clave y que se le deberían haber concedido los derechos especificados en la directiva.
+Los valores que no son de hash se encuentran en la cadena **SharedAccessSignature** para que el destinatario puede calcular el hash con los mismos parámetros, para asegurarse de que devuelve el mismo resultado. El URI especifica el ámbito y el nombre de la clave identifica la directiva que se usará para calcular el hash. Esto es importante desde una perspectiva de seguridad. Si la firma no coincide con la que el destinatario calcula (Service Bus), se denegará el acceso. En este punto puede estar seguro de que el remitente ha tenido acceso a la clave y que se le deberían haber concedido los derechos especificados en la directiva.
 
-Tenga en cuenta que debe usar el URI de recurso codificado para esta operación. El URI de recurso es el URI completo del recurso del Bus de servicio al que se solicita el acceso. Por ejemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`; es decir, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`.
+Tenga en cuenta que debe usar el URI de recurso codificado para esta operación. El URI de recurso es el URI completo del recurso de Service Bus al que se solicita el acceso. Por ejemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`; es decir, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`.
 
 La regla de autorización de acceso compartido usada para firmar debe configurarse en la entidad especificada por este URI, o uno de sus primarios jerárquicos. Por ejemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` en el ejemplo anterior.
 
@@ -112,23 +112,23 @@ Se recomienda regenerar periódicamente las claves usadas en el objeto [SharedAc
 
 Si se ve comprometida una clave y es necesario revocar las claves, puede volver a generar los valores de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) y [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) de un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), y reemplazarlos por las nuevas claves. Este procedimiento invalida todos los tokens firmados con las claves antiguas.
 
-## <a name="how-to-use-shared-access-signature-authentication-with-service-bus"></a>Uso de la autenticación con firma de acceso compartido en el Bus de servicio
+## <a name="how-to-use-shared-access-signature-authentication-with-service-bus"></a>Uso de la autenticación con firma de acceso compartido en Service Bus
 
 Los siguientes escenarios incluyen la configuración de reglas de autorización, la generación de tokens SAS y la autorización del cliente.
 
-Para un ejemplo funcional completo de una aplicación del Bus de servicio que ilustra la configuración y usa la autorización SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Hay un ejemplo relacionado que ilustra el uso de reglas de autorización SAS configuradas en espacios de nombres o temas para proteger las suscripciones del Bus de servicio disponible aquí: [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones del Bus de servicio](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Para un ejemplo funcional completo de una aplicación del Bus de servicio que ilustra la configuración y usa la autorización SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Hay un ejemplo relacionado que ilustra el uso de reglas de autorización SAS configuradas en espacios de nombres o temas para proteger las suscripciones de Service Bus disponible aquí: [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones de Service Bus](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-a-namespace"></a>Acceso a las reglas de autorización de acceso compartido en un espacio de nombres
 
-Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, siga [estos pasos](../cloud-services/cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) con [Azure Portal][Azure portal]. Para obtener más información sobre los certificados de administración de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Las operaciones en la raíz del espacio de nombres de Service Bus requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, siga [estos pasos](../cloud-services/cloud-services-configure-ssl-certificate-portal.md#step-3-upload-a-certificate) con [Azure Portal][Azure portal]. Para obtener más información sobre los certificados de administración de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-El extremo para acceder a las reglas de autorización de acceso compartido en un espacio de nombres del Bus de servicio es el siguiente:
+El extremo para acceder a las reglas de autorización de acceso compartido en un espacio de nombres de Service Bus es el siguiente:
 
 ```http
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Para crear un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en un espacio de nombres del Bus de servicio, ejecute una operación POST en este punto de conexión con la información de la regla serializada como JSON o XML. Por ejemplo:
+Para crear un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en un espacio de nombres de Service Bus, ejecute una operación POST en este punto de conexión con la información de la regla serializada como JSON o XML. Por ejemplo: 
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -204,7 +204,7 @@ nsm.CreateQueue(qd);
 
 ## <a name="use-shared-access-signature-authorization"></a>Uso de la autorización de la firma de acceso compartido
 
-Las aplicaciones que usan el SDK de .NET de Azure con las bibliotecas .NET del Bus de servicio pueden usar la autorización SAS mediante la clase [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) . El código siguiente muestra el uso del proveedor de token para enviar mensajes a una cola del Bus de servicio.
+Las aplicaciones que usan el SDK de .NET de Azure con las bibliotecas .NET de Service Bus pueden usar la autorización SAS mediante la clase [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) . El código siguiente muestra el uso del proveedor de token para enviar mensajes a una cola de Service Bus.
 
 ```csharp
 Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
@@ -221,11 +221,11 @@ sendClient.Send(helloMessage);
 
 Las aplicaciones también pueden usar SAS para la autenticación mediante una cadena de conexión SAS en métodos que acepten cadenas de conexión.
 
-Tenga en cuenta que para usar la autorización SAS con retransmisiones del Bus de servicio, puede usar claves SAS configuradas en el espacio de nombres del Bus de servicio. Si crea explícitamente una retransmisión en el espacio de nombres [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) con un objeto [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription), puede establecer las reglas SAS para dicha retransmisión. Para usar la autorización SAS con suscripciones del Bus de servicio, puede usar claves SAS configuradas en un espacio de nombres del Bus de servicio o en un tema.
+Tenga en cuenta que para usar la autorización SAS con retransmisiones de Service Bus, puede usar claves SAS configuradas en el espacio de nombres de Service Bus. Si crea explícitamente una retransmisión en el espacio de nombres [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) con un objeto [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription), puede establecer las reglas SAS para dicha retransmisión. Para usar la autorización SAS con suscripciones de Service Bus, puede usar claves SAS configuradas en un espacio de nombres de Service Bus o en un tema.
 
 ## <a name="use-the-shared-access-signature-at-http-level"></a>Uso de la firma de acceso compartido (en el nivel HTTP)
 
-Ahora que sabe cómo crear firmas de acceso compartido para cualquier entidad del Bus de servicio, estará listo para llevar a cabo una solicitud HTTP POST:
+Ahora que sabe cómo crear firmas de acceso compartido para cualquier entidad de Service Bus, estará listo para llevar a cabo una solicitud HTTP POST:
 
 ```http
 POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
@@ -240,11 +240,11 @@ Si le da un token de SAS a un remitente o cliente, no tiene la clave directament
 
 ## <a name="use-the-shared-access-signature-at-amqp-level"></a>Uso de la firma de acceso compartido (en el nivel AMQP)
 
-En la sección anterior, vimos cómo usar el token SAS con una solicitud HTTP POST para enviar datos al Bus de servicio. Como sabe, puede obtener acceso a Bus de servicio mediante Advanced Message Queuing Protocol (AMQP), que es el protocolo preferido por motivos de rendimiento en muchos escenarios. El uso de tokens SAS con AMQP se describe en el documento [Seguridad basada en notificaciones de AMQP, versión 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está en fase de borrador desde 2013, pero que es compatible con Azure actualmente.
+En la sección anterior, vimos cómo usar el token SAS con una solicitud HTTP POST para enviar datos a Service Bus. Como sabe, puede obtener acceso a Service Bus mediante Advanced Message Queuing Protocol (AMQP), que es el protocolo preferido por motivos de rendimiento en muchos escenarios. El uso de tokens SAS con AMQP se describe en el documento [Seguridad basada en notificaciones de AMQP, versión 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está en fase de borrador desde 2013, pero que es compatible con Azure actualmente.
 
 Antes de comenzar a enviar datos a Service Bus, el publicador debe enviar el token de SAS de un mensaje de AMQP a un nodo de AMQP bien definido con el nombre **$cbs** (puede verlo como una cola especial usada por el servicio para adquirir y validar todos los tokens de SAS). El publicador debe especificar el campo **ReplyTo** en el mensaje de AMQP. Este es el nodo en el que el servicio contestará al publicador con el resultado de la validación del token (un patrón sencillo de solicitud/respuesta entre el publicador y el servicio). Este nodo de respuesta se crea "sobre la marcha" en lo que respecta a la "creación dinámica de nodo remoto", tal como describe la especificación de AMQP 1.0. Después de comprobar que el token SAS es válido, el publicador puede avanzar y comenzar a enviar datos al servicio.
 
-Los pasos siguientes muestran cómo enviar el token de SAS con protocolo AMQP mediante la biblioteca [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) . Esto es útil si no puede usar el SDK oficial de Service Bus (por ejemplo, en WinRT, .Net Compact Framework, .Net Micro Framework y Mono) al desarrollar en C\#. Por supuesto, esta biblioteca es útil para comprender cómo funciona la seguridad basada en notificaciones en el nivel AMQP, como pudo observar en el nivel HTTP (con una solicitud HTTP POST y el token de SAS enviado en el encabezado "Autorización"). Si no necesita un conocimiento tan profundo sobre AMQP, puede usar el SDK oficial de Bus de servicio con aplicaciones de .NET Framework, que lo hará por usted.
+Los pasos siguientes muestran cómo enviar el token de SAS con protocolo AMQP mediante la biblioteca [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) . Esto es útil si no puede usar el SDK oficial de Service Bus (por ejemplo, en WinRT, .Net Compact Framework, .Net Micro Framework y Mono) al desarrollar en C\#. Por supuesto, esta biblioteca es útil para comprender cómo funciona la seguridad basada en notificaciones en el nivel AMQP, como pudo observar en el nivel HTTP (con una solicitud HTTP POST y el token de SAS enviado en el encabezado "Autorización"). Si no necesita un conocimiento tan profundo sobre AMQP, puede usar el SDK oficial de Service Bus con aplicaciones de .NET Framework, que lo hará por usted.
 
 ### <a name="c35"></a>C&#35;
 
@@ -310,9 +310,9 @@ El mensaje de AMQP contiene una serie de propiedades y más información que un 
 
 Después de enviar el token de SAS en el vínculo del remitente, el publicador debe leer la respuesta en el vínculo del receptor. La respuesta es un mensaje de AMQP simple con una propiedad de la aplicación denominada **"status-code"** que puede contener los mismos valores que un código de estado HTTP.
 
-## <a name="rights-required-for-service-bus-operations"></a>Derechos necesarios para realizar operaciones del Bus de servicio
+## <a name="rights-required-for-service-bus-operations"></a>Derechos necesarios para realizar operaciones de Service Bus
 
-La siguiente tabla muestra los derechos de acceso necesarios para realizar diversas operaciones en recursos del Bus de servicio.
+La siguiente tabla muestra los derechos de acceso necesarios para realizar diversas operaciones en recursos de Service Bus.
 
 | Operación | Solicitud necesaria | Ámbito de solicitud |
 | --- | --- | --- |
@@ -326,7 +326,7 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Creación de una cola |administración |Cualquier dirección de espacio de nombres |
 | Eliminación de una cola |administración |Cualquier dirección de cola válida |
 | Enumerar colas |administración |/$Resources/Queues |
-| Obtener la descripción de la cola |Administrar |Cualquier dirección de cola válida |
+| Obtener la descripción de la cola |administración |Cualquier dirección de cola válida |
 | Configurar la regla de autorización para una cola |administración |Cualquier dirección de cola válida |
 | Enviar a la cola |Los métodos Send |Cualquier dirección de cola válida |
 | mensajes de una cola |Escuchar |Cualquier dirección de cola válida |
@@ -339,14 +339,14 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | de un tema |administración |Cualquier dirección de espacio de nombres |
 | Eliminación de un tema |administración |Cualquier dirección de tema válida |
 | Enumerar temas |administración |/$Resources/Topics |
-| Obtener la descripción del tema |Administrar |Cualquier dirección de tema válida |
+| Obtener la descripción del tema |administración |Cualquier dirección de tema válida |
 | Configurar la regla de autorización para un tema |administración |Cualquier dirección de tema válida |
 | Enviar al tema |Los métodos Send |Cualquier dirección de tema válida |
 | **Suscripción** | | |
 | una suscripción |administración |Cualquier dirección de espacio de nombres |
 | Eliminar suscripción |administración |../myTopic/Subscriptions/mySubscription |
 | Enumerar suscripciones |administración |../myTopic/Subscriptions |
-| Obtener la descripción de la suscripción |Administrar |../myTopic/Subscriptions/mySubscription |
+| Obtener la descripción de la suscripción |administración |../myTopic/Subscriptions/mySubscription |
 | Abandone o complete los mensajes después de recibir el mensaje en el modo de bloqueo de información |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Aplazar un mensaje para su recuperación posterior |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Mensaje fallido |Escuchar |../myTopic/Subscriptions/mySubscription |
@@ -357,13 +357,13 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Eliminar una regla |administración |../myTopic/Subscriptions/mySubscription |
 | Enumerar reglas |Administrar o escuchar |../myTopic/Subscriptions/mySubscription/Rules 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
 
-* [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
+* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Colas, temas y suscripciones de Service Bus](service-bus-queues-topics-subscriptions.md)
-* [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
+* [Utilización de las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Uso de temas y suscripciones de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Azure portal]: https://portal.azure.com

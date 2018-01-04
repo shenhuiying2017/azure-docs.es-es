@@ -4,7 +4,7 @@ description: "Se describe cómo cambiar las letras de unidad de una máquina vir
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2017
+ms.date: 01/02/2018
 ms.author: cynthn
-ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a4e29ce7ebb20753c3313e1148e1c91e853f49f5
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows
 Si su aplicación necesita usar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use el disco temporal para almacenar los datos que desee conservar.
@@ -59,9 +59,9 @@ En primer lugar, deberá conectar el disco de datos a la máquina virtual. Para 
 5. En la sección **Memoria virtual**, seleccione **Cambiar**.
 6. Seleccione la unidad del sistema operativo **C**, haga clic en **Sin archivo de paginación** y luego en **Establecer**.
 7. Seleccione la unidad de almacenamiento temporal **T**, haga clic en **Tamaño administrado por el sistema** y, a continuación, en **Establecer**.
-8. Haga clic en **Apply**. Aparecerá una advertencia que indica que se debe reiniciar el equipo para que los cambios entren en vigor.
+8. Haga clic en **Aplicar**. Aparecerá una advertencia que indica que se debe reiniciar el equipo para que los cambios entren en vigor.
 9. Reinicie la máquina virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Puede aumentar el almacenamiento disponible para la máquina virtual [conectando un disco de datos adicional](attach-managed-disk-portal.md).
 

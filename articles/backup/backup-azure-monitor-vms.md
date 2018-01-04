@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil conocerlas tan pronto como se produjeron. Por ejemplo, cuando se produce un error en un trabajo de copia de seguridad o de restauración, se produce una alerta en los cinco minutos siguientes al error. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).
@@ -65,7 +65,7 @@ Configuración de notificaciones de correo electrónico para alertas
 3. En el cuadro de diálogo **Destinatarios (correo electrónico)** , escriba las direcciones de correo electrónico de las personas que recibirán las notificaciones. Utilice el formato: username@domainname.com. Separe varias direcciones de correo electrónico con un signo de punto y coma (;).
 4. En el área **Notificar** área, elija **Por alerta** para que se envíe una notificación cuando se produzca la alerta especificada, o **Resumen cada hora** para que se envíe un resumen de la última hora.
 5. En el cuadro de diálogo **Gravedad** , elija los niveles que desee que desencadenen notificaciones de correo electrónico.
-6. Haga clic en **Save**.
+6. Haga clic en **Save**(Guardar).
 
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Tipos de alerta disponibles para la copia de seguridad de máquinas virtuales de IaaS de Azure
    | Nivel de alerta | Alertas enviadas |
@@ -116,7 +116,7 @@ Utilice la opción **Filtrar** para ajustar o elegir la información que debe ap
 2. En el menú **Eventos**, haga clic en **Filtrar** para abrir esa hoja.
 
     ![Hoja de filtro abierta](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. En la hoja **Filtro**, ajuste los filtros **Nivel**, **Intervalo de tiempo** y **Llamador**. Los demás filtros no están disponibles porque se establecieron para proporcionar la información actual del almacén de Servicios de recuperación.
+3. En la hoja **Filtro**, ajuste los filtros **Nivel**, **Intervalo de tiempo** y **Llamador**. Los demás filtros no están disponibles porque se establecieron para proporcionar la información actual del almacén de Recovery Services.
 
     ![Registros de auditoria: detalles de la consulta](./media/backup-azure-monitor-vms/filter-blade.png)
 
@@ -139,16 +139,16 @@ Mediante el botón **Columnas**, puede habilitar atributos adicionales de evento
 3. Haga clic en **Restablecer** para restablecer la lista de atributos de la hoja **Eventos**. Después de agregar o quitar los atributos de la lista, use **Restablecer** para ver la nueva lista de atributos de eventos.
 4. Haga clic en **Actualizar** para actualizar los datos de los atributos de los eventos. La tabla siguiente proporciona información acerca de cada atributo.
 
-| Nombre de la columna | Description |
+| Nombre de la columna | DESCRIPCIÓN |
 | --- | --- |
 | Operación |El nombre de la operación |
 | Nivel |El nivel de la operación, los valores pueden ser: informativo, advertencia, error o crítico |
-| Estado |Estado descriptivo de la operación |
+| Status |Estado descriptivo de la operación |
 | Recurso |Dirección URL que identifica el recurso. También conocido como el identificador de recurso |
 | Hora |Hora, medida desde la hora actual, en la que se produjo el evento |
 | Autor de llamada |Quién o qué llamó o desencadenó el evento. Puede ser el sistema o un usuario |
 | Timestamp |La hora en la que se desencadenó el evento |
-| El grupos de recursos |El grupo de recursos asociado |
+| Grupo de recursos |El grupo de recursos asociado |
 | Tipo de recurso |El tipo de recurso interno utilizado por Resource Manager |
 | Id. de suscripción |El identificador de suscripción asociado |
 | Categoría |Categoría del evento |
@@ -168,11 +168,11 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **OperationName**: OperationName está en el formato "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" donde *EventName* puede ser:<br/>
 
-* Registrar <br/>
+* Register  <br/>
 * Unregister  <br/>
 * ConfigureProtection  <br/>
 * Backup  <br/>
-* Restore  <br/>
+* Restore <br/>
 * StopProtection  <br/>
 * DeleteBackupData  <br/>
 * CreateProtectionPolicy  <br/>
@@ -192,11 +192,11 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 ### <a name="limitations-on-alerts"></a>Limitaciones de las alertas
 Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
-1. Las alertas se activan en todas las máquinas virtuales del almacén de Servicios de recuperación. No se puede personalizar la alerta para un subconjunto de máquinas virtuales en un almacén de Servicios de recuperación.
+1. Las alertas se activan en todas las máquinas virtuales del almacén de Recovery Services. No se puede personalizar la alerta para un subconjunto de máquinas virtuales en un almacén de Recovery Services.
 2. Esta característica se encuentra en versión preliminar. [Más información](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. Las alertas se envían desde "alerts-noreply@mail.windowsazure.com". Actualmente, no se puede modificar el remitente de correo electrónico.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Los registros de eventos permiten excelentes análisis finales y soportes técnicos de auditoría para las operaciones de copia de seguridad. Se registran las siguientes operaciones:
 
 * Register 
@@ -213,4 +213,4 @@ Los registros de eventos permiten excelentes análisis finales y soportes técni
 
 Para obtener una explicación detallada acerca de los eventos, las operaciones y los registros de auditoría a través de los servicios de Azure, consulte el artículo [Visualización de eventos y registros de auditoría](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Servicios de recuperación](backup-azure-vms-first-look-arm.md). Obtenga información acerca de las tareas de administración para las copias de seguridad de máquinas virtuales en el artículo [Administración de copias de seguridad de máquinas virtuales de Azure](backup-azure-manage-vms.md).
+Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-arm-restore-vms.md). Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md). Obtenga información acerca de las tareas de administración para las copias de seguridad de máquinas virtuales en el artículo [Administración de copias de seguridad de máquinas virtuales de Azure](backup-azure-manage-vms.md).

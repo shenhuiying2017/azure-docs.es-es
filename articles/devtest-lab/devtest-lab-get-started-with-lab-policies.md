@@ -3,7 +3,7 @@ title: "Administración de directivas de laboratorio básicas en Azure DevTest L
 description: "Obtenga información sobre cómo establecer algunas de las directivas básicas (configuración) para un laboratorio de DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
-ms.author: tarcher
-ms.openlocfilehash: e87a37b7aafd774fb0176b74968ad0bba0f5cf3b
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.author: v-craic
+ms.openlocfilehash: f7ccd9f56742fe4500c6f5441623beca28801bcd
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de directivas básicas para un laboratorio de Azure DevTest Labs
 
@@ -29,7 +29,7 @@ Los siguientes pasos le guiarán a través de la configuración de directivas pa
 
 Para ver (y cambiar) las directivas de un laboratorio, siga estos pasos:
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
 
@@ -88,6 +88,6 @@ La directiva de inicio automático le permite especificar cuándo se deben inici
 
 Una vez que se habilite, esta directiva no se aplica automáticamente a ninguna máquina virtual del laboratorio actual. Para aplicar esta configuración a una máquina virtual existente, abra el panel de administración de la máquina virtual y cambie la configuración de **Inicio automático**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Definición de directivas de laboratorio en Azure DevTest Labs](devtest-lab-set-lab-policy.md): obtenga información sobre cómo modificar otras directivas de laboratorio.

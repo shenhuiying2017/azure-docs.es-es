@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Enlaces de tablas externas de Azure Functions (versión preliminar)
 Este artículo muestra cómo manipular los datos tabulares de proveedores de SaaS (por ejemplo, Sharepoint y Dynamics) dentro de la función con enlaces integrados. Azure Functions admite enlaces de entrada y salida para tablas externas.
@@ -139,7 +139,7 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
     ContinuationToken continuationToken = null;
     do
     {   
-        //retreive table values
+        //retrieve table values
         var contactsSegment = await table.ListEntitiesAsync(
             continuationToken: continuationToken);
 
@@ -197,7 +197,7 @@ En Google Docs, cree una hoja de cálculo con una hoja de cálculo denominada `C
 ### <a name="salesforce"></a>Salesforce
 dataSetName es el "valor predeterminado".
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

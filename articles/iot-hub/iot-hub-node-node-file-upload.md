@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: 047dfd35cfef53d323774508121e22fbf47b2acf
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
 
@@ -29,7 +29,7 @@ Este tutorial se basa en el código del tutorial sobre el [envío de mensajes de
 - Proporcionar un dispositivo de forma segura con un identificador URI de blob de Azure para cargar un archivo.
 - Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
 
-Los tutoriales [Introducción a Iot Hub](iot-hub-node-node-getstarted.md) y [Envío de mensajes de nube a dispositivo con IoT Hub](iot-hub-node-node-c2d.md) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta el Centro de IoT. Por ejemplo:
+Los tutoriales [Introducción a Iot Hub](iot-hub-node-node-getstarted.md) y [Envío de mensajes de nube a dispositivo con IoT Hub](iot-hub-node-node-c2d.md) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo: 
 
 * Archivos grandes con imágenes
 * Vídeos
@@ -44,7 +44,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 * **ReadFileUploadNotification.js**, que recibe notificaciones de carga de archivos de IoT Hub.
 
 > [!NOTE]
-> IoT Hub admite muchas plataformas de dispositivos y lenguajes (incluido C, .NET, JavaScript, Python y Java), mediante los SDK de dispositivo IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo al Centro de IoT de Azure.
+> IoT Hub admite muchas plataformas de dispositivos y lenguajes (incluido C, .NET, JavaScript, Python y Java), mediante los SDK de dispositivo IoT de Azure. Consulte el [Centro para desarrolladores de IoT de Azure] para obtener instrucciones paso a paso sobre cómo conectar el dispositivo a Azure IoT Hub.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -213,7 +213,7 @@ Puede usar el portal para ver el archivo cargado en el contenedor de almacenamie
 
 ![Archivo cargado](./media/iot-hub-node-node-file-upload/uploaded-file.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de IoT Hub para simplificar la carga de archivos desde los dispositivos. Puede continuar explorando las características y los escenarios del centro de IoT con los siguientes artículos:
 
@@ -222,7 +222,7 @@ En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de Io
 * [SDK de IoT de Azure][lnk-sdks]
 
 <!-- Links -->
-[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
+[Centro para desarrolladores de IoT de Azure]: http://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

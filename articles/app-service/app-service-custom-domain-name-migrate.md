@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migración de un nombre de DNS activo a Azure App Service
 
@@ -27,9 +27,9 @@ En este artículo se explica cómo migrar un nombre DNS activo a [Azure App Serv
 
 Cuando se migra un sitio activo y su nombre de dominio DNS para App Service, ese nombre DNS ya está atendiendo a tráfico activo. Puede evitar tiempos de inactividad en la resolución DNS durante la migración enlazando el nombre DNS activo a la aplicación de App Service de forma preferente.
 
-Si no le preocupa el tiempo de inactividad en la resolución DNS, consulte [Asignar un nombre DNS personalizado a Aplicaciones web de Azure](app-service-web-tutorial-custom-domain.md).
+Si no le preocupa el tiempo de inactividad en la resolución DNS, consulte [Asignar un nombre DNS personalizado a Azure Web Apps](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este procedimiento:
 
@@ -50,7 +50,7 @@ Cuando finalmente migre el nombre DNS personalizado del sitio antiguo a la aplic
 
 Para comprobar la propiedad de dominio, agregue un registro TXT. El registro TXT se asigna desde _awverify.&lt; subdominio >_ a  _&lt;nombreaplic >. azurewebsites.net_. 
 
-El registro TXT que necesita depende en el registro DNS que desea migrar. Para obtener ejemplos, vea la tabla siguiente (`@` normalmente representa el dominio raíz):  
+El registro TXT que necesita depende en el registro DNS que desea migrar. Para obtener ejemplos, vea la tabla siguiente (`@` normalmente representa el dominio raíz):
 
 | Ejemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
@@ -122,9 +122,9 @@ Guarde la configuración.
 
 Las consultas DNS deben comenzar resolviéndose en la aplicación de App Service de inmediato después de que se produzca la propagación de DNS.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga información sobre cómo vincular un certificado SSL a App Service.
 
 > [!div class="nextstepaction"]
-> [Enlazar un certificado SSL personalizado a Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Enlace de un certificado SSL personalizado a Azure Web Apps](app-service-web-tutorial-custom-ssl.md)

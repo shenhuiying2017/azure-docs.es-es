@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformación Derivar columna por ejemplos
 
@@ -60,7 +60,7 @@ El modo básico proporciona una experiencia de edición directa en la cuadrícul
 
 Workbench analiza los datos e intenta identificar los casos límite que debe revisar el usuario. Mientras se analizan los datos, en el encabezado del editor de transformación aparece **Analyzing Data** (Analizando datos). Una vez efectuado el análisis, en el encabezado aparecerá **No suggestions** (Sin sugerencias) o **Review next suggested row** (Revisar la próxima fila sugerida). Para navegar por los casos límite, haga clic en **Review next suggested row** (Revisar la próxima fila sugerida). En el caso de que el valor sea incorrecto para una fila, debe especificar el valor correcto como un ejemplo adicional. 
 
-### <a name="transform-editor-advanced-mode"></a>Editor de transformación: Modo avanzado
+### <a name="transform-editor-advanced-mode"></a>Editor de transformación: modo avanzado
 
 El modo avanzado ofrece una experiencia más completa para la transformación "Derivar columna por ejemplo". Todos los ejemplos se muestran en un solo lugar. También puede revisar todos los casos límite desde un solo lugar. Para ello, haga clic en **Show suggested examples** (Mostrar ejemplos sugeridos). 
 
@@ -286,7 +286,7 @@ Número de ejemplos necesarios para este caso: 1
 
 Estas partes de fecha se han extraído siguiendo distintas transformaciones según el ejemplo en el mismo conjunto de datos. Las cadenas que aparecen en negrita representan los ejemplos indicados en la transformación correspondiente.
 
-|DateTime|Día de la semana|Date|Mes|Year|Hora|Minuto|Segundo|
+|Datetime|Día de la semana|Date|Mes|Year|Hora|Minuto|Segundo|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Ene-2031 05:54:18|**Vi.**|**31**|**Ene**|**2031**|**5**|**54**|**18**|
 |17-Ene-1990 13:32:01|Mi.|17|Ene|1990|13|32|01|
@@ -294,7 +294,7 @@ Estas partes de fecha se han extraído siguiendo distintas transformaciones seg�
 |14-Mar-2002 13:16:16|Ju.|14|Mar|2002|13|16|16|
 |21-Ene-1985 05:44:43|Lu.|21|Ene|1985|5|44|**43**|
 |16-Ago-1985 01:11:56|Vi.|16|Ago|1985|1|11|56|
-|20-Dic-2033 18:36:29|Ma.|20 ||Dic|2033|18|36|29|
+|20-Dic-2033 18:36:29|Ma.|20 |Dic|2033|18|36|29|
 |16-Jul-1984 10:21:59|Lu.|16|Jul|1984|10|21|59|
 |13-Ene-2038 10:59:36|Mi.|13|Ene|2038|10|59|36|
 |14-Ago-1982 15:13:54|Sá.|14|Ago|1982|15|13|54|
@@ -313,7 +313,7 @@ Estas partes de fecha se han extraído siguiendo distintas transformaciones seg�
 
 Estos formatos de fecha se han aplicado siguiendo distintas transformaciones según el ejemplo en el mismo conjunto de datos. Las cadenas que aparecen en negrita representan los ejemplos indicados en la transformación correspondiente.
 
-|DateTime|Format1|Format2|Format3|Format4|Format5|
+|Datetime|Format1|Format2|Format3|Format4|Format5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-Ene-2031 05:54:18|**1/31/2031**|**Viernes, 31 de enero de 2031**|**01312031 5:54**|**31/1/2031 5:54 a. m.**|**T1 2031**|
 |17-Ene-1990 13:32:01|1/17/1990|Miércoles, 17 de enero de 1990|01171990 13:32|17/1/1990 1:32 p. m.|T1 1990|
@@ -341,7 +341,7 @@ Estos formatos de fecha se han aplicado siguiendo distintas transformaciones seg
 
 Estas asignaciones de fechas y horas a períodos se han efectuado siguiendo distintas transformaciones según el ejemplo en el mismo conjunto de datos. Las cadenas que aparecen en negrita representan los ejemplos indicados en la transformación correspondiente.
 
-|DateTime|Período (segundos)|Período (minutos)|Período (dos horas)|Período (30 minutos)|
+|Datetime|Período (segundos)|Período (minutos)|Período (dos horas)|Período (30 minutos)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-Ene-2031 05:54:18|**0-20**|**45-60**|**5 a. m.-7 a. m.**|**5:30-6:00**|
 |17-Ene-1990 13:32:01|**0-20**|30-45|1 p. m.-3 p. m.|13:30-14:00|

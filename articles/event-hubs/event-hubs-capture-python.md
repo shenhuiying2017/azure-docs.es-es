@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: sethm
-ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbb2baea2bc6c45908369ff821c264b66053d95
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Tutorial de Event Hubs Capture: Python
 
@@ -34,7 +34,7 @@ En este ejemplo se usa el [SDK de Azure para Python](https://azure.microsoft.com
 4. Enviar datos al centro de eventos con un script de Python.
 5. Leer los archivos de la captura y procesarlos con otro script de Python.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Python 2.7.x
 - Una suscripción de Azure
@@ -42,7 +42,7 @@ En este ejemplo se usa el [SDK de Azure para Python](https://azure.microsoft.com
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de almacenamiento de Azure
+## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 1. Inicie sesión en [Azure Portal][Azure portal].
 2. En el panel de navegación izquierdo del portal, haga clic en **Nuevo**, luego en **Storage** y, a continuación, en **Cuenta de Storage**.
 3. Complete los campos de la hoja de la cuenta de almacenamiento y, luego, haga clic en **Crear**.
@@ -116,7 +116,8 @@ En este ejemplo se usa el [SDK de Azure para Python](https://azure.microsoft.com
       block_blob_service = BlockBlobService(account_name=accountName, account_key=key)
       generator = block_blob_service.list_blobs(container)
       for blob in generator:
-          if blob.properties.content_length != 0:
+          #content_length == 508 is an empty file, so only process content_length > 508 i.e. skip  empty files
+          if blob.properties.content_length > 508:
               print('Downloaded a non empty blob: ' + blob.name)
               cleanName = string.replace(blob.name, '/', '_')
               block_blob_service.get_blob_to_path(container, blob.name, cleanName)
@@ -158,7 +159,7 @@ En este ejemplo se usa el [SDK de Azure para Python](https://azure.microsoft.com
 
    Este procesador de captura usa el directorio local para descargar todos los blobs del contenedor o de la cuenta de captura. Procesa los que no estén vacíos y escribe los resultados en forma de archivos .csv en el directorio local.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 

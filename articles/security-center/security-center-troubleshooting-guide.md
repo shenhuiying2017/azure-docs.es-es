@@ -73,10 +73,10 @@ En la siguiente tabla se muestran los recursos necesarios para la comunicación.
 
 | Recurso del agente | Puertos | Omitir inspección de HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Sí |
-| *.oms.opinsights.azure.com | 443 | Sí |
-| *.blob.core.windows.net | 443 | Sí |
-| *.azure-automation.net | 443 | Sí |
+| * .ods.opinsights.azure.com | 443 | Sí |
+| * .oms.opinsights.azure.com | 443 | Sí |
+| * .blob.core.windows.net | 443 | Sí |
+| * .azure-automation.net | 443 | Sí |
 
 Si experimenta problemas con la incorporación del agente, asegúrese de leer el artículo [Solución de problemas de incorporación en Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 

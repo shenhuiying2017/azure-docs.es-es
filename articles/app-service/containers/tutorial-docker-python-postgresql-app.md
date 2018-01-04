@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilación de una aplicación web Docker Python con PostgreSQL en Azure
 
@@ -26,7 +26,7 @@ Web App for Containers proporciona un servicio de hospedaje web muy escalable y 
 
 En macOS, siga los pasos que se indican a continuación. Las instrucciones de Linux y Windows son las mismas en la mayoría de los casos, pero en este tutorial no se detallan las diferencias.
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -121,7 +121,7 @@ En este paso, creará una base de datos PostgreSQL en Azure. Cuando la aplicaci�
 
 ### <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
-Ahora va a usar la CLI de Azure 2.0 para crear los recursos necesarios para hospedar su aplicación de Python en Web App for Containers.  Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#az_login) y siga las instrucciones de la pantalla.
+Ahora va a usar la CLI de Azure 2.0 para crear los recursos necesarios para hospedar su aplicación de Python en Web App for Containers.  Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/?view=azure-cli-latest#az_login) y siga las instrucciones de la pantalla.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#az_group_create).
+Cree un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ En el siguiente ejemplo, se crea un grupo de recursos en la región del oeste de
 az group create --name myResourceGroup --location "West US"
 ```
 
-Use el comando [az appservice list-locations](/cli/azure/appservice#az_appservice_list_locations) de la CLI de Azure para enumerar las ubicaciones disponibles.
+Use el comando [az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) de la CLI de Azure para enumerar las ubicaciones disponibles.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Creación de un servidor de Azure Database for PostgreSQL
 
-Cree un servidor de PostgreSQL con el comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create).
+Cree un servidor de PostgreSQL con el comando [az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
 
 En el siguiente comando, sustituya un nombre de servidor único por el marcador de posición *\<postgresql_name >* y un nombre usuario por el marcador de posición *\<admin_username >* . El nombre del servidor se usa como parte del punto de conexión de PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), por lo que debe ser único en todos los servidores de Azure. El nombre de usuario es para la cuenta de usuario del administrador de la base de datos inicial. Se le pedirá que seleccione una contraseña para este usuario.
 
@@ -364,7 +364,7 @@ En este paso, implementará la aplicación Python Flask basada en contenedor Doc
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
-Cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+Cree un plan de App Service con el comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Cuando se ha creado el plan de App Service, la CLI de Azure muestra información
 
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Cree una aplicación web en el plan de App Service *myAppServicePlan* con el comando [az webapp create](/cli/azure/webapp#az_webapp_create).
+Cree una aplicación web en el plan de App Service *myAppServicePlan* con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
 
 La aplicación web ofrece un espacio de hospedaje para implementar el código y proporciona una dirección URL para que pueda ver la aplicación implementada. Úsela para crear la aplicación web.
 
@@ -445,7 +445,7 @@ Cuando se ha creado la aplicación web, la CLI de Azure muestra información sim
 
 En este mismo tutorial, ya ha definido variables de entorno para conectarse a su base de datos de PostgreSQL.
 
-En App Service, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [az appservice web config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
+En App Service, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [az appservice web config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
 En el siguiente ejemplo se especifican los datos de conexión de la base de datos en forma de valores de configuración de aplicación. También se usa la variable *PORT* para asignar el PUERTO 5000 del contenedor de Docker para reciba tráfico HTTP en el PUERTO 80.
 
@@ -546,7 +546,7 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 
 ![Página de App Service en Azure Portal](./media/tutorial-docker-python-postgresql-app/app-mgmt.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 

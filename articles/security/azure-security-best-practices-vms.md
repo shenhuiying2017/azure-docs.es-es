@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedimientos recomendados de seguridad para las máquinas virtuales de Azure
 
@@ -51,7 +51,7 @@ El primer paso para proteger la máquina virtual es garantizar que solo los usua
 
 Las máquinas virtuales que pertenecen a un grupo de recursos heredan de forma natural sus directivas. Aunque se recomienda este enfoque para administrar las máquinas virtuales, también puede controlar el acceso a directivas de máquinas virtuales individuales mediante el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Al habilitar las directivas de Resource Manager y RBAC para controlar el acceso a la máquina virtual, se ayuda a mejorar la seguridad general de la máquina virtual. Se recomienda consolidar las máquinas virtuales con el mismo ciclo de vida en el mismo grupo de recursos. Mediante los grupos de recursos, puede implementar, supervisar y acumular los costos para sus recursos. Para permitir a los usuarios acceder y configurar máquinas virtuales, use un [enfoque de privilegios mínimos](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Y al asignar privilegios a los usuarios, planee utilizar los siguientes roles integrados de Azure:
+Al habilitar las directivas de Resource Manager y RBAC para controlar el acceso a la máquina virtual, se ayuda a mejorar la seguridad general de la máquina virtual. Se recomienda consolidar las máquinas virtuales con el mismo ciclo de vida en el mismo grupo de recursos. Mediante los grupos de recursos, puede implementar, supervisar y acumular los costos para sus recursos. Para permitir a los usuarios acceder y configurar máquinas virtuales, use un [enfoque de privilegios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Y al asignar privilegios a los usuarios, planee utilizar los siguientes roles integrados de Azure:
 
 - [Colaborador de la máquina virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): puede administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas.
 - [Colaborador de la máquina virtual clásica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): puede administrar máquinas virtuales creadas con el modelo de implementación clásico, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
@@ -80,7 +80,7 @@ El [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/
 
 Puede aplicar Disk Encryption para proteger sus datos y así satisfacer los requisitos de cumplimiento y seguridad de la organización. La organización debería pensar en usar cifrado como ayuda para mitigar los riesgos relacionados con el acceso no autorizado a los datos. También se recomienda cifrar las unidades de disco antes de escribir los datos confidenciales en ellas.
 
-Asegúrese de cifrar los volúmenes de datos de la máquina virtual para protegerlos en reposo en la cuenta de almacenamiento de Azure. Proteja las claves de cifrado y los secretos mediante [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Asegúrese de cifrar los volúmenes de datos de la máquina virtual para protegerlos en reposo en la cuenta de almacenamiento de Azure. Proteja las claves de cifrado y los secretos mediante [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Las organizaciones que no apliquen el cifrado de datos están más expuestas a problemas de integridad de los datos. Por ejemplo, los usuarios no autorizados pueden robar datos de las cuentas en peligro u obtener acceso no autorizado a los datos codificados en ClearFormat. Además de estos riesgos, para cumplir las normativas del sector, las compañías tienen que demostrar que son diligentes y que usan los controles adecuados para mejorar la seguridad de los datos.
 
@@ -122,7 +122,7 @@ Las organizaciones que no aplican una posición de seguridad segura para sus má
 
 El abuso de los recursos puede ser un problema cuando los procesos de las máquinas virtuales consumen más recursos de los que deberían. Los problemas de rendimiento con una máquina virtual pueden provocar la interrupción del servicio, lo que infringe el principio de seguridad de disponibilidad. Por esta razón, resulta imprescindible supervisar el acceso a las máquinas virtuales no solo de forma reactiva (aunque haya un problema), sino también de forma preventiva, usando como base de referencia un rendimiento medido durante el funcionamiento normal.
 
-Al analizar los [archivos de registro de diagnóstico de Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), puede supervisar los recursos de la máquina virtual e identificar posibles problemas que podrían poner en peligro la disponibilidad y rendimiento. La extensión Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales basadas en Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+Al analizar los [archivos de registro de diagnóstico de Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), puede supervisar los recursos de la máquina virtual e identificar posibles problemas que podrían poner en peligro la disponibilidad y rendimiento. La extensión Diagnósticos de Azure proporciona funcionalidades de supervisión y diagnóstico en máquinas virtuales basadas en Windows. Para habilitar estas funcionalidades, incluya la extensión como parte de la [plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 También puede usar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obtener una mayor visibilidad del estado de los recursos.
 

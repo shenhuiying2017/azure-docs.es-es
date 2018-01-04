@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: e818a1b94891e687d8aa5962092e0a577b0db356
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configuración de la recopilación de métricas de recursos de PaaS de Azure con Log Analytics
 
@@ -26,7 +26,7 @@ Los recursos de la plataforma como servicio (PaaS) de Azure, así como Azure SQL
 
 En la actualidad, no hay ninguna manera de habilitar el registro de métricas para los recursos PaaS a través de Azure Portal. Por lo tanto, debe usar un script de PowerShell. Esta funcionalidad del registro nativo de métricas, junto con la supervisión de Log Analytics, le permiten supervisar los recursos de Azure a escala. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Compruebe que dispone de los siguientes módulos de Azure Resource Manager instalados en el equipo antes de continuar:
 
 - AzureRM.Insights
@@ -77,9 +77,9 @@ Si tiene un recurso que ya está enviando datos a un área de trabajo de Log Ana
 
 Se le pedirá que responda a la misma información que cuando se ejecutó el script para realizar la configuración inicial.  
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones. 
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
 
 * Use [Campos personalizados](log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
 

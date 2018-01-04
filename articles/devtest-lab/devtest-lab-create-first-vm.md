@@ -3,7 +3,7 @@ title: "Create your first VM in a lab in Azure DevTest Labs (Creación de su pri
 description: "Obtenga información sobre cómo crear su primera máquina virtual en un laboratorio de Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: fbc5a438-6e02-4952-b654-b8fa7322ae5f
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
-ms.author: tarcher
-ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: c807789dc2b47fe3632fc4ecf597904d8b0bbf6f
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Create your first VM in a lab in Azure DevTest Labs (Creación de su primera máquina virtual en un laboratorio en Azure DevTest Labs)
 
@@ -27,7 +27,7 @@ Cuando tenga acceso inicialmente a DevTest Labs y quiera crear su primera máqui
 En este tutorial se explica cómo usar Azure Portal para agregar su primera máquina virtual a un laboratorio de DevTest Labs.
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Pasos para agregar su primera máquina virtual a un laboratorio de Azure DevTest Labs
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Seleccione **Más servicios** y, luego, **DevTest Labs** en la lista.
 1. En la lista de laboratorios, seleccione aquel en el que desea crear la máquina virtual.  
 1. En la hoja **Información general** del laboratorio, seleccione **+ Agregar**.  
@@ -49,7 +49,7 @@ En este tutorial se explica cómo usar Azure Portal para agregar su primera máq
 
    La hoja del laboratorio muestra el estado de creación de la máquina virtual; primero como **Creating** (En creación) y luego como **Running** (En ejecución), una vez que se haya iniciado la máquina virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Una vez creada la máquina virtual, puede conectarse a la misma seleccionando **Conectar** en la hoja de la máquina virtual.
 * Consulte [Incorporación de una máquina virtual a un laboratorio](devtest-lab-add-vm.md) para obtener información más completa sobre cómo agregar máquinas virtuales posteriores en su laboratorio.
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

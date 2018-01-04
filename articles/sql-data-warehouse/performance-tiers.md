@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Niveles de rendimiento de Azure SQL Data Warehouse (versión preliminar)
 SQL Data Warehouse ofrece dos niveles de rendimiento optimizados para cargas de trabajo de análisis. En este artículo se explican los conceptos de niveles de rendimiento que le ayudarán a elegir el más adecuado para su carga de trabajo. 
@@ -64,14 +64,14 @@ Los niveles de servicio para el nivel de rendimiento Optimizado para Elasticity 
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW100         | 4                      | 1             | 60                             | 400                              |  24                                |
 | DW200         | 8                      | 2             | 30                             | 800                              |  48                                |
-| DW300         | 12                     | 3             | 20                             | 1,200                            |  72                                |
+| DW300         | 12                     | 3             | 20                              | 1,200                            |  72                                |
 | DW400         | 16                     | 4             | 15                             | 1600                            |  96                                |
-| DW500         | 20                     | 5             | 12                             | 2.000                            | 120                                |
+| DW500         | 20                      | 5             | 12                             | 2.000                            | 120                                |
 | DW600         | 24                     | 6             | 10                             | 2,400                            | 144                                |
 | DW1000        | 32                     | 10            | 6                              | 4.000                            | 240                                |
 | DW1200        | 32                     | 12            | 5                              | 4,800                            | 288                                |
 | DW1500        | 32                     | 15            | 4                              | 6,000                            | 360                                |
-| DW2000        | 32                     | 20            | 3                              | 8.000                            | 480                                |
+| DW2000        | 32                     | 20             | 3                              | 8.000                            | 480                                |
 | DW3000        | 32                     | 30            | 2                              | 12,000                           | 720                                |
 | DW6000        | 32                     | 60            | 1                              | 24,000                           | 1440                               |
 
@@ -82,14 +82,14 @@ Los niveles de servicio para el nivel de rendimiento Optimizado para Compute osc
 | Nivel de servicio | N.º máximo de consultas simultáneas | Nodos de proceso | Distribuciones por nodo de proceso | Memoria máxima por distribución (GB) | Memoria máxima por almacenamiento de datos (GB) |
 |:-------------:|:----------------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
 | DW1000c       | 32                     | 2             | 30                             |  10                              |   600                              |
-| DW1500c       | 32                     | 3             | 20                             |  15                              |   900                              |
-| DW2000c       | 32                     | 4             | 15                             |  20                              |  1200                              |
+| DW1500c       | 32                     | 3             | 20                              |  15                              |   900                              |
+| DW2000c       | 32                     | 4             | 15                             |  20                               |  1200                              |
 | DW2500c       | 32                     | 5             | 12                             |  25                              |  1.500                              |
 | DW3000c       | 32                     | 6             | 10                             |  30                              |  1.800                              |
 | DW5000c       | 32                     | 10            | 6                              |  50                              |  3000                              |
 | DW6000c       | 32                     | 12            | 5                              |  60                              |  3600                              |
 | DW7500c       | 32                     | 15            | 4                              |  75                              |  4500                              |
-| DW10000c      | 32                     | 20            | 3                              | 100                              |  6000                              |
+| DW10000c      | 32                     | 20             | 3                              | 100                              |  6000                              |
 | DW15000c      | 32                     | 30            | 2                              | 150                              |  9000                              |
 | DW30000c      | 32                     | 60            | 1                              | 300                              | 18000                              |
 
@@ -160,14 +160,14 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
 | DW300         | 12                         |  12                         | 1       |  2       |  4      |   8      |
 | DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
-| DW500         | 20 |                         |  20 |                         | 1       |  4       |  8      |  16      |
+| DW500         | 20                          |  20                          | 1       |  4       |  8      |  16      |
 | DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  32                         | 1       |  8       | 16      |  32      |
-| DW2000        | 32                         |  48                         | 1       | 16       | 32      |  64      |
-| DW3000        | 32                         |  64                         | 1       | 16       | 32      |  64      |
-| DW6000        | 32                         | 128                         | 1       | 32       | 64      | 128      |
+| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
+| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
+| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
+| DW2000        | 32                         |  80                         | 1       | 16       | 32      |  64      |
+| DW3000        | 32                         | 120                         | 1       | 16       | 32      |  64      |
+| DW6000        | 32                         | 240                         | 1       | 32       | 64      | 128      |
 
 **Clases de recursos estáticos** En la tabla siguiente se muestra el número máximo de consultas simultáneas y espacios de simultaneidad para cada [clase de recurso estático](resource-classes-for-workload-management.md).  Se aplican al nivel de rendimiento Optimizado para Elasticity.
 
@@ -177,7 +177,7 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW300         | 12                         |  12                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW400         | 16                         |  16                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW500         | 20 |                         |  20 |                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
+| DW500         | 20                          |  20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW600         | 24                         |  24                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000        | 32                         |  40                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1200        | 32                         |  48                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -188,7 +188,7 @@ En la tabla siguiente se muestra el número máximo de consultas simultáneas y 
 
 Cuando se alcanza alguno de estos umbrales, se ponen a la cola nuevas consultas y se ejecutan según la regla "primero en entrar, primero en salir".  A medida que las consultas finalizan y el número de consultas y espacios desciende por debajo de los límites, SQL Data Warehouse libera las consultas en cola. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre cómo aprovechar las clases de recursos para optimizar aún más la carga de trabajo, revise los artículos siguientes:
 * [Resource classes for workload management](resource-classes-for-workload-management.md) (Clases de recursos para la administración de cargas de trabajo)

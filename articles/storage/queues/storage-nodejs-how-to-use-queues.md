@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: ce61687e0f64b5971daca85265ef0e7d2b6f43b8
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 97522abd05d60eeaa2cc8dd07d3ab81d7f1d5fb9
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -36,7 +36,7 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 Cree una aplicación Node.js vacía. Para obtener instrucciones sobre cómo crear una aplicación Node.js, consulte [Creación de una aplicación web Node.js en Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Creación e implementación de una aplicación Node.js en Azure Cloud Services](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) con Windows PowerShell o [Creación e implementación de una aplicación web Node.js en Azure con Web Matrix](https://www.microsoft.com/web/webmatrix/).
 
 ## <a name="configure-your-application-to-access-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento
-Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azure para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
+Para usar el almacenamiento de Azure necesitará el SDK de Azure Storage para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 1. Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación de ejemplo.
@@ -64,7 +64,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 var azure = require('azure-storage');
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de almacenamiento de Azure
+## <a name="setup-an-azure-storage-connection"></a>Configuración de una conexión de Azure Storage
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT y AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener información necesaria para conectarse a su cuenta de Azure Storage. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno de [Azure Portal](https://portal.azure.com) para un sitio web de Azure, consulte [Aplicación web Node.js con Azure Table Service].
@@ -197,7 +197,7 @@ En el siguiente ejemplo se usa el método **getMessages** para obtener 15 mensaj
 ```
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
   if(!error){
-    // Messages retreived
+    // Messages retrieved
     for(var index in result){
       // text is available in result[index].messageText
       var message = result[index];
@@ -344,9 +344,9 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 
 [Azure Portal]: https://portal.azure.com
 
-[Creación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure](../../app-service/app-service-web-get-started-nodejs.md)
+[Creación de una aplicación web de Node.js en Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
 
-[Compilación e implementación de una aplicación Node.js en un servicio en la nube de Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
+[Creación e implementación de una aplicación Node.js en un servicio en la nube de Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 

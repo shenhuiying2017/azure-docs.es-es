@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/22/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: add96267f8afe6dcaf43e163f9d18bd7fb57682e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Ejecución de trabajos de Sqoop con Hadoop en HDInsight con Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -29,7 +29,7 @@ En este documento aprenderá a utilizar Curl para ejecutar trabajos de Sqoop en 
 
 Curl sirve para demostrar cómo se puede interactuar con HDInsight usando solicitudes HTTP sin procesar para ejecutar, supervisar y recuperar los resultados de los trabajos de Sqoop. Esto funciona mediante la API de REST de WebHCat (conocida anteriormente como Templeton) proporcionada por el clúster de HDInsight.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 * Complete la opción [Usar Sqoop con Hadoop en HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar un entorno con un clúster de HDInsight y una base de datos de Azure SQL.
@@ -111,7 +111,7 @@ Tal como se ha mostrado en este documento, puede usar una solicitud HTTP sin pro
 
 Para obtener más información sobre la interfaz REST utilizada en este artículo, consulte la referencia <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Sqoop REST API Guide</a>.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si desea obtener información general sobre Hive con HDInsight:
 
 * [Uso de Sqoop con Hadoop en HDInsight (Windows)](hdinsight-use-sqoop.md)

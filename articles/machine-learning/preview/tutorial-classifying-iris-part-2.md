@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Parte 2 de la clasificación de Iris: compilación de un modelo
 Azure Machine Learning Services (versión preliminar) es una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
@@ -34,7 +34,7 @@ Este tutorial es la segunda parte de una serie de tres partes. Aquí se usará A
 
 Este tutorial usa el [conjunto de datos Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. Las capturas de pantalla son específicas de Windows, pero la experiencia con MacOS es casi idéntica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Finalice la primera parte de esta serie de tutoriales. Siga el [tutorial de preparación de datos](tutorial-classifying-iris-part-1.md) para crear recursos de Azure Machine Learning e instalar la aplicación Azure Machine Learning Workbench antes de comenzar los pasos de este tutorial.
 
 Si lo desea, puede experimentar con la ejecución de scripts en un contenedor de Docker local. Para ello, necesita que haya un motor Docker (es suficiente Community Edition) instalado y que se haya iniciado localmente en una máquina Mac OS o Windows. Para más información acerca de cómo instalar Docker, consulte [las instrucciones de instalación de Docker](https://docs.docker.com/engine/installation/).
@@ -373,7 +373,7 @@ También puede ejecutar este script en un clúster de HDInsight Spark. Aprenda a
    >Al realizar una ejecución en un clúster de HDInsight remoto, también puede ver los detalles de ejecución del trabajo YARN (Yet Another Resource Negotiator) en `https://<cluster_name>.azurehdinsight.net/yarnui` mediante la cuenta de usuario `admin`.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En esta segunda parte de la serie de tutoriales de tres partes, ha aprendido a usar Azure Machine Learning Services para:
 > [!div class="checklist"]
 > * Usar Azure Machine Learning Workbench.

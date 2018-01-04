@@ -28,8 +28,8 @@ Actualmente, muchos de los escenarios en [Microsoft Cloud Germany](https://www.m
 
 * Las direcciones URL siguientes deben estar abiertas en un servidor proxy para que tenga lugar correctamente la sincronización:
   
-  * *. microsoftonline.de
-  * *.windows.net
+  * * .microsoftonline.de
+  * * .windows.net
   * * Listas de revocación de certificados
 * Al iniciar sesión en el directorio de Azure AD tiene que usar una cuenta en el dominio onmicrosoft.de.
 * No están disponibles las características siguientes:

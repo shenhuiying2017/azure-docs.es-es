@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -159,7 +159,7 @@ Para más información, consulte [Configuración de aplicaciones web en Azure Ap
 
 ## <a name="why-does-my-request-time-out-after-240-seconds"></a>¿Por qué se agota el tiempo de espera de la solicitud después de 240 segundos?
 
-Azure Load Balancer tiene un valor de tiempo de expiración de inactividad predeterminado de cuatro minutos. Por lo general, suele ser un límite de tiempo de respuesta razonable para una solicitud web. Si la aplicación web requiere un procesamiento en segundo plano, se recomienda el uso de WebJobs de Azure. La aplicación web de Azure puede llamar a WebJobs y se recibirá una notificación cuando haya finalizado el procesamiento en segundo plano. Puede elegir entre varios métodos para usar WebJobs, incluidos las colas y los desencadenadores.
+Azure Load Balancer tiene un valor de tiempo de expiración de inactividad predeterminado de cuatro minutos. Por lo general, suele ser un límite de tiempo de respuesta razonable para una solicitud web. Si la aplicación web requiere un procesamiento en segundo plano, se recomienda el uso de Azure WebJobs. La aplicación web de Azure puede llamar a WebJobs y se recibirá una notificación cuando haya finalizado el procesamiento en segundo plano. Puede elegir entre varios métodos para usar WebJobs, incluidos las colas y los desencadenadores.
 
 WebJobs está pensado para el procesamiento en segundo plano. Puede realizar tanto procesamiento en segundo plano como desee en un WebJob. Para más información, consulte [Ejecutar tareas en segundo plano con WebJobs](web-sites-create-web-jobs.md).
 
@@ -174,7 +174,7 @@ Este problema está corregido Kestrel versión 1.0.2. Esta versión se incluye e
 
 Si utiliza la característica de caché local de App Service, la estructura de carpetas de las carpetas de archivos de registro y datos para la instancia de App Service se verá afectada. Cuando se utiliza la memoria caché local, se crean las subcarpetas en las carpetas de datos y de archivos de registro del almacenamiento. Las subcarpetas usan el patrón de nomenclatura "identificador único" + marca de tiempo. Cada subcarpeta se corresponde con una instancia de máquina virtual en donde se ejecuta la aplicación web o se ha ejecutado.
 
-Para determinar si está utilizando la memoria caché local, compruebe la pestaña **Configuración de la aplicación** de App Service. Si se utiliza la memoria caché local, la configuración de la aplicación `WEBSITE_LOCAL_CACHE_OPTION` se establece en `Always`. 
+Para determinar si está utilizando la memoria caché local, compruebe la pestaña **Configuración de la aplicación** de App Service. Si se utiliza la memoria caché local, la configuración de la aplicación `WEBSITE_LOCAL_CACHE_OPTION` se establece en `Always`.
 
 Si no se está usando la memoria caché local y está experimentando este problema, envíe una solicitud de soporte técnico.
 

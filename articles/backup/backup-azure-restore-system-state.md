@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -89,9 +89,6 @@ La terminología usada en estos pasos incluye:
 1. Abra el complemento **Microsoft Azure Backup** en la *Máquina de destino*.
 2. Asegúrese de que tanto la *máquina de destino* como la *máquina de origen* están registradas en el mismo almacén de Recovery Services.
 3. Haga clic en **Recuperar datos** para iniciar el flujo de trabajo.
-
-    ![Recuperar datos](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Seleccione **Otro servidor**
 
     ![Otro servidor](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,9 +96,6 @@ La terminología usada en estos pasos incluye:
 5. Proporcione el archivo de credenciales de almacén que se corresponde con el *Almacén de ejemplo*. Si el archivo de credenciales de almacén no es válido (o ha expirado), descargue un nuevo archivo de credenciales de almacén desde el *Almacén de ejemplo* en Azure Portal. Después de proporcionar el archivo de credenciales del almacén, se muestra el almacén de Recovery Services asociado a dicho archivo.
 
 6. En el panel Seleccionar servidor de copia de seguridad, seleccione la *máquina de origen* en la lista de máquinas mostradas.
-
-    ![Lista de máquinas](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. En el panel Seleccionar modo de recuperación, seleccione **Estado del sistema** y, luego, haga clic en **Siguiente**. 
 
     ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
@@ -222,5 +216,5 @@ Si el proceso anterior consistente en aplicar el estado del sistema no se comple
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Ahora que ha recuperado los archivos y las carpetas, puede [administrar las copias de seguridad](backup-azure-manage-windows-server.md).

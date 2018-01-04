@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
-Un [plan de App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) proporciona los recursos que debe ejecutar una aplicación de App Service. Esta guía muestra cómo administrar un plan de App Service. 
+Un [plan de App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) proporciona los recursos que debe ejecutar una aplicación de App Service. Esta guía muestra cómo administrar un plan de App Service.
 
 ## <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
@@ -69,6 +69,8 @@ Seleccione **Cambiar plan de App Service** para iniciar el proceso.
 
 ![Selector de plan de App Service.][change]
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 Cada plan tiene su propio plan de tarifa. Por ejemplo, al mover un sitio de un plan **Gratis** a un plan **Estándar**, todas las aplicaciones asignadas puedan usar las características y los recursos del plan **Estándar**. Sin embargo, mover una aplicación de un plan de un nivel superior a un plan de un nivel inferior significa que ya no tiene acceso a determinadas características. Si la aplicación utiliza una característica que no está disponible en el plan de destino, obtendrá un error que muestra qué característica está en uso que no está disponible. Por ejemplo, si una de las aplicaciones usa certificados SSL, es posible que vea el mensaje de error: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.` En este caso, debe escalar verticalmente el plan de tarifa del plan de destino a **Básico** o superior, o debe quitar todas las conexiones SSL con la aplicación, antes de poder mover la aplicación al plan de destino.
 
 ## <a name="move-an-app-to-a-different-region"></a>Cambio de una aplicación a una región diferente
@@ -95,7 +97,7 @@ Para evitar cargos inesperados, al eliminar la última aplicación en un plan de
 > [!IMPORTANT]
 > Los **planes de App Service** que no tienen aplicaciones asociadas a ellos seguirán generando cargos, ya que siguen reservando las instancias de máquinas virtuales configuradas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Escalado vertical de aplicaciones en Azure](web-sites-scale.md)

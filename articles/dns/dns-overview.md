@@ -4,7 +4,7 @@ description: "Información general del servicio de hospedaje de DNS en Microsoft
 services: dns
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2017
+ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 890c00f3349abd52294e92d27f1b42ab38fe287a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f255fd9621ff90bfbb3ad193faa64495acf7ecd7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-dns-overview"></a>Introducción a DNS de Azure
 
@@ -40,11 +40,11 @@ DNS de Azure actualmente no admite la adquisición de nombres de dominio. Si des
 
 La facturación de Azure se basa en el número de zonas DNS hospedadas en Azure y en el número de consultas DNS. Para más información sobre precios, visite [DNS de Azure Precios](https://azure.microsoft.com/pricing/details/dns/).
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 Para ver las preguntas más frecuentes sobre DNS de Azure, vea [Azure DNS FAQ (P+F de DNS de Azure)](dns-faq.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Visite [Información general sobre zonas y registros de DNS](dns-zones-records.md) para obtener más información sobre zonas y registros DNS.
 

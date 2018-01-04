@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 05/10/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: bdb68c4e68f6868c596d8e8410b94223cc5e535a
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: ¿cómo realizar consultas con la API para MongoDB?
 
@@ -302,7 +302,7 @@ La consulta siguiente devuelve todas las familias en las que el valor de tamaño
 
 No se devolverá ningún resultado, ya que no tenemos más de dos elementos secundarios. Solo si el parámetro es 2, esta consulta se realizará correctamente y devolverá el documento completo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha hecho lo siguiente:
 
@@ -312,5 +312,5 @@ En este tutorial, ha hecho lo siguiente:
 Ahora puede continuar con el tutorial siguiente para obtener información sobre cómo distribuir sus datos globalmente.
 
 > [!div class="nextstepaction"]
-> [Distribución de datos global](tutorial-global-distribution-documentdb.md)
+> [Distribución de datos global](tutorial-global-distribution-sql-api.md)
 

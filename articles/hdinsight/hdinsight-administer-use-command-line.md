@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 093042da6f7d51cec3111f073da0ce3a66f2cddc
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 491dbd157255dc4fa7f77178f9486959ba4847a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -29,7 +29,7 @@ Aprenda a usar la [interfaz de la línea de comandos de Azure](../cli-install-no
 
 Este artículo solo trata del uso de la CLI de Azure con HDInsight. Para obtener información general sobre cómo usar la CLI de Azure CLI, consulte [Instalación y configuración de la CLI de Azure][azure-command-line-tools].
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -47,7 +47,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
     azure config mode arm
     ```
 
-Para obtener ayuda, use el modificador **-h** .  Por ejemplo:
+Para obtener ayuda, use el modificador **-h** .  Por ejemplo: 
 
 ```cli
 azure hdinsight cluster create -h
@@ -101,7 +101,7 @@ azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName>
 azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal]

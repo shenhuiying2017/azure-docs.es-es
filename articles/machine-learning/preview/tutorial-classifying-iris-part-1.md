@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Parte 1 de la clasificación de Iris: preparación de los datos
 Azure Machine Learning Services (versión preliminar) es una solución de análisis avanzado y ciencia de datos completa e integrada que permite a los científicos de datos profesionales preparar datos, desarrollar experimentos e implementar modelos a escala de la nube.
@@ -28,7 +28,7 @@ Este tutorial es la primera parte de una serie de tres. En este tutorial, le gui
 
 Este tutorial usa el [conjunto de datos Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. Las capturas de pantalla son específicas de Windows, pero la experiencia con MacOS es casi idéntica.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 - Cree una cuenta de Experimentación de Azure Machine Learning.
 - Instale Azure Machine Learning Workbench.
 
@@ -144,7 +144,7 @@ Puede seguir las instrucciones del artículo [Guía de inicio rápido de instala
 
    Para obtener más información sobre cómo preparar los datos en Azure Machine Learning Workbench, vea la guía [Introducción a Preparación de datos](data-prep-getting-started.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En esta primera parte de la serie de tutoriales de tres partes, ha usado Azure Machine Learning Workbench para:
 > [!div class="checklist"]
 > * Crear un nuevo proyecto. 

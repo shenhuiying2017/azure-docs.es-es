@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicación de una aplicación de HDInsight en Azure Marketplace
 Puede instalar una aplicación de Azure HDInsight en un clúster de HDInsight basado en Linux. En este artículo, aprenderá a publicar una aplicación de HDInsight en Azure Marketplace. Para obtener información general sobre cómo publicar en Azure Marketplace, consulte [Publicación de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -32,7 +32,7 @@ Para más información, consulte estos artículos relacionados con la aplicació
 * [Instalación de aplicaciones de HDInsight](hdinsight-apps-install-applications.md) Aprenda a instalar una aplicación de HDInsight en sus clústeres.
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) Aprenda a instalar y probar aplicaciones de HDInsight personalizadas.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para enviar la aplicación personalizada a Marketplace, primero [cree y pruebe su aplicación personalizada](hdinsight-apps-install-custom-applications.md).
 
 También debe registrar la cuenta de desarrollador. Para más información, consulte [Publicación de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) y [Crear una cuenta de desarrollador de Microsoft](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
@@ -51,7 +51,7 @@ La publicación de aplicaciones en Marketplace consta de dos pasos. En primer lu
 }
 ```
 
-| Campo | Description | Valores posibles |
+| Campo | DESCRIPCIÓN | Valores posibles |
 | --- | --- | --- |
 | types |Los tipos de clúster con los que es compatible la aplicación. |Hadoop, HBase, Storm y Spark (o cualquier combinación de estos) |
 | versions |Los tipos de clúster de HDInsight con los que es compatible la aplicación. |3.4 |
@@ -104,7 +104,7 @@ Para publicar una aplicación de HDInsight:
 8. Cargue el archivo .zip que creó cuando [empaquetó la aplicación](#package-application).  
 9. Seleccione **Request Certification** ///(Solicitar certificación). El equipo de certificación de Microsoft revisa los archivos y certifica la topología.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Aprenda a [instalar aplicaciones de HDInsight](hdinsight-apps-install-applications.md) en sus clústeres.
 * Aprenda a [instalar aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md) y a implementar una aplicación de HDInsight sin publicar en HDInsight.
 * Aprenda a [usar acciones de script para personalizar clústeres de HDInsight basados en Linux](hdinsight-hadoop-customize-cluster-linux.md) y a agregar más aplicaciones. 

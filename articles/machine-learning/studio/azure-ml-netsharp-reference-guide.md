@@ -11,16 +11,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: reference
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e68e9b4e6432d14c403e3532b934bfad58b35b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net#  para el Aprendizaje automático de Azure
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net#  para Azure Machine Learning
 ## <a name="overview"></a>Información general
 Net# es un lenguaje desarrollado por Microsoft que se utiliza para definir las arquitecturas de red neuronal. Puede usar Net# en módulos de red neuronal de Microsoft Azure Machine Learning.
 
@@ -56,7 +56,7 @@ Además, Net# admite los siguientes cuatro tipos de conjuntos de conexiones avan
 El uso de Net# para definir la estructura de una red neuronal posibilita la definición de estructuras complejas como redes neuronales profundas o convoluciones de dimensiones arbitrarias, que se sabe que mejoran el aprendizaje en datos tales como imágenes, audio o vídeo.  
 
 ## <a name="supported-customizations"></a>Personalizaciones compatibles
-La arquitectura de los modelos de red neuronal que cree en Aprendizaje automático de Azure se pueden personalizar ampliamente mediante el uso de Net#. Puede:  
+La arquitectura de los modelos de red neuronal que cree en Azure Machine Learning se pueden personalizar ampliamente mediante el uso de Net#. Puede:  
 
 * Crear capas ocultas y controlar el número de nodos de cada capa.
 * Especificar cómo se van a conectar las capas entre ellas.
@@ -86,16 +86,16 @@ Por ejemplo, la siguiente instrucción define una constante **x**:
 
     Const X = 28;  
 
-Para definir simultáneamente dos o más constantes, escriba los valores y nombres del identificador entre llaves y sepárelos con punto y coma. Por ejemplo:  
+Para definir simultáneamente dos o más constantes, escriba los valores y nombres del identificador entre llaves y sepárelos con punto y coma. Por ejemplo:   
 
     Const { X = 28; Y = 4; }  
 
-La parte derecha de cada expresión de asignación puede ser un entero, un número real, un valor booleano (verdadero/falso) o una expresión matemática. Por ejemplo:  
+La parte derecha de cada expresión de asignación puede ser un entero, un número real, un valor booleano (verdadero/falso) o una expresión matemática. Por ejemplo:   
 
     Const { X = 17 * 2; Y = true; }  
 
 ## <a name="layer-declaration"></a>Declaración de capas
-La declaración de capa es obligatoria. Define el tamaño y el origen de la capa, incluidos sus atributos y agrupaciones de conexión. La instrucción de la declaración empieza por el nombre de la capa (de entrada, oculta o de salida) seguida por las dimensiones de la capa (una tupla de enteros positivos). Por ejemplo:  
+La declaración de capa es obligatoria. Define el tamaño y el origen de la capa, incluidos sus atributos y agrupaciones de conexión. La instrucción de la declaración empieza por el nombre de la capa (de entrada, oculta o de salida) seguida por las dimensiones de la capa (una tupla de enteros positivos). Por ejemplo:   
 
     input Data auto;
     hidden Hidden[5,20] from Data all;
@@ -411,7 +411,7 @@ La definición de la siguiente red está diseñada para reconocer los números y
 * Dado que **Sharing**[d] es False solo para *d == 0*, el número de kernels será ***MapCount** * **NodeCount**\[0] = 10 * 5 = 50*. 
 
 ## <a name="acknowledgements"></a>Agradecimientos
-El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue desarrollado en Microsoft por Shon Katzenberger (arquitecto, aprendizaje automático) y Alexey Kamenev (ingeniero de software, Microsoft Research). Se usa internamente para proyectos y aplicaciones de aprendizaje automático que abarcan desde la detección de imágenes para el análisis de texto. Para más información, consulte [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Redes neuronales en Azure ML: Introducción a Net#)
+El lenguaje de Net# para personalizar la arquitectura de redes neuronales fue desarrollado en Microsoft por Shon Katzenberger (arquitecto, Machine Learning) y Alexey Kamenev (ingeniero de software, Microsoft Research). Se usa internamente para proyectos y aplicaciones de aprendizaje automático que abarcan desde la detección de imágenes para el análisis de texto. Para más información, consulte [Neural Nets in Azure ML - Introduction to Net#](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Redes neuronales en Azure ML: Introducción a Net#)
 
 [1]:./media/azure-ml-netsharp-reference-guide/formula_large.gif
 

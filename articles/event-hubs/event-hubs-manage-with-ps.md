@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Uso de PowerShell para administrar recursos de Event Hubs
 
@@ -26,7 +26,7 @@ Microsoft Azure PowerShell es un entorno de scripting que puede usar para contro
 
 También puede administrar los recursos de Event Hubs mediante plantillas de Azure Resource Manager. Para más información, consulte el artículo [Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de comenzar, necesitará lo siguiente:
 
@@ -34,7 +34,7 @@ Antes de comenzar, necesitará lo siguiente:
 * Un equipo con Azure PowerShell. Para obtener instrucciones, consulte [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/get-started-azureps).
 * Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 El primer paso es usar PowerShell para iniciar sesión en su cuenta de Azure y su suscripción de Azure. Siga las instrucciones descritas en [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/get-started-azureps) para iniciar sesión en su cuenta de Azure y recuperar y tener acceso a los recursos de la suscripción.
 
@@ -103,7 +103,7 @@ else
 
 ### <a name="create-a-consumer-group"></a>Creación de un grupo de consumidores
 
-Para crear un grupo de consumidores dentro de un centro de eventos, realice las comprobaciones de espacio de nombres y centro de eventos mediante los scripts de la sección anterior. A continuación, use el cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) para crear el grupo de consumidores en el centro de eventos. Por ejemplo:
+Para crear un grupo de consumidores dentro de un centro de eventos, realice las comprobaciones de espacio de nombres y centro de eventos mediante los scripts de la sección anterior. A continuación, use el cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) para crear el grupo de consumidores en el centro de eventos. Por ejemplo: 
 
 ```powershell
 # Check if consumer group already exists
@@ -148,7 +148,7 @@ Remove-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace 
 Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $Namespace
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Consulte la documentación completa del módulo de PowerShell de Resource Manager de Event Hubs [aquí](/powershell/module/azurerm.eventhub). Esta página enumera todos los cmdlets disponibles.
 - Para más información sobre el uso de plantillas de Azure Resource Manager, consulte el artículo [Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).

@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 57f461f9a39e8069654985d86bfe3ae23dd0855a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614f4422aa987fc32dcce62826bb2477473fdc32
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="expand-json-transformation"></a>Transformación Expandir JSON
 La transformación **Expandir JSON** permite que los usuarios expandan a varias columnas una columna existente que contiene un texto JSON válido.
@@ -25,7 +25,7 @@ La transformación **Expandir JSON** permite que los usuarios expandan a varias 
 Siga estos pasos para llevar a cabo esta transformación:
 1. Seleccione la columna de origen que contiene el texto JSON.
 2. Seleccione **Expand JSON** (Expandir JSON) en el menú **Transforms** (Transformaciones). También puede hacer clic con el botón derecho en el encabezado de la columna de origen y seleccionar **Expand JSON** (Expandir JSON) en el menú contextual. 
-3. Haga clic en **Aceptar**. 
+3. Haga clic en **OK**. 
  
 Junto a la columna de origen se agregan nuevas columnas. Estas columnas contienen propiedades del siguiente nivel de jerarquía del texto JSON. "Property Key" (Clave de propiedad), si aparece, se usa para crear el nombre de la columna correspondiente. Las propiedades anidadas se conservan como texto JSON que el usuario puede expandir o descartar de forma iterativa según sus necesidades.
 

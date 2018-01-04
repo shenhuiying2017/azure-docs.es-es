@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Introducción a los planes de Azure App Service
 
-En App Service, cada aplicación se ejecuta en un _plan de App Service_. Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. Estos recursos de proceso son análogos a la [_granja de servidores_](https://wikipedia.org/wiki/Server_farm) de un hospedaje web convencional. Pueden configurarse una o varias aplicaciones para que se ejecuten en los mismos recursos informáticos (o en el mismo plan de App Service). 
+En App Service, cada aplicación se ejecuta en un _plan de App Service_. Un plan de App Service define un conjunto de recursos de proceso para que una aplicación web se ejecute. Estos recursos de proceso son análogos a la [_granja de servidores_](https://wikipedia.org/wiki/Server_farm) de un hospedaje web convencional. Pueden configurarse una o varias aplicaciones para que se ejecuten en los mismos recursos informáticos (o en el mismo plan de App Service).
 
 Cuando se crea un plan de App Service en una región determinada (por ejemplo, Europa Occidental), se crea un conjunto de recursos de proceso para ese plan en dicha región. Todas las aplicaciones que coloque en este plan de App Service se ejecutan en estos recursos de proceso según lo definido por el plan de App Service. Cada plan de App Service define:
 
@@ -38,6 +38,8 @@ El _plan de tarifa_ de un plan de App Service determina qué características de
 - **Cálculo dedicado**: los planes **Básico**, **Estándar**, **Premium** y **PremiumV2** ejecutan aplicaciones en VM de Azure dedicadas. Solo las aplicaciones del mismo plan de App Service comparten los mismos recursos de proceso. Cuanto mayor sea el plan, más instancias de VM estarán disponibles para la escalabilidad horizontal.
 - **Aislado**: este plan ejecuta VM de Azure dedicadas en instancias dedicadas de Azure Virtual Network, lo que proporciona aislamiento de red, además de aislamiento de proceso, a las aplicaciones. Proporciona las máximas posibilidades de escalabilidad horizontal.
 - **Consumo**: este plan solo está disponible para [aplicaciones de función](../azure-functions/functions-overview.md). Escala las funciones de manera dinámica según la carga de trabajo. Para obtener más información, consulte [Comparación de los planes de hospedaje de Azure Functions](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Además, cada plan proporciona un subconjunto específico de características de App Service. Estas características incluyen dominios personalizados y certificados SSL, escalado automático, ranuras de implementación, copias de seguridad, integración de Traffic Manager y mucho más. Cuanto mayor sea el plan, más características estarán disponibles. Para averiguar qué características se admiten en cada plan de tarifa, consulte los [detalles del plan de App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

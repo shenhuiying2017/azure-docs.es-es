@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelado de datos del documento para bases de datos NoSQL
 Mientras que las bases de datos libres de esquemas, como Azure Cosmos DB, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos. 
@@ -39,7 +39,7 @@ Al comenzar a modelar datos en un almacén de documentos, como Azure Cosmos DB, 
 
 Antes de adentrarnos demasiado, nos gustaría volver a realizar algunos pasos y echar un vistazo a cómo podríamos modelar algo en una base de datos relacional, un asunto con el que muchos de nosotros ya estamos familiarizados. En el ejemplo siguiente se muestra puede almacenarse una persona en una base de datos relacional. 
 
-![Modelo de base de datos relacional](./media/documentdb-modeling-data/relational-data-model.png)
+![Modelo de base de datos relacional](./media/sql-api-modeling-data/relational-data-model.png)
 
 Al trabajar con bases de datos relacionales, hemos aprendido durante años a normalizar constantemente.
 
@@ -290,7 +290,7 @@ En el ejemplo anterior, hemos eliminado la colección ilimitada en el documento 
 ### <a name="how-do-i-model-manymany-relationships"></a>¿Cómo se puede modelar las relaciones de varios a varios?
 En una base de datos relacional, las relaciones *varios a varios* modelan con frecuencia con tablas de unión, que simplemente unen registros de otras tablas. 
 
-![Combinar tablas](./media/documentdb-modeling-data/join-table.png)
+![Combinar tablas](./media/sql-api-modeling-data/join-table.png)
 
 Podría verse tentado a replicar lo mismo con documentos y producir un modelo de datos que tenga un aspecto similar al siguiente.
 
@@ -395,4 +395,4 @@ Como no hay ninguna manera única de representar un elemento de datos en una pan
 
 Para más información sobre Azure Cosmos DB, consulte la página de [documentación](https://azure.microsoft.com/documentation/services/cosmos-db/) del servicio. 
 
-Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en Azure Cosmos DB](documentdb-partition-data.md). 
+Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en Azure Cosmos DB](sql-api-partition-data.md). 

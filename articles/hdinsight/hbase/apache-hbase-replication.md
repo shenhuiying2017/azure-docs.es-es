@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/09/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 6d7c2eaf139ddbff46a2fba99bdf5515f64be40c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clúster de HBase en redes virtuales de Azure
 
@@ -43,7 +43,7 @@ Los siguientes son casos de uso de replicación de HBase para dos redes virtuale
 
 Puede replicar clústeres mediante scripts de [acción de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles en [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configuración de los entornos
@@ -79,7 +79,7 @@ La replicación de HBase utiliza direcciones IP de las máquinas virtuales ZooKe
 
 **Para configurar las direcciones IP estáticas**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En el menú de la izquierda, seleccione **Grupos de recursos**.
 3. Seleccione el grupo de recursos que tiene el clúster de HBase de destino. Este es el grupo de recursos que especificó al usar la plantilla de Resource Manager para crear el entorno. Puede usar el filtro para restringir la lista. Puede ver una lista de recursos que contienen las dos redes virtuales.
 4. Seleccione la red virtual que contiene el clúster de HBase de destino. Por ejemplo, seleccione **xxxx-vnet2**. En la lista aparecen tres dispositivos que comienzan con **nic-zookeepermode-**. Estos dispositivos son las tres máquinas virtuales ZooKeeper.
@@ -106,7 +106,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 | Propiedad | Valor |
 |----------|-------|
-| Ubicación | Oeste de EE. UU. |
+| La ubicación | Oeste de EE. UU |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet1 |
 | Prefijo del espacio de direcciones | 10.1.0.0/16 |
 | Nombre de subred | subred 1 |
@@ -128,7 +128,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 | Propiedad | Valor |
 |----------|-------|
-| Ubicación | Este de EE. UU. |
+| La ubicación | Este de EE. UU |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet2 |
 | Prefijo del espacio de direcciones | 10.2.0.0/16 |
 | Nombre de subred | subred 1 |
@@ -161,7 +161,7 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 
 **Para habilitar la replicación de HBase desde Azure Portal**
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Abra el clúster de HBase de origen.
 3. En el menú de clúster, seleccione **Acciones de script**.
 4. En la parte superior de la página, seleccione **Enviar nuevo**.
@@ -182,7 +182,7 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 
 Argumentos necesarios:
 
-|Nombre|Descripción|
+|NOMBRE|DESCRIPCIÓN|
 |----|-----------|
 |-s, --src-cluster | Especifica el nombre DNS del clúster de HBase de origen. Por ejemplo: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Especifica el nombre DNS del clúster de HBase de destino (réplica). Por ejemplo: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ Argumentos necesarios:
 
 Argumentos opcionales:
 
-|Nombre|Descripción|
+|NOMBRE|DESCRIPCIÓN|
 |----|-----------|
 |-su, --src-ambari-user | Especifica el nombre de usuario de administrador de Ambari en el clúster de HBase de origen. El valor predeterminado es **admin**. |
 |-du, --dst-ambari-user | Especifica el nombre de usuario de administrador de Ambari en el clúster de HBase de destino. El valor predeterminado es **admin**. |
@@ -276,7 +276,7 @@ La sección `print_usage()` del [script](https://raw.githubusercontent.com/Azure
 
         -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, aprendió a configurar la replicación de HBase en una red virtual, o entre dos redes virtuales. Para más información sobre HDInsight y HBase, consulte estos artículos:
 

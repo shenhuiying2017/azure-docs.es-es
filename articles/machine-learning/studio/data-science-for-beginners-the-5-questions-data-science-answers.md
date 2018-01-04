@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 47257bdb054b069c864ebf545b0c00bdfb05a9ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en realizar ciencia de datos o trabajar con científicos de datos.
 
-Este primer vídeo trata de los tipos de preguntas que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Vaya a la lista de vídeos](#other-videos-in-this-series)
+Este primer vídeo trata de los tipos de preguntas que puede responder la ciencia de datos. Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
@@ -70,7 +70,7 @@ Esta familia de algoritmos se llama clasificación de dos clases.
 
 Es útil para cualquier pregunta que solo tenga dos respuestas posibles.
 
-Por ejemplo:
+Por ejemplo: 
 
 * Se romperá este neumático en las próximas 1000 millas ¿sí o no?
 * Qué aporta más clientes ¿un cupón de 5 USD o un descuento del 25 %?
@@ -138,6 +138,6 @@ Los algoritmos de aprendizaje reforzado recopilan datos a medida que avanzan, ap
 
 Eso es todo: las cinco preguntas a las que puede responder la ciencia de datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)
-* [Introducción a Aprendizaje automático en Microsoft Azure](what-is-machine-learning.md)
+* [Introducción a Machine Learning en Microsoft Azure](what-is-machine-learning.md)

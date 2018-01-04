@@ -3,8 +3,8 @@ title: "Información general sobre registros y zonas DNS - Azure DNS | Microsoft
 description: "Información general de soporte técnico para hospedar registros y zonas DNS en DNS de Microsoft Azure."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-ms.author: jonatul
-ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -132,7 +132,7 @@ En el nivel de la API de REST de DNS de Azure, los valores de Etag se especifica
 
 | Encabezado | Comportamiento |
 | --- | --- |
-| Ninguna |PUT siempre se realiza correctamente (sin comprobaciones de ETag) |
+| None |PUT siempre se realiza correctamente (sin comprobaciones de ETag) |
 | If-match <etag> |PUT solo se realiza correctamente si el recurso existe y ETag coincide |
 | If-match * |PUT solo se realiza correctamente si el recurso existe |
 | If-none-match * |PUT solo se realiza correctamente si el recurso no existe |
@@ -144,7 +144,7 @@ Se aplican los límites predeterminados siguientes cuando se usa DNS de Azure:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para empezar a usar DNS de Azure, vea cómo [crear una zona DNS](dns-getstarted-create-dnszone-portal.md) y [crear registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar una zona DNS existente, vea cómo [importar y exportar un archivo de zona DNS](dns-import-export.md).

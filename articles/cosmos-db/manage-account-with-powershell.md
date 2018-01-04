@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Creación de una cuenta de Azure Cosmos DB mediante PowerShell
 
-En la guía siguiente, se describen los comandos para automatizar la administración de las cuentas de base de datos de Azure Cosmos DB mediante Azure Powershell. También incluye comandos para administrar las claves de cuenta y las prioridades de conmutación por error de las [cuentas de base de datos de varias regiones][scaling-globally]. La actualización de la cuenta de base de datos le permite agregar o quitar regiones y modificar las directivas de coherencia. Para la administración entre plataformas de su cuenta de base de datos de Azure Cosmos DB, puede usar la [CLI de Azure](cli-samples.md), la [API de REST de proveedor de recursos][rp-rest-api] o [Azure Portal](create-documentdb-dotnet.md#create-account).
+En la guía siguiente, se describen los comandos para automatizar la administración de las cuentas de base de datos de Azure Cosmos DB mediante Azure Powershell. También incluye comandos para administrar las claves de cuenta y las prioridades de conmutación por error de las [cuentas de base de datos de varias regiones][scaling-globally]. La actualización de la cuenta de base de datos le permite agregar o quitar regiones y modificar las directivas de coherencia. Para la administración entre plataformas de su cuenta de base de datos de Azure Cosmos DB, puede usar la [CLI de Azure](cli-samples.md), la [API de REST de proveedor de recursos][rp-rest-api] o [Azure Portal](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Introducción
 
@@ -192,10 +192,9 @@ Ejemplo:
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-* Para conectarse con .NET, consulte [Conexión y consultas con .NET](create-documentdb-dotnet.md).
-* Para conectarse con .NET Core, consulte [Conexión y consultas con .NET Core](create-documentdb-dotnet-core.md).
+* Para conectarse con .NET, consulte [Conexión y consultas con .NET](create-sql-api-dotnet.md).
 * Para conectarse con Node.js, consulte [Conexión y consultas con Node.js y una aplicación de MongoDB](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

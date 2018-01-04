@@ -9,17 +9,17 @@ editor:
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.custom: oms-security
-ms.topic: get-started-article
+ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.openlocfilehash: eb5283c8f32fddaa8a20a565e4b877821de979a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9772e4c1022cf8609e52ccfe16376959b67e92eb
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introducción a la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a empezar a trabajar rápidamente con las funcionalidades de la solución Seguridad y auditoría de Operations Management Suite (OMS) al guiarle a través de cada opción.
@@ -193,7 +193,7 @@ La lista de consultas comunes de seguridad disponible puede ser útil para obten
 * Actividad de inicio de sesión por cuenta
 * Cuentas que se registraron remotamente en el equipo "computer01.contoso.com" (sustituya por su propio nombre de equipo)
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 En este documento, se presentó la solución Seguridad y auditoría de OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
 
 * [Información general de Operations Management Suite (OMS)](operations-management-suite-overview.md)

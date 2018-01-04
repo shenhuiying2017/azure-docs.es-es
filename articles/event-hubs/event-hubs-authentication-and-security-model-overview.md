@@ -1,6 +1,6 @@
 ---
 title: "Introducción al modelo de autenticación y seguridad de Event Hubs de Azure | Microsoft Docs"
-description: "Introducción al modelo de autenticación y seguridad de Centros de eventos"
+description: "Introducción al modelo de autenticación y seguridad de Event Hubs"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/20/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="event-hubs-authentication-and-security-model-overview"></a>Introducción al modelo de autenticación y seguridad de los Centros de eventos
+# <a name="event-hubs-authentication-and-security-model-overview"></a>Introducción al modelo de autenticación y seguridad de Event Hubs
 
 El modelo de seguridad de Azure Event Hubs cumple los siguientes requisitos:
 
@@ -100,15 +100,15 @@ Si un atacante roba un token, el atacante puede suplantar el cliente al que se h
 
 ## <a name="authentication-of-back-end-applications"></a>Autenticación de aplicaciones de back-end
 
-Para autenticar aplicaciones de back-end que consumen los datos que generan los clientes de Event Hubs, Event Hubs emplea un modelo de seguridad similar al que se usa en los temas de Service Bus. Un grupo de consumidores de Centros de eventos equivale a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para ello viene acompañada de un token que concede privilegios de administración para el centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que conceda derechos de recepción en ese grupo de consumidores, centro de eventos o espacio de nombres al que pertenece el centro de eventos.
+Para autenticar aplicaciones de back-end que consumen los datos que generan los clientes de Event Hubs, Event Hubs emplea un modelo de seguridad similar al que se usa en los temas de Service Bus. Un grupo de consumidores de Event Hubs equivale a una suscripción a un tema de Service Bus. Un cliente puede crear un grupo de consumidores si la solicitud para ello viene acompañada de un token que concede privilegios de administración para el centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que conceda derechos de recepción en ese grupo de consumidores, centro de eventos o espacio de nombres al que pertenece el centro de eventos.
 
-La versión actual de Bus de servicio no admite reglas SAS para suscripciones individuales. Lo mismo sucede con los grupos de consumidores de los Centros de eventos. La compatibilidad con SAS se agregará para ambas características en el futuro.
+La versión actual de Service Bus no admite reglas SAS para suscripciones individuales. Lo mismo sucede con los grupos de consumidores de Event Hubs. La compatibilidad con SAS se agregará para ambas características en el futuro.
 
 En ausencia de autenticación SAS para grupos de consumidores individuales, puede usar claves SAS para proteger todos los grupos de consumidores con una clave común. Este enfoque permite que una aplicación consuma datos desde cualquiera de los grupos de consumidores de un centro de eventos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Para más información sobre Centros de eventos, visite los siguientes temas:
+Para más información sobre Event Hubs, visite los siguientes temas:
 
 * [Información general de Event Hubs]
 * [Información general sobre las firmas de acceso compartido]

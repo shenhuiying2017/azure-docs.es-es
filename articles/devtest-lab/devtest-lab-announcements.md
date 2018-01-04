@@ -3,7 +3,7 @@ title: "Publicación de un anuncio en un laboratorio de Azure DevTest Labs | Mic
 description: Aprenda a agregar un anuncio a un laboratorio de Azure DevTest Labs
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 67a09946-4584-425e-a94c-abe57c9cbb82
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: tarcher
-ms.openlocfilehash: db92caa497b3db6b3e05e59e169111cedc3c71c6
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: v-craic
+ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicación de un anuncio en un laboratorio de Azure DevTest Labs
 
@@ -34,7 +34,7 @@ La característica de anuncios está pensada para usarla para notificaciones tem
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Pasos para publicar un anuncio en un laboratorio existente
 
-1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sesión en el [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista. (Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**).
 1. En la lista de laboratorios, seleccione aquel en el que desea publicar un anuncio.  
 1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.  
@@ -74,6 +74,6 @@ Cuando ya no quiera mostrar este anuncio a los usuarios del laboratorio, vuelva 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Si cambia o establece una directiva de laboratorio, puede que quiera publicar un anuncio para informar a los usuarios. [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md) proporciona información acerca de cómo aplicar restricciones y convenciones en la suscripción mediante el uso de directivas personalizadas.
 * Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

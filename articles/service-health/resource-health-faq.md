@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -80,8 +80,6 @@ Resource Health está disponible en todas las geoáreas de Azure, excepto en las
 - Departamento de Defensa de EE. UU. Centro
 - Centro de Alemania
 - Noreste de Alemania
-- Este de China
-- Norte de China
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>¿Qué diferencia hay entre Resource Health y el panel de estado del servicio o las notificaciones del servicio Azure Portal?
 La información que Resource Health proporciona es más específica que la que proporciona el panel de estado del servicio de Azure.
@@ -102,7 +100,7 @@ Sí.  Azure Resource Health es gratuito.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>¿Qué recomendaciones proporciona Resource Health?
 Según el estado, Resource Health proporciona recomendaciones con el objetivo de disminuir el tiempo dedicado a solucionar problemas. En el caso de los recursos disponibles, las recomendaciones se centran en cómo solucionar los problemas más comunes que encuentran los clientes. Si el recurso no está disponible debido a un evento no planeado de Azure, el foco estará en ayudarle durante el proceso de recuperación y después de este. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Más información sobre Resource Health:
 -  [Información general sobre Azure Resource Health](Resource-health-overview.md)

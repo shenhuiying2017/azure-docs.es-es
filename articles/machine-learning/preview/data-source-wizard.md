@@ -1,17 +1,20 @@
 ---
 title: Asistente para el origen de datos de Azure para Azure Machine Learning | Microsoft Docs
 description: "Explica el asistente para origen de datos del área de trabajo de AML"
+services: machine-learning
 author: cforbe
 ms.author: cforbe
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ff0159facd693b83230c731eb7e76f0a9495fdf2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-source-wizard"></a>Asistente para origen de datos #
 

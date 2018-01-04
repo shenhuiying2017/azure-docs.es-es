@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 13a61caf9b4dff8ffc08970d5a4c09efa9c5f117
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar un nombre de dominio personalizado para Azure Web Apps
 
@@ -26,7 +26,7 @@ Los dominios de App Service (versión preliminar) son dominios de nivel superior
 
 Este artículo trata sobre Azure App Service (Web Apps, API Apps, Mobile Apps y Logic Apps). Para Azure Virtual Machines o Azure Storage, vea [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Asignación del dominio de App Service a Azure Virtual Machines o Azure Storage). Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -34,6 +34,8 @@ Para completar este tutorial:
 * [Elimine el límite de gasto en mi suscripción](../billing/billing-spending-limit.md#remove). No puede comprar dominios de App Service con créditos de una suscripción gratuita.
 
 ## <a name="prepare-the-app"></a>Preparación de la aplicación
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Para usar dominios personalizados en Azure Web Apps, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de la aplicación web debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). En este paso, asegúrese de que la aplicación web se encuentra en el plan de tarifa admitido.
 
@@ -109,7 +111,7 @@ Es importante que rellene todos los campos obligatorios con la mayor precisión 
 
 A continuación, seleccione las opciones que quiera para el dominio. Para obtener explicaciones, vea la tabla siguiente:
 
-| Configuración | Valor sugerido | Descripción |
+| Configuración | Valor sugerido | DESCRIPCIÓN |
 |-|-|-|
 |Protección de la privacidad | Habilitar | Utilice la "Protección de la privacidad", que se incluye _gratis_ en el precio de compra. Algunos dominios de primer nivel los administran registradores que no admiten la protección de la privacidad, y estos se indican en la página **Protección de la privacidad**. |
 | Asignar nombres de host predeterminados | **www** y **@** | Seleccione los enlaces de nombre de host deseados, si quiere. Una vez completada la operación de compra de dominio, puede tener acceso a la aplicación web en los nombres de host seleccionados. Si la aplicación web está detrás de [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), no verá la opción para asignar el dominio raíz (@), ya que Traffic Manager no admite registros A. Puede realizar cambios en las asignaciones de nombre de host una vez completada la compra del dominio. |
@@ -167,7 +169,7 @@ Asegúrese de que el dominio comprado aparece en la sección **Dominios de App S
 Seleccione **Agregar nombre de host**.
 
 ### <a name="configure-hostname"></a>Configurar el nombre de host
-En el cuadro de diálogo **Agregar nombre de host**, escriba el nombre de dominio completo de su dominio de App Service o cualquier subdominio. Por ejemplo:
+En el cuadro de diálogo **Agregar nombre de host**, escriba el nombre de dominio completo de su dominio de App Service o cualquier subdominio. Por ejemplo: 
 
 - kontoso.net
 - www.kontoso.net

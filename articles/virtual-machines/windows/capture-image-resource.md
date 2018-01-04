@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: cynthn
-ms.openlocfilehash: a7e94fe2cd2db398ab2afa9a6492cea144071114
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 172ad5198f7c813ed114f9fe3caea3d6a5dc6a97
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -41,7 +41,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, después, ejecute `sysprep.exe`.
 3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está activada.
 4. En **Opciones de apagado**, seleccione **Apagar**.
-5. Haga clic en **Aceptar**.
+5. Haga clic en **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Cuando Sysprep finaliza, apaga la máquina virtual. No reinicie la VM.
@@ -127,7 +127,7 @@ Si solo desea crear una imagen del disco del sistema operativo, también puede c
 2. Obtenga la máquina virtual.
 
    ```azurepowershell-interactive
-   $vm = Get-AzureRmVm -Name myVM -ResourceGroupName $rgName
+   $vm = Get-AzureRmVm -Name $vmName -ResourceGroupName $rgName
    ```
 
 3. Obtenga el id. del disco administrado.
@@ -217,6 +217,6 @@ Cree una imagen administrada a partir de un VHD del sistema operativo generaliza
     ```
 
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Ahora puede [crear una VM a partir de la imagen administrada generalizada](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 

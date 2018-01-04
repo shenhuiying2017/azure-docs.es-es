@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo. 
@@ -25,7 +25,7 @@ Este artículo complementa el artículo de integración principal Azure Data Fac
 ## <a name="overview"></a>Información general
 Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predicativo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles.
 
-Los modelos que crea mediante Aprendizaje automático no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. Consulte [Volver a entrenar un modelo de Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) para más información acerca de cómo volver a entrenar un modelo en Azure Machine Learning. 
+Los modelos que crea mediante Machine Learning no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. Consulte [Volver a entrenar un modelo de Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) para más información acerca de cómo volver a entrenar un modelo en Azure Machine Learning. 
 
 El reentrenamiento puede producirse con frecuencia. Con la actividad de ejecución por lotes y la actividad de actualización de recurso, puede operacionalizar el modelo de Azure Machine Learning volviendo a entrenar y actualizar el servicio web predictivo con Data Factory. 
 
@@ -60,11 +60,11 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 
 
 
-| Propiedad                      | Descripción                              | Obligatorio |
+| Propiedad                      | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nombre de la actividad en la canalización     | Sí      |
-| Descripción                   | Texto que describe para qué se usa la actividad.  | No       |
-| type                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | Sí      |
+| Nombre                          | Nombre de la actividad en la canalización     | Sí      |
+| Descripción                   | Texto que describe para qué se usa la actividad.  | Sin        |
+| Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | Sí      |
 | linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | Sí      |
 | trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | Sí      |
 | trainedModelLinkedServiceName | Nombre del servicio vinculado de Azure Storage que contiene el archivo ilearner cargado por la operación de actualización | Sí      |
@@ -86,33 +86,6 @@ Para que funcione el flujo de trabajo de un extremo a otro mencionado anteriorme
 2. Un servicio vinculado de Azure Machine Learning para el punto de conexión de actualización de recurso del servicio web de predicción. La actividad de actualización de recurso utiliza este servicio vinculado para actualizar el servicio web de predicción con el archivo iLearner devuelto en el paso anterior. 
 
 Para el segundo servicio vinculado de Azure Machine Learning, la configuración es diferente si el servicio web de Azure Machine Learning es un servicio web clásico o un servicio web nuevo. Las diferencias se tratan por separado en las secciones siguientes. 
-
-## <a name="web-service-is-a-classic-web-service"></a>El servicio web es un servicio web clásico
-Si el servicio web de predicción es un **servicio web clásico**, cree el segundo **punto de conexión no predeterminado y actualizable** mediante Azure Portal. Para conocer los pasos necesarios para ello, consulte el artículo [Creación de puntos de conexión](../machine-learning/machine-learning-create-endpoint.md). Después de crear el punto de conexión actualizable no predeterminado, realice los siguientes pasos:
-
-* Haga clic en **EJECUCIÓN DE LOTES** para obtener el valor del URI para la propiedad JSON **mlEndpoint**.
-* Haga clic en vínculo **ACTUALIZAR RECURSO** para obtener el valor de URI para la propiedad JSON **updateResourceEndpoint**. La clave de API está en la página de punto de conexión (en la esquina inferior derecha).
-
-![punto de conexión actualizable](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Después de eso, use el siguiente ejemplo de servicio vinculado para crear un nuevo servicio vinculado de Azure Machine Learning. El servicio vinculado utiliza apiKey para la autenticación.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>El servicio web es un nuevo servicio web de Azure Resource Manager 
 
@@ -164,7 +137,7 @@ El escenario siguiente proporciona más detalles. Tiene un ejemplo para volver a
 Esta sección proporciona una canalización de ejemplo que usa la **actividad Ejecución de lotes de Azure Machine Learning** para volver a entrenar un modelo. La canalización usa también la **actividad Actualizar recurso de Azure Machine Learning** para actualizar el modelo en el servicio web de puntuación. La sección también proporciona fragmentos JSON para todos los servicios vinculados, conjuntos de datos y canalización en el ejemplo.
 
 ### <a name="azure-blob-storage-linked-service"></a>Servicio vinculado de almacenamiento de blobs de Azure:
-Almacenamiento de Azure contiene los siguientes datos:
+Azure Storage contiene los siguientes datos:
 
 * datos de aprendizaje. Los datos de entrada para el servicio web de entrenamiento de Azure Machine Learning.  
 * archivo iLearner. La salida del servicio web de entrenamiento de Azure Machine Learning. Este archivo también es la entrada para la actividad Actualizar recurso.  
@@ -184,7 +157,7 @@ Esta es la definición de JSON de ejemplo del servicio vinculado:
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Servicio vinculado para el punto de conexión de entrenamiento de Aprendizaje automático de Azure
-El siguiente fragmento JSON define un servicio vinculado de Aprendizaje automático de Azure que apunta al punto de conexión predeterminado del servicio web de entrenamiento.
+El siguiente fragmento JSON define un servicio vinculado de Azure Machine Learning que apunta al punto de conexión predeterminado del servicio web de entrenamiento.
 
 ```JSON
 {    
@@ -299,7 +272,7 @@ La canalización tiene dos actividades: **AzureMLBatchExecution** y **AzureMLUpd
     }
 }
 ```
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

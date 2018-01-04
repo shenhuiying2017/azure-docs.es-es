@@ -13,29 +13,29 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Límites de capacidad de SQL Data Warehouse
 Las siguientes tablas contienen los valores máximos permitidos para los distintos componentes de Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Administración de cargas de trabajo
-| Categoría | Descripción | Máxima |
+| Categoría | DESCRIPCIÓN | Máxima |
 |:--- |:--- |:--- |
 | [Unidades de almacenamiento de datos (DWU)][Data Warehouse Units (DWU)] |Máximo de DWU para una sola instancia de SQL Data Warehouse | Optimizado para Elasticity; [nivel de rendimiento](performance-tiers.md): DW6000<br></br>Optimizado para Compute; [nivel de rendimiento](performance-tiers.md): DW30000c |
-| [Unidades de almacenamiento de datos (DWU)][Data Warehouse Units (DWU)] |Valor predeterminado de la DTU por servidor |54 000<br></br>De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 54 000, lo que permite un máximo de DW6000c. Esta cuota es simplemente un límite de seguridad. Puede aumentar la cuota; para ello, [cree una incidencia de soporte técnico][creating a support ticket] y seleccione *Cuota* como el tipo de solicitud.  Para calcular las necesidades de la DTU, multiplique 7,5 por el total de DWU necesarias o multiplique 9,0 por el total de cDWU necesarias. Por ejemplo:<br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTUs.<br></br>Puede ver el consumo de DTU actual en la opción de SQL Server en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. |
+| [Unidades de almacenamiento de datos (DWU)][Data Warehouse Units (DWU)] |Valor predeterminado de la DTU por servidor |54 000<br></br>De forma predeterminada, cada servidor SQL (por ejemplo, myserver.database.windows.net) tiene una cuota de DTU de 54 000, lo que permite un máximo de DW6000c. Esta cuota es simplemente un límite de seguridad. Puede aumentar la cuota; para ello, [cree una incidencia de soporte técnico][creating a support ticket] y seleccione *Cuota* como el tipo de solicitud.  Para calcular las necesidades de la DTU, multiplique 7,5 por el total de DWU necesarias o multiplique 9,0 por el total de cDWU necesarias. Por ejemplo: <br></br>DW6000 x 7,5 = 45 000 DTU<br></br>DW600c x 9,0 = 54 000 DTUs.<br></br>Puede ver el consumo de DTU actual en la opción de SQL Server en el portal. Tanto las bases de datos en pausa como las no pausadas cuentan en la cuota de DTU. |
 | Conexión de base de datos |Sesiones abiertas simultáneas |1024<br/><br/>Cada una de las sesiones activas de 1024 puede enviar solicitudes a una base de datos de SQL Data Warehouse al mismo tiempo. Tenga en cuenta que no hay límite en el número de consultas que se pueden ejecutar a la vez. Cuando se supera el límite de simultaneidad, la solicitud entra en una cola interna donde espera para su proceso. |
 | Conexión de base de datos |Memoria máxima para instrucciones preparadas |20 MB |
 | [Administración de cargas de trabajo][Workload management] |N.º máximo de consultas simultáneas |32<br/><br/> De forma predeterminada, SQL Data Warehouse puede ejecutar un máximo de 32 consultas simultáneas y pone en cola las restantes.<br/><br/>El número de consultas simultáneas se puede reducir cuando los usuarios se asignan a clases de recursos superiores o cuando SQL Data Warehouse tiene un [nivel de servicio](performance-tiers.md#service-levels) inferior. Algunas consultas, como las consultas DMV, siempre se pueden ejecutar. |
 | [tempdb][Tempdb] |GB máximos: |399 GB por DW100. Por lo tanto, en DWU1000 el tamaño de tempdb es de 3,99 TB. |
 
 ## <a name="database-objects"></a>Objetos de base de datos
-| Categoría | Descripción | Máxima |
+| Categoría | DESCRIPCIÓN | Máxima |
 |:--- |:--- |:--- |
 | Base de datos |Tamaño máximo |240 TB comprimidos en un disco<br/><br/>Este espacio es independiente del espacio de tempdb o de registro y, por tanto, está dedicado a tablas permanentes.  La compresión del almacén de columnas en clúster se estima en 5X.  Esta compresión permite que la base de datos crezca a aproximadamente 1 PB cuando todas las tablas tienen el almacén de columnas en clúster (el tipo de tabla predeterminada). |
 | Tabla |Tamaño máximo |60 TB comprimidos en disco |
@@ -56,12 +56,12 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | Ver |Columnas por vista |1024 |
 
 ## <a name="loads"></a>Cargas
-| Categoría | Descripción | Máxima |
+| Categoría | DESCRIPCIÓN | Máxima |
 |:--- |:--- |:--- |
 | Cargas de PolyBase |MB por fila |1<br/><br/>PolyBase solo se carga en filas de menos de 1 MB y no se puede cargar en VARCHR(MAX), NVARCHAR(MAX) ni VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Consultas
-| Categoría | Descripción | Máxima |
+| Categoría | DESCRIPCIÓN | Máxima |
 |:--- |:--- |:--- |
 | Consultar |Consultas en cola en tablas de usuario |1000 |
 | Consultar |Consultas simultáneas en vistas de sistema |100 |
@@ -88,7 +88,7 @@ Las siguientes tablas contienen los valores máximos permitidos para los distint
 | sys.dm_pdw_os_event_logs |10.000 |
 | sys.dm_pdw_sql_requests |Las 1000 solicitudes SQL más recientes que se almacenan en sys.dm_pdw_exec_requests. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información de referencia, vea [Información general de referencia de SQL Data Warehouse][SQL Data Warehouse reference overview].
 
 <!--Image references-->

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 10a9608bc35d44a800acda9406390c3944a86c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79c66fe29c8d51a8cd1db24a024974f943e89e74
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: serie Ciencia de datos para principiantes
 Aprenda a crear un modelo de regresión simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Dibujaremos un modelo de regresión con los datos de destino.
 
-Para obtener el máximo partido de la serie, véalos en orden. [Vaya a la lista de vídeos](#other-videos-in-this-series)
+Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
@@ -128,8 +128,8 @@ Además, si en lugar de un puñado de diamantes, tuviéramos dos mil o dos millo
 
 Hoy, hemos hablado sobre cómo realizar la regresión lineal y hemos realizado una predicción con datos.
 
-Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Aprendizaje automático de Microsoft Azure.
+Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Microsoft Azure Machine Learning.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](create-experiment.md)
-* [Introducción a Aprendizaje automático en Microsoft Azure](what-is-machine-learning.md)
+* [Introducción a Machine Learning en Microsoft Azure](what-is-machine-learning.md)

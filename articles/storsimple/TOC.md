@@ -18,7 +18,7 @@
 #### [Configuración como servidor de archivos](storsimple-virtual-array-deploy3-fs-setup.md)
 #### [Configuración como servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md)
 
-## Cómo
+## Procedimientos
 ### [Administración mediante Azure Portal](storsimple-virtual-array-manager-service-administration.md)
 #### [Instalación de la actualización más reciente](storsimple-virtual-array-install-update-1.md)
 ##### [Instalación de actualización 0.6](storsimple-virtual-array-install-update-06.md)
@@ -38,7 +38,6 @@
 #### [Administración de ACR](storsimple-virtual-array-manage-acrs.md)
 #### [Trabajos de administración](storsimple-virtual-array-manage-jobs.md)
 #### [Cambio de la contraseña del dispositivo](storsimple-virtual-array-change-device-admin-password.md)
-#### [Configuración de MPIO en un host de Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Supervisión mediante alertas](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnóstico y solución de problemas](storsimple-virtual-array-diagnose-problems.md)
 #### [Registro de solicitud de soporte](storsimple-virtual-array-log-support-ticket.md)
@@ -72,7 +71,7 @@
 #### [procedimientos recomendados](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
 
 
-### Instalar
+### Instalación
 #### [Revisión de la seguridad](storsimple-8000-safety.md)
 #### [Desempaquetado colocación y conexión de un 8100](storsimple-8100-hardware-installation.md)
 #### [Desempaquetado colocación y conexión de un 8600](storsimple-8600-hardware-installation.md)
@@ -86,9 +85,9 @@
 #### [Snapshot Manager de StorSimple](storsimple-snapshot-manager-deployment.md)
 #### [Adaptador de StorSimple para SharePoint](storsimple-adapter-for-sharepoint.md)
 
-## Cómo
+## Procedimientos
 
-### Administrar
+### administración
 
 #### [Uso del servicio StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Restauración desde una copia de seguridad](storsimple-8000-restore-from-backup-set-u2.md)
@@ -101,7 +100,7 @@
 ###### [Conmutación por error al mismo dispositivo](storsimple-8000-device-failover-same-device.md)
 ##### [Administración del catálogo de copias de seguridad](storsimple-8000-manage-backup-catalog.md)
 ##### [Administrar directivas de copia de seguridad](storsimple-8000-manage-backup-policies-u2.md)
-##### [Administrar cuentas de almacenamiento](storsimple-8000-manage-storage-accounts.md)
+##### [Administración de cuentas de almacenamiento](storsimple-8000-manage-storage-accounts.md)
 ##### [Administrar contenedores de volúmenes](storsimple-8000-manage-volume-containers.md)
 ##### [Administración de volúmenes: actual](storsimple-8000-manage-volumes-u2.md)
 ###### [Preguntas más frecuentes: volúmenes anclados localmente](storsimple-8000-local-volume-faq.md)
@@ -199,7 +198,7 @@
 #### [Versión: disponibilidad general](storsimple-july-2014-release-notes.md)
 
 ## Referencia
-### [API DE REST](https://docs.microsoft.com/rest/api/storsimple)
+### [API de REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Cmdlets de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 
 
@@ -208,7 +207,7 @@
 ## Información general
 ### [¿Cuál es la solución?](storsimple-data-manager-overview.md)
 
-## Primeros pasos
+## Introducción
 ### [Con StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## Procedimientos
@@ -221,7 +220,7 @@
 ## Información general
 ### [¿Cuál es la solución?](storsimple-partner-csp-overview.md)
 
-## Primeros pasos
+## Introducción
 ### [Implementación de matrices virtuales de CSP](storsimple-partner-csp-deploy.md)
 
 ## Notas de la versión

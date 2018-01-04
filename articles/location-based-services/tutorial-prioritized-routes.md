@@ -12,21 +12,21 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Location Based Services
 
 En este tutorial se muestra cómo usar la cuenta de Azure Location Based Services y el SDK de Route Service para buscar la ruta al punto de interés, con una prioridad establecida según el modo de desplazamiento. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar la consulta de Route Service
+> * Configuración de la consulta de Route Service
 > * Representar las rutas con una prioridad establecida según el modo de desplazamiento
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de continuar, asegúrese de [crear su cuenta de Azure Location Based Services](./tutorial-search-location.md#createaccount) y de [obtener la clave de suscripción de la cuenta](./tutorial-search-location.md#getkey). También puede observar cómo se usan las API de Control de mapa y Search Service en el tutorial [Search nearby point of interest using Azure Location Based Services](./tutorial-search-location.md) (Búsqueda de puntos de interés cercanos mediante Azure Location Based Services), y conocer el uso básico de las API de Route Service en el tutorial [Route to a point of interest using Azure Location Based Services](./tutorial-route-location.md) (Ruta a un punto de interés mediante Azure Location Based Services).
 
@@ -209,9 +209,9 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
     ```
     Este fragmento de código crea un elemento [XMLHttpRequest](https://xhr.spec.whatwg.org/) y agrega un controlador de eventos para analizar la respuesta de entrada. Para obtener una respuesta correcta, crea una matriz de coordenadas para la ruta devuelta y agrega la capa `truckRouteLayerName` del mapa. 
     
-    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de suscripción de la cuenta. Los siguientes parámetros opcionales se usan para indicar la ruta de un camión pesado:-el parámetro `travelMode=truck` especifica el modo de desplazamiento como *camión*. Otros modos de desplazamiento admitidos son *taxi*, *autobús*, *furgoneta*, *moto* y *coche*, que es el predeterminado. 
-        - Los parámetros `vehicleWidth`, `vehicleHeight` y `vehicleLength` especifican las dimensiones del vehículo en metros y solo se tienen en cuenta si el modo de desplazamiento es *camión*. 
-        -El parámetro `vehicleLoadType` clasifica la carga como peligrosa y restringida en algunas carreteras. Actualmente, este parámetro solo se tiene en cuenta para el modo de desplazamiento *camión*. 
+    Este fragmento de código también envía la consulta a Route Service para obtener la ruta con los puntos inicial y final especificados, que corresponde a la clave de suscripción de la cuenta. Los siguientes parámetros opcionales se usan para indicar la ruta de un camión pesado:-el parámetro `travelMode=truck` especifica el modo de desplazamiento como *camión*. Otros modos de desplazamiento admitidos son *taxi*, *autobús*, *furgoneta*, *moto* y *coche*, que es el predeterminado.  
+        - Los parámetros `vehicleWidth`, `vehicleHeight` y `vehicleLength` especifican las dimensiones del vehículo en metros y solo se tienen en cuenta si el modo de desplazamiento es *camión*.  
+        -El parámetro `vehicleLoadType` clasifica la carga como peligrosa y restringida en algunas carreteras. Actualmente, este parámetro solo se tiene en cuenta para el modo de desplazamiento *camión*.  
 
 2. Agregue el siguiente código JavaScript para obtener la ruta en coche mediante Route Service:
 
@@ -255,11 +255,11 @@ En esta sección se muestra cómo usar la API de Route Service de Azure Location
 
     Observe que la ruta del camión está en color azul, mientras que la del coche está en violeta.
 
-## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo:
+## <a name="next-steps"></a>pasos siguientes
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Configurar la consulta de Route Service
+> * Configuración de la consulta de Route Service
 > * Representar las rutas con una prioridad establecida según el modo de desplazamiento
 
 Prosiga con los artículos de **conceptos** y **procedimientos** para conocer en profundidad el SDK de Azure Location Based Services. 

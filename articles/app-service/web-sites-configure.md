@@ -1,6 +1,6 @@
 ---
-title: "Configuración de aplicaciones web en el Servicio de aplicaciones de Azure"
-description: "Cómo configurar una aplicación web en servicios de aplicaciones de Azure"
+title: "Configuración de aplicaciones web en Azure App Service"
+description: "Cómo configurar una aplicación web en Azure App Service"
 services: app-service\web
 documentationcenter: 
 author: cephalin
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en el Servicio de aplicaciones de Azure
-En este tema se explica cómo configurar una aplicación web con el [Portal de Azure].
+# <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en Azure App Service
+
+En este tema se explica cómo configurar una aplicación web con el [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="application-settings"></a>Configuración de la aplicación
-1. En el [Portal de Azure], abra la hoja de la aplicación web.
+1. En el [Azure Portal], abra la hoja de la aplicación web.
 3. Haga clic en **Configuración de la aplicación**.
 
 ![Configuración de la aplicación][configure01]
@@ -46,6 +47,8 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 <a name="platform"></a>
 **Plataforma**. Seleccione si su aplicación web se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el modo básico o estándar. Los modos libre y compartido siempre se ejecutan en un entorno de 32 bits.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 **Sockets web**. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR] o [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
@@ -53,7 +56,7 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 
 **Versión de canalización administrada**. Configura el [modo de canalización]IIS. Deje este valor en Integrado (el valor predeterminado) a no ser que tenga una aplicación web heredada que requiera una versión anterior de IIS.
 
-**Intercambio automático**. Si habilita el Intercambio automático de una ranura de implementación, el servicio de aplicación intercambiará automáticamente la aplicación web en producción cuando inserte una actualización para esa zona. Para obtener más información, consulte [Implementación en ranuras de ensayo para las aplicaciones web en el servicio de aplicaciones de Azure](web-sites-staged-publishing.md).
+**Intercambio automático**. Si habilita el Intercambio automático de una ranura de implementación, el servicio de aplicación intercambiará automáticamente la aplicación web en producción cuando inserte una actualización para esa zona. Para obtener más información, consulte [Implementación en ranuras de ensayo para las aplicaciones web en Azure App Service](web-sites-staged-publishing.md).
 
 ### <a name="debugging"></a>Depuración
 **Depuración remota**. Habilita la depuración remota. Cuando esté habilitada, puede usar la depuración remota en Visual Studio para conectarse directamente a su aplicación web de Azure. La depuración remota permanecerá habilitada durante 48 horas. 
@@ -73,7 +76,7 @@ En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán dis
 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
-* Base de datos SQL: `SQLAZURECONNSTR_`
+* SQL Database: `SQLAZURECONNSTR_`
 * Personalizado: `CUSTOMCONNSTR_`
 
 Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de  `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
@@ -116,11 +119,11 @@ Para ver los archivos de registro, debe crear las credenciales FTP, de la forma 
 1. En la hoja de la aplicación web, haga clic en **Toda la configuración**.
 2. Haga clic en **Credenciales de implementación**.
 3. Escriba un nombre de usuario y una contraseña.
-4. Haga clic en **Guardar**.
+4. Haga clic en **Save**(Guardar).
 
 ![Configurar credenciales de implementación][configure03]
 
-El nombre de usuario de FTP completo es "app\nombreusuario", donde *app* es el nombre de su aplicación web. El nombre de usuario se indica en la tarjeta única de la aplicación web, en **Essentials**  
+El nombre de usuario de FTP completo es "app\nombreusuario", donde *app* es el nombre de su aplicación web. El nombre de usuario se indica en la tarjeta única de la aplicación web, en **Essentials**
 
 ![Credenciales de implementación de FTP][configure02]
 
@@ -131,13 +134,13 @@ En modo básico o estándar puede cargar certificados SSL para un dominio person
 Para ver los certificados cargados, haga clic en **Toda la configuración** > **Dominios personalizados y SSL**.
 
 ### <a name="domain-names"></a>Nombres de dominio
-Agregue nombres de dominio personalizados para su aplicación web. Para más información, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en el servicio de aplicaciones de Azure].
+Agregue nombres de dominio personalizados para su aplicación web. Para más información, consulte [Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service].
 
 Para ver los nombres de dominios, haga clic en **Toda la configuración** > **Dominios personalizados y SSL**.
 
 ### <a name="deployments"></a>Implementaciones
-* Configure la implementación continua. Consulte el artículo sobre el [uso de Git para implementar aplicaciones web en Azure App Service](app-service-deploy-local-git.md).
-* Ranuras de implementación. Consulte [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure].
+* Configure la implementación continua. Consulte el artículo sobre el [uso de Git para implementar Web Apps en Azure App Service](app-service-deploy-local-git.md).
+* Ranuras de implementación. Consulte [Configuración de entornos de ensayo para Web Apps en Azure App Service].
 
 Para ver las ranuras de implementación, haga clic en **Toda la configuración** > **Ranuras de implementación**.
 
@@ -147,28 +150,28 @@ En modo estándar o básico, pruebe la disponibilidad de los puntos de conexión
 Para obtener más información, consulte [Supervisión de estado de extremo web].
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones], donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service], donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure]
-* [Habilitación de HTTPS para una aplicación en el servicio de aplicaciones de Azure]
-* [Escalación de una aplicación web en el Servicio de aplicaciones de Azure]
-* [Aspectos básicos de supervisión para las aplicaciones web en Servicio de aplicaciones de Azure]
+## <a name="next-steps"></a>pasos siguientes
+* [Configuración de un nombre de dominio personalizado en Azure App Service]
+* [Habilitación de HTTPS para una aplicación en Azure App Service]
+* [Escalación de una aplicación web en Azure App Service]
+* [Aspectos básicos de supervisión para Web Apps en Azure App Service]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[Portal de Azure]: https://portal.azure.com/
-[Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure]: ./app-service-web-tutorial-custom-domain.md
-[Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure]: ./web-sites-staged-publishing.md
-[Habilitación de HTTPS para una aplicación en el servicio de aplicaciones de Azure]: ./app-service-web-tutorial-custom-ssl.md
+[Azure Portal]: https://portal.azure.com/
+[Configuración de un nombre de dominio personalizado en Azure App Service]: ./app-service-web-tutorial-custom-domain.md
+[Configuración de entornos de ensayo para Web Apps en Azure App Service]: ./web-sites-staged-publishing.md
+[Habilitación de HTTPS para una aplicación en Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
 [Supervisión de estado de extremo web]: http://go.microsoft.com/fwLink/?LinkID=279906
-[Aspectos básicos de supervisión para las aplicaciones web en Servicio de aplicaciones de Azure]: ./web-sites-monitor.md
+[Aspectos básicos de supervisión para Web Apps en Azure App Service]: ./web-sites-monitor.md
 [modo de canalización]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Escalación de una aplicación web en el Servicio de aplicaciones de Azure]: ./web-sites-scale.md
-[Prueba del Servicio de aplicaciones]: https://azure.microsoft.com/try/app-service/
+[Escalación de una aplicación web en Azure App Service]: ./web-sites-scale.md
+[Prueba de App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

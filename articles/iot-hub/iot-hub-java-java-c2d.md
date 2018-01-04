@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 6a5f14f411c2ec82478fef6d20d22f8b8dc8d7bf
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0c94b627ad80a1cc32bc0084d3792a917225d9c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envío mensajes de nube a dispositivo con IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -192,7 +192,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
     ![Ejecución del comando para enviar el mensaje C2D][img-send-command]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. 
 
@@ -208,7 +208,7 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [Introducción a Iot Hub]: iot-hub-java-java-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Guía del desarrollador de IoTHub de Azure]: iot-hub-devguide.md
-[Centro para desarrolladores de IoT de Azure]: http://www.azure.com/develop/iot
+[Centro para desarrolladores de IoT de Azure]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Control de errores transitorios]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

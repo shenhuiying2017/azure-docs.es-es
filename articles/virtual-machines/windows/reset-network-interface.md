@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 77d6bf3bb8b0e03419f93e97746bc1a0a091045e
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6bf5c991e8a96cfdcbad971e0f2ea2dfd01f2893
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Restablecimiento de la interfaz de red para VM de Microsoft Azure 
 
@@ -33,7 +33,7 @@ No puede conectarse a la máquina virtual (VM) de Microsoft Azure después de de
 
 Para restablecer la interfaz de red, siga estos pasos:
 
-1.  Vaya al [Portal de Azure]( https://ms.portal.azure.com).
+1.  Vaya a [Azure Portal]( https://ms.portal.azure.com).
 2.  Seleccione **Máquinas virtuales (clásico)**.
 3.  Seleccione la máquina virtual afectada.
 4.  Seleccione **Direcciones IP**.
@@ -45,7 +45,7 @@ Para restablecer la interfaz de red, siga estos pasos:
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>Para máquinas virtuales implementadas en el módulo de grupo de recursos
 
-1.  Vaya al [Portal de Azure]( https://ms.portal.azure.com).
+1.  Vaya a [Azure Portal]( https://ms.portal.azure.com).
 2.  Seleccione la máquina virtual afectada.
 3.  Seleccione **Interfaces de red**.
 4.  Seleccione la interfaz de red asociada a la máquina.

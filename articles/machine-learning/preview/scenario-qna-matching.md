@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondencia entre preguntas y respuestas mediante Azure Machine Learning Workbench
 Responder a preguntas abiertas es difícil y a menudo requiere un esfuerzo manual por parte de expertos en la materia (SME). Para ayudar a reducir la demanda de expertos en la materia internos, las empresas a menudo crean listas con las preguntas más frecuentes (P+F) como forma de ayudar a los usuarios. Este ejemplo muestra varios métodos eficaces de aprendizaje automático para hacer corresponder consultas abiertas con pares de preguntas/respuestas de P+F ya existentes. Este ejemplo muestra un sencillo proceso de desarrollo para compilar una solución de este tipo mediante Azure Machine Learning Workbench. 
@@ -38,7 +39,7 @@ Los principales pasos necesarios para ofrecer esta solución son los siguientes:
 4. Entrenar modelos de clasificación de texto y evaluar el rendimiento del modelo.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
@@ -79,18 +80,18 @@ La combinación de estos tres conjuntos de datos crea pares de preguntas y respu
 
 El esquema de datos y los vínculos de descarga directa de los tres conjuntos de datos se pueden encontrar en la tabla siguiente:
 
-| Dataset | Campo | Tipo | Descripción
+| Dataset | Campo | type | DESCRIPCIÓN
 | ----------|------------|------------|--------
-| [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | String | El identificador único de pregunta (clave principal)
-|  | AnswerId | String | El identificador único de respuesta por pregunta
-|  | Text0 | String | Los datos de texto sin procesar, incluido el título y el cuerpo de la pregunta
+| [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | string | El identificador único de pregunta (clave principal)
+|  | AnswerId | string | El identificador único de respuesta por pregunta
+|  | Text0 | string | Los datos de texto sin procesar, incluido el título y el cuerpo de la pregunta
 |  | CreationDate | Timestamp | La marca de tiempo de cuando se formuló la pregunta
-| [dupes](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | String | El identificador único de la duplicación (clave principal)
-|  | AnswerId | String | El identificador de respuesta asociado a la duplicación
-|  | Text0 | String | Los datos de texto sin procesar, incluido el título y el cuerpo de la duplicación
+| [dupes](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | Id | string | El identificador único de la duplicación (clave principal)
+|  | AnswerId | string | El identificador de respuesta asociado a la duplicación
+|  | Text0 | string | Los datos de texto sin procesar, incluido el título y el cuerpo de la duplicación
 |  | CreationDate | Timestamp | La marca de tiempo de cuando se formuló la duplicación
-| [answers](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | String | El identificador único de la respuesta (clave principal)
-|  | text0 | String | Los datos de texto sin procesar de la respuesta
+| [answers](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | Id | string | El identificador único de la respuesta (clave principal)
+|  | text0 | string | Los datos de texto sin procesar de la respuesta
 
 
 ## <a name="scenario-structure"></a>Estructura del escenario
@@ -99,7 +100,7 @@ El ejemplo de correspondencia entre preguntas y respuestas se presenta a través
 
 Los archivos de este ejemplo se organizan del siguiente modo.
 
-| Nombre de archivo | Tipo | Descripción
+| Nombre de archivo | type | DESCRIPCIÓN
 | ----------|------------|--------
 | `Image` | Carpeta | La carpeta se utiliza para guardar las imágenes para el archivo Léame
 | `notebooks` | Carpeta | La carpeta de Jupyter Notebooks

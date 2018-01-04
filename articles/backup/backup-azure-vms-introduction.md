@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 9a4e0b5a400668cb9ec96000d274f43739139a03
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
-En este artículo se proporcionan sugerencias de recursos y rendimiento para ayudarle a planear la infraestructura de copia de seguridad de máquina virtual. También se definen los aspectos clave del servicio Backup; estos aspectos pueden ser críticos a la hora de determinar la arquitectura, el planeamiento de la capacidad y la programación. Si ha [preparado el entorno](backup-azure-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-vms.md). Si necesita más información sobre máquinas virtuales de Azure, vea la [Documentación sobre máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/).
+En este artículo se proporcionan sugerencias de recursos y rendimiento para ayudarle a planear la infraestructura de copia de seguridad de máquina virtual. También se definen los aspectos clave del servicio Backup; estos aspectos pueden ser críticos a la hora de determinar la arquitectura, el planeamiento de la capacidad y la programación. Si ha [preparado el entorno](backup-azure-arm-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-arm-vms.md). Si necesita más información sobre Azure Virtual Machines, vea la [Documentación sobre Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>¿Cómo realiza Azure la copia de seguridad de las máquinas virtuales?
-El servicio Copia de seguridad de Azure inicia el trabajo de copia de seguridad a la hora programada y desencadena la extensión de copia de seguridad para tomar una instantánea de un momento en el tiempo. El servicio Azure Backup usa la extensión _VMSnapshot_ en Windows y la extensión _VMSnapshotLinux_ en Linux. La extensión se instala durante la primera copia de seguridad de la máquina virtual. Para instalar la extensión, la máquina virtual debe estar ejecutándose. Si no se está ejecutando la máquina virtual, el servicio Azure Backup toma una instantánea del almacenamiento subyacente (ya que no se produce ninguna escritura de la aplicación mientras se detiene la máquina virtual).
+El servicio Azure Backup inicia el trabajo de copia de seguridad a la hora programada y desencadena la extensión de copia de seguridad para tomar una instantánea de un momento en el tiempo. El servicio Azure Backup usa la extensión _VMSnapshot_ en Windows y la extensión _VMSnapshotLinux_ en Linux. La extensión se instala durante la primera copia de seguridad de la máquina virtual. Para instalar la extensión, la máquina virtual debe estar ejecutándose. Si no se está ejecutando la máquina virtual, el servicio Azure Backup toma una instantánea del almacenamiento subyacente (ya que no se produce ninguna escritura de la aplicación mientras se detiene la máquina virtual).
 
 Cuando se toma una instantánea de las máquinas virtuales de Windows, el servicio Azure Backup se coordina con el servicio de instantáneas de volumen (VSS) para obtener una instantánea coherente de los discos de la máquina virtual. Si hace una copia de seguridad de máquinas virtuales de Linux, puede escribir sus propias secuencias de comandos personalizadas para garantizar la coherencia al tomar una instantánea de la máquina virtual. Más adelante en este artículo se proporcionan más detalles sobre cómo invocar estas secuencias de comandos.
 
@@ -44,7 +44,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 ### <a name="data-consistency"></a>Coherencia de datos
 La copia de seguridad y restauración de datos críticos para el negocio resulta complicada por el hecho de que es necesario realizar la copia de seguridad mientras se ejecutan las aplicaciones que producen los datos. Para solucionar este problema, Azure Backup admite las copias de seguridad coherentes con la aplicación para máquinas virtuales con Windows y con Linux.
 #### <a name="windows-vm"></a>Máquina virtual de Windows
-Copia de seguridad de Azure realiza copias de seguridad completas de VSS en máquinas virtuales de Windows (más información sobre [copia de seguridad completa de VSS](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). Para habilitar las copias de seguridad de VSS, hay que establecer la siguiente clave del Registro en la máquina virtual.
+Azure Backup realiza copias de seguridad completas de VSS en máquinas virtuales de Windows (más información sobre [copia de seguridad completa de VSS](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)). Para habilitar las copias de seguridad de VSS, hay que establecer la siguiente clave del Registro en la máquina virtual.
 
 ```
 [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
@@ -64,12 +64,12 @@ En esta tabla se describen los tipos de coherencia y las condiciones en las que 
 | --- | --- | --- |
 | Coherencia de las aplicaciones |Sí para Windows|Se trata del tipo de coherencia ideal para las cargas de trabajo, ya que garantiza que:<ol><li> la máquina virtual *arranca*. <li>No hay *daños*. <li>No hay *pérdida de datos*.<li> Los datos son coherentes con la aplicación que usa los datos, implicando a la aplicación en el momento de realizar la copia de seguridad, mediante VSS o los script anterior y posterior.</ol> <li>*Máquinas virtuales con Windows*: la mayoría de cargas de trabajo de Microsoft tienen escritores VSS que realizan acciones específicas de carga de trabajo relacionadas con la coherencia de los datos. Por ejemplo, Microsoft SQL Server tiene un escritor VSS que garantiza que las escrituras en el archivo de registro de transacciones y en la base de datos se realizan correctamente. En las copias de seguridad de máquinas virtuales de Azure con Windows, para crear un punto de recuperación coherente con la aplicación hay que invocar el flujo de trabajo VSS y completarlo antes de completar la instantánea de la máquina virtual. Para que la instantánea de la máquina virtual de Azure sea precisa, también deben completarse los escritores de VSS de todas las aplicaciones de máquinas virtuales de Azure. (Aprenda los [conceptos básicos de VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) y profundice en los detalles de [cómo funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Máquinas virtuales de Linux*: los clientes pueden ejecutar [secuencias de comandos anteriores y posteriores personalizadas para garantizar la coherencia con la aplicación](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Coherencia del sistema de archivos |Sí, para equipos basados en Windows |Hay dos escenarios en los que el punto de recuperación puede ser *coherente con el sistema de archivos*:<ul><li>Copias de seguridad de máquinas virtuales con Linux en Azure, sin los script anterior y posterior, o en caso de que estos generen errores. <li>Error de VSS durante la copia de seguridad de máquinas virtuales Windows en Azure.</li></ul> En ambos casos, lo mejor que se puede hacer es asegurarse de que: <ol><li> la máquina virtual *arranca*. <li>No hay *daños*.<li>No hay *pérdida de datos*.</ol> Las aplicaciones deben implementar su propio mecanismo de "reparación" en los datos restaurados. |
-| Coherencia de bloqueos |No |Esta situación es equivalente a aquellos casos en que una máquina experimenta un "bloqueo" (a través de un restablecimiento parcial o completo). La coherencia de bloqueos suele ocurrir cuando la máquina virtual de Azure se apaga en el momento de realizar la copia de seguridad. Un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la coherencia de los datos en el medio de almacenamiento, ni desde la perspectiva del sistema operativo ni desde la de la aplicación. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. <br/> <br/> Aunque no hay ninguna garantía, normalmente se inicia el sistema operativo, seguido de un procedimiento de comprobación de disco como chkdsk para corregir los errores por daños. Se perderán los datos o las escrituras en memoria que no se hayan transferido al disco. Normalmente, la aplicación sigue con su propio mecanismo de comprobación en caso de que se deba realizar una reversión de datos. <br><br>Por ejemplo, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes. Cuando los datos se reparten en varios discos virtuales (por ejemplo, volúmenes distribuidos), un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la corrección de los datos. |
+| Coherencia de bloqueos |Sin  |Esta situación es equivalente a aquellos casos en que una máquina experimenta un "bloqueo" (a través de un restablecimiento parcial o completo). La coherencia de bloqueos suele ocurrir cuando la máquina virtual de Azure se apaga en el momento de realizar la copia de seguridad. Un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la coherencia de los datos en el medio de almacenamiento, ni desde la perspectiva del sistema operativo ni desde la de la aplicación. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. <br/> <br/> Aunque no hay ninguna garantía, normalmente se inicia el sistema operativo, seguido de un procedimiento de comprobación de disco como chkdsk para corregir los errores por daños. Se perderán los datos o las escrituras en memoria que no se hayan transferido al disco. Normalmente, la aplicación sigue con su propio mecanismo de comprobación en caso de que se deba realizar una reversión de datos. <br><br>Por ejemplo, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes. Cuando los datos se reparten en varios discos virtuales (por ejemplo, volúmenes distribuidos), un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la corrección de los datos. |
 
 ## <a name="performance-and-resource-utilization"></a>Rendimiento y uso de recursos
-Al igual que el software de copia de seguridad que se implementa de forma local, debe planear las necesidades de capacidad y utilización de recursos al realizar la copia de seguridad de máquinas virtuales en Azure. Los [límites de Almacenamiento de Azure](../azure-subscription-service-limits.md#storage-limits) definirán cómo se estructuran las implementaciones de máquinas virtuales para obtener un rendimiento máximo con un impacto mínimo en las cargas de trabajo en ejecución.
+Al igual que el software de copia de seguridad que se implementa de forma local, debe planear las necesidades de capacidad y utilización de recursos al realizar la copia de seguridad de máquinas virtuales en Azure. Los [límites de Azure Storage](../azure-subscription-service-limits.md#storage-limits) definirán cómo se estructuran las implementaciones de máquinas virtuales para obtener un rendimiento máximo con un impacto mínimo en las cargas de trabajo en ejecución.
 
-Preste atención a los siguientes límites de Almacenamiento de Azure al planear el rendimiento de copia de seguridad:
+Preste atención a los siguientes límites de Azure Storage al planear el rendimiento de copia de seguridad:
 
 * Salida máxima por cuenta de almacenamiento
 * Tasa de solicitud total por cuenta de almacenamiento
@@ -87,7 +87,7 @@ Un factor secundario que afecta al rendimiento es la **programación de copia de
 Debe planear las necesidades de uso de la cuenta de almacenamiento teniendo en cuenta todos los factores anteriores. Descargue la [hoja cálculo de Excel de planeación de la capacidad de copia de seguridad de máquinas virtuales](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver el impacto de las opciones de programación de las copias de seguridad y los discos.
 
 ### <a name="backup-throughput"></a>Rendimiento de la copia de seguridad
-Para cada disco cuya copia de seguridad se realiza, Copia de seguridad de Azure lee los bloques en el disco y solo almacena los datos cambiados (copia de seguridad incremental). En la siguiente tabla se muestran los valores promedio de rendimiento del servicio Backup. Con los siguientes datos, puede calcular la cantidad de tiempo que tarda en realizarse una copia de seguridad de un disco de un tamaño determinado.
+Para cada disco cuya copia de seguridad se realiza, Azure Backup lee los bloques en el disco y solo almacena los datos cambiados (copia de seguridad incremental). En la siguiente tabla se muestran los valores promedio de rendimiento del servicio Backup. Con los siguientes datos, puede calcular la cantidad de tiempo que tarda en realizarse una copia de seguridad de un disco de un tamaño determinado.
 
 | Operación de copia de seguridad | Mejor rendimiento |
 | --- | --- |
@@ -97,9 +97,9 @@ Para cada disco cuya copia de seguridad se realiza, Copia de seguridad de Azure 
 ## <a name="total-vm-backup-time"></a>Tiempo total de copia de seguridad de máquinas virtuales
 Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar los datos, hay otras operaciones que contribuyen al tiempo total necesario para la copia de seguridad de una máquina virtual:
 
-* Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-vms.md)
+* Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-arm-vms.md)
 * Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
-* Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad o de Servicios de recuperación podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta ocho horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
+* Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad o de Recovery Services podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta ocho horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
 * Tiempo de transferencia de datos, el tiempo necesario para que el servicio de copia de seguridad calcule los cambios incrementales de la copia de seguridad anterior y transfiera esos cambios al almacén de almacenamiento.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>¿Por qué veo un tiempo de copia de seguridad más largo (>12 horas)?
@@ -110,7 +110,7 @@ Una operación de restauración consta de dos tareas secundarias principales: co
 * Tiempo de espera en cola: debido a que el servicio procesa restauraciones desde varios clientes al mismo tiempo, las solicitudes de restauración se ponen en cola.
 * Tiempo de copia de datos: los datos se copian primero desde el almacén en la cuenta de almacenamiento del cliente. El tiempo de restauración depende del IOPS y el rendimiento que el servicio Azure Backup obtenga en la cuenta de almacenamiento del cliente seleccionado. Para reducir el tiempo de copia durante el proceso de restauración, seleccione una cuenta de almacenamiento que no esté cargada con otras lecturas y escrituras de aplicaciones.
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para máquinas virtuales:
 
 * No programe la copia de seguridad de más de 10 máquinas virtuales clásicas desde el mismo servicio en la nube al mismo tiempo. Si quiere realizar la copia de seguridad de varias máquinas virtuales desde el mismo servicio en la nube, escalone las horas de inicio de cada una de ellas con una hora de diferencia.
@@ -122,10 +122,10 @@ Se recomienda seguir estos procedimientos recomendados al configurar copias de s
 * Asegúrese de que la versión de python en máquinas virtuales Linux habilitadas para la copia de seguridad sea 2.7
 
 ## <a name="data-encryption"></a>Cifrado de datos
-Copia de seguridad de Azure no cifra los datos como parte del proceso de copia de seguridad. Pero se pueden cifrar datos dentro de la máquina virtual y los datos protegidos de copia de seguridad sin ningún problema (vea más información sobre [copia de seguridad de datos cifrados](backup-azure-vms-encryption.md)).
+Azure Backup no cifra los datos como parte del proceso de copia de seguridad. Pero se pueden cifrar datos dentro de la máquina virtual y los datos protegidos de copia de seguridad sin ningún problema (vea más información sobre [copia de seguridad de datos cifrados](backup-azure-vms-encryption.md)).
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>Cálculo del costo de instancias protegidas
-Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el servicio Copia de seguridad de Azure estarán sujetas a los [precios de Copia de seguridad de Azure](https://azure.microsoft.com/pricing/details/backup/). El cálculo de instancias protegidas se basa en el tamaño *real* de la máquina virtual, que es la suma de todos los datos de la máquina virtual, excepto el "disco de recursos".
+Las máquinas virtuales de Azure cuya copia de seguridad se realiza mediante el servicio Azure Backup estarán sujetas a los [precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/). El cálculo de instancias protegidas se basa en el tamaño *real* de la máquina virtual, que es la suma de todos los datos de la máquina virtual, excepto el "disco de recursos".
 
 Los precios de la copia de seguridad de máquinas virtuales *no* se basa en el tamaño máximo admitido para cada disco de datos conectado a la máquina virtual. Los precios se basan en los datos almacenados en el disco de datos. De forma similar, la factura de almacenamiento de copia de seguridad se basa en la cantidad de datos almacenados en Azure Backup, que es la suma de los datos reales de cada punto de recuperación.
 
@@ -147,8 +147,8 @@ La facturación de una máquina virtual especificada se suspenderá solo si se d
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Copia de seguridad de máquinas virtuales](backup-azure-vms.md)
+## <a name="next-steps"></a>pasos siguientes
+* [Copia de seguridad de máquinas virtuales](backup-azure-arm-vms.md)
 * [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
-* [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
+* [Restauración de máquinas virtuales](backup-azure-arm-restore-vms.md)
 * [Solución de problemas de copia de seguridad de máquinas virtuales](backup-azure-vms-troubleshoot.md)

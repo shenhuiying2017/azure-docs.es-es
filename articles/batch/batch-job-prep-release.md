@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Ejecución de tareas de preparación y liberación de trabajos en nodos de proceso de Batch
 
@@ -42,7 +42,7 @@ Las tareas de preparación y liberación de trabajos son una buena opción en la
 
 **Descarga de datos de tareas comunes**
 
-A menudo, los trabajos de Lote requieren un conjunto común de datos como entrada para las tareas del trabajo. Por ejemplo, en cálculos de análisis de riesgos diarios, los datos de mercado son específicos del trabajo, pero comunes a todas las tareas incluidas en él. Estos datos de mercado, a menudo con un tamaño de varios gigabytes, deben descargarse en cada nodo de proceso una sola vez, para que cualquier tarea que se ejecuta en el nodo pueda usarlos. Puede usar una **tarea de preparación del trabajo** para descargar estos datos en cada nodo antes de la ejecución de otras tareas del trabajo.
+A menudo, los trabajos de Batch requieren un conjunto común de datos como entrada para las tareas del trabajo. Por ejemplo, en cálculos de análisis de riesgos diarios, los datos de mercado son específicos del trabajo, pero comunes a todas las tareas incluidas en él. Estos datos de mercado, a menudo con un tamaño de varios gigabytes, deben descargarse en cada nodo de proceso una sola vez, para que cualquier tarea que se ejecuta en el nodo pueda usarlos. Puede usar una **tarea de preparación del trabajo** para descargar estos datos en cada nodo antes de la ejecución de otras tareas del trabajo.
 
 **Trabajo persistente y resultado de la tarea**
 
@@ -75,7 +75,7 @@ Cuando un trabajo se marca como completado, se ejecuta la tarea de liberación d
 > 
 > 
 
-## <a name="job-prep-and-release-tasks-with-batch-net"></a>Tareas de preparación y liberación de trabajos con Lote para .NET
+## <a name="job-prep-and-release-tasks-with-batch-net"></a>Tareas de preparación y liberación de trabajos con Batch para .NET
 Para usar una tarea de preparación del trabajo, asigne un objeto [JobPreparationTask][net_job_prep] a la propiedad [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del trabajo. De forma similar, para establecer la tarea de liberación del trabajo, inicialice una [JobReleaseTask][net_job_release] y asígnela a la propiedad [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del trabajo.
 
 En este fragmento de código, `myBatchClient` es una instancia de [BatchClient][net_batch_client] y `myPool` es un grupo existente en la cuenta de Batch.
@@ -99,7 +99,7 @@ myJob.JobPreparationTask =
 
 // Assign the job release task to the job
 myJob.JobReleaseTask =
-    new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
@@ -111,7 +111,7 @@ Como se mencionó antes, la tarea de liberación se ejecuta cuando se finaliza o
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
-await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
+await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>Código de ejemplo en GitHub
@@ -183,8 +183,8 @@ La captura de pantalla siguiente muestra la **hoja de tareas de preparación** e
 
 ![Propiedades de preparación del trabajo en el Portal de Azure][1]
 
-## <a name="next-steps"></a>Pasos siguientes
-### <a name="application-packages"></a>Paquetes de aplicación
+## <a name="next-steps"></a>pasos siguientes
+### <a name="application-packages"></a>paquetes de aplicación
 Además de la tarea de preparación del trabajo, puede usar la característica de [paquetes de aplicación](batch-application-packages.md) de Batch para preparar los nodos de proceso de cara a la ejecución de tareas. Esta característica es especialmente útil para implementar aplicaciones que no requieren que se ejecute un instalador, aplicaciones que contienen muchos archivos (más de 100) o aplicaciones que requieren un control estricto de la versión.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalación de aplicaciones y datos de ensayo

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Asignar un nombre DNS personalizado a Azure Web Apps
 
@@ -43,7 +43,7 @@ Puede usar un **registro CNAME** o un **registro A** para asignar un nombre DNS 
 
 Para migrar un sitio en vivo y su nombre de dominio DNS a App Service, consulte [Migración de un nombre DNS activo a Azure App Service](app-service-custom-domain-name-migrate.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
 
@@ -58,6 +58,8 @@ Para completar este tutorial:
 ## <a name="prepare-the-app"></a>Preparación de la aplicación
 
 Para asignar un nombre DNS personalizado a una aplicación web, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de dicha aplicación debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). En este paso, asegúrese de que la aplicación de App Service se encuentra en el plan de tarifa compatible.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -296,7 +298,7 @@ Una vez completada la operación, la aplicación debe devolver la página derech
 
 Puede automatizar la administración e dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
 
-### <a name="azure-cli"></a>CLI de Azure 
+### <a name="azure-cli"></a>Azure CLI 
 
 El comando siguiente agrega un nombre DNS personalizado configurado a una aplicación de App Service. 
 
@@ -322,9 +324,9 @@ Set-AzureRmWebApp `
 
 Para obtener más información, vea [Asignación de un dominio personalizado a una aplicación web](scripts/app-service-powershell-configure-custom-domain.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Asignar un subdominio mediante el uso de un registro CNAME
@@ -335,4 +337,4 @@ En este tutorial, ha aprendido cómo:
 Pase al siguiente tutorial para aprender a enlazar un certificado SSL personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
-> [Enlazar un certificado SSL personalizado a Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Enlace de un certificado SSL personalizado a Azure Web Apps](app-service-web-tutorial-custom-ssl.md)

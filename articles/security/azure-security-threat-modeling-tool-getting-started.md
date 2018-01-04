@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introducción a Threat Modeling Tool
 
@@ -29,13 +29,13 @@ Este artículo se basa en los conocimientos actuales de la solución de modelado
 
 En resumen, la solución implica la creación de un diagrama, la identificación de las amenazas, su mitigación y la validación de cada una. Este es un diagrama que esquematiza este proceso:
 
-![Proceso SDL](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![Proceso SDL](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>Inicio del proceso de modelado de amenazas
 
 Cuando inicie Threat Modeling Tool, observará algunas cosas, como se muestra en la imagen:
 
-![Página de inicio en blanco](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Página de inicio en blanco](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Sección del modelo de amenaza
 
@@ -70,7 +70,7 @@ Van a realizar el proceso de desarrollo de su primer modelo de amenaza.
 > Cristina: Por supuesto. Vamos a echar un vistazo.
 > Ricardo abre la herramienta y comparte la pantalla con Cristina.
 
-![Modelo de amenaza básica](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Modelo de amenaza básica](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Bien, parece sencillo, pero ¿puedes guiarme para comprobarlo?
 > Ricardo: Claro. Este es el análisis:
@@ -89,17 +89,17 @@ Una vez que el usuario hace clic en la vista de análisis desde la selección de
 
 Este enfoque es como proteger su casa asegurándose de que cada puerta y cada ventana disponen de un mecanismo de bloqueo antes de agregar un sistema de alarma o de perseguir al ladrón.
 
-![Amenazas básicas](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Amenazas básicas](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo comienza seleccionando el primer elemento de la lista. Esto es lo que sucede:
 
 En primer lugar, se ha mejorado la interacción entre las dos galerías de símbolos
 
-![Interacción](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interacción](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 En segundo lugar, aparece información adicional sobre la amenaza en la ventana Threat Properties (Propiedades de amenaza)
 
-![Información de interacción](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Información de interacción](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 La amenaza generada le ayuda a comprender los posibles errores de diseño. La categorización STRIDE le da una idea de los posibles vectores de ataque, mientras que la descripción adicional le indica exactamente cuál es el problema, junto con las formas posibles de mitigarlo. Puede utilizar los campos modificables para escribir notas en los detalles de justificación o cambiar las clasificaciones de prioridad según la barra de error de su organización.
 
@@ -116,7 +116,7 @@ Las amenazas no aplicables al diseño debido a las mitigaciones existentes o a g
 
 Una vez que Ricardo examina la lista con Cristina y agrega algunas notas importantes, mitigaciones o justificaciones, los cambios de estado y prioridad, selecciona Informes -> Crear informe completo -> Guardar informe, con lo que se imprime un informe muy útil para repasarlo con sus compañeros y asegurarse de implementar el trabajo de seguridad apropiado.
 
-![Información de interacción](./media/azure-security-threat-modeling-tool/report.png)
+![Información de interacción](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Si Ricardo desea compartir el archivo en su lugar, puede hacerlo fácilmente guardándolo en la cuenta de OneDrive de su organización. Cuando lo haga, podrá copiar el vínculo de documento y compartirlo con sus compañeros. 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 Es posible que el administrador de TI le haya recomendado utilizar Microsoft Azure Authenticator para iniciar sesión y tener acceso a los recursos de trabajo. Esta aplicación proporciona dos opciones de inicio de sesión:
@@ -41,7 +41,7 @@ Las instrucciones siguientes son aplicables a teléfonos Samsung GS3 y versiones
 4. En la pantalla Activar administrador del dispositivo, haga clic en **Activar**.
 5. En la pantalla de la directiva de privacidad, marque la casilla y haga clic en **Confirmar**.
 6. En la pantalla Unión al área de trabajo, escriba el identificador de usuario proporcionado por su organización y haga clic en **Unir**.
-7. Para iniciar sesión en la aplicación Azure Authenticator, escriba su cuenta profesional y contraseña y haga clic en **Iniciar sesión**.
+7. Para iniciar sesión en la aplicación Azure Authenticator, escriba su cuenta de organización y contraseña y haga clic en **Iniciar sesión**.
 8. La siguiente pantalla que muestra información acerca de Multi-Factor Authentication (MFA) se incluye para mayor seguridad y es opcional. Verá esta pantalla si su trabajo o escuela requiere autenticación de segundo factor para crear la cuenta profesional. Proporciona instrucciones para comprobar su cuenta.
 9. En la pantalla Unión al área de trabajo aparece el mensaje**Unirse al área de trabajo**. La aplicación Azure Authenticator está intentando unir el dispositivo al área de trabajo.
 10. En la pantalla siguiente debería aparecer el mensaje "Unido a área de trabajo".
@@ -116,6 +116,6 @@ En un dispositivo Android de Samsung, es necesario quitar los privilegios de adm
 1. En **Configuración**, en **Sistema**, seleccione **Seguridad**.
 2. En **Administración del dispositivo**, haga clic en **Administradores del dispositivo**. Asegúrese de que la casilla junto a **Azure Authenticator** está desactivada.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Si ve un error que indica **Error de KeyStore**, podría deberse a que no ha configurado la pantalla de bloqueo con un PIN. Para evitar este problema, desinstale la aplicación Azure Authenticator, configure un PIN para la pantalla de bloqueo y reinstale la aplicación.
 
