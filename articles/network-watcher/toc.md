@@ -9,22 +9,23 @@
 ## [Solución de problemas de conectividad VPN](network-watcher-troubleshoot-overview.md)
 ## [Comprobación de conectividad](network-watcher-connectivity-overview.md)
 ## [Límites de servicio](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # Introducción
 ## [Configuración de Network Watcher](network-watcher-create.md)
 ## Administración de capturas de paquete
-### [Portal de Azure](network-watcher-packet-capture-manage-portal.md)
+### [portal de Azure](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Comprobación de los flujos de IP hacia y desde una máquina virtual
-### [Portal de Azure](network-watcher-check-ip-flow-verify-portal.md)
+### [portal de Azure](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Análisis del próximo salto
-### [Portal de Azure](network-watcher-check-next-hop-portal.md)
+### [portal de Azure](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-check-next-hop-cli.md)
@@ -35,7 +36,7 @@
 ### [CLI de Azure](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Solución de problemas de VPN Gateway y de las conexiones
-### [Portal de Azure](network-watcher-troubleshoot-manage-portal.md)
+### [portal de Azure](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-troubleshoot-manage-cli.md)
@@ -46,16 +47,17 @@
 ### [CLI de Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Comprobación de la conectividad
-### [Portal de Azure](network-watcher-connectivity-portal.md)
+### [portal de Azure](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [CLI de Azure](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Configuración de registros de flujo para NSG
-### [Portal de Azure](network-watcher-nsg-flow-logging-portal.md)
+### [portal de Azure](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [CLI de Azure 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [CLI de Azure](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # Procedimientos
 ## [Supervisión de VPN Gateway con Azure Automation](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnóstico de la conectividad local a través de VPN Gateway](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,6 +74,7 @@
 ### [Uso de Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Uso de Grafana](network-watcher-nsg-grafana.md)
 ### [Uso de Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Determinación de la latencia relativa entre una ubicación y una región de Azure](view-relative-latencies.md)
 
 # Referencia
 ## [CLI de Azure](/cli/azure/network/watcher)
@@ -91,5 +94,5 @@
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Precios](https://azure.microsoft.com/pricing/details/network-watcher/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=network-watcher)
-## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/network-watcher)
+## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/network-watcher)

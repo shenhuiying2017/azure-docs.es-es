@@ -18,7 +18,7 @@
 ### [Copias de seguridad de almacenamiento de datos](sql-data-warehouse-backups.md)
 ### [Auditoría](sql-data-warehouse-auditing-overview.md)
 ### [Límites de capacidad](sql-data-warehouse-service-capacity-limits.md)
-### [Preguntas más frecuentes](sql-data-warehouse-overview-faq.md)
+### [P+F](sql-data-warehouse-overview-faq.md)
 
 ## Seguridad
 ### [Información general](sql-data-warehouse-overview-manage-security.md)
@@ -60,7 +60,7 @@
 #### [Identidad](sql-data-warehouse-tables-identity.md)
 #### [Particiones](sql-data-warehouse-tables-partition.md)
 #### [Tablas replicadas](design-guidance-for-replicated-tables.md)
-#### [Estadísticas](sql-data-warehouse-tables-statistics.md)
+#### [estadísticas](sql-data-warehouse-tables-statistics.md)
 #### [Temporal](sql-data-warehouse-tables-temporary.md)
 
 ### Consultas
@@ -91,11 +91,11 @@
 
 ## Carga y movimiento de datos
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
-### [Almacén de Azure Data Lake](sql-data-warehouse-load-from-azure-data-lake-store.md)
+### [Datos públicos de Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Factoría de datos](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase desde Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase desde SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [Redgate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
@@ -133,7 +133,7 @@
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Solicitud de función](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
-## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Desbordamiento de la pila](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [Soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 

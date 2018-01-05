@@ -22,6 +22,7 @@
 ## Implementación
 ### [Creación con Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Conjunto de escalado con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
+### [Uso de zonas de disponibilidad](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Escalado automático de un conjunto de escalado](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Uso de Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Uso de la CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
@@ -32,7 +33,7 @@
 ### [Uso de grandes conjuntos de escalado](virtual-machine-scale-sets-placement-groups.md)
 ### [Conversión de una plantilla de conjunto de escalado para que use un disco administrado](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Administrar
+## administración
 ### Tareas comunes de administración
 #### [Uso de la CLI de Azure 2.0](virtual-machine-scale-sets-manage-cli.md)
 #### [Uso de Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
@@ -46,7 +47,7 @@
 ## Solución de problemas
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
-## P+F
+## Preguntas más frecuentes
 ### [Preguntas más frecuentes sobre los conjuntos de escalado](virtual-machine-scale-sets-faq.md)
 
 # Referencia
@@ -60,4 +61,4 @@
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

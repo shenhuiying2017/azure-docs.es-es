@@ -20,7 +20,7 @@
 #### [Adición de un disco administrado en las zonas de disponibilidad con PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### Conjuntos de escalado de máquinas virtuales
-#### [Creación de un conjunto de escalado de máquinas virtuales con Azure Portal](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Creación de un conjunto de escalado en una zona de disponibilidad](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Equilibrador de carga
 #### [¿Qué es Load Balancer?](../load-balancer/load-balancer-standard-overview.md)

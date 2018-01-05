@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Guías de procedimientos
   items:
-    - name: Creación de una puerta de enlace transparente
-      href: how-to-create-transparent-gateway.md
+    - name: Creación de puertas de enlace
+      items:
+        - name: Creación de una puerta de enlace transparente
+          href: how-to-create-transparent-gateway.md
+        - name: Puerta de enlace de Modbus
+          href: deploy-modbus-gateway.md
     - name: Implementación y supervisión a escala
       href: how-to-deploy-monitor.md
     - name: Aprovisionamiento de un dispositivo de IoT Core

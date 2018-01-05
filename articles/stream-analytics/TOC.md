@@ -49,9 +49,10 @@
 ### [Escala para aumentar el rendimiento](stream-analytics-scale-jobs.md)
 ### [Escala con funciones de Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
 
-## Administrar
+## administración
 ### [Giro de las credenciales de entrada/salida](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Confiabilidad de los trabajos durante las actualizaciones](stream-analytics-job-reliability.md)
+### [Configuración del nivel de compatibilidad](stream-analytics-compatibility-level.md)
 
 ## Solución de problemas
 ### [Guía de solución de problemas](stream-analytics-troubleshooting-guide.md)
@@ -82,5 +83,5 @@
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Notas de la versión](stream-analytics-release-notes.md)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=stream-analytics)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
