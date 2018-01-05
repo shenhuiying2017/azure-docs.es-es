@@ -2,11 +2,10 @@
 ## [¿Qué es la mensajería de Service Bus?](service-bus-messaging-overview.md)
 ## [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 ## [Arquitectura de Service Bus](service-bus-architecture.md)
-## [Preguntas más frecuentes](service-bus-faq.md)
+## [P+F](service-bus-faq.md)
 
 # Introducción
 ## [Creación de un espacio de nombres](service-bus-create-namespace-portal.md)
-### [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md)
 ## Uso de colas
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -37,6 +36,7 @@
 
 ## Desarrollo
 ### Administración de mensajes
+#### [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md)
 #### [Mensajes, cargas y serialización](service-bus-messages-payloads.md)
 #### [Transferencia, bloqueo y liquidación de mensajes](message-transfers-locks-settlement.md)
 #### [Secuenciación y marcas de tiempo del mensaje](message-sequencing.md)
@@ -64,7 +64,7 @@
 #### [Encadenamiento de entidades con reenvío automático](service-bus-auto-forwarding.md)
 #### [Procesamiento de transacciones](service-bus-transactions.md)
 #### [Implementación de los espacios de nombres emparejados](service-bus-paired-namespaces.md)
-## Administrar
+## administración
 ### [Supervisión de Service Bus con Azure Monitor](service-bus-metrics-azure-monitor.md)
 ### [Bibliotecas de administración de Service Bus](service-bus-management-libraries.md)
 ### [Registros de diagnóstico](service-bus-diagnostic-logs.md)
@@ -101,7 +101,7 @@
 ## [ServiceBus360](https://www.servicebus360.com/)
 ## [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=service-bus)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azureservicebus)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azureservicebus)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 

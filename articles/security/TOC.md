@@ -54,6 +54,8 @@
 #### [Cumplimiento: UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Información general](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Información general acerca de los principios](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Cumplimiento normativo: Servicios financieros
+##### [Servicios financieros para cargas de trabajo reguladas](./blueprints/financial-services-regulated-workloads.md)
 
 # Introducción
 ## [Introducción a la seguridad de Azure](azure-security-getting-started.md)
@@ -118,7 +120,7 @@
 
 # Temas relacionados
 ## [Centro de confianza](security-microsoft-trust-center.md)
-## [Microsoft Security Response Center](azure-security-response-center.md)
+## [Centro de respuesta de seguridad de Microsoft](azure-security-response-center.md)
 ## [Pruebas de penetración](azure-security-pen-testing.md)
 ## [Security Center](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Key Vault](../key-vault/key-vault-whatis.md)
