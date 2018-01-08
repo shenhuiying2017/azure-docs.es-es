@@ -21,7 +21,7 @@
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Desencadenadores
       items:
-        - name: Almacenamiento de blobs
+        - name: Blob Storage
           href: functions-create-storage-blob-triggered-function.md
         - name: Azure Cosmos DB
           href: functions-create-cosmos-db-triggered-function.md
@@ -59,7 +59,7 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
-    - name: Azure CLI
+    - name: CLI de Azure
       href: functions-cli-samples.md
 - name: Conceptos
   items:
@@ -71,10 +71,10 @@
       items:
         - name: Idiomas admitidos
           href: supported-languages.md
-        - name: 'Script de C#'
-          href: functions-reference-csharp.md
-        - name: Biblioteca de clases .NET
+        - name: 'C# (biblioteca de clases)'
           href: functions-dotnet-class-library.md
+        - name: 'Script de C# (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
@@ -179,7 +179,7 @@
   items:
     - name: Enlaces
       items:
-        - name: Almacenamiento de blobs
+        - name: Blob Storage
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
@@ -201,7 +201,7 @@
           href: functions-bindings-storage-queue.md
         - name: SendGrid
           href: functions-bindings-sendgrid.md
-        - name: Service Bus
+        - name: Azure Service Bus
           href: functions-bindings-service-bus.md
         - name: Almacenamiento de tablas
           href: functions-bindings-storage-table.md

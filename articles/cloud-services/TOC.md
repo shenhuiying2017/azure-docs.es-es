@@ -44,6 +44,7 @@
 ### [Conexión a un controlador de dominio personalizado](cloud-services-connect-to-custom-domain.md)
 
 ## Administración de servicios
+### [Mitigación de ejecución especulativa] (mitigate-se.md}
 ### [Tareas comunes de administración](cloud-services-how-to-manage-portal.md)
 ### [Configuración de un servicio en la nube](cloud-services-how-to-configure-portal.md)
 ### [Administración de un servicio en la nube con Azure Automation](automation-manage-cloud-services.md)

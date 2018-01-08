@@ -47,7 +47,7 @@
   items:
     - name: PowerShell
       href: powershell-samples.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: cli-samples.md
 - name: Conceptos
   items:
@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Mantenimiento planeado
           href: maintenance-notifications.md
+        - name: Mitigación de ejecución especulativa
+          href: mitigate-se.md
         - name: Preguntas más frecuentes sobre mantenimiento acelerado
           href: accelerated-maintenance.md
         - name: Eventos programados
@@ -414,7 +416,7 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs

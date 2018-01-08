@@ -36,9 +36,11 @@
   items:
     - name: Transmisión de datos de Event Hubs a Data Warehouse
       href: event-grid-event-hubs-integration.md
+    - name: Plantillas para suscripciones a eventos
+      href: event-subscription-template.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/eventgrid
     - name: PowerShell
       href: /powershell/module/azurerm.eventgrid
@@ -51,7 +53,7 @@
       items:
         - name: Suscripciones de Azure
           href: event-schema-subscriptions.md
-        - name: Almacenamiento de blobs
+        - name: Blob Storage
           href: event-schema-blob-storage.md
         - name: Centros de eventos
           href: event-schema-event-hubs.md

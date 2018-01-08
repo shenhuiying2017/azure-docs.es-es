@@ -51,7 +51,7 @@
       href: tutorial-secure-web-server.md
 - name: Muestras
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -197,6 +197,8 @@
               href: update-agent.md
         - name: Mantenimiento planeado
           href: maintenance-notifications.md
+        - name: Mitigación de ejecución especulativa
+          href: mitigate-se.md
         - name: Preguntas más frecuentes sobre mantenimiento acelerado
           href: accelerated-maintenance.md
         - name: Eventos programados
@@ -466,7 +468,7 @@
           href: error-messages.md
         - name: Acceso a la recuperación de máquinas virtuales
           items:
-            - name: Azure CLI
+            - name: CLI de Azure
               href: troubleshoot-recovery-disks.md
             - name: Azure Portal
               href: troubleshoot-recovery-disks-portal.md

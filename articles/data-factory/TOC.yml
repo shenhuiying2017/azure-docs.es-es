@@ -124,7 +124,7 @@
               href: connector-google-bigquery.md
             - name: Greenplum
               href: connector-greenplum.md
-            - name: HBase
+            - name: hbase
               href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
@@ -303,19 +303,21 @@
       items:
         - name: Creación de un desencadenador de programación
           href: how-to-create-schedule-trigger.md
+        - name: Creación de un desencadenador de ventana de saltos de tamaño constante
+          href: how-to-create-tumbling-window-trigger.md
 - name: Referencia
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/azurerm.datafactoryv2/
-    - name: API de REST
+    - name: API DE REST
       href: /rest/api/datafactory
     - name: Python
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Recursos
   items:
-    - name: P+F
+    - name: Preguntas más frecuentes
       href: frequently-asked-questions.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'

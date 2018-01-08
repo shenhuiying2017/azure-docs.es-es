@@ -1,26 +1,26 @@
 # Información general
 ## [¿Qué es Azure Security Center?](security-center-intro.md)
-## [Seguridad de los datos](security-center-data-security.md)
+## [Seguridad de datos](security-center-data-security.md)
 ## Escenarios
 ### [Respuesta a los incidentes](security-center-incident-response.md)
 ### [Recomendaciones de uso para mejorar la seguridad](security-center-using-recommendations.md)
 ## [Migración de plataformas](security-center-platform-migration.md)
 ### [Preguntas más frecuentes sobre la migración de plataformas](security-center-platform-migration-faq.md)
 
-# Primeros pasos
+# Introducción
 ## [Inicio rápido](security-center-get-started.md)
 ## [Planeamiento y operaciones](security-center-planning-and-operations-guide.md)
 ## [Permisos](security-center-permissions.md)
 ## [Plataformas compatibles](security-center-os-coverage.md)
 ## [Preguntas más frecuentes](security-center-faq.md)
 
-# Cómo
+# Procedimientos
 ## [Directiva de seguridad](security-center-policies-overview.md)
 ### [Recopilación de datos](security-center-enable-data-collection.md)
 ### [Directiva de seguridad](security-center-policies.md)
 ### [Directiva de seguridad mediante la directiva de Azure](security-center-azure-policy.md)
 ### [Notificaciones por correo electrónico](security-center-provide-security-contact-details.md)
-### [Plan de tarifa](security-center-pricing.md)
+### [Nivel de precios](security-center-pricing.md)
 
 ## [Incorporación](security-center-onboarding.md)
 ## [Eventos](security-center-events-dashboard.md)
@@ -33,7 +33,7 @@
 #### [Conexión de Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [Implementación de recomendaciones de seguridad](security-center-recommendations.md)
 ### [Recomendaciones sobre aplicaciones](security-center-application-recommendations.md)
-#### [Agregar un firewall de aplicaciones web](security-center-add-web-application-firewall.md)
+#### [Add a web application firewall](security-center-add-web-application-firewall.md)
 #### [Finalización de la protección de la aplicación](security-center-add-web-application-firewall.md#finalize-application-protection)
 
 ### [Recomendaciones de red](security-center-network-recommendations.md)
@@ -90,6 +90,7 @@
 
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Mapa de ruta de preparación para Security Center](security-center-readiness-roadmap.md)
 ## [Blog sobre seguridad, privacidad y cumplimiento de Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Introducción al servicio](https://azure.microsoft.com/services/security-center/)

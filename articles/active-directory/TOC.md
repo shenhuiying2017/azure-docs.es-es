@@ -18,7 +18,7 @@
 ## [Configuración del autoservicio de restablecimiento de contraseña](active-directory-passwords-getting-started.md)
 
 
-# Cómo
+# Procedimientos
 ## Planeamiento y diseño
 ### [Descripción de la arquitectura de Azure AD](active-directory-architecture.md)
 ### [Asignación de notificaciones en Azure Active Directory](active-directory-claims-mapping.md)
@@ -62,7 +62,7 @@
 #### [Uso compartido externo de B2B y Office 365](active-directory-b2b-o365-external-user.md)
 #### [Licencias B2B](active-directory-b2b-licensing.md)
 #### [Limitaciones actuales](active-directory-b2b-current-limitations.md)
-#### [Preguntas más frecuentes](active-directory-b2b-faq.md)
+#### [P+F](active-directory-b2b-faq.md)
 #### [Solución de problemas de B2B](active-directory-b2b-troubleshooting.md)
 #### [Descripción del usuario de B2B](active-directory-b2b-user-properties.md)
 #### [Token de usuario de B2B](active-directory-b2b-user-token.md)
@@ -73,7 +73,7 @@
 
 ## [Administración de grupos y miembros](active-directory-manage-groups.md)
 ### Administrar grupos
-#### [Portal de Azure](active-directory-groups-create-azure-portal.md)
+#### [portal de Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Administración de miembros del grupo](active-directory-groups-members-azure-portal.md)
 ### [Administración de propietarios de grupo](active-directory-accessmanagement-managing-group-owners.md)
@@ -103,7 +103,7 @@
 ### [Usuarios en riesgo](active-directory-reporting-security-user-at-risk.md)
 ### [Inicios de sesión no seguros](active-directory-reporting-security-risky-sign-ins.md)
 ### [Eventos de riesgo](active-directory-reporting-risk-events.md)
-### [Preguntas más frecuentes](active-directory-reporting-faq.md)
+### [P+F](active-directory-reporting-faq.md)
 ### Tareas
 #### [Configuración de ubicaciones con nombre](active-directory-named-locations.md)
 #### [Búsqueda de informes de actividad](active-directory-reporting-migration.md)
@@ -140,7 +140,7 @@
 ### [Requisitos de datos de SSPR](active-directory-passwords-data.md)
 ### [Informes de SSPR](active-directory-passwords-reporting.md)
 ### Administradores de TI: Restablecimiento de contraseñas
-#### [Portal de Azure](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [Licencia de SSPR](active-directory-passwords-licensing.md)
 ### [Escritura diferida de contraseñas](active-directory-passwords-writeback.md)
 ### [Solución de problemas](active-directory-passwords-troubleshoot.md)
@@ -303,13 +303,13 @@
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Primeros pasos](active-directory-certificate-based-authentication-get-started.md)
+#### [Introducción](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Habilitación](active-directory-identityprotection-enable.md)
 #### [Detección de vulnerabilidades](active-directory-identityprotection-vulnerabilities.md)
 #### [Eventos de riesgo](active-directory-identity-protection-risk-events.md)
-#### [Notifications](active-directory-identityprotection-notifications.md)
+#### [Notificaciones](active-directory-identityprotection-notifications.md)
 #### [Experiencia de inicio de sesión](active-directory-identityprotection-flows.md)
 #### [Simulación de eventos de riesgo](active-directory-identityprotection-playbook.md)
 #### [Desbloqueo de usuarios](active-directory-identityprotection-unblock-howto.md)
@@ -363,5 +363,5 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
