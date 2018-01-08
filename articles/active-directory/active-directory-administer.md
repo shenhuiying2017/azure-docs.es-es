@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Administración del directorio de Azure AD
 
@@ -31,7 +31,7 @@ En Azure Active Directory (Azure AD), un inquilino es una instancia dedicada de 
 ## <a name="how-can-i-get-an-azure-ad-directory"></a>¿Cómo puedo obtener un directorio de Azure AD?
 Azure AD proporciona las principales capacidades de administración de identidades y directorios de la mayoría de los servicios en la nube de Microsoft, incluyendo:
 
-* Las tablas de Azure
+* Azure
 * Microsoft Office 365
 * Microsoft Dynamics CRM Online
 * Microsoft Intune
@@ -80,7 +80,6 @@ Desde cualquiera de estos portales (o cmdlets), puede:
 * Configuración de la integración local con los servicios de autenticación e identidad de Azure AD
 
 El centro de administración de Azure AD, el centro de administración de Office 365, el portal de cuentas de Microsoft Intune y los cmdlets de Azure AD leen y escriben en una instancia compartida única de Azure AD que está asociada con el directorio de su organización. Cada una de esas herramientas actúa como una interfaz front-end que extrae o cambia la información del directorio.
-
 Cuando cambia los datos de su organización mediante cualquiera de los portales o cmdlets mientras está conectado en el contexto de uno de estos servicios, los cambios también se muestran en los demás portales la próxima vez que inicie sesión. Estos datos se comparten entre los servicios en la nube de Microsoft a los que esté suscrito.
 
 Por ejemplo, si utiliza el centro de administración de Office 365 para bloquear el inicio de sesión de un usuario, dicha acción bloquea el inicio de sesión de ese usuario en cualquier otro servicio al que esté suscrita actualmente su organización. Si visualiza la misma cuenta de usuario en el portal de cuentas de Microsoft Intune, también verá que el usuario está bloqueado.
@@ -116,9 +115,9 @@ Se comprueban las condiciones siguientes:
 * No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Office 365 o Azure AD Premium, asociadas al directorio. Por ejemplo, si se ha creado un directorio predeterminado en Azure en su nombre, no puede eliminar este directorio si la suscripción a Azure aún se basa en este directorio para la autenticación. De igual forma, no puede eliminar un directorio si otro usuario le ha asociado una suscripción. 
 
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Foro de Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Foro de Multi-Factor Authentication de Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Preguntas sobre Azure publicadas en Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
+## <a name="next-steps"></a>pasos siguientes
+* [Foro de Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Foro de Multi-Factor Authentication de Azure](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [Preguntas sobre StackOverflow para Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles-azure-portal.md)

@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Administración de la capacidad de almacenamiento para Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
 
 La información en este artículo ayuda al operador en la nube de Azure Stack a supervisar y administrar la capacidad de almacenamiento de su implementación de Azure Stack. La infraestructura de almacenamiento Azure Stack asigna un subconjunto de la capacidad total de almacenamiento de la implementación de Azure Stack a los **servicios de almacenamiento**. Los servicios de almacenamiento almacenan los datos del inquilino en recursos compartidos de volúmenes que corresponden a los nodos de la implementación.
 

@@ -6,20 +6,20 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
 Los contenedores están convirtiéndose rápidamente en la manera preferida de empaquetar, implementar y administrar aplicaciones en la nube. Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar un contenedor en Azure, sin tener que aprovisionar ninguna máquina virtual y sin necesidad de adoptar un servicio de nivel superior.
 
-Azure Container Instances es una excelente solución para cualquier escenario que pueda funcionar en contenedores aislados, incluidas las aplicaciones simples, la automatización de tareas y los trabajos de compilación. En aquellos escenarios donde se necesita una orquestación completa de contenedores, incluida la detección de servicios en varios contenedores, el escalado automático y las actualizaciones de aplicaciones coordinadas, se recomienda [Azure Container Service](https://docs.microsoft.com/azure/container-service/).
+Azure Container Instances es una excelente solución para cualquier escenario que pueda funcionar en contenedores aislados, incluidas las aplicaciones simples, la automatización de tareas y los trabajos de compilación. En aquellos escenarios donde se necesita una orquestación completa de contenedores, incluida la detección de servicios en varios contenedores, el escalado automático y las actualizaciones de aplicaciones coordinadas, se recomienda [Azure Container Service (AKS)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Tiempos de inicio rápido
 
@@ -39,7 +39,7 @@ Con Azure Container Instances, puede exponer los contenedores directamente a Int
 
 ## <a name="persistent-storage"></a>Almacenamiento persistente
 
-Para recuperar y conservar el estado con Azure Container Instances, ofrecemos el montaje directo de los recursos compartidos de archivos de Azure.
+Para recuperar y conservar el estado con Azure Container Instances, ofrecemos el [montaje directo de los recursos compartidos de Azure Files](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="linux-and-windows-containers"></a>Contenedores de Linux y Windows
 
@@ -47,8 +47,8 @@ Con Azure Container Instances, puede programar los contenedores de Windows y Lin
 
 ## <a name="co-scheduled-groups"></a>Grupos con programación compartida
 
-Azure Container Instances admite la programación de grupos con varios contenedores que comparten una máquina host, la red local, el almacenamiento y el ciclo de vida. Esto le permite combinar la aplicación principal con otras que actúan en una función auxiliar, como el registro.
+Azure Container Instances admite la programación de [grupos con varios contenedores](container-instances-container-groups.md) que comparten una máquina host, la red local, el almacenamiento y el ciclo de vida. Esto le permite combinar la aplicación principal con otras que actúan en una función auxiliar, como el registro.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Pruebe a implementar un contenedor en Azure con un único comando mediante nuestra [Guía de inicio rápido](container-instances-quickstart.md).

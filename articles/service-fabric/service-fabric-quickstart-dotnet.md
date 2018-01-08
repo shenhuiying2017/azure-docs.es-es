@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Crear una aplicación .NET de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -38,7 +38,7 @@ Mediante el uso de esta aplicación, aprenderá a hacer lo siguiente:
 > * Escalar horizontalmente la aplicación en varios nodos
 > * Realizar una actualización gradual de aplicaciones
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para completar esta guía de inicio rápido:
 1. [Instale Visual Studio 2017](https://www.visualstudio.com/) con las cargas de trabajo de **desarrollo de Azure** y de **desarrollo web y de ASP.NET**.
 2. [Instalación de Git](https://git-scm.com/)
@@ -134,7 +134,7 @@ Ahora que la aplicación está lista, puede implementarla en un clúster directa
 
     ![Cuadro de diálogo de publicación](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Copie el valor de **Punto de conexión** de la página Clúster de entidad en el campo **Punto de conexión** y haga clic en **Publicar**. Por ejemplo: `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copie el valor de **Punto de conexión** de la página Clúster de entidad en el campo **Punto de conexión** y haga clic en **Publicar**. Por ejemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
     Todas las aplicaciones del clúster deben tener un nombre único.  Sin embargo, los clústeres de entidad son un entorno compartido y público, por lo que es posible que se produzca un conflicto con una aplicación existente.  Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a realizar la implementación.
 
@@ -171,8 +171,8 @@ Al implementar nuevas actualizaciones en la aplicación, Service Fabric implemen
 Para actualizar la aplicación, haga lo siguiente:
 
 1. Abra el archivo **/VotingWeb/Views/Home/Index.cshtml** en Visual Studio.
-2. Cambie el <h2> encabezado de la página agregando o actualizando el texto. Por ejemplo, cambie el encabezado a "Ejemplo de votación de Service Fabric v2".
-3. Guarde el archivo .
+2. Cambie el encabezado de la página agregando o actualizando el texto. Por ejemplo, cambie el encabezado a "Ejemplo de votación de Service Fabric v2".
+3. Guarde el archivo.
 4. Haga clic con el botón derecho en el proyecto **Voting** en el Explorador de soluciones y seleccione **Publicar**. Aparece el cuadro de diálogo de publicación.
 5. Haga clic en el botón **Versión de manifiesto** para cambiar la versión del servicio y la aplicación.
 6. Cambie la versión del elemento **Code** situado bajo **VotingWebPkg** a "2.0.0", por ejemplo, y haga clic en **Guardar**.
@@ -189,7 +189,7 @@ Para actualizar la aplicación, haga lo siguiente:
 
 10. Mientras se ejecuta la actualización, puede usar la aplicación. Dado que en el clúster se ejecutan dos instancias del servicio, algunas de las solicitudes podrían obtener una versión actualizada de la aplicación, mientras que otras podrían obtener la versión anterior.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha aprendido a hacer lo siguiente:
 
 > [!div class="checklist"]

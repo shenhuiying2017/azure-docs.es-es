@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: ba2a14e3f327fd8ab4f1ebfe329a64b4aa1a25a1
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 49ec2f305c1aef50fcff977d60ff3ce0079ff5af
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-and-spark-technology-stack"></a>Introducción a Azure HDInsight y la pila de tecnología de Hadoop y Spark
 Este artículo proporciona una introducción a Azure HDInsight, un servicio de análisis, de código abierto, espectro completo y totalmente administrado para empresas. Puede usar plataformas de código abierto como Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, etc. 
@@ -45,7 +45,7 @@ Los macrodatos se recopilan en volúmenes de escala, a mayores velocidades y par
 En esta sección se enumeran las funcionalidades de Azure HDInsight.
 
 
-|Capacidad  |Descripción  |
+|Capacidad  |DESCRIPCIÓN  |
 |---------|---------|
 |Nativo en la nube     |     Azure HDInsight le permite crear clústeres optimizados para [Hadoop](apache-hadoop-linux-tutorial-get-started.md), [Spark](../spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](../interactive-query/apache-interactive-query-get-started.md), [Kafka](../kafka/apache-kafka-get-started.md), [Storm](../storm/apache-storm-tutorial-get-started-linux.md), [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) y  [R Server](../r-server/r-server-get-started.md) en Azure. HDInsight también proporciona un Acuerdo de Nivel de Servicio de un extremo a otro en las cargas de trabajo de producción.  |
 |Rentable y escalable     | HDInsight le permite [escalar](../hdinsight-administer-use-portal-linux.md) o reducir verticalmente cargas de trabajo. Puede reducir el costo mediante la  [creación de clústeres a petición](../hdinsight-hadoop-create-linux-clusters-adf.md) y pagar solo por lo que se utiliza. También puede compilar canalizaciones de datos para poner en marcha los trabajos. El procesamiento y el almacenamiento desacoplados ofrecen un mejor rendimiento y flexibilidad. |
@@ -81,7 +81,7 @@ Puede usar HDInsight para realizar consultas interactivas a escalas de petabytes
 
 ![Arquitectura de HDInsight: almacenamiento de datos](./media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png)
 
-### <a name="hybrid"></a>Híbrida
+### <a name="hybrid"></a>Híbrido
 
 Puede usar HDInsight para ampliar la infraestructura local de macrodatos existente en Azure para aprovechar las avanzadas funcionalidades de análisis en la nube.
 
@@ -137,6 +137,7 @@ Las herramientas de Business Intelligence (BI) habituales recuperan, analizan y 
 
 * [Apache Spark BI mediante herramientas de visualización de datos con Azure HDInsight](../spark/apache-spark-use-bi-tools.md)
 * [Visualización de datos de Hive con Microsoft Power BI en Azure HDInsight](apache-hadoop-connect-hive-power-bi.md) 
+* [Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Conexión de Excel a Hadoop con Power Query](apache-hadoop-connect-excel-power-query.md): aprenda a conectar Excel a una cuenta de Azure Storage que almacene los datos de su clúster de HDInsight mediante Microsoft Power Query para Excel. Se requiere una estación de trabajo de Windows. 
 * [Conexión de Excel a Hadoop con el controlador ODBC de Microsoft Hive](apache-hadoop-connect-excel-hive-odbc-driver.md): aprenda a importar datos desde HDInsight con el controlador ODBC de Microsoft Hive. Se requiere una estación de trabajo de Windows. 
 * [Plataforma en la nube de Microsoft](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): obtenga información sobre Power BI para Office 365, descargue la evaluación de SQL Server y configure SharePoint Server 2013 y SQL Server BI.
@@ -144,7 +145,7 @@ Las herramientas de Business Intelligence (BI) habituales recuperan, analizan y 
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Introducción a Hadoop en HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Introducción a Spark en HDInsight](../spark/apache-spark-jupyter-spark-sql.md)

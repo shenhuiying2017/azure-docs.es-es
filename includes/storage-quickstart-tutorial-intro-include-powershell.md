@@ -6,7 +6,7 @@ Inicie sesión en la suscripción de Azure con el comando `Login-AzureRmAccount`
 Login-AzureRmAccount
 ```
 
-Si no sabe qué ubicación desea usar, puede enumerar las ubicaciones disponibles. Cuando se muestre la lista, busque la que desee usar. Este ejemplo se usará **eastus**. Almacénelo en una variable y úsela para que pueda cambiar este valor en un solo lugar.
+Si no sabe qué ubicación desea usar, puede enumerar las ubicaciones disponibles. Cuando se muestre la lista, busque la que desee usar. En este ejemplo se usa **eastus**. Almacénelo en una variable y úsela para que pueda cambiar este valor en un solo lugar.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -24,7 +24,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento de uso general estándar con replicación de LRS usando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount); a continuación, recupere el contexto de la cuenta de almacenamiento que define la cuenta de almacenamiento que se usará. Cuando actúa en una cuenta de almacenamiento, hace referencia al contexto en lugar de proporcionar varias veces las credenciales. En este ejemplo se crea una cuenta de almacenamiento denominada *mystorageaccount* con el cifrado de blob y de almacenamiento localmente redundante habilitado.
+Cree una cuenta de almacenamiento de uso general estándar con replicación de LRS usando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount); a continuación, recupere el contexto de la cuenta de almacenamiento que define la cuenta de almacenamiento que se usará. Cuando actúa en una cuenta de almacenamiento, hace referencia al contexto en lugar de proporcionar varias veces las credenciales. En este ejemplo se crea una cuenta de almacenamiento denominada *mystorageaccount* con el cifrado de blob y el almacenamiento con redundancia local (LRS) (habilitados de forma predeterminada).
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -32,7 +32,6 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind Storage `
-  -EnableEncryptionService Blob
 
 $ctx = $storageAccount.Context
 ```

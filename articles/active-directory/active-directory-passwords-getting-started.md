@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementación rápida del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -36,40 +36,43 @@ En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Dir
 1. En su inquilino de Azure AD existente, seleccione **Restablecimiento de contraseña**.
 
 2. En la página **Propiedades**, en **Se habilitó el restablecimiento de contraseña del autoservicio**, elija una de las siguientes opciones:
-    * **Ninguno**: nadie puede usar la funcionalidad SSPR.
-    * **Seleccionado**: solo los miembros de un grupo de Azure AD determinado que elija podrán usar la funcionalidad SSPR. Se recomienda definir un grupo de usuarios y usarlo al implementar la funcionalidad para una prueba de concepto.
-    * **Todos**: todos los usuarios con cuentas en su inquilino de Azure AD podrán usar la funcionalidad SSPR. Se recomienda establecer esta opción cuando esté listo para implementar la funcionalidad en todo su inquilino una vez haya completado una prueba de concepto.
+   * **Ninguno**: nadie puede usar la funcionalidad SSPR.
+   * **Seleccionado**: solo los miembros de un grupo de Azure AD determinado que elija podrán usar la funcionalidad SSPR. Se recomienda definir un grupo de usuarios y usarlo al implementar la funcionalidad para una prueba de concepto.
+   * **Todos**: todos los usuarios con cuentas en su inquilino de Azure AD podrán usar la funcionalidad SSPR. Se recomienda establecer esta opción cuando esté listo para implementar la funcionalidad en todo su inquilino una vez haya completado una prueba de concepto.
+
+   > [!IMPORTANT]
+   > Las cuentas de administrador de Azure siempre tendrán la capacidad de restablecer sus contraseñas con independencia del ajuste de esta opción. 
 
 3. En la página **Métodos de autenticación**, elija lo siguiente:
-    * **Número de métodos requeridos para el restablecimiento**: se admite uno como mínimo o dos como máximo.
-    * **Métodos disponibles para los usuarios**: se necesita al menos uno, pero es recomendable tener una opción adicional disponible.
-        * **Correo electrónico**: se envía un correo electrónico con un código a la dirección de correo electrónico de autenticación configurada del usuario.
-        * **Teléfono móvil**: proporciona al usuario la opción de recibir una llamada o un mensaje de texto con un código en su número de teléfono móvil configurado.
-        * **Teléfono de la oficina**: realiza una llamada al número de teléfono de la oficina configurado del usuario para transmitirle un código.
-        * **Preguntas de seguridad**: es necesario elegir:
-            * **Número de preguntas necesarias para registrarse**: el valor mínimo para el registro correcto. Un usuario puede elegir responder más preguntas para crear un grupo de preguntas del que escoger. Esta opción permite definir de tres a cinco preguntas y debe ser mayor o igual que el número de preguntas necesarias para el restablecimiento de la contraseña. El usuario puede agregar preguntas personalizadas al seleccionar el botón **Personalizado** al seleccionar las preguntas de seguridad.
-            * **Número de preguntas necesarias para el restablecimiento**: pueden establecerse de tres a cinco preguntas que responder correctamente para permitir restablecer o desbloquear la contraseña de los usuarios.
+   * **Número de métodos requeridos para el restablecimiento**: se admite uno como mínimo o dos como máximo.
+   * **Métodos disponibles para los usuarios**: se necesita al menos uno, pero es recomendable tener una opción adicional disponible.
+      * **Correo electrónico**: se envía un correo electrónico con un código a la dirección de correo electrónico de autenticación configurada del usuario.
+      * **Teléfono móvil**: proporciona al usuario la opción de recibir una llamada o un mensaje de texto con un código en su número de teléfono móvil configurado.
+      * **Teléfono de la oficina**: realiza una llamada al número de teléfono de la oficina configurado del usuario para transmitirle un código.
+      * **Preguntas de seguridad**: es necesario elegir:
+         * **Número de preguntas necesarias para registrarse**: el valor mínimo para el registro correcto. Un usuario puede elegir responder más preguntas para crear un grupo de preguntas del que escoger. Esta opción permite definir de tres a cinco preguntas y debe ser mayor o igual que el número de preguntas necesarias para el restablecimiento de la contraseña. El usuario puede agregar preguntas personalizadas al seleccionar el botón **Personalizado** al seleccionar las preguntas de seguridad.
+         * **Número de preguntas necesarias para el restablecimiento**: pueden establecerse de tres a cinco preguntas que responder correctamente para permitir restablecer o desbloquear la contraseña de los usuarios.
             
     ![Autenticación][Authentication]
 
 4. Recomendado: en **Personalización** puede cambiar el vínculo **Póngase en contacto con el administrador** para la dirección a otra página o dirección de correo electrónico que defina. Se recomienda establecer este vínculo en algo como una dirección de correo electrónico o un sitio web que los usuarios ya utilicen para las preguntas de soporte técnico.
 
 5. Opcional: la página **Registro** proporciona a los administradores la opción de:
-    * Exigir a los usuarios que se registren al iniciar sesión.
-    * Establecer el número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación.
+   * Exigir a los usuarios que se registren al iniciar sesión.
+   * Establecer el número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación.
 
 6. Opcional: la página **Notificaciones** proporciona a los administradores la opción de:
-    * Notificar a los usuarios el restablecimiento de contraseña.
-    * Notificar a todos los administradores cuando otros administradores restablezcan su contraseña.
+   * Notificar a los usuarios el restablecimiento de contraseña.
+   * Notificar a todos los administradores cuando otros administradores restablezcan su contraseña.
 
 Llegados a este punto, ya ha configurado SSPR para su inquilino de Azure AD. Los usuarios ahora pueden usar las instrucciones de los artículos [Registro para restablecer la contraseña de autoservicio](active-directory-passwords-reset-register.md) y [Restablecimiento o cambio de la contraseña](active-directory-passwords-update-your-own-password.md) para actualizar su contraseña sin intervención del administrador. Puede detenerse aquí si está solo en la nube. O bien, continuar con la sección siguiente para configurar la sincronización de contraseñas para un dominio de Active Directory local.
 
-> [!IMPORTANT]
+> [!TIP]
 > Pruebe SSPR con un usuario en lugar de con un administrador, ya que Microsoft impone requisitos de autenticación estrictos para las cuentas de administrador de Azure. Para más información acerca de la directiva de contraseñas de administrador, consulte nuestro artículo sobre la [directiva de contraseñas](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Configuración de la sincronización con un origen de identidades existente
 
-Para habilitar la sincronización de identidades local con Azure AD, debe instalar y configurar [Azure AD Connect](./connect/active-directory-aadconnect.md) en un servidor de su organización. Esta aplicación administra la sincronización de usuarios y grupos de su origen de identidades existente con su inquilino de Azure AD. Para más información, consulte:
+Para habilitar la sincronización de identidades local con Azure AD, debe instalar y configurar [Azure AD Connect](./connect/active-directory-aadconnect.md) en un servidor de su organización. Esta aplicación administra la sincronización de usuarios y grupos de su origen de identidades existente con su inquilino de Azure AD. Para obtener más información, consulte 
 
 * [Actualización desde DirSync o Azure AD Sync a Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Introducción a Azure AD Connect mediante la configuración rápida](./connect/active-directory-aadconnect-get-started-express.md)
@@ -107,7 +110,7 @@ En los siguientes artículos se proporciona información adicional sobre el rest
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este inicio rápido, ha aprendido a configurar el autoservicio de restablecimiento de contraseña para los usuarios. Para completar estos pasos, proceda a Azure Portal:
 

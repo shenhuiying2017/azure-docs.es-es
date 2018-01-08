@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Supervisión del estado de seguridad en el Centro de seguridad de Azure
 Este artículo le ayuda a usar las funcionalidades de supervisión de Azure Security Center para supervisar el cumplimiento de las directivas.
@@ -31,7 +31,7 @@ Después de habilitar las [directivas de seguridad](security-center-policies.md)
 
 Para más información sobre cómo aplicar las recomendaciones, lea [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
-En la sección **Prevención**, puede supervisar el estado de seguridad de los recursos. En el ejemplo siguiente, puede ver que, en el icono de cada recurso (Proceso, Redes, Almacenamiento y datos, y Aplicación) tiene el número total de problemas que se han identificado.
+En la sección **Prevención**, puede supervisar el estado de seguridad de los recursos. En el ejemplo siguiente, puede ver que, en el icono de cada recurso (Compute, Network, Storage y datos, y Aplicación) tiene el número total de problemas que se han identificado.
 
 ![Icono de estado de seguridad de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
@@ -45,13 +45,14 @@ Al hacer clic en el icono **Compute**, verá tres pestañas:
 
 ![Actualizaciones de sistema que faltan por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Todas las pestañas pueden tener varias secciones y en cada una de ella se puede seleccionar cualquiera de las opciones para ver más detalles acerca de los pasos recomendados para abordar un problema concreto. 
+Todas las pestañas pueden tener varias secciones y en cada una de ella se puede seleccionar cualquiera de las opciones para ver más detalles acerca de los pasos recomendados para abordar un problema concreto.
 
 #### <a name="monitoring-recommendations"></a>Supervisión de las recomendaciones
-En esta sección se muestra el número total de máquinas virtuales y equipos que se inicializaron para el aprovisionamiento automático y sus estados actuales. Al hacer clic en esta entrada, se abre la hoja **Falta el agente de máquina virtual o bien este no responde**. 
+En esta sección se muestra el número total de máquinas virtuales y equipos que se inicializaron para el aprovisionamiento automático y sus estados actuales. Al hacer clic en esta entrada, se abre la página **Supervisión de problemas de Agent Health**.
 
-![Actualizaciones de sistema que faltan por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Supervisión de problemas de Agent Health](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+Se enumeran las máquinas virtuales y los equipos que el Centro de seguridad no puede supervisar correctamente. Seleccione una máquina virtual o un equipo para obtener información detallada. En **ESTADO DE SUPERVISIÓN** se define el problema.
 
 #### <a name="recommendations"></a>Recomendaciones
 Esta sección contiene un conjunto de [recomendaciones para cada máquina virtual y equipo](security-center-virtual-machine-recommendations.md) que supervisa Azure Security Center. La primera columna muestra la recomendación. La segunda columna muestra el número total de máquinas virtuales y equipos a los que afecta esa recomendación. La tercera columna muestra la gravedad del problema como se muestra en la captura de pantalla siguiente:
@@ -79,7 +80,7 @@ Las **actualizaciones del sistema que faltan** tienen un resumen de actualizacio
   * **Media**: para completar un proceso o eliminar una vulnerabilidad se requieren pasos adicionales o no críticos.
   * **Baja**: es preciso abordar una vulnerabilidad, pero esta no requiere una atención inmediata. (De manera predeterminada no se muestran las recomendaciones bajas, pero si desea verlas, puede filtrar por ellas).
 
-Para ver los detalles de recomendación, haga clic en el nombre de la actualización que falta en la lista. 
+Para ver los detalles de recomendación, haga clic en el nombre de la actualización que falta en la lista.
 
 ![Actualizaciones de sistema que faltan para una máquina virtual concreta](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ En un escenario en el que haya alguna recomendación (lo que no ocurre en el eje
 
 ![Detalles del servicio en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver una explicación más preceptiva con respecto a esta recomendación, haga clic en **Actualizar versión del SO** en la columna **DESCRIPCIÓN**. 
+Para ver una explicación más preceptiva con respecto a esta recomendación, haga clic en **Actualizar versión del SO** en la columna **DESCRIPCIÓN**.
 
 ![Recomendaciones de servicios en la nube](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
@@ -213,7 +214,7 @@ Aquí tiene una lista de todas las recomendaciones para esta aplicación. Al hac
 
 ![Cuadro de diálogo Agregar un firewall de aplicaciones web](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 En este artículo, aprendió a usar las funcionalidades de supervisión en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): obtenga información sobre cómo configurar los ajustes de seguridad en Azure Security Center.

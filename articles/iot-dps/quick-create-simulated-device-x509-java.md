@@ -136,12 +136,12 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
         ![Introducción de la información de inscripción del grupo X.509 en la hoja del portal](./media/java-quick-create-simulated-device-x509/enter-group-enrollment.png)
 
-        En caso de una inscripción correcta, el grupo de dispositivos X.509 aparecerá en la columna *Nombre del grupo* de la pestaña *Grupos de inscripción*.
+        En caso de que la inscripción se realice correctamente, el grupo de dispositivos X.509 aparecerá en la columna *Nombre del grupo* de la pestaña *Grupos de inscripción*.
 
 
 ## <a name="simulate-the-device"></a>Simulación del dispositivo
 
-1. En la hoja de resumen del servicio Device Provisioning, seleccione **Introducción** y tome nota de los campos _Id Scope_ (Id. de ámbito) y _Provisioning Service Global Endpoint_ (Extremo global de Provisioning Service).
+1. En la hoja de resumen del servicio Device Provisioning, seleccione **Introducción** y tome nota de los campos _Ámbito de id._ (Id. de ámbito) y _Provisioning Service Global Endpoint_ (Punto de conexión global del Servicio de aprovisionamiento).
 
     ![Información del servicio](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -155,7 +155,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
     - **Inscripción individual**: 
 
-        1. Edite el archivo `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para que incluya el _Id Scope_ (Id. de ámbito) y el _Provisioning Service Global Endpoint_ (Extremo global de Provisioning Service) tal y como se indicó antes. Incluya también el _Client cert_ (Certificado de cliente) y la _Client Cert Private Key_ (Clave privada del certificado de cliente) tal y como se indicó anteriormente.
+        1. Edite el archivo `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` para que incluya el _Id Scope_ (Id. de ámbito) y el _Provisioning Service Global Endpoint_ (Punto de conexión global del Servicio de aprovisionamiento) tal y como se indicó antes. Incluya también el valor de _Client cert_ (Certificado de cliente) y _Client Cert Private Key_ (Clave privada del certificado de cliente) tal y como se indicó anteriormente.
 
             ```java
             private static final String idScope = "[Your ID scope here]";
@@ -237,13 +237,13 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 Si piensa seguir trabajando con el ejemplo de cliente de dispositivo y explorándolo, no limpie los recursos que se crean en esta guía de inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos creados.
 
 1. Cierre la ventana de salida de ejemplo del cliente del dispositivo en su máquina.
-1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione el servicio Device Provisioning. Abra la hoja **Administrar inscripciones** para el servicio y, a continuación, haga clic en la pestaña **Inscripciones individuales**. Seleccione el elemento *REGISTRATION ID* del dispositivo que inscribió en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior. 
-1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. Abra la hoja **IoT Devices** (Dispositivos IoT) para el Hub, seleccione el elemento *DEVICE ID* del dispositivo que registró en esta guía de inicio rápido y, a continuación, haga clic en el botón **Eliminar** situado en la parte superior.
+1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione el servicio Device Provisioning. Abra la hoja **Administrar inscripciones** de su servicio y, a continuación, haga clic en la pestaña **Inscripciones individuales**. Seleccione el *ID. DE REGISTRO* del dispositivo que inscribió en esta guía de inicio rápido y haga clic en el botón **Eliminar** situado en la parte superior. 
+1. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. Abra la hoja **IoT Devices** (Dispositivos IoT) de su centro, seleccione el *ID. DE DISPOSITIVO* del dispositivo que registró en esta guía de inicio rápido y, a continuación, haga clic en el botón **Eliminar** situado en la parte superior.
 
 
 ## <a name="next-steps"></a>pasos siguientes
 
-En esta guía de inicio rápido, creó un dispositivo simulado X.509 en su máquina de Windows y lo aprovisionó con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning en el portal. Para obtener información sobre cómo inscribir el dispositivo X.509 mediante programación, siga la guía de inicio rápido para la inscripción de dispositivos X.509 mediante programación. 
+En esta guía de inicio rápido, creó un dispositivo simulado X.509 en su máquina Windows y lo aprovisionó con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning en el portal. Para obtener información sobre cómo inscribir el dispositivo X.509 mediante programación, siga la guía de inicio rápido para la inscripción de dispositivos X.509 mediante programación. 
 
 > [!div class="nextstepaction"]
-> [Inicio rápido de Azure: inscripción de dispositivos X.509 al servicio Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)
+> [Inicio rápido de Azure: Inscripción de dispositivos X.509 al servicio Azure IoT Hub Device Provisioning](quick-enroll-device-x509-java.md)

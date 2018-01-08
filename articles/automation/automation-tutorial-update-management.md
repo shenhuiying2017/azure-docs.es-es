@@ -1,6 +1,6 @@
 ---
 title: "Administración de las actualizaciones y revisiones para las máquinas virtuales Windows de Azure | Microsoft Docs"
-description: "En este artículo se proporciona una introducción sobre cómo utilizar Azure Automation y Update management para administrar las actualizaciones y revisiones para las máquinas virtuales Windows de Azure."
+description: "En este artículo se proporciona una introducción sobre cómo utilizar Azure Automation y Update Management para administrar las actualizaciones y revisiones para las máquinas virtuales Windows de Azure."
 services: automation
 documentationcenter: 
 author: zjalexander
@@ -23,7 +23,7 @@ ms.lasthandoff: 12/22/2017
 # <a name="manage-windows-updates-with-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
 Update Management le permite administrar las actualizaciones y las revisiones para las máquinas virtuales.
-En este tutorial aprenderá a evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar que actualizaciones se apliquen correctamente.
+En este tutorial aprenderá a evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar que las actualizaciones se apliquen correctamente.
 
 Para obtener información de precios, consulte [Precios de automatización de la administración de actualizaciones](https://azure.microsoft.com/pricing/details/automation/).
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 Para completar este tutorial, necesita:
 
 * Una suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [Cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
+* Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
@@ -52,12 +52,12 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 En primer lugar, debe habilitar la administración de actualizaciones para la máquina virtual en este tutorial. Si habilitó previamente otra solución de automatización para una máquina virtual, este paso no es necesario.
 
 1. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione una máquina virtual de la lista.
-2. En el menú de la izquierda, en la sección **Operaciones**, haga clic en **Update Management**. Se abre la página **Habilitar la administración de actualizaciones**.
+2. En el menú de la izquierda, en la sección **Operaciones**, haga clic en **Update Management**. Se abre la página **Habilitar Update Management**.
 
 Se realiza la validación para determinar si la administración de actualizaciones está habilitada para esta máquina virtual.
 La validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada, y si la solución está en el área de trabajo.
 
-Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, la administración de actualizaciones.
+Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Update Management.
 El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran actualizaciones, Azure Automation permite ejecutar runbooks en máquinas virtuales, por ejemplo, para descargar y aplicar actualizaciones.
 
@@ -70,7 +70,7 @@ Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la op
 ![Banner de configuración de la incorporación de Update Management](./media/automation-tutorial-update-management/manageupdates-onboard-solution-banner.png)
 
 Para habilitar la solución, haga clic en el banner.
-Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
+Si se detecta que falta alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 * [Automation](./automation-offering-get-started.md)
@@ -78,7 +78,7 @@ Si se detecta la falta de alguno de los siguientes requisitos previos después d
 
 Se abre la pantalla **Update Management**. Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. Si los campos aparecen atenuados, significa que otra solución de automatización está habilitada para la máquina virtual y que deben usarse la misma área de trabajo y cuenta de Automation.
 
-![Ventana para habilitar la solución de administración de actualizaciones](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
+![Ventana para habilitar la solución de Update Management](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
 La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
 Después de habilitar la solución, la información sobre las actualizaciones que faltan en la máquina virtual se pasa a Log Analytics.
@@ -89,7 +89,7 @@ Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el 
 Una vez habilitado **Update Management**, se muestra la pantalla **Administración de actualizaciones**.
 Si falta alguna actualización, verá una lista de las actualizaciones que faltan en la pestaña **Actualizaciones que faltan**.
 
-Seleccione el **INFORMATION LINK** (VÍNCULO DE INFORMACIÓN) de la actualización para abrir el artículo de soporte técnico sobre la actualización en una ventana nueva. Aquí encontrará información importante acerca de la actualización.
+Seleccione el **VÍNCULO DE INFORMACIÓN** de la actualización para abrir el artículo de soporte técnico sobre la actualización en una ventana nueva. Aquí encontrará información importante acerca de la actualización.
 
 ![Ver el estado de la actualización](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
@@ -99,14 +99,14 @@ Si hace clic en cualquier otro lugar de la actualización, se abrirá la ventana
 
 ## <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
 
-Ahora sabe que faltan algunas actualizaciones en la máquina virtual. Para instalar actualizaciones, programe una implementación que se ajuste a su ventana de programación y servicio de versiones.
+Ahora sabe que faltan algunas actualizaciones en su máquina virtual. Para instalar actualizaciones, programe una implementación que se ajuste a su ventana de programación y servicio de versiones.
 Puede elegir los tipos de actualizaciones que quiere incluir en la implementación.
 Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
 
 > [!WARNING]
-> Cuando las actualizaciones requieran un reinicio, la máquina virtual se reinicia automáticamente.
+> Cuando las actualizaciones requieren un reinicio, la máquina virtual se reinicia automáticamente.
 
-Programe una nueva implementación de actualizaciones para la máquina virtual. Para ello, vuelva a **Administración de actualizaciones** y seleccione **Programar implementación de actualizaciones** en la parte superior de la pantalla.
+Programe una nueva implementación de actualizaciones para la máquina virtual. Para ello, vuelva a **Update Management** y seleccione **Programar implementación de actualizaciones** en la parte superior de la pantalla.
 
 En la pantalla **Nueva implementación de actualización**, especifique la siguiente información:
 
@@ -132,11 +132,11 @@ Seleccione **Periódica** en **Periodicidad**. Deje el valor predeterminado a 1 
 
 ![Pantalla de configuración de la programación de actualizaciones](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Después completar la configuración de la programación, haga clic en el botón **Crear**. Volverá al panel de estado. Seleccione **Implementaciones de actualizaciones programadas** para mostrar la programación de implementación que creó.
+Después de completar la configuración de la programación, haga clic en el botón **Crear**. Volverá al panel de estado. Seleccione **Implementaciones de actualizaciones programadas** para mostrar la programación de implementación que creó.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 
-Después de que se inicie la implementación programada, puede ver su estado en la pestaña **Implementaciones de actualizaciones** en la pantalla **Administración de actualizaciones**.
+Después de que se inicie la implementación programada, puede ver su estado en la pestaña **Implementaciones de actualizaciones** en la pantalla **Update Management**.
 Si se está ejecutando actualmente, su estado se muestra como **En curso**.
 Cuando se completa, si se realiza correctamente, cambia a **Correcto**.
 Si se producen errores con una o varias actualizaciones en la implementación, el estado es **Error parcial**.
@@ -146,7 +146,7 @@ Haga clic en la implementación de actualizaciones completada para ver el panel 
 
 En el icono **Resultados de actualización** encontrará un resumen del número total de actualizaciones y los resultados de la implementación en la máquina virtual.
 En la tabla de la derecha se muestra un análisis detallado de cada actualización y los resultados de la instalación.
-La lista siguiente muestra los valores disponibles:
+En la lista siguiente se muestran los valores disponibles:
 
 * **No intentado**: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la duración definida para la ventana de mantenimiento.
 * **Correcto**: la actualización se realizó correctamente.

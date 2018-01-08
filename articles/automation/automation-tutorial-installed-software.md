@@ -18,7 +18,7 @@ ms.lasthandoff: 12/22/2017
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Detecte el software que está instalado en sus máquinas, sean de Azure o no
 
-En este tutorial, aprenderá a detectar el software que está instalado en su entorno. Puede recopilar y ver el inventario de software, archivos, demonios de Linux, servicios de Windows y claves del Registro de Windows en las máquinas. Realizar el seguimiento de las configuraciones de sus máquinas puede ayudarle a identificar problemas de funcionamiento en el entorno y comprender mejor el estado de las máquinas.
+En este tutorial, aprenderá a detectar el software que está instalado en su entorno. Puede recopilar y ver el inventario de software, archivos, demonios de Linux, servicios de Windows y claves del Registro de Windows en los equipos. Realizar un seguimiento de las configuraciones de sus máquinas puede ayudarle a identificar problemas de funcionamiento en el entorno y comprender mejor el estado de las máquinas.
 
 En este tutorial, aprenderá a:
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 Para completar este tutorial, necesita:
 
 * Una suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [Cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
+* Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
@@ -61,7 +61,7 @@ Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la op
 ![Banner de configuración de la incorporación del inventario](./media/automation-tutorial-installed-software/enableinventory.png)
 
 Para habilitar la solución, haga clic en el banner.
-Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
+Si se detecta que falta alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 * [Automation](./automation-offering-get-started.md)
@@ -77,9 +77,9 @@ Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el 
 
 ## <a name="view-installed-software"></a>Visualizar el software instalado
 
-Una vez habilitadas la solución Change Tracking e Inventario, puede ver los resultados en la página **Inventario**.
+Una vez habilitada la solución Change Tracking e Inventario, puede ver los resultados en la página **Inventario**.
 
-Desde dentro de la máquina virtual, seleccione **Inventario** en **OPERATIONS** (operaciones).
+Desde dentro de la máquina virtual, seleccione **Inventario** en **OPERACIONES**.
 
 En la página **Inventario**, haga clic en la pestaña **Software**.
 
@@ -91,7 +91,7 @@ En la tabla puede verse cada registro de software con gran detalle. Estos detall
 
 Haga clic en una fila para ver las propiedades del registro de software y los nombres de las máquinas con dicho software.
 
-Para buscar un software específico o un grupo de software, puede buscarlo en el cuadro de texto directamente encima de la lista de software.
+Para buscar un software específico o un grupo de software, vaya al cuadro de texto directamente encima de la lista de software.
 El filtro le permite buscar en función del nombre del software, la versión o el editor.
 
 Por ejemplo, la búsqueda "Contoso" devuelve todo el software con un nombre, una versión o un editor que contenga "Contoso".
@@ -100,7 +100,7 @@ Por ejemplo, la búsqueda "Contoso" devuelve todo el software con un nombre, una
 
 Inventario genera datos de registro que se envían a Log Analytics. Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la ventana **Inventario**.
 
-Los datos Inventario se almacenan con el tipo **ConfigurationData**.
+Los datos de Inventario se almacenan con el tipo **ConfigurationData**.
 La siguiente consulta de Log Analytics de ejemplo devuelve los editores que contienen "Microsoft" y el número de registros de software (agrupados por SoftwareName y Computer) para cada editor.
 
 ```
@@ -111,7 +111,7 @@ ConfigurationData
 | summarize count() by Publisher
 ```
 
-Para más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](https://docs.loganalytics.io/index).
+Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](https://docs.loganalytics.io/index).
 
 ### <a name="single-machine-inventory"></a>Inventario de máquina única
 

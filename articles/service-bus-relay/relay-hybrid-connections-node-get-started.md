@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Introducción a Conexiones híbridas de Relay
 
@@ -28,14 +28,14 @@ Este tutorial proporciona una introducción a [Conexiones híbridas de Azure Rel
 
 ## <a name="what-will-be-accomplished"></a>Lo que se logrará
 
-Dado que Conexiones híbridas requiere un cliente y un componente de servidor, en este tutorial crearemos dos aplicaciones de consola. Estos son los pasos que se deben seguir:
+Dado que Conexiones híbridas requiere un cliente y un componente de servidor, en este tutorial se crearán dos aplicaciones de consola. Estos son los pasos que se deben seguir:
 
 1. Creación de un espacio de nombres de Relay mediante Azure Portal.
 2. Creación de una conexión híbrida mediante Azure Portal.
 3. Escritura de una aplicación de consola de servidor para recibir mensajes.
 4. Escritura de una aplicación de consola de cliente para enviar mensajes.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 1. [Node.js](https://nodejs.org/en/).
 2. Una suscripción de Azure.
@@ -56,13 +56,13 @@ Si ya tiene una conexión híbrida creada, vaya a la sección [Creación de una 
 
 ## <a name="3-create-a-server-application-listener"></a>3. Creación de una aplicación de servidor (agente de escucha)
 
-Para escuchar y recibir mensajes desde Relay, escribiremos una aplicación de consola en Node.js.
+Para escuchar y recibir mensajes desde Relay, escriba una aplicación de consola en Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Creación de una aplicación de cliente (remitente)
 
-Para enviar mensajes a Relay, escribiremos una aplicación de consola en Node.js.
+Para enviar mensajes a Relay, escriba una aplicación de consola en Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ Para enviar mensajes a Relay, escribiremos una aplicación de consola en Node.js
 
 Ya ha creado una aplicación de Conexiones híbridas de un extremo a otro.
 
-## <a name="next-steps"></a>Pasos siguientes:
+## <a name="next-steps"></a>pasos siguientes
 
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)

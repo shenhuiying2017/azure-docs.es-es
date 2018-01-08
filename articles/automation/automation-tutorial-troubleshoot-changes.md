@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 Para completar este tutorial, necesita:
 
 * Una suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Una [Cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
+* Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
@@ -64,7 +64,7 @@ Si no se cumplen estos requisitos previos, aparece un banner que le ofrece la op
 ![Banner de configuración de la incorporación de Change Tracking e Inventario](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
 Para habilitar la solución, haga clic en el banner.
-Si se detecta la falta de alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
+Si se detecta que falta alguno de los siguientes requisitos previos después de la validación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
 * [Automation](./automation-offering-get-started.md)
@@ -89,13 +89,13 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](https://docs.loganalytics.io/index).
+Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](https://docs.loganalytics.io/index).
 
 ## <a name="configure-change-tracking"></a>Configuración de Change Tracking
 
-Change Tracking le ofrece la posibilidad de realizar el seguimiento de los cambios en la configuración de su máquina virtual. Los pasos siguientes muestran cómo configurar el seguimiento de las claves del Registro y los archivos.
+Change Tracking le ofrece la posibilidad de realizar un seguimiento de los cambios en la configuración de su máquina virtual. En los pasos siguientes se muestra cómo configurar el seguimiento de las claves del Registro y los archivos.
  
-Para elegir de qué archivos y claves del Registro se realizará la recopilación y el seguimiento, seleccione **Editar la configuración de** en la parte superior de la página **Change Tracking**.
+Para elegir de qué archivos y claves del Registro se realizará la recopilación y el seguimiento, seleccione **Editar configuración** en la parte superior de la página **Change Tracking**.
 
 > [!NOTE]
 > Change Tracking e Inventario usan la misma configuración de recopilación y se configuran en un nivel de área de trabajo.
@@ -156,15 +156,15 @@ Si se detiene y se inicia una máquina virtual, se registra un evento en el regi
 
 Una vez habilitadas la solución Change Tracking e Inventario, puede ver los resultados en la página **Change tracking**.
 
-Desde dentro de la máquina virtual, seleccione **Change Tracking** en **OPERATIONS** (operaciones).
+Desde dentro de la máquina virtual, seleccione **Change Tracking** en **OPERACIONES**.
 
 ![Creación de una alerta en el portal clásico de OMS](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 El gráfico muestra los cambios que se han producido con el tiempo.
 Después de agregar una conexión del registro de actividad, el gráfico de líneas en la parte superior muestra los eventos del registro de actividad de Azure.
-Cada fila de los gráficos de barras representa un tipo de cambio diferente del cual se puede realizar el seguimiento.
+Cada fila de los gráficos de barras representa un tipo de cambio diferente del cual se puede realizar un seguimiento.
 Estos tipos son demonios de Linux, archivos, claves del Registro de Windows, software y servicios de Windows.
-La pestaña de cambios muestra los detalles de los cambios mostrados en la visualización en orden descendente según la hora en la cual se produjo el cambio (los más recientes se muestran primero).
+En la pestaña de cambios se muestran los detalles de los cambios mostrados en la visualización en orden descendente según la hora en la cual se produjo el cambio (los más recientes se muestran primero).
 En la tabla de la pestaña **Eventos** se muestran los eventos del registro de actividad conectados y sus detalles correspondientes, con el más reciente primero.
 
 En los resultados puede ver que se produjeron varios cambios en el sistema, incluidos cambios en el software y los servicios. Puede usar los filtros en la parte superior de la página para filtrar los resultados por **Tipo de cambio** o por el intervalo de tiempo.

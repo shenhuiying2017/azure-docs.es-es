@@ -1,10 +1,10 @@
 ---
-title: "Implementación de una aplicación en un conjunto de escalado de máquinas virtuales de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar una aplicación de escalado automático simple en un conjunto de escalado de máquinas virtuales mediante una plantilla de Azure Resource Manager."
+title: "Creación de un conjunto de escalado de máquinas virtuales con una plantilla de Azure | Microsoft Docs"
+description: "Aprenda a crear rápidamente un conjunto de escalado de máquinas virtuales con una plantilla de Azure Resource Manager."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,297 +13,211 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2017
-ms.author: ryanwi
-ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.author: iainfou
+ms.openlocfilehash: 614c7c82aabab212753529a21d7a770b7a02027e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="deploy-an-autoscaling-app-using-a-template"></a>Implementación de una aplicación de escalado automático con una plantilla
+# <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Creación de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
+El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Puede escalar el número de máquinas virtuales del conjunto de escalado manualmente o definir reglas de escalado automático basado en el uso de recursos tales como la CPU, la demanda de memoria o el tráfico de red. En este artículo introductorio, debe crear un conjunto de escalado de máquinas virtuales con una plantilla de Azure Resource Manager. También puede crear un conjunto de escalado mediante la [CLI de Azure 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) o [Azure Portal](virtual-machine-scale-sets-create-portal.md).
 
-Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. Este tutorial se basa en [Implementación de un conjunto de escalado sencillo](virtual-machine-scale-sets-mvss-start.md) y describe cómo implementar una aplicación de escalado automático simple en un conjunto de escalado con una plantilla de Azure Resource Manager.  También puede configurar el escalado automático con PowerShell, la CLI o el portal. Para obtener más información, consulte la [información general sobre el escalado automático](virtual-machine-scale-sets-autoscale-overview.md).
 
-## <a name="two-quickstart-templates"></a>Dos plantillas de inicio rápido
-Cuando implementa un conjunto de escalado, puede instalar software nuevo en una imagen de plataforma con una [extensión de VM](../virtual-machines/virtual-machines-windows-extensions-features.md). Una extensión de VM es una aplicación pequeña que realizan tareas de automatización y configuración posteriores a la implementación en máquinas virtuales de Azure, como es la implementación de una aplicación. En [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) se ofrecen dos plantillas de ejemplo distintas, las que muestran cómo implementar una aplicación de escalado automático en un conjunto de escalado con extensiones de VM.
+## <a name="overview-of-templates"></a>Introducción a las plantillas
+Las plantillas de Azure Resource Manager le permiten implementar grupos de recursos relacionados. Las plantillas se escriben en notación de objetos JavaScript (JSON) y definen el entorno de infraestructura de Azure completo para la aplicación. En una única plantilla, puede crear el conjunto de escalado de máquinas virtuales, instalar aplicaciones y configurar reglas de escalado automático. Con el uso de variables y parámetros, esta plantilla se puede reutilizar para actualizar los conjuntos de escalado existentes o crear más. Puede implementar plantillas mediante Azure Portal, la CLI de Azure 2.0 o Azure PowerShell, así como llamarlas desde las canalizaciones de integración continua o entrega continua (CI/CD).
 
-### <a name="python-http-server-on-linux"></a>Servidor HTTP de Python en Linux
-La plantilla [Servidor HTTP de Python en Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) implementa una aplicación de escalado automático sencilla que se ejecuta en un conjunto de escalado de Linux.  [Bottle](http://bottlepy.org/docs/dev/), un marco web de Python y un servidor HTTP sencillo se implementan en cada VM del conjunto de escalado con una extensión de VM de script personalizado. Este conjunto de escalado escala verticalmente cuando el uso de CPU promedio de todas las VM supera el 60% y se reduce verticalmente cuando es menor del 30%.
+Para obtener más información sobre las plantillas, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment).
 
-Además del recurso de conjunto de escalado, la plantilla de ejemplo *azuredeploy.json* también declara la red virtual, la dirección IP pública, el equilibrador de carga y los recursos de configuración de escalado automático.  Para más información sobre cómo crear estos recursos en una plantilla, consulte [Conjunto de escalado de Linux con escalado automático](virtual-machine-scale-sets-linux-autoscale.md).
 
-En la plantilla *azuredeploy.json*, la propiedad `extensionProfile` del recurso `Microsoft.Compute/virtualMachineScaleSets` especifica una extensión de script personalizado. `fileUris` especifica la ubicación de los scripts. En este caso, dos archivos: *workserver.py*, que define un servidor HTTP sencillo, e *installserver.sh*, que instala Bottle e inicia el servidor HTTP. `commandToExecute` especifica el comando que se debe ejecutar una vez que se implementa el conjunto de escalado.
+## <a name="define-a-scale-set"></a>Definición de un conjunto de escalado
+Una plantilla define la configuración de cada tipo de recurso. Un tipo de recurso del conjunto de escalado de máquinas virtuales es similar a una máquina virtual individual. Las partes principales del tipo de recurso del conjunto de escalado de máquinas virtuales son:
+
+| Propiedad                     | Descripción de la propiedad                                  | Valor de la plantilla de ejemplo                    |
+|------------------------------|----------------------------------------------------------|-------------------------------------------|
+| Tipo                         | Tipo de recurso de Azure que se creará                            | Microsoft.Compute/virtualMachineScaleSets |
+| Nombre                         | Nombre del conjunto de escalado                                       | myScaleSet                                |
+| location                     | Ubicación donde se creará el conjunto de escalado                     | Este de EE. UU                                   |
+| sku.name                     | Tamaño de VM para cada instancia de conjunto de escalado                  | Standard_A1                               |
+| sku.capacity                 | Número de instancias de VM que se crearán inicialmente           | 2                                         |
+| upgradePolicy.mode           | Modo de actualización de la instancia de VM cuando se producen cambios              | Automático                                 |
+| imageReference               | Imagen personalizada o plataforma que se usará para las instancias de VM | Canonical Ubuntu Server 16.04-LTS         |
+| osProfile.computerNamePrefix | Prefijo de nombre para cada instancia de VM                     | myvmss                                    |
+| osProfile.adminUsername      | Nombre de usuario para cada instancia de VM                        | azureuser                                 |
+| osProfile.adminPassword      | Contraseña para cada instancia de VM                        | P@ssw0rd!                                 |
+
+ En el siguiente fragmento de código se muestra la definición del recurso del conjunto de escalado principal de una plantilla. Para proporcionarle un ejemplo corto, no se muestra la configuración de la tarjeta adaptadora de red virtual (NIC). Para personalizar una plantilla de conjunto de escalado, puede cambiar el tamaño de la VM o la capacidad inicial, o usar otra plataforma o una imagen personalizada.
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "lapextension",
-                "properties": {
-                  "publisher": "Microsoft.Azure.Extensions",
-                  "type": "CustomScript",
-                  "typeHandlerVersion": "2.0",
-                  "autoUpgradeMinorVersion": true,
-                  "settings": {
-                    "fileUris": [
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-                      "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-                    ],
-                    "commandToExecute": "bash installserver.sh"
-                  }
-                }
-              }
-            ]
-          }
+{
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "myScaleSet",
+  "location": "East US",
+  "apiVersion": "2016-04-30-preview",
+  "sku": {
+    "name": "Standard_A1",
+    "capacity": "2"
+  },
+  "properties": {
+    "upgradePolicy": {
+      "mode": "Automatic"
+    },
+    "virtualMachineProfile": {
+      "storageProfile": {
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage"
+        },
+        "imageReference":  {
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "16.04-LTS",
+          "version": "latest"
+        }
+      },
+      "osProfile": {
+        "computerNamePrefix": "myvmss",
+        "adminUsername": "azureuser",
+        "adminPassword": "P@ssw0rd!"
+      }
+    }
+  }
+}
 ```
 
-### <a name="aspnet-mvc-application-on-windows"></a>Aplicación ASP.NET MVC en Windows
-La plantilla de ejemplo [Aplicación ASP.NET MVC en Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) implementa una aplicación ASP.NET MVC que se ejecuta en IIS en el conjunto de escalado de Windows.  IIS y la aplicación MVC se implementan con la extensión de VM [Configuración de estado deseado (DSC) de PowerShell](virtual-machine-scale-sets-dsc.md).  El conjunto de escalado escala verticalmente (una instancia de VM a la vez) cuando el uso de la CPU supera el 50% durante 5 minutos. 
 
-Además del recurso de conjunto de escalado, la plantilla de ejemplo *azuredeploy.json* también declara la red virtual, la dirección IP pública, el equilibrador de carga y los recursos de configuración de escalado automático. Esta plantilla también demuestra la actualización de la aplicación.  Para más información sobre cómo crear estos recursos en una plantilla, consulte [Conjunto de escalado de Windows con escalado automático](virtual-machine-scale-sets-windows-autoscale.md).
+## <a name="install-an-application"></a>Instalación de una aplicación
+Cuando se implementa un conjunto de escalado, las extensiones de VM pueden proporcionar tareas de configuración y automatización posteriores a la implementación, como la instalación de una aplicación. Los scripts se pueden descargar desde Azure Storage o GitHub, o se pueden proporcionar a Azure Portal en el tiempo de ejecución de la extensión. Para aplicar una extensión al conjunto de escalado, agregue la sección *extensionProfile* en el ejemplo anterior del recurso. Normalmente, el perfil de extensión define las propiedades siguientes:
 
-En la plantilla *azuredeploy.json*, la propiedad `extensionProfile` del recurso `Microsoft.Compute/virtualMachineScaleSets` especifica una extensión de [configuración de estado deseado (DSC)](virtual-machine-scale-sets-dsc.md) que instala IIS y una aplicación web predeterminada desde el paquete WebDeploy.  El script *IISInstall.ps1* instala IIS en la máquina virtual y se encuentra en la carpeta *DSC*.  La aplicación web MVC está en la carpeta *WebDeploy*.  Las rutas de acceso al script de instalación y la aplicación web se definen en los parámetros `powershelldscZip` y `webDeployPackage` del archivo *azuredeploy.parameters.json*. 
+- Tipo de extensión
+- Editor de la extensión
+- Versión de la extensión
+- Ubicación de los scripts de configuración o instalación
+- Comandos que se ejecutarán en las instancias de VM
+
+Echemos un vistazo a dos formas de instalar una aplicación con extensiones: con la extensión de script personalizada para instalar una aplicación de Python en Linux, o con la extensión de DSC de PowerShell para instalar una aplicación de ASP.NET en Windows.
+
+### <a name="python-http-server-on-linux"></a>Servidor HTTP de Python en Linux
+El [servidor HTTP de Python en Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) usa la extensión de script personalizada para instalar [Bottle](http://bottlepy.org/docs/dev/), un marco web de Python y un servidor HTTP sencillo. 
+
+Se definen dos scripts en *fileUris* - *installserver.sh* y *workserver.py*. Estos archivos se descargan desde GitHub y, a continuación, *commandToExecute* define `bash installserver.sh` para que la aplicación se instale y se configure:
 
 ```json
-          "extensionProfile": {
-            "extensions": [
-              {
-                "name": "Microsoft.Powershell.DSC",
-                "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.9",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('powershelldscUpdateTagVersion')]",
-                  "settings": {
-                    "configuration": {
-                      "url": "[variables('powershelldscZipFullPath')]",
-                      "script": "IISInstall.ps1",
-                      "function": "InstallIIS"
-                    },
-                    "configurationArguments": {
-                      "nodeName": "localhost",
-                      "WebDeployPackagePath": "[variables('webDeployPackageFullPath')]"
-                    }
-                  }
-                }
-              }
-            ]
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "AppInstall",
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": [
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
+            "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
+          ],
+          "commandToExecute": "bash installserver.sh"
+        }
+      }
+    }
+  ]
+}
+```
+
+### <a name="aspnet-application-on-windows"></a>Aplicación ASP.NET en Windows
+La plantilla de ejemplo de [Aplicación ASP.NET en Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) usa la extensión DSC de PowerShell para instalar una aplicación ASP.NET MVC que se ejecuta en IIS. 
+
+Se descarga un script de instalación desde GitHub, tal como se define en *url*. A continuación, la extensión ejecuta *InstallIIS* desde el script *IISInstall.ps1*, tal como se define en *function* y *script*. La propia aplicación de ASP.NET se proporciona como un paquete de Web Deploy, que también se descarga desde GitHub, tal como se define en *WebDeployPackagePath*:
+
+```json
+"extensionProfile": {
+  "extensions": [
+    {
+      "name": "Microsoft.Powershell.DSC",
+      "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.9",
+        "autoUpgradeMinorVersion": true,
+        "forceUpdateTag": "1.0",
+        "settings": {
+          "configuration": {
+            "url": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/DSC/IISInstall.ps1.zip",
+            "script": "IISInstall.ps1",
+            "function": "InstallIIS"
+          },
+          "configurationArguments": {
+            "nodeName": "localhost",
+            "WebDeployPackagePath": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/WebDeploy/DefaultASPWebApp.v1.0.zip"
           }
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 La manera más sencilla de implementar la plantilla [Servidor HTTP de Python en Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) o [Aplicación ASP.NET MVC en Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) es usar el botón **Implementar en Azure** que se encuentra en los archivos Léame en GitHub.  También puede usar PowerShell o la CLI de Azure para implementar las plantillas de ejemplo.
 
-### <a name="powershell"></a>PowerShell
-Copie los archivos [Servidor HTTP de Python en Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) o [Aplicación ASP.NET MVC en Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) desde el repositorio GitHub en una carpeta del equipo local.  Abra el archivo *azuredeploy.parameters.json* y actualice los valores predeterminados de los parámetros `vmssName`, `adminUsername` y `adminPassword`. Guarde el siguiente script de PowerShell en el archivo *deploy.ps1*, en la misma carpeta que la plantilla *azuredeploy.json*. Para implementar la plantilla de ejemplo, ejecute el script *deploy.ps1* desde una ventana de comandos de PowerShell.
+### <a name="azure-cli-20"></a>CLI de Azure 2.0
+Puede utilizar la CLI de Azure 2.0 para instalar al servidor HTTP de Python en Linux, como se indica a continuación:
 
-```powershell
-param(
- [Parameter(Mandatory=$True)]
- [string]
- $subscriptionId,
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location EastUS
 
- [Parameter(Mandatory=$True)]
- [string]
- $resourceGroupName,
-
- [string]
- $resourceGroupLocation,
-
- [Parameter(Mandatory=$True)]
- [string]
- $deploymentName,
-
- [string]
- $templateFilePath = "template.json",
-
- [string]
- $parametersFilePath = "parameters.json"
-)
-
-<#
-.SYNOPSIS
-    Registers RPs
-#>
-Function RegisterRP {
-    Param(
-        [string]$ResourceProviderNamespace
-    )
-
-    Write-Host "Registering resource provider '$ResourceProviderNamespace'";
-    Register-AzureRmResourceProvider -ProviderNamespace $ResourceProviderNamespace;
-}
-
-#******************************************************************************
-# Script body
-# Execution begins here
-#******************************************************************************
-$ErrorActionPreference = "Stop"
-
-# sign in
-Write-Host "Logging in...";
-Login-AzureRmAccount;
-
-# select subscription
-Write-Host "Selecting subscription '$subscriptionId'";
-Select-AzureRmSubscription -SubscriptionID $subscriptionId;
-
-# Register RPs
-$resourceProviders = @("microsoft.compute","microsoft.insights","microsoft.network");
-if($resourceProviders.length) {
-    Write-Host "Registering resource providers"
-    foreach($resourceProvider in $resourceProviders) {
-        RegisterRP($resourceProvider);
-    }
-}
-
-#Create or check for existing resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
-if(!$resourceGroup)
-{
-    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
-    if(!$resourceGroupLocation) {
-        $resourceGroupLocation = Read-Host "resourceGroupLocation";
-    }
-    Write-Host "Creating resource group '$resourceGroupName' in location '$resourceGroupLocation'";
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
-}
-else{
-    Write-Host "Using existing resource group '$resourceGroupName'";
-}
-
-# Start the deployment
-Write-Host "Starting deployment...";
-if(Test-Path $parametersFilePath) {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
-} else {
-    New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
-}
+# Deploy template into resource group
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/azuredeploy.json
 ```
 
-### <a name="azure-cli"></a>CLI de Azure
-```azurecli
-#!/bin/bash
-set -euo pipefail
-IFS=$'\n\t'
+Para ver la aplicación en acción, obtenga la dirección IP pública del equilibrador de carga con [az network public-ip list](/cli/azure/network/public-ip#show) según se indica a continuación:
 
-# -e: immediately exit if any command has a non-zero exit status
-# -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
-
-usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
-
-declare subscriptionId=""
-declare resourceGroupName=""
-declare deploymentName=""
-declare resourceGroupLocation=""
-
-# Initialize parameters specified from command line
-while getopts ":i:g:n:l:" arg; do
-    case "${arg}" in
-        i)
-            subscriptionId=${OPTARG}
-            ;;
-        g)
-            resourceGroupName=${OPTARG}
-            ;;
-        n)
-            deploymentName=${OPTARG}
-            ;;
-        l)
-            resourceGroupLocation=${OPTARG}
-            ;;
-        esac
-done
-shift $((OPTIND-1))
-
-#Prompt for parameters is some required parameters are missing
-if [[ -z "$subscriptionId" ]]; then
-    echo "Subscription Id:"
-    read subscriptionId
-    [[ "${subscriptionId:?}" ]]
-fi
-
-if [[ -z "$resourceGroupName" ]]; then
-    echo "ResourceGroupName:"
-    read resourceGroupName
-    [[ "${resourceGroupName:?}" ]]
-fi
-
-if [[ -z "$deploymentName" ]]; then
-    echo "DeploymentName:"
-    read deploymentName
-fi
-
-if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below to create a new resource group else skip this"
-    echo "ResourceGroupLocation:"
-    read resourceGroupLocation
-fi
-
-#templateFile Path - template file to be used
-templateFilePath="template.json"
-
-if [ ! -f "$templateFilePath" ]; then
-    echo "$templateFilePath not found"
-    exit 1
-fi
-
-#parameter file path
-parametersFilePath="parameters.json"
-
-if [ ! -f "$parametersFilePath" ]; then
-    echo "$parametersFilePath not found"
-    exit 1
-fi
-
-if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
-    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
-    usage
-fi
-
-#login to azure using your credentials
-az account show 1> /dev/null
-
-if [ $? != 0 ];
-then
-    az login
-fi
-
-#set the default subscription id
-az account set --name $subscriptionId
-
-set +e
-
-#Check for existing RG
-az group show $resourceGroupName 1> /dev/null
-
-if [ $? != 0 ]; then
-    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
-    set -e
-    (
-        set -x
-        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
-    )
-    else
-    echo "Using existing resource group..."
-fi
-
-#Start deployment
-echo "Starting deployment..."
-(
-    set -x
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
-)
-
-if [ $?  == 0 ];
- then
-    echo "Template has been successfully deployed"
-fi
+```azurecli-interactive
+az network public-ip list \
+    --resource-group myResourceGroup \
+    --query [*].ipAddress -o tsv
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+Escriba la dirección IP pública del equilibrador de carga en un explorador web con el formato *http://<publicIpAddress>:9000/do_work*. El equilibrador de carga distribuye el tráfico a una de las instancias de VM, como se muestra en el ejemplo siguiente:
 
-[!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
+![Página web predeterminada de NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
+
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Puede usar Azure PowerShell para instalar la aplicación de ASP.NET en Windows como se indica a continuación:
+
+```azurepowershell-interactive
+# Create a resource group
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+
+# Deploy template into resource group
+New-AzureRmResourceGroupDeployment `
+    -ResourceGroupName myResourceGroup `
+    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+```
+
+Para ver la aplicación en acción, obtenga la dirección IP pública del equilibrador de carga con [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) como se muestra a continuación:
+
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```
+
+Escriba la dirección IP pública del equilibrador de carga en un explorador web con el formato *http://<publicIpAddress>/MyApp*. El equilibrador de carga distribuye el tráfico a una de las instancias de VM, como se muestra en el ejemplo siguiente:
+
+![Ejecución del sitio de IIS](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
+
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/group#delete) para quitar el grupo de recursos, el conjunto de escalado y todos los recursos relacionados como se indica a continuación:
+
+```azurecli-interactive 
+az group delete --name myResourceGroup
+```
+
+
+## <a name="next-steps"></a>pasos siguientes

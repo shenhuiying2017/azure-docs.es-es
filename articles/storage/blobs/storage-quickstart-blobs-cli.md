@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferencia de objetos a y desde Azure Blob Storage mediante la CLI de Azure
 
@@ -35,7 +35,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Los blobs siempre se cargan en un contenedor. Los contenedores permiten organizar grupos de blobs de la misma forma que se organizan archivos en directorios en el equipo.
+Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs de una forma similar a la que organiza los archivos en carpetas en el equipo.
 
 Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container#create).
 
@@ -47,7 +47,10 @@ az storage container create --name mystoragecontainer
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. La mayoría de los archivos almacenados en Blob Storage se almacenan como blobs en bloques. Los blobs en anexos se usan cuando los datos deben agregarse a un blob existente sin modificar el contenido que ya tiene, como, por ejemplo, para realizar operaciones de registro. Los blobs en páginas respaldan los archivos VHD de máquinas virtuales IaaS.
 
-En este ejemplo, se carga un blob en el contenedor que creamos en el último paso con el comando [az storage blob upload](/cli/azure/storage/blob#upload).
+En primer lugar, cree un archivo para cargarlo en un blob.
+Si usa Azure Cloud Shell, para crear un archivo use `vi helloworld` cuando el archivo se abra, presione **Insertar**, escriba "Hola mundo" y, a continuación, presione **Esc**, escriba `:x` y presione **Entrar**.
+
+En este ejemplo, se carga un blob en el contenedor que se creó en el último paso con el comando [az storage blob upload](/cli/azure/storage/blob#upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+Si usó el método descrito anteriormente para crear un archivo en Azure Cloud Shell, puede usar este comando CLI en su lugar (tenga en cuenta que no tuvo que especificar una ruta de acceso porque el archivo se creó en el directorio base, pero normalmente se debe especificar una ruta de acceso):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 Esta operación crea el blob si todavía no existe y lo sobrescribe si ya existe. Cargue tantos archivos como desee antes de continuar.
+
+Para cargar varios archivos al mismo tiempo, puede usar el comando [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
@@ -70,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Descarga de un blob
 
-Use el comando [az storage blob download](/cli/azure/storage/blob#download) para descargar un blob que cargó anteriormente.
+Use el comando [az storage blob download](/cli/azure/storage/blob#download) para descargar el blob que cargó anteriormente.
 
 ```azurecli-interactive
 az storage blob download \
@@ -101,7 +115,7 @@ Si ya no necesita ninguno de los recursos del grupo de recursos, incluida la cue
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y un contenedor en Azure Blob Storage. Para más información sobre cómo trabajar con blobs en Azure Storage, continúe con el tutorial para trabajar con Azure Blob Storage.
 

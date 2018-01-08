@@ -1,5 +1,5 @@
 ---
-title: "Guía de inicio rápido de Azure: copia de seguridad una máquina virtual con Azure Portal | Microsoft Docs"
+title: "Guía de inicio rápido de Azure: Copia de seguridad de una máquina virtual con Azure Portal | Microsoft Docs"
 description: "Aprenda a realizar copias de seguridad de sus máquinas virtuales con Azure Portal"
 services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 68409d7832985bea635e4b6de341ea6aec6f560d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 694d75b57d0f1b26640848344fbbe268fe285009
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Copia de seguridad de una máquina virtual en Azure
 Se pueden crear copias de seguridad de Azure a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar copias de seguridad de Azure y todos los recursos asociados. Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se guardan en almacenes de recuperación con redundancia geográfica. En este artículo se explica cómo realizar una copia de seguridad de una máquina virtual (VM) con Azure Portal. 
 
-Este inicio rápido permite realizar copias de seguridad en una máquina virtual de Azure existente. Si necesita crear una máquina virtual, puede [crearla con Azure Portal](../virtual-machines/windows/quick-create-portal.md).
+Esta guía de inicio rápido permite realizar copias de seguridad en una máquina virtual de Azure existente. Si necesita crear una máquina virtual, puede [crearla con Azure Portal](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
 
@@ -35,14 +35,14 @@ Inicie sesión en Azure Portal: http://portal.azure.com/.
 Cree una copia de seguridad diaria programada simple en un almacén de Recovery Services. 
 
 1. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
-2. En la lista, elija la máquina virtual de la que desea realizar una copia de seguridad. Si ha usado los comandos del ejemplo de la guía de inicio rápido de máquinas virtuales, la máquina virtual se denomina *myVM* y se encuentra en el grupo de recursos *myResourceGroup* .
-3. En la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la ventana **Habilitar copia de seguridad**.
+2. En la lista, elija la máquina virtual de la que desea realizar una copia de seguridad. Si ha usado los comandos del ejemplo de la guía de inicio rápido de máquinas virtuales, la máquina virtual se denomina *myVM* y se encuentra en el grupo de recursos *myResourceGroup*.
+3. En la sección **Configuración**, elija **Copia de seguridad**. Se abre la ventana **Habilitar copia de seguridad**.
 
 
 ## <a name="enable-backup-on-a-vm"></a>Habilitar la copia de seguridad en una máquina virtual
 Un almacén de Recovery Services es un contenedor lógico que almacena los datos de copia de seguridad de los recursos protegidos, como las máquinas virtuales de Azure. Cuando se ejecuta el trabajo de copia de seguridad para un recurso protegido, crea un punto de recuperación en el almacén de Recovery Services. Posteriormente, se puede usar uno de estos puntos de recuperación para restaurar los datos a un momento dado en el tiempo.
 
-1. Seleccione **Crear nuevo** y especifique el nombre del nuevo almacén, como por ejemplo, **myRecoveryServicesVault**.
+1. Seleccione **Crear nuevo** y especifique el nombre del nuevo almacén, como por ejemplo, *myRecoveryServicesVault*.
 2. Si no está seleccionada, elija la opción **Usar existente** y, después, seleccione el grupo de recursos de la máquina virtual en el menú desplegable.
 
     ![Habilitar la copia de seguridad de una máquina virtual en Azure Portal](./media/quick-backup-vm-portal/enable-backup.png)
@@ -52,6 +52,8 @@ Un almacén de Recovery Services es un contenedor lógico que almacena los datos
     Cree y use directivas para definir cuándo se ejecuta un trabajo de copia de seguridad y durante cuánto tiempo se almacenan los puntos de recuperación. La directiva de protección predeterminada ejecuta un trabajo de copia de seguridad cada día y conserva los puntos de seguridad durante 30 días. Estos valores de la directiva predeterminada se pueden usar para proteger rápidamente la máquina virtual. 
 
 3. Para aceptar los valores de la directiva de copia de seguridad predeterminada, seleccione **Habilitar copia de seguridad**.
+
+El proceso de crear el almacén de Recovery Services lleva algunos minutos.
 
 
 ## <a name="start-a-backup-job"></a>Inicio de un trabajo de copia de seguridad
@@ -92,8 +94,8 @@ Si va a continuar con un tutorial de Backup en el que se explique cómo restaura
     ![Eliminar el grupo de recursos desde Azure Portal](./media/quick-backup-vm-portal/delete-resource-group.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
-En esta guía de inicio rápido, ha creado un almacén de Recovery Services, habilitado la protección en una máquina virtual y creado el punto de recuperación inicial. Para más información acerca de Azure Backup, y Recovery Services, continúe con los tutoriales.
+## <a name="next-steps"></a>pasos siguientes
+En esta guía de inicio rápido, ha creado un almacén de Recovery Services, ha habilitado la protección en una máquina virtual y ha creado el punto de recuperación inicial. Para más información acerca de Azure Backup, y Recovery Services, continúe con los tutoriales.
 
 > [!div class="nextstepaction"]
 > [Copia de seguridad de varias máquinas virtuales de Azure](./tutorial-backup-vm-at-scale.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 27f1ec18026b38d5cdb2aecfde2d01f32a86349e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 
@@ -28,7 +28,7 @@ Al implementar el conjunto de escalado de máquinas virtuales de Azure a través
 Puede configurar todas las características que se tratan en este artículo usando plantillas de Azure Resource Manager. También se incluyen ejemplos de la CLI de Azure y PowerShell para las características seleccionadas. Use CLI 2.10 y PowerShell 4.2.0 o una versión posterior.
 
 ## <a name="accelerated-networking"></a>Redes aceleradas
-Azure [Accelerated Networking](../virtual-network/virtual-network-create-vm-accelerated-networking.md) mejora el rendimiento de la red al permitir la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual. Para usar las redes aceleradas con conjuntos de escalado, establezca enableAcceleratedNetworking en **true** en los valores de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo:
+Azure Accelerated Networking mejora el rendimiento de la red al permitir la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual. Para obtener más información sobre el uso de redes acelerada, consulte los temas sobre redes aceleradas para máquinas virtuales [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Para usar las redes aceleradas con conjuntos de escalado, establezca enableAcceleratedNetworking en **true** en los valores de networkInterfaceConfigurations de su conjunto de escalado. Por ejemplo: 
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -59,11 +59,11 @@ az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:late
 De forma predeterminada, los conjuntos de escalado adoptan los valores de DNS específicos de la red virtual y la subred en las que se crearon. No obstante, puede configurar los valores de DNS para un conjunto de escalado directamente.
 ~
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Creación de un conjunto de escalado con servidores DNS configurables
-Para crear un conjunto de escalado con una configuración de DNS personalizada mediante CLI 2.0, agregue el argumento **--dns-servers** al comando **vmss create**, seguido de las direcciones IP del servidor separadas por un espacio. Por ejemplo:
+Para crear un conjunto de escalado con una configuración de DNS personalizada mediante CLI 2.0, agregue el argumento **--dns-servers** al comando **vmss create**, seguido de las direcciones IP del servidor separadas por un espacio. Por ejemplo: 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
-Para configurar servidores DNS personalizados en una plantilla de Azure, agregue una propiedad dnsSettings a la sección de networkInterfaceConfigurations del conjunto de escalado. Por ejemplo:
+Para configurar servidores DNS personalizados en una plantilla de Azure, agregue una propiedad dnsSettings a la sección de networkInterfaceConfigurations del conjunto de escalado. Por ejemplo: 
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -73,7 +73,7 @@ Para configurar servidores DNS personalizados en una plantilla de Azure, agregue
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Creación de un conjunto de escalado con nombres de dominio de máquinas virtuales configurables
 Para crear un conjunto de escalado con un nombre DNS personalizado para máquinas virtuales mediante CLI 2.0, agregue el argumento **--vm-domain-name** al comando **vmss create**, seguido de una cadena que representa el nombre de dominio.
 
-Para establecer el nombre de dominio en una plantilla de Azure, agregue una propiedad **dnsSettings** a la sección de **networkInterfaceConfigurations** del conjunto de escalado. Por ejemplo:
+Para establecer el nombre de dominio en una plantilla de Azure, agregue una propiedad **dnsSettings** a la sección de **networkInterfaceConfigurations** del conjunto de escalado. Por ejemplo: 
 
 ```json
 "networkProfile": {
@@ -118,7 +118,7 @@ Sin embargo, algunos escenarios requieren que las máquinas virtuales del conjun
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Creación de un conjunto de escalado con una dirección IP pública por máquina virtual
 Para crear un conjunto de escalado que asigne una dirección IP pública a cada máquina virtual con CLI 2.0, agregue el parámetro **--public-ip-per-vm** al comando **vmss create**. 
 
-Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese de que la versión de API del recurso Microsoft.Compute/virtualMachineScaleSets sea al menos **2017-03-30** y agregue una propiedad JSON **publicIpAddressConfiguration** a la sección ipConfigurations del conjunto de escalado. Por ejemplo:
+Para crear un conjunto de escalado mediante una plantilla de Azure, asegúrese de que la versión de API del recurso Microsoft.Compute/virtualMachineScaleSets sea al menos **2017-03-30** y agregue una propiedad JSON **publicIpAddressConfiguration** a la sección ipConfigurations del conjunto de escalado. Por ejemplo: 
 
 ```json
 "publicIpAddressConfiguration": {
@@ -133,12 +133,12 @@ Ejemplo de plantilla: [201-vmss-public-ip-linux](https://github.com/Azure/azure-
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consulta de las direcciones IP públicas de las máquinas virtuales en un conjunto de escalado
 Para enumerar las direcciones IP públicas asignadas para el conjunto de escalado de máquinas virtuales mediante CLI 2.0, use el comando **az vmss list-instance-public-ips**.
 
-Para mostrar las direcciones IP públicas del conjunto de escalado con PowerShell, use el comando _AzureRmPublicIpAddress_. Por ejemplo:
+Para mostrar las direcciones IP públicas del conjunto de escalado con PowerShell, use el comando _AzureRmPublicIpAddress_. Por ejemplo: 
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-También puede consultar las direcciones IP públicas haciendo referencia directamente al identificador de recurso de la configuración de la dirección IP pública. Por ejemplo:
+También puede consultar las direcciones IP públicas haciendo referencia directamente al identificador de recurso de la configuración de la dirección IP pública. Por ejemplo: 
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -268,7 +268,7 @@ Puede tener hasta 8 NIC por máquina virtual, según el tamaño de la máquina. 
 ## <a name="nsg-per-scale-set"></a>NSG por conjunto de escalado
 Los grupos de seguridad de red se pueden aplicar directamente a un conjunto de escalado agregando una referencia a la sección de configuración de la interfaz de red de las propiedades de máquinas virtuales del conjunto de escalado.
 
-Por ejemplo: 
+Por ejemplo:  
 ```
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -305,5 +305,5 @@ Por ejemplo:
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de redes virtuales, consulte la [Introducción a Azure Virtual Network](../virtual-network/virtual-networks-overview.md).

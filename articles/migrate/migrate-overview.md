@@ -1,24 +1,16 @@
 ---
 title: Acerca de Azure Migrate | Microsoft Docs
 description: "Proporciona información general acerca del servicio Azure Migrate."
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
-ms.service: migrate
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/23/2017
+ms.service: azure-migrate
+ms.topic: overview
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 5c78f68c481b68cff31bdc5fd410549c2d44ba5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -41,13 +33,12 @@ Azure Migrate le ayuda a:
 - Actualmente, pueden evaluar máquinas virtuales (VM) VMware locales para la migración a máquinas virtuales de Azure.
 
 > [!NOTE]
-> La compatibilidad con Hyper-V está en el mapa de ruta y se habilitará en pocos meses. Mientras tanto, se recomienda usar Azure Site Recovery Deployment Planner para planear la migración de las cargas de trabajo de Hyper-V. 
+> La compatibilidad con Hyper-V está en el mapa de ruta y se habilitará próximamente. Mientras tanto, se recomienda usar [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) para planear la migración de las cargas de trabajo de Hyper-V. 
 
-- Se pueden incluir un máximo de 1000 máquinas virtuales en una evaluación única y un máximo de 1500 máquinas en un solo proyecto de Azure Migrate. Si necesita evaluar más, puede aumentar el número de proyectos o evaluaciones. [Más información](how-to-scale-assessment.md).
+- Puede detectar hasta 1000 máquinas virtuales en una sola detección y hasta 1500 en un solo proyecto. Además, puede evaluar hasta 400 máquinas virtuales en una valoración única. Si necesita detectar o evaluar más, puede aumentar el número de detecciones o valoraciones. [Más información](how-to-scale-assessment.md).
 - La máquina virtual que desea evaluar la debe administrar vCenter Server, versión 5.5, 6.0 o 6.5.
 - Los proyectos de Azure Migrate solo se pueden crear en la región Oeste del centro de EE. UU. Sin embargo, esto no afecta a su capacidad para planear la migración de otra ubicación de Azure de destino. La ubicación del proyecto de migración solo se usa para almacenar los metadatos que se detectan desde el entorno local.
-- El portal de Azure Migrate solo está disponible actualmente en inglés. 
-- Actualmente, Azure Migrate solo admite la replicación del [almacenamiento con redundancia local (LRS)](../storage/common/storage-introduction.md#replication).
+- Azure Migrate solo admite discos administrados para la valoración de la migración.
 
 ## <a name="what-do-i-need-to-pay-for"></a>¿Por qué conceptos tengo qué pagar?
 
@@ -91,7 +82,7 @@ La tabla resumen los puertos necesarios para las comunicaciones de Azure Migrate
 |-------------------|------------------------|---------------|---------|
 |Recopilador          |Servicio Azure Migrate   |TCP 443        |El recolector se conecta al servicio a través del puerto 443 de SSL|
 |Recopilador          |vCenter Server          |Valor predeterminado 9443   | De manera predeterminada el recopilador se conecta a vCenter Server en el puerto 9443. Si el servidor escucha otro puerto, debe configurarse como puerto de salida en la máquina virtual del recopilador. |
-|Máquina virtual local     | Área de trabajo de Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |El agente MMA usa TCP 443 para conectarse a Log Analytics. Este puerto solo se necesita si se usa la característica de visualización de dependencias y se instala Microsoft Monitoring Agent (MMA). |
+|Máquina virtual local     | Área de trabajo de Operations Management Suite (OMS)          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |El agente MMA usa TCP 443 para conectarse a Log Analytics. Este puerto solo se necesita si se usa la característica de visualización de dependencias y se instala Microsoft Monitoring Agent (MMA). |
 
 
   
@@ -110,5 +101,5 @@ Una vez que haya evaluado las máquinas locales para la migración con el servic
 
 
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>pasos siguientes 
 [Siga un tutorial](tutorial-assessment-vmware.md) para crear una evaluación de una máquina virtual de VMware local.

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>¿Qué es el Conjunto de aplicaciones de IoT de Azure?
 
@@ -30,6 +30,10 @@ Conjunto de aplicaciones de IoT de Azure es un conjunto de *soluciones preconfig
 * Se personaliza para adaptarse a sus requisitos específicos
 
 Las soluciones preconfiguradas del *Conjunto de aplicaciones de IoT* están diseñadas según los mismos principios y objetivos.
+
+En el siguiente vídeo se presenta información general de la solución preconfigurada de supervisión remota:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Introducción a las soluciones preconfiguradas
 
@@ -102,7 +106,7 @@ Para una introducción a la arquitectura de una solución de IoT típica, consul
 
 Microsoft está actualizando las soluciones preconfiguradas a una nueva arquitectura basada en microservicios. En la siguiente tabla se muestra el estado actual de las soluciones preconfiguradas:
 
-| Solución preconfigurada | Arquitectura  | Idiomas     |
+| Solución preconfigurada | Architecture  | Idiomas     |
 | ---------------------- | ------------- | ------------- |
 | Supervisión remota      | Microservicios | Java y .NET |
 | Mantenimiento predictivo | MVC           | .NET          |
@@ -142,7 +146,7 @@ Si desea ver otras implementaciones de idioma, agregue una solicitud a [UserVoic
 
 La interfaz de usuario se ha creado mediante la biblioteca [React](https://facebook.github.io/react/) de javascript. El código fuente es de código abierto y está disponible para descargar y personalizar.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que tiene información general de las soluciones preconfiguradas del Conjunto de aplicaciones de IoT, estos son los pasos siguientes sugeridos para cada una de ellas:
 

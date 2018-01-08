@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: 8ea4f39ced17a7a6de63c544157c5f1793042c0e
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7b84e6f001f9d485c1d92b5d017daa96321eaab6
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Creación de una instancia de Azure SQL Database en Azure Portal
 
@@ -34,7 +34,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-sql-database"></a>Creación de una base de datos SQL
 
-Se crea una base de datos SQL de Azure con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
+Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
 
 Siga estos pasos para crear una base de datos SQL que contenga los datos de ejemplo de Adventure Works LT. 
 
@@ -46,7 +46,7 @@ Siga estos pasos para crear una base de datos SQL que contenga los datos de ejem
 
 3. Rellene el formulario de SQL Database con la siguiente información, como se muestra en la imagen anterior:   
 
-   | Configuración       | Valor sugerido | Descripción | 
+   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre de la base de datos** | mySampleDatabase | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). | 
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
@@ -59,7 +59,7 @@ Siga estos pasos para crear una base de datos SQL que contenga los datos de ejem
 
 4. En **Servidor**, haga clic en **Configurar los valores obligatorios** y rellene el formulario de SQL Server (servidor lógico) con la siguiente información, como se muestra en la imagen siguiente:   
 
-   | Configuración       | Valor sugerido | Descripción | 
+   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
    | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
@@ -124,7 +124,7 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
 
 4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-5. Haga clic en **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
 
 6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
 
@@ -142,7 +142,7 @@ Ahora que ha creado una base de datos de ejemplo en Azure, vamos a usar la herra
 
    ![menú herramientas](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Haga clic en la casilla **Términos de vista** previa y en **Aceptar**. Se abre la página Editor de consultas.
+2. Haga clic en la casilla **Términos de la versión preliminar** y en **Aceptar**. Se abre la página Editor de consultas.
 
 3. Haga clic en **Inicio de sesión**, revise la información de inicio de sesión y, a continuación, haga clic en **Aceptar** para iniciar sesión mediante la autenticación de SQL Server con el inicio de sesión y la contraseña de administrador de servidor que creó anteriormente.
 
@@ -173,7 +173,7 @@ Guarde estos recursos si desea volver a la sección [Pasos siguientes](#next-ste
 1. En el menú izquierdo de Azure Portal, haga clic en **Grupos de recursos** y en **myResourceGroup**. 
 2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que tiene una base de datos, puede conectarse y realizar consultas con las herramientas que desee. Para más información, seleccione una de las herramientas siguientes:
 

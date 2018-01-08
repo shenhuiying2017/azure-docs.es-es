@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c17815db136b404cd0c723cf44cafe46fa681cf6
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
-[Application Insights](https://azure.microsoft.com/services/cloud-services/)puede supervisar la disponibilidad, el rendimiento, los errores y el uso de las [aplicaciones de Azure Cloud Services][start] mediante la combinación de datos de los SDK de Application Insights con los datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) desde Cloud Services. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
+La disponibilidad, el rendimiento, los errores y el uso de las [aplicaciones de servicio Microsoft Azure Cloud](https://azure.microsoft.com/services/cloud-services/) se pueden supervisar con [Application Insights][start] mediante la combinación de datos de los SDK de Application Insights y datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de Cloud Services. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
 
 ![Ejemplo](./media/app-insights-cloudservices/sample.png)
 
@@ -187,7 +187,7 @@ Los siguientes contadores se recopilan de forma predeterminada:
     * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
     * \Process(??APP_WIN32_PROC??)\Private Bytes
     * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\% Processor Time
+    * Procesador(_Total)\% Hora del procesador
 
 Además, también se recopilan los siguientes contadores para los roles web:
 
@@ -197,7 +197,7 @@ Además, también se recopilan los siguientes contadores para los roles web:
 
 Puede especificar otros contadores de rendimiento de Windows o personalizados editando ApplicationInsights.config [como en este ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![Contadores de rendimiento](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![contadores de rendimiento](./media/app-insights-cloudservices/OLfMo2f.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Telemetría correlacionada para roles de trabajo
 Es una sofisticada experiencia de diagnóstico, donde puede ver qué provocó una solicitud de latencia alta o con errores. Con los roles web, el SDK se establece automáticamente la correlación entre la telemetría relacionada. Para los roles de trabajo, puede utilizar un inicializador de telemetría personalizado para establecer un atributo de contexto Operation.Id común para todas la telemetrías con el fin de lograrlo. Esto permite saber de un vistazo si se produjo el problema de latencia o con errores debido a una dependencia o el código. 
@@ -235,12 +235,11 @@ Si tiene una aplicación móvil de cliente, inserte algún código para enviar e
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Configuración del envío de diagnósticos de Azure a Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizar la creación de recursos de Application Insights](app-insights-powershell.md)
 * [Automatizar los diagnósticos de Azure](app-insights-powershell-azure-diagnostics.md)
-* 
-            [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Funciones de Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md

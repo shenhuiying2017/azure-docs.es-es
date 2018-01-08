@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Transferencia de objetos a y desde Azure Blob Storage mediante Azure PowerShell
 
@@ -27,13 +27,13 @@ El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Para realizar este tutorial de inicio rápido se requiere la versión 3.6 o superior del módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Los blobs siempre se cargan en un contenedor. Esto le permite organizar grupos de blobs de la misma forma que organiza archivos en carpetas en el equipo.
+Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs de una forma similar a la que organiza los archivos en carpetas en el equipo.
 
 Establezca el nombre del contenedor y luego cree el contenedor mediante [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), estableciendo los permisos en “blob” para permitir el acceso público de los archivos. El nombre del contenedor en este ejemplo es *quickstartblobs*.
 
@@ -48,7 +48,7 @@ Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los a
 
 Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego obtenga una referencia al blob en bloques en ese contenedor. Una vez que tenga la referencia de blob, puede cargar datos en él mediante [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Esta operación crea el blob si todavía no existe o lo sobrescribe si ya existe.
 
-Los ejemplos siguientes cargan imagen001.jpg e Image002.png desde la carpeta D:\\_TestImages del disco local al contenedor que acaba de crear.
+Los ejemplos siguientes cargan Image001.jpg y Image002.png desde la carpeta D:\\_TestImages del disco local al contenedor que creó.
 
 ```powershell
 # upload a file
@@ -116,9 +116,9 @@ Quite todos los recursos que ha creado. La manera más fácil de hacerlo consist
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y Azure Blob Storage. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
+En este tutorial de inicio rápido, aprendió a transferir archivos entre un disco local y Azure Blob Storage. Para más información sobre cómo trabajar con Blob Storage, continúe con los procedimientos de Blob Storage.
 
 > [!div class="nextstepaction"]
 > [Procedimientos de las operaciones de Blob Storage](storage-how-to-use-blobs-powershell.md)
