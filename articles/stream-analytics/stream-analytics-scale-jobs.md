@@ -1,6 +1,6 @@
 ---
 title: Escalar los trabajos de Stream Analytics para incrementar el rendimiento | Microsoft Docs
-description: "Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
+description: "Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming premium del trabajo."
 keywords: "datos de streaming, procesamiento de datos de streaming, optimización del análisis"
 services: stream-analytics
 documentationcenter: 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/11/2017
 # <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Escalar los trabajos de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
 Como requisito previo, es posible que tenga que leer los artículos siguientes:
--   [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md)
+-   [Descripción y ajuste de las unidades de streaming premium](stream-analytics-streaming-unit-consumption.md)
 -   [Creación de trabajos que se pueden paralelizar](stream-analytics-parallelization.md)
 
 
@@ -39,7 +39,7 @@ Si la consulta se puede paralelizar completamente de manera inherente en distint
     - En el diagrama de trabajo, hay una métrica de evento de trabajo pendiente por partición para cada entrada. Si la métrica de evento de trabajo pendiente sigue aumentando, también es un indicador de que el recurso del sistema está restringido (ya sea debido a una limitación de receptor de salid o un alto uso de CPU).
 4.  Una vez que determine los límites del alcance de un trabajo de 6 SU, puede extrapolar de manera lineal la capacidad de procesamiento del trabajo a medida que agrega más SU, suponiendo que no tiene ninguna asimetría de datos que haga que cierta partición sea "activa".
 >[!Note]
-> Elija el número correcto de unidades de streaming: como Stream Analytics crea un nodo de procesamiento para cada 6 SU que se agregan, es mejor hacer que el número de nodos sea un divisor del número de particiones de entrada, para que las particiones se puedan distribuir de manera uniforme entre los nodos.
+> Elija el número correcto de unidades de streaming premium: como Stream Analytics crea un nodo de procesamiento para cada 6 SU que se agregan, es mejor hacer que el número de nodos sea un divisor del número de particiones de entrada, para que las particiones se puedan distribuir de manera uniforme entre los nodos.
 > Por ejemplo, midió que el trabajo de 6 SU puede alcanzar una velocidad de procesamiento de 4 MB/s y la cantidad de particiones de entrada es 4. Puede elegir ejecutar el trabajo con 12 SU para alcanzar una velocidad de procesamiento de 8 MB/s aproximadamente, o bien 24 SU para alcanzar 16 MB/s. Luego puede decidir cuándo aumentar el número de SU para el trabajo y a qué valor, como función de la tasa de entrada.
 
 
@@ -84,7 +84,7 @@ Para ciertos casos de uso de ISV, donde resulta más rentable procesar los datos
 
 
 ## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Un ejemplo de rendimiento de Stream Analytics a gran escala
-Para ayudarle a comprender cómo se escalan los trabajos de Stream Analytics, se ha realizado un experimento basado en un dispositivo Raspberry Pi. Este experimento permite ver los efectos sobre la capacidad de procesamiento de varias unidades de streaming y particiones.
+Para ayudarle a comprender cómo se escalan los trabajos de Stream Analytics, se ha realizado un experimento basado en un dispositivo Raspberry Pi. Este experimento permite ver los efectos sobre la capacidad de procesamiento de varias unidades de streaming premium y particiones.
 
 En este escenario, el dispositivo envía datos de sensores (clientes) a un centro de eventos. Stream Analytics procesa los datos y envía una alerta o estadísticas como salida a otro centro de procesamiento. 
 
@@ -103,10 +103,10 @@ La siguiente consulta se utiliza para enviar una alerta cuando se apaga una luz:
 
 En este contexto, la capacidad de procesamiento es la cantidad de datos de entrada que procesa Stream Analytics en una cantidad fija de tiempo. (Se mide durante 10 minutos). Para conseguir la mejor capacidad de procesamiento de los datos de entrada, tanto la entrada de flujo de datos como la consulta se han particionado. También se incluye **COUNT()** en la consulta para medir el número de eventos de entrada procesados. Para asegurarse de que el trabajo no está esperando simplemente a que lleguen los eventos de entrada, cada partición del centro de eventos de entrada se ha cargado previamente con aproximadamente 300 MB.
 
-La siguiente tabla muestra los resultados se observan al aumentar el número de unidades de streaming y los correspondientes recuentos de particiones en Event Hubs.  
+La siguiente tabla muestra los resultados se observan al aumentar el número de unidades de streaming premium y los correspondientes recuentos de particiones en Event Hubs.  
 
 <table border="1">
-<tr><th>Particiones de entrada</th><th>Particiones de salida</th><th>Unidades de streaming</th><th>Capacidad de procesamiento sostenida
+<tr><th>Particiones de entrada</th><th>Particiones de salida</th><th>Unidades de streaming premium</th><th>Capacidad de procesamiento sostenida
 </th></td>
 
 <tr><td>12</td>
