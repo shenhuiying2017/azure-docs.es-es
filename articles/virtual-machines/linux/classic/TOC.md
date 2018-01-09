@@ -1,59 +1,39 @@
 # [Información general](../overview.md)
-## [Imágenes](about-images.md)
-## [Extensiones de máquina virtual](agents-and-extensions.md)
-## [Disponibilidad](configure-availability.md)
-## [Preguntas más frecuentes](faq.md)
+## [Extensiones de máquina virtual](agents-and-extensions-classic.md)
+## [Disponibilidad](configure-availability-classic.md)
+## [P+F](faq-classic.md)
 
 # Introducción
-## [Creación de una máquina virtual Linux mediante Azure Portal](createportal.md)
-## [Instalación de la CLI de Azure](../../../cli-install-nodejs.md)
-## [Creación de claves SSH](../mac-create-ssh-keys.md)
+## [Creación de una máquina virtual Linux mediante Azure Portal](createportal-classic.md)
 
 # Procedimientos
 ## Proceso
-### [Creación de una máquina virtual personalizada](create-custom.md)
-### [Captura de una máquina virtual](capture-image.md)
-### [Uso de Escritorio remoto con una máquina virtual Linux](remote-desktop.md)
-### [Administración de extensiones de máquina virtual](manage-extensions.md)
-### [Administración de máquinas virtuales con Visual Studio](manage-visual-studio.md)
-### [Supervisión de máquinas virtuales con la extensión de diagnóstico de máquinas virtuales](../diagnostic-extension.md)
+### [Creación de una máquina virtual personalizada](create-custom-classic.md)
+### [Captura de una máquina virtual](capture-image-classic.md)
+### [Uso de Escritorio remoto con una máquina virtual Linux](remote-desktop-classic.md)
+### [Administración de extensiones de máquina virtual](manage-extensions-classic.md)
 ### [Supervisión de máquinas virtuales con la extensión de diagnóstico de máquinas virtuales v2.x](diagnostic-extension-v2.md)
-### [Inyección de datos personalizados](inject-custom-data.md)
-### [Restablecimiento de contraseñas o claves de Linux, corrección de SSH y comprobación de discos](reset-access.md)
-### [Mantenimiento](planned-maintenance-schedule.md)
-### [Creación de un host de Docker mediante la CLI](cli-use-docker.md)
-### [Creación de un host de Docker mediante Azure Portal](portal-use-docker.md)
-### [Uso de Docker con Swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Restablecimiento de contraseñas o claves de Linux, corrección de SSH y comprobación de discos](reset-access-classic.md)
+### [Mantenimiento](planned-maintenance-schedule-classic.md)
 
 ## Usar Storage
-### [Acoplamiento de un disco de datos](attach-disk.md)
-### [Desacoplamiento de un disco de datos](detach-disk.md)
+### [Acoplamiento de un disco de datos](attach-disk-classic.md)
+### [Desacoplamiento de un disco de datos](detach-disk-classic.md)
 
 ## Red
 ### [Apertura de puertos a la máquina virtual](setup-endpoints.md)
-### [Conexión de máquinas virtuales con una red virtual o un servicio en la nube](connect-vms.md)
-
-## Implementación de imágenes
-### [Creación y carga de un disco duro virtual](create-upload-vhd.md)
-### [Creación y carga de un disco duro virtual de FreeBSD](freebsd-create-upload-vhd.md)
-### [Lista de imágenes de máquina virtual de Oracle](oracle-images.md)
 
 ## Administración de cargas de trabajo
-### [SAP](sap-get-started.md)
-### MySQL y MariaDB
-#### [Tutorial sobre los clústeres de MariaDB](mariadb-mysql-cluster.md)
-#### [Instalación de MySQL en una máquina virtual con OpenSUSE](mysql-on-opensuse.md)
-#### [Uso de conjuntos de carga equilibrada para crear clústeres en MySQL](mysql-cluster.md)
-#### [Optimización del rendimiento de MySQL](optimize-mysql.md)
+### [Tutorial sobre los clústeres de MariaDB](mariadb-mysql-cluster.md)
+### [Instalación de MySQL en una máquina virtual con OpenSUSE](mysql-on-opensuse.md)
+### [Uso de conjuntos de carga equilibrada para crear clústeres en MySQL](mysql-cluster.md)
+### [Optimización del rendimiento de MySQL](optimize-mysql.md)
 
 ## Ejecución de aplicaciones
-### [Aplicación web de Ruby on Rails](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Aplicación web de Ruby on Rails](ruby-rails-web-app.md)
 ### [Cliente de Cassandra y Node.js](cassandra-nodejs.md)
-### [Pila LAMP](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Aplicación web con Visual Studio](web-app-visual-studio.md)
 ### [Clústeres de RDMA para ejecutar aplicaciones MPI](rdma-cluster.md)
-### [Uso del complemento esclavo de Azure con Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Creación de un clúster para cargas de trabajo de Linux](hpcpack-cluster-powershell-script.md)
 #### [Administración de un clúster con nodos de Linux](hpcpack-cluster.md)
@@ -74,7 +54,7 @@
 ## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates)
 ## [REST de Compute](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST de Network](https://msdn.microsoft.com/library/jj157182.aspx)
-## [REST de Storage](https://msdn.microsoft.com/library/ee460790.aspx)
+## [API de Almacenamiento](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Recursos

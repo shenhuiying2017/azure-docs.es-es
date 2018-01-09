@@ -4,15 +4,15 @@
 ## [Azure Data Lake Store para el procesamiento de macrodatos](data-lake-store-data-scenarios.md)
 ## [Aplicaciones de código abierto que funcionan con Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
-# Primeros pasos
+# Introducción
 ## [Uso del portal](data-lake-store-get-started-portal.md)
 ## [Uso de PowerShell](data-lake-store-get-started-powershell.md)
 ## [Uso de la CLI de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 
 
-# Cómo
+# Procedimientos
 ## Carga y movimiento de datos
-### [Uso de Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Uso de Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [Uso de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Uso de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Uso de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -22,7 +22,7 @@
 ## Protección de datos
 ### [Introducción a la seguridad](data-lake-store-security-overview.md)
 ### [Control de acceso en Data Lake Store](data-lake-store-access-control.md)
-### [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+### [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 ### [Cifrado](data-lake-store-encryption.md)
 
 ## Autenticación con Data Lake Store
@@ -40,7 +40,7 @@
 
 ## Trabajo con Data Lake Store
 ### Operaciones de administración de cuenta
-#### [Uso del SDK de .NET](data-lake-store-get-started-net-sdk.md)
+#### [Uso de .NET SDK](data-lake-store-get-started-net-sdk.md)
 #### [Uso de la API de REST](data-lake-store-get-started-rest-api.md)
 #### [Uso de Python](data-lake-store-get-started-python.md)
 ### Operaciones del sistema de archivos
@@ -74,7 +74,7 @@
 ### [Uso de SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Más opciones para la integración de Azure](data-lake-store-integrate-with-other-services.md)
 
-## Administrar
+## administración
 ### [Acceso a los registros de diagnóstico](data-lake-store-diagnostic-logs.md)
 ### [Planeamiento para lograr alta disponibilidad](data-lake-store-disaster-recovery-guidance.md)
 

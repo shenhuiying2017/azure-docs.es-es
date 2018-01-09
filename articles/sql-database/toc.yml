@@ -53,7 +53,7 @@
   items:
     - name: Ejemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-    - name: CLI de Azure
+    - name: Azure CLI
       href: sql-database-cli-samples.md
     - name: Azure PowerShell
       href: sql-database-powershell-samples.md
@@ -279,7 +279,7 @@
         - name: Carga de datos con BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Carga de datos con ADF
-          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md
         - name: Sincronización de datos
           href: sql-database-get-started-sql-data-sync.md
     - name: Supervisión y ajuste
@@ -436,7 +436,7 @@
   items:
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: P+F
+    - name: Preguntas más frecuentes
       href: sql-database-faq.md
     - name: Conjuntos de datos públicos
       href: sql-database-public-data-sets.md
