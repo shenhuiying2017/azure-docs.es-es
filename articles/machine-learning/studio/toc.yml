@@ -57,7 +57,7 @@
           items:
             - name: Crear
               href: create-workspace.md
-            - name: Administrar
+            - name: administración
               href: manage-workspace.md
             - name: Solución de problemas
               href: troubleshooting-creating-ml-workspace.md
@@ -179,7 +179,7 @@
           href: sample-experiments.md
         - name: Conjuntos de datos de ejemplo
           href: use-sample-datasets.md
-        - name: Ejemplo de renovación de un cliente
+        - name: Ejemplo de abandono de un cliente
           href: azure-ml-customer-churn-scenario.md
 - name: Referencia
   items:
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: Temas relacionados
   items:
-    - name: Galería de Cortana Intelligence
+    - name: Galería de Azure AI
       items:
         - name: Información general
           href: gallery-how-to-use-contribute-publish.md

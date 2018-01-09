@@ -112,7 +112,7 @@
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 
-## Administrar
+## administración
 ### Crear un centro de IoT 
 #### [Uso de Azure portal](iot-hub-create-through-portal.md)
 #### [Uso de Azure PowerShell](iot-hub-create-using-powershell.md)
@@ -162,6 +162,7 @@
 
 # Temas relacionados
 ## [Conjunto de aplicaciones de IoT de Azure](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Servicio Azure IoT Hub Device Provisioning](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
@@ -178,6 +179,6 @@
 ## [Precios](https://azure.microsoft.com/pricing/details/iot-hub/)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=iot-hub)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Casos prácticos técnicos](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
