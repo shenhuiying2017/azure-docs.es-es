@@ -108,7 +108,7 @@ Las opciones de alta disponibilidad, copia de seguridad y recuperación ante des
 | Nivel |   Alta disponibilidad   | Copia de seguridad o recuperación ante desastres |
 | --- | --- | --- |
 | Application | SQL Server AlwaysOn | Azure Backup |
-| Infraestructura    | El conjunto de disponibilidad  | Almacenamiento con redundancia geográfica con instantáneas coherentes |
+| Infraestructura    | Conjunto de disponibilidad  | Almacenamiento con redundancia geográfica con instantáneas coherentes |
 
 ### <a name="using-azure-backup"></a>Uso de Azure Backup 
 
@@ -138,7 +138,7 @@ Use los pasos siguientes para habilitar las copias de seguridad de las máquinas
 
 4.  Asegúrese de que Backup Agent está instalado en la máquina virtual. Si la máquina virtual se crea con una imagen de la galería de Azure, ya tiene instalado el agente de copia de seguridad. En caso contrario (es decir, si usa una imagen personalizada), siga las instrucciones para [instalar el agente de VM en una máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Asegúrese de que la máquina virtual permite la conectividad de red para que funcione el servicio Backup. Siga las instrucciones para la [conectividad de red](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Asegúrese de que la máquina virtual permite la conectividad de red para que funcione el servicio Backup. Siga las instrucciones para la [conectividad de red](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Una vez completados los pasos anteriores, la copia de seguridad se ejecuta a intervalos regulares, tal y como se especifica en la directiva de copia de seguridad. Si es necesario, puede desencadenar la primera copia de seguridad manualmente desde el panel de almacén en Azure Portal.
 

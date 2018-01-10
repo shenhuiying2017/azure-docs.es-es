@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Llamada a una función desde Microsoft Flow
 
@@ -39,7 +39,7 @@ En este tema, aprenderá cómo:
 > * Crear un flujo para enviar correo electrónico si una reparación es rentable.
 > * Ejecutar el flujo.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 + Una [cuenta de Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) activa con las mismas credenciales de inicio de sesión que la cuenta de Azure. 
 + SharePoint, que se usa como un origen de datos para este flujo. Si aún no tiene SharePoint, suscríbase a [una evaluación gratuita de Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1).
@@ -261,7 +261,7 @@ Ahora que se ha completado el flujo, agregará una fila a la lista de SharePoint
 
     Puede ver cómo se han reemplazado los tokens por los valores correctos de la lista de SharePoint y la función.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tema, ha aprendido cómo:
 
 > [!div class="checklist"]

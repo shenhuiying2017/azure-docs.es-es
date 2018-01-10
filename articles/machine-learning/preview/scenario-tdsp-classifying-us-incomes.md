@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Clasificación de ingresos con el proyecto de proceso de ciencia de datos en equipo (TDSP)
 
@@ -32,7 +33,7 @@ Previamente se presentó un [repositorio de GitHub para las plantillas y la estr
 [Aquí](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) se ofrece documentación de resumen sobre el ejemplo. Puede encontrar una documentación más extensa en el sitio de GitHub.
 
 ### <a name="purpose"></a>Propósito
-El propósito principal de este ejemplo es mostrar cómo crear una instancia y ejecutar un proyecto de aprendizaje automático mediante la estructura y las plantillas del [proceso de ciencia de datos en equipo (TDSP)](https://github.com/Azure/Microsoft-TDSP) en Azure Machine Learning. Para ello, se han usado los conocidos [datos del censo de EE.UU. de 1994 del repositorio de aprendizaje automático de UCI](https://archive.ics.uci.edu/ml/datasets/adult). La tarea de modelado consiste en predecir las clases de ingresos anuales de Estados Unidos a partir de la información del censo de EE.UU. (por ejemplo, edad, raza, nivel de educación, país de origen, etc).
+El propósito principal de este ejemplo es mostrar cómo crear una instancia y ejecutar un proyecto de aprendizaje automático mediante la estructura y las plantillas del [proceso de ciencia de datos en equipo (TDSP)](https://github.com/Azure/Microsoft-TDSP) en Azure Machine Learning. Para ello, se han usado los conocidos [datos del censo de EE.UU. de 1994 del repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml/datasets/adult). La tarea de modelado consiste en predecir las clases de ingresos anuales de Estados Unidos a partir de la información del censo de EE.UU. (por ejemplo, edad, raza, nivel de educación, país de origen, etc).
 
 ### <a name="scope"></a>Scope
  * Exploración de datos, entrenamiento e implementación de un modelo de aprendizaje automático que permita resolver el problema de predicción que se describe en la introducción del caso de uso. 
@@ -47,7 +48,7 @@ Consulte [Ciclo de vida del proceso de ciencia de datos en equipo (TDSP)](https:
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 ### <a name="required-subscription-hardware-software"></a>Obligatorios: suscripción, hardware, software
 1. Una [suscripción](https://azure.microsoft.com) de Azure. Puede obtener una [suscripción gratuita](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) para ejecutar este ejemplo también.
 2. Una instancia de [Azure Data Science Virtual Machine (DSVM) para Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (tamaño de máquina virtual: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), con 4 CPU virtuales y 14 GB de RAM). Aunque se ha probado en una instancia de Azure DSVM, es probable que funcione en cualquier máquina de Windows 10.

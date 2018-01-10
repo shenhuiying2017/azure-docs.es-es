@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1fbfbbc79a415af5e874c304412854849e134eb7
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -27,8 +27,8 @@ Al crear un conjunto de escalado, puede definir el número de instancias de máq
 Este artículo muestra cómo crear reglas de escalado automático con Azure PowerShell que supervisan el rendimiento de las instancias de máquina virtual del conjunto de escalado. Estas reglas de escalado automático permiten aumentar o reducir el número de instancias de máquina virtual en respuesta a estas métricas de rendimiento. Estos pasos también se pueden llevar a cabo con la [CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md) o [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
-Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado mediante [Azure Portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) o la [CLI de Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+## <a name="prerequisites"></a>requisitos previos
+Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado mediante [Azure Portal](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) o la [CLI de Azure 2.0](virtual-machine-scale-sets-create-cli.md).
 
 Para facilitar la creación de las reglas de escalado automático, defina algunas de las variables para el conjunto de escalado. En el siguiente ejemplo se definen variables para el conjunto de escalado denominado *myScaleSet* del grupo de recursos *myResourceGroup* en la región *Este de EE. UU.* El identificador de la suscripción se obtiene con [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Si tiene varias suscripciones asociadas a su cuenta, solo se devolverá la primera suscripción. Ajuste los nombres y los identificadores de la suscripción como se indica a continuación:
 
@@ -47,18 +47,18 @@ Vamos a crear una regla con [New-AzureRmAutoscaleRule](/powershell/module/AzureR
 
 Los siguientes parámetros se utilizan para esta regla:
 
-| Parámetro               | Explicación                                                                                                         | Valor          |
+| .               | Explicación                                                                                                         | Valor          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | La métrica de rendimiento del conjunto de escalado sobre el que realizar las acciones de supervisión y aplicación.                                                   | Porcentaje de CPU |
 | *-TimeGrain*            | Frecuencia de recopilación de las métricas para el análisis.                                                                   | 1 minuto       |
 | *-MetricStatistic*      | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Media        |
-| *-TimeWindow*           | La cantidad de tiempo de supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 10 minutos      |
+| *-TimeWindow*           | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 10 minutos      |
 | *-Operator*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                     | Mayor que   |
 | *-Threshold*            | El valor que hace que la regla de escalado automático desencadene una acción.                                                      | 70%            |
 | *-ScaleActionDirection* | Define si el conjunto de escalado debe escalarse o reducirse verticalmente.                                             | Aumento       |
 | *–ScaleActionScaleType* | Indica que el número de instancias de máquina virtual debe cambiarse por un porcentaje.                                 | Cambio de porcentaje |
-| *-ScaleActionValue*     | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20 |             |
-| *-ScaleActionCooldown*  | La cantidad de tiempo que hay que esperar antes de que la regla se aplique de nuevo, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos      |
+| *-ScaleActionValue*     | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20              |
+| *-ScaleActionCooldown*  | El periodo que hay que esperar hasta que la regla se vuelva a aplicar, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos      |
 
 En el ejemplo siguiente se crea un objeto denominado *myRuleScaleOut* que contiene esta regla de escalado vertical. *- MetricResourceId* usa las variables definidas anteriormente para el identificador de la suscripción, el nombre del grupo de recursos y el nombre del conjunto de escalado:
 
@@ -79,7 +79,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 
 
 ## <a name="create-a-rule-to-automatically-scale-in"></a>Creación de una regla para realizar una reducción horizontal de forma automática
-La demanda de la aplicación puede reducirse por las tardes o durante los fines de semana. Si esta reducción es constante a lo largo de un período de tiempo, puede configurar reglas de escalado automático para reducir el número de instancias de máquina virtual del conjunto de escalado. Esta acción de reducción horizontal permite reducir el costo a la hora de ejecutar el conjunto de escalado ya que solo se ejecuta el número de instancias necesario para satisfacer la demanda actual.
+La demanda de la aplicación puede reducirse por las tardes o durante los fines de semana. Si esta reducción es constante a lo largo de un período, puede configurar reglas de escalado automático para reducir el número de instancias de máquina virtual del conjunto de escalado. Esta acción de reducción horizontal permite rebajar el costo de ejecutar el conjunto de escalado ya que solo se ejecuta el número de instancias necesario para satisfacer la demanda actual.
 
 Cree una regla con [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) que reduce el número de instancias de máquina virtual de un conjunto de escalado cuando la carga promedio de la CPU es inferior al 30 % durante un período de más de 10 minutos. Cuando la regla se desencadena, se reduce el número de instancias de máquina virtual en un 20 %. En el ejemplo siguiente se crea un objeto denominado *myRuleScaleDown* que contiene esta regla de escalado vertical. *- MetricResourceId* usa las variables definidas anteriormente para el identificador de la suscripción, el nombre del grupo de recursos y el nombre del conjunto de escalado:
 
@@ -134,14 +134,14 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="autoscale-based-on-a-schedule"></a>Escalado automático según una programación
-En los ejemplos anteriores se escaló o redujo horizontalmente de forma automática un conjunto de escalado con métricas de host básicas como el uso de la CPU. También puede crear reglas de escalado automático basadas en programaciones. Estas reglas basadas en programaciones le permiten escalar horizontalmente de forma automática el número de instancias de máquina virtual anticipándose a un aumento de la demanda de la aplicación como, por ejemplo, durante las horas punta del trabajo para, a continuación, reducir horizontalmente de forma automática el número de instancias a la vez si anticipa una menor demanda como durante los fines de semana.
+En los ejemplos anteriores se escaló o redujo horizontalmente de forma automática un conjunto de escalado con métricas de host básicas como el uso de la CPU. También se pueden crear reglas de escalado automático basadas en programación. Estas reglas basadas en programaciones le permiten escalar horizontalmente de forma automática el número de instancias de máquina virtual anticipándose a un aumento de la demanda de la aplicación como, por ejemplo, durante las horas punta del trabajo para, a continuación, reducir horizontalmente de forma automática el número de instancias a la vez si anticipa una menor demanda como durante los fines de semana.
 
 Para crear reglas de escalado automático basadas en una programación en lugar de en métricas del host, use Azure Portal. Actualmente, no se pueden crear reglas basadas en programaciones con Azure PowerShell.
 
 
-## <a name="next-steps"></a>Pasos siguientes
-En este artículo, aprendió a utilizar reglas de escalado automático para escalar horizontalmente y aumentar o reducir el *número* de instancias de máquina virtual del conjunto de escalado. También puede escalar verticalmente para aumentar o reducir el *tamaño* de la instancia de la máquina virtual. Para más información, consulte [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+## <a name="next-steps"></a>pasos siguientes
+En este artículo, ha aprendido a utilizar reglas de escalado automático para escalar horizontalmente y aumentar o reducir el *número* de instancias de máquina virtual del conjunto de escalado. También puede escalar verticalmente para aumentar o reducir el *tamaño* de la instancia de máquina virtual. Para más información, consulte [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-Para más información sobre cómo administrar las instancias de máquina virtual, consulte [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) (Administración de conjuntos de escalado de máquinas virtuales con Azure PowerShell).
+Para más información acerca de cómo administrar las instancias de máquina virtual, consulte [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) (Administración de conjuntos de escalado de máquinas virtuales con Azure PowerShell).
 
-Para más información sobre cómo generar alertas cuando la regla de escalado automático se desencadena, consulte [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). También puede [usar registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Para más información acerca de cómo generar alertas cuando la regla de escalado automático se desencadena, consulte [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). También puede consultar [Llamada a un webhook cuando se activan alertas del registro de actividades de Azure](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

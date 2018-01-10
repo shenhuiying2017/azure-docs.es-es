@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
 **¿En qué consisten las competiciones de Cortana Intelligence?**
@@ -31,7 +31,7 @@ Iniciaremos las competiciones propias de Microsoft de forma periódica, aproxima
 
 **¿Dónde puedo exponer preguntas generales sobre la ciencia de datos?**
 
-Use nuestro [foro de Aprendizaje automático de Microsoft Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Use nuestro [foro de Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
 **¿Cómo puedo participar en una competición?**
 
@@ -53,7 +53,7 @@ Los participantes de la competición usan Azure Machine Learning Studio, un serv
 
 **¿Es necesario ser un experto en datos para participar?**
 
-No. De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. Nuestro público de destino es el siguiente:
+Nº De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. Nuestro público de destino es el siguiente:
 
 * **Desarrolladores de datos**, **científicos de datos**, **profesionales de BI** y **de análisis**: los responsables de producir el contenido de datos y análisis para que otros usuarios lo consuman.
 * **Administradores de datos**: los usuarios que tengan conocimientos sobre los datos, lo que significan y cómo están diseñados para usarse y con qué propósito.
@@ -65,7 +65,7 @@ La plataforma de competición no admite actualmente la participación de equipos
 
 **¿Tengo que pagar para participar en una competición?**
 
-La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de aprendizaje automático de Azure para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o de Cortana Intelligence Suite, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea adquirir una suscripción de Azure, vaya a la página [Precios de Azure](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán las tasas estándar si se usa un área de trabajo estándar para construir experimentos. Vea la [información sobre precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) para obtener más información. 
+La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de Azure Machine Learning para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o de Cortana Intelligence Suite, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea adquirir una suscripción de Azure, vaya a la página [Precios de Azure](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán las tasas estándar si se usa un área de trabajo estándar para construir experimentos. Vea la [información sobre precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) para obtener más información. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -104,7 +104,7 @@ La hora de envío es el factor de desempate. La entrada que se haya enviado ante
 
 **¿Puedo participar usando el área de trabajo de invitado?**
 
-No. Debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una participación válida para su envío desde dicha área. 
+Nº Debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una participación válida para su envío desde dicha área. 
 
 **¿Puedo participar mediante un área de trabajo de cualquier región de Azure?**
 

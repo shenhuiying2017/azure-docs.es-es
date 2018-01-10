@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -94,7 +94,7 @@ ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas
 
 ## <a name="geo-replication-pricing"></a>Precios de la replicación geográfica
 
-La replicación geográfica es una característica de la [SKU Premium](container-registry-skus.md#premium) de Azure Container Registry. Cuando replica un registro en las áreas indicadas, se aplica la tarifa del registro Premium para cada región.
+La replicación geográfica es una característica de la [SKU Premium](container-registry-skus.md) de Azure Container Registry. Cuando replica un registro en las áreas indicadas, se aplica la tarifa del registro Premium para cada región.
 
 En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó réplicas en el Este de EE. UU., Canadá central y Europa Occidental. Por ello, pagaría cuatro veces al mes la tarifa Premium y sin tener ninguna configuración o administración adicional. Ahora, cada región extrae sus imágenes de forma local, lo que mejora el rendimiento y la confiabilidad sin tener que aplicar ninguna tarifa de salida de red desde las regiones del Oeste de EE. UU., Canadá y el Este de EE. UU.
 
@@ -102,7 +102,7 @@ En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó répli
 
 Gracias a la replicación geográfica, puede administrar los centros de datos regionales como una sola nube global. Como las imágenes se usan en muchos servicios de Azure, puede sacar provecho de un plano de administración único al tiempo que mantiene la rapidez, la confiabilidad y la cercanía a la red de las extracciones de imágenes locales.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte la serie de tres partes del tutorial [Geo-replication in Azure Container Registry (Replicación geográfica en Azure Container Registry)](container-registry-tutorial-prepare-registry.md). Aprenda a crear un registro con replicación geográfica, a compilar un contenedor y a implementarlo con un solo comando `docker push` en varias instancias regionales de Web App for Containers.
 

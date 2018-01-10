@@ -15,19 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Hadoop en HDInsight
 
 Azure HDInsight ofrece un sistema de archivos distribuido de Hadoop (HDFS) completo a través de Azure Storage y Azure Data Lake Store. Azure Storage y Data Lake Store están diseñados como una extensión de HDFS para ofrecer una experiencia sin problemas para los clientes. Habilitan el conjunto completo de componentes en el ecosistema de Hadoop para que opere directamente en los datos que administra. Azure Storage y Data Lake Store son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para más información sobre las ventajas del uso de Azure Storage, vea [Uso de Azure Storage con HDInsight][hdinsight-storage] y [Uso de Data Lake Store con HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Tenga en cuenta los siguientes requisitos antes de empezar:
 
@@ -246,7 +246,7 @@ También se puede acceder a Azure Storage mediante un SDK de Azure desde los sig
 
 Para obtener más información acerca de cómo instalar los SDK de Azure, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/)
 
-### <a name="troubleshooting"></a>Solución de problemas
+### <a name="troubleshooting"></a>solución de problemas
 #### <a id="storageexception"></a>Excepción de almacenamiento para escritura en blob
 **Síntomas**: al usar los comandos `hadoop` o `hdfs dfs` para escribir archivos de ~12 GB o mayores en un clúster de HBase, puede experimentarse el siguiente error:
 
@@ -291,7 +291,7 @@ También puede aumentar el valor de `fs.azure.write.request.size` globalmente me
 
 Para más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguientes para aprender a realizar el análisis:
 
 * [Introducción a Azure HDInsight][hdinsight-get-started]

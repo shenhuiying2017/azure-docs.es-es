@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df39b957e70be38331b3711a36ce847348049591
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integración de Azure Active Directory con Absorb LMS
 
@@ -30,9 +30,9 @@ La integración de Absorb LMS con Azure AD ofrece las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Absorb LMS (mediante el inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si quiere obtener más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si quiere obtener más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Absorb LMS, necesita lo siguiente:
 
@@ -48,7 +48,7 @@ Para probar los pasos de este tutorial, siga estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 * Adición de Absorb LMS desde la galería
 * Configuración y comprobación del inicio de sesión único de Azure AD
@@ -115,7 +115,7 @@ Para configurar el inicio de sesión único de Azure AD con Absorb LMS, siga est
 
 5. Seleccione **Guardar**.
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
 6. En la sección **Configuración de Absorb LMS**, seleccione **Configurar Absorb LMS** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de cierre de sesión** de la sección **Referencia rápida.**
 
@@ -234,7 +234,7 @@ Para configurar una cuenta de usuario, haga lo siguiente:
 
 En esta sección, habilitará el usuario "Britta Simon" para que use el inicio de sesión único de Azure concediéndole acceso a Absorb LMS.
 
-![Asignación del rol de usuario][200]
+![Asignación de rol de usuario][200]
 
 Para asignar a Britta Simon a Absorb LMS, siga estos pasos:
 

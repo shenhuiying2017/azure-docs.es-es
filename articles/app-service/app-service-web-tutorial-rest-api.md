@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 06/13/2017
 ms.author: rachelap
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 30c3df4ebc4417993170b994fc01bc82636dec3f
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 2170ac7df3b894c8d19b432abdcfef5c7fd75ff4
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Creación de una API de RESTful de Node.js e implementación en una aplicación de API de Azure
 
 En esta guía de inicio rápido se muestra cómo crear una API de REST, escrita con Node.js [Express](http://expressjs.com/), mediante una definición [Swagger](http://swagger.io/) y cómo implementarla en Azure. Creará la aplicación mediante herramientas de línea de comandos, configurará los recursos con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e implementará la aplicación mediante Git.  Cuando haya terminado, tendrá una API de REST funcional de ejemplo que se ejecuta en Azure.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * [Git](https://git-scm.com/)
 * [Node.js y NPM](https://nodejs.org/)
@@ -209,7 +209,7 @@ Cuando Swaggerize le solicite un nombre de proyecto, use *ContactList*.
 
 En esta sección, se usa la CLI de Azure 2.0 para crear los recursos para hospedar la API en Azure App Service. 
 
-1.  Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/#login) y siga las instrucciones de la pantalla.
+1.  Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/?view=azure-cli-latest#az_login) y siga las instrucciones de la pantalla.
 
     ```azurecli-interactive
     az login

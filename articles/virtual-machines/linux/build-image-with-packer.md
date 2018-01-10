@@ -4,7 +4,7 @@ description: "Aprenda a usar Packer para crear imágenes de máquinas virtuales 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 1752d2e0a497bf94309a744562cf4462866d6f99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d548d3df209df2a9ae8fa3f8ee684190bc140175
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Linux en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Linux y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y distribuciones más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
@@ -68,7 +68,7 @@ Para crear imágenes, es preciso crear una plantilla en forma de archivo JSON. E
 
 Cree un archivo denominado *ubuntu.json* y pegue el siguiente contenido. Escriba sus propios valores para los siguientes elementos:
 
-| Parámetro                           | Dónde se obtiene |
+| .                           | Dónde se obtiene |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Primera línea de la salida de `az ad sp` create command - *appId* |
 | *client_secret*                     | Segunda línea de la salida de `az ad sp` create command - *password* |
@@ -196,6 +196,8 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
+Packer tarda unos minutos en crear la máquina virtual, ejecutar los aprovisionadores y limpiar la implementación.
+
 
 ## <a name="create-vm-from-azure-image"></a>Creación de una máquina virtual desde una imagen de Azure
 Ya puede crear una máquina virtual a partir de la imagen con [az vm create](/cli/azure/vm#create). Especifique la imagen que ha creado con el parámetro `--image`. El siguiente ejemplo crea una máquina virtual llamada *myVM* a partir de *myPackerImage* y genera claves SSH, en caso de que no existan:
@@ -223,10 +225,10 @@ az vm open-port \
 ## <a name="test-vm-and-nginx"></a>Pruebas de la máquina virtual y de NGINX
 Ahora puede abrir un explorador web y escribir `http://publicIpAddress` en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. La página predeterminada de NGINX es como la del ejemplo siguiente:
 
-![Sitio predeterminado de NGINX](./media/build-image-with-packer/nginx.png) 
+![Sitio NGINX predeterminado](./media/build-image-with-packer/nginx.png) 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este ejemplo, ha utilizado Packer para crear una imagen de máquina virtual con NGINX instalado. Esta imagen se puede usar junto con los flujos de trabajo de la implementación existentes, como implementar la aplicación en las máquinas virtuales que se crean a partir de la imagen con Ansible, Chef o Puppet.
 
 Para ver más plantillas de Packer de ejemplo para otras distribuciones de Linux, consulte [este repositorio de GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).

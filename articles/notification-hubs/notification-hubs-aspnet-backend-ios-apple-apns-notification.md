@@ -1,5 +1,5 @@
 ---
-title: Los Centros de notificaciones de Azure notifican a los usuarios para iOS con back-end de .NET
+title: Azure Notification Hubs notifica a los usuarios para iOS con back-end de .NET
 description: "Aprenda a enviar notificaciones push a los usuarios en Azure. Ejemplos de código escritos en Objective-C con la API de .NET."
 documentationcenter: ios
 author: ysxu
@@ -20,7 +20,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Los Centros de notificaciones de Azure notifican a los usuarios para iOS con back-end de .NET
+# <a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Azure Notification Hubs notifica a los usuarios para iOS con back-end de .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Información general

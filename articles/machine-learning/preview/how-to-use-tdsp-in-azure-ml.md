@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo
 
@@ -109,7 +110,7 @@ También proporcionamos una plantilla [ProjectLearnings](https://aka.ms/tdspamlg
 ### <a name="example-project-report"></a>Informe del proyecto de ejemplo
 Puede obtener un [informe del proyecto de ejemplo](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Este informe del [proyecto de ejemplo de clasificación de ingresos de EE. UU.](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) muestra la creación de instancias y el uso de la plantilla del TDSP para un proyecto de ciencia de datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para facilitar la comprensión acerca de cómo pueden usarse las plantillas y la estructura del TDSP en proyectos de Machine Learning, se proporcionan varios ejemplos de proyectos completados en la documentación de Azure Machine Learning:
 
 - Para ver un ejemplo que muestra cómo crear un proyecto de TDSP en Machine Learning, consulte el [Proyecto de ejemplo del proceso de ciencia de datos en equipo: Clasificación de ingresos a partir de los datos del censo de EE. UU. en Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).

@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Orígenes de datos admitidos para la preparación de datos de Azure Machine Learning 
 En este artículo se describen los orígenes de datos admitidos actualmente en la preparación de datos de Azure Machine Learning.
@@ -60,7 +60,7 @@ Lea desde el almacenamiento un archivo de valores separados por comas.
 #### <a name="options"></a>Opciones
 - Separador
 - Comentario
-- Encabezados
+- encabezados
 - Símbolo decimal
 - Codificación de archivos
 - Líneas que se van a omitir
@@ -70,7 +70,7 @@ Lea desde el almacenamiento un archivo de valores separados por tabulaciones.
 
 #### <a name="options"></a>Opciones
 - Comentario
-- Encabezados
+- encabezados
 - Codificación de archivos
 - Líneas que se van a omitir
 
@@ -79,7 +79,7 @@ Lea un archivo de Excel, una hoja de cada vez, mediante la especificación del n
 
 #### <a name="options"></a>Opciones
 - Nombre o número de hoja
-- Encabezados
+- encabezados
 - Líneas que se van a omitir
 
 ### <a name="json-file"></a>Archivo JSON

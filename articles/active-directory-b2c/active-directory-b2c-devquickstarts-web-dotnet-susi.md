@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 067b9fcada0c641f836e98559a0166b52a2ec37d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e7a10ab2e523a98bd8762e209d0f4a13b12ef187
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creación de una aplicación web de ASP.NET con procesos de registro e inicio de sesión, edición de perfil y restablecimiento de contraseña de Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > * Registrar la aplicación web en el directorio de Azure AD B2C
 > * Crear una directiva de registro e inicio de sesión de usuario, edición de perfil y restablecimiento de contraseña para la aplicación web
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - Debe conectar el inquilino B2C a una cuenta de Azure. Puede crear una cuenta de Azure gratuita [aquí](https://azure.microsoft.com/en-us/).
 - Necesita [Microsoft Visual Studio](https://www.visualstudio.com/) o un programa similar para ver y modificar el código de ejemplo.
@@ -49,8 +49,6 @@ Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directori
 A continuación, debe crear y registrar la aplicación en su directorio B2C. Esto proporciona información que Azure AD B2C necesita para comunicarse de forma segura con la aplicación. 
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 Cuando haya terminado, tendrá una API y una aplicación nativa en la configuración de la aplicación.
 

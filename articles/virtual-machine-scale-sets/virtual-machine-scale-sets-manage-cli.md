@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure 2.0 que le permiten realizar estas tareas.
 
-Para completar estas tareas de administración, se requiere la compilación más reciente de la CLI de Azure 2.0. Para información sobre cómo instalar y usar la versión más reciente, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en Azure Portal](virtual-machine-scale-sets-portal-create.md).
+Para completar estas tareas de administración, se requiere la compilación más reciente de la CLI de Azure 2.0. Para información sobre cómo instalar y usar la versión más reciente, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si necesita crear un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado en Azure Portal](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visualización de información acerca de un conjunto de escalado
@@ -127,7 +127,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Eliminación de las máquinas virtuales de un conjunto de escalado
-Para quitar una o más máquinas virtuales en un conjunto de escalado, use [az vmss delete-instances](/cli/azure/vmss#delete-instances). El parámetro "--instance-ids" le permite especificar una o más máquinas virtuales para quitarlas. Si especifica * para el identificador de instancia, se quitarán todas las máquinas virtuales del conjunto de escalado. Para quitar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
+Para quitar una o más máquinas virtuales en un conjunto de escalado, use [az vmss delete-instances](/cli/azure/vmss#delete-instances). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se eliminen. Si especifica * para el identificador de instancia, se quitarán todas las máquinas virtuales del conjunto de escalado. Para quitar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
 
 En el ejemplo siguiente se quita la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus valores, como se indica a continuación:
 
@@ -136,5 +136,5 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Entre otras tareas comunes para conjuntos de escalado se incluye cómo [implementar una aplicación](virtual-machine-scale-sets-deploy-app.md) y cómo [actualizar instancias de máquinas virtuales](virtual-machine-scale-sets-upgrade-scale-set.md). También puede usar la CLI de Azure para [configurar reglas de escalado automático](virtual-machine-scale-sets-autoscale-overview.md).

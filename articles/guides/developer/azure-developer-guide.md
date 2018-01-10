@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -108,7 +108,7 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
 -   **Azure Cosmos DB**: un servicio de base de datos multimodelo de distribución global que le permite escalar de forma flexible el rendimiento y el almacenamiento en cualquier cantidad de regiones geográficas con un Acuerdo de Nivel de Servicio completo. 
     >**Cuándo se usa:** cuando la aplicación necesita bases de datos de gráficos, tablas o documentos, incluidas las bases de datos de MongoDB, con varios modelos de coherencia bien definidos. 
 
-    >**Para empezar**: [compile una aplicación web de Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Si es desarrollador de MongoDB, consulte [Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal](../../cosmos-db/create-mongodb-dotnet.md).
+    >**Para empezar**: [compile una aplicación web de Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Si es desarrollador de MongoDB, consulte [Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal](../../cosmos-db/create-mongodb-dotnet.md).
 
 -   **Azure Storage**: ofrece un almacenamiento duradero y de alta disponibilidad para blobs, colas, archivos y otros tipos de datos no relacionales. Storage proporciona la base de almacenamiento para las máquinas virtuales.
 
@@ -220,7 +220,7 @@ Azure proporciona dos mecanismos para administrar las aplicaciones y los servici
 
 -   [Azure PowerShell](../../powershell-install-configure.md): proporciona un conjunto de módulos con cmdlets que permiten administrar los recursos de Azure mediante Windows PowerShell.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal es una aplicación basada en web que puede usarse para crear, administrar y eliminar recursos y servicios de Azure. Azure Portal se encuentra en <https://portal.azure.com>. Incluye un panel personalizable, herramientas para administrar los recursos de Azure y acceso a la configuración de la suscripción y a la información de facturación. Para más información, consulte la [Introducción a Azure Portal](../../azure-portal-overview.md).
 

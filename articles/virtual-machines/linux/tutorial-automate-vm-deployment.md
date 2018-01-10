@@ -4,7 +4,7 @@ description: "Aprenda a usar cloud-init y Key Vault para personalizar máquinas 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Personalización de una máquina virtual Linux en el primer arranque
 En un tutorial anterior, ha aprendido cómo acceder mediante SSH a una máquina virtual y a instalar NGINX de forma manual. Para crear máquinas virtuales de manera rápida y coherente, alguna forma de automatización suele ser deseable. Un enfoque común para personalizar una máquina virtual en el primer arranque es usar el comando [cloud-init](https://cloudinit.readthedocs.io). En este tutorial, aprenderá a:
@@ -51,6 +51,8 @@ Trabajamos con nuestros asociados para que cloud-init se incluya y funcione en l
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |más reciente |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |más reciente |
 | CoreOS |CoreOS |CoreOS |Stable |más reciente |
+| | OpenLogic | CentOS | 7-CI | más reciente |
+| | Redhat | RHEL | 7-RAW-CI | más reciente
 
 
 ## <a name="create-cloud-init-config-file"></a>Creación de un archivo de configuración cloud-init
@@ -270,7 +272,7 @@ Se muestran el sitio de NGINX protegido y la aplicación Node.js, como en el eje
 ![Ver el sitio de NGINX seguro en funcionamiento](./media/tutorial-automate-vm-deployment/secured-nginx.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, ha configurado las máquinas virtuales en el primer inicio con cloud-init. Ha aprendido a:
 
 > [!div class="checklist"]
