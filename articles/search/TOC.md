@@ -9,7 +9,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Agregación de datos](search-what-is-data-import.md)
-### [Azure Portal](search-import-data-portal.md)
+### [portal de Azure](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Búsqueda de un índice](search-query-overview.md)
@@ -26,7 +26,7 @@
 ## [Búsqueda de datos semiestructurados](search-semi-structured-data.md)
 ## [Exploración de la API de REST](search-fiddler.md)
 
-# Cómo
+# Procedimientos
 
 ## Planeamiento y diseño
 ### [Elección de una SKU](search-sku-tier.md)
@@ -51,7 +51,7 @@
 ### [Indexador de Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 ### [Indexador de Azure Table Storage](search-howto-indexing-azure-tables.md)
 ### [Indexador de Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexador de Azure Cosmos DB](search-howto-index-documentdb.md)
+### [Indexador de Azure Cosmos DB](search-howto-index-cosmosdb.md)
 ### [Indexación de blobs CSV](search-howto-index-csv-blobs.md)
 ### [Indexación de blobs JSON](search-howto-index-json-blobs.md)
 ### [Configuración de conexiones de indexador a SQL Server en la máquina virtual de Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
@@ -109,7 +109,7 @@
 ## Partner y comunidad
 ### [GitHub de Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 ### [Foro de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Blog: Modelado de datos relacionales](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Blog: Aplicación de facetas de varios niveles](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
 
