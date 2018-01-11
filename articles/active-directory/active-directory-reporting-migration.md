@@ -1,37 +1,36 @@
 ---
-title: "Búsqueda de informes de actividad en Azure Portal | Microsoft Docs"
-description: "Obtenga información sobre cómo buscar informes de actividad de Azure Active Directory en Azure Portal."
+title: "Búsqueda de informes de actividad de usuario de Azure Active Directory en Azure Portal | Microsoft Docs"
+description: "Obtenga información sobre dónde están los informes de actividad de usuario de Azure Active Directory en Azure Portal."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
 
-Si migra del Portal de Azure clásico a Azure Portal, los registros de actividad de Azure Active Directory (Azure AD) tendrán un nuevo aspecto. En una [entrada de blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/) reciente, explicamos cómo puede ver los registros de actividad en el contexto del recurso en que trabaja en Azure Portal. En este artículo se describe cómo puede buscar los informes que usaba en el Portal de Azure clásico en Azure Portal.
+En este artículo, se describe cómo buscar informes de actividad de usuario de Azure Active Directory en Azure Portal.
 
 ## <a name="whats-new"></a>Novedades
 
-Los informes del Portal de Azure clásico están separados por categorías:
-
-1.  Informes de seguridad
-2.  Informes de actividad
-3.  Informes de aplicaciones integradas
+Los informes del portal clásico de Azure estaban separados por categorías:
+* Informes de seguridad
+* Informes de actividad
+* Informes de aplicaciones integradas
 
 ### <a name="activity-and-integrated-app-reports"></a>Informes de actividad y de aplicaciones integradas
 
@@ -43,14 +42,14 @@ Para ver esta vista, vaya a la hoja **Azure Active Directory** y, en **ACTIVIDAD
 
 Los informes siguientes están consolidados en esta vista:
 
--   Informe de auditoría
--   Actividad de restablecimiento de contraseña
--   Actividad de registro de restablecimiento de contraseñas
--   Actividad de los grupos de autoservicio
--   Cambios de nombre de grupo de Office365
--   Actividad de aprovisionamiento de cuentas
--   Estado de la sustitución de contraseña
--   Errores de aprovisionamiento de cuentas
+* Informe de auditoría
+* Actividad de restablecimiento de contraseña
+* Actividad de registro de restablecimiento de contraseñas
+* Actividad de los grupos de autoservicio
+* Cambios de nombre de grupo de Office365
+* Actividad de aprovisionamiento de cuentas
+* Estado de la sustitución de contraseña
+* Errores de aprovisionamiento de cuentas
 
 
 El informe Uso de la aplicación se mejoró y se incluyó en la vista **Inicios de sesión**. Para ver esta vista, vaya a la hoja **Azure Active Directory** y, en **ACTIVIDAD**, seleccione **Inicios de sesión**.

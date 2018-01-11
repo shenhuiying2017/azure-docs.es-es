@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/09/2017
 ms.author: juliako;
-ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e936379968f74eb8bea420916acea2b8d96bb24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Censura de rostros con Azure Media Analytics
 ## <a name="overview"></a>Información general
 **Redactor multimedia de Azure** es un procesador multimedia (MP) de [Análisis multimedia de Azure](media-services-analytics-overview.md) que ofrece censura de rostros escalable en la nube. La censura de rostros le permite modificar un vídeo con el fin de difuminar las caras de personas seleccionadas. Puede usar el servicio de censura de rostros en escenarios de seguridad pública y de noticias en los medios de comunicación. Unos minutos de material de archivo que contenga varias caras puede tardar horas en censurarse manualmente, pero con este servicio, el proceso de censura de caras requiere solamente unos pocos pasos sencillos. Para más información, consulte [este blog](https://azure.microsoft.com/blog/azure-media-redactor/).
 
-En este tema se proporcionan detalles sobre **Redactor multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET.
+En este artículo se proporcionan detalles sobre **Azure Media Redactor** y se muestra cómo se usa con el SDK de Media Services para .NET.
 
 ## <a name="face-redaction-modes"></a>Modos de censura de rostros
-La censura facial funciona detectando caras en cada fotograma de vídeo y realizando un seguimiento del objeto de cara tanto hacia delante como hacia atrás en el tiempo, para que la imagen de la misma persona pueda difuminarse también desde otros ángulos. El proceso de censura automatizada es muy complejo y no siempre genera los resultados deseados al 100 %, por este motivo, Análisis multimedia de Azure le ofrece un par de métodos para modificar el resultado final.
+La censura facial funciona detectando caras en cada fotograma de vídeo y realizando un seguimiento del objeto de cara tanto hacia delante como hacia atrás en el tiempo, para que la imagen de la misma persona pueda difuminarse también desde otros ángulos. El proceso de censura automatizada es complejo y no siempre genera los resultados deseados al 100 %. Por este motivo, Azure Media Analytics le ofrece un par de métodos para modificar el resultado final.
 
 Además de un modo totalmente automático, hay un flujo de trabajo de dos pasos que permite la selección y deselección de caras encontradas a través de una lista de identificadores. Igualmente, para realizar ajustes arbitrarios por fotograma, el procesador multimedia utiliza un archivo de metadatos en formato JSON. Este flujo de trabajo se divide en los modos **Analyze** (Analizar) y **Redact** (Censurar). Puede combinar los dos modos en un único paso que ejecuta las tareas de un trabajo; este modo se denomina **Combinado**.
 
 ### <a name="combined-mode"></a>Modo combinado
-Se generará un mp4 censurado automáticamente sin necesidad de intervención manual.
+Esto genera un archivo .mp4 censurado automáticamente sin necesidad de intervención manual.
 
 | Fase | Nombre de archivo | Notas |
 | --- | --- | --- |
@@ -172,7 +171,7 @@ El procesador multimedia de censura proporciona detección de ubicación y segui
 El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
-2. Crear un trabajo con una tarea de censura de rostros basándose en un archivo de configuración que contiene el siguiente valor predeterminado de JSON. 
+2. Crear un trabajo con una tarea de censura de rostros basándose en un archivo de configuración que contiene el siguiente valor predeterminado de JSON: 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
 3. Descargar los archivos JSON de salida. 
@@ -183,30 +182,39 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
 #### <a name="example"></a>Ejemplo
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
-    using System.Threading.Tasks;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
+using System.Threading.Tasks;
 
-    namespace FaceRedaction
+namespace FaceRedaction
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,11 +273,11 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
             // for error state and exit if needed.
             if (job.State == JobState.Error)
             {
-            ErrorDetail error = job.Tasks.First().ErrorDetails.First();
-            Console.WriteLine(string.Format("Error: {0}. {1}",
-                            error.Code,
-                            error.Message));
-            return null;
+                ErrorDetail error = job.Tasks.First().ErrorDetails.First();
+                Console.WriteLine(string.Format("Error: {0}. {1}",
+                                error.Code,
+                                error.Message));
+                return null;
             }
 
             return job.OutputMediaAssets[0];
@@ -289,7 +297,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
         {
             foreach (IAssetFile file in asset.AssetFiles)
             {
-            file.Download(Path.Combine(outputDirectory, file.Name));
+                file.Download(Path.Combine(outputDirectory, file.Name));
             }
         }
 
@@ -302,8 +310,8 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
             .LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor",
-                                   mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor",
+                                       mediaProcessorName));
 
             return processor;
         }
@@ -316,30 +324,31 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                // LogJobStop(job.Id);
-                break;
-            default:
-                break;
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished.");
+                    Console.WriteLine();
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
+                    // Display or log error details as needed.
+                    // LogJobStop(job.Id);
+                    break;
+                default:
+                    break;
             }
         }
-        }
     }
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

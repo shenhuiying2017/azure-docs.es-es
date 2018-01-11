@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9eba0de054b06233f2de7fb375010b4b40c6937f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ff8cf813f9c932f867413dbf7e76f949e0de2f26
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Escalado de una aplicación en Azure Container Service (AKS)
 
@@ -32,7 +32,7 @@ En tutoriales posteriores se actualiza la aplicación Azure Vote y se configura 
 
 En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, se ha cargado esta imagen en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes.
 
-Si no ha realizado estos pasos y quiere continuar, vuelva al [paso 1 del tutorial: creación de imágenes de contenedor](./tutorial-kubernetes-prepare-app.md).
+Si no ha realizado estos pasos y quiere continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
 ## <a name="scale-aks-nodes"></a>Escalado de nodos de AKS
 
@@ -64,7 +64,7 @@ La salida es parecida a esta:
 
 ## <a name="manually-scale-pods"></a>Escalado manual de pods
 
-Hasta el momento se han implementado el front-end de Azure Vote y la instancia de Redis, cada uno con una única réplica. Para comprobarlo, ejecute el comando [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get).
+Hasta el momento se han implementado el front-end de Azure Vote y la instancia de Redis, cada uno con una única réplica. Para comprobarlo, ejecute el comando [kubectl get][kubectl-get].
 
 ```azurecli
 kubectl get pods
@@ -78,13 +78,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Cambie manualmente el número de pods en la implementación de `azure-vote-front` mediante el comando [kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale). En este ejemplo el número se aumenta a cinco.
+Cambie manualmente el número de pods en la implementación de `azure-vote-front` mediante el comando [kubectl scale][kubectl-scale]. En este ejemplo el número se aumenta a cinco.
 
 ```azurecli
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Ejecute [kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) para comprobar que Kubernetes crea los pods. Tras aproximadamente un minuto, se ejecutan los pods adicionales:
+Ejecute [kubectl get pods][kubectl-get] para comprobar que Kubernetes crea los pods. Tras aproximadamente un minuto, se ejecutan los pods adicionales:
 
 ```azurecli
 kubectl get pods
@@ -104,7 +104,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Escalado automático de pods
 
-Kubernetes admite el [escalado horizontal automático de pods](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) para ajustar el número de pods en una implementación en función del uso de la CPU o de otras métricas de selección.
+Kubernetes admite el [escalado automático horizontal de pods][kubernetes-hpa] para ajustar el número de pods en una implementación en función del uso de la CPU o de otras métricas de selección.
 
 Para usar el escalador automático, los pods deben tener solicitudes de la CPU y límites definidos. En la implementación de `azure-vote-front`, el contenedor del front-end solicita 0,25 CPU, con un límite de 0,5 CPU. La configuración tiene el siguiente aspecto:
 
@@ -116,7 +116,7 @@ resources:
      cpu: 500m
 ```
 
-En el ejemplo siguiente se usa el comando [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) para escalar automáticamente el número de pods en la implementación de `azure-vote-front`. En este contexto, si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods a un máximo de 10.
+En el ejemplo siguiente se usa el comando [kubectl autoscale][kubectl-autoscale] para escalar automáticamente el número de pods en la implementación de `azure-vote-front`. En este contexto, si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods a un máximo de 10.
 
 
 ```azurecli
@@ -150,4 +150,14 @@ En este tutorial, se han usado distintas características de escalado en el clú
 Vaya al siguiente tutorial para aprender a actualizar la aplicación en Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Actualización de una aplicación en Kubernetes](./tutorial-kubernetes-app-update.md)
+> [Actualización de una aplicación en Kubernetes][aks-tutorial-update-app]
+
+<!-- LINKS - external -->
+[kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
+[kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+
+<!-- LINKS - internal -->
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md

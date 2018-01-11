@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modelado de tipos de datos complejos en Azure Search
 Los conjuntos de datos externos usados para rellenar un índice de Azure Search a veces incluyen subestructuras jerárquicas o anidadas que no se dividen perfectamente en un conjunto de filas tabular. Algunos ejemplos de estas estructuras son varias ubicaciones y números de teléfono de un solo cliente, varios tamaños y colores de un único SKU, varios autores de un único libro, etc. En términos de modelado, puede que vea referirse a *estas estructuras* como *tipos de datos complejos*, *tipos de datos compuestos* o *tipos de datos agregados*, por nombrar algunos.
@@ -66,7 +66,7 @@ Normalmente, los datos en cuestión residen como un conjunto de documentos JSON 
 Mientras que los campos 'id', 'name' y 'company' se pueden asignar fácilmente uno a uno como campos en un índice de Azure Search, el campo 'locations' contiene una matriz de ubicaciones, con un conjunto de identificadores de ubicación así como descripciones de ubicación. Como Azure Search no tiene un tipo de datos que admita esto, necesitamos una manera diferente de modelarlo Azure Search. 
 
 > [!NOTE]
-> En su entrada de blog [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indexación de DocumentDB con Azure Search), Kirk Evans muestra una técnica llamada "aplanamiento de los datos", según la cual tendría dos campos llamados `locationsID` y `locationsDescription`, ambos [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (o una matriz de cadenas).   
+> En su entrada de blog [Indexing Azure Cosmos DB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indexación de Azure Cosmos DB con Azure Search), Kirk Evans muestra una técnica llamada "aplanamiento de los datos", según la cual tendría dos campos llamados `locationsID` y `locationsDescription`, ambos [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (o una matriz de cadenas).   
 > 
 > 
 

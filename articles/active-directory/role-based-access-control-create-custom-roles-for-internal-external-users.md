@@ -4,21 +4,23 @@ description: Asignar roles personalizados de RBAC creados con PowerShell y la CL
 services: active-directory
 documentationcenter: 
 author: andreicradu
-manager: catadinu
+manager: mtillman
 editor: kgremban
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Introducción al control de acceso basado en roles
 
@@ -35,7 +37,7 @@ El uso de RBAC en el entorno de Azure requiere:
 * Asegúrese de tener los siguientes proveedores de recursos registrados para la suscripción del usuario: **Microsoft.Authorization**. Para más información sobre cómo registrar los proveedores de recursos, consulte [Proveedores del Administrador de recursos, regiones, versiones de API y esquemas](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Las suscripciones de Office 365 y las licencias de Azure Active Directory (por ejemplo, Acceso a Azure Active Directory) aprovisionadas desde el portal de O365 no permiten el uso de RBAC.
+> Las suscripciones de Office 365 y las licencias de Azure Active Directory (por ejemplo, Acceso a Azure Active Directory) aprovisionadas desde el Centro de administración de Office 365 no permiten el uso de RBAC.
 
 ## <a name="how-can-rbac-be-used"></a>Uso de RBAC
 RBAC puede aplicarse en tres ámbitos diferentes de Azure. Del ámbito más alto al más bajo, son los siguientes:
@@ -102,7 +104,7 @@ Al ser un usuario externo a la organización, el nuevo usuario no tiene ningún 
 
 ![Mensaje de invitación por correo electrónico para el rol de RBAC](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-El usuario externo aparece en el inquilino de Azure Active Directory a partir de ahora como un usuario externo, y se puede ver tanto en Azure Portal como en el portal clásico.
+El usuario externo aparece en el inquilino de Azure Active Directory a partir de ahora como un usuario externo, y se puede ver en Azure Portal.
 
 
 
@@ -112,14 +114,7 @@ El usuario externo aparece en el inquilino de Azure Active Directory a partir de
 
 
 
-
-
-![Hoja de usuarios de Azure Active Directory en el Portal de Azure clásico](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-En la vista **Usuarios** de ambos portales, los usuarios externos se pueden reconocer por:
-
-* Un tipo de icono diferente en Azure Portal
-* Un punto de origen diferente en el portal clásico
+En la vista **Usuarios**, los usuarios externos pueden reconocerse por el tipo de icono diferente en Azure Portal.
 
 Sin embargo, conceder acceso como **Propietario** o **Colaborador** a un usuario externo en el ámbito de la **Suscripción** no permite el acceso al directorio del usuario administrador, a menos que el **Administrador global** lo permita. En las propiedades del usuario, el **Tipo de usuario**, que tiene dos parámetros comunes, se pueden identificar **Miembro** e **Invitado**. Un miembro es un usuario que está registrado en el directorio, mientras que un invitado es un usuario invitado al directorio desde un origen externo. Para más información, consulte [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](active-directory-b2b-admin-add-users.md)
 
@@ -145,9 +140,6 @@ Asignar el rol integrado de RBAC de **Colaborador de la máquina virtual** en el
 * No puede ver ningún otro tipo de recursos de la suscripción.
 * No puede realizar ningún cambio desde la perspectiva de facturación.
 
-> [!NOTE]
-> Al ser RBAC una característica solo de Azure Portal, no concede acceso al portal clásico.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Asignación de un rol integrado de RBAC a un usuario externo
 Para un escenario diferente en esta prueba, el usuario externo "alflanigan@gmail.com" se agrega como un **Colaborador de la máquina virtual**.
 
@@ -156,9 +148,7 @@ Para un escenario diferente en esta prueba, el usuario externo "alflanigan@gmail
 
 ![Rol integrado de colaborador de la máquina virtual](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-El comportamiento normal para un usuario externo con este rol integrado es ver y administrar máquinas virtuales y solo sus recursos adyacentes necesarios de Resource Manager durante la implementación. Por diseño, estos roles limitados ofrecen acceso solo a los recursos correspondientes creados en Azure Portal, aunque algunos recursos aún pueden ser implementados también en el portal clásico (por ejemplo, máquinas virtuales).
-
-
+El comportamiento normal para un usuario externo con este rol integrado es ver y administrar máquinas virtuales y solo sus recursos adyacentes necesarios de Resource Manager durante la implementación. Por diseño, estas roles limitados ofrecen acceso únicamente a sus recursos correspondientes creados en Azure Portal.
 
 
 

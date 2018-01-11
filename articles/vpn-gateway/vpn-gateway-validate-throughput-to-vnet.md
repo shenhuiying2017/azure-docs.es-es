@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
@@ -48,12 +48,12 @@ El siguiente diagrama muestra la conectividad lógica de una red local en una re
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Cálculo de la entrada/salida máxima esperada
 
 1.  Determine los requisitos de rendimiento de la línea de base de la aplicación.
-2.  Establezca los límites de rendimiento de la puerta de enlace de VPN de Azure. Para obtener ayuda, vea la sección "Rendimiento agregado por el tipo de VPN y SKU" de [Planeamiento y diseño de puerta de enlace de VPN](vpn-gateway-plan-design.md).
+2.  Establezca los límites de rendimiento de la puerta de enlace de VPN de Azure. Para obtener ayuda, vea la sección "Rendimiento agregado por el tipo de VPN y SKU" de [Planeamiento y diseño de VPN Gateway](vpn-gateway-plan-design.md).
 3.  Determine la [Guía de rendimiento de la máquina virtual de Azure](../virtual-machines/virtual-machines-windows-sizes.md) para el tamaño de la máquina virtual.
 4.  Establezca el ancho de banda del proveedor de servicios de Internet (ISP).
 5.  Calcule el rendimiento esperado: menor ancho de banda de (VM, puerta de enlace e ISP) * 0,8.
 
-Si el rendimiento calculado no cumple con los requisitos de rendimiento de línea de base de la aplicación, debe aumentar el ancho de banda del recurso que identificó como el cuello de botella. Para cambiar el tamaño de una puerta de enlace de VPN de Azure, vea [Cambio de una SKU de puerta de enlace](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para cambiar el tamaño de una máquina virtual, vea [Cambio del tamaño de una VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Si no obtiene el ancho de banda de Internet previsto, también puede ponerse en contacto con su ISP.
+Si el rendimiento calculado no cumple con los requisitos de rendimiento de línea de base de la aplicación, debe aumentar el ancho de banda del recurso que identificó como el cuello de botella. Para cambiar el tamaño de una instancia de Azure VPN Gateway, vea [Cambio de una SKU de puerta de enlace](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para cambiar el tamaño de una máquina virtual, vea [Cambio del tamaño de una VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Si no obtiene el ancho de banda de Internet previsto, también puede ponerse en contacto con su ISP.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Validación del rendimiento de red mediante el uso de herramientas de rendimiento
 

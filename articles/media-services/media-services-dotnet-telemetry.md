@@ -12,35 +12,35 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 1d857f3d062d8d1b15c64fa4b8c3e27ad6c2247e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f8e22dc5e277407860b7ed31409caed15be59cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuración de la telemetría de Azure Media Services con .NET
 
-En este tema se describen los pasos generales que puede llevar a cabo al configurar la telemetría de Azure Media Services (AMS) mediante el SDK de .NET. 
+En este artículo se describen los pasos generales que puede llevar a cabo al configurar la telemetría de Azure Media Services (AMS) mediante el SDK de .NET. 
 
 >[!NOTE]
->Para una explicación detallada de lo que es la telemetría AMS y cómo consumirla, consulte el tema de [información general](media-services-telemetry-overview.md).
+>Para obtener una explicación detallada de lo que es la telemetría AMS y cómo consumirla, consulte el artículo de [información general](media-services-telemetry-overview.md).
 
 Puede utilizar los datos de telemetría de una de las maneras siguientes:
 
-- Leer datos directamente desde Almacenamiento de tablas de Azure (por ejemplo, mediante el SDK de almacenamiento). Para la descripción de las tablas de almacenamiento de datos de telemetría, consulte la sección sobre **uso de información de telemetría** de [este](https://msdn.microsoft.com/library/mt742089.aspx) tema.
+- Leer datos directamente desde Azure Table Storage (por ejemplo, mediante el SDK de Storage). Para obtener la descripción de las tablas de almacenamiento de telemetría, consulte la sección sobre el **uso de información de telemetría** de [este](https://msdn.microsoft.com/library/mt742089.aspx) artículo.
 
 O
 
-- Aproveche la compatibilidad del SDK de .NET de Servicios multimedia para leer los datos de almacenamiento. Este tema muestra cómo habilitar la telemetría de la cuenta de AMS especifica y cómo consultar las métricas usando el SDK de .NET de Servicios Multimedia de Azure.  
+- Aproveche la compatibilidad del SDK de .NET de Media Services para leer los datos de almacenamiento. En este ar se muestra cómo habilitar la telemetría de la cuenta de AMS especificada y cómo consultar las métricas usando el SDK de .NET de Azure Media Services.  
 
-## <a name="configuring-telemetry-for-a-media-services-account"></a>Configuración de telemetría para una cuenta de Servicios multimedia
+## <a name="configuring-telemetry-for-a-media-services-account"></a>Configuración de telemetría para una cuenta de Media Services
 
 Para habilitar la telemetría es necesario realizar los pasos siguientes:
 
-- Obtener las credenciales de la cuenta de almacenamiento vinculada a la cuenta de Servicios multimedia. 
-- Cree un punto de conexión de notificación con **EndPointType** establecido en **AzureTable** y endPointAddress apuntando a la tabla de almacenamiento.
+- Obtener las credenciales de la cuenta de almacenamiento vinculada a la cuenta de Media Services. 
+- Crear un punto de conexión de notificación con **EndPointType** establecido en **AzureTable** y endPointAddress apuntando a la tabla de almacenamiento.
 
         INotificationEndPoint notificationEndPoint = 
                       _context.NotificationEndPoints.Create("monitoring", 
@@ -56,9 +56,9 @@ Para habilitar la telemetría es necesario realizar los pasos siguientes:
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
-## <a name="consuming-telemetry-information"></a>uso de información de telemetría
+## <a name="consuming-telemetry-information"></a>Uso de información de telemetría
 
-Para información sobre el consumo de la información de telemetría, consulte [este](media-services-telemetry-overview.md) tema.
+Para obtener información sobre el consumo de la información de telemetría, consulte [este](media-services-telemetry-overview.md) artículo.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
 
@@ -70,22 +70,27 @@ Para información sobre el consumo de la información de telemetría, consulte [
  
 ## <a name="example"></a>Ejemplo  
     
-El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS especifica y cómo consultar las métricas usando el SDK de .NET de Servicios Multimedia de Azure.  
+El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS especifica y cómo consultar las métricas usando el SDK de .NET de Azure Media Services.  
 
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
+```
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
 
-    namespace AMSMetrics
+namespace AMSMetrics
+{
+    class Program
     {
-        class Program
-        {
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static readonly string _mediaServicesStorageAccountName =
             ConfigurationManager.AppSettings["StorageAccountName"];
@@ -98,7 +103,11 @@ El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS 
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -112,21 +121,21 @@ El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS 
             // No more than one monitoring configuration settings is allowed.
             if (monitoringConfigurations.ToArray().Length != 0)
             {
-            monitoringConfiguration = _context.MonitoringConfigurations.FirstOrDefault();
+                monitoringConfiguration = _context.MonitoringConfigurations.FirstOrDefault();
             }
             else
             {
-            INotificationEndPoint notificationEndPoint =
-                      _context.NotificationEndPoints.Create("monitoring",
-                      NotificationEndPointType.AzureTable, GetTableEndPoint());
+                INotificationEndPoint notificationEndPoint =
+                          _context.NotificationEndPoints.Create("monitoring",
+                          NotificationEndPointType.AzureTable, GetTableEndPoint());
 
-            monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
-                new List<ComponentMonitoringSetting>()
-                {
+                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
+                    new List<ComponentMonitoringSetting>()
+                    {
                     new ComponentMonitoringSetting(MonitoringComponent.Channel, MonitoringLevel.Normal),
                     new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
 
-                });
+                    });
             }
 
             //Print metrics for a Streaming Endpoint.
@@ -156,19 +165,19 @@ El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS 
 
             foreach (var log in res)
             {
-            Console.WriteLine("AccountId: {0}", log.AccountId);
-            Console.WriteLine("BytesSent: {0}", log.BytesSent);
-            Console.WriteLine("EndToEndLatency: {0}", log.EndToEndLatency);
-            Console.WriteLine("HostName: {0}", log.HostName);
-            Console.WriteLine("ObservedTime: {0}", log.ObservedTime);
-            Console.WriteLine("PartitionKey: {0}", log.PartitionKey);
-            Console.WriteLine("RequestCount: {0}", log.RequestCount);
-            Console.WriteLine("ResultCode: {0}", log.ResultCode);
-            Console.WriteLine("RowKey: {0}", log.RowKey);
-            Console.WriteLine("ServerLatency: {0}", log.ServerLatency);
-            Console.WriteLine("StatusCode: {0}", log.StatusCode);
-            Console.WriteLine("StreamingEndpointId: {0}", log.StreamingEndpointId);
-            Console.WriteLine();
+                Console.WriteLine("AccountId: {0}", log.AccountId);
+                Console.WriteLine("BytesSent: {0}", log.BytesSent);
+                Console.WriteLine("EndToEndLatency: {0}", log.EndToEndLatency);
+                Console.WriteLine("HostName: {0}", log.HostName);
+                Console.WriteLine("ObservedTime: {0}", log.ObservedTime);
+                Console.WriteLine("PartitionKey: {0}", log.PartitionKey);
+                Console.WriteLine("RequestCount: {0}", log.RequestCount);
+                Console.WriteLine("ResultCode: {0}", log.ResultCode);
+                Console.WriteLine("RowKey: {0}", log.RowKey);
+                Console.WriteLine("ServerLatency: {0}", log.ServerLatency);
+                Console.WriteLine("StatusCode: {0}", log.StatusCode);
+                Console.WriteLine("StreamingEndpointId: {0}", log.StreamingEndpointId);
+                Console.WriteLine();
             }
 
             Console.WriteLine();
@@ -178,13 +187,13 @@ El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS 
         {
             if (_channel == null)
             {
-            Console.WriteLine("There are no channels in this AMS account");
-            return;
+                Console.WriteLine("There are no channels in this AMS account");
+                return;
             }
 
             Console.WriteLine(string.Format("Telemetry for channel '{0}'", _channel.Name));
 
-            DateTime timerangeEnd = DateTime.UtcNow; 
+            DateTime timerangeEnd = DateTime.UtcNow;
             DateTime timerangeStart = DateTime.UtcNow.AddHours(-5);
 
             // Get some channel metrics.
@@ -197,18 +206,18 @@ El ejemplo siguiente muestra cómo habilitar la telemetría de la cuenta de AMS 
 
             foreach (var channelHeartbeat in channelMetrics.OrderBy(x => x.ObservedTime))
             {
-            Console.WriteLine(
-                "    Observed time: {0}, Last timestamp: {1}, Incoming bitrate: {2}",
-                channelHeartbeat.ObservedTime,
-                channelHeartbeat.LastTimestamp,
-                channelHeartbeat.IncomingBitrate);
+                Console.WriteLine(
+                    "    Observed time: {0}, Last timestamp: {1}, Incoming bitrate: {2}",
+                    channelHeartbeat.ObservedTime,
+                    channelHeartbeat.LastTimestamp,
+                    channelHeartbeat.IncomingBitrate);
             }
 
             Console.WriteLine();
         }
-        }
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

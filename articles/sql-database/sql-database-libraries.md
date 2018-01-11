@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 012acd2b53fc9205511530d3cc30803dceef88a0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Bibliotecas y entornos de conectividad para Microsoft SQL Server
+# <a name="connectivity-libraries-and-frameworks-for-sql-server"></a>Bibliotecas y entornos de conectividad para SQL Server
 
-Consulte nuestros [tutoriales de introducción](http://aka.ms/sqldev) para empezar a trabajar rápidamente con lenguajes de programación como C#, Java, Node.js, PHP y Python, y crear una aplicación mediante SQL Server en Linux o Windows o Docker en macOS.
+Vea nuestros [tutoriales de introducción](http://aka.ms/sqldev) para iniciarse rápidamente en los lenguajes de programación como C#, Java, Node.js, PHP y Python. A continuación, compile una aplicación mediante el uso de SQL Server en Linux o Windows o Docker en macOS.
 
-La tabla siguiente enumera las bibliotecas de conectividad o los *controladores* que las aplicaciones cliente pueden utilizar desde diversos lenguajes para conectarse a instancias de Microsoft SQL Server que se ejecutan localmente o en la nube, en Linux, Windows o Docker, y también a Azure SQL Database y Azure SQL Data Warehouse. 
+En la siguiente tabla se enumeran las bibliotecas de conectividad o *controladores* que las aplicaciones cliente pueden utilizar desde una variedad de lenguajes para conectarse y que usan SQL Server de forma local o en la nube. Puede utilizarlas en Docker, Windows o Linux y usarlas para conectarse a Azure SQL Database y Azure SQL Data Warehouse. 
 
-| Idioma | Plataforma | Recursos adicionales | Descargar | Introducción |
+| language | Plataforma | Recursos adicionales | Descargar | Introducción |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-for-sql-server) | [Descargar](https://www.microsoft.com/net/download/) | [Introducción](https://www.microsoft.com/en-us/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Controlador JDBC de Microsoft para SQL Server](http://msdn.microsoft.com/library/mt484311.aspx) | [Descargar](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introducción](https://www.microsoft.com/en-us/sql-server/developer-get-started/java/ubuntu)
@@ -37,11 +37,11 @@ La tabla siguiente enumera las bibliotecas de conectividad o los *controladores*
 | Ruby | Windows, Linux, macOS | [Controlador de Ruby para SQL Server](http://msdn.microsoft.com/library/mt691981.aspx) | [Instalación](https://msdn.microsoft.com/library/mt711041.aspx) | [Introducción](https://www.microsoft.com/en-us/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC Driver for SQL Server](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) | [Descargar](https://msdn.microsoft.com/en-us/library/mt654048(v=sql.1).aspx) |  
 
-La tabla siguiente muestra algunos ejemplos de entornos y entornos web de asignación relacional de objetos (ORM) que las aplicaciones cliente pueden utilizar para conectarse a instancias de Microsoft SQL Server que se ejecutan localmente o en la nube, en Linux, Windows o Docker, y también a Azure SQL Database y Azure SQL Data Warehouse. 
+En la tabla siguiente se muestran ejemplos de marcos de asignación relacional de objetos (ORM) y marcos web que las aplicaciones cliente pueden utilizar con SQL Server de forma local o en la nube. Puede utilizar los marcos en Docker, Windows o Linux y usarlos para conectarse a SQL Database y SQL Data Warehouse. 
 
-| Idioma | Plataforma | ORM |
+| language | Plataforma | ORM |
 | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/en-us/ef)<br>[Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/index) |
+| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
 | Java | Windows, Linux, macOS |[Hibernate ORM](http://hibernate.org/orm)|
 | PHP | Windows, Linux | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
@@ -50,7 +50,7 @@ La tabla siguiente muestra algunos ejemplos de entornos y entornos web de asigna
 ||||
 
 ## <a name="related-links"></a>Vínculos relacionados
-- [Controladores de SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) para conectarse desde aplicaciones cliente
+- [Controladores de SQL Server](http://msdn.microsoft.com/library/mt654049.aspx) que se usan para conectarse desde aplicaciones cliente
 - Conexión a SQL Database:
     - [Conexión a SQL Database mediante .NET (C#)](sql-database-connect-query-dotnet.md)
     - [Conexión a SQL Database mediante PHP en Windows](sql-database-connect-query-php.md)

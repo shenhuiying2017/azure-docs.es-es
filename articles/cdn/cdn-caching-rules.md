@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure Content Delivery Network con reglas de almacenamiento en caché
 
@@ -40,13 +40,19 @@ Para información sobre el comportamiento de almacenamiento en caché predetermi
 Cómo establecer reglas de almacenamiento en caché de la red CDN:
 
 1. Abra Azure Portal, seleccione un perfil de red CDN y luego seleccione un punto de conexión.
-2. En el panel izquierdo, bajo Configuración, haga clic en **Caché**.
-3. Cree una regla de almacenamiento en caché global de la manera siguiente:
+2. En el panel izquierdo, en Configuración, haga clic en **Reglas de caché**.
+
+   ![Botón Reglas de caché de CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Cree una regla de almacenamiento en caché global de la manera siguiente:
    1. En **Reglas de almacenamiento en caché globales**, establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta**.
    2. Establezca **Comportamiento de almacenamiento en caché** en **Establecer si falta**.
+       
    3. Para **Duración de expiración de caché**, escriba 10 en el campo **Días**.
 
        La regla de almacenamiento en caché global afecta a todas las solicitudes al punto de conexión. Esta regla respeta los encabezados de directiva de caché de origen, si existen (`Cache-Control` o `Expires`); en caso contrario, si no se especifican, establece la memoria caché en 10 días. 
+
+     ![Reglas de almacenamiento en caché globales](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Cree una regla de almacenamiento en caché personalizada de la manera siguiente:
     1. En **Reglas de almacenamiento en caché personalizadas**, establezca **Condición de coincidencia** en **Ruta de acceso** y **Valor de coincidencia** en `/images/*.jpg`.
@@ -54,7 +60,7 @@ Cómo establecer reglas de almacenamiento en caché de la red CDN:
        
        Esta regla de almacenamiento en caché personalizada establece una duración de caché de 30 días en cualquier archivo de imagen `.jpg` en la carpeta `/images` de su punto de conexión. Invalida todos los encabezados HTTP `Cache-Control` o `Expires` que envía el servidor de origen.
 
-  ![Cuadro de diálogo de reglas de almacenamiento en caché](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Reglas de almacenamiento en caché personalizadas](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Los archivos que se almacenan en caché antes de un cambio de regla mantienen su valor de duración de caché de origen. Para restablecer sus duraciones de caché, debe [purgar el archivo](cdn-purge-endpoint.md). Para puntos de conexión de **Azure CDN de Verizon**, las reglas de almacenamiento en caché pueden tardar hasta 90 minutos en surtir efecto.

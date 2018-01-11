@@ -15,25 +15,32 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) en http://portal.azure.com/.
-2. En el banner de la izquierda, haga clic en **EXAMINAR TODO**. Se mostrará la hoja **Examinar** .
-3. Desplácese y haga clic en **Servidores SQL Server**. Aparecerá la hoja **Servidores SQL Server** .
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+
+2. En la lista de la izquierda, seleccione **Examinar**. 
+
+3. Desplácese y seleccione **Servidores SQL Server**. 
    
-    ![Encontrar el servidor de base de datos SQL de Azure en el portal][b21-FindServerInPortal]
-4. Para mayor comodidad, haga clic en el control para minimizar en la hoja **Examinar** anterior.
+    ![Encontrar el servidor de Azure SQL Database en el portal][b21-FindServerInPortal]
+4. Para mayor comodidad, minimice la hoja **Examinar**.
+
 5. En el cuadro de texto de filtro, empiece a escribir el nombre del servidor. Aparecerá su fila.
-6. Haga clic en la fila para el servidor. Aparecerá una hoja para el servidor.
-7. En la hoja del servidor, haga clic en **Configuración**. Se mostrará la hoja **Configuración** .
-8. Haga clic en **Firewall**. Se mostrará la hoja **Configuración de firewall** .
+
+6. Seleccione la fila para el servidor. Aparecerá una hoja para el servidor.
+
+7. En la hoja del servidor, seleccione **Configuración**. 
+
+8. Seleccione **Firewall**. 
    
-    ![Haga clic en > Firewall.][b31-SettingsFirewallNavig]
-9. Haga clic en **Agregar IP de cliente**. Escriba un nombre para la nueva regla en el primer cuadro de texto.
+    ![Selección de Configuración > Firewall][b31-SettingsFirewallNavig]
+9. Seleccione **Agregar IP de cliente**. Escriba un nombre para la regla nueva en el primer cuadro de texto.
+
 10. Escriba los valores de dirección IP inferior y superior para el intervalo que quiere habilitar.
     
     * Puede resultar útil que el valor inferior termine en **.0** y el valor alto en **.255**.
     
     ![Agregar un intervalo de direcciones IP para permitir][b41-AddRange]
-11. Haga clic en **Guardar**.
+11. Seleccione **Guardar**.
 
 <!-- Image references. -->
 

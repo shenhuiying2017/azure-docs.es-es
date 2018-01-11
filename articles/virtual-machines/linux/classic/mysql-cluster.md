@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Uso de conjuntos de carga equilibrada para crear clústeres en MySQL en Linux
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ Necesita los siguientes recursos y capacidades:
   * Corosync y Pacemaker
 
 ### <a name="affinity-group"></a>Grupo de afinidad
-Cree un grupo de afinidad para la solución. Para ello, inicie sesión en el portal de Azure clásico, seleccione **Configuración** y cree el grupo de afinidad. Los recursos asignados creados más tarde se asignarán a este grupo de afinidad.
+Cree un grupo de afinidad para la solución. Para ello, inicie sesión en Azure Portal, seleccione **Configuración** y cree el grupo de afinidad. Los recursos asignados creados más tarde se asignarán a este grupo de afinidad.
 
 ### <a name="networks"></a>Redes
 Se crea una nueva red y, a su vez, se crea una subred dentro de la red. En este ejemplo se usa una red 10.10.10.0/24 con una sola subred /24 dentro.

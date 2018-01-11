@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Escenario: control de excepciones y registro de errores para aplicaciones lógicas
 
@@ -45,7 +45,7 @@ El proyecto tenía dos requisitos principales:
 
 ## <a name="how-we-solved-the-problem"></a>¿Cómo resolvimos el problema?
 
-Elegimos [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") como repositorio para los registros y entradas de error (Cosmos DB hace referencia a los registros como documentos). Puesto que Azure Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
+Elegimos [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como repositorio para los registros y entradas de error (Cosmos DB hace referencia a los registros como documentos). Puesto que Azure Logic Apps tiene una plantilla estándar para todas las respuestas, no sería necesario crear un esquema personalizado. Podíamos crear una aplicación de API para **insertar** y **consultar** registros de errores y registros. También podíamos definir un esquema para cada uno de ellos dentro de la aplicación de API.  
 
 Otro requisito era que se purgaran los registros después de una determinada fecha. Cosmos DB presenta una propiedad llamada [período de vida](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "período de vida") (TTL), que nos permitió establecer un valor de **período de vida** para cada registro o colección. Esta capacidad suprimía la necesidad de eliminar manualmente los registros en Cosmos DB.
 
@@ -107,7 +107,7 @@ Es necesario registrar el origen (solicitud) del registro del paciente desde el 
    El desencadenador procedente de CRM nos proporciona los valores de **CRM PatentId**, **record type**, **New or Updated Record** (valor booleano nuevo o actualizado) y **SalesforceId**. El valor de **SalesforceId** puede ser null porque solo se utiliza para obtener una actualización.
    Obtenemos el registro de CRM mediante los valores de **PatientID** y **Tipo de registro** de CRM.
 
-2. A continuación, es necesario agregar a nuestra aplicación de API de DocumentDB la operación **InsertLogEntry**, tal y como se muestra aquí en el Diseñador de aplicaciones lógicas.
+2. A continuación, es necesario agregar a nuestra aplicación de API de SQL para Azure Cosmos DB la operación **InsertLogEntry**, tal y como se muestra aquí en el Diseñador de aplicaciones lógicas.
 
    **Inserción de entrada de registro**
 
@@ -400,7 +400,7 @@ Una vez que obtiene la respuesta, puede pasarla a la aplicación lógica primari
 
 ## <a name="cosmos-db-repository-and-portal"></a>Portal y repositorio de Cosmos DB
 
-Nuestra solución agregó funcionalidades con [Cosmos DB](https://azure.microsoft.com/services/documentdb).
+Nuestra solución agregó funcionalidades con [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Portal de administración de errores
 
@@ -430,14 +430,14 @@ Para ver los registros, también creamos una aplicación web de MVC. Aquí puede
 
 Nuestra aplicación de API de administración de excepciones de Azure Logic Apps, de código abierto, proporciona la funcionalidad que se describe aquí. Hay dos controladores:
 
-* **ErrorController** inserta un registro de error (documento) en una colección de DocumentDB.
-* **LogController** inserta una entrada de registro (documento) en una colección de DocumentDB.
+* **ErrorController** inserta un registro de error (documento) en una colección de Azure Cosmos DB.
+* **LogController** inserta una entrada de registro (documento) en una colección de Azure Cosmos DB.
 
 > [!TIP]
-> Ambos controladores usan operaciones `async Task<dynamic>`, que permiten que las operaciones se resuelvan en tiempo de ejecución, por lo que podemos crear el esquema de DocumentDB en el cuerpo de la operación. 
+> Ambos controladores usan operaciones `async Task<dynamic>`, que permiten que las operaciones se resuelvan en tiempo de ejecución, por lo que podemos crear el esquema de Azure Cosmos DB en el cuerpo de la operación. 
 > 
 
-Todos los documentos de DocumentDB deben tener un identificador único. Vamos a utilizar `PatientId` y a agregar una marca de tiempo que se convertirá en un valor de marca de tiempo de Unix (doble). Se trunca el valor para quitar el valor fraccionario.
+Todos los documentos de Azure Cosmos DB deben tener un identificador único. Vamos a utilizar `PatientId` y a agregar una marca de tiempo que se convertirá en un valor de marca de tiempo de Unix (doble). Se trunca el valor para quitar el valor fraccionario.
 
 El código fuente de la API de nuestro controlador de error se puede ver [desde GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ La expresión del ejemplo de código anterior buscará el estado **Error** para 
 ## <a name="summary"></a>Resumen
 
 * Puede implementar fácilmente el registro y control de errores en una aplicación lógica.
-* Puede usar DocumentDB como repositorio para entradas de registro y registros de error (documentos).
+* Puede usar Azure Cosmos DB como repositorio para entradas de registro y registros de error (documentos).
 * Puede usar MVC para crear un portal que muestre las entradas de registro y los registros de error.
 
 ### <a name="source-code"></a>Código fuente

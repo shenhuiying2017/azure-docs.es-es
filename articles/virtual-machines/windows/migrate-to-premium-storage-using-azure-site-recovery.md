@@ -1,6 +1,6 @@
 ---
 title: "Migración de máquinas virtuales Windows a Azure Premium Storage con Azure Site Recovery | Microsoft Docs"
-description: "Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. El Almacenamiento premium le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en máquinas virtuales de Azure."
+description: "Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines."
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: ed92255264a155fff5ad1a8d9a3cd1a7bda4e972
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ca7489b18c53825bad7790ae4718f2c724716856
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -77,7 +77,7 @@ Estos son los requisitos de Azure para este escenario de migración:
 
 Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre regiones o dentro de la misma región. Las instrucciones siguientes se han adaptado a este escenario de migración a partir del artículo [Replicación de máquinas virtuales VMware en Azure con Site Recovery](../../site-recovery/vmware-walkthrough-overview.md). Siga los vínculos para ver otros pasos, además de las instrucciones de este artículo.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>Paso 1: Creación de un almacén de Servicios de recuperación
+### <a name="step-1-create-a-recovery-services-vault"></a>Paso 1: Creación de un almacén de Recovery Services
 
 1. Abra el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Nuevo** > **Administración** > **Backup** y **Site Recovery (OMS)**. También puede seleccionar **Examinar** > **Almacén de Recovery Services** > **Agregar**. 
@@ -202,7 +202,7 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
    * En el caso de una máquina virtual creada mediante el modelo de implementación clásico: agregue la máquina virtual al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../linux/classic/configure-availability.md#addmachine).
    * En el caso de una máquina virtual creada mediante el modelo de implementación de Resource Manager: guarde la configuración de la máquina virtual y, después, elimine las máquinas virtuales y vuelva a crearlas en el conjunto de disponibilidad. Para ello, use el script que encontrará en [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Establecimiento del conjunto de disponibilidad de máquinas virtuales de Azure Resource Manager). Antes de ejecutar este script, compruebe sus limitaciones y planee el tiempo de inactividad.
 
-2. **Elimine las máquinas virtuales y los discos antiguos**. Asegúrese de que los discos Premium sean coherentes con los discos de origen y que las nuevas máquinas virtuales realizan la misma función que las máquinas virtuales de origen. En el modelo de implementación de Resource Manager, elimine la máquina virtual y los discos de las cuentas de almacenamiento de origen en Azure Portal. En el modelo de implementación clásico, puede eliminar la máquina virtual y los discos en el portal clásico o en Azure Portal. Si hay un problema en el que el disco no se elimina aunque haya eliminado la máquina virtual, consulte [Solución de los errores que aparecen al eliminar cuentas de almacenamiento, contenedores o VHD de Azure](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Elimine las máquinas virtuales y los discos antiguos**. Asegúrese de que los discos Premium sean coherentes con los discos de origen y que las nuevas máquinas virtuales realizan la misma función que las máquinas virtuales de origen. Elimine la máquina virtual y los discos de las cuentas de almacenamiento de origen en Azure Portal. Si hay un problema en el que el disco no se elimina aunque haya eliminado la máquina virtual, consulte [Solución de los errores que aparecen al eliminar cuentas de almacenamiento, contenedores o VHD de Azure](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 3. **Limpie la infraestructura de Azure Site Recovery**. Si Site Recovery deja de necesitarse, puede limpiar su infraestructura. Elimine los elementos duplicados, el servidor de configuración y la directiva de recuperación y, después, elimine el almacén de Azure Site Recovery.
 
@@ -215,15 +215,15 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
 
 Para conocer los escenarios concretos para migrar máquinas virtuales, consulte los siguientes recursos:
 
-* [Migrar máquinas virtuales de Azure entre cuentas de almacenamiento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
+* [Migrar Azure Virtual Machines entre cuentas de almacenamiento](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Crear y cargar un VHD de Windows Server a Azure](classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](../linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Migrar máquinas virtuales de Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consulte también los siguientes recursos para más información sobre Azure Storage y Azure Virtual Machines:
 
-* [Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Máquinas virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

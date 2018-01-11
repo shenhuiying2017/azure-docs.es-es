@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creación y administración de trabajos elásticos de SQL Database mediante PowerShell (versión preliminar)
 
@@ -203,7 +203,7 @@ Apertura de una conexión a trabajos de Elastic Database:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Credenciales cifradas en los trabajos de Elastic Database
 Las credenciales de la base de datos se pueden insertar en la *base de datos de control* de trabajos con su contraseña cifrada. Es preciso almacenar las credenciales para que los trabajos se puedan ejecutar después (mediante programaciones de trabajos).
 
-El cifrado funciona a través de un certificado creado como parte del script de instalación. El script de instalación crea y carga el certificado en el servicio en la nube de Azure para descifrar las contraseñas almacenadas que están cifradas. Más adelante, el servicio en la nube de Azure almacena la clave pública en la *base de datos de control* de trabajos, lo que permite que la API de PowerShell o la interfaz del Portal de Azure clásico cifren una contraseña proporcionada sin que el certificado tenga que estar instalado localmente.
+El cifrado funciona a través de un certificado creado como parte del script de instalación. El script de instalación crea y carga el certificado en el servicio en la nube de Azure para descifrar las contraseñas almacenadas que están cifradas. Más adelante, el servicio en la nube de Azure almacena la clave pública en la *base de datos de control* de trabajos, lo que permite que la API de PowerShell o la interfaz de Azure Portal cifren una contraseña proporcionada sin que el certificado tenga que estar instalado localmente.
 
 Las contraseñas de credenciales se cifran y se protegen de los usuarios mediante el acceso de solo lectura a los objetos de trabajos de Elastic Database. Pero es posible que usuarios malintencionados con acceso de lectura y escritura a los objetos de Trabajos de Elastic Database extraigan una contraseña. Las credenciales están diseñadas para su reutilización entre ejecuciones de trabajos. Las credenciales se pasan a las bases de datos de destino al establecer conexiones. Como actualmente no hay ninguna restricción en las bases de datos de destino que se usan por cada credencial, un usuario malintencionado podría agregar como destino una base de datos que esté bajo el control del usuario malintencionado. Posteriormente, el usuario podría iniciar un trabajo destinado a esta base de datos para obtener la contraseña de la credencial.
 

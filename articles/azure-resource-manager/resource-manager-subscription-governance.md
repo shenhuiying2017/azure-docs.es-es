@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffolding empresarial de Azure: gobierno de suscripción preceptivo
 Cada vez son más las empresas que adoptan la tecnología de nube pública para ganar agilidad y flexibilidad. Aprovechan los puntos fuertes de la nube para generar ingresos u optimizar los recursos de la empresa. Microsoft Azure proporciona un gran número de servicios que las empresas pueden ensamblar como bloques de creación con el objetivo de abordar diversas aplicaciones y cargas de trabajo. 

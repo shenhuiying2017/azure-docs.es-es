@@ -1,6 +1,6 @@
 ---
 title: "Personalización de valores preestablecidos de Media Encoder Standard| Microsoft Docs"
-description: "En este tema se muestra cómo realizar codificación avanzada mediante la personalización de valores preestablecidos de tarea Media Encoder Estándar. En este tema se muestra cómo usar el SDK de .NET de Servicios multimedia para crear, actualizar y eliminar filtros. También se muestra cómo especificar valores preestablecidos personalizados para el trabajo de codificación."
+description: "En este tema se muestra cómo realizar codificación avanzada mediante la personalización de valores preestablecidos de tarea Media Encoder Estándar. En este tema se muestra cómo usar el SDK de .NET de Media Services para crear, actualizar y eliminar filtros. También se muestra cómo especificar valores preestablecidos personalizados para el trabajo de codificación."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0391bb627ab899960d38b4eaf4478a6cdb8bd0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalización de valores preestablecidos de Media Encoder Standard
 
 ## <a name="overview"></a>Información general
 
-En este tema se muestra cómo realizar tareas de codificación avanzada con Media Encoder Standard mediante un valor preestablecido personalizado. En este tema se usa .NET para crear una tarea de codificación y un trabajo que ejecute esta tarea.  
+En este artículo se muestra cómo realizar tareas de codificación avanzada con Media Encoder Standard (MES) mediante un valor preestablecido personalizado. En este artículo se usa .NET para crear una tarea de codificación y un trabajo que ejecute esta tarea.  
 
-En este tema verá cómo personalizar un valor preestablecido tomando el valor preestablecido [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) y reduciendo el número de niveles. El tema [Personalización de valores preestablecidos de Media Encoder Standard](media-services-advanced-encoding-with-mes.md) muestra valores preestablecidos personalizados que pueden usarse para realizar tareas de codificación avanzadas.
+Este artículo le muestra cómo personalizar un valor preestablecido tomando el valor preestablecido [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) y reduciendo el número de capas. El artículo [Personalización de valores preestablecidos de Media Encoder Standard](media-services-advanced-encoding-with-mes.md) muestra valores preestablecidos personalizados que pueden usarse para realizar tareas de codificación avanzadas.
 
 ## <a id="customizing_presets"></a> Personalización de un valor preestablecido de MES
 
 ### <a name="original-preset"></a>Valor preestablecido original
 
-Guarde el JSON definido en el tema [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) en un archivo con extensión .json. Por ejemplo, **CustomPreset_JSON.json**.
+Guarde el archivo JSON definido en el artículo [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) en un archivo con extensión .json. Por ejemplo, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Valor preestablecido personalizado
 
@@ -109,9 +109,9 @@ Abra el archivo **CustomPreset_JSON.json** y quite en primer lugar tres capas de
     }  
     
 
-## <a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Servicios multimedia
+## <a id="encoding_with_dotnet"></a>Codificación con el SDK de .NET de Media Services
 
-En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios multimedia para realizar las siguientes tareas:
+En el ejemplo de código siguiente se usa el último SDK para .NET de Media Services para realizar las siguientes tareas:
 
 - Crear un trabajo de codificación.
 - Obtener una referencia al codificador Codificador multimedia estándar.
@@ -132,22 +132,27 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
 #### <a name="example"></a>Ejemplo   
 
-    using System;
-    using System.Configuration;
-    using System.IO;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace CustomizeMESPresests
+namespace CustomizeMESPresests
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
@@ -160,7 +165,11 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -213,26 +222,26 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -242,20 +251,21 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
 
-        }
     }
+}
+```
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Otras referencias
-[Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
+[Información general sobre la codificación de Media Services](media-services-encode-asset.md)
 

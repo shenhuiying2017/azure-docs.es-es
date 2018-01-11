@@ -1,6 +1,6 @@
 ---
 title: "Incorporación de entradas de datos a trabajos de Stream Analytics | Microsoft Docs"
-description: "Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos de streaming desde los Centros de eventos, o bien como datos de referencia desde el Almacenamiento de blobs."
+description: "Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Stream Analytics como entrada de datos de streaming desde Event Hubs, o bien como datos de referencia desde Blob Storage."
 keywords: entrada de datos, datos de streaming
 documentationcenter: 
 services: stream-analytics
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adición de entradas de datos de streaming o datos de referencia a trabajos de Análisis de transmisiones
-Aprenda a enlazar un origen de datos al trabajo de Análisis de transmisiones como entrada de datos de streaming desde los Centros de eventos, o bien como datos de referencia desde el Almacenamiento de blobs.
+# <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adición de entradas de datos de streaming o datos de referencia a trabajos de Stream Analytics
+Aprenda a enlazar un origen de datos al trabajo de Stream Analytics como entrada de datos de streaming desde Event Hubs, o bien como datos de referencia desde Blob Storage.
 
-Los trabajos de Análisis de transmisiones de Azure pueden estar conectados a una entrada de datos, donde cada una define una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Análisis de transmisiones los consume y los procesa en tiempo real como datos de streaming. Stream Analytics cuenta con integración de primera clase con [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo.
+Los trabajos de Azure Stream Analytics pueden estar conectados a una entrada de datos, donde cada una define una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Stream Analytics los consume y los procesa en tiempo real como datos de streaming. Stream Analytics cuenta con integración de primera clase con [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo.
 
-Este artículo es un paso de la [ruta de aprendizaje de Análisis de transmisiones](/documentation/learning-paths/stream-analytics/).
+Este artículo es un paso de la [ruta de aprendizaje de Stream Analytics](/documentation/learning-paths/stream-analytics/).
 
 ## <a name="data-input-streaming-data-and-reference-data"></a>Entrada de datos: datos de streaming y datos de referencia
-Hay dos tipos distintos de entradas en Análisis de transmisiones: flujos de datos y datos de referencia.
+Hay dos tipos distintos de entradas en Stream Analytics: flujos de datos y datos de referencia.
 
-* **Secuencias de datos**: los trabajos de Análisis de transmisiones deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Almacenamiento de blobs de Azure y Centros de eventos de Azure se admiten como orígenes de entrada de flujos de datos. Los Centros de eventos de Azure se usan para recopilar transmisiones de eventos desde dispositivos conectados, servicios y aplicaciones. El almacenamiento de blobs de Azure puede usarse como origen de entrada para la ingesta de datos en masa como secuencia.  
-* **Datos de referencia**: Análisis de transmisiones admite un segundo tipo de entrada auxiliar denominada datos de referencia.  A diferencia de los datos en movimiento, estos datos son estáticos o están desacelerando los cambios.  Normalmente se usa para realizar búsquedas y correlaciones con secuencias de datos para crear un conjunto de datos más amplio.  Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia.  
+* **Secuencias de datos**: los trabajos de Stream Analytics deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Azure Blob Storage y Azure Event Hubs se admiten como orígenes de entrada de flujos de datos. Azure Event Hubs se usan para recopilar transmisiones de eventos desde dispositivos conectados, servicios y aplicaciones. El almacenamiento de blobs de Azure puede usarse como origen de entrada para la ingesta de datos en masa como secuencia.  
+* **Datos de referencia**: Stream Analytics admite un segundo tipo de entrada auxiliar denominada datos de referencia.  A diferencia de los datos en movimiento, estos datos son estáticos o están desacelerando los cambios.  Normalmente se usa para realizar búsquedas y correlaciones con secuencias de datos para crear un conjunto de datos más amplio.  Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia.  
 
-Para agregar una entrada a su trabajo de Análisis de transmisiones:
+Para agregar una entrada a su trabajo de Stream Analytics:
 
 1. En Azure Portal, haga clic en **Entradas** y en **Agregar una entrada** en el trabajo de Stream Analytics.
    
-    ![Portal de Azure clásico: agregar entrada.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Azure Portal: agregar una entrada](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
-    En el Portal de Azure, haga clic en el icono **Entradas** en el trabajo de Análisis de transmisiones.  
+    En Azure Portal, haga clic en el icono **Entradas** en el trabajo de Stream Analytics.  
    
     ![Portal de Azure: agregar entrada.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
 2. Especifique el tipo de la entrada: **Flujo de datos** o **Datos de referencia**.
@@ -66,19 +66,19 @@ Para agregar una entrada a su trabajo de Análisis de transmisiones:
      ![Configuración de la serialización de datos para la entrada de datos](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
      
      ![Configuración de la serialización de datos para la entrada de datos](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
-6. Después de completar la creación de la entrada, el Análisis de transmisiones comprobará que se puede conectar al origen de la entrada.  Puede ver el estado de la operación de prueba de conexión en el centro de notificaciones.
+6. Después de completar la creación de la entrada, el Stream Analytics comprobará que se puede conectar al origen de la entrada.  Puede ver el estado de la operación de prueba de conexión en el centro de notificaciones.
    
     ![Prueba de la conexión de la entrada de datos de streaming](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)  
    
     ![Prueba de la conexión de la entrada de datos de streaming](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>Obtener ayuda con las entradas de datos de streaming
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

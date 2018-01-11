@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Administrar el número y la disponibilidad de los nodos de ejecución en un clúster de HPC Pack en Azure
 Si creó un clúster de HPC Pack 2012 R2 en las máquinas virtuales de Azure, puede que desee agregar, quitar, iniciar (aprovisionar) o detener (desaprovisionar) fácilmente algunas máquinas virtuales de nodo de ejecución en el clúster. Para realizar estas tareas, ejecute los scripts de Azure PowerShell que están instalados en el nodo principal de la máquina virtual. Estos scripts le ayudan a controlar el número y la disponibilidad de los recursos de clúster de HPC Pack para que pueda controlar los costos.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>parameters
 * **ServiceName**: nombre del servicio en la nube al que se agregan las nuevas máquinas virtuales de nodos de proceso.
-* **ImageName**: nombre de la imagen de máquina virtual de Azure, que puede obtenerse mediante el Portal de Azure clásico o el cmdlet de Azure PowerShell **Get-AzureVMImage**. La imagen debe cumplir los siguientes requisitos:
+* **ImageName**: nombre de la imagen de máquina virtual de Azure, que puede obtenerse mediante Azure Portal o el cmdlet de Azure PowerShell **Get-AzureVMImage**. La imagen debe cumplir los siguientes requisitos:
   
   1. Debe haber instalado un sistema operativo Windows.
   2. HPC Pack debe estar instalado en el rol del nodo de ejecución.

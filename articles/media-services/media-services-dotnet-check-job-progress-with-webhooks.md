@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services con .NET | Microsoft Docs
-description: "Obtenga información sobre cómo usar Azure WebHooks para supervisar las notificaciones de trabajo de Media Services. El ejemplo de código está escrito en C# y utiliza el SDK de Servicios multimedia para .NET."
+description: "Obtenga información sobre cómo usar Azure WebHooks para supervisar las notificaciones de trabajo de Media Services. El ejemplo de código está escrito en C# y utiliza el SDK de Media Services para .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,30 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9815e01dffb0342979f17974527b559de8146fed
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services con .NET
-Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede supervisar las notificaciones de trabajo de Media Services con Azure WebHooks o con [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md). En este tema se explica cómo trabajar con WebHooks.
+Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede supervisar las notificaciones de trabajo de Media Services con Azure WebHooks o con [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md). En este artículo se explica cómo trabajar con webhooks.
 
-En este tema se muestra cómo llevar a cabo dos tareas:
+Este artículo le muestra cómo
 
 *  Definir una función de Azure que está personalizada para responder a webhook. 
     
     En este caso, Media Services desencadena el webhook cuando el trabajo de codificación cambia de estado. La función escucha la devolución de llamada al webhook desde las notificaciones de Media Services y publica el recurso de salida cuando el trabajo ha finalizado. 
     
     >[!NOTE]
-    >Antes de continuar, asegúrese de que comprende cómo funcionan los [enlaces HTTP y webhook en funciones de Azure](../azure-functions/functions-bindings-http-webhook.md).
+    >Antes de continuar, asegúrese de que comprende cómo funcionan los [enlaces HTTP y webhook en Azure Functions](../azure-functions/functions-bindings-http-webhook.md).
     >
     
-* Agregue un webhook a la tarea de codificación y especifique la dirección URL del webhook y la clave secreta a la que este webhook responde. Al final del tema encontrará un ejemplo que agrega un webhook a la tarea de codificación.  
+* Agregue un webhook a la tarea de codificación y especifique la dirección URL del webhook y la clave secreta a la que este webhook responde. Al final del artículo encontrará un ejemplo que agrega un webhook a la tarea de codificación.  
 
-Puede encontrar las definiciones de diversas instancias de Azure Functions con .NET para Media Services (incluidas las que se muestran en este tema) [aquí](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Puede encontrar las definiciones de diversas instancias de Azure Functions con .NET para Media Services (incluidas las que se muestran en este artículo) [aquí](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -54,7 +54,7 @@ Estos son los requisitos previos para completar el tutorial.
 
 Cuando desarrolle funciones de Media Services, es útil agregar variables de entorno que se usarán en todas sus funciones. Para definir la configuración de la aplicación, haga clic en el vínculo Configurar las opciones de la aplicación. 
 
-En la sección de [configuración de la aplicación](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) se definen los parámetros usados en el webhook definido en este tema. Agregue también los siguientes parámetros a la configuración de la aplicación. 
+En la sección de [configuración de la aplicación](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) se definen los parámetros usados en el webhook definido en este artículo. Agregue también los siguientes parámetros a la configuración de la aplicación. 
 
 |Nombre|Definición|Ejemplo| 
 |---|---|---|

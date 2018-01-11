@@ -4,7 +4,7 @@ description: "Guía de solución de problemas Servicios de dominio de Azure AD"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guía de solución de problemas de Azure AD Domain Services
 En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure Active Directory (AD).
@@ -57,13 +57,10 @@ Compruebe si hay una aplicación con el nombre "Azure AD Domain Services Sync" e
 
 Realice los pasos siguientes para comprobar la presencia de la aplicación y eliminarla, en caso de que exista:
 
-1. Navegue hasta el **Portal de Azure clásico** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. En el panel izquierdo, seleccione **Active Directory** .
-3. Seleccione al inquilino (directorio) de Azure AD para el que quiere habilitar los Servicios de dominio de Azure AD.
-4. Vaya a la pestaña **Aplicaciones** .
-5. Seleccione la opción **Aplicaciones que tiene mi compañía** en la lista desplegable.
-6. Busque una aplicación llamada **Sincronización de Azure AD Domain Services**. Si la aplicación existe, proceda a eliminarla.
-7. Cuando haya eliminado la aplicación, intente volver a habilitar los Servicios de dominio de Azure AD una vez más.
+1. Navegue hasta la sección **Aplicaciones** de su directorio de Azure AD en [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Seleccione **Todas las aplicaciones** en la lista desplegable **Mostrar**. Seleccione **Cualquier** en la lista desplegable **Estado de las aplicaciones**. Seleccione **Cualquier** en la lista desplegable **Visibilidad de la aplicación**.
+3. En el cuadro de búsqueda, escriba **Azure AD Domain Services Sync**. Si existe la aplicación, haga clic en ella y en el botón **Eliminar** de la barra de herramientas para eliminarla.
+4. Cuando haya eliminado la aplicación, intente volver a habilitar los Servicios de dominio de Azure AD una vez más.
 
 ### <a name="invalid-configuration"></a>Configuración no válida
 **Mensaje de error:**
@@ -153,7 +150,7 @@ Azure AD protege contra la eliminación accidental de objetos de usuario. Cuando
 
 La cuenta de usuario permanece en estado deshabilitado en el dominio administrado, incluso si vuelve a crear una cuenta de usuario con la misma UPN en su directorio de Azure AD. Para quitar la cuenta de usuario de su dominio administrado, tiene que forzar su eliminación en el inquilino de Azure AD.
 
-Para quitar por completo la cuenta de usuario de su dominio administrado, elimine el usuario de forma permanente del inquilino de Azure AD. Use el cmdlet de PowerShell Remove-MsolUser con la opción "-RemoveFromRecycleBin", tal como se describe en este [artículo de MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Para quitar por completo la cuenta de usuario de su dominio administrado, elimine el usuario de forma permanente del inquilino de Azure AD. Use el cmdlet `Remove-MsolUser` de PowerShell con la opción `-RemoveFromRecycleBin`, tal como se describe en este [artículo de MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Ponerse en contacto con nosotros
 Póngase en contacto con el equipo de productos de Active Directory Domain Services para [compartir comentarios u obtener asistencia](active-directory-ds-contact-us.md).

@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.
@@ -33,6 +33,7 @@ Las instrucciones se organizan como recomendaciones sencillas precedidas por los
 * No cree una transacción dentro de la instrucción `using` de otra transacción, ya que puede provocar interbloqueos.
 * Asegúrese de que la implementación de `IComparable<TKey>` es correcta. El sistema asume la dependencia de `IComparable<TKey>` para combinar los puntos de control y las filas.
 * Utilice el bloqueo de actualización al leer un elemento con la intención de actualizarlo para evitar que se produzca una clase determinada de interbloqueos.
+* Considere la posibilidad de mantener el número de colecciones confiables por partición inferior a 1000. Priorice las colecciones confiables con más elementos ante las colecciones confiables con menos.
 * Plantéese la posibilidad de mantener sus elementos (por ejemplo, TKey y TValue para el diccionario confiable) por debajo de los 80 kB: cuanto más pequeños, mejor. De este modo, reducirá el grado de uso del montón de objetos grandes, así como los requisitos de E/S de red y de disco. A menudo, disminuye la replicación de datos duplicados cuando solo se actualiza una pequeña parte del valor. La forma habitual de conseguir esto en el diccionario confiable pasa por dividir las filas en varias de ellas.
 * Considere la posibilidad de utilizar la funcionalidad de copia de seguridad y restauración para la recuperación ante desastres.
 * Evite mezclar operaciones de entidad única y de varias entidades (por ejemplo, `GetCountAsync` y `CreateEnumerableAsync`) en la misma transacción debido a los diferentes niveles de aislamiento.

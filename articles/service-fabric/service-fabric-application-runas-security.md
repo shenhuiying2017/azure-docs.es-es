@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2ff715d8225bd0a9c7f6108f8804cdfa3189cc8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configuración de directivas de seguridad para la aplicación
 Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. Service Fabric también protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario; por ejemplo, archivos, directorios y certificados. Esto aumenta la seguridad entre aplicaciones en ejecución, incluso en un entorno hospedado compartido.
@@ -30,7 +30,7 @@ De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la mi
 Se pueden definir y crear grupos de usuarios, de modo que se puedan agregar uno o varios usuarios a cada grupo para poder administrarlos de forma conjunta. Esto es útil cuando hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo.
 
 ## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Configuración de la directiva para un punto de entrada del programa de instalación del servicio
-Tal como se describe en el [modelo de aplicación](service-fabric-application-model.md), el punto de entrada del programa de instalación, **SetupEntryPoint**, es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *NetworkService*) antes que cualquier otro punto de entrada. El archivo ejecutable que se especifica con **EntryPoint** suele ser el host de servicio de ejecución prolongada. Por lo que tener un punto de entrada de configuración independiente evita tener que ejecutar el ejecutable del host de servicio con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia, comenzando de nuevo con **SetupEntryPoint**si alguna vez finaliza o se bloquea.
+Tal como se describe en el [Application and service manifests](service-fabric-application-and-service-manifests.md) (Manifiestos de servicio y aplicación), el punto de entrada del programa de instalación, **SetupEntryPoint**, es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *NetworkService*) antes que cualquier otro punto de entrada. El archivo ejecutable que se especifica con **EntryPoint** suele ser el host de servicio de ejecución prolongada. Por lo que tener un punto de entrada de configuración independiente evita tener que ejecutar el ejecutable del host de servicio con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia, comenzando de nuevo con **SetupEntryPoint**si alguna vez finaliza o se bloquea.
 
 A continuación aparece un ejemplo de manifiesto de servicio básico que muestra SetupEntryPoint y el EntryPoint principal del servicio.
 

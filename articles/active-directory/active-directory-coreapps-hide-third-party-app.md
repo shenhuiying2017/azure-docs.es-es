@@ -1,10 +1,10 @@
 ---
-title: "Ocultación de una aplicación de terceros de la experiencia del usuario en Azure Active Directory | Microsoft Docs"
-description: "Cómo ocultar una aplicación de terceros de la experiencia del usuario en Azure Active Directory"
+title: "Ocultación de una aplicación de la experiencia del usuario en Azure Active Directory | Microsoft Docs"
+description: "Cómo ocultar una aplicación de la experiencia del usuario en Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 667fdd45bc9eb1f01ce3883006bb29274478cb83
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Ocultación de una aplicación de terceros de la experiencia del usuario en Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Ocultación de una aplicación de la experiencia del usuario en Azure Active Directory
 
-Si tiene una aplicación de terceros (es decir, una aplicación no publicada por Microsoft) que no desea que aparezca en los paneles de acceso de los usuarios o en los iniciadores de Office 365, hay una opción para ocultar el icono de esta aplicación. Al ocultar la aplicación, los usuarios todavía tendrán permisos de acceso a ella pero no podrán verla en los iniciadores de aplicaciones. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio.
+Si tiene una aplicación que no desea que aparezca en los paneles de acceso de los usuarios o en los iniciadores de Office 365, hay una opción para ocultar el icono de esta aplicación. Esta opción solo está disponible para aplicaciones de terceros (aplicaciones no publicadas por Microsoft). Al ocultar la aplicación, los usuarios todavía tendrán permisos de acceso a ella pero no podrán verla en los iniciadores de aplicaciones. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Ocultación de una aplicación de terceros de la experiencia del usuario
-Siga estos pasos para ocultar una aplicación de terceros del panel de acceso de un usuario y de los iniciadores de aplicaciones de Office 365:
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Ocultación de una aplicación de las experiencias del usuario final
+Siga estos pasos para ocultar una aplicación del panel de acceso de un usuario y de los iniciadores de aplicaciones de Office 365.
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>¿Cómo se puede ocultar una aplicación de terceros del panel de acceso del usuario y de los iniciadores de aplicaciones de Office 365?
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ En este artículo se muestra cómo instalar y configurar Trend Micro Deep Securi
 
 El cliente se instala como una extensión de seguridad usando el Agente de máquina virtual. En una nueva máquina virtual, instale el agente de Deep Security, ya que Azure Portal crea automáticamente el agente de máquina virtual.
 
-Es posible que una máquina virtual existente que se creó mediante el portal clásico, la CLI de Azure o PowerShell no tenga un agente de máquina virtual. En una máquina virtual que no tenga el agente de máquina virtual, primero debe descargarlo e instalarlo. Este artículo trata ambas situaciones.
+Es posible que una máquina virtual existente que se creó mediante Azure Portal, la CLI de Azure o PowerShell no tenga un agente de máquina virtual. En una máquina virtual que no tenga el agente de máquina virtual, primero debe descargarlo e instalarlo. Este artículo trata ambas situaciones.
 
 Si tiene una suscripción actual de Trend Micro para una solución local, puede usarla para ayudar a proteger sus máquinas virtuales de Azure. Si todavía no es cliente, puede suscribirse para una prueba. Para obtener más información acerca de esta solución, consulte la publicación del blog de Trend Micro [Microsoft Azure VM Agent Extension For Deep Security (Extensión del agente de máquina virtual de Microsoft Azure para Deep Security)](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

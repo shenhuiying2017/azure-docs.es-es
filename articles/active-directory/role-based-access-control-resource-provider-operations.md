@@ -4,7 +4,7 @@ description: "Los detalles de las operaciones están disponibles en los proveedo
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
-Este documento enumera las operaciones que están disponibles para cada proveedor de recursos de Microsoft Azure Resource Manager. Estos se pueden usar en roles personalizados para proporcionar permisos granulares de control de acceso basado en roles (RBAC) a los recursos de Azure. Tenga en cuenta que esta no es una lista exhaustiva y que se pueden agregar o eliminar operaciones a medida que se actualiza cada proveedor. Las cadenas de operaciones usan el formato `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Si desea consultar una lista exhaustiva y actualizada, use `Get-AzureRmProviderOperation` (en PowerShell) o `azure provider operations show` (en la CLI de Azure) para mostrar las operaciones de los proveedores de recursos de Azure.
+Este documento enumera las operaciones que están disponibles para cada proveedor de recursos de Microsoft Azure Resource Manager. Estos se pueden usar en roles personalizados para proporcionar permisos granulares de control de acceso basado en roles (RBAC) a los recursos de Azure. Tenga en cuenta que esta no es una lista exhaustiva y que se pueden agregar o eliminar operaciones a medida que se actualiza cada proveedor. Las cadenas de operaciones usan el formato `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Si desea consultar una lista exhaustiva y actualizada, use `Get-AzureRmProviderOperation` (en PowerShell) o `az provider operation list` (en la CLI de Azure v2) para mostrar las operaciones de los proveedores de recursos de Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
@@ -201,7 +204,7 @@ Este documento enumera las operaciones que están disponibles para cada proveedo
 |/automationAccounts/read|Obtiene una cuenta de Azure Automation|
 |/automationAccounts/write|Crea o actualiza una cuenta de Azure Automation|
 |/automationAccounts/delete|Elimina una cuenta de Azure Automation|
-|/automationAccounts/configurations/readContent/action|Obtiene contenidos de DSC de Automatización de Azure|
+|/automationAccounts/configurations/readContent/action|Obtiene contenidos de DSC de Azure Automation|
 |/automationAccounts/hybridRunbookWorkerGroups/read|Lee los recursos de Hybrid Runbook Worker|
 |/automationAccounts/hybridRunbookWorkerGroups/delete|Elimina los recursos de Hybrid Runbook Worker|
 |/automationAccounts/jobSchedules/read|Obtiene una programación de trabajos de Azure Automation|
@@ -2135,7 +2138,7 @@ Este proveedor no es un proveedor de ARM completo y no proporciona ninguna opera
 |/Microsoft.Web/apiManagementAccounts/<br>apis/apiAcls/Delete|Elimina las listas ACL de la API|
 |/serverfarms/Read|Obtiene las propiedades de un plan de App Service|
 |/serverfarms/Write|Crea un nuevo plan de App Service o actualiza uno que ya existe|
-|/serverfarms/Delete|Eliminación de un plan del Servicio de aplicaciones|
+|/serverfarms/Delete|Eliminación de un plan de App Service|
 |/serverfarms/restartSites/Action|Reinicia todas las instancias de Web Apps de un plan de App Service|
 |/serverfarms/operationresults/read|Obtiene los resultados de la operación de planes de App Service.|
 |/serverfarms/capabilities/read|Obtiene las funcionalidades de los planes de App Service.|
@@ -2194,7 +2197,6 @@ Este proveedor no es un proveedor de ARM completo y no proporciona ninguna opera
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [crear un rol personalizado](role-based-access-control-custom-roles.md).
-
 - Revise los [roles RBAC integrados](role-based-access-built-in-roles.md).
-
 - Aprenda a administrar las asignaciones de acceso [por usuario](role-based-access-control-manage-assignments.md) o [por recurso](role-based-access-control-configure.md) 
+- Aprenda a [visualizar los registros de actividad para auditar las acciones sobre los recursos](~/articles/azure-resource-manager/resource-group-audit.md)

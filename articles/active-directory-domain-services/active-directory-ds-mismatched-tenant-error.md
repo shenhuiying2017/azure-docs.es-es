@@ -4,7 +4,7 @@ description: Entender y resolver errores de directorios que no coinciden en domi
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
-Tiene un dominio administrado que se ha habilitado mediante el Portal de Azure clásico. Cuando navega al nuevo Azure Portal y ve el dominio administrado, aparece el siguiente mensaje de error:
+Ya dispone de un dominio administrado con Azure AD Domain Services. Cuando navega a Azure Portal y ve el dominio administrado, aparece el siguiente mensaje de error:
 
 ![Error de directorio que no coincide](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -33,7 +33,7 @@ Este error se produce cuando el dominio administrado y la red virtual en la que 
 
 El nuevo Azure Portal (y, en concreto, la extensión de Azure AD Domain Services) se basa en Azure Resource Manager. En el entorno moderno de Azure Resource Manager, se aplican ciertas restricciones para proporcionar mayor seguridad y un control de acceso basado en rol (RBAC) a los recursos. La operación de habilitar Azure AD Domain Services para un inquilino de Azure AD es delicada, ya que hace que los valores hash de credenciales se sincronicen con el dominio administrado. Para realizar esta operación, debe ser un administrador de inquilinos del directorio. Además, debe tener privilegios administrativos en la red virtual en la que se habilita el dominio administrado. Para que las comprobaciones de RBAC funcionen de forma coherente, el dominio administrado y la red virtual deben pertenecer al mismo inquilino de Azure AD.
 
-En resumen, no puede habilitar un dominio administrado para un inquilino de Azure AD de "contoso.com" en una red virtual que pertenezca a una suscripción de Azure propiedad de otro inquilino de Azure AD de "fabrikam.com". El Portal de Azure clásico no se basa en la plataforma de Resource Manager y no aplica estas restricciones.
+En resumen, no puede habilitar un dominio administrado para un inquilino de Azure AD de "contoso.com" en una red virtual que pertenezca a una suscripción de Azure propiedad de otro inquilino de Azure AD de "fabrikam.com". 
 
 **Configuración válida**: en este escenario de implementación, el dominio administrado de Contoso está habilitado para el inquilino de Azure AD de Contoso. El dominio administrado se expone en una red virtual que pertenece a una suscripción de Azure propiedad del inquilino de Azure AD de Contoso. Por lo tanto, tanto el dominio administrado como la red virtual pertenecen al mismo inquilino de Azure AD. Esta configuración es válida y totalmente compatible.
 

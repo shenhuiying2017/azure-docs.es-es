@@ -1,13 +1,13 @@
-El almacenamiento con redundancia geográfica (GRS) replica sus datos a una región secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria. Si la cuenta de almacenamiento tiene habilitado GRS, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región principal no se puede recuperar.
+El almacenamiento con redundancia geográfica(GRS) está diseñado para proporcionar al menos el 99.99999999999999 % (dieciséis nueves) de durabilidad de objetos a lo largo de un año. Para ello, replica los datos a una región secundaria que se encuentra a cientos de kilómetros de la región primaria. Si la cuenta de almacenamiento tiene habilitado GRS, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región principal no se puede recuperar.
 
-En el caso de una cuenta de almacenamiento con GRS habilitado, una actualización primero se envía a la región principal, donde se replica tres veces. A continuación, la actualización se replica de manera asincrónica en la región secundaria, donde también se replica tres veces.
+En el caso de una cuenta de almacenamiento con GRS habilitado, una actualización primero se envía a la región principal. A continuación, la actualización se replica de manera asincrónica en la región secundaria, donde también se replica.
 
 Con GRS, las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento, como se describe con LRS.
 
 Consideraciones:
 
 * Como la replicación asincrónica implica un retraso, ante la eventualidad de un desastre regional es posible que los cambios que todavía no se hayan replicado en la región secundaria se pierdan si no es posible recuperar los datos de la región primaria.
-* La réplica no está disponible a menos que Microsoft inicie la conmutación por error para la región secundaria. Si Microsoft inicia una conmutación por error en la región secundaria, tendrá acceso de lectura y escritura a esos datos una vez completada la conmutación por error. Para más información, consulte la [guía de recuperación ante desastres](../articles/storage/common/storage-disaster-recovery-guidance.md). 
+* La réplica no está disponible a menos que Microsoft inicie la conmutación por error para la región secundaria. Si Microsoft inicia una conmutación por error en la región secundaria, tendrá acceso de lectura y escritura a esos datos una vez completada la conmutación por error. Para más información, consulte la [guía de recuperación ante desastres](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * Si una aplicación desea leer desde la región secundaria, el usuario debe habilitar RA-GRS.
 
 Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La región secundaria se determina según la región principal y no es posible cambiarla. La siguiente tabla muestra los emparejamientos de la región principal y la secundaria.
@@ -50,6 +50,6 @@ Cuando crea una cuenta de almacenamiento, selecciona la región principal de la 
 Para obtener información actualizada sobre las regiones compatibles con Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
 >[!NOTE]  
-> La región secundaria de Virginia Gob. EE. UU. es Texas Gob. EE. UU. Anteriormente, Virginia Gob. EE. UU. utilizaba Iowa Gob. EE. UU. como región secundaria. Las cuentas de almacenamiento que aún aprovechan Iowa Gob. EE. UU. como región secundaria se están migrando a Texas Gob. EE. UU. como región secundaria. 
-> 
-> 
+> La región secundaria de Virginia Gob. EE. UU. es Texas Gob. EE. UU. Anteriormente, Virginia Gob. EE. UU. utilizaba Iowa Gob. EE. UU. como región secundaria. Las cuentas de almacenamiento que aún aprovechan Iowa Gob. EE. UU. como región secundaria se están migrando a Texas Gob. EE. UU. como región secundaria.
+>
+>

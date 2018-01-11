@@ -4,7 +4,7 @@ description: "En este artículo se describe cómo usar Azure Portal para registr
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registro de una aplicación en un inquilino de Azure Active Directory
 
@@ -45,7 +45,7 @@ Mediante Azure Portal se puede modificar fácilmente una configuración de la ap
   * La página **Propiedades** permite modificar la información general de la aplicación. Aquí se incluyen el nombre de la aplicación, la dirección URL de inicio de sesión y la dirección URL de cierre de sesión.
   * La página **Direcciones URL de respuesta** le permite agregar una dirección URL de respuesta, que es el lugar al que Azure AD envía las respuestas de los tokens.
   * La página **Propietarios** permite agregar los propietarios de las aplicaciones.
-  * La página **Permisos** permite configurar los permisos de la aplicación. Por ejemplo, para tener acceso a la API de Microsoft Graph, haga clic en **Agregar**, seleccione **Microsoft Graph** en el selector de API y, después, elija el permiso requerido, por ejemplo, **Leer datos de directorio**.
+  * La página **Permisos necesarios** permite configurar los permisos de la aplicación. Por ejemplo, para tener acceso a la API de Microsoft Graph, haga clic en **Agregar**, seleccione **Microsoft Graph** en el selector de API y, después, elija el permiso requerido, por ejemplo, **Leer datos de directorio**.
   * La página **Claves** permite agregar secretos de aplicaciones. El secreto solo se mostrará una vez inmediatamente después de su creación, por lo que debe asegurarse de copiarlo si desea usarlo más adelante.
 
 ## <a name="use-the-inline-manifest-editor"></a>Utilice el editor de manifiestos en línea

@@ -1,6 +1,6 @@
 ---
-title: "Uso de actividades personalizadas en una canalización de Factoría de datos de Azure"
-description: "Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de la factoría de datos de Azure."
+title: "Uso de actividades personalizadas en una canalización de Azure Data Factory"
+description: "Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: shengcmsft
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
+# <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-use-custom-activities.md)
 > * [Versión 2: Versión preliminar](transform-data-using-dotnet-custom-activity.md)
 
-Hay dos tipos de actividades que puede usar en una canalización de Data Factory de Azure.
+Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory.
 
 - [Actividades de movimiento de datos](copy-activity-overview.md) para mover datos entre [almacenes de datos de origen y receptor compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
 - [Actividades de transformación de datos](transform-data.md) para transformar datos mediante procesos como Azure HDInsight, Azure Batch y Azure Machine Learning. 
@@ -35,10 +35,10 @@ Para mover datos desde y hacia un almacén de datos incompatible con Data Factor
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte [Actividad de DotNet (personalizada) en V1](v1/data-factory-use-custom-activities.md).
  
 
-Consulte los temas siguientes si no está familiarizado con el servicio Lote de Azure:
+Consulte los temas siguientes si no está familiarizado con el servicio Azure Batch:
 
-* [Aspectos básicos de Lote de Azure](../batch/batch-technical-overview.md) para información general del servicio Lote de Azure.
-* Cmdlet [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) para crear una cuenta de Azure Batch o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Lote de Azure](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
+* [Aspectos básicos de Azure Batch](../batch/batch-technical-overview.md) para información general del servicio Azure Batch.
+* Cmdlet [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) para crear una cuenta de Azure Batch o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el tema [Uso de Azure PowerShell para administrar la cuenta de Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) para obtener instrucciones detalladas sobre cómo usar este cmdlet.
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) para crear un grupo de Lote de Azure.
 
 ## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch 
@@ -308,17 +308,33 @@ Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener
 
   Con los cambios introducidos en la actividad personalizada de Azure Data Factory V2, puede decidir si desea escribir su lógica de código personalizado en el lenguaje que desee y ejecutarlo en sistemas operativos Windows o Linux que sean compatibles con Azure Batch. 
 
+  En la tabla siguiente se describen las diferencias entre la actividad personalizada de Data Factory V2 y la actividad de DotNet de Data Factory V1 (personalizada): 
+
+
+|Diferencias      |Actividad personalizada de ADFv2      |Actividad de DotNet de ADFv1 (personalizada)      |
+| ---- | ---- | ---- |
+|Formas de definir la lógica personalizada      |Ejecutar cualquier archivo ejecutable (existente o uno propio que implemente)      |Implementar un archivo DLL de .Net      |
+|Entorno de ejecución de la lógica personalizada      |Windows o Linux      |Windows (.Net Framework 4.5.2)      |
+|Ejecución de scripts      |Admite la ejecución directa de scripts (por ejemplo "cmd /c echo hello world" en la VM de Windows)      |Requiere la implementación en el archivo DLL de .Net      |
+|Conjunto de datos requerido      |Opcional      |Necesario para encadenar actividades y pasar información      |
+|Pasar información de actividad a la lógica personalizada      |Mediante ReferenceObjects (LinkedServices y conjuntos de datos) y ExtendedProperties (propiedades personalizadas) y      |Mediante ExtendedProperties (propiedades personalizadas), y conjuntos de datos de entrada y salida      |
+|Recuperación de información en lógica personalizada      |Analizar los archivos activity.json, linkedServices.json y datasets.json almacenados en la misma carpeta que el ejecutable      |Mediante SDK de .Net (.Net Frame 4.5.2)      |
+|Registro      |Escribe directamente en STDOUT      |Se implementa el registrador en el archivo DLL de .Net      |
+
+
   Si tiene código .Net ya existente escrito para la actividad de DotNet (personalizada) de V1, deberá modificar el código para que funcione con la actividad personalizada de V2 con las siguientes directrices de alto nivel:  
 
-  > - Cambie el proyecto de una biblioteca de clases .Net a una aplicación de consola. 
-  > - Inicie la aplicación con el método Main. Ya no es necesario el método Execute de la interfaz IDotNetActivity. 
-  > - Lea y analice los servicios vinculados, los conjuntos de datos y la actividad con el serializador JSON en lugar de con objetos con tipo seguros y pase los valores de las propiedades requeridas a la lógica del código personalizado principal. Consulte el código anterior de SampleApp.exe como ejemplo. 
-  > - Ya no se admite el objeto de registrador y las salidas ejecutables se pueden imprimir en la consola y se guardan en stdout.txt. 
-  > - El paquete NuGet Microsoft.Azure.Management.DataFactories ya no es necesario. 
-  > - Compile el código, cargue el ejecutable y las dependencias en Azure Storage y defina la ruta de acceso en la propiedad folderPath. 
+   - Cambie el proyecto de una biblioteca de clases .Net a una aplicación de consola. 
+   - Inicie la aplicación con el método Main. Ya no es necesario el método Execute de la interfaz IDotNetActivity. 
+   - Lea y analice los servicios vinculados, los conjuntos de datos y la actividad con el serializador JSON en lugar de con objetos con tipo seguros y pase los valores de las propiedades requeridas a la lógica del código personalizado principal. Consulte el código anterior de SampleApp.exe como ejemplo. 
+   - Ya no se admite el objeto de registrador y las salidas ejecutables se pueden imprimir en la consola y se guardan en stdout.txt. 
+   - El paquete NuGet Microsoft.Azure.Management.DataFactories ya no es necesario. 
+   - Compile el código, cargue el ejecutable y las dependencias en Azure Storage y defina la ruta de acceso en la propiedad folderPath. 
+
+Para obtener un ejemplo completo de cómo el archivo DLL completo y la canalización de ejemplo que se describen en el documento de Data Factory V1 [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) se pueden volver a escribir en el estilo de la actividad personalizada de Data Factory V2. Consulte el [ejemplo de actividad personalizada de Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Escalado automático de Azure Batch
-También puede crear un grupo de Lote de Azure con la característica **autoescala** . Por ejemplo, podría crear un grupo de Azure Batch con 0 VM dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes. 
+También puede crear un grupo de Azure Batch con la característica **autoescala** . Por ejemplo, podría crear un grupo de Azure Batch con 0 VM dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes. 
 
 La fórmula del ejemplo logra el siguiente comportamiento: cuando el grupo se crea inicialmente, empieza con 1 VM. La métrica $PendingTasks define el número de tareas que están en ejecución o activas (en cola).  La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. Garantiza que TargetDedicated nunca supera las 25 VM. Por tanto, a medida que se envían nuevas tareas, el grupo crece automáticamente y a medida que estás se completan, las VM se liberan una a una y el escalado automático las reduce. startingNumberOfVMs y maxNumberofVMs se pueden adaptar a sus necesidades.
 
@@ -332,9 +348,9 @@ pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($
 $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 ```
 
-Para más información, consulte [Escalado automático de los nodos de proceso en un grupo de Lote de Azure](../batch/batch-automatic-scaling.md) .
+Para más información, consulte [Escalado automático de los nodos de proceso en un grupo de Azure Batch](../batch/batch-automatic-scaling.md) .
 
-Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Lote puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada.  Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Lote podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
+Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada.  Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

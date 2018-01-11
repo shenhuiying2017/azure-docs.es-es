@@ -4,7 +4,7 @@ description: En este tema se incluyen todas las versiones de los conectores para
 services: active-directory
 documentationcenter: 
 author: fimguy
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3fbdc60a21aa16926bc4db00f41ade8ecda415f1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connector-version-release-history"></a>Historial de versiones de conectores
 Los conectores de Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM) se actualizan con frecuencia.
@@ -44,7 +44,7 @@ Vínculos relacionados:
 
 * Lotus Notes:
   * Opción de filtrado de certificadores personalizados
-  * La importación de la clase ImportOperations corrigió la definición de las operaciones que se pueden ejecutar en el modo "Views" y las que se pueden ejecutar en el modo "Search".
+  * La importación de la clase ImportOperations corrigió la definición de las operaciones que se pueden ejecutar en el modo "Vistas" y las que se pueden ejecutar en el modo "Búsqueda".
 * LDAP genérico:
   * El directorio OpenLDAP usa DN como delimitador en lugar de entryUUI. Nueva opción para el conector GLDAP que permite modificar el delimitador
 * SQL genérico:
@@ -122,7 +122,7 @@ Publicación: marzo de 2017
 ### <a name="enhancements"></a>Mejoras
 
 * SQL genérico:</br>
-  **Síntomas del escenario:** se trata de una limitación conocida con el Conector de SQL en la que solo se permite una referencia a un tipo de objeto y se requiere referencia cruzada con los miembros. </br>
+  **Síntomas del escenario:** se trata de una limitación conocida con el conector de SQL en la que solo se permite una referencia a un tipo de objeto y se requiere una referencia cruzada con los miembros. </br>
   **Descripción de la solución:** en el paso de procesamiento de las referencias en que se elige la opción "*", TODAS las combinaciones de tipos de objeto se devolverán al motor de sincronización.
 
 >[!Important]
@@ -131,7 +131,7 @@ Publicación: marzo de 2017
 
 
 * LDAP genérico:</br>
- **Escenario:** cuando solo se seleccionan algunos contenedores en una partición específica, la búsqueda se seguirá haciendo en toda la partición. El servicio de sincronización filtrará la partición específica, pero MA no lo hará, lo que podría provocar una degradación del rendimiento. </br>
+ **Escenario:** cuando solo se seleccionen algunos contenedores en una partición específica, la búsqueda se seguirá haciendo en toda la partición. El servicio de sincronización filtrará la partición específica, pero MA no lo hará, lo que podría provocar una degradación del rendimiento. </br>
 
  **Descripción de la solución:** se modificó el código del conector GLDAP para permitir que pase por todos los contenedores y objetos de búsqueda de cada uno de ellos, en lugar de buscar en toda la partición.
 
@@ -139,7 +139,7 @@ Publicación: marzo de 2017
 * Lotus Domino:
 
   **Escenario:** compatibilidad de la eliminación de correo de Domino para la eliminación de una persona durante una exportación. </br>
-  **Solución:** configuración de eliminación de correo configurable para la eliminación de una persona durante una exportación.
+  **Solución:** compatibilidad con la eliminación de correo configurable para la eliminación de una persona durante una exportación.
 
 ### <a name="fixed-issues"></a>Problemas corregidos:
 * Servicios Web genéricos:

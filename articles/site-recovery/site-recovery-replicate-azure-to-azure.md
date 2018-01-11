@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -76,19 +76,19 @@ En la sección Configuración puede configurar las propiedades del sitio de dest
     > [!TIP]
     > Se recomienda conservar la ubicación de destino igual que el almacén de Recovery Services.
 
-2. **Grupo de recursos de destino:** se trata del grupo de recursos al que pertenecen todas las máquinas virtuales replicadas. De forma predeterminada, Azure Site Recovery creará un nuevo grupo de recursos en la región de destino con un nombre con el sufijo "asr". En caso de que el grupo de recursos que cree Azure Site Recovery ya exista, se volverá a usar. También puede elegir personalizarlo tal como se muestra en la sección siguiente.    
-3. **Virtual Network de destino:** de forma predeterminada, Azure Site Recovery creará una nueva red virtual en la región de destino con un nombre con el sufijo "asr". Esta se asignará a la red de origen y se usará para todas las protecciones futuras.
+2. **Grupo de recursos de destino:** se trata del grupo de recursos al que pertenecen todas las máquinas virtuales replicadas. De forma predeterminada, Azure Site Recovery crea un nuevo grupo de recursos en la región de destino con un nombre con el sufijo "asr". En caso de que el grupo de recursos que cree Azure Site Recovery ya exista, se volverá a usar. También puede elegir personalizarlo tal como se muestra en la sección siguiente.    
+3. **Red virtual de destino:** de forma predeterminada, Azure Site Recovery crea una nueva red virtual en la región de destino con un nombre con el sufijo "asr". Esta se asignará a la red de origen y se usará para todas las protecciones futuras.
 
     > [!NOTE]
     > [Compruebe los detalles de redes](site-recovery-network-mapping-azure-to-azure.md) para obtener más información sobre la asignación de red.
 
-4. **Cuentas de almacenamiento de destino:** de forma predeterminada, Azure Site Recovery creará la nueva cuenta de almacenamiento de destino mediante la imitación de la configuración de almacenamiento de la máquina virtual de origen. En caso de que ya exista la cuenta de almacenamiento creada por Azure Site Recovery, se volverá a usar.
+4. **Cuentas de almacenamiento de destino:** de forma predeterminada, Azure Site Recovery crea la nueva cuenta de almacenamiento de destino mediante la imitación de la configuración de almacenamiento de la VM de origen. En caso de que ya exista la cuenta de almacenamiento creada por Azure Site Recovery, se volverá a usar.
 
 5. **Cuentas de almacenamiento en caché:** Azure Site Recovery necesita una cuenta de almacenamiento adicional denominada almacenamiento en caché en la región de origen. Todos los cambios que se producen en las máquinas virtuales de origen se siguen y se envían a la cuenta de almacenamiento en caché antes de su replicación en la ubicación de destino.
 
-6. **Conjunto de disponibilidad:** de forma predeterminada, Azure Site Recovery creará un nuevo conjunto de disponibilidad en la región de destino con un nombre con el sufijo "asr". En caso de que el conjunto de disponibilidad que cree Azure Site Recovery ya exista, se volverá a usar.
+6. **Conjunto de disponibilidad:** de forma predeterminada, Azure Site Recovery crea un nuevo conjunto de disponibilidad en la región de destino con un nombre con el sufijo "asr". En caso de que el conjunto de disponibilidad que cree Azure Site Recovery ya exista, se vuelve a usar.
 
-7.  **Directiva de replicación:** define la configuración del historial de retención del punto de recuperación y de la frecuencia de instantánea coherente con la aplicación. De forma predeterminada, Azure Site Recovery creará una nueva directiva de replicación con la configuración predeterminada "24 horas" para la retención del punto de recuperación y "60 minutos" para la frecuencia de instantánea coherente con la aplicación.
+7.  **Directiva de replicación:** define la configuración del historial de retención del punto de recuperación y de la frecuencia de instantánea coherente con la aplicación. De manera predeterminada, Azure Site Recovery crea una directiva de replicación nueva con la configuración predeterminada de 24 horas para la retención del punto de recuperación y 60 minutos para la frecuencia de instantánea coherente con la aplicación.
 
     ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -109,7 +109,7 @@ Si quiere cambiar los valores predeterminados que usa Azure Site Recovery, puede
 ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/customize.PNG) Haga clic en **Crear recurso de destino** y en Habilitar replicación
 
 
-Una vez protegidas las máquinas virtuales, puede comprobar su estado en **Elementos replicados**.
+Una vez protegidas las máquinas virtuales, puede comprobar su estado en **Elementos replicados**
 
 >[!NOTE]
 >Durante el tiempo de replicación inicial es posible que el estado tarde en actualizarse y no se vea el progreso durante un tiempo. Puede hacer clic en el botón Actualizar de la parte superior de la hoja para obtener el estado más reciente.

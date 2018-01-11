@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92c730addb69bc4d12708ccd789edce0c2336c80
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo
 ## <a name="overview"></a>Información general
@@ -26,7 +26,7 @@ El procesador de multimedia (PM) **Miniaturas de vídeo multimedia de Azure** le
 
 El PM **Miniatura de vídeo multimedia de Azure** está actualmente en versión preliminar.
 
-En este tema se proporcionan detalles sobre **Miniatura de vídeo multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET.
+En este artículo se proporcionan detalles sobre **Miniatura de vídeo multimedia de Azure** y se muestra cómo se usa con el SDK de Media Services para .NET.
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -76,8 +76,8 @@ El siguiente JSON establece los parámetros disponibles.
 
 El programa siguiente muestra cómo:
 
-1. Crear un recurso y cargar un archivo multimedia en él.
-2. Crea un trabajo con una tarea de miniatura de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON. 
+1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
+2. Crea un trabajo con una tarea de miniatura de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON: 
    
         {                
             "version": "1.0",
@@ -109,16 +109,24 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
         {
             // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
-                ConfigurationManager.AppSettings["AADTenantDomain"];
+                ConfigurationManager.AppSettings["AMSAADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
-                ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+                ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+            private static readonly string _AMSClientId =
+                ConfigurationManager.AppSettings["AMSClientId"];
+            private static readonly string _AMSClientSecret =
+                ConfigurationManager.AppSettings["AMSClientSecret"];
 
             // Field for service context.
             private static CloudMediaContext _context = null;
 
             static void Main(string[] args)
             {
-                var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+                AzureAdTokenCredentials tokenCredentials = 
+                    new AzureAdTokenCredentials(_AADTenantDomain,
+                        new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                        AzureEnvironments.AzureCloudEnvironment);
+
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -258,7 +266,7 @@ Configure el entorno de desarrollo y rellene el archivo app.config con la inform
 ### <a name="video-thumbnail-output"></a>Resultado de miniaturas de vídeo
 [Resultado de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

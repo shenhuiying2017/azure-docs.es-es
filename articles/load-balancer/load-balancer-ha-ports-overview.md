@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Introducción a los puertos de alta disponibilidad
 
@@ -74,7 +74,7 @@ Para participar en la versión preliminar de la característica de puertos de al
 
 A continuación, se indican las configuraciones o excepciones admitidas en puertos alta disponibilidad:
 
-- Una única configuración IP de front-end puede tener una única regla de equilibrador de carga DSR (o que no sea DRS) con puertos de alta disponibilidad. No puede tener ambas.
+- Una única configuración IP de front-end puede tener una única regla de equilibrador de carga de Direct Server Return (DSR - IP flotante en Azure) con puertos de alta disponibilidad o puede tener una única regla de equilibrador de carga no DSR con puertos de alta disponibilidad. No puede tener ambas.
 - Una única configuración IP de interfaz de red solo puede tener una regla de equilibrador de carga DRS con puertos de alta disponibilidad. No se puede configurar ninguna otra regla para este comando ipconfig.
 - Una única configuración IP de interfaz de red puede tener una o más reglas de equilibrador de carga DRS con puertos de alta disponibilidad, siempre y cuando todas sus configuraciones IP de front-end sean exclusivas.
 - Si todas las reglas de equilibrio de carga son puertos de alta disponibilidad (solo DSR), es posible la coexistencia de dos o más reglas de Load Balancer que apunten al mismo grupo de back-end. Lo mismo puede decirse si ninguna regla es un puerto de alta disponibilidad (DSR y no DSR). Esta coexistencia de reglas de equilibrio de carga no es posible si hay una combinación de reglas de puertos de alta disponibilidad y puertos que no son de alta disponibilidad.

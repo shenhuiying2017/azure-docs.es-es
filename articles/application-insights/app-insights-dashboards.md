@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegación y paneles en el portal de Application Insights
 Una vez [configurado Application Insights en su proyecto](app-insights-overview.md), aparecerán los datos de telemetría acerca del rendimiento y el uso de la aplicación en el recurso del proyecto Application Insights en [Azure Portal](https://portal.azure.com).
@@ -98,6 +98,9 @@ Cuando haya creado un panel, puede compartirlo con otros usuarios.
 
 Aprenda más acerca de [Roles y control de acceso](app-insights-resources-roles-access-control.md).
 
+## <a name="create-dashboards-programmatically"></a>Crear paneles mediante programación
+Puede automatizar la creación de paneles mediante [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) y un editor de JSON sencillo.
+
 ## <a name="app-navigation"></a>Navegación en la aplicación
 La hoja de información general es la puerta de enlace para más información acerca de la aplicación.
 
@@ -150,7 +153,9 @@ CONFIGURAR
 CONFIGURACIÓN
 
 * [**Bloqueos**](../azure-resource-manager/resource-group-lock-resources.md): bloquee recursos de Azure.
-* [**Script de automatización**](app-insights-powershell.md): exporte una definición del recurso de Azure de forma que pueda usarla como plantilla para crear nuevos recursos.
+* 
+            [
+            **Script de Automation**](app-insights-powershell.md): exporte una definición del recurso de Azure de forma que pueda usarla como plantilla para crear nuevos recursos.
 
 
 ## <a name="video"></a>Vídeo

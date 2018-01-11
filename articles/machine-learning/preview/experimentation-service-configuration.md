@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuración del servicio Experimentación de Azure Machine Learning
 
@@ -221,7 +221,8 @@ _**Información general de ejecución de máquina virtual remota para un script 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Ejecución de un script en un clúster de HDInsight
 HDInsight es una plataforma popular para el análisis de macrodatos compatibles con Apache Spark. Workbench permite la experimentación con macrodatos mediante clústeres de Spark en HDInsight. 
 
->![NOTA] El clúster de HDInsight debe usar Azure Blob como almacenamiento principal. Aún no se admite el almacenamiento de Azure Data Lake.
+>[!NOTE]
+>El clúster de HDInsight debe usar Azure Blob como almacenamiento principal. Aún no se admite el almacenamiento de Azure Data Lake.
 
 Puede crear un destino de proceso y configuración de ejecución para un clúster de Spark en HDInsight con el comando siguiente:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Anexe la clave pública generada por Workbench al archivo ~/.ssh/authorized_keys del destino de proceso adjunto. 
 
-[!IMPORTANT] Deberá iniciar sesión en el destino de proceso con el mismo nombre de usuario utilizado para crear el destino de proceso. 
+>[!IMPORTANT]
+>Deberá iniciar sesión en el destino de proceso con el mismo nombre de usuario utilizado para crear el destino de proceso. 
 
 - Ahora puede preparar y usar el destino de proceso mediante autenticación basada en claves SSH.
 

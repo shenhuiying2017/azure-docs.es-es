@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Actualización de Kubernetes en Azure Container Service (AKS)
 
-Un clúster de Azure Container Service (AKS) se puede actualizar mediante la CLI de Azure. Durante el proceso de actualización, los nodos de Kubernetes se [acordonan y vacían](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) minuciosamente para minimizar las interrupciones en las aplicaciones en ejecución.
+Un clúster de Azure Container Service (AKS) se puede actualizar mediante la CLI de Azure. Durante el proceso de actualización, los nodos de Kubernetes se [acordonan y vacían][kubernetes-drain] minuciosamente para minimizar las interrupciones en las aplicaciones en ejecución.
 
 En este tutorial, la octava parte de ocho, se actualiza un clúster de Kubernetes. Las tareas que debe completar incluyen las siguientes:
 
@@ -30,7 +30,7 @@ En este tutorial, la octava parte de ocho, se actualiza un clúster de Kubernete
 
 En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, se ha cargado esta imagen en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes.
 
-Si no ha realizado estos pasos y quiere continuar, vuelva al [paso 1 del tutorial: creación de imágenes de contenedor](./tutorial-kubernetes-prepare-app.md).
+Si no ha realizado estos pasos y quiere continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Obtención de versiones del clúster
@@ -141,4 +141,11 @@ En este tutorial, actualizó Kubernetes en un clúster de AKS. Se completaron la
 Siga este vínculo para obtener más información acerca de AKS.
 
 > [!div class="nextstepaction"]
-> [Introducción a AKS](./intro-kubernetes.md)
+> [Introducción a AKS][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

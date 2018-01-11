@@ -4,7 +4,7 @@ description: "Aprenda a configurar el inicio de sesión único entre Azure Activ
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: integración de Azure Active Directory con Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Tutorial: Integración de Azure Active Directory con [Teamwork.com](https://www.teamwork.com/projects)
 
 En este tutorial, obtendrá información sobre cómo integrar Teamwork.com con Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, con
 Para configurar la integración de Azure AD con Teamwork.com, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Teamwork.com
+- Una suscripción a [Teamwork.com](https://www.teamwork.com/projects) con el plan Pro o superior
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.

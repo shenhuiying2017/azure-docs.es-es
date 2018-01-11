@@ -5,7 +5,7 @@ services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -100,86 +100,18 @@ En su entorno, debería evitar las siguientes configuraciones:
 
 ## <a name="policy-migration"></a>Migración de directivas
 
-Si tiene directivas configuradas en el Portal de Azure clásico, debe migrarlas a Azure Portal ya que:
+Debería considerar la posibilidad de migrar las directivas que no haya creado en Azure portal porque:
+
+- Ahora puede resolver situaciones que antes no podía controlar.
+
+- Puede reducir el número de directivas que tiene que administrar mediante su consolidación.   
+
+- Puede administrar todas las directivas de acceso condicional en una ubicación central.
+
+- Se retirará el Portal de Azure clásico.   
 
 
-- Un usuario que se encuentra en una directiva del Portal de Azure clásico y en una directiva de Azure Portal debe cumplir los requisitos de las dos directivas 
-
-- Si no se migran las directivas existentes, no podrá implementar las directivas que conceden acceso
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migración desde el Portal de Azure clásico
-
-En este escenario: 
-
-- En su [Portal de Azure clásico](https://manage.windowsazure.com), ha configurado:
-
-    - SharePoint Online
-
-    ![Acceso condicional](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Una directiva de acceso condicional basada en dispositivos
-
-    ![Acceso condicional](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Quiere configurar una directiva de acceso condicional de administración de aplicaciones móviles en Azure Portal 
- 
-
-#### <a name="configuration"></a>Configuración 
-
-- Revise sus directivas de acceso condicional basadas en dispositivos
-
-- Mígrelas a Azure Portal 
-
-- Agregue las directivas de acceso condicional con administración de aplicaciones móviles
-
-
-### <a name="migrating-from-intune"></a>Migración desde Intune 
-
-En este escenario:
-
-- En [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ), tiene una directiva de acceso condicional con administración de aplicaciones móviles para cualquier Exchange Online o SharePoint Online configurados
-
-    ![Acceso condicional](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Quiere realizar la migración para poder usar una directiva de acceso condicional con administración de aplicaciones móviles en Azure Portal
-
-
-#### <a name="configuration"></a>Configuración 
- 
-- Revise sus directivas de acceso condicional basadas en dispositivos
-
-- Mígrelas a Azure Portal 
-
-- Revise sus directivas de acceso condicional con administración de aplicaciones móviles configuradas para cualquier Exchange Online o SharePoint Online en Intune
-
-- Agregue el control para **requerir aplicaciones aprobadas** además del control basado en dispositivos 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migración desde el Portal de Azure clásico e Intune
-
-En este escenario:
-
-- Tiene la siguiente configuración:
-
-    - **Portal de Azure clásico:** condicional basado en dispositivos 
-
-    - **Intune:** directivas de acceso condicional con administración de aplicaciones móviles 
-    
-- Quiere realizar la migración de ambas directivas para poder usar directivas de acceso condicional con administración de aplicaciones móviles en Azure Portal
-
-
-#### <a name="configuration"></a>Configuración
-
-- Revise sus directivas de acceso condicional basadas en dispositivos
-
-- Mígrelas a Azure Portal 
-
-- Revise la directiva de acceso condicional con administración de aplicaciones móviles configurada para cualquier Exchange Online o SharePoint Online en Intune
-
-- Agregue el control para **requerir aplicaciones aprobadas** además del basado en dispositivos 
-
-
+Para obtener más información, consulte [Migración de directivas clásicas en Azure Portal](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

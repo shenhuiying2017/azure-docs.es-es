@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 75ee9cc7c4b40e9a724c8ce98d770a18ae654096
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Panel de Kubernetes con Azure Container Service (AKS)
 
-La CLI de Azure puede utilizarse para iniciar el panel de Kubernetes. Este documento le guía por el inicio del panel de Kubernetes con la CLI de Azure y también a través de algunas operaciones básicas del panel. Para más información sobre el panel de Kubernetes, vea [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) (Panel de interfaz de usuario web de Kubernetes).
+La CLI de Azure puede utilizarse para iniciar el panel de Kubernetes. Este documento le guía por el inicio del panel de Kubernetes con la CLI de Azure y también a través de algunas operaciones básicas del panel. Para obtener más información sobre el panel de Kubernetes, vea [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los pasos que se detallan en este documento se asume que se ha creado un clúster de AKS y que ha establecido una conexión kubectl con dicho clúster. Si necesita estos elementos, vea la [Guía de inicio rápido de AKS](./kubernetes-walkthrough.md).
+En los pasos que se detallan en este documento se asume que se ha creado un clúster de AKS y que ha establecido una conexión kubectl con dicho clúster. Si necesita estos elementos, vea la [Guía de inicio rápido de AKS][aks-quickstart].
 
-También es preciso que esté instalada y configurada la versión 2.0.21 de la CLI de Azure. Para saber qué versión tiene, ejecute el comando az --version. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+También es preciso que esté instalada y configurada la versión 2.0.21 de la CLI de Azure. Para saber qué versión tiene, ejecute el comando az --version. Si necesita instalarla o actualizarla, consulte [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
 ## <a name="start-kubernetes-dashboard"></a>Inicio del panel de Kubernetes
 
@@ -76,4 +76,11 @@ Seleccione **Update** (Actualizar) cuando esté listo.
 Para más información sobre el panel de Kubernetes, vea la documentación de Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Kubernetes Web UI Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) (Panel de la interfaz de usuario web de Kubernetes)
+> [Kubernetes Web UI Dashboard][kubernetes-dashboard] (Panel de la interfaz de usuario web de Kubernetes)
+
+<!-- LINKS - external -->
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[install-azure-cli]: /cli/azure/install-azure-cli

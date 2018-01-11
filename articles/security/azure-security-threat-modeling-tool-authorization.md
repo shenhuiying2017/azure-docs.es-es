@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Base de datos** | <ul><li>[Comprobación de que se emplean cuentas con privilegios mínimos para conectarse al servidor de base de datos](#privileged-server)</li><li>[Implementación de seguridad de nivel de fila (RLS) para impedir que los inquilinos accedan a los datos de los demás](#rls-tenants)</li><li>[El rol sysadmin solo debe tener a los usuarios válidos necesarios](#sysadmin-users)</li></ul> |
 | **Puerta de enlace de nube de IoT** | <ul><li>[Conexión a la puerta de enlace de la nube mediante tokens con privilegios mínimos](#cloud-least-privileged)</li></ul> |
 | **Centro de eventos de Azure** | <ul><li>[Uso de una clave SAS de permisos solo de envío para generar tokens de dispositivo](#sendonly-sas)</li><li>[No usar tokens de acceso que proporcionan acceso directo al centro de eventos](#access-tokens-hub)</li><li>[Conexión al centro de eventos mediante claves SAS que tienen los permisos mínimos necesarios](#sas-minimum-permissions)</li></ul> |
-| **Azure Document DB** | <ul><li>[Uso de tokens de recursos para conectarse a DocumentDB siempre que sea posible](#resource-docdb)</li></ul> |
+| **Azure Document DB** | <ul><li>[Uso de tokens de recursos para conectarse a Azure Cosmos DB siempre que sea posible](#resource-docdb)</li></ul> |
 | **Límites de confianza de Azure** | <ul><li>[Habilitación de administración avanzada de acceso a suscripción de Azure mediante RBAC](#grained-rbac)</li></ul> |
 | **Límites de confianza de Service Fabric** | <ul><li>[Restricción del acceso de cliente a operaciones de clúster mediante RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Realización de modelos de seguridad y uso de seguridad de nivel de campo cuando sea necesario](#modeling-field)</li></ul> |
@@ -224,7 +224,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | un token de recurso se asocia a un recurso de permiso de DocumentDB y captura la relación entre el usuario de una base de datos y el permiso que este tiene para un recurso de aplicación de DocumentDB específico (por ejemplo, colección o documento). Use siempre un token de recurso para obtener acceso a DocumentDB si la administración de claves maestras y de solo lectura del cliente no es fiable, como en el caso de una aplicación de usuario final (por ejemplo, un cliente móvil o de escritorio). Utilice una clave maestra o claves de solo lectura de aplicaciones back-end que pueden almacenar estas claves de forma segura.|
+| **Pasos** | Un token de recurso se asocia a un recurso de permiso de Azure Cosmos DB y captura la relación entre el usuario de una base de datos y el permiso que este tiene para un determinado recurso de aplicación de Azure Cosmos DB (por ejemplo, colección o documento). Use siempre un token de recurso para acceder a Azure Cosmos DB si la administración de claves maestras y de solo lectura del cliente no es de confianza, como en el caso de una aplicación de usuario final (por ejemplo, un cliente móvil o de escritorio). Use una clave maestra o claves de solo lectura en aplicaciones back-end que pueden almacenar estas claves de forma segura.|
 
 ## <a id="grained-rbac"></a>Habilitación de administración avanzada de acceso a suscripción de Azure mediante RBAC
 

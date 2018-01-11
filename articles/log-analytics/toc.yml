@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: Puerta de enlace de OMS
               href: log-analytics-oms-gateway.md
-            - name: Solución de problemas del agente Linux
-              href: log-analytics-agent-linux-support.md
         - name: Orígenes de datos
           items:
             - name: Introducción a orígenes de datos
@@ -89,7 +87,7 @@
               href: log-analytics-data-sources-alerts-nagios-zabbix.md
             - name: syslog
               href: log-analytics-data-sources-syslog.md
-            - name: Contadores de rendimiento
+            - name: contadores de rendimiento
               href: log-analytics-data-sources-performance-counters.md
             - name: Rendimiento de aplicaciones de Linux
               href: log-analytics-data-sources-linux-applications.md
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Custom Fields
               href: log-analytics-custom-fields.md
+            - name: API de recopilador de datos
+              href: log-analytics-data-collector-api.md
     - name: Datos de consulta
       items:
         - name: Documentación de lenguaje
@@ -148,7 +148,7 @@
           items:
             - name: Portal de OMS
               href: log-analytics-alerts-creating.md
-            - name: API de REST
+            - name: API DE REST
               href: log-analytics-api-alerts.md
             - name: Plantilla de Resource Manager
               href: ../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md
@@ -156,7 +156,7 @@
           href: log-analytics-alerts-webhooks.md
         - name: Solución de Alert Management
           href: log-analytics-solution-alert-management.md
-    - name: Administrar
+    - name: administración
       items:
         - name: Administración de agentes
           href: log-analytics-agent-manage.md
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Eliminar un área de trabajo
           href: log-analytics-manage-del-workspace.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de extensiones de máquina virtual
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Solución de problemas del agente Linux
+          href: log-analytics-agent-linux-support.md
     - name: Uso de soluciones
       items:
         - name: Introducción a soluciones
           href: log-analytics-add-solutions.md
         - name: Soluciones de destino
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Análisis de registros de actividad
-          href: log-analytics-activity.md
-        - name: Comprobación de estado de AD
+        - name: Registros de actividad de Azure
+          items:
+            - name: Análisis
+              href: log-analytics-activity.md
+            - name: Recopilación entre suscripciones
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: Evaluación de AD
           href: log-analytics-ad-assessment.md
         - name: Estado de replicación de AD
           href: log-analytics-ad-replication-status.md
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: Desarrollo
       items:
-        - name: API de recopilador de datos
-          href: log-analytics-data-collector-api.md
         - name: Cmdlets de PowerShell
           href: log-analytics-powershell-workspace-configuration.md
         - name: Plantillas de Resource Manager

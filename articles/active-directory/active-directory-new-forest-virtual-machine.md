@@ -5,7 +5,7 @@ services: active-directory, virtual-network
 keywords: "máquina virtual de Active Directory, instalación de un bosque de Active Directory, vídeos de Azure Active Directory  "
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 tags: 
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/06/2017
+ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 23bea4b6e3351bdce77e6d265ba258ce60a22a36
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
 En este artículo se muestra la creación de un nuevo entorno de Windows Server Active Directory en una máquina virtual (VM) de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). En este caso, la red virtual de Azure no está conectada a una red de un entorno local.
@@ -27,7 +27,7 @@ En este artículo se muestra la creación de un nuevo entorno de Windows Server 
 Es posible que también le interesen los siguientes artículos relacionados:
 
 * Para ver un vídeo que muestre estos pasos, consulte [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
-* De manera opcional, puede [configurar una VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md) y, a continuación, instalar un bosque nuevo o extender un bosque de entorno local hasta una red virtual de Azure. Para seguir esos pasos, consulte [Instalación de un controlador de dominio réplica de Active Directory en una instancia de Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
+* De manera opcional, puede [configurar una VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) y, a continuación, instalar un bosque nuevo o extender un bosque de entorno local hasta una red virtual de Azure. Para seguir esos pasos, consulte [Instalación de un controlador de dominio réplica de Active Directory en una instancia de Azure Virtual Network](active-directory-install-replica-active-directory-domain-controller.md).
 * Para obtener una orientación en cuanto a conceptos sobre la instalación de Active Directory Domain Services (AD DS) en una red virtual de Azure, consulte [Directrices para implementar Windows Server Active Directory en Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Diagrama del escenario
@@ -45,7 +45,7 @@ No existe mucha diferencia entre instalar un controlador de dominio en Azure y u
 | **Almacenamiento de base de datos de Active Directory** |Opcionalmente, cambie la ubicación de almacenamiento predeterminada de C:\. |Debe cambiar la ubicación de almacenamiento predeterminada de C:\. |
 
 ## <a name="create-an-azure-virtual-network"></a>Creación de una red virtual de Azure
-1. Inicie sesión en el portal clásico de Azure.
+1. Inicie sesión en el Portal de Azure.
 2. Cree una red virtual. Haga clic en **Redes** > **Crear una red virtual**. Use los valores de la tabla siguiente para completar el asistente.
 
    | En esta página del asistente… | Especifique estos valores |
@@ -59,7 +59,7 @@ Repita los pasos siguientes para crear máquinas virtuales para hospedar el rol 
 
 Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfaz de usuario, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-1. En el portal clásico, haga clic en **Nuevo** > **Calcular** > **Máquina virtual** > **De la galería**. Utilice los valores siguientes para completar el asistente. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
+1. En Azure Portal, seleccione **Nuevo** > **Compute** y, a continuación, seleccione una máquina virtual. Utilice los valores siguientes para completar el asistente. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
 
    | En esta página del asistente… | Especifique estos valores |
    | --- | --- |
@@ -108,7 +108,7 @@ Para más información acerca del uso de Windows PowerShell, consulte [Introducc
 ## <a name="see-also"></a>Otras referencias
 * [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * [Directrices para implementar Windows Server Active Directory en Microsoft Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-* [Configuración de una VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md)
+* [Configuración de una VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure](active-directory-install-replica-active-directory-domain-controller.md)
 * [Microsoft Azure IaaS para profesionales de TI: (01) Principios básicos sobre máquinas virtuales](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 * [Microsoft Azure IaaS para profesionales de TI: (05) Creación de redes virtuales y conectividad entre instalaciones](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)

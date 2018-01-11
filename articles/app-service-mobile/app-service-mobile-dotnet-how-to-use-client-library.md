@@ -1,6 +1,6 @@
 ---
 title: Biblioteca de cliente administrada de App Service Mobile Apps (Windows) | Microsoft Azure
-description: "Aprenda a usar un cliente .NET para Aplicaciones móviles del Servicio de aplicaciones de Azure con aplicaciones de Windows y Xamarin."
+description: Aprenda a usar un cliente .NET para Azure App Service Mobile Apps con aplicaciones de Windows y Xamarin.
 services: app-service\mobile
 documentationcenter: 
 author: ggailey777
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
-ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Aplicaciones móviles de Azure
+# <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Información general
-En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Aplicaciones móviles del Servicio de aplicaciones de Azure para Windows y Xamarin. Si no tiene experiencia en el uso de Mobile Apps, considere primero la opción de completar el tutorial [Guía de inicio rápido de Azure Mobile Apps][1]. En esta guía, nos centramos en el SDK administrado de cliente. Para obtener más información sobre los SDK para Mobile Apps del lado servidor, consulte la documentación de [SDK de servidor .NET][2] o de [SDK de servidor Node.js][3].
+En esta guía se muestra cómo realizar escenarios comunes con la biblioteca de cliente administrada para Azure App Service Mobile Apps para Windows y Xamarin. Si no tiene experiencia en el uso de Mobile Apps, considere primero la opción de completar el tutorial [Guía de inicio rápido de Azure Mobile Apps][1]. En esta guía, nos centramos en el SDK administrado de cliente. Para obtener más información sobre los SDK para Mobile Apps del lado servidor, consulte la documentación de [SDK de servidor .NET][2] o de [SDK de servidor Node.js][3].
 
 ## <a name="reference-documentation"></a>Documentación de referencia
 La documentación de referencia del SDK de cliente se encuentra aquí: [Referencia del cliente de .NET de Azure Mobile Apps][4].
@@ -78,7 +78,7 @@ using Microsoft.WindowsAzure.MobileServices;
 ### <a name="symbolsource"></a>Trabajo con símbolos de depuración en Visual Studio
 Los símbolos del espacio de nombres Microsoft.Azure.Mobile están disponibles en [SymbolSource][10].  Consulte las [instrucciones de SymbolSource][11] para integrar SymbolSource con Visual Studio.
 
-## <a name="create-client"></a>Creación del cliente de Aplicaciones móviles
+## <a name="create-client"></a>Creación del cliente de Mobile Apps
 El código siguiente crea el objeto [MobileServiceClient][12] que se usa para obtener acceso al back-end de la aplicación móvil.
 
 ```
@@ -320,7 +320,7 @@ var inserted = await table.InsertAsync(jo);
 ```
 
 ### <a name="working-with-id-values"></a>Trabajar con valores de Id.
-El servicio Aplicaciones móviles admite valores de cadena personalizados únicos para la columna **id** de la tabla. Esto permite a las aplicaciones usar valores personalizados como direcciones de correo electrónico o nombres de usuario para el id.  Los identificadores de cadena proporcionan las siguientes ventajas:
+El servicio Mobile Apps admite valores de cadena personalizados únicos para la columna **id** de la tabla. Esto permite a las aplicaciones usar valores personalizados como direcciones de correo electrónico o nombres de usuario para el id.  Los identificadores de cadena proporcionan las siguientes ventajas:
 
 * Se generan identificadores sin realizar una vuelta a la base de datos.
 * Los registros son más fáciles de fusionar desde diferentes tablas o bases de datos.
@@ -372,7 +372,7 @@ Al realizar una solicitud de eliminación, debe especificarse un identificador. 
 ### <a name="optimisticconcurrency"></a>Uso de la simultaneidad optimista para resolver conflictos
 Dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior. **control de simultaneidad optimista** asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos.  Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha.
 
-El servicio Aplicaciones móviles es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Aplicaciones móviles establece la propiedad `version` de ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera una excepción `MobileServicePreconditionFailedException<T>` . El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `version` correcto del back-end para confirmar los cambios.
+El servicio Mobile Apps es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Mobile Apps establece la propiedad `version` de ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera una excepción `MobileServicePreconditionFailedException<T>` . El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `version` correcto del back-end para confirmar los cambios.
 
 Defina una columna en la clase de tabla para la propiedad del sistema `version` con el fin de habilitar la simultaneidad optimista. Por ejemplo:
 
@@ -458,9 +458,9 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Para obtener más información, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure] .
+Para obtener más información, consulte el tema [Sincronización de datos sin conexión en Azure Mobile Apps] .
 
-### <a name="binding"></a>Enlace de datos de Aplicaciones móviles a una interfaz de usuario de Windows
+### <a name="binding"></a>Enlace de datos de Mobile Apps a una interfaz de usuario de Windows
 En esta sección se describe cómo mostrar objetos de datos devueltos mediante elementos de la interfaz de usuario en una aplicación Windows.  El ejemplo de código siguiente se enlaza al origen de la lista con una consulta de elementos incompletos. [MobileServiceCollection] crea una colección de enlaces compatible con Mobile Apps.
 
 ```
@@ -651,7 +651,7 @@ La biblioteca de autenticación de Active Directory (ADAL) se puede usar para in
 2. En Visual Studio o Xamarin Studio, abra el proyecto y agregue una referencia al paquete NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Al buscar, incluya las versiones preliminares.
 3. Agregue el siguiente código a la aplicación, según la plataforma que utilice. En cada caso, realice las sustituciones siguientes:
 
-   * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debería ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
+   * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debería ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en [Azure Portal].
    * Reemplace **INSERT-RESOURCE-ID-HERE** por el Id. de cliente del back-end de la aplicación móvil. El Id. de cliente en la pestaña **Opciones avanzadas** de **Configuración de Azure Active Directory** en el portal.
    * Reemplace **INSERT-CLIENT-ID-HERE** por el Id. de cliente que copió de la aplicación cliente nativa.
    * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. Este valor debe ser similar a *https://contoso.azurewebsites.net/.auth/login/done*.
@@ -939,7 +939,7 @@ Los siguientes temas tratan sobre las notificaciones push:
 * [Registro con plantillas multiplataforma](#register-xplat)
 
 ### <a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
-El cliente de Aplicaciones móviles permite registrar las notificaciones push con Centros de notificaciones de Azure. Al registrar, se obtiene un identificador del servicio de notificaciones push (PNS) específico de la plataforma. A continuación, proporcione este valor junto con las etiquetas cuando se cree el registro. El código siguiente registra la aplicación de Windows para las notificaciones push en el Servicio de notificaciones de Windows.(WNS):
+El cliente de Mobile Apps permite registrar las notificaciones push con Azure Notification Hubs. Al registrar, se obtiene un identificador del servicio de notificaciones push (PNS) específico de la plataforma. A continuación, proporcione este valor junto con las etiquetas cuando se cree el registro. El código siguiente registra la aplicación de Windows para las notificaciones push en el Servicio de notificaciones de Windows.(WNS):
 
 ```
 private async void InitNotificationsAsync()
@@ -955,7 +955,7 @@ private async void InitNotificationsAsync()
 Si va a insertar en WNS, DEBE [obtener un SID del paquete de Tienda Windows](#package-sid).  Para más información sobre las aplicaciones de Windows, incluyendo cómo registrarse para los registros de plantillas, vea [Agregar notificaciones de inserción a la aplicación].
 
 Tenga en cuenta que no se admite la solicitud de etiquetas del cliente.  Las solicitudes de etiquetas se quitan del registro en modo silencioso.
-Si desea registrar el dispositivo con etiquetas, crear una API personalizada que use la API de los Centros de notificaciones para realizar el registro en su nombre.  [Llame a la API personalizada](#customapi), en lugar de al método `RegisterNativeAsync()`.
+Si desea registrar el dispositivo con etiquetas, crear una API personalizada que use la API de Notification Hubs para realizar el registro en su nombre.  [Llame a la API personalizada](#customapi), en lugar de al método `RegisterNativeAsync()`.
 
 ### <a name="package-sid"></a>Obtención del SID de un paquete de la Tienda Windows.
 Se necesita un SID de paquete para habilitar las notificaciones push en aplicaciones de la Tienda Windows.  Para recibir un SID del paquete. registre la aplicación en la Tienda Windows.
@@ -1014,9 +1014,9 @@ El método **RegisterAsync()** también acepta iconos secundarios:
 MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 ```
 
-Por seguridad, todas las etiquetas se eliminan durante el registro. Para agregar etiquetas a las instalaciones o plantillas dentro de las instalaciones, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure].
+Por seguridad, todas las etiquetas se eliminan durante el registro. Para agregar etiquetas a las instalaciones o plantillas dentro de las instalaciones, consulte [Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps].
 
-Para enviar notificaciones mediante estas plantillas registradas, consulte [Referencias API].
+Para enviar notificaciones mediante estas plantillas registradas, consulte [API de Notification Hubs].
 
 ## <a name="misc"></a>Temas variados
 ### <a name="errors"></a>Gestión de errores
@@ -1093,7 +1093,7 @@ public class MyHandler : DelegatingHandler
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
 [Incorporación de la autenticación a su aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
+[Sincronización de datos sin conexión en Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Agregar notificaciones de inserción a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [registrar la aplicación para usar el inicio de sesión de la cuenta Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de App Service para usar el inicio de sesión de Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
@@ -1122,7 +1122,6 @@ public class MyHandler : DelegatingHandler
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
 [Azure Portal]: https://portal.azure.com/
-[Portal de Azure clásico]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
@@ -1131,7 +1130,8 @@ public class MyHandler : DelegatingHandler
 [SDK de Windows Live]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[Referencias API]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+
+            [API de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [ejemplo de archivos de Mobile Apps]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 

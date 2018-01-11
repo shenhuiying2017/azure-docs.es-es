@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Queue Storage para supervisar las notificaciones sobre trabajos de Media Services | Microsoft Docs
-description: "Descubra cómo usar el almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia. El ejemplo de código está escrito en C# y utiliza el SDK de Servicios multimedia para .NET."
+description: "Descubra cómo usar el almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services. El ejemplo de código está escrito en C# y utiliza el SDK de Media Services para .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -12,27 +12,27 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b5b1d7723b57db2614dc889282f98e9673b4bbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia con .NET
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Uso del almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services con .NET
 Al ejecutar trabajos de codificación, muchas veces se requiere una forma de hacer un seguimiento del progreso del trabajo. Puede configurar Media Services para entregar notificaciones a [Azure Queue Storage](../storage/storage-dotnet-how-to-use-queues.md). Puede supervisar el progreso del trabajo obteniendo notificaciones desde Queue Storage. 
 
 Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería de Queue Storage es fiable y altamente escalable. El sondeo de mensajes en Queue Storage es preferible a otros métodos.
 
 Un escenario común para escuchar notificaciones de Media Services es si va a desarrollar un sistema de administración de contenido que necesita realizar alguna tarea adicional después de que se complete un trabajo de codificación (por ejemplo, para desencadenar el siguiente paso del flujo de trabajo o publicar contenido).
 
-En este tema se muestra cómo obtener mensajes de notificación de Queue Storage.  
+En este artículo se muestra cómo obtener mensajes de notificación de Queue Storage.  
 
 ## <a name="considerations"></a>Consideraciones
 Tenga en cuenta lo siguiente al desarrollar aplicaciones de Media Services que usen Queue Storage:
 
-* Queue Storage no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Queue Storage no ofrece ninguna garantía de entrega ordenada de tipo primero en entrar, primero en salir (FIFO). Para obtener más información, consulte [Colas de Azure y colas de Azure Service Bus: comparación y diferencias](https://msdn.microsoft.com/library/azure/hh767287.aspx).
 * Queue Storage no es un servicio de inserción. Tiene que sondear la cola.
 * Puede tener cualquier número de colas. Para obtener más información, consulte la [API de REST del servicio de cola](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
 * Queue Storage tiene algunas limitaciones y particularidades que deben tenerse en cuenta. Estas se describen en [Colas de Azure y de Azure Service Bus: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
@@ -42,7 +42,7 @@ Tenga en cuenta lo siguiente al desarrollar aplicaciones de Media Services que u
 El ejemplo de código de esta sección realiza lo siguiente:
 
 1. Define la clase **EncodingJobMessage** que se asigna al formato de mensaje de notificación. El código deserializa los mensajes recibidos de la cola en objetos del tipo **EncodingJobMessage** .
-2. Carga la información de cuenta de almacenamiento y Servicios multimedia del archivo app.config. El ejemplo de código usa esta información para crear los objetos **CloudMediaContext** y **CloudQueue**.
+2. Carga la información de cuenta de almacenamiento y Media Services del archivo app.config. El ejemplo de código usa esta información para crear los objetos **CloudMediaContext** y **CloudQueue**.
 3. Crea la cola que va a recibir los mensajes de notificación sobre el trabajo de codificación.
 4. Crea el extremo de notificación que se asigna a la cola.
 5. Adjunta el extremo de notificación al trabajo y envía el trabajo de codificación. Puede tener varios extremos de notificación adjuntos a un trabajo.
@@ -54,7 +54,7 @@ El ejemplo de código de esta sección realiza lo siguiente:
 9. Elimina la cola y el extremo de notificación.
 
 > [!NOTE]
-> La manera recomendada de supervisar el estado de un trabajo es escuchar los mensajes de notificación, tal como se muestra en el ejemplo siguiente.
+> La manera recomendada de supervisar el estado de un trabajo es escuchar los mensajes de notificación, tal como se muestra en el ejemplo siguiente:
 >
 > Como alternativa, puede comprobar el estado de un trabajo mediante el uso de la propiedad **IJob.State** .  Es posible que llegue un mensaje de notificación sobre la finalización de un trabajo antes de que el estado en **IJob** se establezca en **Finalizado**. La propiedad **IJob.State** refleja el estado exacto con un ligero retraso.
 >
@@ -63,7 +63,8 @@ El ejemplo de código de esta sección realiza lo siguiente:
 ### <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
 
 1. Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
-2. Cree una carpeta nueva (la carpeta puede estar en cualquier lugar del disco duro) y copie el archivo .mp4 o .wmv que desea codificar para reproducirlo en streaming o descargarlo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\Media".
+2. Cree una carpeta nueva (la carpeta puede estar en cualquier lugar del disco duro) y copie un archivo .mp4 que quiere codificar para reproducirlo en streaming o descargarlo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\Media".
+3. Agregue una referencia a la biblioteca **System.Runtime.Serialization**.
 
 ### <a name="code"></a>Código
 
@@ -120,9 +121,14 @@ namespace JobNotification
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
+
         private static readonly string _StorageConnectionString = 
             ConfigurationManager.AppSettings["StorageConnectionString"];
 
@@ -138,11 +144,15 @@ namespace JobNotification
             string endPointAddress = Guid.NewGuid().ToString();
 
             // Create the context.
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
+            
             // Create the queue that will be receiving the notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
@@ -326,7 +336,8 @@ namespace JobNotification
     }
 }
 ```
-El ejemplo anterior genera el siguiente resultado. Los valores variarán.
+
+El ejemplo anterior generó el siguiente resultado, pero sus valores variarán.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4
@@ -355,7 +366,7 @@ El ejemplo anterior genera el siguiente resultado. Los valores variarán.
 
 
 ## <a name="next-step"></a>Paso siguiente
-Consulte las rutas de aprendizaje de Servicios multimedia.
+Consulte las rutas de aprendizaje de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

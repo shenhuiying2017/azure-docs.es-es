@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
 
-En este tema se muestra cómo empezar a crear instancias de Azure Functions que usan Media Services. La función de Azure definida en este tema supervisa un contenedor de la cuenta de almacenamiento llamado **input** para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecutará la función. Puede consultar las funciones de Azure en la [Introducción](../azure-functions/functions-overview.md) y otros temas relacionados en la sección **Azure Functions**.
+En este artículo se muestra cómo empezar a crear instancias de Azure Functions que usan Media Services. La función de Azure definida en este artículo supervisa un contenedor de la cuenta de almacenamiento llamado **input** para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecuta la función. Puede consultar las funciones de Azure en la [Introducción](../azure-functions/functions-overview.md) y otros temas relacionados en la sección **Azure Functions**.
 
 Si desea explorar e implementar instancias de Azure Functions existentes que usan Azure Media Services, visite [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Este repositorio incluye ejemplos que usan Azure Media Services para mostrar flujos de trabajo relacionados con la ingesta directa de contenido desde Blob Storage, la codificación y la escritura de contenido de nuevo en Blob Storage. También incluye ejemplos de cómo supervisar las notificaciones de trabajo por medio de webhooks y colas de Azure. También puede desarrollar sus funciones a partir de los ejemplos del repositorio [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implementar las funciones, presione el botón **Implementar en Azure**.
 
@@ -61,7 +61,7 @@ Una vez implementada su instancia de Function App, puede encontrarla entre Azure
 
 1. Seleccione la aplicación de función y haga clic en **Nueva función**.
 2. Elija el lenguaje **C#** y el escenario **Procesamiento de datos**.
-3. Elija la plantilla **BlobTrigger**. Esta función se desencadenará si se carga un blob en el contenedor **input**. El nombre **input** se especifica en **Path** (Ruta de acceso), en el paso siguiente.
+3. Elija la plantilla **BlobTrigger**. Esta función se desencadena si se carga un blob en el contenedor **input**. El nombre **input** se especifica en **Path** (Ruta de acceso), en el paso siguiente.
 
     ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
@@ -103,7 +103,7 @@ Reemplace el contenido del archivo function.json existente por el código siguie
 
 ### <a name="projectjson"></a>project.json
 
-El archivo project.json contiene dependencias. Este es un ejemplo de archivo **project.json** que incluye los paquetes de Azure Media Services de .NET de NuGet. Tenga en cuenta que los números de versión cambiarán con las últimas actualizaciones a los paquetes, por lo que debe confirmar las versiones más recientes. 
+El archivo project.json contiene dependencias. Este es un ejemplo de archivo **project.json** que incluye los paquetes de Azure Media Services de .NET de NuGet. Tenga en cuenta que los números de versión cambian con las últimas actualizaciones a los paquetes, por lo que debe confirmar las versiones más recientes. 
 
 Agregue la siguiente definición a project.json. 
 
@@ -125,7 +125,7 @@ Agregue la siguiente definición a project.json.
     
 ### <a name="runcsx"></a>run.csx
 
-Este es el código C# para la función.  La función definida a continuación supervisa un contenedor de la cuenta de almacenamiento llamado **input** (que es lo que se especificó en la ruta de acceso) para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecutará la función.
+Este es el código C# para la función.  La función definida a continuación supervisa un contenedor de la cuenta de almacenamiento llamado **input** (que es lo que se especificó en la ruta de acceso) para los nuevos archivos MP4. Una vez que un archivo se coloca en el contenedor de almacenamiento, el desencadenador de blobs ejecuta la función.
     
 En el ejemplo definido en esta sección se muestra 
 
@@ -134,7 +134,7 @@ En el ejemplo definido en esta sección se muestra
 
 En un escenario real, lo más probable es que quisiera realizar un seguimiento del progreso del trabajo y, a continuación, publicar el recurso codificado. Para obtener más información, consulte [Uso de Azure WebHooks para supervisar las notificaciones de trabajo de Media Services](media-services-dotnet-check-job-progress-with-webhooks.md). Para obtener más ejemplos, consulte [Azure Functions de Media Services](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Reemplace el contenido del archivo run.csx existente por el código siguiente. Una vez que haya terminado de definir la función, haga clic en **Guardar y ejecutar**.
+Reemplace el contenido del archivo run.csx existente por el código siguiente: una vez que haya terminado de definir la función, haga clic en **Guardar y ejecutar**.
 
 ```
 #r "Microsoft.WindowsAzure.Storage"
@@ -334,14 +334,14 @@ Para probar la función, debe cargar un archivo MP4 en el contenedor **input** d
 1. Seleccione la cuenta de almacenamiento que especificó en la variable de entorno **StorageConnection**.
 2. Haga clic en **Blobs**.
 3. Haga clic en **+ Contenedor**. Asigne el nombre **input** al contenedor.
-4. Presione **Cargar** y busque un archivo .mp4 que desee cargar.
+4. Presione **Cargar** y busque un archivo .mp4 que quiera cargar.
 
 >[!NOTE]
 > Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs después de que una aplicación de función quede inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para más información, consulte [Desencadenadores y enlaces de Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia. 
+En este punto, está listo para iniciar el desarrollo de una aplicación de Media Services. 
  
 Para más detalles, ejemplos completos y soluciones del uso de Azure Functions y Logic Apps con Azure Media Services para crear flujos de trabajo de creación de contenido personalizado, consulte el [ejemplo de integración de funciones de .NET con Media Services en GitHub](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 

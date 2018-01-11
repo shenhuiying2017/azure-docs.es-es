@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -242,7 +242,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 |Atributo|Descripción|Obligatorio|Valor predeterminado|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="entero"|Tiempo de espera en segundos antes de que se produzca un error de la llamada al servicio back-end.|No|Sin tiempo de espera|  
+|timeout="entero"|Tiempo de espera en segundos antes de que se produzca un error de la llamada al servicio back-end.|No|300 segundos|  
 |follow-redirects="true &#124; false"|Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.|No|false|  
   
 ### <a name="usage"></a>Uso  

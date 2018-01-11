@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Para crear una máquina virtual
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **De la galería**.
 3. En el cuadro de diálogo **Virtual machine image select** (Selección de imagen de máquina virtual), seleccione **JDK 7 Windows Server 2012**.
    Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
@@ -74,7 +74,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
    2. Haga clic en **Completo**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Para iniciar sesión de manera remota en la máquina virtual
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
 4. Haga clic en **Conectar**.
@@ -87,15 +87,15 @@ Para comenzar a usar colas de Service Bus en Azure, primero debe crear un espaci
 
 Para crear un nombre de espacio de servicio:
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En el panel de navegación inferior izquierdo del Portal de Azure clásico, haga clic en **Service Bus, Access Control y Caché**.
-3. En el panel superior izquierdo del Portal de Azure clásico, haga clic en el nodo **Service Bus** y luego en el botón **Nuevo**.  
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+2. En el panel de navegación inferior izquierdo de Azure Portal, haga clic en **Service Bus, Access Control y Caché**.
+3. En el panel superior izquierdo de Azure Portal, haga clic en el nodo **Service Bus** y luego en el botón **Nuevo**.  
    ![Captura de pantalla del nodo Service Bus][svc_bus_node]
 4. En el cuadro de diálogo **Crear nuevo espacio de nombres de servicio**, escriba un **espacio de nombres** y luego, para asegurarse de que es único, haga clic en el botón **Comprobar disponibilidad**.  
    ![Captura de pantalla de la creación de un nuevo espacio de nombres][create_namespace]
 5. Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el país o región en el que debería alojarse el espacio de nombres y, a continuación, haga clic en el botón **Crear espacio de nombres** .  
    
-   El espacio de nombres que creó aparecerá a continuación en el Portal de Azure clásico y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
+   El espacio de nombres que creó aparecerá a continuación en Azure Portal y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obtención de credenciales de administración predeterminadas para el espacio de nombres
 Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres.

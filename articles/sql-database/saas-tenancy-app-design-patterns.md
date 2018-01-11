@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -165,7 +165,7 @@ En el modelo híbrido, todas las bases de datos tienen el identificador del inqu
 
 En cualquier momento, puede mover a un inquilino determinado a su propia base de datos multiinquilino.  Y en cualquier momento, puede cambiar de opinión y mover al inquilino de nuevo a una base de datos que contiene a varios inquilinos.  También puede asignar a un inquilino a la nueva base de datos de un solo inquilino al aprovisionar la nueva base de datos.
 
-El modelo híbrido destaca cuando existen grandes diferencias entre las necesidades de recursos de los grupos identificables de inquilinos.  Por ejemplo, suponga que los inquilinos que participan en una evaluación gratuita no tienen garantizado el mismo nivel alto de rendimiento que los inquilinos suscriptores.  La directiva podría ser que los inquilinos en la fase de evaluación gratuita se almacenan en una base de datos multiinquilino que se comparte entre todos los inquilinos de prueba gratuitos.  Cuando un inquilino de evaluación gratuita se suscribe en el nivel de servicio básico, el inquilino se puede mover a otra base de datos multiinquilino que tenga menos inquilinos.  Un suscriptor que paga por el nivel de servicio premium se podría mover a su nueva base de datos de un único inquilino.
+El modelo híbrido destaca cuando existen grandes diferencias entre las necesidades de recursos de los grupos identificables de inquilinos.  Por ejemplo, suponga que los inquilinos que participan en una evaluación gratuita no tienen garantizado el mismo nivel alto de rendimiento que los inquilinos suscriptores.  La directiva podría ser que los inquilinos en la fase de evaluación gratuita se almacenan en una base de datos multiinquilino que se comparte entre todos los inquilinos de prueba gratuitos.  Cuando un inquilino de evaluación gratuita se suscribe en el nivel de servicio básico, el inquilino se puede mover a otra base de datos multiinquilino que tenga menos inquilinos.  Un suscriptor que paga por el nivel de servicio premium se podría mover a su propia base de datos de inquilino único nueva.
 
 #### <a name="pools"></a>Grupos
 

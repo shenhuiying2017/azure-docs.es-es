@@ -4,7 +4,7 @@ description: "Inicio de sesión de usuarios de Azure AD Connect para la configur
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opciones para el inicio de sesión de los usuarios en Azure AD Connect
 Azure Active Directory (Azure AD) Connect permite que los usuarios inicien sesión en los recursos en la nube y locales con las mismas contraseñas. En este artículo se describen los conceptos clave para cada modelo de identidad para ayudarlo a elegir la identidad que desea utilizar con el fin de iniciar sesión en Azure AD.
@@ -28,6 +28,10 @@ Si ya está familiarizado con el modelo de identidad de Azure AD y desea obtener
 * [Sincronización de hash de contraseña](#password-synchronization) con [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md)
 * [Autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md) con [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md)
 * [SSO federado (con Active Directory Federation Services [AD FS])](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> Es importante recordar que, al configurar la federación de Azure AD, establece confianza entre su inquilino de Azure AD y los dominios federados. Con este dominio federado de confianza, los usuarios tendrán acceso a los recursos de nube de Azure AD en el inquilino.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Elección del método de inicio de sesión de usuario para su organización
 Para la mayoría de las organizaciones que simplemente quieren habilitar el inicio de sesión de usuarios en Office 365, aplicaciones SaaS y otros recursos basados en Azure AD, se recomienda la opción de sincronización de hash de contraseña predeterminada. No obstante, algunas organizaciones tienen un motivo concreto por el que no pueden usar esta opción. Pueden elegir una opción de inicio de sesión federado, como AD FS, o la autenticación de paso a través. Puede usar la tabla siguiente para ayudarlo a tomar la decisión correcta.

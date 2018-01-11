@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET
 
-Puede utilizar Media Encoder Standard para generar una o varias vistas en miniatura de la entrada de vídeo en formatos de archivo de imagen [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), o [BMP](https://en.wikipedia.org/wiki/BMP_file_format). Puede enviar tareas que producen solo las imágenes o puede combinar la generación de miniaturas con la codificación. Este tema proporciona algunos ejemplos de valores preestablecidos de miniaturas en código XML y JSON para estos escenarios. Al final del tema, hay un [código de ejemplo](#code_sample) que muestra cómo utilizar el SDK de .NET de Media Services para realizar la tarea de codificación.
+Puede utilizar Media Encoder Standard para generar una o varias vistas en miniatura de la entrada de vídeo en formatos de archivo de imagen [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), o [BMP](https://en.wikipedia.org/wiki/BMP_file_format). Puede enviar tareas que producen solo las imágenes o puede combinar la generación de miniaturas con la codificación. Este artículo proporciona algunos ejemplos de valores preestablecidos de miniaturas en código XML y JSON para estos escenarios. Al final del artículo, hay un [código de ejemplo](#code_sample) que muestra cómo utilizar el SDK de .NET de Media Services para realizar la tarea de codificación.
 
 Para más detalles sobre los elementos que se usan en los valores preestablecidos de ejemplo, consulte [Esquema de Media Encoder Standard](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Asegúrese de revisar la sección [Consideraciones](media-services-dotnet-genera
     
 ## <a name="example-of-a-single-png-file-preset"></a>Ejemplo de un valor preestablecido de archivo PNG único
 
-El siguiente valor preestablecido en código JSON y XML puede usarse para generar un único archivo PNG de salida fuera de los primeros segundos de la entrada de vídeo, donde el codificador realiza un intento de mejor esfuerzo para buscar un fotograma "interesante". Tenga en cuenta que las dimensiones de la imagen de salida se han establecido en 100%, lo que significa que se corresponderán con las dimensiones de la entrada de vídeo. Tenga en cuenta también que es necesaria la configuración de "Format" en "Outputs" para que coincida con el uso de "PngLayers" en la sección "Codecs". 
+El siguiente valor preestablecido en código JSON y XML puede usarse para generar un único archivo PNG de salida fuera de los primeros segundos de la entrada de vídeo, donde el codificador realiza un intento de mejor esfuerzo para buscar un fotograma "interesante". Tenga en cuenta que las dimensiones de la imagen de salida se han establecido en 100 %, lo que significa que se corresponderán con las dimensiones de la entrada de vídeo. Tenga en cuenta también que es necesaria la configuración de "Format" en "Outputs" para que coincida con el uso de "PngLayers" en la sección "Codecs". 
 
 ### <a name="json-preset"></a>Valor preestablecido JSON
 
@@ -138,7 +138,7 @@ El siguiente valor preestablecido en código JSON y XML puede usarse para genera
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Ejemplo de un valor preestablecido de una imagen en una marca de tiempo específica
 
-El siguiente valor preestablecido en código JSON y XML puede usarse para generar una única imagen JPEG en la marca de 30 segundos de la entrada de vídeo. Este valor preestablecido espera que el vídeo de entrada sea más de 30 segundos de duración (de lo contrario el trabajo producirá un error).
+El siguiente valor preestablecido en código JSON y XML puede usarse para generar una única imagen JPEG en la marca de 30 segundos de la entrada de vídeo. Este valor preestablecido espera que el vídeo de entrada sea de más de 30 segundos de duración (de lo contrario, el trabajo producirá un error).
 
 ### <a name="json-preset"></a>Valor preestablecido JSON
 
@@ -194,7 +194,7 @@ El siguiente valor preestablecido en código JSON y XML puede usarse para genera
     
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Ejemplo de un valor preestablecido de miniaturas con distintas resoluciones
 
-El siguiente valor preestablecido puede utilizarse para generar miniaturas con diferentes resoluciones en una tarea. En el ejemplo, en las posiciones 5 %, 15 %, …, 95 % de la escala de tiempo de entrada, el codificador generará dos imágenes: una en la posición 100 % de la resolución del vídeo de entrada y otro en la posición 50 %.
+El siguiente valor preestablecido puede utilizarse para generar miniaturas con diferentes resoluciones en una tarea. En el ejemplo, en las posiciones 5 %, 15 %, …, 95 % de la escala de tiempo de entrada, el codificador genera dos imágenes: una en la posición 100 % de la resolución del vídeo de entrada y otro en la posición 50 %.
 
 Tenga en cuenta el uso de macro {Resolution} en el nombre de archivo. Indica al codificador que utilice el ancho y alto que especificó en la sección de codificación del valor preestablecido al generar el nombre de archivo de las imágenes de salida. Esto también ayuda a distinguir fácilmente entre las distintas imágenes.
 
@@ -267,7 +267,7 @@ Tenga en cuenta el uso de macro {Resolution} en el nombre de archivo. Indica al 
 Aunque todos los ejemplos anteriores han explicado cómo enviar una tarea de codificación que solo generará imágenes, también puede combinar la codificación de audio y vídeo con generación de miniaturas. El siguiente valor preestablecido JSON y XML indica a **Media Encoder Standard** que genere una miniatura durante la codificación.
 
 ### <a id="json"></a>Valor preestablecido JSON
-Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
+Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artículo.
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
     }
 
 ### <a id="xml"></a>Valor preestablecido XML
-Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
+Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artículo.
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -384,7 +384,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
 
 ## <a id="code_sample"></a>Codificación de vídeo y generación de miniaturas con .NET
 
-En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios multimedia para realizar las siguientes tareas:
+En el ejemplo de código siguiente se usa el último SDK para .NET de Media Services para realizar las siguientes tareas:
 
 * Crear un trabajo de codificación.
 * Obtener una referencia al codificador Codificador multimedia estándar.
@@ -398,36 +398,45 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 * Agregar un controlador de eventos para comprobar el progreso del trabajo.
 * Envíe el trabajo.
 
-Consulte el tema [Desarrollo en Media Services con .NET](media-services-dotnet-how-to-use.md) para obtener instrucciones acerca de cómo configurar el entorno de desarrollo.
+Consulte el artículo [Desarrollo en Media Services con .NET](media-services-dotnet-how-to-use.md) para obtener instrucciones acerca de cómo configurar el entorno de desarrollo.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-        namespace EncodeAndGenerateThumbnails
-        {
-        class Program
-        {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace EncodeAndGenerateThumbnails
+{
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
 
-            private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
+        private static readonly string _mediaFiles =
+        Path.GetFullPath(@"../..\Media");
 
-            private static readonly string _singleMP4File =
+        private static readonly string _singleMP4File =
             Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -439,10 +448,10 @@ Consulte el tema [Desarrollo en Media Services con .NET](media-services-dotnet-h
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
-            }
+        }
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
             // Get a media processor reference, and pass to it the name of the 
@@ -454,9 +463,9 @@ Consulte el tema [Desarrollo en Media Services con .NET](media-services-dotnet-h
 
             // Create a task
             ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
-                processor,
-                configuration,
-                TaskOptions.None);
+                    processor,
+                    configuration,
+                    TaskOptions.None);
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
@@ -464,47 +473,47 @@ Consulte el tema [Desarrollo en Media Services con .NET](media-services-dotnet-h
             // This output is specified as AssetCreationOptions.None, which 
             // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
+                    AssetCreationOptions.None);
 
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
             job.Submit();
             job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
             return job.OutputMediaAssets[0];
-            }
+        }
 
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
             Console.WriteLine("Job state changed event:");
             Console.WriteLine("  Previous state: " + e.PreviousState);
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
                 case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
                 case JobState.Canceling:
                 case JobState.Queued:
                 case JobState.Scheduled:
                 case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
+                    Console.WriteLine("Please wait...\n");
+                    break;
                 case JobState.Canceled:
                 case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
+                    // Display or log error details as needed.
+                    break;
                 default:
-                break;
+                    break;
             }
-            }
+        }
 
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
@@ -512,9 +521,10 @@ Consulte el tema [Desarrollo en Media Services con .NET](media-services-dotnet-h
                 throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
-            }
         }
-
+    }
+}
+```
 
 ## <a name="considerations"></a>Consideraciones
 Se aplican las siguientes consideraciones:
@@ -522,9 +532,9 @@ Se aplican las siguientes consideraciones:
 * El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
 * Los elementos Jpg/Png/BmpImage tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
   
-  * Número de marco si son enteros no negativos, por ejemplo, "Start": "120",
-  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, "Start": "15%", O
-  * Marca de tiempo si se expresa como formato HH:MM:SS… P. ej. "Start" : "00:01:00"
+  * Número de marco si son enteros no negativos, por ejemplo, Start: 120
+  * Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, Start: 15
+  * Marca de tiempo si se expresa como formato HH:MM:SS… Por ejemplo "Start" : "00:01:00"
     
     Puede mezclar y hacer coincidir notaciones a su conveniencia.
     
@@ -536,12 +546,12 @@ Se aplican las siguientes consideraciones:
 
 Puede comprobar el [progreso del trabajo](media-services-check-job-progress.md) mientras el trabajo de codificación está pendiente.
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Otras referencias
-[Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
+[Información general sobre la codificación de Media Services](media-services-encode-asset.md)
 

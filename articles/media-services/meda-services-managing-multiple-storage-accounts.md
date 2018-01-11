@@ -1,39 +1,38 @@
 ---
-title: "Administración de recursos de Media Services entre varias cuentas de almacenamiento | Microsoft Docs"
+title: "Administración de recursos de Media Services entre varias cuentas de Storage | Microsoft Docs"
 description: "En este artículo se dan instrucciones sobre cómo administrar recursos de servicios de multimedia en varias cuentas de almacenamiento."
 services: media-services
 documentationcenter: 
 author: Juliako
 manager: cfowler
 editor: 
-ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 0b407c3b092fd2c706775154cee3164a9869315a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c99d39a7e33a161d63cf934e0b5983e3977598c4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento
-A partir de Servicios multimedia de Microsoft Azure  2.2, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia. La capacidad de asociar varias cuentas de almacenamiento a una cuenta de Servicios multimedia ofrece las siguientes ventajas:
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Administración de recursos de Media Services entre varias cuentas de almacenamiento
+A partir de Microsoft Azure Media Services  2.2, puede asociar varias cuentas de almacenamiento a una sola cuenta de Media Services. La capacidad de asociar varias cuentas de almacenamiento a una cuenta de Media Services ofrece las siguientes ventajas:
 
 * Equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
-* Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
+* Escalado de Media Services para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
 
-En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media). También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia. 
+En este artículo se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media). También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Media Services. 
 
 ## <a name="considerations"></a>Consideraciones
-Al asociar varias cuentas de almacenamiento a su cuenta de Servicios multimedia, se aplican las siguientes consideraciones:
+Al asociar varias cuentas de almacenamiento a su cuenta de Media Services, se aplican las siguientes consideraciones:
 
-* Todas las cuentas de almacenamiento asociadas a una cuenta de Servicios multimedia deben estar en el mismo centro de datos que la cuenta de Servicios multimedia.
-* Actualmente, cuando se asocia una cuenta de almacenamiento a la cuenta especificada de Servicios multimedia, no se puede desasociar.
-* La cuenta de almacenamiento principal es la indicada durante el tiempo de creación de cuenta de Servicios multimedia. Actualmente, no puede cambiar la cuenta de almacenamiento predeterminada. 
+* Todas las cuentas de almacenamiento asociadas a una cuenta de Media Services deben estar en el mismo centro de datos que la cuenta de Media Services.
+* Actualmente, cuando se asocia una cuenta de almacenamiento a la cuenta especificada de Media Services, no se puede desasociar.
+* La cuenta de almacenamiento principal es la indicada durante el tiempo de creación de cuenta de Media Services. Actualmente, no puede cambiar la cuenta de almacenamiento predeterminada. 
 * Actualmente, si desea agregar una cuenta de almacenamiento de acceso esporádico a la cuenta de AMS, la cuenta de almacenamiento debe ser de tipo Blob y no estar establecida como principal.
 
 Otras consideraciones:
@@ -42,7 +41,7 @@ Los Media Services usan el valor de la propiedad **IAssetFile.Name** al generar 
 
 ## <a name="to-attach-storage-accounts"></a>Para asociar cuentas de almacenamiento  
 
-Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media), como se muestra en el ejemplo siguiente.
+Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](/powershell/module/azurerm.media), como se muestra en el ejemplo siguiente:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -62,10 +61,10 @@ Para asociar cuentas de almacenamiento a su cuenta de AMS, use [API de Azure Res
 
 Actualmente, si desea agregar una cuenta de almacenamiento de acceso esporádico a la cuenta de AMS, la cuenta de almacenamiento debe ser de tipo Blob y no estar establecida como principal.
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Para administrar los recursos de Servicios multimedia entre varias cuentas de almacenamiento
-El código siguiente usa el último SDK de Servicios multimedia para realizar las siguientes tareas:
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Para administrar los recursos de Media Services entre varias cuentas de almacenamiento
+El código siguiente usa el último SDK de Media Services para realizar las siguientes tareas:
 
-1. Muestre todas las cuentas de almacenamiento asociadas a la cuenta de Servicios multimedia especificada.
+1. Muestre todas las cuentas de almacenamiento asociadas a la cuenta de Media Services especificada.
 2. Recupere el nombre de la cuenta de almacenamiento predeterminada.
 3. Cree un nuevo recurso en la cuenta de almacenamiento predeterminada.
 4. Cree un recurso de salida del trabajo de codificación en la cuenta de almacenamiento especificada.
@@ -91,15 +90,23 @@ namespace MultipleStorageAccounts
 
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         private static CloudMediaContext _context;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -265,7 +272,7 @@ namespace MultipleStorageAccounts
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

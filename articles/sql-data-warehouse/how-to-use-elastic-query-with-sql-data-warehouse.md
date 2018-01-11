@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Uso de consulta elástica con SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Para más información sobre la consulta elástica con SQL Database, consulte [I
 
 ### <a name="elastic-querying"></a>Consulta elástica
 
-- La tabla externa y la tabla almacenada en caché internamente existen como objetos diferentes con la instancia de base de datos SQL. Considere la posibilidad de crear una vista sobre la parte superior de la parte almacenada en caché de la tabla y la tabla externa que una ambas tablas y aplique filtros en el punto de límite de cada tabla.
+- En muchos casos, alguien podría querer administrar un tipo de tabla ajustada, donde una parte de la tabla se encuentre dentro de SQL Database como datos almacenados en caché para el rendimiento con el resto de los datos almacenados en SQL Data Warehouse. Necesita tener dos objetos en SQL Database: una tabla externa en SQL Database que haga referencia a la tabla base de SQL Data Warehouse y la parte "en caché" de la tabla en SQL Database. Considere la posibilidad de crear una vista en la parte superior de la parte en caché de la tabla y la tabla externa que una ambas tablas y aplique filtros que separen los datos materializados en SQL Database y los datos de SQL Data Warehouse expuestos a través de tablas externas.
 
   Imagine que quisiéramos mantener el año de datos más reciente en una instancia de base de datos SQL. Tenemos dos tablas **ext Orders**, que hace referencia a las tablas de pedidos de almacenamiento de datos, y **dbo. Orders** que representa los años más recientes de datos dentro de la instancia de la base de datos SQL. En lugar de pedir a los usuarios que decidan si consultar una tabla u otra, se crea una vista en la parte superior de las dos tablas en el punto de partición del año más reciente.
 
@@ -107,10 +107,10 @@ Para más información sobre la consulta elástica con SQL Database, consulte [I
 
   Una vista producida de tal manera, permite que el compilador de consultas determine si necesita usar la instancia de almacenamiento de datos para responder a la consulta de los usuarios. 
 
-  Existe una sobrecarga de envío, compilación, ejecución y movimiento de datos asociada a cada consulta elástica en la instancia de almacenamiento de datos. Tenga en cuenta que cada consulta elástica va en contra de los intervalos de simultaneidad y consume recursos.Si planea profundizar más en el conjunto de resultados desde la instancia de almacenamiento de datos, considere la posibilidad de materializarlo en una tabla temporal en SQL Database para un mejor rendimiento y evitar así el uso innecesario de recursos.  
+  Existe una sobrecarga de envío, compilación, ejecución y movimiento de datos asociada a cada consulta elástica en la instancia de almacenamiento de datos. Tenga en cuenta que cada consulta elástica va en detrimento de los intervalos de simultaneidad y utiliza recursos.  
 
 
-- If one plans to drill down further into the result set from the data warehouse instance, consider materializing it in a temp table in the SQL Database for performance and to prevent unnecessary resource usage.
+- Si planea profundizar más en el conjunto de resultados desde la instancia de almacenamiento de datos, considere la posibilidad de materializarlo en una tabla temporal en SQL Database para un mejor rendimiento y evitar así el uso innecesario de recursos.
 
 ### <a name="moving-data"></a>Movimiento de datos 
 
@@ -135,13 +135,17 @@ Para más información sobre la consulta elástica con SQL Database, consulte [I
 
 ## <a name="faq"></a>P+F
 
-P: ¿Puedo usar bases de datos en un grupo de Elastic Database con una consulta elástica?
+P: ¿Puedo usar bases de datos en un grupo elástico con una consulta elástica?
 
-R: Sí. Las bases de datos SQL dentro de un grupo elástico pueden usar consultas elásticas. 
+R: Sí. Las bases de datos SQL de un grupo elástico pueden usar consultas elásticas. 
 
 P: ¿Existe un límite en cuanto al número de bases de datos que pueden utilizarse para la consulta elástica?
 
-R: Los servidores lógicos tienen límites de DTU para evitar que los clientes gasten de manera excesiva de forma accidental. Si va a habilitar varias bases de datos para consulta elástica junto con una instancia de SQL Data Warehouse, podría alcanzar el límite inesperadamente. Si esto ocurre, envíe una solicitud para aumentar el límite de DTU en su servidor lógico. Puede aumentar su cuota mediante la [creación de una incidencia de soporte técnico](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) y la selección de *Cuota* como el tipo de solicitud
+P: No existe ningún límite en cuanto al número de bases de datos que pueden utilizarse para la consulta elástica. Sin embargo, cada consulta elástica (consultas que lleguen a SQL Data Warehouse) contará para los límites de simultaneidad normales.
+
+P: ¿Hay límites de DTU relacionados con las consultas elásticas?
+
+R: Los límites de DTU no se imponen de forma distinta para consultas elásticas. La directiva estándar establece que los servidores lógicos tienen límites de DTU para evitar que los clientes gasten de manera excesiva de forma accidental. Si va a habilitar varias bases de datos para consulta elástica junto con una instancia de SQL Data Warehouse, podría alcanzar el límite inesperadamente. Si esto ocurre, envíe una solicitud para aumentar el límite de DTU en su servidor lógico. Puede aumentar su cuota mediante la [creación de una incidencia de soporte técnico](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) y la selección de *Cuota* como el tipo de solicitud
 
 P: ¿Puedo usar la seguridad de nivel de fila o el enmascaramiento dinámico de datos con la consulta elástica?
 

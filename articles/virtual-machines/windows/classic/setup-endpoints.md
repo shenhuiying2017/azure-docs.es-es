@@ -1,6 +1,6 @@
 ---
 title: "Configuración de puntos de conexión en una máquina virtual de Windows clásica | Microsoft Docs"
-description: "Aprenda a configurar los puntos de conexión de una máquina virtual Windows en el Portal de Azure clásico para permitir la comunicación con una máquina virtual Windows en Azure."
+description: "Aprenda a configurar los puntos de conexión de una máquina virtual Windows clásica en Azure Portal para permitir la comunicación con una máquina virtual Windows en Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.openlocfilehash: bea2a30d67e47342616bbe00946b7c559c5e277b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 34bfad1e41037f38e950db085c0c13b7066b3e96
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Configuración de puntos de conexión en una máquina virtual de Windows clásica en Azure
 Todas las máquinas virtuales de Windows que se crean en Azure con el modelo de implementación clásico se pueden comunicar automáticamente a través de un canal de red privado con otras máquinas virtuales del mismo servicio en la nube o la misma red virtual. Sin embargo, los equipos en Internet o en otras redes virtuales necesitan extremos para dirigir el tráfico de red entrante a una máquina virtual. Este artículo también está disponible para [máquinas virtuales Linux](../../linux/classic/setup-endpoints.md).

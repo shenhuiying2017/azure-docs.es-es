@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -72,7 +72,7 @@ Si desea conservar el espacio de índice, puede ajustar la [directiva de indexac
 
 ## <a name="debugging-why-queries-are-running-slow"></a>Depuración de por qué mis consultas se ejecutan lentamente
 
-En los SDK de la API de DocumentDB, Azure Cosmos DB proporciona estadísticas de ejecución de consultas. 
+En los SDK de la API de SQL, Azure Cosmos DB proporciona estadísticas de ejecución de consultas. 
 
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

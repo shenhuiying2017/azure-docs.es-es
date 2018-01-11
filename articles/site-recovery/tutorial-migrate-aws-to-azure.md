@@ -15,15 +15,15 @@ ms.workload: storage-backup-recovery
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a10cbf1d3c8043ddcac9a725373fc30a3ecee20
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 814d8ee4952dd08707849eadc1e4e97ab6087da0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
-En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web Services (AWS) a máquinas virtuales de Azure con Site Recovery. Al migrar instancias de EC2 a Azure, VMware las trata como si fuesen físicas en los equipos locales. En este tutorial, aprenderá a:
+En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web Services (AWS) a máquinas virtuales de Azure con Site Recovery. Al migrar instancias de EC2 a Azure, se tratan las máquinas virtuales como si fuesen físicas en los equipos locales. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Preparar recursos de Azure

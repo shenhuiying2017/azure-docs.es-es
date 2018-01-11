@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -402,7 +402,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 7. ¿Esto funciona para la instancia del conjunto de escala de máquinas virtuales?
    * Sí, el servicio de metadatos está disponible para las instancias del conjunto de escala. 
 8. ¿Cómo puedo obtener soporte técnico para el servicio?
-   * Para obtener soporte técnico para el servicio, cree un problema de compatibilidad en Azure Portal para la máquina virtual en la que no es posible obtener respuesta de metadatos después de reintentos prolongados 
+   * Para obtener soporte técnico para el servicio, cree una solicitud de soporte técnico en Azure Portal para la máquina virtual en la que no es posible obtener respuesta de metadatos después de reintentos prolongados 
 
    ![Soporte técnico de metadatos de instancia](./media/instance-metadata-service/InstanceMetadata-support.png)
     

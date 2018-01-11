@@ -1,6 +1,6 @@
 ---
 title: Carga de un certificado de Azure Management API | Microsoft Docs
-description: "Aprenda a cargar el certificado de Management API para el Portal de Azure clásico."
+description: Aprenda a cargar el certificado de Management API para Azure Portal.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: 89c08f2d1e0e244503e3fc4355cad0b4391618e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>Carga de un certificado de administración de Azure Management API
+# <a name="upload-an-azure-management-api-management-certificate"></a>Carga de un certificado de administración de API de Administración de Azure
 Los certificados de administración le permiten autenticar con el modelo de implementación clásica que proporciona Azure. Muchos programas y herramientas (como Visual Studio o Azure SDK) utilizan estos certificados para automatizar la configuración y la implementación de diferentes servicios de Azure. 
 
 > [!WARNING]

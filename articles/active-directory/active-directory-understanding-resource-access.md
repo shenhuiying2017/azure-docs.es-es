@@ -4,21 +4,21 @@ description: En este tema se explican conceptos acerca del uso de los administra
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/06/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.custom: it-pro;
+ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Descripción de acceso a los recursos de Azure
 
@@ -26,27 +26,22 @@ El control de acceso de Azure se inicia desde una perspectiva de facturación. E
 
 <br><br>![Cuentas de Azure][1]
 
-Las suscripciones también tienen una asociación con un directorio. El directorio define un conjunto de usuarios. Pueden ser usuarios del trabajo o de la escuela que crearon el directorio, o bien pueden ser usuarios externos (es decir, Cuentas Microsoft). Las suscripciones son accesibles por un subconjunto de esos usuarios del directorio que se han asignado como administrador de servicios (SA) o coadministrador (CA); la única excepción es que, por razones heredadas, las Cuentas de Microsoft (antes Windows Live ID) pueden asignarse como SA o CA sin estar presentes en el directorio.
+Las suscripciones también tienen una asociación con un directorio. El directorio define un conjunto de usuarios. Pueden ser usuarios del trabajo o la escuela que crearon el directorio, o bien pueden ser usuarios invitados externos. Las suscripciones son accesibles por un subconjunto de esos usuarios del directorio que se han asignado como administrador de servicios (SA) o coadministrador (CA); la única excepción es que, por razones heredadas, las cuentas de Microsoft (antes Windows Live ID) pueden asignarse como SA o CA sin estar presentes en el directorio.
 
 <br><br>![Control de acceso de Azure][2]
 
-Una funcionalidad del Portal de Azure clásico permite a las asociaciones de seguridad que han iniciado sesión con una cuenta Microsoft cambiar el directorio al que está asociada una suscripción mediante el uso del comando **Editar directorio** de la página **Suscripciones** de **Configuración**. Tenga en cuenta que esta operación tiene implicaciones sobre el control de acceso de esa suscripción.
-
-> [!NOTE]
-> El comando **Editar directorio** del Portal de Azure clásico no está disponible para los usuarios que han iniciado sesión con una cuenta profesional o educativa, porque con dichas cuentas solo pueden iniciar sesión en el directorio al que pertenecen.
-> 
-> 
+La funcionalidad en Azure Portal permite que los SA que tienen la sesión iniciada usen una cuenta de Microsoft para cambiar el directorio con el que está asociada una suscripción. Esta operación tiene implicaciones sobre el control de acceso de esa suscripción.
 
 <br><br>![Flujo de inicio de sesión de usuario simple][3]
 
-En un caso simple, una organización (como Contoso) aplicará la facturación y el control de acceso al mismo conjunto de suscripciones. Es decir, el directorio está asociado a suscripciones que pertenecen a una sola cuenta de Azure. Cuando inician sesión correctamente en el Portal de Azure clásico, los usuarios ven dos colecciones de recursos (representados en color naranja en la ilustración anterior):
+En un caso simple, una organización (como Contoso) aplicará la facturación y el control de acceso al mismo conjunto de suscripciones. Es decir, el directorio está asociado a suscripciones que pertenecen a una sola cuenta de Azure. Cuando inician sesión correctamente en Azure Portal, los usuarios ven dos colecciones de recursos (representados en color naranja en la ilustración anterior):
 
 * Directorios donde existe su cuenta de usuario (con origen o agregada como entidad de seguridad externa). Tenga en cuenta que el directorio usado para el inicio de sesión no es pertinente para este cálculo, por lo que los directorios se muestran independientemente de dónde se inicia sesión.
 * Recursos que forman parte de las suscripciones asociadas al directorio usados para el inicio de sesión Y a los que puede tener acceso el usuario (donde sea un SA o un CA).
 
 <br><br>![Usuario con varias suscripciones y directorios][4]
 
-Los usuarios con suscripciones en varios directorios tienen la posibilidad de cambiar el contexto actual del Portal de Azure clásico mediante el filtro de suscripciones. De forma encubierta, esto da lugar a un inicio de sesión diferente en un directorio distinto, pero se realiza de forma transparente mediante el inicio de sesión único (SSO).
+Los usuarios con suscripciones en varios directorios tienen la posibilidad de cambiar el contexto actual de Azure Portal mediante el filtro de suscripciones. De forma encubierta, esto da lugar a un inicio de sesión diferente en un directorio distinto, pero se realiza de forma transparente mediante el inicio de sesión único (SSO).
 
 Operaciones tales como mover recursos entre suscripciones pueden ser más difíciles como resultado de esta vista única del directorio de suscripciones. Para realizar la transferencia de recursos, puede que sea necesario usar primero el comando **Editar directorio** de la página Suscripciones de **Configuración** para asociar las suscripciones al mismo directorio.
 

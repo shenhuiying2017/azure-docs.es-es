@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -28,6 +28,8 @@ Al suscribirse a Azure, hay varias cosas que puede hacer para obtener una idea m
 - Si la suscripción es un Contrato Enterprise (EA), la versión preliminar pública para ver los costos en Azure Portal está disponible. Si realiza la suscripción a través de un Proveedor de soluciones en la nube (CSP) o Patrocinio de Azure, no podrá aplicar algunas de las siguientes características. Vea [Recursos adicionales para EA, CSP y Patrocinio](#other-offers) para obtener más información.
 
 - Si la suscripción es una evaluación gratuita, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure bajo licencia Open (AIO) o BizSpark, la suscripción se deshabilitará automáticamente cuando se usen todos los créditos. Infórmese sobre los [límites de gasto](#spending-limit) para evitar que la suscripción se deshabilite inesperadamente.
+
+- Si se ha registrado para obtener una [cuenta gratuita de Azure](https://azure.microsoft.com/en-us/free/), [puede utilizar algunos de los servicios de Azure más populares de forma gratuita durante 12 meses](billing-create-free-services-included-free-account.md). Junto con las recomendaciones que se enumeran a continuación, consulte [Evitar cargos en su cuenta gratuita de Azure](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obtención de costos estimados antes de agregar servicios de Azure
 

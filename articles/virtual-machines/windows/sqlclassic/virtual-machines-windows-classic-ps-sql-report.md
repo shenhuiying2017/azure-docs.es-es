@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
 ## <a name="prerequisites-and-assumptions"></a>Requisitos previos y suposiciones
 * **Suscripción de Azure**: compruebe el número de núcleos disponibles en su suscripción de Azure. Si crea el tamaño recomendado de máquina virtual de **A3**, necesita **4** núcleos disponibles. Si usa un tamaño de máquina virtual de **A2**, necesita **2** núcleos disponibles.
   
-  * Para comprobar el límite de núcleos de su suscripción, en el Portal de Azure clásico, haga clic en CONFIGURACIÓN en el panel izquierdo y luego en USO en el menú superior.
+  * Para comprobar el límite de núcleos de su suscripción, en Azure Portal, haga clic en CONFIGURACIÓN en el panel izquierdo y luego en USO en el menú superior.
   * Para aumentar la cuota de núcleos, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). Para obtener más información sobre el tamaño de la máquina virtual, consulte [Tamaños de máquinas virtuales para Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Scripting de Windows PowerShell**: en el tema se supone que cuenta con conocimientos prácticos básicos de Windows PowerShell. Para obtener más información sobre el uso de Windows PowerShell, vea lo siguiente:
   
@@ -43,7 +43,7 @@ En este tema se describe y se le guiará por la implementación y la configuraci
   * [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Paso 1: Aprovisionar una máquina virtual de Azure
-1. Vaya al Portal de Azure clásico.
+1. Vaya a Azure Portal.
 2. Haga clic en **Máquinas virtuales** en el panel izquierdo.
    
     ![máquinas virtuales de microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -117,7 +117,7 @@ Se creó un certificado autofirmado en la máquina virtual cuando se aprovision�
 
 1. Para confiar en la entidad de certificación raíz del certificado en la máquina virtual local, agregue el certificado a las **Entidades de certificación raíz de confianza**. A continuación se encuentra un resumen de los pasos necesarios. Para obtener pasos detallados sobre cómo confiar en la entidad de certificación, consulte [Install a Server Certificate](https://technet.microsoft.com/library/cc740068).
    
-   1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+   1. En Azure Portal, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
       
        ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
       
@@ -153,7 +153,7 @@ Para ver pasos más detallados, consulte la sección [Conectarse a la máquina v
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Uso del script para configurar el servidor de informes y HTTP
 Para usar el script de Windows PowerShell para configurar el servidor de informes, complete los siguientes pasos. La configuración incluye HTTP, no HTTPS:
 
-1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+1. En Azure Portal, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
    
     ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
    
@@ -287,7 +287,7 @@ Para usar el script de Windows PowerShell para configurar el servidor de informe
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Usar el script para configurar el servidor de informes y HTTPS
 Para usar Windows PowerShell para configurar el servidor de informes, complete los siguientes pasos. La configuración incluye HTTPS, no HTTP.
 
-1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
+1. En Azure Portal, seleccione la máquina virtual y haga clic en Conectar. En función de la configuración del explorador, es posible que se le solicite guardar un archivo .rdp para conectarse a la máquina virtual.
    
     ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Use el nombre de la máquina virtual del usuario, el nombre de usuario y la contraseña que configuró al crear la máquina virtual. 
    
@@ -495,10 +495,10 @@ El resultado incluirá lo siguiente:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Usar el Administrador de configuración para configurar el Servidor de informes
 Si no quiere ejecutar el script de PowerShell para configurar el servidor de informes, siga los pasos de esta sección para usar el administrador de configuración del modo nativo de Reporting Services para configurar el servidor de informes.
 
-1. En el Portal de Azure clásico, seleccione la máquina virtual y haga clic en Conectar. Use el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
+1. En Azure Portal, seleccione la máquina virtual y haga clic en Conectar. Use el nombre de usuario y la contraseña que configuró al crear la máquina virtual.
    
     ![conectarse a máquina virtual de azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Ejecute Windows Update e instale las actualizaciones en la máquina virtual. Si se requiere un reinicio de la máquina virtual, reinicie la máquina virtual y vuelva a conectarse a la máquina virtual desde el Portal de Azure clásico.
+2. Ejecute Windows Update e instale las actualizaciones en la máquina virtual. Si se requiere un reinicio de la máquina virtual, reinicie la máquina virtual y vuelva a conectarse a la máquina virtual desde Azure Portal.
 3. En el menú Inicio de la máquina virtual, escriba **Reporting Services** y abra el **Administrador de configuración de Reporting Services**.
 4. Deje los valores predeterminados para **Nombre del servidor** e **Instancia del servidor de informes**. Haga clic en **Conectar**.
 5. En el panel izquierdo, haga clic en **URL de servicio web**.
@@ -593,18 +593,18 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Minimizar el costo si no está usando la máquina virtual
 > [!NOTE]
-> Para minimizar los costos de las máquinas virtuales de Azure cuando no estén en uso, apague la máquina virtual desde el Portal de Azure clásico. Si usa las opciones de energía de Windows dentro de una máquina virtual para apagar la máquina virtual, se le seguirá cobrando el mismo importe para la máquina virtual. Para reducir los costos, deberá apagar la máquina virtual en el Portal de Azure clásico. Si ya no necesita la máquina virtual, recuerde eliminar la máquina virtual y los archivos .vhd asociados para evitar costos de almacenamiento. Para más información, consulte la sección de preguntas más frecuentes en [Detalles de precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> Para minimizar los costos de Azure Virtual Machines cuando no estén en uso, apague la máquina virtual desde Azure Portal. Si usa las opciones de energía de Windows dentro de una máquina virtual para apagar la máquina virtual, se le seguirá cobrando el mismo importe para la máquina virtual. Para reducir los costos, deberá apagar la máquina virtual en Azure Portal. Si ya no necesita la máquina virtual, recuerde eliminar la máquina virtual y los archivos .vhd asociados para evitar costos de almacenamiento. Para más información, consulte la sección de preguntas más frecuentes en [Detalles de precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Más información
 ### <a name="resources"></a>Recursos
 * Para consultar contenido similar relacionado con una implementación de servidor único de SQL Server Business Intelligence y SharePoint 2013, consulte [Usar Windows PowerShell para crear una máquina virtual de Azure con SQL Server BI y SharePoint 2013](https://msdn.microsoft.com/library/azure/dn385843.aspx).
-* Para consultar contenido similar relacionado con una implementación de varios servidores de SQL Server Business Intelligence y SharePoint 2013, consulte [Implementar SQL Server Business Intelligence en máquinas virtuales de Azure](https://msdn.microsoft.com/library/dn321998.aspx).
-* Para consultar información similar relacionada con implementaciones de SQL Server Business Intelligence en Máquinas virtuales de Azure, consulte [SQL Server Business Intelligence en Máquinas virtuales de Azure](virtual-machines-windows-classic-ps-sql-bi.md).
+* Para consultar contenido similar relacionado con una implementación de varios servidores de SQL Server Business Intelligence y SharePoint 2013, consulte [Implementar SQL Server Business Intelligence en Azure Virtual Machines](https://msdn.microsoft.com/library/dn321998.aspx).
+* Para consultar información similar relacionada con implementaciones de SQL Server Business Intelligence en Azure Virtual Machines, consulte [SQL Server Business Intelligence en Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md).
 * Para más información sobre el costo de procesos de Azure, consulte la pestaña Máquinas virtuales de la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 
 ### <a name="community-content"></a>Contenido de la Comunidad
 * Para ver instrucciones paso a paso sobre cómo crear un servidor de informes de modo nativo de Reporting Services sin usar el script, consulte [Hospedar el servicio de SQL Reporting en la máquina virtual de Azure](http://adititechnologiesblog.blogspot.in/2012/07/hosting-sql-reporting-service-on-azure.html).
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Vínculos a otros recursos para SQL Server en máquinas virtuales de Azure
-[Información general sobre SQL Server en máquinas virtuales de Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+[Información general sobre SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

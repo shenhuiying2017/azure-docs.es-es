@@ -1,6 +1,6 @@
 ---
 title: "Visualización de registros de actividad de Azure para supervisar recursos | Microsoft Docs"
-description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra PowerShell del Portal de Azure, CLI de Azure CLI y REST.
+description: Use los registros de actividad para revisar las acciones y los errores de los usuarios. Muestra PowerShell de Azure Portal, CLI de Azure CLI y REST.
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualización de registros de actividad para auditar las acciones sobre los recursos
 Mediante los registros de actividad, puede determinar:
@@ -38,10 +38,10 @@ Puede recuperar información de los registros de actividad mediante el portal, P
    
     ![seleccionar registro de actividad](./media/resource-group-audit/select-monitor.png)
 
-   O bien, para filtrar automáticamente el registro de actividad por un determinado recurso o grupo de recursos, seleccione **Registro de actividad** en esa hoja de recursos. Observe que el registro de actividad se filtra automáticamente por el recurso seleccionado.
+   O bien, para filtrar automáticamente el registro de actividad por un determinado recurso o grupo de recursos, seleccione **Registro de actividad**. Observe que el registro de actividad se filtra automáticamente por el recurso seleccionado.
    
     ![filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
-2. En la hoja **Registro de actividad**, verá un resumen de operaciones recientes.
+2. En **Registro de actividad**, verá un resumen de operaciones recientes.
    
     ![mostrar acciones](./media/resource-group-audit/audit-summary.png)
 3. Para restringir el número de operaciones que se muestran, seleccione diferentes condiciones. Por ejemplo, la siguiente imagen muestra los campos **Timespan** y **Evento iniciado por** modificados para ver las acciones llevadas a cabo por un determinado usuario o aplicación durante el mes pasado. Seleccione **Aplicar** para ver los resultados de la consulta.
@@ -147,4 +147,5 @@ Las operaciones REST para trabajar con el registro de actividad forman parte de 
 * Para obtener información sobre cómo establecer directivas de seguridad, vea [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 * Para aprender sobre los comandos para ver operaciones de implementación, consulte [Visualización de operaciones de implementación](resource-manager-deployment-operations.md).
 * Para aprender a evitar eliminaciones en un recurso para todos los usuarios, consulte [Bloqueo de recursos con Azure Resource Manager](resource-group-lock-resources.md).
+* Para ver la lista de operaciones disponibles para cada proveedor de Microsoft Azure Resource Manager, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

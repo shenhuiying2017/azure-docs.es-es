@@ -1,6 +1,6 @@
 ---
 title: "Uso de Azure Key Vault desde una aplicación web | Microsoft Docs"
-description: "Use este tutorial para ayudarle a aprender a usar el Almacén de claves de Azure desde una aplicación web."
+description: "Use este tutorial para ayudarle a aprender a usar Azure Key Vault desde una aplicación web."
 services: key-vault
 author: adhurwit
 manager: mbaldwin
@@ -11,47 +11,47 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="use-azure-key-vault-from-a-web-application"></a>Uso del Almacén de claves de Azure desde una aplicación web
+# <a name="use-azure-key-vault-from-a-web-application"></a>Uso de Azure Key Vault desde una aplicación web
 
 ## <a name="introduction"></a>Introducción
 
-Use este tutorial como ayuda para aprender a usar el Almacén de claves de Azure desde una aplicación web. Le guiará por el proceso de obtener acceso a un secreto de un almacén de claves de Azure para que se pueda usar en su aplicación web.
+Use este tutorial como ayuda para aprender a usar Azure Key Vault desde una aplicación web. Le guiará por el proceso de obtener acceso a un secreto de un almacén de claves de Azure para que se pueda usar en su aplicación web.
 
 **Tiempo estimado para completar el tutorial:** 15 minutos.
 
-Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
+Para obtener información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Un URI de un secreto en un almacén de claves de Azure.
-* Un Id. de cliente y un secreto de cliente para una aplicación web registrada en Azure Active Directory que tenga acceso a su Almacén de claves.
+* Un Id. de cliente y un secreto de cliente para una aplicación web registrada en Azure Active Directory que tenga acceso a su almacén de claves.
 * Una aplicación web. Vamos a mostrarle los pasos para una aplicación ASP.NET MVC implementada en Azure como una aplicación web.
 
 >[!IMPORTANT]
->* Este ejemplo se basa en un método más antiguo del aprovisionamiento manual de identidades de AAD. Actualmente hay una nueva característica en la versión preliminar denominada [Identidad de servicio administrada (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), que puede aprovisionar identidades de AAD automáticamente. Consulte el siguiente ejemplo en [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) para obtener más información.
+>* Este ejemplo se basa en un método más antiguo del aprovisionamiento manual de identidades de AAD. Actualmente hay una nueva característica en la versión preliminar denominada [Identidad de servicio administrada (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), que puede aprovisionar identidades de AAD automáticamente. Consulte el siguiente ejemplo en [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) para obtener más información.
 
 > [!NOTE]
 >* Para los fines de este tutorial, es esencial que haya realizado los pasos enumerados en [Introducción a Azure Key Vault](key-vault-get-started.md) para así disponer del URI de un secreto y del id. de cliente y el secreto de cliente de una aplicación web.
 
 
-La aplicación web que va a tener acceso el Almacén de claves es la que está registrada en Azure Active Directory y a la que se le ha concedido para él. Si este no es el caso, vuelva al apartado sobre cómo registrar una aplicación del tutorial de introducción y repita los pasos enumerados.
+La aplicación web a la que va a tener acceso el almacén de claves es la que está registrada en Azure Active Directory y a la que se ha concedido acceso al almacén de claves. Si este no es el caso, vuelva al apartado sobre cómo registrar una aplicación del tutorial de introducción y repita los pasos enumerados.
 
-Este tutorial está diseñado para desarrolladores web que comprendan los conceptos básicos de la creación de aplicaciones web en Azure. Para obtener más información sobre las aplicaciones web de Azure, consulte [Información general de aplicaciones web](../app-service/app-service-web-overview.md).
+Este tutorial está diseñado para desarrolladores web que comprendan los conceptos básicos de la creación de aplicaciones web en Azure. Para obtener más información sobre Azure Web Apps, consulte [Información general de Web Apps](../app-service/app-service-web-overview.md).
 
 ## <a id="packages"></a>Incorporación de paquetes NuGet
 
 Hay dos paquetes que la aplicación web debe tener instalados.
 
 * Biblioteca de autenticación de Active Directory: contiene métodos para interactuar con Azure Active Directory y administrar la identidad de usuario.
-* Biblioteca de Almacén claves de Azure:  contiene métodos para interactuar con el Almacén de claves de Azure.
+* Biblioteca de Almacén claves de Azure:  contiene métodos para interactuar con Azure Key Vault.
 
 Los dos paquetes se pueden instalar mediante la Consola del Administrador de paquetes con el comando Install-Package.
 
@@ -78,7 +78,7 @@ Si no va a hospedar la aplicación como una aplicación web de Azure, debe agreg
 
 ## <a id="gettoken"></a>Agregar el método para obtener un token de acceso
 
-Para usar la API del Almacén de claves necesita un token de acceso. El cliente del Almacén de claves controla las llamadas a la API del Almacén de claves, pero deberá suministrarle una función que obtenga el token de acceso.  
+Para usar la API de Key Vault necesita un token de acceso. El cliente de Key Vault controla las llamadas a la API de Key Vault, pero deberá suministrarle una función que obtenga el token de acceso.  
 
 A continuación se muestra el código para obtener un token de acceso de Azure Active Directory. Este código puede estar en cualquier parte de la aplicación. Quiero agregar una clase Utils o EncryptionHelper.  
 
@@ -107,12 +107,12 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Actualmente, la nueva característica Managed Service Identity (MSI) es la manera más fácil de autenticar. Para más detalles, consulte el vínculo siguiente sobre el ejemplo de uso de [Key Vault con MSI en una aplicación de .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) y el [tutorial de MSI con App Service y Functions](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
+>* Actualmente, la nueva característica Managed Service Identity (MSI) es la manera más fácil de autenticar. Para más detalles, consulte el vínculo siguiente sobre el ejemplo de uso de [Key Vault con MSI en una aplicación de .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) y el [tutorial de MSI con App Service y Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 >* Otra forma de autenticar una aplicación de Azure AD es mediante un secreto de cliente y un identificador de cliente. Y su uso en una aplicación web permite la separación de deberes y proporciona mayor control sobre la administración de claves. Pero se basa en colocar el secreto de cliente en las opciones de configuración, lo que, para algunos, puede ser tan arriesgado como poner el secreto que se desea proteger en las opciones de configuración. A continuación encontrará información sobre el uso de un identificador de cliente y un certificado en lugar de un identificador de cliente y un secreto de cliente para autenticar la aplicación de Azure AD.
 
 ## <a id="appstart"></a>Recuperación del secreto en Inicio de aplicación
 
-Ahora tenemos el código para llamar a la API de Almacén de claves y recuperar el secreto. El siguiente código se puede colocar en cualquier parte siempre que se llame antes de que sea necesario usarlo. He colocado este código en el evento Inicio de aplicación en Global.asax para que se ejecute una vez en el inicio y permita que esté disponible el secreto para la aplicación.
+Ahora tenemos el código para llamar a la API de Key Vault y recuperar el secreto. El siguiente código se puede colocar en cualquier parte siempre que se llame antes de que sea necesario usarlo. He colocado este código en el evento Inicio de aplicación en Global.asax para que se ejecute una vez en el inicio y permita que esté disponible el secreto para la aplicación.
 
 ```cs
 //add these using statements
@@ -147,11 +147,11 @@ Otra forma de autenticar una aplicación de Azure AD es mediante el uso de un Id
 Para nuestros propósito, crearemos un certificado de prueba. A continuación encontrará un par de comandos que se pueden usar en un símbolo del sistema para desarrolladores para crear un certificado. Cambie al directorio a aquel en el que desea que se creen los archivos de certificado.  Además, para las fechas de inicio y fin del certificado, utilice la fecha actual más 1 año.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Tome nota de la fecha de finalización y la contraseña del archivo .pfx (en este ejemplo: 31/07/2016 y test123). Las necesitará más adelante.
+Tome nota de la fecha de finalización y la contraseña del archivo .pfx (en este ejemplo: 31/07/2017 y test123). Las necesitará más adelante.
 
 Para más información sobre cómo crear un certificado de prueba, vea [Procedimientos para crear su propio certificado de prueba](https://msdn.microsoft.com/library/ff699202.aspx)
 
@@ -252,7 +252,7 @@ La adición de un certificado a Web App es un sencillo proceso de dos pasos. En 
 
 Lo último que debe hacer es agregar una configuración de aplicación a la aplicación web cuyo nombre es WEBSITE\_LOAD\_CERTIFICATES y cuyo valor es *. Esto garantizará que se cargan todos los certificados. Si desea cargar solo los certificados que ha cargado, puede escribir una lista separada por comas de sus huellas digitales.
 
-Para obtener más información sobre cómo agregar un certificado a una aplicación Web, consulte [Uso de certificados en las aplicaciones de Sitios web de Azure](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
+Para obtener más información sobre cómo agregar un certificado a una aplicación Web, consulte [Uso de certificados en las aplicaciones de Azure Websites](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
 ### <a name="add-a-certificate-to-key-vault-as-a-secret"></a>Adición de un certificado a Key Vault como secreto
 
@@ -260,7 +260,7 @@ En lugar de cargar el certificado directamente al servicio Web App, puede almace
 
 ## <a id="next"></a>Pasos siguientes
 
-Para conocer las referencias de programación, consulte [Referencia de la API de cliente de C# del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Para conocer las referencias de programación, consulte [Referencia de la API de cliente de C# de Azure Key Vault](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

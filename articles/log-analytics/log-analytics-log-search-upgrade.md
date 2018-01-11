@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Actualización de Azure Log Analytics para la nueva búsqueda de registros
 
@@ -52,13 +52,13 @@ Si el área de trabajo se actualiza automáticamente, verá un banner que indica
 Los siguientes cambios se realizan en el área de trabajo cuando se actualiza:
 
 - Las búsquedas guardadas, las reglas de alertas y las vistas creadas con el diseñador de vistas se convierten automáticamente al nuevo lenguaje.  Las búsquedas incluidas en las soluciones no se convierten automáticamente, pero sí se convierten sobre la marcha cuando las abre.  
-- [Mi panel](log-analytics-dashboards.md) quedará en desuso y se reemplazará por el [Diseñador de vistas](log-analytics-view-designer.md) y los [paneles de Azure](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Los elementos agregados a Mi panel aún estarán disponibles, pero serán de solo lectura.
+- [Mi panel](log-analytics-dashboards.md) quedará en desuso y se reemplazará por el [Diseñador de vistas](log-analytics-view-designer.md) y los [paneles de Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  Los elementos agregados a Mi panel aún estarán disponibles, pero serán de solo lectura.
 - La [Integración de Power BI](log-analytics-powerbi.md) se sustituye por un nuevo proceso.  Se deshabilitarán las programaciones de Power BI existentes que creó y deberá reemplazarlas por el nuevo proceso.
 - Las respuestas de [acciones de alerta](log-analytics-alerts-actions.md) utilizando webhooks y runbooks tienen un nuevo formato y, por ello, puede que necesite actualizar las reglas de alertas.
 - Eche un vistazo a la [preguntas más frecuentes sobre la búsqueda de registros](log-analytics-log-search-faq.md) para conocer las preguntas habituales sobre la actualización.
 
 ## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>¿Cómo puedo saber si ha habido algún problema con la actualización?
-Una vez finalizada la actualización, se encontrará disponible la sección **Resumen de la actualización** en la configuración del área de trabajo.  Revise esta sección para obtener información sobre la actualización y ver el
+Una vez finalizada la actualización, se encontrará disponible la sección **Resumen de la actualización** en la configuración del área de trabajo.  Revise esta sección para obtener información sobre la actualización y ver cualquier problema que se encontrara.
 
  ![resumen de la actualización](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

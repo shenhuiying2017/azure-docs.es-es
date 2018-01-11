@@ -4,7 +4,7 @@ description: "Este artículo describe las operaciones adicionales que pueden rea
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 06afc6b4149ea1590a2994d1638d6979a89035e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e6910ea52f880e28378c9bf7fde02d080bc2e58
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operaciones de Azure Active Directory Connect Health
 Este tema describe las distintas operaciones que se pueden realizar mediante Azure Active Directory (Azure AD) Connect Health.
@@ -135,7 +135,7 @@ Ahora los usuarios y grupos de la lista tienen acceso, según sus roles asignado
 #### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Paso 3: Compartir la ubicación de la hoja con usuarios o grupos
 1. Después de asignar permisos, un usuario puede acceder a Azure AD Connect Health yendo [aquí](http://aka.ms/aadconnecthealth).
 2. Una vez en la hoja, el usuario puede anclar dicha hoja o diferentes partes de esta al panel. Solo tiene que hacer clic en el icono **Anclar al panel**.<br>
-   ![Captura de pantalla de la hoja del control de acceso basado en rol de Azure AD Connect Health, con el icono de anclaje resaltado](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+   ![Captura de pantalla de la hoja de anclaje del control de acceso basado en rol de Azure AD Connect Health, con el icono de anclaje resaltado](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 
 > [!NOTE]
 > Un usuario con el rol de "Lector" asignado no puede obtener la extensión de Azure AD Connect Health de Azure Marketplace. El usuario no puede realizar la operación "crear" necesaria para realizar esta acción. Aún así, este usuario todavía puede obtener la hoja visitando el vínculo anterior. Para usos posteriores, el usuario puede anclar la hoja en el panel.

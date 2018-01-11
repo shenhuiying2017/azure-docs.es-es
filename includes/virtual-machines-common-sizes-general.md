@@ -4,7 +4,7 @@ Los tamaños de VM de uso general proporcionan una relación equilibrada entre C
 
 - Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a vCPU y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, consulte el anuncio en el blog de Azure, [Nuevos tamaños de máquinas virtuales de la serie D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-- Serie de Dv2, una evolución de la serie D original, presenta una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,1 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
+- La serie de Dv3 y la serie de Dv2, una evolución de la serie D original, presentan una CPU más eficaz. La CPU de la serie Dv2 es un 35 % aproximadamente más rápida que la CPU de la serie D. Se basa en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz de la última generación; y con Intel Turbo Boost Technology 2.0, puede alcanzar los 3,1 GHz. La serie Dv2 tiene las mismas configuraciones de disco y memoria que la serie D.
 
 - Los tamaños de niveles básicos se utilizan sobre todo para cargas de trabajo de desarrollo y otras aplicaciones que no requieren equilibrio de carga, escalado automático o máquinas virtuales de uso intensivo de memoria. Para más información sobre los tamaños de máquinas virtuales más adecuados para las aplicaciones de producción, consulte (Tamaños de las máquinas virtuales) [virtual-machines-size-specs.md] y para obtener información sobre sus precios, consulte [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
@@ -23,11 +23,11 @@ Las máquinas virtuales ampliables de la serie B son idóneas para cargas de tra
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Serie Dsv3*
+## <a name="dsv3-series-sup1sup"></a>Serie Dsv3<sup>1</sup>
 
 ACU: 160-190
 
-Los tamaños de la serie Dsv3 se basan en el procesador Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0 y el uso de Premium Storage. Los tamaños de la serie Dsv3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
+Los tamaños de la serie Dsv3 se basan en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz o el procesador Intel Xeon® E5-2673 v4 (Broadwell) de 2,3 GHz más reciente que pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0 y el uso de Premium Storage. Los tamaños de la serie Dsv3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
 
 
 | Tamaño             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
@@ -38,13 +38,14 @@ Los tamaños de la serie Dsv3 se basan en el procesador Intel XEON® E5-2673 v4 
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / alto                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / extremadamente alto                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80 000 / 1200                              | 8 / extremadamente alto                                       |
-*Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®
 
-## <a name="dv3-series"></a>Serie Dv3* 
+<sup>1</sup>Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®.
+
+## <a name="dv3-series-sup1sup"></a>Serie Dv3<sup>1</sup>
 
 ACU: 160-190
 
-Los tamaños de la serie Dv3 se basan en el procesador Intel XEON ® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Los tamaños de la serie Dv3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
+Los tamaños de la serie Dv3 se basan en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz o el procesador Intel Xeon® E5-2673 v4 (Broadwell) de 2,3 GHz que pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Los tamaños de la serie Dv3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
 
 El almacenamiento en disco de datos se factura de forma independiente a las máquinas virtuales. Para usar discos de Premium Storage, utilice los tamaños Dsv3. El precio y los medidores de facturación para los tamaños Dsv3 son los mismos que para la serie Dv3. 
 
@@ -57,7 +58,8 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / alto                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / extremadamente alto                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / extremadamente alto                     |
-*Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®
+
+<sup>1</sup>Las máquinas virtuales de la serie Dsv3 cuentan con la tecnología Hyper-Threading de Intel®.
 
 ## <a name="dsv2-series"></a>DSv2-series
 
@@ -137,7 +139,7 @@ ACU: 50-100
 
 | Tamaño | vCPU | Memoria: GiB | Almacenamiento temporal (HDD): GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S por segundo | Nº máx. de NIC/ancho de banda de red esperado (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0,768 |20 | |1 |1x500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0,768 |20 | |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2 x 500 |2 / 500  |
 | Standard_A2 |2 |3,5 |135 |4 |4x500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
@@ -147,7 +149,7 @@ ACU: 50-100
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
 <br>
 
-*El tamaño A0 está sobresuscrito en el hardware físico. Solo en este tamaño específico, las implementaciones de otros clientes podrían afectar el rendimiento de la carga de trabajo en ejecución. A continuación, se indica el rendimiento relativo como la línea base esperada, sujeta a una variabilidad aproximada de 15 por ciento.
+<sup>1</sup>El tamaño A0 está sobresuscrito en el hardware físico. Solo en este tamaño específico, las implementaciones de otros clientes podrían afectar el rendimiento de la carga de trabajo en ejecución. A continuación, se indica el rendimiento relativo como la línea base esperada, sujeta a una variabilidad aproximada de 15 por ciento.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard_A0 - A4 con CLI y PowerShell
 En el modelo de implementación clásica, algunos nombres de tamaños de VM varían ligeramente en la CLI y en PowerShell:

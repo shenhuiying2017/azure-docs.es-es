@@ -11,17 +11,17 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: e92c1a44b49c64308438184ab8185a90766c5bcf
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 6ae977344101c02222fd9930e26a083bf5e3f800
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Actualización y escalado de una instancia de API Management 
 
 Los clientes pueden escalar una instancia de API Management (APIM) agregando o quitando unidades. Una **unidad** se compone de recursos de Azure dedicados y tiene cierta capacidad de carga, que se expresa mediante el número de llamadas API que se realizan cada mes. Dicho número no representa un límite de llamadas, sino un valor de rendimiento máximo que permite el planeamiento de la capacidad aproximada. El rendimiento y la latencia reales varían considerablemente en función de factores como el número y la tasa de conexiones concurrentes, el tipo y número de directivas configuradas, los tamaños de las solicitudes y respuestas y la latencia del back-end.
 
-La capacidad y el precio de cada unidad dependen del **nivel** en que se encuentra la unidad. Puede elegir entre tres niveles: **Desarrollador**, **Estándar**, **Premium**. Si necesita más capacidad para un servicio de un nivel, debe agregar una unidad. Si el nivel que está seleccionado actualmente en la instancia de APIM no permite agregar más unidades, deberá actualizar a un nivel superior. 
+La capacidad y el precio de cada unidad dependen del **nivel** en que se encuentra la unidad. Puede elegir entre cuatro niveles: **Desarrollador**, **Básico**, **Estándar**, **Premium**. Si necesita más capacidad para un servicio de un nivel, debe agregar una unidad. Si el nivel que está seleccionado actualmente en la instancia de APIM no permite agregar más unidades, deberá actualizar a un nivel superior. 
 
 El precio de cada unidad y las características disponibles (por ejemplo, la implementación en varias regiones) dependen del nivel elegido para la instancia de APIM. En el artículo sobre los [precios](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), se explican el precio por unidad y las características que se obtienen en cada nivel. 
 
@@ -59,13 +59,13 @@ Utilice **Métricas** (donde se utilizan las funcionalidades de Azure Monitor) p
 
 ## <a name="upgrade-and-scale"></a>Actualización y escalado 
 
-Como ya se ha mencionado, puede elegir entre tres niveles: **Desarrollador**, **Estándar** y **Premium**. El nivel **Desarrollador** debe utilizarse para evaluar el servicio; no debe emplearse para producción. El nivel **Desarrollador** no dispone de un Acuerdo de Nivel de Servicio y no se puede escalar (no se pueden agregar o quitar unidades). 
+Como ya se ha mencionado, puede elegir entre cuatro niveles: **Desarrollador**, **Básico**, **Estándar** y **Premium**. El nivel **Desarrollador** debe utilizarse para evaluar el servicio; no debe emplearse para producción. El nivel **Desarrollador** no dispone de un Acuerdo de Nivel de Servicio y no se puede escalar (no se pueden agregar o quitar unidades). 
 
-Los niveles de producción **Estándar** y **Premium** cuentan con un Acuerdo de Nivel de Servicio y se pueden escalar. El nivel **Estándar** puede escalarse con hasta cuatro unidades. Puede agregar cualquier número de unidades en el nivel **Premium**. 
+Los niveles de producción **Básico**, **Estándar** y **Premium** cuentan con un Acuerdo de Nivel de Servicio y se pueden escalar. El nivel **Básico** es el más económico que cuenta con un Acuerdo de Nivel de Servicio y puede escalarse hasta dos unidades. El nivel **Estándar** puede escalarse hasta cuatro unidades. Puede agregar cualquier número de unidades en el nivel **Premium**.
 
 El nivel **Premium** le permite distribuir una instancia de API Management entre cualquier número de regiones de Azure. Inicialmente, cuando se crea un servicio de API Management, la instancia contiene una sola unidad y reside en una única región de Azure. La región inicial se designa como región **primaria**. Pueden agregarse otras regiones fácilmente. Cuando agregue una región, debe especificar el número de unidades que desea asignar. Por ejemplo, puede tener una unidad en la región **primaria** y cinco unidades en otra región. Puede adaptar el número de unidades al tráfico que tiene en cada región. Para más información, consulte [Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md).
 
-Puede cambiar un nivel por otro superior o inferior. Tenga en cuenta que, si cambia a un nivel superior o inferior, es posible que algunas características dejen de estar disponibles, como ocurre con las VNET o las implementaciones en varias regiones cuando se pasa del nivel Premium al nivel Estándar.
+Puede cambiar un nivel por otro superior o inferior. Tenga en cuenta que, si cambia a un nivel superior o inferior, es posible que algunas características dejen de estar disponibles, como ocurre con las VNET o las implementaciones en varias regiones cuando se pasa del nivel Premium al nivel Estándar o Básico.
 
 >[!NOTE]
 >El proceso de actualización o escalado puede tardar entre 15 y 45 minutos en aplicarse. Recibirá una notificación cuando se haya completado.

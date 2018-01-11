@@ -4,7 +4,7 @@ description: "Obtenga información sobre los estados de usuario en Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: b7fb5135ac1ae776851d79f936eb860b4b121c71
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Exigencia de verificación en dos pasos para un usuario o grupo
 
@@ -40,11 +40,11 @@ Estas dos opciones solicitan a los usuarios registrarse en Azure Multi-Factor Au
 
 Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguientes tres estados:
 
-| Estado | Descripción | Aplicaciones que no son de explorador afectadas | Aplicaciones de explorador y autenticación moderna afectados |
-|:---:|:---:|:---:|:--:|
-| Disabled |Estado predeterminado de un nuevo usuario no inscrito en Azure Multi-Factor Authentication (MFA). |No |No |
-| Enabled |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. Se le pedirá a dicho usuario que se registre la próxima vez que inicie sesión. |No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire el token de actualización para la sesión, se requerirá el registro MFA.|
-| Aplicado |El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. |Sí.  Las aplicaciones requieren contraseñas de aplicación. |Sí. MFA requerido en el inicio de sesión. |
+| Estado | Descripción | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
+|:---:|:---:|:---:|:--:|:--:|
+| Disabled |Estado predeterminado de un nuevo usuario no inscrito en Azure Multi-Factor Authentication (MFA). |No |No |No |
+| Enabled |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. Se le pedirá a dicho usuario que se registre la próxima vez que inicie sesión. |No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro MFA. |
+| Aplicado |El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. |Sí.  Las aplicaciones requieren contraseñas de aplicación. |Sí. MFA requerido en el inicio de sesión. | Sí. MFA requerido en el inicio de sesión. |
 
 El estado de un usuario refleja si un administrador lo ha inscrito en Azure MFA, y si ha completado el proceso de registro.
 

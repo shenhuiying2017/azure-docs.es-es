@@ -3,26 +3,26 @@ title: "Configuración del entorno de PowerShell del usuario de Azure Stack | Mi
 description: "Configuración del entorno de PowerShell del usuario de Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configuración del entorno de PowerShell del usuario de Azure Stack
 
-Como usuario de Azure Stack, puede configurar el entorno de PowerShell en Azure Stack Development Kit. Tras la configuración, puede usar PowerShell para administrar los recursos de Azure Stack como la suscripción a ofertas, la creación de máquinas virtuales, la implementación de plantillas de Azure Resource Manager, etcétera. Este tema está pensado para delimitarse únicamente a entornos de usuario, si desea configurar PowerShell para el entorno de operadores en la nube, consulte el tema [Configuración del entorno de PowerShell del operador de Azure Stack](../azure-stack-powershell-configure-admin.md). 
+Como usuario de Azure Stack, puede configurar el entorno de PowerShell en Azure Stack Development Kit. Tras la configuración, puede usar PowerShell para administrar los recursos de Azure Stack como la suscripción a ofertas, la creación de máquinas virtuales, la implementación de plantillas de Azure Resource Manager, etcétera. Este tema está pensado para delimitarse únicamente a entornos de usuario, si desea configurar PowerShell para el entorno de operadores en la nube, consulte el artículo [Configuración del entorno de PowerShell del operador de Azure Stack](../azure-stack-powershell-configure-admin.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 

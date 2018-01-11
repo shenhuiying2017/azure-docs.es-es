@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 días de sugerencias de Azure Cosmos DB
 
@@ -103,7 +103,7 @@ Sugerencia 10: Obtenga información acerca de cómo copiar los datos de MongoDB 
 
 Sugerencia 11: Compile una aplicación de seguimiento prominente mediante React, Node.js y Azure Cosmos DB.
 
-Artículo: [Creación de una aplicación de MongoDB con React y Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Artículo: [Creación de una aplicación de MongoDB con React y Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retwittear en Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)[![Compartir en LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Sugerencia 12: Cambiar a sin servidor con Azure #CosmosDB y @AzureFunctions Docu
 
 Sugerencia 13: Cree una aplicación prominente desde cero con @John_Papa y Azure Cosmos DB. Aprender a compilar una aplicación MEAN desde cero
 
-Artículo: [Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Artículo: [Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retwittear en Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)[![Compartir en LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
@@ -177,7 +177,7 @@ Sugerencia 19: Partición Partición Partición El porqué y el cómo de Azure #
 
 Sugerencia: 20: A todo el mundo le gusta una buena hoja de referencia. Azure #CosmosDB también tiene una. Consúltela en [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl).
 
-Hoja de referencia: [Azure Cosmos DB: PDF de la hoja de referencia de consultas SQL de la API de DocumentDB](https://aka.ms/Nt01nl)
+Hoja de referencia: [PDF de la hoja de referencia de consultas SQL de Azure Cosmos DB](https://aka.ms/Nt01nl)
 
 [![Retwittear en Twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)[![Compartir en LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

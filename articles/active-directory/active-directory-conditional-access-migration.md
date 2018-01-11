@@ -1,6 +1,6 @@
 ---
 title: "Migración de directivas clásicas en Azure Portal | Microsoft Docs"
-description: "Migración de directivas clásicas en Azure Portal."
+description: "Aprenda todo lo necesario sobre cómo migrar las directivas clásicas en Azure Portal."
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: 
@@ -13,162 +13,156 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2017
+ms.date: 12/11/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c584eddb5542c2c49d08d35bcaf8e7acb5c5b83a
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-classic-policies-in-the-azure-portal"></a>Migración de directivas clásicas en Azure Portal 
 
 
-El [acceso condicional](active-directory-conditional-access-azure-portal.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. Aunque el propósito sigue siendo el mismo, la nueva versión de Azure Portal también presenta mejoras importantes acerca de cómo funciona el acceso condicional. Las directivas de acceso condicional que se configuraron fuera de Azure Portal pueden coexistir con las nuevas directivas que también se crean en dicho portal. Siempre y cuando no las deshabilite o elimine, estas seguirán aplicándose a su entorno. Sin embargo, se recomienda que migre las directivas clásicas a las nuevas directivas de acceso condicional de Azure AD porque:
+El [acceso condicional](active-directory-conditional-access-azure-portal.md) es una funcionalidad de Azure Active Directory (Azure AD) que le permite controlar cómo acceden los usuarios autorizados a las aplicaciones en la nube. Aunque el propósito sigue siendo el mismo, la nueva versión de Azure Portal presenta mejoras importantes acerca de cómo funciona el acceso condicional.
 
-- Las nuevas directivas le permiten dirigirse a escenarios que no podría controlar con directivas clásicas.
+Debería considerar la posibilidad de migrar las directivas que no haya creado en Azure portal porque:
+
+- Ahora puede resolver situaciones que antes no podía controlar.
 
 - Puede reducir el número de directivas que tiene que administrar mediante su consolidación.   
 
-En este tema se le ayuda con la migración de las directivas clásicas existentes a las nuevas directivas de acceso condicional de Azure AD.
+- Puede administrar todas las directivas de acceso condicional en una ubicación central.
 
+- Se retirará el Portal de Azure clásico.   
 
+En este artículo se explica lo que necesita saber para migrar las directivas de acceso condicional existentes al marco nuevo.
+ 
 ## <a name="classic-policies"></a>Directivas clásicas
 
-Las directivas de acceso condicional para Azure AD e Intune que no creó en Azure Portal también se denominan **directivas clásicas**. Para migrar las directivas clásicas, no es necesario tener acceso al portal clásico de Azure. Azure Portal ofrece una vista de [**Directivas clásicas (versión preliminar)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) que le permite revisar las directivas clásicas.
+En [Azure Portal](https://portal.azure.com), la página [ Acceso condicional - Directivas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) es el punto de entrada a las directivas de acceso condicional. Sin embargo, en su entorno, también podría tener directivas de acceso condicional que no creara con esta página. Estas directivas se conocen como *directivas clásicas*. Las directivas de clásicas son directivas de acceso condicional que creó con:
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+- El Portal de Azure clásico
+- El Portal de Intune clásico
+- El Portal de Intune App Protection
 
 
-### <a name="open-a-classic-policy"></a>Abrir una directiva clásica
+En la página **Acceso condicional**, puede tener acceso a las directivas clásicas si hace clic en [ **Directivas clásicas (versión preliminar)**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) en la sección **Administrar**. 
 
-**Para abrir una directiva clásica:**
 
-1. En [Azure Portal](https://portal.azure.com), en la barra de navegación izquierda, haga clic en **Azure Active Directory**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/71.png)
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
 
-2. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
+La vista **Directivas clásicas** le permite:
 
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/02.png)
+- Filtrar las directivas clásicas.
  
-2. En la página **Conditional access - Policies** (Acceso condicional - Directivas), en la sección **Administrar**, haga clic en **Directivas clásicas (versión preliminar)**.
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/72.png)
 
-3. En la lista de directivas clásicas, seleccione la directiva que le interesa.   
+- Deshabilitar las directivas clásicas.
 
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/34.png)
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/73.png)
+   
+- Revisar la configuración de las directivas clásicas (y desactivarla).
+
+    ![Azure Active Directory](./media/active-directory-conditional-access-migration/74.png)
+
+
+Si deshabilitó una directiva clásica, ya no podrá revertir ese paso. Por ese motivo puede modificar la pertenencia a un grupo en una directiva clásica mediante la vista **Detalles**. 
+
+![Azure Active Directory](./media/active-directory-conditional-access-migration/75.png)
+
+Si cambia los grupos seleccionados o excluye grupos específicos, puede probar el efecto de una directiva clásica deshabilitada para algunos usuarios de prueba antes de deshabilitar la directiva para todos los usuarios y grupos. 
 
 
 
 ## <a name="azure-ad-conditional-access-policies"></a>Directivas de acceso condicional de Azure AD
 
-En este tema se proporcionan pasos detallados que permiten migrar las directivas clásicas sin estar familiarizado con las directivas de acceso condicional de Azure AD. Sin embargo, estar familiarizado con los conceptos básicos y la terminología del acceso condicional de Azure AD ayuda a mejorar su experiencia de migración.
+Puede administrar todas las directivas en una ubicación central mediante el acceso condicional en Azure Portal. Dado que la implementación sobre cómo funciona el acceso condicional ha cambiado considerablemente, debe familiarizarse con los conceptos básicos antes de migrar las directivas clásicas.
 
 Consulte:
 
 - [Acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal.md) para conocer la terminología y los conceptos básicos.
 
+- [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md) para obtener información sobre la implementación de acceso condicional en su organización.
+
 - [Introducción al acceso condicional en Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) para familiarizarse con la interfaz de usuario de Azure Portal.
 
 
  
+## <a name="migration-considerations"></a>Consideraciones sobre la migración
+
+En este artículo, las directivas de acceso condicional de Azure AD también se conocen como *directivas nuevas*.
+Las directivas clásicas seguirán funcionando con las directivas nuevas hasta que las deshabilite o las elimine. 
+
+Los aspectos siguientes son importantes en el contexto de una consolidación de directiva:
+
+- Aunque las directivas clásicas están asociadas a una aplicación de nube específica, puede seleccionar tantas como necesite en una directiva nueva.
+
+- Los controles de una directiva clásica y una directiva nueva para una aplicación de nube requieren que se cumplan todos ellos (*AND*). 
+
+
+- En una directiva nueva puede:
+ 
+    - Combinar varias condiciones, si la situación lo requiere. 
+
+    - Seleccionar varios requisitos de concesión como control de acceso y combinarlos con un valor lógico *OR* (se requiere uno de los controles seleccionados) o con un valor lógico *AND* (se requieren todos los controles seleccionados).
+
+        ![Azure Active Directory](./media/active-directory-conditional-access-migration/25.png)
 
 
 
 
+### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
 
-## <a name="multi-factor-authentication-policy"></a>Directiva de autenticación multifactor 
+Si quiere migrar las directivas clásicas para **Office 365 Exchange Online** que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente, es posible que no pueda consolidarlas en una directiva nueva. 
 
-En este ejemplo se muestra cómo migrar una directiva clásica que requiere autenticación multifactor** para una aplicación en la nube. 
+Esto sucede en caso de que quiera admitir todos los tipos de aplicación de cliente. En una directiva nueva que tiene **Exchange Active Sync** como condición de aplicaciones de cliente no puede seleccionar otras aplicaciones cliente.
 
-![Azure Active Directory](./media/active-directory-conditional-access-migration/33.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/64.png)
 
+Tampoco es posible una consolidación en una directiva nueva si las directivas clásicas contienen varias condiciones. Una directiva nueva que tiene **Exchange Active Sync** como condición de aplicaciones de cliente no admite otras condiciones:   
 
-**Para migrar una directiva clásica:**
+![Azure Active Directory](./media/active-directory-conditional-access-migration/08.png)
 
-1. [Abra la directiva clásica](#open-a-classic-policy) para obtener las opciones de configuración.
-2. Cree una nueva directiva de acceso condicional de Azure AD para reemplazar la directiva clásica. 
+Si existe una directiva nueva que tiene **Exchange Active Sync** como condición de aplicaciones de cliente configurada, debe asegurarse de que todas las demás condiciones no están configuradas. 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/16.png)
+ 
 
-### <a name="create-a-new-conditional-access-policy"></a>Crear una nueva directiva de acceso condicional
+Las directivas clásicas [basadas en aplicaciones](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) para Office 365 Exchange Online que incluyen **Exchange Active Sync** como condición de aplicaciones de cliente permiten [plataformas de dispositivos](active-directory-conditional-access-technical-reference.md#device-platform-condition) **admitidas** y **no admitidas**. Aunque no se pueda configurar plataformas de dispositivos individuales en una directiva nueva relacionada, puede limitar la compatibilidad solo para [plataformas de dispositivos compatibles](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
+![Azure Active Directory](./media/active-directory-conditional-access-migration/65.png)
 
-1. En [Azure Portal](https://portal.azure.com), en la barra de navegación izquierda, haga clic en **Azure Active Directory**.
+Puede consolidar varias directivas clásicas que incluya **Exchange Active Sync** como condición de aplicaciones de cliente si tienen:
 
-    ![Azure Active Directory](./media/active-directory-conditional-access-migration/01.png)
+- **Exchange Active Sync** como única condición 
 
-2. En la página **Azure Active Directory**, en la sección **Administrar**, haga clic en **Acceso condicional**.
+- Varios requisitos configurados para la concesión de acceso
 
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/02.png)
+Una situación habitual es la consolidación de:
 
+- Una directiva clásica basada en dispositivos desde el Portal de Azure clásico 
+- Una directiva clásica basada aplicaciones desde el Portal de Intune App Protection 
+ 
+En este caso, puede consolidar las directivas clásicas en una nueva directiva que tenga seleccionados ambos requisitos.
 
-
-3. En la página **Acceso condicional**, en la barra de herramientas de la parte superior, haga clic en **Agregar** para abrir la página **Nuevo**.
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/03.png)
-
-4. En la página **Nuevo**, en el cuadro de texto **Nombre**, escriba un nombre para la directiva.
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/29.png)
-
-5. En la sección **Asignaciones**, haga clic en **Usuarios y grupos**.
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/05.png)
-
-    a. Si tiene todos los usuarios seleccionados en la directiva clásica, haga clic en **Todos los usuarios**. 
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/35.png)
-
-    b. Si tiene grupos seleccionados en la directiva clásica, haga clic en **Seleccionar usuarios y grupos** y, después, seleccione los grupos y usuarios necesarios.
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/36.png)
-
-    c. Si tiene los grupos excluidos, haga clic en la pestaña **Excluir** y, después, seleccione los grupos y usuarios necesarios. 
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/37.png)
-
-6. En la página **Nuevo**, en la sección **Asignación**, haga clic en **Aplicaciones en la nube** para abrir la página **Aplicaciones en la nube**.
-
-    ![Acceso condicional](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
-
-8. En la página **Aplicaciones en la nube**, siga estos pasos:
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/08.png)
-
-    a. Haga clic en **Seleccionar aplicaciones**.
-
-    b. Haga clic en **Seleccionar**.
-
-    c. En la página **Seleccionar**, seleccione la aplicación en la nube y haga clic en **Seleccionar**.
-
-    d. En la página **Aplicaciones en la nube**, haga clic en **Listo**.
+![Azure Active Directory](./media/active-directory-conditional-access-migration/62.png)
 
 
 
-9. Si seleccionó **Requerir autenticación multifactor**:
+### <a name="device-platforms"></a>Plataformas de dispositivo
 
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/26.png)
+Las directivas de clásicas con [controles basados en aplicaciones](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) están preconfiguradas con iOS y Android como la [condición de la plataforma del dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition). 
 
-    a. En la sección **Controles de acceso**, haga clic en **Conceder**.
+En una directiva nueva, debe seleccionar las [plataformas de dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition) que quiera admitir de forma individual.
 
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/27.png)
-
-    b. En la página **Conceder**, haga clic en **Conceder acceso** y, después, haga clic en **Requerir autenticación multifactor**.
-
-    c. Haga clic en **Seleccionar**.
-
-
-10. Haga clic en **On** (Activar) para habilitar la directiva.
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/30.png)
-
-11. Deshabilite la directiva clásica. 
-
-    ![Acceso condicional](./media/active-directory-conditional-access-migration/38.png)
+![Azure Active Directory](./media/active-directory-conditional-access-migration/41.png)
 
 
 
+ 
  
 
 

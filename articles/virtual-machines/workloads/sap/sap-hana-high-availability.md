@@ -1,6 +1,6 @@
 ---
-title: "Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure | Microsoft Docs"
-description: "Establezca alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure."
+title: Alta disponibilidad de SAP HANA en Azure Virtual Machines | Microsoft Docs
+description: Establezca alta disponibilidad de SAP HANA en Azure Virtual Machines.
 services: virtual-machines-linux
 documentationcenter: 
 author: MSSedusch
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidad de SAP HANA en las máquinas virtuales (VM) de Azure
+# <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidad de SAP HANA en Azure Virtual Machines (VM)
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -85,12 +85,12 @@ Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP A
 1. Creación de un equilibrador de carga (interno)  
    Selección de la red virtual del paso anterior
 1. Creación de la máquina virtual 1  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   Utilice al menos SLES4SAP 12 SP1. En este ejemplo, usaremos la imagen de SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES para SAP Applications 12 SP1 (BYOS)  
    Selección de la cuenta de almacenamiento 1  
    Selección del conjunto de disponibilidad  
 1. Creación de la máquina virtual 2  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   Utilice al menos SLES4SAP 12 SP1. En este ejemplo, usaremos la imagen de SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES para SAP Applications 12 SP1 (BYOS)  
    Selección de la cuenta de almacenamiento 2   
    Selección del conjunto de disponibilidad  
@@ -99,7 +99,7 @@ Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP A
     1. Creación de un grupo de direcciones IP de front-end
         1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, hana-front-end)
-       1. Haga clic en Aceptar
+        1. Haga clic en Aceptar
         1. Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP
     1. Creación de un grupo de back-end
         1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
@@ -109,7 +109,7 @@ Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP A
         1. Seleccione las máquinas virtuales del clúster de SAP HANA
         1. Haga clic en Aceptar
     1. Creación de un sondeo de estado
-       1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
+        1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
         1. Escriba el nombre del sondeo de estado nuevo (por ejemplo hana-hp)
         1. Seleccione TCP como protocolo, puerto 625**03**, y mantenga el intervalo de 5 y el umbral incorrecto 2
         1. Haga clic en Aceptar
@@ -119,12 +119,12 @@ Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP A
         1. Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, hana-front-end)
         1. Conserve el protocolo TCP y escriba el puerto 3**03**15
         1. Aumente el tiempo de espera de inactividad a 30 minutos
-       1. **Asegúrese de habilitar la dirección IP flotante**
+        1. **Asegúrese de habilitar la dirección IP flotante**
         1. Haga clic en Aceptar
         1. Repita los pasos anteriores para el puerto 3**03**17
 
 ### <a name="deploy-with-template"></a>Implementación con plantilla
-Para implementar todos los recursos necesarios, puede usar una de las plantillas de inicio rápido de github. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc. Siga estos pasos para implementar la plantilla:
+Para implementar todos los recursos necesarios, puede usar una de las plantillas de inicio rápido de GitHub. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc. Siga estos pasos para implementar la plantilla:
 
 1. Abra la [plantilla de base de datos][template-multisid-db] o la [plantilla combinada][template-converged] en Azure Portal. La plantilla de la base de datos solo crea las reglas de equilibrio de carga para una base de datos, mientras que la plantilla combinada también crea las reglas de equilibrio de carga para instancias ASCS/SCS y ERS (solamente para Linux). Si tiene previsto instalar un sistema basado en SAP NetWeaver y desea instalar la instancia ASCS/SCS en las mismas máquinas, use la [plantilla combinada][template-converged].
 1. Escriba los siguientes parámetros:
@@ -145,7 +145,7 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
     1. Subred nueva o existente  
        Determina si es necesario crear una red virtual y subred nuevas o si se debe usar una subred existente. Si ya tiene una red virtual conectada a la red local, seleccione la existente.
     1. Identificador de subred  
-    El identificador de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el identificador tiene un aspecto similar al siguiente: /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>.
+    El identificador de la subred a la que deben conectarse las máquinas virtuales. Seleccione la subred de la VPN o la red virtual de Express Route para conectar la máquina virtual a la red local. Generalmente, el identificador tiene un aspecto similar al siguiente: /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>.
 
 ## <a name="setting-up-linux-ha"></a>Configuración de la alta disponibilidad de Linux
 
@@ -201,7 +201,7 @@ Los elementos siguientes tienen el prefijo [A]: aplicable a todos los nodos, [1]
 
 1. [A] Configure el diseño del disco
     1. LVM  
-    Por lo general, se recomienda utilizar LVM para volúmenes de almacén de datos y archivos de registro. En el ejemplo siguiente se supone que las máquinas virtuales tienen cuatro discos de datos asociados que se deben usar para crear dos volúmenes.
+    Por lo general, se recomienda usar LVM para volúmenes de almacén de datos y archivos de registro. En el ejemplo siguiente se supone que las máquinas virtuales tienen cuatro discos de datos asociados que se deben usar para crear dos volúmenes.
         * Cree volúmenes físicos de todos los discos que desee usar.
     <pre><code>
     sudo pvcreate /dev/sdc
@@ -229,7 +229,7 @@ Los elementos siguientes tienen el prefijo [A]: aplicable a todos los nodos, [1]
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Cree entradas de fstab para los tres volúmenes lógicos.
@@ -476,13 +476,13 @@ Después de editar los permisos para las máquinas virtuales, puede configurar l
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm configura la actualización de carga de crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm configura la actualización de carga de crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -627,7 +627,7 @@ La migración crea restricciones de ubicación que deben eliminarse de nuevo.
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
