@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Administración de contraseñas de Active Directory, administración de contraseñas, autoservicio de restablecimiento de contraseña de Azure AD"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -41,6 +41,11 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * **P: ¿Mis usuarios pueden registrar sus propios datos de restablecimiento de contraseña?**
 
   > **R:** Sí. Siempre que el restablecimiento de contraseña esté habilitado y que los usuarios cuenten con licencia, pueden ir al portal de registro de restablecimiento de contraseña en http://aka.ms/ssprsetup para registrar la información de autenticación. Los usuarios también pueden registrarse a través del Panel de acceso (http://myapps.microsoft.com). Para ello, deben seleccionar su imagen de perfil y, después, **Perfil** y la opción  **Registrarme para restablecer la contraseña**.
+  >
+  >
+* **P: Si habilito el restablecimiento de contraseña de un grupo y decido habilitarla para todo el mundo, ¿deben volver a registrarse mis usuarios?**
+
+  > **R**: No. No es necesario que los usuarios cuyos datos de autenticación estén rellenados vuelvan a registrarse.
   >
   >
 * **P: ¿Puedo definir los datos de restablecimiento de contraseña en nombre de mis usuarios?**

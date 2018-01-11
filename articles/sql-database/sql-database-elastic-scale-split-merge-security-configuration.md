@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
-Para usar el servicio de división y combinación, debe configurar correctamente la seguridad. El servicio forma parte de la característica de Escalado elástico de la Base de datos SQL de Microsoft Azure. Para obtener más información, vea el [Tutorial del servicio de división y combinación de Escalado elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+Para usar el servicio de división y combinación, debe configurar correctamente la seguridad. El servicio forma parte de la característica de Escalado elástico de Microsoft Azure SQL Database. Para obtener más información, vea el [Tutorial del servicio de división y combinación de Escalado elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## <a name="configuring-certificates"></a>Configuración de certificados
 Los certificados se configuran de dos maneras. 
@@ -223,7 +223,7 @@ Siga estos pasos en todas las cuentas/máquinas que se comunicarán con el servi
 * Importe el certificado al almacén de Entidades de certificación de raíz de confianza
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>Desactivación de la autenticación basada en certificado de cliente
-Solo se admite la autenticación basada en certificado de cliente y deshabilitarla permitirá el acceso público a los extremos del servicio, a menos que existan otros mecanismos (por ejemplo, Red virtual de Microsoft Azure).
+Solo se admite la autenticación basada en certificado de cliente y deshabilitarla permitirá el acceso público a los extremos del servicio, a menos que existan otros mecanismos (por ejemplo, Microsoft Azure Virtual Network).
 
 Cambie esta configuración a falso en el archivo de configuración del servicio para deshabilitar la característica:
 
@@ -434,9 +434,9 @@ En el asistente para importar certificados:
 9. Haga clic en **Aceptar** en todas las ventanas de diálogo.
 
 ## <a name="upload-certificate"></a>Carga del certificado
-En el [Portal de Azure](https://portal.azure.com/)
+En [Azure Portal](https://portal.azure.com/)
 
-1. Seleccione **Servicios en la nube**.
+1. Seleccione **Cloud Services**.
 2. Seleccione el servicio en la nube.
 3. Haga clic en **Certificados**en el menú superior.
 4. En la barra inferior, haga clic en **Cargar**.

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 476e103c7101621e116c5155241f56f1cb9036df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Cree una función en Azure que se desencadena mediante un temporizador
 
@@ -52,13 +52,17 @@ Después, cree una función en la nueva Function App.
 
     ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
 
-2. Seleccione la plantilla **TimerTrigger** del idioma que desee. Luego, use la configuración que se especifica en la tabla:
+2. En el campo de búsqueda, escriba `timer` y seleccione el idioma que desee para la plantilla del desencadenador de un temporizador. 
 
-    ![Creación de una función desencadenada mediante un temporizador en Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Elija la plantilla de función desencadenada mediante un temporizador.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+
+3. Configure el nuevo desencadenador según la configuración especificada en la tabla que aparece debajo de la imagen.
+
+    ![Creación de una función desencadenada mediante un temporizador en Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Configuración | Valor sugerido | Descripción |
     |---|---|---|
-    | **Asigne un nombre a la función** | TimerTriggerCSharp1 | Define el nombre de la función desencadenada por el temporizador. |
+    | **Name** | Valor predeterminado | Define el nombre de la función desencadenada por el temporizador. |
     | **[Programación](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | [Expresión CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) de seis campos que programa la función para que se ejecute cada minuto. |
 
 2. Haga clic en **Crear**. Se crea una función en el lenguaje elegido que se ejecuta cada minuto.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Preguntas más frecuentes sobre Azure Files
 [Azure Files](storage-files-introduction.md) le ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede obtener acceso mediante el protocolo de [Bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar, también conocido como Sistema de archivos de Internet común o CIFS. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en equipos de Windows Server mediante el uso de Azure File Sync (versión preliminar) para tener un acceso rápido cerca de donde se usan los datos.
@@ -80,7 +80,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 * <a id="afs-region-availability"></a>**¿Qué regiones se admiten en Azure File Sync (versión preliminar)?**  
-    Actualmente, Azure File Sync está disponible en el Oeste de EE. UU., Europa Occidental, Este de Australia y el Sudeste Asiático. Se agregará compatibilidad con más regiones mientras se trabaja con vistas a la disponibilidad general. Para obtener más información, vea [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability).
+    Actualmente, Azure File Sync está disponible en el Este y Oeste de EE. UU., Europa Occidental, Este de Australia y el Sudeste Asiático. Se agregará compatibilidad con más regiones mientras se trabaja con vistas a la disponibilidad general. Para obtener más información, vea [Disponibilidad en regiones](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**¿Puedo tener servidores unidos a un dominio y no unidos a un dominio en el mismo grupo de sincronización?**  
     Sí. Un grupo de sincronización puede contener puntos de conexión de servidor que tienen pertenencias diferentes de Active Directory, incluso aunque no estén unidos a dominio. Aunque técnicamente la configuración funciona, no se recomienda como configuración normal, ya que las listas de control de acceso (ACL) que se definen para los archivos y carpetas de un servidor no podrán aplicarse a otros servidores del grupo de sincronización. Para obtener mejores resultados, se recomienda realizar la sincronización entre servidores en el mismo bosque de Active Directory, entre servidores en bosques distintos de Active Directory con relaciones de confianza establecidas o entre servidores que no están en un dominio. Se recomienda no usar una combinación de estas configuraciones.

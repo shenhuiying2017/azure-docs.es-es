@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalación de la instancia de IoT Edge en tiempo de ejecución en un dispositivo Windows IoT Core (versión preliminar)
 
-La instancia de Azure IoT Edge en tiempo de ejecución puede ejecutarse incluso en dispositivos de una sola placa (SBC) de tamaño reducido que son muy frecuentes en el sector de IoT. Este artículo lo guía a través de aprovisionamiento de la instancia en tiempo de ejecución en una placa de desarrollo [MinnowBoard Turbot][lnk-minnow] que ejecuta Windows IoT Core.
+Azure IoT Edge y [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) trabajan conjuntamente para habilitar la informática perimetral incluso en dispositivos pequeños. La instancia de Azure IoT Edge en tiempo de ejecución puede ejecutarse incluso en dispositivos de una sola placa (SBC) de tamaño reducido que son muy frecuentes en el sector de IoT. 
+
+Este artículo lo guía a través de aprovisionamiento de la instancia en tiempo de ejecución en una placa de desarrollo [MinnowBoard Turbot][lnk-minnow] que ejecuta Windows IoT Core. Windows IoT Core admite Azure IoT Edge solo en procesadores Intel x64. 
 
 ## <a name="install-the-runtime"></a>Instalación de la instancia en tiempo de ejecución
 

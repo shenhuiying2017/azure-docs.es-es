@@ -1,11 +1,11 @@
 ---
 title: "Conexión de datos: entradas de flujo de datos desde una transmisión de eventos | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar una conexión de datos a Análisis de transmisiones que se denomina \"entradas\". Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia."
+description: "Obtenga información sobre cómo configurar una conexión de datos a Stream Analytics que se denomina \"entradas\". Entre las entradas se incluyen una transmisión de datos de los eventos y también datos de referencia."
 keywords: "transmisión de datos, conexión de datos, transmisión de eventos"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
-# <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Análisis de transmisiones
+# <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexión de datos: obtenga información sobre las entradas de transmisiones de datos desde eventos para el Stream Analytics
 La conexión de datos a un trabajo de Stream Analytics es un flujo de eventos procedente de un origen de datos, que se denomina *entrada* del trabajo. Stream Analytics cuenta con integración de primera clase con orígenes de flujo de datos de Azure, como, por ejemplo, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). Estos orígenes de entrada pueden proceder de la misma suscripción de Azure que el trabajo de análisis o de otra suscripción.
 
 ## <a name="data-input-types-data-stream-and-reference-data"></a>Tipos de entrada de datos: datos de referencia y de transmisión de datos
@@ -37,9 +37,9 @@ Para aprender a crear entradas de datos de referencia, vea [Uso de datos de refe
 
 ## <a name="compression"></a>Compresión
 
-Azure Stream Analytics admite la compresión en todos los orígenes de entrada del flujo de datos (Event Hubs, IoT Hub y Blob Storage). Esta característica agrega una opción desplegable nueva en la hoja **Nueva entrada** en Azure Portal, lo que le permite elegir, de manera opcional, si comprimir o no el flujo de datos. Los tipos compatibles actualmente son None, GZip y compresión Deflate. 
+Azure Stream Analytics admite la compresión en todos los orígenes de entrada del flujo de datos (Event Hubs, IoT Hub y Blob Storage). Esta característica agrega una opción desplegable nueva en la hoja **Nueva entrada** en Azure Portal, lo que le permite elegir, de manera opcional, si comprimir o no el flujo de datos. Los tipos de referencia compatibles actualmente son None, GZip y compresión Deflate. La compatibilidad con la compresión no está disponible para los datos de referencia.
 
-La compresión no es compatible en conjunto con la serialización de Avro y no se aplica a los datos de referencia. 
+No es necesario especificar el tipo de compresión con la serialización de Avro. Si se comprimen los datos de entrada de Avro, se controlan de forma transparente. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Creación de una entrada de flujo de datos desde Event Hubs
 
@@ -68,7 +68,7 @@ Cuando los datos proceden de un centro de eventos, puede acceder a los siguiente
 
 | Propiedad | Descripción |
 | --- | --- |
-| **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Análisis de transmisiones. |
+| **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Stream Analytics. |
 | **EventEnqueuedUtcTime** |Fecha y la hora en que el Centro de eventos recibió el evento. |
 | **PartitionId** |Identificador de partición de base cero para el adaptador de entrada. |
 
@@ -106,7 +106,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 | --- | --- |
 | **Alias de entrada** |Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada.|
 | **IoT Hub** |Nombre de la instancia de IoT Hub que se usa como entrada. |
-| **Extremo** |Punto de conexión de IoT Hub.|
+| **Punto de conexión** |Punto de conexión de IoT Hub.|
 | **Nombre de directiva de acceso compartido** |Directiva de acceso compartido que proporciona acceso a IoT Hub. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | **Clave de directiva de acceso compartido** |Clave de la directiva de acceso compartido que se usa para autorizar el acceso a IoT Hub. |
 | **Grupo de consumidores** (opcional) |Grupo de consumidores que se usa para la ingesta de datos desde IoT Hub. Si no se especifica ningún grupo de consumidores, el trabajo de Stream Analytics usa el grupo de consumidores predeterminado. Se recomienda usar un grupo de consumidores distinto para cada trabajo de Stream Analytics. |
@@ -149,7 +149,7 @@ En la siguiente tabla se explica cada propiedad de la hoja **Nueva entrada** de 
 | **Alias de entrada** | Nombre descriptivo que se usará en la consulta del trabajo para hacer referencia a esta entrada. |
 | **Cuenta de almacenamiento** | Nombre de la cuenta de almacenamiento donde se encuentran los archivos de blob. |
 | **Clave de cuenta de almacenamiento** | La clave secreta asociada con la cuenta de almacenamiento. |
-| **Contenedor** | Contenedor para la entrada de blob. Los contenedores proporcionan una agrupación lógica de los blobs almacenados en el servicio BLOB de Microsoft Azure. Cuando se carga un blob en el servicio Azure Blob Storage, hay que especificar un contenedor para ese blob. |
+| **Contenedor** | Contenedor para la entrada de blob. Los contenedores proporcionan una agrupación lógica de los blobs almacenados en Microsoft Azure Blob service. Cuando se carga un blob en el servicio Azure Blob Storage, hay que especificar un contenedor para ese blob. |
 | **Patrón de ruta de acceso** (opcional) | Ruta de acceso de archivo que sirve para ubicar los blobs dentro del contenedor especificado. Dentro de la ruta, puede especificar una o más instancias de las tres variables siguientes: `{date}`, `{time}` o `{partition}`.<br/><br/>Ejemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Ejemplo 2: `cluster1/logs/{date}`<br/><br/>El carácter `*` no es un valor permitido para el prefijo de ruta de acceso. Solo se permiten <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caracteres de Blob de Azure</a>. |
 | **Formato de fecha** (opcional) | Si usa la variable de fecha en la ruta, formato de fecha por el que se organizan los archivos. Ejemplo: `YYYY/MM/DD` |
 | **Formato de hora** (opcional) |  Si usa la variable de hora en la ruta, formato de hora por el que se organizan los archivos. Actualmente, el único valor admitido es `HH`. |
@@ -162,7 +162,7 @@ Cuando los datos proceden de un origen de Blob Storage, puede acceder a los sigu
 | Propiedad | Descripción |
 | --- | --- |
 | **BlobName** |Nombre del blob de entrada de donde procede el evento. |
-| **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Análisis de transmisiones. |
+| **EventProcessedUtcTime** |Fecha y hora en que se procesó el evento por Stream Analytics. |
 | **BlobLastModifiedUtcTime** |Fecha y la hora en que se modificó por última vez el blob. |
 | **PartitionId** |Identificador de partición de base cero para el adaptador de entrada. |
 
@@ -177,14 +177,14 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Obtener ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ha obtenido información sobre las opciones de conexión de datos de Azure para sus trabajos de Análisis de transmisiones. Para obtener más información sobre Análisis de transmisiones, vea:
+Ha obtenido información sobre las opciones de conexión de datos de Azure para sus trabajos de Stream Analytics. Para obtener más información sobre Stream Analytics, vea:
 
-* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->

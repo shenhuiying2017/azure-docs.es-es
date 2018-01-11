@@ -148,7 +148,7 @@ En esta sección, agregaremos un nuevo controlador al back-end de la API web par
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Reemplace la definición de clase `Notifications` con el código siguiente y los dos marcadores de posición con la cadena de conexión (de acceso total) del centro de notificaciones y el nombre del centro (disponible en el [Portal de Azure clásico](http://manage.windowsazure.com)):
+6. Reemplace la definición de clase `Notifications` con el código siguiente y los dos marcadores de posición con la cadena de conexión (de acceso total) del centro de notificaciones y el nombre del centro (disponible en el [Portal de Azure](http://portal.azure.com)):
    
         public class Notifications
         {

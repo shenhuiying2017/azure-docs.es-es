@@ -7,20 +7,20 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Prueba de la solución con dispositivos simulados
 
-En este tutorial se muestra cómo usar y personalizar el microservicio del simulador de dispositivos con la solución preconfigurada de la supervisión remota. Para mostrar las funcionalidades del simulador de dispositivos, en este tutorial se usan dos escenarios en la aplicación IoT de Contoso.
+En este tutorial se muestra cómo personalizar el microservicio del simulador de dispositivos en la solución preconfigurada de la supervisión remota. Para mostrar las funcionalidades del simulador de dispositivos, en este tutorial se usan dos escenarios en la aplicación IoT de Contoso.
 
 En el primer escenario, Contoso desea probar un nuevo dispositivo de bombilla inteligente. Para realizar las pruebas, crea un dispositivo simulado nuevo con las características siguientes:
 
@@ -34,7 +34,7 @@ En el primer escenario, Contoso desea probar un nuevo dispositivo de bombilla in
 
 *Telemetría*
 
-La tabla siguiente muestra los datos que la bombilla informe a la nube como flujo de datos:
+En la tabla siguiente se muestran los datos de los que la bombilla informa a la nube como flujo de datos:
 
 | Nombre   | Valores      |
 | ------ | ----------- |
@@ -177,7 +177,7 @@ El archivo `lightbulb-01.json` define las características del tipo, como la tel
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ Para probar y depurar localmente los cambios, consulte la [información general 
 
 Configure el proyecto para copiar los nuevos archivos del dispositivo **Bombilla** en el directorio de salida:
 
-* Si utiliza Visual Studio, asegúrese de agregar los tres nuevos archivos de bombilla que creó en la sección anterior para el proyecto **Servicios** de la solución. A continuación, utilice el **Explorador de soluciones** para marcarlos para que se copien en el directorio de salida.
+* Si utiliza Visual Studio, asegúrese de agregar los cuatro nuevos archivos de bombilla que creó en la sección anterior para el proyecto **Servicios** de la solución. A continuación, utilice el **Explorador de soluciones** para marcarlos para que se copien en el directorio de salida.
 
-* Si usa Visual Studio Code, abra el archivo **Services.csproj** y agregue los tres nuevos archivos de bombilla que creó en la sección anterior. Consulte las entradas de archivo de modelo de dispositivo existentes en el archivo **Services.csproj** como ejemplos.
+* Si usa Visual Studio Code, abra el archivo **Services.csproj** y agregue los cuatro nuevos archivos de bombilla que creó en la sección anterior. Consulte las entradas de archivo de modelo de dispositivo existentes en el archivo **Services.csproj** como ejemplos.
 
 Para probar el dispositivo nuevo en una solución implementada, consulte uno de los siguientes recursos:
 

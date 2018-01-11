@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -77,9 +77,7 @@ Vídeos detallados sobre las tecnologías:
 
 OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en el servicio de SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
 
-Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. En el momento de escribir este artículo, obtiene un gigabyte de almacenamiento por cada 125 unidades de transacción de base de datos (DTU) o unidades de transacción de base de datos elástica (eDTU).
-
-En el artículo sobre los [niveles de servicio de SQL Database](sql-database-service-tiers.md), podrá encontrar la lista oficial de almacenamiento de OLTP en memoria disponible para cada plan de tarifa de grupo elástico y de base de datos independiente admitido.
+Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. En el momento de escribir este artículo, obtiene un gigabyte de almacenamiento por cada 125 unidades de transacción de base de datos (DTU) o unidades de transacción de base de datos elástica (eDTU). Para obtener más información, consulte los [límites de recursos](sql-database-resource-limits.md).
 
 Los siguientes elementos cuentan para su límite de almacenamiento de OLTP en memoria:
 

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Crear una función desencadenada por Azure Blob Storage
 
@@ -51,19 +51,23 @@ Después, cree una función en la nueva Function App.
 
     ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Seleccione la plantilla **BlobTrigger** de idioma que desee y use la configuración que se especifica en la tabla.
+2. En el campo de búsqueda, escriba `blob` y seleccione el idioma que desee para la plantilla del desencadenador de Blob Storage.
 
-    ![Cree la función desencadenada por Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Elija la plantilla de desencadenador de Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Utilice la configuración que se especifica en la tabla debajo de la imagen.
+
+    ![Cree la función desencadenada por Blob Storage.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Configuración | Valor sugerido | Descripción |
     |---|---|---|
-    | **Ruta de acceso**   | mycontainer/{name}    | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro _name_.  |
-    | **Conexión de cuenta de Storage** | AzureWebJobStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una.  |
-    | **Asigne un nombre a la función** | Único en la Function App | Nombre de la función desencadenada por este blob. |
+    | **Name** | Único en la Function App | Nombre de la función desencadenada por este blob. |
+    | **Ruta de acceso**   | samples-workitems/{name}    | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro _name_.  |
+    | **Conexión de la cuenta de almacenamiento** | AzureWebJobsStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |
 
 3. Haga clic en **Crear** para crear la función.
 
-Después, conéctese a su cuenta de Azure Storage y cree el contenedor **mycontainer**.
+Después, conéctese a su cuenta de Azure Storage y cree el contenedor **samples-workitems**.
 
 ## <a name="create-the-container"></a>Cree el contenedor.
 
@@ -79,7 +83,7 @@ Después, conéctese a su cuenta de Azure Storage y cree el contenedor **myconta
 
     ![Escriba las credenciales de almacenamiento y conéctese.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expanda la cuenta de almacenamiento asociada, haga clic con el botón derecho en **Contenedores de blobs**, haga clic en **Crear contenedor de blobs**, escriba `mycontainer` y, después, presione ENTRAR.
+1. Expanda la cuenta de almacenamiento asociada, haga clic con el botón derecho en **Contenedores de blobs**, haga clic en **Crear contenedor de blobs**, escriba `samples-workitems` y, después, presione ENTRAR.
 
     ![Cree una cola de almacenamiento.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ Ahora que tiene un contenedor de blobs, puede probar la función. Para ello, car
 
 1. De nuevo en Azure Portal, vaya a la función. Expanda **Registros** en la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
 
-1. En el Explorador de Storage, expanda la cuenta de almacenamiento, **Contenedores de blobs** y **mycontainer**. Haga clic en **Cargar** y en **Cargar archivos…**
+1. En el Explorador de Storage, expanda la cuenta de almacenamiento, **Contenedores de blobs** y **samples-workitems**. Haga clic en **Cargar** y en **Cargar archivos…**
 
     ![Cargue un archivo en el contenedor de blobs.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

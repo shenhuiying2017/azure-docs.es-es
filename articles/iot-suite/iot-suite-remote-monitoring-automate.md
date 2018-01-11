@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Detección de problemas mediante reglas basadas en el umbral
 
@@ -38,9 +38,9 @@ Para seguir este tutorial, necesitará una instancia implementada de la solució
 
 Si aún no ha implementado la solución de supervisión remota, debe realizar el tutorial [Implementación de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="view-the-rules-in-your-solution"></a>Visualización de las reglas de la solución
+## <a name="view-the-rules-in-your-solution"></a>Ver las reglas de la solución
 
-La página **Rules & Actions** (Reglas y acciones) de la solución muestra una lista de todas las reglas actuales:
+La página **Rules and Actions** (Reglas y acciones) de la solución muestra una lista de todas las reglas actuales:
 
 ![Página de reglas y acciones](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -67,16 +67,16 @@ Utilice los valores siguientes para crear la regla:
 | Configuración          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nombre             | Advertencia del refrigerador                       |
-| Origen           | Grupo de dispositivos **refrigeradores**              |
-| Campo del desencadenador    | Presión                              |
+| Origen           | Grupo de dispositivos **Refrigeradores**             |
+| Campo del desencadenador    | pressure                              |
 | Operador del desencadenador | Mayor que                          |
 | Valor del desencadenador    | 150                                   |
 | Nivel de gravedad   | Warning (Advertencia)                               |
-| Texto de evento de alarma | La presión del refrigerador ha superado 150 PSI |
+| Descripción      | La presión del refrigerador ha superado 150 PSI |
 
 Para guardar la nueva regla, elija **Aplicar**.
 
-Puede ver cuándo se desencadena la regla en la página **Rules & Actions** (Reglas y acciones) o en la página **Panel**.
+Puede ver cuándo se desencadena la regla en la página **Rules and Actions** (Reglas y acciones) o en la página **Panel**.
 
 ## <a name="edit-an-existing-rule"></a>Editar una regla existente
 

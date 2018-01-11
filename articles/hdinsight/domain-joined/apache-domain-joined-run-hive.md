@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 812acea414096880c2b80958cb7c6f410f0d9c98
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar directivas de Hive en HDInsight unido a un dominio
 Aprenda a configurar las directivas de Apache Ranger para Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.
@@ -35,7 +35,7 @@ Aprenda a configurar las directivas de Apache Ranger para Hive. En este artícul
 1. En un explorador, conéctese a la interfaz de usuario administrador de Ranger. La dirección URL es https://&lt;nombreDeClúster>.azurehdinsight.net/Ranger/.
 
    > [!NOTE]
-   > Ranger usa credenciales diferentes de clúster de Hadoop. Para evitar que los exploradores usen credenciales almacenadas en caché de Hadoop, use nueva ventana del explorador inprivate para conectarse a la interfaz de usuario administrador de Ranger.
+   > Ranger usa credenciales diferentes de clúster de Hadoop. Para evitar que los exploradores usen credenciales almacenadas en caché de Hadoop, use nueva ventana del explorador InPrivate para conectarse a la interfaz de usuario administrador de Ranger.
    >
    >
 2. Inicie sesión con el nombre de usuario y la contraseña del dominio del administrador de clúster:
@@ -45,10 +45,10 @@ Aprenda a configurar las directivas de Apache Ranger para Hive. En este artícul
     Actualmente, Ranger solo funciona con Yarn y Hive.
 
 ## <a name="create-domain-users"></a>Creación de usuarios del dominio
-En [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad) (Configuración de clústeres de HDInsight unidos a un dominio), ha creado hiveruser1 y hiveuser2. Para este tutorial utilizará las dos cuentas de usuario.
+En [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configuración de clústeres de HDInsight unidos a un dominio), ha creado hiveruser1 y hiveuser2. Para este tutorial usará las dos cuentas de usuario.
 
 ## <a name="create-ranger-policies"></a>Creación de directivas de Ranger
-En esta sección creará dos directivas Ranger para acceder a hivesampletable. Se concede el permiso select en un conjunto diferente de columnas. Ambos usuarios se crearon en [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad) (Configuración de clústeres de HDInsight unidos a un dominio).  En la siguiente sección probará las dos directivas en Excel.
+En esta sección, creará dos directivas Ranger para acceder a hivesampletable. Se concede el permiso select en un conjunto diferente de columnas. Ambos usuarios se crearon en [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configuración de clústeres de HDInsight unidos a un dominio).  En la siguiente sección probará las dos directivas en Excel.
 
 **Para crear directivas de Ranger**
 
@@ -123,7 +123,7 @@ En la última sección ha configurado dos directivas.  hiveuser1 tiene el permis
 Para probar la segunda directiva (read-hivesampletable-devicemake) que creó en la última sección
 
 1. Agregue una nueva hoja de Excel.
-2. Siga el último procedimiento para importar los datos.  El único cambio que deberá hacer es usar las credenciales de hiveuser2 en lugar de las de hiveuser1. Esto generará un error, ya que hiveuser2 solo tiene permiso para ver dos columnas. Se producirá el error siguiente:
+2. Siga el último procedimiento para importar los datos.  El único cambio que deberá hacer es usar las credenciales de hiveuser2 en lugar de las de hiveuser1. Esto genera un error, ya que hiveuser2 solo tiene permiso para ver dos columnas. Se producirá el error siguiente:
 
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Siga el mismo procedimiento para importar los datos. Esta vez, utilice las credenciales de hiveuser2 y modifique la instrucción select de:
@@ -138,7 +138,7 @@ Para probar la segunda directiva (read-hivesampletable-devicemake) que creó en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para configurar un clúster de HDInsight unido a dominio, consulte [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
-* Para administrar los clústeres de HDInsight unidos a dominio, consulte [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md) (Administración de clústeres de HDInsight unidos a un dominio).
+* Para administrar un clúster de HDInsight unido a dominio, consulte [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md) (Administración de clústeres de HDInsight unidos a un dominio).
 * Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a un dominio, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Para conectar Hive mediante Hive JDBC, consulte [Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * Para conectar Excel a Hadoop con Hive ODBC, consulte [Conexión de Excel a Hadoop con el controlador ODBC de Microsoft Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)

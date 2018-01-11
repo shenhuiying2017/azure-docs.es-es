@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 598e7c0c60c82c6f752ec37676dae52488cccb21
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dc8da80a89024d687a10b1539eeb1d90d218e4fb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copia de datos de Amazon Redshift mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -130,7 +130,7 @@ Para copiar datos desde Amazon Redshift, establezca el tipo de origen de la acti
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **AmazonRedshiftSource** | Sí |
 | query |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |No (si se especifica "tableName" en el conjunto de datos) |
 | redshiftUnloadSettings | Grupo de propiedades al usar Amazon Redshift UNLOAD. | No |
-| s3LinkedServiceName | Hace referencia a Amazon S3 que se usa como almacenamiento provisional especificando un nombre de servicio vinculado ADF de tipo "AmazonS3". | Sí, se utiliza UNLOAD |
+| s3LinkedServiceName | Hace referencia a Amazon S3 que se usa como almacenamiento provisional especificando para ello un nombre de servicio vinculado de tipo "AmazonS3". | Sí, se utiliza UNLOAD |
 | bucketName | Indique el depósito S3 para almacenar los datos provisionales. Si no se proporciona, el servicio Data Factory lo genera automáticamente.  | Sí, se utiliza UNLOAD |
 
 **Ejemplo: Origen Amazon Redshift de la actividad de copia mediante UNLOAD**
@@ -207,7 +207,7 @@ En este caso de uso de ejemplo, la actividad de copia descarga los datos de Amaz
 
 ## <a name="data-type-mapping-for-amazon-redshift"></a>Asignación de tipos de datos para Amazon Redshift
 
-Al copiar datos desde Teradata, se utilizan las siguientes asignaciones de tipos de datos de Teradata en los tipos de datos provisionales de Azure Data Factory. Vea el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
+Al copiar datos desde Amazon Redshift, se utilizan las siguientes asignaciones de tipos de datos de Amazon Redshift en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
 | Tipo de datos de Amazon Redshift | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |

@@ -15,11 +15,11 @@ ms.author: carlrab
 ms.workload: Active
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 2291088b3d8e50f4e8143bf8560580e89db4cae3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 227e171880ec3f59875ea792465f68c75a4a5fa8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportación de una base de datos de Azure SQL Database a un archivo BACPAC
 
@@ -50,7 +50,7 @@ Para exportar una base de datos mediante [Azure Portal](https://portal.azure.com
 
 ![Exportación de base de datos](./media/sql-database-export/database-export.png)
 
-Para supervisar el progreso de la operación de exportación, abra la página del servidor lógico que contiene la base de datos que se va a exportar. Desplácese hacia abajo hasta **Operaciones** y, después, haga clic en el historial de **importación y exportación**.
+Para supervisar el progreso de la operación de exportación, abra la página del servidor lógico que contiene la base de datos que se va a exportar. Desplácese hacia abajo hasta **Operaciones** y, después, haga clic en el historial de **Import/Export**.
 
 ![exportar historial](./media/sql-database-export/export-history.png)
 ![exportar el estado del historial](./media/sql-database-export/export-history2.png)

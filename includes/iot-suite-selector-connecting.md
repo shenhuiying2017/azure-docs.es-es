@@ -38,7 +38,7 @@ Cuando finalice el proceso de aprovisionamiento para la solución de supervisió
 > [!NOTE]
 > Si ya ha aprovisionado un dispositivo en la solución, puede omitir este paso. Necesitará las credenciales del dispositivo cuando cree la aplicación cliente.
 
-Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en el Centro de IoT con credenciales válidas. Puede recuperar las credenciales del dispositivo desde la página **Dispositivos** de la solución. Incluirá las credenciales del dispositivo en la aplicación de cliente más adelante en este tutorial.
+Para que un dispositivo se conecte a la solución preconfigurada, debe identificarse en Azure IoT Hub con credenciales válidas. Puede recuperar las credenciales del dispositivo desde la página **Dispositivos** de la solución. Incluirá las credenciales del dispositivo en la aplicación de cliente más adelante en este tutorial.
 
 Para agregar un dispositivo a su solución de supervisión remota, realice los pasos siguientes en la página **Dispositivos** de la solución:
 
@@ -54,7 +54,7 @@ Para buscar las credenciales que el dispositivo debe usar para conectarse a la s
 
 1. Busque el grupo de recursos que contiene los servicios de Azure que la solución de supervisión remota utiliza. El grupo de recursos tiene el mismo nombre que la solución de supervisión remota aprovisionada.
 
-1. Navegue hasta el centro de IoT de este grupo de recursos. A continuación, elija **Explorador de dispositivos**:
+1. Navegue hasta el centro de IoT de este grupo de recursos. A continuación, elija **dispositivos de IoT**:
 
     ![Explorador de dispositivos](media/iot-suite-selector-connecting/deviceexplorer.png)
 

@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticación de paso a través de Azure Active Directory: limitaciones actuales
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/06/2017
 Los siguientes escenarios son totalmente compatibles:
 
 - Inicios de sesión de usuario en todas las aplicaciones basadas en explorador web.
-- Inicios de sesión de usuario en las aplicaciones cliente de Office 365 que admitan la [autenticación moderna](https://aka.ms/modernauthga).
-- Office 2016 y Office 2013 _con_ autenticación moderna.
+- Inicios de sesión de usuario en las aplicaciones de Office que admitan la [autenticación moderna](https://aka.ms/modernauthga): Office 2016 y Office 2013 _con_ autenticación moderna.
+- Inicios de sesión de usuario en Skype Empresarial que admitan la autenticación moderna, con la autenticación moderna, incluidas topologías híbridas y en línea. Obtenga más información acerca de las topologías admitidas [aquí](https://technet.microsoft.com/library/mt803262.aspx).
 - Uniones a un dominio de Azure AD para dispositivos Windows 10.
 - Compatibilidad con Exchange ActiveSync.
 
@@ -40,11 +40,11 @@ Los siguientes escenarios son totalmente compatibles:
 Los siguientes escenarios _no_ son compatibles:
 
 - Inicios de sesión de usuario en las aplicaciones de cliente de Office heredadas: Office 2010 y Office 2013 _sin_ autenticación moderna. Se recomienda a las organizaciones que cambien a la autenticación moderna, en caso de que sea posible. La autenticación moderna es compatible con la autenticación de paso a través. También facilita la protección de las cuentas de usuario con características de [acceso condicional](../active-directory-conditional-access-azure-portal.md), como Azure Multi-Factor Authentication.
-- Inicios de sesión de usuarios en aplicaciones cliente de Skype Empresarial, incluido Skype Empresarial 2016.
+- Inicios de sesión de usuarios en aplicaciones cliente de Skype Empresarial _sin_ autenticación moderna.
 - Inicios de sesión de usuario en PowerShell 1.0. Se recomienda usar PowerShell 2.0.
-- Azure Active Directory Domain Services.
 - Contraseñas de aplicaciones de Multi-Factor Authentication.
 - Detección de usuarios con [credenciales filtradas](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Azure AD Domain Services necesita tener habilitada la sincronización de hash de contraseñas en el inquilino. Por lo tanto, los inquilinos que usan la autenticación de paso a través _únicamente_ no funcionan en escenarios que necesitan Azure AD Domain Services.
 
 >[!IMPORTANT]
 >Como solución alternativa _solo_ para escenarios no admitidos, habilite la sincronización de hash de contraseñas en la página [Características opcionales](active-directory-aadconnect-get-started-custom.md#optional-features) del asistente de Azure AD Connect.

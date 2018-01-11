@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 
@@ -57,7 +57,12 @@ Para ayudarlo a estimar el impacto de esta recomendación, se le proporciona una
 
 Cuando lo haga, se habilitará en cuestión de minutos la opción de parametrización forzada en la base de datos y se iniciará el proceso de supervisión, que dura aproximadamente 24 horas. Cuando transcurra este periodo, podrá ver el informe de validación que muestra el uso de la CPU de la base de datos 24 horas antes y después de haber aplicado la recomendación. SQL Database Advisor tiene un mecanismo de seguridad que revierte automáticamente la recomendación aplicada en caso de detectarse una regresión del rendimiento.
 
-## <a name="fix-schema-issues-recommendations"></a>Recomendaciones para solucionar problemas del esquema
+## <a name="fix-schema-issues-recommendations-preview"></a>Recomendaciones para solucionar problemas del esquema (vista previa)
+
+> [!IMPORTANT]
+> Microsoft está dejando de usar las recomendaciones sobre la solución de problemas del esquema. Debería empezar a usar [Intelligent Insights](sql-database-intelligent-insights.md) para la supervisión automática de los problemas de rendimiento de la base de datos, que incluyen problemas del esquema que previamente se abordaban en las recomendaciones sobre la solución de problemas del esquema.
+> 
+
 Las recomendaciones sobre la **solución de problemas del esquema** aparecen cuando el servicio SQL Database advierte alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en Azure SQL Database. Esta recomendación suele aparecer cuando la base de datos encuentra varios errores relacionados con el esquema (nombre de columna no válido, nombre de objeto no válido, etc.) en el curso de una hora.
 
 Los problemas del esquema constituyen una clase de errores de sintaxis en SQL Server que se producen cuando no están alineadas la definición de la consulta SQL y la del esquema de base de datos. Por ejemplo, en la tabla de destino falta una de las columnas que espera la consulta o viceversa. 

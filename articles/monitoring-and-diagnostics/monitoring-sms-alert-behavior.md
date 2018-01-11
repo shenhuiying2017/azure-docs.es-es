@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamiento de las alertas por SMS en los grupos de acciones
 ## <a name="overview"></a>Información general ##
@@ -37,15 +37,15 @@ Un receptor de SMS, que se configura como parte de un grupo de acciones, recibir
 - El título de la alerta
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Cancelación de la suscripción a alertas por SMS para un grupo de acciones
-Para que un usuario cancele la suscripción a los SMS para las alertas de un grupo de acciones, debe responder al código corto 20873 con las palabras clave: "DISABLE &lt;Nombre corto del grupo de acciones&gt;".
+Para que un usuario cancele la suscripción a los SMS para las alertas de un grupo de acciones, debe responder al código corto 29873 con las palabras clave: "DISABLE &lt;Nombre corto del grupo de acciones&gt;".
 
-Ejemplo: Un usuario que desea cancelar la suscripción a las alertas de un grupo de acciones con el nombre corto "Azure", tendría que enviar el siguiente SMS al código corto 20873: "DISABLE Azure"
+Ejemplo: Un usuario que desea cancelar la suscripción a las alertas de un grupo de acciones con el nombre corto "Azure", tendría que enviar el siguiente SMS al código corto 29873: "DISABLE Azure"
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Cancelación de la suscripción a alertas por SMS para todos los grupos de acciones
-Un usuario puede cancelar la suscripción a todas las alertas por SMS para todos los grupos de acción respondiendo al código corto 20873 con cualquiera de las siguientes palabras clave:
+Un usuario puede cancelar la suscripción a todas las alertas por SMS para todos los grupos de acción respondiendo al código corto 29873 con cualquiera de las siguientes palabras clave:
 * STOP
 
-Ejemplo: Un usuario que desea cancelar la suscripción a todas las alertas por SMS para todos los grupos tendría que enviar el siguiente SMS al código corto 20873: "STOP"
+Ejemplo: Un usuario que desea cancelar la suscripción a todas las alertas por SMS para todos los grupos tendría que enviar el siguiente SMS al código corto 29873: "STOP"
 
 >[!NOTE]
 >Si un usuario ha cancelado la suscripción a las alertas por SMS, pero luego se agrega a un nuevo grupo de acciones; SE recibirán alertas por SMS para el grupo de acciones nuevo, pero permanecerán sin suscripción de todos los grupos de acciones anteriores.
@@ -53,19 +53,19 @@ Ejemplo: Un usuario que desea cancelar la suscripción a todas las alertas por S
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Segunda suscripción a alertas por SMS para un grupo de acciones
-Para que un usuario vuelva a suscribirse a los SMS para las alertas de un grupo de acciones, debe responder al código corto 20873 con las palabras clave: "ENABLE &lt;Nombre corto del grupo de acciones&gt;".
+Para que un usuario vuelva a suscribirse a los SMS para las alertas de un grupo de acciones, debe responder al código corto 29873 con las palabras clave: "ENABLE &lt;Nombre corto del grupo de acciones&gt;".
 
-Ejemplo: Un usuario que desea volver a suscribirse a las alertas de un grupo de acciones con el nombre corto "Azure", tendría que enviar el siguiente SMS al código corto 20873: "ENABLE Azure"
+Ejemplo: Un usuario que desea volver a suscribirse a las alertas de un grupo de acciones con el nombre corto "Azure", tendría que enviar el siguiente SMS al código corto 29873: "ENABLE Azure"
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Segunda suscripción a alertas por SMS para todos los grupo de acciones
-Un usuario puede volver a suscribirse a todas las alertas por SMS para todos los grupos de acción respondiendo al código corto 20873 con cualquiera de las siguientes palabras clave:
+Un usuario puede volver a suscribirse a todas las alertas por SMS para todos los grupos de acción respondiendo al código corto 29873 con cualquiera de las siguientes palabras clave:
 
 * START
 
-Ejemplo: Un usuario que desea volver a suscribirse a todas las alertas por SMS para todos los grupos tendría que enviar el siguiente SMS al código corto 20873: "STOP"
+Ejemplo: Un usuario que desea volver a suscribirse a todas las alertas por SMS para todos los grupos tendría que enviar el siguiente SMS al código corto 29873: "STOP"
 
 ### <a name="requesting-help-via-sms"></a>Solicitud de ayuda a través de SMS
-Un usuario puede solicitar más información acerca de SMS que ha recibido. Para ello, debe responder al código corto 20873 con cualquiera de las siguientes palabras clave:
+Un usuario puede solicitar más información acerca de SMS que ha recibido. Para ello, debe responder al código corto 29873 con cualquiera de las siguientes palabras clave:
 * HELP
 
 Se enviará una respuesta al usuario con un vínculo a este artículo.

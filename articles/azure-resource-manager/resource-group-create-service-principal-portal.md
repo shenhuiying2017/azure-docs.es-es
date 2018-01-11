@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 9b5b33f61021bf4b0ae238e88c2926c0d17b4929
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -96,7 +96,7 @@ Para comprobar los permisos de su suscripción:
 
    ![seleccionar azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
-1. Seleccione **Registros de aplicaciones**.
+1. Seleccione **App registrations** (Registros de aplicaciones).
 
    ![seleccionar registros de aplicaciones](./media/resource-group-create-service-principal-portal/select-app-registrations.png)
 
@@ -118,7 +118,7 @@ Al iniciar sesión mediante programación, necesitará el identificador de la ap
 
    ![seleccionar aplicación](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. Las aplicaciones de la sección de [aplicaciones de ejemplo](#sample-applications) hacen referencia a este valor como el identificador de cliente.
+1. Copie el **id. de aplicación** y almacénelo en el código de la aplicación. En algunas [aplicaciones de ejemplo](#log-in-as-the-application), este valor se conoce como identificador de cliente.
 
    ![Identificador de cliente](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 

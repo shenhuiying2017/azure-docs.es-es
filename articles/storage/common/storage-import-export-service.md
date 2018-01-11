@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Uso del servicio Microsoft Azure Import/Export para transferir datos a Azure Storage
 En este artículo, se proporcionan instrucciones detalladas sobre el uso del servicio Azure Import/Export para transferir de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Storage hasta las unidades de disco duro y enviarlas al sitio local. Es posible importar los datos de una sola unidad de disco SATA interna a Azure Blob Storage o Azure Files. 
@@ -177,6 +177,8 @@ Ubicaciones de envío admitidas:
 * Este de China
 * Norte de China
 * Sur del Reino Unido 2
+* Centro de Alemania
+* Noreste de Alemania
 
 ### <a name="shipping"></a>Envío
 **Envío de unidades al centro de datos:**
@@ -493,7 +495,7 @@ No. Debe enviar sus propias unidades tanto para los trabajos de importación com
 
 ** ¿Cómo puedo acceder a los datos importados por este servicio**
 
-Se puede acceder a los datos almacenados en la cuenta de Azure Storage mediante Azure Portal o con una herramienta independiente denominada Explorador de Storage. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+Se puede acceder a los datos almacenados en la cuenta de Azure Storage mediante Azure Portal o con una herramienta independiente denominada Explorador de Storage. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Cuando finalice el trabajo de importación, ¿cómo se mostrarán los datos en la cuenta de almacenamiento? ¿Se conservará la jerarquía de directorios?**
 

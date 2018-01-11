@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación con Azure Cloud Services: preguntas más frecuentes (P+F)
 
-En este artículo se incluyen preguntas frecuentes sobre problemas de implementación con [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de los servicios en la nube](cloud-services-sizes-specs.md) para obtener información de tamaño.
+En este artículo se incluyen preguntas frecuentes sobre problemas de implementación con [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). También puede consultar la [página Tamaños de Cloud Services](cloud-services-sizes-specs.md) para obtener información de tamaño.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -75,3 +75,8 @@ Dado que el servicio en la nube es un recurso clásico que no es directamente co
 
     Funcionará desde [Azure Portal](https://portal.azure.com) dado que la llamada pasa por un servidor proxy o shim que permite la comunicación entre recursos del modelo clásico y de Azure Resource Manager. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>¿Por qué Azure Portal me pide que proporcione una cuenta de almacenamiento para la implementación? 
+
+En el portal clásico, el paquete se cargó directamente al nivel de API de administración y, a continuación, el nivel de API guardó temporalmente el paquete en una cuenta de almacenamiento interno.  Debido a este proceso, se crean problemas de rendimiento y escalabilidad porque el nivel de API no se diseñó para ser un servicio de carga de archivos.  En Azure Portal (modelo de implementación de administrador de recursos), hemos omitido el paso intermedio que supone cargar contenido primero en el nivel de API, lo que da lugar a implementaciones más rápidas y fiables. 
+
+En cuanto al costo, este es ínfimo, por lo que puede volver a usar la misma cuenta de almacenamiento a través de todas las implementaciones. Puede usar la [calculadora de costo de almacenamiento](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) para determinar el costo que supone cargar, descargar y eliminar el paquete de servicio (CSPKG). 

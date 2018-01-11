@@ -1,6 +1,6 @@
 ---
 title: "Azure Notification Hubs: preguntas más frecuentes (P+F) | Microsoft Docs"
-description: "Preguntas más frecuentes sobre el diseño y la implementación de soluciones en los Centros de notificaciones"
+description: "Preguntas más frecuentes sobre el diseño y la implementación de soluciones en Notification Hubs"
 services: notification-hubs
 documentationcenter: mobile
 author: ysxu
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones push en Azure Notification Hubs: preguntas más frecuentes
 ## <a name="general"></a>General
@@ -29,7 +29,7 @@ Azure Notification Hubs tiene dos niveles de recursos, concentradores y espacios
 
 La asignación recomendada hace coincidir un espacio de nombres con una aplicación. Dentro de un espacio de nombres, puede tener un concentrador de producción que funcione con la aplicación de producción, un concentrador de prueba que funcione con la aplicación de prueba, etc.
 
-### <a name="what-is-the-price-model-for-notification-hubs"></a>¿Cuál es el modelo de precios para los Centros de notificaciones?
+### <a name="what-is-the-price-model-for-notification-hubs"></a>¿Cuál es el modelo de precios para Notification Hubs?
 Los detalles más recientes sobre los precios pueden encontrarse en la página [Precios de Notification Hubs]. Notification Hubs se factura a nivel de espacio de nombres. (Si necesita ver la definición de espacio de nombres, consulte "¿Cuál es la estructura de los recursos de Notification Hubs?") Notification Hubs ofrece tres niveles:
 
 * **Gratis**: Este nivel es un buen punto de partida para explorar las funcionalidades de inserción. No se recomienda para las aplicaciones de producción. Se incluyen 500 dispositivos y 1 millón de inserciones por espacio de nombres por mes, sin garantía de Acuerdo de Nivel de Servicio (SLA).
@@ -41,13 +41,13 @@ Características del nivel Estándar:
 * **Multiinquilinato**: Puede trabajar con credenciales del Sistema de notificación de plataforma a nivel de un espacio de nombres. Esta opción permite dividir fácilmente los inquilinos en los concentradores dentro del mismo espacio de nombres.
 * **Inserción programada**: Puede programar que las notificaciones se envíen en cualquier momento.
 
-### <a name="what-is-the-notification-hubs-sla"></a>¿Cuál es el SLA de los Centros de notificaciones?
+### <a name="what-is-the-notification-hubs-sla"></a>¿Cuál es el SLA de Notification Hubs?
 En el caso de los niveles Básico y Estándar de Notification Hubs, las aplicaciones configuradas correctamente pueden enviar notificaciones push o realizar operaciones de administración de registros al menos un 99,9 por ciento del tiempo. Para más información sobre el Acuerdo de Nivel de Servicio, vaya a la página [Contrato de nivel de servicio para Notification Hubs](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
 
 > [!NOTE]
 > Dado que las notificaciones push dependen de Sistemas de notificación de plataforma de terceros (como APNs de Apple y FCM de Google), no hay ninguna garantía de Acuerdo de Nivel de Servicio para la entrega de estos mensajes. Una vez que Notification Hubs envía los lotes a los Sistemas de notificación de plataforma (Acuerdo de Nivel de Servicio garantizado), entregar las notificaciones es responsabilidad de los Sistemas de notificación de plataforma (no se garantiza ningún Acuerdo de Nivel de Servicio).
 
-### <a name="which-customers-are-using-notification-hubs"></a>¿Qué clientes utilizan los Centros de notificaciones?
+### <a name="which-customers-are-using-notification-hubs"></a>¿Qué clientes utilizan Notification Hubs?
 Muchos clientes usan Notification Hubs. Los siguientes son algunos clientes destacados:
 
 * Sochi 2014: cientos de grupos de interés, más de 3 millones de dispositivos y más de 150 millones de notificaciones enviadas en dos semanas. [Caso práctico: Sochi]
@@ -79,7 +79,7 @@ Notification Hubs tampoco proporciona un servicio de entrega de notificaciones p
 ### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>¿Cómo se relacionan Mobile Apps y Azure Notification Hubs y cuándo las uso?
 Si tiene un back-end de aplicación móvil existente y desea agregar solo la funcionalidad de enviar notificaciones push, puede usar Azure Notification Hubs. Si desea configurar su back-end de aplicación móvil desde cero, considere usar la característica Mobile Apps de Azure App Service. Una aplicación móvil proporciona un centro de notificaciones para que pueda enviar fácilmente notificaciones push desde el back-end de aplicación móvil. Los precios de Mobile Apps incluyen los gastos base de un centro de notificaciones. Solo se paga cuando se superan las inserciones incluidas. Para más detalles sobre los costos, vaya a la página [Precios de App Service].
 
-### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>¿Cuántos dispositivos puedo admitir si envío notificaciones push a través de los Centros de notificaciones?
+### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>¿Cuántos dispositivos puedo admitir si envío notificaciones push a través de Notification Hubs?
 Consulte la página [Precios de Notification Hubs] para detalles sobre la cantidad de dispositivos admitidos.
 
 Si necesita compatibilidad con más de 10 millones de dispositivos registrados, [póngase en contacto con nosotros](https://azure.microsoft.com/overview/contact-us/) directamente y le ayudaremos a escalar su solución.
@@ -179,14 +179,14 @@ Si no tiene back-end, cuando la aplicación se inicie en los dispositivos de des
 Habrá un período en el que los dispositivos que no tengan aplicaciones abiertas no recibirán notificaciones.
 
 ### <a name="is-there-audit-log-capability"></a>¿Hay alguna funcionalidad de registro de auditoría?
-Todas las operaciones de administración de Notification Hubs van a los registros de operaciones, los que se exponen en el [Portal de Azure clásico].
+Todas las operaciones de administración de Notification Hubs van a los registros de operaciones, que se exponen en [Azure Portal].
 
 ## <a name="monitoring-and-troubleshooting"></a>Supervisión y solución de problemas
 ### <a name="what-troubleshooting-capabilities-are-available"></a>¿Qué funcionalidades de solución de problemas hay disponibles?
 Azure Notification Hubs proporciona varias características de solución de problemas, especialmente para el escenario más común relacionado con las notificaciones quitadas. Para detalles, consulte las notas del producto sobre la [solución de problemas de Notification Hubs].
 
 ### <a name="what-telemetry-features-are-available"></a>¿Qué características de telemetría hay disponibles?
-Azure Notification Hubs permite ver los datos de telemetría en el [Portal de Azure clásico]. Puede encontrar detalles sobre las métricas en la página [Métricas de Notification Hubs].
+Azure Notification Hubs le permite ver los datos de telemetría en [Azure Portal]. Puede encontrar detalles sobre las métricas en la página [Métricas de Notification Hubs].
 
 > [!NOTE]
 > El éxito de las notificaciones significa simplemente que las notificaciones push se entregaron al PNS externo (por ejemplo APNs para Apple o GCM para Google). Entregar las notificaciones a los dispositivos de destino es responsabilidad del PNS. Habitualmente, el PNS no muestra las métricas de entrega a terceros.  
@@ -195,8 +195,9 @@ Azure Notification Hubs permite ver los datos de telemetría en el [Portal de Az
 
 También proporciona la funcionalidad de exportar los datos de telemetría mediante programación (en el nivel Estándar). Para detalles, consulte el [ejemplo de métricas de Notification Hubs].
 
-[Portal de Azure clásico]: https://manage.windowsazure.com
-[Precios de Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
+[Azure Portal]: https://portal.azure.com
+
+            [Precios de Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Caso práctico: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Caso práctico: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2d2c83b1ce718e6954e908beb9080ace12a12a34
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -50,9 +50,9 @@ Después, cree una función en la nueva Function App.
 
     ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Busque y seleccione la plantilla **Azure CosmosDBTrigger** en el idioma deseado.
+2. En el campo de búsqueda, escriba `cosmos` y seleccione el idioma que desee para la plantilla del desencadenador de Azure Cosmos DB.
 
-    ![Creación de la función desencadenada de Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Elección de un desencadenador de Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Configure el nuevo desencadenador según la configuración especificada en la tabla que aparece debajo de la imagen.
 
@@ -60,10 +60,10 @@ Después, cree una función en la nueva Function App.
     
     | Configuración      | Valor sugerido  | Descripción                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Asigne un nombre a la función** | Valor predeterminado | Use el nombre de función predeterminado sugerido por la plantilla. |
-    | **Nombre de la base de datos** | Tareas | Nombre de la base de datos con la colección que se va a supervisar. |
+    | **Name** | Valor predeterminado | Use el nombre de función predeterminado sugerido por la plantilla. |
     | **Nombre de colección** | Elementos | Nombre de la colección que se va a supervisar. |
     | **Create lease collection if it doesn't exist** (Crear colección de concesiones si no existe) | Activado | La colección no existe, por lo que se crea. |
+    | **Nombre de la base de datos** | Tareas | Nombre de la base de datos con la colección que se va a supervisar. |
 
 4. Seleccione **Nuevo** junto a la etiqueta de conexión **Cuenta de Azure Cosmos DB** y elija una cuenta de Cosmos DB existente o **+ Crear nuevo**. 
  

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -72,28 +72,31 @@ Cognitive Services APIs están disponibles en Azure como recursos individuales. 
  
     ![simétricas](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Creación de la función
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Crear la aplicación de función
 
 Functions proporciona una excelente manera de descargar tareas de procesamiento en un flujo de trabajo de aplicaciones lógicas. Este tutorial utiliza una función desencadenada por HTTP de Cognitive Services para procesar las puntuaciones de opinión de los tweet y devolver un valor de clasificación.  
 
-1. Haga clic en el botón **Nuevo** y seleccione **Compute** > **Function App**. Luego, use la configuración que se especifica en la tabla siguiente. Acepte los términos y seleccione **Anclar al panel**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Creación de Azure Function App](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Crear una función desencadenada mediante HTTP  
 
-    | Configuración      |  Valor sugerido   | Descripción       |
-    | --- | --- | --- |
-    | **Name** | MyFunctionApp | Elija un nombre de cuenta único. |
-    | **Grupos de recursos** | myResourceGroup | Utilice el mismo grupo de recursos para todos los servicios de este tutorial.|
-    | **Plan de hospedaje** | Plan de consumo | Esto define las asignaciones de costo y utilización.
-    | **Ubicación** | Oeste de EE. UU. | Use la ubicación más cercana. |
-    | **Storage** | Crear nuevo | Genera automáticamente una cuenta de almacenamiento nueva.|
-    | **Plan de tarifa** | F0 | Comience con la tarifa más baja. Si se queda sin llamadas, aumente a un nivel superior.|
+1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **Función personalizada**. Se muestra el conjunto completo de plantillas de funciones.
 
-2. Seleccione la aplicación de funciones en el panel y expándala, haga clic en el botón **+** junto a **Funciones**, en **Webhook + API**, **CSharp** y, luego, en **Crear esta función**. Con esto se creará una función con la plantilla HTTPTrigger de C#. El código aparecerá en una ventana nueva como `run.csx`
+    ![Página de inicio rápido de Functions en Azure Portal](media/functions-twitter-email/add-first-function.png)
 
-    ![Hoja Instancias de Function App, Functions +](media/functions-twitter-email/add_fun.png)
+2. En el campo de búsqueda, escriba `http` y, a continuación, elija **C#** para la plantilla del desencadenador HTTP. 
 
-3. Reemplace el contenido del archivo `run.csx` con el código siguiente y, luego, haga clic en **Guardar**:
+    ![Elija el desencadenador HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Escriba un **nombre** para la función, elija `Function` en el **[Nivel de autenticación](functions-bindings-http-webhook.md#http-auth)** y, a continuación, seleccione **Crear**. 
+
+    ![Crear la función desencadenada mediante HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Esta opción crea una función de script de C# mediante la plantilla del desencadenador de HTTP. El código aparecerá en una ventana nueva como `run.csx`.
+
+4. Reemplace el contenido del archivo `run.csx` con el código siguiente y, luego, haga clic en **Guardar**:
 
     ```csharp
     using System.Net;

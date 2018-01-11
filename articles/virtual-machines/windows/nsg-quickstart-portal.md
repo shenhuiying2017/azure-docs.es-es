@@ -4,7 +4,7 @@ description: "Aprenda a abrir un puerto o crear un punto de conexión a la máqu
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Apertura de puertos en una máquina virtual con Azure Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Seleccione el nuevo grupo de seguridad de red. Seleccione "Reglas de seguridad d
 
 ![Agregar una regla de entrada](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Elija un **servicio** común en el menú desplegable, como *HTTP*. También puede seleccionar *Personalizado* a fin de proporcionar un puerto específico para su uso. Si lo desea, cambie la prioridad o el nombre. La prioridad afecta al orden en que se aplican las reglas (cuanto más bajo es el valor numérico, antes se aplica la regla). También puede seleccionar **Avanzado** en la parte superior de esta pantalla para especificar un intervalo de puertos o un bloque de direcciones IP de origen, por ejemplo. Cuando esté listo, seleccione **Aceptar** para crear la regla:
+Para crear una regla que permita el tráfico:
+
+- Seleccione el botón **Básica**. De forma predeterminada, la ventana **Avanzadas** proporciona algunas opciones de configuración adicionales como, por ejemplo, opciones para definir un bloque de IP de origen o un intervalo de puerto específico.
+- Elija un **servicio** común en el menú desplegable, como *HTTP*. También puede seleccionar *Personalizado* a fin de proporcionar un puerto específico para su uso. 
+- Si lo desea, cambie la prioridad o el nombre. La prioridad afecta al orden en que se aplican las reglas (cuanto más bajo es el valor numérico, antes se aplica la regla).
+- Cuando esté listo, seleccione **Aceptar** para crear la regla:
 
 ![Crear una regla de entrada](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

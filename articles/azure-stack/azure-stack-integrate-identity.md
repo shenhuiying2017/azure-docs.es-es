@@ -2,26 +2,25 @@
 title: "Integración del centro de datos de Azure Stack: identidad"
 description: "Obtenga información sobre cómo integrar AD FS de Azure Stack con AD FS de su centro de datos."
 services: azure-stack
-author: troettinger
+author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/20/2017
-ms.author: victorh
+ms.date: 12/12/2017
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: e43b9c7a854bc7150247a2b92d2d37ad6d74c705
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 
 *Se aplica a: sistemas integrados de Azure Stack*
 
-Azure Stack se puede implementar mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Esta elección debe realizarse antes de la implementación. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
+Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
 
 En la tabla siguiente se muestran las diferencias entre las dos opciones de identidad:
-
 
 ||Físicamente desconectado|Físicamente conectado|
 |---------|---------|---------|
@@ -75,33 +74,36 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 Si lo desea, puede crear una cuenta para el servicio Graph en la instancia de Active Directory existente. Realice este paso si ya no tiene una cuenta que desea utilizar.
 
 1. En la instancia de Active Directory existente, cree la siguiente cuenta de usuario (recomendación):
-   - Nombre de usuario: graphservice
-   - Contraseña: utilice una contraseña segura.<br>Configure una contraseña para que no caduque nunca.
+   - **Nombre de usuario**: graphservice
+   - **Contraseña**: utilice una contraseña segura<br>Configure una contraseña para que no caduque nunca.
 
-   No se necesita ningún permiso especial o pertenencia
+   No se necesita ningún permiso especial ni pertenencia.
 
-**Automatización de un desencadenador para configurar un grafo**
+#### <a name="trigger-automation-to-configure-graph"></a>Automatización de un desencadenador para configurar un grafo
 
 Para este procedimiento, use un equipo de la red del centro de datos que pueda comunicarse con el punto de conexión con privilegios de Azure Stack.
 
-2. Abra una sesión de Windows PowerShell con privilegios elevados (ejecútela como administrador) y conéctese a la dirección IP del punto de conexión con privilegios. Use las credenciales para la autenticación con CloudAdmin.
+2. Abra una sesión de Windows PowerShell con privilegios elevados (ejecútela como administrador) y conéctese a la dirección IP del punto de conexión con privilegios. Use las credenciales para la autenticación con **CloudAdmin**.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Ahora que se ha conectado al punto de conexión con privilegios, ejecute los siguientes comandos. Cuando se le solicite, especifique la credencial para la cuenta de usuario que desea utilizar para el servicio Graph (por ejemplo, graphservice).
+3. Ahora que se ha conectado al punto de conexión con privilegios, ejecute el siguiente comando: 
 
-   `Register-DirectoryService -CustomADGlobalCatalog contoso.com`
+   ```powershell
+   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+   ```
+
+   Cuando se le solicite, especifique la credencial para la cuenta de usuario que desea utilizar para el servicio Graph (por ejemplo, graphservice).
 
    > [!IMPORTANT]
    > Espere las credenciales emergentes (no se admite Get-Credential en el punto de conexión con privilegios) y escriba las credenciales de cuenta del servicio Graph.
 
-**Puertos y protocolos de Graph**
+#### <a name="graph-protocols-and-ports"></a>Puertos y protocolos de Graph
 
 El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para comunicarse con la instancia de Active Directory de destino:
-
 
 |Tipo|Port|Protocol|
 |---------|---------|---------|
@@ -114,7 +116,6 @@ El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para co
 
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
-
 |Parámetro|Description|Ejemplo|
 |---------|---------|---------|
 |CustomAdfsName|Nombre del proveedor de notificaciones. <cr>Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
@@ -123,22 +124,26 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automatización de desencadenador para configurar la relación de confianza de proveedor de notificaciones en Azure Stack
 
-Para este procedimiento, use un equipo de la red del centro de datos que pueda comunicarse con el punto de conexión con privilegios de Azure Stack. Se espera que el certificado utilizado por la instancia de AD FS del servicio de token de seguridad de la cuenta sea de confianza para Azure Stack.
+Para este procedimiento, use un equipo de la red del centro de datos que pueda comunicarse con el punto de conexión con privilegios de Azure Stack. Se espera que el certificado utilizado por la instancia de **AD FS del servicio de token de seguridad** de la cuenta sea de confianza para Azure Stack.
 
 1. Abra una sesión de Windows PowerShell con privilegios elevados y conéctese al punto de conexión con privilegios.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ahora que está conectado al punto de conexión con privilegios, ejecute el comando siguiente con los parámetros adecuados para su entorno:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+   ```
 
 3. Ejecute el siguiente comando para actualizar el propietario de la suscripción del proveedor predeterminado, con los parámetros adecuados para su entorno:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Configuración de la integración de AD FS mediante el archivo de metadatos de federación
 
@@ -161,7 +166,7 @@ Para el siguiente procedimiento, debe usar un equipo que tenga conectividad de r
 
 1. Abra una sesión de Windows PowerShell con privilegios elevados y ejecute el comando siguiente con los parámetros adecuados para su entorno:
 
-   ```
+   ```powershell
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -176,18 +181,22 @@ Para este procedimiento, use un equipo de la red del centro de datos que pueda c
 
 1. Abra una sesión de Windows PowerShell con privilegios elevados y conéctese al punto de conexión con privilegios.
 
-   ```
+   ```powershell
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ahora que está conectado al punto de conexión con privilegios, ejecute el comando siguiente con los parámetros adecuados para su entorno:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
+   ```
 
 3. Ejecute el siguiente comando para actualizar el propietario de la suscripción del proveedor predeterminado, con los parámetros adecuados para su entorno:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configuración del usuario de confianza en la implementación de AD FS existente (STS de cuenta)
 
@@ -199,7 +208,7 @@ Si decide ejecutar manualmente los comandos, siga estos pasos:
 
 1. Copie el siguiente contenido en un archivo .txt (por ejemplo, guardado como c:\ClaimRules.txt) en la instancia de AD FS o como miembro de la granja de servidores del centro de datos:
 
-   ```
+   ```text
    @RuleTemplate = "LdapClaims"
    @RuleName = "Name claim"
    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
@@ -232,35 +241,50 @@ Si decide ejecutar manualmente los comandos, siga estos pasos:
 
 2. Para habilitar la autenticación basada en formularios Windows Forms, abra una sesión de Windows PowerShell como usuario con privilegios elevados y ejecute el siguiente comando:
 
-   `Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")`
+   ```powershell
+   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   ```
 
 3. Para agregar la relación de confianza para usuario autenticado, ejecute el siguiente comando de Windows PowerShell en la instancia de AD FS o un miembro de la granja de servidores. Asegúrese de actualizar el punto de conexión de AD FS y seleccione el archivo creado en el paso 1.
 
    **Para AD FS 2016**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   ```
 
    **Para AD FS 2012/2012 R2**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   ```
 
    > [!IMPORTANT]
    > Debe usar el complemento MMC de AD FS para configurar las reglas de autorización de emisión cuando se usa AD FS de Windows Server 2012 o 2012 R2.
 
 4. Cuando se utiliza el explorador Internet Explorer o Edge para tener acceso a Azure Stack, debe omitir los enlaces de token. En caso contrario, se producirá un error al intentar iniciar sesión. En la instancia de AD FS o en un miembro de la granja de servidores, ejecute el siguiente comando:
 
-   `Set-AdfsProperties -IgnoreTokenBinding $true`
+   ```powershell
+   Set-AdfsProperties -IgnoreTokenBinding $true
+   ```
+
+5. Para habilitar la actualización de tokens, abra una sesión de Windows PowerShell con privilegios elevados y ejecute el siguiente comando:
+
+   ```powershell
+   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
+   ```
 
 ## <a name="spn-creation"></a>Creación de SPN
 
 Hay muchos escenarios que requieren el uso de un nombre de entidad de seguridad de servicio (SPN) para la autenticación. A continuación se muestran algunos ejemplos.
+
 - Uso de la CLI con la implementación de AD FS de Azure Stack
 - Módulo de administración de System Center para Azure Stack cuando se implementa con AD FS
 - Proveedores de recursos de Azure Stack cuando se implementan con AD FS
 - Diversas aplicaciones
 - Se requiere un inicio de sesión no interactivo.
 
-Para más información sobre cómo crear un nombre de entidad de seguridad de servicio, consulte la sección [Crear una entidad de servicio para AD FS](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Para más información sobre cómo crear un nombre de entidad de seguridad de servicio, consulte la sección [Crear una entidad de servicio para AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
 ## <a name="troubleshooting"></a>Solución de problemas
@@ -271,21 +295,25 @@ Si se produce un error que deja el entorno en un estado donde ya no se puede rea
 
 1. Abra una sesión de Windows PowerShell con privilegios elevados y ejecute el siguiente comando:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Después, ejecute el siguiente cmdlet:
 
-   `Reset-DatacenterIntegationConfiguration`
+   ```powershell
+   Reset-DatacenterIntegationConfiguration
+   ```
 
-   Tras ejecutar la acción de reversión, todos los cambios de configuración se revierten. Solo es posible la autenticación con el usuario "CloudAdmin" integrado.
+   Tras ejecutar la acción de reversión, todos los cambios de configuración se revierten. Solo es posible la autenticación con el usuario **CloudAdmin** integrado.
 
    > [!IMPORTANT]
    > Debe configurar el propietario original de la suscripción del proveedor predeterminado.
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
+   ```
 
 ### <a name="collecting-additional-logs"></a>Recopilación de registros adicionales
 
@@ -293,14 +321,16 @@ Si se produce un error en cualquiera de los cmdlets, puede recopilar registros a
 
 1. Abra una sesión de Windows PowerShell con privilegios elevados y ejecute el siguiente comando:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Después, ejecute el cmdlet siguiente:
 
-   `Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE`
+   ```powershell
+   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   ```
 
 
 ## <a name="next-steps"></a>Pasos siguientes

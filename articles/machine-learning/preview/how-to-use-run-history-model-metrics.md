@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Cómo usar el historial de ejecución y las métricas de modelo de Azure Machine Learning Workbench
 
@@ -32,7 +32,7 @@ Para seguir esta guía, necesita:
 ## <a name="azure-ml-logging-api-overview"></a>Información general de la API de registro de Azure Machine Learning
 La [API de registro de Azure ML](reference-logging-api.md) está disponible a través del módulo **azureml.logging** en Python (que se instala con Azure ML Workbench). Después de importar este módulo, puede usar el método **get_azureml_logger** para crear instancias de un objeto **registrador**.
 A continuación, puede usar el método de **registro** del registrador para almacenar los pares clave-valor que generan las secuencias de comandos de Python.
-Actualmente, las métricas del modelo de registro de tipo escalar, diccionario, lista y dataframe se admiten tal como se muestra.
+Actualmente, las métricas del modelo de registro de tipo escalar y lista se admiten tal como se muestra.
 
 ```Python
 # create a logger instance in already set up environment 

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdfb5db7b304a18d6945328abc0ca7ebf2f9ec6a
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creación de una función desencadenada por Webhook de GitHub
 
@@ -51,9 +51,13 @@ Después, cree una función en la nueva Function App.
 
     ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Seleccione la plantilla **GitHub WebHook** del idioma que desee. Asigne un **nombre a la función** y seleccione **Crear**.
+2. En el campo de búsqueda, escriba `github` y seleccione el idioma que desee para la plantilla del desencadenador de webhook de GitHub. 
 
-     ![Crear una función desencadenada de Webhook de GitHub en Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![Elección de la plantilla de desencadenador de webhook de GitHub](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+
+2. Escriba un **nombre** para la función y, después, seleccione **Crear**. 
+
+     ![Configuración de una función desencadenada por webhook de GitHub en Azure Portal](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger-2.png) 
 
 3. En la función nueva, haga clic en **</> Obtener la dirección URL de la función** y copie y guarde los valores. Haga lo mismo para **</> Obtener el secreto de GitHub**. Estos valores se utilizan para configurar el webhook en GitHub.
 

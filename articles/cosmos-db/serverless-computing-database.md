@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions
 
@@ -44,7 +44,7 @@ El desencadenador de Azure Cosmos DB, el enlace de entrada y el enlace de salida
 * Un enlace de entrada a un contenedor de Azure Cosmos DB se puede usar en la misma función que un desencadenador de Azure Cosmos DB y también se puede usar con un enlace de salida o sin él. Podría usar esta combinación para aplicar información actualizada sobre el cambio de moneda (extraído con un enlace de entrada a un contenedor de intercambio) a la fuente de cambios de los pedidos nuevos en el servicio del carro de la compra. El total actualizado del carro de la compra, con la conversión de moneda actual aplicada, se puede escribir en un tercer contenedor con un enlace de salida.
 
 > [!NOTE]
-> En este momento, el desencadenador de Azure Cosmos DB, los enlaces de entrada y los enlaces de salida solo funcionan con cuentas de DocumentDB, Table y API Graph.
+> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API, y API Graph.
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -86,14 +86,14 @@ En las imágenes siguientes se muestra el código de Azure Portal para este esce
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Caso de uso de juegos: desencadenador de Azure Cosmos DB y enlace de salida
 
-En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [API Graph de Azure Cosmos DB](graph-introduction.md). Luego puede escribir los resultados en una [base de datos de tabla de Azure Cosmos DB](table-introduction.md) para poder recuperarlos fácilmente.
+En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [API Graph de Azure Cosmos DB](graph-introduction.md). A continuación, puede escribir los resultados en una [base de datos SQL de Azure Cosmos DB] para poder recuperarlos fácilmente.
 
 **Implementación:** use un desencadenador de Azure Cosmos DB y un enlace de salida
 
 1. Con una [base de datos de gráficos](graph-introduction.md) de Azure para almacenar a todos los usuarios, puede crear una función nueva con un desencadenador de Azure Cosmos DB. 
 2. Cada vez que se inserta un usuario nuevo, se invoca la función y, luego, el resultado se almacena con un **enlace de salida**.
 3. La función consulta la base de datos de gráficos para buscar todos los usuarios que están relacionados directamente con el usuario nuevo y devuelve ese conjunto de datos a la función.
-4. Luego, los datos se almacenan en una [base de datos de tabla](table-introduction.md) de Azure Cosmos DB como un conjunto de pares clave-valor, que luego cualquier aplicación de front-end puede recuperar fácilmente y que muestra al usuario nuevo sus amigos conectados.
+4. Estos datos se almacenan en una base de datos de Azure Cosmos DB que cualquier aplicación de front-en puede recuperar fácilmente y que muestra al usuario nuevo sus amigos conectados.
 
 ### <a name="retail-use-case---multiple-functions"></a>Caso de uso de venta minorista: varias funciones
 

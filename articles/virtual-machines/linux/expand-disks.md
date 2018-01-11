@@ -4,7 +4,7 @@ description: "Obtenga información sobre cómo expandir discos duros virtuales e
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una máquina virtual Linux mediante la CLI de Azure
 Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una máquina virtual Linux de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, pero puede que también desee expandir un disco de datos existente. En este artículo se explica cómo expandir discos administrados para una máquina virtual con Linux mediante la utilización de la CLI de Azure 2.0. También puede expandir el disco del sistema operativo no administrado con la [CLI de Azure 1.0](expand-disks-nodejs.md).
@@ -26,7 +26,7 @@ Normalmente, el tamaño predeterminado del disco duro virtual del sistema operat
 > [!WARNING]
 > Asegúrese siempre de realizar una copia de seguridad de los datos antes de cambiar el tamaño de los discos. Para más información, consulte [Copia de seguridad de máquinas virtuales Linux en Azure](tutorial-backup-vms.md).
 
-## <a name="expand-disk"></a>Expansión del disco
+## <a name="expand-azure-managed-disk"></a>Expandir el disco administrado de Azure
 Asegúrese de que ha instalado la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/#login).
 
 En este artículo se requiere una máquina virtual existente en Azure con al menos un disco de datos adjunto y preparado. Si no dispone de una máquina virtual que pueda usar, consulte la sección sobre la [creación y preparación de máquinas virtuales con discos de datos](tutorial-manage-disks.md#create-and-attach-disks).
@@ -40,7 +40,7 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     ```
 
     > [!NOTE]
-    > `az vm stop` no libera los recursos de proceso. Para liberar los recursos de proceso, use `az vm deallocate`. Debe desasignar la máquina virtual para expandir el disco duro virtual.
+    > Debe desasignar la máquina virtual para expandir el disco duro virtual. `az vm stop` no libera los recursos de proceso. Para liberar los recursos de proceso, use `az vm deallocate`.
 
 2. Vea la lista de discos administrados de un grupo de recursos con [az disk list](/cli/azure/disk#list). En el ejemplo siguiente se muestra una lista de discos administrados del grupo de recursos denominado *myResourceGroup*:
 
@@ -69,13 +69,17 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH en la máquina virtual con las credenciales adecuadas. Puede obtener la dirección IP pública de la máquina virtual con [az vm show](/cli/azure/vm#show):
+
+## <a name="expand-disk-partition-and-filesystem"></a>Expandir el sistema de archivos y la partición del disco
+Para usar el disco ampliado, necesita expandir la partición y el sistema de archivos subyacentes.
+
+1. SSH en la máquina virtual con las credenciales adecuadas. Puede obtener la dirección IP pública de la máquina virtual con [az vm show](/cli/azure/vm#show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. Para usar el disco ampliado, necesita expandir la partición y el sistema de archivos subyacentes.
+2. Para usar el disco ampliado, necesita expandir la partición y el sistema de archivos subyacentes.
 
     a. Si está montado, desmonte el disco:
 
@@ -116,25 +120,25 @@ En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por 
 
     d. Para salir, escriba `quit`
 
-5. Una vez cambiado el tamaño de la partición, compruebe la coherencia de esta con `e2fsck`:
+3. Una vez cambiado el tamaño de la partición, compruebe la coherencia de esta con `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. Ahora cambie el tamaño del sistema de archivos con `resize2fs`:
+4. Ahora cambie el tamaño del sistema de archivos con `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. Monte la partición en la ubicación deseada, por ejemplo, `/datadrive`:
+5. Monte la partición en la ubicación deseada, por ejemplo, `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. Para comprobar que se ha cambiado el tamaño de disco del sistema operativo, use `df -h`. La siguiente salida de ejemplo muestra que la unidad de datos, */dev/sdc1*, es ahora de 200 GB:
+6. Para comprobar que se ha cambiado el tamaño de disco del sistema operativo, use `df -h`. La siguiente salida de ejemplo muestra que la unidad de datos, */dev/sdc1*, es ahora de 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

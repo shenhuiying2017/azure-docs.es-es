@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Exploración de las funcionalidades de la solución preconfigurada de supervisión remota
 
@@ -101,11 +101,11 @@ Como operador, puede ver en el panel que existe una alarma relacionada con la pr
 
 1. Cierre los **detalles del dispositivo**.
 
-1. Para navegar a la página **Mantenimiento**, haga clic en **...** en la columna **Explore Alarm** (Explorar alarma) junto a la alarma en la cuadrícula de alarmas.
+1. Para ir a la página **Mantenimiento**, elija **Mantenimiento** en el menú de navegación.
 
 En la página **Mantenimiento**, puede ver los detalles de la regla que desencadenó la alarma de presión del refrigerador.
 
-1. Puede ver cuántas veces se desencadenó la alarma, las confirmaciones y las alarmas abiertas y cerradas:
+1. En la lista de notificaciones se muestra cuántas veces se desencadenó la alarma, las confirmaciones y las alarmas abiertas y cerradas:
 
     ![La página de mantenimiento muestra la lista de las alarmas que se han desencadenado](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Ahora identificó el problema que desencadenó la alarma y el dispositivo asocia
 
     ![Selección del dispositivo y programación de una acción](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Para ver el estado del trabajo, vuelva a la página **Mantenimiento** y vea la lista de trabajos en la vista **Estado del sistema**. Puede ver que el trabajo se ejecutó para liberar la presión de la válvula del refrigerador:
+1. Para ver el estado del trabajo, vuelva a la página **Mantenimiento** y vea la lista de trabajos en la vista **Trabajos**. Puede ver que el trabajo se ejecutó para liberar la presión de la válvula del refrigerador:
 
-    ![El estado de los trabajos en Estado del sistema](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![Estado de los trabajos en la vista Trabajos](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Por último, confirme que los valores de la telemetría del refrigerador volvieron a los valores normales.
 
@@ -167,13 +167,13 @@ Para hacer las tareas necesarias de administración de dispositivos, use la pág
 
 Puede usar la página **Mantenimiento** para hacer seguimiento del trabajo cuando se ejecuta.
 
-1. Para ver la lista de los trabajos, vaya a la página **Mantenimiento** y haga clic en **Estado del sistema**.
+1. Para ver la lista de los trabajos, vaya a la página **Mantenimiento** y haga clic en **Trabajos**.
 
 1. Ubique el evento relacionado con el trabajo que creó. Compruebe que el proceso de actualización de firmware se inició correctamente.
 
 Puede crear un filtro para comprobar que la versión de firmware se actualizó correctamente.
 
-1. Para crear un filtro, vaya a la página **Dispositivos** y seleccione **Administrar**:
+1. Para crear un filtro, vaya a la página **Dispositivos** y seleccione **Administrar filtros**:
 
     ![Administración de filtros del dispositivo](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Puede crear nombres de etiquetas para su uso con los dispositivos.
 
     ![Selección de dispositivos de prototipo y camión](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Elija **Etiqueta** y cree una etiqueta de cadena nueva denominada **FieldService** con un valor **ConnectedVehicle**. Elija un nombre para el trabajo. A continuación, haga clic en **Aplicar**:
+1. Elija **Etiqueta** y cree una etiqueta de texto nueva denominada **FieldService** con un valor **ConnectedVehicle**. Elija un nombre para el trabajo. A continuación, haga clic en **Aplicar**:
 
     ![Agregar etiqueta a los dispositivos de prototipo y camión](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Puede crear nombres de etiquetas para su uso con los dispositivos.
 
     ![Seleccione los dispositivos de refrigerador, motor y ascensor](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Elija **Etiqueta** y cree una etiqueta nueva denominada **FieldService** con un valor **SmartBuilding**. Elija un nombre para el trabajo. A continuación, haga clic en **Guardar**:
+1. Elija **Etiqueta** y cree una etiqueta de texto nueva denominada **FieldService** con un valor **SmartBuilding**. Elija un nombre para el trabajo. A continuación, haga clic en **Guardar**:
 
     ![Agregar etiqueta a los dispositivos de refrigerador, motor y ascensor](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

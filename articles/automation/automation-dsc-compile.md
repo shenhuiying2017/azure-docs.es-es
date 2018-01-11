@@ -3,7 +3,7 @@ title: "Compilación de configuraciones en DSC de Azure Automation | Microsoft D
 description: "En este artículo se describe cómo compilar configuraciones de configuración de estado deseado (DSC) para Azure Automation."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilación de configuraciones en DSC de Azure Automation
 
 Puede compilar las configuraciones de configuración de estado deseado (DSC) de dos formas con Azure Automation: en Azure Portal y con Windows PowerShell. La tabla siguiente le ayudará a determinar cuándo se debe usar cada método en base a las características de cada uno:
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 
 * Método más sencillo con la interfaz de usuario interactiva
 * Forma para proporcionar valores de parámetro simples
@@ -131,16 +131,16 @@ Para obtener información acerca de cómo pasar PSCredentials como parámetros, 
 
 ## <a name="composite-resources"></a>Recursos compuestos
 
-Los **recursos compuestos** le permiten utilizar las configuraciones de DSC como recursos anidados dentro de una configuración.  Esto le permite aplicar varias configuraciones a un solo recurso.  Consulte [Recursos compuestos: uso de una configuración de DSC como un recurso](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) para más información acerca de los **recursos compuestos**
+Los **recursos compuestos** le permiten utilizar las configuraciones de DSC como recursos anidados dentro de una configuración. Esto le permite aplicar varias configuraciones a un solo recurso.  Consulte [Recursos compuestos: uso de una configuración de DSC como un recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para más información acerca de los **recursos compuestos**
 
 > [!NOTE]
 > Para que los **recursos compuestos** se compilen correctamente, primero debe asegurarse de que los recursos de DSC de los que depende el compuesto están antes instalados en el repositorio de módulos de cuenta de Azure Automation o no se importarán correctamente.
 
-Para agregar un **recurso compuesto** de DSC, debe agregar el módulo del recurso a un archivo (*.zip). Vaya al repositorio de módulos en su cuenta de Azure Automation.  A continuación, haga clic en el botón "Agregar un módulo".
+Para agregar un **recurso compuesto** de DSC, debe agregar el módulo del recurso a un archivo (*.zip). Vaya al repositorio de módulos en su cuenta de Azure Automation. A continuación, haga clic en el botón "Agregar un módulo".
 
 ![Adición de módulo](./media/automation-dsc-compile/add_module.png)
 
-Desplácese al directorio donde se encuentra el archivo.  Seleccione el archivo y haga clic en Aceptar.
+Desplácese al directorio donde se encuentra el archivo. Seleccione el archivo y haga clic en Aceptar.
 
 ![Selección de módulo](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Importación de configuraciones de nodo
 
-También puede importar configuraciones de nodo (MOF) que se hayan compilado fuera de Azure. Una ventaja de esta posibilidad es que se pueden firmar las configuraciones de nodo.
+También puede importar las configuraciones de nodo (MOF) que se hayan compilado fuera de Azure. Una ventaja de esta posibilidad es que se pueden firmar las configuraciones de nodo.
 Una configuración de nodo firmada se comprueba localmente en un nodo administrado mediante el agente DSC; de este modo, se garantiza que la configuración que se va a aplicar al nodo proviene de una fuente autorizada.
 
 > [!NOTE]

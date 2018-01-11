@@ -1,6 +1,6 @@
 ---
-title: "Transmisión del registro de actividades de Azure a Events Hubs | Microsoft Docs"
-description: Aprenda a transmitir el registro de actividad de Azure a centros de eventos.
+title: "Transmisión del registro de actividades de Azure a Event Hubs | Microsoft Docs"
+description: Aprenda a transmitir el registro de actividad de Azure a Event Hubs.
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a centros de eventos
-El [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) se puede transmitir casi en tiempo real a cualquier aplicación mediante la opción Exportar integrada en el portal o habilitando el identificador de regla de Bus Services en un perfil de registro por medio de los cmdlets de Azure PowerShell o la CLI de Azure.
+# <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmisión del registro de actividad de Azure a Event Hubs
+El [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) se puede transmitir casi en tiempo real a cualquier aplicación mediante la opción Exportar integrada en el portal o habilitando el identificador de regla de Service Bus en un perfil de registro por medio de los cmdlets de Azure PowerShell o la CLI de Azure.
 
-## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Qué se puede hacer con el registro de actividad y los centros de eventos
+## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>Qué se puede hacer con el registro de actividad y Event Hubs
 Estas son solo algunas formas de usar la funcionalidad de streaming para el registro de actividad:
 
-* **Transmisión a sistemas de registro y telemetría de terceros** : con el tiempo, el streaming de centros de eventos se convertirá en el mecanismo para canalizar el registro de actividad a sistemas de información de seguridad y administración de eventos (SIEM) y soluciones de análisis de registro de terceros.
-* **Creación de una plataforma personalizada de registro y telemetría** : si ya tiene una plataforma de telemetría personalizada o está pensando en crear una, la gran escalabilidad en cuanto a la suscripción y la publicación de los centros de eventos permite introducir el registro de actividad de manera flexible. [Consulte la guía de Dan Rosanova para usar centros de eventos en una plataforma de telemetría de escala global aquí.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+* **Transmisión a sistemas de registro y telemetría de terceros**: con el tiempo, el streaming de Event Hubs se convertirá en el mecanismo para canalizar el registro de actividad a sistemas de información de seguridad y administración de eventos (SIEM) y soluciones de análisis de registro de terceros.
+* **Creación de una plataforma personalizada de registro y telemetría** : si ya tiene una plataforma de telemetría personalizada o está pensando en crear una, la gran escalabilidad en cuanto a la suscripción y la publicación de Event Hubs permite introducir el registro de actividad de manera flexible. [Consulte la guía de Dan Rosanova para usar Event Hubs en una plataforma de telemetría de escala global aquí.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Habilitación del streaming del registro de actividad
-Puede habilitar el streaming del registro de actividad mediante programación o a través del portal. En cualquier caso, puede seleccionar un espacio de nombres de Service Bus y una directiva de acceso compartido para dicho espacio de nombres. Además, se crea un Centro de eventos en ese espacio de nombres cuando se produce el primer nuevo evento del registro de actividades. Si no tiene un espacio de nombres de Service Bus, primero debe crear uno. Si anteriormente se han transmitido eventos del registro de actividades para este espacio de nombres de Service Bus, se reutilizará el Centro de eventos que se creó anteriormente. La directiva de acceso compartido define los permisos que tiene el mecanismo de transmisión. En la actualidad, para transmitir a un centro de Event Hubs, se necesitan permisos de **administración**, **envío** y **escucha**. Puede crear o modificar las directivas de acceso compartido del espacio de nombres del Bus de servicio en el Portal clásico en la pestaña "Configurar" para el espacio de nombres del Bus de servicio. Para actualizar el perfil de registro del registro de actividad para incluir la transmisión, el cliente debe tener el permiso ListKey en la regla de autorización de Service Bus.
+Puede habilitar el streaming del registro de actividad mediante programación o a través del portal. En cualquier caso, puede seleccionar un espacio de nombres de Service Bus y una directiva de acceso compartido para dicho espacio de nombres. Además, se crea un Centro de eventos en ese espacio de nombres cuando se produce el primer nuevo evento del registro de actividades. Si no tiene un espacio de nombres de Service Bus, primero debe crear uno. Si anteriormente se han transmitido eventos del registro de actividades para este espacio de nombres de Service Bus, se reutilizará el Centro de eventos que se creó anteriormente. La directiva de acceso compartido define los permisos que tiene el mecanismo de transmisión. En la actualidad, para transmitir a un centro de Event Hubs, se necesitan permisos de **administración**, **envío** y **escucha**. Puede crear o modificar las directivas de acceso compartido del espacio de nombres de Service Bus en Azure Portal en la pestaña "Configurar" del espacio de nombres de Service Bus. Para actualizar el perfil de registro del registro de actividad para incluir la transmisión, el cliente debe tener el permiso ListKey en la regla de autorización de Service Bus.
 
 El espacio de nombres del centro de eventos o el bus de servicio no tiene que estar en la misma suscripción que la que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
 
@@ -41,7 +41,7 @@ El espacio de nombres del centro de eventos o el bus de servicio no tiene que es
 2. Haga clic en el botón **Exportar** en la parte superior de la hoja.
    
     ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. En la hoja que aparece, puede seleccionar las regiones para las que transmitir eventos y el espacio de nombres del Bus de servicio donde desea que se cree un centro de eventos para transmitirlos.
+3. En la hoja que aparece, puede seleccionar las regiones para las que transmitir eventos y el espacio de nombres de Service Bus donde desea que se cree un centro de eventos para transmitirlos.
    
     ![Exportar en hoja de registro de actividad](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
@@ -57,7 +57,7 @@ Si ya existe un perfil de registro, primero debe quitarlo.
 Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-El identificador de regla del Bus de servicio es una cadena con este formato: por ejemplo, {Id. de recurso del Bus de servicio}/authorizationrules/{nombre de clave}. 
+El identificador de regla de Service Bus es una cadena con este formato: por ejemplo, {Id. de recurso de Service Bus}/authorizationrules/{nombre de clave}. 
 
 ### <a name="via-azure-cli"></a>Mediante la CLI de Azure
 Si ya existe un perfil de registro, primero debe quitarlo.
@@ -70,9 +70,9 @@ Si ya existe un perfil de registro, primero debe quitarlo.
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-El identificador de regla del Bus de servicio es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
+El identificador de regla de Service Bus es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`.
 
-## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>¿Cómo se consumen los datos de registro procedentes de centros de eventos?
+## <a name="how-do-i-consume-the-log-data-from-event-hubs"></a>¿Cómo se consumen los datos de registro procedentes de Event Hubs?
 [El esquema para el registro de actividades está disponible aquí](monitoring-overview-activity-logs.md). Cada evento está en una matriz de blobs JSON denominados "registros".
 
 ## <a name="next-steps"></a>Pasos siguientes

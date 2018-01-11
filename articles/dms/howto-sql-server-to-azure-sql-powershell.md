@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: ad6469fcf86aeb7a0076ab5909fbe593596df695
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.date: 12/13/2017
+ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migración de SQL Server local a Azure SQL Database mediante Azure PowerShell
-En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 a una instancia de Azure SQL Database mediante Microsoft Azure PowerShell.  Puede migrar bases de datos desde una instancia de SQL Server local a Azure SQL Database mediante el módulo `AzureRM.DataMigration` en Microsoft Azure PowerShell.
+En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 a una instancia de Azure SQL Database mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server local a Azure SQL Database mediante el módulo `AzureRM.DataMigration` en Microsoft Azure PowerShell.
 
 En este artículo, aprenderá a:
 > [!div class="checklist"]
@@ -26,7 +26,6 @@ En este artículo, aprenderá a:
 > * Crear una instancia de Azure Database Migration Service.
 > * Crear un proyecto de migración en una instancia de Azure Database Migration Service.
 > * Ejecutar la migración.
-
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar estos pasos, necesitará lo siguiente:
@@ -38,13 +37,13 @@ Para completar estos pasos, necesitará lo siguiente:
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (versión 3.3 o posterior).
 - Azure Database Migration Service requiere una red virtual creada mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - La evaluación completada de la base de datos local y la migración del esquema con Data Migration Assistant como se describe en el artículo [ Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) (Realización de una evaluación de la migración de SQL Server).
-- Descargar e instalar el módulo AzureRM.DataMigration de la Galería de PowerShell con [Install-Module PowerShell cmdlet](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
-- Las credenciales usadas para conectarse a la instancia de SQL Server de origen deben tener permisos [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
+- Descargar e instalar el módulo AzureRM.DataMigration de la Galería de PowerShell con el [cmdlet Install-Module de PowerShell](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1).
+- Las credenciales usadas para conectarse a la instancia de SQL Server de origen deben tener el permiso [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
 - Las credenciales usadas para conectarse a la instancia de Azure SQL Database de destino deben tener el permiso CONTROL DATABASE en las bases de datos Azure SQL Database de destino.
+- Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Inicio de sesión en la suscripción de Microsoft Azure
 Utilice las instrucciones que aparecen en el artículo [Inicio de sesión con Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) para iniciar sesión en su suscripción de Azure mediante PowerShell.
-
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos para poder crear una máquina virtual.
@@ -56,7 +55,6 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## <a name="create-an-azure-database-migration-service-instance"></a>Creación de una instancia de Azure Database Migration Service 
 Puede crear una instancia nueva de Azure Database Migration Service mediante el cmdlet `New-AzureRmDataMigrationService`. Este cmdlet espera los siguientes parámetros requeridos:
 - *Nombre del grupo de recursos de Azure*. Puede usar el comando [AzureRmResourceGroup New](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) para crear el grupo de recursos de Azure como se mostró anteriormente y proporcionar su nombre como un parámetro.
@@ -130,12 +128,10 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Creación e inicio de una tarea de migración
-
 Por último, cree e inicie la tarea de Azure Database Migration. La tarea de Azure Database Migration requiere información de credenciales de conexión de origen y destino, y una lista de las tablas de base de datos que se van a migrar, además de la información ya proporcionada con el proyecto creado como requisito previo. 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Creación de parámetros de credenciales de origen y de destino
-
-Las credenciales de seguridad de conexión pueden crearse como objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0). 
+Las credenciales de seguridad de conexión pueden crearse como un objeto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0). 
 
 En el ejemplo siguiente se muestra la creación de objetos *PSCredential* para las conexiones de origen y destino proporcionando contraseñas como variables de cadena *$sourcePassword* y *$targetPassword*. 
 
@@ -200,7 +196,7 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 Puede supervisar la tarea de migración que se ejecuta mediante la consulta de la propiedad de estado de la tarea como se muestra en el siguiente ejemplo:
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: chackdan;maburlik;dekapur
-ms.openlocfilehash: 6aa2905a97ec6b8c125f2ab9572a8e40bf525b27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b3b1e8a368419fe4014802f7b2a35b7ae3fba3c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server.
@@ -36,7 +36,7 @@ Este artículo le guía por los pasos para crear un clúster independiente de Se
 * Pregunte a la comunidad sobre el paquete independiente de Service Fabric para Windows Server en el [foro de Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Abra una incidencia para obtener [soporte técnico profesional para Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Más información sobre el soporte técnico profesional de Microsoft[aquí](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * También puede obtener soporte técnico para este paquete como parte del [soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
-* Para más información, consulte [Opciones de soporte técnico de Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support).
+* Para más información, consulte [Opciones de soporte técnico de Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Para recopilar registros como soporte técnico, ejecute el [recopilador de registros independiente de Service Fabric](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
@@ -70,7 +70,7 @@ Si ya ha terminado de ejecutar los escenarios de desarrollo, puede quitar el cl�
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>Paso 1B: Creación de un clúster de varias máquinas
 Después de haber realizado los pasos de planeamiento y preparación detallados en el siguiente vínculo, está listo para crear el clúster de producción mediante el archivo de configuración del clúster. <br>
-[Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md) (Planeamiento y preparación del desarrollo del clúster)
+[Planeamiento y preparación de la implementación de un clúster independiente de Service Fabric](service-fabric-cluster-standalone-deployment-preparation.md)
 
 1. Valide el archivo de configuración que se ha escrito ejecutando el script *TestConfiguration.ps1* desde la carpeta del paquete independiente:  
 
