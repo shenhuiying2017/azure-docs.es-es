@@ -38,6 +38,8 @@
       href: event-grid-event-hubs-integration.md
     - name: Plantillas para suscripciones a eventos
       href: event-subscription-template.md
+    - name: Supervisión de la entrega de eventos
+      href: monitor-event-delivery.md
 - name: Referencia
   items:
     - name: Azure CLI

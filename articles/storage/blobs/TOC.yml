@@ -8,10 +8,10 @@
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Inicios rápidos
   items:
-    - name: 'Creación de una cuenta de almacenamiento: PowerShell'
-      href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 'Creación de una cuenta de almacenamiento: CLI'
-      href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Crear una cuenta de almacenamiento
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: 'Uso de blobs: Azure Portal'
+      href: storage-quickstart-blobs-portal.md
     - name: 'Uso de blobs: PowerShell'
       href: storage-quickstart-blobs-powershell.md
     - name: 'Uso de blobs: CLI'
@@ -58,7 +58,7 @@
           href: storage-blob-scalable-app-upload-files.md
         - name: Carga de datos grandes en una cuenta de Azure Storage
           href: storage-blob-scalable-app-download-files.md
-        - name: Comprobación de las métricas de rendimiento y latencia
+        - name: Comprobar las métricas de rendimiento y latencia
           href: storage-blob-scalable-app-verify-metrics.md
 - name: Muestras
   items:
@@ -68,8 +68,12 @@
       href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
       href: storage-samples-blobs-powershell.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: storage-samples-blobs-cli.md
+    - name: .NET
+      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Java
+      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Conceptos
   items:
     - name: Planeamiento y diseño
@@ -94,16 +98,32 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Premium Storage
           items:
-            - name: Premium Storage de alto rendimiento para discos de máquina virtual
-              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migración a Premium Storage con Azure Site Recovery
-              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Diseño para alto rendimiento
-              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Premium Storage de alto rendimiento para discos de máquina virtual
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
+                - name: Migración a Premium Storage con Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Diseño para alto rendimiento
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
+            - name: Windows
+              items:
+                - name: Premium Storage de alto rendimiento para discos de máquina virtual
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
+                - name: Migración a Premium Storage con Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Diseño para alto rendimiento
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
         - name: Standard Storage
           items:
-            - name: Standard Storage rentable y discos de máquina virtual administrados y no administrados
-              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Almacenamiento estándar para discos de máquinas virtuales
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
+            - name: Windows
+              items:
+                - name: Almacenamiento estándar para discos de máquinas virtuales
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
     - name: Protección
       items:
         - name: Guía de seguridad
@@ -146,6 +166,8 @@
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Desarrollo
       items:
+        - name: REST
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-blobs.md
         - name: Java
@@ -172,8 +194,6 @@
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: administración
       items:
-        - name: PowerShell para Azure Blobs
-          href: storage-how-to-use-blobs-powershell.md
         - name: PowerShell para Azure Storage
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'PowerShell para nubes de China, Alemania y de la administración pública'
@@ -301,7 +321,7 @@
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/storage
     - name: .NET
       items:

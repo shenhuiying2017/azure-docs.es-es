@@ -45,7 +45,7 @@
   items:
     - name: Implementación
       items:
-        - name: requisitos previos
+        - name: Requisitos previos
           href: azure-stack-deploy.md
         - name: Telemetría
           href: azure-stack-telemetry.md
@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Habilitación de servicios multiinquilino
               href: azure-stack-enable-multitenancy.md
+        - name: Girar secretos
+          href: azure-stack-rotate-secrets.md
     - name: Oferta de servicios
       items:
         - name: Introducción a la oferta de servicios
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnósticos de Azure Stack
           href: azure-stack-diagnostics.md
+        - name: Validación de Azure Stack
+          href: azure-stack-diagnostic-test.md
         - name: Volver a implementar Azure Stack Development Kit
           href: azure-stack-redeploy.md
 - name: Referencia

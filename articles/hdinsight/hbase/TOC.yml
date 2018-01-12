@@ -17,7 +17,7 @@
     - name: Planeamiento de la capacidad de clúster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Cómo
+- name: Procedimientos
   items:
     - name: Uso del almacenamiento de clúster
       items:
@@ -68,7 +68,7 @@
         - name: Uso de la tunelización de SSH
           href: ../hdinsight-linux-ambari-ssh-tunnel.md
           maintainContext: true
-    - name: Administrar
+    - name: administración
       items:
         - name: Creación de clústeres de Linux
           href: ../hdinsight-hadoop-provision-linux-clusters.md
@@ -86,7 +86,7 @@
             - name: Uso de la CLI de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: Uso del Portal de Azure
+            - name: Uso de Azure Portal
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Utilización de plantillas del Administrador de recursos de Azure
@@ -121,6 +121,8 @@
         - name: Carga de datos para trabajos Hadoop
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Carga masiva de datos en Phoenix mediante psql
+          href: apache-hbase-phoenix-psql.md
         - name: Varios clústeres de HDInsight con Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true

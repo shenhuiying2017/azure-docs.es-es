@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Desarrollo
       items:
+        - name: Ejecutar programas MapReduce personalizados
+          href: apache-hadoop-run-custom-programs.md
         - name: 'Desarrollo de programas de MapReduce de streaming en C#'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Desarrollo de programas Java MapReduce
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Uso de Apache Hive como una herramienta de extracción, transformación y carga de datos (ETL)'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Extracción, transformación y carga de datos a escala'
+          href: apache-hadoop-etl-at-scale.md
         - name: Uso de nodos perimetrales vacíos
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Análisis de registros de telemetría de Application Insights
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: Análisis avanzado de HDInsight
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Extensión de los clústeres
       items:
         - name: Personalización de clústeres con Bootstrap
@@ -378,6 +386,8 @@
         - name: Supervisión del rendimiento de un clúster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+        - name: Análisis de los registros de Hadoop
+          href: apache-hadoop-debug-jobs.md
 - name: Referencia
   items:
     - name: Ejemplos de código

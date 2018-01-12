@@ -16,6 +16,7 @@
 ### [Creación de máquinas virtuales](devtest-lab-add-vm.md)
 ### [Creación y administración de máquinas virtuales reclamables](devtest-lab-add-claimable-vm.md)
 ### [Creación y administración de máquinas virtuales con la CLI de Azure](devtest-lab-vmcli.md)
+### [Creación de una VM a partir de una plantilla de Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Reinicio de una máquina virtual](devtest-lab-restart-vm.md)
 
 ## Uso de entornos en un laboratorio
@@ -46,7 +47,6 @@
 
 ## Administración de plantillas reutilizables
 ### [Adición de un repositorio de Git de artefactos y plantillas](devtest-lab-add-artifact-repo.md)
-### [Uso de una plantilla de Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Administración de fórmulas](devtest-lab-manage-formulas.md)
 
 ## Administración de artefactos
@@ -69,7 +69,7 @@
 ## [CLI 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Creación o modificación de laboratorios automáticamente](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
-## [API DE REST](https://docs.microsoft.com/rest/api/dtl/)
+## [API de REST](https://docs.microsoft.com/rest/api/dtl/)
 ## [Plantillas de Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
 
 
@@ -78,7 +78,7 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=devtest-lab)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Blog del equipo](https://blogs.msdn.microsoft.com/devtestlab/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 ## [Precios](https://azure.microsoft.com/pricing/details/devtest-lab/)
 
