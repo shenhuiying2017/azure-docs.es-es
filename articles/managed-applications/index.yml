@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/25/2017
   ms.author: tomfitz
-  ms.openlocfilehash: a51f2d028dc09bfe8d58357d2ade7c3dfa6e3fef
-  ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+  ms.openlocfilehash: 85f4d5d37dabfa5a8781a4f9ed0fb52d7c6e0297
+  ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Las aplicaciones administradas de Azure le permiten ofrecer soluciones en la nube a clientes internos y externos. Puede definir la infraestructura de la solución y los términos de la administración continua de esta. La facturación de la solución se controla a través de la facturación de Azure."
 sections:
@@ -30,17 +30,17 @@ sections:
     items:
     - image:
         src: /azure/managed-applications/media/index/cli.svg
-      text: CLI de Azure
+      text: Azure CLI
       href: /azure/managed-applications/managed-apps-quickstart-cli
 - title: Tutoriales detallados
   items:
   - type: paragraph
     text: "Aprenda a desarrollar aplicaciones administradas y a ofrecerlas a través de Azure Marketplace."
   - type: list
-    style: unordered
-    className: spaced noBullet
+    style: ordered
     items:
     - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">Publicación de una aplicación administrada para usuarios internos</a>"
+    - html: "<a href=\"/azure/managed-applications/publish-marketplace-app\">Publicación de una aplicación administrada para usuarios externos</a>"
 - title: Referencia
   items:
   - type: list

@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: Proxy de funciones
       href: functions-proxies.md
-    - name: Sistema en tiempo de ejecución de Functions
+    - name: Funciones locales
       href: functions-runtime-overview.md
     - name: Funciones duraderas
       items:
@@ -182,7 +182,7 @@
         - name: Blob Storage
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Event Hubs
           href: functions-bindings-event-hubs.md
         - name: Archivo externo

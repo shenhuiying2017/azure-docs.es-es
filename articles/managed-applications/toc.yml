@@ -12,9 +12,11 @@
   items:
     - name: Creación de archivos de aplicación administrados
       href: publish-service-catalog-app.md
+    - name: Creación de la aplicación de Marketplace
+      href: publish-marketplace-app.md
 - name: Muestras
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -30,7 +32,7 @@
       href: publish-portal.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/managedapp
     - name: PowerShell
       href: /powershell/module/azurerm.resources

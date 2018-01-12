@@ -47,7 +47,7 @@
   items:
     - name: PowerShell
       href: powershell-samples.md
-    - name: CLI de Azure
+    - name: Azure CLI
       href: cli-samples.md
 - name: Conceptos
   items:
@@ -125,7 +125,11 @@
         - name: 'Uso de C#'
           href: csharp.md
         - name: Uso de un disco especializado
-          href: create-vm-specialized.md
+          items:
+            - name: Portal
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'Uso de una plantilla con C#'
           href: csharp-template.md
         - name: Creación de una máquina virtual con Chef
@@ -416,7 +420,7 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Referencia
   items:
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs

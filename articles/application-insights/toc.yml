@@ -111,7 +111,7 @@
               href: app-insights-asp-net-exceptions.md
             - name: Seguimientos de registro
               href: app-insights-asp-net-trace-logs.md
-            - name: Contadores de rendimiento
+            - name: contadores de rendimiento
               href: app-insights-performance-counters.md
             - name: Dependencias
               href: app-insights-asp-net-dependencies.md
@@ -226,7 +226,7 @@
           href: app-insights-api-filtering-sampling.md
         - name: muestreo
           href: app-insights-sampling.md
-    - name: Administrar
+    - name: administración
       items:
         - name: Administración de precios y volumen de datos
           href: app-insights-pricing.md
@@ -265,6 +265,10 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
+- name: Muestras
+  items:
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
 - name: Referencia
   items:
     - name: Lenguaje de consulta de Analytics
@@ -318,7 +322,7 @@
           href: app-insights-release-notes.md
         - name: Notas de la versión para Developer Analytics Tools
           href: app-insights-release-notes-vsix.md
-    - name: P+F
+    - name: Preguntas más frecuentes
       href: app-insights-troubleshoot-faq.md
     - name: Ayuda
       items:
