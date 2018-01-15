@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: Inicios rápidos
   items:
-    - name: 'Implementación en el perímetro: Linux'
+    - name: 'Implementación en el perímetro: Linux/Mac'
       href: quickstart-linux.md
     - name: 'Implementación en el perímetro: Windows'
       href: quickstart.md
 - name: Tutoriales
   items:
-    - name: 'Simulación de un dispositivo perimetral: Linux'
+    - name: 'Simulación de un dispositivo perimetral: Linux/Mac'
       href: tutorial-simulate-device-linux.md
     - name: 'Simulación de un dispositivo perimetral: Windows'
       href: tutorial-simulate-device-windows.md

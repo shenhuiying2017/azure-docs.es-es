@@ -16,7 +16,7 @@
 #### [Variables](resource-manager-templates-variables.md)
 #### [Recursos](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
-### [Vínculo a otras plantillas](resource-group-linked-templates.md)
+### [Plantillas vinculadas y anidadas](resource-group-linked-templates.md)
 ### [Definición de las dependencias entre recursos](resource-group-define-dependencies.md)
 ### [Creación de varias instancias](resource-group-create-multiple.md)
 ### [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -40,10 +40,10 @@
 ### [Integración continua con Visual Studio Team Services](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md)
 
-## Administrar
+## administración
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [CLI de Azure](xplat-cli-azure-resource-manager.md)
-### [Portal de Azure](resource-group-portal.md)
+### [portal de Azure](resource-group-portal.md)
 ### [API DE REST](resource-manager-rest-api.md)
 ### [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md)
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
@@ -55,7 +55,7 @@
 ### Creación de una entidad de servicio
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Portal de Azure](resource-group-create-service-principal-portal.md)
+#### [portal de Azure](resource-group-create-service-principal-portal.md)
 ### [API de autenticación para acceder a las suscripciones](resource-manager-api-authentication.md)
 ### [Bloqueo de recursos](resource-group-lock-resources.md)
 
@@ -101,7 +101,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=azure-resource-manager)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Solicitudes de limitación](resource-manager-request-limits.md)
 ## [Seguimiento de operaciones asincrónicas](resource-manager-async-operations.md)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)

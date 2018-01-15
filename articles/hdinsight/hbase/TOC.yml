@@ -29,6 +29,8 @@
           maintainContext: true
     - name: Desarrollo
       items:
+        - name: Uso del SDK de .NET para HBase
+          href: apache-hbase-rest-sdk.md
         - name: Desarrollo de aplicaciones Java
           href: apache-hbase-build-java-maven-linux.md
         - name: Uso de nodos perimetrales vacíos
@@ -39,6 +41,8 @@
           maintainContext: true
         - name: Uso de Phoenix y SQLLine
           href: apache-hbase-phoenix-squirrel-linux.md
+        - name: Uso del SDK de REST del servidor de consultas de Phoenix
+          href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Extensión de los clústeres
       items:
         - name: Personalización de clústeres con Bootstrap
@@ -112,9 +116,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Optimización de clústeres con la interfaz de usuario web de Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Uso de la API de REST de Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Administración de registros de un clúster de HDInsight
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Adición de cuentas de almacenamiento
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -154,6 +164,9 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: Solución de problemas de un clúster de HDInsight lento o con errores
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Solución de problemas de HDFS
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true

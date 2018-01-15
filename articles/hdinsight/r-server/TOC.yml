@@ -17,7 +17,7 @@
     - name: Planeamiento de la capacidad de clúster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Cómo
+- name: Procedimientos
   items:
     - name: Uso de R Server
       items:
@@ -106,7 +106,7 @@
         - name: Autorización de usuarios para vistas de Ambari
           href: ../hdinsight-authorize-users-to-ambari.md
           maintainContext: true
-    - name: Administrar
+    - name: administración
       items:
         - name: Creación de clústeres de Linux
           href: ../hdinsight-hadoop-provision-linux-clusters.md
@@ -124,7 +124,7 @@
             - name: Uso de la CLI de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
-            - name: Uso del Portal de Azure
+            - name: Uso de Azure Portal
               href: ../hdinsight-hadoop-create-linux-clusters-portal.md
               maintainContext: true
             - name: Utilización de plantillas del Administrador de recursos de Azure
@@ -150,9 +150,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Optimización de clústeres con la interfaz de usuario web de Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Uso de la API de REST de Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Administración de registros de un clúster de HDInsight
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Adición de cuentas de almacenamiento
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -198,6 +204,9 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: Solución de problemas de un clúster de HDInsight lento o con errores
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Solución de problemas de HDFS
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true

@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lección complementaria: Jerarquías desiguales
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 En esta lección complementaria, resolverá un problema común que se produce al dinamizar en jerarquías que contienen valores en blanco (miembros) en distintos niveles. Un ejemplo de esto sería una organización donde un director de alto nivel tiene como subordinados directos a directores de departamento y a trabajadores que no son directores. O bien, las jerarquías geográficas formadas por país-región-ciudad, donde algunas ciudades no tienen un elemento primario de estado o provincia, como Washington D. C. o Ciudad del Vaticano. Cuando una jerarquía tiene miembros en blanco, a menudo desciende en niveles diferentes o desiguales.
 
@@ -53,8 +51,8 @@ Si ha creado el proyecto de ventas por Internet de AW como parte del tutorial, e
     | Tabla 1           | Columna       | Dirección del filtro   | Tabla 2     | Columna      | Active |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
     | FactResellerSales | OrderDateKey | Valor predeterminado            | DimDate     | Date        | Sí    |
-    | FactResellerSales | DueDate      | Valor predeterminado            | DimDate     | Date        | No     |
-    | FactResellerSales | ShipDateKey  | Valor predeterminado            | DimDate     | Date        | No     |
+    | FactResellerSales | DueDate      | Valor predeterminado            | DimDate     | Date        | Sin      |
+    | FactResellerSales | ShipDateKey  | Valor predeterminado            | DimDate     | Date        | Sin      |
     | FactResellerSales | ProductKey   | Valor predeterminado            | DimProduct  | ProductKey  | Sí    |
     | FactResellerSales | EmployeeKey  | A ambas tablas | DimEmployee | EmployeeKey | Sí    |
 
