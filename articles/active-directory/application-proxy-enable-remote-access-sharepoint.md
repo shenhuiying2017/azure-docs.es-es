@@ -3,7 +3,7 @@ title: "Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de A
 description: "Explica los conceptos básicos sobre cómo integrar un servidor de SharePoint local con el proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: edc5602586ae2397bc039f252be09df969b06925
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c6a1b82b82dc89378533e375bd8a5d4868ae5308
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar el acceso remoto a SharePoint con el proxy de aplicación de Azure AD
 
@@ -156,7 +156,7 @@ Para configurar KCD, repita los pasos siguientes para cada equipo de conexión:
   ![Agregar el SPN para la cuenta de servicio](./media/application-proxy-remote-sharepoint/users-computers.png)
 
 6. En la lista de los SPN, seleccione el que creó anteriormente para la cuenta de servicio.
-7. Haga clic en **Aceptar**. Haga clic en **Aceptar** de nuevo para guardar los cambios.
+7. Haga clic en **OK**. Haga clic en **Aceptar** de nuevo para guardar los cambios.
 
 ## <a name="step-2-enable-remote-access-to-sharepoint"></a>Parte 2: Habilitar el acceso remoto a SharePoint
 
@@ -198,11 +198,11 @@ El último paso es asegurarse de que SharePoint puede encontrar el sitio en func
 
   ![Escribir la ruta de acceso](./media/application-proxy-remote-sharepoint/alternate-access3.png)
 
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**(Guardar).
 
 Ahora puede tener acceso al sitio de SharePoint externamente mediante el proxy de aplicación de Azure AD.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](active-directory-application-proxy-custom-domains.md)
 - [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)

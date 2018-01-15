@@ -1,6 +1,6 @@
 ---
 title: Trabajo con el SDK del servidor backend de Node.para Mobile Apps | Microsoft Docs
-description: "Obtenga información sobre cómo trabajar con el SDK del servidor back-end de Node.js para Aplicaciones móviles del Servicio de aplicaciones de Azure."
+description: "Obtenga información sobre cómo trabajar con el SDK del servidor back-end de Node.js para Azure App Service Mobile Apps."
 services: app-service\mobile
 documentationcenter: 
 author: elamalani
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Aplicaciones móviles de Azure
+# <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-En este artículo se ofrece información detallada y ejemplos sobre cómo trabajar con un back-end de Node.js en Aplicaciones móviles del Servicio de aplicaciones de Azure.
+En este artículo se ofrece información detallada y ejemplos sobre cómo trabajar con un back-end de Node.js en Azure App Service Mobile Apps.
 
 ## <a name="Introduction"></a>Introducción
-Aplicaciones móviles del Servicio de aplicaciones de Azure proporciona la funcionalidad de agregar una API web de acceso a datos optimizada para móviles a una aplicación web.  El SDK de Aplicaciones móviles del Servicio de aplicaciones de Azure se proporciona para las aplicaciones web de ASP.NET y Node.js.  El SDK proporciona las siguientes operaciones:
+Azure App Service Mobile Apps proporciona la funcionalidad de agregar una API web de acceso a datos optimizada para móviles a una aplicación web.  El SDK de Azure App Service Mobile Apps se proporciona para las aplicaciones web de ASP.NET y Node.js.  El SDK proporciona las siguientes operaciones:
 
 * Operaciones de tabla (lectura, inserción, actualización, eliminación) para el acceso a datos
 * Operaciones API personalizadas
 
-Ambas operaciones se incluyen para autenticación en todos los proveedores de identidades permitidos por el Servicio de aplicaciones de Azure, incluidos los proveedores de identidades sociales, como Facebook, Twitter, Google y Microsoft, así como Azure Active Directory para la identidad de empresa.
+Ambas operaciones se incluyen para autenticación en todos los proveedores de identidades permitidos por Azure App Service, incluidos los proveedores de identidades sociales, como Facebook, Twitter, Google y Microsoft, así como Azure Active Directory para la identidad de empresa.
 
 Puede encontrar ejemplos para cada caso de uso en el [directorio de ejemplos de GitHub].
 
@@ -41,7 +41,7 @@ El SDK de Node de Mobile Apps es compatible con la versión LTS actual de Node y
 El SDK de Node de Mobile Apps de Azure admite dos controladores de base de datos: el controlador node-mssql es compatible con instancias de SQL Azure y SQL Server local.  El controlador sqlite3 admite bases de datos de SQLite en una sola instancia.
 
 ### <a name="howto-cmdline-basicapp"></a>Creación de un back-end de Node.js básico mediante la línea de comandos
-Cada back-end de Node.js de aplicación móvil del Servicio de aplicaciones de Azure se inicia como una aplicación ExpressJS.  ExpressJS es el marco del servicio web más popular disponible para Node.js.  Puede crear una aplicación [Express] básica de la forma siguiente:
+Cada back-end de Node.js de aplicación móvil de Azure App Service se inicia como una aplicación ExpressJS.  ExpressJS es el marco del servicio web más popular disponible para Node.js.  Puede crear una aplicación [Express] básica de la forma siguiente:
 
 1. En una ventana de comandos o de PowerShell, cree un directorio para el proyecto.
 
@@ -101,7 +101,7 @@ Visual Studio 2015 requiere una extensión para desarrollar aplicaciones Node.js
 
     ![Instalar nuevos paquetes npm][2]
 8. Haga clic en **Cerrar**.
-9. Abra el archivo *app.js* para agregar compatibilidad con el SDK de Aplicaciones móviles de Azure.  En la línea 6 al final de las instrucciones requiere de la biblioteca, agregue el código siguiente:
+9. Abra el archivo *app.js* para agregar compatibilidad con el SDK de Azure Mobile Apps.  En la línea 6 al final de las instrucciones requiere de la biblioteca, agregue el código siguiente:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -115,7 +115,7 @@ Visual Studio 2015 requiere una extensión para desarrollar aplicaciones Node.js
         mobile.tables.add('TodoItem');
         app.use(mobile);
 
-    Guarde el archivo .
+    Guarde el archivo.
 10. Ejecute la aplicación localmente (la API se sirve en http://localhost:3000) o publíquela en Azure.
 
 ### <a name="create-node-backend-portal"></a>Creación de un back-end de Node.js mediante el Portal de Azure
@@ -146,9 +146,9 @@ Al crear un nuevo back-end de aplicación móvil de Node.js mediante la hoja **I
 Cada vez que se inserta un nuevo conjunto de confirmaciones en el sitio, se vuelve a publicar el sitio.
 
 ### <a name="howto-publish-to-azure"></a>Publicación del back-end de Node.js en Azure
-Microsoft Azure proporciona varios mecanismos para publicar su back-end de Node.js de Aplicaciones móviles del Servicio de aplicaciones de Azure en el servicio de Azure.  Incluyen el uso de herramientas de implementación integradas en Visual Studio, herramientas de línea de comandos y opciones de implementación continua basadas en control de código fuente.  Para obtener más información sobre este tema, consulte la [guía de implementación de Azure App Service].
+Microsoft Azure proporciona varios mecanismos para publicar su back-end de Node.js de Azure App Service Mobile Apps en el servicio de Azure.  Incluyen el uso de herramientas de implementación integradas en Visual Studio, herramientas de línea de comandos y opciones de implementación continua basadas en control de código fuente.  Para obtener más información sobre este tema, consulte la [guía de implementación de Azure App Service].
 
-El Servicio de aplicaciones de Azure tiene instrucciones específicas para la aplicación de Node.js que usted debe revisar antes de realizar la implementación:
+Azure App Service tiene instrucciones específicas para la aplicación de Node.js que usted debe revisar antes de realizar la implementación:
 
 * [Especificación de una versión de Node.js en una aplicación Azure]
 * [Uso de módulos de Node]
@@ -161,9 +161,9 @@ Muchas aplicaciones son una combinación de aplicaciones web y móviles, y el ma
 Puede agregar esta opción al archivo `azureMobile.js` si solo quiere que esta opción esté disponible al desarrollar de forma local.
 
 ## <a name="TableOperations"></a>Operaciones de tabla
-El SDK del servidor de Node.js de azure-mobile-apps proporciona mecanismos para exponer las tablas de datos almacenadas en Base de datos SQL de Azure como una WebAPI.  Se proporcionan cinco operaciones.
+El SDK del servidor de Node.js de azure-mobile-apps proporciona mecanismos para exponer las tablas de datos almacenadas en Azure SQL Database como una WebAPI.  Se proporcionan cinco operaciones.
 
-| Operación | Descripción |
+| Operación | DESCRIPCIÓN |
 | --- | --- |
 | GET /tables/*nombredelatabla* |Obtener todos los registros de la tabla |
 | GET /tables/*nombredelatabla*/:id |Obtener un registros específico de la tabla |
@@ -232,13 +232,13 @@ Esta tabla se puede definir en el archivo JavaScript de definición de la tabla 
 Si define las tablas estáticamente, también debe llamar al método tables.initialize() para crear el esquema de base de datos en el inicio.  El método tables.initialize() devuelve [Promise] , que se usa para asegurarse de que el servicio web no atienda solicitudes antes de que la base de datos se inicialice.
 
 ### <a name="howto-sqlexpress-setup"></a>Uso de SQL Express como almacén de datos de desarrollo en el equipo local
-El SDK de Node de Aplicaciones móviles de Azure proporciona tres opciones de fábrica para servir datos:
+El SDK de Node de Azure Mobile Apps proporciona tres opciones de fábrica para servir datos:
 
 * Use el controlador **memory** para proporcionar un almacén de ejemplos no persistente
 * Utilice el controlador **mssql** para ofrecer un almacén de datos SQL Express para desarrollo
-* Use el controlador **mssql** para ofrecer un almacén de datos de Base de datos SQL de Azure para producción
+* Use el controlador **mssql** para ofrecer un almacén de datos de Azure SQL Database para producción
 
-El SDK de Node.js de Aplicaciones móviles de Azure usa el [paquete de mssql para Node.js] para establecer y usar una conexión tanto a SQL Express como a Base de datos SQL.  Este paquete requiere que habilite las conexiones TCP en la instancia de SQL Express.
+El SDK de Node.js de Azure Mobile Apps usa el [paquete de mssql para Node.js] para establecer y usar una conexión tanto a SQL Express como a SQL Database.  Este paquete requiere que habilite las conexiones TCP en la instancia de SQL Express.
 
 > [!TIP]
 > El controlador memory no proporciona un conjunto completo de servicios para la realización de pruebas.  Si desea probar el back-end localmente, se recomienda el uso de un almacén de datos de SQL Express y del controlador mssql.
@@ -256,7 +256,7 @@ El SDK de Node.js de Aplicaciones móviles de Azure usa el [paquete de mssql par
    6. Busque el nodo **IPAll** .  En el campo **Puerto TCP**, escriba **1433**.
 
           ![Configure SQL Express for TCP/IP][3]
-   7. Haga clic en **Aceptar**.  Haga clic en **Aceptar** en el cuadro de diálogo emergente.
+   7. Haga clic en **OK**.  Haga clic en **Aceptar** en el cuadro de diálogo emergente.
    8. Haga clic en **Servicios de SQL Server** en el menú de árbol de la izquierda.
    9. Haga clic con el botón derecho en **SQL Server (SQLEXPRESS)** y seleccione **Reiniciar**.
    10. Cierre el Administrador de configuración de SQL Server 2014.
@@ -289,7 +289,7 @@ La aplicación de Node.js lee la variable de entorno **SQLCONNSTR_MS_TableConnec
 Acceda a la base de datos a través de una conexión TCP/IP y proporcionar un nombre de usuario y una contraseña para la conexión.
 
 ### <a name="howto-config-localdev"></a>Configuración del proyecto para el desarrollo local
-Aplicaciones móviles de Azure lee un archivo de JavaScript denominado *azureMobile.js* del sistema de archivos local.  No use este archivo para configurar el SDK de Mobile Apps de Azure en producción; use en su lugar la configuración de la aplicación dentro de [Azure Portal] .  El archivo *azureMobile.js* debe exportar un objeto de configuración.  La configuración más común es la siguiente:
+Azure Mobile Apps lee un archivo de JavaScript denominado *azureMobile.js* del sistema de archivos local.  No use este archivo para configurar el SDK de Mobile Apps de Azure en producción; use en su lugar la configuración de la aplicación dentro de [Azure Portal] .  El archivo *azureMobile.js* debe exportar un objeto de configuración.  La configuración más común es la siguiente:
 
 * Database Settings
 * Configuración del registro de diagnóstico
@@ -318,9 +318,9 @@ Se recomienda que agregue *azureMobile.js* al archivo *.gitignore* (o a otro arc
 ### <a name="howto-appsettings"></a>Configuración de aplicaciones móviles
 La mayoría de las opciones de configuración del archivo *azureMobile.js* tienen una configuración de aplicación equivalente en [Azure Portal].  Para configurar la aplicación en Configuración de aplicaciones, use la siguiente lista:
 
-| Configuración de aplicación | *azureMobile.js* | Descripción | Valores válidos |
+| Configuración de aplicación | *azureMobile.js* | DESCRIPCIÓN | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Nombre de la aplicación |string |
+| **MS_MobileAppName** |Nombre |Nombre de la aplicación |cadena |
 | **MS_MobileLoggingLevel** |logging.level |Nivel mínimo de registro de mensajes en el registro |error, advertencia, información, detallado, depuración, absurdo |
 | **MS_DebugMode** |debug |Habilitar o deshabilitar el modo de depuración |true, false |
 | **MS_TableSchema** |data.schema |Nombre del esquema predeterminado para tablas SQL |cadena (valor predeterminado: dbo) |
@@ -341,16 +341,16 @@ Para establecer una configuración de aplicación:
 
 Si cambia la mayoría de las opciones de configuración de la aplicación habrá que reiniciar el servicio.
 
-### <a name="howto-use-sqlazure"></a>Uso de Base de datos SQL como almacén de datos de producción
+### <a name="howto-use-sqlazure"></a>Uso de SQL Database como almacén de datos de producción
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
-El uso de Base de datos SQL de Azure como almacén de datos es idéntico en todos los tipos de aplicaciones del Servicio de aplicaciones de Azure. Si todavía no lo ha hecho, siga estos pasos para crear un back-end de aplicación móvil.
+El uso de Azure SQL Database como almacén de datos es idéntico en todos los tipos de aplicaciones de Azure App Service. Si todavía no lo ha hecho, siga estos pasos para crear un back-end de aplicación móvil.
 
-1. Inicie sesión en [Azure Portal].
+1. Inicie sesión en el [Azure Portal].
 2. En la parte superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web y móvil**> **Aplicación móvil** y especifique el nombre del back-end de la aplicación móvil.
 3. En el cuadro **Grupo de recursos** , escriba el mismo nombre de la aplicación.
-4. Se seleccionará el Plan de App Service predeterminado.  Si desea cambiar un Plan de App Service, haga clic en el Plan de App Service >**+ Crear nuevo**.  Proporcione un nombre al Plan del Servicio de aplicaciones nuevo y seleccione una ubicación adecuada.  Haga clic en el nivel de precios y seleccione un nivel de precios adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**.  Una vez haya seleccionado el nivel de precios, haga clic en el botón **Seleccionar** botón.  De nuevo en la hoja **Plan de App Service**, haga clic en **Aceptar**.
-5. Haga clic en **Crear**. El aprovisionamiento de un back-end de la aplicación móvil puede tardar unos minutos.  Cuando se aprovisiona el back-end de la aplicación móvil, el portal abre la hoja **Configuración** del back-end de la aplicación móvil.
+4. Se seleccionará el Plan de App Service predeterminado.  Si desea cambiar un Plan de App Service, haga clic en el Plan de App Service >**+ Crear nuevo**.  Proporcione un nombre al plan de App Service nuevo y seleccione una ubicación adecuada.  Haga clic en el nivel de precios y seleccione un nivel de precios adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**.  Una vez haya seleccionado el nivel de precios, haga clic en el botón **Seleccionar** botón.  De nuevo en la hoja **Plan de App Service**, haga clic en **Aceptar**.
+5. Haga clic en **Create**(Crear). El aprovisionamiento de un back-end de la aplicación móvil puede tardar unos minutos.  Cuando se aprovisiona el back-end de la aplicación móvil, el portal abre la hoja **Configuración** del back-end de la aplicación móvil.
 
 Una vez creado el back-end de la aplicación móvil, puede conectar una base de datos SQL al back-end de la aplicación móvil o bien crear una nueva base de datos SQL.  En esta sección, crearemos una nueva base de datos SQL.
 
@@ -361,9 +361,9 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 
 1. En el nuevo back-end de la aplicación móvil, haga clic en **Configuración** > **Aplicación móvi** > **lDatos** > **+Agregar**.
 2. En la hoja **Add data connection** (Agregar conexión de datos), haga clic en **SQL Database - Configure required settings** (Base de datos SQL - Configurar los valores obligatorios) > **Create a new database** (Crear una base de datos nueva).  Escriba el nombre de la base de datos nueva en el campo **Nombre** .
-3. Haga clic en **Servidor**.  En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y especifique unos valores apropiados en **Inicio de sesión del administrador del servidor** y **Contraseña**.  Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado.  Haga clic en **Aceptar**.
+3. Haga clic en **Servidor**.  En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y especifique unos valores apropiados en **Inicio de sesión del administrador del servidor** y **Contraseña**.  Asegúrese de que **Permitir que los servicios de Azure accedan al servidor** está activado.  Haga clic en **OK**.
 
-    ![Creación de una Base de datos SQL de Azure][6]
+    ![Creación de una instancia de Azure SQL Database][6]
 4. En la hoja **Nueva base de datos**, haga clic en **Aceptar**.
 5. En la hoja **Add data connection** (Agregar conexión de datos), seleccione **Connection string** (Cadena de conexión) y especifique el inicio de sesión y la contraseña que indicó al crear la base de datos.  Si usa una base de datos existente, indique las credenciales de inicio de sesión de esa base de datos.  Cuando las especifique, haga clic en **Aceptar**.
 6. De nuevo en la hoja **Add data connection** (Agregar conexión de datos), haga clic en **OK** (Aceptar) para crear la base de datos.
@@ -373,7 +373,7 @@ Una vez creado el back-end de la aplicación móvil, puede conectar una base de 
 La creación de la base de datos puede tardar unos minutos.  Use el área de **notificaciones** para supervisar el progreso de la implementación.  No continúe hasta que la base de datos se haya implementado correctamente.  Una vez implementada correctamente, se creará una cadena de conexión para la instancia de SQL Database en la configuración de la aplicación de back-end móvil.  Puede ver la configuración de esta aplicación en **Configuración** > **Configuración de aplicación** > **Cadenas de conexión**.
 
 ### <a name="howto-tables-auth"></a>Requerimiento de la autenticación para acceder a las tablas
-Si quiere usar la autenticación de App Service con el punto de conexión de tablas, tiene que configurar primero la autenticación de App Service en el [Azure Portal] .  Para obtener más información sobre cómo configurar la autenticación en un Servicio de aplicaciones de Azure, revise la Guía de configuración del proveedor de identidades que pretende usar:
+Si quiere usar la autenticación de App Service con el punto de conexión de tablas, tiene que configurar primero la autenticación de App Service en el [Azure Portal] .  Para obtener más información sobre cómo configurar la autenticación en un Azure App Service, revise la Guía de configuración del proveedor de identidades que pretende usar:
 
 * [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory]
 * [Configuración de la aplicación para usar el inicio de sesión de Facebook]
@@ -528,7 +528,7 @@ Las operaciones que normalmente ejecutan una consulta tendrán una propiedad de 
     context.query.where('myfield eq ?', 'value');
 
 ### <a name="howto-tables-softdelete"></a>Configuración de una eliminación temporal en una tabla
-La eliminación temporal no elimina realmente los registros.  Los marca como eliminados dentro de la base de datos al establecer la columna de eliminados en true.  El SDK de Aplicaciones móviles de Azure quita automáticamente los registros temporalmente eliminados de los resultados, a menos que el SDK de cliente móvil use IncludeDeleted().  Si quiere configurar una tabla para la eliminación temporal, establezca la propiedad `softDelete` en el archivo de definición de tabla:
+La eliminación temporal no elimina realmente los registros.  Los marca como eliminados dentro de la base de datos al establecer la columna de eliminados en true.  El SDK de Azure Mobile Apps quita automáticamente los registros temporalmente eliminados de los resultados, a menos que el SDK de cliente móvil use IncludeDeleted().  Si quiere configurar una tabla para la eliminación temporal, establezca la propiedad `softDelete` en el archivo de definición de tabla:
 
     var azureMobileApps = require('azure-mobile-apps');
 
@@ -583,11 +583,11 @@ La inicialización de datos se ha realizado únicamente cuando se crea la tabla 
 Se recomienda llamar expresamente al método `tables.initialize()` para crear la tabla cuando el servicio comienza a ejecutarse.
 
 ### <a name="Swagger"></a>Habilitación de la compatibilidad con Swagger
-Aplicaciones móviles del Servicio de aplicaciones de Azure incorpora compatibilidad con [Swagger] .  Para habilitar la compatibilidad con Swagger, instale primero el archivo swagger-ui como una dependencia:
+Azure App Service Mobile Apps incorpora compatibilidad con [Swagger] .  Para habilitar la compatibilidad con Swagger, instale primero el archivo swagger-ui como una dependencia:
 
     npm install --save swagger-ui
 
-Una vez instalado, puede habilitar la compatibilidad con Swagger en el constructor de Aplicaciones móviles de Azure:
+Una vez instalado, puede habilitar la compatibilidad con Swagger en el constructor de Azure Mobile Apps:
 
     var mobile = azureMobileApps({ swagger: true });
 
@@ -595,12 +595,12 @@ Es probable que solo quiera habilitar la compatibilidad con Swagger en las edici
 
     var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 
-El punto de conexión de Swagger se encuentra en http://*yoursite*.azurewebsites.net/swagger.  Puede acceder a la interfaz de usuario de Swagger a través del punto de conexión de `/swagger/ui` .  Si elige pedir autenticación en la aplicación entera, se producirá un error en Swagger.  Para obtener los mejores resultados, permita que pasen las solicitudes no autenticadas en la configuración de autenticación y autorización del Servicio de aplicaciones de Azure y, luego, controle la autenticación mediante la propiedad `table.access` .
+El punto de conexión de Swagger se encuentra en http://*yoursite*.azurewebsites.net/swagger.  Puede acceder a la interfaz de usuario de Swagger a través del punto de conexión de `/swagger/ui` .  Si elige pedir autenticación en la aplicación entera, se producirá un error en Swagger.  Para obtener los mejores resultados, permita que pasen las solicitudes no autenticadas en la configuración de autenticación y autorización de Azure App Service y, luego, controle la autenticación mediante la propiedad `table.access` .
 
 También puede agregar la opción de Swagger a su archivo `azureMobile.js` si solo quiere que haya compatibilidad con Swagger al desarrollar de forma local.
 
 ## <a name="a-namepushpush-notifications"></a><a name="push">Notificaciones push
-Las aplicaciones móviles se integran con los Centros de notificaciones de Azure para permitirle el envío de notificaciones push destinadas a millones de dispositivos en las plataformas más importantes. Mediante el uso de los Centros de notificaciones puede enviar notificaciones push a dispositivos iOS, Android y Windows. Para más información sobre todo lo que puede hacer con los Centros de notificaciones, vea [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-push-notification-overview.md).
+Mobile Apps se integra con Azure Notification Hubs para permitir el envío de notificaciones push destinadas a millones de dispositivos en las plataformas más importantes. Mediante el uso de Notification Hubs puede enviar notificaciones push a dispositivos iOS, Android y Windows. Para más información sobre todo lo que puede hacer con Notification Hubs, vea [Información general de Notification Hubs](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>Envío de notificaciones push
 El código siguiente muestra cómo utilizar el objeto de inserción para enviar una notificación push de difusión a dispositivos iOS registrados:
@@ -651,9 +651,9 @@ Cuando se registre para notificaciones push desde un cliente autenticado, asegú
 
 ## <a name="CustomAPI"></a> API personalizadas
 ### <a name="howto-customapi-basic"></a>Definición de una API personalizada
-Además de la API de acceso a datos a través del punto de conexión /tables, Aplicaciones móviles de Azure puede proporcionar cobertura de API personalizada.  Las API personalizadas se definen de forma similar a las definiciones de tabla y pueden tener acceso a las mismas utilidades, incluida la autenticación.
+Además de la API de acceso a datos a través del punto de conexión /tables, Azure Mobile Apps puede proporcionar cobertura de API personalizada.  Las API personalizadas se definen de forma similar a las definiciones de tabla y pueden tener acceso a las mismas utilidades, incluida la autenticación.
 
-Si quiere usar la autenticación del Servicio de aplicaciones con la API personalizada, debe configurar primero la autenticación del Servicio de aplicaciones en el [Azure Portal] .  Para obtener más información sobre cómo configurar la autenticación en un Servicio de aplicaciones de Azure, revise la Guía de configuración del proveedor de identidades que pretende usar:
+Si quiere usar la autenticación de App Service con la API personalizada, debe configurar primero la autenticación de App Service en el [Azure Portal] .  Para obtener más información sobre cómo configurar la autenticación en un Azure App Service, revise la Guía de configuración del proveedor de identidades que pretende usar:
 
 * [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory]
 * [Configuración de la aplicación para usar el inicio de sesión de Facebook]
@@ -698,7 +698,7 @@ Veamos un ejemplo de una API sencilla que devolverá la fecha del servidor media
 Cada parámetro es uno de los verbos estándar de RESTful: GET, POST, PATCH o DELETE.  El método es una función estándar de [ExpressJS Middleware] que envía el la salida necesaria.
 
 ### <a name="howto-customapi-auth"></a>Autenticación necesaria para el acceso a una API personalizada
-El SDK de Aplicaciones móviles de Azure implementa la autenticación de la misma manera para el punto de conexión de las tablas y para las API personalizadas.  Para agregar autenticación a la API desarrollada en la sección anterior, agregue una propiedad **access** :
+El SDK de Azure Mobile Apps implementa la autenticación de la misma manera para el punto de conexión de las tablas y para las API personalizadas.  Para agregar autenticación a la API desarrollada en la sección anterior, agregue una propiedad **access** :
 
     var api = {
         get: function (req, res, next) {
@@ -727,7 +727,7 @@ También puede especificar la autenticación en operaciones específicas:
 Debe usar el mismo token que se utiliza para el punto de conexión de tablas en las API personalizadas que requieren autenticación.
 
 ### <a name="howto-customapi-auth"></a>Control de cargas de archivos de gran tamaño
-El SDK de Aplicaciones móviles de Azure usa el [middleware de analizador de cuerpo](https://github.com/expressjs/body-parser) para aceptar y descodificar el contenido del cuerpo del envío.  Puede configurar previamente el analizador de cuerpo para aceptar tamaños mayores de cargas de archivos:
+El SDK de Azure Mobile Apps usa el [middleware de analizador de cuerpo](https://github.com/expressjs/body-parser) para aceptar y descodificar el contenido del cuerpo del envío.  Puede configurar previamente el analizador de cuerpo para aceptar tamaños mayores de cargas de archivos:
 
     var express = require('express'),
         bodyParser = require('body-parser'),
@@ -752,7 +752,7 @@ El SDK de Aplicaciones móviles de Azure usa el [middleware de analizador de cue
 El archivo está codificado en Base 64 antes de la transmisión,  por lo que aumenta el tamaño de la carga real y, por tanto, el que debe tener en cuenta.
 
 ### <a name="howto-customapi-sql"></a>Ejecución de instrucciones SQL personalizadas
-El SDK de aplicaciones móviles de Azure permite el acceso a todo el contexto a través del objeto de solicitud, lo que le permite ejecutar fácilmente instrucciones SQL parametrizadas para el proveedor de datos definido:
+El SDK de Azure Mobile Apps permite el acceso a todo el contexto a través del objeto de solicitud, lo que le permite ejecutar fácilmente instrucciones SQL parametrizadas para el proveedor de datos definido:
 
     var api = {
         get: function (request, response, next) {
@@ -783,23 +783,23 @@ El SDK de aplicaciones móviles de Azure permite el acceso a todo el contexto a 
 
 ## <a name="Debugging"></a>Depuración, y tablas y API fáciles
 ### <a name="howto-diagnostic-logs"></a>Depuración, diagnóstico y solución de problemas de Mobile Apps de Azure
-El Servicio de aplicaciones de Azure proporciona varias técnicas de depuración y de solución de problemas para las aplicaciones Node.js.
+Azure App Service proporciona varias técnicas de depuración y de solución de problemas para las aplicaciones Node.js.
 Consulte los siguientes artículos para empezar a solucionar problemas de su back-end móvil de Node.js.
 
-* [Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure]
-* [Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]
-* [Solución de problemas del Servicio de aplicaciones de Azure en Visual Studio]
+* [Supervisión de un servicio de Azure App Service]
+* [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service]
+* [Solución de problemas de Azure App Service en Visual Studio]
 
-Las aplicaciones Node.js tienen acceso a una amplia gama de herramientas de registro de diagnóstico.  Internamente, el SDK de Node.js de Aplicaciones móviles de Azure usa [Winston] para el registro de diagnóstico.  El registro se habilita automáticamente al habilitar el modo de depuración o al establecer la configuración de la aplicación **MS_DebugMode** en True en [Azure Portal]. Los registros generados aparecerán en los registros de diagnóstico en [Azure Portal].
+Las aplicaciones Node.js tienen acceso a una amplia gama de herramientas de registro de diagnóstico.  Internamente, el SDK de Node.js de Azure Mobile Apps usa [Winston] para el registro de diagnóstico.  El registro se habilita automáticamente al habilitar el modo de depuración o al establecer la configuración de la aplicación **MS_DebugMode** en True en [Azure Portal]. Los registros generados aparecerán en los registros de diagnóstico en [Azure Portal].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Uso de tablas fáciles en el Portal de Azure
 Las tablas fáciles del portal le permiten crear y trabajar con tablas directamente en el portal. Puede cargar el conjunto de datos a Easy Tables en formato CSV. Tenga en cuenta que no puede usar nombres de propiedades (en el conjunto de datos CSV) que estén en conflicto con los nombres de las propiedades del sistema de back-end de Azure Mobile Apps. Los nombres de las propiedades del sistema son:
 * createdAt
 * updatedAt
 * deleted
-* versión
+* version
 
-Incluso puede editar las operaciones de tabla mediante el editor del Servicio de aplicaciones. Al hacer clic en **Tablas fáciles** en la configuración del sitio del back-end, puede agregar, modificar o eliminar una tabla. También puede ver los datos de la tabla.
+Incluso puede editar las operaciones de tabla mediante el editor de App Service. Al hacer clic en **Tablas fáciles** en la configuración del sitio del back-end, puede agregar, modificar o eliminar una tabla. También puede ver los datos de la tabla.
 
 ![Trabajo con tablas fáciles](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
@@ -807,7 +807,7 @@ Los siguientes comandos están disponibles en la barra de comandos para una tabl
 
 * **Cambiar permisos** : modifica el permiso para leer, insertar, actualizar y eliminar operaciones en la tabla.
   Las opciones son permitir el acceso anónimo, requerir autenticación o deshabilitar todos los accesos a la operación.
-* **Editar script** : el archivo de script de la tabla se abre en el editor del Servicio de aplicaciones.
+* **Editar script** : el archivo de script de la tabla se abre en el editor de App Service.
 * **Administrar esquema** : agrega o elimina columnas o cambia el índice de tabla.
 * **Borrar tabla** : trunca una tabla existente eliminando todas las filas de datos pero dejando el esquema sin cambiar.
 * **Eliminar filas** : elimina filas individuales de datos.
@@ -822,12 +822,12 @@ Al hacer clic en **API fáciles** en la configuración del sitio del back-end, p
 
 En el portal, puede cambiar los permisos de acceso para una acción de HTTP determinada, editar el archivo de script de API en el editor de App Service o ver los registros de streaming.
 
-### <a name="online-editor"></a>Edición de código en el editor del Servicio de aplicaciones
-El Portal de Azure le permite editar los archivos de script de back-end de Node.js en el editor de Servicio de aplicaciones sin tener que descargar el proyecto en el equipo local. Para editar archivos de script en el editor en línea:
+### <a name="online-editor"></a>Edición de código en el editor de App Service
+El Portal de Azure le permite editar los archivos de script de back-end de Node.js en el editor de App Service sin tener que descargar el proyecto en el equipo local. Para editar archivos de script en el editor en línea:
 
-1. En la hoja de back-end de la aplicación móvil, haga clic en **Toda la configuración** > **Tablas fáciles** o **API fáciles**, haga clic en una tabla o API y luego en **Editar script**. El archivo de script se abrirá en el editor del Servicio de aplicaciones.
+1. En la hoja de back-end de la aplicación móvil, haga clic en **Toda la configuración** > **Tablas fáciles** o **API fáciles**, haga clic en una tabla o API y luego en **Editar script**. El archivo de script se abrirá en el editor de App Service.
 
-    ![Editor del Servicio de aplicaciones](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+    ![Editor de App Service](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 2. Realice los cambios en el archivo de código en el editor en línea. Los cambios se guardan automáticamente a medida que se escriben.
 
 <!-- Images -->
@@ -854,9 +854,9 @@ El Portal de Azure le permite editar los archivos de script de back-end de Node.
 [Configuración de la aplicación para usar el inicio de sesión de Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configuración de la aplicación para usar el inicio de sesión de Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
 [guía de implementación de Azure App Service]: ../app-service/app-service-deploy-local-git.md
-[Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service/web-sites-monitor.md
-[Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure]: ../app-service/web-sites-enable-diagnostic-log.md
-[Solución de problemas del Servicio de aplicaciones de Azure en Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Supervisión de un servicio de Azure App Service]: ../app-service/web-sites-monitor.md
+[Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
+[Solución de problemas de Azure App Service en Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [Especificación de una versión de Node.js en una aplicación Azure]: ../nodejs-specify-node-version-azure-apps.md
 [Uso de módulos de Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

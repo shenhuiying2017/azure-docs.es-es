@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 > [!div class="op_single_selector"]
@@ -276,7 +276,7 @@ En ocasiones, es posible que una función deba controlar minuciosamente las entr
 | `HttpResponseMessage<T>` | Enlace de salida HTTP | Estado de retorno distinto de 200   |
 
 > [!NOTE] 
-> También puede usar la anotación `@BindingName` para obtener encabezados y consultas HTTP. Por ejemplo, `@Bind("name") String query` recorre en iteración los encabezados de solicitud y las consultas HTTP, y pasa ese valor al método. Por ejemplo, `query` será `"test"` si la dirección URL de solicitud es `http://example.org/api/echo?name=test`.
+> También puede usar la anotación `@BindingName` para obtener encabezados y consultas HTTP. Por ejemplo, `@BindingName("name") String query` recorre en iteración los encabezados de solicitud y las consultas HTTP, y pasa ese valor al método. Por ejemplo, `query` será `"test"` si la dirección URL de solicitud es `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Metadatos
 
@@ -325,10 +325,9 @@ public class Function {
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
 * [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
-* 
-            [Referencia para desarrolladores de Azure Functions](functions-reference.md)
+* [Referencia para desarrolladores de Azure Functions](functions-reference.md)
 * [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)

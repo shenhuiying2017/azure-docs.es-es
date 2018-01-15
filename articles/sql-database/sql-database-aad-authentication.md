@@ -3,8 +3,8 @@ title: "Autenticación de Azure Active Directory: Azure SQL (Introducción) | Mi
 description: "Aprenda a usar Azure Active Directory para la autenticación con SQL Database y SQL Data Warehouse"
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: 7e2508a1-347e-4f15-b060-d46602c5ce7e
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 09/12/2017
-ms.author: rickbyh
-ms.openlocfilehash: 3493ac89775bfccc0139c5cbefc046e9fef35bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: mireks
+ms.openlocfilehash: ff6e4405819d1e7134eb5cdfd7d8ad712dc2a654
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>Uso de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse
 La autenticación de Azure Active Directory es un mecanismo de conexión a Microsoft Azure SQL Database y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure AD puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos. Entre las ventajas se incluyen las siguientes:
@@ -102,7 +102,7 @@ La autenticación de Azure Active Directory admite los siguientes métodos de co
 * La autenticación de Azure AD se admite para SQL Database con las hojas **Importar base de datos** y **Exportar base de datos de Azure Portal**. La importación y exportación mediante la autenticación de Azure AD también se admite desde el comando de PowerShell.   
 * La autenticación de Azure AD se admite para SQL Database y SQL Data Warehouse mediante el uso de la CLI. Para obtener más información, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md) y [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para aprender a crear y rellenar Azure AD y, posteriormente, configurarlo con Azure SQL Database o Azure SQL Data Warehouse, consulte [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication-configure.md).
 - Para obtener información general de acceso y control en SQL Database, consulte [Control de acceso a Azure SQL Database](sql-database-control-access.md).
 - Para obtener información general de los inicios de sesión, usuarios y roles de base de datos de SQL Database, consulte [Control y concesión de acceso a bases de datos](sql-database-manage-logins.md).

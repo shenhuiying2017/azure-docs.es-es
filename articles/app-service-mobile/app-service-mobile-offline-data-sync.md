@@ -1,9 +1,9 @@
 ---
 title: "Sincronización de datos sin conexión en Azure Mobile Apps | Microsoft Docs"
-description: "Referencia e información general conceptual de la característica de sincronización de datos sin conexión para Aplicaciones móviles de Azure"
+description: "Referencia e información general conceptual de la característica de sincronización de datos sin conexión para Azure Mobile Apps"
 documentationcenter: windows
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 8e2bd755d14319f8c66f7ae7ec64fbd10801b39d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
-# <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronización de datos sin conexión en Aplicaciones móviles de Azure
+# <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronización de datos sin conexión en Azure Mobile Apps
 ## <a name="what-is-offline-data-sync"></a>¿Qué es la sincronización de datos sin conexión?
-La sincronización de datos sin conexión es una característica de SDK de cliente y de servidor de Aplicaciones móviles de Azure que facilita a los desarrolladores la creación de aplicaciones que funcionen sin una conexión de red.
+La sincronización de datos sin conexión es una característica de SDK de cliente y de servidor de Azure Mobile Apps que facilita a los desarrolladores la creación de aplicaciones que funcionen sin una conexión de red.
 
 Cuando la aplicación está en modo sin conexión, aún se pueden crear y modificar datos, que se guardan en un almacén local. Cuando la aplicación se vuelve a conectar, esta puede sincronizar los cambios locales con el back-end de la aplicación de Azure. La característica también admite la detección de conflictos cuando se cambia el mismo registro en el cliente y el back-end. Luego, los conflictos se pueden manejar en el servidor o el cliente.
 
@@ -34,7 +34,7 @@ La sincronización sin conexión tiene varias ventajas:
 * Sincronizar datos entre diferentes dispositivos y detectar conflictos cuando dos dispositivos modifican el mismo registro.
 * Limitar el uso de las redes medidas o de alta latencia
 
-Los siguientes tutoriales muestran cómo incorporar la sincronización sin conexión a los clientes móviles con Aplicaciones móviles de Azure:
+Los siguientes tutoriales muestran cómo incorporar la sincronización sin conexión a los clientes móviles con Azure Mobile Apps:
 
 * [Android: habilitar la sincronización sin conexión]
 * [Apache Cordova: habilitación de la sincronización sin conexión](app-service-mobile-cordova-get-started-offline-data.md)
@@ -50,7 +50,7 @@ Para tener acceso al extremo de "/tables", los SDK de cliente móvil de Azure pr
 Para admitir el uso sin conexión, la aplicación debe usar las API de la *tabla de sincronización*, como `IMobileServiceSyncTable` (SDK de cliente de .NET) o `MSSyncTable` (cliente de iOS). Las mismas operaciones CRUD (creación, lectura, actualización, eliminación) funcionan con las API de la tabla de sincronización, salvo que ahora leerán desde un *almacén local* o escribirán en él. Antes de poder realizar cualquier operación de la tabla de sincronización, se debe inicializar el almacén local.
 
 ## <a name="what-is-a-local-store"></a>¿Qué es un almacén local?
-Un almacén local es la capa de persistencia de datos del dispositivo cliente. Los SDK de cliente de Aplicaciones móviles de Azure proporcionan una implementación de almacén local predeterminada. En Windows, Xamarin y Android, se basa en SQLite. En iOS, se basa en Core Data.
+Un almacén local es la capa de persistencia de datos del dispositivo cliente. Los SDK de cliente de Azure Mobile Apps proporcionan una implementación de almacén local predeterminada. En Windows, Xamarin y Android, se basa en SQLite. En iOS, se basa en Core Data.
 
 Para usar la implementación basada en SQLite en Windows Phone o Windows Store 8.1, debe instalar una extensión de SQLite. Para más información, consulte [Plataforma universal de Windows: habilitación de la sincronización sin conexión]. Android y iOS se distribuyen con una versión de SQLite en el sistema operativo del dispositivo, por lo que no es necesario hacer referencia a su propia versión de SQLite.
 
@@ -88,7 +88,7 @@ Al usar tablas de sincronización, el código de cliente determina el momento en
 
   Como un ejemplo de datos obsoletos en el cliente, supongamos que en el ejemplo "lista de tareas pendientes", Dispositivo1 extrae solo los elementos que no se han completado. Otro dispositivo marca una tarea pendiente "Comprar leche" como completada en el servidor. Sin embargo, Dispositivo1 seguirá teniendo la tarea pendiente "Comprar leche" en el almacén local porque solo está extrayendo los elementos que no están marcados como completados Una purga borra este elemento obsoleto.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [iOS: habilitar la sincronización sin conexión]
 * [Xamarin iOS: habilitar la sincronización sin conexión]
 * [Xamarin Android: habilitar la sincronización sin conexión]

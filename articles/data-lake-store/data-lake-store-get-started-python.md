@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 76e84687815ca6f4b031e5f7143ba0079fb053db
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Operaciones de administración de cuentas en Azure Data Lake Store con Python
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Aprenda a usar el SDK de Python para Azure Data Lake Store para realizar operaci
 
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Un grupo de recursos de Azure**. Para obtener instrucciones, vea [Creación de un grupo de recursos de Azure](../azure-resource-manager/resource-group-portal.md).
 
@@ -131,7 +131,7 @@ El siguiente fragmento de código crea primero el cliente de la cuenta de Data L
     adlsAcctClient.account.delete(adlsAccountName)
     
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Operaciones de sistema de archivos en Azure Data Lake Store con Python](data-lake-store-data-operations-python.md)
 
 ## <a name="see-also"></a>Otras referencias

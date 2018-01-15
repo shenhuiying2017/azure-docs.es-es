@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 6c43f2b341280731707e486ba6f22f11560102c6
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5fafde870a01a6ceb5e86f7b00b0ca11b748c68a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Operaciones de administración de cuentas en Azure Data Lake Store con la API de REST
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 Con este artículo aprenderá a realizar operaciones de administración de cuentas en Data Lake Store con la API de REST. Las operaciones de administración de cuentas incluyen,por ejemplo, la creación o la eliminación de cuentas de Data Lake Store. Para instrucciones sobre cómo realizar operaciones de sistema de archivos en Data Lake Store con la API de REST, consulte [Operaciones de sistema de archivos en Azure Data Lake Store con la API de REST](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **[cURL](http://curl.haxx.se/)**. En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Almacén de Data Lake.
 
@@ -72,7 +72,7 @@ Debe ver algo parecido al siguiente fragmento de código:
     ...
     ...
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Operaciones de sistema de archivos en Azure Data Lake Store con la API de REST](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="see-also"></a>Otras referencias

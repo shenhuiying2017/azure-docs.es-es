@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4458187999d0795be8637f6f5615e4900ddd94cc
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de la serie StorSimple 8000, alta disponibilidad y requisitos de red
 
@@ -53,23 +53,23 @@ Los siguientes requisitos de software son para los componentes de StorSimple opc
 
 | Componente | Plataforma de host | Requisitos/notas adicionales |
 | --- | --- | --- |
-| StorSimple Snapshot Manager |Windows Server 2008 R2 SP1, 2012, 2012 R2 |El uso de Snapshot Manager de StorSimple en Windows Server es necesario para realizar la copia de seguridad y restauración de los discos dinámicos reflejados y para realizar copias de seguridad coherentes con la aplicación.<br> StorSimple Snapshot Manager solo se admite en Windows Server 2008 R2 SP1 (64 bits), Windows Server 2012 R2 y Windows Server 2012.<ul><li>Si usa Windows Server 2012, debe instalar .NET 3.5 o 4.5 antes de instalar StorSimple Snapshot Manager.</li><li>Si usa Windows Server 2008 R2 SP1, debe instalar Windows Management Framework 3.0 antes de instalar StorSimple Snapshot Manager.</li></ul> |
+| Snapshot Manager de StorSimple |Windows Server 2008 R2 SP1, 2012, 2012 R2 |El uso de Snapshot Manager de StorSimple en Windows Server es necesario para realizar la copia de seguridad y restauración de los discos dinámicos reflejados y para realizar copias de seguridad coherentes con la aplicación.<br> StorSimple Snapshot Manager solo se admite en Windows Server 2008 R2 SP1 (64 bits), Windows Server 2012 R2 y Windows Server 2012.<ul><li>Si usa Windows Server 2012, debe instalar .NET 3.5 o 4.5 antes de instalar StorSimple Snapshot Manager.</li><li>Si usa Windows Server 2008 R2 SP1, debe instalar Windows Management Framework 3.0 antes de instalar StorSimple Snapshot Manager.</li></ul> |
 | Adaptador de StorSimple para SharePoint |Windows Server 2008 R2 SP1, 2012, 2012 R2 |<ul><li>El adaptador de StorSimple para SharePoint solo se admite en SharePoint 2010 y SharePoint 2013.</li><li>RBS requiere SQL Server Enterprise Edition, versión 2008 R2 o 2012.</li></ul> |
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>Requisitos de red para el dispositivo StorSimple
 
 El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos tienen que abrirse en el firewall para permitir el tráfico de iSCSI, de administración y de nube. En la tabla siguiente se enumeran los puertos que deben estar abiertos en el firewall. En esta tabla, *dentro* o *entrante* hace referencia a la dirección desde la que el cliente entrante solicita acceso al dispositivo. *Fuera* o *saliente* hace referencia a la dirección en la que el dispositivo StorSimple envía datos externamente, más allá de la implementación: por ejemplo, saliente a Internet.
 
-| Nº de puerto<sup>1,2</sup> | Dentro o fuera | Ámbito de puerto | Obligatorio | Notas |
+| Nº de puerto<sup>1,2</sup> | Dentro o fuera | Ámbito de puerto | Requerido | Notas |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Fuera |WAN |No |<ul><li>El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Fuera |WAN |Sin  |<ul><li>El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |Fuera |WAN |Sí |<ul><li>El puerto de salida se usa para tener acceso a los datos en la nube.</li><li>El usuario puede configurar el proxy web de salida.</li><li>Para permitir que se actualice el sistema, también debe estar abierto este puerto para las IP fijas del controlador.</li><li>Este puerto también se utiliza en ambos controladores para la recolección de elementos no utilizados.</li></ul> |
 | UDP 53 (DNS) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. |
 | UDP 123 (NTP) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
 | TCP 9354 |Fuera |WAN |Sí |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Device Manager. |
-| 3260 (iSCSI) |En el |LAN |No |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
-| 5985 |En el |LAN |No |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
-| 5986 |En el |LAN |No |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
+| 3260 (iSCSI) |En el |LAN |Sin  |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
+| 5985 |En el |LAN |Sin  |El puerto de entrada se usa en Snapshot Manager de StorSimple para comunicarse con el dispositivo de StorSimple.<br>También se usa cuando se conecta de forma remota a Windows PowerShell para StorSimple a través de HTTP. |
+| 5986 |En el |LAN |Sin  |Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
@@ -95,7 +95,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 | Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Bus de servicio<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.com` |Registro de dispositivos |Solo DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |
@@ -107,7 +107,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 | Patrón de URL | Componente o funcionalidad | Direcciones IP del dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Bus de servicio<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login-us.microsoftonline.com`<br>`https://login.microsoftonline.us` |Servicio de administrador de dispositivos de StorSimple<br>Access Control Service<br>Azure Service Bus<br>Servicio de autenticación |Interfaces de red habilitadas para la nube |
 | `https://*.backup.windowsazure.us` |Registro de dispositivos |Solo DATA 0 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revocación de certificados |Interfaces de red habilitadas para la nube |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Supervisión y cuentas de Almacenamiento de Azure |Interfaces de red habilitadas para la nube |
@@ -126,10 +126,10 @@ El algoritmo de métrica de enrutamiento usado en Update 2 y versiones posterior
 * Un conjunto de valores predeterminados se han asignado a interfaces de red.
 * Considere una tabla de ejemplo que se muestra a continuación con valores asignados a las diversas interfaces de red si están habilitadas para la nube o deshabilitadas para la nube pero con una puerta de enlace configurada. Tenga en cuenta que los valores asignados en este artículo representan únicamente valores de ejemplo.
 
-    | Interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
+    | interfaz de red | Habilitada para la nube | Deshabilitada para la nube con puerta de enlace |
     |-----|---------------|---------------------------|
     | Data 0  | 1            | -                        |
-    | Data 1  | 2            | 20 |                       |
+    | Data 1  | 2            | 20                        |
     | Data 2  | 3            | 30                       |
     | Data 3  | 4            | 40                       |
     | Data 4  | 5            | 50                       |
@@ -241,7 +241,7 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 * Configure StorSimple con [configuraciones de clúster de servidor de archivos de dos nodos][1]. Mediante la eliminación de puntos individuales de error y el aumento de la redundancia en el lado del host, la solución completa pasará a presentar una alta disponibilidad.
 * Use recursos compatibles de disponibilidad continua (CA) disponibles con Windows Server 2012 (SMB 3.0) para lograr una alta disponibilidad durante la conmutación por error de los controladores de almacenamiento. Para obtener información adicional para configurar los clústeres de servidores de archivos y de recursos compartidos disponibles continuamente con Windows Server 2012, consulte este [vídeo de demostración](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Obtenga más información acerca de los límites de StorSimple](storsimple-8000-limits.md).
 * [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-8000-deployment-walkthrough-u2.md).

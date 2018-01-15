@@ -13,18 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/15/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 947b985fe242c026e94d78664fa41f666334392a
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 89553ee973e4aebc96b60caef9eefa80178fadfb
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.
-
-[!INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
 
 ![Pasos del proceso de copia de seguridad](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -35,14 +33,14 @@ Si desea crear una copia de seguridad de un servidor o cliente en Azure, necesit
 Un almacén de Recovery Services es una entidad que almacena todas las copias de seguridad y todos los puntos de recuperación creados con el tiempo. El almacén de Recovery Services contiene también la directiva de copia de seguridad que se aplica a los archivos y las carpetas protegidos. Cuando se crea un almacén de Recovery Services, también se debe seleccionar la opción de redundancia de almacenamiento adecuada.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
-1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com/) mediante su suscripción.
+1. Si aún no lo ha hecho, inicie sesión en el [Portal de Azure](https://portal.azure.com/) mediante su suscripción.
 2. En el menú central, haga clic en **Más servicios** y, en la lista de recursos, escriba **Recovery Services** y haga clic en **Almacenes de Recovery Services**.
 
     ![Creación del almacén de Recovery Services, paso 1](./media/backup-try-azure-backup-in-10-mins/open-rs-vault-list.png) <br/>
 
     Si hay almacenes de Recovery Services en la suscripción, estos aparecerán en una lista.
 
-3. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
+3. En el menú **Almacenes de servicios de recuperación**, haga clic en **Agregar**.
 
     ![Creación del almacén de Recovery Services, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
@@ -57,7 +55,7 @@ Un almacén de Recovery Services es una entidad que almacena todas las copias de
 6. En la sección **Grupo de recursos**:
 
     * Si desea crear un nuevo grupo de recursos, seleccione **Create new** (Crear nuevo).
-    O
+    o
     * Seleccione **Use existing** (Usar existente) y haga clic en el menú desplegable para ver la lista de grupos de recursos disponibles.
 
   Para más información sobre los grupos de recursos, consulte [Introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
@@ -142,7 +140,7 @@ Ahora que ha creado un almacén, prepare la infraestructura para realizar una co
 
   ![descargar las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-  Descargue las credenciales de almacén en la carpeta Descargas. Una vez que haya terminado de descargar las credenciales del almacén, aparecerá una ventana emergente en la que se le preguntará si desea abrirlas o guardarlas. Haga clic en **Guardar**. Si, accidentalmente, hace clic en **Abrir**, deje que el cuadro de diálogo intente abrir las credenciales de almacén. Se producirá un error. No se pueden abrir las credenciales de almacén. Siga con el paso siguiente. Las credenciales del almacén están en la carpeta de descargas.   
+  Descargue las credenciales de almacén en la carpeta Descargas. Una vez que haya terminado de descargar las credenciales del almacén, aparecerá una ventana emergente en la que se le preguntará si desea abrirlas o guardarlas. Haga clic en **Save**(Guardar). Si, accidentalmente, hace clic en **Abrir**, deje que el cuadro de diálogo intente abrir las credenciales de almacén. Se producirá un error. No se pueden abrir las credenciales de almacén. Siga con el paso siguiente. Las credenciales del almacén están en la carpeta de descargas.   
 
   ![finalizó la descarga de las credenciales de almacén](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 
@@ -180,7 +178,7 @@ Si la máquina o proxy tienen limitado el acceso a Internet, asegúrese de que s
     2. *.Microsoft.com
     3. *.WindowsAzure.com
     4. *.microsoftonline.com
-    5. *.windows.net
+    5. * .windows.net
 
 
 ## <a name="create-the-backup-policy"></a>Creación de la directiva de copia de seguridad
@@ -240,7 +238,7 @@ El agente de Microsoft Azure Backup proporciona limitación de red. Esta limitac
 3. Una vez que se ha habilitado la limitación, especifique el ancho de banda permitido para la transferencia de datos de copia de seguridad durante la **jornada laboral** y las **horas de descanso**.
 
     Los valores de ancho de banda comienzan en 512 kilobytes por segundo (Kbps) y pueden subir hasta 1023 megabytes por segundo (Mbps). También puede designar el inicio y el final de la **jornada laboral**, así como qué días de la semana se consideran laborables. Las horas que se encuentran fuera de las horas laborables designadas se consideran como no laborables.
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Creación de copias de seguridad de archivos y carpetas por primera vez
 1. En el agente de Copia de seguridad, haga clic en **Iniciar copia de seguridad** para completar la propagación inicial a través de la red.
@@ -256,7 +254,7 @@ Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completa
 ## <a name="questions"></a>¿Tiene preguntas?
 Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre la copia de seguridad de máquinas virtuales u otras cargas de trabajo, consulte:
 
 * Ahora que ha realizado una copia de seguridad de los archivos y las carpetas, puede [administrar los almacenes y servidores](backup-azure-manage-windows-server.md).

@@ -15,11 +15,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/03/2017
   ms.author: carolz
-  ms.openlocfilehash: d50c30ccb4fe6d5d6c56edb2a53d4822796af6d4
-  ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+  ms.openlocfilehash: b9f76a98894485f48d495f32f352672784b86316
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 12/08/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios y contenedores escalables y confiables. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. Aprenda a usar Azure Service Fabric con nuestros inicios rápidos, tutoriales y ejemplos."
 sections:
@@ -86,7 +86,7 @@ sections:
     - html: <a href="service-fabric-content-roadmap">Idea general</a>
     - html: "<a href=\"service-fabric-application-scenarios\">Escenarios de aplicación</a>"
     - html: <a href="service-fabric-patterns-and-scenarios">Patrones y escenarios</a>
-    - html: <a href="service-fabric-architecture">Arquitectura</a>
+    - html: <a href="service-fabric-architecture">Architecture</a>
     - html: "<a href=\"service-fabric-technical-overview\">Terminología</a>"
 - title: Muestras
   items:
@@ -109,7 +109,7 @@ sections:
     className: cardsD
     items:
     - title: "Línea de comandos"
-      html: <p><a href="/cli/azure/sf">CLI de Azure</a></p><p><a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-sfctl">CLI de Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
+      html: <p><a href="/cli/azure/sf">CLI de Azure</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">CLI de Service Fabric</a></p><p><a href="/powershell/module/azurerm.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>
     - title: Idiomas
       html: <p><a href="/java/api/overview/azure/servicefabric">API de Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Esquema XML del modelo de servicio</a></p>
     - title: REST

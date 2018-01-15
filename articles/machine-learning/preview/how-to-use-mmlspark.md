@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 01/12/2018
+ms.openlocfilehash: f978805f800a35908629a6febb59d7db50d14023
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Uso de la biblioteca de Microsoft Machine Learning para Apache Spark
 
@@ -56,7 +56,7 @@ repositories:
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7.9"
+    version: "0.9.9"
 ```
 
 También puede instalar MMLSpark directamente en el clúster de HDInsight Spark con [Acción de script](https://github.com/Azure/mmlspark#hdinsight).
@@ -83,7 +83,7 @@ Vuelva al panel de proyecto del ejemplo "MMLSpark on Adult Census". Seleccione e
 
 Azure Machine Learning Workbench envía el trabajo de Spark al clúster. Puede supervisar el progreso y ver los resultados en la vista de historial de ejecución.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre la biblioteca de MMLSpark y ejemplos, consulte el [repositorio de GitHub para MMLSpark](https://github.com/Azure/mmlspark).
 
 *Apache®, Apache Spark y Spark® son marcas comerciales registradas o marcas comerciales de Apache Software Foundation en los Estados Unidos u otros países.*

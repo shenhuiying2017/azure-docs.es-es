@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: 4cb3aaa3d4e577e45f01f245d3898c033092f5a3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 7f978ecd128115e5f2fe562da46d8b29324e3d04
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-notification-hubs-for-xamarinandroid-apps"></a>Introducción a Notification Hubs para las aplicaciones Xamarin.Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -33,7 +33,7 @@ En este tutorial se demuestra el escenario de difusión sencillo con Notificatio
 
 El código completo de este tutorial se puede encontrar en GitHub [aquí][GitHub].
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Este tutorial requiere lo siguiente:
 
 * [Visual Studio con Xamarin] en Windows o [Visual Studio para Mac] en OS X.
@@ -304,7 +304,7 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[Visual Studio con Xamarin]: https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio
+[Visual Studio con Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio para Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
 [Azure Portal]: https://portal.azure.com/

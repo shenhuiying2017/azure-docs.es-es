@@ -1,10 +1,10 @@
 ---
 title: "Introducción a Azure App Service Mobile Apps para aplicaciones Xamarin.iOS | Microsoft Docs"
-description: "Siga este tutorial para empezar a usar Aplicaciones móviles para el desarrollo de Xamarin.iOS."
+description: Siga este tutorial para empezar a usar Mobile Apps para el desarrollo de Xamarin.iOS.
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: syntaxc4
-ms.openlocfilehash: 8dc965df2cd45366970effb29f246b0045a94717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-xamarinios-app"></a>Creación de una aplicación Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Información general
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación móvil Xamarin.iOS con un back-end de Aplicaciones móviles de Azure.  Creará tanto un back-end de aplicación móvil nuevo como una aplicación Xamarin.iOS simple de la *lista de tareas pendientes* que almacene los datos de la aplicación en Azure.
 
-Completar este tutorial es un requisito previo para todos los demás tutoriales de Xamarin.iOS sobre cómo usar la característica Aplicaciones móviles en el Servicio de aplicaciones de Azure.
+Completar este tutorial es un requisito previo para todos los demás tutoriales de Xamarin.iOS sobre cómo usar la característica Mobile Apps en Azure App Service.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
@@ -69,11 +69,11 @@ Para configurar el proyecto de servidor para que use el back-end de Node.js o. N
 >
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Add Offline Sync to your app](app-service-mobile-xamarin-ios-get-started-offline-data.md) (Incorporación de sincronización sin conexión a la aplicación)
-* [Adición de la autenticación a la aplicación Xamarin.Android ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Adición de la autenticación a la aplicación Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Uso del cliente administrado para Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started

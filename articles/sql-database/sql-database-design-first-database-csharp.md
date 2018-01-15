@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 01/12/2018
 ms.author: genemi
-ms.openlocfilehash: 1e13a9a89873b189e1ea05c0208e7c8646881655
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: d99456b488302c9b3fa44510af84641876861afe
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Diseño de una base de datos de SQL Azure Database y conexión con C&#x23; y ADO.NET
 
@@ -28,7 +28,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 
 > [!div class="checklist"]
 > * Crear una base de datos en Azure Portal
-> * Configurar una regla de firewall de nivel de servidor en Azure Portal
+> * Establecer una regla de firewall de nivel de servidor en Azure Portal
 > * Conectarse a la base de datos con ADO.NET y Visual Studio
 > * Crear tablas con ADO.NET
 > * Insertar, actualizar y eliminar datos con ADO.NET 
@@ -54,11 +54,11 @@ And it starts with a ## H2.
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial ha aprendido las tareas básicas de una base de datos, como crear una base de datos y tablas, cargar y consultar datos, y restaurar la base de datos a un momento anterior en el tiempo. Ha aprendido a:
 > [!div class="checklist"]
-> * Crear una base de datos
+> * Creación de una base de datos
 > * Configurar una regla de firewall
 > * Conectarse a la base de datos con [Visual Studio y C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Cree las tablas.

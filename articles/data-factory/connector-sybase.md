@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ff008b6fdfe9e248a0588f24a1cb87b39ca8d90c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copia de datos desde Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-onprem-sybase-connector.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-onprem-sybase-connector.md)
 > * [Versión 2: versión preliminar](connector-sybase.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos Sybase. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Sybase](v1/data-factory-onprem-sybase-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Sybase](v1/data-factory-onprem-sybase-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -46,7 +46,8 @@ Para usar este conector Sybase, necesitará lo siguiente:
 - Instalar el [proveedor de datos para Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 o posterior en la máquina de Integration Runtime.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector Sybase.
 
@@ -54,15 +55,15 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado Sybase:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Sybase** | Sí |
-| server | Nombre del servidor de Sybase. |Sí |
-| database | Nombre de la base de datos Sybase. |Sí |
-| schema | Nombre del esquema de la base de datos. |No |
+| Tipo | La propiedad type debe establecerse en: **Sybase** | Sí |
+| Servidor | Nombre del servidor de Sybase. |Sí |
+| Base de datos | Nombre de la base de datos Sybase. |Sí |
+| schema | Nombre del esquema de la base de datos. |Sin  |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos Sybase.<br/>Los valores permitidos son: **Básica** y **Windows**. |Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de Sybase. |Sí |
-| Contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString. |Sí |
+| Nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos de Sybase. |Sí |
+| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString. |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
@@ -96,9 +97,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Sybase, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla de la base de datos Sybase. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -125,9 +126,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Sybase, establezca el tipo de origen de la actividad de copia como **RelationalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -169,5 +170,5 @@ Al copiar datos desde Sybase, se usan las siguientes asignaciones de tipos de da
 Sybase admite tipos de T-SQL. Para ver una tabla de asignación de tipos SQL a tipos de datos provisionales de Azure Data Factory, consulte la sección [Conector Azure SQL Database: asignación de tipo de datos](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

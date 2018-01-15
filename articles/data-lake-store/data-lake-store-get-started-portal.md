@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d3a5c0c49b881db69a9d5cccc65406322212a8d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 38a8792588e013a0105ea57b20b2560f0acf02e6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introducción al uso de Azure Portal por parte de Azure Data Lake Store
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
         Para obtener más información, consulte [Cifrado de datos en Azure Data Lake Store](./data-lake-store-encryption.md).
 
-4. Haga clic en **Crear**. Si elige anclar la cuenta al panel, volverá a este, donde podrá ver el progreso del aprovisionamiento de la cuenta de Data Lake Store. Una vez aprovisionada la cuenta de Almacén de Data Lake, aparece la hoja de la cuenta.
+4. Haga clic en **Create**(Crear). Si elige anclar la cuenta al panel, volverá a este, donde podrá ver el progreso del aprovisionamiento de la cuenta de Data Lake Store. Una vez aprovisionada la cuenta de Almacén de Data Lake, aparece la hoja de la cuenta.
 
 ### <a name="assign-permissions-to-azure-key-vault"></a>Asignación de permisos para Azure Key Vault
 Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta de Data Lake Store, debe configurar el acceso entre la cuenta de Data Lake Store y la de Azure Key Vault. Para ello, siga los pasos que se indican a continuación.
@@ -122,9 +122,9 @@ Para eliminar una cuenta de Almacén de Azure Data Lake, en la hoja de su Almac�
 
 ![Eliminar cuenta de Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminar cuenta de Data Lake")
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Uso de Azure Data Lake Store para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 

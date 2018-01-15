@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Información general
@@ -37,15 +37,17 @@ Todos estos enfoques presentan costo elevado y sobrecarga administrativa. Los ad
 Hemos diseñado Azure AD Domain Services para proporcionar una alternativa mucho más sencilla.
 
 ### <a name="watch-an-introductory-video"></a>Vea el vídeo de introducción
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
+>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
 ## <a name="introducing-azure-ad-domain-services"></a>Presentación de los Servicios de dominio de Azure AD
+
 Azure AD Domain Services proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directiva de grupo, LDAP o autenticación Kerberos/NTLM, que son totalmente compatibles con Windows Server Active Directory. Puede consumir estos servicios de dominio, sin necesidad de implementar o administrar los controladores de dominio de la nube, ni de aplicarles revisiones. Azure AD Domain Services se integra con el inquilino de Azure AD existente, así los usuarios pueden iniciar sesión con sus credenciales corporativas. Además, se pueden usar los grupos y las cuentas de usuario existentes para proteger el acceso a los recursos, lo que garantiza una subida y un desplazamiento mejor de los recursos locales a los Servicios de infraestructura de Azure.
 
 La funcionalidad de Azure AD Domain Services funciona perfectamente con independencia de si el inquilino de Azure AD es solo de nube o se sincroniza con su entorno de Active Directory local.
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Servicios de dominio de Azure AD para las organizaciones solo de nube
+
 Un inquilino de Azure AD solo de nube (lo que a menudo se conoce como 'inquilinos administrados') carece de superficie de identidad local. En otras palabras, las cuentas de usuarios, sus contraseñas y pertenencias a grupos son todos nativos para la nube: se crean y administran en Azure AD. Considere por un momento que Contoso es un inquilino de Azure AD solo de nube. Como se muestra en la siguiente ilustración, el administrador de Contoso ha configurado una red virtual en los Servicios de infraestructura de Azure. Las aplicaciones y las cargas de trabajo de servidor se implementan en esta red virtual en máquinas virtuales de Azure. Puesto que Contoso es un inquilino solo de nube, todas las identidades de usuario, sus credenciales y pertenencias a grupos se crean y administran en Azure AD.
 
 ![Información general de los Servicios de dominio de Azure AD](./media/active-directory-domain-services-overview/aadds-overview.png)
@@ -88,7 +90,7 @@ Con los Servicios de dominio de Azure AD, puede disfrutar de las siguientes vent
 * **Rentabilidad** : con los Servicios de dominio de Azure AD, puede evitar el inconveniente de administración e infraestructura asociado con la administración de infraestructuras de identidad compatibles con las aplicaciones tradicionales que tienen en cuenta el directorio. Puede mover estas aplicaciones a los Servicios de infraestructura de Azure y beneficiarse de mayores ahorros en los gastos operativos.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Más información sobre Azure AD Domain Services
 * [Características](active-directory-ds-features.md)
 * [Escenarios de implementación](active-directory-ds-scenarios.md)

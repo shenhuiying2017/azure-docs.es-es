@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Control de acceso en Azure Data Lake Store
 
@@ -274,7 +274,7 @@ Estas son algunas preguntas que surgen a menudo con respecto a las ACL en Data L
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>¿Es preciso habilitar la compatibilidad con las ACL?
 
-No. El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Store.
+Nº El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Store.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>¿Qué permisos son necesarios para eliminar de forma recursiva una carpeta y su contenido?
 
@@ -308,7 +308,7 @@ Cuando el usuario ya no existe en Azure AD, se mostrará un GUID. Normalmente es
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>¿Admite Data Lake Store la herencia de ACL?
 
-No.
+Nº
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>¿Cuál es la diferencia entre mask y umask?
 
@@ -337,6 +337,6 @@ No.
 
 * [ACL: Using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso de listas de control de acceso en Linux)
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)

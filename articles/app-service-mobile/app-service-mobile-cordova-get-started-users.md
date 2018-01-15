@@ -1,10 +1,10 @@
 ---
 title: "Adición de autenticación en Apache Cordova con Mobile Apps | Microsoft Docs"
-description: "Obtenga información sobre cómo usar Aplicaciones móviles en el Servicio de aplicaciones de Azure para autenticar usuarios de su aplicación de Apache Cordova a través de una variedad de proveedores de identidades, incluidos Google, Facebook, Twitter y Microsoft."
+description: "Obtenga información sobre cómo usar Mobile Apps en Azure App Service para autenticar usuarios de su aplicación de Apache Cordova a través de una variedad de proveedores de identidades, incluidos Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
 ms.service: app-service-mobile
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: b7362b7f26859de541f792e714502851d74c98e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b5cce832ae7ae83552c2a5ded2f5f5bda0ac76bf
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Agregar autenticación a su aplicación de Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Resumen
-En este tutorial podrá agregar la autenticación al proyecto de inicio rápido todolist en Apache Cordova con un proveedor de identidades admitido. Este tutorial está basado en el tutorial [Introducción a Mobile Apps] , que debe completar primero.
+En este tutorial podrá agregar la autenticación al proyecto de inicio rápido todolist en Apache Cordova con un proveedor de identidades admitido. Este tutorial está basado en el tutorial [Introducción a Mobile Apps], que debe completar primero.
 
-## <a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
+## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Visualización de un vídeo donde se muestren pasos similares](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
@@ -93,7 +93,7 @@ A continuación, actualice la aplicación para autenticar usuarios antes de soli
 5. Ejecute el proyecto.  Cuando el proyecto acabe de inicializarse, la aplicación mostrará la página de inicio de sesión de OAuth del proveedor de autenticación seleccionado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información [sobre la autenticación] con el Servicio de aplicaciones de Azure.
+* Obtenga más información [sobre la autenticación] con Azure App Service.
 * Prosiga el tutorial agregando [notificaciones push] a la aplicación de Apache Cordova.
 
 Obtenga información sobre cómo usar los SDK.

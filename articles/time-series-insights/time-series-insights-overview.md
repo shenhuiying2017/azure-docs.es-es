@@ -3,19 +3,19 @@ title: "¿Qué es Azure Time Series Insights? | Microsoft Docs"
 description: "Introducción a Azure Time Series Insights, un nuevo servicio de análisis de datos de series temporales y soluciones de IoT"
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>¿Qué es Azure Time Series Insights?
 
@@ -62,7 +62,7 @@ Con los primeros pasos se tarda menos de 5 minutos.
 Este diagrama muestra un ejemplo de datos de Time Series Insights vistos a través del explorador: ![Explorador de Time Series Insights] (media/time-series-insights-explorer/explorer4.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
  - [Exploración del explorador de Time Series Insights en un entorno de demostración](./time-series-quickstart.md)
  - [Plan your own Time Series Insights environment](time-series-insights-environment-planning.md) (Planeamiento de un entorno de Time Series Insights propio)
 

@@ -3,7 +3,7 @@ title: "Publicación de aplicaciones cliente nativas: Azure AD | Microsoft Docs"
 description: "Explica cómo habilitar las aplicaciones cliente nativas para comunicarse con el conector del proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: de49a8343a3db6c8b890050e7791f77105a09a3a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2be62c00d144e47cef8ea4df5aa82554f2bbcc18
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de la aplicación
 
@@ -39,7 +39,7 @@ Publique su aplicación de proxy al igual que haría con cualquier otra aplicaci
 ## <a name="step-2-configure-your-application"></a>Paso 2: Configuración de la aplicación
 Configure su aplicación nativa de la manera siguiente:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Vaya a **Azure Active Directory** > **Registros de aplicaciones**.
 3. Seleccione **Nuevo registro de aplicaciones**.
 4. Especifique un nombre para la aplicación, seleccione **Nativo** como tipo de aplicación y proporcione el URI de redirección para la aplicación. 
@@ -93,7 +93,7 @@ Las variables del código de ejemplo deben reemplazarse como sigue:
 
 Una vez que se edita la ADAL con estos parámetros, los usuarios deberían poder autenticarse en las aplicaciones cliente nativas incluso si están fuera de la red corporativa. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre el flujo de la aplicación nativa, consulte el escenario de [Aplicación nativa a API web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 

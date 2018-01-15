@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 7c1505f93b28008d51ad4a8cd3516ee5c4271071
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-on-premises-mongodb-connector.md)
-> * [Versión 2: Versión preliminar](connector-mongodb.md)
+> * [Versión 2: versión preliminar](connector-mongodb.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos MongoDB. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector MongoDB](v1/data-factory-on-premises-mongodb-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector MongoDB](v1/data-factory-on-premises-mongodb-connector.md).
 
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
@@ -44,7 +44,8 @@ En concreto, este conector MongoDB admite las siguientes funcionalidades:
 Para usar los datos de la copia de una base de datos MongoDB que no es accesible públicamente, debe configurar un entorno Integration Runtime (autohospedado). Consulte el artículo sobre el [entorno Integration Runtime (autohospedado)](create-self-hosted-integration-runtime.md) para obtener más información. El entorno Integration Runtime proporciona un controlador de MongoDB integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos desde MongoDB.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector MongoDB.
 
@@ -52,17 +53,17 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type |La propiedad type debe establecerse en: **MongoDb**. |Sí |
-| server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
+| Tipo |La propiedad type debe establecerse en: **MongoDb**. |Sí |
+| Servidor |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
 | puerto |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 27017) |
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos MongoDB.<br/>Los valores permitidos son: **Básica** y **Anónima**. |Sí |
-| nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
+| Nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
 | contraseña |Contraseña del usuario. Marque este campo como SecureString. |Sí (si se usa la autenticación básica). |
-| authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |No. Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |No |
+| authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |Nº Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
 
@@ -95,9 +96,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde MongoDB, establezca la propiedad type del conjunto de datos en **MongoDbCollection**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **MongoDbCollection**. | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **MongoDbCollection**. | Sí |
 | collectionName |Nombre de la colección en la base de datos de MongoDB. |Sí |
 
 **Ejemplo:**
@@ -126,9 +127,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde MongoDB, establezca el tipo de origen de la actividad de copia en **MongoDbSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbSource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MongoDbSource**. | Sí |
 | query |Utilice la consulta SQL-92 personalizada para leer los datos. Por ejemplo: select * from MyTable. |No (si se especifica "collectionName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -172,18 +173,18 @@ El servicio de Azure Data Factory deduce el esquema de una colección de MongoDB
 
 ## <a name="data-type-mapping-for-mongodb"></a>Asignación de tipos para MongoDB
 
-Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos de datos de MongoDB en los tipos de datos provisionales de Azure Data Factory. Vea el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para obtener información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen en el receptor.
+Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos de datos de MongoDB en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
 | Tipo de datos de MongoDB | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
 | Binary |Byte[] |
-| Booleano |Booleano |
-| Date |DateTime |
+| boolean |boolean |
+| Date |Datetime |
 | NumberDouble |Doble |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |string |
+| string |string |
 | UUID |Guid |
 | Objeto |Renormalizado en columnas acopladas con "_" como separador anidado |
 
@@ -241,5 +242,5 @@ Las siguientes tablas muestran las tablas virtuales que representan las matrices
 | 2222 |1 |2 |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

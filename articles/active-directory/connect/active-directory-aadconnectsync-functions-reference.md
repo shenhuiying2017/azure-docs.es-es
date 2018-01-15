@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 07b681f8721c7c5627eb6809d4fc2cb9536d65eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d84a31e72d3e97ebb12f1747259fcb6e6b8fdcdc
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referencia de funciones
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización.  
@@ -76,7 +76,7 @@ Las funciones con los tipos **mvbin**, **mvstr** y **mvref** solo pueden funcion
 | [Contains](#contains) |[Recuento](#count) |[Elemento](#item) |[ItemOrNull](#itemornull) | |
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Dividir](#split) | | |
 | **Flujo de programa** | | | | |
-| [Error](#error) |[IIF](#iif) |[Select](#select) |[Switch](#switch) | |
+| [Error](#error) |[IIF](#iif) |[Selección](#select) |[Switch](#switch) | |
 | [Where](#where) |[With](#with) | | | |
 | **Texto** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
@@ -87,7 +87,7 @@ Las funciones con los tipos **mvbin**, **mvstr** y **mvref** solo pueden funcion
 
 - - -
 ### <a name="bitand"></a>BitAnd
-**Descripción**  
+**Descripción:**  
 : la función BitAnd establece los bits especificados en un valor.
 
 **Sintaxis:**  
@@ -109,7 +109,7 @@ devuelve 7 porque los valores hexadecimales "F" y "F7" se evalúan en este valor
 
 - - -
 ### <a name="bitor"></a>BitOr
-**Descripción**  
+**Descripción:**  
 : la función BitOr establece los bits especificados en un valor.
 
 **Sintaxis:**  
@@ -122,7 +122,7 @@ devuelve 7 porque los valores hexadecimales "F" y "F7" se evalúan en este valor
 
 - - -
 ### <a name="cbool"></a>CBool
-**Descripción**  
+**Descripción:**  
 : la función CBool devuelve un valor booleano basado en la expresión evaluada.
 
 **Sintaxis:**  
@@ -138,7 +138,7 @@ Devuelve True si ambos atributos tienen el mismo valor.
 
 - - -
 ### <a name="cdate"></a>CDate
-**Descripción**  
+**Descripción:**  
 : la función CDate devuelve un valor DateTime UTC a partir de una cadena. DateTime no es un tipo de atributo nativo en Sincronización pero lo usan algunas funciones.
 
 **Sintaxis:**  
@@ -155,12 +155,6 @@ devuelve un valor DateTime basado en la hora de inicio del empleado.
 
 `CDate("2013-01-10 4:00 PM -8")`  
 Devuelve un valor DateTime que representa "2013-01-11 12:00 AM".
-
-
-
-
-
-
 
 
 - - -
@@ -356,7 +350,7 @@ Devuelve la versión de formato X.509 de un certificado.
 
 - - -
 ### <a name="cguid"></a>CGuid
-**Descripción**  
+**Descripción:**  
 : la función CGuid convierte la representación de cadena de un GUID en su representación binaria.
 
 **Sintaxis:**  
@@ -366,7 +360,7 @@ Devuelve la versión de formato X.509 de un certificado.
 
 - - -
 ### <a name="contains"></a>Contains
-**Descripción**  
+**Descripción:**  
 : la función Contains busca una cadena dentro de un atributo multivalor.
 
 **Sintaxis:**  
@@ -390,7 +384,7 @@ Si el atributo proxyAddresses tiene una dirección de correo electrónico princi
 
 - - -
 ### <a name="convertfrombase64"></a>ConvertFromBase64
-**Descripción**  
+**Descripción:**  
 : la función ConvertFromBase64 convierte el valor codificado en base64 especificado en una cadena normal.
 
 **Sintaxis:**  
@@ -408,7 +402,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 - - -
 ### <a name="convertfromutf8hex"></a>ConvertFromUTF8Hex
-**Descripción**  
+**Descripción:**  
 : la función ConvertFromUTF8Hex convierte el valor codificado hexadecimal UTF8 especificado en una cadena.
 
 **Sintaxis:**  
@@ -426,7 +420,7 @@ devuelve "*Hello world!*".
 
 - - -
 ### <a name="converttobase64"></a>ConvertToBase64
-**Descripción**  
+**Descripción:**  
 La función ConvertToBase64 convierte una cadena en una en base64 de Unicode.  
 Convierte el valor de una matriz de enteros en su representación de cadena equivalente que se codifica con dígitos de base 64.
 
@@ -439,7 +433,7 @@ devuelve "SABlAGwAbABvACAAdwBvAHIAbABkACEA".
 
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
-**Descripción**  
+**Descripción:**  
 : la función ConvertToUTF8Hex convierte una cadena en un valor codificado hexadecimal UTF8.
 
 **Sintaxis:**  
@@ -454,7 +448,7 @@ devuelve 48656C6C6F20776F726C6421.
 
 - - -
 ### <a name="count"></a>Recuento
-**Descripción**  
+**Descripción:**  
 : la función Count devuelve el número de elementos en un atributo multivalor.
 
 **Sintaxis:**  
@@ -462,7 +456,7 @@ devuelve 48656C6C6F20776F726C6421.
 
 - - -
 ### <a name="cnum"></a>CNum
-**Descripción**  
+**Descripción:**  
 : la función CNum toma una cadena y devuelve un tipo de datos numérico.
 
 **Sintaxis:**  
@@ -470,7 +464,7 @@ devuelve 48656C6C6F20776F726C6421.
 
 - - -
 ### <a name="cref"></a>CRef
-**Descripción**  
+**Descripción:**  
 : convierte una cadena en un atributo de referencia.
 
 **Sintaxis:**  
@@ -481,7 +475,7 @@ devuelve 48656C6C6F20776F726C6421.
 
 - - -
 ### <a name="cstr"></a>CStr
-**Descripción**  
+**Descripción:**  
 : la función CStr se convierte en un tipo de datos de cadena.
 
 **Sintaxis:**  
@@ -497,7 +491,7 @@ podría devolver "cn=Joe,dc=contoso,dc=com"
 
 - - -
 ### <a name="dateadd"></a>DateAdd
-**Descripción**  
+**Descripción:**  
 : devuelve un valor Date que contiene una fecha a la que se ha agregado un intervalo de tiempo especificado.
 
 **Sintaxis:**  
@@ -523,7 +517,7 @@ agrega 3 meses y devuelve un valor DateTime que representa "2001-04-01".
 
 - - -
 ### <a name="datefromnum"></a>DateFromNum
-**Descripción**  
+**Descripción:**  
 : la función DateFromNum convierte un valor con formato de fecha de AD en un tipo DateTime.
 
 **Sintaxis:**  
@@ -536,7 +530,7 @@ devuelve un valor DateTime que representa 2012-01-01 23:00:00.
 
 - - -
 ### <a name="dncomponent"></a>DNComponent
-**Descripción**  
+**Descripción:**  
 : la función DNComponent devuelve el valor de un componente DN especificado empezando por la izquierda.
 
 **Sintaxis:**  
@@ -546,12 +540,12 @@ devuelve un valor DateTime que representa 2012-01-01 23:00:00.
 * ComponentNumber: el componente en DN que devolver
 
 **Ejemplo:**  
-`DNComponent([dn],1)`  
+`DNComponent(CRef([dn]),1)`  
 si dn es "cn=Joe,ou=…", devuelve Joe.
 
 - - -
 ### <a name="dncomponentrev"></a>DNComponentRev
-**Descripción**  
+**Descripción:**  
 : la función DNComponentRev devuelve el valor de un componente DN especificado empezando por la derecha (final).
 
 **Sintaxis:**  
@@ -564,13 +558,13 @@ si dn es "cn=Joe,ou=…", devuelve Joe.
 
 **Ejemplo:**  
 Si dn es "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"  
-`DNComponentRev([dn],3)`  
-`DNComponentRev([dn],1,"DC")`  
+`DNComponentRev(CRef([dn]),3)`  
+`DNComponentRev(CRef([dn]),1,"DC")`  
 Ambos devuelven US.
 
 - - -
 ### <a name="error"></a>Error
-**Descripción**  
+**Descripción:**  
 : la función Error se usa para devolver un error personalizado.
 
 **Sintaxis:**  
@@ -582,7 +576,7 @@ si el atributo accountName no está presente, se produce un error en el objeto.
 
 - - -
 ### <a name="escapedncomponent"></a>EscapeDNComponent
-**Descripción**  
+**Descripción:**  
 : la función EscapeDNComponent toma un componente de DN y genera secuencias de escape para poder representarlo en LDAP.
 
 **Sintaxis:**  
@@ -594,7 +588,7 @@ se asegura de que el objeto se puede crear en un directorio LDAP incluso si el a
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Descripción**  
+**Descripción:**  
 : la función FormatDateTime se usa para dar formato a un valor DateTime en una cadena con un formato especificado.
 
 **Sintaxis:**  
@@ -616,7 +610,7 @@ Puede generar "20140905081453.0Z".
 
 - - -
 ### <a name="guid"></a>Guid
-**Descripción**  
+**Descripción:**  
 La función GUID genera un nuevo GUID aleatorio.
 
 **Sintaxis:**  
@@ -624,7 +618,7 @@ La función GUID genera un nuevo GUID aleatorio.
 
 - - -
 ### <a name="iif"></a>IIF
-**Descripción**  
+**Descripción:**  
 : la función IIF devuelve uno de un conjunto de valores posibles según una condición especificada.
 
 **Sintaxis:**  
@@ -640,7 +634,7 @@ La función GUID genera un nuevo GUID aleatorio.
 
 - - -
 ### <a name="instr"></a>InStr
-**Descripción**  
+**Descripción:**  
 : la función InStr busca la primera repetición de una subcadena en una cadena.
 
 **Sintaxis:**  
@@ -666,7 +660,7 @@ Se evalúa en 7.
 
 - - -
 ### <a name="instrrev"></a>InStrRev
-**Descripción**  
+**Descripción:**  
 : la función InStrRev busca la última repetición de una subcadena en una cadena.
 
 **Sintaxis:**  
@@ -688,7 +682,7 @@ devuelve 7.
 
 - - -
 ### <a name="isbitset"></a>IsBitSet
-**Descripción**  
+**Descripción:**  
 la función IsBitSet prueba si un bit se establece o no.
 
 **Sintaxis:**  
@@ -721,7 +715,7 @@ Devuelve true si los datos sin procesar se pueden serializar en el objeto de cer
 *   certificateRawData: representación de matriz de bytes de un certificado X.509. La matriz de bytes puede ser de datos X.509 codificados en Base64 o codificados en binario (DER).
 - - -
 ### <a name="isempty"></a>IsEmpty
-**Descripción**  
+**Descripción:**  
 si el atributo está presente en CS o MV, pero se evalúa en una cadena vacía, la función IsEmpty se evalúa en True.
 
 **Sintaxis:**  
@@ -729,7 +723,7 @@ si el atributo está presente en CS o MV, pero se evalúa en una cadena vacía, 
 
 - - -
 ### <a name="isguid"></a>IsGuid
-**Descripción**  
+**Descripción:**  
 si la cadena se pudo convertir en un GUID, la función IsGuid evaluada en True.
 
 **Sintaxis:**  
@@ -761,7 +755,7 @@ devuelve True si el atributo no está presente en CS o MV.
 
 - - -
 ### <a name="isnullorempty"></a>IsNullOrEmpty
-**Descripción**  
+**Descripción:**  
 si la expresión es Null o una cadena vacía, la función IsNullOrEmpty devuelve True.
 
 **Sintaxis:**  
@@ -777,7 +771,7 @@ devuelve True si el atributo no está presente o si es una cadena vacía en CS o
 
 - - -
 ### <a name="isnumeric"></a>IsNumeric
-**Descripción**  
+**Descripción:**  
 la función IsNumeric devuelve un valor booleano que indica si una expresión se puede evaluar como un tipo de número.
 
 **Sintaxis:**  
@@ -788,7 +782,7 @@ se usa para determinar si CNum() analizará correctamente la expresión.
 
 - - -
 ### <a name="isstring"></a>IsString
-**Descripción**  
+**Descripción:**  
 si la expresión se puede evaluar en un tipo de cadena, la función IsString se evalúa en True.
 
 **Sintaxis:**  
@@ -799,7 +793,7 @@ se usa para determinar si CStr() puede analizar correctamente la expresión.
 
 - - -
 ### <a name="ispresent"></a>IsPresent
-**Descripción**  
+**Descripción:**  
 si la expresión se evalúa como una cadena que no es Null y no está vacía, la función IsPresent devuelve True.
 
 **Sintaxis:**  
@@ -812,8 +806,8 @@ la función contraria a esta es IsNullOrEmpty.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 - - -
-### <a name="item"></a>Elemento
-**Descripción**  
+### <a name="item"></a>item
+**Descripción:**  
 la función Item devuelve un elemento de un atributo o una cadena de varios valores.
 
 **Sintaxis:**  
@@ -833,7 +827,7 @@ devuelve la dirección de correo electrónico principal.
 
 - - -
 ### <a name="itemornull"></a>ItemOrNull
-**Descripción**  
+**Descripción:**  
 la función ItemOrNull devuelve un elemento de un atributo o una cadena de varios valores.
 
 **Sintaxis:**  
@@ -848,8 +842,8 @@ la función ItemOrNull es útil con la función Contains puesto que esta última
 Si el índice está fuera de los límites, devuelve un valor Null.
 
 - - -
-### <a name="join"></a>Join
-**Descripción**  
+### <a name="join"></a>Unión
+**Descripción:**  
 la función Join toma una cadena de varios valores y devuelve una cadena de valor único con un separador especificado insertado entre cada elemento.
 
 **Sintaxis:**  
@@ -868,7 +862,7 @@ Podría devolver: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
 - - -
 ### <a name="lcase"></a>LCase
-**Descripción**  
+**Descripción:**  
 la función LCase convierte todos los caracteres de una cadena a minúsculas.
 
 **Sintaxis:**  
@@ -880,7 +874,7 @@ devuelve "test".
 
 - - -
 ### <a name="left"></a>Left
-**Descripción**  
+**Descripción:**  
 la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena.
 
 **Sintaxis:**  
@@ -904,7 +898,7 @@ devuelve “Joh”.
 
 - - -
 ### <a name="len"></a>Len
-**Descripción**  
+**Descripción:**  
 la función Len devuelve un número de caracteres de una cadena.
 
 **Sintaxis:**  
@@ -916,7 +910,7 @@ devuelve 8.
 
 - - -
 ### <a name="ltrim"></a>LTrim
-**Descripción**  
+**Descripción:**  
 la función LTrim quita los espacios en blanco del principio de una cadena.
 
 **Sintaxis:**  
@@ -928,7 +922,7 @@ devuelve "Test".
 
 - - -
 ### <a name="mid"></a>Mid
-**Descripción**  
+**Descripción:**  
 la función Mid devuelve un número especificado de caracteres desde una posición especificada en una cadena.
 
 **Sintaxis:**  
@@ -959,7 +953,7 @@ Devuelve "Doe".
 
 - - -
 ### <a name="now"></a>Now
-**Descripción**  
+**Descripción:**  
 la función Now devuelve DateTime que especifica la fecha y hora actuales, según la fecha y hora del sistema del equipo.
 
 **Sintaxis:**  
@@ -967,7 +961,7 @@ la función Now devuelve DateTime que especifica la fecha y hora actuales, segú
 
 - - -
 ### <a name="numfromdate"></a>NumFromDate
-**Descripción**  
+**Descripción:**  
 la función NumFromDate devuelve una fecha en formato de fecha de AD.
 
 **Sintaxis:**  
@@ -979,7 +973,7 @@ devuelve 129699324000000000.
 
 - - -
 ### <a name="padleft"></a>PadLeft
-**Descripción**  
+**Descripción:**  
 la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
 
 **Sintaxis:**  
@@ -1004,7 +998,7 @@ devuelve "000000User".
 
 - - -
 ### <a name="padright"></a>PadRight
-**Descripción**  
+**Descripción:**  
 la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter de espaciado interno proporcionado.
 
 **Sintaxis:**  
@@ -1029,7 +1023,7 @@ devuelve "User000000".
 
 - - -
 ### <a name="pcase"></a>PCase
-**Descripción**  
+**Descripción:**  
 la función PCase convierte el primer carácter de cada palabra delimitada por espacios de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
 
 **Sintaxis:**  
@@ -1048,7 +1042,7 @@ devuelve "Test".
 
 - - -
 ### <a name="randomnum"></a>RandomNum
-**Descripción**  
+**Descripción:**  
 la función RandomNum devuelve un número aleatorio entre un intervalo especificado.
 
 **Sintaxis:**  
@@ -1063,7 +1057,7 @@ puede devolver 734.
 
 - - -
 ### <a name="removeduplicates"></a>RemoveDuplicates
-**Descripción**  
+**Descripción:**  
 la función RemoveDuplicates toma una cadena multivalor y garantiza que cada valor es único.
 
 **Sintaxis:**  
@@ -1074,8 +1068,8 @@ la función RemoveDuplicates toma una cadena multivalor y garantiza que cada val
 devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
 
 - - -
-### <a name="replace"></a>Sustituya
-**Descripción**  
+### <a name="replace"></a>Replace
+**Descripción:**  
 la función Replace reemplaza todas las apariciones de una cadena por otra cadena.
 
 **Sintaxis:**  
@@ -1098,7 +1092,7 @@ reemplaza CRLF por una coma y un espacio, y podría originar "One Microsoft Way,
 
 - - -
 ### <a name="replacechars"></a>ReplaceChars
-**Descripción**  
+**Descripción:**  
 la función ReplaceChars reemplaza todas las apariciones de caracteres encontrados en la cadena ReplacePattern.
 
 **Sintaxis:**  
@@ -1131,7 +1125,7 @@ Devuelve "ONeil"; se define la marca única para quitarla.
 
 - - -
 ### <a name="right"></a>Right
-**Descripción**  
+**Descripción:**  
 la función Right devuelve un número especificado de caracteres desde la derecha (final) de una cadena.
 
 **Sintaxis:**  
@@ -1157,7 +1151,7 @@ devuelve "Doe".
 
 - - -
 ### <a name="rtrim"></a>RTrim
-**Descripción**  
+**Descripción:**  
 la función RTrim quita los espacios en blanco del final de una cadena.
 
 **Sintaxis:**  
@@ -1187,7 +1181,7 @@ Devuelva todos los valores del atributo de valor múltiple otherPhone una vez qu
 
 - - -
 ### <a name="split"></a>Dividir
-**Descripción**  
+**Descripción:**  
 la función Split toma una cadena separada por un delimitador y la convierte en una cadena multivalor.
 
 **Sintaxis:**  
@@ -1204,7 +1198,7 @@ devuelve una cadena multivalor con dos elementos útiles para el atributo proxyA
 
 - - -
 ### <a name="stringfromguid"></a>StringFromGuid
-**Descripción**  
+**Descripción:**  
 la función StringFromGuid toma un GUID binario y lo convierte en una cadena.
 
 **Sintaxis:**  
@@ -1212,7 +1206,7 @@ la función StringFromGuid toma un GUID binario y lo convierte en una cadena.
 
 - - -
 ### <a name="stringfromsid"></a>StringFromSid
-**Descripción**  
+**Descripción:**  
 la función StringFromSid convierte una matriz de bytes o una matriz de bytes multivalor que contiene un identificador de seguridad en una cadena o en una cadena multivalor.
 
 **Sintaxis:**  
@@ -1220,7 +1214,7 @@ la función StringFromSid convierte una matriz de bytes o una matriz de bytes mu
 
 - - -
 ### <a name="switch"></a>Switch
-**Descripción**  
+**Descripción:**  
 la función Switch se utiliza para devolver un único valor según las condiciones evaluadas.
 
 **Sintaxis:**  
@@ -1249,7 +1243,7 @@ Devuelve el idioma hablado en las ciudades más importantes. De lo contrario, de
 
 - - -
 ### <a name="trim"></a>Trim
-**Descripción**  
+**Descripción:**  
 la función Trim quita los espacios en blanco del principio y del final de una cadena.
 
 **Sintaxis:**  
@@ -1264,7 +1258,7 @@ Quita los espacios del principio y del final de cada valor en el atributo proxyA
 
 - - -
 ### <a name="ucase"></a>UCase
-**Descripción**  
+**Descripción:**  
 : la función UCase convierte todos los caracteres de una cadena a mayúsculas.
 
 **Sintaxis:**  
@@ -1312,7 +1306,7 @@ Que devuelve solo los valores de los certificados que no han expirado en el atri
 
 - - -
 ### <a name="word"></a>Word
-**Descripción**  
+**Descripción:**  
 : la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores que se usarán y el número de palabras que se devolverán.
 
 **Sintaxis:**  

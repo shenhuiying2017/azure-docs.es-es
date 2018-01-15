@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de colas que ofrece Microsoft Azure en la actualidad: colas de Storage y colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -107,7 +107,7 @@ En esta sección se comparan algunas de las funcionalidades avanzadas ofrecidas 
 | Actualización local |**Sí** |**Sí** |
 | Registro de transacciones del servidor |**Sí** |**No** |
 | Métricas de almacenamiento |**Sí**<br/><br/>**Métricas de minuto**: ofrece métricas en tiempo real para disponibilidad, TPS, recuentos de llamadas de API, recuentos de errores y mucho más, todo en tiempo de real (agregado por minuto y notificado en unos minutos a partir de lo que acaba de ocurrir en producción. Para obtener más información, vea [Acerca de las métricas de Storage Analytics](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sí**<br/><br/>(consultas masivas llamando a [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Administración de estados |**No** |**Sí**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| Administración de estados |**No** |**Sí**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Reenvío automático de mensajes |**No** |**Sí** |
 | Purgar la función de cola |**Sí** |**No** |
 | Grupos de mensajes |**No** |**Sí**<br/><br/>(mediante el uso de sesiones de mensajería) |
@@ -187,7 +187,7 @@ Al comprender mejor las dos tecnologías, podrá tomar una decisión más fundam
 
 Dado que las colas de Service Bus ofrecen varias características avanzadas, como sesiones, transacciones, detección de duplicados, mensajes con problemas de entrega automáticos, y capacidades de publicación o suscripción duraderas, pueden ser la opción preferida si está creando una aplicación híbrida o si su aplicación necesita por otra parte estas características.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En los artículos siguientes se ofrece más orientación e información sobre el uso de las colas de Storage o las colas de Service Bus.
 
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)

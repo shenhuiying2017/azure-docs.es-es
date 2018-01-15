@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-sap-business-warehouse-connector.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Versión 2: versión preliminar](connector-sap-business-warehouse.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una instancia de SAP Business Warehouse (BW). El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector SAP BW](v1/data-factory-sap-business-warehouse-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector SAP BW](v1/data-factory-sap-business-warehouse-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -50,7 +50,8 @@ Para usar este conector SAP Business Warehouse, necesita hacer lo siguiente:
 > Coloque los archivos DLL extraídos de NetWeaver RFC SDK en la carpeta system32.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector SAP Business Warehouse.
 
@@ -58,9 +59,9 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado SAP Business Warehouse (BW):
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapBw** | Sí |
+| Tipo | La propiedad type debe establecerse en: **SapBw** | Sí |
 | Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
 | systemNumber | Número del sistema de SAP BW.<br/>Valor permitido: número decimal de dos dígitos que se representa en forma de cadena. | Sí |
 | clientId | Identificador del cliente en el sistema SAP W.<br/>Valor permitido: número decimal de tres dígitos que se representa en forma de cadena. | Sí |
@@ -123,9 +124,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde SAP BW, establezca el tipo de origen de la actividad de copia como **RelationalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Sí |
 
 **Ejemplo:**
@@ -167,28 +168,28 @@ Al copiar datos desde SAP BW, se usan las siguientes asignaciones de tipos de da
 | Tipo de datos de SAP BW | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
 | ACCP | int |
-| CHAR | String |
-| CLNT | String |
+| CHAR | string |
+| CLNT | string |
 | CURR | Decimal |
 | CUKY | string |
-| DEC | Decimal |
+| DEC | DECIMAL |
 | FLTP | Doble |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| LANG | String |
+| LANG | string |
 | LCHR | string |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Decimal |
+| QUAN | DECIMAL |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | string |
 | UNIDAD | string |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| DATS | string |
+| NUMC | string |
+| TIMS | string |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

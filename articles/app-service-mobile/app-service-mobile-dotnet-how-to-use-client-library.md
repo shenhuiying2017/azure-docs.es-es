@@ -3,8 +3,8 @@ title: Biblioteca de cliente administrada de App Service Mobile Apps (Windows) |
 description: Aprenda a usar un cliente .NET para Azure App Service Mobile Apps con aplicaciones de Windows y Xamarin.
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
-ms.author: glenga
-ms.openlocfilehash: cbd2a53a7ba30915ed95cf6b0cb73b07a4f48a24
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: crdun
+ms.openlocfilehash: c80265432f4ee3120e3125b45712dc0e7a434708
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -374,7 +374,7 @@ Dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiem
 
 El servicio Mobile Apps es compatible con el control de simultaneidad optimista gracias al seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `version` que se definió en cada tabla en el back-end de la aplicación móvil. Cada vez que se actualiza un registro, el servicio Mobile Apps establece la propiedad `version` de ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el back-end, la biblioteca de cliente genera una excepción `MobileServicePreconditionFailedException<T>` . El tipo incluido con la excepción es el registro del back-end que contiene la versión del registro del servidor. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `version` correcto del back-end para confirmar los cambios.
 
-Defina una columna en la clase de tabla para la propiedad del sistema `version` con el fin de habilitar la simultaneidad optimista. Por ejemplo:
+Defina una columna en la clase de tabla para la propiedad del sistema `version` con el fin de habilitar la simultaneidad optimista. Por ejemplo: 
 
 ```
 public class TodoItem
@@ -428,7 +428,7 @@ private async void UpdateToDoItem(TodoItem item)
 
 private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 {
-    //Ask user to choose the resoltion between versions
+    //Ask user to choose the resolution between versions
     MessageDialog msgDialog = new MessageDialog(
         String.Format("Server Text: \"{0}\" \nLocal Text: \"{1}\"\n",
         serverItem.Text, localItem.Text),
@@ -612,7 +612,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 Se trata de una llamada de método con tipo que requiere que se defina el tipo de devolución de **MarkAllResult** . Se admiten métodos con y sin tipos.
 
 El método InvokeApiAsync() antepone "/api/" a la API a la que desea llamar, a menos que la API comience por "/".
-Por ejemplo:
+Por ejemplo: 
 
 * `InvokeApiAsync("completeAll",...)`llama a /api/completeAll en el back-end
 * `InvokeApiAsync("/.auth/me",...)`llama a /.auth/me en el back-end
@@ -1130,8 +1130,7 @@ public class MyHandler : DelegatingHandler
 [SDK de Windows Live]: https://msdn.microsoft.com/en-us/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-
-            [API de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[API de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [ejemplo de archivos de Mobile Apps]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 

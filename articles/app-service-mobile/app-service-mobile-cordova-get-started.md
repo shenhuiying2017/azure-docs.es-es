@@ -3,8 +3,8 @@ title: "Creación de una aplicación de Cordova en Azure App Service Mobile Apps
 description: "Siga este tutorial para aprender a usar back-ends de aplicación móvil de Azure para el desarrollo de Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 tags: 
 keywords: "cordova, javascript, móvil, cliente"
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
-ms.author: glenga
-ms.openlocfilehash: b620465cdc3cfa04933dc6e70163fc32aa9a839b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 223e9e35fcab347f9b5b8db01a9fd667b9f5d55d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-an-apache-cordova-app"></a>Creación de una aplicación de Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="overview"></a>Información general
 En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación móvil de Apache Cordova usando un back-end de la aplicación móvil de Azure.  Creará un back-end de aplicación móvil nuevo y una aplicación simple de *lista de tareas pendientes* de Apache Cordova que almacena los datos de la aplicación en Azure.
 
-Completar este tutorial es un requisito previo para todos los demás tutoriales de Apache Cordova acerca de cómo usar la característica Aplicaciones móviles en el Servicio de aplicaciones de Azure.
+Completar este tutorial es un requisito previo para todos los demás tutoriales de Apache Cordova acerca de cómo usar la característica Mobile Apps en Azure App Service.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
@@ -57,7 +57,7 @@ Ahora que ha completado este tutorial de inicio rápido, continúe con uno de lo
 * [Agregar autenticación](app-service-mobile-cordova-get-started-users.md) a su aplicación de Apache Cordova.
 * [Agregar notificaciones push](app-service-mobile-cordova-get-started-push.md) a su aplicación de Apache Cordova.
 
-Obtenga más información acerca de los conceptos principales con el servicio de aplicaciones de Azure.
+Obtenga más información acerca de los conceptos principales con en Azure App Service.
 
 * [Datos sin conexión]
 * [Autenticación]

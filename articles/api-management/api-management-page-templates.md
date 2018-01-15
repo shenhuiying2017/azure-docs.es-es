@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: apimpm
-ms.openlocfilehash: aca44e14ab85fcfeb9d1eb3c3eadfff7831c372f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 882bb27c7692f4eaf628d26f6081b1e1015be81b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="page-templates-in-azure-api-management"></a>Plantillas de página en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -32,7 +32,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 -   [Page not found](#PageNotFound)  
   
 > [!NOTE]
->  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="SignIn"></a> Sign in  
  La plantilla **sign in** le permite personalizar la página de inicio de sesión en el portal para desarrolladores.  
@@ -108,16 +108,16 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   
 ```json  
-{  
-    "Email": null,  
-    "Password": null,  
-    "ReturnUrl": null,  
-    "RememberMe": false,  
-    "RegistrationEnabled": true,  
-    "DelegationEnabled": false,  
-    "DelegationUrl": null,  
-    "SsoSignUpUrl": null,  
-    "AuxServiceUrl": "https://manage.windowsazure.com/#Workspaces/ApiManagementExtension/service/contoso5/dashboard",  
+{
+    "Email": null,
+    "Password": null,
+    "ReturnUrl": null,
+    "RememberMe": false,
+    "RegistrationEnabled": true,
+    "DelegationEnabled": false,
+    "DelegationUrl": null,
+    "SsoSignUpUrl": null,
+    "AuxServiceUrl": "https://portal.azure.com/#resource/subscriptions/{subscription ID}/resourceGroups/Api-Default-West-US/providers/Microsoft.ApiManagement/service/contoso5",
     "Providers": [  
         {  
             "Properties": {  
@@ -127,10 +127,10 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
             "AuthenticationType": "Aad",  
             "Caption": "Azure Active Directory"  
         }  
-    ],  
-    "UserRegistrationTerms": null,  
-    "UserRegistrationTermsEnabled": false  
-}  
+        ],
+    "UserRegistrationTerms": null,
+    "UserRegistrationTermsEnabled": false
+}
 ```  
   
 ##  <a name="SignUp"></a> Sign up  
@@ -223,13 +223,13 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|Descripción|  
+|Propiedad|type|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|referenceCode|string|Código generado si esta página se mostró como resultado de un error interno.|  
-|errorCode|string|Código generado si esta página se mostró como resultado de un error interno.|  
-|emailBody|string|Cuerpo de correo electrónico generado si esta página se mostró como resultado de un error interno.|  
-|requestedUrl|string|La dirección URL solicitada cuando no se encontró la página.|  
-|referrerUrl|string|La dirección URL de origen de referencia a la dirección URL solicitada.|  
+|referenceCode|cadena|Código generado si esta página se mostró como resultado de un error interno.|  
+|errorCode|cadena|Código generado si esta página se mostró como resultado de un error interno.|  
+|emailBody|cadena|Cuerpo de correo electrónico generado si esta página se mostró como resultado de un error interno.|  
+|requestedUrl|cadena|La dirección URL solicitada cuando no se encontró la página.|  
+|referrerUrl|cadena|La dirección URL de origen de referencia a la dirección URL solicitada.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   
@@ -243,5 +243,5 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 }  
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](api-management-developer-portal-templates.md).
+## <a name="next-steps"></a>pasos siguientes
+Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](api-management-developer-portal-templates.md).

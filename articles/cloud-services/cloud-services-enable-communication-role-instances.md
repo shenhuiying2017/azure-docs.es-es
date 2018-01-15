@@ -1,6 +1,6 @@
 ---
 title: "Comunicación para roles en Cloud Services | Microsoft Docs"
-description: "Las instancias de rol de los servicios en la nube pueden tener definidos puntos de conexión (http, https, tcp y udp) que se comunican con el exterior o entre otras instancias de rol."
+description: "Las instancias de rol de Cloud Services pueden tener definidos puntos de conexión (http, https, tcp y udp) que se comunican con el exterior o entre otras instancias de rol."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96ca9bb2d7a9f30a7d6492be43bfb44edc02fd93
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar la comunicación para instancias de rol en Azure
 Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **puntos de conexión de entrada** mientras que conexiones internas se denominan **puntos de conexión internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
@@ -53,7 +53,7 @@ Para crear un punto de conexión de entrada de instancia, agregue el elemento se
 </Endpoints>
 ```
 
-## <a name="internal-endpoint"></a>Extremo interno
+## <a name="internal-endpoint"></a>Punto de conexión interno
 Los extremos internos están disponibles para la comunicación entre instancias. El puerto es opcional y si se omite, se asigna un puerto dinámico al extremo. Además, puede usar un intervalo de puertos. Recuerde que hay un límite de cinco extremos internos por rol.
 
 El extremo interno puede usar los siguientes protocolos: **http, tcp, udp y any**.
@@ -71,7 +71,7 @@ También puede usar un intervalo de puertos.
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any">
-    <FixedPortRange max="8995" min="8999" />
+    <FixedPortRange max="8999" min="8995" />
   </InternalEndpoint>
 </Endpoints>
 ```
@@ -128,7 +128,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Aquí tiene el ejemplo de un rol de trabajo que obtiene el extremo expuesto a través de la definición de servicio, y que inicia la escucha de conexiones.
 
 > [!WARNING]
-> Este código solo funcionará en un servicio implementado. Cuando se ejecutan en el Emulador de procesos de Azure, los elementos de configuración de servicio que crean extremos de puerto directo (elementos**InstanceInputEndpoint** ) se ignoran.
+> Este código solo funcionará en un servicio implementado. Cuando se ejecutan en el Emulador de Azure Compute, los elementos de configuración de servicio que crean extremos de puerto directo (elementos**InstanceInputEndpoint** ) se ignoran.
 > 
 > 
 
@@ -369,6 +369,6 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**, **WebRole1**
 
 Puede encontrar una referencia del esquema XML de los elementos usados anteriormente [aquí](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md)del servicio en la nube.
 

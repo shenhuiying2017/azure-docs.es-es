@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Uso del operador ANOMALYDETECTION
 
@@ -78,7 +78,7 @@ La función devuelve un registro que contiene las tres puntuaciones como salida.
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-Para extraer los valores individuales del registro, use la función **GetRecordPropertyValue**. Por ejemplo:
+Para extraer los valores individuales del registro, use la función **GetRecordPropertyValue**. Por ejemplo: 
 
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
@@ -89,7 +89,7 @@ Una anomalía de un tipo concreto se detecta cuando una de estas puntuaciones su
 
 **ANOMALYDETECTION** usa la semántica de ventana deslizante, lo que significa que el cálculo se ejecuta cada vez que un evento entra en la función y se genera una puntuación para dicho evento. El cálculo se basa en martingalas de intercambiabilidad, que funcionan mediante la comprobación de si ha cambiado la distribución de los valores del evento. En ese caso, se ha detectado una posible anomalía. El resultado devuelto es una indicación del nivel de confianza de dicha anomalía. Como optimización interna, **ANOMALYDETECTION** calcula la puntuación de la anomalía de un evento basado en eventos *d* a *2d*, donde *d* es el tamaño de la ventana de detección especificada.
 
-**ANOMALYDETECTION** espera que la serie temporal de entrada sea uniforme. Para que un flujo de eventos sea uniforme, hay que agregarlo a una ventana de saltos de tamaño constante o a una ventana de salto. En los escenarios en los que el espacio entre eventos es siempre menor que la ventana de agregación, una ventana de saltos de tamaño constante es suficiente para que la serie temporal sea uniforme. Si el espacio puede ser mayor, los espacios se pueden rellenar repitiendo el último valor mediante una ventana de salto. En el ejemplo siguiente se pueden controlar ambos escenarios. Actualmente, el paso `FillInMissingValuesStep` no se puede omitir. La falta de este paso producirá un error de compilación.
+**ANOMALYDETECTION** espera que la serie temporal de entrada sea uniforme. Para que un flujo de eventos sea uniforme, hay que agregarlo a una ventana de saltos de tamaño constante o a una ventana de salto. En los escenarios en los que el espacio entre eventos es siempre menor que la ventana de agregación, una ventana de saltos de tamaño constante es suficiente para que la serie temporal sea uniforme. Si el espacio puede ser mayor, los espacios se pueden rellenar repitiendo el último valor mediante una ventana de salto. En el ejemplo siguiente se pueden controlar ambos escenarios.
 
 ## <a name="performance-guidance"></a>Guía de rendimiento
 
@@ -105,8 +105,6 @@ Una anomalía de un tipo concreto se detecta cuando una de estas puntuaciones su
 
 La siguiente consulta se puede utilizar para generar una alerta si se detecta una anomalía.
 Cuando el flujo de entrada no es uniforme, el paso de la agregación puede ayudarle a transformarla en una serie temporal uniforme. En el ejemplo se utiliza **AVG**, pero el tipo de agregación concreto depende del escenario del usuario. Además, cuando una serie temporal tiene espacios mayores que la ventana de agregación, no habrá en la serie temporal eventos que desencadenen la detección de anomalías (según la semántica de ventana deslizante). Como consecuencia, la suposición de uniformidad se interrumpirá cuando llegue el siguiente evento. En dichas situaciones, se necesita una forma de rellenar los espacios en la serie temporal. Un posible enfoque es tomar el último evento de cada ventana de salto, como se muestra a continuación.
-
-Como ya se ha indicado, por ahora no debe omitir el paso `FillInMissingValuesStep`, ya que si lo hace se producirá un error de compilación.
 
     WITH AggregationStep AS 
     (

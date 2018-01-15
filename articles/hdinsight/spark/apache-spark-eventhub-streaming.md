@@ -4,7 +4,7 @@ description: "Compile un ejemplo de streaming de Apache Spark sobre cómo enviar
 keywords: apache spark streaming de, streaming de spark, ejemplo de spark, ejemplo de streaming de apache spark, ejemplo de azure event hub, ejemplo de spark
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: d0678388fea79797c3cb4cd84deeab827981ebff
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: jgao
+ms.openlocfilehash: 43ae956ca284485cc68f8120a31af1c493c0b254
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Streaming de Apache Spark: procesamiento de datos desde Azure Event Hubs con clústeres de Spark en HDInsight
 
@@ -35,7 +35,7 @@ En este artículo, va a crear un ejemplo de streaming de Apache Spark realizando
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 
@@ -99,7 +99,7 @@ En esta sección se usa una aplicación de Scala local independiente que genera 
 
 1. Asegúrese de tener instalados los siguientes elementos en el equipo donde se ejecuta la aplicación.
 
-    * Kit de desarrollo de Oracle Java. Puede instalarlo desde [aquí](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+    * Kit de desarrollo de Oracle Java. Se puede instalar desde [aquí](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
     * Apache Maven. Puede descargarla [aquí](https://maven.apache.org/download.cgi). Las instrucciones para instalar Maven están disponibles [aquí](https://maven.apache.org/install.html).
 
 2. Abra un símbolo del sistema y desplácese a la ubicación en la que clonó el repositorio de GitHub para la aplicación de ejemplo de Scala y ejecute el siguiente comando para compilar la aplicación.
@@ -246,7 +246,7 @@ En [https://github.com/hdinsight/spark-streaming-data-persistence-examples](http
      2. Haga clic en el icono de agregar (![icono Agregar](./media/apache-spark-eventhub-streaming/add-icon.png)), haga clic en **Java**, y luego navegue hasta la ubicación en que descargó el archivo jar del controlador de JDBC. Siga las indicaciones para agregar el archivo JAR a la biblioteca de proyectos.
 
          ![agregar dependencias que faltan](./media/apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Agregar archivos jar de dependencias que faltan")
-     3. Haga clic en **Apply**.
+     3. Haga clic en **Aplicar**.
 
 7. Cree el archivo JAR de salida. Lleve a cabo los siguiente pasos.
 
@@ -264,7 +264,7 @@ En [https://github.com/hdinsight/spark-streaming-data-persistence-examples](http
       
        ![Ejemplo de streaming de Apache Spark: eliminar archivos jar extraídos](./media/apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Apache Spark streaming example - delete extracted jars")
       
-       Asegúrese de que la casilla **Build on make** (Compilar al crear) está activada, lo que garantiza que el archivo jar se crea cada vez que el proyecto se compila o actualiza. Haga clic en **Apply**.
+       Asegúrese de que la casilla **Build on make** (Compilar al crear) está activada, lo que garantiza que el archivo jar se crea cada vez que el proyecto se compila o actualiza. Haga clic en **Aplicar**.
    6. En la ficha **Output Layout** (Diseño de salida), en la parte inferior del cuadro **Available Elements** (Elementos disponibles), tendrá los dos archivos jar de SQL JDBC que agregó anteriormente a la biblioteca de proyectos. Debe agregarlos a la pestaña **Output Layout** (Diseño de salida). Haga clic con el botón derecho en el archivo jar y, después, haga clic en **Extract Into Output Root**(Extraer en raíz de salida).
       
        ![Ejemplo de streaming de Apache Spark: extraer archivo jar de dependencia](./media/apache-spark-eventhub-streaming/spark-streaming-example-extract-dependency-jar.png "Apache Spark streaming example - extract dependency jar")  
@@ -416,7 +416,7 @@ Debería ver una salida similar a la siguiente:
     004a11a9-0c2c-4bc0-a7d5-2e0ebd947ab9
 
 
-## <a name="seealso"></a>Otras referencias
+## <a name="seealso"></a>Consulte también
 * [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)
 * [Design of Receiver-based Connection and Direct DStream](https://www.slideshare.net/NanZhu/seattle-sparkmeetup032317) (Diseño de conexiones basadas en receptor y Direct DStream)
 
@@ -428,7 +428,7 @@ Debería ver una salida similar a la siguiente:
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](../hdinsight-apache-spark-create-standalone-application.md)
-* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
+* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications (Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones Scala Spark)](apache-spark-intellij-tool-plugin.md)

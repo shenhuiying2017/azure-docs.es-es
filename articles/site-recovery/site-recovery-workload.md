@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 03d311f84a4b9bc5f3a4c3c488ee7c84b1ef49ad
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
 
@@ -110,11 +110,11 @@ Servicios de Escritorio remoto (RDS) habilita Infraestructura de escritorio virt
 
 | **RDS** |**Replicación de máquinas virtuales de Azure en Azure** | **Replicación de máquinas virtuales de Hyper-V a un sitio secundario** | **Replicación de máquinas virtuales de Hyper-V en Azure** | **Replicación de máquinas virtuales VMware en un sitio secundario** | **Replicación de máquinas virtuales VMware en Azure** | **Replicación de servidores físicos en un sitio secundario** | **Replicación de servidores físicos a Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Escritorio virtual agrupado (no administrado)** |No|Sí |No |Sí |No |Sí |No |
-| **Escritorio virtual agrupado (administrado y sin UPD)** |No|Sí |No |Sí |No |Sí |No |
+| **Escritorio virtual agrupado (no administrado)** |Sin |Sí |Sin  |Sí |Sin  |Sí |Sin  |
+| **Escritorio virtual agrupado (administrado y sin UPD)** |Sin |Sí |Sin  |Sí |Sin  |Sí |Sin  |
 | **Aplicaciones remotas y sesiones de escritorio (sin UPD)** |Sí|Sí |Sí |Sí |Sí |Sí |Sí |
 
-[Configuración de la recuperación ante desastres para RDS mediante Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
+[Configuración de la recuperación ante desastres para RDS mediante Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Más información](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sobre cómo proteger RDS.
 
@@ -161,6 +161,6 @@ Aquí encontrará [más información](https://azure.microsoft.com/pricing/licens
 
 [Más información](site-recovery-citrix-xenapp-and-xendesktop.md) acerca de la protección de las implementaciones de Citrix XenApp y XenDesktop. También puede consultar las [notas del producto de Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr), donde se detallan.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Introducción](azure-to-azure-quickstart.md) a la replicación de máquinas virtuales de Azure.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 0dd2c7aa0f8e845c8aae42575c3e46e3ac17ad63
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copia de datos desde PostgreSQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ En este artículo se explica el uso de la actividad de copia de Azure Data Facto
 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector PostgreSQL](v1/data-factory-onprem-postgresql-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector PostgreSQL](v1/data-factory-onprem-postgresql-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -44,7 +44,8 @@ Para usar este conector PostgreSQL, necesitará lo siguiente:
 - Instale una versión entre la 2.0.12 y la 3.1.9 del [proveedor de datos de Ngpsql para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) en la máquina de Integration Runtime.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector PostgreSQL.
 
@@ -52,14 +53,14 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado PostgreSQL:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **PostgreSql** | Sí |
-| server | Nombre del servidor de PostgreSQL. |Sí |
-| database | Nombre de la base de datos de PostgreSQL. |Sí |
-| schema | Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |No |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos PostgreSQL. |Sí |
-| Contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString. |Sí |
+| Tipo | La propiedad type debe establecerse en: **PostgreSql** | Sí |
+| Servidor | Nombre del servidor de PostgreSQL. |Sí |
+| Base de datos | Nombre de la base de datos de PostgreSQL. |Sí |
+| schema | Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin  |
+| Nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos PostgreSQL. |Sí |
+| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString. |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
@@ -92,9 +93,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde PostgreSQL, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla de la base de datos PostgreSQL. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -122,9 +123,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde PostgreSQL, establezca el tipo de origen de la actividad de copia como **RelationalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 > [!NOTE]
@@ -210,5 +211,5 @@ Al copiar datos desde PostgreSQL, se utilizan las siguientes asignaciones de tip
 | `text` | |`String` |&nbsp;
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

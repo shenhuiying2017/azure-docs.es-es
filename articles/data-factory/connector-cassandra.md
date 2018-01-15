@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-onprem-cassandra-connector.md)
-> * [Versión 2: Versión preliminar](connector-cassandra.md)
+> * [Versión 2: versión preliminar](connector-cassandra.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos Cassandra. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Cassandra](v1/data-factory-onprem-cassandra-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Cassandra](v1/data-factory-onprem-cassandra-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -44,7 +44,8 @@ En concreto, este conector Cassandra admite lo siguiente:
 Para usar los datos de la copia de una base de datos Cassandra que no es accesible públicamente, debe configurar un entorno Integration Runtime (autohospedado). Consulte el artículo sobre el [entorno Integration Runtime (autohospedado)](create-self-hosted-integration-runtime.md) para obtener más información. El entorno Integration Runtime proporciona un controlador de Cassandra integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos desde Cassandra.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector Cassandra.
 
@@ -52,15 +53,15 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Cassandra:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type |La propiedad type debe establecerse en: **Cassandra**. |Sí |
+| Tipo |La propiedad type debe establecerse en: **Cassandra**. |Sí |
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
 | puerto |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 9042). |
 | authenticationType | El tipo de autenticación que se utiliza para conectarse a la base de datos Cassandra.<br/>Los valores permitidos son: **Básica** y **Anónima**. |Sí |
-| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
+| Nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | contraseña |Especifique la contraseña para la cuenta de usuario. Marque este campo como SecureString. |Sí, si el valor de authenticationType es Basic. |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
 
@@ -92,9 +93,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Cassandra, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **CassandraTable**. | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **CassandraTable**. | Sí |
 | keyspace |Nombre del espacio de claves o esquema de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 | tableName |Nombre de la tabla de la base de datos de Cassandra. |Sí (si no hay especificada ninguna "consulta" para "CassandraSource") |
 
@@ -126,9 +127,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Cassandra, establezca el tipo de origen de la actividad de copia en **CassandraSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **CassandraSource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **CassandraSource**. | Sí |
 | query |Utilice la consulta personalizada para leer los datos. |Consulta SQL-92 o consulta CQL. Vea la [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)(referencia de CQL). <br/><br/>Cuando utilice una consulta SQL, especifique **nombre de espacio de claves.nombre de tabla** para representar la tabla que quiere consultar. |No (si "tableName" y "keyspace" en el conjunto de datos están especificados) |
 | consistencyLevel |El nivel de coherencia establece el número de réplicas que deben responder a una solicitud de lectura antes de que se devuelvan datos a la aplicación cliente. Cassandra comprueba el número de réplicas especificado para que los datos satisfagan la solicitud de lectura. Para más información, consulte [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) (Configuración de la coherencia de datos).<br/><br/>Los valores permitidos son: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** y **LOCAL_ONE**. |No (el valor predeterminado es `ONE`) |
 
@@ -166,24 +167,24 @@ Para copiar datos desde Cassandra, establezca el tipo de origen de la actividad 
 
 ## <a name="data-type-mapping-for-cassandra"></a>Asignación de tipos de Cassandra
 
-Al copiar datos desde Cassandra, se utilizan las siguientes asignaciones de tipos de datos de Cassandra en los tipos de datos provisionales de Azure Data Factory. Vea el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para obtener información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen en el receptor.
+Al copiar datos desde Cassandra, se utilizan las siguientes asignaciones de tipos de datos de Cassandra en los tipos de datos provisionales de Azure Data Factory. Consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md) para información sobre cómo la actividad de copia asigna el tipo de datos y el esquema de origen al receptor.
 
 | Tipo de datos de Cassandra | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |string |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
 | DECIMAL |DECIMAL |
 | DOUBLE |DOUBLE |
 | FLOAT |Single |
-| INET |String |
+| INET |string |
 | INT |Int32 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
+| TEXT |string |
+| TIMESTAMP |Datetime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |string |
 | VARINT |DECIMAL |
 
 > [!NOTE]
@@ -255,5 +256,5 @@ Las tablas siguientes representan las tablas virtuales que normalizan de nuevo l
 | 3 |Una  |
 | 3 |E |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

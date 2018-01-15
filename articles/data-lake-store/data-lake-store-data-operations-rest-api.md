@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 62cfc713c3b7ce8f7c0a7ff4dd5e80802f1843b7
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a850b3fdff956abe41ac9a4af10a96dc119a75f4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-rest-api"></a>Operaciones de sistema de archivos en Azure Data Lake Store con la API de REST
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
-> * [API DE REST](data-lake-store-data-operations-rest-api.md)
+> * [API de REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/18/2017
 En este artículo aprenderá a usar la API de REST WebHDFS y la API de REST de Data Lake Store para realizar operaciones de sistema de archivos en Azure Data Lake Store. Para instrucciones sobre cómo realizar operaciones de administración de cuentas en Data Lake Store con la API de REST, consulte [Operaciones de administración de cuentas en Azure Data Lake Store con la API de REST](data-lake-store-get-started-rest-api.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones de [Introducción al uso de Azure Portal por parte de Azure Data Lake Store](data-lake-store-get-started-portal.md).
 
@@ -159,7 +159,7 @@ Debe ver algo parecido a lo siguiente:
 
     {"boolean":true}
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Operaciones de administración de cuentas en Azure Data Lake Store con la API de REST](data-lake-store-get-started-rest-api.md).
 
 ## <a name="see-also"></a>Otras referencias

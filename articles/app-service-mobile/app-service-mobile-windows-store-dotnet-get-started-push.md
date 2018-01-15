@@ -1,10 +1,10 @@
 ---
 title: "Incorporación de notificaciones push a una aplicación de la Plataforma universal de Windows (UWP) | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar Aplicaciones móviles del Servicio de aplicaciones de Azure y Centros de notificaciones de Azure para enviar notificaciones push a la aplicación de la Plataforma universal de Windows (UWP)."
+description: "Obtenga información acerca de cómo usar Azure App Service Mobile Apps y Azure Notification Hubs para enviar notificaciones push a la aplicación de Universal Windows Platform (UWP)."
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: yuaxu
-ms.openlocfilehash: a14bb0320c1f6a563f766a6a0fad5cf556fe7b70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: d51fa215ace8b33acb5d36b98e9a1a86e3296a65
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Incorporación de notificaciones push a la aplicación de Windows
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -57,7 +57,7 @@ Debe enviar la aplicación a la Tienda Windows y, después, configurar el proyec
 Use uno de los procedimientos siguientes que se ajusten al tipo de proyecto de back-end&mdash;: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Proyecto de back-end de .NET
-1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes NuGet**, busque Microsoft.Azure.NotificationHubs y haga clic en **Instalar**. Esto instala la biblioteca de cliente de Centros de notificaciones.
+1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes NuGet**, busque Microsoft.Azure.NotificationHubs y haga clic en **Instalar**. Esto instala la biblioteca de cliente de Notification Hubs.
 2. Expanda **Controladores**, abra TodoItemController.cs y agregue las siguientes instrucciones using:
 
         using System.Collections.Generic;
@@ -166,7 +166,7 @@ Después, debe registrarse la aplicación para recibir notificaciones push en el
             await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
 
-    Este código recupera el valor de ChannelURI de la aplicación desde WNS y, a continuación, lo registra con sus Aplicaciones móviles del Servicio de aplicaciones.
+    Este código recupera el valor de ChannelURI de la aplicación desde WNS y, a continuación, lo registra con sus Aplicaciones móviles de App Service.
 3. En la parte superior del controlador de eventos **OnLaunched**, en **App.xaml.cs**, agregue el modificador **async** a la definición del método y agregue la siguiente llamada al nuevo método **InitNotificationsAsync**, como se muestra en el siguiente ejemplo:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
@@ -185,7 +185,7 @@ Después, debe registrarse la aplicación para recibir notificaciones push en el
 ## <a id="more"></a>Pasos siguientes
 Más información sobre las notificaciones de inserción:
 
-* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
+* [Uso del cliente administrado para Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
   : las plantillas proporcionan flexibilidad para enviar inserciones multiplataforma e inserciones localizadas. Sepa cómo registrar plantillas.
 * [Diagnosticar problemas de notificaciones push](../notification-hubs/notification-hubs-push-notification-fixer.md)  
   : existen varias razones para que las notificaciones se pierdan o no lleguen a los dispositivos. En este tema se muestra cómo analizar y descubrir la causa principal de los errores de notificación de inserción.
@@ -195,7 +195,7 @@ También podría continuar con uno de los siguientes tutoriales:
 * [Incorporación de la autenticación a la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   : aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 * [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  : aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos) aun cuando no haya conexión de red.
+  (Habilitación de la sincronización sin conexión para su aplicación): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos) aun cuando no haya conexión de red.
 
 <!-- Anchors. -->
 

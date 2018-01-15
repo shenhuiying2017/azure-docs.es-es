@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 99f7fcbd3a2d3b6f6fe48c7fb2703d35d3b3a8fd
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-10-create-partitions"></a>Lección 10: Creación de particiones
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-partitions"></a>Creación de particiones
 
 En esta lección creará particiones para dividir la tabla FactInternetSales en partes lógicas más pequeñas que se puedan procesar (actualizar) de manera independiente de otras particiones. De forma predeterminada, todas las tablas que incluya en el modelo tienen una partición, que incluye todas las columnas y las filas de la tabla. En el caso de la tabla FactInternetSales, queremos dividir los datos por año: una partición para cada uno de los cinco años de la tabla. Así, cada partición se podrá procesar de manera independiente. Para obtener más información, consulte [Partitions](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular) (Particiones). 
   

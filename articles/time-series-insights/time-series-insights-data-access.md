@@ -3,19 +3,19 @@ title: "Configuración de la seguridad para acceder a Time Series Insights y adm
 description: "En este artículo se describe cómo configurar la seguridad y los permisos como directivas de acceso de administración y directivas de acceso a datos para proteger Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c7d4079c9106226e0d07aa97c4a52c16ddb257c3
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal
 
@@ -37,7 +37,7 @@ Los dos tipos de directivas permiten una separación clara entre el acceso a la 
 ## <a name="grant-data-access"></a>Concesión de acceso a datos
 Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usuario:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. Busque el entorno de Time Series Insights. Escriba **Time Series** en el cuadro de **búsqueda**. Seleccione **Entorno de Time Series** en los resultados de búsqueda. 
 
@@ -66,7 +66,7 @@ Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usua
 
    ![Administración del origen de Time Series Insights: resultados](media/data-access/getstarted-grant-data-access5.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Aprenda a [agregar un origen del evento del centro de eventos al entorno de Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
 * Realice el [envío de eventos](time-series-insights-send-events.md) al origen del evento.
 * Vea el entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

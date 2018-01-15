@@ -1,10 +1,10 @@
 ---
-title: "Incorporación de autenticación en iOS con Aplicaciones móviles de Azure"
-description: "Obtenga información acerca de cómo usar las Aplicaciones móviles de Azure para autenticar a los usuarios de su aplicación iOS en una variedad de proveedores de identidades, incluidos AAD, Google, Facebook, Twitter y Microsoft."
+title: "Incorporación de autenticación en iOS con Azure Mobile Apps"
+description: "Obtenga información acerca de cómo usar las Azure Mobile Apps para autenticar a los usuarios de su aplicación iOS en una variedad de proveedores de identidades, incluidos AAD, Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: glenga
-ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Incorporación de la autenticación a la aplicación iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 En este tutorial podrá agregar la autenticación al proyecto de [inicio rápido de iOS] mediante un proveedor de identidades compatible. Este tutorial está basado en el tutorial de [inicio rápido de iOS] , que debe completar primero.
 
-## <a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
+## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
@@ -42,9 +42,9 @@ La autenticación segura requiere que se defina un nuevo esquema de dirección U
 
 5. En **URL de redirección externas permitidas**, introduzca `appname://easyauth.callback`.  El valor de _appname_ de esta cadena es el esquema de dirección URL para la aplicación móvil.  Debe seguir la especificación normal de las direcciones URL para un protocolo (usar únicamente letras y números, y comenzar por una letra).  Debe tomar nota de la cadena que elija ya que necesitará ajustar el código de la aplicación móvil con el esquema de direcciones URL en varios sitios.
 
-6. Haga clic en **Aceptar**.
+6. Haga clic en **OK**.
 
-7. Haga clic en **Save**.
+7. Haga clic en **Save**(Guardar).
 
 ## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -133,7 +133,7 @@ En Xcode, presione **Ejecutar** para iniciar la aplicación. Se genera una excep
 
 6. Presione *Ejecutar* para iniciar la aplicación y, después, inicie sesión. Una vez que haya iniciado sesión, debería poder ver la lista de tareas pendientes y realizar actualizaciones en ella.
 
-**Swift**:
+**SWIFT**:
 
 1. En el Mac, abra *ToDoTableViewController.swift* en Xcode y agregue el siguiente método:
 

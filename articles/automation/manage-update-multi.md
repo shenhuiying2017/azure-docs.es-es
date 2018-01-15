@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/30/2017
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -110,12 +110,12 @@ Tanto los agentes instalados en las máquinas virtuales como los equipos recopil
 
 En la tabla siguiente se describen los orígenes conectados compatibles con esta solución:
 
-| Origen conectado | Compatible | Description |
+| Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
 | Agentes de Windows |Sí |Update Management recopila información acerca de las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
 | Agentes de Linux |Sí |Update Management recopila información acerca de las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
 | Grupo de administración de Operations Manager |Sí |Update Management recopila información acerca de las actualizaciones del sistema de agentes en un grupo de administración conectado. |
-| Cuenta de almacenamiento de Azure |No |Azure Storage no incluye información acerca de las actualizaciones del sistema. |
+| Cuenta de almacenamiento de Azure |Sin  |Azure Storage no incluye información acerca de las actualizaciones del sistema. |
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
 
@@ -180,7 +180,7 @@ Seleccione el icono **Salida** para ver el flujo de trabajo del runbook que admi
 
 Seleccione **Errores** para ver información detallada sobre los errores de la implementación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para más información sobre la administración de actualizaciones, incluso registros, salida y errores, consulte [Solución Administración de actualizaciones de OMS](../operations-management-suite/oms-solution-update-management.md).
 

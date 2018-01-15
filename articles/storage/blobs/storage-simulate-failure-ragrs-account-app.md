@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 12/05/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: f709e216f9308c4405776b25ca44b0aaddd3d3f8
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 151e875bd72598b0b788d68eee7fb186fca86f46
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Simulación de un error al acceder al almacenamiento con redundancia con acceso de lectura
 
@@ -88,7 +88,7 @@ Vaya a Fiddler y seleccione **Rules** (Reglas) -> **Customize Rules...** (Person
 
 Para reanudar la aplicación, presione **cualquier tecla**.
 
-Una vez que la aplicación empieza a ejecutarse de nuevo, las solicitudes al punto de conexión principal empiezan a producir errores. La aplicación intenta volver a conectarse al punto de conexión principal cinco veces. Después del umbral de error de cinco intentos, solicita la imagen desde el punto de conexión secundario de solo lectura. Una vez que la aplicación recupera la imagen veinte veces desde el punto de conexión secundario, la aplicación intenta conectarse al punto de conexión principal. Si aún no se puede acceder al punto de conexión principal, la aplicación reanuda la lectura desde el punto de conexión secundario. Este patrón es el patrón de [interruptor](/azure/architecture/patterns/circuit-breaker.md) descrito en el tutorial anterior.
+Una vez que la aplicación empieza a ejecutarse de nuevo, las solicitudes al punto de conexión principal empiezan a producir errores. La aplicación intenta volver a conectarse al punto de conexión principal cinco veces. Después del umbral de error de cinco intentos, solicita la imagen desde el punto de conexión secundario de solo lectura. Una vez que la aplicación recupera la imagen veinte veces desde el punto de conexión secundario, la aplicación intenta conectarse al punto de conexión principal. Si aún no se puede acceder al punto de conexión principal, la aplicación reanuda la lectura desde el punto de conexión secundario. Este patrón es el patrón de [interruptor](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker) descrito en el tutorial anterior.
 
 ![Pegar la regla personalizada](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
@@ -108,7 +108,7 @@ Cuando haya terminado, presione **cualquier tecla** para reanudar la aplicación
 
 ![Reanudación de la aplicación](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En la segunda parte de la serie, aprendió a simular un error para probar el almacenamiento con redundancia geográfica de solo lectura, como los procedimientos para:
 

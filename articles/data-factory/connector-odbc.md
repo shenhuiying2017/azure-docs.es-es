@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 37957c75fbe18734761ed8b33a27fe566018f4d2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copia de datos con almacenes de datos ODBC como origen y destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-odbc-connector.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-odbc-connector.md)
 > * [Versión 2: versión preliminar](connector-odbc.md)
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con un almacén de datos ODBC como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector ODBC](v1/data-factory-odata-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector ODBC](v1/data-factory-odata-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -43,7 +43,8 @@ Para usar este conector ODBC, necesitará lo siguiente:
 - Instale el controlador ODBC para el almacén de datos en la máquina de Integration Runtime.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector ODBC.
 
@@ -51,14 +52,14 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado ODBC:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Odbc** | Sí |
+| Tipo | La propiedad type debe establecerse en: **Odbc** | Sí |
 | connectionString | La cadena de conexión que excluye la parte de la credencial. Puede especificar la cadena de conexión con un patrón como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` o utilizar el DSN (nombre de origen de datos) de sistema que se ha configurado en la máquina de Integration Runtime con `"DSN=<name of the DSN on IR machine>;"` (se necesita especificar la parte de la credencial en el servicio vinculado según corresponda).| Sí |
 | authenticationType | Tipo de autenticación que se usa para conectarse al almacén de datos ODBC.<br/>Los valores permitidos son: **Básica** y **Anónima**. | Sí |
-| userName | Especifique el nombre de usuario si usa la autenticación básica. | No |
-| Contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString. | No |
-| credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como SecureString. | No |
+| userName | Especifique el nombre de usuario si usa la autenticación básica. | Sin  |
+| contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString. | Sin  |
+| credential | La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"RefreshToken=<secret refresh token>;"`. Marque este campo como SecureString. | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo 1: con autenticación básica**
@@ -120,9 +121,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos con un almacén de datos compatible con ODBC como origen o destino, establezca la propieda type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla en el almacén de datos ODBC. | No (si se especifica "query" en el origen de la actividad)<br/>Sí para el receptor |
 
 **Ejemplo**
@@ -151,9 +152,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde un almacén de datos compatible con ODBC, establezca el tipo de origen de la actividad de copia en **RelationalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -192,12 +193,12 @@ Para copiar datos desde un almacén de datos compatible con ODBC, establezca el 
 
 Para copiar datos a un almacén de datos compatible con ODBC, establezca el tipo de receptor de la actividad de copia en **OdbcSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **OdbcSink**. | Sí |
-| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |No |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **OdbcSink**. | Sí |
+| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |Sin  |
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 0, detectado automáticamente) |
-| preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en el almacén de datos en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. |No |
+| preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en el almacén de datos en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. |Sin  |
 
 > [!NOTE]
 > Si el valor "writeBatchSize" no está establecido (detectado automáticamente), la actividad de copia primero detecta si el controlador admite las operaciones por lotes y lo establece en 10 000 si lo hace, o bien en 1 si no es así. Si establece explícitamente un valor distinto de 0, la actividad de copia respetar el valor y genera un error en tiempo de ejecución si el controlador no admite las operaciones por lotes.
@@ -396,5 +397,5 @@ Para solucionar problemas de conexión, use la pestaña **Diagnósticos** de **I
 4. Especifique la **cadena de conexión** que se usa para conectarse al almacén de datos, elija la **autenticación** y escriba el **nombre de usuario**, la **contraseña** o las **credenciales**.
 5. Haga clic en **Probar conexión** para probar la conexión con el almacén de datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

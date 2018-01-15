@@ -1,10 +1,10 @@
 ---
-title: "Uso del complemento de Apache Cordova para Aplicaciones móviles de Azure"
-description: "Uso del complemento de Apache Cordova para Aplicaciones móviles de Azure"
+title: Uso del complemento de Apache Cordova para Azure Mobile Apps
+description: Uso del complemento de Apache Cordova para Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: ebf0e911eeada0e529f908dd3e3430c94edae763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f166d2e533dc49ca7779b45f3dec57a53c22fc40
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Uso de una biblioteca de cliente de Apache Cordova para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-En esta guía se muestran algunos escenarios comunes del uso del último [complemento de Apache Cordova para Aplicaciones móviles de Azure]. Si no está familiarizado con Aplicaciones móviles de Azure, realice primero el tutorial [Creación de una aplicación de Apache Cordova] para crear un back-end, crear una tabla y descargar un proyecto de Apache Cordova previamente compilado. En esta guía nos centramos en el complemento de Apache Cordova del lado cliente.
+En esta guía se muestran algunos escenarios comunes del uso del último [complemento de Apache Cordova para Azure Mobile Apps]. Si no está familiarizado con Azure Mobile Apps, realice primero el tutorial [Guía de inicio rápido de Azure Mobile Apps] para crear un back-end, crear una tabla y descargar un proyecto de Apache Cordova previamente compilado. En esta guía nos centramos en el complemento de Apache Cordova del lado cliente.
 
 ## <a name="supported-platforms"></a>Plataformas compatibles
 Este SDK es compatible con la versión 6.0.0 y posterior de Apache Cordova en dispositivos iOS, Android y Windows.  Las plataformas compatibles con las siguientes:
@@ -162,7 +162,7 @@ pushHandler.on('error', function (error) {
 });
 ```
 
-Use el SDK de Centros de notificaciones para enviar notificaciones push desde el servidor.  No envíe nunca notificaciones push directamente desde la aplicación, ya que podría usarse para desencadenar un ataque de denegación de servicio en Notification Hubs o el PNS.  El PNS puede prohibir el tráfico como resultado de estos ataques.
+Use el SDK de Notification Hubs para enviar notificaciones push desde el servidor.  No envíe nunca notificaciones push directamente desde la aplicación, ya que podría usarse para desencadenar un ataque de denegación de servicio en Notification Hubs o el PNS.  El PNS puede prohibir el tráfico como resultado de estos ataques.
 
 ## <a name="more-information"></a>Más información
 
@@ -170,11 +170,11 @@ Puede encontrar información detallada sobre las API en nuestra [documentación 
 
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com
-[Creación de una aplicación de Apache Cordova]: app-service-mobile-cordova-get-started.md
+[Guía de inicio rápido de Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[complemento de Apache Cordova para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
+[complemento de Apache Cordova para Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [su primera aplicación de Apache Cordova]: http://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push

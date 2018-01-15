@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 76d5ab23ef1962733ccb3b36640facdba9ab8acb
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: a10be867965eef9746a0f4cc9b14c4fc429f6e35
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Llamada a un runbook de Azure Automation desde una alerta de Log Analytics
 
@@ -39,7 +39,7 @@ Hay dos opciones para llamar a un runbook en la configuración de alertas:
 
 Puede usar un webhook para iniciar un runbook determinado en Azure Automation a través de una sola solicitud HTTP. Antes de configurar la [alerta de Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules) para que llame al runbook mediante el uso de un webhook como acción de alerta, es preciso [crear un webhook](automation-webhooks.md#creating-a-webhook) para el runbook al que se llama a través de este método. No olvide registrar la dirección URL del webhook para poder hacer referencia a ella al configurar la regla de alerta.   
 
-## <a name="calling-a-runbook-directly"></a>Llamada directa al runbook
+## <a name="calling-a-runbook-directly"></a>Llamada a runbook directamente
 
 Puede instalar y configurar la oferta de Automation and Control en el área de trabajo de Operations Management Suite. Al configurar la opción de acciones de runbook para la alerta, puede ver todos los runbooks en la lista desplegable **Seleccionar un runbook** y seleccionar el runbook concreto que desea ejecutar en respuesta a la alerta. Este se puede ejecutar tanto en un área de trabajo de Azure como en un trabajo de runbook híbrido. 
 
@@ -101,7 +101,7 @@ O bien, si no tiene la cuenta de Automation vinculada a un área de trabajo de O
 >[!NOTE]
 > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), la carga del webhook ha cambiado. Los detalles del formato se encuentran en la [API de REST de Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para más información acerca de las alertas de Log Analytics y cómo crear una, consulte [Alertas de Log Analytics](../log-analytics/log-analytics-alerts.md).
 

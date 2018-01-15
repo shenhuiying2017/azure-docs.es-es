@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: c336cda6f3af4e2a4647371458b2db3e97917105
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fb3d3dd518cbe0a603524f1bdc38d122582aa6b0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Autenticación entre servicios con Data Lake Store mediante SDK de .NET
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
 ## <a name="prerequisites"></a>Requisitos previos
 * **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Store mediante Azure Active Directory).
 
@@ -47,7 +47,7 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
    | --- | --- |
    | Categoría |Plantillas/Visual C#/Windows |
    | Plantilla |Aplicación de consola |
-   | Nombre |CreateADLApplication |
+   | NOMBRE |CreateADLApplication |
 4. Haga clic en **Aceptar** para crear el proyecto.
 
 5. Agregue los paquetes NuGet al proyecto.
@@ -116,7 +116,7 @@ Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los v
 
 El fragmento de código anterior utiliza una función auxiliar `GetCreds_SPI_Cert`. El código de esta función auxiliar está disponible [aquí en Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a usar la autenticación entre servicios para autenticarse en Azure Data Lake Store con SDK de .NET. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar el SDK de .NET con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET](data-lake-store-get-started-net-sdk.md)

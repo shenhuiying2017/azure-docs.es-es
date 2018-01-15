@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
@@ -41,7 +41,7 @@ Asegúrese de que la característica de autenticación de paso a través sigue *
 
 Si el usuario no ha podido iniciar sesión con la autenticación de paso a través, puede ver uno de los siguientes errores para el usuario en la pantalla de inicio de sesión de Azure AD: 
 
-|Error|Description|Resolución
+|Error|DESCRIPCIÓN|Resolución
 | --- | --- | ---
 |AADSTS80001|No es posible conectarse a Active Directory.|Asegúrese de que los servidores del agente sean miembros del mismo bosque de AD que los usuarios cuyas contraseñas haya que validar y que pueden conectarse a Active Directory.  
 |AADSTS8002|Se ha agotado el tiempo de espera al conectarse a Active Directory.|Asegúrese de que Active Directory está disponible y responde a las solicitudes de los agentes.
@@ -165,7 +165,7 @@ Si están habilitados los registros de auditoría, se puede encontrar informaci�
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Contadores de Performance Monitor
+## <a name="performance-monitor-counters"></a>Contadores de Performance Monitor
 
 Otra forma de supervisar a los agentes de autenticación consiste en realizar un seguimiento de los contadores específicos de Performance Monitor en cada servidor en que está instalado el agente de autenticación. Use los siguientes contadores globales (**# PTA authentications**, **#PTA failed authentications** y **#PTA successful authentications**) y los contadores de errores (**# PTA authentication errors**):
 

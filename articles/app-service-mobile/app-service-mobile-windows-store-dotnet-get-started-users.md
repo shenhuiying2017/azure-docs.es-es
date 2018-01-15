@@ -1,9 +1,9 @@
 ---
 title: "Incorporación de autenticación a una aplicación de la Plataforma universal de Windows (UWP) | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar Aplicaciones móviles del Servicio de aplicaciones de Azure para autenticar a los usuarios de la aplicación de la Plataforma universal de Windows (UWP) en una variedad de proveedores de identidades, incluidos AAD,Google, Facebook, Twitter y Microsoft."
+description: "Obtenga información acerca de cómo usar Azure App Service Mobile Apps para autenticar a los usuarios de la aplicación de la Plataforma universal de Windows (UWP) en una variedad de proveedores de identidades, incluidos AAD,Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: windows
-author: ggailey777
+author: conceptdev
 manager: panarasi
 editor: 
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panarasi
-ms.openlocfilehash: 47da343d4ec956ec2e669757f56e853675f887a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4cc597f8aca13445034c8a1691b41018d4d9bc4b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Incorporación de la autenticación a la aplicación de Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-En este tema se muestra cómo agregar la autenticación basada en la nube a su aplicación móvil. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido de la Plataforma universal de Windows (UWP) para Aplicaciones móviles mediante un proveedor de identidades compatible con el Servicio de aplicaciones de Azure. Una vez que el back-end de la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
+En este tema se muestra cómo agregar la autenticación basada en la nube a su aplicación móvil. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido de la Plataforma universal de Windows (UWP) para Mobile Apps mediante un proveedor de identidades compatible con Azure App Service. Una vez que el back-end de la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
-Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Introducción a las aplicaciones móviles](app-service-mobile-windows-store-dotnet-get-started.md).
+Este tutorial se basa en el inicio rápido de Mobile Apps. Primero debe completar el tutorial [Introducción a Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
 
-## <a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
+## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="redirecturl"></a>Adición de la aplicación a las direcciones URL de redirección externa permitidas
@@ -40,16 +40,16 @@ La autenticación segura requiere que se defina un nuevo esquema de dirección U
 
 3. En **URL de redirección externas permitidas**, introduzca `url_scheme_of_your_app://easyauth.callback`.  El valor de **esquema_de_dirección_URL_de_la_aplicación** de esta cadena es el esquema de dirección URL para la aplicación móvil.  Debe seguir la especificación normal de las direcciones URL para un protocolo (usar únicamente letras y números, y comenzar por una letra).  Debe tomar nota de la cadena que elija ya que necesitará ajustar el código de la aplicación móvil con el esquema de direcciones URL en varios sitios.
 
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
-5. Haga clic en **Save**.
+5. Haga clic en **Save**(Guardar).
 
 ## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 Ahora, puede comprobar que se deshabilitó el acceso anónimo a su back-end. Con el proyecto de aplicación para UWP configurado como proyecto de inicio, implemente y ejecute la aplicación; compruebe que, cuando esta se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado). Esto se produce porque la aplicación intenta obtener acceso a su Código de aplicación móvil como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
-A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del Servicio de aplicaciones.
+A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos de App Service.
 
 ## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 1. En el archivo de proyecto de aplicación para UWP MainPage.xaml.cs, agregue el siguiente fragmento de código:
@@ -155,13 +155,13 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Incorporación de notificaciones push a su aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   : aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar Azure Notification Hubs para enviar notificaciones push.
 * [Habilitación de la sincronización sin conexión para su aplicación](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  : aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos) aun cuando no haya conexión de red.
+  (Habilitación de la sincronización sin conexión para su aplicación): aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos) aun cuando no haya conexión de red.
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md

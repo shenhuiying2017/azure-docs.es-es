@@ -3,8 +3,8 @@ title: "Adición de autenticación en Android con Mobile Apps | Microsoft Docs"
 description: "Obtenga información sobre cómo usar la característica Mobile Apps de Azure App Service para autenticar usuarios de su aplicación Android a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft."
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: glenga
-ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: crdun
+ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-authentication-to-your-android-app"></a>Agregar autenticación a su aplicación de Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -39,9 +39,9 @@ La autenticación segura requiere que se defina un nuevo esquema de dirección U
 
 3. En **URL de redirección externas permitidas**, introduzca `appname://easyauth.callback`.  El valor de _appname_ de esta cadena es el esquema de dirección URL para la aplicación móvil.  Debe seguir la especificación normal de las direcciones URL para un protocolo (usar únicamente letras y números, y comenzar por una letra).  Debe tomar nota de la cadena que elija ya que necesitará ajustar el código de la aplicación móvil con el esquema de direcciones URL en varios sitios.
 
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 
-5. Haga clic en **Save**.
+5. Haga clic en **Save**(Guardar).
 
 ## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -60,7 +60,7 @@ A continuación, actualice la aplicación para autenticar usuarios antes de soli
 ## <a name="cache-tokens"></a>Almacenamiento en caché de tokens de autenticación en el cliente
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Incorporación de notificaciones push a la aplicación de Android](app-service-mobile-android-get-started-push.md)

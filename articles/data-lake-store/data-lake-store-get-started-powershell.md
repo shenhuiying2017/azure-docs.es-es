@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 3428c3852f156df850f4b9e8833d15f4ae32729d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 31c98b930ccb8203316e3a3b13c3c0dc7d74dd9c
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Introducción al Almacén de Azure Data Lake mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Aprenda a usar Azure PowerShell para crear una cuenta del Almacén de Azure Data
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 o versiones posteriores**. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="authentication"></a>Autenticación
@@ -58,7 +58,7 @@ En este artículo se utiliza un enfoque de autenticación más sencillo con Data
         New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
     ![Creación de un grupo de recursos de Azure](./media/data-lake-store-get-started-powershell/ADL.PS.CreateResourceGroup.png "Creación de un grupo de recursos de Azure")
-3. Cree una cuenta del Almacén de Azure Data Lake. El nombre que especifique debe contener solo letras minúsculas y números.
+3. Cree una cuenta de Almacén de Azure Data Lake. El nombre que especifique debe contener solo letras minúsculas y números.
 
         $dataLakeStoreName = "<your new Data Lake Store name>"
         New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
@@ -119,9 +119,9 @@ Use el siguiente comando para eliminar la cuenta del Almacén de Data Lake.
 
 Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Guía sobre la optimización del rendimiento para poder usar PowerShell con Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 * [Uso de Azure Data Lake Store para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

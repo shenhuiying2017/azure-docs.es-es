@@ -2,8 +2,8 @@
 title: "Habilitación de la sincronización sin conexión con aplicaciones móviles iOS | Microsoft Docs"
 description: "Aprenda a usar App Service Mobile Apps para almacenar en caché y sincronizar datos sin conexión en aplicaciones iOS."
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -88,7 +88,7 @@ Ahora, se va a realizar la operación de sincronización en sí y se van a obten
        }];
    }
    ```
-* **Swift**:
+* **SWIFT**:
    ```swift
    func onRefresh(sender: UIRefreshControl!) {
       UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -158,12 +158,12 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 ![Atributos de la tabla MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | Tipo |
+| Atributo | type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | Cadena |
+| itemId | string |
 | propiedades | Binary Data |
-| table | Cadena |
+| table | string |
 | tableKind | Integer 16 |
 
 
@@ -171,9 +171,9 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![Atributos de la tabla MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | Tipo |
+| Atributo | type |
 | --- | --- |
-| id |String |
+| id |string |
 | operationId |Integer 64 |
 | propiedades |Binary Data |
 | tableKind |Integer 16 |
@@ -182,26 +182,26 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | Tipo |
+| Atributo | type |
 | --- | --- |
-| id |String |
-| key |Cadena |
+| id |string |
+| key |string |
 | keyType |Integer 64 |
-| table |Cadena |
-| value |String |
+| table |string |
+| value |string |
 
 ### <a name="data-table"></a>Tabla de datos
 
 **TodoItem**
 
-| Atributo | Escriba | Nota: |
+| Atributo | type | Nota: |
 | --- | --- | --- |
 | id | Cadena, marcado obligatorio |Clave principal en almacén remoto |
-| complete | Booleano | Campo de tarea pendiente |
+| complete | boolean | Campo de tarea pendiente |
 | text |string |Campo de tarea pendiente |
 | createdAt | Date | (opcional) Se asigna a la propiedad del sistema **createdAt** |
 | updatedAt | Date | (opcional) Se asigna a la propiedad del sistema **updatedAt** |
-| versión | String | (opcional) Se usa para detectar conflictos; se asigna a version |
+| version | string | (opcional) Se usa para detectar conflictos; se asigna a version |
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
 En esta sección, modifique la aplicación para que no se sincronice al iniciarse la aplicación ni cuando se inserten y actualicen elementos. Solo se sincroniza cuando se realiza el gesto de actualización.
@@ -223,7 +223,7 @@ En esta sección, modifique la aplicación para que no se sincronice al iniciars
    }
    ```
 
-**Swift**:
+**SWIFT**:
 
 En `viewDidLoad`, en **ToDoTableViewController.swift**, convierta en comentario las dos líneas que se muestran aquí para detener la sincronización al iniciarse la aplicación. En el momento de redactar este artículo, la aplicación Swift Todo no actualiza el servicio cuando alguien agrega o completa un elemento. Solo lo actualiza en el inicio de aplicación.
 

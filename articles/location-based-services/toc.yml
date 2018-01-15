@@ -34,11 +34,11 @@
 - name: Referencia
   items:
     - name: Functional API
-      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
+      href: 'https://docs.microsoft.com/rest/api/location-based-services/'
     - name: API de administración
-      href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
+      href: 'https://docs.microsoft.com/rest/api/location-based-services-management/'
     - name: 'Map Control API: Javascript'
-      href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
+      href: 'https://docs.microsoft.com/javascript/api/location-based-services-javascript/'
 - name: Recursos
   items:
     - name: Centro para desarrolladores de Azure

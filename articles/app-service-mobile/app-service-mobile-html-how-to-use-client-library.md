@@ -1,10 +1,10 @@
 ---
-title: "Uso del SDK de JavaScript para Aplicaciones móviles de Azure"
-description: "Uso de v para Aplicaciones móviles de Azure"
+title: Uso del SDK de JavaScript para Azure Mobile Apps
+description: Uso de v para Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
 ms.service: app-service-mobile
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
-ms.openlocfilehash: 0c4b4de560d70592f5bbdee28b56a7686b5689f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 9494e40a27895def450de856bbf806573daedfdb
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de JavaScript para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-En esta guía descubrirá cómo realizar tareas comunes usando el último [SDK de JavaScript para Aplicaciones móviles de Azure]. Si no está familiarizado con Aplicaciones móviles de Azure, complete primero el [inicio rápido de Aplicaciones móviles de Azure] para crear un back-end y una tabla. En esta guía, nos centramos en usar el back-end móvil en aplicaciones web HTML/JavaScript.
+En esta guía descubrirá cómo realizar tareas comunes usando el último [SDK de JavaScript para Azure Mobile Apps]. Si no está familiarizado con Azure Mobile Apps, complete primero la [guía de inicio rápido de Azure Mobile Apps] para crear un back-end y una tabla. En esta guía, nos centramos en usar el back-end móvil en aplicaciones web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Plataformas compatibles
 Limitamos la compatibilidad del explorador con la versión actual y con las más recientes de los principales exploradores: Google Chrome, Microsoft Edge, Microsoft Internet Explorer y Mozilla Firefox.  El SDK debería funcionar con cualquier explorador relativamente moderno.
@@ -33,13 +33,13 @@ El paquete se distribuye como un módulo de JavaScript universal, por lo que es 
 ## <a name="Setup"></a>Configuración y requisitos previos
 En esta guía se asume que ha creado un back-end con una tabla. En esta guía se asume que la tabla tiene el mismo esquema que las tablas de dichos tutoriales.
 
-Se puede instalar el SDK de JavaScript para Aplicaciones móviles de Azure con el comando `npm` :
+Se puede instalar el SDK de JavaScript para Azure Mobile Apps con el comando `npm`:
 
 ```
 npm install azure-mobile-apps-client --save
 ```
 
-La biblioteca también puede utilizarse como un módulo ES2015, en entornos de CommonJS, como Browserify y Webpack, y como una biblioteca AMD.  Por ejemplo:
+La biblioteca también puede utilizarse como un módulo ES2015, en entornos de CommonJS, como Browserify y Webpack, y como una biblioteca AMD.  Por ejemplo: 
 
 ```
 # For ECMAScript 5.1 CommonJS
@@ -99,10 +99,10 @@ También tiene que agregar las mismas direcciones URL de bucle invertido a la co
 Cuando el back-end se actualice, podrá usar las nuevas direcciones URL de bucle invertido en la aplicación.
 
 <!-- URLs. -->
-[inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-cordova-get-started.md
+[guía de inicio rápido de Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [Azure Portal]: https://portal.azure.com/
-[SDK de JavaScript para Aplicaciones móviles de Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
+[SDK de JavaScript para Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx

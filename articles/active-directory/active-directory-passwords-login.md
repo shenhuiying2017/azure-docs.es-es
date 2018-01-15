@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 46d5a673c530c6fbcbd1a88a8e74a753ae04998b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d38d2790ae73d147209bb0ccdbbbe20bf880daa4
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -116,7 +116,7 @@ Al probar esta funcionalidad con Escritorio remoto, el vínculo "Restablecer con
 
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
 * [¿Cómo se implementa SSPR?](active-directory-passwords-best-practices.md)

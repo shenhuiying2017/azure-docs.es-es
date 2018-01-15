@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación de API Management
+title: "Documentación de API Management"
 metadata:
-  title: 'Documentación de Azure API Management: tutoriales y referencia de API | Microsoft Docs'
-  description: 'Aprenda a usar API Management para publicar API mediante desarrolladores externos, asociados y empleados, a escala y de forma segura. Los tutoriales, las referencias de API y el resto de la documentación le muestran cómo crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar.'
+  title: "Documentación de Azure API Management: tutoriales y referencia de API | Microsoft Docs"
+  description: "Aprenda a usar API Management para publicar API mediante desarrolladores externos, asociados y empleados, a escala y de forma segura. Los tutoriales, las referencias de API y el resto de la documentación le muestran cómo crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar."
   services: api-management
   author: czeumault
   manager: carolz
@@ -13,45 +13,50 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/15/2017
   ms.author: carolz
+  ms.openlocfilehash: 627498481ff5e64573478dd736cdd28962036caf
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Aprenda a usar API Management para publicar API mediante desarrolladores externos, asociados y empleados, a escala y de forma segura. Los tutoriales, las referencias de API y el resto de la documentación le muestran cómo crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar.'
+  description: "Aprenda a usar API Management para publicar API mediante desarrolladores externos, asociados y empleados, a escala y de forma segura. Los tutoriales, las referencias de API y el resto de la documentación le muestran cómo crear y administrar modernas puertas de enlace de API para los servicios back-end existentes hospedados en cualquier lugar."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: Cree una instancia de API Management.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Cree una instancia de API Management.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: 'Creación de una instancia: Portal'
-            href: /azure/api-management/get-started-create-service-instance
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
-            text: 'Creación de una instancia: PowerShell'
-            href: /azure/api-management/powershell-create-service-instance
-  - title: Tutoriales detallados
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: "Creación de una instancia: Portal"
+      href: /azure/api-management/get-started-create-service-instance
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
+      text: "Creación de una instancia: PowerShell"
+      href: /azure/api-management/powershell-create-service-instance
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a administrar API Management.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Aprenda a administrar API Management.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/api-management/import-and-publish">Importación y publicación de la primera API</a>
-          - html: <a href="/azure/api-management/api-management-howto-add-products">Creación y publicación de un producto</a>
-          - html: <a href="/azure/api-management/mock-api-responses">Simulación de respuestas de API</a>
-          - html: <a href="/azure/api-management/transform-api">Transformación y protección de la API</a>
-          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Supervisión de las API publicadas</a>
-          - html: <a href="/azure/api-management/api-management-howto-api-inspector">Depuración de las API mediante seguimiento de solicitudes</a>
-          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Uso de revisiones para realizar cambios que no producen interrupciones de forma segura</a>
-          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Publicación de varias versiones de la API</a>
-          - html: <a href="/azure/api-management/api-management-customize-styles">Personalización del estilo de las páginas del portal para desarrolladores</a>
-  - title: Muestras
+    - html: "<a href=\"/azure/api-management/import-and-publish\">Importación y publicación de la primera API</a>"
+    - html: "<a href=\"/azure/api-management/api-management-howto-add-products\">Creación y publicación de un producto</a>"
+    - html: "<a href=\"/azure/api-management/mock-api-responses\">Simulación de respuestas de API</a>"
+    - html: "<a href=\"/azure/api-management/transform-api\">Transformación y protección de la API</a>"
+    - html: "<a href=\"/azure/api-management/api-management-howto-use-azure-monitor\">Supervisión de las API publicadas</a>"
+    - html: "<a href=\"/azure/api-management/api-management-howto-api-inspector\">Depuración de las API mediante seguimiento de solicitudes</a>"
+    - html: <a href="/azure/api-management/api-management-get-started-revise-api">Uso de revisiones para realizar cambios que no producen interrupciones de forma segura</a>
+    - html: "<a href=\"/azure/api-management/api-management-get-started-publish-versions\">Publicación de varias versiones de la API</a>"
+    - html: "<a href=\"/azure/api-management/api-management-customize-styles\">Personalización del estilo de las páginas del portal para desarrolladores</a>"
+- title: Muestras
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/api-management/policy-samples">Directiva</a>
-          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>
+    - html: <a href="/azure/api-management/policy-samples">Directiva</a>
+    - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

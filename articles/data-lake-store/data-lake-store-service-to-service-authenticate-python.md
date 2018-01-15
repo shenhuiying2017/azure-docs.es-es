@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 9f23a5e24067dab29a21a44404a912588b46d3b0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c04b870e72c5d29df95d16b96cc423441af6fd85
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Autenticación entre servicios con Data Lake Store usando Python
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ En este artículo, obtendrá información sobre cómo usar el SDK de Python para
 
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Store mediante Azure Active Directory).
 
@@ -120,7 +120,7 @@ Use this snippet to authenticate with Azure AD for account management operations
     mgmt_token = context.acquire_token_with_client_certificate(resource_uri, client_id, client_cert, client_cert_thumbprint)
     credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido cómo usar la autenticación entre servicios para autenticarse en Azure Data Lake Store con Python. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar Python con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Data Lake Store con Python](data-lake-store-get-started-python.md)

@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Importación de datos en Búsqueda de Azure con el Portal
+# <a name="import-data-to-azure-search-using-the-portal"></a>Importación de datos en Azure Search con el Portal
 Azure Portal incluye un asistente para **importar datos** en el panel de Azure Search que le permite cargar datos en un índice. 
 
   ![Importación de datos en la barra de comandos][1]
@@ -40,10 +40,10 @@ Puede probar este flujo de trabajo con datos de ejemplo en Azure Cosmos DB. Visi
 ## <a name="data-sources-supported-by-the-import-data-wizard"></a>Orígenes de datos admitidos por el Asistente para la importación de datos
 El Asistente para importación de datos admite los siguientes orígenes de datos: 
 
-* Base de datos SQL de Azure
+* Azure SQL Database
 * Datos relacionales de SQL Server en una máquina virtual de Azure
 * Azure Cosmos DB
-* Almacenamiento de blobs de Azure
+* Azure Blob Storage
 * Almacenamiento de tablas de Azure
 
 Un conjunto de datos plano es una entrada necesaria. Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente. Debe crear esta estructura de datos antes de ejecutar al asistente.
@@ -56,11 +56,11 @@ Un conjunto de datos plano es una entrada necesaria. Solo se puede importar desd
 |  |  |
 | --- | --- |
 | **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, puede seleccionar una definición de origen de datos existente para otra importación. |
-| **Base de datos SQL de Azure** |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
+| **Azure SQL Database** |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | **Azure Cosmos DB** |Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas, o para detectar los documentos modificados para las siguientes operaciones de actualización de datos. |
 | **Azure Blob Storage** |Los requisitos incluyen la cuenta de almacenamiento y un contenedor. Opcionalmente, si los nombres de blobs siguen una convención de nomenclatura virtual con fines de agrupación, puede especificar la parte del directorio virtual del nombre como una carpeta en el contenedor. Consulte [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md) para más información. |
-| **Almacenamiento de tablas de Azure** |Los requisitos incluyen la cuenta de almacenamiento y un nombre de tabla. Opcionalmente, puede especificar una consulta para recuperar un subconjunto de las tablas. Consulte [Indexación de Table Storage](search-howto-indexing-azure-tables.md) para más información. |
+| **Azure Table Storage** |Los requisitos incluyen la cuenta de almacenamiento y un nombre de tabla. Opcionalmente, puede especificar una consulta para recuperar un subconjunto de las tablas. Consulte [Indexación de Table Storage](search-howto-indexing-azure-tables.md) para más información. |
 
 ## <a name="customize-target-index"></a>Personalización del índice de destino
 Normalmente, un índice preliminar se deduce del conjunto de datos. Agregue, modifique o elimine campos para completar el esquema. Además, establezca atributos en el nivel de campo para determinar sus comportamientos de búsqueda subsiguientes.
@@ -109,11 +109,11 @@ El asistente también ha creado un **índice**. En Azure Search, las actualizaci
 Entre las modificaciones que no requieren una recompilación se incluyen la incorporación de un nuevo campo, el cambio los perfiles de puntuación, el cambio de los proveedores de sugerencias o el cambio de los analizadores de lenguaje. Consulte [Actualización de un índice](https://msdn.microsoft.com/library/azure/dn800964.aspx) para más información.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Siga estos vínculos para más información sobre los indexadores:
 
 * [Indexación de Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexación de Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Indexación de Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexación de Table Storage](search-howto-indexing-azure-tables.md)
 

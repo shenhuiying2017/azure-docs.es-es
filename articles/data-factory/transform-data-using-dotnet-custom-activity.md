@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-use-custom-activities.md)
-> * [Versión 2: Versión preliminar](transform-data-using-dotnet-custom-activity.md)
+> * [Versión 2: versión preliminar](transform-data-using-dotnet-custom-activity.md)
 
 Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory.
 
@@ -105,17 +105,17 @@ En este ejemplo, el archivo helloworld.exe es una aplicación personalizada que 
 
 En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad. 
 
-| Propiedad              | Descripción                              | Obligatorio |
+| Propiedad              | DESCRIPCIÓN                              | Requerido |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nombre de la actividad en la canalización     | Sí      |
-| Descripción           | Texto que describe para qué se usa la actividad.  | No       |
-| type                  | Para la actividad personalizada, el tipo de actividad es **Custom**. | Sí      |
+| Nombre                  | Nombre de la actividad en la canalización     | Sí      |
+| Descripción           | Texto que describe para qué se usa la actividad.  | Sin        |
+| Tipo                  | Para la actividad personalizada, el tipo de actividad es **Custom**. | Sí      |
 | linkedServiceName     | Servicio vinculado a Azure Batch. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  | Sí      |
 | command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | Sí      |
-| resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | No       |
-| folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias | No       |
-| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | No       |
-| extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | No       |
+| resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | Sin        |
+| folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias | Sin        |
+| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | Sin        |
+| extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | Sin        |
 
 ## <a name="executing-commands"></a>Ejecución de comandos
 
@@ -331,7 +331,7 @@ Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener
    - El paquete NuGet Microsoft.Azure.Management.DataFactories ya no es necesario. 
    - Compile el código, cargue el ejecutable y las dependencias en Azure Storage y defina la ruta de acceso en la propiedad folderPath. 
 
-Para obtener un ejemplo completo de cómo el archivo DLL completo y la canalización de ejemplo que se describen en el documento de Data Factory V1 [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) se pueden volver a escribir en el estilo de la actividad personalizada de Data Factory V2. Consulte el [ejemplo de actividad personalizada de Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Para obtener un ejemplo completo de cómo el archivo DLL completo y la canalización de ejemplo que se describen en el documento de Data Factory V1 [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) se pueden volver a escribir en el estilo de la actividad personalizada de Data Factory V2. Consulte el [ejemplo de actividad personalizada de Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Escalado automático de Azure Batch
 También puede crear un grupo de Azure Batch con la característica **autoescala** . Por ejemplo, podría crear un grupo de Azure Batch con 0 VM dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes. 
@@ -353,7 +353,7 @@ Para más información, consulte [Escalado automático de los nodos de proceso e
 Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada.  Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)

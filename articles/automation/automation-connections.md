@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: c1e56f00e46dc3d04f6ac3bb42df6c1935c5c8b0
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Azure Automation
 
@@ -33,7 +33,7 @@ Cuando crea una conexión, debe especificar un *tipo de conexión*. El tipo de c
 
 Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de Automatización con Windows PowerShell. Se incluyen como parte del [módulo Azure PowerShell](/powershell/azure/overview) que está disponible para su uso en las configuraciones de DSC y los runbooks de Automation.
 
-|Cmdlet|Descripción|
+|Cmdlet|DESCRIPCIÓN|
 |:---|:---|
 |[Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection)|Recupera una conexión. Incluye una tabla hash con los valores de los campos de la conexión.|
 |[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection)|Crea una conexión nueva.|
@@ -44,7 +44,7 @@ Los cmdlets de la tabla siguiente se usan para crear y administrar conexiones de
 
 Las actividades de la siguiente tabla se usan para tener acceso a las conexiones de un runbook o de una configuración de DSC.
 
-|Actividades|Descripción|
+|Actividades|DESCRIPCIÓN|
 |---|---|
 |[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Obtiene una conexión para usar. Devuelve una tabla hash con las propiedades de la conexión.|
 
@@ -55,7 +55,7 @@ Las actividades de la siguiente tabla se usan para tener acceso a las conexiones
 ## <a name="python2-functions"></a>Funciones de Python2 
 La función de la tabla siguiente se usa para obtener acceso a las conexiones de un runbook de Python2. 
 
-| Función | Descripción | 
+| Función | DESCRIPCIÓN | 
 |:---|:---| 
 | automationassets.get_automation_connection | Recupera una conexión. Devuelve un diccionario con las propiedades de la conexión. | 
 
@@ -72,23 +72,17 @@ La función de la tabla siguiente se usa para obtener acceso a las conexiones de
 4. En el menú desplegable **Tipo** , seleccione el tipo de conexión que desea crear. El formulario presentará las propiedades de ese tipo determinado.
 5. Complete el formulario y haga clic en **Crear** para guardar la conexión nueva.
 
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Para crear una conexión nueva con el Portal de Azure clásico
-
-1. En la cuenta de Automatización, haga clic en **Recursos** en la parte superior de la ventana.
-2. En la parte inferior de la ventana, haga clic en **Agregar configuración**.
-3. Haga clic en **Agregar conexión**.
-4. En el menú desplegable **Tipo de conexión** , seleccione el tipo de conexión que desea crear.  El asistente presentará las propiedades de ese tipo específico.
-5. Realice los pasos del asistente y haga clic en la casilla para guardar la nueva conexión.
-
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para crear una conexión nueva con Windows PowerShell
 
 Cree una conexión nueva con Windows PowerShell con el cmdlet [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection). Este cmdlet tiene un parámetro denominado **ConnectionFieldValues** que espera una [tabla hash](http://technet.microsoft.com/library/hh847780.aspx) que define los valores de cada una de las propiedades definidas por el tipo de conexión.
 
 Si está familiarizado con la [cuenta de ejecución](automation-sec-configure-azure-runas-account.md) de Automation para autenticar runbooks con la entidad de servicio, el script de PowerShell, que se ofrece como alternativa a la creación de la cuenta de ejecución desde el portal, crea un nuevo recurso de conexión mediante los siguientes comandos de ejemplo.  
 
-    $ConnectionAssetName = "AzureRunAsConnection"
-    $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-    New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```powershell
+$ConnectionAssetName = "AzureRunAsConnection"
+$ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+```
 
 Puede usar el script para crear el recurso de conexión porque cuando se crea la cuenta de Automation, este incluye automáticamente varios módulos globales de manera predeterminada junto con el tipo de conexión **AzurServicePrincipal** para crear el recurso de conexión **AzureRunAsConnection**.  Es importante tener esto cuenta, porque si intenta crear un nuevo recurso de conexión para conectarse a un servicio o aplicación con un método de autenticación diferente, se producirá un error porque el tipo de conexión no se ha definido todavía en su cuenta de Automation.  Para obtener más información sobre cómo crear su propio tipo de conexión para su módulo o instancia personalizada desde la [Galería de PowerShell](https://www.powershellgallery.com), consulte [Módulos de integración](automation-integration-modules.md)
   
@@ -100,8 +94,10 @@ Puede recuperar una conexión de un runbook o una configuración de DSC con el c
 
 Los siguientes comandos de ejemplo muestran cómo utilizar la cuenta de ejecución mencionada anteriormente para autenticar con recursos de Azure Resource Manager en su runbook.  Esta utiliza el recurso de conexión que representa la cuenta de ejecución, que hace referencia a la entidad de servicio basada en certificados, no a las credenciales.  
 
-    $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+```powershell
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection 
+Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint 
+```
 
 ### <a name="graphical-runbook-samples"></a>Ejemplos de runbook gráfico
 
@@ -116,45 +112,45 @@ La imagen siguiente muestra un ejemplo de cómo usar una conexión en un runbook
 ### <a name="python2-runbook-sample"></a>Ejemplo de runbook de Python2
 En el ejemplo siguiente se muestra cómo autenticarse con la conexión de ejecución en un runbook de Python2.
 
-    """ Tutorial to show how to authenticate against Azure resource manager resources """
-    import azure.mgmt.resource
-    import automationassets
+```python
+""" Tutorial to show how to authenticate against Azure resource manager resources """
+import azure.mgmt.resource
+import automationassets
 
+def get_automation_runas_credential(runas_connection):
+  """ Returns credentials to authenticate against Azure resoruce manager """
+  from OpenSSL import crypto
+  from msrestazure import azure_active_directory
+  import adal
 
-    def get_automation_runas_credential(runas_connection):
-        """ Returns credentials to authenticate against Azure resoruce manager """
-        from OpenSSL import crypto
-        from msrestazure import azure_active_directory
-        import adal
+  # Get the Azure Automation Run As service principal certificate
+  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+  pks12_cert = crypto.load_pkcs12(cert)
+  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
-        # Get the Azure Automation Run As service principal certificate
-        cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-        pks12_cert = crypto.load_pkcs12(cert)
-        pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+  # Get Run As connection information for the Azure Automation service principal
+  application_id = runas_connection["ApplicationId"]
+  thumbprint = runas_connection["CertificateThumbprint"]
+  tenant_id = runas_connection["TenantId"]
 
-        # Get Run As connection information for the Azure Automation service principal
-        application_id = runas_connection["ApplicationId"]
-        thumbprint = runas_connection["CertificateThumbprint"]
-        tenant_id = runas_connection["TenantId"]
+  # Authenticate with service principal certificate
+  resource = "https://management.core.windows.net/"
+  authority_url = ("https://login.microsoftonline.com/" + tenant_id)
+  context = adal.AuthenticationContext(authority_url)
+  return azure_active_directory.AdalAuthentication(
+    lambda: context.acquire_token_with_client_certificate(
+      resource,
+      application_id,
+      pem_pkey,
+      thumbprint)
+  )
 
-        # Authenticate with service principal certificate
-        resource = "https://management.core.windows.net/"
-        authority_url = ("https://login.microsoftonline.com/" + tenant_id)
-        context = adal.AuthenticationContext(authority_url)
-        return azure_active_directory.AdalAuthentication(
-            lambda: context.acquire_token_with_client_certificate(
-                resource,
-                application_id,
-                pem_pkey,
-                thumbprint)
-        )
+# Authenticate to Azure using the Azure Automation Run As service principal
+runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+azure_credential = get_automation_runas_credential(runas_connection)
+```
 
-
-    # Authenticate to Azure using the Azure Automation Run As service principal
-    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
-    azure_credential = get_automation_runas_credential(runas_connection)
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Revise la sección [Vínculos de Creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) para aprender a dirigir y controlar el flujo de la lógica de sus runbooks.  
 

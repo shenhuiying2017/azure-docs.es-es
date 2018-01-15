@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: eb2bdd203bfbd170992358f48cde6f7b5c0bdf16
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5e287cd29fb305e78fe6338782838929007b17fc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Requisitos previos comunes para la implementación de OpenShift en Azure
 
@@ -94,7 +94,7 @@ Para obtener más información sobre las claves SSH en Windows, consulte el art�
 La implementación de OpenShift utiliza la clave SSH que creó para proteger el acceso al maestro de OpenShift. Para permitir que la implementación recupere de forma segura la clave SSH, almacénela en Key Vault con el comando siguiente:
 
 ```azurecli
-az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift.rsa
+az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/openshift_rsa
 ```
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio 
@@ -125,7 +125,7 @@ Tome nota de la propiedad appId que devuelve el comando:
 
 Para obtener más información sobre las entidades de servicio, consulte [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este artículo se trataron los temas siguientes:
 > [!div class="checklist"]

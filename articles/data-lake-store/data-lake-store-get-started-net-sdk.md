@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/13/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 018cf772f458bb29712ef9516c3af4e969a94564
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 682e8c9fc9e7f16d6b69cd73535c76e6c53c6b49
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operaciones de administración de cuentas en Azure Data Lake Store con el SDK de .NET
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Para instrucciones sobre cómo realizar operaciones de administración de datos 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Creación de una aplicación .NET
 1. Abra Visual Studio y cree una aplicación de consola.
@@ -46,7 +46,7 @@ Para instrucciones sobre cómo realizar operaciones de administración de datos 
    | --- | --- |
    | Categoría |Plantillas/Visual C#/Windows |
    | Plantilla |Aplicación de consola |
-   | Nombre |CreateADLApplication |
+   | NOMBRE |CreateADLApplication |
 4. Haga clic en **Aceptar** para crear el proyecto.
 5. Agregue los paquetes NuGet al proyecto.
 
@@ -146,5 +146,5 @@ El siguiente fragmento de código elimina la cuenta de Data Lake Store que creó
 * [Operaciones de sistema de archivos en Azure Data Lake Store con el SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 * [Referencia de SDK de .NET de Data Lake Store](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+## <a name="next-steps"></a>pasos siguientes
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)

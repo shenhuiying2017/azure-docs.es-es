@@ -1,10 +1,10 @@
 ---
-title: "Incorporación de notificaciones push a la aplicación Xamarin iOS con Servicio de aplicaciones de Azure"
-description: "Obtenga información acerca de cómo usar Servicio de aplicaciones de Azure para enviar notificaciones push a su aplicación Xamarin.iOS."
+title: "Incorporación de notificaciones push a la aplicación Xamarin iOS con Azure App Service"
+description: "Obtenga información acerca de cómo usar Azure App Service para enviar notificaciones push a su aplicación Xamarin.iOS."
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: glenga
-ms.openlocfilehash: bf922e49c4c92d0065817a5dd6c7d10a04737304
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: b8d5a8d8725e2e9412cef7c377b17a77f34be27d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Incorporación de notificaciones push a la aplicación Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,7 +79,7 @@ Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el p
         }
 4. En el mismo archivo, reemplace el evento **RegisteredForRemoteNotifications**. Con este código va a registrar una notificación de plantilla simple que se enviará a todas las plataformas admitidas por el servidor.
    
-    Para más información sobre las plantillas con centros de notificaciones, vea [Plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+    Para más información sobre las plantillas con Notification Hubs, vea [Plantillas](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {

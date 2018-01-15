@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 En este tema se muestra cómo crear una cuenta de Automation desde Azure Portal si desea evaluar y obtener información sobre Azure Automation, sin incluir las soluciones de administración adicionales ni la integración con Log Analytics de OMS para proporcionar supervisión avanzada de los trabajos de runbook.  Puede agregar estas soluciones de administración o realizar la integración con Log Analytics en cualquier momento en el futuro.  Con la cuenta de Automation podrá autenticar runbooks que administran recursos en Azure Resource Manager o en la implementación clásica de Azure.
@@ -44,25 +44,22 @@ En esta sección, realizará los pasos que se describen a continuación para cre
 1. Inicie sesión en Azure Portal con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.
 2. Haga clic en **Nuevo**.<br><br> ![Seleccione la opción Nuevo en Azure Portal](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Busque **Automation** y, a continuación, en los resultados de la búsqueda seleccione **Automation and Control***.<br><br> ![Busque y seleccione Automation en Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
-3. En la hoja Cuentas de Automation, haga clic en **Agregar**.<br><br>
-            ![Agregar cuenta de Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+3. En la hoja Cuentas de Automation, haga clic en **Agregar**.<br><br>![Agregar cuenta de Automation](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
 
    > [!NOTE]
-   > Si aparece la advertencia siguiente en la hoja **Agregar cuenta de Automation**, se debe a que la cuenta no es miembro del rol Administradores de la suscripción ni coadministradora de la suscripción.<br><br>
-            ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-without-perms.png)
+   > Si aparece la advertencia siguiente en la hoja **Agregar cuenta de Automation**, se debe a que la cuenta no es miembro del rol Administradores de la suscripción ni coadministradora de la suscripción.<br><br>![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
    > 
-4. En la hoja **Agregar cuenta de Automatización**, en el cuadro **Nombre**, especifique un nombre para la nueva cuenta de Automation.
+4. En la hoja **Agregar cuenta de Automation**, en el cuadro **Nombre**, especifique un nombre para la nueva cuenta de Automation.
 5. Si tiene varias suscripciones, especifique una para la nueva cuenta, así como un **grupo de recursos** nuevo o existente y la **ubicación** de un centro de datos de Azure.
 6. Compruebe que el valor **Sí** está seleccionado en la opción **Crear cuenta de ejecución de Azure** y haga clic en el botón **Crear**.  
    
    > [!NOTE]
    > Si decide seleccionar la opción **No** porque no quiere crear la cuenta de ejecución, aparecerá un mensaje de advertencia en la hoja **Agregar cuenta de Automation**.  Aunque la cuenta se crea en Azure Portal, no tiene la identidad de autenticación correspondiente en el servicio de directorio de suscripciones clásico o de Resource Manager y, por lo tanto, no tendrá acceso a los recursos de la suscripción.  Esto evitará que los runbooks que hacen referencia a esta cuenta puedan autenticarse y realizar tareas con los recursos en dichos modelos de suscripción.
    > 
-   > 
-   >             ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
-Si no se crea la entidad de servicio, no se asigna el rol Colaborador.
+   > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)<br>
+   > Si no se crea la entidad de servicio, no se asigna el rol Colaborador.
    > 
 
 7. Mientras Azure crea la cuenta de Automation, puede seguir el progreso en **Notificaciones** en el menú.
@@ -70,7 +67,7 @@ Si no se crea la entidad de servicio, no se asigna el rol Colaborador.
 ### <a name="resources-included"></a>Recursos incluidos
 Una vez que se crea la cuenta de Automation, se también varios recursos automáticamente.  La siguiente tabla resume los recursos de la cuenta de ejecución.<br>
 
-| Recurso | Descripción |
+| Recurso | DESCRIPCIÓN |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Un runbook gráfico de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución y que obtiene todos los recursos de Resource Manager. |
 | Runbook AzureAutomationTutorialScript |Un Runbook de PowerShell de ejemplo que muestra cómo realizar la autenticación mediante la cuenta de ejecución y que obtiene todos los recursos de Resource Manager. |
@@ -80,7 +77,7 @@ Una vez que se crea la cuenta de Automation, se también varios recursos automá
 
 La siguiente tabla resume los recursos de la cuenta de ejecución de Azure clásico.<br>
 
-| Recurso | Descripción |
+| Recurso | DESCRIPCIÓN |
 | --- | --- |
 | Runbook AzureClassicAutomationTutorial |Un runbook gráfico de ejemplo que obtiene todas las máquinas virtuales clásicas de una suscripción mediante la cuenta de ejecución de Azure clásico (certificado) y, luego, envía el nombre y el estado de la máquina virtual. |
 | Runbook AzureClassicAutomationTutorial Script |Un runbook de PowerShell de ejemplo que obtiene todas las máquinas virtuales clásicas de una suscripción mediante la cuenta de ejecución de Azure clásico (certificado) y, luego, envía el nombre y el estado de la máquina virtual. |
@@ -88,7 +85,7 @@ La siguiente tabla resume los recursos de la cuenta de ejecución de Azure clás
 | AzureClassicRunAsConnection |Recurso de conexión creado automáticamente que se utiliza para realizar la autenticación en Azure, de modo sea posible administrar los recursos del modelo clásico de Azure desde Runbooks. |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información sobre la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).

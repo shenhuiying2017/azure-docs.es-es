@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
-ms.author: nitinme
-ms.openlocfilehash: e9467523da10333f1bb3c888f6e2768c2fdee4c1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 55ff40165a1b25949cb202d9a5174e1f52fe4630
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Ejecución de Spark desde el shell de Spark
 
@@ -66,14 +66,14 @@ Para acceder a la instancia de SparkSession, escriba `spark`. Para acceder a la 
 
 El comando de shell de Spark (`spark-shell`, `pyspark`, o `sparkR`) admite muchos parámetros de línea de comandos. Para ver una lista completa de parámetros, inicie el shell de Spark con el modificador `--help`. Tenga en cuenta que algunos de estos parámetros solo se pueden aplicar a `spark-submit`, que es el que incluye el shell de Spark.
 
-| Modificador | description | ejemplo |
+| Modificador | Descripción | ejemplo |
 | --- | --- | --- |
 | --master MASTER_URL | Especifica la URL principal. En HDInsight, este valor es siempre `yarn`. | `--master yarn`|
 | --jars JAR_LIST | Lista separada por comas de archivos JAR locales que se incluirán en las rutas de clase del controlador y el ejecutor. En HDInsight, esta lista se compone de las rutas de acceso al sistema de archivos predeterminado en Azure Storage o Data Lake Store. | `--jars /path/to/examples.jar` |
 | --packages MAVEN_COORDS | Lista separada por comas de coordenadas de Maven de archivos JAR locales que se incluirán en las rutas de clase del controlador y el ejecutor. Busca en el repositorio de Maven local, luego, en el central y, después, en cualquier repositorio remoto adicional especificado con `--repositories`. El formato de las coordenadas es *idGrupo*:*idArtefacto*:*versión*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | Solo para Python; lista separada por comas de los archivos .zip, .egg o .py que se colocarán en PYTHONPATH. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener información general, consulte [Introducción a Spark en Azure HDInsight](apache-spark-overview.md).
 - Si quiere trabajar con SparkSQL y los clústeres de Spark, lea [Creación de un clúster de Apache Spark en Azure HDInsight](apache-spark-jupyter-spark-sql.md).

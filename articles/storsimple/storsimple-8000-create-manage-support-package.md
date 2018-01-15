@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Crear y administrar un paquete de soporte para la serie StorSimple 8000
 
@@ -30,7 +30,7 @@ En este tutorial se incluyen instrucciones paso a paso para crear y administrar 
 
 ## <a name="create-a-support-package"></a>Crear un paquete de soporte
 
-En algunos casos, debe crear manualmente el paquete de soporte mediante Windows PowerShell para StorSimple. Por ejemplo:
+En algunos casos, debe crear manualmente el paquete de soporte mediante Windows PowerShell para StorSimple. Por ejemplo: 
 
 * Si necesita quitar información confidencial de los archivos de registro antes de compartirlos con el servicio de soporte técnico de Microsoft.
 * Si tiene dificultades para cargar el paquete debido a problemas de conectividad.
@@ -71,10 +71,10 @@ Puede compartir su paquete de soporte generado manualmente con el servicio de so
 
 Puede usar los siguientes parámetros con el cmdlet Export-HcsSupportPackage.
 
-| Parámetro | Obligatorio/opcional | Description |
+| . | Obligatorio/opcional | DESCRIPCIÓN |
 | --- | --- | --- |
-| `-Path` |Obligatorio |Se usa para proporcionar la ubicación de la carpeta compartida de red en la que se coloca el paquete de soporte. |
-| `-EncryptionPassphrase` |Obligatorio |Se utiliza para proporcionar una frase de contraseña que ayuda a cifrar el paquete de soporte. |
+| `-Path` |Requerido |Se usa para proporcionar la ubicación de la carpeta compartida de red en la que se coloca el paquete de soporte. |
+| `-EncryptionPassphrase` |Requerido |Se utiliza para proporcionar una frase de contraseña que ayuda a cifrar el paquete de soporte. |
 | `-Credential` |Opcional |Se usa para suministrar credenciales de acceso a la carpeta compartida de red. |
 | `-Force` |Opcional |Se utiliza para omitir el paso de confirmación de la frase de contraseña de cifrado. |
 | `-PackageTag` |Opcional |Se usa para especificar un directorio en *Path* en que se coloca el paquete de soporte. El valor predeterminado es [nombre de dispositivo]-[fecha y hora actuales:aaaa-MM-dd-HH-mm-ss]. |
@@ -144,9 +144,9 @@ A continuación se muestra un ejemplo que muestra cómo descifrar, editar y volv
 
         PS C:\WINDOWS\system32>
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Obtenga información sobre la [información recopilada en el paquete de soporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Obtenga información sobre cómo [usar el servicio Administrador de dispositivos de StorSimple para administrar el dispositivo de StorSimple](storsimple-8000-manager-service-administration.md).
 

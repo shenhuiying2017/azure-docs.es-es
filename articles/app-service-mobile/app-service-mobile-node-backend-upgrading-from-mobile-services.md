@@ -3,7 +3,7 @@ title: "Actualización de Mobile Services a Azure App Service - Node.js"
 description: "Aprenda a actualizar fácilmente la aplicación de Mobile Services a una aplicación móvil de Mobile App."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: c58f6df0-5aad-40a3-bddc-319c378218e3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: crdun
+ms.openlocfilehash: 9a641bc667d07d1b674d2864c1f29151d527f46a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Actualización del servicio móvil de Azure de Node.js existente a App Service
 Aplicaciones móviles de App Service es una nueva forma de crear aplicaciones móviles con Microsoft Azure. Para más información, vea [¿Qué es Mobile Apps?].
@@ -66,9 +66,7 @@ Debe instalar [Node] en el equipo local.  También debe instalar el paquete de c
 
 ```npm i -g azure-mobile-apps-compatibility```
 
-## 
-            <a name="obtain-ams-scripts">
-            </a> Obtención de los scripts de Azure Mobile Services
+## <a name="obtain-ams-scripts"></a> Obtención de los scripts de Azure Mobile Services
 * Inicie sesión en [Azure Portal].
 * Mediante **Todos los recursos** o **App Services**, busque el sitio de Mobile Services.
 * En el sitio, haga clic en **Herramientas** -> **Kudu** -> **Ir** para abrir el sitio de Kudu.
@@ -166,8 +164,7 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [conceptos de autenticación]: ../app-service/app-service-authentication-overview.md
 [inicio rápido de autenticación]: app-service-mobile-auth.md
 
-
-            [Azure Portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

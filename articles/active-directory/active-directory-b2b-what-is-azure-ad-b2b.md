@@ -17,15 +17,15 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.openlocfilehash: eef95f80f8107c13cd057c56eb5219a353acc854
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3167b0b4b33eee11f388efd1d2088f6bc5cc639
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="what-is-azure-ad-b2b-collaboration"></a>¿Qué es la colaboración B2B de Azure AD?
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 Las funcionalidades de colaboración de Azure AD negocio a negocio (B2B) permiten que cualquier organización con Azure AD funcione de forma segura con usuarios de cualquier otra organización, pequeña o grande; con o sin Azure AD; de hecho, con o sin una organización de TI. 
 
@@ -100,7 +100,7 @@ Con las [API de invitación de colaboración B2B](https://developer.microsoft.co
 
 Con la colaboración B2B de Azure AD, puede obtener toda la funcionalidad de Azure AD para proteger sus relaciones con los asociados de forma que los usuarios finales la encuentren sencilla e intuitiva. Por tanto, únase a las miles de organizaciones que ya utilizan B2B de Azure AD para facilitar la colaboración externa.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Las experiencias del administrador se encuentran en [Azure Portal](https://portal.azure.com).
 
@@ -117,7 +117,7 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
 * [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](active-directory-b2b-faq.md)
-* [Personalización y API de colaboración B2B de Azure Active Directory](active-directory-b2b-api.md)
+* [Personalización y API de colaboración B2B de Active Directory Azure](active-directory-b2b-api.md)
 * [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
 * [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
 * [Auditoría y generación de informes de usuarios de colaboración B2B](active-directory-b2b-auditing-and-reporting.md)

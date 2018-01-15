@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Asignación de notificaciones en Azure Active Directory (versión preliminar pública)
 
@@ -140,7 +140,7 @@ Las notificaciones restringidas no se pueden modificar mediante una directiva. N
 |onprem_sam_account_name|
 |onprem_sid|
 |openid2_id|
-|Contraseña|
+|contraseña|
 |platf|
 |polids|
 |pop_jwk|
@@ -175,7 +175,7 @@ Las notificaciones restringidas no se pueden modificar mediante una directiva. N
 |unique_name|
 |upn|
 |user_setting_sync_url|
-|nombre de usuario|
+|Nombre de usuario|
 |uti|
 |ver|
 |verified_primary_email|
@@ -280,7 +280,7 @@ Si el origen es una transformación, debe incluirse también el elemento **Trans
 El elemento ID identifica la propiedad en el origen que proporciona el valor de la notificación. En la tabla siguiente se muestran los valores de ID válidos para cada valor de Source.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de ID válidos por origen
-|Origen|ID|Descripción|
+|Origen|ID|DESCRIPCIÓN|
 |-----|-----|-----|
 |Usuario|surname|Nombre de familia|
 |Usuario|givenname|Nombre propio|
@@ -353,7 +353,7 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 En función del método elegido, se espera un conjunto de entradas y salidas. Estas se definen mediante los elementos **InputClaims**, **InputParameters** y **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabla 4: Métodos de transformación y entradas y salidas previstas
-|TransformationMethod|Entrada prevista|Salida prevista|Descripción|
+|TransformationMethod|Entrada prevista|Salida prevista|DESCRIPCIÓN|
 |-----|-----|-----|-----|
 |Unión|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no hay ningún signo "@" presente, la cadena de entrada original se devuelve tal y como está.|
@@ -378,7 +378,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. Es
 **NameID de SAML y UPN:** Los atributos desde los que se originan los valores de NameID y UPN, y las transformaciones de notificaciones que se permiten, están limitados.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabla 5: Atributos permitidos como origen de datos en NameID de SAML
-|Origen|ID|Descripción|
+|Origen|ID|DESCRIPCIÓN|
 |-----|-----|-----|
 |Usuario|mail|Dirección de correo electrónico|
 |Usuario|userprincipalname|Nombre principal de usuario|
@@ -490,7 +490,7 @@ En este ejemplo se crea una directiva que emite una notificación "JoinedData" p
     1. Ejecute este comando para crear la directiva: 
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
     2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando: 

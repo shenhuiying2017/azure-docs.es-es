@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
 
@@ -119,7 +119,7 @@ Puede usar Azure Portal y el archivo *hotels.sql* del ejemplo para crear el conj
 
 En el ejercicio siguiente se da por supuesto que no hay ningún servidor ni base de datos, y se le indica que cree ambos en el paso 2. Opcionalmente, si tiene un recurso existente, puede agregar en él la tabla de hoteles, a partir del paso 4.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/). 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/). 
 
 2. Haga clic en **Nuevo** > **SQL Database** para crear una base de datos, un servidor y un grupo de recursos. Puede usar los valores predeterminados y el plan de tarifa más bajo. Una ventaja de la creación de un servidor es que puede especificar un nombre de usuario y una contraseña de administrador, que son necesarios para crear y cargar las tablas en un paso posterior.
 
@@ -281,12 +281,12 @@ Si no va a seguir usando estos servicios, siga estos pasos para borrar todos los
 1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
 2. En la página del grupo de recursos, haga clic en **Eliminar grupo de recursos**, escriba el nombre del recurso que quiere eliminar en el cuadro de texto y haga clic en **Eliminar**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información y conocer las tareas que son específicas de otros orígenes de datos admitidos, consulte los siguientes artículos:
 
 * [Azure SQL Database o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexación de blobs CSV con el indexador de blobs de Azure Search](search-howto-index-csv-blobs.md)

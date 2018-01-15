@@ -3,7 +3,7 @@ title: "Publicación de aplicaciones en redes y ubicaciones independientes media
 description: "Explica cómo crear y administrar grupos de conectores en el Proxy de aplicación de Azure AD."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: afa710e2605bc1416b082f266010c52d13e83973
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7c409e5419a2bd393cb5c7ec265e44310f7e9027
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 
@@ -38,7 +38,7 @@ Para agrupar los conectores, debe asegurarse de [tener instalados varios conecto
 ## <a name="create-connector-groups"></a>Creación de grupos de conectores
 Siga estos pasos para crear tantos grupos de conectores como desee. 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Proxy de aplicación**.
 2. Seleccione **Nuevo grupo de conectores**. Aparece la hoja New Connector Group (Nuevo grupo de conectores).
 
@@ -123,7 +123,7 @@ En el ejemplo siguiente, la empresa tiene dos centros de datos, A y B, con dos c
 
 ![Sin grupos de conectores de Azure AD](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
 * [Habilitar el inicio de sesión único](application-proxy-sso-overview.md)

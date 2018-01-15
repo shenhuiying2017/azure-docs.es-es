@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copia de datos de Teradata mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-onprem-teradata-connector.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-onprem-teradata-connector.md)
 > * [Versión 2: versión preliminar](connector-teradata.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos Teradata. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Teradata](v1/data-factory-onprem-teradata-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector Teradata](v1/data-factory-onprem-teradata-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -46,7 +46,8 @@ Para usar este conector ODBC, necesitará lo siguiente:
 - Instalar el [proveedor de datos .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versión 14 o posterior en la máquina de Integration Runtime.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector Teradata.
 
@@ -54,13 +55,13 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado Teradata:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type se debe establecer en: **Teradata** | Sí |
-| server | Nombre del servidor de Teradata. | Sí |
+| Tipo | La propiedad type se debe establecer en: **Teradata** | Sí |
+| Servidor | Nombre del servidor de Teradata. | Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos Teradata.<br/>Los valores permitidos son: **Básica** y **Windows**. | Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos Teradata. | Sí |
-| Contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString. | Sí |
+| Nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos Teradata. | Sí |
+| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
@@ -93,9 +94,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Teradata, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla de la base de datos Teradata. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo:**
@@ -122,9 +123,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Teradata, establezca el tipo de origen de la actividad de copia como **RelationalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -169,42 +170,42 @@ Al copiar datos desde Teradata, se usan las siguientes asignaciones de tipos de 
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |String |
-| Date |DateTime |
-| Decimal |Decimal |
-| Doble |Double |
-| Graphic |String |
+| Char |string |
+| Clob |string |
+| Date |Datetime |
+| DECIMAL |DECIMAL |
+| Doble |Doble |
+| Graphic |string |
 | Entero |Int32 |
-| Interval Day |TimeSpan |
-| Interval Day To Hour |TimeSpan |
-| Interval Day To Minute |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Interval Hour |TimeSpan |
-| Interval Hour To Minute |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
-| Interval Month |String |
-| Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
-| Number |Double |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
+| Interval Day |timespan |
+| Interval Day To Hour |timespan |
+| Interval Day To Minute |timespan |
+| Interval Day To Second |timespan |
+| Interval Hour |timespan |
+| Interval Hour To Minute |timespan |
+| Interval Hour To Second |timespan |
+| Interval Minute |timespan |
+| Interval Minute To Second |timespan |
+| Interval Month |string |
+| Interval Second |timespan |
+| Interval Year |string |
+| Interval Year To Month |string |
+| Number |Doble |
+| Period(Date) |string |
+| Period(Time) |string |
+| Period(Time With Time Zone) |string |
+| Period(Timestamp) |string |
+| Period(Timestamp With Time Zone) |string |
 | SmallInt |Int16 |
-| Hora |TimeSpan |
-| Time With Time Zone |String |
-| Timestamp |DateTime |
-| Timestamp With Time Zone |Datetimeoffset |
+| Hora |timespan |
+| Time With Time Zone |string |
+| Timestamp |Datetime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
-| Xml |String |
+| VarChar |string |
+| VarGraphic |string |
+| xml |string |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

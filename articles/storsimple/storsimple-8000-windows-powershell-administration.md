@@ -4,7 +4,7 @@ description: "Obtenga más información acerca de cómo usar Windows PowerShell 
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar Windows PowerShell para StorSimple para administrar su dispositivos
 
@@ -67,13 +67,13 @@ Asegúrese de usar la siguiente configuración de PuTTY para conectarse a la int
    | Habilitar las características de teclado adicionales |Control-Alt es diferente de AltGr |
    
     ![Configuración de Putty compatible](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. Haga clic en **Apply**.
+3. Haga clic en **Aplicar**.
 4. En el panel **Category** (Categoría) seleccione **Translation** (Traducción).
 5. En el cuadro de lista **Remote character set** (Conjunto de caracteres remotos), seleccione **UTF-8**.
 6. En **Handling of line drawing characters** (Control de caracteres de dibujo de líneas), seleccione **Use Unicode line drawing code points** (Usar puntos de código de dibujo de líneas Unicode). La siguiente captura de pantalla muestra las selecciones de PuTTY correctas.
    
     ![Configuración de Putty de UTF](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. Haga clic en **Apply**.
+7. Haga clic en **Aplicar**.
 
 Ahora puede usar PuTTY para conectarse a la consola en serie del dispositivo realizando los pasos siguientes.
 
@@ -126,8 +126,8 @@ El idioma de visualización es independiente del idioma que se configura mediant
 
 Puede utilizar HTTP o HTTPS para conectarse a través de la conexión remota de Windows PowerShell. Siga las instrucciones de los siguientes tutoriales:
 
-* [Conectarse de forma remota mediante HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Conectarse de forma remota mediante HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Conectarse de forma remota mediante HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Conectarse de forma remota mediante HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## <a name="connection-security-considerations"></a>Consideraciones de seguridad de conexión
 
@@ -182,7 +182,7 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 > Para obtener una lista de todos los cmdlets disponibles en un espacio de ejecución, inicie sesión en la opción de menú correspondiente y ejecute el cmdlet `Get-Command`.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, vea [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

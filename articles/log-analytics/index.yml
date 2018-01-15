@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación de Log Analytics
+title: "Documentación de Log Analytics"
 metadata:
-  title: 'Documentación sobre Azure Log Analytics: tutoriales y referencia de API | Microsoft Docs'
-  description: 'Log Analytics forma parte de la solución global de supervisión de Microsoft Azure.  Log Analytics supervisa los entornos locales y en la nube para mantener su disponibilidad y rendimiento. Obtenga información sobre las cargas de trabajo y los sistemas para mantener la disponibilidad y el rendimiento. Aprenda a recopilar, analizar y actuar sobre los datos con nuestros inicios rápidos, tutoriales y ejemplos.'
+  title: "Documentación sobre Azure Log Analytics: tutoriales y referencia de API | Microsoft Docs"
+  description: "Log Analytics forma parte de la solución global de supervisión de Microsoft Azure.  Log Analytics supervisa los entornos locales y en la nube para mantener su disponibilidad y rendimiento. Obtenga información sobre las cargas de trabajo y los sistemas para mantener la disponibilidad y el rendimiento. Aprenda a recopilar, analizar y actuar sobre los datos con nuestros inicios rápidos, tutoriales y ejemplos."
   services: log-analytics
   author: czeumault
   manager: carolz
@@ -13,65 +13,70 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/41/2017
   ms.author: carolz
+  ms.openlocfilehash: 889ec9829a76435daedc38bee66fd0f6c2846ba5
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Log Analytics forma parte de la solución global de supervisión de Microsoft Azure. Log Analytics supervisa los entornos locales y en la nube para mantener su disponibilidad y rendimiento. Obtenga información sobre las cargas de trabajo y los sistemas para mantener la disponibilidad y el rendimiento. Aprenda a recopilar, analizar y actuar sobre los datos con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: "Log Analytics forma parte de la solución global de supervisión de Microsoft Azure. Log Analytics supervisa los entornos locales y en la nube para mantener su disponibilidad y rendimiento. Obtenga información sobre las cargas de trabajo y los sistemas para mantener la disponibilidad y el rendimiento. Aprenda a recopilar, analizar y actuar sobre los datos con nuestros inicios rápidos, tutoriales y ejemplos."
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Aprenda a implementar Log Analytics y a configurar la recopilación de datos desde Azure, otros proveedores de nube y recursos locales."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Aprenda a implementar Log Analytics y a configurar la recopilación de datos desde Azure, otros proveedores de nube y recursos locales.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/virtualmachine.svg'
-            text: Máquinas virtuales de Azure
-            href: /azure/log-analytics/log-analytics-quick-collect-azurevm
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Equipo con Linux
-            href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: Equipo de Windows
-            href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
-  - title: Tutoriales detallados
+    - image:
+        src: https://docs.microsoft.com/azure/media/index/virtualmachine.svg
+      text: "Máquinas virtuales de Azure"
+      href: /azure/log-analytics/log-analytics-quick-collect-azurevm
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_linux.svg
+      text: Equipo con Linux
+      href: /azure/log-analytics/log-analytics-quick-collect-linux-computer
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
+      text: Equipo de Windows
+      href: /azure/log-analytics/log-analytics-quick-collect-windows-computer
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a analizar, visualizar y actuar sobre los datos recopilados.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Aprenda a analizar, visualizar y actuar sobre los datos recopilados.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">Visualización o análisis de los datos recopilados</a>
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Creación y uso compartido de paneles</a>
-          - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Respuesta a eventos con las alertas de Log Analytics</a>
-  - title: Vídeo gratuito de aprendizaje de PluralSight
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-viewdata\">Visualización o análisis de los datos recopilados</a>"
+    - html: "<a href=\"/azure/log-analytics/log-analytics-tutorial-dashboards\">Creación y uso compartido de paneles</a>"
+    - html: <a href="/azure/log-analytics/log-analytics-tutorial-response">Respuesta a eventos con las alertas de Log Analytics</a>
+- title: "Vídeo gratuito de aprendizaje de PluralSight"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Introducción a la supervisión de IaaS
-            href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents'
-  - title: Muestras
+    - title: "Introducción a la supervisión de IaaS"
+      href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/azure-iaas-monitoring-management-getting-started/table-of-contents
+- title: Muestras
+  items:
+  - type: paragraph
+    text: Utilice los ejemplos siguientes para configurar y administrar Log Analytics.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Utilice los ejemplos siguientes para configurar y administrar Log Analytics.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
-  - title: Referencia
+    - html: <a href="/azure/log-analytics/powershell-samples">Azure PowerShell</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/loganalytics">Referencia de API de REST</a></p>
+    - title: "Línea de comandos"
+      html: <p><a href="/powershell/module/azurerm.operationalinsights">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/loganalytics">Referencia de API de REST</a></p>

@@ -3,7 +3,7 @@ title: "Administración de SSO para el proxy de aplicación de Azure AD | Micros
 description: "Obtenga información acerca de los conceptos básicos del inicio de sesión único con el proxy de aplicación"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e3f2ed6f019760fd4109c6fc3d8449d95c4959a9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 60422b4c8256df024bbc870fc43ec6b491f674f1
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>¿Cómo permite el proxy de aplicación de Azure AD el inicio de sesión único?
 
@@ -29,7 +29,7 @@ Para usar Azure Active Directory para el inicio de sesión único a las aplicaci
 
 Para ver las opciones de inicio de sesión único, siga estos pasos:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Vaya a **Azure Active Directory** > **Aplicaciones empresariales** > **Todas las aplicaciones**.
 3. Seleccione la aplicación cuyas opciones de inicio de sesión único desee administrar.
 4. Seleccione **Inicio de sesión único**.
@@ -74,7 +74,7 @@ Si las aplicaciones utilizan encabezados para la autenticación, elija **Inicio 
 
 Para más información acerca de cómo configurar la autenticación basada en el encabezado, consulte [Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación](application-proxy-ping-access.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación](application-proxy-sso-azure-portal.md)
 - [Delegación limitada de Kerberos para el inicio de sesión único con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)

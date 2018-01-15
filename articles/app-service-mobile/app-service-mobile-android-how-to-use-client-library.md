@@ -3,8 +3,8 @@ title: Uso del SDK de Azure Mobile Apps para Android | Microsoft Docs
 description: Uso del SDK de Azure Mobile Apps para Android
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: glenga
-ms.openlocfilehash: ac5cbb51a5ed340a6cbf2eeefa41feb337d28fb9
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: crdun
+ms.openlocfilehash: f04f3fc7d2ff2e01baa78571b2ba267f8e4905c6
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Uso del SDK de Azure Mobile Apps para Android
 
@@ -99,7 +99,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 El cliente también necesita acceso a la actividad o contexto; en este ejemplo, el parámetro `this`.  La construcción de MobileServiceClient debe tener lugar dentro del método `onCreate()` de la actividad a la que se hace referencia en el archivo `AndroidManifest.xml`.
 
-Como procedimiento recomendado, debe abstraer la comunicación del servidor en su propia clase (patrón singleton).  En este caso, debe pasar la actividad dentro del constructor para configurar el servicio de manera adecuada.  Por ejemplo:
+Como procedimiento recomendado, debe abstraer la comunicación del servidor en su propia clase (patrón singleton).  En este caso, debe pasar la actividad dentro del constructor para configurar el servicio de manera adecuada.  Por ejemplo: 
 
 ```java
 package com.example.appname.services;
@@ -198,7 +198,7 @@ Una tabla de back-end de Azure Mobile Apps define cinco campos especiales, cuatr
 * `byte[] version`: normalmente se representa como una cadena; la versión la establece también el servidor.
 * `boolean deleted`: indica que el registro se ha eliminado pero no se ha purgado aún.  No use `deleted` como propiedad en la clase.
 
-El campo `id` es obligatorio.  Los campos `updatedAt` y `version` se usan para la sincronización sin conexión (para la sincronización incremental y la resolución de conflictos, respectivamente).  El campo `createdAt` es un campo de referencia y el cliente no lo utiliza.  Los nombres son nombres "a través de la red" de las propiedades y no son ajustables.  Sin embargo, puede crear una asignación entre el objeto y los nombres "a través de la red" con la biblioteca [gson][3].  Por ejemplo:
+El campo `id` es obligatorio.  Los campos `updatedAt` y `version` se usan para la sincronización sin conexión (para la sincronización incremental y la resolución de conflictos, respectivamente).  El campo `createdAt` es un campo de referencia y el cliente no lo utiliza.  Los nombres son nombres "a través de la red" de las propiedades y no son ajustables.  Sin embargo, puede crear una asignación entre el objeto y los nombres "a través de la red" con la biblioteca [gson][3].  Por ejemplo: 
 
 ```java
 package com.example.zumoappname;
@@ -447,7 +447,7 @@ Una solicitud de todos los registros con este método crea dos solicitudes como 
 
 ### <a name="chaining"></a>Concatenación de métodos de consulta
 
-Se pueden concatenar los métodos usados en la consulta de tablas de back-end. Gracias al encadenamiento de consultas, se pueden seleccionar columnas específicas de filas filtradas que se ordenan y paginan. Puede crear filtros lógicos complejos.  Cada método de consulta devuelve un objeto Query. Para finalizar las series de métodos y ejecutar la consulta, llame al método **execute** . Por ejemplo:
+Se pueden concatenar los métodos usados en la consulta de tablas de back-end. Gracias al encadenamiento de consultas, se pueden seleccionar columnas específicas de filas filtradas que se ordenan y paginan. Puede crear filtros lógicos complejos.  Cada método de consulta devuelve un objeto Query. Para finalizar las series de métodos y ejecutar la consulta, llame al método **execute** . Por ejemplo: 
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -517,7 +517,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Reemplace el método **getView** de los adaptadores. Por ejemplo:
+Reemplace el método **getView** de los adaptadores. Por ejemplo: 
 
 ```
     @Override
@@ -821,7 +821,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 Para una tabla en línea, use `.getTable()`.  Para una tabla sin conexión, use `.getSyncTable()`:
 
 ```java
-MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
 Todos los métodos que están disponibles para tablas en línea (incluido el filtrado, la ordenación, la paginación, la inserción de datos, la actualización de datos y la eliminación de datos) funcionan igual de bien en tablas en línea que en tablas sin conexión.

@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3442de96f346ef211672064584700a7ce183d929
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-13-deploy"></a>Lección 13: Implementación
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="deploy"></a>Implementación
 
 En esta lección, configurará propiedades de implementación. Para ello, especificará un servidor de Azure Analysis Services en el que realizar la implementación y un nombre para el modelo. A continuación, implementará el modelo en esa instancia. Después de implementa el modelo, los usuarios pueden conectarse a él mediante una aplicación cliente de generación de informes. Para más información, consulte [Deploy to Azure Analysis Services](https://docs.microsoft.com/azure/analysis-services/analysis-services-deploy) (Implementación en Azure Analysis Services).  
   
@@ -70,7 +68,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
 3. Cuando la implementación finalice correctamente, siga adelante y haga clic en **Cerrar**.  
   
 ## <a name="conclusion"></a>Conclusión  
-¡Enhorabuena! Ha terminado de crear e implementar el primer modelo tabular de Analysis Services. Este tutorial le ha ayudado a completar las tareas más comunes en la creación de un modelo tabular. Ahora que el modelo Adventure Works Internet Sales está implementado, puede usar SQL Server Management Studio para administrarlo; cree scripts de proceso y un plan de copia de seguridad. Ahora los usuarios pueden conectarse también al modelo mediante una aplicación cliente de generación de informes, como Microsoft Excel o Power BI.  
+Felicidades. Ha terminado de crear e implementar el primer modelo tabular de Analysis Services. Este tutorial le ha ayudado a completar las tareas más comunes en la creación de un modelo tabular. Ahora que el modelo Adventure Works Internet Sales está implementado, puede usar SQL Server Management Studio para administrarlo; cree scripts de proceso y un plan de copia de seguridad. Ahora los usuarios pueden conectarse también al modelo mediante una aplicación cliente de generación de informes, como Microsoft Excel o Power BI.  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
   

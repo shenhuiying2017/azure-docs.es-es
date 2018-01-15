@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 48990c57fb10127733623000a105507b5a48d900
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 1fa8df760ac22ae915765895b498f21d628eea76
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Autenticación de usuario final con Data Lake Store mediante Python
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Ambas opciones se describen en este artículo. Para la autenticación entre serv
 
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "nativa" de Azure Active Directory**. Debe haber completado los pasos descritos en [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
@@ -116,7 +116,7 @@ Se utiliza para autenticarse en Azure AD para las operaciones del sistema de arc
 
 Esto está en desuso. Para más información, consulte [Autenticación de Azure mediante el SDK de Python](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
    
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a usar la autenticación de usuario final para autenticarse en Azure Data Lake Store mediante Python. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar Python con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Data Lake Store con Python](data-lake-store-get-started-python.md)

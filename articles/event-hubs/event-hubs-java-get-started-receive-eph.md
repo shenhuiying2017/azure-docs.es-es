@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94b56fdd1ad350d861b27644c6bedcc59e1cefb0
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Recepción de eventos desde Azure Event Hubs mediante Java
 
 
 ## <a name="introduction"></a>Introducción
-Event Hubs es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
+Event Hubs es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en Event Hubs, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
 Para más información, consulte [Información general de Event Hubs][Event Hubs overview].
 
@@ -68,11 +68,6 @@ La biblioteca de cliente de Java para Event Hubs está disponible para su uso en
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
     <version>{VERSION}</version>
-</dependency>
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>azure-eventhubs-eph</artifactId>
-  <version>0.14.0</version>
 </dependency>
 ```
 
@@ -229,7 +224,7 @@ Para distintos tipos de entornos de compilación, puede obtener explícitamente 
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)

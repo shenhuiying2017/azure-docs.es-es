@@ -1,6 +1,6 @@
 ---
 title: "Comparación de Azure Data Lake Store con Azure Storage Blob| Microsoft Docs"
-description: "Comparación de Azure Data Lake Store con Almacenamiento de blobs de Azure"
+description: "Comparación de Azure Data Lake Store con Azure Storage Blob"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 7b2b6c01de92e3d7375b6cee71e8097799fb6081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8881d28e1625664d0a124057821192aabfe1180b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparación de Azure Data Lake Store y Almacenamiento de blobs de Azure
-La tabla de este artículo resume las diferencias entre Azure Data Lake Store y Almacenamiento de blobs de Azure en algunos aspectos clave del procesamiento de macrodatos. Almacenamiento de blobs de Azure es un almacén de objetos general escalable que está diseñado para una amplia variedad de escenarios de almacenamiento. Azure Data Lake Store un repositorio a hiperescala optimizado cargas de trabajo de análisis de macrodatos.
+# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparación de Azure Data Lake Store y Azure Blob Storage
+La tabla de este artículo resume las diferencias entre Azure Data Lake Store y Azure Blob Storage en algunos aspectos clave del procesamiento de macrodatos. Azure Blob Storage es un almacén de objetos general escalable que está diseñado para una amplia variedad de escenarios de almacenamiento. Azure Data Lake Store un repositorio a hiperescala optimizado cargas de trabajo de análisis de macrodatos.
 
-|  | Almacén de Azure Data Lake | Almacenamiento de blobs de Azure |
+|  | Almacén de Azure Data Lake | Azure Blob Storage |
 | --- | --- | --- |
 | Propósito |Almacenamiento optimizado para cargas de trabajo de análisis de macrodatos |Almacén general de objetos para una amplia variedad de escenarios de almacenamiento |
 | Casos de uso |Datos en lote, interactivos, de análisis de transmisiones y de aprendizaje automático, como archivos de registro, datos de IoT, transmisiones de clic y conjuntos de datos grandes |Cualquier tipo de texto o datos binarios, por ejemplo, back-end de aplicación, datos de copia de seguridad, medios de almacenamiento de datos generales y de transmisión |
@@ -46,7 +46,7 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Store y 
 | Disponibilidad regional |Consulte [aquí](https://azure.microsoft.com/regions/#services) |Consulte [aquí](https://azure.microsoft.com/regions/#services) |
 | Precio |Consulte [Precios](https://azure.microsoft.com/pricing/details/data-lake-store/) |Consulte [Precios](https://azure.microsoft.com/pricing/details/storage/) |
 
-### <a name="next-steps"></a>Pasos siguientes
-* [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
+### <a name="next-steps"></a>pasos siguientes
+* [Información general de Azure Data Lake Store](data-lake-store-overview.md)
 * [Introducción al Almacén de Data Lake](data-lake-store-get-started-portal.md)
 

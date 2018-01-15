@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 433ee5b6a1d6897dd911dcfc5e95c7dd1d977cd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 074a22d0d3d6f4218be431409dcb0e516d226335
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI
 
@@ -63,7 +63,7 @@ Encontrará más información sobre licencias, precios y futuros planes en los s
 * [Actualizaciones de Azure](https://azure.microsoft.com/updates/)
 * [Azure Roadmap](https://www.microsoft.com/cloud-platform/roadmap-recently-available)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * ¿Está listo para empezar a trabajar con SSPR? [Configure el autoservicio de restablecimiento de contraseña de Azure AD](active-directory-passwords-getting-started.md).
 * Planee una implementación correcta del autoservicio de restablecimiento de contraseña para los usuarios mediante las directrices que aparecen en nuestra [guía de implementación](active-directory-passwords-best-practices.md).

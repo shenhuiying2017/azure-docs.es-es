@@ -10,16 +10,16 @@ keywords: "automatización de rbac, control de acceso basado en roles, rbac de a
 ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2016
 ms.author: magoedte;sngun
-ms.openlocfilehash: 59ec4000645583b8cd35f7e8e475b95ea5499232
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9a115301e173b3d5cb3a4ac527ed1b01bc9cc421
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
@@ -212,16 +212,14 @@ El acceso basado en rol también se puede configurar en una cuenta de Automation
 ![Obtener asignación de rol](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
 • [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) para asignar acceso a usuarios, grupos y aplicaciones en un ámbito determinado.  
-    
-            **Ejemplo:** use el siguiente comando para asignar el rol "Operador de Automation" para un usuario en el ámbito de la cuenta de Automation.
+    **Ejemplo:** use el siguiente comando para asignar el rol "Operador de Automation" para un usuario en el ámbito de la cuenta de Automation.
 
     New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
 
 ![Nueva asignación de rol](media/automation-role-based-access-control/automation-16-new-azurerm-role-assignment.png)
 
 • Use [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) para quitar el acceso al usuario, grupo o aplicación concretos de un ámbito determinado.  
-    
-            **Ejemplo:** use el siguiente comando para quitar el usuario del rol "Operador de Automatización" en el ámbito de la cuenta de Automation.
+    **Ejemplo:** use el siguiente comando para quitar el usuario del rol "Operador de Automatización" en el ámbito de la cuenta de Automation.
 
     Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 

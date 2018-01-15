@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
 ms.openlocfilehash: fb6ded1dcba2ac0f78fc6f1f4f7de9238cd752bd
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Aplicación web de Ruby on Rails en una máquina virtual de Azure
 En este tutorial se muestra cómo hospedar un sitio web Ruby on Rails en Azure usando una máquina virtual de Linux.  
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo hospedar un sitio web Ruby on Rails en Azure u
 Este tutorial se validó con Ubuntu Server 14.04 LTS. Si utiliza una distribución de Linux diferente, es posible que tenga que modificar los pasos para instalar Rails.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 >
 
@@ -36,7 +36,7 @@ Empiece por crear una máquina virtual de Azure con una imagen de Linux.
 
 Para crear la máquina virtual, puede usar Azure Portal o la interfaz de línea de comandos (CLI) de Azure.
 
-### <a name="azure-portal"></a>Portal de Azure
+### <a name="azure-portal"></a>Azure Portal
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Nuevo** y , a continuación, escriba "Ubuntu Server 14.04" en el cuadro de búsqueda. Haga clic en la entrada devuelta por la búsqueda. Como modelo de implementación, seleccione **Clásico** y haga clic en "Crear".
 3. En la hoja de datos básicos, proporcione valores para los campos obligatorios: Nombre (para la máquina virtual), Nombre de usuario, Tipo de autenticación y las credenciales correspondientes, Suscripción de Azure, Grupo de recursos y Ubicación.
@@ -47,7 +47,7 @@ Para crear la máquina virtual, puede usar Azure Portal o la interfaz de línea 
 
    ![Punto de conexión predeterminado](./media/virtual-machines-linux-classic-ruby-rails-web-app/endpointsnewportal.png)
 
-### <a name="azure-cli"></a>CLI de Azure
+### <a name="azure-cli"></a>Azure CLI
 Siga los pasos de [Creación rápida de una máquina virtual que ejecuta Linux][vm-instructions].
 
 Después de aprovisionar la máquina virtual, puede obtener el extremo de SSH ejecutando el comando siguiente:
@@ -127,7 +127,7 @@ Debería ver una salida similar a la siguiente.
 
     ![Página predeterminada de Rails][default-rails-cloud]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, hizo la mayoría de los pasos manualmente. En un entorno de producción, escribiría la aplicación en un equipo de desarrollo y la implementaría en la máquina virtual de Azure. Además, la mayoría de los entornos de producción hospedan la aplicación de Rails conjuntamente con otro proceso de servidor, como Apache o NginX, que controla el enrutamiento de solicitudes a varias instancias de la aplicación de Rails y el servicio a recursos estáticos. Para obtener más información, consulte http://rubyonrails.org/deploy/.
 
 Para más información sobre Ruby on Rails, visite [Ruby on Rails Guides][rails-guides] (Guías de Ruby on Rails).

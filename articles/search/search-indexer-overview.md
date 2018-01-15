@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a51aa48a9a2c3c062c374885d45f08ae0b397ce1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores de Azure Search
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/13/2017
 > * [Información general](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
 > * [SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Azure Cosmos DB](search-howto-index-documentdb.md)
+> * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 > * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 > * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 >
@@ -57,7 +57,7 @@ Los indexadores pueden ofrecer características que son exclusivas del origen de
 Un indexador extrae datos de un *origen de datos* que contiene información, por ejemplo, una cadena de conexión y, posiblemente, credenciales. Actualmente se admiten los siguientes orígenes de datos:
 
 * [Azure SQL Database o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) para tipos de contenido seleccionados
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
@@ -72,11 +72,11 @@ Un indexador automatizará algunas tareas relacionadas con la ingesta de datos, 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Paso 3: Creación y programación del indexador
 La definición del indexador es una construcción que especifica el índice, el origen de datos y una programación. Un indexador puede hacer referencia a un origen de datos desde otro servicio, siempre que ese origen de datos pertenezca a la misma suscripción. Para más información sobre la estructura de un indexador, consulte [Crear el indizador (API de REST de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que tiene el concepto básico, el paso siguiente consiste en revisar los requisitos y las tareas específicos de cada tipo de origen de datos.
 
 * [Azure SQL Database o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indexación de blobs CSV con el indexador de blobs de Azure Search](search-howto-index-csv-blobs.md)

@@ -1,8 +1,8 @@
 ---
 title: "Habilitación de la sincronización sin conexión para una aplicación móvil de Azure (Xamarin.Forms) | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin.Forms."
+description: "Obtenga información acerca de cómo usar la aplicación móvil de App Service para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin.Forms."
 documentationcenter: xamarin
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 services: app-service\mobile
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: glenga
-ms.openlocfilehash: f2bed0a7124517319cc82405c4ab6b4d79aacfe1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f88e6a4037bcca54982359742cdc6021f020882d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilitación de la sincronización sin conexión para la aplicación móvil Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Información general
-Este tutorial presenta la característica de sincronización sin conexión de Aplicaciones móviles de Azure para Xamarin.Forms. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local. Una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
+Este tutorial presenta la característica de sincronización sin conexión de Azure Mobile Apps para Xamarin.Forms. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local. Una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
 
 Este tutorial se basa en la solución de inicio rápido de Xamarin.Forms para Mobile Apps que crea al completar el tutorial [Crear una aplicación Xamarin.iOS]. La solución de inicio rápido para Xamarin.Forms contiene el código para admitir la sincronización sin conexión, que solo debe habilitarse. En este tutorial, actualizará la solución de inicio rápido para activar las características sin conexión de Azure Mobile Apps. También nos centraremos en el código sin conexión específico de la aplicación. Si no usa la solución de inicio rápido descargada, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte el artículo sobre cómo [trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps][1].
 
@@ -136,7 +136,7 @@ En esta sección, modificará el proyecto de cliente para simular un escenario s
             }
 3. Compile y ejecute la aplicación cliente.  Agregue nuevos elementos. Tenga en cuenta que la excepción se registra en la consola para cada intento de sincronización con el back-end. Estos nuevos elementos solo existirán en el almacén local hasta que se puedan insertar en el back-end móvil. La aplicación cliente se comporta como si estuviera conectada al back-end y admite todas las operaciones de creación, lectura, actualización y eliminación (CRUD).
 4. Cierre la aplicación y reiníciela para comprobar que los nuevos elementos que creó se mantienen en el almacén local.
-5. (Opcional) Use Visual Studio para ver la tabla de base de datos SQL de Azure y observar que los datos de la base de datos de back-end no han cambiado.
+5. (Opcional) Use Visual Studio para ver la tabla de Azure SQL Database y observar que los datos de la base de datos de back-end no han cambiado.
 
     En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**SQL Databases**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
 

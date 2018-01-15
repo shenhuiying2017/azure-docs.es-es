@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: af9050d41502f55b0426b858654b8af6985b93ca
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 0a1d8ff4b9821b0d41b6225872472a9d5aedffc7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar datos de Hive con Azure Data Factory 
 
@@ -34,7 +34,7 @@ Azure Data Factory proporciona un controlador integrado para habilitar la conect
 
 ## <a name="getting-started"></a>Introducción
 
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector de Hive.
 
@@ -42,26 +42,26 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Hive:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Hive** | Sí |
+| Tipo | La propiedad type debe establecerse en: **Hive** | Sí |
 | host | Dirección IP o nombre de host del servidor de Hive, separados por ";" para varios hosts (solo cuando serviceDiscoveryMode está habilitado).  | Sí |
-| puerto | Puerto TCP que el servidor de Hive utiliza para escuchar las conexiones del cliente.  | No |
-| serverType | Tipo de servidor de Hive. <br/>Los valores permitidos son: **HiveServer1**, **HiveServer2** y **HiveThriftServer**. | No |
-| thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary**, **SASL** y **HTTP **. | No |
+| puerto | Puerto TCP que el servidor de Hive utiliza para escuchar las conexiones del cliente.  | Sin  |
+| serverType | Tipo de servidor de Hive. <br/>Los valores permitidos son: **HiveServer1**, **HiveServer2** y **HiveThriftServer**. | Sin  |
+| thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary**, **SASL** y **HTTP **. | Sin  |
 | authenticationType | Método de autenticación que se usa para tener acceso al servidor de Hive. <br/>Los valores permitidos son: **Anonymous**, **Username**, **UsernameAndPassword** y **WindowsAzureHDInsightService**. | Sí |
-| serviceDiscoveryMode | True para indicar que se usa el servicio de ZooKeeper; false para indicar que no.  | No |
-| zooKeeperNameSpace | Espacio de nombres en ZooKeeper en el que se agregan nodos de Hive Server 2.  | No |
-| useNativeQuery | Especifica si el controlador usa las consultas nativas de HiveQL o las convierte en un formato equivalente en HiveQL.  | No |
-| nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Hive.  | No |
-| contraseña | Contraseña correspondiente con el nombre de usuario que ha proporcionado en el campo Nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarla de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | No |
-| httpPath | Dirección URL parcial correspondiente al servidor de Hive.  | No |
-| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | No |
-| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | No |
-| useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | No |
-| allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado SSL emitido por una CA coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es false.  | No |
-| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | No |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |No |
+| serviceDiscoveryMode | True para indicar que se usa el servicio de ZooKeeper; false para indicar que no.  | Sin  |
+| zooKeeperNameSpace | Espacio de nombres en ZooKeeper en el que se agregan nodos de Hive Server 2.  | Sin  |
+| useNativeQuery | Especifica si el controlador usa las consultas nativas de HiveQL o las convierte en un formato equivalente en HiveQL.  | Sin  |
+| Nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Hive.  | Sin  |
+| contraseña | Contraseña correspondiente con el nombre de usuario que ha proporcionado en el campo Nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarla de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| httpPath | Dirección URL parcial correspondiente al servidor de Hive.  | Sin  |
+| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
+| trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin  |
+| useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | Sin  |
+| allowHostNameCNMismatch | Especifica si se requiere que el nombre del certificado SSL emitido por una CA coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es false.  | Sin  |
+| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | Sin  |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
 
@@ -114,9 +114,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de Hive, establezca el tipo de origen de la actividad de copia en **HiveSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **HiveSource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **HiveSource**. | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | Sí |
 
 **Ejemplo:**
@@ -151,5 +151,5 @@ Para copiar datos de Hive, establezca el tipo de origen de la actividad de copia
 ]
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

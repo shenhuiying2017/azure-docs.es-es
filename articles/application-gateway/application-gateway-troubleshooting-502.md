@@ -1,6 +1,6 @@
 ---
 title: "Solución de errores de puerta de enlace incorrecta (502) en el servicio Azure Application Gateway | Microsoft Docs"
-description: "Obtenga información sobre cómo solucionar errores 502 en el servicio Puerta de enlace de aplicaciones."
+description: "Obtenga información sobre cómo solucionar errores 502 en el servicio Application Gateway."
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
@@ -76,9 +76,9 @@ Si está presente, asegúrese de que el servidor DNS pueda resolver correctament
 
 ### <a name="cause"></a>Causa
 
-Los errores 502 también pueden ser indicativos frecuentes de que la sonda de estado predeterminada no puede conectarse con las máquinas virtuales back-end. Cuando se aprovisiona una instancia de Puerta de enlace de aplicaciones, se configura automáticamente una sonda de estado predeterminada para cada BackendAddressPool que utiliza las propiedades de BackendHttpSetting. El usuario no tiene que escribir datos para establecer esta sonda. En concreto, cuando se configura una regla de equilibrio de carga, se crea una asociación entre un elemento BackendHttpSetting y otro BackendAddressPool. Se ha configurado una sonda predeterminada para cada una de estas asociaciones y Puerta de enlace de aplicaciones inicia una conexión de comprobación de estado periódica en cada instancia del elemento BackendAddressPool del puerto especificado en BackendHttpSetting. En la tabla siguiente se enumeran los valores asociados con la sonda de estado predeterminada.
+Los errores 502 también pueden ser indicativos frecuentes de que la sonda de estado predeterminada no puede conectarse con las máquinas virtuales back-end. Cuando se aprovisiona una instancia de Application Gateway, se configura automáticamente una sonda de estado predeterminada para cada BackendAddressPool que utiliza las propiedades de BackendHttpSetting. El usuario no tiene que escribir datos para establecer esta sonda. En concreto, cuando se configura una regla de equilibrio de carga, se crea una asociación entre un elemento BackendHttpSetting y otro BackendAddressPool. Se ha configurado una sonda predeterminada para cada una de estas asociaciones y Puerta de enlace de aplicaciones inicia una conexión de comprobación de estado periódica en cada instancia del elemento BackendAddressPool del puerto especificado en BackendHttpSetting. En la tabla siguiente se enumeran los valores asociados con la sonda de estado predeterminada.
 
-| Propiedad de sondeo | Valor | Description |
+| Propiedad de sondeo | Valor | DESCRIPCIÓN |
 | --- | --- | --- |
 | Dirección URL de sondeo |http://127.0.0.1/ |Ruta de acceso URL |
 | Intervalo |30 |Intervalo de sondeo en segundos |
@@ -100,10 +100,10 @@ Los errores 502 también pueden ser indicativos frecuentes de que la sonda de es
 
 Las sondas de estado personalizadas dotan al comportamiento de sondeo predeterminado de mayor flexibilidad. Cuando se usan sondas personalizadas, puede configurar el intervalo de sondeo, la dirección URL y la ruta de acceso a la comprobación, además del número de respuestas erróneas que se aceptarán antes de marcar la instancia del grupo back-end como incorrecta. Se agregan las siguientes propiedades adicionales.
 
-| Propiedad de sondeo | Description |
+| Propiedad de sondeo | DESCRIPCIÓN |
 | --- | --- |
-| Nombre |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
-| Protocol |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
+| NOMBRE |Nombre del sondeo. Este nombre se usa para hacer referencia al sondeo en la configuración de HTTP de back-end. |
+| Protocolo |Protocolo usado para enviar el sondeo. El sondeo utiliza el protocolo definido en la configuración de HTTP del back-end. |
 | Host |Nombre de host para enviar el sondeo. Solo es aplicable cuando se ha configurado un entorno multisitio en Puerta de enlace de aplicaciones. Es diferente al nombre de host de máquina virtual. |
 | Ruta de acceso |Ruta de acceso relativa del sondeo. La ruta de acceso válida se inicia desde '/'. La sonda se envía a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\> |
 | Intervalo |Intervalo de sondeo en segundos. Es el intervalo de tiempo entre dos sondeos consecutivos. |
@@ -118,8 +118,7 @@ Valide que el sondeo de mantenimiento personalizado esté configurado correctame
 * Si la instancia de Puerta de enlace de aplicaciones está configurada para un único sitio, de forma predeterminada, el nombre de host debe especificarse como 127.0.0.1, salvo que se configure de otra manera en la sonda personalizada.
 * Asegúrese de que una llamada a http://\<host\>:\<puerto\>\<ruta de acceso\> devuelva el código de resultado HTTP 200.
 * Compruebe que los valores del intervalo, el tiempo de espera y UnhealtyThreshold estén dentro de rangos aceptables.
-* Si utiliza un sondeo HTTPS, asegúrese de que el servidor de back-end no requiera SNI; para ello, configure un certificado de reserva en dicho servidor. 
-* Compruebe que los valores del intervalo, el tiempo de espera y UnhealtyThreshold estén dentro de rangos aceptables.
+* Si utiliza un sondeo HTTPS, asegúrese de que el servidor de back-end no requiera SNI; para ello, configure un certificado de reserva en dicho servidor.
 
 ## <a name="request-time-out"></a>Tiempo de espera de solicitud superado
 
@@ -187,7 +186,7 @@ Si todas las instancias de BackendAddressPool son incorrectas, el servicio Appli
 
 Asegúrese de que las instancias son correctas y de que la aplicación está configurada de la forma adecuada. Compruebe si las instancias back-end pueden responder a un ping de otra máquina virtual de la misma red virtual. Si se configura con un punto de conexión público, asegúrese de que se pueda utilizar una solicitud de explorador a la aplicación web.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Si los pasos anteriores no resuelven el problema, abra una [incidencia de soporte técnico](https://azure.microsoft.com/support/options/).
 

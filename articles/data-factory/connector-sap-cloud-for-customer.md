@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ad3bc7ba38f5ea20586031bdcc3ae44f03f9da0b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copia de datos desde SAP Cloud for Customer (C4C) mediante Azure Data Factory
 
@@ -34,7 +34,7 @@ En concreto, este conector permite a Azure Data Factory copiar los datos con SAP
 
 ## <a name="getting-started"></a>Introducción
 
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector SAP Cloud for Customer.
 
@@ -42,11 +42,11 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado SAP Cloud for Customer:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapCloudForCustomer**. | Sí |
-| url | Dirección URL del servicio de OData de SAP C4C. | Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a SAP C4C. | Sí |
+| Tipo | La propiedad type debe establecerse en: **SapCloudForCustomer**. | Sí |
+| URL | Dirección URL del servicio de OData de SAP C4C. | Sí |
+| Nombre de usuario | Especifique el nombre de usuario para conectarse a SAP C4C. | Sí |
 | contraseña | Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No para el origen, sí para el receptor |
 
@@ -82,9 +82,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de SAP Cloud for Customer, establezca la propiedad type del conjunto de datos en **SapCloudForCustomerResource**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **SapCloudForCustomerResource**. |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SapCloudForCustomerResource**. |Sí |
 | path | Especifique la ruta de acceso de la entidad de OData de SAP C4C. |Sí |
 
 **Ejemplo:**
@@ -113,10 +113,10 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos de SAP Cloud for Customer, establezca el tipo de origen en la actividad de copia en **SapCloudForCustomerSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapCloudForCustomerSource**.  | Sí |
-| query | Especifique la consulta de OData personalizada para leer datos. | No |
+| Tipo | La propiedad type debe establecerse en: **SapCloudForCustomerSource**.  | Sí |
+| query | Especifique la consulta de OData personalizada para leer datos. | Sin  |
 
 Consulta de ejemplo para obtener datos de un día concreto: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -156,11 +156,11 @@ Consulta de ejemplo para obtener datos de un día concreto: `"query": "$filter=C
 
 Para copiar datos de SAP Cloud for Customer, establezca el tipo de receptor en la actividad de copia en **SapCloudForCustomerSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapCloudForCustomerSink**.  | Sí |
-| writeBehavior | El comportamiento de escritura de la operación. Puede ser "Insert" o "Update". | No. El valor predeterminado es "Insert". |
-| writeBatchSize | Tamaño de lote de la operación de escritura. El tamaño de lote para obtener un rendimiento óptimo puede ser diferente para otra tabla o servidor. | No. El valor predeterminado es 10. |
+| Tipo | La propiedad type debe establecerse en: **SapCloudForCustomerSink**.  | Sí |
+| writeBehavior | El comportamiento de escritura de la operación. Puede ser "Insert" o "Update". | Nº El valor predeterminado es "Insert". |
+| writeBatchSize | Tamaño de lote de la operación de escritura. El tamaño de lote para obtener un rendimiento óptimo puede ser diferente para otra tabla o servidor. | Nº El valor predeterminado es 10. |
 
 **Ejemplo:**
 
@@ -210,8 +210,8 @@ Al copiar datos desde SAP Cloud for Customer, se usan las siguientes asignacione
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Booleano |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
-| Edm.Decimal | Decimal |
+| Edm.DateTime | Datetime |
+| Edm.Decimal | DECIMAL |
 | Edm.Double | Doble |
 | Edm.Single | Single |
 | Edm.Guid | Guid |
@@ -219,10 +219,10 @@ Al copiar datos desde SAP Cloud for Customer, se usan las siguientes asignacione
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | String |
-| Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.String | string |
+| Edm.Time | timespan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

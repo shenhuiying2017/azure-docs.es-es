@@ -13,20 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/23/2017
+ms.date: 01/08/2018
 ms.author: sasubram
-ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c43082281cbc95ae75b65a2aefadbbab6d7cd30
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
 Las preguntas más frecuentes (P+F) acerca de la colaboración negocio a negocio (B2B) de Azure Active Directory (Azure AD) se actualizan periódicamente para incluir nuevos temas.
-
-### <a name="is-azure-ad-b2b-collaboration-available-in-the-azure-classic-portal"></a>¿Está disponible la colaboración B2B de Azure AD en el Portal de Azure clásico?
-No. Las características de la colaboración B2B de Azure AD solo están disponibles en [Azure Portal](https://portal.azure.com) y en el [panel de acceso](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>¿Se puede personalizar la página de inicio de sesión para que sea más intuitiva para los usuarios invitados de colaboración de B2B?
 Por supuesto. Consulte nuestra [entrada del blog relativa a esta característica](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para más información acerca de cómo personalizar la página de inicio de sesión de una organización, consulte [Incorporación de la personalización de marca de empresa a sus páginas de inicio de sesión y panel de acceso](customize-branding.md).
@@ -129,7 +127,7 @@ Sí. La colaboración B2B de Azure AD admite listas de permitidos y de denegados
 ### <a name="what-licenses-do-we-need-to-use-azure-ad-b2b"></a>¿Qué licencias se necesitan para usar B2B de Azure AD?
 Para obtener información acerca de las licencias que necesita tener una organización para usar B2B de Azure AD, consulte [Guía de concesión de licencias de colaboración B2B de Azure Active Directory](active-directory-b2b-licensing.md).
 
-### <a name="next-steps"></a>Pasos siguientes
+### <a name="next-steps"></a>pasos siguientes
 
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 

@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Introducción a Azure Automation
 
@@ -88,10 +88,6 @@ Todas las tareas de automatización que realice con recursos mediante los cmdlet
 
 Los recursos de Automation de cada cuenta de Automation están asociados con una sola región de Azure, pero las cuentas de Automation pueden administrar recursos en su suscripción. Cree cuentas de Automation en distintas regiones si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
 
-> [!NOTE]
-> A las cuentas de Automation y los recursos que contienen, que se crean en Azure Portal, no se puede acceder desde el Portal de Azure clásico. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
-> 
-
 Al crear una cuenta de Automation en Azure Portal, crea automáticamente dos entidades de autenticación:
 
 * Una cuenta de ejecución. Esta cuenta crea una entidad de servicio en Azure Active Directory (Azure AD) y un certificado. También asigna el control de acceso basado en rol (RBAC) del colaborador, que administra recursos de Resource Manager mediante runbooks.
@@ -146,7 +142,7 @@ Para obtener una lista de direcciones IP en lugar de nombres, descargue y revise
 
 Hay varias formas de crear una cuenta de Automation en Azure Portal.  La tabla siguiente presenta cada tipo de experiencia de implementación y las diferencias entre ellas.  
 
-|Método | Descripción |
+|Método | DESCRIPCIÓN |
 |-------|-------------|
 | Seleccionar Automation and Control en Marketplace | Una oferta que crea una cuenta de Automation y un área de trabajo de OMS vinculadas entre sí en el mismo grupo de recursos y región.  La integración con OMS también incluye la ventaja de utilizar Log Analytics para supervisar y analizar el estado de los trabajos de runbook y las secuencias de trabajos en el tiempo y utilizar características avanzadas para remitir o investigar los problemas. La oferta también implementa las soluciones de seguimiento de cambios y administración de actualizaciones, que están habilitadas de forma predeterminada. |
 | Seleccionar Automation en Marketplace | Crea una cuenta de Automation en un grupo de recursos nuevos o ya existente que no está vinculada a un área de trabajo de OMS y no incluye ninguna solución disponible de la oferta de Automation and Control. Se trata de una configuración básica que le sirve de introducción a Automation y puede ayudarle a aprender a escribir runbooks, configuraciones de DSC y a utilizar las funcionalidades del servicio. |
@@ -187,7 +183,7 @@ Es el método recomendado para incorporar Automation seleccionando la oferta de 
 
 Después de incorporar la oferta, puede empezar a crear runbooks, trabajar con las soluciones de administración que ha habilitado, implementar un rol de [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) o comenzar a trabajar con [Log Analytics](https://docs.microsoft.com/azure/log-analytics) para recopilar los datos generados por los recursos de su entorno en la nube o local.   
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Puede confirmar la nueva cuenta de Automation para autenticarse con recursos de Azure mediante la revisión del artículo [Comprobación de la autenticación con la cuenta de ejecución de Azure Automation](automation-verify-runas-authentication.md).
 * Para empezar a trabajar con la creación de runbooks, revise primero los [tipos de runbook de Automation](automation-runbook-types.md) compatibles y otras consideraciones relacionadas antes de empezar a crear.
 

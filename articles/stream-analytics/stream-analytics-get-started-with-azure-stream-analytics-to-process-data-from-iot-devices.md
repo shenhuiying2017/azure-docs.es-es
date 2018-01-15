@@ -4,7 +4,7 @@ description: "Flujos de datos y SensorTags de IoT con análisis de transmisiones
 keywords: "solución de IoT, introducción a IoT"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introducción a Análisis de transmisiones de Azure para el procesamiento de datos desde dispositivos de IoT
+# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introducción a Azure Stream Analytics para el procesamiento de datos desde dispositivos de IoT
 En este tutorial, aprenderá a crear una lógica de procesamiento de transmisiones para recopilar datos desde dispositivos de Internet de las cosas (IoT). Usaremos un caso de uso real de Internet de las cosas para mostrar cómo puede crear una solución de forma rápida y económica.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -31,11 +31,7 @@ En este tutorial, aprenderá a crear una lógica de procesamiento de transmision
 ## <a name="scenario"></a>Escenario
 Contoso es una empresa del sector de la automatización industrial que ha automatizado completamente su proceso de fabricación. La maquinaria de esta planta cuenta con sensores capaces de emitir flujos de datos en tiempo real. En este escenario, un administrador del piso de producción desea tener información en tiempo real de los datos provenientes de los sensores para buscar patrones y llevar a cabo las acciones que sean necesarias. Usaremos el lenguaje de consulta de Stream Analytics (SAQL) sobre los datos de los sensores para encontrar patrones interesantes en los flujos de datos entrantes.
 
-Estos datos provienen de un dispositivo SensorTag de Texas Instruments.
-
-![SensorTag de Texas Instruments](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-La carga de los datos está en formato JSON y tiene un aspecto similar al siguiente:
+Estos datos provienen de un dispositivo SensorTag de Texas Instruments. La carga de los datos está en formato JSON y tiene un aspecto similar al siguiente:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -44,14 +40,14 @@ La carga de los datos está en formato JSON y tiene un aspecto similar al siguie
         "hmdt": 34  
     }  
 
-En un escenario real, podría haber cientos de estos sensores generando eventos en forma de secuencia. Lo ideal sería que hubiera un dispositivo de puerta de enlace que ejecutara código para insertar estos eventos en [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) o en [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Un trabajo de Análisis de transmisiones ingeriría estos eventos desde Centros de eventos y ejecutar consultas de análisis en tiempo real en las secuencias. Después, los resultados se podrían enviar a una de las [salidas admitidas](stream-analytics-define-outputs.md).
+En un escenario real, podría haber cientos de estos sensores generando eventos en forma de secuencia. Lo ideal sería que hubiera un dispositivo de puerta de enlace que ejecutara código para insertar estos eventos en [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) o en [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Un trabajo de Stream Analytics ingeriría estos eventos desde Event Hubs y ejecutar consultas de análisis en tiempo real en las secuencias. Después, los resultados se podrían enviar a una de las [salidas admitidas](stream-analytics-define-outputs.md).
 
 Para facilitar su uso, esta guía de introducción proporciona un archivo con datos de ejemplo que se capturan desde dispositivos de SensorTag reales. Puede ejecutar consultas en los datos de ejemplo y ver los resultados. En tutoriales subsiguientes, aprenderá a conectar el trabajo a las entradas y salidas y a implementarlas en el servicio de Azure.
 
-## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Análisis de transmisiones
-1. En [Azure Portal](http://portal.azure.com), haga clic en el signo más y escriba **STREAM ANALYTICS** en la ventana de texto a la derecha. Después, seleccione **Trabajo de Análisis de transmisiones** en la lista de resultados.
+## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
+1. En [Azure Portal](http://portal.azure.com), haga clic en el signo más y escriba **STREAM ANALYTICS** en la ventana de texto a la derecha. Después, seleccione **Trabajo de Stream Analytics** en la lista de resultados.
    
-    ![Crear un nuevo trabajo de Análisis de transmisiones](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
+    ![Crear un nuevo trabajo de Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
 2. Escriba un nombre de trabajo único y compruebe que la suscripción sea la correcta para su trabajo. A continuación, cree un grupo de recursos o seleccione uno existente en su suscripción.
 3. Después seleccione una ubicación para el trabajo. Para acelerar el procesamiento y reducir costos en la transferencia de datos, se recomienda seleccionar la misma ubicación que el grupo de recursos y la cuenta de almacenamiento prevista.
    
@@ -68,7 +64,7 @@ Para facilitar su uso, esta guía de introducción proporciona un archivo con da
    
     ![creación de trabajo en curso](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>Creación de una consulta de Azure Stream Analytics
+## <a name="create-an-azure-stream-analytics-query"></a>Creación de una consulta de Azure Stream Analytics
 Una vez creado el trabajo, es hora de abrirlo y crear una consulta. Si hace clic en el icono del trabajo, puede acceder fácilmente a él.
 
 ![Icono de trabajo](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)

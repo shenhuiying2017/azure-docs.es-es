@@ -3,7 +3,7 @@ title: "Provisión de acceso remoto seguro a aplicaciones locales"
 description: "Explica cómo utilizar el proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a sus aplicaciones locales."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3ca7c7919f6cfcece38073520162dc44bbfd748e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 24def898f282c4e122ae53932ae86047e815595c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Provisión de acceso remoto seguro a aplicaciones locales
 
@@ -81,7 +81,7 @@ Para obtener más información sobre Kerberos, consulte [All you want to know ab
 ### <a name="managing-apps"></a>Administración de aplicaciones
 Después de publicar la aplicación con Proxy de aplicación, la puede administrar como cualquier otra aplicación de empresa en Azure Portal. Puede usar características de seguridad de Azure Active Directory como el acceso condicional y la verificación en dos pasos, controlar los permisos de usuario y personalizar la personalización de marca para la aplicación. 
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="get-started"></a>Introducción
 
 Antes de configurar Proxy de aplicación, asegúrese de que tiene una [edición de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/) compatible y un directorio de Azure AD para el que es un administrador global.
 

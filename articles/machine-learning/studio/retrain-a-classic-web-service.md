@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Reentrenamiento de un servicio web clásico
 El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web. 
@@ -66,7 +66,7 @@ Para recuperar la dirección URL de la ruta de acceso:
 
 1. Copie y pegue la URL en el explorador.
 2. Haga clic en el vínculo Actualizar recurso.
-3. Copie la dirección URL de POST de la solicitud PATCH. Por ejemplo:
+3. Copie la dirección URL de POST de la solicitud PATCH. Por ejemplo: 
    
      PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
@@ -116,7 +116,7 @@ Se puede obtener *apiKey* y *endpointUrl* para la llamada desde el panel del pun
 
 El valor del parámetro *Name* de *Resources* debe coincidir con el nombre del recurso del modelo entrenado guardado en el experimento predictivo. Para obtener el nombre del recurso:
 
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Machine Learning**en el menú izquierdo.
 3. En Nombre, haga clic en el área de trabajo y, a continuación, haga clic en **Servicios web**.
 4. En Nombre, haga clic en **Census Model [predictive exp.]** (Modelo de censo [exp. predictivo]).
@@ -134,6 +134,6 @@ Mediante el uso de las API de reentrenamiento, puede actualizar el modelo entren
 * Reentrenamiento de modelos periódicos con nuevos datos.
 * Distribución de un modelo entre los clientes con el fin de permitirles reentrenar el modelo mediante sus propios datos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Solución de problemas del reentrenamiento de un servicio web clásico de Azure Machine Learning](troubleshooting-retraining-models.md)
 

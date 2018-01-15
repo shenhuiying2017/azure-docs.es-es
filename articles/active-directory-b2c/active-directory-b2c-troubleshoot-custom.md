@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.openlocfilehash: 10b18400e92c5a626cd1e6ce9a6d6bd56df57dc1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 65a39479b4d4b86d569501636e4a0678b052d426
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Collecting Logs (Azure Active Directory B2C: recopilación de registros)
 
@@ -34,7 +34,7 @@ Azure AD B2C admite una característica para enviar datos a Application Insights
 
 ### <a name="setup-application-insights"></a>Configuración de Application Insights
 
-1. Vaya al [Portal de Azure](https://portal.azure.com). Asegúrese de que se encuentra en el inquilino con su suscripción de Azure (no su inquilino de Azure AD B2C).
+1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el inquilino con su suscripción de Azure (no su inquilino de Azure AD B2C).
 1. Haga clic en **+ Nuevo** en el menú de navegación izquierdo.
 1. Busque y seleccione **Application Insights** y, a continuación, haga clic en **Crear**.
 1. Complete el formulario y haga clic en **Crear**. Seleccione **General** para el **Tipo de aplicación**.
@@ -74,7 +74,7 @@ Sample:
   >
     ...
     <RelyingParty>
-      <DefaultUserJourney ReferenceId="YourPolicyName" />
+      <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
       <UserJourneyBehaviors>
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
@@ -94,7 +94,7 @@ Sample:
 1. Abra una nueva pestaña en Application Insights.
 1. A continuación se muestra una lista de consultas que puede usar para ver los registros
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 |---------------------|--------------------|
 traces | Ver todos los registros generados por Azure AD B2C |
 traces \| where timestamp > ago(1d) | Ver todos los registros generados por Azure AD B2C para el último día

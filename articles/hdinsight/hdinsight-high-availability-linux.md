@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 39894ba73c691ad547d8b5ab67ec9d5786a5229c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: bf1840f77ebd39761a5ba1fd8fd1f98891dd8eca
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
 
@@ -34,7 +34,7 @@ Hadoop logra una alta disponibilidad y confiabilidad al replicar datos y servici
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilidad y confiabilidad de los nodos
 
-Los nodos de un clúster de HDInsight se implementan mediante Máquinas virtuales de Azure. En las secciones siguientes se describen los tipos de nodo individuales usados con HDInsight. 
+Los nodos de un clúster de HDInsight se implementan mediante Azure Virtual Machines. En las secciones siguientes se describen los tipos de nodo individuales usados con HDInsight. 
 
 > [!NOTE]
 > No todos los tipos de nodo se utilizan para un tipo de clúster. Por ejemplo, un tipo de clúster de Hadoop no tiene ningún nodo Nimbus. Para más información sobre los nodos usados por los tipos de clúster de HDInsight, vea la sección Tipos de clúster en el documento [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
@@ -62,7 +62,7 @@ Los nodos de trabajo realizan el análisis de los datos reales cuando se envía 
 
 ### <a name="edge-node"></a>Nodo perimetral
 
-El nodo perimetral no participa activamente en el análisis de datos dentro del clúster, sino que lo usan desarrolladores o científicos de datos al trabajar con Hadoop. El nodo perimetral se encuentra en la misma Red virtual de Azure como los demás nodos del clúster y puede acceder directamente a todos los demás nodos. El nodo perimetral se puede usar sin tener que quitar recursos a los trabajos de análisis o servicios críticos de Hadoop.
+El nodo perimetral no participa activamente en el análisis de datos dentro del clúster, sino que lo usan desarrolladores o científicos de datos al trabajar con Hadoop. El nodo perimetral se encuentra en la misma instancia de Azure Virtual Network como los demás nodos del clúster y puede acceder directamente a todos los demás nodos. El nodo perimetral se puede usar sin tener que quitar recursos a los trabajos de análisis o servicios críticos de Hadoop.
 
 Actualmente, el servidor de R en HDInsight es el único tipo de clúster que proporciona un nodo perimetral de forma predeterminada. Para el servidor de R en HDInsight, se usa el nodo perimetral para probar el código de R localmente en el nodo antes de enviarlo al clúster para su procesamiento distribuido.
 
@@ -189,7 +189,7 @@ Cada nodo principal puede tener entradas de registro único, por lo que debe com
 
 También se puede conectar con el nodo principal mediante el protocolo SSH File Transfer Protocol o el protocolo seguro de transferencia de archivos (SFTP) y descargar los archivos de registro directamente.
 
-De igual forma a utilizar un cliente SSH, al conectarse al clúster debe proporcionar el nombre de cuenta de usuario SSH y la dirección SSH del clúster. Por ejemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. Especifique la contraseña de la cuenta cuando se le solicite o proporcione una clave pública con el parámetro `-i`.
+De igual forma a utilizar un cliente SSH, al conectarse al clúster debe proporcionar el nombre de cuenta de usuario SSH y la dirección SSH del clúster. Por ejemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Especifique la contraseña de la cuenta cuando se le solicite o proporcione una clave pública con el parámetro `-i`.
 
 Una vez conectado, se le presentará un símbolo del sistema `sftp>` . Desde este símbolo del sistema, puede cambiar los directorios, cargar y descargar archivos. Por ejemplo, los siguientes comandos cambian los directorios al directorio **/var/log/hadoop/hdfs** y después descargan todos los archivos en el directorio.
 
@@ -224,7 +224,7 @@ Al crear un clúster, puede especificar el tamaño de los nodos. A continuación
 
 * **Azure PowerShell**: cuando se usa el cmdlet `New-AzureRmHDInsightCluster`, puede establecer el tamaño de los nodos principal, de trabajo y ZooKeeper mediante los parámetros `-HeadNodeVMSize`, `-WorkerNodeSize` y `-ZookeeperNodeSize`.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Use los siguientes vínculos para obtener más información sobre los aspectos que se mencionan en este documento.
 

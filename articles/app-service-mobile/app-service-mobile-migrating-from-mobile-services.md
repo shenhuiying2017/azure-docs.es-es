@@ -3,8 +3,8 @@ title: "Migración desde Servicios móviles a una Aplicación móvil del Servici
 description: "Obtenga información acerca de cómo migrar fácilmente la aplicación Servicios móviles a una Aplicación móvil del Servicio de aplicaciones"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
-ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
 Con la [disponibilidad general del Servicio de aplicaciones de Azure], los sitios de Servicios móviles de Azure se pueden migrar fácilmente in situ para aprovechar todas las características del Servicio de aplicaciones de Azure.  En este documento se explica lo que puede esperar al migrar su sitio de Servicios móviles de Azure al Servicio de aplicaciones de Azure.
@@ -81,7 +81,7 @@ Como punto de partida, se recomiendan los siguientes planes:
 |:--- |:--- |
 | Gratuito |F1 Gratis |
 | Básica |Básico B1 |
-| Standard |S1 Estándar |
+| Estándar |S1 Estándar |
 
 Hay una flexibilidad considerable en la elección del plan de tarifa adecuado para su aplicación.  Consulte [Precios de Servicio de aplicaciones] para obtener detalles sobre los precios de su nuevo Servicio de aplicaciones.
 
@@ -233,7 +233,7 @@ Los trabajos a petición se encuentran en `App_Data/config/scripts/scheduler pos
 ### <a name="notification-hubs"></a>Centros de notificaciones
 Los Servicios móviles usan Centros de notificaciones para las notificaciones push.  Las siguientes configuraciones de aplicación se usan para vincular el centro de notificaciones al servicio móvil tras la migración:
 
-| Configuración de aplicación | Descripción |
+| Configuración de aplicación | DESCRIPCIÓN |
 |:--- |:--- |
 | **MS\_PushEntityNamespace** |El espacio de nombres del centro de notificaciones. |
 | **MS\_NotificationHubName** |El nombre del centro de notificaciones. |
@@ -266,7 +266,7 @@ Mientras tanto, toda la configuración de inserción heredada (con la excepción
 ### <a name="app-settings"></a>Otra configuración de aplicación
 La siguiente configuración de aplicación adicional se migra desde el servicio móvil y está disponible en *Configuración* > *App Configuración*:
 
-| Configuración de aplicación | Descripción |
+| Configuración de aplicación | DESCRIPCIÓN |
 |:--- |:--- |
 | **MS\_MobileServiceName** |El nombre de la aplicación. |
 | **MS\_MobileServiceDomainSuffix** |El prefijo del dominio. es decir, azure-mobile.net |

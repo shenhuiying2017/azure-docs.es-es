@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d4b6e5db8835b23b014b344f0c9daae68adc09
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="resize-a-windows-vm"></a>Cambio de tamaño de una máquina virtual Windows
 En este artículo se muestra cómo cambiar de tamaño una máquina virtual Windows creada con el modelo de implementación de Resource Manager utilizando Azure PowerShell.
@@ -35,7 +35,7 @@ Después de crear una máquina virtual, puede escalarla o reducirla verticalment
 2. Si se muestra el tamaño deseado, ejecute el comando siguiente para cambiar el tamaño de la máquina virtual. Si el tamaño deseado no aparece, vaya al paso 3.
    
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
@@ -44,8 +44,8 @@ Después de crear una máquina virtual, puede escalarla o reducirla verticalment
     ```powershell
     $rgname = "<resourceGroupName>"
     $vmname = "<vmName>"
-    Stop-AzureRmVM -ResourceGroupName $rgname -VMName $vmname -Force
-    $vm = Get-AzureRmVM -ResourceGroupName $rgname -VMName $vmname
+    Stop-AzureRmVM -ResourceGroupName $rgname -Name $vmname -Force
+    $vm = Get-AzureRmVM -ResourceGroupName $rgname -Name $vmname
     $vm.HardwareProfile.VmSize = "<newVMSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName $rgname
     Start-AzureRmVM -ResourceGroupName $rgname -Name $vmname
@@ -67,7 +67,7 @@ Si el nuevo tamaño de una máquina virtual de un conjunto de disponibilidad no 
 2. Si se muestra el tamaño deseado, ejecute el comando siguiente para cambiar el tamaño de la máquina virtual. Si no aparece, vaya al paso 3.
    
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
@@ -101,6 +101,6 @@ Si el nuevo tamaño de una máquina virtual de un conjunto de disponibilidad no 
    }
    ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para obtener una mayor escalabilidad, ejecute varias instancias de VM y escálelas horizontalmente. Para obtener más información, consulte el artículo sobre [escalado automático de máquinas Linux en un conjunto de escalado de máquinas virtuales](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

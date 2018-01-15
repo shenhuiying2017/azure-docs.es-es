@@ -3,7 +3,7 @@ title: "Acceso a aplicaciones de Proxy de aplicación de Azure AD en Teams | Mic
 description: "Utilice Proxy de aplicación de Azure AD para tener acceso a la aplicación local a través de Microsoft Teams."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: daveba
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 57ae4c38a528251dee89d56f6fdb7cf1d1dc922d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a8dca307bb97898f229b39710a3b566ee913fcca
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Acceso a aplicaciones locales a través de Microsoft Teams
 
@@ -52,7 +52,7 @@ Una vez que publique la aplicación a través de Proxy de aplicación, haga sabe
 
 Una vez que un miembro de un equipo agrega la pestaña, se muestra para todos los usuarios del canal. Los usuarios que accedan a la aplicación obtendrán acceso de inicio de sesión único con las credenciales que se usen para Microsoft Teams. Los usuarios que no tengan acceso a la aplicación pueden ver la pestaña en Teams, pero no podrán usarla hasta que les proporcione permisos en la aplicación local y la versión publicada en Azure Portal de la aplicación. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Aprenda a [publicar sitios de SharePoint locales](application-proxy-enable-remote-access-sharepoint.md) con Proxy de aplicación.
 - Configure las aplicaciones para usar [dominios personalizados](active-directory-application-proxy-custom-domains.md) para su dirección URL externa. 

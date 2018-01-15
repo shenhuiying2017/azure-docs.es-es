@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>Lección 6: Creación de medidas
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>Crear medidas
 
 En esta lección creará medidas para incluirlas en el modelo. De forma similar a las columnas calculadas que ha creado, una medida es un cálculo creado con una fórmula DAX. Sin embargo, a diferencia de las columnas calculadas, las medidas se evalúan en función de un *filtro* seleccionado por el usuario. Por ejemplo, una columna en particular o una segmentación de datos que se agrega al campo etiquetas de fila en una tabla dinámica. Luego, la medida aplicada calculará un valor para cada celda del filtro. Las medidas son cálculos eficaces y flexibles que puede incluir en casi cualquier modelo tabular para efectuar cálculos dinámicos sobre datos numéricos. Para obtener más información, consulte [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular) (Medidas).
   

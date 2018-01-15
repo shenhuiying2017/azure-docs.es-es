@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge (versión preliminar)
 
@@ -83,7 +83,7 @@ Las rutas tienen la sintaxis siguiente:
 
 El *origen* puede ser cualquier de los siguientes elementos:
 
-| Origen | Descripción |
+| Origen | DESCRIPCIÓN |
 | ------ | ----------- |
 | `/*` | Todos los mensajes de dispositivo a nube desde cualquier dispositivo o módulo. |
 | `/messages/*` | Cualquier mensaje de dispositivo a nube que envíe un dispositivo o un módulo con alguna salida o sin ninguna. |
@@ -96,10 +96,10 @@ La condición puede ser cualquiera que admita el [lenguaje de consultas de IoT H
 
 El receptor puede ser uno de los siguientes:
 
-| Receptor | Descripción |
+| Receptor | DESCRIPCIÓN |
 | ---- | ----------- |
 | `$upstream` | Envía el mensaje a IoT Hub. |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Envía el mensaje a la entrada `{input}` del módulo`{moduleId}`. |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Envía el mensaje a la entrada `{input}` del módulo`{moduleId}`. |
 
 Es importante tener en cuenta que el centro Edge proporciona garantías de tipo "at-least-once" (por lo menos una vez); es decir, los mensajes se almacenarán localmente en caso de que una ruta no pueda entregarlo a su receptor. Por ejemplo, el centro de Edge no se puede conectar a IoT Hub o el módulo de destino no está conectado.
 
@@ -193,27 +193,27 @@ Las propiedades deseadas se establecen al aplicar un manifiesto de implementaci�
 
 ### <a name="edge-agent-twin-desired-properties"></a>Propiedades deseadas del módulo gemelo del agente de Edge
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 | -------- | ----------- | -------- |
 | schemaVersion | Debe ser "1.0". | Sí |
 | runtime.type | Debe ser "docker". | Sí |
 | runtime.settings.minDockerVersion | Establece la propiedad en la versión de Docker mínima que requiere este manifiesto de implementación. | Sí |
-| runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de Edge. [Opciones de registro de Docker][lnk-docker-logging-options] | No |
+| runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de Edge. [Opciones de registro de Docker][lnk-docker-logging-options] | Sin  |
 | systemModules.edgeAgent.type | Debe ser "docker". | Sí |
 | systemModules.edgeAgent.settings.image | El URI de la imagen del agente de Edge. Actualmente, el agente de Edge no puede actualizarse automáticamente. | Sí |
-| systemModules.edgeAgent.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | No |
+| systemModules.edgeAgent.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | systemModules.edgeAgent.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | systemModules.edgeHub.type | Debe ser "docker". | Sí |
 | systemModules.edgeHub.status | Debe ser "running". | Sí |
 | systemModules.edgeHub.restartPolicy | Debe ser "always". | Sí |
 | systemModules.edgeHub.settings.image | El URI de la imagen del centro de Edge. | Sí |
-| systemModules.edgeHub.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | No |
+| systemModules.edgeHub.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | systemModules.edgeHub.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 | modules.{moduleId}.version | Una cadena definida por el usuario que representa la versión de este módulo. | Sí |
 | modules.{moduleId}.type | Debe ser "docker". | Sí |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Sí |
 | modules.{moduleId}.settings.image | El URI de la imagen del módulo. | Sí |
-| modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker][lnk-docker-create-options] | No |
+| modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | modules.{moduleId}.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 
 ### <a name="edge-agent-twin-reported-properties"></a>Propiedades notificadas del módulo gemelo del agente de Edge
@@ -231,7 +231,7 @@ Este último fragmento de información es útil en caso de que las propiedades d
 
 La tabla siguiente no incluye la información que se copia de las propiedades deseadas.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | -------- | ----------- |
 | lastDesiredVersion | Esta propiedad hace referencia a la última versión de las propiedades deseadas procesadas mediante el agente de Edge. |
 | lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el agente de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida), `412` (versión de esquema no válido), `417` (las propiedades deseadas están vacías) y `500` (error). |
@@ -264,7 +264,7 @@ Las propiedades deseadas se establecen al aplicar un manifiesto de implementaci�
 
 ### <a name="edge-hub-twin-desired-properties"></a>Propiedades deseadas de la central gemela de Edge
 
-| Propiedad | Descripción | Requerida en el manifiesto de implementación |
+| Propiedad | DESCRIPCIÓN | Requerida en el manifiesto de implementación |
 | -------- | ----------- | -------- |
 | schemaVersion | Debe ser "1.0". | Sí |
 | routes.{routeName} | Una cadena que representa una ruta del centro de Edge. | El elemento `routes` puede estar presente, pero vacío. |
@@ -272,7 +272,7 @@ Las propiedades deseadas se establecen al aplicar un manifiesto de implementaci�
 
 ### <a name="edge-hub-twin-reported-properties"></a>Propiedades notificadas del centro gemela de Edge
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 | -------- | ----------- |
 | lastDesiredVersion | Esta propiedad hace referencia a la última versión de las propiedades deseadas procesadas mediante el centro de Edge. |
 | lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el centro de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error). |
@@ -281,7 +281,7 @@ Las propiedades deseadas se establecen al aplicar un manifiesto de implementaci�
 | clients.{identidad de dispositivo o módulo}.lastConnectTime | Última vez que se conectó el dispositivo o módulo. |
 | clients.{identidad de dispositivo o módulo}.lastDisconnectTime | Última vez que se desconectó el dispositivo o módulo. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora que sabe cómo se usan los módulos de IoT Hub, [descubra los requisitos y las herramientas para desarrollar módulos de IoT Edge][lnk-module-dev].
 

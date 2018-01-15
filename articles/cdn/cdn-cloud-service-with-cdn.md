@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a> Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure
 Un servicio en la nube puede integrarse con CDN de Azure, sirviendo cualquier contenido desde la ubicación del servicio en la nube. Este enfoque le ofrece las siguientes ventajas:
@@ -50,7 +50,7 @@ Este tutorial cuenta con los siguientes requisitos previos:
 > [!NOTE]
 > Para completar este tutorial, deberá tener una cuenta de Azure:
 > 
-> * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.
+> * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Websites.
 > * Puede [activar las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.
 > 
 > 
@@ -111,7 +111,7 @@ Un perfil de red de entrega de contenido es una colección de puntos de conexió
 ## <a name="create-a-new-cdn-endpoint"></a>Crear un nuevo extremo de CDN
 **Para crear un nuevo extremo de una red CDN para una cuenta de almacenamiento**
 
-1. En el [Portal de administración de Azure](https://portal.azure.com), vaya a su perfil de CDN.  Puede haberlo anclado al panel en el paso anterior.  Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y, luego, haga clic en el perfil al que planea agregar el punto de conexión.
+1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de red CDN.  Puede haberlo anclado al panel en el paso anterior.  Si no lo hace, para encontrarlo, haga clic en **Examinar**, en **Perfiles de CDN** y, luego, haga clic en el perfil al que planea agregar el punto de conexión.
    
     Aparece la hoja del perfil de CDN.
    
@@ -150,7 +150,7 @@ Cuando navegue a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** e
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Puede acceder de forma parecida a cualquier dirección URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/** directamente desde el punto de conexión de la red CDN. Por ejemplo:
+Puede acceder de forma parecida a cualquier dirección URL de acceso público en **http://*&lt;serviceName>*.cloudapp.net/** directamente desde el punto de conexión de la red CDN. Por ejemplo: 
 
 * Un archivo .js desde la ruta /Script
 * Cualquier archivo de contenido desde la ruta /Content
@@ -444,13 +444,13 @@ Siga estos pasos para la integración de la unión y minificación de ASP.NET co
    
    * El origen de esta URL de red CDN es `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, que es realmente el directorio virtual del paquete de scripts en su servicio en la nube.
    * Como está usando el constructor de red CDN, la etiqueta de script de red CDN del paquete ya no contiene la cadena de versión generada automáticamente en la URL procesada. Debe generar manualmente una cadena de versión única cada vez que se modifique el paquete de scripts con el fin de forzar un error de caché en la red CDN de Azure. Al mismo tiempo, esta cadena de versión única debe permanecer constante lo que dure la implementación para aumentar los aciertos de la caché en la red CDN de Azure después de implementarse el paquete.
-   * La cadena de consulta v=<W.X.Y.Z> se extrae de *Properties\AssemblyInfo.cs* en el proyecto de rol web. Puede tener un flujo de trabajo de implementación que incluya incrementar la versión de ensamblado cada vez que publica en Azure. O bien, puede modificar *Properties\AssemblyInfo.cs* en su proyecto para incrementar automáticamente la cadena de versión cada vez que compila, mediante el carácter comodín '*'. Por ejemplo:
+   * La cadena de consulta v=<W.X.Y.Z> se extrae de *Properties\AssemblyInfo.cs* en el proyecto de rol web. Puede tener un flujo de trabajo de implementación que incluya incrementar la versión de ensamblado cada vez que publica en Azure. O bien, puede modificar *Properties\AssemblyInfo.cs* en su proyecto para incrementar automáticamente la cadena de versión cada vez que compila, mediante el carácter comodín '*'. Por ejemplo: 
      
         [assembly: AssemblyVersion("1.0.0.*")]
      
      Cualquier otra estrategia para optimizar la generación de una cadena única durante una implementación funcionará aquí.
 2. Vuelva a publicar el servicio en la nube y acceda a la página principal.
-3. Vea el código HTML de la página. Debería poder ver la URL de red CDN procesada, con una cadena de versión única cada vez que vuelve a publicar los cambios en el servicio en la nube. Por ejemplo:  
+3. Vea el código HTML de la página. Debería poder ver la URL de red CDN procesada, con una cadena de versión única cada vez que vuelve a publicar los cambios en el servicio en la nube. Por ejemplo:   
    
         ...
    
@@ -591,7 +591,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
     Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
 
 ## <a name="more-information"></a>Más información
-* [Información general de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+* [Información general de Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 * [Uso de CDN de Azure](cdn-create-new-endpoint.md)
 * [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 

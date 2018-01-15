@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación de Azure Functions
+title: "Documentación de Azure Functions"
 metadata:
   document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
-  title: 'Documentación sobre Azure Functions: tutoriales | Microsoft Docs'
+  title: "Documentación sobre Azure Functions: tutoriales | Microsoft Docs"
   meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
   author: czeumault
@@ -14,85 +14,90 @@ metadata:
   ms.topic: landing-page
   ms.date: 01-23-2017
   ms.author: carolz
+  ms.openlocfilehash: 8e7bb72878af9d1e310ac2ffa7e90c14b3909633
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Azure Functions es un servicio de proceso <a href="https://azure.microsoft.com/overview/serverless-computing/">sin servidor</a> que le permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura. Use Azure Functions para ejecutar un script o un fragmento de código en respuesta a diversos eventos. Aprenda a usar Azure Functions con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: "Azure Functions es un servicio de proceso <a href=\"https://azure.microsoft.com/overview/serverless-computing/\">sin servidor</a> que le permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura. Use Azure Functions para ejecutar un script o un fragmento de código en respuesta a diversos eventos. Aprenda a usar Azure Functions con nuestros inicios rápidos, tutoriales y ejemplos."
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
       src: media/index/video-thumb-get-started.png
       width: 250
-    title: 'Introducción a Azure Functions. (2:39)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/'
+    title: "Introducción a Azure Functions. (2:39)"
+    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
     width: 250
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: "Inicios rápidos en 5 minutos"
+  items:
+  - type: paragraph
+    text: "Aprenda a crear funciones que se ejecuten según los eventos creados a través de:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Aprenda a crear funciones que se ejecuten según los eventos creados a través de:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/media/common/i_http.svg'
-            text: http
-            href: /azure/azure-functions/functions-create-first-azure-function
-          - image:
-              src: media/index/stopwatch.svg
-            text: Temporizador
-            href: /azure/azure-functions/functions-create-scheduled-function
-          - image:
-              src: media/index/octokitty.svg
-            text: Webhook de GitHub
-            href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-          - image:
-              src: media/index/cosmosdb.svg
-            text: Azure Cosmos DB
-            href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
-          - image:
-              src: media/index/blob.svg
-            text: Blob
-            href: /azure/azure-functions/functions-create-storage-blob-triggered-function
-          - image:
-              src: media/index/storage.svg
-            text: Cola
-            href: /azure/azure-functions/functions-create-storage-queue-triggered-function
-      - type: paragraph
-        text: 'Obtenga información sobre cómo desarrollar y depurar de forma local:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Visual Studio
-            href: /azure/azure-functions/functions-create-your-first-function-visual-studio
-  - title: Tutoriales detallados
+    - image:
+        src: https://docs.microsoft.com/media/common/i_http.svg
+      text: http
+      href: /azure/azure-functions/functions-create-first-azure-function
+    - image:
+        src: media/index/stopwatch.svg
+      text: Temporizador
+      href: /azure/azure-functions/functions-create-scheduled-function
+    - image:
+        src: media/index/octokitty.svg
+      text: Webhook de GitHub
+      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+    - image:
+        src: media/index/cosmosdb.svg
+      text: Azure Cosmos DB
+      href: /azure/azure-functions/functions-create-cosmos-db-triggered-function
+    - image:
+        src: media/index/blob.svg
+      text: Blob
+      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+    - image:
+        src: media/index/storage.svg
+      text: Cola
+      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+  - type: paragraph
+    text: "Obtenga información sobre cómo desarrollar y depurar de forma local:"
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Obtenga información sobre la compilación y administración de Azure Functions:'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-functions/functions-twitter-email">Creación de una función que se integre con Azure Logic Apps</a>
-          - html: <a href="/azure/azure-functions/functions-create-serverless-api">Creación de una API sin servidor mediante Azure Functions</a>
-          - html: <a href="/azure/azure-functions/functions-openapi-definition">Creación de una definición de OpenAPI para una función</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Automatización del cambio de tamaño de las imágenes cargadas mediante Event Grid</a>
-  - title: Muestras
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: /azure/azure-functions/functions-create-your-first-function-visual-studio
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: "Obtenga información sobre la compilación y administración de Azure Functions:"
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/azure-functions/functions-cli-samples">CLI de Azure</a>
-  - title: Referencia
+    - html: "<a href=\"/azure/azure-functions/functions-twitter-email\">Creación de una función que se integre con Azure Logic Apps</a>"
+    - html: "<a href=\"/azure/azure-functions/functions-create-serverless-api\">Creación de una API sin servidor mediante Azure Functions</a>"
+    - html: "<a href=\"/azure/azure-functions/functions-openapi-definition\">Creación de una definición de OpenAPI para una función</a>"
+    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Automatización del cambio de tamaño de las imágenes cargadas mediante Event Grid</a>"
+- title: Muestras
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Línea de comandos
-            html: <p><a href="/cli/azure">CLI de Azure</a></p>
-          - title: REST
-            html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
-          - title: Enlaces
-            html: "<p><a href=\"/azure/azure-functions/functions-bindings-storage-blob\">Blob storage</a></p><p><a href=\"/azure/azure-functions/functions-bindings-documentdb\">Azure Cosmos DB</a></p><p><a href=\"/azure/azure-functions/functions-bindings-event-hubs\">Event Hubs</a></p><p><a href=\"/azure/azure-functions/functions-bindings-external-file\">Archivo externo</a></p><p><a href=\"/azure/azure-functions/functions-bindings-http-webhook\">HTTP y webhooks</a></p><p><a href=\"/azure/azure-functions/functions-bindings-mobile-apps\">Mobile Apps</a></p><p>\r\n            <a href=\"/azure/azure-functions/functions-bindings-notification-hubs\">Notification Hubs</a></p><p><a href=\"/azure/azure-functions/functions-bindings-storage-queue\">Queue storage</a></p><p><a href=\"/azure/azure-functions/functions-bindings-sendgrid\">SendGrid</a></p><p><a href=\"/azure/azure-functions/functions-bindings-service-bus\">Service Bus</a></p><p><a href=\"/azure/azure-functions/functions-bindings-storage-table\">Almacenamiento de tablas</a></p><p><a href=\"/azure/azure-functions/functions-bindings-timer\">Temporizador</a></p><p><a href=\"/azure/azure-functions/functions-bindings-twilio\">Enlace de salida de Twilio</a></p>"
+    - html: <a href="/azure/azure-functions/functions-cli-samples">CLI de Azure</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: "Línea de comandos"
+      html: <p><a href="/cli/azure">CLI de Azure</a></p>
+    - title: REST
+      html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
+    - title: Enlaces
+      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob storage</a></p><p><a href="/azure/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">Event Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">Archivo externo</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP y webhooks</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">Mobile Apps</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">Notification Hubs</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">Queue storage</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">Service Bus</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">Almacenamiento de tablas</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Temporizador</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Enlace de salida de Twilio</a></p>

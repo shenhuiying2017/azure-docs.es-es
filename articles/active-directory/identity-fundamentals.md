@@ -1,5 +1,5 @@
 ---
-title: "Aspectos básicos de la administración de identidades de Azure | Microsoft Docs"
+title: "Aspectos básicos de la administración de identidades de Azure"
 description: Las identidades basadas en la nube constituyen ahora la mejor manera de mantener el control y la visibilidad sobre el modo y el momento en que los usuarios acceden a las aplicaciones y los datos corporativos.
 keywords: 
 author: jeffgilb
@@ -13,13 +13,14 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: b77fc9e6c9dbb5fde2e2f0d153f348bb553b9f79
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Aspectos básicos de la administración de identidades de Azure
+
 Cada vez más recursos digitales corporativos residen fuera de la red corporativa, en la nube y en dispositivos, y disponer de una solución de administración de acceso y de identidades basada en la nube se está convirtiendo en una necesidad. Las identidades basadas en la nube constituyen ahora la mejor manera de mantener el control y la visibilidad sobre el modo y el momento en que los usuarios acceden a las aplicaciones y los datos corporativos.
 
 Microsoft lleva más de una década protegiendo identidades basadas en la nube y ahora, con [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), los usuarios pueden acceder a los mismos sistemas de protección. Con Azure AD, los administradores de las empresas pueden garantizar fácilmente la responsabilidad de los usuarios y administradores con mayor seguridad y gobernanza que nunca.
@@ -27,7 +28,7 @@ Microsoft lleva más de una década protegiendo identidades basadas en la nube y
 Azure AD Premium está una solución de administración de acceso y de identidades basada en la nube con funcionalidades de protección avanzadas que habilite una identidad segura para todas las aplicaciones, protección de identidad (mejoradas por el [gráfico de inteligencia de seguridad de Microsoft](https://www.microsoft.com/en-us/security/intelligence)) y Privileged Identity Management. Azure AD Premium no es solo otra herramienta de supervisión o generación de informes, sino que también puede proteger las identidades del usuario en tiempo real y permite crear directivas de acceso que se adaptan en función del riesgo, adaptable para proteger los datos de su organización.
 
 En este breve vídeo verá una introducción rápida a la protección y administración de identidades de Azure AD:
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9LGIJ2-FKIM" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
 
 Microsoft no solo proporciona una identidad que le lleva a todas partes, sino también un conjunto de herramientas que automatizan, ayudan a proteger y administran la TI en su organización. Aunque haya llegado la informática en la nube, sigue siendo preciso administrar y controlar las tareas de TI, como las llamadas al departamento de soporte técnico para restablecer contraseñas de usuario, la administración de grupos de usuario y las solicitudes de aplicaciones. Y para complicar aún más el panorama, en la actualidad los empleados llevan sus dispositivos personales al trabajo y usan las aplicaciones SaaS disponibles. Todo ello hace que no sea nada fácil mantener el control sobre sus aplicaciones en los centros de datos corporativos y en las plataformas en la nube pública.
 
@@ -74,5 +75,5 @@ Con la administración de identidades de Azure se puede:
 
 -   Sacar provecho de la [alta disponibilidad y confiabilidad](https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications) de una solución a nivel mundial de administración de identidades y acceso basada en la nube de categoría empresarial.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Obtener más información sobre soluciones de identidad de Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)

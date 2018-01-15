@@ -1,9 +1,9 @@
 ---
 title: "Activar la sincronización sin conexión para la aplicación móvil de Azure (Android)"
-description: "Obtenga información sobre cómo usar las Aplicaciones móviles del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación de Android"
+description: "Obtenga información sobre cómo usar App Service Mobile Apps para almacenar en caché y sincronizar datos sin conexión en su aplicación de Android"
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 services: app-service\mobile
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
 ms.service: app-service-mobile
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 304323c1816302e8c1f68f36a029aee55e02c54e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 152702bed0ea061c3cb86e2ff6f88bf204f9d243
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Activar la sincronización sin conexión para la aplicación móvil de Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Información general
-En este tutorial se explica la característica de sincronización sin conexión de Aplicaciones móviles de Azure para Android. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil &mdash;ver, agregar o modificar datos&mdash; aun cuando no haya conexión de red. Los cambios se almacenan en una base de datos local. Una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el back-end remoto.
+En este tutorial se explica la característica de sincronización sin conexión de Azure Mobile Apps para Android. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil &mdash;ver, agregar o modificar datos&mdash; aun cuando no haya conexión de red. Los cambios se almacenan en una base de datos local. Una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el back-end remoto.
 
-Si esta es la primera vez que usa Aplicaciones móviles de Azure, primero debería completar el tutorial [Creación de una aplicación de Android]. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Si esta es la primera vez que usa Azure Mobile Apps, primero debería completar el tutorial [Creación de una aplicación de Android]. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Azure Mobile Apps].
 
 ## <a name="update-the-app-to-support-offline-sync"></a>Actualización de la aplicación para que admita la sincronización sin conexión
 Con la sincronización sin conexión, se lee y se escribe desde una *tabla de sincronización* (usando la interfaz *IMobileServiceSyncTable*), que forma parte de una base de datos **SQLite** en el dispositivo.
@@ -91,12 +91,12 @@ Cuando presione ese botón, se iniciará una nueva tarea en segundo plano. En pr
 5. Vea los datos de TodoItem de nuevo en el portal de Azure. Ahora deberían aparecer los elementos de TodoItems nuevos y modificados.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
+* [Sincronización de datos sin conexión en Azure Mobile Apps]
 * [Cloud Cover: sincronización sin conexión en Servicios móviles de Azure]\( (nota: el vídeo trata sobre Mobile Services, pero la sincronización sin conexión funciona de forma similar en Azure Mobile Apps)\)
 
 <!-- URLs. -->
 
-[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
+[Sincronización de datos sin conexión en Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 
 [Creación de una aplicación de Android]: app-service-mobile-android-get-started.md
 

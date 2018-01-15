@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e8c7b788061b3eb18b3e6c282339a03d93ab8b1c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Operaciones de sistema de archivos en Azure Data Lake Store con el SDK de Java
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
-> * [API DE REST](data-lake-store-data-operations-rest-api.md)
+> * [API de REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -209,8 +209,8 @@ El fragmento de código siguiente elimina los archivos y las carpetas especifica
 1. Para ejecutarla desde un IDE, localícela y presione el botón **Ejecutar**. Para ejecutarla desde Maven, utilice [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
 2. Para generar un archivo jar independiente que puede ejecutar desde la línea de comandos, genere el archivo jar con todas las dependencias incluidas mediante el [complemento de ensamblado de Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). El archivo pom.xml en el [ejemplo de código fuente en github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) ofrece un ejemplo.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Explorar JavaDoc para el SDK de Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 
 

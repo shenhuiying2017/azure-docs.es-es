@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integración de las directivas de seguridad de Security Center con Azure Policy
-Este artículo le ayuda a configurar las directivas de seguridad de Azure Security Center, que se basan en Azure Policy. 
+Este artículo le ayuda a configurar las directivas de seguridad de Azure Security Center, que se basan en Azure Policy.
 
 ## <a name="how-security-policies-work"></a>¿Cómo funcionan las directivas de seguridad?
 Security Center crea automáticamente una directiva de seguridad predeterminada para cada una de las suscripciones de Azure. Puede modificar las directivas de Security Center o usar [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) para hacer lo siguiente:
@@ -50,8 +50,8 @@ Puede editar la directiva de seguridad predeterminada de cada una de las suscrip
 
 5. Para eliminar una definición de directiva, en **Policies and Parameters** (Directivas y parámetros), al lado de la definición que quiere eliminar, seleccione **Eliminar**.
 
-6. Haga clic en **Guardar**.  
-    Se abre la ventana **Definiciones disponibles**, que muestra la directiva predeterminada que se asigna a Security Center mediante Azure Policy. 
+6. Haga clic en **Save**(Guardar).  
+    Se abre la ventana **Definiciones disponibles**, que muestra la directiva predeterminada que se asigna a Security Center mediante Azure Policy.
 
 7. (Opcional) En la ventana **Definiciones disponibles**, realice una de las siguientes acciones:
 
@@ -68,12 +68,12 @@ Puede editar la directiva de seguridad predeterminada de cada una de las suscrip
 
 ## <a name="available-security-policy-definitions"></a>Definiciones de directivas de seguridad disponibles
 
-Para comprender las definiciones de directiva que están disponibles en la directiva de seguridad predeterminada, consulte la tabla siguiente: 
+Para comprender las definiciones de directiva que están disponibles en la directiva de seguridad predeterminada, consulte la tabla siguiente:
 
 | Directiva | Lo que hace la directiva habilitada |
 | --- | --- |
 | Actualizaciones del sistema |Recupera una lista diaria de las actualizaciones críticas y de seguridad disponibles en Windows Update o Windows Server Update Services. La lista recuperada depende del servicio que está configurado para su máquina virtual y recomienda aplicar las actualizaciones que faltan. En los sistemas Linux, la directiva utiliza el sistema de administración de paquetes proporcionado por la distribución para determinar los paquetes que tienen actualizaciones disponibles. También comprueba las actualizaciones de seguridad y críticas de las máquinas virtuales de [Azure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md). |
-| Vulnerabilidades del SO |Analiza las configuraciones del sistema operativo diariamente para determinar los problemas que podrían hacer que la máquina virtual sea vulnerable a ataques. La directiva también recomienda cambios en la configuración para afrontar estas vulnerabilidades. Consulte la [lista de líneas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para más información sobre las configuraciones específicas que se están supervisando. (En este momento, Windows Server 2016 no es totalmente compatible). |
+| Configuraciones de seguridad |Analiza las configuraciones del sistema operativo diariamente para determinar los problemas que podrían hacer que la máquina virtual sea vulnerable a ataques. La directiva también recomienda cambios en la configuración para afrontar estas vulnerabilidades. Consulte la [lista de líneas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para más información sobre las configuraciones específicas que se están supervisando. (En este momento, Windows Server 2016 no es totalmente compatible). |
 | Endpoint Protection |Recomienda configurar Endpoint Protection para todas las máquinas virtuales (VM) Windows para facilitar la identificación y eliminación de virus, spyware y otro software malintencionado. |
 | Cifrado de discos |Se recomienda habilitar el cifrado de disco en todas las máquinas virtuales para mejorar la protección de datos en reposo. |
 | Grupos de seguridad de red |Recomienda configurar los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) para controlar el tráfico entrante y saliente de máquinas virtuales que tienen puntos de conexión públicos. Todas las interfaces de red de máquina virtual heredan los grupos de seguridad de red configurados para una subred, a menos que se especifique lo contrario. Además de comprobar que se ha configurado un grupo de seguridad de red, esta directiva evalúa las reglas de seguridad de entrada para identificar aquellas que permiten el tráfico entrante. |
@@ -86,7 +86,7 @@ Para comprender las definiciones de directiva que están disponibles en la direc
 | Acceso de red JIT |Cuando el acceso a la red Just-In-Time está habilitado, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de grupo de seguridad de red. Seleccione los puertos de la máquina virtual a los que se debe bloquear el tráfico entrante. Para más información, consulte [Administrar el acceso a máquina virtual mediante Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a configurar directivas de seguridad en Security Center. Para más información sobre Security Center, consulte los siguientes artículos:
 
 * [Guía de planeamiento y operaciones de Azure Security Center](security-center-planning-and-operations-guide.md): aprenda a planear y comprender las consideraciones de diseño sobre Azure Security Center.

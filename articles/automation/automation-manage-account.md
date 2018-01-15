@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: c7ad5f539afc25c7c36712f8af25ce4e4f6d31a7
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 56216f16ba3730d1488e45c0e7a81e87dbad6410
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-azure-automation-account"></a>Administración de la cuenta de Azure Automation
 En algún momento antes de que expire su cuenta de Automation, debe renovar el certificado. Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla. En esta sección se describe cómo realizar estas operaciones.
@@ -80,7 +80,7 @@ Al seleccionar la cuenta de ejecución, el panel **Propiedades** muestra el mens
 
 Rápidamente puede resolver estos problemas de la cuenta de ejecución con solo eliminarla cuenta y volver a crearla.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
 * Para más información acerca del control de acceso basado en rol de Azure Automation, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
 * Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

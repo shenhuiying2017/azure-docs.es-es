@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b4a14d3c79f93988eeac1525da09cf70dc2de634
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-writeback-overview"></a>Información general sobre la escritura diferida de contraseñas
 
@@ -217,7 +217,7 @@ La escritura diferida de contraseñas es un servicio de bajo consumo de ancho de
 
 El tamaño de cada uno de los mensajes que se ha descrito anteriormente suele ser inferior a 1 KB. Incluso bajo cargas extremas, el propio servicio de escritura diferida de contraseñas solo usa como máximo unos kilobits por segundo del ancho de banda. Puesto que cada mensaje se envía en tiempo real solo cuando lo requiere una operación de actualización de contraseña, y dado que el tamaño del mensaje es tan pequeño, el uso de ancho de banda de la funcionalidad de escritura diferida es demasiado pequeño para tener ningún impacto cuantificable real.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [¿Cómo se realiza un lanzamiento correcto de SSPR?](active-directory-passwords-best-practices.md)
 * [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md).
