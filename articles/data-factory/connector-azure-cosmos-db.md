@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ab9e7b1b287be408f2d53ea005bad3815dc45f83
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: a8d0cf5e50fdc31aef110c359713be32fc09c8a7
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copia de datos con Azure Cosmos DB como origen o destino mediante Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-azure-documentdb-connector.md)
-> * [Versión 2: Versión preliminar](connector-azure-cosmos-db.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-azure-documentdb-connector.md)
+> * [Versión 2: versión preliminar](connector-azure-cosmos-db.md)
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Cosmos DB (API de SQL) como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Cosmos DB](v1/data-factory-azure-documentdb-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector de Azure Cosmos DB](v1/data-factory-azure-documentdb-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -42,7 +42,8 @@ En concreto, este conector de Azure Cosmos DB admite las siguientes funcionalida
 Para copiar datos tal cual con archivos JSON u otra colección de Cosmos DB como origen o destino, consulte [Import/Export JSON documents](#importexport-json-documents) (Importación o exportación de documentos JSON).
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de Azure Cosmos DB.
 
@@ -50,11 +51,11 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de Azure Cosmos DB:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **CosmosDb**. | Sí |
+| Tipo | La propiedad type debe establecerse en: **CosmosDb**. | Sí |
 | connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB. Tenga en cuenta que debe especificar la información de la base de datos en la cadena de conexión como el ejemplo siguiente. Marque este campo como SecureString. |Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
 
@@ -83,9 +84,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos con Azure Cosmos DB como origen o destino, establezca la propiedad type del conjunto de datos en **DocumentDbCollection**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **DocumentDbCollection**. |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **DocumentDbCollection**. |Sí |
 | collectionName |Nombre de la colección de documentos de Cosmos DB. |Sí |
 
 **Ejemplo:**
@@ -121,10 +122,10 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde Azure Cosmos DB, establezca el tipo de origen de la actividad de copia en **DocumentDbCollectionSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **DocumentDbCollectionSource**. |Sí |
-| query |Especifique la consulta Cosmos DB para leer datos.<br/><br/>Ejemplo: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: `select <columns defined in structure> from mycollection` |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **DocumentDbCollectionSource**. |Sí |
+| query |Especifique la consulta Cosmos DB para leer datos.<br/><br/>Ejemplo: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Sin  <br/><br/>Si no se especifica, la instrucción SQL que se ejecuta: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Carácter especial para indicar que el documento está anidado y cómo aplanar el conjunto de resultados.<br/><br/>Por ejemplo, si una consulta de Cosmos DB devuelve un resultado anidado `"Name": {"First": "John"}`, la actividad de copia identificará el nombre de columna como "Name.First" con el valor "John" cuando nestedSeparator sea punto. |No (el valor predeterminado es punto `.`) |
 
 **Ejemplo:**
@@ -163,11 +164,11 @@ Para copiar datos desde Azure Cosmos DB, establezca el tipo de origen de la acti
 
 Para copiar datos desde Azure Cosmos DB, establezca el tipo de receptor de la actividad de copia en **DocumentDbCollectionSink**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **DocumentDbCollectionSink**. |Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **DocumentDbCollectionSink**. |Sí |
 | nestingSeparator |Un carácter especial en el nombre de columna de origen que indica que el documento anidado es necesario. <br/><br/>Por ejemplo, `Name.First` en la estructura del conjunto de datos de salida genera la siguiente estructura JSON en el documento de Cosmos DB cuando nestedSeparator es punto: `"Name": {"First": "[value maps to this column from source]"}`. |No (el valor predeterminado es punto `.`) |
-| writeBatchTimeout |Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera.<br/><br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |No |
+| writeBatchTimeout |Tiempo de espera para que la operación se complete antes de que se agote el tiempo de espera.<br/><br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |Sin  |
 
 **Ejemplo:**
 
@@ -213,5 +214,5 @@ Para lograr dicha copia independiente del esquema:
 - En conjuntos de datos de Cosmos DB, no especifique la sección "structure"; en el origen o receptor de Cosmos DB de la actividad de copia, no especifique la propiedad "nestingSeparator".
 - Al realizar operaciones de importación o exportación con archivos JSON, en el conjunto de datos del almacén de archivos correspondiente, especifique el tipo de formato como "JsonFormat" y la configuración "filePattern" correctamente (consulte la sección [JSON format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON) para obtener más información) y, luego, no especifique la sección "structure" y omita la configuración de formato restante.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

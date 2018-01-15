@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions
 
@@ -34,6 +34,9 @@ Azure Cosmos DB y Azure Functions permite integrar las aplicaciones sin servidor
 * También puede enlazar una instancia de Azure Function a una colección de Azure Cosmos DB mediante un **enlace de entrada**. Los enlaces de entrada leen los datos de un contenedor cuando se ejecuta una función.
 * Enlace una función a una colección de Azure Cosmos DB mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
 
+> [!NOTE]
+> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API, y API Graph.
+
 En el diagrama siguiente se muestran cada una de estas tres integraciones: 
 
 ![Integración de Azure Cosmos DB y Azure Functions](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ El desencadenador de Azure Cosmos DB, el enlace de entrada y el enlace de salida
 * Un desencadenador de Azure Cosmos DB se puede usar con un enlace de salida a otro contenedor de Azure Cosmos DB. Una vez que una función realiza una acción en un elemento de la fuente de cambios, puede escribirlo en otro contenedor (si lo escribe en el mismo contenedor de origen, se crearía efectivamente un bucle recursivo). O bien puede usar un desencadenador de Azure Cosmos DB para migrar de manera eficaz todos los elementos modificados de un contenedor a otro, mediante un enlace de salida.
 * Los enlaces de entrada y los enlaces de salida de Azure Cosmos DB se pueden usar en la misma instancia de Azure Function. Esto funciona bien cuando desea encontrar ciertos datos con el enlace de entrada, modificarlos en la instancia de Azure Function y, luego, guardarlos en el mismo contenedor o en uno distinto, después de la modificación.
 * Un enlace de entrada a un contenedor de Azure Cosmos DB se puede usar en la misma función que un desencadenador de Azure Cosmos DB y también se puede usar con un enlace de salida o sin él. Podría usar esta combinación para aplicar información actualizada sobre el cambio de moneda (extraído con un enlace de entrada a un contenedor de intercambio) a la fuente de cambios de los pedidos nuevos en el servicio del carro de la compra. El total actualizado del carro de la compra, con la conversión de moneda actual aplicada, se puede escribir en un tercer contenedor con un enlace de salida.
-
-> [!NOTE]
-> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API, y API Graph.
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -146,14 +146,14 @@ Ventajas de Azure Functions:
 
 Si no está seguro si Flow, Logic Apps, Azure Functions o WebJobs es la mejor opción para su implementación, consulte [Elección entre Flow, Logic Apps, Functions y WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ahora conectaremos realmente Azure Cosmos DB y Azure Functions: 
 
 * [Creación de un desencadenador de Azure Cosmos DB en Azure Portal](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Creación de un desencadenador HTTP de Azure Functions con un enlace de entrada de Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
 * [Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Enlaces y desencadenadores de Azure Cosmos DB](../azure-functions/functions-bindings-documentdb.md)
+* [Enlaces y desencadenadores de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

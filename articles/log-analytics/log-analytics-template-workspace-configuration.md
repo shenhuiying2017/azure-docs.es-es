@@ -14,11 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
@@ -63,7 +63,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 10. Recopilar registros personalizados 
 11. Recopilar registros de IIS s de eventos de Windows escritos por Diagnósticos de Azure en una cuenta de almacenamiento
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -469,10 +469,12 @@ Para implementar la plantilla, realice estos pasos:
 3. Use PowerShell o la línea de comandos para implementar la plantilla.
 
 #### <a name="powershell"></a>PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### <a name="command-line"></a>Línea de comandos
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
@@ -489,6 +491,6 @@ La galería de plantillas de inicio rápido de Azure incluye varias plantillas p
 * [Implementación de un clúster de Service Fabric y supervisión de este con un área de trabajo de Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
 * [Implementación de un clúster de Service Fabric y creación de un área de trabajo de Log Analytics para supervisarlo](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Implemente agentes en máquinas virtuales de Azure mediante plantillas de Resource Manager](log-analytics-azure-vm-extension.md)
 

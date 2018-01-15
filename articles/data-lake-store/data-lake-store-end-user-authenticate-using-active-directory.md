@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 98898675b85d62c97a215f9922f1393001013943
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación de usuario final con Data Lake Store mediante Azure Active Directory
 > [!div class="op_single_selector"]
@@ -116,7 +116,7 @@ Para recuperar el URI de redireccionamiento, siga estos pasos.
 
 5. Repita los dos últimos pasos para conceder permisos también para **Service Management API de Windows Azure**.
    
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo se ha creado una aplicación nativa de Azure AD y se ha recopilado la información que necesita en las aplicaciones cliente creadas mediante el SDK de .NET, el SDK de Java, la API de REST, etc. Ahora puede continuar en los artículos siguientes, que hablan de cómo usar la aplicación web de Azure AD para autenticarse primero en Data Lake Store y luego realizar otras operaciones en el almacén.
 
 * [End-user-authentication with Data Lake Store using Java SDK](data-lake-store-end-user-authenticate-java-sdk.md) (Autenticación de usuario final con Data Lake Store mediante el SDK de Java)

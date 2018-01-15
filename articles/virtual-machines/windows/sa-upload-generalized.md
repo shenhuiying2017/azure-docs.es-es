@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
-ms.openlocfilehash: e6fc49855b449a7723a7f8a0c1c41516b3a44ee5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: d8c700d7b23f0e86b4a190e3c1f1143d962a8d63
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carga de un VHD generalizado en Azure para crear una máquina virtual nueva
 
@@ -52,7 +53,7 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, después, ejecute `sysprep.exe`.
 3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está activada.
 4. En **Opciones de apagado**, seleccione **Apagar**.
-5. Haga clic en **Aceptar**.
+5. Haga clic en **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Cuando Sysprep finaliza, apaga la máquina virtual. 
@@ -288,7 +289,7 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Azure Po
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para administrar la nueva máquina virtual de Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

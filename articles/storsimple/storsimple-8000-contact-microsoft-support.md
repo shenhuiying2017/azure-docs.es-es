@@ -4,7 +4,7 @@ description: "Aprenda a registrar una solicitud de soporte técnico y a iniciar 
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Ponerse en contacto con el soporte técnico de Microsoft
 
@@ -44,7 +44,7 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
    1. En la lista desplegable **Tipo de problema**, seleccione **Técnico**.
    2. Se eligen automáticamente la **Suscripción** actual, el tipo de **Servicio** y el **Recurso** (servicio StorSimple Device Manager). 
    3. Seleccione un **plan de soporte técnico** en la lista desplegable si tiene varios planes asociados a la suscripción. Para habilitar el soporte técnico, debe contar con un plan de soporte técnico de pago.
-   4. Haga clic en **Siguiente**.
+   4. Haga clic en **Next**.
 
        ![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
@@ -56,7 +56,7 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
     4. Especifique la fecha y hora de inicio del problema.
     5. En **Carga de archivos**, haga clic en el icono de la carpeta para navegar a su paquete de soporte técnico.
     6. Seleccione **Compartir información de diagnóstico**.
-    7. Haga clic en **Siguiente**.
+    7. Haga clic en **Next**.
 
        ![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
@@ -64,7 +64,7 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
 
     1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
     2. En la información de contacto, especifique su nombre, correo electrónico, contacto opcional y país. Seleccione la casilla de verificación **Guardar cambios de contacto para solicitudes futuras de soporte técnico** .
-    3. Haga clic en **Crear**.
+    3. Haga clic en **Create**(Crear).
    
         ![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
@@ -97,7 +97,7 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 #### <a name="to-start-a-support-session"></a>Para iniciar una sesión de soporte
 
-1. Acceda al dispositivo directamente desde la consola serie o a través de una sesión de telnet desde un equipo remoto. Para ello, siga los pasos descritos en [Uso de PuTTy para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Acceda al dispositivo directamente desde la consola serie o a través de una sesión de telnet desde un equipo remoto. Para ello, siga los pasos descritos en [Uso de PuTTy para conectarse a la consola serie del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. En la sesión que se abre, presione la tecla **Intro** para obtener un símbolo del sistema.
 3. En el menú de la consola serie, seleccione la opción 1, **iniciar sesión con acceso completo**.
 4. En el símbolo del sistema, escriba la siguiente contraseña:
@@ -113,6 +113,6 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 > Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
-Aprenda a [diagnosticar y solucionar problemas relacionados un dispositivo de la serie StorSimple 8000](storsimple-troubleshoot-deployment.md)
+Aprenda a [diagnosticar y solucionar problemas relacionados un dispositivo de la serie StorSimple 8000](storsimple-8000-troubleshoot-deployment.md)

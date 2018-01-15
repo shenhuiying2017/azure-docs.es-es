@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 12/13/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2afdb257421b1333f451eb9d0dd4c2af5a12e946
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a0131fdbbf926d59eae06089cde109649a1433b8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
 
@@ -24,7 +24,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Creación de un módulo de Azure Machine Learning
 > * Insertar un contenedor de módulo en Azure Container Registry
-> * Implementar un módulo de Azure Machine Learning en un dispositivo de IoT Edge
+> * Implementar un modelo de Azure Machine Learning en un dispositivo de IoT Edge
 > * Visualización de datos generados
 
 El módulo de Azure Machine Learning que se crea en este tutorial lee los datos de temperatura que genera el dispositivo y solo envía mensajes en dirección ascendente a Azure IoT Hub si predice un error (denominado anomalía). 
@@ -35,7 +35,7 @@ El módulo de Azure Machine Learning que se crea en este tutorial lee los datos 
 * El dispositivo de Azure IoT Edge que creó en la guía de inicio rápido o en el primer tutorial.
 * La cadena de conexión de IoT Hub del centro de IoT al que se conecta el dispositivo de IoT Edge.
 * Una cuenta de Azure Machine Learning. Para crear una cuenta, siga las instrucciones que se incluyen en [Creación de cuentas de Azure Machine Learning e instalación de Azure Machine Learning Workbench](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-accounts). No es necesario instalar la aplicación de área de trabajo para este tutorial. 
-* Administración del módulo de Azure Machine Learning en su equipo. Para configurar el entorno y crear una cuenta, siga las instrucciones de [Instalación de Administración de modelos](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration).
+* Administración del módulo de Azure Machine Learning en su equipo. Para configurar el entorno y crear una cuenta, siga las instrucciones de [Instalación de Administración de modelos](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
 
 ## <a name="create-the-azure-ml-container"></a>Creación del contenedor de Azure Machine Learning
 En esta sección, descargará los archivos de modelo entrenados y los convertirá en un contenedor de Azure Machine Learning.  
@@ -121,7 +121,7 @@ Puede ver los mensajes del dispositivo a la nube que el dispositivo de IoT Edge 
 
    ![Respuesta de Azure Machine Learning en el cuerpo del mensaje](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, ha implementado un módulo de IoT Edge con tecnología de Azure Machine Learning. Puede continuar con cualquiera de los otros tutoriales para aprender otras formas en las que Azure IoT Edge puede ayudarle a convertir los datos en perspectivas empresariales en el perímetro.
 

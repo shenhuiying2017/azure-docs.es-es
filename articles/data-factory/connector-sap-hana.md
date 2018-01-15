@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copia de datos de SAP HANA mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1: disponibilidad general](v1/data-factory-sap-hana-connector.md)
+> * [Versión 1: Disponibilidad general](v1/data-factory-sap-hana-connector.md)
 > * [Versión 2: versión preliminar](connector-sap-hana.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde una base de datos SAP HANA. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte el artículo sobre [la versión 1 del conector SAP HANA](v1/data-factory-sap-hana-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte el artículo sobre [la versión 1 del conector SAP HANA](v1/data-factory-sap-hana-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -50,7 +50,8 @@ Para usar este conector SAP HANA, necesitará lo siguiente:
 - Instale el controlador ODBC de SAP HANA en la máquina de Integration Runtime. Puede descargar el controlador ODBC de SAP HANA desde el [centro de descarga de software de SAP](https://support.sap.com/swdc). Busque con la palabra clave **SAP HANA CLIENT for Windows** (Cliente SAP HANA para Windows).
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Las secciones siguientes proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector SAP HANA.
 
@@ -58,9 +59,9 @@ Las secciones siguientes proporcionan detalles sobre las propiedades que se usan
 
 Las siguientes propiedades son compatibles con el servicio vinculado SAP HANA:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SapHana** | Sí |
+| Tipo | La propiedad type debe establecerse en: **SapHana** | Sí |
 | Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos SAP HANA.<br/>Los valores permitidos son: **Básica** y **Windows** | Sí |
 | userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
@@ -121,9 +122,9 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde SAP HANA, establezca el tipo de origen de la actividad de copia como **RelationalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Sí |
 
 **Ejemplo:**
@@ -164,23 +165,23 @@ Al copiar datos desde SAP HANA, se usan las siguientes asignaciones de tipos de 
 
 | Tipo de datos de SAP HANA | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| ALPHANUM | String |
+| ALPHANUM | string |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATE | DateTime |
+| DATE | Datetime |
 | DECIMAL | DECIMAL |
 | DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | String |
+| NVARCHAR | string |
 | REAL | Single |
-| SECONDDATE | DateTime |
+| SECONDDATE | Datetime |
 | SMALLINT | Int16 |
 | TIME | timespan |
-| TIMESTAMP | DateTime |
+| TIMESTAMP | Datetime |
 | TINYINT | Byte |
-| VARCHAR | String |
+| VARCHAR | string |
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 
@@ -192,5 +193,5 @@ Cuando se copian datos de SAP HANA, hay algunas limitaciones conocidas:
 - Las fechas válidas son las del intervalo entre 30/12/1899 y 31/12/9999
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

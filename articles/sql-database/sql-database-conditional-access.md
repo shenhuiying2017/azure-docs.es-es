@@ -2,19 +2,19 @@
 title: 'Acceso condicional: Azure SQL Database y Data Warehouse | Microsoft Docs'
 description: Aprenda a configurar Acceso condicional para Azure SQL Database y Data Warehouse.
 services: sql-database
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 ms.custom: security
 ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
-ms.author: rickbyh
+ms.author: mireks
 ms.workload: Inactive
-ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: b1c569e414de292b59e0915483d45bf011edb1a6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acceso condicional (MFA) con Azure SQL Database y Data Warehouse  
 
@@ -46,6 +46,6 @@ Tanto SQL Database como SQL Data Warehouse admiten Acceso condicional de Microso
 La aplicación seleccionada (Azure SQL Database) que permite conectarse a Azure SQL DB/DW con Azure AD Premium ahora aplica la directiva de Acceso condicional seleccionada, **Requerir autenticación multifactor**.  
 Si tiene preguntas sobre Azure SQL Database y Data Warehouse con respecto a la autenticación multifactor, póngase en contacto con MFAforSQLDB@microsoft.com.  
 
-## <a name="next-steps"></a>Pasos siguientes  
+## <a name="next-steps"></a>pasos siguientes  
 
 Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).

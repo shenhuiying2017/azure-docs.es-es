@@ -3,8 +3,8 @@ title: "Configuración de la autenticación multifactor: Azure SQL | Microsoft D
 description: Aprenda a usar Multi-Factor Authentication con SSMS para SQL Database y SQL Data Warehouse.
 services: sql-database
 documentationcenter: 
-author: BYHAM
-manager: jhubbard
+author: GithubMirek
+manager: johammer
 editor: 
 tags: 
 ms.assetid: 
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/27/2017
-ms.author: rickbyh
-ms.openlocfilehash: 89a5ee969cf4337dbc0521027f36f80e357c54e5
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: mireks
+ms.openlocfilehash: fe056288fbc04db0a6892c9a501c58ed85967734
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD
 
@@ -62,7 +62,7 @@ Los pasos siguientes muestran cómo conectarse a SQL Database o SQL Data Warehou
 
 Cuando se complete la comprobación, SSMS se conectará de manera habitual, siempre que haya acceso de firewall y credenciales válidas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener información general de la autenticación multifactor de Azure SQL Database, consulte [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md).  
 - Conceder a otros usuarios acceso a la base de datos. Consulte [Autorización y autenticación de SQL Database: concesión de acceso](sql-database-manage-logins.md).  

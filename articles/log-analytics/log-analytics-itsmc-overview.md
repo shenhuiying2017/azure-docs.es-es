@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Administración centralizada de los elementos de trabajo ITSM con IT Service Management Connector (versión preliminar)
 
@@ -105,7 +105,7 @@ ServiceDeskWorkItemType_s="Incidente"
 - Asignado a
 - Categoría
 - Título
-- Descripción
+- DESCRIPCIÓN
 - Fecha de creación
 - Fecha de cierre
 - Fecha de resolución
@@ -125,7 +125,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Origen
 - Asignado a
 - Título
-- Tipo
+- type
 - Categoría
 - Estado
 - Escalado
@@ -143,7 +143,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Fecha de finalización planeada
 - Fecha de inicio del trabajo
 - Fecha de finalización del trabajo
-- Descripción
+- DESCRIPCIÓN
 - Equipo
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Datos de salida para un incidente de ServiceNow
@@ -177,7 +177,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Cerrado por |
 | AssignedTo_s | Asignado a  |
 | Title_s|  Descripción breve |
-| Type_s|  Tipo |
+| Type_s|  type |
 | Category_s|  Categoría |
 | CRState_s|  Estado|
 | Urgency_s|  Urgencia |
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Fecha de finalización planeada |
 | WorkStartDate_t  | Fecha de inicio real |
 | WorkEndDate_t | Fecha de finalización real|
-| Description_s | Descripción |
+| Description_s | DESCRIPCIÓN |
 | Equipo  | Elemento de configuración |
 
 **Pantalla de Log Analytics de ejemplo para datos de ITSM:**
@@ -227,7 +227,7 @@ Con la solución ITSMC, puede configurar alertas de OMS para desencadenar la cre
 
     deje desactivada esta casilla para crear solo un elemento de trabajo para cualquier número de entradas de registro en esta alerta.
 
-7. Haga clic en **Guardar**.
+7. Haga clic en **Save**(Guardar).
 
 La alerta de OMS que ha creado se puede ver en **Configuración**>**Alertas**. Los elementos de trabajo de la conexión de ITSM correspondientes se crean cuando se cumple la condición de la alerta especificada.
 
@@ -281,7 +281,7 @@ Utilice el siguiente procedimiento:
 
 6. Seleccione el tipo **Elemento de trabajo** en el menú desplegable.
    Elija usar una plantilla existente o rellene los campos requeridos para el producto ITSM.
-7. Haga clic en **Aceptar**.
+7. Haga clic en **OK**.
 
 Al crear o editar una regla de alerta de Azure, use un grupo de acciones, que tiene una acción de ITSM. Cuando se desencadena la alerta, se crea un elemento de trabajo en la herramienta ITSM.
 
@@ -292,11 +292,11 @@ Al crear o editar una regla de alerta de Azure, use un grupo de acciones, que ti
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Solución de problemas de conexión de ITSM en OMS
 1.  Si se produce un error en la conexión de la UI del origen conectado y recibe el mensaje **Error al guardar la conexión**, siga estos pasos:
- - En el caso de conexiones de ServiceNow, Cherwell y Provance:  
-        - Asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el identificador de cliente y el secreto de cliente de cada una de las conexiones.  
-        - Compruebe si dispone de privilegios suficientes en el producto ITSM correspondiente para realizar la conexión.  
- - En el caso de conexiones de Service Manager:  
-        - Asegúrese de que la aplicación web se implementa correctamente y se crea la conexión híbrida. Para comprobar que la conexión se ha establecido correctamente con el equipo de Service Manager local, visite la dirección URL de la aplicación web como se detalla en la documentación para realizar la [conexión híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+- En el caso de conexiones de ServiceNow, Cherwell y Provance,  
+       - Asegúrese de que ha introducido correctamente el nombre de usuario, la contraseña, el identificador de cliente y el secreto de cliente de cada una de las conexiones.  
+       Compruebe si dispone de privilegios suficientes en el producto ITSM correspondiente para realizar la conexión.  
+- En el caso de conexiones de Service Manager,  
+       - Asegúrese de que la aplicación web se implementa correctamente y se crea la conexión híbrida. Para comprobar que la conexión se ha establecido correctamente con el equipo de Service Manager local, visite la dirección URL de la aplicación web como se detalla en la documentación para realizar la [conexión híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Si los datos de ServiceNow no se sincronizan con Log Analytics, asegúrese de que la instancia de ServiceNow no esté suspendida. En algunas ocasiones, las instancias de desarrollo de ServiceNow se suspenden si están inactivas durante mucho tiempo. En caso contrario, notifique el problema.
 3.  Si se generan alertas de OMS, pero no se crean elementos de trabajo en el producto de ITSM, no se crean elementos de configuración o no se vinculan a elementos de trabajo, o, simplemente, quiere más información general, consulte:
@@ -313,5 +313,5 @@ Al crear o editar una regla de alerta de Azure, use un grupo de acciones, que ti
 
 Si tiene consultas o comentarios sobre IT Service Management, póngase en contacto con nosotros en [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Incorporación de productos o servicios de ITSM a IT Service Management Connector](log-analytics-itsmc-connections.md).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4877258c128d00f621eb198b0f0ec7d197e757ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c00dc99950c25dedc94c17444881a049138a7c5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake
 En este artículo se enumeran las aplicaciones Big Data de código abierto que funcionan con el Almacén de Azure Data Lake Para las aplicaciones de la tabla siguiente, solo se admiten las versiones disponibles con la distribución indicada. Para obtener información sobre qué versiones de estas aplicaciones están disponibles con HDInsight, consulte [Versiones de componentes de HDInsight](../hdinsight/hdinsight-component-versioning.md).
@@ -26,7 +26,7 @@ En este artículo se enumeran las aplicaciones Big Data de código abierto que f
 | Software de código abierto | Distribución |
 | --- | --- |
 | [Apache Sqoop](http://sqoop.apache.org/) |HDInsight 3.2, 3.4, 3.5 y 3.6 |
-| [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5 y 3.6 |
+| [de Hadoop](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5 y 3.6 |
 | [Apache Storm](https://storm.apache.org/) |HDInsight 3.2, 3.4, 3.5 y 3.6 |
 | [Apache Hive](http://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5 y 3.6 |
 | [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4, 3.5 y 3.6 |

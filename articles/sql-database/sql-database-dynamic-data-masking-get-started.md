@@ -4,7 +4,7 @@ description: "El enmascaramiento dinámico de datos de SQL Database limita la ex
 services: sql-database
 documentationcenter: 
 author: ronitr
-manager: jhubbard
+manager: shaik
 editor: 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 03/09/2017
-ms.author: ronitr; ronmat
-ms.openlocfilehash: b75f170870a5f595fcda41196f4de81f237f88b8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: ronitr
+ms.openlocfilehash: 883a00176207701a0bbda8d196114d9964ce8f17
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Enmascaramiento dinámico de datos de SQL Database
 
@@ -54,8 +54,8 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 El motor de recomendaciones de DDM marca determinados campos de la base de datos como campos potencialmente confidenciales, que pueden ser buenos candidatos para el enmascaramiento. En la hoja Enmascaramiento de datos dinámicos del portal, verá las columnas recomendadas para la base de datos. Todo lo que debe hacer es hacer clic en **Agregar máscara** para una o más columnas y, después, en **Guardar** a fin de aplicar una máscara para estos campos.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuración del enmascaramiento de datos dinámicos para la base de datos mediante cmdlets de PowerShell
-Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx).
+Consulte [Cmdlets de Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configuración del enmascaramiento de datos dinámicos para la base de datos mediante la API de REST
-Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
+Consulte [Operaciones para Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
 

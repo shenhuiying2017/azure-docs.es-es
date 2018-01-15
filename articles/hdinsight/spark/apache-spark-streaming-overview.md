@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: nitinme
-ms.openlocfilehash: 4699673255706a69d597ce28b47ab05a5f8eb957
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 6a57576704d1814d08514dc436070cab07f12b39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Introducción a Spark Streaming
 
@@ -210,7 +210,7 @@ Normalmente, compilará su aplicación de Spark Streaming localmente y, luego, l
 
 También se puede comprobar el estado de todas las aplicaciones con una solicitud GET en un punto de conexión de LIVY. Finalmente, puede finalizar una aplicación en ejecución emitiendo una solicitud DELETE en el punto de conexión de LIVY. Para obtener más información sobre la API de LIVY, consulte [Trabajos remotos con LIVY](apache-spark-livy-rest-interface.md).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Creación de un clúster de Apache Spark en HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guía de programación de streaming de Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)

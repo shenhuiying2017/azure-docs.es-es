@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Use de StorSimple Device Manager para administrar alertas de la matriz virtual de StorSimple
 
@@ -125,7 +125,6 @@ Las siguientes tablas enumeran algunas de las alertas de StorSimple que pueden e
 * [Alertas de errores de trabajo](#job-failure-alerts)
 * [Alertas de rendimiento](#performance-alerts)
 * [Alertas de seguridad](#security-alerts)
-* [Alertas de actualización](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividad de la nube
 
@@ -165,14 +164,7 @@ Las siguientes tablas enumeran algunas de las alertas de StorSimple que pueden e
 |:--- |:--- |:--- |
 | La contraseña de <*nombre de dispositivo*> expirará en <*número*> días. |Advertencia de contraseña. |Su contraseña expirará en < número> días. Considere la posibilidad de cambiar la contraseña. Para obtener más información, consulte [Cambiar la contraseña del administrador de dispositivos de la matriz virtual de StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
-### <a name="update-alerts"></a>Alertas de actualización
-
-| Texto de la alerta | Evento | Más información / acciones recomendadas |
-|:--- |:--- |:--- |
-| Hay nuevas actualizaciones disponibles para el dispositivo. |Las actualizaciones de la matriz virtual de StorSimple están disponibles. |Puede instalar nuevas actualizaciones desde la página **Mantenimiento** . |
-| No se pudo analizar si hay nuevas actualizaciones en <*nombre de dispositivo*>. |Error de actualización. |Se produjo un error al instalar nuevas actualizaciones. Puede instalar manualmente las actualizaciones. Si el problema persiste, póngase en contacto con el [Servicio técnico de Microsoft](storsimple-contact-microsoft-support.md). |
-
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Obtenga más información sobre la matriz virtual de StorSimple](storsimple-ova-overview.md)
 

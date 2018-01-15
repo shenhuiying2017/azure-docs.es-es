@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 9a4502ecfd5471cc2a968f995e66e595f59384b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación entre servicios con Data Lake Store mediante Azure Active Directory
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
 5. Haga clic en el icono **Agregar** para abrir la hoja **Agregar acceso personalizado**. En esta hoja, haga clic en **Seleccionar usuario o grupo** y, después, en la hoja **Seleccionar usuario o grupo**, busque la aplicación de Azure Active Directory que creó antes. Si tiene muchos grupos en los que buscar, use el cuadro de texto de la parte superior para filtrar por nombre de grupo. Haga clic en el grupo que desee agregar y después en **Seleccionar**.
    
     ![Incorporación de un grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Incorporación de un grupo")
-6. Haga clic en **Seleccionar permisos**, seleccione los permisos y si desea asignarlos como una ACL predeterminada, ACL de acceso o ambos. Haga clic en **Aceptar**.
+6. Haga clic en **Seleccionar permisos**, seleccione los permisos y si desea asignarlos como una ACL predeterminada, ACL de acceso o ambos. Haga clic en **OK**.
    
     ![Asignación de permisos a un grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Asignación de permisos a un grupo")
    
@@ -97,7 +97,7 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
 
     ![Punto de conexión de token de OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Punto de conexión de token de OAuth")   
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo ha creado creó una aplicación web de Azure AD y ha recopilado la información que necesita en las aplicaciones cliente que cree mediante SDK de .NET, Java, Python, API de REST, etc. Ya puede pasar a los artículos siguientes, en los que se explica cómo usar la aplicación nativa de Azure AD primero para autenticarse en Data Lake Store y luego realizar otras operaciones en el almacén.
 
 * [Autenticación entre servicios con Data Lake Store mediante Java](data-lake-store-service-to-service-authenticate-java.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Uso del complemento esclavo de Azure con Hudson Continuous Integration
 El complemento esclavo de Azure para Hudson le permite aprovisionar los nodos subordinados en Azure cuando se ejecutan compilaciones distribuidas.
@@ -147,7 +147,7 @@ En esta sección, creará una tarea de Hudson que se ejecutará en un nodo subor
 1. En el panel de Hudson, haga clic en **New Job**(Nuevo trabajo).
 2. Escriba un nombre para el trabajo que se va a crear.
 3. Para el tipo de trabajo, seleccione **Build a free-style software job**(Crear un trabajo de software de estilo libre).
-4. Haga clic en **Aceptar**.
+4. Haga clic en **OK**.
 5. En la página de configuración del trabajo, seleccione **Restrict where this project can be run**(Restringir dónde se puede ejecutar este proyecto).
 6. Seleccione **Node and label menu** (Menú de nodo y etiqueta) y seleccione **linux** (esta etiqueta se especificó al crear la plantilla de máquina virtual en la sección anterior).
 7. En la sección **Build** (Compilar), haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Execute shell** (Ejecutar shell).

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4c852d07d771a1eef0e6c2e4ef27cd36f31d8ddd
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="low-utilization-of-cloud-resources-preview"></a>Uso reducido de los recursos de nube (versión preliminar)
 
 Application Insights analiza automáticamente el consumo de CPU de cada instancia de rol de la aplicación y detecta instancias con un uso de CPU reducido. Esta detección permite reducir los recursos de Azure y reducir costos, reduciendo el número de instancias de rol que utiliza cada rol, o reduciendo el número de roles.
 
-Esta característica no requiere ninguna configuración especial, excepto la [configuración de los contadores de rendimiento](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-performance-counters) de la aplicación. Está activa cuando la aplicación genera suficiente telemetría en los contadores de rendimiento de CPU (% de tiempo de procesador).
+Esta característica no requiere ninguna configuración especial, excepto la [configuración de los contadores de rendimiento](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) de la aplicación. Está activa cuando la aplicación genera suficiente telemetría en los contadores de rendimiento de CPU (% de tiempo de procesador).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>¿Cuándo recibiré este tipo de notificación de detección inteligente?
 Una notificación típica suele generarse cuando muchas de las instancias de rol de trabajo o web muestran un uso de CPU reducido.

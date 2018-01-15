@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Escenario real de mantenimiento predictivo.
 
@@ -32,7 +32,7 @@ A continuación se muestra el vínculo en el repositorio público de GitHub: [ht
 
 Un problema importante al que se enfrentan las empresas en sectores de uso intensivo de activos son los considerables costos asociados a retrasos por problemas mecánicos. La mayoría de las empresas están interesadas en la predicción de cuándo se producen estos problemas con el fin de evitarlos proactivamente antes de que ocurran. El objetivo es reducir los costos mediante la reducción del tiempo de inactividad y, posiblemente, aumentar la seguridad. 
 
-En este escenario se toman ideas de la [guía de mantenimiento predictivo](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) para demostrar la creación de un modelo predictivo para un conjunto de datos simulado. Los datos de ejemplo derivan de elementos comunes observados en muchos casos de uso de mantenimiento predictivo.
+En este escenario se toman ideas de la [guía de mantenimiento predictivo](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) para demostrar la creación de un modelo predictivo para un conjunto de datos simulado. Los datos de ejemplo derivan de elementos comunes observados en muchos casos de uso de mantenimiento predictivo.
 
 El problema empresarial para estos datos simulados es predecir problemas causados por errores en los componentes. Por lo tanto, la pregunta empresarial es "*¿cuál es la probabilidad de que un equipo deje de funcionar debido a un error de un componente?*". Este problema tiene el formato de un problema de clasificación multiclase (varios componentes por equipo) y se utiliza un algoritmo de aprendizaje automático para crear el modelo de predicción. El modelo se entrena con datos históricos recopilados de los equipos. En este escenario, el usuario pasa por las distintas fases de la implementación de este tipo de modelo en el entorno de Azure Machine Learning Workbench.
 
@@ -105,7 +105,7 @@ El contenido del escenario está disponible en el [repositorio de GitHub](https:
 
 El archivo [Léame](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/README.md) describe el flujo de trabajo desde la preparación de los datos y la compilación de un modelo hasta la implementación de una solución para producción. Cada paso del flujo de trabajo se encapsula en Jupyter Notebook en la carpeta [Código](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/tree/master/Code) dentro del repositorio.   
 
-[`Code\1_data_ingestion.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): este Notebook descarga los cinco archivos .csv de entrada y realiza una limpieza, y una visualización, preliminar de los datos. Notebook convierte los conjuntos de datos al formato de PySpark y los almacena en un contenedor de blobs de Azure para su uso en el bloc de notas de ingeniería ofrecida.
+[`Code\1_data_ingestion.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb): Este Notebook descarga los cinco archivos .csv de entrada y realiza una limpieza, y una visualización, preliminar de los datos. Notebook convierte los conjuntos de datos al formato de PySpark y los almacena en un contenedor de blobs de Azure para su uso en el bloc de notas de ingeniería ofrecida.
 
 [`Code\2_feature_engineering.ipynb`](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/2_feature_engineering.ipynb): con el conjunto de datos sin formato de un blob de Azure, las características del modelo se construyen con un enfoque de serie temporal estándar para los datos de telemetría, de errores y de mantenimiento. La sustitución de componentes relacionada con errores se usa para construir las etiquetas de modelo con la descripción sobre qué componente generó el error. Los datos de la característica etiquetada se guardan en un blob de Azure para el cuaderno de notas de compilación de modelos.
 
@@ -133,6 +133,6 @@ Este caso de uso se ha desarrollado previamente en varias plataformas:
 * [Guía de modelado de mantenimiento predictivo con Python Notebook](https://gallery.cortanaintelligence.com/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1)
 * [Mantenimiento predictivo con PySpark](https://gallery.cortanaintelligence.com/Tutorial/Predictive-Maintenance-using-PySpark)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Hay muchos otros escenarios de ejemplo disponibles en Azure Machine Learning Workbench que muestran características adicionales del producto. 

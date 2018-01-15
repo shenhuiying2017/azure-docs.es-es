@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.openlocfilehash: d7f4a9558175835eba9096e6845726f21c7459d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 39ac47df65743dc807b060f34a6df16977ef49a1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Creación de una imagen de máquina virtual no administrada a partir de una máquina virtual de Azure
 
@@ -47,7 +48,7 @@ También puede generalizar una máquina virtual Linux con `sudo waagent -deprovi
 2. Abra una ventana del símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, después, ejecute `sysprep.exe`.
 3. En **Herramienta de preparación del sistema**, seleccione **Iniciar la Configuración rápida (OOBE)** y asegúrese de que la casilla **Generalizar** está activada.
 4. En **Opciones de apagado**, seleccione **Apagar**.
-5. Haga clic en **Aceptar**.
+5. Haga clic en **OK**.
    
     ![Iniciar Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. Cuando Sysprep finaliza, apaga la máquina virtual. 
@@ -251,7 +252,7 @@ Cuando finalice, debería ver la máquina virtual recién creada en el [Azure Po
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para administrar la nueva máquina virtual de Azure PowerShell, consulte [Administración de máquinas virtuales de Azure con Resource Manager y PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

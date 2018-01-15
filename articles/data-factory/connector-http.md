@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 54afc7d993058ac2b3d2990ba131d334e9332555
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copia de datos desde el punto de conexión HTTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-http-connector.md)
-> * [Versión 2: Versión preliminar](connector-http.md)
+> * [Versión 2: versión preliminar](connector-http.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde un punto de conexión HTTP. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector HTTP](v1/data-factory-http-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector HTTP](v1/data-factory-http-connector.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -42,7 +42,8 @@ En concreto, este conector HTTP admite las siguientes funcionalidades:
 La diferencia entre este conector y el de [tabla web](connector-web-table.md) es que el último se usa para extraer contenido de la tabla desde una página web HTML.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas del conector HTTP.
 
@@ -50,22 +51,22 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de HTTP:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **HttpServer**. | Sí |
-| url | Dirección URL base para el servidor web | Sí |
+| Tipo | La propiedad type debe establecerse en: **HttpServer**. | Sí |
+| URL | Dirección URL base para el servidor web | Sí |
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL al conectarse al punto de conexión HTTP. | No, el valor predeterminado es True. |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte en las secciones después de esta tabla más propiedades y ejemplos de JSON para esos tipos de autenticación respectivamente. | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Uso de la autenticación Basic, Digest o Windows
 
 Establezca la propiedad "authenticationType" en **Básica**, **Implícita** o **Windows** y especifique las siguientes propiedades junto con las genéricas descritas en la sección anterior:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
 | userName | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
-| Contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString. | Sí |
+| contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString. | Sí |
 
 **Ejemplo**
 
@@ -95,11 +96,11 @@ Establezca la propiedad "authenticationType" en **Básica**, **Implícita** o **
 
 Para usar la autenticación ClientCertificate, establezca la propiedad "authenticationType" en **ClientCertificate** y especifique las siguientes propiedades junto con las genéricas descritas en la sección anterior:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
 | embeddedCertData | Datos del certificado codificados en Base64. | Especifique `embeddedCertData` o `certThumbprint`. |
 | certThumbprint | La huella digital del certificado que se instaló en el almacén de certificados de la máquina Integration Runtime (autohospedado). Solo se aplica cuando se especifica un tipo autohospedado de un entorno Integration Runtime en connectVia. | Especifique `embeddedCertData` o `certThumbprint`. |
-| contraseña | Contraseña asociada con el certificado. Marque este campo como SecureString. | No |
+| contraseña | Contraseña asociada con el certificado. Marque este campo como SecureString. | Sin  |
 
 Si utiliza "certThumbprint" para la autenticación y el certificado está instalado en el almacén personal del equipo local, necesita conceder el permiso de lectura al entorno Integration Runtime (autohospedado):
 
@@ -158,15 +159,15 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde HTTP, establezca la propiedad type del conjunto de datos en **HttpFile**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **HttpFile**. | Sí |
-| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, se solo se usa la dirección URL especificada en la definición de servicio vinculado. | No |
-| requestMethod | Método HTTP.<br/>Los valores permitidos son **Get** (valor predeterminado) o **Post**. | No |
-| additionalHeaders | Encabezados de solicitud HTTP adicionales. | No |
-| requestBody | Cuerpo de la solicitud HTTP. | No |
-| formato | Si desea **recuperar datos tal cual desde el punto de conexión HTTP** sin analizarlos ni copiarlos en un almacén basado en archivos, ignore la sección de formato de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |No |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **HttpFile**. | Sí |
+| relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, se solo se usa la dirección URL especificada en la definición de servicio vinculado. | Sin  |
+| requestMethod | Método HTTP.<br/>Los valores permitidos son **Get** (valor predeterminado) o **Post**. | Sin  |
+| additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
+| requestBody | Cuerpo de la solicitud HTTP. | Sin  |
+| formato | Si desea **recuperar datos tal cual desde el punto de conexión HTTP** sin analizarlos ni copiarlos en un almacén basado en archivos, ignore la sección de formato de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Sin  |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |Sin  |
 
 **Ejemplo 1: Uso del método Get (valor predeterminado)**
 
@@ -215,10 +216,10 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde HTTP, establezca el tipo de origen de la actividad de copia en **HttpSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
-| httpRequestTimeout | El tiempo que la solicitud HTTP espera (TimeSpan) a obtener una respuesta. Es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta.<br/> El valor predeterminado es: 00:01:40.  | No |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
+| httpRequestTimeout | El tiempo que la solicitud HTTP espera (TimeSpan) a obtener una respuesta. Es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta.<br/> El valor predeterminado es: 00:01:40.  | Sin  |
 
 **Ejemplo:**
 
@@ -253,5 +254,5 @@ Para copiar datos desde HTTP, establezca el tipo de origen de la actividad de co
 ```
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

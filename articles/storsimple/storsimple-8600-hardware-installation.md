@@ -4,7 +4,7 @@ description: "Describe cómo desempaquetar, montar en bastidor y colocar los cab
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
 ## <a name="overview"></a>Información general
@@ -38,14 +38,14 @@ Antes de desempaquetar el dispositivo, revise la información siguiente.
 A continuación, complete los pasos siguientes para desempaquetar el dispositivo.
 
 #### <a name="to-unpack-your-device"></a>Para desempaquetar el dispositivo
-1. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. Póngase en contacto con el [soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para ayudarle a determinar si el dispositivo está en buen estado.
+1. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. Póngase en contacto con el [soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md) para ayudarle a determinar si el dispositivo está en buen estado.
 2. Abra la caja exterior y extraiga las dos cajas correspondiente a los receptáculos principal y EBOD. Ahora puede desempaquetar los receptáculos principal y EBOD. En la siguiente ilustración se muestra una vista desempaquetada de uno de los receptáculos.
    
     ![Desempaquetar el dispositivo de almacenamiento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
     **Vista del dispositivo de almacenamiento desempaquetado**
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    | --- | --- |
    |   1 |Caja de embalaje |
    |   2 |Cables SAS (en la bandeja de cables y accesorios) |
@@ -66,7 +66,7 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
    * 2 kits de montaje en bastidor (4 guías laterales con herramientas de montaje, 2 para el receptáculos y el EBOD), 1 en cada caja
    * Documentación de introducción
      
-     Si no recibió alguno de los elementos enumerados anteriormente, póngase en contacto con el [soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).  
+     Si no recibió alguno de los elementos enumerados anteriormente, póngase en contacto con el [soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).  
 
 El paso siguiente es el montaje en bastidor del dispositivo.
 
@@ -109,7 +109,7 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
    
     **Fijación de guías a los laterales de la caja**
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    | --- | --- |
    |  1 |Tornillos de cabeza de botón M 3 x 4 |
    |  2 |Guías de chasis |
@@ -122,7 +122,7 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
    
     **Fijación de soportes de guía en el bastidor**
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    | --- | --- |
    |   1 |Tornillo de fijación |
    |   2 |Tornillo del poste del bastidor delantero de orificio cuadrado |
@@ -148,7 +148,7 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
    
     **Instalación de los topes de las bridas**
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    | --- | --- |
    |   1 |Tornillo de fijación del receptáculo |
 
@@ -201,7 +201,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
    
     **Parte posterior del dispositivo en la que se muestran los puertos de datos**
    
-   | Etiqueta | Description |
+   | Etiqueta | DESCRIPCIÓN |
    | --- | --- |
    |   0,1,4,5 |Interfaces de red de 1 GbE |
    |   2,3 |Interfaces de red de 10 GbE |
@@ -212,9 +212,9 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 **Cables de red del dispositivo**
 
-| Etiqueta | Descripción |
+| Etiqueta | DESCRIPCIÓN |
 | --- | --- |
-| Encontrará |LAN con acceso a Internet |
+| Una  |LAN con acceso a Internet |
 | B |Controlador 0 |
 | C |PCM 0 |
 | D |Controlador 1 |
@@ -234,7 +234,7 @@ Cuando se realiza el cableado del dispositivo, la configuración mínima requier
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
 * Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
-* Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Si usa transceptores SFP+ con las interfaces de red de 10 GbE, use los adaptadores QSFP-SFP+ que se ofrecen. Para más información, vaya a [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -265,6 +265,6 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 
 Ha completado el cableado de alimentación, acceso a la red y conexión en serie del dispositivo. El siguiente paso es configurar el software en el dispositivo.
 
-## <a name="next-steps"></a>Pasos siguientes
-Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>pasos siguientes
+Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

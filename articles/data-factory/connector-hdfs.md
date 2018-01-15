@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copia de datos con HDFS como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1: Disponibilidad general](v1/data-factory-hdfs-connector.md)
-> * [Versión 2: Versión preliminar](connector-hdfs.md)
+> * [Versión 2: versión preliminar](connector-hdfs.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos con HDFS como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
 
 > [!NOTE]
-> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en la versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector HDFS](v1/data-factory-hdfs-connector.md).
+> Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea el artículo sobre [la versión 1 del conector HDFS](v1/data-factory-hdfs-connector.md).
 
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
@@ -45,7 +45,8 @@ En concreto, este conector HDFS admite las siguientes funcionalidades:
 Para copiar datos con un origen HDFS como origen o destino que no es accesible públicamente, debe configurar un entorno Integration Runtime (autohospedado). Consulte el artículo sobre el [entorno Integration Runtime (autohospedado)](concepts-integration-runtime.md) para obtener más información.
 
 ## <a name="getting-started"></a>Introducción
-Puede crear una canalización con la actividad de copia mediante el SDK de .NET, el SDK de Python, Azure PowerShell, la API de REST o la plantilla de Azure Resource Manager. Consulte el [tutorial de actividad de copia](quickstart-create-data-factory-dot-net.md) para obtener instrucciones paso a paso sobre cómo crear una canalización con una actividad de copia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 En las secciones siguientes se proporcionan detalles sobre las propiedades que se usan para definir entidades de Data Factory específicas de HDFS.
 
@@ -53,14 +54,14 @@ En las secciones siguientes se proporcionan detalles sobre las propiedades que s
 
 Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Hdfs**. | Sí |
-| url |Dirección URL a HDFS |Sí |
+| Tipo | La propiedad type debe establecerse en: **Hdfs**. | Sí |
+| URL |Dirección URL a HDFS |Sí |
 | authenticationType | Los valores permitidos son: **Anónima** o **Windows**. <br><br> Para usar la **autenticación Kerberos** para el conector HDFS, consulte [esta sección](#use-kerberos-authentication-for-hdfs-connector) a fin de configurar el entorno local en consecuencia. |Sí |
 | userName |Nombre de usuario para la autenticación de Windows Para la autenticación Kerberos, especifique `<username>@<domain>.com`. |Sí (para la autenticación de Windows) |
 | contraseña |Contraseña para la autenticación de Windows Marque este campo como SecureString. |Sí (para la autenticación de Windows) |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |No |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo: Uso de autenticación anónima**
 
@@ -112,13 +113,13 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde HDFS, establezca la propiedad type del conjunto de datos en **FileShare**. Se admiten las siguientes propiedades:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **FileShare** |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **FileShare** |Sí |
 | folderPath | Ruta de acceso a la carpeta. Por ejemplo: carpeta/subcarpeta/ |Sí |
-| fileName | Especifique el nombre del archivo en **folderPath** si quiere que la copia se haga de un archivo concreto. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta como origen. |No |
+| fileName | Especifique el nombre del archivo en **folderPath** si quiere que la copia se haga de un archivo concreto. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta como origen. |Sin  |
 | formato | Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar archivos con un formato concreto, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo para el escenario de copia binaria) |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |No |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |Sin  |
 
 **Ejemplo:**
 
@@ -156,14 +157,14 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 Para copiar datos desde HDFS, establezca el tipo de origen de la actividad de copia como **HdfsSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
-| Propiedad | Descripción | Obligatorio |
+| Propiedad | DESCRIPCIÓN | Requerido |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **HdfsSource**. |Sí |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | No |
-| distcpSettings | Grupo de propiedades al utilizar la herramienta DistCp de HDFS. | No |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **HdfsSource**. |Sí |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
+| distcpSettings | Grupo de propiedades al utilizar la herramienta DistCp de HDFS. | Sin  |
 | resourceManagerEndpoint | Punto de conexión de ResourceManager de YARN. | Sí, se utiliza DistCp |
 | tempScriptPath | Una ruta de acceso de carpeta que se usa para almacenar el script del comando DistCp. Data Factory se encarga de crear el archivo de script que se eliminará después de que haya finalizado el trabajo de copia. | Sí, se utiliza DistCp |
-| distcpOptions | Opciones adicionales que se proporcionan al comando DistCp. | No |
+| distcpOptions | Opciones adicionales que se proporcionan al comando DistCp. | Sin  |
 
 **Ejemplo: Origen HDFS de la actividad de copia mediante UNLOAD**
 
@@ -383,5 +384,5 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 * Configure el conector de HDFS mediante la **autenticación de Windows** en combinación con la cuenta de dominio o la entidad de seguridad de Kerberos para conectarse al origen de datos de HDFS. Compruebe la sección [HDFS Linked Service properties](#linked-service-properties) (Propiedades de servicio vinculado de HDFS) en los detalles de configuración.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

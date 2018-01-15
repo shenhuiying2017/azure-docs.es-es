@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Azure SQL Database a Azure Search con indexadores
 
@@ -26,11 +26,11 @@ Antes de poder consultar un [índice de Azure Search](search-what-is-an-index.md
 
 En este artículo se aborda la forma de usar los [indexadores](search-indexer-overview.md), pero también se describen las características que solo están disponibles con instancias de Azure SQL Database (por ejemplo, el seguimiento de cambios integrado). 
 
-Además de las instancias de Azure SQL Database, Azure Search proporciona indexadores para [Azure Cosmos DB](search-howto-index-documentdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y [Azure Table Storage](search-howto-indexing-azure-tables.md). Para solicitar soporte técnico para otros orígenes de datos, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Además de las instancias de Azure SQL Database, Azure Search proporciona indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y [Azure Table Storage](search-howto-indexing-azure-tables.md). Para solicitar soporte técnico para otros orígenes de datos, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexadores y orígenes de datos
 
-Un **origen de datos** especifica los datos que se deben indexar, las credenciales para obtener acceso a estos y las directivas que identifican cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
+Un **origen de datos** especifica los datos que se deben indexar, las credenciales para obtener acceso a estos y las directivas que identifican cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indexadores.
 
 Un **indexador**  es un recurso que conecta un origen de datos con un índice de búsqueda de destino. Un indexador se usa de las maneras siguientes:
 
@@ -302,7 +302,7 @@ El indexador de SQL expone varios valores de configuración:
 
 | Configuración | Tipo de datos | Propósito | Valor predeterminado |
 | --- | --- | --- | --- |
-| queryTimeout |string |Establece el tiempo de espera para la ejecución de consultas SQL |5 minutos ("00:05:00") |
+| queryTimeout |cadena |Establece el tiempo de espera para la ejecución de consultas SQL |5 minutos ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |booleano |Hace que la consulta SQL utilizada por la directiva de límite superior omita la cláusula ORDER BY. Consulte [Directiva de detección de cambios de límite superior](#HighWaterMarkPolicy). |false |
 
 Esta configuración se utiliza en el objeto `parameters.configuration` en la definición del indexador. Por ejemplo, para establecer el tiempo de espera de consulta en 10 minutos, cree o actualice el indexador con la siguiente configuración:
@@ -313,7 +313,7 @@ Esta configuración se utiliza en el objeto `parameters.configuration` en la def
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 **P: ¿Puedo usar un indexador de Azure SQL con bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?**
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use la herramienta de diagnóstico de StorSimple para solucionar los problemas de los dispositivos de la serie 8000.
 
@@ -32,17 +32,17 @@ La herramienta de diagnóstico va dirigida principalmente a la serie dispositivo
 
 Esta herramienta se puede ejecutar mediante la interfaz de Windows PowerShell del dispositivo de StorSimple. Hay dos maneras de acceder a la interfaz local del dispositivo:
 
-* [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Acceso remoto a la herramienta mediante Windows PowerShell para StorSimple](storsimple-remote-connect.md).
+* [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Acceso remoto a la herramienta mediante Windows PowerShell para StorSimple](storsimple-8000-remote-connect.md).
 
 En este artículo, se supone que se ha conectado a la consola serie del dispositivo mediante PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Para ejecutar la herramienta de diagnóstico
 
 Cuando se haya conectado a la interfaz de Windows PowerShell del dispositivo, realice los pasos siguientes para ejecutar el cmdlet.
-1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Escriba el siguiente comando:
+2. Escriba el siguiente comando: 
 
     `Invoke-HcsDiagnostics`
 
@@ -85,11 +85,11 @@ Esta prueba determina el estado de los componentes de hardware, el firmware de U
 * Los componentes de hardware notificados son aquellos componentes que no superaron la prueba o no están presentes en el sistema.
 * Las versiones de firmware de disco y firmware de USM se notifican para el Controlador 0, el Controlador 1 y los componentes compartidos del sistema. Para obtener una lista completa de los componentes de hardware, vaya a:
 
-    * [Componentes de la caja principal](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Componentes de la caja EBOD](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Componentes de la caja principal](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Componentes de la caja EBOD](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Si la prueba de hardware informa de componentes con errores, [registre una solicitud de servicio con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+> Si la prueba de hardware informa de componentes con errores, [registre una solicitud de servicio con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>La salida de ejemplo de la prueba de hardware se ejecuta en un dispositivo 8100
 
@@ -210,7 +210,7 @@ Esta prueba muestra la información del sistema, las actualizaciones disponibles
 * La información del sistema incluye el modelo, el número de serie del dispositivo, la zona horaria, el estado del controlador y la versión detallada del software que se ejecuta en el sistema. Para entender los distintos parámetros del sistema notificados en la salida, vaya a [Interpretación de la información del sistema](#appendix-interpreting-system-information).
 
 * La disponibilidad de actualizaciones informa de si están disponibles los modos normal y de mantenimiento y sus nombres de paquete asociados. Si `RegularUpdates` y `MaintenanceModeUpdates` son `false`, significa que las actualizaciones no están disponibles. El dispositivo está actualizado.
-* La información del clúster contiene la información sobre los diversos componentes lógicos de todos los grupos de clústeres de HCS y sus estados respectivos. Si observa un grupo de clústeres sin conexión en esta sección del informe, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+* La información del clúster contiene la información sobre los diversos componentes lógicos de todos los grupos de clústeres de HCS y sus estados respectivos. Si observa un grupo de clústeres sin conexión en esta sección del informe, [póngase en contacto con el soporte técnico de Microsoft](storsimple-8000-contact-microsoft-support.md).
 * La información del servicio incluye los nombres y los estados de todos los servicios HCS y CiS que se ejecutan en el dispositivo. Esta información es útil para el soporte técnico de Microsoft en la solución de problemas del dispositivo.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Salida de ejemplo de la prueba del sistema ejecutada en un dispositivo 8100
@@ -377,7 +377,7 @@ Para usar esta herramienta, realice los siguientes pasos:
 
 1.  En primer lugar, cree una mezcla de volúmenes en capas y volúmenes anclados localmente con la opción de archivado marcada. Esta acción garantiza que la herramienta ejecuta las pruebas para tamaños de blob de 64 KB y 512 KB.
 
-2. Ejecute el cmdlet cuando haya creado y configurado los volúmenes. Escriba:
+2. Ejecute el cmdlet cuando haya creado y configurado los volúmenes. Escriba: 
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
@@ -387,7 +387,7 @@ Para usar esta herramienta, realice los siguientes pasos:
 
     Si las latencias de lectura y escritura detectadas por la herramienta de diagnóstico son demasiado elevadas:
 
-    1. Configure el análisis de almacenamiento para los servicios de blob y analice la salida para comprender las latencias de la cuenta de almacenamiento de Azure. Para obtener instrucciones detalladas, vaya a [Habilitación y configuración del análisis de almacenamiento](../storage/common/storage-enable-and-view-metrics.md). Si esas latencias también son altas y comparables a las cifras que recibió con la herramienta de diagnóstico de StorSimple, debe registrar una solicitud de servicio con Azure Storage.
+    1. Configure Storage Analytics para los servicios de blob y analice la salida para comprender las latencias de la cuenta de Azure Storage. Para obtener instrucciones detalladas, vaya a [Habilitación y configuración de Storage Analytics](../storage/common/storage-enable-and-view-metrics.md). Si esas latencias también son altas y comparables a las cifras que recibió con la herramienta de diagnóstico de StorSimple, debe registrar una solicitud de servicio con Azure Storage.
 
     2. Si las latencias de la cuenta de almacenamiento son demasiado bajas, póngase en contacto con su administrador de red para que investigue los problemas de latencia de su red.
 
@@ -413,10 +413,10 @@ Controller0>
 
 Esta es una tabla que describe cuáles, de los diversos parámetros de Windows PowerShell de información del sistema, se deben asignar. 
 
-| Parámetro de PowerShell    | Descripción  |
+| Parámetro de PowerShell    | DESCRIPCIÓN  |
 |-------------------------|------------------|
 | Id. de instancia             | Cada controlador lleva asociado un identificador único o un GUID.|
-| Nombre                    | El nombre descriptivo del dispositivo, tal y como se configuró mediante el portal de Azure durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo. |
+| NOMBRE                    | El nombre descriptivo del dispositivo, tal y como se configuró mediante el portal de Azure durante la implementación del dispositivo. El nombre descriptivo predeterminado es el número de serie del dispositivo. |
 | Modelo                   | El modelo de su dispositivo StorSimple de la serie 8000. Puede ser 8100 o 8600.|
 | SerialNumber            | El número de serie del dispositivo se asigna en la fábrica y tiene una longitud de 15 caracteres. Por ejemplo, 8600-SHX0991003G44HT indica:<br> 8600: es el modelo del dispositivo.<br>SHX: es el sitio de fabricación.<br> 0991003: indica un producto específico. <br> G44HT: los 5 últimos dígitos se incrementan para crear números de serie únicos. Es posible que no sea un conjunto secuencial.|
 | TimeZone                | La zona horaria del dispositivo, tal y como se configuró en el portal de Azure durante la implementación del dispositivo.|
@@ -437,7 +437,7 @@ Esta es una tabla que describe cuáles, de los diversos parámetros de Windows P
 | RemoteManagementMode    | Indica si el dispositivo puede administrarse de manera remota a través de su interfaz de Windows PowerShell. |
 | FipsMode                | Indica si el modo FIPS (Federal Information Processing Standard) de Estados Unidos está habilitado en el dispositivo. El estándar FIPS 140 define algoritmos criptográficos aprobados para su uso por parte de los sistemas informáticos del Gobierno federal de los Estados Unidos a fin de garantizar la protección de los datos confidenciales. Para dispositivos que ejecutan Update 4 o posterior, el modo FIPS está habilitado de forma predeterminada. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Conozca acerca de la [sintaxis del cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

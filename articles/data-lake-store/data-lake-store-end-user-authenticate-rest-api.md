@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: bcddb66806cc58b3513c9c157512ac8b96a51ec1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5ee13756e4276055a8c9bdd9642d0766c3ca7e5c
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Autenticación de usuario final con Data Lake Store mediante la API de REST
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ En este artículo, obtendrá información sobre cómo usar la API de REST para r
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "nativa" de Azure Active Directory**. Debe completar los pasos descritos en [Autenticación de usuario final con Data Lake Store mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
@@ -86,7 +86,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
 
 Para más información sobre la autenticación interactiva de usuarios, consulte el [flujo de concesión de un código de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
    
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a usar la autenticación entre servicios con Azure Data Lake Store mediante la API de REST. Ahora puede consultar los siguientes artículos, que tratan acerca de cómo usar la API de REST con Azure Data Lake Store.
 
 * [Operaciones de administración de cuentas en Data Lake Store mediante la API de REST](data-lake-store-get-started-rest-api.md)

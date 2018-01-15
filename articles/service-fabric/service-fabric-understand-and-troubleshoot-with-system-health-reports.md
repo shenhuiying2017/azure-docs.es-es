@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
@@ -632,7 +632,7 @@ La propiedad y el texto indican qué API se ha bloqueado. Los pasos siguientes q
 
 - **IStatefulServiceReplica.ChangeRole(P)**: el caso más común es que el servicio no ha devuelto una tarea de `RunAsync`.
 
-Otras llamadas API que se pueden bloquear están en la interfaz **IReplicator**. Por ejemplo:
+Otras llamadas API que se pueden bloquear están en la interfaz **IReplicator**. Por ejemplo: 
 
 - **IReplicator.CatchupReplicaSet**: esta advertencia indica una de estas dos cosas. O bien no hay suficiente réplicas activas, lo que se pueden determinar examinando el estado de las réplicas de la partición o el informe de mantenimiento de System.FM de una reconfiguración bloqueada. También es posible que las réplicas no estén confirmando las operaciones. El cmdlet de PowerShell `Get-ServiceFabricDeployedReplicaDetail` se puede utilizar para determinar el progreso de todas las réplicas. El problema radica en las réplicas cuyo valor de `LastAppliedReplicationSequenceNumber` está detrás del valor de `CommittedSequenceNumber` de la principal.
 
@@ -842,7 +842,7 @@ Si las capacidades de nodo no se definen en el manifiesto de clúster y se desac
 * **Propiedad**: ResourceGovernance
 * **Pasos siguientes**: la mejor manera de solucionar este problema consiste en cambiar el manifiesto de clúster para habilitar la detección automática de los recursos disponibles. Otra manera de solucionar esto es actualizar el manifiesto de clúster con las capacidades de nodo de estas métricas especificadas correctamente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Vista de los informes de estado de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
 [Notificación y comprobación del estado del servicio](service-fabric-diagnostics-how-to-report-and-check-service-health.md)

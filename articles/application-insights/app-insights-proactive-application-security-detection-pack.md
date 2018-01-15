@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3e4604a154c16b785db1ab903587ae4a35d93c05
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 837525d70f28c0710b8a8b86d411a7854402207f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-security-detection-pack-preview"></a>Application Security Detection Pack (versión preliminar)
 
 Application Insights analiza automáticamente la telemetría generada por la aplicación y detecta posibles problemas de seguridad. Esta funcionalidad permite identificar los posibles problemas de seguridad y controlarlos corrigiendo la aplicación o tomando las medidas de seguridad necesarias.
 
-Esta característica no requiere ninguna configuración especial, excepto [configurar la aplicación para que envíe la telemetría](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-overview).
+Esta característica no requiere ninguna configuración especial, excepto [configurar la aplicación para que envíe la telemetría](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview).
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>¿Cuándo recibiré este tipo de notificación de detección inteligente?
 Se detectan tres tipos de problemas de seguridad:

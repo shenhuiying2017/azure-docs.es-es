@@ -14,11 +14,11 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 269e936cb79ba4138285f5dbd326413d70d5924d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 04a60bf021ec6e265a3880264386ad32ec7e8177
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="build-a-project-in-azure-using-jenkins-and-azure-container-instances"></a>Compilar un proyecto en Azure con Jenkins y Azure Container Instances
 
@@ -327,6 +327,6 @@ Si ya no necesita usar cualquiera de los recursos de un grupo de recursos de Azu
 az group delete -n <resourceGroup>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 > [!div class="nextstepaction"]
-> [Visite el concentrador Jenkins en Azure para ver los últimos artículos y ejemplos](https://docs.microsoft.com/en-us/azure/jenkins/)
+> [Visite el concentrador Jenkins en Azure para ver los últimos artículos y ejemplos](https://docs.microsoft.com/azure/jenkins/)

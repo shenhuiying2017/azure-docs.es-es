@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1ad9200376bc4959e7572ae8d5be11b278a42cc0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Conexión de IoT DevKit AZ3166 a Azure IoT Hub en la nube
 
@@ -104,7 +104,7 @@ La aplicación predeterminada que se ejecuta en el DevKit comprueba la versión 
 > [!NOTE] 
 > A partir de la versión 1.1, DevKit permite ST-SAFE en el cargador de arranque. Es probable que deba actualizar el firmware si está ejecutando la versión 1.1 para que funcione.
 
-Si necesita una actualización de firmware, la pantalla mostrará las versiones de firmware más reciente y la actual. Para la actualización, siga la guía de [Actualización de firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/).
+Si necesita una actualización de firmware, la pantalla mostrará las versiones de firmware más reciente y la actual. Para la actualización, siga la guía de [Actualización de firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 
 ![Presentación de las versiones de firmware más reciente y actual](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/firmware.jpg)
 
@@ -297,7 +297,7 @@ La aplicación de ejemplo se ejecuta correctamente si ve los siguientes resultad
 
 Si tiene problemas, puede buscar en las [preguntas más frecuentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/). Se pueden también enviar comentarios al dejar un comentario en esta página.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Ha conectado correctamente un MXChip IoT DevKit a IoT Hub y ha enviado los datos del sensor capturados a IoT Hub.
 

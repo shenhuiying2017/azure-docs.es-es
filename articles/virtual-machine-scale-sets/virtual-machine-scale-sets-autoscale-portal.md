@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -27,8 +27,8 @@ Al crear un conjunto de escalado, puede definir el número de instancias de máq
 Este artículo muestra cómo crear reglas de escalado automático en Azure Portal que supervisan el rendimiento de las instancias de máquina virtual del conjunto de escalado. Estas reglas de escalado automático permiten aumentar o reducir el número de instancias de máquina virtual en respuesta a estas métricas de rendimiento. Estos pasos también se pueden completar con [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) o en la [CLI de Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
-Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado mediante [Azure Portal](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) o la [CLI de Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+## <a name="prerequisites"></a>requisitos previos
+Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado mediante [Azure Portal](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) o la [CLI de Azure 2.0](virtual-machine-scale-sets-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Creación de una regla para realizar un escalado horizontal de forma automática
@@ -46,7 +46,7 @@ Si aumenta la demanda de la aplicación, la carga de las instancias de máquina 
 
     Especifique la configuración siguiente para la regla:
     
-    | Parámetro              | Explicación                                                                                                         | Valor          |
+    | .              | Explicación                                                                                                         | Valor          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregación de tiempo*     | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Media        |
     | *Nombre de métrica*          | La métrica de rendimiento del conjunto de escalado sobre el que realizar las acciones de supervisión y aplicación.                                                   | Porcentaje de CPU |
@@ -55,7 +55,7 @@ Si aumenta la demanda de la aplicación, la carga de las instancias de máquina 
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 70             |
     | *Duration*             | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 10 minutos     |
     | *operación*            | Define si el conjunto de escalado debe escalarse o reducirse verticalmente cuando se aplica la regla y en qué incremento debe hacerse                        | Aumentar porcentaje en |
-    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20             |
+    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20              |
     | *Tiempo de finalización (minutos)*  | El periodo que hay que esperar hasta que la regla se vuelva a aplicar, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos      |
 
     Los ejemplos siguientes muestran una regla creada en Azure Portal que se ajusta a esta configuración:    
@@ -73,12 +73,12 @@ La demanda de la aplicación puede reducirse por las tardes o durante los fines 
 
     Use el mismo enfoque que con la regla anterior. Ajuste la configuración siguiente para la regla:
     
-    | Parámetro              | Explicación                                                                                                          | Valor          |
+    | .              | Explicación                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operador*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                      | Menor que   |
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 30             |
     | *operación*            | Define si el conjunto de escalado debe escalarse o reducirse verticalmente cuando se aplica la regla y en qué incremento debe hacerse                         | Reducir porcentaje en |
-    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                             | 20             |
+    | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                             | 20              |
 
 3. Para crear la regla, seleccione **Agregar**
 
@@ -125,7 +125,7 @@ En los ejemplos anteriores se escaló o redujo horizontalmente de forma automát
 Para ver cómo se aplican las reglas de escalado automático, seleccione **Historial de ejecución** en la parte superior de la ventana **Escala**. El gráfico y la lista de eventos muestran cuándo se desencadenan las reglas de escalado automático y el número de instancias de máquina virtual del conjunto de escalado aumenta o disminuye.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo, ha aprendido a utilizar reglas de escalado automático para escalar horizontalmente y aumentar o reducir el *número* de instancias de máquina virtual del conjunto de escalado. También puede escalar verticalmente para aumentar o reducir el *tamaño* de la instancia de máquina virtual. Para más información, consulte [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para más información acerca de cómo administrar las instancias de máquina virtual, consulte [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) (Administración de conjuntos de escalado de máquinas virtuales con Azure PowerShell).

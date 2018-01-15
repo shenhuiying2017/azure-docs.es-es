@@ -3,7 +3,7 @@ title: "Guía de ajuste del rendimiento para usar PowerShell con Data Lake Store
 description: Sugerencias para mejorar el rendimiento al usar Azure PowerShell con Data Lake Store
 services: data-lake-store
 documentationcenter: 
-author: nitinme
+author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 49404c7df6423a20c71347e4a764d5626110310e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/09/2018
+ms.author: stewu
+ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Guía de ajuste del rendimiento para usar PowerShell con Azure Data Lake Store
 
@@ -25,7 +25,7 @@ En este artículo se enumeran las propiedades que se pueden ajustar para obtener
 
 ## <a name="performance-related-properties"></a>Propiedades relacionadas con el rendimiento
 
-| Propiedad            | Valor predeterminado | Descripción |
+| Propiedad            | Valor predeterminado | DESCRIPCIÓN |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Este parámetro permite elegir el número de subprocesos paralelos para cargar o descargar cada archivo. Este número representa el número máximo de subprocesos que se pueden asignar por archivo, pero, según el escenario, es posible que obtenga menos (por ejemplo, si carga un archivo de 1 KB, obtiene un subproceso, aunque solicite veinte).  |
 | ConcurrentFileCount | 10      | Este parámetro es específico para cargar o descargar carpetas. Este parámetro determina el número de archivos simultáneos que se pueden cargar o descargar. Este número representa el número máximo de archivos simultáneos que se pueden cargar o descargar al mismo tiempo, pero, según el escenario, es posible que obtenga una menor simultaneidad (por ejemplo, si carga dos archivos, obtiene dos cargas de archivos simultáneos, aunque solicite quince). |
@@ -93,9 +93,9 @@ Puede continuar ajustando esta configuración aumentando o reduciendo **PerFileT
 
 * **Errores de limitación**: es posible que vea errores de limitación si la simultaneidad es demasiado alta. Si ve errores de limitación, reduzca la simultaneidad o póngase en contacto con nosotros.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Uso de Azure Data Lake Store para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
-* [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+* [Protección de los datos en Data Lake Store](data-lake-store-secure-data.md)
 * [Uso de Análisis de Azure Data Lake con el Almacén de Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de HDInsight de Azure con el Almacén de Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 

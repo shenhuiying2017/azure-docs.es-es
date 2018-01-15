@@ -28,7 +28,7 @@ Para admitir la interoperabilidad sin problemas entre protocolos, IoT Hub define
 * Un conjunto de *propiedades de la aplicación*. Diccionario de propiedades de cadena que la aplicación puede definir y a las que puede acceder sin necesidad de deserializar el cuerpo del mensaje. IoT Hub nunca modifica estas propiedades.
 * Un cuerpo binario opaco.
 
-Los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII y ``{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` cuando realiza las siguientes acciones:  
+Los nombres de propiedad solo pueden contener caracteres alfanuméricos ASCII y ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` cuando realiza las siguientes acciones:  
 
 * Envío de mensajes de dispositivo a nube mediante el protocolo HTTPS.
 * Envío de mensajes de nube a dispositivo.

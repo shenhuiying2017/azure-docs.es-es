@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 7640c243495df88d89f61ed613d7fb68cef9a04b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -295,7 +295,7 @@ Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permiti
     | &nbsp; | Corea del Sur | 52.231.203.16</br>52.231.205.214 | 443 | Entrada
     | Reino Unido | Oeste de Reino Unido | 51.141.13.110</br>51.141.7.20 | 443 | Entrada |
     | &nbsp; | Sur del Reino Unido 2 | 51.140.47.39</br>51.140.52.16 | 443 | Entrada |
-    | Estados Unidos | Central EE. UU.: | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
+    | Estados Unidos | Central EE. UU: | 13.67.223.215</br>40.86.83.253 | 443 | Entrada |
     | &nbsp; | Centro-Norte de EE. UU | 157.56.8.38</br>157.55.213.99 | 443 | Entrada |
     | &nbsp; | Centro occidental de EE.UU. | 52.161.23.15</br>52.161.10.167 | 443 | Entrada |
     | &nbsp; | Oeste de EE. UU. 2 | 52.175.211.210</br>52.175.222.222 | 443 | Entrada |
@@ -424,17 +424,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "blockeverything" `
-        -Description "Block everything else" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "*" `
-        -SourceAddressPrefix "Internet" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Deny `
-        -Priority 500 `
-        -Direction Inbound
 # Set the changes to the security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
@@ -454,7 +443,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>CLI de Azure
 
 Use los pasos siguientes para crear una red virtual que restringe el tráfico de entrada pero permite el tráfico desde las direcciones IP requeridas por HDInsight.
 
@@ -478,7 +467,6 @@ Use los pasos siguientes para crear una red virtual que restringe el tráfico de
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
 3. Para recuperar el identificador único para este grupo de seguridad de red, use el comando siguiente:
@@ -587,7 +575,7 @@ En el servidor DNS en la red virtual:
     
     * Reemplace el valor `192.168.0.1` por la dirección IP del servidor DNS local. Esta entrada enruta todas las solicitudes DNS al servidor DNS local.
 
-3. Para usar la configuración, reinicie Bind. Por ejemplo: `sudo service bind9 restart`.
+3. Para usar la configuración, reinicie Bind. Por ejemplo, `sudo service bind9 restart`.
 
 4. Agregue un reenviador condicional al servidor DNS local. Configure el reenviador condicional para poder enviar solicitudes para el sufijo DNS del paso 1 al servidor DNS personalizado.
 
@@ -668,7 +656,7 @@ En este ejemplo se da por supuesto lo siguiente:
 
 Después de completar estos pasos, puede conectarse a recursos en la red virtual mediante nombres de dominio completo (FQDN). Ahora puede instalar HDInsight en la red virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para obtener un ejemplo integral de la configuración de HDInsight para conectarse a una red local, vea [Conexión de HDInsight a la red local](./connect-on-premises-network.md).
 * Para configurar clústeres de Hbase en las redes virtuales de Azure, consulte [Creación de clústeres de HBase en HDInsight en Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).

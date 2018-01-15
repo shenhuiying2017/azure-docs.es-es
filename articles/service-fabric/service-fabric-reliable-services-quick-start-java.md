@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: ab675207094bc8ee317573192c33c20039780fe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
 > [!div class="op_single_selector"]
@@ -200,7 +200,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) es una implementación de diccionario que se puede usar para almacenar estados en el servicio de manera confiable. Con Service Fabric y Reliable Hashmap, ahora puede almacenar datos directamente en el servicio sin necesidad de un almacén persistente externo. Gracias a Reliable Hashmap, los datos tendrán una alta disponibilidad. Service Fabric realiza esta tarea creando y administrando automáticamente varias *réplicas* de su servicio. También proporciona una API que elimina las complejidades derivadas de la administración de las réplicas y sus transiciones de estado.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) es una implementación de diccionario que se puede usar para almacenar estados en el servicio de manera confiable. Con Service Fabric y Reliable Hashmap, ahora puede almacenar datos directamente en el servicio sin necesidad de un almacén persistente externo. Gracias a Reliable Hashmap, los datos tendrán una alta disponibilidad. Service Fabric realiza esta tarea creando y administrando automáticamente varias *réplicas* de su servicio. También proporciona una API que elimina las complejidades derivadas de la administración de las réplicas y sus transiciones de estado.
 
 Reliable Collections puede almacenar cualquier tipo de Java, incluidos los tipos personalizados, con un par de advertencias:
 
@@ -253,6 +253,6 @@ El script install.sh contiene los comandos de la CLI de Service Fabric necesario
 $ ./install.sh
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Introducción a la CLI de Service Fabric](service-fabric-cli.md)
