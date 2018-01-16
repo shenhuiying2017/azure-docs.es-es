@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0209142da5d94e0ed863a07c9ea694232421cfb
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
 
@@ -50,7 +50,7 @@ Aunque se desconecte un Servidor Azure MFA maestro, los servidores subordinados 
 
 Asegúrese de que el servidor que usa para Azure Multi-Factor Authentication cumple los requisitos siguientes:
 
-| Requisitos del Servidor Azure Multi-Factor Authentication | Description |
+| Requisitos del Servidor Azure Multi-Factor Authentication | DESCRIPCIÓN |
 |:--- |:--- |
 | Hardware |<li>200 MB de espacio de disco duro</li><li>Procesador compatible con x32 o x64</li><li>1 GB o más de RAM</li> |
 | Software |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, todas las ediciones</li><li>Windows 8, todas las ediciones</li><li>Windows 7, todas las ediciones</li><li>Windows Vista, todas las ediciones, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 o superior si está instalado el SDK de servicio web o el portal de usuario</li> |
@@ -94,7 +94,7 @@ Si no está usando la característica de confirmación de eventos y los usuarios
 Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
-2. Seleccione **Active Directory** > **Multi-Factor Authentication**.
+2. Seleccione **Active Directory** > **MFA Server** (Servidor MFA).
 3. Seleccione **Configuración del servidor**.
 4. Seleccione **Descargar** y siga las instrucciones que aparecen en la página de descarga para guardar el programa de instalación. 
 
@@ -187,7 +187,7 @@ En caso de que sea necesaria una restauración, realice los pasos siguientes:
 
 El nuevo servidor está ahora en funcionamiento con los datos de usuario y la configuración originales procedentes de la copia de seguridad.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Instalación y configuración del [Portal de usuarios](multi-factor-authentication-get-started-portal.md) de autoservicio del usuario.
 - Instale y configure el Servidor Azure MFA con [Servicios de federación de Active Directory](multi-factor-authentication-get-started-adfs.md), [Autenticación RADIUS](multi-factor-authentication-get-started-server-radius.md) o [Autenticación LDAP](multi-factor-authentication-get-started-server-ldap.md).

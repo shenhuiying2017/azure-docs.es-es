@@ -4,7 +4,7 @@ description: "Uso de Fiddler o Postman para generar solicitudes emisión HTTP y 
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,17 +12,17 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: d8da3f02fab90e0c690e320736409a4d113d634c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9a6bc035ba9f02057e3086a9682b54282da19f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Exploración de las API de REST de Azure Search mediante Fiddler o Postman
 
-Una de las formas más sencillas de explorar la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice) es usar Fiddler o Postman para formular solicitudes HTTP e inspeccionar las respuestas. En este artículo, podrá experimentar con cargas de solicitud y respuesta sin tener que escribir código.
+Una de las formas más sencillas de explorar la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice) es usar Fiddler o Postman para formular solicitudes HTTP e inspeccionar las respuestas. Con las herramientas adecuadas y estas instrucciones, puede enviar solicitudes y ver las respuestas antes de escribir ningún código.
 
 > [!div class="checklist"]
 > * Descarga de una herramienta de prueba de API web
@@ -76,13 +76,13 @@ Formule una solicitud similar a la de la siguiente captura de pantalla. Elija **
 > [!Tip]
 > Puede desactivar el tráfico web para ocultar la actividad HTTP extraña no relacionada con las tareas que va a realizar. En Fiddler, vaya al menú **File** (Archivo) y desactive **Capture Traffic** (Capturar tráfico). 
 
-### <a name="postman"></a>Postman
+### <a name="postman"></a>postman
 
 Formule una solicitud similar a la de la siguiente captura de pantalla. Elija **PUT** como verbo. 
 
 ![Encabezado de solicitud de Postman][6]
 
-## <a name="create-the-index"></a>Creación del índice
+## <a name="create-the-index"></a>creación del índice
 
 El cuerpo de la solicitud contiene la definición del índice. La incorporación del cuerpo completa la solicitud que genera el índice.
 
@@ -118,7 +118,7 @@ Copie la definición del índice en el cuerpo de la solicitud, tal como aparece 
 
 ![Cuerpo de la solicitud de Fiddler][7]
 
-### <a name="postman"></a>Postman
+### <a name="postman"></a>postman
 
 Copie la definición del índice en el cuerpo de la solicitud, tal como aparece en la siguiente captura de pantalla, y haga clic en **Execute** (Ejecutar) en la parte superior derecha para enviar la solicitud completada.
 
@@ -208,7 +208,7 @@ Cambie el verbo a **POST**. Cambie la dirección URL para que incluya `/docs/ind
 
 ![Carga de la solicitud de Fiddler][9]
 
-### <a name="postman"></a>Postman
+### <a name="postman"></a>postman
 
 Cambie el verbo a **POST**. Cambie la dirección URL para que incluya `/docs/index`. Copie los documentos en el cuerpo de la solicitud, tal como se muestra en la siguiente captura de pantalla y ejecute la solicitud.
 
@@ -253,7 +253,7 @@ Para más información acerca de esta API, consulte [Get Index Statistics (REST)
 
 En Fiddler, haga clic en la pestaña **Inspectors** (Inspectores), luego en **Headers** (Encabezados) y, finalmente, seleccione el formato JSON. Debe ver el recuento de documentos y el tamaño del almacenamiento (en KB).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Los clientes de REST son muy valiosos para la exploración improvisada, pero ahora que sabe cómo funcionan las API de REST, puede avanzar en el código. Para conocer los pasos siguientes, consulte los siguientes vínculos:
 
